@@ -1,0 +1,38 @@
+{
+  "name": "home",
+  "displayName": "Home",
+  "fields": {
+    "metaTitle": {
+      "value": "Home"
+    }
+  },
+  "placeholders": {
+    "main": [
+      {
+        "componentName": "Home",
+        "fields": {},
+        "placeholders": {
+          "page-header": [
+            {
+              "componentName": "Jumbotron",
+              "fields": {
+                "titleText": {
+                  "value": "Hello, stranger!"
+                },
+                "body": {
+                  "value": "<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>"
+                }
+              },
+              "params": {
+                "titleSize": 1,
+                "shade": "dark"
+              }
+            }
+          ],
+          "page-content": [
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "name": "sitecore-jss-basicapp",
+  "version": "5.0.0",
+  "description": "A basic app utilizing Sitecore JavaScript Services.",
+  "main": "index.js",
+  "engines": {
+    "npm": ">=3",
+    "node": ">=5"
+  },
+  "config": {
+    "appName": "JssBasicApp",
+    "sitecoreDistPath": "/dist/JssBasicApp",
+    "sitecoreConfigPath": "/App_Config/Include/zzz",
+    "buildArtifactsPathDev": "./dist/dev",
+    "buildArtifactsPathProd": "./dist/prod",
+    "language": "en"
+  },
+  "scripts": {
+    "setup": "scjss-setup",
+    "setup:verify": "scjss-verify-setup",
+    "clean:dev": "cross-env-shell node ./internals/build/clean.js --path $npm_package_config_buildArtifactsPathDev",
+    "clean:prod": "cross-env-shell node ./internals/build/clean.js --path $npm_package_config_buildArtifactsPathProd",
+    "predev": "npm run clean:dev",
+    "dev": "node ./internals/build/dev.js",
+    "preprod:build": "npm run clean:prod",
+    "prod:build": "webpack --config ./internals/build/webpack/webpack.prod.js --color --progress",
+    "preprod:deploy": "npm run setup:verify",
+    "prod:deploy": "cross-env-shell scjss-deploy --sourcePath $npm_package_config_buildArtifactsPathProd --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreDistPath --excludeFile index.html",
+    "preconfig:config": "npm run setup:verify",
+    "config:deploy": "cross-env-shell scjss-deploy --sourcePath ./sitecore/config --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreConfigPath",
+    "prod": "npm run prod:build && npm run prod:deploy",
+    "pull": "cross-env-shell node ./internals/build/pull.js --language $npm_package_config_language --layoutServiceHost {layoutServiceHost}",
+    "pullall": "cross-env-shell node ./internals/build/pull.js --all --language $npm_package_config_language --layoutServiceHost {layoutServiceHost} --outputPath ./data/routes",
+    "manifest:generate": "cross-env-shell scjss-manifest generate --files ./src/**/*.sitecore.js --compilers babel-core/register --appName $npm_package_config_appName --viewEngine react --outputPath ./sitecore/manifest/sitecore-import.json --language $npm_package_config_language --pipelinePatchFiles ./internals/pipelines/**/*.patch.js",
+    "manifest:generate:nocontent": "npm run manifest:generate -- --excludeItems --excludeMedia",
+    "prepackage:generate": "npm run setup:verify",
+    "package:generate": "cross-env-shell scjss-package-generate --manifestPath ./sitecore/manifest --manifestFileName sitecore-import.json --buildPath $npm_package_config_buildArtifactsPathProd --outputPath ./sitecore/update-package --sitecoreDistPath $npm_package_config_sitecoreDistPath --appName $npm_package_config_appName",
+    "prepackage:generate:files": "npm run setup:verify",
+    "package:generate:files": "cross-env-shell scjss-package-generate --buildPath $npm_package_config_buildArtifactsPathProd --outputPath ./sitecore/update-package --sitecoreDistPath $npm_package_config_sitecoreDistPath --appName $npm_package_config_appName --noManifest",
+    "prepackage:generate:manifest": "npm run setup:verify",
+    "package:generate:manifest": "cross-env-shell scjss-package-generate --manifestPath ./sitecore/manifest --manifestFileName sitecore-import.json --outputPath ./sitecore/update-package --appName $npm_package_config_appName --noDist",
+    "package:deploy": "cross-env-shell scjss-package-deploy --packagePath ./sitecore/update-package --appName $npm_package_config_appName --shipUrl {shipUrl}",
+    "prepackage:deploy": "npm run setup:verify",
+    "package": "npm run prod:build && npm run manifest:generate && npm run package:generate && npm run package:deploy",
+    "package:files": "npm run prod:build && npm run package:generate:files && npm run package:deploy",
+    "package:manifest": "npm run manifest:generate && npm run package:generate:manifest && npm run package:deploy"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-0"
+    ]
+  },
+  "author": {
+    "name": "Sitecore Corporation",
+    "email": "jss@sitecore.net",
+    "url": "https://jss.sitecore.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitecore/jss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitecore/jss/issues"
+  },
+  "homepage": "https://jss.sitecore.net",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@sitecore-jss/sitecore-jss-react": "^5.0.0",
+    "babel-polyfill": "^6.26.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "@sitecore-jss/sitecore-jss-dev-tools": "^5.0.0",
+    "@sitecore-jss/sitecore-jss-manifest": "^5.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chalk": "^2.1.0",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "del": "^3.0.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "fs-extra": "^3.0.1",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash.merge": "^4.6.0",
+    "opn": "^5.0.0",
+    "progress-bar-webpack-plugin": "^1.9.3",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}

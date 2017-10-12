@@ -1,0 +1,37 @@
+{
+  "name": "@sitecorelabs/advancedapp-node-express-ssr-sample",
+  "version": "5.0.0",
+  "description": "Advanced sample app for Sitecore JSS that works with node.js/express",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": {
+    "name": "Sitecore Corporation",
+    "email": "jss@sitecore.net",
+    "url": "https://jss.sitecore.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitecore/jss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitecore/jss/issues"
+  },
+  "homepage": "https://jss.sitecore.net",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@sitecorelabs/sitecore-jss-proxy": "^5.0.0",
+    "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.5.0"
+  }
+}

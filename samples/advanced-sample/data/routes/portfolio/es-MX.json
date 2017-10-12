@@ -1,0 +1,93 @@
+{
+  "name": "portfolio",
+  "displayName": "Portafolio",
+  "fields": {
+    "metaTitle": {
+      "value": "Portafolio"
+    },
+    "titleText": {
+      "value": "Portafolio"
+    },
+    "body": {
+      "value": "Usted se sorprenderá de todo nuestro buen trabajo."
+    }
+  },
+  "placeholders": {
+    "main": [
+      {
+        "componentName": "Portfolio",
+        "fields": {},
+        "placeholders": {
+          "page-header": [
+            {
+              "componentName": "Jumbotron",
+              "fields": {
+                "titleText": {
+                  "value": "Portafolio"
+                }
+              },
+              "params": {
+                "shade": "light",
+                "titleSize": 2
+              }
+            }
+          ],
+          "page-content": [
+            {
+              "componentName": "Carousel",
+              "fields": {
+                "items": [
+                  {
+                    "fields": {
+                      "image": {
+                        "value": {
+                          "src": "/assets/img/portfolio/1.jpg"
+                        }
+                      },
+                      "title": {
+                        "value": "Etiqueta primera diapositiva!"
+                      },
+                      "body": {
+                        "value": "<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>"
+                      }
+                    }
+                  },
+                  {
+                    "fields": {
+                      "image": {
+                        "value": {
+                          "src": "/assets/img/portfolio/2.jpg"
+                        }
+                      },
+                      "title": {
+                        "value": "Etiqueta segunda corredera"
+                      },
+                      "body": {
+                        "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
+                      }
+                    }
+                  },
+                  {
+                    "fields": {
+                      "image": {
+                        "value": {
+                          "src": "/assets/img/portfolio/3.jpg"
+                        }
+                      },
+                      "title": {
+                        "value": "Etiqueta tercera diapositiva"
+                      },
+                      "body": {
+                        "value": "<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+/node_modules
+/dist
+/stats.json
+/docs.json
+scjssconfig.json
