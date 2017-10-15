@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const scProxy = require('@sitecorelabs/sitecore-jss-proxy').default;
+const scProxy = require('@sitecore-jss/sitecore-jss-proxy').default;
 const app = require('./dist/AdvancedApp/server.bundle');
 const config = require('./config');
 const server = express();

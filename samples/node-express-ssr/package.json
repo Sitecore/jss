@@ -1,5 +1,5 @@
 {
-  "name": "@sitecorelabs/advancedapp-node-express-ssr-sample",
+  "name": "@sitecore-jss/advancedapp-node-express-ssr-sample",
   "version": "5.0.0",
   "description": "Advanced sample app for Sitecore JSS that works with node.js/express",
   "main": "dist/index.js",
@@ -21,7 +21,7 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecorelabs/sitecore-jss-proxy": "^5.0.0",
+    "@sitecore-jss/sitecore-jss-proxy": "^5.0.0",
     "express": "^4.15.3"
   },
   "devDependencies": {
