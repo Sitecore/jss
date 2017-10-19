@@ -19,6 +19,6 @@ Currently there are 3 samples included in this repo:
     This scaffolding is setup for Advanced sample app allowing for server-side rendering with the http proxy to Sitecore Content Delivery instance.
 
 ## Getting started
-- [Official JSS documentation](jss.sitecore.net)
+- [Official JSS documentation](https://jss.sitecore.net/)
 - [StackExchange](https://sitecore.stackexchange.com/)
 - [Community Slack](https://sitecorechat.slack.com/messages/jss)
