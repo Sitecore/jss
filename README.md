@@ -22,3 +22,4 @@ Currently there are 3 samples included in this repo:
 - [Official JSS documentation](https://jss.sitecore.net/)
 - [StackExchange](https://sitecore.stackexchange.com/)
 - [Community Slack](https://sitecorechat.slack.com/messages/jss)
+- [Sitecore Community Forum](https://community.sitecore.net/developers/f/40)
