@@ -1,0 +1,19 @@
+<div id="CenterColumn">
+  <div id="InnerCenter">
+    <div id="Header">
+      <jss-image [field]="rendering.fields.logoImage"></jss-image>
+    </div>
+    <div id="Content">
+      <div id="LeftContent">
+        <h1 class="contentTitle"
+          [innerHTML]="sanitizer.bypassSecurityTrustHtml(rendering.fields.title.editable)"></h1>
+        <div class="contentDescription"
+          [innerHTML]="sanitizer.bypassSecurityTrustHtml(rendering.fields.text.editable)"></div>
+      </div>
+    </div>
+    <div id="Footer">
+      <hr class="divider" />
+      {{copyright}}
+    </div>
+  </div>
+</div>
