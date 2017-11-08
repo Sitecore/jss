@@ -23,3 +23,7 @@ Currently there are 3 samples included in this repo:
 - [StackExchange](https://sitecore.stackexchange.com/)
 - [Community Slack](https://sitecorechat.slack.com/messages/jss)
 - [Sitecore Community Forum](https://community.sitecore.net/developers/f/40)
+
+## Feature requests
+[![Feature Requests](http://feathub.com/Sitecore/jss?format=svg)](http://feathub.com/Sitecore/jss)
+
