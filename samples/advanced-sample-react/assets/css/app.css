@@ -455,3 +455,30 @@ body {
   clear: both;
   width: 100%;
 }
+
+/* 
+  Experience Editor fixes from
+  http://www.sagepath.com/blogs/development/articles/add-here-bug-bootstrap
+*/
+.scInsertionHandleCenter 
+{
+  box-sizing: content-box !important;
+  -webkit-box-sizing: content-box !important; 
+  -moz-box-sizing: content-box !important; 
+ }
+ 
+.scInsertionHandleCenter, .sc-breadcrumb .sc-breadcrumb-item-path, 
+.sc-breadcrumb-item-path img, .scChromeCommand
+{
+  -webkit-box-sizing: initial;
+  -moz-box-sizing: initial;
+  box-sizing: initial;
+}
+.sc-breadcrumb-item-path img
+{
+  vertical-align: initial;
+}
+.sc-breadcrumb-item-path span
+{
+    font-size: 12px; 
+}
