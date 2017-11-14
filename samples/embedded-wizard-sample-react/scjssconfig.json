@@ -1,7 +1,0 @@
-{
-  "sitecore": {
-    "instancePath": "C:\\inetpub\\wwwroot\\jss9smoke\\jss9smoke\\Website",
-    "shipUrl": "http://jss9smoke/ship/services/package/install/fileupload",
-    "layoutServiceHost": "http://jss9smoke"
-  }
-}
