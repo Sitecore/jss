@@ -1,0 +1,155 @@
+{
+  "name": "jss-demo-embedded-wizard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "config": {
+    "appName": "EmbeddedWizard",
+    "sitecoreDistPath": "/dist/EmbeddedWizard",
+    "sitecoreConfigPath": "/App_Config/Include/zzz",
+    "buildArtifactsPathDev": "./dist/dev",
+    "buildArtifactsPathProd": "./dist/prod",
+    "prodSitecorePath": "/EmbeddedWizard",
+    "language": "en"
+  },
+  "scripts": {
+    "setup": "scjss-setup",
+    "setup:verify": "scjss-verify-setup",
+    "dev": "node ./internals/build/dev.js",
+    "preprod:build": "npm run clean:prod",
+    "prod:build": "webpack --config ./internals/build/webpack/webpack.prod.js --color --progress",
+    "preprod:deploy": "npm run setup:verify",
+    "prod:deploy": "cross-env-shell scjss-deploy --sourcePath $npm_package_config_buildArtifactsPathProd --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreDistPath --excludeFile index.html",
+    "prod": "npm run prod:build && npm run prod:deploy",
+    "preconfig:config": "npm run setup:verify",
+    "config:deploy": "cross-env-shell scjss-deploy --sourcePath ./sitecore/config --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreConfigPath",
+    "rendering:deploy": "cross-env-shell scjss-deploy --sourcePath ./sitecore/rendering --destinationPath {sitecoreInstancePath}/layouts",
+    "clean:dev": "cross-env-shell node ./internals/build/clean.js --path $npm_package_config_buildArtifactsPathDev",
+    "clean:prod": "cross-env-shell node ./internals/build/clean.js --path $npm_package_config_buildArtifactsPathProd",
+    "manifest:generate": "cross-env-shell scjss-manifest generate --files ./src/**/*.sitecore.js ./data/**/*.sitecore.js --compilers babel-core/register --appName $npm_package_config_appName --viewEngine react --outputPath ./sitecore/manifest/sitecore-import.json --language $npm_package_config_language",
+    "prepackage:generate": "npm run setup:verify",
+    "package:generate": "cross-env-shell scjss-package-generate --manifestPath ./sitecore/manifest --manifestFileName sitecore-import.json --buildPath $npm_package_config_buildArtifactsPathProd --outputPath ./sitecore/update-package --sitecoreDistPath $npm_package_config_sitecoreDistPath --appName $npm_package_config_appName",
+    "package:deploy": "cross-env-shell scjss-package-deploy --packagePath ./sitecore/update-package --appName $npm_package_config_appName --shipUrl {shipUrl}",
+    "package": "npm run prod:build && npm run manifest:generate && npm run package:generate && npm run package:deploy"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-0"
+    ]
+  },
+  "author": {
+    "name": "Sitecore Corporation",
+    "email": "jss@sitecore.net",
+    "url": "https://jss.sitecore.net"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@sitecore-jss/sitecore-jss-react": "^5.0.1",
+    "babel-polyfill": "^6.26.0",
+    "chalk": "^1.1.3",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0",
+    "react-stepzilla": "^4.6.3"
+  },
+  "devDependencies": {
+    "@sitecore-jss/sitecore-jss-dev-tools": "^5.0.2",
+    "@sitecore-jss/sitecore-jss-manifest": "^5.0.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chalk": "^1.1.3",
+    "cookie-parser": "^1.4.3",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
+    "del": "^3.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-import-resolver-webpack": "^0.8.2",
+    "eslint-plugin-import": "^2.5.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.1.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "fs-extra": "^3.0.1",
+    "isomorphic-fetch": "^2.2.1",
+    "json-loader": "^0.5.4",
+    "lodash.merge": "^4.6.0",
+    "opn": "^5.1.0",
+    "progress-bar-webpack-plugin": "^1.9.3",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^2.6.1",
+    "webpack-body-parser": "^1.11.110",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "parser": "babel-eslint",
+    "env": {
+      "mocha": true
+    },
+    "plugins": [
+      "import"
+    ],
+    "settings": {
+      "import/resolver": {
+        "webpack": {
+          "config": "./internals/build/webpack/webpack.base.js",
+          "config-index": 1
+        }
+      },
+      "import/ignore": [
+        "node_modules",
+        ".png$",
+        ".jpg$"
+      ]
+    },
+    "globals": {
+      "window": true,
+      "document": true
+    },
+    "rules": {
+      "import/no-duplicates": "off",
+      "import/no-named-as-default": "off",
+      "max-len": "off",
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true,
+          "optionalDependencies": true
+        }
+      ],
+      "linebreak-style": [
+        "error",
+        "windows"
+      ],
+      "react/jsx-filename-extension": 0,
+      "import/prefer-default-export": "off",
+      "react/forbid-prop-types": "off",
+      "react/no-danger": "off",
+      "react/require-default-props": "off",
+      "react/no-array-index-key": "off",
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "never",
+          "exports": "never",
+          "functions": "ignore"
+        }
+      ]
+    }
+  }
+}
