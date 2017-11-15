@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image } from '@sitecore-jss/sitecore-jss-react';
+import { Image, RichText } from '@sitecore-jss/sitecore-jss-react';
 
 const Welcome = ({ fields, copyright }) =>
   <div id="CenterColumn">
@@ -10,10 +10,8 @@ const Welcome = ({ fields, copyright }) =>
       </div>
       <div id="Content">
         <div id="LeftContent">
-          <h1 className="contentTitle"
-            dangerouslySetInnerHTML={{ __html: fields.title.editable }} />
-          <div className="contentDescription"
-            dangerouslySetInnerHTML={{ __html: fields.text.editable }} />
+          <RichText tag="h1" className="contentTitle" field={fields.title} />
+          <RichText className="contentDescription" field={fields.text} />
         </div>
       </div>
       <div id="Footer">
