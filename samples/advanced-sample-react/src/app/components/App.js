@@ -19,9 +19,9 @@ const App = ({ style, actions, rendering, lang, sitecoreContext, metaTitle, rout
   <div style={style}>
     <Helmet
       htmlAttributes={{ lang }}
-      titleTemplate={`%s | ${t('Sitecore JSS')}`}
+      titleTemplate={`%s | ${t('Start Bootstrap')}`}
       title={metaTitle ? metaTitle.value : ''}
-      defaultTitle={t('Sitecore JSS')}
+      defaultTitle={t('Start Bootstrap')}
     />
     <MainNav actions={actions} />
     <Switch>

@@ -19,7 +19,7 @@ const checkStatus = (response) => {
 class DataProvider extends DataProviderBase {
   getRouteData(route, language) {
     const routePath = route === '/' ? '' : route;
-    const getRoute = fetch(`/data/routes${routePath}/${language}.json`)
+    const getRoute = fetch(`/data/routes${routePath}/${language}.json`, {credentials: 'include'})
       .then(checkStatus)
       .then(response => response.json())
       .then(json => convertRouteToLayoutServiceFormat(json));
@@ -42,21 +42,21 @@ class DataProvider extends DataProviderBase {
   }
 
   getContext(route, language) {
-    return fetch(`/data/context/${language}.json`)
+    return fetch(`/data/context/${language}.json`, {credentials: 'include'})
       .then(checkStatus)
       .then(response => response.json());
   }
 
   getPlaceholderData(placeholderName, route, language) {
     const routePath = route === '/' ? '' : route;
-    return fetch(`/data/routes${routePath}/${language}.json`)
+    return fetch(`/data/routes${routePath}/${language}.json`, {credentials: 'include'})
       .then(checkStatus)
       .then(response => response.json())
       .then(json => json.placeholders[placeholderName]);
   }
 
   getItemData(itemPath, language) {
-    return fetch(`/data${itemPath}/${language}.json`)
+    return fetch(`/data${itemPath}/${language}.json`, {credentials: 'include'})
       .then(checkStatus)
       .then(response => response.json())
       .then(json => convertRouteToLayoutServiceFormat(json));

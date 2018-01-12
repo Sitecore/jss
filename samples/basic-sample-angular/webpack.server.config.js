@@ -5,6 +5,11 @@ module.exports = {
   entry: {  server: './server.bundle.ts' },
   resolve: { extensions: ['.ts', '.js'] },
   target: 'node',
+  node: {
+    // This ensures the global node variables are untouched
+    __dirname: false,
+    __filename: false,
+  },
   // this makes sure we include node_modules and other 3rd party libraries
   externals: [/(node_modules|main\..*\.js)/],
   output: {

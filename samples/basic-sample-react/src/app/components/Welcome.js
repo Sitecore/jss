@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, RichText } from '@sitecore-jss/sitecore-jss-react';
+import { Text, RichText, Image } from '@sitecore-jss/sitecore-jss-react';
 
 const Welcome = ({ fields, copyright }) =>
   <div id="CenterColumn">
@@ -10,7 +10,7 @@ const Welcome = ({ fields, copyright }) =>
       </div>
       <div id="Content">
         <div id="LeftContent">
-          <RichText tag="h1" className="contentTitle" field={fields.title} />
+          <Text tag="h1" className="contentTitle" field={fields.title} />
           <RichText className="contentDescription" field={fields.text} />
         </div>
       </div>

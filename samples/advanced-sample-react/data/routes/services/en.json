@@ -14,6 +14,7 @@
         "placeholders": {
           "page-header": [
             {
+              "name": "Services Welcome",
               "componentName": "Jumbotron",
               "fields": {
                 "titleText": {
@@ -25,12 +26,13 @@
               },
               "params": {
                 "shade": "dark",
-                "titleSize": 2
+                "titleSize": "2"
               }
             }
           ],
           "page-content": [
             {
+              "name": "List of Services",
               "componentName": "ServiceList",
               "fields": {
                 "items": [
@@ -82,6 +84,7 @@
               "placeholders": {
                 "tabs": [
                   {
+                    "name": "Professional Services Tab",
                     "componentName": "Tab",
                     "fields": {
                       "title": {
@@ -91,6 +94,7 @@
                     "placeholders": {
                       "tab": [
                         {
+                          "name": "Professional Services Header",
                           "componentName": "Heading",
                           "fields": {
                             "text": {
@@ -98,10 +102,11 @@
                             }
                           },
                           "params": {
-                            "size": 3
+                            "size": "3"
                           }
                         },
                         {
+                          "name": "Professional Services Text",
                           "componentName": "RichText",
                           "fields": {
                             "text": {
@@ -113,6 +118,7 @@
                     }
                   },
                   {
+                    "name": "Support Tab",
                     "componentName": "Tab",
                     "fields": {
                       "title": {
@@ -122,6 +128,7 @@
                     "placeholders": {
                       "tab": [
                         {
+                          "name": "Support Header",
                           "componentName": "Heading",
                           "fields": {
                             "text": {
@@ -130,6 +137,7 @@
                           }
                         },
                         {
+                          "name": "Support Text",
                           "componentName": "RichText",
                           "fields": {
                             "text": {
@@ -138,6 +146,7 @@
                           }
                         },
                         {
+                          "name": "Support Link",
                           "componentName": "LinkButton",
                           "fields": {
                             "link": {
@@ -154,6 +163,7 @@
                     }
                   },
                   {
+                    "name": "Consulting Tab",
                     "componentName": "Tab",
                     "fields": {
                       "title": {
@@ -163,6 +173,7 @@
                     "placeholders": {
                       "tab": [
                         {
+                          "name": "Consulting Text",
                           "componentName": "RichText",
                           "fields": {
                             "text": {
@@ -171,6 +182,7 @@
                           }
                         },
                         {
+                          "name": "Consulting File",
                           "componentName": "FileLink",
                           "fields": {
                             "file": {

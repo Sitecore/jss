@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 
-const Html = ({ component, initialState, distPath }) => {
+// Component that renders the HTML shell around the application
+// when rendering on a Node server (SSR)
+// See internals/build/templates/index.html for HTML when using webpack-dev-server
+
+const ServerHtml = ({ component, initialState, distPath }) => {
     const content = component ? ReactDOM.renderToString(component) : '';
 
     return (
@@ -21,4 +25,4 @@ const Html = ({ component, initialState, distPath }) => {
     );
 }
 
-export default Html;
+export default ServerHtml;

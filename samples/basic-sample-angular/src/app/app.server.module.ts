@@ -1,10 +1,9 @@
-import { NgModule, ReflectiveInjector } from '@angular/core';
-import { ServerModule, INITIAL_CONFIG } from '@angular/platform-server';
+import { NgModule } from '@angular/core';
+import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
+import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
-import { JSS_ROUTE_DATA } from './data.token';
-
 
 @NgModule({
   imports: [
@@ -12,12 +11,11 @@ import { JSS_ROUTE_DATA } from './data.token';
     // by the ServerModule from @angular/platform-server.
     AppModule,
     ServerModule,
-  ],
-  providers: [
-    { provide: JSS_ROUTE_DATA, useExisting: INITIAL_CONFIG }
+    ModuleMapLoaderModule, // <-- *Important* to have lazy-loaded routes work
+    ServerTransferStateModule
   ],
   // Since the bootstrapped component is not inherited from your
   // imported AppModule, it needs to be repeated here.
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppServerModule { }

@@ -11,6 +11,7 @@ const getFetchOptions = (language, options = {}) => {
   if (language) {
     params.sc_lang = language;
   }
+  params.sc_apikey = __SC_API_KEY__;
   return { host: __SC_API_HOST__, params, ...options };
 };
 

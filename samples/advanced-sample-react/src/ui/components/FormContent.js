@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { commonComponent } from 'enhancers';
 import Heading from './Heading';
+import { RichText } from '@sitecore-jss/sitecore-jss-react';
 
 const FormContent = props => (
   <div style={props.style} className="dynamic-content">
-    <Heading params={{ size: 2 }} fields={props.fields} />
-    <span dangerouslySetInnerHTML={{ __html: props.fields.body.editable }} />
+    <Heading params={{ size: '2' }} fields={props.fields} />
+    <RichText field={props.fields.body} tag="span" />
   </div>
 );
 

@@ -1,6 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { JSS_ROUTE_DATA } from './data.token';
+import { Component, OnInit } from '@angular/core';
+import { JssService } from './jss.service';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +10,12 @@ export class AppComponent implements OnInit {
   route: any;
 
   constructor(
-    private http: HttpClient,
-    @Inject(JSS_ROUTE_DATA) private config: any
+    private jssService: JssService
   ) { }
 
   ngOnInit() {
-    this.route = this.config.SC_CONFIG.sitecore.route;
-    console.log(this.config.SC_CONFIG);
+    const jssState = this.jssService.getRouteData('/');
+    this.route = jssState.sitecore.route;
+    console.log(jssState);
   }
 }

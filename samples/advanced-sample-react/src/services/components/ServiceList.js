@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { commonComponent } from 'enhancers';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { RichText } from '@sitecore-jss/sitecore-jss-react';
 
 const ServiceList = props => (
   <Grid style={props.style}>
@@ -11,8 +12,8 @@ const ServiceList = props => (
           <Col lg={3} md={6} className="text-center" key={`item${index}`}>
             <div className="service-box">
               <i className="fa fa-4x fa-diamond text-primary sr-icons" />
-              <h3 dangerouslySetInnerHTML={{ __html: item.fields.title.editable }} />
-              <p className="text-muted" dangerouslySetInnerHTML={{ __html: item.fields.description.editable }} />
+              <RichText field={item.fields.title} tag="h3" />
+              <RichText field={item.fields.description} tag="p" className="text-muted" />
             </div>
           </Col>
         ))

@@ -6,7 +6,9 @@ const initialState = {
   loading: false,
   browserSupported: true,
   currentLang: DEFAULT_LANGUAGE,
-  currentRoute: '/'
+  currentRoute: '/',
+  showLogin: false,
+  loginFailed: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -26,6 +28,18 @@ const reducer = (state = initialState, action) => {
         newState.currentRoute = action.payload.currentRoute;
       }
       return newState;
+    case types.LOGIN_FORM_VISIBILITY_TOGGLED:
+      return {
+        ...state,
+        showLogin: action.payload.show,
+        loginFailed: false
+      };
+    case types.LOGIN_COMPLETE:
+      return {
+        ...state,
+        showLogin: !action.payload.success,
+        loginFailed: !action.payload.success,
+      };
     default:
       return state;
   }

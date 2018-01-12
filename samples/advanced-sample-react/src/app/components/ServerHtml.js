@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom/server';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-const Html = ({ component, initialState, distPath }) => {
+// Component that renders the HTML shell around the application
+// when rendering on a Node server (SSR)
+// See internals/build/templates/index.html for HTML when using webpack-dev-server
+
+const ServerHtml = ({ component, initialState, distPath }) => {
   const content = component ? ReactDOM.renderToString(component) : '';
   const helmet = Helmet.renderStatic();
   const htmlAttrs = helmet.htmlAttributes.toComponent();
@@ -27,10 +31,10 @@ const Html = ({ component, initialState, distPath }) => {
   );
 };
 
-Html.propTypes = {
+ServerHtml.propTypes = {
   component: PropTypes.node,
   initialState: PropTypes.object,
   distPath: PropTypes.string,
 };
 
-export default Html;
+export default ServerHtml;

@@ -1,36 +1,44 @@
 {
   "name": "jss-demo-embedded-wizard",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "6.0.0",
+  "description": "Demonstrates embedding a JSS application within a traditional Sitecore page",
   "config": {
     "appName": "EmbeddedWizard",
     "sitecoreDistPath": "/dist/EmbeddedWizard",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "buildArtifactsPathDev": "./dist/dev",
     "buildArtifactsPathProd": "./dist/prod",
+    "buildArtifactsPathStatic": "./dist/static",
+    "staticOutputPublicPath": "/",
     "prodSitecorePath": "/EmbeddedWizard",
     "language": "en"
   },
   "scripts": {
     "setup": "scjss-setup",
-    "setup:verify": "scjss-verify-setup",
-    "dev": "node ./internals/build/dev.js",
-    "preprod:build": "npm run clean:prod",
-    "prod:build": "webpack --config ./internals/build/webpack/webpack.prod.js --color --progress",
-    "preprod:deploy": "npm run setup:verify",
-    "prod:deploy": "cross-env-shell scjss-deploy --sourcePath $npm_package_config_buildArtifactsPathProd --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreDistPath --excludeFile index.html",
-    "prod": "npm run prod:build && npm run prod:deploy",
-    "preconfig:config": "npm run setup:verify",
-    "config:deploy": "cross-env-shell scjss-deploy --sourcePath ./sitecore/config --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreConfigPath",
-    "rendering:deploy": "cross-env-shell scjss-deploy --sourcePath ./sitecore/rendering --destinationPath {sitecoreInstancePath}/layouts",
+    "start": "npm run clean:dev && node ./internals/build/start.js",
+    "start:connected": "echo Connected mode is not supported with the embedded wizard app. Try the advanced app.",
+    "deploy-config": "scjss-verify-setup && cross-env-shell scjss-deploy --sourcePath ./sitecore/config --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreConfigPath",
+    "deploy-codefirst": "npm run build && npm run generate-manifest && npm run generate-package-from-manifest && npm run deploy:from-package",
+    "deploy-codefirst:files-only": "npm run build && npm run generate-package-from-manifest:files-only && npm run deploy:from-package",
+    "deploy-codefirst:items-only": "npm run generate-manifest && npm run generate-package-from-manifest:items-only && npm run deploy:from-package",
+    "deploy-codefirst:no-content": "npm run generate-manifest:no-content && npm run generate-package-from-manifest:items-only && npm run deploy:from-package",
+    "deploy-sitecorefirst": "scjss-verify-setup && npm run build && npm run deploy:copy-files",
+    "watch-sitecorefirst": "webpack --config ./internals/build/webpack/webpack.dev.watch.js --color --progress",
+    "build": "npm run clean:prod && webpack --config ./internals/build/webpack/webpack.prod.js --color --progress",
+    "build:static": "npm run clean:static && webpack --config ./internals/build/webpack/webpack.static.js --color --progress",
+    "pull-route-data": "cross-env-shell node ./internals/build/pull.js --language $npm_package_config_language --layoutServiceHost {layoutServiceHost} --apiKey {apiKey} --outputPath $npm_package_config_routeDataDir",
+    "pull-all-route-data": "cross-env-shell node ./internals/build/pull.js --all --language $npm_package_config_language --layoutServiceHost {layoutServiceHost} --apiKey {apiKey} --routeDataDir $npm_package_config_routeDataDir",
+    "generate-manifest": "cross-env-shell scjss-manifest generate --files ./src/**/*.sitecore.js ./data/**/*.sitecore.js --compilers babel-core/register --appName $npm_package_config_appName --viewEngine react --outputPath ./sitecore/manifest/sitecore-import.json --language $npm_package_config_language",
+    "generate-manifest:no-content": "npm run generate-manifest -- --excludeItems --excludeMedia",
+    "generate-package-from-manifest": "scjss-verify-setup && cross-env-shell scjss-package-generate --buildPath $npm_package_config_buildArtifactsPathProd --outputPath ./sitecore/update-package --sitecoreDistPath $npm_package_config_sitecoreDistPath --appName $npm_package_config_appName --manifestPath ./sitecore/manifest --manifestFileName sitecore-import.json",
+    "generate-package-from-manifest:files-only": "scjss-verify-setup && cross-env-shell scjss-package-generate --buildPath $npm_package_config_buildArtifactsPathProd --outputPath ./sitecore/update-package --sitecoreDistPath $npm_package_config_sitecoreDistPath --appName $npm_package_config_appName --noManifest",
+    "generate-package-from-manifest:items-only": "scjss-verify-setup && cross-env-shell scjss-package-generate --outputPath ./sitecore/update-package --noDist --appName $npm_package_config_appName --manifestPath ./sitecore/manifest --manifestFileName sitecore-import.json",
+    "deploy:from-package": "cross-env-shell scjss-package-deploy --packagePath ./sitecore/update-package --appName $npm_package_config_appName --shipUrl {shipUrl}",
+    "deploy:copy-files": "scjss-verify-setup && cross-env-shell scjss-deploy --sourcePath $npm_package_config_buildArtifactsPathProd --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreDistPath --excludeFile index.html",
     "clean:dev": "cross-env-shell node ./internals/build/clean.js --path $npm_package_config_buildArtifactsPathDev",
     "clean:prod": "cross-env-shell node ./internals/build/clean.js --path $npm_package_config_buildArtifactsPathProd",
-    "manifest:generate": "cross-env-shell scjss-manifest generate --files ./src/**/*.sitecore.js ./data/**/*.sitecore.js --compilers babel-core/register --appName $npm_package_config_appName --viewEngine react --outputPath ./sitecore/manifest/sitecore-import.json --language $npm_package_config_language",
-    "prepackage:generate": "npm run setup:verify",
-    "package:generate": "cross-env-shell scjss-package-generate --manifestPath ./sitecore/manifest --manifestFileName sitecore-import.json --buildPath $npm_package_config_buildArtifactsPathProd --outputPath ./sitecore/update-package --sitecoreDistPath $npm_package_config_sitecoreDistPath --appName $npm_package_config_appName",
-    "package:deploy": "cross-env-shell scjss-package-deploy --packagePath ./sitecore/update-package --appName $npm_package_config_appName --shipUrl {shipUrl}",
-    "package": "npm run prod:build && npm run manifest:generate && npm run package:generate && npm run package:deploy"
+    "clean:static": "cross-env-shell node ./internals/build/clean.js --path $npm_package_config_buildArtifactsPathStatic",
+    "deploy-rendering": "cross-env-shell scjss-deploy --sourcePath ./sitecore/rendering --destinationPath {sitecoreInstancePath}/layouts"
   },
   "babel": {
     "presets": [
@@ -44,9 +52,17 @@
     "email": "jss@sitecore.net",
     "url": "https://jss.sitecore.net"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitecore/jss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitecore/jss/issues"
+  },
+  "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^5.0.1",
+    "@sitecore-jss/sitecore-jss-react": "^6.0.0",
     "babel-polyfill": "^6.26.0",
     "chalk": "^1.1.3",
     "isomorphic-fetch": "^2.2.1",
@@ -55,8 +71,8 @@
     "react-stepzilla": "^4.6.3"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^5.0.2",
-    "@sitecore-jss/sitecore-jss-manifest": "^5.0.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^6.0.0",
+    "@sitecore-jss/sitecore-jss-manifest": "^6.0.0",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.0",

@@ -5,14 +5,18 @@ import { init as initStore } from 'boot/store';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ConnectedRouter } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory'
+import createHistory from 'history/createBrowserHistory';
 import Root from 'boot/Root';
 import initialState from 'boot/initialState';
 import { fetchInitialRoute } from 'app/actions';
 import { NOT_FOUND_ROUTE, SERVER_ERROR_ROUTE } from 'app/constants';
 import App from 'app/components/AppContainer';
-import { resolveLanguage, i18nInit } from 'app/i18n'
-// import { AppContainer as HotAppContainer } from 'react-hot-loader';
+import { resolveCurrentRoute, i18nInit } from 'app/i18n';
+
+/*
+  Main entry point to the application when run in a browser (client).
+  The render() function is the primary bootstrap.
+*/
 
 const render = (store, history) => {
   const rootElement = document.getElementById('app');
@@ -24,28 +28,11 @@ const render = (store, history) => {
       </ConnectedRouter>
     </Root>,
     rootElement);
-
-  /*
-  if (module.hot) {
-    // do not hot accept the <Root /> component, it does NOT work
-    // also, be sure to hot accept ./app/routes
-    // still doesn't work with <Router /> in place though. works ok without <Router />
-    module.hot.accept(['./app/components/AppContainer', './app/routes'], () => {
-      ReactDOM.render(
-        <HotAppContainer>
-          <Root store={store}>
-            <Router routes={getRoutes()} history={history} store={store} />
-          </Root>
-        </HotAppContainer>,
-        rootElement,
-      );
-    });
-  }*/
 };
 
-const initialize = (state, lang, history) => {
+const initialize = (state, routeParams, history) => {
   state.app = {
-    currentLang: lang
+    ...routeParams
   };
   const store = initStore(state, history);
   render(store, history);
@@ -53,20 +40,28 @@ const initialize = (state, lang, history) => {
 };
 
 let viewBag;
+/*
+  SSR Data
+  If we're running in a server-side rendering scenario,
+  the ServerHtml component will provide the window.__data object
+  for us to acquire the initial React state.
+
+  SSR is initiated from server.js.
+*/
 if (window.__data) {
   viewBag = window.__data.viewBag;
 }
 
-//init i18n
-let lang = resolveLanguage(window.location.pathname, viewBag);
-i18nInit(lang, true /* isClient */, viewBag ? viewBag.dictionary : null);
+// init i18n
+const routeParams = resolveCurrentRoute(window.location.pathname, viewBag);
+i18nInit(routeParams.currentLang, true /* isClient */, viewBag ? viewBag.dictionary : null);
 
 const history = createHistory();
 if (window.__data) { // we have data from the server, use it
-  initialize(window.__data, lang, history);
+  initialize(window.__data, routeParams, history);
 } else {
   // init with empty object
   const state = initialState();
-  const store = initialize(state, lang, history);
+  const store = initialize(state, routeParams, history);
   store.dispatch(fetchInitialRoute(window.location.pathname, window.location.search));
 }

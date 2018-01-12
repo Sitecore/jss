@@ -1,30 +1,51 @@
 # BasicAppAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
 
 ## Sitecore JavaScript Services documentation
 
-Check [JSS documentation](https://jss.sitecore.net/) for how to setup and get started.
+Check [JSS documentation](https://jss.sitecore.net/) for how to install JSS Server and configure Sitecore.
+
+## App setup
+
+1. `yarn`
+1. `yarn setup`
+
+> This setup is optional to get started with development, as it assumes you have Sitecore installed.
+>
+> If you answer "yes", you would need to provide the path to your Sitecore installation's "Website" folder.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:3001/`. The app will automatically reload if you change any of the source files.
+Run `yarn start`.
 
-## Code scaffolding
+The app will be built and webpack server will be started. So it's expected that the browser will open with `http://localhost:3001` and familiar default welcome content is rendered.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The app will automatically reload if you change any of the source files.
 
-## Build
+When running the development server, it automatically sets up a sitecore mock server configures a proxy that forwards all requests to `/sitecore` to that sitecore mock server. Check `proxy.conf.js` to see mock server and proxy implementation.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Congratulations!
 
-## Running unit tests
+The app is now running in dev mode sourcing data from local files and is not connected to Sitecore in any way.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## App deployment
 
-## Running end-to-end tests
+### Pre-requisites
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+1. Sitecore instance has JSS packages installed.
+1. Sitecore is configured for this JSS app.
+
+### Steps
+
+Run `yarn package`.
+
+This step will:
+
+* Run the production bundle of your app.
+* Generate the app manifest.
+* Generate a package with the manifest and production bundle.
+* Install the package over HTTP on your Sitecore instance.
 
 ## Further help
 

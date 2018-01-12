@@ -4,9 +4,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import { convertRawLayoutData } from '@sitecore-jss/sitecore-jss-react';
 
-import initialState from './initialState';
-import Root from './Root';
-import ServerHtml from '../app/ServerHtml';
+import initialState from 'boot/initialState';
+import Root from 'boot/Root';
+import ServerHtml from 'app/ServerHtml';
+
+/*
+  Main entry point to the application when run on a Node server.
+  The renderView() function will be invoked by Sitecore's view engine
+  to provide the data to render with.
+*/
 
 export function renderView(callback, path, data, viewBag) {
   

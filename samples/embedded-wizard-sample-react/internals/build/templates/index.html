@@ -2,15 +2,16 @@
 
 <head>
   <title>Embedded Wizard</title>
-  <link rel="stylesheet" href="/assets/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="$(distPath)client.css" type="text/css" />
 </head>
 
 <body id="page-top">
+  <!-- the HTML shell the JSS application will be rendered into when using webpack-dev-server -->
   <div id="wizard-app">
 
   </div>
-  <script src="/dist/dev/vendor-client.bundle.js"></script>
-  <script src="/dist/dev/client.bundle.js"></script>
+  <script src="$(distPath)vendor-client.bundle.js"></script>
+  <script src="$(distPath)client.bundle.js"></script>
 </body>
 
 </html>
