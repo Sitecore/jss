@@ -1,13 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const fsExtra = require('fs-extra');
 const open = require('opn');
-
 const config = require('./webpack/webpack.dev-connected');
+const templates = require('./templates');
 
-fsExtra.ensureDirSync(config[0].output.path);
-fsExtra.copySync(path.resolve(process.cwd(), './internals/build/templates'), config[0].output.path);
+templates(config[0].output.path, '/dist/dev/'); // instead of fsExtra copying
 
 const compiler = webpack(config);
 const server = new WebpackDevServer(compiler, {

@@ -17,7 +17,7 @@
   "scripts": {
     "setup": "scjss-setup",
     "start": "npm run clean:dev && node ./internals/build/start.js",
-    "start:connected": "npm run clean:dev && node ./internals/build/dev-connected.js",
+    "start:connected": "npm run clean:dev && node ./internals/build/start-connected.js",
     "deploy-config": "scjss-verify-setup && cross-env-shell scjss-deploy --sourcePath ./sitecore/config --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreConfigPath",
     "deploy-codefirst": "npm run build && npm run generate-manifest && npm run generate-package-from-manifest && npm run deploy:from-package",
     "deploy-codefirst:files-only": "npm run build && npm run generate-package-from-manifest:files-only && npm run deploy:from-package",
@@ -62,7 +62,7 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^6.0.0",
+    "@sitecore-jss/sitecore-jss-react": "^6.0.2",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^3.3.7",
     "deep-extend": "^0.5.0",
@@ -85,8 +85,8 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^6.0.0",
-    "@sitecore-jss/sitecore-jss-manifest": "^6.0.0",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^6.0.1",
+    "@sitecore-jss/sitecore-jss-manifest": "^6.0.1",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.0",
