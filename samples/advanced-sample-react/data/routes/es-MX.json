@@ -14,6 +14,8 @@
         "placeholders": {
           "page-header": [
             {
+              "name": "welcome-message",
+              "displayName": "Mensaje de bienvenida",
               "componentName": "Jumbotron",
               "fields": {
                 "titleText": {
@@ -24,15 +26,15 @@
                 }
               },
               "params": {
-                "titleSize": 1,
+                "titleSize": "1",
                 "shade": "dark"
               }
             }
           ],
           "page-content": [
-          /* disabling until issue with react-modal and react 16 is fixed
-             https://github.com/react-bootstrap/react-bootstrap/issues/2812
             {
+              "name": "download-button",
+              "displayName": "Botón de descarga",
               "componentName": "DownloadCallout",
               "fields": {
                 "linkText": {
@@ -40,7 +42,6 @@
                 }
               }
             }
-          */
           ]
         }
       }

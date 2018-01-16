@@ -23,7 +23,7 @@ const Heading = ({ params, fields, style }) => {
 Heading.propTypes = {
   style: PropTypes.object,
   params: PropTypes.shape({
-    size: PropTypes.number,
+    size: PropTypes.string,
   }),
   fields: PropTypes.shape({
     text: PropTypes.shape({
@@ -35,7 +35,7 @@ Heading.propTypes = {
 
 Heading.defaultProps = {
   params: {
-    size: 1,
+    size: '1',
   },
 };
 

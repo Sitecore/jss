@@ -14,6 +14,7 @@
         "placeholders": {
           "page-header": [
             {
+              "name": "Services Welcome",
               "componentName": "Jumbotron",
               "fields": {
                 "titleText": {
@@ -25,12 +26,13 @@
               },
               "params": {
                 "shade": "dark",
-                "titleSize": 2
+                "titleSize": "2"
               }
             }
           ],
           "page-content": [
             {
+              "name": "List of Services",
               "componentName": "ServiceList",
               "fields": {
                 "items": [
@@ -82,6 +84,7 @@
               "placeholders": {
                 "tabs": [
                   {
+                    "name": "Professional Services Tab",
                     "componentName": "Tab",
                     "fields": {
                       "title": {
@@ -91,6 +94,7 @@
                     "placeholders": {
                       "tab": [
                         {
+                          "name": "Professional Services Header",
                           "componentName": "Heading",
                           "fields": {
                             "text": {
@@ -98,10 +102,11 @@
                             }
                           },
                           "params": {
-                            "size": 3
+                            "size": "3"
                           }
                         },
                         {
+                          "name": "Professional Services Text",
                           "componentName": "RichText",
                           "fields": {
                             "text": {
@@ -113,6 +118,7 @@
                     }
                   },
                   {
+                    "name": "Support Tab",
                     "componentName": "Tab",
                     "fields": {
                       "title": {
@@ -122,10 +128,34 @@
                     "placeholders": {
                       "tab": [
                         {
+                          "name": "Support Header",
+                          "componentName": "Heading",
+                          "fields": {
+                            "text": {
+                              "value": "Support & Maintenance"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Support Text",
                           "componentName": "RichText",
                           "fields": {
                             "text": {
                               "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Support Link",
+                          "componentName": "LinkButton",
+                          "fields": {
+                            "link": {
+                              "value": {
+                                "href": "http://www.sitecore.net",
+                                "text": "Learn More",
+                                "class": "btn btn-info btn-lg",
+                                "target": "_blank"
+                              }
                             }
                           }
                         }
@@ -133,6 +163,7 @@
                     }
                   },
                   {
+                    "name": "Consulting Tab",
                     "componentName": "Tab",
                     "fields": {
                       "title": {
@@ -142,10 +173,24 @@
                     "placeholders": {
                       "tab": [
                         {
+                          "name": "Consulting Text",
                           "componentName": "RichText",
                           "fields": {
                             "text": {
                               "value": "<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Consulting File",
+                          "componentName": "FileLink",
+                          "fields": {
+                            "file": {
+                              "value": {
+                                "src": "/assets/files/jss.pdf",
+                                "title": "Services Brochure",
+                                "description": "Read more about our services!"
+                              }
                             }
                           }
                         }

@@ -14,6 +14,7 @@
         "placeholders": {
           "page-header": [
             {
+              "name": "About Welcome",
               "componentName": "Jumbotron",
               "fields": {
                 "titleText": {
@@ -25,7 +26,7 @@
               },
               "params": {
                 "shade": "light",
-                "titleSize": 2
+                "titleSize": "2"
               }
             }
           ],

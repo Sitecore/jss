@@ -1,7 +1,14 @@
 {
-  "Copyright": "{{year}} Sitecore Corporation A/S",
+  "Copyright": "{{year}} Inicio Bootstrap",
+  "Start Bootstrap": "Inicio Bootstrap",
   "Language": "Idioma",
   "Home": "Inicio",
   "Download Form": "Descargar Formulario",
-  "Close": "Cerca"
+  "Close": "Cerca",
+  "Login": "Iniciar sesión",
+  "Logout": "Cerrar sesión",
+  "Cancel": "Cancelar",
+  "Username": "Nombre de usuario",
+  "Password": "Contraseña",
+  "LoginFailed": "Nombre de usuario y / o contraseña inválido."
 }

@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { PLACEHOLDER_RENDERING } from '@sitecore-jss/sitecore-jss-angular';
-import { DomSanitizer } from '@angular/platform-browser';
+import { RENDERING_PROPERTIES } from '@sitecore-jss/sitecore-jss-angular';
 
 @Component({
   selector: 'app-welcome',
@@ -11,7 +10,6 @@ export class WelcomeComponent {
   copyright = 'Copyright Sitecore A/S';
 
   constructor(
-    @Inject(PLACEHOLDER_RENDERING) public rendering: any,
-    public sanitizer: DomSanitizer
-  ) { }
+    @Inject(RENDERING_PROPERTIES) public props: any
+  ) {}
 }

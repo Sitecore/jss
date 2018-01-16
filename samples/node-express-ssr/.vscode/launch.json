@@ -5,7 +5,7 @@
       "name": "Launch",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceRoot}/server.js",
+      "program": "${workspaceRoot}/index.js",
       "stopOnEntry": false,
       "args": [
         "doc"

@@ -1,6 +1,10 @@
 const del = require('del');
-
 const options = {};
+
+/*
+  Helper used in npm scripts to clean a directory
+  Before building to it
+*/
 
 process.argv.forEach((value, index, map) => {
   switch (value) {

@@ -8,17 +8,18 @@
     rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
     rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="/dist/dev/vendor-client.css" type="text/css">
-  <link rel="stylesheet" href="/dist/dev/client.css" type="text/css">
+  <link rel="stylesheet" href="$(distPath)vendor-client.css" type="text/css">
+  <link rel="stylesheet" href="$(distPath)client.css" type="text/css">
 
 </head>
 
 <body id="page-top">
+  <!-- the HTML shell the JSS application will be rendered into when using webpack-dev-server -->
   <div id="app">
 
   </div>
-  <script src="/dist/dev/vendor-client.bundle.js"></script>
-  <script src="/dist/dev/client.bundle.js"></script>
+  <script src="$(distPath)vendor-client.bundle.js"></script>
+  <script src="$(distPath)client.bundle.js"></script>
 </body>
 
 </html>

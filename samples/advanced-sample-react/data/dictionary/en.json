@@ -1,7 +1,14 @@
 {
-  "Copyright": "{{year}} Sitecore Corporation A/S",
-  "Home": "Home",
+  "Copyright": "{{year}} Start Bootstrap",
+  "Start Bootstrap": "Start Bootstrap",
   "Language": "Language",
+  "Home": "Home",
   "Download Form": "Download Form",
-  "Close": "Close"
+  "Close": "Close",
+  "Login": "Login",
+  "Logout": "Logout",
+  "Cancel": "Cancel",
+  "Username": "Username",
+  "Password": "Password",
+  "LoginFailed": "Invalid username and/or password. Try b?"
 }

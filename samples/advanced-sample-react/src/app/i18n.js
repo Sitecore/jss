@@ -3,8 +3,9 @@ import fetch from 'i18next-fetch-backend';
 import { DEFAULT_LANGUAGE } from './constants';
 import { parseRouteUrl } from './sitecoreRoutes';
 
-const resolveLanguage = (currentPath, serverData) => {
+const resolveCurrentRoute = (currentPath, serverData) => {
   let lang = DEFAULT_LANGUAGE;
+  let route = '/';
   if (serverData && serverData.language) {
     //use initial language from Sitecore -- might be cookie-based
     lang = serverData.language;
@@ -13,7 +14,13 @@ const resolveLanguage = (currentPath, serverData) => {
   if (routeParams && routeParams.lang) {
     lang = routeParams.lang;
   }
-  return lang;
+  if (routeParams && routeParams.sitecoreRoute) {
+    route = routeParams.sitecoreRoute;
+  }
+  return {
+    currentLang: lang,
+    currentRoute: route
+  };
 }
 
 const i18nInit = (language, isClient, dictionary) => {
@@ -36,8 +43,10 @@ const i18nInit = (language, isClient, dictionary) => {
   };
 
   if (isClient) {
+    //webpack substitutes based on local dev or prod/integrated JSS service
+    const apiKeyParam = typeof __SC_API_KEY__ === "undefined" ? '' : `?sc_apikey=${__SC_API_KEY__}`;
     options.backend = {
-      loadPath: __SC_API_HOST__ + __TRANSLATION_PATH__, //webpack substitutes based on local dev or prod/integrated JSS service
+      loadPath:  `${__SC_API_HOST__}${__TRANSLATION_PATH__}` + apiKeyParam, 
       parse: (data) => {
         data = JSON.parse(data);
         if (data.phrases) {
@@ -63,4 +72,4 @@ const i18nInit = (language, isClient, dictionary) => {
   }
 }
 
-export { i18n, resolveLanguage, i18nInit };
+export { i18n, resolveCurrentRoute, i18nInit };

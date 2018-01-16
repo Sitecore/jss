@@ -1,13 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const fsExtra = require('fs-extra');
 const open = require('opn');
+const config = require('./webpack/webpack.dev-connected');
+const templates = require('./templates');
 
-const config = require('./webpack/webpack.dev');
-
-fsExtra.ensureDirSync(config[0].output.path);
-fsExtra.copySync(path.resolve(process.cwd(), './internals/build/templates'), config[0].output.path);
+templates(config[0].output.path, '/dist/dev/'); // instead of fsExtra copying
 
 const compiler = webpack(config);
 const server = new WebpackDevServer(compiler, {
@@ -23,7 +21,7 @@ const server = new WebpackDevServer(compiler, {
 // this middleware serves data and assets from the src root, and
 // routes all other requests to index.html so you can directly browse to routes within your app
 server.use('/', (req, res, next) => {
-  if (req.url.indexOf('/data/') === 0 || req.url.indexOf('/assets/') === 0) {
+  if (req.url.indexOf('/assets/') === 0) {
     res.sendFile(path.join(process.cwd(), req.url));
   } else {
     res.sendFile(path.join(process.cwd(), `${config[0].output.publicPath}index.html`));

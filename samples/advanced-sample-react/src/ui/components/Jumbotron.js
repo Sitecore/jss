@@ -16,7 +16,7 @@ const Jumbotron = props => (
 Jumbotron.propTypes = {
   style: PropTypes.object,
   params: PropTypes.shape({
-    titleSize: PropTypes.number,
+    titleSize: PropTypes.string,
     shade: PropTypes.oneOf(['light', 'dark']),
   }),
   fields: PropTypes.shape({
@@ -34,7 +34,7 @@ Jumbotron.propTypes = {
 
 Jumbotron.defaultProps = {
   params: {
-    titleSize: 1,
+    titleSize: '1',
     shade: 'light',
   },
 };
