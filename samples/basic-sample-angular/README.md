@@ -38,7 +38,7 @@ The app is now running in dev mode sourcing data from local files and is not con
 
 ### Steps
 
-Run `yarn package`.
+Run `yarn deploy-codefirst`.
 
 This step will:
 
