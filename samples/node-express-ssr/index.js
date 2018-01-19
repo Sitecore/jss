@@ -31,6 +31,8 @@ config.proxyOptions.onProxyReq = (proxyReq, req, res) => {
   proxyReq.setHeader('X-Forwarded-For', ipv4);
 }
 
+server.use('/dist', express.static('dist'));
+
 server.use('*', scProxy(app.renderView, config, app.parseRouteUrl));
 
 server.listen(port, () => {
