@@ -1,8 +1,7 @@
 {
   "name": "sitecore-jss-advancedapp",
-  "version": "6.0.0",
-  "description":
-    "An opinionated and full-featured app utilizing Sitecore JavaScript Services.",
+  "version": "6.1.0",
+  "description": "An opinionated and full-featured app utilizing Sitecore JavaScript Services.",
   "config": {
     "appName": "JssAdvancedApp",
     "sitecoreDistPath": "/dist/JssAdvancedApp",
@@ -62,7 +61,7 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^6.0.2",
+    "@sitecore-jss/sitecore-jss-react": "^6.1.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^3.3.7",
     "deep-extend": "^0.5.0",
@@ -85,8 +84,8 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^6.0.1",
-    "@sitecore-jss/sitecore-jss-manifest": "^6.0.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^6.1.0",
+    "@sitecore-jss/sitecore-jss-manifest": "^6.1.0",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.0",
@@ -117,15 +116,22 @@
     "url-loader": "^0.5.9",
     "webpack": "^2.6.1",
     "webpack-body-parser": "^1.11.110",
+    "webpack-bundle-analyzer": "^2.9.2",
     "webpack-dev-server": "^2.4.5"
   },
   "eslintConfig": {
-    "extends": ["airbnb", "plugin:import/errors", "plugin:import/warnings"],
+    "extends": [
+      "airbnb",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
     "parser": "babel-eslint",
     "env": {
       "mocha": true
     },
-    "plugins": ["import"],
+    "plugins": [
+      "import"
+    ],
     "settings": {
       "import/resolver": {
         "webpack": {
@@ -133,7 +139,11 @@
           "config-index": 1
         }
       },
-      "import/ignore": ["node_modules", ".png$", ".jpg$"]
+      "import/ignore": [
+        "node_modules",
+        ".png$",
+        ".jpg$"
+      ]
     },
     "globals": {
       "window": true,
@@ -150,7 +160,10 @@
           "optionalDependencies": true
         }
       ],
-      "linebreak-style": ["error", "windows"],
+      "linebreak-style": [
+        "error",
+        "windows"
+      ],
       "react/jsx-filename-extension": 0,
       "import/prefer-default-export": "off",
       "react/forbid-prop-types": "off",

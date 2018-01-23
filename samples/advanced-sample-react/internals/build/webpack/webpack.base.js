@@ -4,6 +4,7 @@ const merge = require('lodash.merge');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const chalk = require('chalk');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const sharedConfig = {
   context: path.resolve(process.cwd(), 'src'),
@@ -79,8 +80,8 @@ const sharedConfig = {
     new ExtractTextPlugin({
       filename: '[name].css',
       allChunks: true,
-    })
-  ]
+    }),
+  ],
 };
 
 const clientConfig = () => {
@@ -100,6 +101,10 @@ const clientConfig = () => {
     name: 'vendor-client',
     filename: '[name].bundle.js',
     minChunks: module => module.resource && module.resource.indexOf('node_modules') !== -1,
+  }));
+  merged.plugins.push(new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    openAnalyzer: false,
   }));
 
   return merged;
