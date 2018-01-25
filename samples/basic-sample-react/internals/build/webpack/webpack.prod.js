@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const baseConfig = require('./webpack.base');
 const vars = require('./webpack.vars');
 const jssConfig = require('../config');
@@ -33,19 +34,22 @@ module.exports = baseConfig.map((c) => {
       __BUNDLE_OUTPUT_PATH__: JSON.stringify(config.output.publicPath),
     })),
     // minify JS (options based on create-react-app)
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        comparisons: false,
-      },
-      mangle: {
-        safari10: true,
-      },
-      output: {
-        comments: false,
-        ascii_only: true,
-      },
+    new UglifyJsPlugin({
       sourceMap: true,
+      uglifyOptions: {
+        ecma: 7,
+        compress: {
+          warnings: false,
+          comparisons: false,
+        },
+        mangle: {
+          safari10: true,
+        },
+        output: {
+          comments: false,
+          ascii_only: true,
+        },
+      },
     }),
   ];
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
 
 import initialState from './boot/initialState';
 import Root from 'boot/Root';
@@ -18,9 +17,7 @@ const render = (state) => {
   const rootElement = document.getElementById('app');
 
   ReactDOM.render(
-    <AppContainer>
-      <Root initialState={state} />
-    </AppContainer>,
+    <Root initialState={state} />,
     rootElement
   );
 };
@@ -52,8 +49,4 @@ if (window.__data) {
   state.sitecore.route = getRouteData('/');
 
   render(state);
-
-  if (module.hot) {
-    module.hot.accept();
-  }
 }

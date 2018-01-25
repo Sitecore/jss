@@ -61,6 +61,10 @@ class DataProvider extends DataProviderBase {
       .then(response => response.json())
       .then(json => convertRouteToLayoutServiceFormat(json));
   }
+
+  configurei18Next(i18n, options) {
+    i18n.init();
+  }
 }
 
 export default DataProvider;

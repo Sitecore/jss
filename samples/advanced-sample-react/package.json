@@ -1,8 +1,7 @@
 {
   "name": "sitecore-jss-advancedapp",
-  "version": "6.0.0",
-  "description":
-    "An opinionated and full-featured app utilizing Sitecore JavaScript Services.",
+  "version": "6.1.0",
+  "description": "An opinionated and full-featured app utilizing Sitecore JavaScript Services.",
   "config": {
     "appName": "JssAdvancedApp",
     "sitecoreDistPath": "/dist/JssAdvancedApp",
@@ -62,7 +61,7 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^6.0.2",
+    "@sitecore-jss/sitecore-jss-react": "^6.1.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^3.3.7",
     "deep-extend": "^0.5.0",
@@ -85,47 +84,54 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^6.0.1",
-    "@sitecore-jss/sitecore-jss-manifest": "^6.0.1",
-    "babel-core": "^6.25.0",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^6.1.0",
+    "@sitecore-jss/sitecore-jss-manifest": "^6.1.0",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.1.0",
-    "babel-preset-env": "^1.5.2",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "chalk": "^1.1.3",
+    "chalk": "^2.3.0",
     "cookie-parser": "^1.4.3",
     "cross-env": "^5.0.1",
-    "css-loader": "^0.28.4",
+    "css-loader": "^0.28.9",
     "del": "^3.0.0",
-    "eslint": "^3.19.0",
+    "eslint": "^4.16.0",
     "eslint-config-airbnb": "^15.0.1",
-    "eslint-import-resolver-webpack": "^0.8.2",
-    "eslint-plugin-import": "^2.5.0",
+    "eslint-import-resolver-webpack": "^0.8.4",
+    "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.1.0",
-    "extract-text-webpack-plugin": "^2.1.2",
-    "file-loader": "^0.11.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
     "fs-extra": "^3.0.1",
     "isomorphic-fetch": "^2.2.1",
-    "json-loader": "^0.5.4",
+    "json-loader": "^0.5.7",
     "lodash.merge": "^4.6.0",
     "opn": "^5.1.0",
-    "progress-bar-webpack-plugin": "^1.9.3",
-    "react-hot-loader": "^3.0.0-beta.7",
-    "style-loader": "^0.18.2",
-    "url-loader": "^0.5.9",
-    "webpack": "^2.6.1",
+    "progress-bar-webpack-plugin": "^1.10.0",
+    "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.6",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
     "webpack-body-parser": "^1.11.110",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-bundle-analyzer": "^2.9.2",
+    "webpack-dev-server": "^2.11.1"
   },
   "eslintConfig": {
-    "extends": ["airbnb", "plugin:import/errors", "plugin:import/warnings"],
+    "extends": [
+      "airbnb",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
     "parser": "babel-eslint",
     "env": {
       "mocha": true
     },
-    "plugins": ["import"],
+    "plugins": [
+      "import"
+    ],
     "settings": {
       "import/resolver": {
         "webpack": {
@@ -133,7 +139,11 @@
           "config-index": 1
         }
       },
-      "import/ignore": ["node_modules", ".png$", ".jpg$"]
+      "import/ignore": [
+        "node_modules",
+        ".png$",
+        ".jpg$"
+      ]
     },
     "globals": {
       "window": true,
@@ -150,7 +160,10 @@
           "optionalDependencies": true
         }
       ],
-      "linebreak-style": ["error", "windows"],
+      "linebreak-style": [
+        "error",
+        "windows"
+      ],
       "react/jsx-filename-extension": 0,
       "import/prefer-default-export": "off",
       "react/forbid-prop-types": "off",
