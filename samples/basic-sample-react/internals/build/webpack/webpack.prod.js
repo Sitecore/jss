@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const baseConfig = require('./webpack.base');
 const vars = require('./webpack.vars');
 const jssConfig = require('../config');
@@ -33,21 +34,23 @@ module.exports = baseConfig.map((c) => {
       __BUNDLE_OUTPUT_PATH__: JSON.stringify(config.output.publicPath),
     })),
     // minify JS (options based on create-react-app)
-    // disabling uglifier until we fix "Unexpected token: punc (() [../~/follow-redirects/index.js:109,0][server.bundle.js:4600,7]" build error
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false,
-    //     comparisons: false,
-    //   },
-    //   mangle: {
-    //     safari10: true,
-    //   },
-    //   output: {
-    //     comments: false,
-    //     ascii_only: true,
-    //   },
-    //   sourceMap: true,
-    // }),
+    new UglifyJsPlugin({
+      sourceMap: true,
+      uglifyOptions: {
+        ecma: 7,
+        compress: {
+          warnings: false,
+          comparisons: false,
+        },
+        mangle: {
+          safari10: true,
+        },
+        output: {
+          comments: false,
+          ascii_only: true,
+        },
+      },
+    }),
   ];
 
   config.plugins = config.plugins ? config.plugins.concat(plugins) : plugins;

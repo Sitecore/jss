@@ -31,9 +31,6 @@ const sharedConfig = {
             'react',
             'stage-0',
           ],
-          plugins: [
-            'react-hot-loader/babel',
-          ],
         },
       },
       {
@@ -102,6 +99,7 @@ const clientConfig = () => {
     filename: '[name].bundle.js',
     minChunks: module => module.resource && module.resource.indexOf('node_modules') !== -1,
   }));
+
   merged.plugins.push(new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: false,

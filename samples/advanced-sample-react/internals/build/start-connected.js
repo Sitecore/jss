@@ -9,7 +9,6 @@ templates(config[0].output.path, '/dist/dev/'); // instead of fsExtra copying
 
 const compiler = webpack(config);
 const server = new WebpackDevServer(compiler, {
-  // hot: true,
   inline: true,
   contentBase: config[0].output.path,
   publicPath: config[0].output.publicPath,

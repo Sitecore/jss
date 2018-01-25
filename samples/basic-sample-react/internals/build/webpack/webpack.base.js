@@ -37,9 +37,6 @@ const sharedConfig = {
             'react',
             'stage-0',
           ],
-          plugins: [
-            'react-hot-loader/babel',
-          ],
         },
       },
       // CSS loader

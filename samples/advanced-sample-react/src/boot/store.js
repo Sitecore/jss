@@ -24,12 +24,6 @@ export const init = (initialState = {}, history = null) => {
   const store = createStore(makeRootReducer(), initialState, enhancer);
   store.asyncReducers = {};
 
-  // if (module.hot) {
-  //   module.hot.accept('./reducer', () => {
-  //     const reducers = require('./reducer').default;
-  //     store.replaceReducer(reducers(store.asyncReducers));
-  //   });
-  // }
   storeInstance = store;
   return storeInstance;
 };

@@ -23,8 +23,8 @@ export const routes = {
               value: {
                 src: '/assets/img/sc_logo.png',
                 alt: 'Logo'
-              }
-            }
+              },
+            },
           }
         }
       ]
