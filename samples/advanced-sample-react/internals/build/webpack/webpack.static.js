@@ -36,6 +36,7 @@ module.exports = baseConfig
           NODE_ENV: JSON.stringify('production'),
         },
         __BUNDLE_OUTPUT_PATH__: JSON.stringify(config.output.publicPath),
+        __TRANSLATION_PATH__: JSON.stringify('/data/dictionary/{{lng}}.json'),
       })),
       // minify JS (options based on create-react-app)
       new webpack.optimize.UglifyJsPlugin({

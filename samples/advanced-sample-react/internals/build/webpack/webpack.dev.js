@@ -26,6 +26,7 @@ module.exports = baseConfig.map((c) => {
         NODE_ENV: JSON.stringify('development'),
       },
       __BUNDLE_OUTPUT_PATH__: JSON.stringify(config.output.publicPath),
+      __TRANSLATION_PATH__: JSON.stringify('/data/dictionary/{{lng}}.json'),
     })),
     new webpack.NamedModulesPlugin(),
   ];

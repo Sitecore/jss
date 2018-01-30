@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-
+import i18nextFetch from 'i18next-fetch-backend';
 import { DEFAULT_LANGUAGE } from './constants';
 import { parseRouteUrl } from './sitecoreRoutes';
 import DataProvider from '../dataProvider';
@@ -44,7 +44,22 @@ const i18nInit = (language, isClient, dictionary) => {
   };
 
   if (isClient) {
-    DataProvider.configurei18Next(i18n, options);
+    // webpack substitutes based on local dev or prod/integrated JSS service
+    const translationPath = DataProvider.getTranslationPath();
+    options.backend = {
+      loadPath: translationPath,
+      parse: (data) => {
+        data = JSON.parse(data);
+        if (data.phrases) {
+          return data.phrases;
+        }
+        return data;
+      },
+    };
+
+    i18n
+      .use(i18nextFetch)
+      .init(options);
     if (dictionary) {
       // when using a back-end, need to add static resources after init
       i18n.addResources(language, 'translation', dictionary);
