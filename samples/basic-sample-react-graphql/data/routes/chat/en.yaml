@@ -1,0 +1,8 @@
+name: chat
+displayName: Chat
+placeholders:
+  main:
+  - componentName: Chat
+    fields:
+      title:
+        value: Experience Graph Chat
