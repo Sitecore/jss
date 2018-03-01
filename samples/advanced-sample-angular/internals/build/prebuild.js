@@ -8,8 +8,16 @@
 const fs = require('fs');
 const path = require('path');
 const ejs = require('ejs');
-const scjssConfig = require('../../scjssconfig.json');
 const npmConfig = require('../../package.json');
+
+// possible to run in disconnected mode without an scjssconfig
+const scjssConfigPath = '../../scjssconfig.json';
+const scjssConfig = fs.existsSync(path.join(__dirname, scjssConfigPath)) ? require(scjssConfigPath) : {
+  sitecore: {
+    apiKey: '',
+    layoutServiceHost: '',
+  }
+};
 
 const environmentFilesDirectory = path.join(__dirname, '../../src/environments');
 let targetEnvironmentTemplateFileName = 'environment.ts.template';

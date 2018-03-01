@@ -1,3 +1,4 @@
+// Environment template for client-side execution in "Integrated" or "Headless" mode.
 
 export const environment = {
   production: true,

@@ -1,3 +1,4 @@
+// Environment template for server-side execution (SSR) in "Integrated" or "Headless" mode.
 
 export const environment = {
   production: true,
