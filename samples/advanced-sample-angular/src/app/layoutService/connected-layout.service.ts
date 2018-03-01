@@ -44,7 +44,14 @@ export class ConnectedLayoutService implements LayoutService {
   }
 
   getItemData(itemPath: string, language: string, options: object = {}): Observable<any> {
-    const fetchOptions = getFetchOptions(language, options);
+    const { layoutServiceConfig, ...otherOptions } = getFetchOptions(
+      language,
+      options
+    );
+    const fetchOptions = {
+      contentServiceConfig: layoutServiceConfig,
+      ...otherOptions
+    };
     return fromPromise(fetchItemData(itemPath, fetchOptions)).pipe(
       catchError((error) => this.getLayoutServiceError(error))
     );
