@@ -239,9 +239,9 @@
     "@sitecore-jss/sitecore-jss" "^7.0.0"
     tslib "^1.7.1"
 
-"@sitecore-jss/sitecore-jss-cli@^7.0.0":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@sitecore-jss/sitecore-jss-cli/-/sitecore-jss-cli-7.0.1.tgz#30af156505e85b6fae03b0c806fcef1f9d449aef"
+"@sitecore-jss/sitecore-jss-cli@^7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@sitecore-jss/sitecore-jss-cli/-/sitecore-jss-cli-7.0.2.tgz#189e5728be175b9ccc244b1cd2b9fa2ef0e4f381"
   dependencies:
     "@sitecore-jss/sitecore-jss-dev-tools" "^7.0.0"
     "@sitecore-jss/sitecore-jss-manifest" "^7.0.0"
@@ -360,10 +360,10 @@ accepts@1.3.3:
     negotiator "0.6.1"
 
 accepts@~1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.4.tgz#86246758c7dd6d21a6474ff084a4740ec05eb21f"
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.5.tgz#eb777df6011723a3b14e8a72c0805c8e86746bd2"
   dependencies:
-    mime-types "~2.1.16"
+    mime-types "~2.1.18"
     negotiator "0.6.1"
 
 acorn-dynamic-import@^2.0.0:
@@ -1316,8 +1316,8 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
 concat-stream@^1.5.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.6.0.tgz#0aac662fd52be78964d5532f694784e70110acf7"
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.6.1.tgz#261b8f518301f1d834e36342b9fea095d2620a26"
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.2.2"
@@ -3881,7 +3881,7 @@ miller-rabin@^4.0.0:
   version "1.33.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.33.0.tgz#a3492050a5cb9b63450541e39d9788d2272783db"
 
-mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.16, mime-types@~2.1.17, mime-types@~2.1.18, mime-types@~2.1.7:
+mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.17, mime-types@~2.1.18, mime-types@~2.1.7:
   version "2.1.18"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.18.tgz#6f323f60a83d11146f831ff11fd66e2fe5503bb8"
   dependencies:

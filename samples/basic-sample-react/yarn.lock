@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@sitecore-jss/sitecore-jss-cli@^7.0.0":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@sitecore-jss/sitecore-jss-cli/-/sitecore-jss-cli-7.0.1.tgz#30af156505e85b6fae03b0c806fcef1f9d449aef"
+"@sitecore-jss/sitecore-jss-cli@^7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@sitecore-jss/sitecore-jss-cli/-/sitecore-jss-cli-7.0.2.tgz#189e5728be175b9ccc244b1cd2b9fa2ef0e4f381"
   dependencies:
     "@sitecore-jss/sitecore-jss-dev-tools" "^7.0.0"
     "@sitecore-jss/sitecore-jss-manifest" "^7.0.0"
@@ -42,9 +42,9 @@
     uuid "^3.1.0"
     yargs "^8.0.2"
 
-"@sitecore-jss/sitecore-jss-react@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@sitecore-jss/sitecore-jss-react/-/sitecore-jss-react-7.0.0.tgz#cd59d48ec7c9759c87b13fca1c6f0114edc03915"
+"@sitecore-jss/sitecore-jss-react@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@sitecore-jss/sitecore-jss-react/-/sitecore-jss-react-7.0.1.tgz#8c8926217b10b8b347dc4f2954aaee74522b796d"
   dependencies:
     "@sitecore-jss/sitecore-jss" "^7.0.0"
     prop-types "^15.6.0"
@@ -1624,8 +1624,8 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
 concat-stream@^1.5.0, concat-stream@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.6.0.tgz#0aac662fd52be78964d5532f694784e70110acf7"
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.6.1.tgz#261b8f518301f1d834e36342b9fea095d2620a26"
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.2.2"
@@ -6199,8 +6199,8 @@ wbuf@^1.1.0, wbuf@^1.7.2:
     minimalistic-assert "^1.0.0"
 
 webpack-bundle-analyzer@^2.9.2:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.11.0.tgz#ed6f6ab59f5b341ffb60849ca707a7fe841c4f86"
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.11.1.tgz#b9fbfb6a32c0a8c1c3237223e90890796b950ab9"
   dependencies:
     acorn "^5.3.0"
     bfj-node4 "^5.2.0"
