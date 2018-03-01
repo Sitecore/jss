@@ -47,7 +47,7 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^7.0.0",
+    "@sitecore-jss/sitecore-jss-react": "^7.0.1",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^3.3.7",
     "deep-extend": "^0.5.0",
@@ -72,7 +72,7 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^7.0.0",
+    "@sitecore-jss/sitecore-jss-cli": "^7.0.2",
     "@sitecore-jss/sitecore-jss-dev-tools": "^7.0.0",
     "@sitecore-jss/sitecore-jss-manifest": "^7.0.0",
     "babel-core": "^6.26.0",
