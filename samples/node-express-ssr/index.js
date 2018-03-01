@@ -3,7 +3,7 @@ const express = require('express');
 const fs = require('fs');
 const scProxy = require('@sitecore-jss/sitecore-jss-proxy').default;
 const ipaddr = require('ipaddr.js');
-const app = require('./dist/AdvancedApp/server.bundle');
+const app = require('./dist/JssAdvancedAppReactWeb/server.bundle');
 const config = require('./config');
 const server = express();
 const port = process.env.PORT || 3000;
@@ -31,7 +31,9 @@ config.proxyOptions.onProxyReq = (proxyReq, req, res) => {
   proxyReq.setHeader('X-Forwarded-For', ipv4);
 }
 
-server.use('/dist', express.static('dist'));
+server.use('/dist', express.static('dist', {
+  fallthrough: false, // force 404 for unknown assets under /dist
+}));
 
 server.use('*', scProxy(app.renderView, config, app.parseRouteUrl));
 

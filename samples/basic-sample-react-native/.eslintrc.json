@@ -1,0 +1,43 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb-base",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": ["react", "react-native", "import", "prettier"],
+  "settings": {
+    "import/ignore": ["node_modules", ".png$", ".jpg$"],
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": true
+      }
+    ],
+    "linebreak-style": ["error", "windows"],
+    "arrow-body-style": ["warn", "as-needed"],
+    "arrow-parens": ["error", "always"],
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "none"
+      }
+    ],
+    "radix": ["error", "as-needed"],
+    "prefer-destructuring": "off"
+  }
+}

@@ -29,13 +29,6 @@ module.exports = {
       /(.+)?angular(\\|\/)core(.+)?/,
       path.join(__dirname, 'src'), // location of your src
       {} // a map of your routes
-    ),
-    // TODO: this is not working, tries to remove build warning, when including
-    // @sitecore-jss/sitecore-jss in server.ts
-    // for "WARNING Critical dependency: the request of a dependency is an expression"
-    new webpack.ContextReplacementPlugin(
-      /(.+)?sitecorelabs(\\|\/)sitecore-jss(.+)?/,
-      path.join(__dirname, 'src')
     )
   ]
 }

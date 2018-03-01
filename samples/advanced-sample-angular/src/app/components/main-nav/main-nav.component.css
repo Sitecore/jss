@@ -1,0 +1,12 @@
+.toolbar {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.home {
+  justify-self: start;
+}
+
+.navigation {
+  justify-self: end;
+}

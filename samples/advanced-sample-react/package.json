@@ -1,49 +1,35 @@
 {
   "name": "sitecore-jss-advancedapp",
-  "version": "6.1.0",
+  "version": "7.0.0",
   "description": "An opinionated and full-featured app utilizing Sitecore JavaScript Services.",
   "config": {
-    "appName": "JssAdvancedApp",
-    "sitecoreDistPath": "/dist/JssAdvancedApp",
+    "appName": "JssAdvancedAppReactWeb",
+    "sitecoreDistPath": "/dist/JssAdvancedAppReactWeb",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
-    "buildArtifactsPathDev": "./dist/dev",
-    "buildArtifactsPathProd": "./dist/prod",
-    "buildArtifactsPathStatic": "./dist/static",
+    "buildArtifactsPath": "./dist",
     "staticOutputPublicPath": "/",
     "routeDataDir": "./data/routes",
     "language": "en"
   },
   "scripts": {
-    "setup": "scjss-setup",
-    "start": "npm run clean:dev && node ./internals/build/start.js",
-    "start:connected": "npm run clean:dev && node ./internals/build/start-connected.js",
-    "deploy-config": "scjss-verify-setup && cross-env-shell scjss-deploy --sourcePath ./sitecore/config --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreConfigPath",
-    "deploy-codefirst": "npm run build && npm run generate-manifest && npm run generate-package-from-manifest && npm run deploy:from-package",
-    "deploy-codefirst:files-only": "npm run build && npm run generate-package-from-manifest:files-only && npm run deploy:from-package",
-    "deploy-codefirst:items-only": "npm run generate-manifest && npm run generate-package-from-manifest:items-only && npm run deploy:from-package",
-    "deploy-codefirst:no-content": "npm run generate-manifest:no-content && npm run generate-package-from-manifest:items-only && npm run deploy:from-package",
-    "deploy-sitecorefirst": "scjss-verify-setup && npm run build && npm run deploy:copy-files",
-    "watch-sitecorefirst": "webpack --config ./internals/build/webpack/webpack.dev.watch.js --color --progress",
-    "build": "npm run clean:prod && webpack --config ./internals/build/webpack/webpack.prod.js --color --progress",
-    "build:static": "npm run clean:static && webpack --config ./internals/build/webpack/webpack.static.js --color --progress",
-    "pull-route-data": "cross-env-shell node ./internals/build/pull.js --language $npm_package_config_language --layoutServiceHost {layoutServiceHost} --apiKey {apiKey} --outputPath $npm_package_config_routeDataDir",
-    "pull-all-route-data": "cross-env-shell node ./internals/build/pull.js --all --language $npm_package_config_language --layoutServiceHost {layoutServiceHost} --apiKey {apiKey} --routeDataDir $npm_package_config_routeDataDir",
-    "generate-manifest": "cross-env-shell scjss-manifest generate --files ./src/**/*.sitecore.js ./data/**/*.sitecore.js --compilers babel-core/register --appName $npm_package_config_appName --viewEngine react --outputPath ./sitecore/manifest/sitecore-import.json --language $npm_package_config_language --pipelinePatchFiles ./internals/pipelines/**/*.patch.js",
-    "generate-manifest:no-content": "npm run generate-manifest -- --excludeItems --excludeMedia",
-    "generate-package-from-manifest": "scjss-verify-setup && cross-env-shell scjss-package-generate --buildPath $npm_package_config_buildArtifactsPathProd --outputPath ./sitecore/update-package --sitecoreDistPath $npm_package_config_sitecoreDistPath --appName $npm_package_config_appName --manifestPath ./sitecore/manifest --manifestFileName sitecore-import.json",
-    "generate-package-from-manifest:files-only": "scjss-verify-setup && cross-env-shell scjss-package-generate --buildPath $npm_package_config_buildArtifactsPathProd --outputPath ./sitecore/update-package --sitecoreDistPath $npm_package_config_sitecoreDistPath --appName $npm_package_config_appName --noManifest",
-    "generate-package-from-manifest:items-only": "scjss-verify-setup && cross-env-shell scjss-package-generate --outputPath ./sitecore/update-package --noDist --appName $npm_package_config_appName --manifestPath ./sitecore/manifest --manifestFileName sitecore-import.json",
-    "deploy:from-package": "cross-env-shell scjss-package-deploy --packagePath ./sitecore/update-package --appName $npm_package_config_appName --shipUrl {shipUrl}",
-    "deploy:copy-files": "scjss-verify-setup && cross-env-shell scjss-deploy --sourcePath $npm_package_config_buildArtifactsPathProd --destinationPath {sitecoreInstancePath}$npm_package_config_sitecoreDistPath --excludeFile index.html",
-    "clean:dev": "cross-env-shell node ./internals/build/clean.js --path $npm_package_config_buildArtifactsPathDev",
-    "clean:prod": "cross-env-shell node ./internals/build/clean.js --path $npm_package_config_buildArtifactsPathProd",
-    "clean:static": "cross-env-shell node ./internals/build/clean.js --path $npm_package_config_buildArtifactsPathStatic"
+    "jss": "jss",
+    "start": "jss clean && node -r babel-register ./build/start.js --env.content=disconnected",
+    "start:connected": "scjss-verify-setup && jss clean && node -r babel-register ./build/start.js --env.content=connected",
+    "deploy:watch": "scjss-verify-setup && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.watch --env.outputPath=sitecore",
+    "build": "jss clean && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.production",
+    "build:static": "jss clean && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.static.js --color --progress --env.content=disconnected --env.publicPath=$npm_package_config_staticOutputPublicPath --env.production",
+    "lint": "eslint ./src/**/*.js ./sitecore/definitions/**/*.js ./build/**/*.js ./lib/**/*.js",
+    "pull-route-data": "cross-env-shell node ./build/pull.js --language $npm_package_config_language --layoutServiceHost {layoutServiceHost} --apiKey {apiKey} --outputPath $npm_package_config_routeDataDir --format yml --layoutServiceConfiguration jss-advanced-react",
+    "pull-all-route-data": "cross-env-shell node ./build/pull.js --all --language $npm_package_config_language --layoutServiceHost {layoutServiceHost} --apiKey {apiKey} --routeDataDir $npm_package_config_routeDataDir --format yml --layoutServiceConfiguration jss-advanced-react"
   },
   "babel": {
     "presets": [
       "env",
       "react",
       "stage-0"
+    ],
+    "plugins": [
+      "babel-plugin-inline-import"
     ]
   },
   "author": {
@@ -61,11 +47,13 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^6.1.0",
+    "@sitecore-jss/sitecore-jss-react": "^7.0.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^3.3.7",
     "deep-extend": "^0.5.0",
     "font-awesome": "^4.7.0",
+    "graphql": "^0.12.3",
+    "graphql-tag": "^2.6.1",
     "history": "^4.7.2",
     "i18next": "^8.4.3",
     "i18next-fetch-backend": "0.0.1",
@@ -84,11 +72,13 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^6.1.0",
-    "@sitecore-jss/sitecore-jss-manifest": "^6.1.0",
+    "@sitecore-jss/sitecore-jss-cli": "^7.0.0",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^7.0.0",
+    "@sitecore-jss/sitecore-jss-manifest": "^7.0.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
+    "babel-plugin-inline-import": "^2.0.6",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -98,19 +88,22 @@
     "css-loader": "^0.28.9",
     "del": "^3.0.0",
     "eslint": "^4.16.0",
-    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-import-resolver-webpack": "^0.8.4",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.6",
+    "file-loader": "1.1.7",
     "fs-extra": "^3.0.1",
     "isomorphic-fetch": "^2.2.1",
+    "js-yaml": "^3.10.0",
     "json-loader": "^0.5.7",
     "lodash.merge": "^4.6.0",
     "opn": "^5.1.0",
+    "prettier": "^1.10.2",
     "progress-bar-webpack-plugin": "^1.10.0",
+    "replace-ext": "^1.0.0",
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "url-loader": "^0.6.2",
@@ -121,9 +114,9 @@
   },
   "eslintConfig": {
     "extends": [
-      "airbnb",
       "plugin:import/errors",
-      "plugin:import/warnings"
+      "plugin:import/warnings",
+      "plugin:prettier/recommended"
     ],
     "parser": "babel-eslint",
     "env": {
@@ -135,7 +128,7 @@
     "settings": {
       "import/resolver": {
         "webpack": {
-          "config": "./internals/build/webpack/webpack.base.js",
+          "config": "./build/webpack/webpack.eslint.js",
           "config-index": 1
         }
       },
@@ -169,17 +162,7 @@
       "react/forbid-prop-types": "off",
       "react/no-danger": "off",
       "react/require-default-props": "off",
-      "react/no-array-index-key": "off",
-      "comma-dangle": [
-        "error",
-        {
-          "arrays": "always-multiline",
-          "objects": "always-multiline",
-          "imports": "never",
-          "exports": "never",
-          "functions": "ignore"
-        }
-      ]
+      "react/no-array-index-key": "off"
     }
   }
 }

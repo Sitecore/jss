@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/advancedapp-node-express",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "Advanced sample app for Sitecore JSS that works with node.js/express",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "Sitecore Corporation",
   "license": "SEE LICENSE IN LICENSE.MD",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-proxy": "^6.0.0",
+    "@sitecore-jss/sitecore-jss-proxy": "^7.0.0",
     "express": "^4.15.3",
     "ipaddr.js": "^1.5.4"
   },

@@ -1,0 +1,8 @@
+﻿{
+    "sitecore": {
+        "instancePath": "C:\\inetpub\\wwwroot\\jssu2qa\\jssu2qa\\Website",
+        "shipUrl": "http://jssadvancedappangular/ship/services/package/install/fileupload",
+        "layoutServiceHost": "http://jssadvancedappangular",
+        "apiKey": "4B0EEBDB-3DE4-43DE-AC83-76A9BB920730"
+    }
+}
