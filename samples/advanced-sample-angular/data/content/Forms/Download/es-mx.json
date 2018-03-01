@@ -1,0 +1,13 @@
+{
+  "name": "Download",
+  "displayName": "Download",
+  "template": "FormContent",
+  "fields": {
+    "title": {
+      "value": "Hello World"
+    },
+    "body": {
+      "value": "<p> <strong> <em>Tenga en cuenta que si usted es un licenciatario existente o nuevo o Whack Whack estrellas Soluciones Solution Partner con un acuerdo válido para utilizar la estrella Soluciones Software Whack Whack ( 'existente Acuerdo'), el contrato de licencia a continuación no pretende de ninguna manera modificar o reemplazar el Acuerdo existente. Si sus conflictos acuerdo existente con el acuerdo de licencia a continuación, los términos de su contrato existente prevalecerán.</em> </strong>&nbsp; </p> <p>&nbsp;</p> <p align='center'> <b> <span>Whack Whack estrella Soluciones Acuerdo de licencia</span> </b> </p> <p> <b> <span>USO DE LA LICENCIA DE Whack Whack estrella soluciones de software supone la aceptación plena de las LICENCIATARIO DE LOS TÉRMINOS, CONDICIONES, RENUNCIAS Y RESTRICCIONES licencia establecida en este acuerdo. </span> </b> </p> <p> <b> <span>1. <u>Concesión de licencia</u></span> </b> <span> Con el pago de la totalidad de los derechos de licencia, el Licenciante concede al Licenciatario una licencia no exclusiva e intransferible y no asignable, perpetua, no transferible a terceros, sin limitaciones de tiempo, utilizar las soluciones de software Whack Whack estrella en apoyado configuraciones como se describe en la documentación, en cumplimiento con las leyes aplicables, en forma de código objeto sólo, </span> </p>"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+
+export const environment = {
+  production: true,
+  scConnected: true,
+  deployUrl: '<%= DEPLOY_URL %>',
+  scApiHost: '',
+  scApiKey: '<%= SC_API_KEY %>',
+  scAppName: '<%= SC_APP_NAME %>',
+  scLayoutServiceConfig: 'jss-advanced-angular',
+  defaultLanguage: 'en',
+  defaultServerRoute: '/',
+};

@@ -1,0 +1,41 @@
+{
+  "pageEditing": false,
+  "navigation": [
+    {
+      "name": "Home",
+      "path": "/",
+      "children": [
+        {
+          "name": "About",
+          "path": "/about"
+        },
+        {
+          "name": "Services",
+          "path": "/services",
+          "children": [
+            {
+              "name": "Development",
+              "path": "/services/development"
+            },
+            {
+              "name": "Marketing",
+              "path": "/services/marketing"
+            },
+            {
+              "name": "Cat Grooming",
+              "path": "/services/cats"
+            }
+          ]
+        },
+        {
+          "name": "Portfolio",
+          "path": "/portfolio"
+        },
+        {
+          "name": "Contact",
+          "path": "/contact"
+        }
+      ]
+    }
+  ]
+}

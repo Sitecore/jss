@@ -1,0 +1,20 @@
+<ng-container [ngSwitch]="size">
+  <ng-container *ngSwitchCase="2">
+    <h2 *scRichText="field"></h2>
+  </ng-container>
+  <ng-container *ngSwitchCase="3">
+    <h3 *scRichText="field"></h3>
+  </ng-container>
+  <ng-container *ngSwitchCase="4">
+    <h4 *scRichText="field"></h4>
+  </ng-container>
+  <ng-container *ngSwitchCase="5">
+    <h5 *scRichText="field"></h5>
+  </ng-container>
+  <ng-container *ngSwitchCase="6">
+    <h6 *scRichText="field"></h6>
+  </ng-container>
+  <ng-container *ngSwitchDefault>
+    <h1 *scRichText="field"></h1>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,41 @@
+{
+  "pageEditing": false,
+  "navigation": [
+    {
+      "name": "Inicio",
+      "path": "/",
+      "children": [
+        {
+          "name": "Acera De",
+          "path": "/about"
+        },
+        {
+          "name": "Servicios",
+          "path": "/services",
+          "children": [
+            {
+              "name": "Desarrollo",
+              "path": "/services/development"
+            },
+            {
+              "name": "Márketing",
+              "path": "/services/marketing"
+            },
+            {
+              "name": "Preparación del gato",
+              "path": "/services/cats"
+            }
+          ]
+        },
+        {
+          "name": "Portafolio",
+          "path": "/portfolio"
+        },
+        {
+          "name": "Contacto",
+          "path": "/contact"
+        }
+      ]
+    }
+  ]
+}

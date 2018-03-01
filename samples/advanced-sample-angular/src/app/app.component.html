@@ -1,0 +1,10 @@
+<section class="header">
+  <app-main-nav></app-main-nav>
+</section>
+<section class="body">
+  <router-outlet></router-outlet>
+</section>
+<section class="footer">
+  &copy;
+  <span translate [translateParams]="{ year: year }">Copyright</span>
+</section>
