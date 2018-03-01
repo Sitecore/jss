@@ -3,8 +3,9 @@
 // For instance, you may to wish to have data stored in static files, or in separate .js functions, or whatever...
 
 import { convertRouteToLayoutServiceFormat } from '@sitecore-jss/sitecore-jss';
+import { DataModels } from '@sitecore-jss/sitecore-jss/types/customTypes/dataModels';
 
-export const routes = {
+export const routes: { home: DataModels.LayoutService.RouteData } = {
   home: {
     name: 'home',
     displayName: 'Home', // For Sitecore purposes only, will be used as the DisplayName of the route item

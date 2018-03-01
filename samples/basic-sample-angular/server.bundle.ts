@@ -3,7 +3,6 @@ import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 import { renderModuleFactory } from '@angular/platform-server';
 import { enableProdMode } from '@angular/core';
-import { convertRawLayoutData } from '@sitecore-jss/sitecore-jss';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 
@@ -41,8 +40,7 @@ function renderView (callback, path, data, viewBag) {
   state.viewBag = parsedViewBag;
 
   if (parsedData) {
-    const convertedData = convertRawLayoutData(parsedData);
-    state.sitecore = convertedData.sitecore;
+    state.sitecore = parsedData.sitecore;
   }
 
   renderModuleFactory(AppServerModuleNgFactory, {

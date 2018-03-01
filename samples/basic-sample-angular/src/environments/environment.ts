@@ -1,4 +1,4 @@
-import { getRouteData } from '../app/data';
+import { getRouteData } from '../../sitecore/definitions/data';
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
