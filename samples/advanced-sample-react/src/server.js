@@ -8,7 +8,6 @@ import createMemoryHistory from 'history/createMemoryHistory';
 import Root from 'boot/Root';
 import { init as initStore } from 'boot/store';
 import initialState from 'boot/initialState';
-import { convertRawLayoutData } from '@sitecore-jss/sitecore-jss-react';
 import App from 'app/components/AppContainer';
 import { parseRouteUrl } from 'app/sitecoreRoutes';
 import { resolveCurrentRoute, i18nInit } from 'app/i18n';
@@ -35,8 +34,7 @@ const renderView = (callback, path, data, viewBag) => {
   state.viewBag = parsedViewBag;
 
   if (parsedData) {
-    const convertedData = convertRawLayoutData(parsedData);
-    state.sitecore = convertedData.sitecore;
+    state.sitecore = parsedData.sitecore;
   }
 
   // init i18n

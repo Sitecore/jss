@@ -1,37 +1,37 @@
-import DataProvider from 'data-provider';
-import { types } from './actionTypes';
+import SitecoreContentService from "../../../../lib/SitecoreContentService";
+import { types } from "./actionTypes";
 
-export * from 'enhancers/commonActions';
+export * from "enhancers/commonActions";
 
-export const showDownloadForm = (contentRoute, language) => (dispatch) => {
+export const showDownloadForm = (contentRoute, language) => dispatch => {
   dispatch({
     type: types.CONTENT_REQUEST_STARTED,
     payload: {
-      route: contentRoute,
-    },
+      route: contentRoute
+    }
   });
 
-  DataProvider.getItemData(contentRoute, language)
-    .then((data) => {
+  SitecoreContentService.getItemData(contentRoute, language)
+    .then(data => {
       dispatch({
         type: types.CONTENT_REQUEST_COMPLETED,
         payload: {
           route: contentRoute,
-          data,
-        },
+          data
+        }
       });
       dispatch({
         type: types.VISIBILITY_TOGGLED,
         payload: {
-          show: true,
-        },
+          show: true
+        }
       });
     })
-    .catch((err) => {
+    .catch(err => {
       dispatch({
         type: types.CONTENT_REQUEST_FAILED,
         payload: err,
-        error: true,
+        error: true
       });
       console.error(err);
     });
@@ -40,6 +40,6 @@ export const showDownloadForm = (contentRoute, language) => (dispatch) => {
 export const hideDownloadForm = () => ({
   type: types.VISIBILITY_TOGGLED,
   payload: {
-    show: false,
-  },
+    show: false
+  }
 });
