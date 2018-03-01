@@ -1,15 +1,14 @@
-/* global __SC_ROOT_PLACEHOLDER_KEY__ */
-
 const initialState = () => ({
   sitecore: {
     context: {
-      pageEditing: false
+      pageEditing: false,
+      language: "en"
     },
     route: {
       placeholders: {}
     }
   },
-  viewBag: {},
+  viewBag: {}
 });
 
 // allows consumers to mutate the object without interfering with other imports

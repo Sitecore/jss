@@ -21,4 +21,4 @@ Disconnected development is appropriate when no Sitecore instance is available, 
 * Review the application config patch file in `sitecore/config` to ensure that it is configured appropriately for your Sitecore installation.
 * `npm run deploy-config` to deploy the Sitecore config patch file to the Sitecore instance (you may need to add the `hostName` to your `hosts` file)
 * Use `npm run deploy-codefirst` to deploy the sample to Sitecore
-* Visit `http://jssbasicapp` to see the demonstration running in Sitecore
+* Visit `http://JssBasicAppReactWeb` to see the demonstration running in Sitecore

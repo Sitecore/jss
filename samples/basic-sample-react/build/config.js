@@ -11,20 +11,22 @@
 // so if it doesn't we substitute a fake object
 var config;
 try {
-  config = require('../../scjssconfig.json');
-} catch(e) {
+  config = require("../scjssconfig.json");
+} catch (e) {
   config = {
     sitecore: {
-      layoutServiceHost: ''
+      layoutServiceHost: ""
     }
   };
 }
 
-const packageConfig = require('../../package.json').config;
+const packageConfig = require("../package.json").config;
 
 // add calculated configuration settings
 const calculatedConfig = {
-  translationPath: `/sitecore/api/jss/dictionary/${packageConfig.appName}/{{lng}}`,
+  translationPath: `/sitecore/api/jss/dictionary/${
+    packageConfig.appName
+  }/{{lng}}`,
   devServerPort: 3001
 };
 

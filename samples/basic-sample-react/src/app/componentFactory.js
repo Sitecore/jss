@@ -1,9 +1,9 @@
-import Welcome from './components/Welcome';
+import Welcome from "./components/Welcome";
 
 const components = new Map();
-components.set('Welcome', Welcome);
+components.set("Welcome", Welcome);
 
-const componentFactory = (componentName) => {
+const componentFactory = componentName => {
   return components.get(componentName);
 };
 
