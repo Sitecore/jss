@@ -1,6 +1,6 @@
-import React from "react";
-import GraphQLData from "../../../../lib/GraphQL/GraphQLData";
-import ContextQuery from "./ContextItem.graphql";
+import React from 'react';
+import GraphQLData from '../../../../lib/GraphQL/GraphQLData';
+import ContextQuery from './ContextItem.graphql';
 
 // An example component that pulls data from the context (page) item
 // This component is statically bound on the app, but could also be used as a dynamic rendering
@@ -12,12 +12,12 @@ import ContextQuery from "./ContextItem.graphql";
 const ContextItem = ({ data: { item, loading, error }, copyright }) => {
   // handle loading and query errors easily
   if (loading) return <span>Loading...</span>;
-  if (error) return <span>Error loading component. {data.error.message}</span>;
+  if (error) return <span>Error loading component. {error.message}</span>;
 
   // render component
   return (
     <div>
-      You're looking at
+      You&apos;re looking at
       <img src={item.icon} width="16" height="16" alt={item.displayName} />
       {item.displayName}
       (<small>

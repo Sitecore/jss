@@ -11,7 +11,8 @@ const TwoColumn = ({ style, rendering, ...otherProps }) => (
     <div className="col-md-6">
       <Placeholder name="col2" rendering={rendering} {...otherProps} />
     </div>
-  </div>);
+  </div>
+);
 
 TwoColumn.propTypes = {
   style: PropTypes.object,

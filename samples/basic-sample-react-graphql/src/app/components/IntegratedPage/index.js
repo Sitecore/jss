@@ -1,5 +1,5 @@
-import React from "react";
-import { Text, RichText, Image } from "@sitecore-jss/sitecore-jss-react";
+import React from 'react';
+import { Text, RichText, Image } from '@sitecore-jss/sitecore-jss-react';
 
 // A simple example of a JSS + GraphQL component, with GraphQL
 // data loaded integrated along with the Sitecore Layout Service call that retrieves the layout data.
@@ -23,7 +23,7 @@ const IntegratedPage = ({ fields, copyright }) => {
     return (
       <div>
         <h4>Error loading component.</h4>
-        {fields.errors.map(error => <p key={error.message}>{error.message}</p>)}
+        {fields.errors.map((error) => <p key={error.message}>{error.message}</p>)}
       </div>
     );
   }
@@ -39,20 +39,11 @@ const IntegratedPage = ({ fields, copyright }) => {
       </div>
       <div id="Content">
         <div id="LeftContent">
-          <Text
-            tag="h1"
-            className="contentTitle"
-            field={datasource.title.jss}
-          />
-          <RichText
-            className="contentDescription"
-            field={datasource.text.jss}
-          />
+          <Text tag="h1" className="contentTitle" field={datasource.title.jss} />
+          <RichText className="contentDescription" field={datasource.text.jss} />
 
           <h3>My Children</h3>
-          {context.children.map(child => (
-            <div key={child.displayName}>{child.displayName}</div>
-          ))}
+          {context.children.map((child) => <div key={child.displayName}>{child.displayName}</div>)}
           {context.children.length === 0 && <div>No child items</div>}
         </div>
       </div>
@@ -65,7 +56,7 @@ const IntegratedPage = ({ fields, copyright }) => {
 };
 
 IntegratedPage.defaultProps = {
-  copyright: "Copyright Sitecore A/S"
+  copyright: 'Copyright Sitecore A/S',
 };
 
 export default IntegratedPage;

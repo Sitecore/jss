@@ -4,12 +4,20 @@ import { commonComponent } from 'enhancers';
 import { Text } from '@sitecore-jss/sitecore-jss-react';
 import DownloadModal from 'ui/components/DownloadModal';
 
-const DownloadCallout = props => (
+const DownloadCallout = (props) => (
   <div style={props.style}>
-    <button className="btn btn-primary btn-lg" onClick={() => props.actions.showDownloadForm('/content/forms/download', props.language)}>
+    <button
+      className="btn btn-primary btn-lg"
+      onClick={() => props.actions.showDownloadForm('/content/forms/download', props.language)}
+    >
       <Text field={props.fields.linkText} tag="span" />
     </button>
-    <DownloadModal loading={props.loading} data={props.data} show={props.show} onHide={() => props.actions.hideDownloadForm()} />
+    <DownloadModal
+      loading={props.loading}
+      data={props.data}
+      show={props.show}
+      onHide={() => props.actions.hideDownloadForm()}
+    />
   </div>
 );
 
@@ -28,7 +36,6 @@ DownloadCallout.propTypes = {
   }),
 };
 
-DownloadCallout.styles = {
-};
+DownloadCallout.styles = {};
 
 export default commonComponent(DownloadCallout);

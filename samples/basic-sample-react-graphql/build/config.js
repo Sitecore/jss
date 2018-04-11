@@ -1,6 +1,6 @@
 /*
   Config Factory
-  Extensible config factory that allows dynamic remapping of the config 
+  Extensible config factory that allows dynamic remapping of the config
   e.g. for swapping config out by environments, or to enable computed configurations
   that can be overridden
 */
@@ -9,28 +9,27 @@
 
 // scjssconfig.json may not exist if you've never run setup
 // so if it doesn't we substitute a fake object
-var config;
+let config;
 try {
-  config = require("../scjssconfig.json");
+  // eslint-disable-next-line
+  config = require('../scjssconfig.json');
 } catch (e) {
   config = {
     sitecore: {
-      layoutServiceHost: ""
-    }
+      layoutServiceHost: '',
+    },
   };
 }
 
-const packageConfig = require("../package.json").config;
+const packageConfig = require('../package.json').config;
 
 // add calculated configuration settings
 const calculatedConfig = {
-  translationPath: `/sitecore/api/jss/dictionary/${
-    packageConfig.appName
-  }/{{lng}}`,
+  translationPath: `/sitecore/api/jss/dictionary/${packageConfig.appName}/{{lng}}`,
   devServerPort: 3001,
   graphQLEndpoint: `${config.sitecore.layoutServiceHost}${
     packageConfig.graphQLEndpointPath
-  }?sc_apikey=${config.sitecore.apiKey}`
+  }?sc_apikey=${config.sitecore.apiKey}`,
 };
 
 // optional:

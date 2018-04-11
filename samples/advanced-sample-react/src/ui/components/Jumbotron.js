@@ -4,10 +4,13 @@ import { commonComponent } from 'enhancers';
 import Heading from 'ui/components/Heading';
 import { RichText } from '@sitecore-jss/sitecore-jss-react';
 
-const Jumbotron = props => (
+const Jumbotron = (props) => (
   <div style={props.style} className="sc-jumbotron">
-    { /* Example of "falling back" to route field over datasource field. */}
-    <Heading params={{ size: props.params.titleSize }} fields={{ text: props.fields.titleText || props.routeFields.titleText }} />
+    {/* Example of "falling back" to route field over datasource field. */}
+    <Heading
+      params={{ size: props.params.titleSize }}
+      fields={{ text: props.fields.titleText || props.routeFields.titleText }}
+    />
     <hr className={props.params.shade} />
     <RichText field={props.fields.body || props.routeFields.body} />
   </div>
@@ -39,7 +42,6 @@ Jumbotron.defaultProps = {
   },
 };
 
-Jumbotron.styles = {
-};
+Jumbotron.styles = {};
 
 export default commonComponent(Jumbotron);

@@ -13,7 +13,6 @@ module.exports = {
   // this makes sure we include node_modules and other 3rd party libraries
   externals: [/(node_modules|main\..*\.js)/],
   output: {
-    path: path.join(__dirname, 'dist'),
     filename: '[name].bundle.js',
     libraryTarget: 'commonjs' // ensures server.ts renderView is exposed as a public method.
   },
@@ -23,6 +22,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.NormalModuleReplacementPlugin(/\.\.\/environments\/environment/, '../environments/environment.server'),
     // Temporary Fix for issue: https://github.com/angular/angular/issues/11580
     // for "WARNING Critical dependency: the request of a dependency is an expression"
     new webpack.ContextReplacementPlugin(

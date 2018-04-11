@@ -19,7 +19,6 @@ Home.propTypes = {
   rendering: PropTypes.object,
 };
 
-Home.styles = {
-};
+Home.styles = {};
 
 export default commonComponent(Home);

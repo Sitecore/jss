@@ -1,12 +1,12 @@
 /* global __BUNDLE_OUTPUT_PATH__ */
 
-import React from "react";
-import ReactDOM from "react-dom/server";
-import initialState from "boot/initialState";
-import Root from "boot/Root";
-import SitecoreContentService from "boot/SitecoreContentService";
-import SitecoreContextFactory from "boot/SitecoreContextFactory";
-import ServerHtml from "app/ServerHtml";
+import React from 'react';
+import ReactDOM from 'react-dom/server';
+import initialState from 'boot/initialState';
+import Root from 'boot/Root';
+import SitecoreContentService from 'boot/SitecoreContentService';
+import SitecoreContextFactory from 'boot/SitecoreContextFactory';
+import ServerHtml from 'app/ServerHtml';
 
 /*
   Main entry point to the application when run on a Node server.
@@ -36,11 +36,7 @@ export function renderView(callback, path, data, viewBag) {
 
         // <ServerHtml> is the HTML wrapper (head, etc) around the app contents when SSR-ing
         result.html = ReactDOM.renderToString(
-          <ServerHtml
-            content={content}
-            initialState={state}
-            distPath={__BUNDLE_OUTPUT_PATH__}
-          />
+          <ServerHtml content={content} initialState={state} distPath={__BUNDLE_OUTPUT_PATH__} />
         );
         callback(null, result);
       })
@@ -61,8 +57,7 @@ function parseServerData(data, viewBag) {
     over JSON serialization format.
   */
   const parsedData = data instanceof Object ? data : JSON.parse(data);
-  const parsedViewBag =
-    viewBag instanceof Object ? viewBag : JSON.parse(viewBag);
+  const parsedViewBag = viewBag instanceof Object ? viewBag : JSON.parse(viewBag);
 
   const state = initialState();
   state.viewBag = parsedViewBag;

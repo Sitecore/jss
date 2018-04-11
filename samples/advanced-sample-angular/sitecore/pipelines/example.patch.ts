@@ -7,4 +7,4 @@ export const config = (pipelines) => {
             return args;
         }
     });
-}
+};

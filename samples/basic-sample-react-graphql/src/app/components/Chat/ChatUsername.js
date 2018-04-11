@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // The chat UI that accepts your username when you're signing in to chat
 // If you're unfamiliar with React forms handling, see https://reactjs.org/docs/forms.html
@@ -8,7 +8,7 @@ class ChatUsername extends React.Component {
     super(props);
 
     this.state = {
-      username: ""
+      username: '',
     };
 
     this.updateUsername = this.updateUsername.bind(this);
@@ -33,12 +33,7 @@ class ChatUsername extends React.Component {
           <legend>Chat</legend>
 
           <label htmlFor="username">Who are you?</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={this.updateUsername}
-          />
+          <input type="text" id="username" value={username} onChange={this.updateUsername} />
           <button type="submit">Sign On</button>
         </fieldset>
       </form>

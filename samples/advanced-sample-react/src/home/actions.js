@@ -1,3 +1,1 @@
-import { types } from './actionTypes';
-
-export * from 'enhancers/commonActions';
+export * from '../enhancers/commonActions';

@@ -1,11 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom/server";
+import React from 'react';
+import ReactDOM from 'react-dom/server';
 
 // Component that renders the HTML shell around the application
 // when rendering on a Node server (SSR) or using webpack-dev-server or a static build
 
 const ServerHtml = ({ component, initialState, distPath }) => {
-  const content = component ? ReactDOM.renderToString(component) : "";
+  const content = component ? ReactDOM.renderToString(component) : '';
 
   return (
     <html>
@@ -18,7 +18,7 @@ const ServerHtml = ({ component, initialState, distPath }) => {
         {initialState && (
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.__data=${JSON.stringify(initialState)};`
+              __html: `window.__data=${JSON.stringify(initialState)};`,
             }}
           />
         )}

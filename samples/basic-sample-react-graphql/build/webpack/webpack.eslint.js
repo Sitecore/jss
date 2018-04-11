@@ -1,3 +1,3 @@
-require("babel-core/register");
+require('babel-core/register');
 
-module.exports = require("./webpack.client.js");
+module.exports = require('./webpack.client.js');

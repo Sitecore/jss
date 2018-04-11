@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { commonComponent } from 'enhancers';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-react';
+import { commonComponent } from '../../enhancers';
 
-const Page = props => (
+const Page = (props) => (
   <div style={props.style}>
     <Placeholder
       name="main"

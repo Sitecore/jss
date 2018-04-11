@@ -1,9 +1,11 @@
-export default (manifest) => {
+import { Manifest, CommonFieldTypes } from '@sitecore-jss/sitecore-jss-manifest';
+
+export default (manifest: Manifest) => {
     manifest.addComponent({
         name: 'ServiceList',
         displayName: 'Service List',
         fields: [
-            { name: 'items', displayName: 'Items', type: manifest.fieldTypes.contentList },
+            { name: 'items', displayName: 'Items', type: CommonFieldTypes.ContentList },
         ],
     });
 
@@ -11,8 +13,8 @@ export default (manifest) => {
         name: 'ServiceList-items-Item', // manifest generator hard-coded format is 'TemplateName-FieldName-Item'
         displayName: 'Service List Item',
         fields: [
-            { name: 'title', displayName: 'Title', type: manifest.fieldTypes.singleLineText },
-            { name: 'description', displayName: 'Description', type: manifest.fieldTypes.richText },
+            { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText },
+            { name: 'description', displayName: 'Description', type: CommonFieldTypes.RichText },
         ],
     });
 };

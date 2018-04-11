@@ -38,7 +38,7 @@ function renderView (callback, path, data, viewBag) {
     },
     language: '',
     serverRoute: '',
-    viewBag: parsedViewBag
+    viewBag: parsedViewBag,
   };
 
   if (parsedData) {

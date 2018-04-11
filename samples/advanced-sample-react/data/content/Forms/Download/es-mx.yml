@@ -1,4 +1,8 @@
 name: Download
+# id: a string (unique app-wide) or GUID that sets the ID when imported into Sitecore
+#     the id is generated based on the `name` if it is unspecified. Useful for internal links.
+#     NOTE: the same ID must be specified in all languages for a multilingual setup.
+id: download-form-content
 template: FormContent
 fields:
   title:

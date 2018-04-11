@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, RefreshControl } from 'react-native';
 import { Placeholder, SitecoreContext } from '@sitecore-jss/sitecore-jss-react-native';
+// eslint-disable-next-line
 import { getRouteData } from 'data-service';
 import componentFactory from './componentFactory';
 

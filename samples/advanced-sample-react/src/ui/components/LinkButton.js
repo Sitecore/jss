@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { commonComponent } from 'enhancers';
 import { Link } from '@sitecore-jss/sitecore-jss-react';
 
-const LinkButton = ({ fields }) =>
-  <Link field={fields.link} />;
+const LinkButton = ({ fields }) => <Link field={fields.link} />;
 
 LinkButton.propTypes = {
   fields: PropTypes.shape({

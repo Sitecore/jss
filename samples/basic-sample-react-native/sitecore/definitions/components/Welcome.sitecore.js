@@ -1,11 +1,13 @@
+import { addComponent, CommonFieldTypes } from '@sitecore-jss/sitecore-jss-manifest';
+
 export default (manifest) => {
-  manifest.addComponent({
+  addComponent(manifest, {
     name: 'Welcome',
     displayName: 'Welcome',
     fields: [
-      { name: 'title', type: manifest.fieldTypes.singleLineText },
-      { name: 'text', type: manifest.fieldTypes.richText },
-      { name: 'logoImage', type: manifest.fieldTypes.image },
+      { name: 'title', type: CommonFieldTypes.SingleLineText },
+      { name: 'text', type: CommonFieldTypes.RichText },
+      { name: 'logoImage', type: CommonFieldTypes.Image },
     ],
   });
 };

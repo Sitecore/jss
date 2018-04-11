@@ -12,7 +12,7 @@ placeholders:
       text:
         value: |
           <p>This is an example of using Sitecore JSS with the power of the
-          Sitecore Experience Graph APIs. The content for this page was acquired using GraphQL 
+          Sitecore Experience Graph APIs. The content for this page was acquired using GraphQL
           queries to reshape the rendering data provided by Sitecore's Layout Service, using the <code>IntegratedPage</code> component.</p>
       logoImage:
         value:

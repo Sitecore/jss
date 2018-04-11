@@ -1,0 +1,28 @@
+name: wizard
+displayName: Wizard
+placeholders:
+  main:
+  - componentName: Wizard
+    placeholders:
+      steps:
+      - componentName: StepReference
+        fields:
+          stepName:
+            value: Step 1
+          stepLink:
+            value:
+              href: "/step1"
+      - componentName: StepReference
+        fields:
+          stepName:
+            value: Step 2
+          stepLink:
+            value:
+              href: "/step2"
+      - componentName: StepReference
+        fields:
+          stepName:
+            value: Step 3
+          stepLink:
+            value:
+              href: "/step3"

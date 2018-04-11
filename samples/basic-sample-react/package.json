@@ -1,6 +1,6 @@
 {
-  "name": "sitecore-jss-basicapp",
-  "version": "7.0.0",
+  "name": "jss-sample-basicapp-reactweb",
+  "version": "8.0.0",
   "description": "A basic app utilizing Sitecore JavaScript Services.",
   "config": {
     "appName": "JssBasicAppReactWeb",
@@ -17,11 +17,9 @@
     "start:connected": "scjss-verify-setup && jss clean && node -r babel-register ./build/start.js --env.content=connected",
     "deploy:watch": "scjss-verify-setup && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.watch --env.outputPath=sitecore",
     "build": "jss clean && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.production",
-    "build:static": "jss clean && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.static.js --color --progress --env.content=disconnected --env.publicPath=$npm_package_config_staticOutputPublicPath --env.production",
-    "lint": "eslint ./src/**/*.js ./sitecore/definitions/**/*.js ./build/**/*.js ./lib/**/*.js",
-    "pull-route-data": "cross-env-shell node ./build/pull.js --language $npm_package_config_language --layoutServiceHost {layoutServiceHost} --apiKey {apiKey} --outputPath $npm_package_config_routeDataDir",
-    "pull-all-route-data": "cross-env-shell node ./build/pull.js --all --language $npm_package_config_language --layoutServiceHost {layoutServiceHost} --apiKey {apiKey} --routeDataDir $npm_package_config_routeDataDir"
+    "lint": "eslint --fix ./src/**/*.js ./sitecore/definitions/**/*.js ./build/**/*.js ./lib/**/*.js"
   },
+  "private": true,
   "babel": {
     "presets": [
       "env",
@@ -47,16 +45,17 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^7.0.1",
+    "@sitecore-jss/sitecore-jss-react": "^8.0.0",
     "babel-polyfill": "^6.26.0",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^7.0.2",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^7.0.0",
-    "@sitecore-jss/sitecore-jss-manifest": "^7.0.0",
+    "@sitecore-jss/sitecore-jss-cli": "^8.0.0",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^8.0.0",
+    "@sitecore-jss/sitecore-jss-manifest": "^8.0.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
@@ -90,58 +89,5 @@
     "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.9.2",
     "webpack-dev-server": "^2.11.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:import/errors",
-      "plugin:import/warnings",
-      "plugin:prettier/recommended"
-    ],
-    "parser": "babel-eslint",
-    "env": {
-      "mocha": true
-    },
-    "plugins": [
-      "import"
-    ],
-    "settings": {
-      "import/resolver": {
-        "webpack": {
-          "config": "./build/webpack/webpack.eslint.js",
-          "config-index": 1
-        }
-      },
-      "import/ignore": [
-        "node_modules",
-        ".png$",
-        ".jpg$"
-      ]
-    },
-    "globals": {
-      "window": true,
-      "document": true
-    },
-    "rules": {
-      "import/no-duplicates": "off",
-      "import/no-named-as-default": "off",
-      "max-len": "off",
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": true,
-          "optionalDependencies": true
-        }
-      ],
-      "linebreak-style": [
-        "error",
-        "windows"
-      ],
-      "react/jsx-filename-extension": 0,
-      "import/prefer-default-export": "off",
-      "react/forbid-prop-types": "off",
-      "react/no-danger": "off",
-      "react/require-default-props": "off",
-      "react/no-array-index-key": "off"
-    }
   }
 }

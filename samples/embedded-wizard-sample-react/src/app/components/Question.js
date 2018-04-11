@@ -1,39 +1,38 @@
 import React from 'react';
+import { Text } from '@sitecore-jss/sitecore-jss-react';
 
 class Question extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            formValue: ''
-        };
-        this.handleChange = this.handleChange.bind(this);
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    if (this.props.onValueChange) {
+      this.props.onValueChange(this.props.fields.inputName.value, event.target.value);
+    }
+  }
+
+  render() {
+    const { fields, formValues } = this.props;
+    let value = formValues[fields.inputName.value];
+    if (!value) {
+      value = '';
     }
 
-    handleChange(event) {
-        this.setState({
-            formValue: event.target.value
-        });
-        var fields = this.props.fields;
-        if (this.props.onValueChange) {
-            this.props.onValueChange(this.props.fields.inputName.value, event.target.value);
-        }
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (this.props.fields.inputName.value != prevProps.fields.inputName.value) {
-            this.setState({
-                formValue: ''
-            });
-        }
-    }
-
-    render() {
-        const fields = this.props.fields;
-        return <div className="question">
-            <label htmlFor={fields.inputName.value} dangerouslySetInnerHTML={{__html: fields.label.editable}} />
-            <input value={this.state.formValue} type="text" name={fields.inputName.value} onChange={this.handleChange} />
-        </div>;
-    }
+    return (
+      <div className="question">
+        <Text tag="label" field={fields.label} />
+        <input
+          value={value}
+          type="text"
+          name={fields.inputName.value}
+          onChange={this.handleChange}
+        />
+      </div>
+    );
+  }
 }
 
 export default Question;

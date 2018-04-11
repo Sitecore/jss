@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, ImageBackground, Text as NativeText } from 'react-native';
 import { Text, RichText, Image } from '@sitecore-jss/sitecore-jss-react-native';
+// eslint-disable-next-line
 import { images } from 'static-assets';
 
 const styles = StyleSheet.create({
@@ -39,28 +40,26 @@ const richTextStyles = StyleSheet.create({
   },
 });
 
-const Welcome = ({ fields, copyright }) => {
-  return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={images['/assets/img/banner.jpg']}
-        style={styles.bgImage}
-        resizeMode="cover"
-      >
-        <Image media={fields.logoImage} style={styles.logoImage} />
-      </ImageBackground>
-      <View>
-        <Text style={styles.title} field={fields.title} />
-        <RichText style={styles.richTextContainer} field={fields.text} stylesheet={richTextStyles}>
-          {fields.text.editable}
-        </RichText>
-      </View>
-      <View style={styles.footer}>
-        <NativeText>{copyright}</NativeText>
-      </View>
+const Welcome = ({ fields, copyright }) => (
+  <View style={styles.container}>
+    <ImageBackground
+      source={images['/assets/img/banner.jpg']}
+      style={styles.bgImage}
+      resizeMode="cover"
+    >
+      <Image media={fields.logoImage} style={styles.logoImage} />
+    </ImageBackground>
+    <View>
+      <Text style={styles.title} field={fields.title} />
+      <RichText style={styles.richTextContainer} field={fields.text} stylesheet={richTextStyles}>
+        {fields.text.editable}
+      </RichText>
     </View>
-  );
-};
+    <View style={styles.footer}>
+      <NativeText>{copyright}</NativeText>
+    </View>
+  </View>
+);
 
 Welcome.propTypes = {
   fields: PropTypes.shape({

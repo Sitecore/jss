@@ -1,0 +1,10 @@
+rendering:
+  componentName: SampleRendering
+dataSource:
+  Title:
+    value: Components Page
+    editable: Components Page
+  Text:
+    value: I am some text, who knows where I'll be rendered? Enigma wrapped in a mystery enshrouded by a riddle.
+    editable: <p>I am some text, who knows where I'll be rendered? Enigma wrapped in a mystery enshrouded by a riddle.</p>
+placeholders: {}

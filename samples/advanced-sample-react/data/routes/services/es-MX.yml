@@ -14,8 +14,6 @@ placeholders:
         fields:
           titleText:
             value: "¡A su servicio!"
-          body:
-            value: ''
         params:
           shade: dark
           titleSize: '2'
