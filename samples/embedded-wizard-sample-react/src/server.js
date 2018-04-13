@@ -36,7 +36,7 @@ export function renderView(callback, path, data, viewBag) {
 
         // <ServerHtml> is the HTML wrapper (head, etc) around the app contents when SSR-ing
         result.html = ReactDOM.renderToString(
-          <ServerHtml content={content} initialState={state} distPath={__BUNDLE_OUTPUT_PATH__} />
+          <ServerHtml component={content} initialState={state} distPath={__BUNDLE_OUTPUT_PATH__} />
         );
         callback(null, result);
       })

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Placeholder, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
+import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import StepZilla from './StepZillaPatched';
 import Step from './Step';
 
@@ -24,16 +24,17 @@ class Wizard extends React.Component {
 
   render() {
     const { rendering, sitecoreContext } = this.props;
+    const childSteps = rendering.fields.data.item.children;
+
     if (sitecoreContext.pageEditing) {
-      return renderEditing(rendering);
+      return renderEditing(childSteps);
     }
 
-    /* Some creative use of route data here to allow Stepzilla to manage state. */
-    const steps = rendering.placeholders.steps.map((step, index) => ({
-      name: step.fields.stepName.value,
+    const steps = childSteps.map((step, index) => ({
+      name: step.displayName,
       component: (
         <Step
-          route={step.fields.stepLink.value.href}
+          route={step.url}
           onFormValueChange={this.onFormValueChange}
           formValues={this.state.formValues}
           key={`step${index}`}
@@ -49,11 +50,15 @@ class Wizard extends React.Component {
   }
 }
 
-const renderEditing = (rendering, context) => (
+const renderEditing = (childSteps, context) => (
   <div>
     <h1>Wizard Steps</h1>
     <ol>
-      <Placeholder name="steps" rendering={rendering} context={context} />
+      {childSteps.map((step) => (
+        <li key={step.url}>
+          <a href={step.url}>{step.displayName}</a>
+        </li>
+      ))}
     </ol>
   </div>
 );

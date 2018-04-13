@@ -37,7 +37,7 @@ if (window.__data) {
 }
 
 // render with initial route data
-SitecoreContentService.getRouteData('/').then((routeData) => {
+SitecoreContentService.getRouteData('/EmbeddedWizard/Wizard').then((routeData) => {
   if (routeData && routeData.sitecore && routeData.sitecore.context) {
     SitecoreContextFactory.setSitecoreContext(routeData.sitecore.context);
   }
