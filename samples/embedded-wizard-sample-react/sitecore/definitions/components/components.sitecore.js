@@ -1,18 +1,11 @@
 import { addComponent, CommonFieldTypes, SitecoreIcon } from '@sitecore-jss/sitecore-jss-manifest';
+import WizardQuery from './Wizard.sitecore.graphql';
 
 export default (manifest) => {
   addComponent(manifest, {
     name: 'Wizard',
-    placeholders: [{ name: 'steps' }],
     icon: SitecoreIcon.Step,
-  });
-
-  addComponent(manifest, {
-    name: 'StepReference',
-    fields: [
-      { name: 'stepName', type: CommonFieldTypes.SingleLineText },
-      { name: 'stepLink', type: CommonFieldTypes.GeneralLink },
-    ],
+    graphQLQuery: WizardQuery,
   });
 
   addComponent(manifest, {

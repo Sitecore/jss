@@ -16,7 +16,7 @@ class Question extends React.Component {
 
   render() {
     const { fields, formValues } = this.props;
-    let value = formValues[fields.inputName.value];
+    let value = formValues && formValues[fields.inputName.value];
     if (!value) {
       value = '';
     }
@@ -27,7 +27,7 @@ class Question extends React.Component {
         <input
           value={value}
           type="text"
-          name={fields.inputName.value}
+          name={fields.inputName && fields.inputName.value}
           onChange={this.handleChange}
         />
       </div>

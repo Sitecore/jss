@@ -10,12 +10,6 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
 
 **Second**, if you have not already, install the JSS CLI: `npm install -g @sitecore-jss/sitecore-jss-cli` or `yarn global add @sitecore-jss/sitecore-jss-cli`. Then choose how to run the application:
 
-## Disconnected Sitecore-less Development
-
-Use `jss start` to run a local development server. Sitecore is not required to be installed, and content data is pulled from static local sources.
-
-Disconnected development is appropriate when no Sitecore instance is available, or when frontend developers do not wish to run a local copy of Sitecore.
-
 ## Deploying to Sitecore
 
 * Install the JSS server components on your local Sitecore installation according to the JSS documentation
