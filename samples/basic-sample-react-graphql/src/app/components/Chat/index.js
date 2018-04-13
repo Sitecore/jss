@@ -1,10 +1,10 @@
-import React from "react";
-import { compose } from "react-apollo";
-import { Text } from "@sitecore-jss/sitecore-jss-react";
-import GraphQLData from "../../../../lib/GraphQL/GraphQLData";
-import { Datasource, ChatSubscription, SendMessage } from "./Chat.graphql";
-import ChatUsername from "./ChatUsername";
-import ChatUI from "./ChatUI";
+import React from 'react';
+import { compose } from 'react-apollo';
+import { Text } from '@sitecore-jss/sitecore-jss-react';
+import GraphQLData from '../../../../lib/GraphQL/GraphQLData';
+import { Datasource, ChatSubscription, SendMessage } from './Chat.graphql';
+import ChatUsername from './ChatUsername';
+import ChatUI from './ChatUI';
 
 // A simple chat component which uses GraphQL subscriptions and mutations
 // NOTE: this is a very simple example of real-time data with GraphQL,
@@ -18,7 +18,7 @@ class Chat extends React.Component {
       // the chat buffer stores chat messages as they come in
       chatBuffer: [],
       // your username in chat
-      username: null
+      username: null,
     };
 
     this.onChat = this.onChat.bind(this);
@@ -27,7 +27,7 @@ class Chat extends React.Component {
 
   // Sets your username. Callback from ChatUsername component.
   setUsername(username) {
-    this.setState({ username: username });
+    this.setState({ username });
   }
 
   // Sends a new chat message as a GraphQL mutation. Note that mutations
@@ -36,7 +36,7 @@ class Chat extends React.Component {
   // over our subscription link for updating that way.
   onChat(message) {
     this.props.sendMutation({
-      variables: { user: this.state.username, message: message }
+      variables: { user: this.state.username, message },
     });
   }
 
@@ -44,7 +44,7 @@ class Chat extends React.Component {
   // which we want to push into our chat buffer to display the new message
   componentWillReceiveProps(newProps) {
     this.setState({
-      chatBuffer: [...this.state.chatBuffer, newProps.chatSubscription.chat]
+      chatBuffer: [...this.state.chatBuffer, newProps.chatSubscription.chat],
     });
   }
 
@@ -52,17 +52,11 @@ class Chat extends React.Component {
     // destructure props for cleaner local variables
     // We're using nested destructuring here which allows us to expose local variables from child objects;
     // so 'chat' will end up being 'this.props.chatSubscription.chat' for example below.
-    const {
-      chatSubscription: { chat, loading, error },
-      data: { datasource }
-    } = this.props;
+    const { chatSubscription: { error }, data: { datasource } } = this.props;
     const { chatBuffer, username } = this.state;
 
     if (this.props.data.loading) return <span>Loading...</span>;
-    if (error)
-      return (
-        <span>Error loading component. {chatSubscription.error.message}</span>
-      );
+    if (error) return <span>Error loading component. {error.message}</span>;
 
     // render component
     return (
@@ -71,22 +65,12 @@ class Chat extends React.Component {
         <div id="Content">
           <div id="LeftContent">
             {/* We're reading the title of the page from a datasource item */}
-            <Text
-              tag="h1"
-              className="contentTitle"
-              field={datasource.title.jss}
-            />
+            <Text tag="h1" className="contentTitle" field={datasource.title.jss} />
 
             {/* If we don't have a username, show the UI to enter one; otherwise show the chat window */}
-            {username === null && (
-              <ChatUsername setUsername={this.setUsername} />
-            )}
+            {username === null && <ChatUsername setUsername={this.setUsername} />}
             {username !== null && (
-              <ChatUI
-                username={username}
-                chatBuffer={chatBuffer}
-                onChat={this.onChat}
-              />
+              <ChatUI username={username} chatBuffer={chatBuffer} onChat={this.onChat} />
             )}
           </div>
         </div>
@@ -105,7 +89,7 @@ export default compose(
   // we need the title from the datasource item. With no name set, this will become the 'data' prop by default.
   GraphQLData(Datasource),
   // we need a GraphQL mutation to send new chat messages. The 'name' sets the name of the prop we'll receive.
-  GraphQLData(SendMessage, { name: "sendMutation" }),
+  GraphQLData(SendMessage, { name: 'sendMutation' }),
   // we need a GraphQL subscription to get pushed new chat messages. The 'name' sets the name of the prop we receive.
-  GraphQLData(ChatSubscription, { name: "chatSubscription" })
+  GraphQLData(ChatSubscription, { name: 'chatSubscription' })
 )(Chat);

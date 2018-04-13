@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
   ...ownProps,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actions, dispatch),
 });
 
@@ -23,8 +23,4 @@ const mergeProps = (stateProps, dispatchProps) => {
   return mergedProps;
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  mergeProps,
-)(commonContainer(About));
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(commonContainer(About));

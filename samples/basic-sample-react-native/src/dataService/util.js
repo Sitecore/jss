@@ -14,9 +14,7 @@ const mapNestedJson = (data, onProcessObjectProperty) => {
     if (Array.isArray(value)) {
       return {
         ...result,
-        [key]: value.map((elem) => {
-          return mapNestedJson(elem, onProcessObjectProperty);
-        }),
+        [key]: value.map((elem) => mapNestedJson(elem, onProcessObjectProperty)),
       };
     }
 

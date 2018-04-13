@@ -1,27 +1,18 @@
-/* eslint import/no-extraneous-dependencies: 0 */
-/* eslint import/extensions: 0 */
+/* global __SC_API_HOST__, fetch */
+import 'isomorphic-fetch';
+import { push } from 'react-router-redux';
+import { isExperienceEditorActive } from '@sitecore-jss/sitecore-jss-react';
+import i18n from 'i18next';
+import SitecoreContentService from '../SitecoreContentService';
+import { NOT_FOUND_ROUTE, SERVER_ERROR_ROUTE, DEFAULT_LANGUAGE } from './constants';
+import { types } from './actionTypes';
+import { parseRouteUrl } from './sitecoreRoutes';
 
-import "isomorphic-fetch";
-import { push } from "react-router-redux";
-import SitecoreContentService from "../../lib/SitecoreContentService";
-import {
-  actionTypes as sitecoreActionTypes,
-  isExperienceEditorActive
-} from "@sitecore-jss/sitecore-jss-react";
-import i18n from "i18next";
-import {
-  NOT_FOUND_ROUTE,
-  SERVER_ERROR_ROUTE,
-  DEFAULT_LANGUAGE
-} from "./constants";
-import { types } from "./actionTypes";
-import { parseRouteUrl } from "./sitecoreRoutes";
-
-export const checkBrowserComplete = params => ({
+export const checkBrowserComplete = (params) => ({
   type: types.SUPPORTED_BROWSER_CHECK_COMPLETED,
   payload: {
-    supported: params.supported
-  }
+    supported: params.supported,
+  },
 });
 
 export const fetchRouteData = (route, language, options = {}) =>
@@ -37,31 +28,29 @@ const dispatchRoute = (dispatch, routeUrl, params) => {
     i18n.changeLanguage(routeParams.lang);
   }
 
-  const route = routeParams.sitecoreRoute
-    ? `/${routeParams.sitecoreRoute}`
-    : "/";
+  const route = routeParams.sitecoreRoute ? `/${routeParams.sitecoreRoute}` : '/';
   dispatch({
-    type: sitecoreActionTypes.ROUTE_CHANGE_STARTED,
+    type: types.ROUTE_CHANGE_STARTED,
     payload: {
-      path: route
-    }
+      path: route,
+    },
   });
 
   const language = routeParams.lang || DEFAULT_LANGUAGE;
   fetchRouteData(route, language, params)
-    .then(data => {
+    .then((data) => {
       dispatch(push(routeUrl));
       dispatch({
-        type: sitecoreActionTypes.ROUTE_CHANGE_COMPLETED,
+        type: types.ROUTE_CHANGE_COMPLETED,
         payload: {
           path: route,
           data,
           currentRoute: route,
-          currentLang: routeParams.lang
-        }
+          currentLang: routeParams.lang,
+        },
       });
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.response) {
         if (err.response.status === 404) {
           dispatch(push(NOT_FOUND_ROUTE));
@@ -74,28 +63,28 @@ const dispatchRoute = (dispatch, routeUrl, params) => {
 };
 
 // http://stackoverflow.com/a/27691108
-const qsToObject = qs => {
+const qsToObject = (qs) => {
   if (!qs) {
     return {};
   }
   return qs
     .substring(1)
-    .split("&")
+    .split('&')
     .reduce((result, next) => {
-      const pair = next.split("=");
+      const pair = next.split('=');
       const newResult = {
-        [decodeURIComponent(pair[0])]: decodeURIComponent(pair[1])
+        [decodeURIComponent(pair[0])]: decodeURIComponent(pair[1]),
       };
       return newResult;
     }, {});
 };
 
-export const fetchInitialRoute = (path, querystring) => dispatch => {
+export const fetchInitialRoute = (path, querystring) => (dispatch) => {
   const params = qsToObject(querystring);
   dispatchRoute(dispatch, path, { params });
 };
 
-export const changeRoute = newRoute => dispatch => {
+export const changeRoute = (newRoute) => (dispatch) => {
   if (isExperienceEditorActive()) {
     window.location.assign(newRoute);
     return;
@@ -111,62 +100,62 @@ export const changeRoute = newRoute => dispatch => {
 export const showLoginForm = () => ({
   type: types.LOGIN_FORM_VISIBILITY_TOGGLED,
   payload: {
-    show: true
-  }
+    show: true,
+  },
 });
 
 export const hideLoginForm = () => ({
   type: types.LOGIN_FORM_VISIBILITY_TOGGLED,
   payload: {
-    show: false
-  }
+    show: false,
+  },
 });
 
-export const loginSubmit = (username, password, currentRoute) => dispatch => {
-  var payload = {
-    domain: "extranet",
+export const loginSubmit = (username, password, currentRoute) => (dispatch) => {
+  const payload = {
+    domain: 'extranet',
     username,
-    password
+    password,
   };
-  fetch(__SC_API_HOST__ + "/sitecore/api/ssc/auth/login", {
+  fetch(`${__SC_API_HOST__}/sitecore/api/ssc/auth/login`, {
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
-    credentials: "include",
-    method: "POST",
-    body: JSON.stringify(payload)
-  }).then(response => {
+    credentials: 'include',
+    method: 'POST',
+    body: JSON.stringify(payload),
+  }).then((response) => {
     const success = response.status >= 200 && response.status < 300;
     dispatch({
       type: types.LOGIN_COMPLETE,
       payload: {
-        success
-      }
+        success,
+      },
     });
-    //refresh current route for permission changes
+    // refresh current route for permission changes
     dispatchRoute(dispatch, currentRoute);
   });
 };
 
-export const logout = currentRoute => dispatch => {
-  fetch(__SC_API_HOST__ + "/sitecore/api/ssc/auth/logout", {
+export const logout = (currentRoute) => (dispatch) => {
+  fetch(`${__SC_API_HOST__}/sitecore/api/ssc/auth/logout`, {
     headers: {
-      Accept: "application/json"
+      Accept: 'application/json',
     },
-    credentials: "include",
-    method: "POST"
-  }).then(response => {
+    credentials: 'include',
+    method: 'POST',
+  }).then((response) => {
     const success = response.status >= 200 && response.status < 300;
     dispatch({
       type: types.LOGOUT_COMPLETE,
       payload: {
-        success
-      }
+        success,
+      },
     });
-    //refresh current route for permission changes
+    // refresh current route for permission changes
     dispatchRoute(dispatch, currentRoute);
   });
 };
 
-export * from "enhancers/commonActions";
+export * from '../enhancers/commonActions';

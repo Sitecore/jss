@@ -1,12 +1,12 @@
-import i18n from "i18next";
-import i18nextFetch from "i18next-fetch-backend";
-import { DEFAULT_LANGUAGE } from "./constants";
-import { parseRouteUrl } from "./sitecoreRoutes";
-import SitecoreContentService from "../../lib/SitecoreContentService";
+import i18n from 'i18next';
+import i18nextFetch from 'i18next-fetch-backend';
+import { DEFAULT_LANGUAGE } from './constants';
+import { parseRouteUrl } from './sitecoreRoutes';
+import SitecoreContentService from '../SitecoreContentService';
 
 const resolveCurrentRoute = (currentPath, serverData) => {
   let lang = DEFAULT_LANGUAGE;
-  let route = "/";
+  let route = '/';
   if (serverData && serverData.language) {
     // use initial language from Sitecore -- might be cookie-based
     lang = serverData.language;
@@ -20,7 +20,7 @@ const resolveCurrentRoute = (currentPath, serverData) => {
   }
   return {
     currentLang: lang,
-    currentRoute: route
+    currentRoute: route,
   };
 };
 
@@ -29,17 +29,17 @@ const i18nInit = (language, isClient, dictionary) => {
     debug: true,
     lng: language,
     fallbackLng: false, // fallback to keys
-    load: "currentOnly", // e.g. don't load 'es' when requesting 'es-mx' -- Sitecore config should handle this
+    load: 'currentOnly', // e.g. don't load 'es' when requesting 'es-mx' -- Sitecore config should handle this
 
     interpolation: {
-      escapeValue: false // not needed for react!!
+      escapeValue: false, // not needed for react!!
     },
 
     // react i18next special options (optional)
     react: {
       wait: false, // setting to true breaks SSR and Experience Editor, would be nice to conditionally set to "true"
-      nsMode: "default" // set it to fallback to let passed namespaces to translated hoc act as fallbacks
-    }
+      nsMode: 'default', // set it to fallback to let passed namespaces to translated hoc act as fallbacks
+    },
   };
 
   if (isClient) {
@@ -47,27 +47,27 @@ const i18nInit = (language, isClient, dictionary) => {
     const translationPath = SitecoreContentService.getTranslationPath();
     options.backend = {
       loadPath: translationPath,
-      parse: data => {
-        data = JSON.parse(data);
-        if (data.phrases) {
-          return data.phrases;
+      parse: (data) => {
+        const parsedData = JSON.parse(data);
+        if (parsedData.phrases) {
+          return parsedData.phrases;
         }
-        return data;
-      }
+        return parsedData;
+      },
     };
 
     i18n.use(i18nextFetch).init(options);
 
     if (dictionary) {
       // when using a back-end, need to add static resources after init
-      i18n.addResources(language, "translation", dictionary);
+      i18n.addResources(language, 'translation', dictionary);
     }
   } else {
     if (dictionary) {
       // load dictionary statically from server
       options.resources = {};
       options.resources[language] = {
-        translation: dictionary
+        translation: dictionary,
       };
     }
 

@@ -1,6 +1,6 @@
 import { Injectable, } from '@angular/core';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
-import { LayoutService } from './layoutService/layout.service';
+import { LayoutService } from './layout.service';
 import { Observable } from 'rxjs/Observable';
 import { of as observableOf } from 'rxjs/observable/of';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';

@@ -1,9 +1,11 @@
-import React from "react";
-import { graphql } from "react-apollo";
+import React from 'react';
+import { graphql } from 'react-apollo';
 import {
   withSitecoreContext,
-  resetExperienceEditorChromes
-} from "@sitecore-jss/sitecore-jss-react";
+  resetExperienceEditorChromes,
+} from '@sitecore-jss/sitecore-jss-react';
+
+/* eslint-disable class-methods-use-this, no-restricted-syntax */
 
 /* Configuration:
     - Values passed in are shipped to react-apollo configuration (https://www.apollographql.com/docs/react/basics/setup.html#graphql-config)
@@ -13,48 +15,36 @@ function GraphQLData(query, configuration = {}) {
     class SitecoreRenderingWrapper extends React.Component {
       static displayName = `SitecoreRendering(${Component.displayName ||
         Component.name ||
-        "Component"})`;
+        'Component'})`;
 
       render() {
         const newConfiguration = { ...configuration };
 
-        if (!newConfiguration.name) newConfiguration.name = "data";
+        if (!newConfiguration.name) newConfiguration.name = 'data';
 
         // ensure variables object exists
         newConfiguration.options = newConfiguration.options || {};
-        newConfiguration.options.variables =
-          newConfiguration.options.variables || {};
+        newConfiguration.options.variables = newConfiguration.options.variables || {};
 
         // if we're in experience editor or preview we need to disable SSR of GraphQL queries
         // because SSR queries are made unauthenticated, so they would have normal mode data = bad
-        if (
-          this.props.sitecoreContext &&
-          this.props.sitecoreContext.pageState !== "normal"
-        ) {
+        if (this.props.sitecoreContext && this.props.sitecoreContext.pageState !== 'normal') {
           newConfiguration.options.ssr = false;
-        } else {
+        } else if (
+          query.definitions.some(
+            (def) => def.kind === 'OperationDefinition' && def.operation === 'subscription'
+          )
+        ) {
           // if the document includes any subscriptions, we also disable SSR as this hangs the SSR process
           // not to mention being quite silly to SSR when they're reactive
-          if (
-            query.definitions.some(
-              def =>
-                def.kind === "OperationDefinition" &&
-                def.operation === "subscription"
-            )
-          ) {
-            newConfiguration.options.ssr = false;
-          }
+          newConfiguration.options.ssr = false;
         }
 
         // find all variable definitions in the GraphQL query, so we can send only ones we're using
         const variableNames = extractVariableNames(query);
 
         // set the datasource variable, if we're using it
-        if (
-          variableNames.datasource &&
-          this.props.rendering &&
-          this.props.rendering.dataSource
-        ) {
+        if (variableNames.datasource && this.props.rendering && this.props.rendering.dataSource) {
           newConfiguration.options.variables.datasource = this.props.rendering.dataSource;
         }
 
@@ -68,19 +58,16 @@ function GraphQLData(query, configuration = {}) {
         }
 
         // build the props processing function that will set the result object to the name
-        newConfiguration.props = props => {
-          const query = props[newConfiguration.name];
+        newConfiguration.props = (props) => {
+          const innerQuery = props[newConfiguration.name];
 
-          var resultProps = {};
+          let resultProps = {};
 
-          resultProps[newConfiguration.name] = query;
+          resultProps[newConfiguration.name] = innerQuery;
 
           // run a user-specified props function too if one exists
           if (configuration.props)
-            resultProps = Object.assign(
-              resultProps,
-              configuration.props(props)
-            );
+            resultProps = Object.assign(resultProps, configuration.props(props));
 
           return resultProps;
         };
@@ -100,13 +87,13 @@ function GraphQLData(query, configuration = {}) {
 
 function extractVariableNames(query) {
   const variableNames = {};
-  let variableDefinitions = query.definitions
-    .map(def => def.variableDefinitions)
-    .filter(def => def);
+  const variableDefinitions = query.definitions
+    .map((def) => def.variableDefinitions)
+    .filter((def) => def);
 
   for (const defs of variableDefinitions) {
     for (const def of defs) {
-      if (def.kind && def.kind === "VariableDefinition") {
+      if (def.kind && def.kind === 'VariableDefinition') {
         variableNames[def.variable.name.value] = true;
       }
     }

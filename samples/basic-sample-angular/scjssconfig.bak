@@ -1,8 +1,0 @@
-﻿{
-    "sitecore": {
-        "instancePath": "C:\\inetpub\\wwwroot\\jssu2qa\\jssu2qa\\Website",
-        "shipUrl": "http://jssbasicappangular/ship/services/package/install/fileupload",
-        "layoutServiceHost": "http://jssbasicappangular",
-        "apiKey": "4B0EEBDB-3DE4-43DE-AC83-76A9BB920730"
-    }
-}

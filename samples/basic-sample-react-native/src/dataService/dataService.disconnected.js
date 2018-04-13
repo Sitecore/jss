@@ -4,6 +4,7 @@
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { convertRouteToLayoutServiceFormat } from '@sitecore-jss/sitecore-jss-react-native';
+// eslint-disable-next-line
 import { images } from 'static-assets';
 import routeData from '../../data/routes/en.json';
 import { mapNestedJson } from './util';
@@ -14,12 +15,10 @@ import { mapNestedJson } from './util';
 // This doesn't really work well with "disconnected" JSS data, as the URLs for images are typically relative path strings.
 // So, we create an `images` map in the assets folder with statically `require`d images.
 // The `mapNestedJson` function traverses route, using `processObjectMember` to modify `src` values with values from the images map.
-const processObjectProperty = (key, value) => {
-  return key === 'src' ? images[value] : value;
-};
+const processObjectProperty = (key, value) => (key === 'src' ? images[value] : value);
 
-const getRouteData = (route) => {
-  return new Promise((resolve, reject) => {
+const getRouteData = (route) =>
+  new Promise((resolve, reject) => {
     switch (route) {
       case '/': {
         const formattedData = convertRouteToLayoutServiceFormat(routeData);
@@ -31,6 +30,5 @@ const getRouteData = (route) => {
       }
     }
   });
-};
 
 export { getRouteData };

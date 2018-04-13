@@ -13,4 +13,4 @@ components.set('Heading', Heading);
 components.set('Question', Question);
 components.set('FormValues', FormValues);
 
-export default componentName => components.get(componentName);
+export default (componentName) => components.get(componentName);

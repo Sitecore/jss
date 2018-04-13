@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LoadingIndicator = props =>
-  <img style={props.style} src={`/assets/img/sc-spinner${props.size}.gif`} alt="Loading" />;
+const LoadingIndicator = (props) => (
+  <img style={props.style} src={`/assets/img/sc-spinner${props.size}.gif`} alt="Loading" />
+);
 
 LoadingIndicator.propTypes = {
   size: PropTypes.oneOf([16, 32]),

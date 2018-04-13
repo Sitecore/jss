@@ -1,9 +1,8 @@
-import "isomorphic-fetch";
-import { ApolloClient } from "apollo-client";
-import {
-  InMemoryCache,
-  IntrospectionFragmentMatcher
-} from "apollo-cache-inmemory";
+/* eslint-disable no-param-reassign, import/first */
+
+import 'isomorphic-fetch';
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';
 
 /*
   INTROSPECTION DATA
@@ -11,7 +10,7 @@ import {
   This enables the Apollo cache to process fragments on interface types correctly.
   If this file does not exist, you may need to run the `update-fragments` script.
 */
-import introspectionQueryResultData from "../../sitecore/GraphQLFragmentTypes.json";
+import introspectionQueryResultData from '../../sitecore/GraphQLFragmentTypes.json';
 
 /*
   QUERY LINK SELECTION
@@ -27,43 +26,31 @@ import introspectionQueryResultData from "../../sitecore/GraphQLFragmentTypes.js
 // import { createHttpLink } from 'apollo-link-http';
 // const basicHttp = createHttpLink({ uri: endpoint, credentials: 'include' });
 
+// ...or a batched link (multiple queries within 10ms all go in one HTTP request)
+import { BatchHttpLink } from 'apollo-link-batch-http';
+
 // ...or an automatic persisted query link, which reduces bandwidth by using query hashes to alias content
-// import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
+// the APQ link takes advantage of _chaining_ links together. You can also chain a batch-http link to APQ,
+// and get a persisted, batched link for the ultimate solution.
+import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
 // const automaticPersistHttp = createPersistedQueryLink().concat(basicHttp);
 
-// ...or a batched link (multiple queries within 10ms all go in one HTTP request)
-// NOTE: batching is in the process of being integrated into apollo-link-http directly;
-// see https://github.com/apollographql/apollo-link/issues/343
-// this would also elimintate the need for the apollo-fetch customization to send credentials
-// as the options will be the same as for the HTTP link
-import { BatchHttpLink } from "apollo-link-batch-http";
-import { createApolloFetchUpload } from "apollo-fetch-upload";
-function CreateBatchLinkWithCredentials(endpoint) {
-  const fetch = createApolloFetchUpload({
-    uri: endpoint
-  });
-  fetch.batchUse(({ options }, next) => {
-    options.credentials = "include";
-    next();
-  });
-  return new BatchHttpLink({ fetch: fetch });
-}
-
 export default function(endpoint, ssr, initialCacheState) {
-  /* HTTP link selection */
-
-  let link = CreateBatchLinkWithCredentials(endpoint);
+  /* HTTP link selection: default to batched + APQ */
+  const link = createPersistedQueryLink().concat(
+    new BatchHttpLink({ uri: endpoint, credentials: 'include' })
+  );
 
   const cache = new InMemoryCache({
     fragmentMatcher: new IntrospectionFragmentMatcher({
-      introspectionQueryResultData
-    })
+      introspectionQueryResultData,
+    }),
   });
 
   return new ApolloClient({
     ssrMode: ssr,
     ssrForceFetchDelay: 100,
-    link: link,
-    cache: cache.restore(initialCacheState)
+    link,
+    cache: cache.restore(initialCacheState),
   });
 }

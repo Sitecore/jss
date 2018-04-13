@@ -113,11 +113,11 @@ aside {
 .navbar-default .nav > li.active > a:focus:hover {
   background-color: transparent;
 }
-@media (min-width: 768px) {    
+@media (min-width: 768px) {
   .navbar-default .navbar-header .navbar-brand:hover,
   .navbar-default .navbar-header .navbar-brand:focus {
     color: white;
-  }  
+  }
   .navbar-default .nav > li > a:hover,
   .navbar-default .nav > li > a:focus:hover {
     color: white;
@@ -491,18 +491,23 @@ label, .alert {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* 
+.carousel-caption a {
+  color: white;
+  cursor: pointer;
+}
+
+/*
   Experience Editor fixes from
   http://www.sagepath.com/blogs/development/articles/add-here-bug-bootstrap
 */
-.scInsertionHandleCenter 
+.scInsertionHandleCenter
 {
   box-sizing: content-box !important;
-  -webkit-box-sizing: content-box !important; 
-  -moz-box-sizing: content-box !important; 
+  -webkit-box-sizing: content-box !important;
+  -moz-box-sizing: content-box !important;
  }
- 
-.scInsertionHandleCenter, .sc-breadcrumb .sc-breadcrumb-item-path, 
+
+.scInsertionHandleCenter, .sc-breadcrumb .sc-breadcrumb-item-path,
 .sc-breadcrumb-item-path img, .scChromeCommand
 {
   -webkit-box-sizing: initial;
@@ -515,5 +520,5 @@ label, .alert {
 }
 .sc-breadcrumb-item-path span
 {
-    font-size: 12px; 
+    font-size: 12px;
 }

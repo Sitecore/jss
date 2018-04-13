@@ -5,7 +5,6 @@ import * as UI from 'ui/components';
 import PortfolioContainer from 'portfolio/components/PortfolioContainer';
 import ServiceList from 'services/components/ServiceList';
 
-
 const components = new Map();
 components.set('Home', HomeContainer);
 components.set('About', AboutContainer);
@@ -24,4 +23,4 @@ components.set('Jumbotron', UI.Jumbotron);
 components.set('DownloadCallout', UI.DownloadCalloutContainer);
 components.set('ServiceList', ServiceList);
 
-export default componentName => components.get(componentName);
+export default (componentName) => components.get(componentName);

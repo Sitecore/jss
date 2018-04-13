@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { commonComponent } from 'enhancers';
 import { File } from '@sitecore-jss/sitecore-jss-react';
 
-const FileLink = ({fields}) =>
-  <File field={fields.file} className="btn btn-info btn-lg" target="_blank" />;
+const FileLink = ({ fields }) => (
+  <File field={fields.file} className="btn btn-info btn-lg" target="_blank" />
+);
 
 FileLink.propTypes = {
   fields: PropTypes.shape({

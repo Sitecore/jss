@@ -1,8 +1,8 @@
-import fsExtra from "fs-extra";
-import path from "path";
-import React from "react";
-import ReactDOMServer from "react-dom/server";
-import ServerHtml from "../src/app/components/ServerHtml";
+import fsExtra from 'fs-extra';
+import path from 'path';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import ServerHtml from '../src/app/components/ServerHtml';
 
 /*
   CREATE STATIC INDEX
@@ -14,10 +14,7 @@ import ServerHtml from "../src/app/components/ServerHtml";
 export function writeIndexFile(outputPath, publicPath) {
   fsExtra.ensureDirSync(outputPath);
 
-  fsExtra.writeFileSync(
-    path.join(outputPath, "index.html"),
-    getIndexContents(publicPath)
-  );
+  fsExtra.writeFileSync(path.join(outputPath, 'index.html'), getIndexContents(publicPath));
 }
 
 function getIndexContents(publicPath) {

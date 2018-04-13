@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { commonComponent } from 'enhancers';
+import { commonComponent } from '../../enhancers';
 
-const isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n);
+/* eslint-disable no-restricted-globals */
+
+const isNumeric = (n) => !isNaN(parseFloat(n)) && isFinite(n);
 
 const Heading = ({ params, fields, style }) => {
   let tagName;
@@ -39,7 +41,6 @@ Heading.defaultProps = {
   },
 };
 
-Heading.styles = {
-};
+Heading.styles = {};
 
 export default commonComponent(Heading);

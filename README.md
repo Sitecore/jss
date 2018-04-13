@@ -23,13 +23,28 @@ Here are the samples included in this repo:
 
     This is a more full-featured and opinionated app built routing support, multiple language support, dictionary and Material UI design framework.
 
+
+1. [Basic sample in Vue.js](/samples/basic-sample-vue-web)
+   
+   This is the most barebones single page app with minimum dependencies and is built for learning purposes only using Vue.js and `sitecore-jss-vue`.
+   [Check out the walkthrough here](https://jss.sitecore.net/#/cookbook/basic-app).
+
 1. [Wizard sample app in React](/samples/embedded-wizard-sample-react)
 
     This app shows how to embed client-side application inside an existing Sitecore MVC app. [Read more here](https://jss.sitecore.net/#/cookbook/recipes/embedded-wizard-sample).
 
+1. [Basic sample in Vue.js](/samples/basic-sample-vue-web)
+   
+   This is the most barebones single page app with minimum dependencies and is built for learning purposes only using Vue.js and `sitecore-jss-vue`.
+   [Check out the walkthrough here](https://jss.sitecore.net/#/cookbook/basic-app).
+
 1. [Basic React Native app](/samples/basic-sample-react-native)
 
     This app shows our first and yet experimental support for React Native.
+
+1. [Individual components sample](/samples/individual-components-sample-react-web)
+
+    This project shows how to deploy individual JavaScript components to Sitecore (new feature in Preview 3).
 
 1. [Basic sample with React/GraphQL/Apollo client](/samples/basic-sample-react-graphql)
 

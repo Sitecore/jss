@@ -1,20 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { commonComponent } from 'enhancers';
-import { Placeholder } from '@sitecore-jss/sitecore-jss-react';
+import { withPlaceholder } from '@sitecore-jss/sitecore-jss-react';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { compose } from 'redux';
 
-const About = ({ style, rendering, ...otherProps }) => (
+const About = ({
+  style,
+  rendering,
+  pageHeaderPlaceholder,
+  pageContentPlaceholder,
+  ...otherProps
+}) => (
   <section className="bg-primary" id="about" style={style}>
     <Grid>
       <Row>
         <Col lg={8} lgOffset={2} className="text-center">
-          <div className="page-header">
-            <Placeholder name="page-header" rendering={rendering} {...otherProps} />
-          </div>
-          <div className="page-content">
-            <Placeholder name="page-content" rendering={rendering} {...otherProps} />
-          </div>
+          <div className="page-header">{pageHeaderPlaceholder}</div>
+          <div className="page-content">{pageContentPlaceholder}</div>
         </Col>
       </Row>
     </Grid>
@@ -27,4 +30,10 @@ About.propTypes = {
   rendering: PropTypes.object,
 };
 
-export default commonComponent(About);
+export default compose(
+  commonComponent,
+  withPlaceholder([
+    { placeholder: 'page-header', prop: 'pageHeaderPlaceholder' },
+    { placeholder: 'page-content', prop: 'pageContentPlaceholder' },
+  ])
+)(About);

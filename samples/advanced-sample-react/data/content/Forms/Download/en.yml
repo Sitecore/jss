@@ -1,5 +1,7 @@
 name: Download
 # displayName: Download (optional; sets a display name different from the name)
+# id: a string (unique app-wide) or GUID that sets the ID when imported into Sitecore
+#     the id is generated based on the `name` if it is unspecified. Useful for internal links.
 id: download-form-content
 template: FormContent
 fields:

@@ -5,6 +5,7 @@ import { renderModuleFactory } from '@angular/platform-server';
 import { enableProdMode } from '@angular/core';
 import { join } from 'path';
 import { readFileSync } from 'fs';
+import { JssRouteBuilderService } from './src/app/jss-route-builder.service';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -17,6 +18,7 @@ const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/mai
 
 const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader');
 
+// this is the function expected by the JSS View Engine for "integrated mode"
 function renderView (callback, path, data, viewBag) {
   /*
     Data from server is double-encoded since MS JSS does not allow control
@@ -34,14 +36,18 @@ function renderView (callback, path, data, viewBag) {
         placeholders: {}
       }
     },
-    viewBag: {},
+    serverRoute: '',
+    viewBag: parsedViewBag,
   };
-
-  state.viewBag = parsedViewBag;
 
   if (parsedData) {
     state.sitecore = parsedData.sitecore;
   }
+
+  // parse the URL that's being handled by Sitecore so we can pass in the initial state to the app
+  const routeParser = new JssRouteBuilderService();
+  const jssRoute = routeParser.parseRouteUrl(path.split('/').filter(segment => segment));
+  state.serverRoute = jssRoute.serverRoute;
 
   renderModuleFactory(AppServerModuleNgFactory, {
     document: template,
@@ -49,6 +55,7 @@ function renderView (callback, path, data, viewBag) {
     // DI so that we can get lazy-loading to work differently (since we need it to just instantly render it)
     extraProviders: [
       provideModuleMap(LAZY_MODULE_MAP),
+      // custom injection with the initial state that SSR should utilize
       { provide: 'JSS_SERVER_TO_SSR', useValue: state }
     ]
   }).then(html => {
@@ -60,6 +67,16 @@ function renderView (callback, path, data, viewBag) {
   });
 }
 
+function parseRouteUrl(url) {
+  const routeParser = new JssRouteBuilderService();
+  const jssRoute = routeParser.parseRouteUrl(url.split('/').filter(segment => segment));
+  return {
+    lang: jssRoute.language,
+    sitecoreRoute: jssRoute.serverRoute
+  };
+}
+
 module.exports = {
-  renderView
+  renderView,
+  parseRouteUrl
 };

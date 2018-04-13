@@ -1,8 +1,7 @@
-
 const initialState = () => ({
-  sitecore: {
+  app: {
     context: {
-      pageEditing: false
+      pageEditing: false,
     },
     route: {
       placeholders: {},

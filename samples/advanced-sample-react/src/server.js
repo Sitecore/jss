@@ -34,14 +34,18 @@ const renderView = (callback, path, data, viewBag) => {
   state.viewBag = parsedViewBag;
 
   if (parsedData) {
-    state.sitecore = parsedData.sitecore;
+    state.app = {
+      ...state.app,
+      ...parsedData.sitecore,
+    };
   }
 
   // init i18n
   const routeParams = resolveCurrentRoute(path, parsedViewBag);
   i18nInit(routeParams.currentLang, false /* isClient */, parsedViewBag.dictionary);
   state.app = {
-    ...routeParams
+    ...state.app,
+    ...routeParams,
   };
 
   const store = initStore(state);
@@ -56,7 +60,9 @@ const renderView = (callback, path, data, viewBag) => {
       </ConnectedRouter>
     </Root>
   );
-  const html = ReactDOM.renderToString(<ServerHtml component={component} initialState={state} distPath={__BUNDLE_OUTPUT_PATH__} />);
+  const html = ReactDOM.renderToString(
+    <ServerHtml component={component} initialState={state} distPath={__BUNDLE_OUTPUT_PATH__} />
+  );
 
   if (context.url) {
     result.redirect = context.url;

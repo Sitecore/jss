@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // the UI for the chat system when you're signed in
 // If you're unfamiliar with React forms handling, see https://reactjs.org/docs/forms.html
@@ -8,7 +8,7 @@ class ChatUI extends React.Component {
     super(props);
 
     this.state = {
-      message: ""
+      message: '',
     };
 
     this.updateMessage = this.updateMessage.bind(this);
@@ -24,7 +24,7 @@ class ChatUI extends React.Component {
   onChat(e) {
     e.preventDefault();
     this.props.onChat(this.state.message);
-    this.setState({ message: "" });
+    this.setState({ message: '' });
   }
 
   render() {
@@ -40,7 +40,7 @@ class ChatUI extends React.Component {
               <strong>{chatLine.user}: </strong> {chatLine.message}
             </div>
           ))}
-          {chatBuffer.length == 0 && (
+          {chatBuffer.length === 0 && (
             <div>
               <strong>No messages since you joined the chat</strong>
             </div>
@@ -49,12 +49,7 @@ class ChatUI extends React.Component {
           <hr />
 
           <label htmlFor="message">{username}:</label>
-          <input
-            type="text"
-            id="message"
-            value={message}
-            onChange={this.updateMessage}
-          />
+          <input type="text" id="message" value={message} onChange={this.updateMessage} />
           <button type="submit">Send</button>
         </fieldset>
       </form>

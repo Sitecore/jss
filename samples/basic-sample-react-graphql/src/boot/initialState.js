@@ -2,13 +2,13 @@ const initialState = () => ({
   sitecore: {
     context: {
       pageEditing: false,
-      language: "en"
+      language: 'en',
     },
     route: {
-      placeholders: {}
-    }
+      placeholders: {},
+    },
   },
-  viewBag: {}
+  viewBag: {},
 });
 
 // allows consumers to mutate the object without interfering with other imports

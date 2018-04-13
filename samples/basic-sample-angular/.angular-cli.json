@@ -25,11 +25,13 @@
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
+        "connected": "environments/environment.connected.ts",
         "prod": "environments/environment.prod.ts"
       },
       "baseHref": "/dist/jssbasicappangular/browser/"
     },
     {
+      "name": "server",
       "platform": "server",
       "root": "src",
       "outDir": "dist/server",
@@ -49,8 +51,7 @@
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "server": "environments/environment.server.ts"
       },
       "baseHref": "/dist/jssbasicappangular/server/"
     }

@@ -27,7 +27,6 @@ Portfolio.propTypes = {
   rendering: PropTypes.object,
 };
 
-Portfolio.styles = {
-};
+Portfolio.styles = {};
 
 export default commonComponent(Portfolio);

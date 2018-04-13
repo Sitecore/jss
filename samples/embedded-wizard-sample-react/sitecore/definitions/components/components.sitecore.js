@@ -1,42 +1,39 @@
+import { addComponent, CommonFieldTypes, SitecoreIcon } from '@sitecore-jss/sitecore-jss-manifest';
+
 export default (manifest) => {
-  manifest.addComponent({
+  addComponent(manifest, {
     name: 'Wizard',
-    placeholders: [
-      { name: 'steps' },
-    ],
+    placeholders: [{ name: 'steps' }],
+    icon: SitecoreIcon.Step,
   });
 
-  manifest.addComponent({
+  addComponent(manifest, {
     name: 'StepReference',
     fields: [
-      { name: 'stepName', type: manifest.fieldTypes.singleLineText },
-      { name: 'stepLink', type: manifest.fieldTypes.generalLink },
+      { name: 'stepName', type: CommonFieldTypes.SingleLineText },
+      { name: 'stepLink', type: CommonFieldTypes.GeneralLink },
     ],
   });
 
-  manifest.addComponent({
+  addComponent(manifest, {
     name: 'RichText',
-    fields: [
-      { name: 'text', type: manifest.fieldTypes.richText },
-    ],
+    fields: [{ name: 'text', type: CommonFieldTypes.RichText }],
   });
 
-  manifest.addComponent({
+  addComponent(manifest, {
     name: 'Heading',
-    fields: [
-      { name: 'text', type: manifest.fieldTypes.singleLineText },
-    ],
+    fields: [{ name: 'text', type: CommonFieldTypes.SingleLineText }],
   });
 
-  manifest.addComponent({
+  addComponent(manifest, {
     name: 'Question',
     fields: [
-      { name: 'label', type: manifest.fieldTypes.singleLineText },
-      { name: 'inputName', type: manifest.fieldTypes.singleLineText },
+      { name: 'label', type: CommonFieldTypes.SingleLineText },
+      { name: 'inputName', type: CommonFieldTypes.SingleLineText },
     ],
   });
 
-  manifest.addComponent({
+  addComponent(manifest, {
     name: 'FormValues',
   });
 };

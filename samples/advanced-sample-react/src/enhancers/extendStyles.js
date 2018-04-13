@@ -4,10 +4,7 @@ import deepExtend from 'deep-extend';
 
 export default (WrappedComponent, styles = {}) => {
   const Enhancer = (props) => {
-    const computedStyles =
-      typeof styles === 'function' ?
-        styles(props) :
-        styles;
+    const computedStyles = typeof styles === 'function' ? styles(props) : styles;
     const style = deepExtend({}, computedStyles, props.style);
     return <WrappedComponent {...props} style={style} />;
   };
@@ -20,10 +17,7 @@ export default (WrappedComponent, styles = {}) => {
     style: {},
   };
 
-  Enhancer.displayName =
-    WrappedComponent.displayName ||
-    WrappedComponent.name ||
-    'Component';
+  Enhancer.displayName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
 
   return Enhancer;
 };

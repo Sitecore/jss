@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { commonComponent } from 'enhancers';
 import { RichText as RichTextField } from '@sitecore-jss/sitecore-jss-react';
 
-const RichText = ({ fields }) =>
-  <RichTextField field={fields.text} tag="div" className="rich-text" />;
+const RichText = ({ fields }) => (
+  <RichTextField field={fields.text} tag="div" className="rich-text" />
+);
 
 RichText.propTypes = {
   fields: PropTypes.shape({

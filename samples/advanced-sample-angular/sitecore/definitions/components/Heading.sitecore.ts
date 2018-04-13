@@ -1,12 +1,12 @@
-export default (manifest) => {
+import { Manifest, CommonFieldTypes } from '@sitecore-jss/sitecore-jss-manifest';
+
+export default (manifest: Manifest) => {
     manifest.addComponent({
         name: 'Heading',
         displayName: 'Heading',
         fields: [
-            { name: 'text', displayName: 'Text', type: manifest.fieldTypes.singleLineText },
+            { name: 'text', displayName: 'Text', type: CommonFieldTypes.SingleLineText },
         ],
-        params: [
-            { name: 'size' },
-        ],
+        params: ['size'],
     });
 };

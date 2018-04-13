@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { JssService } from '../../jss.service';
-import { LayoutService } from '../../layoutService/layout.service';
+import { LayoutService } from '../../layout.service';
 import { MatDialog } from '@angular/material';
 import { ModalContentComponent } from '../modal-content/modal-content.component';
 

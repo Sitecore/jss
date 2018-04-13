@@ -27,14 +27,24 @@ const App = ({ style, actions, rendering, lang, sitecoreContext, metaTitle, rout
     <Switch>
       <Route exact path={NOT_FOUND_ROUTE} component={NotFound} />
       <Route exact path={SERVER_ERROR_ROUTE} component={ServerError} />
-      {SITECORE_ROUTES.map(path =>
-        <Route key={path} path={path} render={routeProps => <Page {...routeProps} actions={actions} rendering={rendering} routeFields={routeFields} sitecoreContext={sitecoreContext} />} />
-      )}
+      {SITECORE_ROUTES.map((path) => (
+        <Route
+          key={path}
+          path={path}
+          render={(routeProps) => (
+            <Page
+              {...routeProps}
+              actions={actions}
+              rendering={rendering}
+              routeFields={routeFields}
+              sitecoreContext={sitecoreContext}
+            />
+          )}
+        />
+      ))}
       <Route component={NotFound} />
     </Switch>
-    <div className="copyright">
-      &copy; {t('Copyright', { year: new Date().getFullYear() })}
-    </div>
+    <div className="copyright">&copy; {t('Copyright', { year: new Date().getFullYear() })}</div>
   </div>
 );
 

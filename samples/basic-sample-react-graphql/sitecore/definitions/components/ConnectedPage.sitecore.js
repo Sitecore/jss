@@ -1,11 +1,14 @@
-export default manifest => {
-  manifest.addComponent({
-    name: "ConnectedPage",
-    displayName: "Connected Page",
+import { addComponent, CommonFieldTypes, SitecoreIcon } from '@sitecore-jss/sitecore-jss-manifest';
+
+export default (manifest) => {
+  addComponent(manifest, {
+    name: 'ConnectedPage',
+    displayName: 'Connected Page',
+    icon: SitecoreIcon.GraphConnection,
     fields: [
-      { name: "title", type: manifest.fieldTypes.singleLineText },
-      { name: "text", type: manifest.fieldTypes.richText },
-      { name: "logoImage", type: manifest.fieldTypes.image }
-    ]
+      { name: 'title', type: CommonFieldTypes.SingleLineText },
+      { name: 'text', type: CommonFieldTypes.RichText },
+      { name: 'logoImage', type: CommonFieldTypes.Image },
+    ],
   });
 };
