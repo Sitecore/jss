@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-advancedapp-reactweb",
-  "version": "8.0.1",
+  "version": "8.0.3",
   "description": "An opinionated and full-featured app utilizing Sitecore JavaScript Services.",
   "config": {
     "appName": "JssAdvancedAppReactWeb",
@@ -44,7 +44,7 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^8.0.1",
+    "@sitecore-jss/sitecore-jss-react": "^8.0.3",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^3.3.7",
     "deep-extend": "^0.5.0",
@@ -69,9 +69,9 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^8.0.1",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^8.0.1",
-    "@sitecore-jss/sitecore-jss-manifest": "^8.0.1",
+    "@sitecore-jss/sitecore-jss-cli": "^8.0.3",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^8.0.3",
+    "@sitecore-jss/sitecore-jss-manifest": "^8.0.3",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
