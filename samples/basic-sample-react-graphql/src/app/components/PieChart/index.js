@@ -23,16 +23,19 @@ const PieChartComponent = ({ fields }) => {
   };
 
   return (
-    <div id="Content">
-      <div id="LeftContent">
-        <Text tag="h1" className="contentTitle" field={title} />
-        <RichText className="contentDescription" field={description} />
-        <PieChart
-          margin={{ top: 10, bottom: 10, left: 100, right: 100 }}
-          width={scale}
-          height={scale}
-          data={data}
-        />
+    <div>
+      <div id="Header" />
+      <div id="Content">
+        <div id="LeftContent">
+          <Text tag="h1" className="contentTitle" field={title} />
+          <RichText className="contentDescription" field={description} />
+          <PieChart
+            margin={{ top: 10, bottom: 10, left: 100, right: 100 }}
+            width={scale}
+            height={scale}
+            data={data}
+          />
+        </div>
       </div>
     </div>
   );

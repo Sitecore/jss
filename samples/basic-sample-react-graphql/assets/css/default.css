@@ -33,24 +33,24 @@ a:hover {
   background: white url('../img/banner.jpg') no-repeat;
   background-size: 1170px 402px;
   text-align: left;
-}	
+}
 
 #InnerCenter {
-  margin: auto;	
+  margin: auto;
   position:relative;
   width:1150px;
   height:700px;
-}	
+}
 
 #Header {
   height:402px;
-}	
+}
 
 #Footer {
   width:100%;
-  clear:both; 
+  clear:both;
   padding-top:2px;
-}	
+}
 
 #LeftContent {
   width:750px;
@@ -81,4 +81,4 @@ a:hover {
 .contentDescription{
   padding-right:20px;
   line-height: 22px;
-}	
+}

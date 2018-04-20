@@ -1,6 +1,6 @@
 {
-  "name": "jss-individual-components-sample-reactweb",
-  "version": "8.0.0",
+  "name": "jss-sample-individual-components-reactweb",
+  "version": "8.0.1",
   "description": "A basic component library utilizing Sitecore JavaScript Services. Demonstrates how to use indidivual components as renderings in Sitecore instead of full-fledged applications.",
   "config": {
     "appName": "JssComponentsReactWeb",
@@ -43,16 +43,16 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^8.0.0",
+    "@sitecore-jss/sitecore-jss-react": "^8.0.1",
     "babel-polyfill": "^6.26.0",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^8.0.0",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^8.0.0",
-    "@sitecore-jss/sitecore-jss-manifest": "^8.0.0",
+    "@sitecore-jss/sitecore-jss-cli": "^8.0.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^8.0.1",
+    "@sitecore-jss/sitecore-jss-manifest": "^8.0.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",

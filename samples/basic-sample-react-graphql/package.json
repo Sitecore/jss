@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-basicapp-graphql",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "description": "A basic app utilizing Sitecore JavaScript Services with GraphQL.",
   "config": {
     "appName": "JssBasicAppGraphQL",
@@ -47,7 +47,7 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^8.0.0",
+    "@sitecore-jss/sitecore-jss-react": "^8.0.1",
     "apollo-cache-inmemory": "^1.1.12",
     "apollo-client": "^2.2.8",
     "apollo-link": "^1.2.1",
@@ -69,9 +69,9 @@
     "zen-observable": "^0.8.8"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^8.0.0",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^8.0.0",
-    "@sitecore-jss/sitecore-jss-manifest": "^8.0.0",
+    "@sitecore-jss/sitecore-jss-cli": "^8.0.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^8.0.1",
+    "@sitecore-jss/sitecore-jss-manifest": "^8.0.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",

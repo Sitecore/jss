@@ -5,6 +5,7 @@
     "baseUrl": "./",
     "module": "commonjs",
     "target": "es5",
+    "newLine": "LF",
     "types": [
       "jasmine",
       "node"
