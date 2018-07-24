@@ -1,0 +1,28 @@
+<app-styleguide-specimen [rendering]="rendering">
+  <h5>Shared Content List</h5>
+  <!--
+  Content list fields are returned with their value as an array of the referenced items.
+  So we can use the .map() array function to traverse them. Ensure a `key` attribute is set
+  on each element to make React's DOM updating happy:
+  -->
+  <ng-container *ngIf="rendering.fields.sharedContentList">
+    <div *ngFor="let listItem of rendering.fields.sharedContentList">
+      <h6>{{ listItem.displayName }}</h6>
+      <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
+      <p>
+        Field: <span *scText="listItem.fields.textField"></span>
+      </p>
+    </div>
+  </ng-container>
+
+  <h5>Local Content List</h5>
+  <ng-container *ngIf="rendering.fields.localContentList">
+    <div *ngFor="let listItem of rendering.fields.localContentList">
+      <h6>{{ listItem.displayName }}</h6>
+      <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
+      <p>
+        Field: <span *scText="listItem.fields.textField"></span>
+      </p>
+    </div>
+  </ng-container>
+</app-styleguide-specimen>

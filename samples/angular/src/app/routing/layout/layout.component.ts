@@ -1,0 +1,64 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { JssState } from '../../JssState';
+import { ActivatedRoute } from '@angular/router';
+import { MetaService } from '@ngx-meta/core';
+import { RouteData, Field } from '@sitecore-jss/sitecore-jss-angular';
+import { Subscription } from 'rxjs';
+
+enum LayoutState {
+  Layout,
+  NotFound,
+  Error
+}
+
+@Component({
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+})
+export class LayoutComponent implements OnInit, OnDestroy {
+  route: RouteData;
+  state: LayoutState;
+  LayoutState = LayoutState;
+  subscription: Subscription;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private readonly meta: MetaService,
+  ) { }
+
+  ngOnInit() {
+    // route data is populated by the JssRouteResolver
+    this.subscription = this.activatedRoute.data.subscribe((data: { jssState: JssState }) => {
+      if (!data.jssState) {
+        this.state = LayoutState.NotFound;
+        return;
+      }
+
+      if (data.jssState.sitecore) {
+        this.route = data.jssState.sitecore.route;
+        this.setMetadata(this.route.fields);
+        this.state = LayoutState.Layout;
+      }
+
+      if (data.jssState.routeFetchError) {
+        if (data.jssState.routeFetchError.status >= 400 && data.jssState.routeFetchError.status < 500) {
+          this.state = LayoutState.NotFound;
+        } else {
+          this.state = LayoutState.Error;
+        }
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    // important to unsubscribe when the component is destroyed
+    this.subscription.unsubscribe();
+  }
+
+  setMetadata(routeFields: { [name: string]: Field }) {
+    // set page title, if it exists
+    if (routeFields && routeFields.pageTitle) {
+      this.meta.setTitle(routeFields.pageTitle.value as string || 'Page');
+    }
+  }
+}

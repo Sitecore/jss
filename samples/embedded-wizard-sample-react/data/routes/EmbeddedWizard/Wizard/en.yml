@@ -1,5 +1,0 @@
-name: wizard
-displayName: Wizard
-placeholders:
-  main:
-  - componentName: Wizard

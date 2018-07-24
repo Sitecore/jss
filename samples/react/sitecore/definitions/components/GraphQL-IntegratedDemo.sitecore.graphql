@@ -1,0 +1,67 @@
+# This file contains a GraphQL query that will be executed and the result provided to
+# your JSS component. You can run this query in GraphiQL ($endpoint/ui) for a nice editing experience.
+
+# Note that we're executing _two queries_ (datasource and contextItem)
+# within the context of the IntegratedDemoQuery _operation_. This makes it
+# very efficient at gathering data from multiple sources.
+
+query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
+  # Datasource query
+  # $datasource will always be set to the ID of the rendering's datasource item
+  # (as long as the GraphQLData helper is used)
+  datasource(value: $datasource) {
+    id
+    name
+    # Strongly-typed querying on known templates is possible!
+    ...on GraphQLIntegratedDemo {
+      # Single-line text field
+      sample1 {
+        # the 'jss' field is a JSON blob that represents the object that
+        # should be passed to JSS field rendering helpers (i.e. text, image, link)
+        jss
+        value
+      }
+      # General Link field
+      sample2 {
+        jss
+        # Structured querying of the field's values is possible
+        text
+        target
+        url
+        # Access to the template definition is possible
+        definition {
+          type
+          shared
+        }
+      }
+    }
+  }
+
+  # Context/route item query
+  # $contextItem will always be set to the ID of the current context item (the route item)
+  # (as long as the GraphQLData helper is used)
+  contextItem: item(path: $contextItem) {
+    id
+    # Get the page title from the app route template
+    ...on AppRoute {
+      pageTitle {
+        value
+      }
+    }
+
+    # List the children of the current route
+    children(requirePresentation: true) {
+      id
+      # typing fragments can be used anywhere!
+      # so in this case, we're grabbing the 'pageTitle'
+      # field on all child route items.
+      ...on AppRoute {
+        pageTitle {
+          value
+          jss
+        }
+      }
+      url(options: { disableLanguageEmbedding: true })
+    }
+  }
+}

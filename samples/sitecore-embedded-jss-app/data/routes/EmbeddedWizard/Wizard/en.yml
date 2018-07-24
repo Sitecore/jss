@@ -1,0 +1,5 @@
+name: wizard
+displayName: Wizard
+placeholders:
+  jss-main:
+  - componentName: Wizard

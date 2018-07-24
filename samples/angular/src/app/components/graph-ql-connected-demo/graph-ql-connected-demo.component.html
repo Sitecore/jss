@@ -1,0 +1,55 @@
+<div>
+  <h2>GraphQL Connected Demo</h2>
+
+  <p>
+    Connected GraphQL executes GraphQL queries directly against the Sitecore GraphQL endpoint.
+    You can review the query execution in the browser devtools network tab. Note that Apollo
+    Client maintains a query cache - so the same query will not execute twice (i.e. after route
+    changes) unless either the page is refreshed, or the <em>fetch policy</em> is set to not use
+    the cache. Consult the Apollo documentation for details.
+  </p>
+
+  <div *ngIf="query$ | async as queryResult; else loading">
+    <div>
+      <h4>Datasource Item (via Connected GraphQL)</h4>
+      id: {{ queryResult.data.datasource.id }}
+      <br />
+      name: {{ queryResult.data.datasource.name }}
+      <br />
+      sample1: {{ queryResult.data.datasource.sample1.value }}
+      <br />
+      sample1 (editable): <span *scText="queryResult.data.datasource.sample1.jss"></span>
+      <br />
+      sample2:<br />
+      <ul>
+        <li>text: {{ queryResult.data.datasource.sample2.text }}</li>
+        <li>url: {{ queryResult.data.datasource.sample2.url }}</li>
+        <li>target: {{ queryResult.data.datasource.sample2.target }}</li>
+        <li>
+          editable: <a *scLink="queryResult.data.datasource.sample2.jss"></a>
+        </li>
+        <li>field type: {{ queryResult.data.datasource.sample2.definition.type }}</li>
+        <li>field is shared?: {{ queryResult.data.datasource.sample2.definition.shared.toString() }}</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Route Item (via Connected GraphQL)</h4>
+      id: {{ queryResult.data.contextItem.id }}
+      <br />
+      page title: {{ queryResult.data.contextItem.pageTitle.value }}
+      <br />
+      children:
+      <ul>
+        <li *ngFor="let child of queryResult.data.contextItem.children">
+          <a [routerLink]="child.url">{{ child.pageTitle.value }}</a>
+          (editable title too! <span *scText="child.pageTitle.jss"></span>)
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <p class="alert alert-info">GraphQL query is loading...</p>
+  </ng-template>
+</div>

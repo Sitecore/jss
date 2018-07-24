@@ -1,8 +1,0 @@
-<button mat-button *ngIf="!navItem?.children || single; else menuBlock" (click)="changeRoute(navItem)">{{navItem?.name}}</button>
-<ng-template #menuBlock>
-  <button mat-button [matMenuTriggerFor]="subMenu">{{navItem?.name}}</button>
-  <mat-menu #subMenu="matMenu">
-    <button mat-menu-item (click)="changeRoute(navItem)">{{navItem?.name}}</button>
-    <button mat-menu-item *ngFor="let child of navItem?.children" (click)="changeRoute(child)">{{child.name}}</button>
-  </mat-menu>
-</ng-template>

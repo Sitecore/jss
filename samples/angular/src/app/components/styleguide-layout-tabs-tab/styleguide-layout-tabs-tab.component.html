@@ -1,0 +1,10 @@
+<!--
+  When we're editing the tabs we stack each tab vertically,
+  which means there's no regular tab titles rendered.
+  So we conditionally render the tab title here, when editing.
+-->
+<ng-container *ngIf="isEditing">
+  <h5 *scText="rendering.fields.title"></h5>
+</ng-container>
+
+<div *scRichText="rendering.fields.content"></div>
