@@ -1,9 +1,0 @@
-<li *ngFor="let service of rendering.fields.items">
-  <mat-card>
-    <mat-card-header>
-      <mat-icon svgIcon="checkbox-marked-outline" color="primary"></mat-icon>
-      <app-heading [size]="3" [field]="service.fields.title"></app-heading>
-    </mat-card-header>
-    <mat-card-content *scRichText="service.fields.description"></mat-card-content>
-  </mat-card>
-</li>

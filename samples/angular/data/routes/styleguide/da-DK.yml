@@ -1,0 +1,26 @@
+fields:
+  pageTitle: Styleguide | Sitecore JSS
+placeholders:
+  jss-main:
+  - componentName: ContentBlock
+    fields:
+      heading: JSS Styleguide
+      content: |
+        <div class="alert alert-primary" role="alert">
+          This is a partial Danish translation of the JSS Styleguide to demonstrate translation functionality.
+          Use the <a href="/en/styleguide">English version</a> for full content.
+        </div>
+        <p>Indholdet og layoutet på denne side er defineret i <code>/data/routes/styleguide/da-DK.yml</code></p>
+  - componentName: StyleguideLayout
+    placeholders:
+      jss-styleguide-layout:
+      - componentName: StyleguideSection
+        fields:
+          heading: Flersprogede mønstre
+        placeholders:
+          jss-styleguide-section:
+          - componentName: StyleguideMultilingual
+            fields:
+              heading: Brug af ordbogen
+              sample: Denne tekst kan oversættes til da-DK.yml
+

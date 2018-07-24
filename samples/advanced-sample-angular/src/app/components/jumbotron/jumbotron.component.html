@@ -1,4 +1,0 @@
-<!-- Example of "falling back" to data on route instead of component. -->
-<app-heading [size]="rendering?.params?.titleSize" [field]="rendering?.fields?.titleText || routeFields?.titleText"></app-heading>
-<hr />
-<div *scRichText="rendering?.fields?.body || routeFields?.body"></div>

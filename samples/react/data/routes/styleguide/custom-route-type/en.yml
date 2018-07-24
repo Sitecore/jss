@@ -1,0 +1,12 @@
+# Using a Custom Route Type enables adding more field data to the route level.
+template: ExampleCustomRouteType
+fields:
+  # Note that custom route types inherit from the default route type automatically.
+  # This is what makes the `pageTitle` field available here, when it's not defined on the custom route type.
+  pageTitle: Custom Route Type | Sitecore JSS
+  headline: A Treatise on Route-Level Fields in JSS
+  author: Myrtle
+  content: <p>Custom route type fields are good for things like articles, where you may wish to have a filter UI on content fields, such as author or category. Route level fields are easy to query against, whereas component-level fields are not because it's possible to remove a component from a route. Note that route level fields <em>cannot be personalized</em> because you cannot conditionally swap out the route item for a different content item.</p>
+placeholders:
+  jss-main:
+  - componentName: Styleguide-CustomRouteType

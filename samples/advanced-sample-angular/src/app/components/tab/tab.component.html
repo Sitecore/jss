@@ -1,9 +1,0 @@
-<mat-card *ngIf="isActive()" [ngClass]="{'page-editing': pageEditing}">
-  <ng-container *ngIf="pageEditing">
-    <mat-card-title *scText="rendering.fields.title"></mat-card-title>
-  </ng-container>
-  <mat-card-content sc-placeholder name="tab" [rendering]="rendering"></mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="next()" color="primary">Next</button>
-  </mat-card-actions>
-</mat-card>

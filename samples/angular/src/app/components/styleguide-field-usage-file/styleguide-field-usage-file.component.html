@@ -1,0 +1,10 @@
+<app-styleguide-specimen [rendering]="rendering">
+  <!-- Renders a file link -->
+    <a *scFile="rendering.fields.file"></a>
+    <br />
+
+  <!-- Renders a file link with a custom body and opening in a new tab -->
+  <a *scFile="rendering.fields.file" target="_blank">
+    Custom link body
+  </a>
+</app-styleguide-specimen>
