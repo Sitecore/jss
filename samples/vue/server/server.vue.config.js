@@ -29,8 +29,6 @@ const vueConfig = {
     if (config.optimization) {
       config.optimization.splitChunks = undefined;
     }
-    config.devtool = 'inline-source-map';
-    config.mode = 'development';
   },
   chainWebpack: (config) => {
     // Server build does not need HtmlWebpackPlugin, HtmlPwaPlugin, HotModuleReplacementPlugin
