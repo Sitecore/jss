@@ -1,59 +1,40 @@
 # Sitecore JavaScript Services
 
-This repository contains samples to help you get started with JSS.
+This repository contains samples to help you get started using Sitecore JSS.
 
 You can also use this repo to file issues.
 
-Here are the samples included in this repo:
+Below is a list of samples included in this repo:
 
-1. [Basic sample in React.js](/samples/basic-sample-react)
+1. [React](/samples/react)
    
-   This is the most barebones single page app with minimum dependencies and is built for learning purposes only.
-   [Check out the walkthrough here](https://jss.sitecore.net/#/cookbook/basic-app).
+   Built using [create-react-app](https://github.com/facebook/create-react-app) as a starting point. Supports out-of-the-box Sitecore functionalities (i18n, routing, GraphQL, set &lt;title&gt; tags) and demonstrates how to work with various Sitecore data types, placeholder nesting and wrapping techniques, and other helpful JSS patterns. The application code is heavily commented, but [documentation also exists](.
+   [Check out the walkthrough here](http://jss.sitecore.net/docs/client-frameworks/react/sample-app).
 
-1. [Advanced sample in React.js](/samples/advanced-sample-react)
-
-    More feature rich and opinionated sample site wired with redux, implements routing via React Router, translation/localization features, route data as local .json files, context, content and other features.
-
-1. [Basic sample in Angular 5](/samples/basic-sample-angular)
-
-   This is the most barebones single page app with minimum dependencies and is built for learning purposes only.
-
-1. [Advanced sample in Angular 5](/samples/advanced-sample-angular)
-
-    This is a more full-featured and opinionated app built routing support, multiple language support, dictionary and Material UI design framework.
-
-
-1. [Basic sample in Vue.js](/samples/basic-sample-vue-web)
+1. [Vue](/samples/vue)
    
-   This is the most barebones single page app with minimum dependencies and is built for learning purposes only using Vue.js and `sitecore-jss-vue`.
-   [Check out the walkthrough here](https://jss.sitecore.net/#/cookbook/basic-app).
+   Built using [@vue/cli](https://cli.vuejs.org/) as a starting point. Supports out-of-the-box Sitecore functionalities (i18n, routing, GraphQL, set &lt;title&gt; tags) and demonstrates how to work with various Sitecore data types, placeholder nesting and wrapping techniques, and other helpful JSS patterns. The application code is heavily commented, but [documentation also exists](http://jss.sitecore.net/docs/client-frameworks/vue/sample-app).
 
-1. [Wizard sample app in React](/samples/embedded-wizard-sample-react)
+1. [Angular](/samples/angular)
 
-    This app shows how to embed client-side application inside an existing Sitecore MVC app. [Read more here](https://jss.sitecore.net/#/cookbook/recipes/embedded-wizard-sample).
+   Built using [angular-cli](https://cli.angular.io/) as a starting point. Supports out-of-the-box Sitecore functionalities (i18n, routing, GraphQL, set &lt;title&gt; tags) and demonstrates how to work with various Sitecore data types, placeholder nesting and wrapping techniques, and other helpful JSS patterns. The application code is heavily commented, but [documentation also exists](http://jss.sitecore.net/docs/client-frameworks/angular/sample-app).
 
-1. [Basic sample in Vue.js](/samples/basic-sample-vue-web)
-   
-   This is the most barebones single page app with minimum dependencies and is built for learning purposes only using Vue.js and `sitecore-jss-vue`.
-   [Check out the walkthrough here](https://jss.sitecore.net/#/cookbook/basic-app).
 
-1. [Basic React Native app](/samples/basic-sample-react-native)
+1. [Embedded JSS App within Sitecore MVC](/samples/sitecore-embedded-jss-app)
 
-    This app shows our first and yet experimental support for React Native.
+    This app demonstrates how to embed a client-side JSS application inside an existing Sitecore MVC site as opposed to running a standalone JSS site. This technique essentially embeds the JSS app's markup and app wrapper tag within a Sitecore rendering. [Documentation](http://jss.sitecore.net/docs/techniques/mvc-integration/client-side-embedding).
 
-1. [Individual components sample](/samples/individual-components-sample-react-web)
+1. [React Native](/samples/react-native)
 
-    This project shows how to deploy individual JavaScript components to Sitecore (new feature in Preview 3).
+    This app demonstrates experimental JSS usage with React Native. Due to the experimental nature of React Native support in JSS, this app does not have feature parity with the other framework samples (e.g. React, Vue). [Documentation](http://jss.sitecore.net/docs/client-frameworks/react-native)
 
-1. [Basic sample with React/GraphQL/Apollo client](/samples/basic-sample-react-graphql)
+1. [Sitecore JavaScript rendering](/samples/sitecore-javascript-renderings)
 
-    Though this app looks like other basic app samples, it is actually a feature rich sample app showing 
-    how to start consuming Sitecore.GraphQL services.
+    This project demonstrates experimental support for creating Sitecore renderings that will server-side render individual JavaScript components or apps. The Sitecore JavaScript renderings can be used alongside traditional MVC-based renderings. [Documentation](http://jss.sitecore.net/docs/techniques/mvc-integration/javascript-rendering)
 
-1. [Node/Express scaffolding for Server-Side Rendering](/samples/node-express-ssr)
+1. [Headless Server-Side Rendering with Node.js](/samples/node-headless-ssr-proxy)
 
-    This scaffolding is setup for Advanced sample app allowing for server-side rendering with the http proxy to Sitecore Content Delivery instance.
+    JSS supports headless server-side rendering using any service that supports hosting Node.js applications. [Documentation](http://jss.sitecore.net/docs/techniques/ssr/headless-mode-ssr).
 
 ## Getting started
 - [Official JSS documentation](https://jss.sitecore.net/)
