@@ -6,7 +6,8 @@ console.log('Enabling Babel transpilation for the manifest...');
 require('babel-core/register')({
   presets: [
     [
-      'babel-preset-env',
+      // eslint-disable-next-line global-require
+      require('babel-preset-env'),
       {
         targets: {
           node: 'current',

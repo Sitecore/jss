@@ -1,6 +1,6 @@
 {
   "name": "jss-embedded-jss-app-sample",
-  "version": "9.0.5",
+  "version": "9.0.6",
   "description": "Demonstrates embedding a JSS application within a traditional Sitecore page",
   "config": {
     "appName": "EmbeddedWizard",
@@ -56,8 +56,8 @@
     "react-stepzilla": "^4.7.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^9.0.5",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^9.0.5",
+    "@sitecore-jss/sitecore-jss-cli": "^9.0.6",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^9.0.6",
     "@sitecore-jss/sitecore-jss-manifest": "^9.0.5",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",

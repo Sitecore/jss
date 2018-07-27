@@ -15,7 +15,7 @@ const packageConfig = require('../package.json');
 module.exports = function generateConfig(configOverrides) {
   const defaultConfig = {
     sitecoreApiKey: 'no-api-key-set',
-    sitecoreApiHost: 'http://not-set',
+    sitecoreApiHost: '',
     jssAppName: 'Unknown',
   };
 

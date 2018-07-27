@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-vue",
-  "version": "9.0.5",
+  "version": "9.0.6",
   "description": "Application utilizing Sitecore JavaScript Services and Vue (vue-cli).",
   "private": true,
   "config": {
@@ -65,8 +65,8 @@
   },
   "devDependencies": {
     "@babel/register": "^7.0.0-beta.51",
-    "@sitecore-jss/sitecore-jss-cli": "^9.0.5",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^9.0.5",
+    "@sitecore-jss/sitecore-jss-cli": "^9.0.6",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^9.0.6",
     "@sitecore-jss/sitecore-jss-manifest": "^9.0.5",
     "@vue/cli-plugin-babel": "^3.0.0-rc.3",
     "@vue/cli-plugin-e2e-cypress": "^3.0.0-rc.3",
