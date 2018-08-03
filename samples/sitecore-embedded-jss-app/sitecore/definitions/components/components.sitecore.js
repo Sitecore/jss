@@ -1,5 +1,10 @@
 import { addComponent, CommonFieldTypes, SitecoreIcon } from '@sitecore-jss/sitecore-jss-manifest';
-import WizardQuery from './Wizard.sitecore.graphql';
+import fs from 'fs';
+
+const WizardQuery = fs.readFileSync(
+  'sitecore/definitions/components/Wizard.sitecore.graphql',
+  'utf8'
+);
 
 export default (manifest) => {
   addComponent(manifest, {
