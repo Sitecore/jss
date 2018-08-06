@@ -30,7 +30,7 @@ export default class Step extends React.Component {
     return routeData.placeholders ? (
       <div className="wizard-step">
         <Placeholder
-          name="main"
+          name="jss-main"
           rendering={routeData}
           onValueChange={onFormValueChange}
           formValues={formValues}
