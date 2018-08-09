@@ -25,7 +25,7 @@ const packageConfig = require('../package.json').config;
 
 // add calculated configuration settings
 const calculatedConfig = {
-  devServerPort: 3001,
+  devServerPort: 3000,
 };
 
 // optional:

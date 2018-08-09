@@ -1,7 +1,0 @@
-rendering:
-  componentName: SampleButton
-dataSource:
-  Text:
-    value: Click me, yo.
-    editable: Click me, yo.
-placeholders: {}
