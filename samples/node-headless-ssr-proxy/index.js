@@ -4,8 +4,8 @@ const fs = require('fs');
 const escapeStringRegexp = require('escape-string-regexp');
 const scProxy = require('@sitecore-jss/sitecore-jss-proxy').default;
 const ipaddr = require('ipaddr.js');
-const app = require('./dist/JssAngularWeb/server.bundle');
 const config = require('./config');
+const app = require(`./dist/${config.appName}/server.bundle`);
 
 const server = express();
 const port = process.env.PORT || 3000;
