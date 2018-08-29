@@ -7,18 +7,16 @@ You can also use this repo to file issues.
 Below is a list of samples included in this repo:
 
 1. [React](/samples/react)
-   
-   Built using [create-react-app](https://github.com/facebook/create-react-app) as a starting point. Supports out-of-the-box Sitecore functionalities (i18n, routing, GraphQL, set &lt;title&gt; tags) and demonstrates how to work with various Sitecore data types, placeholder nesting and wrapping techniques, and other helpful JSS patterns. The application code is heavily commented, but [documentation also exists](.
-   [Check out the walkthrough here](http://jss.sitecore.net/docs/client-frameworks/react/sample-app).
+
+   Built using [create-react-app](https://github.com/facebook/create-react-app) as a starting point. Supports out-of-the-box Sitecore functionalities (i18n, routing, GraphQL, set &lt;title&gt; tags) and demonstrates how to work with various Sitecore data types, placeholder nesting and wrapping techniques, and other helpful JSS patterns. The application code is heavily commented, but [documentation also exists](http://jss.sitecore.net/docs/client-frameworks/react/sample-app).
 
 1. [Vue](/samples/vue)
-   
+
    Built using [@vue/cli](https://cli.vuejs.org/) as a starting point. Supports out-of-the-box Sitecore functionalities (i18n, routing, GraphQL, set &lt;title&gt; tags) and demonstrates how to work with various Sitecore data types, placeholder nesting and wrapping techniques, and other helpful JSS patterns. The application code is heavily commented, but [documentation also exists](http://jss.sitecore.net/docs/client-frameworks/vue/sample-app).
 
 1. [Angular](/samples/angular)
 
    Built using [angular-cli](https://cli.angular.io/) as a starting point. Supports out-of-the-box Sitecore functionalities (i18n, routing, GraphQL, set &lt;title&gt; tags) and demonstrates how to work with various Sitecore data types, placeholder nesting and wrapping techniques, and other helpful JSS patterns. The application code is heavily commented, but [documentation also exists](http://jss.sitecore.net/docs/client-frameworks/angular/sample-app).
-
 
 1. [Embedded JSS App within Sitecore MVC](/samples/sitecore-embedded-jss-app)
 
@@ -37,11 +35,12 @@ Below is a list of samples included in this repo:
     JSS supports headless server-side rendering using any service that supports hosting Node.js applications. [Documentation](http://jss.sitecore.net/docs/techniques/ssr/headless-mode-ssr).
 
 ## Getting started
+
 - [Official JSS documentation](https://jss.sitecore.net/)
 - [StackExchange](https://sitecore.stackexchange.com/)
 - [Community Slack](https://sitecorechat.slack.com/messages/jss)
 - [Sitecore Community Forum](https://community.sitecore.net/developers/f/40)
 
 ## Feature requests
-[![Feature Requests](http://feathub.com/Sitecore/jss?format=svg)](http://feathub.com/Sitecore/jss)
 
+[![Feature Requests](http://feathub.com/Sitecore/jss?format=svg)](http://feathub.com/Sitecore/jss)
