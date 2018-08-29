@@ -43,4 +43,5 @@ Below is a list of samples included in this repo:
 
 ## Feature requests
 
-[![Feature Requests](http://feathub.com/Sitecore/jss?format=svg)](http://feathub.com/Sitecore/jss)
+
+Open an issue!
