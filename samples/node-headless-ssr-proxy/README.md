@@ -10,28 +10,41 @@ You can use this as a starting point to unlock deployment of your JSS apps to an
 
 ## Pre-requisites
 
-1.  Your Sitecore instance needs to be configured with JSS.Server and the API Key provisioned. Read more [here](https://jss.sitecore.net/#/setup/jss-server-install?id=jss-server-install) how to set it up.
+1. Your Sitecore instance needs to be configured with JSS.Server and the API Key provisioned. Read more [here](https://jss.sitecore.net/#/setup/jss-server-install?id=jss-server-install) how to set it up.
 
-    > LayoutService API should be returning output if you make the following request to your Sitecore instance. `http://sitecore-host/sitecore/api/layout/render/jss?item=/&sc_apikey={YOUR_API_KEY}`
+   > LayoutService API should be returning output if you make the following request to your Sitecore instance. `http://sitecore-host/sitecore/api/layout/render/jss?item=/&sc_apikey={YOUR_API_KEY}`
 
-1.  Build your JS app bundle with `jss build`.
+1. Build your JS app bundle with `jss build`.
 
-    > You can use any of the JSS sample apps. Other apps must support server side rendering (JSS integrated mode) to operate with this project.
+   > You can use any of the JSS sample apps. Other apps must support server side rendering (JSS integrated mode) to operate with this project.
 
-1.  Deploy the build artifacts from your app (`/dist` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the proxy root path. Most apps use `/dist/${jssAppName}`, for example for the GraphQL sample you'd build it, then copy its `/dist` to `$proxyRoot/dist/JssBasicAppGraphQL`.
+1. Deploy the build artifacts from your app (`/dist` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the proxy root path. Most apps use `/dist/${jssAppName}`, for example for the GraphQL sample you'd build it, then copy its `/dist` to `$proxyRoot/dist/JssBasicAppGraphQL`.
 
 > Another way to deploy the artifacts to the proxy is to change the `instancePath` in your app's `scjssconfig.json` to the proxy root path, and then use `jss deploy files` within the app to complete the deployment to the proxy. `jss deploy:watch` also works when configured this way.
 
 ## Setup
 
-1.  Open `config.js` and specify connection settings to your Sitecore CD instance. `config.js` is heavily commented for your perusal.
-1.  Open `index.js` and alter the `const app = require('./dist/AdvancedApp/server.bundle');` to instead require your app's `server.bundle` file.
+Open `config.js` and specify connection settings to your Sitecore CD instance. `config.js` is heavily commented for your perusal.
+
+### Environment Variables
+
+The following environment variables can be set to configure the proxy instead of modifying `config.js`:
+
+| Parameter                              | Description
+-----------------------------------------|------------------------------------------------
+| `SITECORE_APPLICATION_NAME`            | Name of the application that will be deployed to the `/dist` folder (e.g., `my-first-jss-app`).
+| `SITECORE_API_HOST`                    | Sitecore instance host name. Should be HTTPS in production.
+| `SITECORE_LAYOUT_SERVICE_ROUTE`        | Optional. The path to layout service for the JSS application. Defaults to `/sitecore/api/layout/render/jss`.
+| `SITECORE_API_KEY`                     | The Sitecore SSC API key your app uses.
+| `SITECORE_PATH_REWRITE_EXCLUDE_ROUTES` | Optional. Pipe-separated list of absolute paths that should not be rendered through SSR. Defaults can be seen in [config.js](./config.js).
+| `SITECORE_ENABLE_DEBUG`                | Optional. Writes verbose request info to stdout for debugging. Defaults to `false`.
+| `SITECORE_ALLOW_SELF_SIGNED_CERTS`     | Optional. For demo ONLY, allows self-signed SSL certs. Defaults to `false`.
 
 ## Build & run
 
-1.  Run `npm install`
+1. Run `npm install`
 
-1.  Run `npm run start`
+1. Run `npm run start`
 
 You should be able to see the following message:
 `server listening on port 3000!` and see all the communication between this server and your Sitecore CD instance in the console.
