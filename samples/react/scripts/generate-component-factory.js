@@ -50,6 +50,10 @@ function writeComponentFactory() {
   fs.writeFileSync(componentFactoryPath, componentFactory, { encoding: 'utf8' });
 }
 
+function fileExists() {
+  return fs.existsSync(path.join.apply(null, Array.from(arguments)));
+}
+
 function generateComponentFactory() {
   // by convention, we expect to find React components
   // * under /src/components/ComponentName
@@ -62,7 +66,12 @@ function generateComponentFactory() {
   const registrations = [];
 
   fs.readdirSync(componentRootPath).forEach((componentFolder) => {
-    if (!fs.existsSync(path.join(componentRootPath, componentFolder, 'index.js'))) return;
+    if (!(
+      fileExists(componentRootPath, componentFolder, 'index.js') ||
+      fileExists(componentRootPath, componentFolder, 'index.jsx')
+    )) {
+      return;
+    }
 
     const importVarName = componentFolder.replace(/[^\w]+/g, '');
 
