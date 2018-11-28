@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-native",
-  "version": "11.0.0-alpha.0",
+  "version": "11.0.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -26,7 +26,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^11.0.0-alpha.0",
+    "@sitecore-jss/sitecore-jss": "^11.0.0",
     "prop-types": "^15.6.0",
     "react-native-htmlview": "^0.13.0"
   },
