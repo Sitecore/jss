@@ -1,7 +1,7 @@
 src/**/*.js
 **/*.js.map
 **/*.d.ts
-jss-component/schema.d.ts
+!src/jss-component/schema.d.ts
 
 # IDEs
 .idea/
