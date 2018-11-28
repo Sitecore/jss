@@ -1,4 +1,5 @@
-# Sitecore JavaScript Services for Angular
+# Sitecore JavaScript Services Angular Schematics
 
-This module is provided as a part of Sitecore JavaScript Services.
-Please consult LICENSE.txt file for details.
+This module is provided as a part of Sitecore JavaScript Services. It contains Angular developer code generation schematics.
+
+Consult the [Sitecore JSS documentation](https://jss.sitecore.net) for further details.
