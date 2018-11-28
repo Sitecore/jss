@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JssState } from '../../JssState';
 import { ActivatedRoute } from '@angular/router';
 import { MetaService } from '@ngx-meta/core';
-import { RouteData, Field } from '@sitecore-jss/sitecore-jss-angular';
+import { RouteData, Field, LayoutServiceContextData } from '@sitecore-jss/sitecore-jss-angular';
 import { Subscription } from 'rxjs';
 
 enum LayoutState {
@@ -20,6 +20,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
   state: LayoutState;
   LayoutState = LayoutState;
   subscription: Subscription;
+  errorContextData: LayoutServiceContextData;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -34,7 +35,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
         return;
       }
 
-      if (data.jssState.sitecore) {
+      if (data.jssState.sitecore && data.jssState.sitecore.route) {
         this.route = data.jssState.sitecore.route;
         this.setMetadata(this.route.fields);
         this.state = LayoutState.Layout;
@@ -46,6 +47,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
         } else {
           this.state = LayoutState.Error;
         }
+
+        this.errorContextData = data.jssState.routeFetchError.data && data.jssState.routeFetchError.data.sitecore;
       }
     });
   }

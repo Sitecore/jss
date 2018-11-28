@@ -62,13 +62,18 @@ function generateComponentFactory() {
   const registrations = [];
 
   fs.readdirSync(componentRootPath).forEach((componentFolder) => {
-    if (!fs.existsSync(path.join(componentRootPath, componentFolder, 'index.js'))) return;
+    const componentFolderFullPath = path.join(componentRootPath, componentFolder);
 
-    const importVarName = componentFolder.replace(/[^\w]+/g, '');
+    if (
+      fs.existsSync(path.join(componentFolderFullPath, 'index.js')) ||
+      fs.existsSync(path.join(componentFolderFullPath, 'index.jsx'))
+    ) {
+      const importVarName = componentFolder.replace(/[^\w]+/g, '');
 
-    console.debug(`Registering JSS component ${componentFolder}`);
-    imports.push(`import ${importVarName} from '../components/${componentFolder}';`);
-    registrations.push(`components.set('${componentFolder}', ${importVarName});`);
+      console.debug(`Registering JSS component ${componentFolder}`);
+      imports.push(`import ${importVarName} from '../components/${componentFolder}';`);
+      registrations.push(`components.set('${componentFolder}', ${importVarName});`);
+    }
   });
 
   return `/* eslint-disable */

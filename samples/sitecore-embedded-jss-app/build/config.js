@@ -26,7 +26,7 @@ const packageConfig = require('../package.json').config;
 // add calculated configuration settings
 const calculatedConfig = {
   translationPath: `/sitecore/api/jss/dictionary/${packageConfig.appName}/{{lng}}`,
-  devServerPort: 3001,
+  devServerPort: 3000,
 };
 
 // optional:

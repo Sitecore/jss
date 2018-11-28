@@ -7,7 +7,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * Text fields are HTML encoded by default.
  */
 const StyleguideFieldUsageText = (props) => (
-  <StyleguideSpecimen {...props}>
+  <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-text">
     {/* Basic use of a text field. No wrapper. */}
     <Text field={props.fields.sample} />
 

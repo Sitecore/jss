@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsAngularComponent",
+  "title": "JSS Angular Component Options Schema",
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the component.",
+      "visible": false
+    },
+    "manifestPath": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to the disconnected manifest to store the component definition.",
+      "default": "sitecore/definitions/components"
+    },
+    "noManifest": {
+      "description": "Skips generating a disconnected manifest definition. Use for Sitecore-first development.",
+      "type": "boolean",
+      "default": false
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the component.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "inlineStyle": {
+      "description": "Specifies if the style will be in the ts file.",
+      "type": "boolean",
+      "default": false,
+      "alias": "s"
+    },
+    "inlineTemplate": {
+      "description": "Specifies if the template will be in the ts file.",
+      "type": "boolean",
+      "default": false,
+      "alias": "t"
+    },
+    "viewEncapsulation": {
+      "description": "Specifies the view encapsulation strategy.",
+      "enum": ["Emulated", "Native", "None"],
+      "type": "string",
+      "alias": "v"
+    },
+    "changeDetection": {
+      "description": "Specifies the change detection strategy.",
+      "enum": ["Default", "OnPush"],
+      "type": "string",
+      "default": "Default",
+      "alias": "c"
+    },
+    "prefix": {
+      "type": "string",
+      "description": "The prefix to apply to generated selectors.",
+      "alias": "p",
+      "oneOf": [
+        {
+          "maxLength": 0
+        },
+        {
+          "minLength": 1,
+          "format": "html-selector"
+        }
+      ],
+      "default": "app"
+    },
+    "styleext": {
+      "description": "The file extension to be used for style files.",
+      "type": "string",
+      "default": "css"
+    },
+    "spec": {
+      "type": "boolean",
+      "description": "Specifies if a spec file is generated.",
+      "default": true
+    },
+    "flat": {
+      "type": "boolean",
+      "description": "Flag to indicate if a dir is created.",
+      "default": false
+    },
+    "selector": {
+      "type": "string",
+      "format": "html-selector",
+      "description": "The selector to use for the component."
+    },
+    "lazyload": {
+      "type": "boolean",
+      "default": false,
+      "description": "Specify whether to generate a lazy-loading module file for the component. When using the default JSS component factory code generator, this will cause the component to lazy load when needed. If using hand-edited component factory, you'll need to add the module to the lazy components manually."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

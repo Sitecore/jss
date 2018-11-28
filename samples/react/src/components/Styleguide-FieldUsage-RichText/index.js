@@ -6,7 +6,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * Demonstrates usage of a Rich Text (HTML) content field within JSS.
  */
 const StyleguideFieldUsageRichText = (props) => (
-  <StyleguideSpecimen {...props}>
+  <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-richtext">
     {/* Basic use of a rich text field. Wraps in a <div>. */}
     <RichText field={props.fields.sample} />
 

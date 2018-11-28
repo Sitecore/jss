@@ -7,7 +7,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * within other components.
  */
 const StyleguideSitecoreContext = (props) => (
-  <StyleguideSpecimen {...props}>
+  <StyleguideSpecimen {...props} e2eId="styleguide-sitecore-context">
     <p>The current Sitecore Context is...</p>
     <pre style={{ maxHeight: '400px', overflow: 'scroll' }}>
       {JSON.stringify(props.sitecoreContext, null, 2)}

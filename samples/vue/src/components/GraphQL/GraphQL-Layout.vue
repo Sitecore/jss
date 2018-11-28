@@ -1,7 +1,7 @@
 <!--
 -->
 <template>
-  <div>
+  <div data-e2e-id="graphql-layout">
     <template v-if="disconnectedMode">
       <p>
         This app is running in disconnected mode. GraphQL requires connected mode, headless

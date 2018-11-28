@@ -2,7 +2,7 @@
  Demonstrates usage of a Checkbox (boolean) content field within JSS.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-checkbox">
     <!-- Checkbox fields do not have the ability to be inline edited, so they are directly accessed via their value: -->
     <ul>
       <!--

@@ -7,7 +7,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  */
 const StyleguideFieldUsageDate = (props) => {
   return (
-    <StyleguideSpecimen {...props}>
+    <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-date">
       <ul>
         <li>
           Date helper: <DateField field={props.fields.date} />

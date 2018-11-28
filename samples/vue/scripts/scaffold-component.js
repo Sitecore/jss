@@ -16,7 +16,7 @@ const chalk = require('chalk');
 const componentName = process.argv[2];
 
 if (!componentName) {
-  throw 'Component name was not passed. Usage: jss scaffold <componentName>';
+  throw 'Component name was not passed. Usage: jss scaffold <ComponentName>';
 }
 
 if (!/[A-Z][A-Za-z0-9]+/.test(componentName)) {

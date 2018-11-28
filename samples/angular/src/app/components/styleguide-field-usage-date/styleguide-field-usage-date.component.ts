@@ -13,4 +13,6 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 })
 export class StyleguideFieldUsageDateComponent {
   @Input() rendering: ComponentRendering;
+  isoDateFormat = 'y-MM-ddTHH:mm:ss\'Z\'';
+  utcTimezone = '+0000';
 }

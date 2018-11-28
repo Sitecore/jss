@@ -2,7 +2,7 @@
   Demonstrates usage of a Rich Text (HTML) content field within JSS.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-richtext">
     <!-- Basic use of a rich text field. Wraps in a <div>. -->
     <sc-rich-text :field="fields.sample" />
 

@@ -6,7 +6,7 @@ placeholders:
     fields:
       heading: JSS Styleguide
       content: |
-        <div class="alert alert-primary" role="alert">
+        <div class="alert alert-primary">
           This is a partial Danish translation of the JSS Styleguide to demonstrate translation functionality.
           Use the <a href="/en/styleguide">English version</a> for full content.
         </div>

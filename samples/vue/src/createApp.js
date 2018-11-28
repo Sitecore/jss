@@ -22,8 +22,9 @@ export function createApp(initialState, i18n) {
   const graphQLProvider = createGraphQLProvider(initialState);
 
   const vueOptions = {
+    apolloProvider: graphQLProvider,
     router,
-    provide: graphQLProvider.provide(),
+
     render: (createElement) => createElement(AppRoot),
   };
   // conditionally add i18n to the Vue instance if it is defined

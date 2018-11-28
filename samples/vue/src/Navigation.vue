@@ -2,7 +2,7 @@
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
     <h5 class="my-0 mr-md-auto font-weight-normal">
       <router-link to="/" class="text-dark">
-        <img src="./assets/sc_logo.png" alt="Sitecore" />
+        <img :src="logoImg" alt="Sitecore" />
       </router-link>
     </h5>
     <!-- note: `$t` is a computed property on the Vue instance, defined by the i18next plugin -->
@@ -27,11 +27,14 @@
 </template>
 
 <script>
+import logo from './assets/sc_logo.png';
+
 export default {
   name: 'Navigation',
   data() {
     return {
       contextButtonText: '',
+      logoImg: logo,
     };
   },
   created() {

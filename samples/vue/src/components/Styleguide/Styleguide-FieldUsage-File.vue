@@ -4,7 +4,7 @@
 -->
 
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-file">
     <!--
       Renders a file link
       Note: the rendered link element text will be the file field `title` or `displayName` if title is not defined.
@@ -17,9 +17,7 @@
       For instance, you may wish to render a button (<button />) instead of a link (<a />).
     -->
     <sc-file :field="fields.file" target="_blank">
-      <button slot-scope="file" v-on:click="handleClick(file.src)">
-        <span>{{ file.title || file.displayName }} using scoped slot for custom rendering</span>
-      </button>
+      <a slot-scope="file" target="_blank" v-bind:href="file.src">Custom link body ({{file.title || file.displayName}})</a>
     </sc-file>
   </styleguide-specimen>
 </template>

@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Image /> with network images with direct image object, no value/editable should render properly 1`] = `
+<Image
+  alt="Logo"
+  resizeMode="cover"
+  source={
+    Object {
+      "uri": "https://jssapp/-/jssmedia/myfile.ashx&w=180&h=360",
+    }
+  }
+  style={
+    Object {
+      "height": 360,
+      "width": 180,
+    }
+  }
+/>
+`;
+
+exports[`<Image /> with network images with style prop with width or height specified in field data should render merged styles 1`] = `
+<Image
+  alt="Logo"
+  resizeMode="cover"
+  source={
+    Object {
+      "uri": "https://jssapp/-/jssmedia/myfile.ashx&w=180&h=360",
+    }
+  }
+  style={
+    Array [
+      Object {
+        "height": 360,
+        "width": 180,
+      },
+      Object {
+        "margin": 20,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`<Image /> with network images with value/editable image object should render properly 1`] = `
+<Image
+  alt="Logo"
+  resizeMode="cover"
+  source={
+    Object {
+      "uri": "https://jssapp/-/jssmedia/myfile.ashx&w=180&h=360",
+    }
+  }
+  style={
+    Object {
+      "height": 360,
+      "width": 180,
+    }
+  }
+/>
+`;
+
+exports[`<Image /> with static images with direct image object, no value/editable should render properly 1`] = `
+<Image
+  resizeMode="cover"
+  source={1}
+  style={Object {}}
+/>
+`;
+
+exports[`<Image /> with static images with style prop with width or height specified in field data should render merged styles 1`] = `
+<Image
+  resizeMode="cover"
+  source={1}
+  style={
+    Array [
+      Object {
+        "height": 360,
+        "width": 180,
+      },
+      Object {
+        "margin": 20,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`<Image /> with static images with value/editable image object should render properly 1`] = `
+<Image
+  resizeMode="cover"
+  source={1}
+  style={Object {}}
+/>
+`;

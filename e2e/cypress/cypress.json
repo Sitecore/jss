@@ -1,0 +1,9 @@
+{
+  "baseUrl": "http://jssreactweb",
+  "env": {
+    "SSR": true,
+    "GRAPHQL_SSR": true,
+    "GRAPHQL": true,
+    "FRAMEWORK": "react"
+  }
+}

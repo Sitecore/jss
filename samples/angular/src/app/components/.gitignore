@@ -3,4 +3,5 @@
 # - Remove this ignore file
 # - Delete /scripts/generate-component-factory.ts
 # - Remove the reference from /scripts/bootstrap.ts
+# - Consider merging app-components.shared and app-components modules
 app-components.module.ts

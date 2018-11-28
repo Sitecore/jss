@@ -7,7 +7,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * File types are stored within Sitecore's Media Library data, and can be edited.
  */
 const StyleguideFieldUsageFile = (props) => (
-  <StyleguideSpecimen {...props}>
+  <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-file">
     {/* Renders a file link */}
     <File field={props.fields.file} />
     <br />

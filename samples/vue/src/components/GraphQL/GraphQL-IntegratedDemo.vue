@@ -1,7 +1,7 @@
 <!--
 -->
 <template>
-  <div>
+  <div data-e2e-id="graphql-integrated">
     <h2>GraphQL Integrated Demo</h2>
 
     <p>

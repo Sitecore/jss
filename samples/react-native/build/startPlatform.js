@@ -30,6 +30,7 @@ const start = (platform, envVars, port) => {
       crossSpawn('ttab', ['react-native run-android'], commonArgs, {});
     }
   } else if (process.platform === 'win32') {
+    console.log('win32');
     // on windows, the command and arguments need to be a single string in order for the terminals running the commands below to show console output, instead of spawn(cmd, [args]);
     // strange, but there you have it.
     crossSpawn(startCommand, commonArgs, {

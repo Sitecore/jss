@@ -8,7 +8,7 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
 
 **First** run `npm i` to install dependencies.
 
-**Second**, if you have not already, install the JSS CLI: `npm install -g @sitecore-jss/sitecore-jss-cli` or `yarn global add @sitecore-jss/sitecore-jss-cli`. Then choose how to run the application:
+**Second**, if you have not already, install the JSS CLI: `npm install -g @sitecore-jss/sitecore-jss-cli`. Then choose how to run the application:
 
 ## Deploying to Sitecore
 

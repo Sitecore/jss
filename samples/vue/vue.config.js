@@ -30,8 +30,8 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
   }
 } else {
   vueConfig.devServer = {
-    port: 8081,
-    proxy: 'http://localhost:3042',
+    port: process.env.PORT || 3000,
+    proxy: `http://localhost:${process.env.PROXY_PORT || 3042}`,
   };
 }
 

@@ -3,7 +3,7 @@
   Text fields are HTML encoded by default.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-text">
     <!-- Basic use of a text field. No wrapper. -->
     <sc-text :field="fields.sample" />
 

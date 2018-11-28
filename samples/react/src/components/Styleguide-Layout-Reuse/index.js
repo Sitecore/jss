@@ -9,7 +9,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * in a column tag (thus creating a horizontally laid out placeholder)
  */
 const StyleguideLayoutReuse = (props) => (
-  <StyleguideSpecimen {...props}>
+  <StyleguideSpecimen {...props} e2eId="styleguide-layout-reuse">
     <div className="row">
       {/*
         This placeholder is using _render props_ to enable customizing the markup for each component within.

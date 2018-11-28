@@ -1,0 +1,33 @@
+{
+  "name": "portfolio",
+  "displayName": "Portfolio",
+  "placeholders": {
+    "portfolio": [
+      {
+        "componentName": "PortfolioContainer",
+        "dataSourceComponentName": "Portfolio",
+        "props": {
+          "Title": "Portfolio",
+          "Body": "",
+          "Items": [
+            {
+              "Image": "/assets/img/portfolio/fullsize/1.jpg",
+              "Title": "First slide label!",
+              "Body": "<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>"
+            },
+            {
+              "Image": "/assets/img/portfolio/thumbnails/2.jpg",
+              "Title": "Second slide label",
+              "Body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
+            },
+            {
+              "Image": "/assets/img/portfolio/thumbnails/3.jpg",
+              "Title": "Third slide label",
+              "Body": "<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

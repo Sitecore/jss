@@ -5,7 +5,7 @@
   in a column tag (thus creating a horizontally laid out placeholder)
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-layout-reuse">
     <!--
       This placeholder is using a _scoped slot_ to enable customizing the markup for each component within.
       In this case, it's placing each component in its own column of a flexbox layout - giving an n-up columnar layout.

@@ -25,6 +25,7 @@ export default function addRoutesToManifest(manifest: Manifest): Promise<void> {
         type: CommonFieldTypes.SingleLineText,
       },
     ],
+    insertOptions: ['App Route'],
   });
 
   return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)

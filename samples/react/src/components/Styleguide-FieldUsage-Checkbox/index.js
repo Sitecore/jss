@@ -6,7 +6,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * Demonstrates usage of a Checkbox (boolean) content field within JSS.
  */
 const StyleguideFieldUsageCheckbox = (props) => (
-  <StyleguideSpecimen {...props}>
+  <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-checkbox">
     {/* Checkbox fields do not have the ability to be inline edited, so they are directly accessed via their value: */}
     <ul>
       {/*

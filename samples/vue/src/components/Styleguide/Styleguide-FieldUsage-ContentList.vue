@@ -5,7 +5,7 @@
 -->
 
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-content-list">
     <h5>Shared Content List</h5>
     <!--
       Content list fields are returned with their value as an array of the referenced items.
@@ -13,7 +13,6 @@
       on each element to make React's DOM updating happy:
     -->
     <div v-for="(listItem, index) in fields.sharedContentList" :key="`sharedListItem-${index}`" v-if="fields.sharedContentList">
-      <h6>{{ listItem.displayName }}</h6>
       <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
       <p>
         Field: <sc-text :field="listItem.fields.textField" />

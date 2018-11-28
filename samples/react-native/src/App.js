@@ -53,7 +53,7 @@ class App extends React.Component {
     if (this.state.error) {
       return (
         <View>
-          <Text>{this.state.error}</Text>
+          <Text>{this.state.error.toString()}</Text>
         </View>
       );
     }
@@ -68,7 +68,7 @@ class App extends React.Component {
           contentContainerStyle={styles.contentContainer}
           refreshControl={refreshControl}
         >
-          <Placeholder name="main" rendering={this.state.route} />
+          <Placeholder name="jss-main" rendering={this.state.route} />
         </ScrollView>
       </SitecoreContext>
     );

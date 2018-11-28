@@ -1,8 +1,7 @@
-<app-styleguide-specimen [rendering]="rendering">
+<app-styleguide-specimen [rendering]="rendering" e2eId="styleguide-fieldusage-itemlink">
   <h5>Shared Item Link</h5>
   <!-- Item link fields are returned with their value as the referenced item value. -->
   <ng-container *ngIf="rendering.fields.sharedItemLink">
-    <h5>{{ rendering.fields.sharedItemLink.displayName }}</h5>
     <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
     <p>
       Field: <span *scText="rendering.fields.sharedItemLink.fields.textField"></span>

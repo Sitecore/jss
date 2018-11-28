@@ -32,7 +32,7 @@ class StyleguideLayoutTabs extends React.Component {
     const isEditing = sitecoreContext && sitecoreContext.pageEditing;
 
     return (
-      <StyleguideSpecimen {...this.props}>
+      <StyleguideSpecimen {...this.props} e2eId="styleguide-layout-tabs">
         <ul className="nav nav-tabs">
           {/*
             When the page is editing, we hide the tab headings, because they are not updated when xEditor adds or removes a tab rendering.

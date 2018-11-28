@@ -13,6 +13,7 @@ import {
 } from 'rxjs';
 import { JssState } from './JssState';
 import { environment } from '../environments/environment';
+import { JssDataFetcherService } from './jss-data-fetcher.service';
 
 export const jssKey = makeStateKey<JssState>('jss');
 
@@ -30,6 +31,7 @@ export class JssContextService {
   constructor(
     protected transferState: TransferState,
     protected layoutService: LayoutService,
+    protected dataFetcher: JssDataFetcherService,
   ) {
     this.state = new BehaviorSubject<JssState>(new JssState());
   }
@@ -49,7 +51,9 @@ export class JssContextService {
       layoutServiceConfig: { host: environment.sitecoreApiHost },
       querystringParams: {
         sc_lang: language,
-        sc_apikey: environment.sitecoreApiKey },
+        sc_apikey: environment.sitecoreApiKey,
+      },
+      fetcher: this.dataFetcher.fetch,
     };
 
     const jssState$ = this.layoutService.getRouteData(route, fetchOptions).pipe(

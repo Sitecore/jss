@@ -11,7 +11,7 @@ const StyleguideFieldUsageContentList = (props) => {
   const { sharedContentList, localContentList } = props.fields;
 
   return (
-    <StyleguideSpecimen {...props}>
+    <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-content-list">
       <h5>Shared Content List</h5>
       {/*
       Content list fields are returned with their value as an array of the referenced items.
@@ -21,7 +21,6 @@ const StyleguideFieldUsageContentList = (props) => {
       {sharedContentList &&
         sharedContentList.map((listItem, index) => (
           <div key={`sharedListItem-${index}`}>
-            <h6>{listItem.displayName}</h6>
             {/* The referenced item's fields can be rendered and edited using normal helper components: */}
             <p>
               Field: <Text field={listItem.fields.textField} />

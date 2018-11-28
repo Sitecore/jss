@@ -1,6 +1,6 @@
 # Note
 
-Sitecore JSS for React Native is considered highly experimental. It is strongly recommended that you have prior experience working with React Native, the toolchain that it requires, and have some exposure to native app development.
+Sitecore JSS for React Native is considered highly experimental. It is strongly recommended that you have prior experience working with JSS, React Native, the toolchain that React Native requires, and have some exposure to native app development.
 
 # Prerequisites
 
@@ -9,10 +9,10 @@ Your first step will be to follow the instructions on this page: https://faceboo
 
 Choose the `Building Projects with Native Code` tab, then choose your Development OS and app Target OS. We have tested the basic sample app on the following configurations:
 
-* Windows / Android
-  * In this configuration, testing was done using a physical device connected via USB to the development machine, not the Android emulator.
-* macOS / iOS
-  * In this configuration, testing was done using the Xcode simulator.
+- Windows / Android
+  - In this configuration, testing was done using a physical device connected via USB to the development machine, not the Android emulator.
+- macOS / iOS
+  - In this configuration, testing was done using the Xcode simulator.
 
 The installation process for all the necessary Android/iOS dependencies and tools can take a significant amount of time - plan accordingly.
 
@@ -20,19 +20,19 @@ The installation process for all the necessary Android/iOS dependencies and tool
 
 1. Ensure you have completed the Prerequisites section and have confirmed you're able to run the `AwesomeProject` sample that the instructions direct you to create.
 
-1. At this point, you can follow steps 1 and 2 from the JSS Quick Start guide: https://jss.sitecore.net/#/setup/quick-start-dev, or the following abbreviated version:
+1. At this point, you can follow steps 1 and 2 from the JSS Quick Start guide: https://jss.sitecore.net/docs/getting-started/quick-start, or the following abbreviated version:
 
-1. In a new folder, clone or download the basic sample app repo: https://github.com/Sitecore/jss/tree/master/samples/basic-sample-react-native
+1. In a new folder, clone or download the basic sample app repo: https://github.com/Sitecore/jss/tree/master/samples/react-native
 
 1. If you don't have Sitecore installed or aren't planning to immediately develop against a Sitecore instance, skip to the next step.
 
-   * Otherwise, if you have Sitecore installed: from a terminal, run `npm run setup` or `yarn setup`
+   - Otherwise, if you have Sitecore installed: from a terminal, run `npm run setup`
 
 1. Choose your target platform:
 
-   * Android: run `npm run start-android`
+   - Android: run `npm run start-android`
 
-   * iOS: run `npm run start-ios`
+   - iOS: run `npm run start-ios`
 
 At this point, the React Native build process should start, opening 1 or 2 separate terminal window(s)/tab(s) containing the output from the React Native `Metro` bundler and the output from the React Native platform-specific compiler (e.g. Xcode, Android SDK).
 
@@ -44,11 +44,15 @@ The app will be running in `disconnected` application mode. This means data and 
 
 Although the build process is largely the same as "normal" React Native, we've customized the invocation of the process a bit. In particular:
 
-* We've added a custom `babel` preset that encapsulates other `babel` plugins that allow us to swap module dependencies at build-time based on the application mode in which you're developing. The basic sample currently uses `disconnected` and `connected` modes along with a new, native-specific, `disconnected-tunnel` mode. More info on that further on in this document.
+- We've added a custom `babel` preset that encapsulates other `babel` plugins that allow us to swap module dependencies at build-time based on the application mode in which you're developing. The basic sample currently uses `disconnected` and `connected` modes along with a new, native-specific, `disconnected-tunnel` mode. More info on that further on in this document.
 
-  * For more information about JSS application modes, please refer to the official Sitecore JSS documentation: https://jss.sitecore.net/#/application-modes?id=jss-application-modes
+  - For more information about JSS application modes, please refer to the official Sitecore JSS documentation: https://jss.sitecore.net/#/application-modes?id=jss-application-modes
 
-* One other customization to build invocation is the addition of the `--reset-cache` argument to the metro bundler `start` script. This argument instructs the bundler to ignore its dependency cache during the build process, which ensures that the `babel` customizations mentioned earlier are invoked and allows you to easily switch between application modes at build time.
+- One other customization to build invocation is the addition of the `--reset-cache` argument to the metro bundler `start` script. This argument instructs the bundler to ignore its dependency cache during the build process, which ensures that the `babel` customizations mentioned earlier are invoked and allows you to easily switch between application modes at build time.
+
+# Deployment to Sitecore
+
+All of the standard Sitecore JSS manifest generation and deployment processes are available for this project. You can follow the official guides for [setting up the Sitecore server](https://jss.sitecore.net/docs/getting-started/jss-server-install) and subsequently [deploying your app](https://jss.sitecore.net/docs/getting-started/app-deployment). Once setup and deployment are complete, you will be able to run your JSS app in `connected` or `connected-tunnel` modes.
 
 # Connecting to Sitecore
 
@@ -99,8 +103,6 @@ When working in `connected` or `connected-tunnel` mode, we can use the `/assets/
 
 # Known limitations
 
-* For MacOS, `ttab` dependency doesn't work in VS Code Powershell terminal.
+- For MacOS, `ttab` dependency doesn't work in VS Code Powershell terminal.
 
-* For MacOS, the `glob` pattern used by all other demo apps does not work for finding `.sitecore.js` files for Sitecore manifest generation: `./sitecore/**/*.sitecore.j`
-
-* For MacOS, Sitecore.Ship may throw an error on manifest package deployment.
+- For MacOS, the `glob` pattern used by all other demo apps does not work for finding `.sitecore.js` files for Sitecore manifest generation: `./sitecore/**/*.sitecore.j`

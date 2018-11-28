@@ -8,7 +8,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * for the definition of the structure of the custom field. This code is just for display.
  */
 const StyleguideFieldUsageCustom = (props) => (
-  <StyleguideSpecimen {...props}>
+  <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-custom">
     {/* Because the integer field is essentially text, we can render it with the Text helper */}
     <Text field={props.fields.customIntField} />
   </StyleguideSpecimen>

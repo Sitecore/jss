@@ -1,0 +1,12 @@
+{
+  "extends": ["plugin:react/recommended"],
+  "plugins": ["react-native"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "jest": true
+  }
+}

@@ -1,8 +1,6 @@
 const path = require('path');
-const env = require('babel-preset-env');
+const env = require('@babel/preset-env');
 const reactApp = require('babel-preset-react-app');
-const stage0 = require('babel-preset-stage-0');
-
 // Webpack build configuration to build the SSR bundle.
 // Invoked by build:server.
 
@@ -21,22 +19,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.m?jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
             babelrc: false,
-            presets: [env, stage0, reactApp],
+            presets: [env, reactApp],
           },
-        },
-      },
-      // The GraphQL loader preprocesses GraphQL queries in .graphql files.
-      {
-        test: /\.(graphql)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'graphql-tag/loader',
         },
       },
       {
@@ -47,7 +37,7 @@ module.exports = {
       {
         // anything not JS or HTML, we load as a URL
         // this makes static image imports work with SSR
-        test: /\.(?!js|html|graphql$)[^.]+$/,
+        test: /\.(?!js|mjs|jsx|html|graphql$)[^.]+$/,
         exclude: /node_modules/,
         use: {
           loader: 'url-loader',
@@ -57,7 +47,7 @@ module.exports = {
         // anything in node_modules that isn't js,
         // we load as null - e.g. imported css from a module,
         // that is not needed for SSR
-        test: /\.(?!js|html|graphql$)[^.]+$/,
+        test: /\.(?!js|mjs|jsx|html|graphql$)[^.]+$/,
         include: /node_modules/,
         use: {
           loader: 'null-loader',

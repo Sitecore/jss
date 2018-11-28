@@ -1,0 +1,54 @@
+{
+  "name": "services",
+  "displayName": "Services",
+  "placeholders": {
+    "services": [
+      {
+        "componentName": "ServicesContainer",
+        "dataSourceComponentName": "Services",
+        "props": {
+          "Title": "At Your Service!",
+          "items": [
+            {
+              "Title": "Sturdy Templates",
+              "Description": "Our templates are updated regularly so they don't break."
+            },
+            {
+              "Title": "Ready to Ship",
+              "Description": "You can use this theme as is, or you can make changes!"
+            },
+            {
+              "Title": "Up to Date",
+              "Description": "We update dependencies to keep things fresh."
+            },
+            {
+              "Title": "Made with Love",
+              "Description": "You have to make your websites with love these days!"
+            }
+          ]
+        }
+      }
+    ],
+    "services.inner": [
+      {
+        "componentName": "Tabs",
+        "props": {
+          "Tabs": [
+            {
+              "Title": "Professional Services",
+              "Body": "<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>"
+            },
+            {
+              "Title": "Support & Maintenance",
+              "Body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
+            },
+            {
+              "Title": "Consulting",
+              "Body": "<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

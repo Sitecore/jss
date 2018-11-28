@@ -23,23 +23,23 @@ import introspectionQueryResultData from '../temp/GraphQLFragmentTypes.json';
 */
 
 // choose between a basic HTTP link to run queries...
-import { createHttpLink } from 'apollo-link-http';
+// import { createHttpLink } from 'apollo-link-http';
 
 // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
-// import { BatchHttpLink } from 'apollo-link-batch-http';
+import { BatchHttpLink } from 'apollo-link-batch-http';
 
 // ...and an automatic persisted query link, which reduces bandwidth by using query hashes to alias content
 // the APQ link is _chained_ behind another link that performs the actual HTTP calls, so you can choose
 // APQ + batched, or APQ + http links for example.
-// import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
+import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
 
 export default function(endpoint, ssr, initialCacheState) {
   /* HTTP link selection: default to batched + APQ */
-  // const link = createPersistedQueryLink().concat(
-  //   new BatchHttpLink({ uri: endpoint, credentials: 'include' })
-  // );
+  const link = createPersistedQueryLink().concat(
+    new BatchHttpLink({ uri: endpoint, credentials: 'include' })
+  );
   // basic HTTP link
-  const link = createHttpLink({ uri: endpoint, credentials: 'include' });
+  // const link = createHttpLink({ uri: endpoint, credentials: 'include' });
 
   const cache = new InMemoryCache({
     fragmentMatcher: new IntrospectionFragmentMatcher({

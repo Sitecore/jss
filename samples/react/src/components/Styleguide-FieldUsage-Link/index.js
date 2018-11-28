@@ -6,7 +6,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * Demonstrates usage of a General Link (hyperlink) content field within JSS.
  */
 const StyleguideFieldUsageLink = (props) => (
-  <StyleguideSpecimen {...props}>
+  <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-link">
     External link:&nbsp;
     <Link field={props.fields.externalLink} />
     <br />
@@ -25,7 +25,7 @@ const StyleguideFieldUsageLink = (props) => (
     The link component accepts params of its own:&nbsp;
     <Link
       field={props.fields.externalLink}
-      showLinkTextWithChildrenPresent="true"
+      showLinkTextWithChildrenPresent={true}
       className="font-weight-bold"
       data-otherattributes="pass-through-to-anchor-tag"
     />

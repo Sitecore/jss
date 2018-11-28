@@ -4,13 +4,12 @@
 -->
 
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-itemlink">
     <h5>Shared Item Link</h5>
       <!--
         Item link fields are returned with their value as the referenced item value.
       -->
       <div v-if="sharedItemLink">
-        <h5>{{ sharedItemLink.displayName }}</h5>
         <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
         <p>
           Field: <sc-text :field="sharedItemLink.fields.textField" />

@@ -3,7 +3,7 @@
   multiple languages.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-multilingual">
     <sc-text :field="fields.sample" :encode="false" tag="p" />
 
     <p>

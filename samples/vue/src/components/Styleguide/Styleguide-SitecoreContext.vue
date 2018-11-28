@@ -3,7 +3,7 @@
   within other components.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-sitecore-context">
     <p>The current Sitecore Context is...</p>
     <!--
       this.$jss is defined on the Vue instance by the SitecoreJssPlugin and provides

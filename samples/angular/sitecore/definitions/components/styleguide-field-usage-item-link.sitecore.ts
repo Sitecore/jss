@@ -1,5 +1,5 @@
 import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
-import * as packageJson from '../../../package.json';
+const packageJson = require('../../../package.json');
 
 /**
  * Adds the Styleguide-FieldUsage-ItemLink component to the disconnected manifest.

@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "pretty": true,
+    "newLine": "LF",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2017"],
+    "jsx": "react",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "strict": true,
+    "typeRoots": ["node_modules/@types"],
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "./types",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "node_modules",
+    "types",
+    "typings",
+    "dist",
+    "testData/*",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "__snapshots__"
+  ]
+}

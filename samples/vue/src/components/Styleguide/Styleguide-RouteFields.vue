@@ -4,7 +4,7 @@
   to also get the route level field data and make it editable.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-route-fields">
     <p>
       Route level <code>pageTitle</code> field:&nbsp;
       <sc-text :field="routeData.fields.pageTitle" />

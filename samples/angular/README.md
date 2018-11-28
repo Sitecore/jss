@@ -8,8 +8,8 @@ Check [JSS documentation](https://jss.sitecore.net/) for how to install JSS Serv
 
 ## App setup
 
-1. `npm install` or `yarn`
-1. `npm install -g @sitecore-jss/sitecore-jss-cli` or `yarn global add @sitecore-jss/sitecore-jss-cli`
+1. `npm install`
+1. `npm install -g @sitecore-jss/sitecore-jss-cli`
 1. `jss setup`
 
 > This setup is optional to get started with development, as it assumes you have Sitecore installed.
@@ -20,7 +20,7 @@ Check [JSS documentation](https://jss.sitecore.net/) for how to install JSS Serv
 
 Run `jss start`.
 
-The app will be built and webpack server will be started. So it's expected that the browser will open with `http://localhost:3001` and familiar default welcome content is rendered.
+The app will be built and webpack server will be started. So it's expected that the browser will open with `http://localhost:3000` and familiar default welcome content is rendered.
 
 The app will automatically reload if you change any of the source files.
 

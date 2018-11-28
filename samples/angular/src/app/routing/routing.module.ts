@@ -9,6 +9,7 @@ import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { VisitorIdentificationComponent } from './visitor-identification/visitor-identification.component';
 
 export function jssRouteMatcher(url: UrlSegment[]): UrlMatchResult {
   // use the route builder to parse out language / server route
@@ -59,7 +60,8 @@ const routes: Routes = [
     NotFoundComponent,
     ServerErrorComponent,
     LayoutComponent,
-    NavigationComponent
+    NavigationComponent,
+    VisitorIdentificationComponent
   ],
   providers: [
     JssRouteResolver,

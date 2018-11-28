@@ -9,7 +9,7 @@ const StyleguideFieldUsageText = (props) => {
   const fieldValue = getFieldValue(props.fields, 'sample');
 
   return (
-    <StyleguideSpecimen {...props}>
+    <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-number">
       {/* Basic emission of a number field for editing can be done with the <Text> component. */}
       <Text field={props.fields.sample} />
 

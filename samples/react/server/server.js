@@ -10,9 +10,29 @@ import AppRoot, { routePatterns } from '../src/AppRoot';
 import { setServerSideRenderingState } from '../src/RouteHandler';
 import indexTemplate from '../build/index.html';
 
+/** Asserts that a string replace actually replaced something */
+function assertReplace(string, value, replacement) {
+  let success = false;
+  const result = string.replace(value, () => {
+    success = true;
+    return replacement;
+  });
+
+  if (!success) {
+    throw new Error(
+      `Unable to match replace token '${value}' in public/index.html template. If the HTML shell for the app is modified, also fix the replaces in server.js. Server-side rendering has failed!`
+    );
+  }
+
+  return result;
+}
+
+/** Export the API key. This will be used by default in Headless mode, removing the need to manually configure the API key on the proxy. */
+export const apiKey = config.sitecoreApiKey;
+
 /**
  * Main entry point to the application when run via Server-Side Rendering,
- * either in Integrated Mode, or with a Node proxy host like the node-express-ssr sample.
+ * either in Integrated Mode, or with a Node proxy host like the node-headless-ssr-proxy sample.
  * This function will be invoked by the server to return the rendered HTML.
  * @param {Function} callback Function to call when rendering is complete. Signature callback(error, successData).
  * @param {string} path Current route path being rendered
@@ -63,16 +83,26 @@ export function renderView(callback, path, data, viewBag) {
         // Inject the rendered app into the index.html template (built from /public/index.html)
         // IMPORTANT: use serialize-javascript or similar instead of JSON.stringify() to emit initial state,
         // or else you're vulnerable to XSS.
-        const html = indexTemplate
-          // write the React app
-          .replace('<div id="root"></div>', `<div id="root">${renderedAppHtml}</div>`)
-          // write the string version of our state
-          .replace('__JSS_STATE__=null', `__JSS_STATE__=${serializeJavascript(state)}`)
-          // render <head> contents from react-helmet
-          .replace(
-            '<head>',
-            `<head>${helmet.title.toString()}${helmet.meta.toString()}${helmet.link.toString()}`
-          );
+        let html = indexTemplate;
+
+        // write the React app
+        html = assertReplace(
+          html,
+          '<div id="root"></div>',
+          `<div id="root">${renderedAppHtml}</div>`
+        );
+        // write the string version of our state
+        html = assertReplace(
+          html,
+          '__JSS_STATE__=null',
+          `__JSS_STATE__=${serializeJavascript(state)}`
+        );
+        // render <head> contents from react-helmet
+        html = assertReplace(
+          html,
+          '<head>',
+          `<head>${helmet.title.toString()}${helmet.meta.toString()}${helmet.link.toString()}`
+        );
 
         callback(null, { html });
       })
@@ -86,7 +116,7 @@ export function renderView(callback, path, data, viewBag) {
 
 /**
  * Parses an incoming url to match against the route table. This function is implicitly used
- * by node-express-ssr when rendering the site in headless mode. It enables rewriting the incoming path,
+ * by node-headless-ssr-proxy when rendering the site in headless mode. It enables rewriting the incoming path,
  * say '/en-US/hello', to the path and language to pass to Layout Service (a Sitecore item path), say
  * { sitecoreRoute: '/hello', lang: 'en-US' }.
  * This function is _not_ used in integrated mode, as Sitecore's built in route parsing is used.
@@ -103,11 +133,15 @@ export function parseRouteUrl(url) {
 
   // use react-router-dom to find the route matching the incoming URL
   // then return its match params
-  routePatterns.forEach((pattern) => {
-    const match = matchPath(url, { pattern });
+  // we are using .some() as a way to loop with a short circuit (so that we stop evaluating route patterns after the first match)
+  routePatterns.some((pattern) => {
+    const match = matchPath(url, { path: pattern });
     if (match && match.params) {
       result = match.params;
+      return true;
     }
+
+    return false;
   });
 
   return result;

@@ -2,7 +2,7 @@
   Demonstrates usage of date and time content field types within JSS.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-date">
     <ul>
       <li>
         Date helper: <sc-date :field="fields.date" />

@@ -72,7 +72,7 @@ placeholders:
               heading: Date
               description: |
                 <p><small>Both <code>Date</code> and <code>DateTime</code> field types are available. Choosing <code>DateTime</code> will make Sitecore show editing UI for time; both types store complete date and time values internally. Date values in JSS are formatted using <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" target="_blank">ISO 8601 formatted strings</a>, for example <code>2012-04-23T18:25:43.511Z</code>.</small></p>
-                <div class="alert alert-warning" role="alert"><small>Note: this is a JavaScript date format (e.g. <code>new Date().toISOString()</code>), and is different from how Sitecore stores date field values internally. Sitecore-formatted dates will not work.</small></div>
+                <div class="alert alert-warning"><small>Note: this is a JavaScript date format (e.g. <code>new Date().toISOString()</code>), and is different from how Sitecore stores date field values internally. Sitecore-formatted dates will not work.</small></div>
               date: "2012-05-04T00:00:00.000Z"
               dateTime: "2018-03-14T15:00:00.000Z"
           - componentName: StyleguideFieldUsageLink
@@ -230,6 +230,10 @@ placeholders:
               # they are always sent to the component as strings.
               columns: 5
               useCallToAction: true
+          - componentName: StyleguideTracking
+            fields:
+              heading: Tracking
+              description: <p><small>JSS supports tracking Sitecore analytics events from within apps. Give it a try with this handy interactive demo.</small></p>
       - componentName: StyleguideSection
         fields:
           heading: Multilingual Patterns
@@ -239,4 +243,12 @@ placeholders:
             fields:
               heading: Translation Patterns
               sample: This text can be translated in en.yml
+      - componentName: StyleguideSection
+        fields:
+          heading: Angular Patterns
+        placeholders:
+          jss-styleguide-section:
+          - componentName: StyleguideAngularLazyLoading
+            fields:
+              heading: Lazy Loading
 

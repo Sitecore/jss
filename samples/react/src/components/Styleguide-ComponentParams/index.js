@@ -8,7 +8,7 @@ const StyleguideComponentParams = (props) => {
   const columnsArray = columns && [...Array(parseInt(columns))];
 
   return (
-    <StyleguideSpecimen {...props}>
+    <StyleguideSpecimen {...props} e2eId="styleguide-componentparams">
       <p className={cssClass}>
         The CSS class of this paragraph (<code>{cssClass}</code>) is set using a param
       </p>

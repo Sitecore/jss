@@ -1,4 +1,5 @@
 const configGenerator = require('./generate-config');
+const vueConfig = require('../vue.config');
 
 /*
   BOOTSTRAPPING
@@ -14,7 +15,9 @@ const disconnected = process.argv.some((arg) => arg === '--disconnected');
   Generates the /src/temp/config.js file which contains runtime configuration
   that the app can import and use.
 */
-const configOverride = disconnected ? { sitecoreApiHost: 'http://localhost:8081' } : null;
+const configOverride = disconnected
+  ? { sitecoreApiHost: `http://localhost:${vueConfig.devServer.port}` }
+  : null;
 configGenerator(configOverride);
 
 /*

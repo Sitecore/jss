@@ -23,7 +23,7 @@ const proxyOptions = {
   appName: config.appName,
   watchPaths: ['../data'],
   language: config.language,
-  port: 3042,
+  port: process.env.PROXY_PORT || 3042,
   compilers: ['@babel/register'],
   onManifestUpdated: (manifest) => {
     // if we can resolve the config file, we can alter it to force reloading the app automatically

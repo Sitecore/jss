@@ -1,0 +1,17 @@
+src/**/*.js
+**/*.js.map
+**/*.d.ts
+jss-component/schema.d.ts
+
+# IDEs
+.idea/
+jsconfig.json
+.vscode/
+
+# Misc
+node_modules/
+*.log*
+
+# Mac OSX Finder files.
+**/.DS_Store
+.DS_Store

@@ -8,7 +8,7 @@ const GraphQLIntegratedDemo = (props) => {
   const { datasource, contextItem } = props.fields.data;
 
   return (
-    <div>
+    <div data-e2e-id="graphql-integrated">
       <h2>GraphQL Integrated Demo</h2>
 
       <p>

@@ -9,7 +9,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * to also get the route level field data and make it editable.
  */
 const StyleguideRouteFields = (props) => (
-  <StyleguideSpecimen {...props}>
+  <StyleguideSpecimen {...props} e2eId="styleguide-route-fields">
     <p>
       Route level <code>pageTitle</code> field:{' '}
       <Text field={props.sitecoreContext.route.fields.pageTitle} />

@@ -9,7 +9,7 @@ const StyleguideCustomRouteType = ({
     route: { fields },
   },
 }) => (
-  <div>
+  <div data-e2e-id="styleguide-customroutetype">
     <Text tag="h3" field={fields.headline} />
 
     <p>

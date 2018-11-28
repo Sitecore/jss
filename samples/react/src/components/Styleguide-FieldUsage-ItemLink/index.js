@@ -10,14 +10,13 @@ const StyleguideFieldUsageItemLink = (props) => {
   const { sharedItemLink, localItemLink } = props.fields;
 
   return (
-    <StyleguideSpecimen {...props}>
+    <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-itemlink">
       <h5>Shared Item Link</h5>
       {/*
         Item link fields are returned with their value as the referenced item value.
       */}
       {sharedItemLink && (
         <div>
-          <h5>{sharedItemLink.displayName}</h5>
           {/* The referenced item's fields can be rendered and edited using normal helper components: */}
           <p>
             Field: <Text field={sharedItemLink.fields.textField} />

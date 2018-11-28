@@ -9,7 +9,7 @@
 
 import * as fs from 'fs';
 import { createDefaultDisconnectedServer } from '@sitecore-jss/sitecore-jss-dev-tools';
-import * as packageJson from '../package.json';
+const packageJson = require('../package.json');
 
 const config = (packageJson as any).config;
 

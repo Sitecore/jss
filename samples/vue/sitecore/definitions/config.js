@@ -12,7 +12,7 @@ process.env.VUE_CLI_BABEL_TARGET_NODE = true;
 require('@babel/register')({
   presets: [
     [
-      '@babel/env',
+      '@babel/preset-env',
       {
         targets: {
           node: 'current',

@@ -7,7 +7,7 @@
   for easy inline editing.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-layout-tabs">
     <ul class="nav nav-tabs">
       <!--
         When the page is editing, we hide the tab headings, because they are not updated when xEditor adds or removes a tab rendering.

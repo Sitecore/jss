@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Placeholder /> should render missing component for unresolved/unknown components 1`] = `
+Array [
+  <View
+    testID="home-mock"
+  />,
+  <View
+    style={
+      Object {
+        "backgroundColor": "darkorange",
+        "flex": 1,
+        "padding": 10,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 22,
+          "fontWeight": "bold",
+          "marginVertical": 20,
+        }
+      }
+    >
+      whatisthis
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "marginVertical": 20,
+        }
+      }
+    >
+      JSS component is missing React Native implementation.
+    </Text>
+  </View>,
+]
+`;
+
+exports[`<Placeholder /> should render null for unknown placeholder 1`] = `null`;
+
+exports[`<Placeholder /> with Dev data should render a placeholder with given key 1`] = `
+<View
+  testID="download-callout-mock"
+/>
+`;
+
+exports[`<Placeholder /> with Dev data should render nested placeholders and props correctly 1`] = `
+<View
+  testID="home-mock"
+>
+  <View
+    testID="jumbotron-mock"
+  />
+  <View
+    testID="download-callout-mock"
+  >
+    JavaScript all the things!
+  </View>
+</View>
+`;
+
+exports[`<Placeholder /> with LayoutService data - EE off should render a placeholder with given key 1`] = `
+<View
+  testID="download-callout-mock"
+/>
+`;
+
+exports[`<Placeholder /> with LayoutService data - EE off should render nested placeholders and props correctly 1`] = `
+<View
+  testID="home-mock"
+>
+  <View
+    testID="jumbotron-mock"
+  />
+  <View
+    testID="download-callout-mock"
+  >
+    JavaScript all the things!
+  </View>
+</View>
+`;

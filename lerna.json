@@ -1,0 +1,8 @@
+{
+  "lerna": "3.4.0",
+  "packages": [
+    "packages/*",
+    "samples/*"
+  ],
+  "version": "11.0.0-alpha.0"
+}

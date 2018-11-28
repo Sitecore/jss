@@ -2,7 +2,7 @@
   Demonstrates usage of a General Link (hyperlink) content field within JSS.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-link">
     External link:&nbsp;
     <sc-link :field="fields.externalLink" />
     <br />

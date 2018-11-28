@@ -14,7 +14,8 @@ const disconnected = process.argv.some((arg) => arg === '--disconnected');
   Generates the /src/temp/config.js file which contains runtime configuration
   that the app can import and use.
 */
-const configOverride = disconnected ? { sitecoreApiHost: 'http://localhost:3000' } : null;
+const port = process.env.PORT || 3000;
+const configOverride = disconnected ? { sitecoreApiHost: `http://localhost:${port}` } : null;
 configGenerator(configOverride);
 
 /*

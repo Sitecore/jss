@@ -2,7 +2,7 @@
   Demonstrates gaining access to root route-level data from within components.
 -->
 <template>
-  <div>
+  <div data-e2e-id="styleguide-customroutetype">
     <sc-text tag="h3" :field="routeData.fields.headline" />
 
     <p>

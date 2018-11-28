@@ -1,5 +1,5 @@
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-componentparams">
     <p :class="params.cssClass">
       The CSS class of this paragraph (<code>{{ params.cssClass }}</code>) is set using a param
     </p>

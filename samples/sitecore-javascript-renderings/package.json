@@ -1,6 +1,6 @@
 {
   "name": "jss-javascript-renderings-reactweb-sample",
-  "version": "9.0.6",
+  "version": "11.0.0-alpha.0",
   "description": "A basic component library utilizing Sitecore JavaScript Services. Demonstrates how to use indidivual components as renderings in Sitecore instead of full-fledged applications.",
   "config": {
     "appName": "JssComponentsReactWeb",
@@ -14,6 +14,11 @@
     "deploy:watch": "scjss-verify-setup && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.watch --env.outputPath=sitecore",
     "build": "jss clean && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.production",
     "lint": "eslint --fix ./src/**/*.js ./sitecore/definitions/**/*.js ./build/**/*.js ./lib/**/*.js"
+  },
+  "engines": {
+    "node": ">=8.1",
+    "npm": ">=5.6.0",
+    "yarn": "yarn is not supported, please use npm"
   },
   "private": true,
   "babel": {
@@ -40,16 +45,16 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^9.0.5",
+    "@sitecore-jss/sitecore-jss-react": "^11.0.0-alpha.0",
     "babel-polyfill": "^6.26.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^9.0.6",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^9.0.6",
-    "@sitecore-jss/sitecore-jss-manifest": "^9.0.5",
+    "@sitecore-jss/sitecore-jss-cli": "^11.0.0-alpha.0",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^11.0.0-alpha.0",
+    "@sitecore-jss/sitecore-jss-manifest": "^11.0.0-alpha.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",

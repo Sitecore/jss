@@ -1,7 +1,7 @@
 import React from 'react';
-import { Placeholder } from '@sitecore-jss/sitecore-jss-react';
+import { Placeholder, VisitorIdentification } from '@sitecore-jss/sitecore-jss-react';
 import { NavLink } from 'react-router-dom';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import Helmet from 'react-helmet';
 
 // Using bootstrap is completely optional. It's used here to provide a clean layout for samples,
@@ -49,7 +49,7 @@ let Navigation = ({ t, i18n }) => (
 // inject dictionary props (`t`) into navigation so we can translate it
 // NOTE: using this is needed instead of using i18next directly to keep
 // the component state updated when i18n state (e.g. current language) changes
-Navigation = translate()(Navigation);
+Navigation = withNamespaces()(Navigation);
 
 const Layout = ({ route }) => (
   <React.Fragment>
@@ -59,6 +59,15 @@ const Layout = ({ route }) => (
         {(route.fields && route.fields.pageTitle && route.fields.pageTitle.value) || 'Page'}
       </title>
     </Helmet>
+
+    {/*
+      VisitorIdentification is necessary for Sitecore Analytics to determine if the visitor is a robot.
+      If Sitecore XP (with xConnect/xDB) is used, this is required or else analytics will not be collected for the JSS app.
+      For XM (CMS-only) apps, this should be removed.
+
+      VI detection only runs once for a given analytics ID, so this is not a recurring operation once cookies are established.
+    */}
+    <VisitorIdentification />
 
     <Navigation />
 

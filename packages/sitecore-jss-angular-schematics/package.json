@@ -1,0 +1,33 @@
+{
+  "name": "@sitecore-jss/sitecore-jss-angular-schematics",
+  "version": "11.0.0-alpha.0",
+  "description": "Scaffolding schematics for Sitecore JSS Angular apps",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && jasmine **/*_spec.js"
+  },
+  "engines": {
+    "node": ">=8.1"
+  },
+  "author": {
+    "name": "Sitecore Corporation",
+    "url": "https://jss.sitecore.net"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://jss.sitecore.net",
+  "bugs": {
+    "url": "https://github.com/sitecore/jss/issues"
+  },
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^0.6.8",
+    "@angular-devkit/schematics": "^0.6.8",
+    "@schematics/angular": "^0.6.8",
+    "@types/jasmine": "^2.8.8",
+    "@types/node": "^10.12.0",
+    "chalk": "^2.4.1",
+    "jasmine": "^2.8.0",
+    "typescript": ">=2.6.2 <2.8"
+  },
+  "gitHead": "f3c6b5d6bd7118f0736011f20efb9e0ae2d61ff5"
+}

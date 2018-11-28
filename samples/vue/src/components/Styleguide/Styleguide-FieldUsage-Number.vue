@@ -2,7 +2,7 @@
   Demonstrates usage of a Number (decimal) content field within JSS.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-number">
     <!-- Basic emission of a number field for editing can be done with the <Text> component. -->
       <sc-text :field="fields.sample" />
 

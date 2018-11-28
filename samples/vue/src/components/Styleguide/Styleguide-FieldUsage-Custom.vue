@@ -4,7 +4,7 @@
   for the definition of the structure of the custom field. This code is just for display.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-custom">
     <!-- Because the integer field is essentially text, we can render it with the Text helper -->
     <sc-text :field="fields.customIntField" />
   </styleguide-specimen>

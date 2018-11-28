@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RichText /> should render editable value if present 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    onLongPress={null}
+    onPress={null}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          null,
+          Object {},
+        ]
+      }
+    >
+      this value should be rendered ©
+    </Text>
+  </Text>
+</View>
+`;
+
+exports[`<RichText /> should render nothing with missing editable and value 1`] = `null`;
+
+exports[`<RichText /> should render nothing with missing field 1`] = `null`;
+
+exports[`<RichText /> should render other attributes with other props provided 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 22,
+        },
+        null,
+      ]
+    }
+  >
+    value with 
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    onLongPress={null}
+    onPress={null}
+    style={
+      Object {
+        "fontSize": 16,
+        "marginBottom": 10,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "fontSize": 22,
+          },
+          Object {
+            "fontSize": 16,
+            "marginBottom": 10,
+          },
+        ]
+      }
+    >
+      markup
+    </Text>
+  </Text>
+</View>
+`;
+
+exports[`<RichText /> should render value if editable is undefined 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        null,
+        null,
+      ]
+    }
+  >
+    this value should be rendered
+  </Text>
+</View>
+`;

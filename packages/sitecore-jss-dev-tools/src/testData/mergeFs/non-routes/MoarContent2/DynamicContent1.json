@@ -1,0 +1,10 @@
+{
+  "name": "DynamicContent0",
+  "displayName": "DynamicContent0",
+  "type": "DynamicContent",
+  "fields": {
+    "Title": "Hello World 123",
+    "Body": "<p>This is my sample content, isn't it the greatest?!</p><p>LOL</p><p>OMG</p>",
+    "Image": "/assets/img/Blackberry.png"
+  }
+}

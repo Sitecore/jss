@@ -1,0 +1,46 @@
+{
+  "name": "home",
+  "displayName": "Home",
+  "placeholders": {
+    "home": [
+      {
+        "componentName": "HomeContainer",
+        "dataSourceComponentName": "Home",
+        "props": {
+          "Title": "Yours Favorite Source of Free Bootstrap Themes!",
+          "Body": "<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>",
+          "LinkText": "Find Out Moar!!"
+        }
+      }
+    ],
+    "home.section1": [
+      {
+        "componentName": "HomeContainer",
+        "dataSourceComponentName": "Home",
+        "props": {
+          "Title": "We've got what you need! #2",
+          "Body": "<p>Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>",
+          "LinkText": "Get Started!"
+        }
+      }
+    ],
+    "/main/home/home.inner": [
+      {
+        "componentName": "Heading",        
+        "props": {
+          "Text": "nested home.inner placeholder",
+          "Size": 3
+        }
+      }
+    ],
+    "/main/home.section1/home.inner": [
+      {
+        "componentName": "Heading",        
+        "props": {
+          "Text": "nested home.section home.inner placeholder",
+          "Size": 3
+        }
+      }
+    ]
+  }
+}

@@ -5,7 +5,7 @@ const GraphQLLayout = ({ sitecoreContext, rendering }) => {
   const disconnectedMode = sitecoreContext.itemId === 'available-in-connected-mode';
 
   return (
-    <div>
+    <div data-e2e-id="graphql-layout">
       {disconnectedMode && (
         <React.Fragment>
           <p>

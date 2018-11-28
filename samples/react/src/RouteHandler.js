@@ -3,6 +3,7 @@ import i18n from 'i18next';
 import Helmet from 'react-helmet';
 import { isExperienceEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-react';
 import SitecoreContextFactory from './lib/SitecoreContextFactory';
+import { dataFetcher } from './dataFetcher';
 import config from './temp/config';
 import Layout from './Layout';
 import NotFound from './NotFound';
@@ -96,7 +97,7 @@ export default class RouteHandler extends React.Component {
 
     // get the route data for the new route
     getRouteData(sitecoreRoutePath, language).then((routeData) => {
-      if (routeData !== null) {
+      if (routeData !== null && routeData.sitecore && routeData.sitecore.route) {
         // set the sitecore context data and push the new route
         SitecoreContextFactory.setSitecoreContext({
           route: routeData.sitecore.route,
@@ -105,7 +106,7 @@ export default class RouteHandler extends React.Component {
         });
         this.setState({ routeData, notFound: false });
       } else {
-        this.setState({ notFound: true });
+        this.setState({ routeData, notFound: true });
       }
     });
   }
@@ -159,14 +160,14 @@ export default class RouteHandler extends React.Component {
 
     // no route data for the current route in Sitecore - show not found component.
     // Note: this is client-side only 404 handling. Server-side 404 handling is the responsibility
-    // of the server being used (i.e. node-express-ssr and Sitecore intergrated rendering know how to send 404 status codes).
+    // of the server being used (i.e. node-headless-ssr-proxy and Sitecore intergrated rendering know how to send 404 status codes).
     if (notFound) {
       return (
         <div>
           <Helmet>
             <title>{i18n.t('Page not found')}</title>
           </Helmet>
-          <NotFound />
+          <NotFound context={routeData.sitecore && routeData.sitecore.context} />
         </div>
       );
     }
@@ -195,17 +196,21 @@ export function setServerSideRenderingState(ssrState) {
  * Gets route data from Sitecore. This data is used to construct the component layout for a JSS route.
  * @param {string} route Route path to get data for (e.g. /about)
  * @param {string} language Language to get route data in (content language, e.g. 'en')
- * @param {dataApi.LayoutServiceRequestOptions} options Layout service fetch options
  */
-function getRouteData(route, language, options = {}) {
+function getRouteData(route, language) {
   const fetchOptions = {
     layoutServiceConfig: { host: config.sitecoreApiHost },
     querystringParams: { sc_lang: language, sc_apikey: config.sitecoreApiKey },
-    requestConfig: options,
+    fetcher: dataFetcher,
   };
 
   return dataApi.fetchRouteData(route, fetchOptions).catch((error) => {
-    console.error('Route data fetch error', error);
+    if (error.response && error.response.status === 404 && error.response.data) {
+      return error.response.data;
+    }
+
+    console.error('Route data fetch error', error, error.response);
+
     return null;
   });
 }

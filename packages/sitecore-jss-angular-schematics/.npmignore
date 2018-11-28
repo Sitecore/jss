@@ -1,0 +1,21 @@
+# Outputs
+src/*/*.ts
+!src/*/*.d.ts
+
+*.tgz
+.nycrc
+
+# IDEs
+.idea/
+jsconfig.json
+tsconfig.json
+.vscode/
+
+# Misc
+node_modules/
+*.log*
+package-
+
+# Mac OSX Finder files.
+**/.DS_Store
+.DS_Store

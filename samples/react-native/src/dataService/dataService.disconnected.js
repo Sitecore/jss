@@ -3,7 +3,7 @@
 // For instance, you may to wish to have data stored in static files, or in separate .js functions, or whatever...
 
 /* eslint-disable import/no-extraneous-dependencies */
-import { convertRouteToLayoutServiceFormat } from '@sitecore-jss/sitecore-jss-react-native';
+import { convertRouteToLayoutServiceFormat } from '@sitecore-jss/sitecore-jss-react-native/dist/dataConversion';
 // eslint-disable-next-line
 import { images } from 'static-assets';
 import routeData from '../../data/routes/en.json';

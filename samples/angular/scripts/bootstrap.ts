@@ -1,6 +1,6 @@
 
 import { generateConfig } from './generate-config';
-import * as ngConfig from '../angular.json';
+const projects = require('../angular.json').projects;
 
 /*
   BOOTSTRAPPING
@@ -21,7 +21,7 @@ const disconnected = process.argv.some((arg) => arg === '--disconnected');
 */
 function writeConfig(configOverride: any, outputPath?: string) {
   if (disconnected) {
-    configOverride.sitecoreApiHost = `http://localhost:${(ngConfig as any).projects['JssAngularWeb'].architect.serve.options.port}`;
+    configOverride.sitecoreApiHost = `http://localhost:${projects['JssAngularWeb'].targets.serve.options.port}`;
   }
 
   generateConfig(configOverride, outputPath);

@@ -1,6 +1,5 @@
 import i18ninit from './i18n';
 import { createApp } from './createApp';
-import './registerServiceWorker';
 
 /* eslint-disable no-underscore-dangle */
 

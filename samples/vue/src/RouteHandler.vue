@@ -1,11 +1,12 @@
 <template>
-  <not-found v-if="notFound" />
+  <not-found v-if="notFound" :context="appState.sitecoreContext" />
   <route-loading v-else-if="loading" />
   <layout v-else :route="appState.routeData" />
 </template>
 
 <script>
 import { isExperienceEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-vue';
+import { dataFetcher } from './dataFetcher';
 import config from './temp/config';
 import Layout from './Layout';
 import NotFound from './NotFound';
@@ -86,13 +87,14 @@ export default {
 
       // get the route data for the new route
       getRouteData(sitecoreRoutePath, language).then((routeData) => {
-        if (routeData !== null) {
+        if (routeData !== null && routeData.sitecore.route) {
           // Update the JSS store instance with the fetched data.
           // This will signal the RouteHandler to update/re-render, as well as any components
           // that are referencing the JSS store instance in their `data` object.
           this.$jss.store.setSitecoreData(routeData);
           this.notFound = false;
         } else {
+          this.$jss.store.setSitecoreData(routeData);
           this.notFound = true;
         }
         this.loading = false;
@@ -140,15 +142,20 @@ export default {
  * @param {string} language Language to get route data in (content language, e.g. 'en')
  * @param {dataApi.LayoutServiceRequestOptions} options Layout service fetch options
  */
-function getRouteData(route, language, options = {}) {
+function getRouteData(route, language) {
   const fetchOptions = {
     layoutServiceConfig: { host: config.sitecoreApiHost },
     querystringParams: { sc_lang: language, sc_apikey: config.sitecoreApiKey },
-    requestConfig: options,
+    fetcher: dataFetcher,
   };
 
   return dataApi.fetchRouteData(route, fetchOptions).catch((error) => {
-    console.error('Route data fetch error', error);
+    if (error.response && error.response.status === 404 && error.response.data) {
+      return error.response.data;
+    }
+
+    console.error('Route data fetch error', error, error.response);
+
     return null;
   });
 }

@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import * as packageConfig from '../package.json';
+const packageConfig = require('../package.json');
 
 /**
  * Generate config

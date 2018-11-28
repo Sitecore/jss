@@ -1,8 +1,6 @@
 # Sitecore JavaScript Services
 
-This repository contains samples to help you get started using Sitecore JSS.
-
-You can also use this repo to file issues.
+This repository contains source code for all Sitecore JSS packages as well as samples to help you get started using Sitecore JSS.
 
 Below is a list of samples included in this repo:
 
@@ -34,14 +32,9 @@ Below is a list of samples included in this repo:
 
     JSS supports headless server-side rendering using any service that supports hosting Node.js applications. [Documentation](http://jss.sitecore.net/docs/techniques/ssr/headless-mode-ssr).
 
-## Getting started
+## Getting started with JSS
 
 - [Official JSS documentation](https://jss.sitecore.net/)
 - [StackExchange](https://sitecore.stackexchange.com/)
 - [Community Slack](https://sitecorechat.slack.com/messages/jss)
 - [Sitecore Community Forum](https://community.sitecore.net/developers/f/40)
-
-## Feature requests
-
-
-Open an issue!

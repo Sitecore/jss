@@ -1,8 +1,10 @@
 import React from 'react';
 import { Text, Link } from '@sitecore-jss/sitecore-jss-react';
 import { Link as RouterLink } from 'react-router-dom';
+import { loader as gqlLoader } from 'graphql.macro';
 import GraphQLData from '../../lib/GraphQLData';
-import { ConnectedDemoQuery } from './query.graphql';
+
+const ConnectedDemoQuery = gqlLoader('./query.graphql');
 
 const GraphQLConnectedDemo = (props) => {
   const graphQLResult = props.connectedQuery;
@@ -16,7 +18,7 @@ const GraphQLConnectedDemo = (props) => {
   const { datasource, contextItem } = graphQLResult;
 
   return (
-    <div>
+    <div data-e2e-id="graphql-connected">
       <h2>GraphQL Connected Demo</h2>
 
       <p>

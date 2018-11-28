@@ -1,7 +1,7 @@
 <!--
 -->
 <template>
-  <div>
+  <div data-e2e-id="graphql-connected">
     <h2>GraphQL Connected Demo</h2>
 
     <p>
@@ -87,11 +87,15 @@ export default {
   apollo: {
     queryData: {
       query: ConnectedDemoQuery,
-      variables() {
-        return {
-          contextItem: this.$jss.sitecoreContext().itemId,
-          datasource: this.rendering && this.rendering.dataSource,
+      variables() {const defaultValue = '{00000000-0000-0000-0000-000000000000}';
+        const variables = {
+          contextItem: (this.$jss) ? this.$jss.sitecoreContext().itemId : defaultValue,
+          datasource: (this.rendering && this.rendering.dataSource) || defaultValue,
         };
+
+        if(!variables.contextItem) variables.contextItem = defaultValue;
+
+        return variables;
       },
       error(error) {
         this.error = error;

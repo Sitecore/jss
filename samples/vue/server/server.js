@@ -1,13 +1,39 @@
+import Vue from 'vue';
 import { createRenderer } from 'vue-server-renderer';
 import serializeJavascript from 'serialize-javascript';
 import i18ninit from '../src/i18n';
 import { createApp } from '../src/createApp';
 import { createRouter } from '../src/router';
 import indexTemplate from '../dist/index.html';
+import ApolloSSR from 'vue-apollo/ssr';
+import componentFactory from '../src/temp/componentFactory';
+import config from '../src/temp/config';
+
+Vue.use(ApolloSSR);
+
+/** Asserts that a string replace actually replaced something */
+function assertReplace(string, value, replacement) {
+  let success = false;
+  const result = string.replace(value, () => {
+    success = true;
+    return replacement;
+  });
+
+  if (!success) {
+    throw new Error(
+      `Unable to match replace token '${value}' in dist/index.html template. If the HTML shell for the app is modified, also fix the replaces in server.js. Server-side rendering has failed!`
+    );
+  }
+
+  return result;
+}
+
+/** Export the API key. This will be used by default in Headless mode, removing the need to manually configure the API key on the proxy. */
+export const apiKey = config.sitecoreApiKey;
 
 /**
  * Main entry point to the application when run via Server-Side Rendering,
- * either in Integrated Mode, or with a Node proxy host like the node-express-ssr sample.
+ * either in Integrated Mode, or with a Node proxy host like the node-headless-ssr-proxy sample.
  * This function will be invoked by the server to return the rendered HTML.
  * @param {Function} callback Function to call when rendering is complete. Signature callback(error, successData).
  * @param {string} path Current route path being rendered
@@ -19,9 +45,7 @@ export function renderView(callback, path, data, viewBag) {
     const state = parseServerData(data, viewBag);
 
     initializei18n(state)
-      .then((i18n) => {
-        return createApp(state, i18n);
-      })
+      .then((i18n) => createApp(state, i18n))
       .then(({ app, router, graphQLProvider }) => {
         // set server-side router's location
         router.push(path);
@@ -47,10 +71,19 @@ export function renderView(callback, path, data, viewBag) {
             // based on component props, state, etc...
             // Prefetch queries only have access to the context data that are provided via the `prefetchAll`
             // method below. In this scenario we provide current route and state data provided by the server.
-            return graphQLProvider.prefetchAll(
-              { route: router.currentRoute, state },
-              matchedComponents
-            );
+
+            // only these components will be prefetched, so we find JSS components in the route data,
+            // as well as static components in the route from the router
+            const apolloComponentsToSSR = [
+              ...matchedComponents,
+              ...resolveComponentsInRoute(state.sitecore),
+              // got static components etc that need to prefetch GraphQL queries? Add them here.
+            ].filter((component) => component.apollo);
+
+            return ApolloSSR.prefetchAll(graphQLProvider, apolloComponentsToSSR, {
+              route: router.currentRoute,
+              state,
+            });
           })
           .then(() => {
             const renderer = createRenderer();
@@ -59,7 +92,7 @@ export function renderView(callback, path, data, viewBag) {
             return renderer.renderToString(app).then((renderedApp) => {
               // We add the GraphQL state to the SSR state so that we can avoid refetching queries after client load
               // Not using GraphQL? Get rid of this.
-              state.APOLLO_STATE = graphQLProvider.getStates();
+              state.APOLLO_STATE = ApolloSSR.getStates(graphQLProvider);
               return {
                 renderedApp,
                 app,
@@ -81,25 +114,34 @@ export function renderView(callback, path, data, viewBag) {
         // Inject the rendered app into the index.html template (built from /public/index.html)
         // IMPORTANT: use serialize-javascript or similar instead of JSON.stringify() to emit initial state,
         // or else you're vulnerable to XSS.
-        const html = indexTemplate
-          // write the Vue app
-          .replace('<div id="root"></div>', `<div id="root">${renderedApp}</div>`)
-          // write the string version of our state
-          .replace('__JSS_STATE__ = null', `__JSS_STATE__ = ${serializeJavascript(state)}`)
-          // render vue-meta data
-          .replace('<html>', `<html data-vue-meta-server-rendered ${meta.htmlAttrs.text()}>`)
-          .replace(
-            '<head>',
-            `<head>
-              ${meta.meta.text()}
-              ${meta.title.text()}
-              ${meta.link.text()}
-              ${meta.style.text()}
-              ${meta.script.text()}
-              ${meta.noscript.text()}
-            </head>`
-          )
-          .replace('<body>', `<body ${meta.bodyAttrs.text()}>`);
+        let html = indexTemplate;
+        // write the Vue app
+        html = assertReplace(html, '<div id="root"></div>', `<div id="root">${renderedApp}</div>`);
+        // write the string version of our state
+        html = assertReplace(
+          html,
+          '__JSS_STATE__ = null',
+          `__JSS_STATE__ = ${serializeJavascript(state)}`
+        );
+        // render vue-meta data
+        html = assertReplace(
+          html,
+          '<html>',
+          `<html data-vue-meta-server-rendered ${meta.htmlAttrs.text()}>`
+        );
+        html = assertReplace(
+          html,
+          '<head>',
+          `<head>
+            ${meta.meta.text()}
+            ${meta.title.text()}
+            ${meta.link.text()}
+            ${meta.style.text()}
+            ${meta.script.text()}
+            ${meta.noscript.text()}
+          </head>`
+        );
+        html = assertReplace(html, '<body>', `<body ${meta.bodyAttrs.text()}>`);
 
         callback(null, {
           html,
@@ -115,7 +157,7 @@ export function renderView(callback, path, data, viewBag) {
 
 /**
  * Parses an incoming url to match against the route table. This function is implicitly used
- * by node-express-ssr when rendering the site in headless mode. It enables rewriting the incoming path,
+ * by node-headless-ssr-proxy when rendering the site in headless mode. It enables rewriting the incoming path,
  * say '/en-US/hello', to the path and language to pass to Layout Service (a Sitecore item path), say
  * { sitecoreRoute: '/hello', lang: 'en-US' }.
  * This function is _not_ used in integrated mode, as Sitecore's built in route parsing is used.
@@ -144,6 +186,47 @@ function parseServerData(data, viewBag) {
     viewBag: parsedViewBag,
     sitecore: parsedData && parsedData.sitecore,
   };
+}
+
+function resolveComponentsInRoute(sitecoreData) {
+  if (!sitecoreData.route) return [];
+
+  const components = new Map();
+
+  getComponents(sitecoreData.route, components);
+
+  const result = [];
+  components.forEach((component) => result.push(component));
+
+  return result;
+}
+
+function getComponents(routeData, componentsMap) {
+  if (!routeData.placeholders) return;
+
+  Object.keys(routeData.placeholders).forEach((placeholderKey) => {
+    routeData.placeholders[placeholderKey].forEach((componentInPlaceholder) => {
+      if (
+        !componentInPlaceholder.componentName ||
+        componentsMap.get(componentInPlaceholder.placeholderName)
+      ) {
+        // component was raw, or we already knew about it in the known components map
+        return;
+      }
+
+      // add this component's name and instance to the map
+      const componentInstance = componentFactory(componentInPlaceholder.componentName);
+
+      if (componentInstance) {
+        componentsMap.set(componentInPlaceholder.componentName, componentInstance);
+      }
+
+      // add child placeholders to the map
+      if (componentInPlaceholder.placeholders) {
+        getComponents(componentInPlaceholder, componentsMap);
+      }
+    });
+  });
 }
 
 function initializei18n(state) {

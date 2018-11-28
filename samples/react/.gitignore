@@ -16,9 +16,7 @@
 .env.*.local
 
 # Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.log
 
 scjssconfig.json
 *.deploysecret.config

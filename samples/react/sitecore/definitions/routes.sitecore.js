@@ -31,6 +31,7 @@ export default function addRoutesToManifest(manifest) {
         type: CommonFieldTypes.SingleLineText,
       },
     ],
+    insertOptions: ['App Route'],
   });
 
   return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)

@@ -4,7 +4,7 @@
   author experience.
 -->
 <template>
-  <div>
+  <div data-e2e-class="styleguide-layout-tabs-tab">
     <sc-text v-if="isEditing" tag="h5" :field="fields.title" />
     <sc-rich-text :field="fields.content" />
   </div>

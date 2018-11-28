@@ -6,6 +6,7 @@ import { enableProdMode } from '@angular/core';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
+import { environment } from './src/environments/environment';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -62,7 +63,7 @@ function renderView (callback, path, data, viewBag) {
       extraProviders: [
         provideModuleMap(LAZY_MODULE_MAP),
         // custom injection with the initial state that SSR should utilize
-        { provide: 'JSS_SERVER_TO_SSR', useValue: transferState },
+        { provide: 'JSS_SERVER_LAYOUT_DATA', useValue: transferState },
         { provide: 'JSS_SERVER_VIEWBAG', useValue: state.viewBag },
       ]
     }).then(html => {
@@ -87,5 +88,6 @@ function parseRouteUrl(url) {
 
 module.exports = {
   renderView,
-  parseRouteUrl
+  parseRouteUrl,
+  apiKey: environment.sitecoreApiKey,
 };

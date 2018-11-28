@@ -7,7 +7,7 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * Image field data is uploaded into the Sitecore Media Library.
  */
 const StyleguideFieldUsageImage = (props) => (
-  <StyleguideSpecimen {...props}>
+  <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-image">
     <p>Plain image</p>
     <Image media={props.fields.sample1} />
 
@@ -21,7 +21,7 @@ const StyleguideFieldUsageImage = (props) => (
     */}
     <p>Advanced image (not editable)</p>
     <Image
-      media={props.fields.sample2}
+      field={props.fields.sample2}
       editable={false}
       imageParams={{ mw: 100, mh: 50 }}
       height="50"
@@ -38,7 +38,7 @@ const StyleguideFieldUsageImage = (props) => (
     */}
     <p>Srcset responsive image</p>
     <Image
-      media={props.fields.sample2}
+      field={props.fields.sample2}
       srcSet={[{ mw: 300 }, { mw: 100 }]}
       sizes="(min-width: 960px) 300px, 100px"
       className="img-fluid"

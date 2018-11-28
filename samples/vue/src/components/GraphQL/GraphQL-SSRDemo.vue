@@ -1,7 +1,7 @@
 <!--
 -->
 <template>
-  <div>
+  <div data-e2e-id="graphql-ssr">
     <h2>GraphQL Server Side Rendering Demo</h2>
 
     <p>
@@ -58,12 +58,8 @@
 <script>
 import { Text, Link } from '@sitecore-jss/sitecore-jss-vue';
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
-import { willPrefetch } from 'vue-apollo';
 
-// This component is not directly matched/instantiated by the router, so we
-// need to use the `willPrefetch` helper to tell `vue-apollo` that the GraphQL
-// query defined on this component should be prefetched during SSR.
-export default willPrefetch({
+export default {
   name: 'GraphQL-SSRDemo',
   props: {
     fields: {
@@ -95,10 +91,15 @@ export default willPrefetch({
     queryData: {
       query: ConnectedDemoQuery,
       variables() {
-        return {
-          contextItem: this.$jss.sitecoreContext().itemId,
-          datasource: '{00000000-0000-0000-0000-000000000000}',
+        const defaultValue = '{00000000-0000-0000-0000-000000000000}';
+        const variables = {
+          contextItem: (this.$jss) ? this.$jss.sitecoreContext().itemId : defaultValue,
+          datasource: defaultValue,
         };
+
+        if(!variables.contextItem) variables.contextItem = defaultValue;
+
+        return variables;
       },
       error(error) {
         this.error = error;
@@ -129,11 +130,11 @@ export default willPrefetch({
       prefetch: ({ route, state }) => {
         return {
           contextItem:
-            state && state.sitecore && state.sitecore.route && state.sitecore.route.itemId,
+            (state && state.sitecore && state.sitecore.route && state.sitecore.route.itemId) || '{00000000-0000-0000-0000-000000000000}',
           datasource: '{00000000-0000-0000-0000-000000000000}',
         };
       },
     },
   },
-});
+};
 </script>

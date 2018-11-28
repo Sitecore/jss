@@ -3,7 +3,7 @@
   Image field data is uploaded into the Sitecore Media Library.
 -->
 <template>
-  <styleguide-specimen v-bind="$props">
+  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-image">
     <p>Plain image</p>
     <sc-image :media="fields.sample1" />
 

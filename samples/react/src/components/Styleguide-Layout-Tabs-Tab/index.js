@@ -7,7 +7,7 @@ import { Text, RichText, withSitecoreContext } from '@sitecore-jss/sitecore-jss-
  * author experience.
  */
 const StyleguideLayoutTabsTab = (props) => (
-  <React.Fragment>
+  <div data-e2e-class="styleguide-layout-tabs-tab">
     {/*
       When we're editing the tabs we stack each tab vertically,
       which means there's no regular tab titles rendered.
@@ -17,7 +17,7 @@ const StyleguideLayoutTabsTab = (props) => (
 
     {/* React.Fragment tells React to not use any wrapping tag for the component */}
     <RichText field={props.fields.content} />
-  </React.Fragment>
+  </div>
 );
 
 export default withSitecoreContext()(StyleguideLayoutTabsTab);
