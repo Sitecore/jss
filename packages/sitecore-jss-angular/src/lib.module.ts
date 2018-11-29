@@ -4,6 +4,7 @@ import {
   ModuleWithProviders,
   NgModule,
   Type,
+  Provider
 } from '@angular/core';
 import { ROUTES } from '@angular/router';
 import { DateDirective } from './components/date.directive';
@@ -81,14 +82,19 @@ export class JssModule {
   }
 
   /** Instantiates a module for a lazy-loaded JSS component */
-  static forChild(component: Type<any>): ModuleWithProviders {
+  static forChild(components: Array<Type<any>>): ModuleWithProviders {
+    let providers: Array<Provider> = [
+      { provide: ROUTES, useValue: [], multi: true }
+    ];
+
+    components.forEach(function (component) {
+      providers.push({ provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: component, multi: true });
+      providers.push({ provide: DYNAMIC_COMPONENT, useValue: component });
+    })
+
     return {
       ngModule: JssModule,
-      providers: [
-        { provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: component, multi: true },
-        { provide: ROUTES, useValue: [], multi: true },
-        { provide: DYNAMIC_COMPONENT, useValue: component },
-      ],
+      providers: providers,
     };
   }
 
