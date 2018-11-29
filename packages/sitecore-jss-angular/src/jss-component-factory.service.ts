@@ -59,6 +59,7 @@ export class JssComponentFactoryService {
     if (lazyComponent) {
       return this.loader.load(lazyComponent.loadChildren)
       .then((ngModuleFactory) => {
+        let componentType = null;
         const moduleRef = ngModuleFactory.create(this.injector);
         const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
         if (!dynamicComponentType) {
@@ -68,10 +69,18 @@ export class JssComponentFactoryService {
           );
         }
 
+        if (Array.isArray(dynamicComponentType)) {
+          componentType = dynamicComponentType.filter((dynamicComponet) => {
+            return component.componentName === dynamicComponet.name;
+          })[0].type;
+        } else {
+          componentType = dynamicComponentType;
+        }
+
         return {
           componentDefinition: component,
-          componentImplementation: dynamicComponentType,
-          componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(dynamicComponentType),
+          componentImplementation: componentType,
+          componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(componentType),
         };
       });
     }

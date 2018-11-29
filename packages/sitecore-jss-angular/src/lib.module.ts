@@ -82,15 +82,15 @@ export class JssModule {
   }
 
   /** Instantiates a module for a lazy-loaded JSS component */
-  static forChild(components: Type<any> | Array<Type<any>>): ModuleWithProviders {
+  static forChild(components: Type<any> | ComponentNameAndType[]): ModuleWithProviders {
     const providers: Provider[] = [
       { provide: ROUTES, useValue: [], multi: true },
     ];
 
     if (Array.isArray(components)) {
       components.forEach((component) => {
-        providers.push({ provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: component, multi: true });
-        providers.push({ provide: DYNAMIC_COMPONENT, useValue: component });
+        providers.push({ provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: component.type, multi: true });
+        providers.push({ provide: DYNAMIC_COMPONENT, useValue: component, multi: true });
       });
     } else {
       providers.push({ provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: components, multi: true });
