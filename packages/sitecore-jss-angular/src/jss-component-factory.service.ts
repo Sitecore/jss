@@ -69,12 +69,17 @@ export class JssComponentFactoryService {
           );
         }
 
-        if (Array.isArray(dynamicComponentType)) {
-          componentType = dynamicComponentType.filter((dynamicComponet) => {
-            return component.componentName === dynamicComponet.name;
-          })[0].type;
+        if (component.componentName in dynamicComponentType) {
+          componentType = (dynamicComponentType as {[s: string]: any})[component.componentName];
         } else {
-          componentType = dynamicComponentType;
+          if (typeof dynamicComponentType === 'function') {
+            componentType = dynamicComponentType;
+          } else {
+            throw new Error(
+              // tslint:disable-next-line:max-line-length
+              `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
+            );
+          }
         }
 
         return {
