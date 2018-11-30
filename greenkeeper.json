@@ -1,0 +1,30 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "e2e/cypress/package.json",
+        "package.json",
+        "packages/sitecore-jss-angular-schematics/package.json",
+        "packages/sitecore-jss-angular/package.json",
+        "packages/sitecore-jss-cli/package.json",
+        "packages/sitecore-jss-dev-tools/package.json",
+        "packages/sitecore-jss-manifest/package.json",
+        "packages/sitecore-jss-proxy/package.json",
+        "packages/sitecore-jss-react-native/package.json",
+        "packages/sitecore-jss-react/package.json",
+        "packages/sitecore-jss-tracking/package.json",
+        "packages/sitecore-jss-update-package/package.json",
+        "packages/sitecore-jss-vue/package.json",
+        "packages/sitecore-jss/package.json",
+        "packages/sitecore-pipelines/package.json",
+        "samples/angular/package.json",
+        "samples/node-headless-ssr-proxy/package.json",
+        "samples/react-native/package.json",
+        "samples/react/package.json",
+        "samples/sitecore-embedded-jss-app/package.json",
+        "samples/sitecore-javascript-renderings/package.json",
+        "samples/vue/package.json"
+      ]
+    }
+  }
+}
