@@ -12,3 +12,7 @@ Want to contribute to Sitecore JavaScript Services? There are a few things you n
 - `npm install`
 - `npm install -g lerna`
 - `npm run reset` -> will clean all `node_modules`, re-install them with `lerna bootstrap`, and then build all JSS packages
+
+## Run unit tests
+
+- `npm run test-packages`
