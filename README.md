@@ -1,5 +1,7 @@
 # Sitecore JavaScript Services
 
+[ ![Codeship Status for Sitecore/jss](https://app.codeship.com/projects/faa6f450-d6f9-0136-0d76-3af8ab8e471d/status)](https://app.codeship.com/projects/317079) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](contributing.md#pull-requests)
+
 This repository contains source code for all Sitecore JSS packages as well as samples to help you get started using Sitecore JSS.
 
 Below is a list of samples included in this repo:
@@ -18,19 +20,19 @@ Below is a list of samples included in this repo:
 
 1. [Embedded JSS App within Sitecore MVC](/samples/sitecore-embedded-jss-app)
 
-    This app demonstrates how to embed a client-side JSS application inside an existing Sitecore MVC site as opposed to running a standalone JSS site. This technique essentially embeds the JSS app's markup and app wrapper tag within a Sitecore rendering. [Documentation](http://jss.sitecore.net/docs/techniques/mvc-integration/client-side-embedding).
+   This app demonstrates how to embed a client-side JSS application inside an existing Sitecore MVC site as opposed to running a standalone JSS site. This technique essentially embeds the JSS app's markup and app wrapper tag within a Sitecore rendering. [Documentation](http://jss.sitecore.net/docs/techniques/mvc-integration/client-side-embedding).
 
 1. [React Native](/samples/react-native)
 
-    This app demonstrates experimental JSS usage with React Native. Due to the experimental nature of React Native support in JSS, this app does not have feature parity with the other framework samples (e.g. React, Vue). [Documentation](http://jss.sitecore.net/docs/client-frameworks/react-native)
+   This app demonstrates experimental JSS usage with React Native. Due to the experimental nature of React Native support in JSS, this app does not have feature parity with the other framework samples (e.g. React, Vue). [Documentation](http://jss.sitecore.net/docs/client-frameworks/react-native)
 
 1. [Sitecore JavaScript rendering](/samples/sitecore-javascript-renderings)
 
-    This project demonstrates experimental support for creating Sitecore renderings that will server-side render individual JavaScript components or apps. The Sitecore JavaScript renderings can be used alongside traditional MVC-based renderings. [Documentation](http://jss.sitecore.net/docs/techniques/mvc-integration/javascript-rendering)
+   This project demonstrates experimental support for creating Sitecore renderings that will server-side render individual JavaScript components or apps. The Sitecore JavaScript renderings can be used alongside traditional MVC-based renderings. [Documentation](http://jss.sitecore.net/docs/techniques/mvc-integration/javascript-rendering)
 
 1. [Headless Server-Side Rendering with Node.js](/samples/node-headless-ssr-proxy)
 
-    JSS supports headless server-side rendering using any service that supports hosting Node.js applications. [Documentation](http://jss.sitecore.net/docs/techniques/ssr/headless-mode-ssr).
+   JSS supports headless server-side rendering using any service that supports hosting Node.js applications. [Documentation](http://jss.sitecore.net/docs/techniques/ssr/headless-mode-ssr).
 
 ## Getting started with JSS
 
