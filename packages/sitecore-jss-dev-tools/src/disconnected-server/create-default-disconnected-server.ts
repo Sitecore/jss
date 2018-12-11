@@ -10,8 +10,7 @@ export interface DisconnectedServerOptions {
   appName: string;
 
   /**
-   * Root physical path to the app's /scripts folder
-   * (i.e. __dirname from the calling script to start the middleware)
+   * Root physical path to the app (i.e. where your package.json is)
    */
   appRoot: string;
 
