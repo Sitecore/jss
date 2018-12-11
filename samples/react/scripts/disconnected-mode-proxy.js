@@ -10,15 +10,16 @@
 /* eslint-disable no-console */
 
 const fs = require('fs');
+const path = require('path');
 const { createDefaultDisconnectedServer } = require('@sitecore-jss/sitecore-jss-dev-tools');
 const config = require('../package.json').config;
 
 const touchToReloadFilePath = 'src/temp/config.js';
 
 const proxyOptions = {
-  appRoot: __dirname,
+  appRoot: path.join(__dirname, '..'),
   appName: config.appName,
-  watchPaths: ['../data'],
+  watchPaths: ['./data'],
   language: config.language,
   port: process.env.PROXY_PORT || 3042,
   onManifestUpdated: (manifest) => {

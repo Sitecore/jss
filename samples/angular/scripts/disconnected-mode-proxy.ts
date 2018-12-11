@@ -8,6 +8,7 @@
 */
 
 import * as fs from 'fs';
+import { join } from 'path';
 import { createDefaultDisconnectedServer } from '@sitecore-jss/sitecore-jss-dev-tools';
 const packageJson = require('../package.json');
 
@@ -16,9 +17,9 @@ const config = (packageJson as any).config;
 const touchToReloadFilePath = 'src/environments/environment.ts';
 
 const proxyOptions = {
-  appRoot: __dirname,
+  appRoot: join(__dirname, '..'),
   appName: config.appName,
-  watchPaths: ['../data'],
+  watchPaths: ['./data'],
   language: config.language,
   port: 3043,
   onManifestUpdated: (manifest) => {
