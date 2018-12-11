@@ -17,10 +17,6 @@ The JSS docs are a JSS site, with a markdown-to-routes parser added. This means 
 * `/data/routes/docs` -> the main documentation content area
 * `src/app/sidenav.js` -> registers the structure of the docs navigation
 
-## Deployment
-
-Use Heroku CLI to deploy to the `jss-docs` app. (`git push heroku master` after setting up the remote)
-
 ## Limitations/Known Issues
 
 * **This site is not intended to be deployed to Sitecore and is expected to function in disconnected mode only.**
