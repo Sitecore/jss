@@ -48,8 +48,8 @@ export interface RouteData {
  * Placeholder contents data (name: placeholder name, then array of components within that placeholder name)
  * Note: HtmlElementRendering is used by Sitecore Experience Editor
  */
-export interface PlaceholdersData {
-  [name: string]: Array<ComponentRendering | HtmlElementRendering>;
+export type PlaceholdersData<TYPEDNAME extends string = string> = {
+  [P in TYPEDNAME]: Array<ComponentRendering | HtmlElementRendering>;
 }
 
 /**
