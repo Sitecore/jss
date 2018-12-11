@@ -1,0 +1,16 @@
+id: sitecore-community
+name: sitecore-community
+componentName: Tile
+fields:
+  cssclass:
+    value: icon
+  title:
+    value: Sitecore Community
+  text:
+    value: The official Sitecore Community where you can get in contact with thousands of Sitecore developers and users, ask questions or join the discussions.
+  linkUrl:
+    text: Visit Sitecore Community
+    href: https://community.sitecore.net
+  image:
+    src: /assets/img/community_icon_3.svg
+    alt: GitHub logo

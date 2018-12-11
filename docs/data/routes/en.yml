@@ -1,0 +1,41 @@
+name: home
+fields:
+  title:
+    value: Home
+placeholders:
+  jssdocs-main:
+    - componentName: PageContainer
+      placeholders:
+        jssdocs-jumbo:
+          - id: home-jumbo
+            componentName: FeatureJumbo
+            fields:
+              title:
+                value: Are you ready for JSS?
+              subtitle:
+                value: Sitecore JSS Community
+              text:
+                value: |
+                  Sitecore JavaScript Services (JSS) is a complete SDK for 
+                  JavaScript developers that enables you to build full-fledged 
+                  solutions using Sitecore and modern JavaScript UI libraries 
+                  and frameworks.
+              image:
+                src: /assets/img/home-jumbo.jpg
+                alt: Man staring at a computer
+        jssdocs-tiles-headline:
+          - id: tile-healine
+            componentName: TileHeadline
+            fields:
+              title:
+                value: Build Headless JavaScript applications with the power of Sitecore
+              subtitle:
+                value: Use your favorite JavaScript framework powered by an enterprise experience platform
+        jssdocs-content:
+          - id: home-tile-container
+            componentName: TileContainer
+            placeholders:
+              jssdocs-tiles:
+                  - id: focus-on-development-tile
+                  - id: js-support-tile
+                  - id: headless-experiences-tile

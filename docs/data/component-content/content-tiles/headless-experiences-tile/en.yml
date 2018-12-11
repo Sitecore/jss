@@ -1,0 +1,16 @@
+id: headless-experiences-tile
+name: headless-experiences-tile
+componentName: Tile
+fields:
+  cssclass:
+    value: default
+  title:
+    value: Create true personalized headless experiences
+  text:
+    value: Use Sitecore JSS to deliver true individualized headless experiences at scale
+  linkUrl:
+    text: Learn more
+    href: /features
+  image:
+    src: /assets/img/headless-experience-tile.jpg
+    alt: Disconnection
