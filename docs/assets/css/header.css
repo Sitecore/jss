@@ -1,0 +1,118 @@
+.main-header {
+    width: 100%;
+    background: white;
+    height: auto;
+    min-height: 125px;
+}
+.main-header .navbar {
+    padding: 0.5rem 0;
+}
+.main-header .navbar-brand {
+    margin-top: 25px;
+}
+.main-header .navbar-collapse {
+    margin-top: 50px;
+}
+.main-header .navbar-nav-svg {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 10px;
+}
+.main-header .dropdown-menu {
+    border-radius: 0;
+    padding: 0;
+}
+.main-header .dropdown-item {
+    padding: .5rem 1.5rem;
+}
+.main-header .dropdown-item:active {
+    background-color: white;
+    color: black;
+}
+.main-header li.nav-item a {
+    color: #000;
+    font-weight: bold;
+    font-size: 0.9375rem;
+}
+.main-header .get-started-button {
+    margin-top: 3px;
+}
+.main-header .get-started-button a {
+    font-weight: normal!important;
+}
+@media only screen and (min-width: 767px) {
+    .main-header {
+        border-bottom: 0 none!important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .main-header {
+        height: auto;
+        min-height: 70px;
+    }
+    .main-header .navbar, .main-header .container {
+        padding: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+    .main-header .navbar-collapse {
+        margin-top: 10px;
+    }
+    .main-header .navbar-brand {
+        margin-left: 15px;
+        margin-top: 0;
+    }
+    .main-header .navbar-toggler {
+        margin-right: 15px;
+        border: 0 none;
+        border-radius: 0;
+    }
+    .main-header .nav-item {
+        background-color: #f6f6f6;
+        border-top: 1px solid #ececec;
+    }
+    .main-header .nav-link {
+        font-size: 0.9375rem;
+        font-weight: 400;
+        padding: 1rem 1.25rem 1rem 1.25rem;
+        margin: 0;
+    }
+    .main-header .dropdown-menu {
+        background-color: #d4d4d4;
+        border-top: 1px solid #dbdbdb;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+    }
+    .main-header .dropdown-menu .dropdown-item {
+        background-color: #d4d4d4;
+        border-top: 1px solid #dbdbdb;
+        padding: 1rem 2.5rem;
+    }
+    .main-header .dropdown-menu .dropdown-item:active {
+        color: black;
+    }
+    .main-header .get-started-button {
+        margin-top: 0;
+    }
+    .main-header .get-started-button a {
+        font-weight: bold!important;
+    }
+    .main-header .btn-secondary {
+        background-color: #f6f6f6;
+        border-top: 1px solid #ececec;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+        width: 100%;
+        border-radius: 0;
+        color: black!important;
+        text-align: left;
+        font-size: 0.9375rem;
+        padding: 1rem 1.25rem 1rem 1.25rem;
+        margin: 0;
+    }
+    .main-header .logo {
+        height: 50px;
+    }
+}

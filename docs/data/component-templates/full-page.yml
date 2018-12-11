@@ -1,0 +1,25 @@
+name: $name$
+fields:
+  title:
+    value: Untitled
+placeholders:
+  jssdocs-main:
+  - componentName: PageContainer
+    placeholders:
+      jssdocs-jumbo:
+        - componentName: FeatureJumboShort
+          fields:
+            image:
+              src: /assets/img/transparent-1x1.png
+            imageclass:
+              value: defaultimage
+            csscolorclass:
+              value: default
+            title:
+              value: Sitecore JavaScript Services
+      jssdocs-content:
+        - componentName: Article
+          fields:
+            text:
+              value: |
+                $html$
