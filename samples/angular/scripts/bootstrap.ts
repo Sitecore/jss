@@ -21,7 +21,7 @@ const disconnected = process.argv.some((arg) => arg === '--disconnected');
 */
 function writeConfig(configOverride: any, outputPath?: string) {
   if (disconnected) {
-    configOverride.sitecoreApiHost = `http://localhost:${projects['JssAngularWeb'].targets.serve.options.port}`;
+    configOverride.sitecoreApiHost = `http://localhost:${projects['JssAngularWeb'].architect.serve.options.port}`;
   }
 
   generateConfig(configOverride, outputPath);
