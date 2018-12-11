@@ -42,4 +42,9 @@ const proxyOptions = {
   },
 };
 
+
+// Need to customize something that the proxy options don't support?
+// createDefaultDisconnectedServer() is a boilerplate that you can copy from
+// and customize the middleware registrations within as you see fit.
+// See https://github.com/Sitecore/jss/blob/master/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts
 createDefaultDisconnectedServer(proxyOptions);
