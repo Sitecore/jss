@@ -1,0 +1,10 @@
+<%
+	var nodePath = @"C:\Users\\nwe\AppData\Roaming\nvm\v6.10.0";
+	
+	var path = System.Environment.GetEnvironmentVariable("PATH");
+	System.Environment.SetEnvironmentVariable("PATH", path + ";" + nodePath);
+%>
+
+<p>
+	Added <%=nodePath%> to <%=path%>
+</p>

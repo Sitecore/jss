@@ -1,0 +1,16 @@
+id: js-support-tile
+name: js-support-tile
+componentName: Tile
+fields:
+  cssclass:
+    value: default
+  title:
+    value: Support Modern JavaScript Frameworks
+  text:
+    value: JSS provides client SDKs for <a href="/docs/client-frameworks/react/react-overview">React</a>, <a href="/docs/client-frameworks/vue/vue-overview">Vue</a>, <a href="/docs/client-frameworks/angular/angular-overview">Angular</a> and <a href="/docs/client-frameworks/react-native">React Native</a>
+  linkUrl:
+    text: Learn more
+    href: /docs/client-frameworks/react/react-overview
+  image:
+    src: /assets/img/js-support-tile.jpg
+    alt: Support
