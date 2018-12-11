@@ -309,6 +309,10 @@ export function rewriteRequestPath(
     finalReqPath = finalReqPath.slice(0, qsIndex);
   }
 
+  if(config.qsParams){
+    qs += `&${config.qsParams}`;
+  }
+
   let lang;
   if (parseRouteUrl) {
     if (config.debug) {
@@ -326,6 +330,10 @@ export function rewriteRequestPath(
         finalReqPath = `/${finalReqPath}`;
       }
       lang = routeParams.lang;
+
+      if(routeParams.qsParams){
+        qs += `&${routeParams.qsParams}`;
+      }
 
       if (config.debug) {
         console.log(`DEBUG: parseRouteUrl() result`, routeParams);

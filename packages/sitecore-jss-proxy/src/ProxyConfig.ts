@@ -9,6 +9,8 @@ export interface ProxyConfig {
   layoutServiceRoute: string;
   /** SSC endpoint to use when sending Layout Service requests to proxy */
   apiKey: string;
+  /** Custom Query String parameters to send to Layout Service, e.g. sc_site=my-site&tracing=false */
+  qsParams: string;
   /**
    * Array of paths to proxy without any SSR transformation (i.e. do not treat as app routes).
    * Note: exclusions are case-insensitive.
