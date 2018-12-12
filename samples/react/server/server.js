@@ -94,9 +94,10 @@ export function renderView(callback, path, data, viewBag) {
         // write the string version of our state
         html = assertReplace(
           html,
-          '__JSS_STATE__=null',
-          `__JSS_STATE__=${serializeJavascript(state)}`
+          '<script type="application/json" id="__JSS_STATE__">null',
+          `<script type="application/json" id="__JSS_STATE__">${serializeJavascript(state)}`
         );
+
         // render <head> contents from react-helmet
         html = assertReplace(
           html,
