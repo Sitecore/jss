@@ -105,8 +105,8 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
       .filter((output) => componentInstance[output] && componentInstance[output] instanceof Observable)
       .forEach((output) => (componentInstance[output] as Observable<any>)
         .pipe(
-          takeWhile(() => !this.destroyed)
-        )
+        takeWhile(() => !this.destroyed)
+      )
         .subscribe(outputs[output]));
   }
 
@@ -147,14 +147,14 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
           } else {
             this._renderEmbeddedComponent(rendering, index);
           }
-        })).then(() => this.changeDetectorRef.markForCheck());
+      })).then(() => this.changeDetectorRef.markForCheck());
     }
   }
 
   private _renderTemplatedComponent(
     rendering: ComponentRendering | HtmlElementRendering,
     index: number
-  ) {
+   ) {
     // the render-each template takes care of all component mapping etc
     // generally using <sc-render-component> which is about like _renderEmbeddedComponent()
     // as a separate component
