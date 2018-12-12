@@ -16,7 +16,7 @@ When Layout Service receives a request, this is what happens on the server:
 
 1. When the `/sitecore/api/layout/render/jss?item=/about` service is invoked, an MVC controller responds and parses the `?item=/about` parameter.
 
-    > The `jss` portion of this route refers to a particular _named configuration_ of the Layout Service. These can be used to create app-specific layout service extensions by registering your own.
+   > The `jss` portion of this route refers to a particular _named configuration_ of the Layout Service. These can be used to create app-specific layout service extensions by registering your own.
 
 2. An item lookup is performed based on the `item` parameter which takes the context site's start item into account. The logic should match standard Sitecore URL handling. Item GUIDs are also allowed.
 
@@ -24,7 +24,7 @@ When Layout Service receives a request, this is what happens on the server:
 
 4. Instead of rendering MVC views, a custom JS serializer will take component's data source item(s) and will serialize them into a JS object.
 
-    > A rendering's serialized output can be customized by creating an implementation of `Sitecore.LayoutService.ItemRendering.IRenderingContentsResolver` and specifying the type in the rendering's `Rendering Contents Resolver` field.
+   > A rendering's serialized output can be customized by creating an implementation of `Sitecore.LayoutService.ItemRendering.IRenderingContentsResolver` and specifying the type in the rendering's `Rendering Contents Resolver` field.
 
 5. The output then assembled and returned as JSON.
 
@@ -44,16 +44,16 @@ See the [Customizing Layout Service Rendering Output Recipe](/docs/techniques/ex
 
 Out of the box, the Layout Service can serialize the following types of Sitecore fields:
 
-* Rich Text
-* Image
-* General Link
-* Date / Datetime
-* Checkbox
-* Links (Droplink, Droptree, Grouped Droplink)
-* Multi-links (Multlist, Checklist, Treelist and their variants)
-* Number
-* File
-* Plain text (Single-line text, Multi-line text)
+- Rich Text
+- Image
+- General Link
+- Date / Datetime
+- Checkbox
+- Links (Droplink, Droptree, Grouped Droplink)
+- Multi-links (Multlist, Checklist, Treelist and their variants)
+- Number
+- File
+- Plain text (Single-line text, Multi-line text)
 
 All other field types are treated as plain text as well, and are output with their raw value. If you wish to customize the serialization of a particular field type, the basic steps are:
 
@@ -63,7 +63,6 @@ All other field types are treated as plain text as well, and are output with the
 1. Override `SetResult` and set `rgs.Result` to an instance of your `BaseFieldSerializer` implementation.
 1. Patch the `getFieldSerializer` pipeline within the `layoutService` pipeline group with your `BaseFieldSerializer` implementation. Be sure to `patch:before` the `GetDefaultFieldSerializer` processor, and populate the `FieldTypes` list with the desired Sitecore field type(s).
 
-
 ## Layout Service Configuration
 
 The Layout Service JSON rendering process is highly configurable, and allows you to customize specific aspects of the Layout Service. Configurations are found in the Sitecore configuration at the path `/sitecore/layoutService/configurations`. The `name` attribute of the `config` node corresponds to the `config` parameter in the Layout Service URL.
@@ -72,7 +71,7 @@ The Layout Service JSON rendering process is highly configurable, and allows you
 
 ```xml
 <config name="jss">
-    <!-- 
+    <!--
         An implementation of `Sitecore.LayoutService.Configuration.IRenderingConfiguration`.
         Allows the addition of filtering logic to output renderings and placeholders.
     -->
@@ -80,7 +79,7 @@ The Layout Service JSON rendering process is highly configurable, and allows you
 
         <!--
             An implementation of `Sitecore.LayoutService.Placeholders.IPlaceholdersResolver`.
-            Extracts the exposed placeholders of a rendering. Also available is 
+            Extracts the exposed placeholders of a rendering. Also available is
             `Sitecore.LayoutService.Placeholders.SimplePlaceholdersResolver`.
         -->
         <placeholdersResolver type="Sitecore.LayoutService.Placeholders.DynamicPlaceholdersResolver, Sitecore.LayoutService"/>
@@ -88,7 +87,7 @@ The Layout Service JSON rendering process is highly configurable, and allows you
         <!--
             An implementation of `Sitecore.LayoutService.Serialization.ItemSerializers.IItemSerializer`.
             Determines what fields of an item should be serialized, and writes them out as JSON. The default
-            implementation filters standard fields. Also available is 
+            implementation filters standard fields. Also available is
             `Sitecore.LayoutService.Serialization.ItemSerializers.AllFieldsItemSerializer`.
         -->
         <itemSerializer type="Sitecore.LayoutService.Serialization.ItemSerializers.DefaultItemSerializer, Sitecore.LayoutService" resolve="true"/>
@@ -141,17 +140,38 @@ changes to your configuration, should the `jss` configuration change during an u
 </layoutService>
 ```
 
+After defining your custom configuration, you may also wish to add the configuration name to the list of `<AllowedConfigurations>` for the `renderJsonRendering` pipeline. Doing so will ensure that the `PlaceholderTransformer` code that executes for the default `jss` configuration will execute for your custom configuration as well.
+
+> Note: This is only relevant if your custom configuration will be delivering output that is similar in shape to the default JSS configuration. If your custom configuration is not related to JSS or doesn't depend on anything from the default `jss` configuration, this step is not necessary.
+
+```xml
+<pipelines>
+  <group groupName="layoutService">
+    <pipelines>
+      <renderJsonRendering>
+        <processor type="Sitecore.JavaScriptServices.ViewEngine.LayoutService.Pipelines.RenderJsonRendering.AddComponentName, Sitecore.JavaScriptServices.ViewEngine" resolve="true">
+          <AllowedConfigurations hint="list">
+            <config id="1">jss</config>
+            <config id="2">my-jss-config</config>
+          </AllowedConfigurations>
+        </processor>
+      </renderJsonRendering>
+    </pipelines>
+  </group>
+</pipelines>
+```
+
 After patching in your custom configuration, you can utilize it in your JSS App via the `layoutServiceConfiguration` attribute.
 
 ```xml
 <javaScriptServices>
-    <apps>
+  <apps>
     <app name="MyApp"
         sitecorePath="/sitecore/content/MyApp"
         layoutServiceConfiguration="my-jss-config"
         inherits="defaults"
     />
-    </apps>
+  </apps>
 </javaScriptServices>
 ```
 
