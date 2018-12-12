@@ -61,7 +61,7 @@ If you're using the default code-generated `app-components.module.ts` that's all
 export class AppComponentsModule { }
 ```
 
-You can also load multiple components from one module. This will improve code splitting of your application. Will reduce the calls which need to be made for loading application resources and capsulation of your source code. 
+You can also load multiple components from one module. This will improve code splitting of your application and will reduce the calls which need to be made for loading application resources. 
 
 For lazy-loading with multiple components you need to register two or more components with `JssModule.forChild()` method into lazy-loading module. You need to provide component name and component type.
 
@@ -86,7 +86,7 @@ import { SecondComponent } from './second.component';
 export class MyModule { }
 ```
 
-There aren't changes in your component module. If you use multiple components lazy-loading you need to have same value  for `loadChildren` if the components are from same module and also the path value need to be same with component name from lazy-loading module inicialization.    
+There aren't changes in your component module. If you use multiple components lazy-loading, you need to have same value for `loadChildren` if the components are from same module and also the path value need to be same with component name from lazy-loading module initialization.    
 
 ```js
 @NgModule({
