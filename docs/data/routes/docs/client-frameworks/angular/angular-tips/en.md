@@ -61,6 +61,55 @@ If you're using the default code-generated `app-components.module.ts` that's all
 export class AppComponentsModule { }
 ```
 
+You can also load multiple components from one module. This will improve code splitting of your application. Will reduce the calls which need to be made for loading application resources and capsulation of your source code. 
+
+For lazy-loading with multiple components you need to register two or more components with `JssModule.forChild()` method into lazy-loading module. You need to provide component name and component type.
+
+```js
+import { NgModule } from '@angular/core';
+import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
+import { FirstComponent } from './first.component';
+import { SecondComponent } from './second.component';
+
+@NgModule({
+  imports: [
+    // secret sauce
+    JssModule.forChild([
+      { name: 'FirstComponent', type: FirstComponent },
+      { name: 'SecondComponent', type: SecondComponent }
+    ])
+  ],
+  declarations: [
+    MyComponent,
+  ],
+})
+export class MyModule { }
+```
+
+There aren't changes in your component module. If you use multiple components lazy-loading you need to have same value  for `loadChildren` if the components are from same module and also the path value need to be same with component name from lazy-loading module inicialization.    
+
+```js
+@NgModule({
+  imports: [
+    AppComponentsSharedModule,
+    JssModule.withComponents([
+      // non-lazy components
+    ], [
+      { path: 'FirstComponent', loadChildren: './my/my.module#MyModule'},
+      { path: 'SecondComponent', loadChildren: './my/my.module#MyModule'},
+    ]),
+  ],
+  exports: [
+    JssModule,
+    AppComponentsSharedModule,
+  ],
+  declarations: [
+    // non-lazy components
+  ],
+})
+export class AppComponentsModule { }
+```
+
 ## Ensure components are `display: block`
 
 When writing UI components in Angular, the default style for `display` for all new components is `inline`. For components to work as expected in the Experience Editor, set the display style to `display: block;` for all components root elements. I.e:
