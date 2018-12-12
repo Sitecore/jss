@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ComponentFactoryResolver,
   ContentChild,
@@ -64,6 +65,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
     private componentFactoryResolver: ComponentFactoryResolver,
     private differs: KeyValueDiffers,
     private componentFactory: JssComponentFactoryService,
+    private changeDetectorRef: ChangeDetectorRef,
     @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>
   ) { }
 
@@ -145,7 +147,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
           } else {
             this._renderEmbeddedComponent(rendering, index);
           }
-      }));
+      })).then(() => this.changeDetectorRef.markForCheck());
     }
   }
 
