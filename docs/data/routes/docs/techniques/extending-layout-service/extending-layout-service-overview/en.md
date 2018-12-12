@@ -152,6 +152,7 @@ After defining your custom configuration, you may also wish to add the configura
         <processor type="Sitecore.JavaScriptServices.ViewEngine.LayoutService.Pipelines.RenderJsonRendering.AddComponentName, Sitecore.JavaScriptServices.ViewEngine" resolve="true">
           <AllowedConfigurations hint="list">
             <config id="1">jss</config>
+            <!-- Add your custom config to this list -->
             <config id="2">my-jss-config</config>
           </AllowedConfigurations>
         </processor>
