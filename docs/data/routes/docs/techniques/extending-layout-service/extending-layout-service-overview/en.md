@@ -126,40 +126,43 @@ If you wish to customize any elements of the `jss` Layout Service configuration,
 to "copy" in the existing configuration, and then customize within that element. This will help reduce needed
 changes to your configuration, should the `jss` configuration change during an upgrade.
 
-```xml
-<layoutService>
-    <configurations>
-    <config name="my-jss-config">
-        <rendering ref="/sitecore/layoutService/configurations/config[@name='jss']/rendering">
-            <!-- Override placeholdersResolver -->
-            <placeholdersResolver type="My.Resolver, My.Assembly">
-        </rendering>
-        <serialization ref="/sitecore/layoutService/configurations/config[@name='jss']/serialization" />
-    </config>
-    </configurations>
-</layoutService>
-```
-
-After defining your custom configuration, you may also wish to add the configuration name to the list of `<AllowedConfigurations>` for the `renderJsonRendering` pipeline. Doing so will ensure that the `PlaceholderTransformer` code that executes for the default `jss` configuration will execute for your custom configuration as well.
+After defining your custom configuration, you may also want / need to add the configuration name to the list of `<AllowedConfigurations>` for the `renderJsonRendering` pipeline. Doing so will ensure that the `PlaceholderTransformer` code that executes for the default `jss` configuration will execute for your custom configuration as well.
 
 > Note: This is only relevant if your custom configuration will be delivering output that is similar in shape to the default JSS configuration. If your custom configuration is not related to JSS or doesn't depend on anything from the default `jss` configuration, this step is not necessary.
 
+A Sitecore config patch for a custom layout service named config that is based on the default `jss` named config is below:
+
 ```xml
-<pipelines>
-  <group groupName="layoutService">
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
+  <sitecore>
+    <layoutService>
+      <configurations>
+        <!-- Define your custom named config, using the `ref` attribute to "copy" the existing `jss` configuration -->
+        <config name="my-jss-config">
+          <rendering ref="/sitecore/layoutService/configurations/config[@name='jss']/rendering">
+            <!-- Override placeholdersResolver -->
+            <placeholdersResolver type="My.Resolver, My.Assembly">
+          </rendering>
+          <serialization ref="/sitecore/layoutService/configurations/config[@name='jss']/serialization" />
+        </config>
+      </configurations>
+  </layoutService>
     <pipelines>
-      <renderJsonRendering>
-        <processor type="Sitecore.JavaScriptServices.ViewEngine.LayoutService.Pipelines.RenderJsonRendering.AddComponentName, Sitecore.JavaScriptServices.ViewEngine" resolve="true">
-          <AllowedConfigurations hint="list">
-            <config id="1">jss</config>
-            <!-- Add your custom config to this list -->
-            <config id="2">my-jss-config</config>
-          </AllowedConfigurations>
-        </processor>
-      </renderJsonRendering>
+        <group groupName="layoutService">
+          <pipelines>
+            <renderJsonRendering>
+              <processor type="Sitecore.JavaScriptServices.ViewEngine.LayoutService.Pipelines.RenderJsonRendering.AddComponentName, Sitecore.JavaScriptServices.ViewEngine" resolve="true">
+                <AllowedConfigurations hint="list">
+                  <!-- Custom named config is added to this list -->
+                  <config id="2">my-jss-config</config>
+                </AllowedConfigurations>
+              </processor>
+            </renderJsonRendering>
+          </pipelines>
+        </group>
     </pipelines>
-  </group>
-</pipelines>
+  </sitecore>
+</configuration>
 ```
 
 After patching in your custom configuration, you can utilize it in your JSS App via the `layoutServiceConfiguration` attribute.
