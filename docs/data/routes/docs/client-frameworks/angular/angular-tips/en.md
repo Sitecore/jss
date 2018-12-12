@@ -61,7 +61,9 @@ If you're using the default code-generated `app-components.module.ts` that's all
 export class AppComponentsModule { }
 ```
 
-You can also load multiple components from one module. This will improve code splitting of your application and will reduce the calls which need to be made for loading application resources. 
+You can also load multiple components from one module. This will improve code splitting of your application and will reduce the calls which need to be made for loading application resources by bundling components into loadable groups.
+
+> NOTE: multiple component loading is not compatible with the default code generation. You'll need to turn off code generation and maintain `app-components.module.ts` manually to use this technique.
 
 For lazy-loading with multiple components you need to register two or more components with `JssModule.forChild()` method into lazy-loading module. You need to provide component name and component type.
 
@@ -80,7 +82,8 @@ import { SecondComponent } from './second.component';
     ])
   ],
   declarations: [
-    MyComponent,
+    FirstComponent,
+    SecondComponent,
   ],
 })
 export class MyModule { }
