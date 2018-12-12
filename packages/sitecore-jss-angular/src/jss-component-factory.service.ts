@@ -59,6 +59,7 @@ export class JssComponentFactoryService {
     if (lazyComponent) {
       return this.loader.load(lazyComponent.loadChildren)
       .then((ngModuleFactory) => {
+        let componentType = null;
         const moduleRef = ngModuleFactory.create(this.injector);
         const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
         if (!dynamicComponentType) {
@@ -68,10 +69,23 @@ export class JssComponentFactoryService {
           );
         }
 
+        if (component.componentName in dynamicComponentType) {
+          componentType = (dynamicComponentType as {[s: string]: any})[component.componentName];
+        } else {
+          if (typeof dynamicComponentType === 'function') {
+            componentType = dynamicComponentType;
+          } else {
+            throw new Error(
+              // tslint:disable-next-line:max-line-length
+              `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
+            );
+          }
+        }
+
         return {
           componentDefinition: component,
-          componentImplementation: dynamicComponentType,
-          componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(dynamicComponentType),
+          componentImplementation: componentType,
+          componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(componentType),
         };
       });
     }
