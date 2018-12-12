@@ -86,3 +86,7 @@ const proxyOptions = {
   ...
 };
 ```
+
+## Advanced Customizations
+
+The disconnected server in sample apps defaults to using the `createDefaultDisconnectedServer()` [helper function](https://github.com/Sitecore/jss/blob/master/packages/sitecore-jss-dev-tools/src/disconnected-server/create-default-disconnected-server.ts). This function provides basic customization APIs and encapsulates the registrations of several middlewares that make the disconnected server work. You can also unpack the function and register the middleware yourself if you need to do advanced customizations that are not supported by the default `DisconnectedServerOptions`.
