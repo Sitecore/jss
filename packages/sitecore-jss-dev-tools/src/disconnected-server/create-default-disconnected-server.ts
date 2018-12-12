@@ -3,8 +3,8 @@ import Express from 'express';
 import { join } from 'path';
 import { ManifestManager } from '../manifest-manager';
 import { createDisconnectedDictionaryService } from './dictionary-service';
-import { createDisconnectedLayoutService } from './layout-service';
 import { CustomizeContextFunction, CustomizeRenderFunction, CustomizeRouteFunction } from './DisconnectedLayoutServiceOptions';
+import { createDisconnectedLayoutService } from './layout-service';
 
 export interface DisconnectedServerOptions {
   appName: string;
@@ -15,7 +15,8 @@ export interface DisconnectedServerOptions {
   appRoot: string;
 
   /**
-   * File path(s) to watch for changes, and reload the manifest when they occur
+   * File path(s) to watch for changes, and reload the manifest when they occur.
+   * Paths can be relative (to the app root) or absolute.
    */
   watchPaths: string[];
 
