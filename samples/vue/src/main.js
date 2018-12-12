@@ -21,7 +21,13 @@ i18ninit().then((i18n) => {
   const rootElement = document.getElementById('root');
 
   // retrieve the initial app state if it is defined
-  const initialState = window.__JSS_STATE__ || null;
+  let __JSS_STATE__ = null;
+  const ssrRawJson = document.getElementById('__JSS_STATE__');
+  if (ssrRawJson) {
+    __JSS_STATE__ = JSON.parse(ssrRawJson.innerHTML);
+  }
+
+  const initialState = __JSS_STATE__ || null;
 
   const { app } = createApp(initialState, i18n);
   app.$mount(rootElement);
