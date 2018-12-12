@@ -1,0 +1,16 @@
+id: focus-on-development-tile
+name: focus-on-development-tile
+componentName: Tile
+fields:
+  cssclass:
+    value: default
+  title:
+    value: Focus on development and empower your users
+  text:
+    value: Use advanced content creation and marketing features to power your app.
+  linkUrl:
+    text: Learn more
+    href: /features/why-sitecore
+  image:
+      src: /assets/img/focus-on-development-tile.jpg
+      alt: Abstract arrows converging

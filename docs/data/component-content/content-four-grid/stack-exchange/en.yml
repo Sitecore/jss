@@ -1,0 +1,16 @@
+id: stack-exchange
+name: sitecore-slack
+componentName: Tile
+fields:
+  cssclass:
+    value: icon
+  title:
+    value: Stack Exchange
+  text:
+    value: Did you know that Sitecore has its own Stack Exchange? More than 4000 users are daily active on this community driven platform.
+  linkUrl:
+    text: Learn more
+    href: https://sitecore.stackexchange.com/
+  image:
+      src: /assets/img/community_icon_4.svg
+      alt: StackExchange Logo

@@ -1,0 +1,48 @@
+.side-nav input.form-control.ds-input::placeholder {
+    color: #008998;
+    opacity: 1; /* Firefox */
+}
+.ant-menu {
+    color: black;
+    font-family: inherit;
+}
+
+.ant-menu-inline {
+    border: 0 none;
+}
+.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title:hover,
+.ant-menu-sub.ant-menu-inline > .ant-menu-item:hover,
+.ant-menu-inline >.ant-menu-submenu >.ant-menu-submenu-title:hover,
+.ant-menu-sub.ant-menu-inline >.ant-menu-item:hover,
+.ant-menu-item > a:hover,
+.ant-menu-item-selected a:active,
+.ant-menu-item-selected a:hover,
+.ant-menu-item-selected a.active{
+    color: #008998!important;
+}
+
+.ant-menu-sub.ant-menu-inline > .ant-menu-item, .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    line-height: 25px;
+    height: 25px;
+    width: auto;
+    color: #555;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    font-weight: bold;
+    background-color: inherit;
+}
+.ant-menu-item-selected a:active, .ant-menu-item-selected a:hover, .ant-menu-item-selected a.active{
+    color: #008998!important;
+}
+.ant-menu-inline .ant-menu-item:after {
+    right: 0;
+    border-color: transparent;
+}
+
+.ant-menu-root > .ant-menu-submenu > .ant-menu-submenu-title {
+    line-height: 25px;
+    height: 25px;
+    color: black;
+    font-weight: bold;
+}
