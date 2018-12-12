@@ -13,15 +13,16 @@ process.env.VUE_CLI_BABEL_TRANSPILE_MODULES = true;
 process.env.VUE_CLI_BABEL_TARGET_NODE = true;
 
 const fs = require('fs');
+const path = require('path');
 const { createDefaultDisconnectedServer } = require('@sitecore-jss/sitecore-jss-dev-tools');
 const config = require('../package.json').config;
 
 const touchToReloadFilePath = 'src/temp/config.js';
 
 const proxyOptions = {
-  appRoot: __dirname,
+  appRoot: path.join(__dirname, '..'),
   appName: config.appName,
-  watchPaths: ['../data'],
+  watchPaths: ['./data'],
   language: config.language,
   port: process.env.PROXY_PORT || 3042,
   compilers: ['@babel/register'],
