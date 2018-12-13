@@ -10,12 +10,6 @@
       "description": "The path to create the component.",
       "visible": false
     },
-    "manifestPath": {
-      "type": "string",
-      "format": "path",
-      "description": "The path to the disconnected manifest to store the component definition.",
-      "default": "sitecore/definitions/components"
-    },
     "noManifest": {
       "description": "Skips generating a disconnected manifest definition. Use for Sitecore-first development.",
       "type": "boolean",
