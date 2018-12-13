@@ -28,3 +28,6 @@ steps:
 - script: |
     npm run test-packages
   displayName: 'running tests'
+  env: {
+    buildEnv: 'ci'
+  }
