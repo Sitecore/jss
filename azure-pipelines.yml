@@ -20,7 +20,7 @@ steps:
     npm ci
   displayName: 'npm ci'
 - script: |
-    npm run bootstrap-packages
+    npm run bootstrap-packages:ci
   displayName: 'bootstrapping packages'
 - script: |
     npm run build-packages
