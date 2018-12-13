@@ -24,6 +24,7 @@ All Sitecore marketing features are supported by this headless mode, including p
     * Set `bundlePath` to the path to your built JSS app's `server.bundle.js`, i.e. `'./dist/myappname/server.bundle'`
     * Set `apiHost` to your Sitecore instance host and the `apiKey` to your SSC API Key (see [server setup](/docs/getting-started/jss-server-install) if you don't have an API key yet)
     * Set `apiKey` to your Sitecore SSC API key
+    * Set the dictionary service path in `createViewBag()` to your app's dictionary service URL. If you are not using dictionaries, you can remove the whole `createViewBag()` function, which enables dictionary caching.
 
     > NOTE: It is possible to configure these settings using environment variables as well, if that is preferable. This is great for containers and some PaaS hosts.
 
