@@ -1,4 +1,4 @@
-# Sitecore JavaScript Services
+# Sitecore JavaScript Services, now with Ember support
 
 [ ![Codeship Status for Sitecore/jss](https://app.codeship.com/projects/faa6f450-d6f9-0136-0d76-3af8ab8e471d/status)](https://app.codeship.com/projects/317079) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](contributing.md#pull-requests)
 
