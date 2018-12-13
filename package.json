@@ -3,6 +3,7 @@
     "reset": "lerna clean --yes && lerna bootstrap && npm run build-packages",
     "bootstrap": "lerna bootstrap",
     "bootstrap-packages": "lerna bootstrap --scope @sitecore-jss/*",
+    "bootstrap-packages:ci": "lerna bootstrap --ci --scope @sitecore-jss/*",
     "build-packages": "lerna run build --ignore *-sample*",
     "lint-packages": "lerna run lint --ignore *-sample*",
     "test-packages": "lerna run test --ignore *-sample*",
