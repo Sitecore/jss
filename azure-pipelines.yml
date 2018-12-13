@@ -18,7 +18,7 @@ pool:
 steps:
 - script: |
     npm install
-  displayName: 'npm install'
+  displayName: 'npm ci'
 - script: |
     npm run bootstrap-packages
   displayName: 'bootstrapping packages'
