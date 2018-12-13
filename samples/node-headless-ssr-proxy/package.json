@@ -25,12 +25,12 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-proxy": "^11.0.0",
-    "compression": "^1.7.3",
-    "express": "^4.16.4",
-    "ipaddr.js": "^1.8.1",
-    "node-cache": "^4.2.0",
-    "node-fetch": "^2.2.0"
+    "@sitecore-jss/sitecore-jss-proxy": "~11.0.0",
+    "compression": "~1.7.3",
+    "express": "~4.16.4",
+    "ipaddr.js": "~1.8.1",
+    "node-cache": "~4.2.0",
+    "node-fetch": "~2.2.0"
   },
   "private": true
 }
