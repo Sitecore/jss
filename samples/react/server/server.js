@@ -95,7 +95,9 @@ export function renderView(callback, path, data, viewBag) {
         html = assertReplace(
           html,
           '<script type="application/json" id="__JSS_STATE__">null',
-          `<script type="application/json" id="__JSS_STATE__">${serializeJavascript(state)}`
+          `<script type="application/json" id="__JSS_STATE__">${serializeJavascript(state, {
+            isJSON: true,
+          })}`
         );
 
         // render <head> contents from react-helmet
