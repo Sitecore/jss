@@ -58,6 +58,8 @@ There are two actions that Layout Service exposes:
     | Parameter | Description |
     |-----------|-------------|
     | `placeholderName`  | The name of the placeholder to render. The value of this parameter can be retrieved from the layout details in Content Editor. Due to the dynamic placeholders used out of the box for `jss`, configuration, make sure you use the dynamic placeholder format here.  |
+    
+     > Consider adding `tracking=false` if you use this action to avoid extra page visits registered within visit, which will be reflected in xDB. 
 
 > Other general Sitecore query string parameters will work with the Layout Service as well, such as `sc_camp` for triggering an analytics campaign.
 
