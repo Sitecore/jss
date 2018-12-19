@@ -29,19 +29,37 @@ The Layout Service provides additional data about the requested item as well:
 
 ## Using the Layout Service
 
-The format of a Layout Service request URL is:
+There are two actions that Layout Service exposes:
 
-```
-/sitecore/api/layout/render/[config]?item=[path]&sc_lang=[language]&sc_apikey=[key]&tracking=[true|false]
-```
+1. Getting the output of the whole layout for the item.
 
-| Parameter | Description |
-|-----------|-------------|
-| `config`  | The name of the Layout Service configuration to use. For JSS, this will usually be `jss`. More information can be found below on customizing Layout Service configurations. |
-| `item`    | The path to the item, relative to the context site's home item. |
-| `sc_lang` | The language version of the item you wish to retrieve. |
-| `sc_apikey`     | An [SSC API Key](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/api_keys_for_the_odata_item_service) which has been configured for use with the Layout Service controller (`Sitecore.LayoutService.Mvc.Controllers.LayoutServiceController, Sitecore.LayoutService.Mvc`). An API Key is required in the query string or `sc_apikey` HTTP Header. |
-| `tracking`    | (optional) Enables/disables analytics tracking for the Layout Service invocation. Default is `true`. See details below on the Layout Service and Analytics. |
+    ```
+    /sitecore/api/layout/render/[config]?item=[path]&sc_lang=[language]&sc_apikey=[key]&tracking=[true|false]
+    ```
+
+    | Parameter | Description |
+    |-----------|-------------|
+    | `config`  | The name of the Layout Service configuration to use. For JSS, this will usually be `jss`. More information can be found below on customizing Layout Service configurations. |
+    | `item`    | The path to the item, relative to the context site's home item or item GUID (ID). |
+    | `sc_lang` | The language version of the item you wish to retrieve. |
+    | `sc_apikey`     | An [SSC API Key](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/api_keys_for_the_odata_item_service) which has been configured for use with the Layout Service controller (`Sitecore.LayoutService.Mvc.Controllers.LayoutServiceController, Sitecore.LayoutService.Mvc`). An API Key is required in the query string or `sc_apikey` HTTP Header. |
+    | `tracking`    | (optional) Enables/disables analytics tracking for the Layout Service invocation. Default is `true`. See details below on the Layout Service and Analytics. |
+
+2. Getting the output of a particular placeholder.
+
+    This action is useful in special circumstances when your app needs to access a portion of the layout, therefore minimizing the amount of data processed and sent over the wire.
+
+    ```
+    /sitecore/api/layout/placeholder/[config]?placeholderName=/main&item=[path]&sc_lang=[language]&sc_apikey=[key]&tracking=[true|false]
+    ```
+
+    This action accept all the same parameters as the `/render` action described above, plus one more below.
+
+    | Parameter | Description |
+    |-----------|-------------|
+    | `placeholderName`  | The name of the placeholder to render. The value of this parameter can be retrieved from the layout details in Content Editor. Due to the dynamic placeholders used out of the box for `jss`, configuration, make sure you use the dynamic placeholder format here.  |
+    
+     > Consider adding `tracking=false` if you use this action to avoid extra page visits registered within visit, which will be reflected in xDB. 
 
 > Other general Sitecore query string parameters will work with the Layout Service as well, such as `sc_camp` for triggering an analytics campaign.
 
