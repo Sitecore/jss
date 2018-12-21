@@ -1,6 +1,6 @@
 # Sitecore JavaScript Services
 
-[ ![Codeship Status for Sitecore/jss](https://app.codeship.com/projects/faa6f450-d6f9-0136-0d76-3af8ab8e471d/status)](https://app.codeship.com/projects/317079) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](contributing.md#pull-requests)
+[![Build Status](https://dev.azure.com/sitecorejss/sitecore-jss-ci/_apis/build/status/Sitecore.jss?branchName=master)](https://dev.azure.com/sitecorejss/sitecore-jss-ci/_build/latest?definitionId=1?branchName=master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](contributing.md#pull-requests)
 
 This repository contains source code for all Sitecore JSS packages as well as samples to help you get started using Sitecore JSS.
 

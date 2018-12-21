@@ -7,7 +7,24 @@ trigger:
   branches:
     include:
     - master
+    - dev
   paths:
+    include:
+    - /
+    exclude:
+    - docs/*
+
+# should trigger builds for PRs targeting any of the listed branches
+# should _not_ trigger builds for PRs that _only_ have changes in the docs folder
+# should trigger builds for PRs that have changes in both docs folder _and_ any other folder besides docs
+pr:
+  branches:
+    include:
+    - master
+    - dev
+  paths:
+    include:
+    - /
     exclude:
     - docs/*
 
