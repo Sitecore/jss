@@ -64,7 +64,7 @@ The services used by JSS (including the [Layout Service](/docs/fundamentals/serv
 
         > **Do not ever use `sitecore\admin` or any other privileged user as the impersonation user.** A serious security breach will result. Use only `extranet\anonymous` or a app-specific dedicated user for impersonation.
 
-1. Save the API key item and make note of its **Item ID** (see screenshot below, highlighted). You'll need this ID to connect the JSS app.
+1. Save the API key item, publish it (Sitecore 9.1+) and make note of its **Item ID** (see screenshot below, highlighted). You'll need this ID to connect the JSS app.
 
   <img src="/assets/img/ssc-api-key.png" alt="API Key" class="img-fluid img-thumbnail" />
 
