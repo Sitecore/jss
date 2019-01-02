@@ -1,10 +1,8 @@
 import React from 'react';
-import FieldMetadata from './_field-metadata';
 
-function SingleLineText({ field, value, onChange }) {
+function SingleLineText({ field, value, isValid, errors, onChange }) {
   return (
     <React.Fragment>
-      <FieldMetadata field={field} />
       <label htmlFor={field.valueField.id} className={field.model.labelCssClass}>
         {field.model.title}
       </label>
@@ -18,6 +16,9 @@ function SingleLineText({ field, value, onChange }) {
         placeholder={field.model.placeholderText}
         onChange={(e) => handleOnChange(field, e.target.value, onChange)}
       />
+      {errors.map((e, index) => (
+        <p key={index}>{e}</p>
+      ))}
     </React.Fragment>
   );
 }
@@ -29,7 +30,7 @@ function handleOnChange(field, fieldValue, callback) {
     valid = false;
   }
 
-  callback(field.valueField.name, fieldValue, valid);
+  callback(field.valueField.name, fieldValue, valid, []);
 }
 
 export default SingleLineText;

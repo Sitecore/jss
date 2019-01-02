@@ -7,6 +7,10 @@ import Button from './field-templates/button';
 
 const factory = new Map();
 
+// maps field type IDs from Sitecore (/sitecore/system/Settings/Forms/Field Types)
+// into an implementing React component - this is very similar to the JSS componentFactory,
+// but it maps form element components instead of layout components
+
 factory.set('{447AA745-6D29-4B65-A5A3-8173AA8AF548}', Section);
 factory.set('{983BFA5F-C6B6-4AEE-A3BB-46B95D52E7DF}', Text);
 factory.set('{7CE25CAB-EF3A-4F73-AB13-D33BDC1E4EE2}', Button);
@@ -20,11 +24,10 @@ function fieldFactory(key, props) {
   }
 
   const Result = factory.get(finalKey);
-  const finalProps = { ...props, fieldFactory };
 
   if (!Result) return <div key={finalKey}>No renderer for form element type {finalKey}</div>;
 
-  return <Result {...finalProps} />;
+  return <Result {...props} />;
 }
 
 export default fieldFactory;

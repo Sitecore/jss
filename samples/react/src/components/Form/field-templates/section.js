@@ -4,9 +4,7 @@ function Section({ field, fieldFactory }) {
   return (
     <fieldset>
       <legend>{field.model.name}</legend>
-      {field.fields.map((childField) =>
-        fieldFactory(childField, { field: childField, key: field.model.itemId })
-      )}
+      {field.fields.map(fieldFactory)}
     </fieldset>
   );
 }
