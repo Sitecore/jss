@@ -6,7 +6,7 @@ import { AppRenderer } from './AppRenderer';
 import { ProxyConfig } from './ProxyConfig';
 import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
-import { buildQueryString, tryParseJson } from './util';
+import { buildQueryString, tryParseJson, updateObject } from './util';
 
 // tslint:disable:max-line-length
 
@@ -225,6 +225,9 @@ async function renderAppToResponse(
   serverResponse.end = async () => {
     try {
       const layoutServiceData = await extractLayoutServiceDataFromProxyResponse();
+      if (config.useProxyUrls) {
+        updateObject(layoutServiceData, config.apiHost, config.proxyHost);
+      }
       const viewBag = await createViewBag(layoutServiceData);
 
       if (!layoutServiceData) {
@@ -266,9 +269,33 @@ function handleProxyResponse(
     );
   }
 
+  let originWrite = serverResponse.write;
+
   // if the request URL contains any of the excluded rewrite routes, we assume the response does not need to be server rendered.
   // instead, the response should just be relayed as usual.
   if (isUrlIgnored(request.originalUrl, config, true)) {
+    // check property in config property to apply that only for configured settings, not always...
+    // 
+    // New config properties:
+    //
+    // isProxyUrls: boolean
+    // proxyHost: string
+    if (config.useProxyUrls) {
+      serverResponse.write = (data: any, encoding: any): boolean => {
+        try {
+          // console.log(config);
+          var jsonData = JSON.parse(data);
+          updateObject(jsonData, config.apiHost, config.proxyHost);
+
+          var buf = Buffer.from(JSON.stringify(jsonData), encoding);
+          originWrite.call(serverResponse, buf);
+        } catch (err) {
+          // console.log(err);
+        }
+
+        return true;
+      }
+    }
     return Promise.resolve(undefined);
   }
 
@@ -343,7 +370,7 @@ export function rewriteRequestPath(
 
   let path = `${config.layoutServiceRoute}?item=${encodeURIComponent(finalReqPath)}&sc_apikey=${
     config.apiKey
-  }`;
+    }`;
 
   if (lang) {
     path = `${path}&sc_lang=${lang}`;

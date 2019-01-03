@@ -5,6 +5,8 @@ import { RenderResponse } from './RenderResponse';
 export interface ProxyConfig {
   /** Hostname to proxy to (i.e. Sitecore CD server 'http://siteco.re') */
   apiHost: string;
+  /** Hostname of the proxy (i.e. http://proxy.localserver.com) */
+  proxyHost: string;
   /** Path to layout service endpoint on proxy target server */
   layoutServiceRoute: string;
   /** SSC endpoint to use when sending Layout Service requests to proxy */
@@ -52,4 +54,6 @@ export interface ProxyConfig {
   ) => void;
   /** Responses from the proxy greater than this size (in bytes) are rejected. */
   maxResponseSizeBytes?: number;
+  /** Indicates if proxy server will replace URLs from layout service by proxy's URL's (replace apiHost by proxyHost) */
+  useProxyUrls?: boolean;
 }
