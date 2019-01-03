@@ -10,13 +10,17 @@ export {
 } from './FormField';
 export { FormModel } from './FormModel';
 export { HtmlFormField } from './HtmlFormField';
-export { serializeForm } from './serializeForm';
+export { serializeForm, SerializeFormOptions } from './serializeForm';
 export {
   ViewModel,
   FieldViewModel,
   InputViewModel,
   StringInputViewModel,
   TitleFieldViewModel,
+  ListFieldItem,
+  ListViewModel,
+  instanceOfListViewModel,
   instanceOfInputViewModel
 } from './ViewModel';
 export { submitForm, createFetchBasedFetcher, FormSubmitOptions } from './submitForm';
+export { getFieldValueFromModel } from './getFieldValueFromModel';

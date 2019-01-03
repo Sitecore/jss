@@ -1,29 +1,53 @@
-import { FormField, instanceOfButtonFormField, instanceOfFormFieldSection, instanceOfValueFormField } from './FormField';
+// tslint:disable:max-line-length
+
+import {
+  FormField,
+  instanceOfButtonFormField,
+  instanceOfFormFieldSection,
+  instanceOfValueFormField,
+} from './FormField';
+import { getFieldValueFromModel } from './getFieldValueFromModel';
 import { HtmlFormField } from './HtmlFormField';
 import { JssFormData } from './JssFormData';
 import { SitecoreForm } from './SitecoreForm';
 import { instanceOfInputViewModel } from './ViewModel';
+
+export interface SerializeFormOptions {
+  submitButtonName?: string;
+  fieldValueParser?: (field: FormField) => string | string[];
+}
 
 /**
  * Serializes a Sitecore Form data into a format ready to POST to the server.
  * @param form The form schema data from the server
  * @param submitButtonName The name of the submit button that was clicked. Excludes other buttons from serialization. If not passed, all buttons are serialized.
  */
-export function serializeForm(form: SitecoreForm, submitButtonName?: string): JssFormData {
+export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions): JssFormData {
+  if (!options) {
+    options = {};
+  }
+
+  if (!options.fieldValueParser) {
+    options.fieldValueParser = getFieldValueFromModel;
+  }
+
   const result = new JssFormData();
 
   pushField(result, form.formSessionId);
   pushField(result, form.antiForgeryToken);
   pushField(result, form.formItemId);
   pushField(result, form.pageItemId);
-  pushFields(result, form.fields, submitButtonName);
+  pushFields(result, form.fields, options);
 
   return result;
 }
 
-function pushFields(result: JssFormData, fields: FormField[], submitButtonName?: string) {
+function pushFields(result: JssFormData, fields: FormField[], options: SerializeFormOptions) {
   fields.forEach((field) => {
-    if (instanceOfButtonFormField(field) && (!submitButtonName || field.buttonField.name === submitButtonName)) {
+    if (
+      instanceOfButtonFormField(field) &&
+      (!options.submitButtonName || field.buttonField.name === options.submitButtonName)
+    ) {
       pushField(result, field.buttonField, (field.model as any).title);
       pushField(result, field.navigationButtonsField);
       pushField(result, field.navigationStepField);
@@ -31,11 +55,16 @@ function pushFields(result: JssFormData, fields: FormField[], submitButtonName?:
       pushField(result, field.indexField);
       pushField(result, field.fieldIdField);
       // get stored value (i.e. if a multistep form)
-      if (instanceOfInputViewModel(field.model)) {
-        pushField(result, field.valueField, field.model.value);
+      if (instanceOfInputViewModel(field.model) && options.fieldValueParser) {
+        const fieldValue = options.fieldValueParser(field);
+        if (Array.isArray(fieldValue)) {
+          fieldValue.forEach((value) => pushField(result, field.valueField, value));
+        } else {
+          pushField(result, field.valueField, fieldValue);
+        }
       }
     } else if (instanceOfFormFieldSection(field)) {
-      pushFields(result, field.fields);
+      pushFields(result, field.fields, options);
     }
   });
 }

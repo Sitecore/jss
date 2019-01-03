@@ -2,18 +2,19 @@ import React from 'react';
 import FieldValidationErrors from './field-validation-errors';
 import Label from './label';
 
-function SingleLineText({ field, value, isValid, errors, onChange }) {
+function Number({ field, value, isValid, errors, onChange }) {
   return (
     <React.Fragment>
       <Label field={field} isValid={isValid} />
       <input
-        type="text"
+        type="number"
         className={field.model.cssClass}
         id={field.valueField.id}
         name={field.valueField.name}
         value={value}
-        maxLength={field.model.maxLength || null}
-        placeholder={field.model.placeholderText}
+        step={field.model.max}
+        min={field.model.min}
+        max={field.model.max}
         onChange={(e) => handleOnChange(field, e.target.value, onChange)}
       />
       <FieldValidationErrors errors={errors} />
@@ -34,4 +35,4 @@ function handleOnChange(field, fieldValue, callback) {
   callback(field.valueField.name, fieldValue, valid, errorMessages);
 }
 
-export default SingleLineText;
+export default Number;

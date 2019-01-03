@@ -2,16 +2,16 @@ import React from 'react';
 import FieldValidationErrors from './field-validation-errors';
 import Label from './label';
 
-function SingleLineText({ field, value, isValid, errors, onChange }) {
+function MultipleLineText({ field, value, isValid, errors, onChange }) {
   return (
     <React.Fragment>
       <Label field={field} isValid={isValid} />
-      <input
-        type="text"
+      <textarea
         className={field.model.cssClass}
         id={field.valueField.id}
         name={field.valueField.name}
         value={value}
+        rows={field.model.rows}
         maxLength={field.model.maxLength || null}
         placeholder={field.model.placeholderText}
         onChange={(e) => handleOnChange(field, e.target.value, onChange)}
@@ -34,4 +34,4 @@ function handleOnChange(field, fieldValue, callback) {
   callback(field.valueField.name, fieldValue, valid, errorMessages);
 }
 
-export default SingleLineText;
+export default MultipleLineText;

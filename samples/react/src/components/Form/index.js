@@ -7,7 +7,9 @@ import {
   // eslint-disable-next-line no-unused-vars
   FormField,
   instanceOfValueFormField,
+  getFieldValueFromModel,
 } from '@sitecore-jss/sitecore-jss-forms';
+import { withRouter } from 'react-router-dom';
 import fieldFactory from './field-factory';
 import { sitecoreApiHost, sitecoreApiKey } from '../../temp/config';
 
@@ -17,12 +19,15 @@ class Form extends React.Component {
 
     this.state = {
       errors: [],
+      // in a multistep form the server can reset the form schema
+      // to display further steps; this state property overrides
+      // the form passed in from props if present
       nextForm: null,
       submitButton: null,
     };
 
     this.createFieldComponent = this.createFieldComponent.bind(this);
-    this.getCurrentFieldData = this.getCurrentFieldData.bind(this);
+    this.getCurrentFieldData = this.getCurrentFieldState.bind(this);
   }
 
   render() {
@@ -55,7 +60,7 @@ class Form extends React.Component {
       onChange: this.onFieldChange.bind(this),
       onButtonClick: this.onButtonClick.bind(this),
       fieldFactory: this.createFieldComponent,
-      ...this.getCurrentFieldData(field),
+      ...this.getCurrentFieldState(field),
     });
   }
 
@@ -66,7 +71,8 @@ class Form extends React.Component {
    * - This component's state (the mutated state of the field after user changes)
    * The field state includes both current value as well as current validity.
    * @param {FormField} field */
-  getCurrentFieldData(field) {
+  getCurrentFieldState(field) {
+    // non-valued fields, i.e. text, section, do not have a value or validity state
     if (!instanceOfValueFormField(field)) return null;
 
     const fieldName = field.valueField.name || null;
@@ -75,31 +81,31 @@ class Form extends React.Component {
       return null;
     }
 
-    const result = {
-      isValid: true,
-      errors: [],
-    };
-
     const fieldState = this.state[fieldName];
+
+    // field has a value in react state i.e. due to user change
     if (fieldState) {
-      let fieldValue = null;
+      const result = {
+        isValid: fieldState.isValid,
+        errors: fieldState.errors || [],
+      };
 
       if (typeof fieldState.value !== 'undefined') {
-        fieldValue = fieldState.value;
-      } else if (typeof field.model.value !== 'undefined' && field.model.value !== null) {
-        fieldValue = field.model.value;
+        // field state from changed field value (in this.state)
+        result.value = fieldState.value;
       } else {
-        fieldValue = '';
+        result.value = getFieldValueFromModel(field);
       }
 
-      result.value = fieldValue;
-      result.isValid = fieldState.isValid;
-      result.errors = fieldState.errors || [];
-    } else {
-      result.value = field.model.value || '';
+      return result;
     }
 
-    return result;
+    // default state from form API model
+    return {
+      isValid: true,
+      errors: [],
+      value: getFieldValueFromModel(field),
+    };
   }
 
   /**
@@ -151,14 +157,14 @@ class Form extends React.Component {
     });
 
     if (!valid) {
-      // eslint:disable-next-line
+      // eslint-disable-next-line
       alert('Form was not valid, cannot submit yet');
       return;
     }
 
     // serialize the form data that we got from the server
-    // (hidden fields with constant values, etc)
-    const formData = serializeForm(form, this.state.submitButton);
+    // (hidden fields with constant values, unchanged default field values, etc)
+    const formData = serializeForm(form, { submitButtonName: this.state.submitButton });
 
     // merge in user-updated field values
     formData.mergeOverwritingExisting(fieldValues);
@@ -168,8 +174,10 @@ class Form extends React.Component {
     submitForm(formData, submitUrl)
       .then((result) => {
         if (result.success && result.redirectUrl) {
-          // NOTE: this should probably be a router push in most cases
-          window.location = result.redirectUrl;
+          // Process redirect-on-success action.
+          // In this case, we're pushing the route to react-router,
+          // but i.e. window.location would also work
+          this.props.history.push(result.redirectUrl);
         }
 
         if (result.validationErrors) {
@@ -193,6 +201,7 @@ class Form extends React.Component {
           this.resetFieldsState();
         }
       })
+      // eslint-disable-next-line
       .catch((error) => alert(`Oh no! ${error}`));
   }
 
@@ -210,6 +219,8 @@ class Form extends React.Component {
   }
 }
 
+const RoutedForm = withRouter(Form);
+
 // TODO: just here to look nice temporarily
 function Hack(props) {
   return (
@@ -218,10 +229,11 @@ function Hack(props) {
         dangerouslySetInnerHTML={{
           __html: `
       label { display: block }
+      .invalid { color: red }
     `,
         }}
       />
-      <Form {...props} />
+      <RoutedForm {...props} />
     </React.Fragment>
   );
 }

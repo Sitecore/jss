@@ -2,12 +2,12 @@ import React from 'react';
 import FieldValidationErrors from './field-validation-errors';
 import Label from './label';
 
-function SingleLineText({ field, value, isValid, errors, onChange }) {
+function Password({ field, value, isValid, errors, onChange }) {
   return (
     <React.Fragment>
       <Label field={field} isValid={isValid} />
       <input
-        type="text"
+        type="password"
         className={field.model.cssClass}
         id={field.valueField.id}
         name={field.valueField.name}
@@ -34,4 +34,4 @@ function handleOnChange(field, fieldValue, callback) {
   callback(field.valueField.name, fieldValue, valid, errorMessages);
 }
 
-export default SingleLineText;
+export default Password;

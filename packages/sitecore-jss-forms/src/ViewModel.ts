@@ -1,3 +1,4 @@
+/** The model for a given field's data elements */
 export interface ViewModel {
   itemId: string;
   name: string;
@@ -28,4 +29,19 @@ export interface StringInputViewModel extends InputViewModel {
   minLength?: number;
   maxLength?: number;
   placeholderText?: string;
+}
+
+export function instanceOfListViewModel(object: ViewModel): object is ListViewModel {
+  return 'items' in object;
+}
+
+export interface ListViewModel extends InputViewModel {
+  items: ListFieldItem[];
+}
+
+export interface ListFieldItem {
+  itemId: string;
+  selected: boolean;
+  text?: string;
+  value: string;
 }
