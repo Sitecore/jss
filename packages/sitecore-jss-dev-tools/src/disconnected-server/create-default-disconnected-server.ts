@@ -47,6 +47,12 @@ export interface DisconnectedServerOptions {
   sourceFiles?: string[];
 
   /**
+   * Hook function that is called before the disconnected server middleware is registered with the server.
+   * Useful to add your own middleware before the disconnected middleware.
+   */
+  beforeMiddlewareRegistered?: (server: any) => void;
+
+  /**
    * Hook function that is called after the disconnected server middleware is registered with the server,
    * but before the server starts listening. Useful to add your own middleware after the disconnected middleware.
    */
@@ -146,6 +152,10 @@ export function createDefaultDisconnectedServer(options: DisconnectedServerOptio
           options.onManifestUpdated(newManifest);
         }
       });
+
+      if (options.beforeMiddlewareRegistered) {
+        options.beforeMiddlewareRegistered(app);
+      }
 
       // attach our disconnected service mocking middleware to webpack dev server
       app.use('/assets', Express.static(join(options.appRoot, 'assets')));
