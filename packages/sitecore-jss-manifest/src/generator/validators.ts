@@ -17,7 +17,10 @@ const placeholderSchema = joi.object().keys({
   displayName: joi.string(),
 });
 
-const validate = (object: any, schema: any, allowUnknown: any) => {
+const validate = (object: any, schema: any, allowUnknown: any): {
+  valid: boolean;
+  error?: joi.ValidationError;
+} => {
   const { error } = joi.validate(object, schema, { allowUnknown });
   if (!error) {
     return { valid: true };

@@ -5,7 +5,7 @@ import { args as templateArgs } from './deploy.template';
 
 export default function builder(yargs: Argv) {
   return yargs.command(
-    'component <Name>',
+    'component <name>',
     // tslint:disable-next-line:max-line-length
     'Deploys a new component (or updates an existing component) to the Sitecore server when using Sitecore-first development. `jss deploy component --help` for options.',
     args,
@@ -48,7 +48,7 @@ async function handler(argv: any) {
     name: argv.name,
     displayName: argv.displayName,
     icon: argv.icon,
-    fields,
+    fields: fields.length === 0 ? null : fields,
     placeholders: argv.exposesPlaceholders,
     allowedPlaceholders: argv.allowedPlaceholders,
   };
