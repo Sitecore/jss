@@ -54,8 +54,11 @@ export const createManifestInstance = ({
 
   const addTemplateInternal = (...templates: InternalTemplateDefinition[]) => {
     templates.forEach((template) => {
-      if (validateTemplate(template).valid) {
+      const validationResult = validateTemplate(template);
+      if (validationResult.valid) {
         manifestSourceData.templates.push(template);
+      } else {
+        throw validationResult.error;
       }
     });
   };
