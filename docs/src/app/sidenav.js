@@ -93,6 +93,10 @@ export default {
               displayName: 'Tracking',
             },
             {
+              url: 'forms-service',
+              displayName: 'Forms',
+            },
+            {
               url: 'dictionary-service',
               displayName: 'Dictionary Service',
             },
@@ -307,6 +311,10 @@ export default {
               displayName: 'Customizing Rendering Data',
             },
           ],
+        },
+        {
+          url: 'forms',
+          displayName: 'Sitecore Forms + JSS',
         },
         {
           url: 'dynamic-placeholders',
