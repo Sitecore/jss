@@ -34,6 +34,7 @@
     "@sitecore-jss/sitecore-jss-react": "~11.0.0",
     "@sitecore-jss/sitecore-jss-tracking": "~11.0.0",
     "@sitecore-jss/sitecore-jss-forms": "~11.0.0",
+    "@sitecore-jss/sitecore-jss-react-forms": "~11.0.0",
     "apollo-cache-inmemory": "~1.3.7",
     "apollo-client": "~2.4.4",
     "apollo-link": "~1.2.3",

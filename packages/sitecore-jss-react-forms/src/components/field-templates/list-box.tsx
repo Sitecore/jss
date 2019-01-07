@@ -1,10 +1,18 @@
 import React from 'react';
-import FieldValidationErrors from './field-validation-errors';
-import Label from './label';
+import { FieldValidationErrors } from './field-validation-errors';
+import { Label } from './label';
+import { ListFieldProps, FieldChangeCallback } from '../../FieldProps';
+import { ValueFormField, ListBoxViewModel } from '@sitecore-jss/sitecore-jss-forms';
 
-function ListBox({ field, value, isValid, errors, onChange }) {
+const ListBox: React.FunctionComponent<ListFieldProps<ListBoxViewModel>> = ({
+  field,
+  value,
+  isValid,
+  errors,
+  onChange,
+}) => {
   const items = field.model.items;
-  let finalValue = value;
+  let finalValue: string | string[] = value;
 
   // react does not like an array as a value unless multiple select is allowed
   // (even if the array is always length 1)
@@ -37,9 +45,13 @@ function ListBox({ field, value, isValid, errors, onChange }) {
       <FieldValidationErrors errors={errors} />
     </React.Fragment>
   );
-}
+};
 
-function handleOnChange(field, options, callback) {
+function handleOnChange(
+  field: ValueFormField,
+  options: HTMLOptionsCollection,
+  callback: FieldChangeCallback
+) {
   let valid = true;
   const errorMessages = [];
 

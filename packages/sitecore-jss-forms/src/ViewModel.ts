@@ -6,6 +6,12 @@ export interface ViewModel {
   fieldTypeItemId: string;
 }
 
+export interface TextViewModel extends ViewModel {
+  htmlTag?: string;
+  cssClass?: string;
+  text?: string;
+}
+
 export interface FieldViewModel extends ViewModel {
   cssClass?: string;
 }
@@ -25,10 +31,25 @@ export function instanceOfInputViewModel(object: ViewModel): object is InputView
   return 'value' in object;
 }
 
+export interface DateInputViewModel extends InputViewModel {
+  min?: string;
+  max?: string;
+}
+
+export interface NumberInputViewModel extends InputViewModel {
+  min?: number;
+  max?: number;
+  step?: number;
+}
+
 export interface StringInputViewModel extends InputViewModel {
   minLength?: number;
   maxLength?: number;
   placeholderText?: string;
+}
+
+export interface MultiLineStringInputViewModel extends StringInputViewModel {
+  rows?: number;
 }
 
 export function instanceOfListViewModel(object: ViewModel): object is ListViewModel {
@@ -37,6 +58,15 @@ export function instanceOfListViewModel(object: ViewModel): object is ListViewMo
 
 export interface ListViewModel extends InputViewModel {
   items: ListFieldItem[];
+}
+
+export interface DropdownListViewModel extends ListViewModel {
+  showEmptyItem: boolean;
+}
+
+export interface ListBoxViewModel extends ListViewModel {
+  rows: number;
+  multipleSelection: boolean;
 }
 
 export interface ListFieldItem {

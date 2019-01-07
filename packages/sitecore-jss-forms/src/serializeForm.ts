@@ -13,8 +13,8 @@ import { SitecoreForm } from './SitecoreForm';
 import { instanceOfInputViewModel } from './ViewModel';
 
 export interface SerializeFormOptions {
-  submitButtonName?: string;
-  fieldValueParser?: (field: FormField) => string | string[];
+  submitButtonName?: string | null;
+  fieldValueParser?: (field: FormField<any>) => string | string[];
 }
 
 /**
@@ -42,7 +42,7 @@ export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions
   return result;
 }
 
-function pushFields(result: JssFormData, fields: FormField[], options: SerializeFormOptions) {
+function pushFields(result: JssFormData, fields: Array<FormField<any>>, options: SerializeFormOptions) {
   fields.forEach((field) => {
     if (
       instanceOfButtonFormField(field) &&

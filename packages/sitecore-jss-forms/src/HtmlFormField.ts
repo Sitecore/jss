@@ -4,6 +4,6 @@
  */
 export interface HtmlFormField {
   name: string;
-  id?: string;
+  id: string;
   value: string;
 }

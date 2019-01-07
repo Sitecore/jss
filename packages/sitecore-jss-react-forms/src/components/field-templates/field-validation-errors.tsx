@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FieldValidationErrors({ errors }) {
+export function FieldValidationErrors({ errors }: { errors: string[] }) {
   if (!errors || errors.length === 0) {
     return null;
   }
@@ -13,5 +13,3 @@ function FieldValidationErrors({ errors }) {
     </div>
   );
 }
-
-export default FieldValidationErrors;

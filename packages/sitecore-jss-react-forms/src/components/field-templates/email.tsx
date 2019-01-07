@@ -1,27 +1,35 @@
 import React from 'react';
-import FieldValidationErrors from './field-validation-errors';
-import Label from './label';
+import { FieldValidationErrors } from './field-validation-errors';
+import { Label } from './label';
+import { ValueFieldProps, FieldChangeCallback } from '../../FieldProps';
+import { StringInputViewModel, ValueFormField } from '@sitecore-jss/sitecore-jss-forms';
 
-function SingleLineText({ field, value, isValid, errors, onChange }) {
+const Email: React.FunctionComponent<ValueFieldProps<StringInputViewModel>> = ({
+  field,
+  value,
+  isValid,
+  errors,
+  onChange,
+}) => {
   return (
     <React.Fragment>
       <Label field={field} isValid={isValid} />
       <input
-        type="text"
+        type="email"
         className={field.model.cssClass}
         id={field.valueField.id}
         name={field.valueField.name}
         value={value}
-        maxLength={field.model.maxLength || null}
+        maxLength={field.model.maxLength}
         placeholder={field.model.placeholderText}
         onChange={(e) => handleOnChange(field, e.target.value, onChange)}
       />
       <FieldValidationErrors errors={errors} />
     </React.Fragment>
   );
-}
+};
 
-function handleOnChange(field, fieldValue, callback) {
+function handleOnChange(field: ValueFormField, fieldValue: string, callback: FieldChangeCallback) {
   let valid = true;
   const errorMessages = [];
 
@@ -34,4 +42,4 @@ function handleOnChange(field, fieldValue, callback) {
   callback(field.valueField.name, fieldValue, valid, errorMessages);
 }
 
-export default SingleLineText;
+export default Email;

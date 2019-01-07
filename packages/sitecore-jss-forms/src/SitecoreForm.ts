@@ -10,5 +10,5 @@ export interface SitecoreForm {
   pageItemId: HtmlFormField;
   antiForgeryToken: HtmlFormField;
   metadata: FormModel;
-  fields: FormField[];
+  fields: Array<FormField<any>>;
 }

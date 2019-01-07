@@ -4,6 +4,7 @@ export {
   FormField,
   FormFieldSection,
   ValueFormField,
+  instanceOfFormField,
   instanceOfButtonFormField,
   instanceOfFormFieldSection,
   instanceOfValueFormField
@@ -13,14 +14,19 @@ export { HtmlFormField } from './HtmlFormField';
 export { serializeForm, SerializeFormOptions } from './serializeForm';
 export {
   ViewModel,
+  TextViewModel,
   FieldViewModel,
   InputViewModel,
   StringInputViewModel,
+  MultiLineStringInputViewModel,
+  DateInputViewModel,
   TitleFieldViewModel,
   ListFieldItem,
   ListViewModel,
+  DropdownListViewModel,
+  ListBoxViewModel,
   instanceOfListViewModel,
-  instanceOfInputViewModel
+  instanceOfInputViewModel,
 } from './ViewModel';
 export { submitForm, createFetchBasedFetcher, FormSubmitOptions } from './submitForm';
 export { getFieldValueFromModel } from './getFieldValueFromModel';
