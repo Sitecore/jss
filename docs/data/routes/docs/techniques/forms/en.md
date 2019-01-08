@@ -69,7 +69,13 @@ export default function Form(props) {
 
 Sitecore provides a sample implementation of rendering this form data into a usable React form for your reference and modification.
 
-To use the example forms implementation:
+> There are two npm packages for JSS + Forms
+> * `sitecore-jss-react-forms` implements components to render forms in React
+> * `sitecore-jss-forms` implements framework-agnostic helpers to deal with the forms API (serializing forms to post, antiforgery, etc)
+> 
+> These packages ship with TypeScript typings and JSDoc comments so they are easily discoverable in typings-aware editors such as Code.
+
+To use the example React forms implementation:
 
 * Install the forms package: `npm i @sitecore-jss/sitecore-jss-react-forms`
 * Modify your Form component to use the library's form components:
@@ -122,7 +128,7 @@ defaultFieldFactory.setComponent(FieldTypes.RadioButtonList, (props) => (
 
 ##### Add a wrapper to all form fields
 
-It's possible to wrap all form fields in a custom component to control wrapping markup.
+It's possible to wrap all form fields in a custom component to create wrapping markup, for example to control vertical rhythm. The wrappers will contain both the label and value of the field.
 
 ```jsx
 // Sample wraps all fields in a div and prints a span with the field name unless the field is a Text field type
@@ -139,9 +145,36 @@ const WrapperComponent = (props) => (
 <Form fieldWrapperComponent={WrapperComponent} {...otherProps} />
 ```
 
+##### Customizing Labels
+
+You can customize the rendering of field labels. Note that if you are using custom field components (above), those components can ignore the custom label component if they choose to not use the `labelComponent` prop they receive.
+
+> The customized label is used only for the primary field label. Checkbox lists and radio button lists will not use this component for the individual labels wrapping each list element.
+
+```jsx
+// sample renders labels in blue
+import { LabelProps } from '@sitecore-jss/sitecore-jss-react-forms';
+
+/**
+ * @param {LabelProps} props
+ */
+const LabelComponent = (props) => (
+  <label
+    className={props.field.model.cssClass}
+    htmlFor={props.field.valueField.id}
+    style={{ color: 'blue' }}
+  >
+    {props.field.model.title}
+  </label>
+);
+
+// Usage on form component
+<Form labelComponent={LabelComponent} {...otherProps} />
+```
+
 ##### Customizing Error Handling
 
-You can customize the behaviour of the form-wide error message display, i.e. for submit errors or to summarize validation errors.
+You can customize the behaviour of the _form-wide_ error message display, i.e. for submit errors or to summarize validation errors.
 
 ```jsx
 // sample renders only form-level errors (field errors are ignored)
@@ -157,6 +190,29 @@ const ErrorComponent = (props) => (
 
 // Usage on form component
 <Form fieldWrapperComponent={WrapperComponent} {...otherProps} />
+```
+
+You can also customize the default _field-level_ error message display for validation errors.
+
+```jsx
+// sample renders validation errors with inline style
+import { LabelProps } from '@sitecore-jss/sitecore-jss-react-forms';
+
+/**
+ * @param {LabelProps} props
+ */
+const FieldErrorComponent = (props) => (
+  <div>
+    {props.errors.map((error, index) => (
+      <p style={{ color: 'red', fontWeight: 'bold' }} key={index}>
+        {error}
+      </p>
+    ))}
+  </div>
+);
+
+// Usage on form component
+<Form fieldValidationErrorsComponent={FieldErrorComponent} {...otherProps} />
 ```
 
 ### Limitations

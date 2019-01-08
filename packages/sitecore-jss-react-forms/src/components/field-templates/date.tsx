@@ -1,31 +1,29 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { FieldValidationErrors } from './field-validation-errors';
 import { Label } from './label';
 import { ValueFieldProps, FieldChangeCallback } from '../../FieldProps';
 import { DateInputViewModel, ValueFormField } from '@sitecore-jss/sitecore-jss-forms';
 
-const DateField: React.FunctionComponent<ValueFieldProps<DateInputViewModel>> = ({
-  field,
-  value,
-  isValid,
-  errors,
-  onChange,
-}) => (
-  <React.Fragment>
-    <Label field={field} isValid={isValid} />
-    <input
-      type="date"
-      className={field.model.cssClass}
-      id={field.valueField.id}
-      name={field.valueField.name}
-      value={formatValue(value)}
-      min={formatValue(field.model.min)}
-      max={formatValue(field.model.max)}
-      onChange={(e) => handleOnChange(field, e.target.value, onChange)}
-    />
-    <FieldValidationErrors errors={errors} />
-  </React.Fragment>
-);
+const DateField: React.FunctionComponent<ValueFieldProps<DateInputViewModel>> = (props) => {
+  const { field, value, onChange } = props;
+
+  return (
+    <Fragment>
+      <Label {...props} />
+      <input
+        type="date"
+        className={field.model.cssClass}
+        id={field.valueField.id}
+        name={field.valueField.name}
+        value={formatValue(value)}
+        min={formatValue(field.model.min)}
+        max={formatValue(field.model.max)}
+        onChange={(e) => handleOnChange(field, e.target.value, onChange)}
+      />
+      <FieldValidationErrors {...props} />
+    </Fragment>
+  );
+};
 
 function formatValue(value?: string) {
   // dates are serialized from the API as full date/times (i.e. 2019-01-11T00:00:00)

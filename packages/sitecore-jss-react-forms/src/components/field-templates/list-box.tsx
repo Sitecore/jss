@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { FieldValidationErrors } from './field-validation-errors';
 import { Label } from './label';
 import { ListFieldProps, FieldChangeCallback } from '../../FieldProps';
 import { ValueFormField, ListBoxViewModel } from '@sitecore-jss/sitecore-jss-forms';
 
-const ListBox: React.FunctionComponent<ListFieldProps<ListBoxViewModel>> = ({
-  field,
-  value,
-  isValid,
-  errors,
-  onChange,
-}) => {
-  const items = field.model.items;
+const ListBox: React.FunctionComponent<ListFieldProps<ListBoxViewModel>> = (props) => {
+  const {
+    field,
+    field: {
+      model: { items },
+    },
+    value,
+    onChange,
+  } = props;
+
   let finalValue: string | string[] = value;
 
   // react does not like an array as a value unless multiple select is allowed
@@ -24,8 +26,8 @@ const ListBox: React.FunctionComponent<ListFieldProps<ListBoxViewModel>> = ({
   // dropdown is single-select so we use value[0] for its value
 
   return (
-    <React.Fragment>
-      <Label field={field} isValid={isValid} />
+    <Fragment>
+      <Label {...props} />
       <select
         className={field.model.cssClass}
         id={field.valueField.id}
@@ -42,8 +44,8 @@ const ListBox: React.FunctionComponent<ListFieldProps<ListBoxViewModel>> = ({
         ))}
       </select>
 
-      <FieldValidationErrors errors={errors} />
-    </React.Fragment>
+      <FieldValidationErrors {...props} />
+    </Fragment>
   );
 };
 

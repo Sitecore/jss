@@ -1,12 +1,19 @@
 import React from 'react';
-import { InputViewModel, ValueFormField } from '@sitecore-jss/sitecore-jss-forms';
+import { LabelProps } from '../../FieldProps';
 
-export interface LabelProps {
-  field: ValueFormField<InputViewModel>;
-  isValid: boolean;
-}
+const Label: React.FunctionComponent<LabelProps> = (props) => {
+  if (props.labelComponent) {
+    const CustomLabel = props.labelComponent;
 
-export const Label: React.FunctionComponent<LabelProps> = ({ field, isValid, children }) => {
+    // strip the label component from the custom component props
+    // (prevents infinite loop rendering if someone reuses this component as a custom label component)
+    const { labelComponent, ...labelComponentProps } = props;
+
+    return <CustomLabel {...labelComponentProps} />;
+  }
+
+  const { field, isValid, children } = props;
+
   let className = field.model.labelCssClass;
 
   if (!isValid) {
@@ -20,3 +27,5 @@ export const Label: React.FunctionComponent<LabelProps> = ({ field, isValid, chi
     </label>
   );
 };
+
+export { Label };

@@ -1,39 +1,41 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { FieldValidationErrors } from './field-validation-errors';
 import { Label } from './label';
 import { ListFieldProps, FieldChangeCallback } from '../../FieldProps';
 import { ValueFormField } from '@sitecore-jss/sitecore-jss-forms';
 
-const RadioButtonList: React.FunctionComponent<ListFieldProps> = ({
-  field,
-  field: {
-    model: { items },
-  },
-  value,
-  isValid,
-  errors,
-  onChange,
-}) => (
-  <React.Fragment>
-    <Label field={field} isValid={isValid} />
-    {items.map((item, index) => (
-      <label key={item.itemId}>
-        <input
-          type="radio"
-          className={field.model.cssClass}
-          id={field.valueField.id + index}
-          name={field.valueField.name}
-          value={item.value}
-          checked={value.some((v) => v === item.value)}
-          onChange={(e) => handleOnChange(field, e.target.value, onChange)}
-        />
-        {item.text}
-      </label>
-    ))}
+const RadioButtonList: React.FunctionComponent<ListFieldProps> = (props) => {
+  const {
+    field,
+    field: {
+      model: { items },
+    },
+    value,
+    onChange,
+  } = props;
 
-    <FieldValidationErrors errors={errors} />
-  </React.Fragment>
-);
+  return (
+    <Fragment>
+      <Label {...props} />
+      {items.map((item, index) => (
+        <label key={item.itemId}>
+          <input
+            type="radio"
+            className={field.model.cssClass}
+            id={field.valueField.id + index}
+            name={field.valueField.name}
+            value={item.value}
+            checked={value.some((v) => v === item.value)}
+            onChange={(e) => handleOnChange(field, e.target.value, onChange)}
+          />
+          {item.text}
+        </label>
+      ))}
+
+      <FieldValidationErrors {...props} />
+    </Fragment>
+  );
+};
 
 function handleOnChange(field: ValueFormField, newValue: string, callback: FieldChangeCallback) {
   let valid = true;

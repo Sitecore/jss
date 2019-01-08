@@ -1,4 +1,4 @@
-import { FieldProps, FieldChangeCallback, ListFieldProps, ValueFieldProps, FieldWithValueProps } from './FieldProps';
+import { FieldProps, FieldChangeCallback, ListFieldProps, ValueFieldProps, FieldWithValueProps, LabelProps } from './FieldProps';
 import FieldFactory from './field-factory';
 import { Form, FormProps, ErrorComponentProps } from './components/form';
 import Button from './components/field-templates/button';
@@ -49,6 +49,7 @@ export {
   FieldChangeCallback,
   ListFieldProps,
   ValueFieldProps,
+  LabelProps,
   FieldTypes,
 
   createDefaultFieldFactory,

@@ -7,7 +7,6 @@ const Section: React.FunctionComponent<FieldProps<FormFieldSection>> = ({
   fieldFactory,
 }) => (
   <fieldset>
-    <legend>{field.model.name}</legend>
     {field.fields.map(fieldFactory)}
   </fieldset>
 );

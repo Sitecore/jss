@@ -1,31 +1,29 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { FieldValidationErrors } from './field-validation-errors';
 import { Label } from './label';
 import { ValueFieldProps, FieldChangeCallback } from '../../FieldProps';
 import { StringInputViewModel, ValueFormField } from '@sitecore-jss/sitecore-jss-forms';
 
-const SingleLineText: React.FunctionComponent<ValueFieldProps<StringInputViewModel>> = ({
-  field,
-  value,
-  isValid,
-  errors,
-  onChange,
-}) => (
-  <React.Fragment>
-    <Label field={field} isValid={isValid} />
-    <input
-      type="text"
-      className={field.model.cssClass}
-      id={field.valueField.id}
-      name={field.valueField.name}
-      value={value}
-      maxLength={field.model.maxLength}
-      placeholder={field.model.placeholderText}
-      onChange={(e) => handleOnChange(field, e.target.value, onChange)}
-    />
-    <FieldValidationErrors errors={errors} />
-  </React.Fragment>
-);
+const SingleLineText: React.FunctionComponent<ValueFieldProps<StringInputViewModel>> = (props) => {
+  const { field, value, onChange } = props;
+
+  return (
+    <Fragment>
+      <Label {...props} />
+      <input
+        type="text"
+        className={field.model.cssClass}
+        id={field.valueField.id}
+        name={field.valueField.name}
+        value={value}
+        maxLength={field.model.maxLength}
+        placeholder={field.model.placeholderText}
+        onChange={(e) => handleOnChange(field, e.target.value, onChange)}
+      />
+      <FieldValidationErrors {...props} />
+    </Fragment>
+  );
+};
 
 function handleOnChange(field: ValueFormField, fieldValue: string, callback: FieldChangeCallback) {
   let valid = true;

@@ -1,4 +1,4 @@
-import React, { FormEvent, Fragment } from 'react';
+import React, { FormEvent, ComponentType, Component } from 'react';
 import {
   serializeForm,
   submitForm,
@@ -8,7 +8,7 @@ import {
   FormField,
 } from '@sitecore-jss/sitecore-jss-forms';
 import FieldFactory from '../field-factory';
-import { FieldWithValueProps } from '../FieldProps';
+import { FieldWithValueProps, LabelProps } from '../FieldProps';
 import DefaultFieldFactory from '../default-field-factory';
 import { DefaultError } from './default-error';
 
@@ -24,10 +24,14 @@ export interface FormProps {
   sitecoreApiHost: string;
   sitecoreApiKey: string;
   onRedirect?: (url: string) => void;
-  errorComponent?: React.FunctionComponent<ErrorComponentProps>;
-  fieldWrapperComponent?:
-    | React.FunctionComponent<FieldWithValueProps<any>>
-    | React.ComponentType<FieldWithValueProps<any>>;
+  errorComponent?: ComponentType<ErrorComponentProps>;
+  fieldWrapperComponent?: ComponentType<FieldWithValueProps<any>>;
+
+  /** Optionally override the label component for any field components that render a label */
+  labelComponent?: ComponentType<LabelProps>;
+
+  /** Optionally override the field validation errors display component for any field components that render validation errors */
+  fieldValidationErrorsComponent?: ComponentType<LabelProps>;
 }
 
 export interface FieldState {
@@ -46,7 +50,7 @@ export interface FieldStateCollection {
   [key: string]: FieldState;
 }
 
-export class Form extends React.Component<FormProps, FormState & FieldStateCollection> {
+export class Form extends Component<FormProps, FormState & FieldStateCollection> {
   constructor(props: FormProps) {
     super(props);
 
@@ -90,6 +94,8 @@ export class Form extends React.Component<FormProps, FormState & FieldStateColle
       onChange: this.onFieldChange.bind(this),
       onButtonClick: this.onButtonClick.bind(this),
       fieldFactory: this.createFieldComponent,
+      fieldValidationErrorsComponent: this.props.fieldValidationErrorsComponent,
+      labelComponent: this.props.labelComponent,
       ...this.getCurrentFieldState(field),
     } as FieldWithValueProps<any>;
 

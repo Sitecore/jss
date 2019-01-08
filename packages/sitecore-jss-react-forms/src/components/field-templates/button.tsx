@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { FieldProps } from '../../FieldProps';
 import { ButtonFormField } from '@sitecore-jss/sitecore-jss-forms';
 
@@ -10,7 +10,7 @@ const Button: React.FunctionComponent<FieldProps<ButtonFormField>> = ({
   field,
   onButtonClick,
 }) => (
-  <React.Fragment>
+  <Fragment>
     <button
       type="submit"
       value={field.model.title}
@@ -20,7 +20,7 @@ const Button: React.FunctionComponent<FieldProps<ButtonFormField>> = ({
     >
       {field.model.title}
     </button>
-  </React.Fragment>
+  </Fragment>
 );
 
 export default Button;

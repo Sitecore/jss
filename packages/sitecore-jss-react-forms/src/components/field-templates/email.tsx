@@ -1,19 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { FieldValidationErrors } from './field-validation-errors';
 import { Label } from './label';
 import { ValueFieldProps, FieldChangeCallback } from '../../FieldProps';
 import { StringInputViewModel, ValueFormField } from '@sitecore-jss/sitecore-jss-forms';
 
-const Email: React.FunctionComponent<ValueFieldProps<StringInputViewModel>> = ({
-  field,
-  value,
-  isValid,
-  errors,
-  onChange,
-}) => {
+const Email: React.FunctionComponent<ValueFieldProps<StringInputViewModel>> = (props) => {
+  const { field, value, onChange } = props;
+
   return (
-    <React.Fragment>
-      <Label field={field} isValid={isValid} />
+    <Fragment>
+      <Label {...props} />
       <input
         type="email"
         className={field.model.cssClass}
@@ -24,8 +20,8 @@ const Email: React.FunctionComponent<ValueFieldProps<StringInputViewModel>> = ({
         placeholder={field.model.placeholderText}
         onChange={(e) => handleOnChange(field, e.target.value, onChange)}
       />
-      <FieldValidationErrors errors={errors} />
-    </React.Fragment>
+      <FieldValidationErrors {...props} />
+    </Fragment>
   );
 };
 
