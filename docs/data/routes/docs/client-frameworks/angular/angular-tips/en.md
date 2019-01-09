@@ -68,18 +68,34 @@ You can also load multiple components from one module. This will improve code sp
 For lazy-loading with multiple components you need to register two or more components with `JssModule.forChild()` method into lazy-loading module. You need to provide component name and component type.
 
 ```js
-import { NgModule } from '@angular/core';
-import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
+import { NgModule, ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core';
+import { JssModule, DYNAMIC_COMPONENT } from '@sitecore-jss/sitecore-jss-angular';
 import { FirstComponent } from './first.component';
 import { SecondComponent } from './second.component';
 
 @NgModule({
   imports: [
     // secret sauce
-    JssModule.forChild([
-      { name: 'FirstComponent', type: FirstComponent },
-      { name: 'SecondComponent', type: SecondComponent }
-    ])
+    {
+      ngModule: JssModule,
+      providers: [
+        {
+          provide: DYNAMIC_COMPONENT,
+          useValue: {
+            'FirstComponent': FirstComponent,
+            'SecondComponent': SecondComponent
+          }
+        },
+        {
+          provide: ANALYZE_FOR_ENTRY_COMPONENTS,
+          useValue: [
+            { name: 'FirstComponent', type: FirstComponent },
+            { name: 'SecondComponent', type: SecondComponent }
+          ],
+          multi: true
+        }
+      ]
+    }
   ],
   declarations: [
     FirstComponent,
