@@ -69,6 +69,7 @@ For lazy-loading with multiple components you need to register two or more compo
 
 ```js
 import { NgModule, ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core';
+import { ROUTES } from '@angular/router';
 import { JssModule, DYNAMIC_COMPONENT } from '@sitecore-jss/sitecore-jss-angular';
 import { FirstComponent } from './first.component';
 import { SecondComponent } from './second.component';
@@ -93,13 +94,17 @@ import { SecondComponent } from './second.component';
             { name: 'SecondComponent', type: SecondComponent }
           ],
           multi: true
+        }, 
+        {
+          provide: ROUTES,
+          useValue: [],
+          multi: true
         }
       ]
     }
   ],
   declarations: [
-    FirstComponent,
-    SecondComponent,
+    MyComponent,
   ],
 })
 export class MyModule { }
