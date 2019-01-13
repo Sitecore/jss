@@ -137,9 +137,9 @@ const config = {
     if (cached) return Promise.resolve(cached);
 
     return fetch(
-      `${config.apiHost}/sitecore/api/jss/dictionary/JssReactWeb/${language}?sc_apikey=${
-        config.apiKey
-      }`
+      `${config.apiHost}/sitecore/api/jss/dictionary/${
+        serverBundle.appName
+      }/${language}?sc_apikey=${config.apiKey}`
     )
       .then((result) => result.json())
       .then((json) => {
