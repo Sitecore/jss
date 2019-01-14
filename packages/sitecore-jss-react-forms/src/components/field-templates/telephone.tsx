@@ -5,7 +5,7 @@ import { ValueFieldProps, FieldChangeCallback } from '../../FieldProps';
 import { StringInputViewModel, ValueFormField } from '@sitecore-jss/sitecore-jss-forms';
 
 const Telephone: React.FunctionComponent<ValueFieldProps<StringInputViewModel>> = (props) => {
-  const { field, value, onChange } = props;
+  const { field, value, onChange, tracker, errors } = props;
 
   return (
     <Fragment>
@@ -19,6 +19,8 @@ const Telephone: React.FunctionComponent<ValueFieldProps<StringInputViewModel>> 
         maxLength={field.model.maxLength}
         placeholder={field.model.placeholderText}
         onChange={(e) => handleOnChange(field, e.target.value, onChange)}
+        onFocus={() => tracker.onFocusField(field, value)}
+        onBlur={() => tracker.onBlurField(field, value, errors)}
       />
       <FieldValidationErrors {...props} />
     </Fragment>

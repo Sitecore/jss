@@ -7,7 +7,7 @@ export {
   instanceOfFormField,
   instanceOfButtonFormField,
   instanceOfFormFieldSection,
-  instanceOfValueFormField
+  instanceOfValueFormField,
 } from './FormField';
 export { FormModel } from './FormModel';
 export { HtmlFormField } from './HtmlFormField';
@@ -30,3 +30,9 @@ export {
 } from './ViewModel';
 export { submitForm, createFetchBasedFetcher, FormSubmitOptions } from './submitForm';
 export { getFieldValueFromModel } from './getFieldValueFromModel';
+export {
+  FormTracker,
+  FormTrackerOptions,
+  TrackingEvent,
+  createFetchBasedTracker,
+} from './FormTracker';

@@ -12,6 +12,8 @@ const DropdownList: React.FunctionComponent<ListFieldProps<DropdownListViewModel
     },
     value,
     onChange,
+    tracker,
+    errors
   } = props;
 
   return (
@@ -23,6 +25,8 @@ const DropdownList: React.FunctionComponent<ListFieldProps<DropdownListViewModel
         name={field.valueField.name}
         value={value[0]}
         onChange={(e) => handleOnChange(field, e.target.value, onChange)}
+        onFocus={() => tracker.onFocusField(field, value)}
+        onBlur={() => tracker.onBlurField(field, value, errors)}
       >
         {field.model.showEmptyItem ? <option label=" " /> : null}
         {items.map((item) => (

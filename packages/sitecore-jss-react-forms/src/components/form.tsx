@@ -6,6 +6,8 @@ import {
   getFieldValueFromModel,
   SitecoreForm,
   FormField,
+  FormTracker,
+  TrackingEvent,
 } from '@sitecore-jss/sitecore-jss-forms';
 import FieldFactory from '../field-factory';
 import { FieldWithValueProps, LabelProps } from '../FieldProps';
@@ -51,6 +53,8 @@ export interface FieldStateCollection {
 }
 
 export class Form extends Component<FormProps, FormState & FieldStateCollection> {
+  private _tracker: FormTracker;
+
   constructor(props: FormProps) {
     super(props);
 
@@ -66,6 +70,14 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
     this.createFieldComponent = this.createFieldComponent.bind(this);
     this.getCurrentFieldState = this.getCurrentFieldState.bind(this);
     this.collectCurrentFieldValues = this.collectCurrentFieldValues.bind(this);
+
+    this._tracker = new FormTracker({
+      endpoint: `${this.props.sitecoreApiHost}/fieldtracking/register`,
+      fetcher: () => Promise.resolve(null),
+      formId: props.form.formItemId.value,
+      formSessionId: props.form.formSessionId.value,
+      enableTracking: props.form.metadata.isTrackingEnabled,
+    });
   }
 
   render() {
@@ -96,6 +108,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
       fieldFactory: this.createFieldComponent,
       fieldValidationErrorsComponent: this.props.fieldValidationErrorsComponent,
       labelComponent: this.props.labelComponent,
+      tracker: this._tracker,
       ...this.getCurrentFieldState(field),
     } as FieldWithValueProps<any>;
 

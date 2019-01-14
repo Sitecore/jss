@@ -5,7 +5,7 @@ import { ValueFieldProps, FieldChangeCallback } from '../../FieldProps';
 import { DateInputViewModel, ValueFormField } from '@sitecore-jss/sitecore-jss-forms';
 
 const DateField: React.FunctionComponent<ValueFieldProps<DateInputViewModel>> = (props) => {
-  const { field, value, onChange } = props;
+  const { field, value, onChange, tracker, errors } = props;
 
   return (
     <Fragment>
@@ -19,6 +19,8 @@ const DateField: React.FunctionComponent<ValueFieldProps<DateInputViewModel>> = 
         min={formatValue(field.model.min)}
         max={formatValue(field.model.max)}
         onChange={(e) => handleOnChange(field, e.target.value, onChange)}
+        onFocus={() => tracker.onFocusField(field, value)}
+        onBlur={() => tracker.onBlurField(field, value, errors)}
       />
       <FieldValidationErrors {...props} />
     </Fragment>

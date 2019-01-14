@@ -12,6 +12,8 @@ const ListBox: React.FunctionComponent<ListFieldProps<ListBoxViewModel>> = (prop
     },
     value,
     onChange,
+    tracker,
+    errors
   } = props;
 
   let finalValue: string | string[] = value;
@@ -36,6 +38,8 @@ const ListBox: React.FunctionComponent<ListFieldProps<ListBoxViewModel>> = (prop
         size={field.model.rows}
         multiple={field.model.multipleSelection}
         onChange={(e) => handleOnChange(field, e.target.options, onChange)}
+        onFocus={() => tracker.onFocusField(field, value)}
+        onBlur={() => tracker.onBlurField(field, value, errors)}
       >
         {items.map((item) => (
           <option key={item.itemId} value={item.value}>
