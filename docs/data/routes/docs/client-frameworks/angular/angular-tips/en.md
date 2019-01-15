@@ -104,7 +104,8 @@ import { SecondComponent } from './second.component';
     }
   ],
   declarations: [
-    MyComponent,
+    FirstComponent,
+    SecondComponent
   ],
 })
 export class MyModule { }
