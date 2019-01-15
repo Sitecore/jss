@@ -95,7 +95,9 @@ const config = {
       // modern browsers would send 'br' (brotli) as well, and if the Sitecore server
       // supported that (maybe via CDN) it would fail SSR as we can't decode the Brotli
       // response. So, we force the accept-encoding header to only include what we can understand.
-      proxyReq.setHeader('Accept-Encoding', 'gzip, deflate');
+      if (req.headers['accept-encoding']) {
+        proxyReq.setHeader('Accept-Encoding', 'gzip, deflate');
+      }
     },
   },
   /**
