@@ -309,7 +309,7 @@ export function rewriteRequestPath(
     finalReqPath = finalReqPath.slice(0, qsIndex);
   }
 
-  if(config.qsParams){
+  if (config.qsParams) {
     qs += `&${config.qsParams}`;
   }
 
@@ -331,7 +331,7 @@ export function rewriteRequestPath(
       }
       lang = routeParams.lang;
 
-      if(routeParams.qsParams){
+      if (routeParams.qsParams) {
         qs += `&${routeParams.qsParams}`;
       }
 
@@ -372,16 +372,18 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
       (excludedRoute: string) => excludedRoute.length > 0 && matchRoute.startsWith(excludedRoute)
     );
 
-    if (!noDebug && config.debug && result) {
-      console.log(
-        `DEBUG: URL ${originalUrl} did not match the proxy exclude list, and will be treated as a layout service route to render. Excludes:`,
-        config.pathRewriteExcludeRoutes
-      );
-    } else if (!noDebug) {
-      console.log(
-        `DEBUG: URL ${originalUrl} matched the proxy exclude list and will be served verbatim as received. Excludes: `,
-        config.pathRewriteExcludeRoutes
-      );
+    if (!noDebug && config.debug) {
+      if (result) {
+        console.log(
+          `DEBUG: URL ${originalUrl} did not match the proxy exclude list, and will be treated as a layout service route to render. Excludes:`,
+          config.pathRewriteExcludeRoutes
+        );
+      } else {
+        console.log(
+          `DEBUG: URL ${originalUrl} matched the proxy exclude list and will be served verbatim as received. Excludes: `,
+          config.pathRewriteExcludeRoutes
+        );
+      }
     }
 
     return result ? true : false;
