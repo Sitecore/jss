@@ -4,9 +4,9 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
   const serverConfig = require('./server/server.vue.config');
   vueConfig = serverConfig;
 } else if (process.env.BUILD_TARGET_ENV === 'client') {
-  // We can't directly assign a value to `process.env.BASE_URL`, as it is always assigned by `config.baseUrl`, regardless of whether `config.baseUrl` is defined or undefined.
-  // Therefore, we set a value for `process.env.PUBLIC_URL` then use that value for `config.baseUrl`.
-  vueConfig.baseUrl = process.env.PUBLIC_URL;
+  // We can't directly assign a value to `process.env.BASE_URL`, as it is always assigned by `config.publicPath`, regardless of whether `config.publicPath` is defined or undefined.
+  // Therefore, we set a value for `process.env.PUBLIC_URL` then use that value for `config.publicPath`.
+  vueConfig.publicPath = process.env.PUBLIC_URL;
 
   // By default, Vue cli uses HtmlWebpackPlugin to generate the html file used for rendering the app.
   // When in production mode, it also enables the HtmlWebpackPlugin `minify` option and sets
@@ -43,6 +43,16 @@ vueConfig.configureWebpack = (config) => {
   if (existingWebpackConfig) {
     existingWebpackConfig(config);
   }
+
+  // we turn off `.mjs` file support in Vue, because `graphql` ships
+  // mjs files in its npm package (bad) and Vue's webpack settings destroy
+  // graphql's mjs files, causing strange runtime errors. By disabling mjs,
+  // we make webpack use the .js files in graphql instead, which work fine.
+  const indexOfMjs = config.resolve.extensions.indexOf('.mjs');
+  if(indexOfMjs > -1) {
+    config.resolve.extensions.splice(indexOfMjs, 1);
+  }
+
   config.module.rules.push({
     test: /\.(graphql|gql)$/,
     exclude: /node_modules/,
