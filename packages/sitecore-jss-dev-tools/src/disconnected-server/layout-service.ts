@@ -353,7 +353,7 @@ export function createDisconnectedLayoutService({
       let route;
 
       if (rawRoute) {
-        route = defaultCustomizeRoute(rawRoute, language, currentManifest, customizeRendering, request, response);
+        route = defaultCustomizeRoute(rawRoute, language, currentManifest, request, response, customizeRendering);
         if (customizeRoute && typeof customizeRoute === 'function') {
           route = customizeRoute(route, rawRoute, currentManifest, request, response);
         }
