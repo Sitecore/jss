@@ -219,7 +219,7 @@ export function remapFieldsArrayToFieldsObject(input: any) {
   }, {});
 }
 
-function convertManifestLayoutDataToLayoutServiceFormat(manifestLayout: any, placeholders: string[], customizeHook?: CustomizeRenderFunction) {
+function convertManifestLayoutDataToLayoutServiceFormat(manifestLayout: any, placeholders: string[], currentManifest: ManifestInstance, request: any, response: any, customizeHook?: CustomizeRenderFunction) {
   const result: any = {};
 
   // we sort by placeholder key length to ensure we create the rendering tree in hierarchy order
@@ -248,7 +248,7 @@ function convertManifestLayoutDataToLayoutServiceFormat(manifestLayout: any, pla
         transformedRendering.fields = remapFieldsArrayToFieldsObject(rendering.dataSource.fields);
       }
 
-      const customizeResult = (customizeHook && customizeHook(transformedRendering, rendering)) || transformedRendering;
+      const customizeResult = (customizeHook && customizeHook(transformedRendering, rendering, currentManifest, request, response)) || transformedRendering;
 
       // adds the rendering object to its placeholder in the LS output
       placeholder.push(customizeResult);
@@ -264,7 +264,7 @@ function convertManifestLayoutDataToLayoutServiceFormat(manifestLayout: any, pla
   return result;
 }
 
-function defaultCustomizeRoute(route: any, language: string, customizeRendering?: CustomizeRenderFunction) {
+function defaultCustomizeRoute(route: any, language: string, currentManifest: ManifestInstance, request: any, response: any, customizeRendering?: CustomizeRenderFunction) {
   const transformedRoute = Object.assign(
     {
       databaseName: 'available-in-connected-mode',
@@ -282,6 +282,9 @@ function defaultCustomizeRoute(route: any, language: string, customizeRendering?
   transformedRoute.placeholders = convertManifestLayoutDataToLayoutServiceFormat(
     transformedRoute.layout.renderings,
     transformedRoute.layout.placeholders,
+    currentManifest,
+    request,
+    response,
     customizeRendering
   );
 
@@ -350,7 +353,7 @@ export function createDisconnectedLayoutService({
       let route;
 
       if (rawRoute) {
-        route = defaultCustomizeRoute(rawRoute, language, customizeRendering);
+        route = defaultCustomizeRoute(rawRoute, language, currentManifest, customizeRendering, request, response);
         if (customizeRoute && typeof customizeRoute === 'function') {
           route = customizeRoute(route, rawRoute, currentManifest, request, response);
         }
