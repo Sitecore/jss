@@ -196,35 +196,36 @@ To mock route-level fields, you can simply add a `fields` property to your route
 - [component](#component)
 - [content](#content)
 - [field](#field)
-- [fieldTypes](#fieldtypes)
+- [CommonFieldTypes](#fieldtypes)
 - [param](#param)
 - [placeholder](#placeholder)
+- [placeholders](#placeholders)
 - [route](#route)
 - [template](#template)
-- [placeholders](#placeholders)
-- [component](#component)
 - [fields](#fields)
-- [field](#field)
 - [params](#params)
 
 #### component
 
 ```javascript
 {
+  id: string:optional,
   name: string:required,
   displayName: string:optional,
-  fields: array[field]:optional,
-  placeholders: array[placeholder|string]:optional,
-  params: array[param]:optional,
-  displayFieldEditorButton: boolean:optional,
-  fieldEditorFields: array[string]: optional,
-  renderingId: string:optional,
-  templateId: string:optional,
-  inherits: array[string]:optional, // other component or template names to inherit from
-  defaultWorkflow: string:optional // path or GUID of Sitecore workflow item to assign - defaults to JSS workflow
+  fields: fields:optional,
+  params: params:optional,
+  placeholders: placeholders:optional, // placeholders exposed by rendering
+  allowedPlaceholders: array[string]:optional, // placeholders component is allowed in (normally inferred by route data)
+  displayFieldEditorButton: boolean:optional = true,
+  fieldEditorFields: array[string]:optional = all fields, // field names
+  customExperienceButtons: array[string]:optional, // names or IDs
+  insertOptions: array[string]:optional, // template names or IDs
+  graphQLQuery: string:optional, // see GraphQL integrated documentation
+  // note: while these use the same structure as a route, they do not use placeholders and are not mapped as routes. 
+  // This enables adding child items to the datasource.
+  children: array[route] 
 }
-``` 
-The `placeholders` property (explicitly allowed placeholders to put the component in) can be either an array of [placeholders](/docs/techniques/working-disconnected/disconnected-overview#placeholder) (note: only the `name` property is respected), _or_ an array of plain strings. **Note**: `placeholders` is normally inferred by a component being placed in a placeholder in the [route](/docs/techniques/working-disconnected/manifest-api#reference) data, so normally this is not needed unless inference is insufficient.
+```
 
 > The `displayFieldEditorButton` and `fieldEditorFields` properties allow controlling the behavior of the *Field Editor* button that will automatically be added to the component in the Sitecore Experience Editor. This button allows editing all the component data in a popup form interface. By default, all components will display the button, and all component fields will be editable. You do not need to supply either property if this is the desired behavior.
 
@@ -239,7 +240,7 @@ Content data uses the same schema as [route data](/docs/techniques/working-disco
 ```javascript
 {
   name: string:required,
-  type: string:required,
+  type: string|CommonFieldTypes:required,
   displayName: string:optional,
   required: bool:optional,   // whether the field must have a value entered
   validationPattern: string:optional, // regular expression (C#) to determine value validity
@@ -327,28 +328,6 @@ Content data uses the same schema as [route data](/docs/techniques/working-disco
 }
 ```
 
-#### component
-
-```javascript
-{
-  id: string:optional,
-  name: string:required,
-  displayName: string:optional,
-  fields: fields:optional,
-  params: params:optional,
-  placeholders: placeholders:optional, // placeholders exposed by rendering
-  allowedPlaceholders: placeholders:optional, // placeholders component is allowed in (normally inferred by route data)
-  displayFieldEditorButton: boolean:optional = true,
-  fieldEditorFields: array[string]:optional = all fields, // field names
-  customExperienceButtons: array[string]:optional, // names or IDs
-  insertOptions: array[string]:optional, // template names or IDs
-  graphQLQuery: string:optional, // see GraphQL integrated documentation
-  // note: while these use the same structure as a route, they do not use placeholders and are not mapped as routes. 
-  // This enables adding child items to the datasource.
-  children: array[route] 
-}
-```
-
 #### fields
 
 ```javascript
@@ -365,15 +344,6 @@ Content data uses the same schema as [route data](/docs/techniques/working-disco
   // additional param key/values can be added
   // note: all param values are provided to the component as strings,
   // even if the defined value is a number/boolean value.
-}
-```
-
-#### field
-
-```javascript
-{
-  value: string,number,boolean,imageFieldValue,linkFieldValue,multilistFieldValue:required,
-  editable: string:optional
 }
 ```
 
