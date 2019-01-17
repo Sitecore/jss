@@ -8,16 +8,67 @@ title: Azure Deployment
 
 > There are many considerations and possible topologies involved in deploying a JSS site to Azure. This guide is designed to be the simplest way to get up and running with a JSS site using _integrated mode_ in Azure, using a version of Sitecore deployed from the Azure Marketplace. In practice a more advanced deployment toolkit would be appropriate that involves source control, automated builds, testing, etc.
 
-## Step 1: Provision Sitecore
+## Step 1: Provision Sitecore and JSS
 
-Using the Azure Marketplace, provision a Sitecore XP instance. You will need a JSS-enabled license file. For the purposes of simplicity, choose an XP Developer installation. In production, a more repeatable deployment methodology such as ARM templates and the Sitecore Azure Toolkit should be used, but the Marketplace installation is the simplest to get started with. Consult the Sitecore documentation for help with production Azure setup.
+Starting from Sitecore 9.1 release JSS server components can be provisioned alongside with Sitecore through the Azure Marketplace. You will need a JSS-enabled license file. For the purposes of simplicity, choose an XP Developer installation. In production, a more repeatable deployment methodology such as ARM templates and the Sitecore Azure Toolkit should be used, but the Marketplace installation is the simplest to get started with. Consult the Sitecore documentation for help with production Azure setup.
 
 > After provisioning, ensure to increase the `core` and `master` database sizes to at least S2 (50 DTU). Lower scaled databases will cause slow UI and may fail the package installation.
 
-## Step 2: Install the JSS server components
+## Step 2: Install the JSS server components (optional)
 
-1. Follow the _Server Components Installation_ instructions on [this page](/docs/getting-started/jss-server-install) on your Azure instance.
-1. Configure Azure Node version: In Azure, the app services come with a very old Node.js version enabled by default. This will cause issues rendering your JSS apps. Configure the `WEBSITE_NODE_DEFAULT_VERSION` setting on your app service, [per this article](https://blogs.msdn.microsoft.com/azureossds/2016/04/20/nodejs-and-npm-versions-on-azure-app-services/). The same Node version should be used on Azure as is used during development, normally the latest LTS Node release. As of the writing of this documentation, that is 8.9.4.
+In case you already have Sitecore instance in Azure you have to use ARM templates methodology.
+1. Download official released Sitecore JSS WDP package https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services/110/Sitecore_JavaScript_Services_1100.aspx
+1. Download ARM templates for the appropriate topology available on the GitHub https://github.com/Sitecore/Sitecore-Azure-Quickstart-Templates/tree/master/JSS
+1.	After you download all wdp’s and ARM’s you should preserve all files to some publicly available storage like Azure storage.
+1. Prepare parameters.json file. Content of the file should be similar to the following:
+```json
+{	 
+    "sqlServerLogin":  
+        {"value":  "sql"},
+
+    "sqlServerPassword":  
+        {"value":  "Password12345"},
+
+    "jssMsDeployPackageUrl":
+        {"value": "<PackageUrl>"},
+
+    "jssCDMsDeployPackageUrl":
+        { "value": "<CDPackageUrl>"}
+}
+
+```
+1. Provision JSS. Use following script to perform the provisioning:
+```powershell
+param (
+    $DeploymentId = “deploymentId”,
+    $LicenseXmlPath = "<path to license>",
+    $Location = "West Europe",
+    $ParametersPath = "<path to parameters file>",
+    $Cmdlets = "C:\Sitecore.Azure.Toolkit.2.0.0-r1041-170929\tools",
+    $SubscriptionName = "<subscription name>",
+    $TemplateUri = "ARM template url"
+)
+
+if ((Test-Path "$Cmdlets\Sitecore.Cloud.Cmdlets.psm1") -eq $False) {
+    nuget install Sitecore.Azure.Toolkit.Cmdlets -Source http://nuget1dk1:8181/nuget/Cloud/ -x -Prerelease
+    $Cmdlets = "$PSScriptRoot\Sitecore.Azure.Toolkit.Cmdlets\Cmdlets"
+}
+
+Import-Module "$Cmdlets\Sitecore.Cloud.Cmdlets.psm1" -Verbose
+
+Login-AzureRmAccount
+Set-AzureRmContext -SubscriptionName "$SubscriptionName"
+
+Start-SitecoreAzureDeployment `
+    -Name $DeploymentId `
+    -Location $Location `
+    -ArmTemplateUrl $TemplateUri `
+    -ArmParametersPath $ParametersPath `
+    -LicenseXmlPath $LicenseXmlPath `
+    -Verbose
+
+```
+1. Configure Azure Node version: In Azure, the app services come with a very old Node.js version enabled by default. This will cause issues rendering your JSS apps. Configure the `WEBSITE_NODE_DEFAULT_VERSION` setting on your app service, [per this article](https://blogs.msdn.microsoft.com/azureossds/2016/04/20/nodejs-and-npm-versions-on-azure-app-services/). The same Node version should be used on Azure as is used during development, normally the latest LTS Node release. As of the writing of this documentation, that is 8.9.4. Starting from Sitecore 9.1 Azure Node version set during Sitecore provisioning. Default Azure Node version for Sitecore 9.1 is 8.11.1. Can be changed during the Sitecore provisioning.
 
 ## Step 3: Configure the Sitecore server
 
