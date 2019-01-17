@@ -12,6 +12,8 @@ const RadioButtonList: React.FunctionComponent<ListFieldProps> = (props) => {
     },
     value,
     onChange,
+    tracker,
+    errors
   } = props;
 
   return (
@@ -27,6 +29,8 @@ const RadioButtonList: React.FunctionComponent<ListFieldProps> = (props) => {
             value={item.value}
             checked={value.some((v) => v === item.value)}
             onChange={(e) => handleOnChange(field, e.target.value, onChange)}
+            onFocus={() => tracker.onFocusField(field, value)}
+            onBlur={() => tracker.onBlurField(field, value, errors)}
           />
           {item.text}
         </label>

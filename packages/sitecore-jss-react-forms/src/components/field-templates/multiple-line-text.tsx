@@ -7,7 +7,7 @@ import { MultiLineStringInputViewModel, ValueFormField } from '@sitecore-jss/sit
 const MultipleLineText: React.FunctionComponent<ValueFieldProps<MultiLineStringInputViewModel>> = (
   props
 ) => {
-  const { field, value, onChange } = props;
+  const { field, value, onChange, tracker, errors } = props;
 
   return (
     <Fragment>
@@ -21,6 +21,8 @@ const MultipleLineText: React.FunctionComponent<ValueFieldProps<MultiLineStringI
         maxLength={field.model.maxLength}
         placeholder={field.model.placeholderText}
         onChange={(e) => handleOnChange(field, e.target.value, onChange)}
+        onFocus={() => tracker.onFocusField(field, value)}
+        onBlur={() => tracker.onBlurField(field, value, errors)}
       />
       <FieldValidationErrors {...props} />
     </Fragment>

@@ -1,5 +1,5 @@
 import { ReactNode, ComponentType } from 'react';
-import { FormField, ValueFormField, ListViewModel, InputViewModel } from '@sitecore-jss/sitecore-jss-forms';
+import { FormField, ValueFormField, ListViewModel, InputViewModel, FormTracker } from '@sitecore-jss/sitecore-jss-forms';
 
 export interface FieldProps<TFormField extends FormField = FormField> {
   /** Form field schema data */
@@ -33,6 +33,9 @@ export interface FieldWithValueProps<TFormField extends FormField = FormField, T
 
   /** Optionally override the field validation errors display component for any field components that render validation errors */
   fieldValidationErrorsComponent?: ComponentType<LabelProps>;
+
+  /** Analytics tracker on form field actions */
+  tracker: FormTracker;
 
   key?: string;
 }

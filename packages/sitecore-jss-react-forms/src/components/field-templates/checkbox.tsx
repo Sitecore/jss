@@ -5,7 +5,7 @@ import { ValueFieldProps, FieldChangeCallback } from '../../FieldProps';
 import { ValueFormField } from '@sitecore-jss/sitecore-jss-forms';
 
 const Checkbox: React.FunctionComponent<ValueFieldProps> = (props) => {
-  const { field, value, onChange } = props;
+  const { field, value, onChange, tracker, errors } = props;
   return (
     <Fragment>
       <Label {...props}>
@@ -17,6 +17,8 @@ const Checkbox: React.FunctionComponent<ValueFieldProps> = (props) => {
           value="true"
           checked={(value as unknown) as boolean}
           onChange={(e) => handleOnChange(field, e.target.checked, onChange)}
+          onFocus={() => tracker.onFocusField(field, value)}
+          onBlur={() => tracker.onBlurField(field, value, errors)}
         />
       </Label>
       <FieldValidationErrors {...props} />

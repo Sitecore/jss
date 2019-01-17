@@ -7,7 +7,7 @@ export {
   instanceOfFormField,
   instanceOfButtonFormField,
   instanceOfFormFieldSection,
-  instanceOfValueFormField
+  instanceOfValueFormField,
 } from './FormField';
 export { FormModel } from './FormModel';
 export { HtmlFormField } from './HtmlFormField';
@@ -28,5 +28,12 @@ export {
   instanceOfListViewModel,
   instanceOfInputViewModel,
 } from './ViewModel';
-export { submitForm, createFetchBasedFetcher, FormSubmitOptions } from './submitForm';
+export { submitForm, createFetchBasedFormFetcher, FormSubmitOptions, FormFetcher } from './submitForm';
 export { getFieldValueFromModel } from './getFieldValueFromModel';
+export {
+  FormTracker,
+  FormTrackerOptions,
+  TrackingEvent,
+  createFetchBasedTrackerFetcher,
+  TrackerFetcher
+} from './FormTracker';

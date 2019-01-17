@@ -12,6 +12,8 @@ const CheckboxList: React.FunctionComponent<ListFieldProps> = (props) => {
     },
     value,
     onChange,
+    errors,
+    tracker,
   } = props;
   return (
     <Fragment>
@@ -28,6 +30,8 @@ const CheckboxList: React.FunctionComponent<ListFieldProps> = (props) => {
             onChange={(e) =>
               handleOnChange(field, value, e.target.value, e.target.checked, onChange)
             }
+            onFocus={() => tracker.onFocusField(field, value)}
+            onBlur={() => tracker.onBlurField(field, value, errors)}
           />
           {item.text}
         </label>

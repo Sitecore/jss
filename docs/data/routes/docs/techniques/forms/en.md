@@ -67,7 +67,7 @@ export default function Form(props) {
 
 ### Use the sample JSS forms implementation
 
-Sitecore provides a sample implementation of rendering this form data into a usable React form for your reference and modification.
+Sitecore provides a sample implementation of rendering this form data into a usable React form for your reference and modification. The sample implementation provides a native React state-based implementation using controlled form components. It supports client and server side validation and multistep forms.
 
 > There are two npm packages for JSS + Forms
 > * `sitecore-jss-react-forms` implements components to render forms in React
@@ -221,4 +221,3 @@ There are some limitations to be aware of with JSS' Sitecore Forms support.
 
 * Forms cannot be defined or rendered in disconnected mode (connected, integrated, or headless modes are supported)
 * Conditional fields are not supported by the JSS forms example implementation; however conditional data is returned by the form API
-* Form field tracking is not currently supported by the JSS forms example implementation
