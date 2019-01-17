@@ -7,7 +7,8 @@ import {
   SitecoreForm,
   FormField,
   FormTracker,
-  TrackingEvent,
+  FormFetcher,
+  TrackerFetcher,
 } from '@sitecore-jss/sitecore-jss-forms';
 import FieldFactory from '../field-factory';
 import { FieldWithValueProps, LabelProps } from '../FieldProps';
@@ -34,6 +35,12 @@ export interface FormProps {
 
   /** Optionally override the field validation errors display component for any field components that render validation errors */
   fieldValidationErrorsComponent?: ComponentType<LabelProps>;
+
+  /** Fetch function used when submitting the form (defaults to using `fetch`) */
+  formFetcher?: FormFetcher;
+
+  /** Fetch function used when posting form field tracking data (defaults to using `fetch`) */
+  trackerFetcher?: TrackerFetcher;
 }
 
 export interface FieldState {
@@ -72,8 +79,8 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
     this.collectCurrentFieldValues = this.collectCurrentFieldValues.bind(this);
 
     this._tracker = new FormTracker({
-      endpoint: `${this.props.sitecoreApiHost}/fieldtracking/register`,
-      fetcher: () => Promise.resolve(null),
+      endpoint: `${this.props.sitecoreApiHost}/api/jss/fieldtracking/register?sc_apikey=${this.props.sitecoreApiKey}`,
+      fetcher: this.props.trackerFetcher,
       formId: props.form.formItemId.value,
       formSessionId: props.form.formSessionId.value,
       enableTracking: props.form.metadata.isTrackingEnabled,
@@ -225,7 +232,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
       throw new Error('Submit URL was not defined. Ensure the form has an action attribute.');
     }
 
-    submitForm(formData, submitUrl)
+    submitForm(formData, submitUrl, { fetcher: this.props.formFetcher })
       .then((result) => {
         if (result.success && result.redirectUrl) {
           // Process redirect-on-success action.

@@ -19,19 +19,19 @@ enum EventIds {
   FieldError = 'ea27aca5-432f-424a-b000-26ba5f8ae60a',
 }
 
+export type TrackerFetcher = (formData: TrackingEvent[], endpoint: string) => Promise<{}> | void;
+
 export interface FormTrackerOptions {
   formId: string;
   formSessionId: string;
   enableTracking: boolean;
   endpoint: string;
-  // TODO: signature is temp
-  fetcher?: (formData: TrackingEvent[], endpoint: string) => Promise<any>;
+  fetcher?: TrackerFetcher;
 }
 
-export function createFetchBasedTracker(options?: RequestInit) {
-  return (formData: any, endpoint: string) => fetch(endpoint, {
-    // IMPORTANT: Sitecore's antiforgery tokens require x-www-form-urlencoded to validate correctly.
-    body: formData,
+export function createFetchBasedTrackerFetcher(options?: RequestInit): TrackerFetcher {
+  return (formData, endpoint) => fetch(endpoint, {
+    body: JSON.stringify(formData),
     method: 'post',
     // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
     credentials: 'include',
@@ -44,25 +44,21 @@ export class FormTracker {
   private _formId: string;
   private _formSessionId: string;
   private _enableTracking: boolean;
-
-  // TODO temp signature
-  private _fetcher: (formData: TrackingEvent[], endpoint: string) => Promise<any>;
+  private _fetcher: TrackerFetcher;
   private _endpoint: string;
 
   constructor(options: FormTrackerOptions) {
     this._formId = options.formId;
     this._formSessionId = options.formSessionId;
-    this._fetcher = options.fetcher || createFetchBasedTracker();
+    this._fetcher = options.fetcher || createFetchBasedTrackerFetcher();
     this._endpoint = options.endpoint;
     this._enableTracking = options.enableTracking;
   }
 
   onFocusField(field: ValueFormField, value: string | string[]): void {
-    console.log('focus', field.model.name)
-    // TODO: isTrackingEnabled always seems false on fields wth?
     if (!this._enableTracking || !field.model.isTrackingEnabled) {
-      //this._resetField();
-      //return;
+      this._resetField();
+      return;
     }
 
     this._startTrackingField(field, value);
@@ -70,10 +66,9 @@ export class FormTracker {
 
   onBlurField(field: ValueFormField, value: string | string[], validationErrors?: string[]): void {
     const trackableField = field as TrackableValueFormField;
-    console.log('blur', field.model.name, value)
     if (!this._enableTracking || !field.model.isTrackingEnabled) {
-      //this._resetField();
-      //return;
+      this._resetField();
+      return;
     }
 
     const blurredAtTick = new Date().getTime();
@@ -87,7 +82,7 @@ export class FormTracker {
       this._startTrackingField(field, value);
       duration = 0;
     }
-console.log('diff', fieldChanged, this._isValueChanged(value))
+
     if (fieldChanged || this._isValueChanged(value)) {
       if (this._currentField) {
         this._currentField.originalValue = value;
@@ -112,7 +107,7 @@ console.log('diff', fieldChanged, this._isValueChanged(value))
 
     trackableField.focusedAtTick = new Date().getTime();
     trackableField.originalValue = value;
-console.log('tracking', trackableField.model.name, trackableField.focusedAtTick);
+
     this._currentField = trackableField;
   }
 
@@ -132,7 +127,7 @@ console.log('tracking', trackableField.model.name, trackableField.focusedAtTick)
         return true;
       }
 
-      // TODO array compare
+      // array compare
       if (originalValue.length !== newValue.length) {
         return true;
       }
@@ -167,7 +162,6 @@ console.log('tracking', trackableField.model.name, trackableField.focusedAtTick)
   }
 
   private _trackEvents(events: TrackingEvent[]) {
-    console.log('trk', events);
     return this._fetcher(events, this._endpoint);
   }
 }
