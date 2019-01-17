@@ -1,6 +1,6 @@
 {
   "name": "jss-embedded-jss-app-sample",
-  "version": "11.0.0",
+  "version": "11.0.1",
   "description": "Demonstrates embedding a JSS application within a traditional Sitecore page",
   "config": {
     "appName": "EmbeddedWizard",
@@ -51,20 +51,20 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "~11.0.0",
+    "@sitecore-jss/sitecore-jss-react": "^11.0.1",
     "axios": "~0.18.0",
     "babel-plugin-inline-import": "~2.0.6",
     "babel-polyfill": "~6.26.0",
     "isomorphic-fetch": "~2.2.1",
     "prop-types": "~15.6.0",
-    "react": "~16.2.0",
-    "react-dom": "~16.2.0",
+    "react": "~16.3.0",
+    "react-dom": "~16.3.0",
     "react-stepzilla": "~4.7.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "~11.0.0",
-    "@sitecore-jss/sitecore-jss-dev-tools": "~11.0.0",
-    "@sitecore-jss/sitecore-jss-manifest": "~11.0.0",
+    "@sitecore-jss/sitecore-jss-cli": "^11.0.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^11.0.1",
+    "@sitecore-jss/sitecore-jss-manifest": "^11.0.1",
     "babel-core": "~6.26.0",
     "babel-eslint": "~7.2.3",
     "babel-loader": "~7.1.2",

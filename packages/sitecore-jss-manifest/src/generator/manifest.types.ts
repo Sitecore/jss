@@ -224,6 +224,15 @@ export interface ComponentDefinition {
    */
   placeholders?: PlaceholderDefinition[] | string[];
   /**
+   * Explicit names of Sitecore placeholders that this component is allowed
+   * to be placed into. Normally this is automatically inferred based on
+   * route data definitions (it will be allowed in any placeholders it is placed in
+   * in disconnected definitions automatically), however at times explicit definition
+   * is preferable, i.e. if not defining routes but only defining components.
+   * NOTE: Setting an allowed placeholder name does not register it with the manifest; use `manifest.addPlaceholder()` to register it
+   */
+  allowedPlaceholders?: string[];
+  /**
    * Defines non-content parameters.
    * Parameters are more developer-focused options than fields, such as configurable CSS classes.
    */

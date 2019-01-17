@@ -12,10 +12,6 @@ export interface Schema {
    */
   path?: string;
   /**
-   * The path to the disconnected manifest to store the component definition.
-   */
-  manifestPath?: string;
-  /**
    * Skips generating a disconnected manifest definition. Use for Sitecore-first development.
    */
   noManifest?: boolean;

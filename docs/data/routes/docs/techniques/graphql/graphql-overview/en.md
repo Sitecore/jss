@@ -43,8 +43,6 @@ Sitecore GraphQL currently ships as a component of JavaScript Services.
 
 ### Setting up Sitecore GraphQL
 
-* Set `<compilation debug="true">` in the web.config if it isn't already. This will enable the GraphQL GUI with the default security settings. For security, the GUI is disabled for production scenarios by default.
-
 * If using GraphQL Subscriptions or WebSocket transport, ensure that the WebSockets feature is enabled on IIS (if it's not, you'll get 'unexpected response HTTP 200' when a socket comes up; do an `iisreset` after install if you need it)
 
 > WebSockets are not supported on Windows Server 2008 R2 and earlier. Subscriptions cannot be used when hosted on these OSes. Subscriptions are intended to be used for CM server customizations used by authors. Sitecore does not support subscriptions for use in scaled public environments.
@@ -54,6 +52,8 @@ Sitecore GraphQL currently ships as a component of JavaScript Services.
 ### Configuring a GraphQL Endpoint
 
 Sitecore GraphQL does not ship with any GraphQL endpoints defined. To use the GraphQL API you must define at least one endpoint. The following is an example of defining an authentication-required content API endpoint for the `master` database (belongs as a Sitecore config patch in `App_Config/Include`)
+
+> Note: example config patches also are installed in `App_Config/Sitecore/Services.GraphQL` for ready to use files.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -67,11 +67,12 @@ Sitecore GraphQL does not ship with any GraphQL endpoints defined. To use the Gr
                     <master url="/sitecore/api/graph/items/master" type="Sitecore.Services.GraphQL.Hosting.GraphQLEndpoint, Sitecore.Services.GraphQL.NetFxHost" resolve="true">
                         <url>$(url)</url>
 
-                        <enabled role:require="!ContentDelivery">true</enabled>
-                        <enabled role:require="ContentDelivery">false</enabled>
-
-                        <gui role:require="!ContentDelivery">DebugOnly (follow web.config compilation setting)</gui>
-                        <gui role:require="ContentDelivery">false</gui>
+                        <!-- lock down the endpoint when deployed to content delivery -->
+                        <graphiql role:require="ContentDelivery">false</graphiql>
+                        <enableSchemaExport role:require="ContentDelivery">false</enableSchemaExport>
+                        <enableStats role:require="ContentDelivery">false</enableStats>
+                        <enableCacheStats role:require="ContentDelivery">false</enableCacheStats>
+                        <disableIntrospection role:require="ContentDelivery">true</disableIntrospection>
 
                         <schema hint="list:AddSchemaProvider">
                             <!--

@@ -30,6 +30,9 @@ function assertReplace(string, value, replacement) {
 /** Export the API key. This will be used by default in Headless mode, removing the need to manually configure the API key on the proxy. */
 export const apiKey = config.sitecoreApiKey;
 
+/** Export the app name. This will be used by default in Headless mode, removing the need to manually configure the app name on the proxy. */
+export const appName = config.jssAppName;
+
 /**
  * Main entry point to the application when run via Server-Side Rendering,
  * either in Integrated Mode, or with a Node proxy host like the node-headless-ssr-proxy sample.

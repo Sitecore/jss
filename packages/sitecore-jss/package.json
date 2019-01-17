@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "11.0.0",
+  "version": "11.0.1",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "lodash.unescape": "^4.0.1",
-    "url-parse": "^1.4.1"
+    "url-parse": "^1.4.4"
   },
   "description": "",
   "types": "types/index.d.ts",

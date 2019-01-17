@@ -7,10 +7,19 @@ const NodeCache = require('node-cache');
 const dictionaryCache = new NodeCache({ stdTTL: 60 });
 
 /**
+ * The JSS application name defaults to providing part of the bundle path as well as the dictionary service endpoint.
+ * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
+ */
+let appName = process.env.SITECORE_JSS_APP_NAME;
+
+/**
  * The server.bundle.js file from your pre-built JSS app
  */
-const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || './dist/yourappname/server.bundle';
+const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/server.bundle`;
+
 const serverBundle = require(bundlePath);
+
+appName = appName || serverBundle.appName;
 
 /**
  * @type {ProxyConfig}
@@ -95,7 +104,9 @@ const config = {
       // modern browsers would send 'br' (brotli) as well, and if the Sitecore server
       // supported that (maybe via CDN) it would fail SSR as we can't decode the Brotli
       // response. So, we force the accept-encoding header to only include what we can understand.
-      proxyReq.setHeader('Accept-Encoding', 'gzip, deflate');
+      if (req.headers['accept-encoding']) {
+        proxyReq.setHeader('Accept-Encoding', 'gzip, deflate');
+      }
     },
   },
   /**
@@ -137,7 +148,7 @@ const config = {
     if (cached) return Promise.resolve(cached);
 
     return fetch(
-      `${config.apiHost}/sitecore/api/jss/dictionary/JssReactWeb/${language}?sc_apikey=${
+      `${config.apiHost}/sitecore/api/jss/dictionary/${appName}/${language}?sc_apikey=${
         config.apiKey
       }`
     )

@@ -1,4 +1,5 @@
 import i18n from 'i18next';
+import 'cross-fetch/polyfill';
 import fetchBackend from 'i18next-fetch-backend';
 import Vue from 'vue';
 import VueI18n from '@panter/vue-i18next';
