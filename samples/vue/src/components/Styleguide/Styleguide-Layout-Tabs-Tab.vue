@@ -12,7 +12,6 @@
 
 <script>
 import { Text, RichText } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
 
 export default {
   name: 'Styleguide-Layout-Tabs-Tab',
@@ -25,7 +24,6 @@ export default {
     },
   },
   components: {
-    StyleguideSpecimen,
     ScText: Text,
     ScRichText: RichText,
   },
