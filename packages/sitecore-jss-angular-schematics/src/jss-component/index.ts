@@ -15,7 +15,6 @@ import {
   move,
   noop,
   Rule,
-  SchematicContext,
   SchematicsException,
   template,
   Tree,
@@ -38,8 +37,8 @@ function buildSelector(options: ComponentOptions, projectPrefix: string) {
   return selector;
 }
 
-export default function(options: ComponentOptions): Rule {
-  return (host: Tree, context: SchematicContext) => {
+export default function(options: ComponentOptions) {
+  return (host: Tree) => {
     const workspace = getWorkspace(host);
     if (!options.project) {
       throw new SchematicsException('Option (project) is required.');
@@ -51,9 +50,8 @@ export default function(options: ComponentOptions): Rule {
       options.path = `/${project.root}/src/${projectDirName}`;
     }
 
-    if (options.manifestPath === undefined) {
-      options.manifestPath = '/sitecore/definitions/components';
-    }
+    // this is not an options option due to schematics issues with multiple template roots
+    const manifestPath = '/sitecore/definitions/components';
 
     // JSS: if no subfolder is specified in the component name, we imply our
     // default convention of '/components/' for JSS components.
@@ -77,7 +75,11 @@ export default function(options: ComponentOptions): Rule {
           ...strings,
           ...options,
         }),
-        move(parseName(options.manifestPath, '').path),
+        // having two calls to move() - one here and one in templateSource - causes an infinite loop error
+        // ('call stack size exceeded'). So as a workaround, the manifest template contains the
+        // manifest path folder structure within it. This means options.manifestPath is basically ignored.
+        // The move() call should re-base the template to a different folder root, but it seems to be buggy.
+        // move(parseName(options.manifestPath, '').path),
       ]);
 
       sources.push(mergeWith(manifestTemplateSource));
@@ -102,7 +104,7 @@ export default function(options: ComponentOptions): Rule {
     console.log(chalk.green(`Component ${options.name} is scaffolding.`));
     console.log(chalk.green('Next steps:'));
     if (!options.noManifest) {
-      console.log(`* Define the component's data in ${chalk.green(`${options.manifestPath}/${options.name}.sitecore.ts`)}`);
+      console.log(`* Define the component's data in ${chalk.green(`${manifestPath}/${options.name}.sitecore.ts`)}`);
     } else {
       console.log(
         `* Scaffold the component in Sitecore using '${chalk.green(
@@ -124,6 +126,6 @@ export default function(options: ComponentOptions): Rule {
 
     console.log();
 
-    return branchAndMerge(chain(sources))(host, context);
+    return branchAndMerge(chain(sources));
   };
 }

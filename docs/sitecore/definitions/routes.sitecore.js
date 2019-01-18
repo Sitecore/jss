@@ -1,3 +1,4 @@
+/* eslint-disable no-throw-literal */
 import fs from 'fs';
 import yaml from 'js-yaml';
 import path from 'path';
@@ -29,6 +30,10 @@ export default function(manifest) {
         name: 'title',
         displayName: 'Page Title',
         type: CommonFieldTypes.SingleLineText,
+      },
+      {
+        name: 'editLink',
+        type: CommonFieldTypes.GeneralLink,
       },
     ],
   });
@@ -75,7 +80,7 @@ const parseRouteData = (sourceRouteData, file) => {
     throw `Specified routeTemplate doesn't exist: '${routeTemplate}'`;
   }
   const template = fs.readFileSync(routeTemplate, 'utf8');
-  let routeData = yaml.safeLoad(template);
+  const routeData = yaml.safeLoad(template);
 
   const tokenReplacements = new Map();
   tokenReplacements.set('$name$', name);
@@ -85,6 +90,13 @@ const parseRouteData = (sourceRouteData, file) => {
 
   if (parsedMatter.data.title) {
     routeData.fields.title.value = parsedMatter.data.title;
+
+    const rootPath = path.resolve(path.join(__dirname, '..', '..'));
+    const relativePath = path.relative(rootPath, file).replace(/\\/g, '/');
+    routeData.fields.editLink = {
+      text: 'Edit this on GitHub',
+      href: `https://github.com/Sitecore/jss/edit/dev/docs/${relativePath}`,
+    };
   }
 
   return routeData;

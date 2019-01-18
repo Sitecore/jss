@@ -90,4 +90,5 @@ module.exports = {
   renderView,
   parseRouteUrl,
   apiKey: environment.sitecoreApiKey,
+  appName: environment.jssAppName
 };

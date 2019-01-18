@@ -31,10 +31,12 @@ export default (args: any) => {
     delete template.graphQLQuery;
     delete template.customExperienceButtons;
 
-    if (validateTemplate(template).valid) {
+    const validationResult = validateTemplate(template);
+    if (validationResult.valid) {
       return [...result, template];
     }
-    return result;
+
+    throw validationResult.error;
   }, []);
 
   const finalTemplates = [...args.templates, ...templates];

@@ -2,7 +2,10 @@ import { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
 
 export type CustomizeRenderFunction = (
   transformedRendering: any,
-  rawRendering: any
+  rawRendering: any,
+  currentManifest: ManifestInstance,
+  request?: any,
+  response?: any
 ) => any;
 
 export type CustomizeContextFunction = (

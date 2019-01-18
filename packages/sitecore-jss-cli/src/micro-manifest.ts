@@ -1,4 +1,4 @@
-import { packageDeploy, verifySetup, resolveScJssConfig } from '@sitecore-jss/sitecore-jss-dev-tools';
+import { packageDeploy, resolveScJssConfig, verifySetup } from '@sitecore-jss/sitecore-jss-dev-tools';
 import fs from 'fs';
 import path from 'path';
 import tmp from 'tmp';

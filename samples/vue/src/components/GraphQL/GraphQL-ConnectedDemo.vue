@@ -87,13 +87,14 @@ export default {
   apollo: {
     queryData: {
       query: ConnectedDemoQuery,
-      variables() {const defaultValue = '{00000000-0000-0000-0000-000000000000}';
+      variables() {
+        const defaultValue = '{00000000-0000-0000-0000-000000000000}';
         const variables = {
-          contextItem: (this.$jss) ? this.$jss.sitecoreContext().itemId : defaultValue,
+          contextItem: this.$jss ? this.$jss.sitecoreContext().itemId : defaultValue,
           datasource: (this.rendering && this.rendering.dataSource) || defaultValue,
         };
 
-        if(!variables.contextItem) variables.contextItem = defaultValue;
+        if (!variables.contextItem) variables.contextItem = defaultValue;
 
         return variables;
       },

@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { Text, Link } from '@sitecore-jss/sitecore-jss-vue';
+import { Text } from '@sitecore-jss/sitecore-jss-vue';
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
 
 export default {
@@ -71,7 +71,6 @@ export default {
   },
   components: {
     ScText: Text,
-    ScLink: Link,
   },
   data() {
     return {
@@ -93,11 +92,11 @@ export default {
       variables() {
         const defaultValue = '{00000000-0000-0000-0000-000000000000}';
         const variables = {
-          contextItem: (this.$jss) ? this.$jss.sitecoreContext().itemId : defaultValue,
+          contextItem: this.$jss ? this.$jss.sitecoreContext().itemId : defaultValue,
           datasource: defaultValue,
         };
 
-        if(!variables.contextItem) variables.contextItem = defaultValue;
+        if (!variables.contextItem) variables.contextItem = defaultValue;
 
         return variables;
       },
@@ -130,7 +129,8 @@ export default {
       prefetch: ({ route, state }) => {
         return {
           contextItem:
-            (state && state.sitecore && state.sitecore.route && state.sitecore.route.itemId) || '{00000000-0000-0000-0000-000000000000}',
+            (state && state.sitecore && state.sitecore.route && state.sitecore.route.itemId) ||
+            '{00000000-0000-0000-0000-000000000000}',
           datasource: '{00000000-0000-0000-0000-000000000000}',
         };
       },
