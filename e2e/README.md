@@ -117,7 +117,7 @@ _Execute after baseline script. Execute each step once per sample app (react, vu
         - Ensure that there is a datasource template for `SitecoreFirst` containing the expected fields (`/sitecore/templates/project/appname`)
         - Ensure that there is a corresponding rendering item for `SitecoreFirst` (`/sitecore/layout/renderings/project/appname`)
         - Ensure that the `SitecoreFirst` rendering is allowed in the `jss-main` placeholder settings (`/sitecore/layout/Placeholder Settings/Project/appname/jss-main`)
-    - Deploy a new template: `jss deploy component TemplateFirst --fields e2e e2e2:Integer "e2e 3:Rich Text"`
+    - Deploy a new template: `jss deploy template TemplateFirst --fields e2e e2e2:Integer "e2e 3:Rich Text"`
         - Ensure that there is a template for `TemplateFirst` containing the expected fields (`/sitecore/templates/project/appname`)
 
 ### React Native Script
