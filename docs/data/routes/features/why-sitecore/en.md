@@ -6,7 +6,7 @@ title: Why Sitecore?
 
 <div class="section pl-md-5 pr-md-5 pb-md-5 pt-md-5">
 <h2 class="mb-md-5">Why power your app with Sitecore</h2>
-<p class="pl-md-5 pr-md-5 mr-md-5 ml-md-5">The most exiting part of developing JavaScript applications it the development itself. But what about all the maintenance? Updating text, change the order of components, the look and feel or just creating additional pages. Wouldn’t it be great if you could leave that to the authors of the application so that you can spend your time on the actual development?</p>
+<p class="pl-md-5 pr-md-5 mr-md-5 ml-md-5">The most exiting part of developing JavaScript applications is the development itself. But what about all the maintenance? Updating text, change the order of components, the look and feel or just creating additional pages. Wouldn’t it be great if you could leave that to the authors of the application so that you can spend your time on the actual development?</p>
 </div>
 
 ---
