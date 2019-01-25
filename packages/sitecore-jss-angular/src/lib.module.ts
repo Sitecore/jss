@@ -10,6 +10,7 @@ import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
+import { RouterLinkDirective } from './components/router-link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
 import { PlaceholderComponent } from './components/placeholder.component';
 import {
