@@ -11,6 +11,7 @@ import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
+import { RouterLinkDirective } from './components/router-link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
 import { PlaceholderComponent } from './components/placeholder.component';
 import {
@@ -38,6 +39,7 @@ import { LayoutService } from './layout.service';
     FileDirective,
     ImageDirective,
     LinkDirective,
+    RouterLinkDirective,
     DateDirective,
     RenderEachDirective,
     RenderEmptyDirective,
@@ -53,6 +55,7 @@ import { LayoutService } from './layout.service';
     ImageDirective,
     DateDirective,
     LinkDirective,
+    RouterLinkDirective,
     RenderEachDirective,
     RenderEmptyDirective,
     RenderComponentComponent,
