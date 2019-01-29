@@ -24,7 +24,7 @@ export interface TitleFieldViewModel extends FieldViewModel {
 export interface InputViewModel extends TitleFieldViewModel {
   required: boolean;
   isTrackingEnabled: boolean;
-  value: string;
+  value: string | boolean;
 }
 
 export function instanceOfInputViewModel(object: ViewModel): object is InputViewModel {

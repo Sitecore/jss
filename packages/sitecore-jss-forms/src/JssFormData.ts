@@ -18,7 +18,7 @@ export class JssFormData {
   }
 
   /** Merges form data from a client-side state store (i.e. the user-specified values), overwriting any existing values for the keys */
-  public mergeOverwritingExisting(values: { [key: string]: string | string[] }) {
+  public mergeOverwritingExisting(values: { [key: string]: string | string[] | boolean }) {
     Object.keys(values).forEach((key) => {
       const value = values[key];
 
@@ -35,7 +35,7 @@ export class JssFormData {
           }
         });
       } else {
-        this.set(key, value);
+        this.set(key, value.toString());
       }
     });
   }

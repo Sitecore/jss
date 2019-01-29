@@ -14,7 +14,7 @@ import { instanceOfInputViewModel } from './ViewModel';
 
 export interface SerializeFormOptions {
   submitButtonName?: string | null;
-  fieldValueParser?: (field: FormField<any>) => string | string[];
+  fieldValueParser?: (field: FormField<any>) => string | string[] | boolean;
 }
 
 /**
@@ -60,7 +60,7 @@ function pushFields(result: JssFormData, fields: Array<FormField<any>>, options:
         if (Array.isArray(fieldValue)) {
           fieldValue.forEach((value) => pushField(result, field.valueField, value));
         } else {
-          pushField(result, field.valueField, fieldValue);
+          pushField(result, field.valueField, fieldValue.toString());
         }
       }
     } else if (instanceOfFormFieldSection(field)) {

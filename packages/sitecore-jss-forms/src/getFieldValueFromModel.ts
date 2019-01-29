@@ -11,6 +11,13 @@ export function getFieldValueFromModel(field: FormField<any>) {
 
   if (instanceOfInputViewModel(field.model)) {
     // field state from API view-model value (single valued fields)
+
+    // false literal is a falsy value we want to keep (used in checkboxes)
+    if (field.model.value === false) {
+      return field.model.value;
+    }
+
+    // otherwise, we never want a null or undefined value so we default falsy to empty strings
     return field.model.value || '';
   }
 

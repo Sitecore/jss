@@ -44,7 +44,7 @@ export interface FormProps {
 }
 
 export interface FieldState {
-  value?: string | string[];
+  value?: string | string[] | boolean;
   isValid: boolean;
   errors: string[];
 }
@@ -206,7 +206,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
 
     const form = this.state.nextForm || this.props.form;
 
-    const fieldValues: { [key: string]: string | string[] } = {};
+    const fieldValues: { [key: string]: string | string[] | boolean } = {};
 
     const currentFieldValues = this.collectCurrentFieldValues();
 
