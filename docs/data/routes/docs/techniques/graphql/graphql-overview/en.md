@@ -139,7 +139,7 @@ With the configuration sample above installed, you should be able to use the Gra
 1. Log in to Sitecore (the sample endpoint requires authentication)
 1. Visit `/sitecore/api/graph/items/master/ui`; this UI will let you query items and templates in the `master` database.
 1. Click the `Docs` link in the upper right to browse the type schema. Note that the schema has helpful descriptions, and that you can hover over query elements in the editor to browse them in the docs.
-1. Write a GraphQL query using GraphiQL's code completion functionality (ctrl-space triggers it manually). GraphQL is designed to be easily self-discoverable for consumers, and it's really easy to use. For example this query demonstrates the power of GraphQL by reteieving an item, its children, and its template definition in a single query:
+1. Write a GraphQL query using GraphiQL's code completion functionality (ctrl-space triggers it manually). GraphQL is designed to be easily self-discoverable for consumers, and it's really easy to use. For example this query demonstrates the power of GraphQL by retrieving an item, its children, and its template definition in a single query:
 
 ```
 {
