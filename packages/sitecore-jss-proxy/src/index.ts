@@ -378,7 +378,7 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
           `DEBUG: URL ${originalUrl} did not match the proxy exclude list, and will be treated as a layout service route to render. Excludes:`,
           config.pathRewriteExcludeRoutes
         );
-      } else if(!noDebug) {
+      } else {
         console.log(
           `DEBUG: URL ${originalUrl} matched the proxy exclude list and will be served verbatim as received. Excludes: `,
           config.pathRewriteExcludeRoutes
