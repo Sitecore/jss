@@ -6,7 +6,6 @@ import CheckboxList from './components/field-templates/checkbox-list';
 import Checkbox from './components/field-templates/checkbox';
 import DropdownList from './components/field-templates/dropdown-list';
 import Email from './components/field-templates/email';
-import { FieldValidationErrors } from '@sitecore-jss/sitecore-jss-forms/types/FormResult';
 import { Label } from './components/field-templates/label';
 import ListBox from './components/field-templates/list-box';
 import MultipleLineText from './components/field-templates/multiple-line-text';
@@ -28,7 +27,6 @@ export {
   DateField,
   DropdownList,
   Email,
-  FieldValidationErrors,
   Label,
   ListBox,
   MultipleLineText,
