@@ -15,7 +15,7 @@ export function getFieldValue<T>(
 
   const fields = renderingOrFields as any;
   if (fields[fieldName] && typeof fields[fieldName].value !== 'undefined') {
-    return fields[fieldName].value;
+    return fields[fieldName].value as T;
   }
 
   const rendering = renderingOrFields as ComponentRendering;
