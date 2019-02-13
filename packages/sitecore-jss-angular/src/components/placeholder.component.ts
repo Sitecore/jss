@@ -4,12 +4,14 @@ import {
   ComponentFactoryResolver,
   ContentChild,
   DoCheck,
+  EventEmitter,
   Inject,
   Input,
   KeyValueDiffer,
   KeyValueDiffers,
   OnChanges,
   OnDestroy,
+  Output,
   SimpleChanges,
   Type,
   ViewChild,
@@ -49,6 +51,10 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
   @Input() rendering: ComponentRendering;
   @Input() renderings?: Array<ComponentRendering | HtmlElementRendering>;
   @Input() outputs: { [k: string]: (eventType: any) => void };
+
+  @Output()
+  loaded = new EventEmitter<string | undefined>();
+
   @ViewChild('view', { read: ViewContainerRef }) private view: ViewContainerRef;
   @ContentChild(RenderEachDirective) renderEachTemplate: RenderEachDirective;
   @ContentChild(RenderEmptyDirective) renderEmptyTemplate: RenderEmptyDirective;
@@ -105,8 +111,8 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
       .filter((output) => componentInstance[output] && componentInstance[output] instanceof Observable)
       .forEach((output) => (componentInstance[output] as Observable<any>)
         .pipe(
-        takeWhile(() => !this.destroyed)
-      )
+          takeWhile(() => !this.destroyed)
+        )
         .subscribe(outputs[output]));
   }
 
@@ -147,14 +153,17 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
           } else {
             this._renderEmbeddedComponent(rendering, index);
           }
-      })).then(() => this.changeDetectorRef.markForCheck());
+        })).then(() => {
+          this.changeDetectorRef.markForCheck();
+          this.loaded.emit(this.name);
+        });
     }
   }
 
   private _renderTemplatedComponent(
     rendering: ComponentRendering | HtmlElementRendering,
     index: number
-   ) {
+  ) {
     // the render-each template takes care of all component mapping etc
     // generally using <sc-render-component> which is about like _renderEmbeddedComponent()
     // as a separate component
