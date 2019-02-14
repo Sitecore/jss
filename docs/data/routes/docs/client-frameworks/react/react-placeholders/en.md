@@ -20,10 +20,10 @@ The most basic, and most common way to add a placeholder is to use the `Placehol
 ```jsx
 import { Placeholder } from '@sitecore-jss/sitecore-jss-react';
 
-const App = ({ route }) => (
+const App = ({ rendering }) => (
   <div>
     <h1>My App</h1>
-    <Placeholder name="jss-main" rendering={route} />
+    <Placeholder name="jss-main" rendering={rendering} />
   </div>
 );
 ```
@@ -121,10 +121,10 @@ The following example illustrates how to get the components array and render it 
 ```jsx
 import { Placeholder } from '@sitecore-jss/sitecore-jss-react';
 
-const App = ({ route }) => (
+const App = ({ rendering }) => (
   <div>
     <h1>My App</h1>
-    <Placeholder name="jss-main" rendering={route} render={(components, placeholderData, props) => <div>{components}</div>} />
+    <Placeholder name="jss-main" rendering={rendering} render={(components, placeholderData, props) => <div>{components}</div>} />
   </div>
 );
 ```
