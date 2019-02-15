@@ -81,15 +81,14 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
     this._tracker = new FormTracker({
       endpoint: `${this.props.sitecoreApiHost}/api/jss/fieldtracking/register?sc_apikey=${this.props.sitecoreApiKey}`,
       fetcher: this.props.trackerFetcher,
-      formId: props.form.formItemId.value,
-      formSessionId: props.form.formSessionId.value,
-      enableTracking: props.form.metadata.isTrackingEnabled,
     });
   }
 
   render() {
     const form = this.state.nextForm || this.props.form;
     const action = `${this.props.sitecoreApiHost}/api/jss/formbuilder?fxb.FormItemId=${form.metadata.itemId}&fxb.HtmlPrefix=${form.htmlPrefix}&sc_apikey=${this.props.sitecoreApiKey}`;
+
+    this._tracker.setFormData(form.formItemId.value, form.formSessionId.value, form.metadata.isTrackingEnabled);
 
     const fieldComponents = form.fields.map(this.createFieldComponent);
     const ErrorComponent = this.props.errorComponent || DefaultError;

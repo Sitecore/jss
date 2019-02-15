@@ -22,9 +22,6 @@ enum EventIds {
 export type TrackerFetcher = (formData: TrackingEvent[], endpoint: string) => Promise<{}> | void;
 
 export interface FormTrackerOptions {
-  formId: string;
-  formSessionId: string;
-  enableTracking: boolean;
   endpoint: string;
   fetcher?: TrackerFetcher;
 }
@@ -41,18 +38,22 @@ export function createFetchBasedTrackerFetcher(options?: RequestInit): TrackerFe
 
 export class FormTracker {
   private _currentField: TrackableValueFormField | null = null;
-  private _formId: string;
-  private _formSessionId: string;
-  private _enableTracking: boolean;
+  private _formId?: string;
+  private _formSessionId?: string;
+  private _enableTracking?: boolean;
   private _fetcher: TrackerFetcher;
   private _endpoint: string;
 
   constructor(options: FormTrackerOptions) {
-    this._formId = options.formId;
-    this._formSessionId = options.formSessionId;
     this._fetcher = options.fetcher || createFetchBasedTrackerFetcher();
     this._endpoint = options.endpoint;
-    this._enableTracking = options.enableTracking;
+  }
+
+  /** Should be called prior to pushing any events, and again whenever new form schema data is received */
+  setFormData(formId: string, formSessionId: string, enableTracking: boolean) {
+    this._formId = formId;
+    this._formSessionId = formSessionId;
+    this._enableTracking = enableTracking;
   }
 
   onFocusField(field: ValueFormField, value: string | string[]): void {
@@ -151,6 +152,10 @@ export class FormTracker {
   }
 
   private _buildEvent(field: ValueFormField, eventId: EventIds, duration: number): TrackingEvent {
+    if (!this._formId || !this._formSessionId) {
+      throw new Error('Event was pushed without form data being set.');
+    }
+
     return {
         formId: this._formId,
         sessionId: this._formSessionId,
