@@ -78,6 +78,7 @@
     "jss": "jss",
     "start": "npm-run-all --serial bootstrap:disconnected --parallel start:react start:proxy start:watch-components",
     "start:connected": "scjss-verify-setup && npm-run-all --serial bootstrap:connected start:react start:watch-components",
+    "start:http-renderer": "node scripts/http-renderer.js",
     "build": "npm-run-all --serial bootstrap:connected build:client build:server",
     "scaffold": "node scripts/scaffold-component.js",
     "start:react": "react-scripts start",
