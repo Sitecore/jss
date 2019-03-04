@@ -4,7 +4,7 @@
   "description": "Application utilizing Sitecore JavaScript Services and Vue (vue-cli).",
   "private": true,
   "config": {
-    "appName": "jss-clean",
+    "appName": "JssVueWeb",
     "rootPlaceholders": [
       "jss-main"
     ],
