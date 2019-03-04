@@ -12,20 +12,24 @@
       So we can use the .map() array function to traverse them. Ensure a `key` attribute is set
       on each element to make React's DOM updating happy:
     -->
-    <div v-for="(listItem, index) in fields.sharedContentList" :key="`sharedListItem-${index}`" v-if="fields.sharedContentList">
-      <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
-      <p>
-        Field: <sc-text :field="listItem.fields.textField" />
-      </p>
-    </div>
+    <template v-if="fields.sharedContentList">
+      <div v-for="(listItem, index) in fields.sharedContentList" :key="`sharedListItem-${index}`" >
+        <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
+        <p>
+          Field: <sc-text :field="listItem.fields.textField" />
+        </p>
+      </div>
+    </template>
 
     <h5>Local Content List</h5>
-    <div v-for="(listItem, index) in fields.localContentList" :key="`localListItem-${index}`" v-if="fields.localContentList">
-      <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
-      <p>
-        Field: <sc-text :field="listItem.fields.textField" />
-      </p>
-    </div>
+    <template v-if="fields.localContentList">
+      <div v-for="(listItem, index) in fields.localContentList" :key="`localListItem-${index}`">
+        <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
+        <p>
+          Field: <sc-text :field="listItem.fields.textField" />
+        </p>
+      </div>
+    </template>
   </styleguide-specimen>
 </template>
 

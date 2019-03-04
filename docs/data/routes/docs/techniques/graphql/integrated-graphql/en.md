@@ -35,8 +35,8 @@ In a code-first app the actual mechanism for the query is identical to a Sitecor
 
 To define an integrated GraphQL query for a component:
 
-* Find the component's manifest definition (normally `/sitecore/definitions/compnents/ComponentName.sitecore.js`)
-* Create a parallel `.graphql` file to store the query, e.g. `/sitecore/definitions/compnents/ComponentName.sitecore.graphql`
+* Find the component's manifest definition (normally `/sitecore/definitions/components/ComponentName.sitecore.js`)
+* Create a parallel `.graphql` file to store the query, e.g. `/sitecore/definitions/components/ComponentName.sitecore.graphql`
 * Set the `graphQLQuery` property when defining the component, for example:
     ```javascript
     import { readFileSync } from 'fs';
