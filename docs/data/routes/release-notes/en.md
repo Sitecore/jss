@@ -10,6 +10,7 @@ title: Release Notes
 ### New Features & Improvements
 
 * Angular projects can now take advantage of the new `*scRouterLink` component which creates a link that uses Angular routing from a Sitecore link field, instead of refreshing the page.
+* Angular placeholders now expose a `loaded` event that can be hooked for apps that need to know when a placeholder is done loading, i.e. `<sc-placeholder [...] (loaded)="onPlaceholderLoaded($event)"></sc-placeholder>`
 
 ## Sitecore JSS 11.0 for Sitecore 9.0 and 9.1
 
