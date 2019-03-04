@@ -5,6 +5,12 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS vNext
+
+### New Features & Improvements
+
+* Angular projects can now take advantage of the new `*scRouterLink` component which creates a link that uses Angular routing from a Sitecore link field, instead of refreshing the page.
+
 ## Sitecore JSS 11.0 for Sitecore 9.0 and 9.1
 
 ### Upgrading
