@@ -3,15 +3,13 @@ import {
   ANALYZE_FOR_ENTRY_COMPONENTS,
   ModuleWithProviders,
   NgModule,
-  Type,
-  Provider
+  Type
 } from '@angular/core';
 import { ROUTES } from '@angular/router';
 import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
-import { RouterLinkDirective } from './components/router-link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
 import { PlaceholderComponent } from './components/placeholder.component';
 import {
@@ -27,6 +25,7 @@ import { RenderComponentComponent } from './components/render-component.componen
 import { RenderEachDirective } from './components/render-each.directive';
 import { RenderEmptyDirective } from './components/render-empty.directive';
 import { RichTextDirective } from './components/rich-text.directive';
+import { RouterLinkDirective } from './components/router-link.directive';
 import { TextDirective } from './components/text.directive';
 import { JssComponentFactoryService } from './jss-component-factory.service';
 import { LayoutService } from './layout.service';
