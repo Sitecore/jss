@@ -8,13 +8,12 @@
         connected mode, or integrated mode to work.
       </p>
       <p>
-        Libraries such as <code>graphql-tools</code> can provide GraphQL API mocking
-        capabilities, which could enable disconnected GraphQL. This is not supported out of the
-        box, however.
+        Libraries such as <code>graphql-tools</code> can provide GraphQL API mocking capabilities,
+        which could enable disconnected GraphQL. This is not supported out of the box, however.
       </p>
       <p>
-        To view the GraphQL samples, restart the app using <code>jss start:connected</code>&nbsp;
-        or deploy the app to Sitecore to run in integrated mode per the JSS documentation.
+        To view the GraphQL samples, restart the app using <code>jss start:connected</code>&nbsp; or
+        deploy the app to Sitecore to run in integrated mode per the JSS documentation.
       </p>
     </template>
     <sc-placeholder name="jss-graphql-layout" :rendering="rendering" v-else />

@@ -24,8 +24,3 @@ jss lint
 ```
 jss test:unit
 ```
-
-### Run your end-to-end tests
-```
-jss test:e2e
-```

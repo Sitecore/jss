@@ -16,12 +16,8 @@
       <li v-if="!fields || !fields.checkbox || !fields.checkbox.value">
         <code>checkbox</code> is false
       </li>
-      <li v-if="getFieldValue(fields, 'checkbox2', false)">
-        <code>checkbox2</code> is true
-      </li>
-      <li v-if="!getFieldValue(fields, 'checkbox2', false)">
-        <code>checkbox2</code> is false
-      </li>
+      <li v-if="getFieldValue(fields, 'checkbox2', false)"><code>checkbox2</code> is true</li>
+      <li v-if="!getFieldValue(fields, 'checkbox2', false)"><code>checkbox2</code> is false</li>
     </ul>
   </styleguide-specimen>
 </template>

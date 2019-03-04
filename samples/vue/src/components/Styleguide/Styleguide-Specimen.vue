@@ -11,7 +11,8 @@
       <small>
         Implementation: <code>/src/components/{{ rendering.componentName }}/index.js</code>
         <br />
-        Definition: <code>/sitecore/definitions/components/{{ rendering.componentName }}.sitecore.js</code>
+        Definition:
+        <code>/sitecore/definitions/components/{{ rendering.componentName }}.sitecore.js</code>
       </small>
     </p>
     <div class="border p-2"><slot></slot></div>
