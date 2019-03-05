@@ -392,14 +392,16 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
   if (config.pathRewriteExcludePredicate) {
     result = config.pathRewriteExcludePredicate(originalUrl);
 
-    if (config.debug && result) {
-      console.log(
-        `DEBUG: URL ${originalUrl} did not match the proxy exclude function, and will be treated as a layout service route to render.`
-      );
-    } else {
-      console.log(
-        `DEBUG: URL ${originalUrl} matched the proxy exclude function and will be served verbatim as received.`
-      );
+    if (!noDebug && config.debug) {
+      if (result) {
+        console.log(
+          `DEBUG: URL ${originalUrl} did not match the proxy exclude function, and will be treated as a layout service route to render.`
+        );
+      } else {
+        console.log(
+          `DEBUG: URL ${originalUrl} matched the proxy exclude function and will be served verbatim as received.`
+        );
+      }
     }
 
     return result;
