@@ -1,5 +1,3 @@
-const packageConfig = require('./package.json');
-
 module.exports = {
   moduleFileExtensions: ['js', 'json', 'vue'],
   transform: {
@@ -14,8 +12,8 @@ module.exports = {
   testMatch: ['**/*.spec.js'],
   testURL: 'http://localhost/',
   verbose: true,
-  collectCoverage: true,
-  coverageThreshold: packageConfig.config.coverageThreshold,
+  collectCoverage: false,
+  coverageThreshold: undefined,
   coverageReporters: ['lcov', 'cobertura', 'text', 'html'],
   reporters: ['default', ['jest-junit', { output: 'coverage/junit.xml' }]],
   collectCoverageFrom: [
