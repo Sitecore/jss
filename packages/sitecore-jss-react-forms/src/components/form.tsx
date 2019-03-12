@@ -91,6 +91,10 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
       return (<div>No form data was provided. Need to set a datasource?</div>);
     }
 
+    if (!form.metadata) {
+      return (<div>Form data invalid. Forget to set the rendering contents resolver?</div>);
+    }
+
     const action = `${this.props.sitecoreApiHost}/api/jss/formbuilder?fxb.FormItemId=${form.metadata.itemId}&fxb.HtmlPrefix=${form.htmlPrefix}&sc_apikey=${this.props.sitecoreApiKey}`;
 
     this._tracker.setFormData(form.formItemId.value, form.formSessionId.value, form.metadata.isTrackingEnabled);
