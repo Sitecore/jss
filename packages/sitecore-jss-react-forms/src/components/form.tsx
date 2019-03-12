@@ -49,7 +49,7 @@ export interface FieldState {
   errors: string[];
 }
 
-interface FormState {
+export interface FormState {
   errors: string[];
   nextForm: SitecoreForm | null;
   submitButton: string | null;
@@ -86,6 +86,11 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
 
   render() {
     const form = this.state.nextForm || this.props.form;
+
+    if (!form) {
+      return (<div>No form data was provided. Need to set a datasource?</div>);
+    }
+
     const action = `${this.props.sitecoreApiHost}/api/jss/formbuilder?fxb.FormItemId=${form.metadata.itemId}&fxb.HtmlPrefix=${form.htmlPrefix}&sc_apikey=${this.props.sitecoreApiKey}`;
 
     this._tracker.setFormData(form.formItemId.value, form.formSessionId.value, form.metadata.isTrackingEnabled);
@@ -274,10 +279,10 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
           this.setState({ errors: error });
         } else if (typeof error === 'string') {
           console.log('Form submit error', error);
-          this.setState({ errors: [ error ]});
+          this.setState({ errors: [error] });
         } else {
           console.log('Form submit error', error);
-          this.setState({ errors: [ error.message ]});
+          this.setState({ errors: [error.message] });
         }
       });
   }
