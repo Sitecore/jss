@@ -6,6 +6,13 @@ import { ComponentRendering, Field, HtmlElementRendering, Item } from './dataMod
  */
 export function getFieldValue<T>(
   renderingOrFields: ComponentRendering | { [name: string]: Field | Item[] },
+  fieldName: string): T | undefined;
+export function getFieldValue<T>(
+  renderingOrFields: ComponentRendering | { [name: string]: Field | Item[] },
+  fieldName: string,
+  defaultValue: T): T;
+export function getFieldValue<T>(
+  renderingOrFields: ComponentRendering | { [name: string]: Field | Item[] },
   fieldName: string,
   defaultValue?: T) {
 
