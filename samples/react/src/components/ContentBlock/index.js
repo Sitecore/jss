@@ -8,6 +8,7 @@ import { Text, RichText } from '@sitecore-jss/sitecore-jss-react';
  */
 const ContentBlock = ({ fields }) => (
   <React.Fragment>
+    <div>i'm here yo!! how about abc, it's easy as 123!!!?</div>
     <Text tag="h2" className="display-4" field={fields.heading} />
 
     <RichText className="contentDescription" field={fields.content} />

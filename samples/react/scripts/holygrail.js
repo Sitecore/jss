@@ -1,9 +1,8 @@
 const {
-  ssrMiddleware,
+  startDevServer,
   startRenderHostTunnel,
 } = require('@sitecore-jss/sitecore-jss-rendering-host');
 const path = require('path');
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const jssConfig = require('../scjssconfig.json');
 const ssrWebpackConfig = require('../server/server.webpack.config');
 const craWebpackConfig = require('../node_modules/react-scripts/config/webpack.config');
@@ -24,10 +23,7 @@ startRenderHostTunnel('http://localhost', { port: 5000 })
     console.error(err);
   });
 
-// extract this function to separate file to allow getting webpack config
-// from different "starter kits", e.g. CRA, vue-cli, ng
-// or, should be exposed as a configurable option
-// (assuming that the middleware and WDS startup scripts get moved into a separate package).
+// NOTE: `configFactory` will be different for each JSS app/sample app
 function configFactory(nodeEnv, tunnelUrl) {
   process.env.PUBLIC_URL = tunnelUrl;
   const clientWebpackConfig = craWebpackConfig(nodeEnv);
@@ -100,15 +96,6 @@ function configFactory(nodeEnv, tunnelUrl) {
     clientWebpackConfig.plugins.push(miniCssPlugin);
   }
 
-  // ssrWebpackConfig.profile = true;
-  // ssrWebpackConfig.stats = 'verbose';
-  // ssrWebpackConfig.plugins.push(new StatsPlugin('stats-server.json'));
-  // clientWebpackConfig.plugins.push(
-  //   new webpack.debug.ProfilingPlugin({ outputPath: 'profiling/client.json ' })
-  // );
-
-  // const smpClient = new SpeedMeasurePlugin();
-  const smpServer = new SpeedMeasurePlugin();
   return {
     ssrWebpackConfig,
     clientWebpackConfig,
