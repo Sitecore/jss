@@ -54,8 +54,8 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
     rendering: PropTypes.object,
     fields: PropTypes.object,
     params: PropTypes.object,
-    missingComponentComponent: PropTypes.object,
-    errorComponent: PropTypes.object,
+    missingComponentComponent: PropTypes.node,
+    errorComponent: PropTypes.node,
   };
 
   nodeRefs: any[];
