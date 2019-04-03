@@ -193,7 +193,7 @@ export function startDevServer({
   const modulePath = path.join(buildArtifactsPath, serverBundleFileName);
   console.log('Resolved server bundle path', modulePath);
   const appInvocationInfoResolver =
-    customAppInvocationInfoResolver || getDefaultAppInvocationInfoResolver(modulePath);
+    customAppInvocationInfoResolver || getDefaultAppInvocationInfoResolver({ appPathResolver: () => modulePath });
 
   // Devs may have assigned a value to `serverOptions.after` via `configs.devServerConfig`, so
   // preserve the existing value so we can invoke it later.

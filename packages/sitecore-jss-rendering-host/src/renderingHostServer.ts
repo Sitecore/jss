@@ -41,8 +41,8 @@ export interface RenderingHostServerOptions {
 }
 
 export function startRenderingHostServer({
-  port,
-  hostname,
+  port = 0,
+  hostname = 'localhost',
   hooks = {},
   middlewares = {},
   enableCompression = true,
@@ -83,7 +83,7 @@ export function startRenderingHostServer({
   // Give devs a chance to add more middleware or whatever prior to starting the server.
   invokeHook(hooks.beforeServerStarted, server);
   // Start the webpack dev server
-  server.listen(port || 0, hostname || 'localhost', (err?: Error) => {
+  server.listen(port, hostname, (err?: Error) => {
     if (err) {
       console.error(err);
       return;

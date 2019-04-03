@@ -55,6 +55,7 @@ export const ssrMiddleware: SSRMiddleware = ({
   };
 };
 
+// todo: add hook for modifying html / response before end
 export function getDefaultAppRendererCallback(res: ServerResponse) {
   const callback: RenderCallback = (errorValue: Error, successValue?: any) => {
     if (errorValue) {

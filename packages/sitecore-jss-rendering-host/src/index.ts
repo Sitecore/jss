@@ -2,6 +2,7 @@ export { startRenderHostTunnel } from './tunnel';
 export { startDevServer } from './devServer';
 export { ssrMiddleware } from './ssrMiddleware';
 export { startRenderingHostServer } from './renderingHostServer';
+export { getDefaultAppInvocationInfoResolver } from './defaultAppInvocationInfoResolver';
 
 // const jssConfig = require('../scjssconfig.json');
 // const ssrWebpackConfig = require('../server/server.webpack.config');

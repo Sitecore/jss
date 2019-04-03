@@ -11,7 +11,8 @@
     "sitecoreDistPath": "/dist/JssReactWeb",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/api/jssreactweb",
-    "language": "en"
+    "language": "en",
+    "tunnelUrl": "http://jss.ngrok.io"
   },
   "engines": {
     "node": ">=8.1",
@@ -83,14 +84,17 @@
     "start": "npm-run-all --serial bootstrap:disconnected --parallel start:react start:proxy start:watch-components",
     "start:connected": "scjss-verify-setup && npm-run-all --serial bootstrap:connected start:react start:watch-components",
     "start:connected-ssr": "scjss-verify-setup && npm-run-all --serial bootstrap:connected --parallel start:react start:watch-components start:http-renderer",
-    "start:holygrail": "scjss-verify-setup && npm-run-all --serial bootstrap:connected --parallel start:watch-components start:http-renderer",
+    "start:holygrail": "scjss-verify-setup && npm-run-all --serial bootstrap:connected --parallel start:watch-components start:http-renderer-holygrail",
+    "start:http-renderer-holygrail": "cross-env-shell NODE_ENV=development JSS_RENDER_ENGINE=http \"node scripts/holygrail.js\"",
     "start:http-renderer": "cross-env-shell NODE_ENV=development JSS_RENDER_ENGINE=http \"node scripts/http-renderer.js\"",
     "build": "npm-run-all --serial bootstrap:connected build:client build:server",
+    "build:rendering-host": "npm-run-all --serial bootstrap:connected build:client:rendering-host build:server",
     "scaffold": "node scripts/scaffold-component.js",
     "start:react": "react-scripts start",
     "start:proxy": "node scripts/disconnected-mode-proxy.js",
     "start:watch-components": "node scripts/generate-component-factory.js --watch",
     "build:client": "cross-env-shell PUBLIC_URL=$npm_package_config_sitecoreDistPath \"react-scripts build\"",
+    "build:client:rendering-host": "cross-env-shell PUBLIC_URL=$npm_package_config_tunnelUrl \"react-scripts build\"",
     "build:server": "cross-env-shell NODE_ENV=production \"webpack --config server/server.webpack.config.js\"",
     "bootstrap:connected": "node scripts/bootstrap.js",
     "bootstrap:disconnected": "node scripts/bootstrap.js --disconnected",

@@ -6,27 +6,26 @@ export interface TunnelOptions extends INgrokOptions {
 }
 
 export function startRenderHostTunnel(
-  renderHostUrl: string,
-  { port = 80, protocol = 'http', quiet = false }: INgrokOptions
+  renderHostname: string,
+  options: INgrokOptions = { port: 80, proto: 'http', quiet: false }
 ) {
-  if (!renderHostUrl) {
+  if (!renderHostname) {
     throw new Error(
-      'Unable to start render host tunnel as no URL for the rendering host was specified.'
+      'Unable to start render host tunnel as no hostname for the rendering host was specified.'
     );
   }
 
-  // be sure to strip the scheme/protocol from the host url, otherwise ngrok will make requests like 'http://http://jssbasicapp'.
-  const hostWithoutProtocol = renderHostUrl.replace(`${protocol}://`, '');
-  const rewriteHost = `${hostWithoutProtocol}:${port}`;
+  const rewriteHost = `${renderHostname}:${options.port}`;
+  const finalOptions = {
+    ...options,
+    host_header: 'rewrite',
+    addr: rewriteHost,
+  }
 
   return ngrok
-    .connect({
-      proto: protocol,
-      host_header: 'rewrite',
-      addr: rewriteHost,
-    })
+    .connect(finalOptions)
     .then((url: string) => {
-      if (!quiet) {
+      if (!options.quiet) {
         console.log(`Tunnel started, forwarding '${url}' to '${rewriteHost}'`);
       }
       return url;
