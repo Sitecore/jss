@@ -87,7 +87,7 @@ The React sample app makes use of the [Apollo GraphQL client](https://www.apollo
 JSS ships with a React higher order component that can inject the Sitecore context - in other words route-level data, as opposed to component-level data - into any component. Common examples of needing context data might be to get at page title or meta keywords fields stored on the route level, or to conditionally alter rendering when in Experience Editor mode. Here's an abbreviated example of using it:
 
 ```javascript
-import { withSitecoreContext } from '@sitecorelabs/sitecore-jss-react';
+import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 
 const MyComponent = (props) => <div>Page editing: {props.sitecoreContext.pageEditing}</div>;
 
@@ -100,7 +100,7 @@ Usage of `withSitecoreContext()` is dependent on having a `<SitecoreContext>` co
 _Root.js_ (the root component in your app)
 
 ```javascript
-import { SitecoreContext } from '@sitecorelabs/sitecore-jss-react';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import componentFactory from './componentFactory';
 import SitecoreContextFactory from './SitecoreContextFactory';
 
@@ -114,7 +114,7 @@ export default (props) => (
 _SitecoreContextFactory.js_ (creates and configures the context factory instance; imported above)
 
 ```javascript
-import { SitecoreContextFactory } from '@sitecorelabs/sitecore-jss-react';
+import { SitecoreContextFactory } from '@sitecore-jss/sitecore-jss-react';
 
 export default new SitecoreContextFactory();
 ```
