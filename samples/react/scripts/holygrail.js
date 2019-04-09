@@ -10,7 +10,7 @@ const craWebpackDevServerConfig = require('../node_modules/react-scripts/config/
 
 startRenderHostTunnel('localhost', { port: 5000, subdomain: 'jss' })
   .then((tunnelUrl) => {
-    const browserUrl = `${jssConfig.sitecore.layoutServiceHost}?sc_renderengineurl=${tunnelUrl}`;
+    const browserUrl = `${jssConfig.sitecore.layoutServiceHost}?sc_httprenderengineurl=${tunnelUrl}`;
     // const buildArtifactsPath = path.resolve(__dirname, '../build');
     startDevServer({
       port: 5000,
