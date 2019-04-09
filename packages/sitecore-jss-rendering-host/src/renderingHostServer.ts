@@ -1,13 +1,14 @@
 import compression from 'compression';
 import express, { Express, RequestHandler } from 'express';
 import { PathParams } from 'express-serve-static-core';
-import importFresh from 'import-fresh';
-import path from 'path';
+// import importFresh from 'import-fresh';
+// import path from 'path';
 import {
   AppInvocationInfoResolver,
   SSRMiddleware,
   ssrMiddleware as defaultSSRMiddleware,
 } from './ssrMiddleware';
+import { getDefaultAppInvocationInfoResolver } from './defaultAppInvocationInfoResolver';
 
 export interface RenderingHostServerOptions {
   /**
@@ -61,7 +62,7 @@ export function startRenderingHostServer({
   }
 
   const appInvocationInfoResolver =
-    customAppInvocationInfoResolver || getDefaultAppInvocationInfoResolver();
+    customAppInvocationInfoResolver || getDefaultAppInvocationInfoResolver({});
 
   const middleware = ssrMiddleware
     ? ssrMiddleware({
@@ -100,29 +101,32 @@ function invokeHook(hook: Function | undefined, ...args: any[]) {
   }
 }
 
-function getDefaultAppInvocationInfoResolver(baseAppPath: string = './dist') {
-  const resolver: AppInvocationInfoResolver = (bodyJson: any) => {
-    // default resolution assumes folder structure of:
-    // ./dist/{JSSAppName}/{ServerBundleName}.js
-    const modulePath = path.resolve(baseAppPath, bodyJson.id, bodyJson.moduleName);
-    const resolvedModule = importFresh(modulePath);
-    const resolvedRenderFunctionName = bodyJson.functionName || 'renderView';
-    const renderFunction = resolvedModule[resolvedRenderFunctionName];
+// function getDefaultAppInvocationInfoResolver(baseAppPath: string = './dist') {
+//   const resolver: AppInvocationInfoResolver = (bodyJson: any) => {
+//     // default resolution assumes folder structure of:
+//     // ./dist/{JSSAppName}/{ServerBundleName}.js
+//     const modulePath = path.resolve(baseAppPath, bodyJson.id, bodyJson.moduleName);
+//     const resolvedModule = importFresh(modulePath);
+//     const resolvedRenderFunctionName = bodyJson.functionName || 'renderView';
+//     const renderFunction = resolvedModule[resolvedRenderFunctionName];
 
-    if (!renderFunction) {
-      throw new Error(`The module "${modulePath}" has no export named "${resolvedRenderFunctionName}".
-        Ensure that your server bundle is transpiled to CommonJS (or equivalent) format that can be
-        resolved by Node.js 'require' statement. And ensure that your server entry point exports a function
-        named "${resolvedRenderFunctionName}".`);
-    }
+//     if (!renderFunction) {
+//       throw new Error(`The module "${modulePath}" has no export named "${resolvedRenderFunctionName}".
+//         Ensure that your server bundle is transpiled to CommonJS (or equivalent) format that can be
+//         resolved by Node.js 'require' statement. And ensure that your server entry point exports a function
+//         named "${resolvedRenderFunctionName}".`);
+//     }
 
-    const renderFunctionArgs = bodyJson.args;
+//     const renderFunctionArgs = bodyJson.args;
 
-    return {
-      renderFunction,
-      renderFunctionArgs,
-    };
-  };
+//     return {
+//       renderFunction: (...args) => {
+//         console.log(`[SSR] rendering app at ${modulePath} via render function named ${resolvedRenderFunctionName}`);
+//         return renderFunction(...args);
+//       },
+//       renderFunctionArgs,
+//     };
+//   };
 
-  return resolver;
-}
+//   return resolver;
+// }

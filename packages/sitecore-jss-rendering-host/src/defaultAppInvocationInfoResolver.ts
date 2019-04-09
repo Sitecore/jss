@@ -40,7 +40,10 @@ export function getDefaultAppInvocationInfoResolver({
     const renderFunctionArgs = requestJson.args;
 
     return {
-      renderFunction,
+      renderFunction: (...args) => {
+        console.log(`[SSR] rendering app at ${modulePath} via render function named ${resolvedRenderFunctionName}`);
+        return renderFunction(...args);
+      },
       renderFunctionArgs,
     };
   };
