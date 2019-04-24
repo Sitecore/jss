@@ -5,9 +5,8 @@ const {
 } = require('@sitecore-jss/sitecore-jss-rendering-host');
 const path = require('path');
 const express = require('express');
-const jssConfig = require('../scjssconfig.json');
 
-startRenderHostTunnel('localhost', { port: 5000, subdomain: 'jss' })
+startRenderHostTunnel('localhost', { port: 5000 })
   .then((tunnelUrl) => {
     // const buildArtifactsPath = path.resolve(__dirname, '../build');
     startRenderingHostServer({
