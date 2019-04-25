@@ -6,7 +6,7 @@ import SearchBox from './SearchBox';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import sidenav from '../sidenav';
 import Menu from 'antd/lib/menu';
-import 'antd/lib/menu/style/index.css';
+//import 'antd/lib/menu/style/index.css';
 const SubMenu = Menu.SubMenu;
 
 // state management ftw
@@ -56,10 +56,12 @@ class SideNav extends React.Component {
     const openMenus = Array.from(openMenuState);
     const selected = location.pathname.split('/').reverse()[0];
     const navkey = this.props.navkey;
+    const searchbox = (this.props.useSearch == 'true') ? <SearchBox /> : '';
 
     return (
-      <div className="side-nav">
-        <SearchBox />
+      <div className={"side-nav " + navkey}>                           
+        {searchbox}
+
         <Menu
           defaultOpenKeys={openMenus}
           defaultSelectedKeys={[selected]}

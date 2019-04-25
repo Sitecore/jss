@@ -5,6 +5,11 @@ fields:
 placeholders:
   jssdocs-main:
   - componentName: ArticleContainer
+    fields:    
+      sidenav:
+        value: docs
+      useSearch:
+        value: 'true'
     placeholders:
       jssdocs-jumbo:
         - componentName: FeatureJumboShort

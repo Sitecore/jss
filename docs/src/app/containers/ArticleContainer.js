@@ -18,7 +18,10 @@ const ArticleContainer = ({ fields, rendering, sitecoreContext }) => (
           <Placeholder name="jssdocs-content" rendering={rendering} />
         </main>
         <aside className="col-md-4 pt-4 pb-4 pt-md-5 pb-md-5 pr-lg-5 left-col order-last order-md-first">
-          <SideNav navkey={(fields.sidenav) ? fields.sidenav.value : "docs"}/>
+          <SideNav 
+            navkey={(fields.sidenav) ? fields.sidenav.value : "docs"} 
+            useSearch={(fields.useSearch) ? fields.useSearch.value : "false"}
+            />
         </aside>
       </div>
     </div>
@@ -27,6 +30,10 @@ const ArticleContainer = ({ fields, rendering, sitecoreContext }) => (
 
 ArticleContainer.propTypes = {
   fields: PropTypes.shape({
+    useSearch: PropTypes.shape({
+      value: PropTypes.string,
+      editable: PropTypes.string
+    }),
     sidenav: PropTypes.shape({
       value: PropTypes.string,
       editable: PropTypes.string

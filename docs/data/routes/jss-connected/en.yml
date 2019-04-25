@@ -8,6 +8,8 @@ placeholders:
     fields:
       sidenav:
         value: jssConnected
+      useSearch:
+        value: 'false'
     placeholders:
       jssdocs-jumbo:
         - componentName: FeatureJumboShort

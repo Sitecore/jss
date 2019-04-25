@@ -5,7 +5,11 @@ export default (manifest) => {
       {
         name: 'sidenav',
         type: manifest.fieldTypes.singleLineText,
-      }
+      },
+      {
+        name: 'useSearch',
+        type: manifest.fieldTypes.singleLineText,
+      },
     ],
   });
 };
