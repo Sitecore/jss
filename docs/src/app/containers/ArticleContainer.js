@@ -18,11 +18,22 @@ const ArticleContainer = ({ fields, rendering, sitecoreContext }) => (
           <Placeholder name="jssdocs-content" rendering={rendering} />
         </main>
         <aside className="col-md-4 pt-4 pb-4 pt-md-5 pb-md-5 pr-lg-5 left-col order-last order-md-first">
-          <SideNav />
+          <SideNav navkey={(fields.sidenav) ? fields.sidenav.value : "docs"}/>
         </aside>
       </div>
     </div>
   </div>
 );
+
+ArticleContainer.propTypes = {
+  fields: PropTypes.shape({
+    sidenav: PropTypes.shape({
+      value: PropTypes.string,
+      editable: PropTypes.string
+    })
+  }),
+
+
+};
 
 export default withSitecoreContext()(ArticleContainer);

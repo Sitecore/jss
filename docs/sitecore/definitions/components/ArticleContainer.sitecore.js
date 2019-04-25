@@ -1,6 +1,11 @@
 export default (manifest) => {
   manifest.addComponent({
     name: 'ArticleContainer',
-    fields: [],
+    fields: [
+      {
+        name: 'sidenav',
+        type: manifest.fieldTypes.singleLineText,
+      }
+    ],
   });
 };
