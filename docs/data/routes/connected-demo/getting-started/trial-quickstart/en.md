@@ -1,10 +1,10 @@
 ---
-name: getting-started
-routeTemplate: ./data/routes/jss-connected/en.yml
-title: Getting Started
+name: trial-quickstart
+routeTemplate: ./data/routes/connected-demo/en.yml
+title: Trial Quickstart
 ---
 
-## Getting Started
+## Trial Quickstart
 Follow the steps for connecting to the Habitat Fitness Sitecore JSS website.
 
 While in Connected mode, complete the following steps to see any code updates or changes you make and review your analytics while on your local instance. 

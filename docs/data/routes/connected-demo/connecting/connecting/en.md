@@ -1,10 +1,10 @@
 ---
 name: connecting
-routeTemplate: ./data/routes/jss-connected/en.yml
+routeTemplate: ./data/routes/connected-demo/en.yml
 title: Connecting
 ---
 
-#Connecting to Habitat Fitness Sitecore JSS Website
+#Connecting to Habitat Fitness
 
 ## Node.js
 Developing JSS apps requires Node.js. It is recommended you use the latest available release.
@@ -12,7 +12,7 @@ Developing JSS apps requires Node.js. It is recommended you use the latest avail
 - To check which version you have, run  `node -v`  in a terminal/console window
 - To download and install Node.js, go to https://nodejs.org 
 
-## Installing the Habitat Fitness Demo App Project
+## Installing the Habitat Fitness Demo App
 
 ### Step 1: Clone or Download the Habitat Fitness Repo 
 You can find the Habitat Fitness demo project here:

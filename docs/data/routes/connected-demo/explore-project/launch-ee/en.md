@@ -1,6 +1,6 @@
 ---
 name: launch-ee
-routeTemplate: ./data/routes/jss-connected/en.yml
+routeTemplate: ./data/routes/connected-demo/en.yml
 title: Launch Experience Editor
 ---
 

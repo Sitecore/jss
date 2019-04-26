@@ -1,6 +1,6 @@
 ---
 name: personalization-in-ee
-routeTemplate: ./data/routes/jss-connected/en.yml
+routeTemplate: ./data/routes/connected-demo/en.yml
 title: Personalization in Experience Editor
 ---
 

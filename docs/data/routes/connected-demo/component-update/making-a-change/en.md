@@ -1,10 +1,10 @@
 ---
 name: making-a-change
-routeTemplate: ./data/routes/jss-connected/en.yml
+routeTemplate: ./data/routes/connected-demo/en.yml
 title: Making a Change to a Component
 ---
 
-# Component Update
+# Updating Component
 
 ## Making a Change to a Component
 

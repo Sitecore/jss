@@ -1,6 +1,6 @@
 ---
 name: xprofile
-routeTemplate: ./data/routes/jss-connected/en.yml
+routeTemplate: ./data/routes/connected-demo/en.yml
 title: Data Generation for xProfile
 ---
 # Data Generation for xProfile

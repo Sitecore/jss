@@ -670,7 +670,7 @@ export default {
   },
 
   jssConnected: {
-    url: 'jss-connected',
+    url: 'connected-demo',
     displayName: 'JSS Connected',
     children: [
       {
@@ -678,26 +678,26 @@ export default {
         displayName: 'Getting Started',
         children: [
           {
-            url: 'getting-started',
-            displayName: 'Getting Started With JSS Connected Demo',
+            url: 'trial-quickstart',
+            displayName: 'Trial Quickstart',
           }
         ]
       },
       {
         url: 'connecting',
-        displayName: 'Connecting to the Habitat Fitness Sitecore JSS Website',
+        displayName: 'Connecting to Habitat Fitness',
         children: [
           {
             url: 'connecting',
             displayName: 'Node.js',
           },
           {
-            url: 'connecting#installing-the-habitat-fitness-demo-app-project',
-            displayName: 'Installing Habitat Fitness Demo App Project',
+            url: 'connecting#installing-the-habitat-fitness-demo-app',
+            displayName: 'Installing Habitat Fitness Demo App',
           },
           {
             url: 'connecting#connecting-the-local-app-to-the-sitecore-instance',
-            displayName: 'Connecting the Local App to the Sitecore Instance',
+            displayName: 'Connecting App to Sitecore',
           }
         ]
       },
@@ -707,24 +707,19 @@ export default {
         children: [
           {
             url: 'xprofile',
-            displayName: 'Interact with the app to generate data for xProfile',
+            displayName: 'Generate data for xProfile',
           },
         ]
       },
+
       {
-        url: 'experience-editor',
-        displayName: 'Experience Editor',
+        url: 'explore-project',
+        displayName: 'Exploring Habitat Fitness Project',
         children: [
           {
             url: 'launch-ee',
             displayName: 'Launch Experience Editor',
           },
-        ]
-      },
-      {
-        url: 'personalization',
-        displayName: 'Personalization',
-        children: [
           {
             url: 'personalization-in-ee',
             displayName: 'Personalization in Experience Editor',
@@ -733,12 +728,6 @@ export default {
             url: 'personalization-in-ee#how-the-rule-is-built',
             displayName: 'How the Rule is Built',
           },
-        ]
-      },
-      {
-        url: 'xprofile',
-        displayName: 'xProfile',
-        children: [
           {
             url: 'launch-xprofile',
             displayName: 'Launch Experience Profile',
@@ -747,7 +736,7 @@ export default {
       },
       {
         url: 'component-update',
-        displayName: 'Component Update',
+        displayName: 'Updating Component',
         children: [
           {
             url: 'making-a-change',
@@ -761,7 +750,7 @@ export default {
         children: [
           {
             url: 'explore',
-            displayName: 'Explore where the data lives in Sitecore Content Editor',
+            displayName: 'Explore Data in Sitecore Content Editor',
           },
           {
             url: 'graph-browser',
