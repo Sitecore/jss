@@ -671,90 +671,63 @@ export default {
 
   jssConnected: {
     url: 'connected-demo',
-    displayName: 'JSS Connected',
+    displayName: 'Connected Demo',
     children: [
       {
         url: 'getting-started',
         displayName: 'Getting Started',
         children: [
           {
-            url: 'trial-quickstart',
-            displayName: 'Trial Quickstart',
-          }
-        ]
-      },
-      {
-        url: 'connecting',
-        displayName: 'Connecting to Habitat Fitness',
-        children: [
+            url: 'prerequisites',
+            displayName: 'Prerequisites',
+          },
+          {
+            url: 'repository',
+            displayName: 'Cloning repository',
+          },
           {
             url: 'connecting',
-            displayName: 'Node.js',
-          },
-          {
-            url: 'connecting#installing-the-habitat-fitness-demo-app',
-            displayName: 'Installing Habitat Fitness Demo App',
-          },
-          {
-            url: 'connecting#connecting-the-local-app-to-the-sitecore-instance',
-            displayName: 'Connecting App to Sitecore',
+            displayName: 'Connecting to Sitecore',
           }
         ]
       },
       {
-        url: 'data-generation',
-        displayName: 'Data Generation for xProfile',
-        children: [
-          {
-            url: 'xprofile',
-            displayName: 'Generate data for xProfile',
-          },
-        ]
-      },
-
-      {
-        url: 'explore-project',
-        displayName: 'Exploring Habitat Fitness Project',
+        url: 'explore-sitecore',
+        displayName: 'Exploring Sitecore',
         children: [
           {
             url: 'launch-ee',
-            displayName: 'Launch Experience Editor',
+            displayName: 'Experience Editor',
+          },
+          {
+            url: 'explore',
+            displayName: 'Content Editor',
           },
           {
             url: 'personalization-in-ee',
-            displayName: 'Personalization in Experience Editor',
+            displayName: 'Personalization',
           },
           {
-            url: 'personalization-in-ee#how-the-rule-is-built',
-            displayName: 'How the Rule is Built',
+            url: 'xprofile',
+            displayName: 'Generating Data for xProfile',
           },
           {
             url: 'launch-xprofile',
-            displayName: 'Launch Experience Profile',
+            displayName: 'Launching xProfile',
           }
         ]
       },
       {
-        url: 'component-update',
-        displayName: 'Updating Component',
+        url: 'explore-code',
+        displayName: 'Exploring Code',
         children: [
           {
-            url: 'making-a-change',
-            displayName: 'Making a Change to a Component',
-          }
-        ]
-      },
-      {
-        url: 'graphql',
-        displayName: 'GraphQL',
-        children: [
+            url: 'updating-component',
+            displayName: 'Updating a Component',
+          },      
           {
-            url: 'explore',
-            displayName: 'Explore Data in Sitecore Content Editor',
-          },
-          {
-            url: 'graph-browser',
-            displayName: 'The Graph Browser',
+            url: 'graphql',
+            displayName: 'GraphQL',
           }
         ]
       },

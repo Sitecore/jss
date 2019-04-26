@@ -5,7 +5,6 @@ title: Launch Experience Editor
 ---
 
 # Experience Editor
-## Launch Experience Editor
 Navigate to the Sitecore log-in screen and enter the login credentials provided in your confirmation email.
 
 <p>

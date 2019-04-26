@@ -1,12 +1,10 @@
 ---
-name: making-a-change
+name: updating-component
 routeTemplate: ./data/routes/connected-demo/en.yml
-title: Making a Change to a Component
+title: Updating a Component
 ---
 
-# Updating Component
-
-## Making a Change to a Component
+# Updating a Component
 
 We can make changes to a component in our local application, then see those changes refreshed in the browser immediately.
 
