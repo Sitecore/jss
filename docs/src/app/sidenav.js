@@ -373,10 +373,6 @@ export default {
             displayName: 'Experience Editor',
           },
           {
-            url: 'explore',
-            displayName: 'Content Editor',
-          },
-          {
             url: 'personalization-in-ee',
             displayName: 'Personalization',
           },
