@@ -29,9 +29,9 @@ In this exercise you will utilize a GraphQL query to output a list of events for
       <p><img src="/assets/img/GraphQL02.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
-      <p>In the content tree on the left, under Sitecore &#62; content &#62; Habitat Fitness > Home, expand the Events node. </p>      
+      <p>In the content tree on the left, under <em>Sitecore &#62; content &#62; Habitat Fitness > Home</em>, expand the Events node. </p>      
       <p>The folders are arranged by region. Keep expanding until you find a base event page node that contains the data for the query. </p>      
-      <p>Click on Canada &#62; Alberta &#62; Banff &#62; Banff 3 on 3 Basketball Challenge. You can review the content details in the pane on the right.</p>      
+      <p>Click on <em>Canada &#62; Alberta &#62; Banff &#62; Banff 3 on 3 Basketball Challenge</em>. You can review the content details in the pane on the right.</p>      
     </div>
   </div>
 <p>
@@ -40,17 +40,13 @@ Now that you know where the data lives, it’s time to create a query.
 
 ## The Graph Browser
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL03.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>In your browser, navigate to <code>/Sitecore/api/graph/items/master/ui</code> to bring up the Sitecore Experience Graph Browser.</p>
-      <p>This tool gives users a place to write and test custom queries. The left pane allows for query input. The right pane will display return results.</p>
-    </div>
-  </div>
-<p>
+In your browser, navigate to `/Sitecore/api/graph/items/master/ui` to bring up the Sitecore Experience Graph Browser.
+
+![Habitat Fitness](/assets/img/GraphQL03.png)
+
+This tool gives users a place to write and test custom queries. The left pane allows for query input. The right pane will display return results.
+
+<br><br>
 
 <p>
   <div class="row">
@@ -100,67 +96,49 @@ Now that you know where the data lives, it’s time to create a query.
   </div>
 <p>
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL08.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Now that you have gathered most of the pertinent info, it’s time to put together a query.</p>
-      <p>Start by calling search, passing in a <code>fieldsEqual</code> parameter. This will be an array of <em>name:value</em> pairs indicating which fields to specifically query on, and what you want those values to be. If you pass in multiple objects, the query will AND them together. </p>
-      <p>For this exercise, find all the items under the Events node, so specify a <code>_fullpath</code> value that contains that full path, appended with a wildcard so as to get the node’s children. </p>
-      <p>Now specify how the return results should be formatted. After looking at the schema for <strong>ContentSearchResults</strong>, you will see a results object of the type <strong>ContentSearchResultConnection</strong>. That object will in turn have an <strong>items</strong> array. Items have a <code>name</code> property, so just return that for now.</p>      
-    </div>
-  </div>
-<p>
+Now that you have gathered most of the pertinent info, it’s time to put together a query.
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL09.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Execute the query. You should get the following result.</p>
-      <p>This pulls back every item under the Events node. This isn’t helpful yet, though, as it’s pulling back every node. </p>
-      <p>Refine the search by searching only for those Event Page nodes that contain the data you want.</p>     
-    </div>
-  </div>
-<p>
+Start by calling search, passing in a `fieldsEqual` parameter. This will be an array of _name : value_ pairs indicating which fields to specifically query on, and what you want those values to be. If you pass in multiple objects, the query will AND them together. 
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL10.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Return to the Content Editor and view the Canada &#62; Alberta &#62; Banff &#62; Banff 3 on 3 Basketball Challenge node, and verify in “Quick Info” that its template type is event-page. </p>     
-    </div>
-  </div>
-<p>
+![Habitat Fitness](/assets/img/GraphQL08.png)
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL11.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Return to the query, and add another object to the <code>fieldsEqual</code> array.</p>
-      <p>This time, specify that you need these items to also have a <code>_templatename</code> property equal to “event-page”.</p>     
-    </div>
-  </div>
-<p>
+For this exercise, find all the items under the Events node, so specify a `_fullpath` value that contains that full path, appended with a wildcard so as to get the node’s children.
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL12.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Execute the query and see that the result set has been refined.</p>
-      <p>Now that you are getting the nodes you need, start pulling the event data for these items. </p>     
-    </div>
-  </div>
-<p>
+Now specify how the return results should be formatted. After looking at the schema for **ContentSearchResults**, you will see a results object of the type **ContentSearchResultConnection**. That object will in turn have an `items` array. Items have a `name` property, so just return that for now.
+
+<br>
+
+Execute the query. You should get the following result.
+
+![Habitat Fitness](/assets/img/GraphQL09.png)
+
+This pulls back every item under the Events node. This isn’t helpful yet, though, as it’s pulling back every node.
+
+Refine the search by searching only for those Event Page nodes that contain the data you want.
+
+<br>
+
+Return to the Content Editor and view the _Canada &#62; Alberta &#62; Banff &#62; Banff 3 on 3 Basketball Challenge_ node, and verify in “Quick Info” that its template type is event-page.
+
+![Habitat Fitness](/assets/img/GraphQL10.png)
+
+<br>
+
+Return to the query, and add another object to the `fieldsEqual` array.
+
+This time, specify that you need these items to also have a `_templatename` property equal to `“event-page”`.
+
+![Habitat Fitness](/assets/img/GraphQL11.png)
+
+<br>
+
+Execute the query and see that the result set has been refined.
+
+![Habitat Fitness](/assets/img/GraphQL12.png)
+
+Now that you are getting the nodes you need, start pulling the event data for these items.
+
+<br>
 
 <p>
   <div class="row">
@@ -168,10 +146,12 @@ Now that you know where the data lives, it’s time to create a query.
       <p><img src="/assets/img/GraphQL13.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
-      <p>To find these in the schema, go back to the Documentation Explorer and drill down to Query &#62; ContentSearchResults &#62; ContentSearchResultConnection, and then click on the <strong>ContentSearchResult</strong> beside items.</p>     
+      <p>To find these in the schema, go back to the Documentation Explorer and drill down to <em>Query &#62; ContentSearchResults &#62; ContentSearchResultConnection</em>, then click on the items type, <strong>ContentSearchResult</strong>.</p>     
     </div>
   </div>
 <p>
+
+<br>
 
 <p>
   <div class="row">
@@ -179,80 +159,70 @@ Now that you know where the data lives, it’s time to create a query.
       <p><img src="/assets/img/GraphQL14.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
-      <p>This will show the ContentSearchResult schema.</p>      
+      <p>This will show the <strong>ContentSearchResult</strong> schema.</p>      
     </div>
   </div>
 <p>
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL15.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Fields is the property you will need. It is an array of <em>name:value</em> pairs associated with this item. Add it to the query return to see what is available.</p>      
-    </div>
-  </div>
-<p>
+<br>
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL16.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Execute the query and see that each node is pulling back a lot of useful information.</p>      
-    </div>
-  </div>
-<p>
+The property you will need is `fields`, an array of <em>name : value</em> pairs associated with this item. Add it to the query return to see what is available.
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL17.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Too much information, actually, and not in a format that an application can easily reference without iterating through an array every time it needs to retrieve one of these values.</p>
-      <p>Clean this up by adding your own properties to the result object, and using the <code>field()</code> function to retrieve the field values you want.</p>
-      <p>Start by setting the items name to the event’s <code>name</code> field. (for clarity, comment out the <code>fields</code> property)</p>      
-    </div>
-  </div>
-<p>
+![Habitat Fitness](/assets/img/GraphQL15.png)
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL18.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Execute the query and get the following.<p>
-      <p>Now add a few more fields that you will need, like <code>description</code>, <code>date</code>, <code>image</code>, <code>latitude</code>, <code>longitude</code>, etc. </p>      
-    </div>
-  </div>
-<p>
+<br>
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL19.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Set this array of <code>items</code> to a property named <code>events</code>.</p>     
-    </div>
-  </div>
-<p>
+Execute the query and see that each node is pulling back a lot of useful information.
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL20.png" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Execute the query once again and get a nicely formatted result set that looks like this.</p>
-      <p>Excellent! That looks like some usable data! </p>     
-    </div>
-  </div>
-<p>
+![Habitat Fitness](/assets/img/GraphQL16.png)
+
+<br>
+
+Too much information, actually, and not in a format that an application can easily reference without iterating through an array every time it needs to retrieve one of these values.
+
+Clean this up by adding your own properties to the result object, and using the `field()` function to retrieve the field values you want.
+
+Start by setting the items name to the event’s `name` field. (for clarity, comment out the `fields` property)
+
+![Habitat Fitness](/assets/img/GraphQL17.png)
+
+<br>
+
+Execute the query and get the following.
+
+Now add a few more fields that you will need, like `description`, `date`, `image`, `latitude`, `longitude`, etc. 
+
+![Habitat Fitness](/assets/img/GraphQL18.png)
+
+<br>
+
+Set this array of `items` to a property named `events`.
+
+![Habitat Fitness](/assets/img/GraphQL19.png)
+
+<br>
+
+Execute the query once again and get a nicely formatted result set that looks like this.
+
+![Habitat Fitness](/assets/img/GraphQL20.png)
+
+Excellent! That looks like some usable data! 
+
+However, having the image name alone isn’t particularly useful. What is needed to display an image are the src and alt properties. These can be found by accessing the `Item` object and its `fields: [ItemFields]` array.
+
+Write a small fragment below the query that will cast the ItemField as an ObjectField, and retrieve the value needed.
+
+![Habitat Fitness](/assets/img/GraphQL21.png)
+
+<br>
+
+Now when run the query to see the following:
+
+![Habitat Fitness](/assets/img/GraphQL22.png)
+
+Now the image alt and src data is available to display the image in a component. Excellent!
+
+<br>
 
 From here, you might want to add facets to the search; For instance, what if you wanted to look for only items associated with a given language? You might also want to narrow the search to a specific province. 
 

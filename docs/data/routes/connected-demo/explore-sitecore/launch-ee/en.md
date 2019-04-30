@@ -25,20 +25,14 @@ Navigate to the Sitecore log-in screen and enter the login credentials provided 
       <p><img src="/assets/img/ExperienceEditor2.jpg" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
-      <p>View the  in EE mode.</p>
+      <p>View in EE mode.</p>
       <p>From here you can edit the Event Title or Event Description inline right on this page. </p>
     </div>
   </div>
 <p>
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/ExperienceEditor3.jpg" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>View the  in EE mode.</p>
-      <p>To make edits and access the various inline toolbars, click on the Home tab in the EE Navigation and select Edit.</p>
-    </div>
-  </div>
-<p>
+
+To make edits and access the various inline toolbars, click on the Home tab in the EE Navigation and select Edit.
+
+![Habitat Fitness](/assets/img/ExperienceEditor3.jpg)
+

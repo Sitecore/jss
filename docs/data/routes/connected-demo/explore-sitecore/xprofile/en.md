@@ -6,6 +6,7 @@ title: Data Generation for xProfile
 # Data Generation for xProfile
 
 ## Interact with the app to generate data for xProfile
+
 <p>
   <div class="row">
     <div class="col-md-6"> 
@@ -28,46 +29,41 @@ title: Data Generation for xProfile
   </div>
 <p>
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/DataGen3.jpg" alt="Habitat Fitness"></p>    
-    </div>
-    <div class="col-md-6"> 
-      <p>Move the Skill Level slider to “Expert.”</p>
-      <p>Enter whatever you’d like for Gender and Age Range on the next screen.</p>
-      <p>Enter a sample email in the final screen.</p>
-      <p><em>NOTE: This does not have to be a real email address, it only needs to be something you can remember so that you can locate it in the xProfile later on.</em></p>
-      <p>Clicking into the next screen will provide you with an experience personalized to your stated interest in Basketball.</p>
-    </div>
-  </div>
-<p>
+<br/><br/>
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/DataGen4.jpg" alt="Habitat Fitness"></p>    
-    </div>
-    <div class="col-md-6"> 
-      <p>Favorite a few of the events by clicking into the event and then clicking on the heart in the upper right corner. Be sure to favorite and then unfavorite at least one.</p>      
-      <p><em>NOTE: These are Sitecore Goals being triggered behind the scenes.</em></p>      
-      <p>Register for an event by clicking on the “Sign Up” button.</p>
-    </div>
-  </div>
-<p>
+Move the Skill Level slider to “Expert.”
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/DataGen5.jpg" alt="Habitat Fitness"></p>    
-    </div>
-    <div class="col-md-6"> 
-      <p>Once you have signed up, click on the bell to register for notifications.</p>      
-      <p><em>NOTE: These are Sitecore Goals being triggered behind the scenes.</em></p>      
-      <p>Feel free to explore the app and trigger any additional notifications on other pages. Once you are done with your independent exploring proceed to the next step.</p>
-    </div>
-  </div>
-<p>
+![Habitat Fitness](/assets/img/DataGen3.jpg)
+
+Enter whatever you’d like for Gender and Age Range on the next screen.
+
+Enter a sample email in the final screen.
+
+_NOTE: This does not have to be a real email address, it only needs to be something you can remember so that you can locate it in the xProfile later on._
+
+Clicking into the next screen will provide you with an experience personalized to your stated interest in Basketball.
+
+<br/><br/>
+
+Favorite a few of the events by clicking into the event and then clicking on the heart in the upper right corner. Be sure to favorite and then unfavorite at least one.
+
+![Habitat Fitness](/assets/img/DataGen4.jpg)
+
+_NOTE: These are Sitecore Goals being triggered behind the scenes._
+
+Register for an event by clicking on the “Sign Up” button.
+
+<br/><br/>
+
+Once you have signed up, click on the bell to register for notifications.
+
+![Habitat Fitness](/assets/img/DataGen5.jpg)
+
+_NOTE: These are Sitecore Goals being triggered behind the scenes._
+
+Feel free to explore the app and trigger any additional notifications on other pages. Once you are done with your independent exploring proceed to the next step.
+
+<br/><br/>
 
 <p>
   <div class="row">

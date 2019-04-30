@@ -23,46 +23,28 @@ The Latest Visit panel contains a link to the Visit Detail report, which display
   </div>
 <p>
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/xProfile2.jpg" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Locate the contact name you created in the first step and click. </p>   
-    </div>
-  </div>
-<p>
+<br/>
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/xProfile3.jpg" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>In the overview tab you’ll be able to see the events that you interacted with in the first stage, including any goals you triggered and those personalization events you interacted with. </p>   
-    </div>
-  </div>
-<p>
+Locate the contact name you created in the first step and click.
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/xProfile4.jpg" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>The Activity tab will divide activity by Goals, Outcomes, Campaigns, etc. You’ll be able to see the Activity you generated in this tab.</p>   
-    </div>
-  </div>
-<p>
+![Habitat Fitness](/assets/img/xProfile2.jpg)
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/xProfile5.jpg" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>The Profile tab will show you the best pattern matches four your profile based on information you provided and activities you completed in the first step. </p>   
-    </div>
-  </div>
-<p>
+<br/><br/>
+
+In the overview tab you’ll be able to see the events that you interacted with in the first stage, including any goals you triggered and those personalization events you interacted with.
+
+![Habitat Fitness](/assets/img/xProfile3.jpg)
+
+<br/><br/>
+
+The Activity tab will divide activity by Goals, Outcomes, Campaigns, etc. You’ll be able to see the Activity you generated in this tab.
+
+![Habitat Fitness](/assets/img/xProfile4.jpg)
+
+<br/><br/>
+
+The Profile tab will show you the best pattern matches four your profile based on information you provided and activities you completed in the first step.
+
+![Habitat Fitness](/assets/img/xProfile5.jpg)
+
+<br/><br/>
