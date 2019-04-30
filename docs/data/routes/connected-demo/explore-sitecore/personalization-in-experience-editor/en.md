@@ -1,13 +1,10 @@
 ---
-name: personalization-in-ee
+name: personalization-in-experience-editor
 routeTemplate: ./data/routes/connected-demo/en.yml
 title: Personalization in Experience Editor
 ---
 
-# Personalization
-
-## Personalization in Experience Editor
-
+# Personalization in Experience Editor
 
 Click on the Featured Event (specifically the image) to open the tool bar.
 

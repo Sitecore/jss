@@ -369,11 +369,11 @@ export default {
         displayName: 'Exploring Sitecore',
         children: [
           {
-            url: 'launch-ee',
+            url: 'experience-editor',
             displayName: 'Experience Editor',
           },
           {
-            url: 'personalization-in-ee',
+            url: 'personalization-in-experience-editor',
             displayName: 'Personalization',
           },
           {

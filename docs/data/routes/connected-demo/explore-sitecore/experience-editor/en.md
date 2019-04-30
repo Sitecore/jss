@@ -1,7 +1,7 @@
 ---
-name: launch-ee
+name: experience-editor
 routeTemplate: ./data/routes/connected-demo/en.yml
-title: Launch Experience Editor
+title: Experience Editor
 ---
 
 # Experience Editor
