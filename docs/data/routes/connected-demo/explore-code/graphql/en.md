@@ -100,7 +100,19 @@ Now that you have gathered most of the pertinent info, it’s time to put togeth
 
 Start by calling search, passing in a `fieldsEqual` parameter. This will be an array of _name : value_ pairs indicating which fields to specifically query on, and what you want those values to be. If you pass in multiple objects, the query will AND them together. 
 
-![Habitat Fitness](/assets/img/GraphQL08.png)
+```javascript
+{
+  search(fieldsEqual: [{
+    name: "_fullpath", 
+    value: "/sitecore/content/habitatfitness/home/events*"}]) {
+    results {
+      items {
+        name
+      }
+    }
+  }
+}
+```
 
 For this exercise, find all the items under the Events node, so specify a `_fullpath` value that contains that full path, appended with a wildcard so as to get the node’s children.
 
@@ -128,7 +140,19 @@ Return to the query, and add another object to the `fieldsEqual` array.
 
 This time, specify that you need these items to also have a `_templatename` property equal to `“event-page”`.
 
-![Habitat Fitness](/assets/img/GraphQL11.png)
+```javascript
+{
+  search(fieldsEqual: [
+    {name: "_fullpath", value: "/sitecore/content/habitatfitness/home/events*"}, 
+    {name: "_templatename", value: "event-page"}]) {
+    results {
+      items {
+        name
+      }
+    }
+  }
+}
+```
 
 <br>
 
@@ -168,7 +192,25 @@ Now that you are getting the nodes you need, start pulling the event data for th
 
 The property you will need is `fields`, an array of <em>name : value</em> pairs associated with this item. Add it to the query return to see what is available.
 
-![Habitat Fitness](/assets/img/GraphQL15.png)
+```javascript
+{ 
+  search(fieldsEqual: [
+    {name:"_fullpath", value:"/sitecore/content/habitatfitness/home/events*"},
+    {name:"_templatename", value:"event-page" }
+  ]){
+    results{
+      items {        
+        name
+        fields{
+          name
+          value
+        }
+      }
+    }
+  }
+}
+
+```
 
 <br>
 
@@ -184,21 +226,54 @@ Clean this up by adding your own properties to the result object, and using the 
 
 Start by setting the items name to the event’s `name` field. (for clarity, comment out the `fields` property)
 
-![Habitat Fitness](/assets/img/GraphQL17.png)
+```javascript
+{ 
+  search(fieldsEqual: [
+    {name:"_fullpath", value:"/sitecore/content/habitatfitness/home/events*"},
+    {name:"_templatename", value:"event-page" }
+  ]){
+    results{
+      items {        
+        name: field(name: "name")   
+        #fields{
+          #name
+          #value
+        #}
+      }
+    }
+  }
+}
+```
 
 <br>
 
 Execute the query and get the following.
 
-Now add a few more fields that you will need, like `description`, `date`, `image`, `latitude`, `longitude`, etc. 
-
 ![Habitat Fitness](/assets/img/GraphQL18.png)
 
 <br>
 
-Set this array of `items` to a property named `events`.
+Now add a few more fields that you will need, like `description`, `date`, `image`, `latitude`, `longitude`, etc. Then set this array of `items` to a property named `events`.
 
-![Habitat Fitness](/assets/img/GraphQL19.png)
+```javascript
+{ 
+  search(fieldsEqual: [
+    {name:"_fullpath", value:"/sitecore/content/habitatfitness/home/events*"},
+    {name:"_templatename", value:"event-page" }
+  ]){
+    results{
+      events: items {        
+        name: field(name: "name")   
+        description: field(name: "description")      
+        date: field(name: "date")
+        image: field(name: "image")         
+        latitude: field(name: "latitude") 
+        longitude: field(name: "longitude")				
+      }
+    }
+  }
+}
+```
 
 <br>
 
@@ -210,17 +285,53 @@ Excellent! That looks like some usable data!
 
 However, having the image name alone isn’t particularly useful. What is needed to display an image are the src and alt properties. These can be found by accessing the `Item` object and its `fields: [ItemFields]` array.
 
-Write a small fragment below the query that will cast the ItemField as an ObjectField, and retrieve the value needed.
+Write a small _fragment_ below the query named ImageQuery. It will cast the incoming **ItemField** as an **ImageField**, returning its `alt` and `src` values.
 
-![Habitat Fitness](/assets/img/GraphQL21.png)
+```javascript
+fragment ImageQuery on ImageField {
+  alt
+  src
+}
+```
+
+Now add an 'item' property that retrieves a field named `image`. Have it reference our ImageQuery fragment. 
+```javascript
+{ 
+  firstSearch: search(fieldsEqual: [
+    {name:"_fullpath", value:"/sitecore/content/habitatfitness/home/events*"},
+    {name:"_templatename", value:"event-page" }
+  ]){
+    results{
+      items {        
+        name: field(name: "name")                
+        description: field(name: "description") 
+        date: field(name: "date")
+        latitude: field(name: "latitude") 
+        longitude: field(name: "longitude")				
+        item{
+          image: field(name: "image"){
+            ...ImageQuery
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment ImageQuery on ImageField {
+  alt
+  src
+}
+```
+
 
 <br>
 
-Now when run the query to see the following:
+Now run the query to see the following:
 
 ![Habitat Fitness](/assets/img/GraphQL22.png)
 
-Now the image alt and src data is available to display the image in a component. Excellent!
+Now the image `alt` and `src` data is available to display the image in a component. Excellent!
 
 <br>
 

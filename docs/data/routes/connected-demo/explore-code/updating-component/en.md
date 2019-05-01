@@ -20,7 +20,7 @@ Find the `<NavLink>` tag that wraps the `<Text>` field for our event items name.
 
 <br><br>
 
-Change the order of the <code>&#60;NavLink&#62;</code> and <code>&#60;DateField&#62;</code> tags so that <code>&#60;DateField&#62;</code> appears first.
+Change the order of the `<NavLink>` and `<DateField>` tags so that `<DateField>` appears first.
 
 ![Habitat Fitness](/assets/img/Changes2.png)
 
