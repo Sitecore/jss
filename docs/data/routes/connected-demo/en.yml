@@ -5,11 +5,11 @@ fields:
 placeholders:
   jssdocs-main:
   - componentName: ArticleContainer
-    fields:    
+    fields:
       sidenav:
-        value: docs
+        value: jssConnected
       useSearch:
-        value: 'true'
+        value: 'false'
     placeholders:
       jssdocs-jumbo:
         - componentName: FeatureJumboShort
@@ -21,9 +21,9 @@ placeholders:
             csscolorclass:
               value: default
             title:
-              value: Documentation
+              value: JSS Connected Demo
             text:
-              value: Read and search through all the Sitecore JSS documentation
+              value: Unlock the full potential of Sitecore with JSS in a live demo environment
       jssdocs-content:
         - componentName: Article
           fields:
