@@ -54,9 +54,13 @@ class SideNav extends React.Component {
     const { history, location } = this.props;
     const openMenus = Array.from(openMenuState);
     const selected = location.pathname.split('/').reverse()[0];
+    const navkey = this.props.navkey;
+    const searchbox = (this.props.useSearch == 'true') ? <SearchBox /> : '';
+
     return (
-      <div className="side-nav">
-        <SearchBox />
+      <div className="side-nav">                           
+        {searchbox}
+
         <Menu
           defaultOpenKeys={openMenus}
           defaultSelectedKeys={[selected]}
@@ -64,15 +68,15 @@ class SideNav extends React.Component {
           selectable={false}
           mode="inline"
         >
-          {sidenav.children.map((menuItem) => renderMenu(`/${sidenav.url}`, menuItem, history))}
+          {sidenav[navkey].children.map((menuItem) => renderMenu(`/${sidenav[navkey].url}`, menuItem, history))}
         </Menu>
+
         <div className="navbar-nav bd-navbar-nav flex-column">
-          <NavLink to="/release-notes" className="nav-link">
-            Release Notes
-          </NavLink>
-          <NavLink to="/help" className="nav-link">
-            Help
-          </NavLink>
+          {sidenav[navkey].links.map(linkItem => (
+            <NavLink to={"/"+linkItem.url} className={linkItem.className}>
+              {linkItem.displayName}
+            </NavLink>
+          ))}
         </div>
       </div>
     );
