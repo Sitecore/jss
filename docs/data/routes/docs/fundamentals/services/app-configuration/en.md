@@ -12,7 +12,7 @@ In order to import a Sitecore JSS app or run it in Integrated mode, the app must
   <sitecore>
     <javaScriptServices>
       <apps>
-        <!-- you may override other attributes from 'defaults' in the app definiton below -->
+        <!-- you may override other attributes from 'defaults' in the app definition below -->
         <app name="exampleApp"
              sitecorePath="/sitecore/content/ExampleApp"
              inherits="defaults"
@@ -27,7 +27,7 @@ The above represents the minimum app configuration required.
 
 | Attribute       | Usage  |
 | --------------- | ------ |
-| `name`          | The unqiue name of the application. |
+| `name`          | The unique name of the application. |
 | `sitecorePath`  | The content path of the application and its routes when imported. Will be created on first import. |
 | `inherits`      | Indicates the `app` which other, non-specified settings should inherit from. Inheritance will cascade through multiple `app` definitions. |
 
@@ -69,5 +69,5 @@ The `defaults` app configuration can be found in `\App_Config\Sitecore\JavaScrip
 | `dictionaryDomain`                  | The name or GUID of the Sitecore Dictionary Domain that should be used with the app. If not configured, the application dictionary will fall back to the default dictionary of the context database. <br/><br/>Default: (none) |
 | `layoutServiceConfiguration`        | The name of a named Layout Service configuration that will be used for integrated mode app rendering. Outside of integrated mode, the app will need to explicitly reference this configuration. <br/><br/>Default: `jss` |
 | `serverSideRenderingFunctionName`   | Name of the exported JS function on your `serverBundle` to call when rendering in integrated mode. <br/><br/>Default: `renderView` |
-| `deploymentSecret`                  | Configures the app import shared secret. This secret must be 32+ randomly generated characters, and it must match the secret in the app's `scjssconfig.json` to work. For Sitecore-first dev workflow, this is unnecessary. Do not commit this secret to source control, and use a unique secret for every environment. Posession of this secret effectively grants you the ability to administratively create and modify Sitecore items.<br/><br/>Default: (none) |
+| `deploymentSecret`                  | Configures the app import shared secret. This secret must be 32+ randomly generated characters, and it must match the secret in the app's `scjssconfig.json` to work. For Sitecore-first dev workflow, this is unnecessary. Do not commit this secret to source control, and use a unique secret for every environment. Possession of this secret effectively grants you the ability to administratively create and modify Sitecore items.<br/><br/>Default: (none) |
 | `debugSecurity`                     | Enables security debugging if you're having app import connection issues. Details about the processing of the shared secret on the server-side will be logged. _Do not use unless debugging a connection issue_. Pairs with `--debugSecurity` on the CLI to diagnose the client-side. <br/><br/>Default: `false` |
