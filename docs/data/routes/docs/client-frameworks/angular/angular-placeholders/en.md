@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
 
 Lets open up the `src/jss.service.ts` to trace the origin of the placeholder data.
 
-Here we can see that `JssService` gets injected a few tokens into the contructor:
+Here we can see that `JssService` gets injected a few tokens into the constructor:
 
 ```ts
 constructor(
@@ -53,16 +53,16 @@ constructor(
 ) { }
 ```
 
-The `JssService` gets all its data from `@Inject('JSS_SERVER_TO_SSR') @Optional() private serverToSsrState: JssState`. Notice that the injection is `@Optional()`, this is because the data is only provided when application is runing on the server, and not when it is running in the browser.
+The `JssService` gets all its data from `@Inject('JSS_SERVER_TO_SSR') @Optional() private serverToSsrState: JssState`. Notice that the injection is `@Optional()`, this is because the data is only provided when application is running on the server, and not when it is running in the browser.
 
 So how does the application when run in the browser get the data? It does so through the `TransferState`. `TransferState` can transfer the data from the application run at serverside to the application run in the browser by adding the data in rendered HTML output.
 
 But it still remains a question where the provider for `@Inject('JSS_SERVER_TO_SSR')` is set up and where this data comes from.
 
 > ### Application bundles
-> 
+>
 > By default an Angular-CLI project will build one bundle for an application. But to support universal rendering Angular-CLI has to be configured to create an additional bundle. [Read more about Angular-CLI and universal rendering](https://github.com/angular/angular-cli/wiki/stories-universal-rendering). Lets call these two bundles the _universal bundle_ and the _client bundle_ respectively.
-> 
+>
 > Both the universal bundle and client bundle cannot run on their own, they need to be served. To be able to serve these bundles a server is needed. Sitecore JavaScript Services (JSS) comes with a JavaScript view engine for Node that can run our universal bundle. The JSS JavaScript view engine expects a Node bundle that exports a `renderView` function, and to deliver this a third bundle is created that we will name _server bundle_. The server bundle is not built using Angular-CLI but is instead a custom webpack project.
 >
 > _Summary_: The BasicAppAngular application builds three bundles into the `dist` folder:
@@ -260,7 +260,7 @@ class MyContainerComponent {
     onSomething: (type) => alert(type)
   }
 }
- 
+
 @Component({selector: 'my-rendering')
 class MyRendering {
   // standard on any placeholder-managed component

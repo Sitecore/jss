@@ -6,7 +6,7 @@ title: JSS App Import
 
 # App Import
 
-JSS App Import enables the [code-first](../dev-workflows/overview) dev workflow to import a JSS app that has been defined structually while disconnected from Sitecore, and create the necessary item infrastructure in Sitecore to run the app when it's connected. App import runs as a service endpoint on the Sitecore CM server that accepts deployments from the JSS app.
+JSS App Import enables the [code-first](../dev-workflows/overview) dev workflow to import a JSS app that has been defined structurally while disconnected from Sitecore, and create the necessary item infrastructure in Sitecore to run the app when it's connected. App import runs as a service endpoint on the Sitecore CM server that accepts deployments from the JSS app.
 
 App import _does not_ import your JSS app's build artifacts, only the Sitecore items, because:
 
@@ -37,7 +37,7 @@ The import process kicked off by the Manifest Package is comprised of a series o
 | `import.field` | Imports the value of a field on a content item. |
 | `create.media` | Creates a media item from an asset associated with the manifest. |
 | `import.layout` | Populates the layout of an imported item.
-| `create.renderingInstance` | Creates a rendering instance for use in imported item layout. | 
+| `create.renderingInstance` | Creates a rendering instance for use in imported item layout. |
 
 ![Import Pipelines](/assets/img/import-pipelines.png)
 

@@ -52,7 +52,7 @@ With _connected_ GraphQL, a JSS app makes direct HTTP requests to a Sitecore Gra
 
 **When to use Connected GraphQL**
 
-* You need to load data asyncronously after the page layout is rendered, or in response to app state changes other than route change
+* You need to load data asynchronously after the page layout is rendered, or in response to app state changes other than route change
 * The component needs to run _mutations_ (updates) or _subscriptions_ (real-time data).
 * You need full control over the lifecycle of your app's queries and state, such as integration with Redux or [apollo-link-state](https://github.com/apollographql/apollo-link-state)
 
