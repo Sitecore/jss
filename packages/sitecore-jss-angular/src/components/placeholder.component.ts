@@ -81,7 +81,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
   ngOnInit() {
     const attributes: NamedNodeMap = this.elementRef.nativeElement.attributes;
-    for (let i=0; i<attributes.length; i++) {
+    for (let i = 0; i < attributes.length; i++) {
       const attr: Attr | null = attributes.item(i);
       if (attr && attr.name.indexOf('_ngcontent') !== -1) {
           this.parentStyleAttribute = attr.name;
