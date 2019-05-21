@@ -14,6 +14,7 @@ import {
   OnDestroy,
   OnInit,
   Output,
+  Renderer2,
   SimpleChanges,
   Type,
   ViewChild,
@@ -76,15 +77,21 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     private componentFactory: JssComponentFactoryService,
     private changeDetectorRef: ChangeDetectorRef,
     private elementRef: ElementRef,
+    private renderer: Renderer2,
     @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>
   ) { }
 
   ngOnInit() {
-    const attributes: NamedNodeMap = this.elementRef.nativeElement.attributes;
-    for (let i = 0; i < attributes.length; i++) {
-      const attr: Attr | null = attributes.item(i);
-      if (attr && attr.name.indexOf('_ngcontent') !== -1) {
-          this.parentStyleAttribute = attr.name;
+    // just to ensure the element exists
+    const elem = this.elementRef.nativeElement;
+
+    if (elem) {
+      const attributes: NamedNodeMap = elem.attributes;
+      for (let i = 0; i < attributes.length; i++) {
+        const attr: Attr | null = attributes.item(i);
+        if (attr && attr.name.indexOf('_ngcontent') !== -1) {
+            this.parentStyleAttribute = attr.name;
+        }
       }
     }
   }
@@ -209,7 +216,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     // work-around for https://github.com/angular/angular/issues/12215
     const createdComponentRef = this.view.createComponent(componentFactory, index);
     if (this.parentStyleAttribute) {
-        createdComponentRef.location.nativeElement.setAttribute(this.parentStyleAttribute, '');
+      this.renderer.setAttribute(createdComponentRef.location.nativeElement, this.parentStyleAttribute, '');
     }
 
     const componentInstance = createdComponentRef.instance;
