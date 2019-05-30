@@ -83,6 +83,7 @@ export default async function microManifest(argv: { [key: string]: any }, manife
         importServiceUrl: argv.deployUrl,
         secret: argv.deploySecret,
         debugSecurity: argv.debugSecurity,
+        acceptCertificate: argv.acceptCertificate,
       };
 
       await packageDeploy(deployArgs);
