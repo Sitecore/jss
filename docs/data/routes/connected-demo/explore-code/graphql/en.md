@@ -5,9 +5,9 @@ title: GraphQL
 ---
 
 # GraphQL
-GraphQL is a powerful way to retrieve data from Sitecore that also provides flexibility to format that data into an easily digestible format. 
+GraphQL is a powerful and flexible query language that empowers developers by enabling them to requests exactly the data they need in exactly the format they want.
 
-In this exercise you will utilize a GraphQL query to output a list of events for a given location, the data for which is stored in the Sitecore instance.
+In this exercise you will build a GraphQL query to fetch data from the remote Sitecore intance and output a list of events for a given location.
 
 ## Explore where the data lives in Sitecore Content Editor
 
@@ -29,9 +29,9 @@ In this exercise you will utilize a GraphQL query to output a list of events for
       <p><img src="/assets/img/GraphQL02.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
-      <p>In the content tree on the left, under <em>Sitecore &#62; content &#62; Habitat Fitness > Home</em>, expand the Events node. </p>      
-      <p>The folders are arranged by region. Keep expanding until you find a base event page node that contains the data for the query. </p>      
-      <p>Click on <em>Canada &#62; Alberta &#62; Banff &#62; Banff 3 on 3 Basketball Challenge</em>. You can review the content details in the pane on the right.</p>      
+      <p>In the content tree on the left, under <em>Sitecore &#62; content &#62; Habitat Fitness > Home</em>, expand the Events node. </p>
+      <p>The folders are arranged by region. Keep expanding until you find a base event page node that contains the data for the query. </p>
+      <p>Click on <em>Canada &#62; Alberta &#62; Banff &#62; Banff 3 on 3 Basketball Challenge</em>. You can review the content details in the pane on the right.</p>
     </div>
   </div>
 <p>
@@ -40,7 +40,7 @@ Now that you know where the data lives, it’s time to create a query.
 
 ## The Graph Browser
 
-In your browser, navigate to `/Sitecore/api/graph/items/master/ui` to bring up the Sitecore Experience Graph Browser.
+In your browser, navigate to `<Sitecore hostname>/Sitecore/api/graph/items/master/ui` to bring up the Sitecore Experience Graph Browser.
 
 ![Habitat Fitness](/assets/img/GraphQL03.png)
 
