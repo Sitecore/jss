@@ -13,10 +13,12 @@ title: Data Generation for xProfile
       <p><img src="/assets/img/DataGen1.jpg" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
-      <p>Select the Personalize option from the drop-down menu in the upper left corner.</p>
+      <p>From the front-end on your local connected app (<a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a>), select the Personalize option from the drop-down menu in the upper left corner.</p>
     </div>
   </div>
 <p>
+
+Note: if you see any errors when opening your connected app, it may be because the cookies from the Sitecore instance are interfering. If you are logged into Sitecore in the regular browser, then it's best to open the local app in an incognito instance.
 
 <p>
   <div class="row">
