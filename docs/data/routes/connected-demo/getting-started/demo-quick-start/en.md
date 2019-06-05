@@ -7,7 +7,7 @@ title: Prerequisites
 # Pre-requisites
 The JSS Connected Demo is a set of tutorials to help guide you as you explore connected mode between a JSS app and a Sitecore instance.
 
-These guided tutorials are great for developers participating in the [JSS Developer Trial](https://www.sitecore.com/trial), which grants you limited-time access to a pree-configured Sitecore environment. But if you're not participating in the trial, and you have access to your own Sitecore instance, then of course you will also benefit from these tutorials.
+These guided tutorials are great for developers participating in the [JSS Developer Trial](https://www.sitecore.com/trial), which grants you limited-time access to a pre-configured Sitecore environment. But if you're not participating in the trial, and you have access to your own Sitecore instance, then of course you will also benefit from these tutorials.
 
 ## To get started
 1. Ensure you have access to a Sitecore instance with Habitat Fitness Demo installed. If you are participating in the JSS Developer Trial, use the link provided in your confirmation email to interact with and view the reference website. Please note that your changes will only be available on your local instance.
