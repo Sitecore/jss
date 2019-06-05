@@ -20,4 +20,4 @@ These guided tutorials are great for developers participating in the [JSS Develo
 
 Once your local JSS app is connected to Sitecore, you can view the app in a local browser with data populated from the remote Sitecore instance. You can make code changes to the React components, and view them in the browser with real Sitecore data. You can interact with the app in your local browser, and review the analytics that your visit triggered in Sitecore's interface.
 
-Follow our [step-by-step tutorial](/connected-demo/explore-sitecore/launch-ee) to get familiar with connected mode.
+Follow our [step-by-step tutorial](/connected-demo/explore-sitecore/experience-editor) to get familiar with connected mode.
