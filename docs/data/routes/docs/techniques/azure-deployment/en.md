@@ -37,7 +37,7 @@ In case you already have Sitecore instance in Azure you have to use ARM template
 }
 
 ```
-1. Provision JSS. Use following script to perform the provisioning:
+5. Provision JSS. Use following script to perform the provisioning:
 ```powershell
 param (
     $DeploymentId = “deploymentId”,
@@ -68,7 +68,9 @@ Start-SitecoreAzureDeployment `
     -Verbose
 
 ```
-1. Configure Azure Node version: In Azure, the app services come with a very old Node.js version enabled by default. This will cause issues rendering your JSS apps. Configure the `WEBSITE_NODE_DEFAULT_VERSION` setting on your app service, [per this article](https://blogs.msdn.microsoft.com/azureossds/2016/04/20/nodejs-and-npm-versions-on-azure-app-services/). The same Node version should be used on Azure as is used during development, normally the latest LTS Node release. As of the writing of this documentation, that is 8.9.4. Starting from Sitecore 9.1 Azure Node version set during Sitecore provisioning. Default Azure Node version for Sitecore 9.1 is 8.11.1. Can be changed during the Sitecore provisioning.
+6. Configure Azure Node version: In Azure, the app services come with a very old Node.js version enabled by default. This will cause issues rendering your JSS apps. Configure the `WEBSITE_NODE_DEFAULT_VERSION` setting on your app service, [per this article](https://blogs.msdn.microsoft.com/azureossds/2016/04/20/nodejs-and-npm-versions-on-azure-app-services/). The same Node version should be used on Azure as is used during development, normally the latest LTS Node release. As of the writing of this documentation, that is 8.9.4. Starting from Sitecore 9.1 Azure Node version set during Sitecore provisioning. Default Azure Node version for Sitecore 9.1 is 8.11.1. Can be changed during the Sitecore provisioning.
+
+7. Please make sure that sitecore\JSS Import Service Users role has 'Create Item' and 'Create Descendants' right on 'sitecore\Content' item. If not please assign mentioned security permission in order to allow JSS create content on the Sitecore instance.
 
 ## Step 3: Configure the Sitecore server
 
