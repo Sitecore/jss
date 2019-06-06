@@ -31,3 +31,6 @@ To make edits and access the various inline toolbars, click on the Home tab in t
 
 ![Habitat Fitness](/assets/img/ExperienceEditor3.jpg)
 
+<br>
+
+When you are finished making edits, remember to click Save (also on the Home tab).
