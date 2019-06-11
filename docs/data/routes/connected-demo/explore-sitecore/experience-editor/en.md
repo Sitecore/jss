@@ -19,17 +19,22 @@ Navigate to the Sitecore log-in screen and enter the login credentials provided 
   </div>
 <p>
 
-View in EE mode.
+View in Experience Editor mode.
 
-From here you can edit the Event Title or Event Description inline right on this page. 
+From here you can edit component fields inline, right on this page. But first you need to lock the page for editing to prevent other authors from overwriting your changes. This is a feature of Sitecore's workflow capabilities. To lock the page:
+1. Expand the page ribbon using the toggle in the upper right corner
+![Habitat Fitness](/assets/img/ExperienceEditor4.png)
 
-![Habitat Fitness](/assets/img/ExperienceEditor2.jpg)
+2. Click "Lock"
+![Habitat Fitness](/assets/img/ExperienceEditor5.png)
 
 <br>
 
-To make edits and access the various inline toolbars, click on the Home tab in the EE Navigation and select Edit.
+Now you may begin editing the page by clicking "Edit"
+![Habitat Fitness](/assets/img/ExperienceEditor2.png)
 
-![Habitat Fitness](/assets/img/ExperienceEditor3.jpg)
+To make inline edits to component fields (Event Title or Event Description), click on the text you want to edit. A cursor will appear, and you will be able to type in changes.
+![Habitat Fitness](/assets/img/ExperienceEditor3.png)
 
 <br>
 
