@@ -46,4 +46,4 @@ Choosing meaningful placeholder names can enhance the maintainability of any JSS
 
 * Prefix placeholder names with an app-specific prefix. Instead of `content`, use `myapp-content`. This is important because a Sitecore instance can host multiple JSS apps and websites, and things work best if they do not have conflicting placeholder names.
 * Choose a name that describes the _general_ purpose of the placeholder, and avoid jargon.
-* Assign a user-friendly _display name_ for each placeholder in `/sitecore/definitions/placeholders.sitecore.js`. While simply using a placeholder on a route is enough to register it, adding a display name will give your app a nice feel for authors. Display names need not be unique.
+* Assign a user-friendly _display name_ for each placeholder in `/sitecore/definitions/placeholders.sitecore.ts`. While simply using a placeholder on a route is enough to register it, adding a display name will give your app a nice feel for authors. Display names need not be unique.
