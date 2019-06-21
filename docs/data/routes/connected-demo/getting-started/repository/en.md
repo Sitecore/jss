@@ -10,7 +10,7 @@ title: Cloning repository
 
 ### Step 1: Clone or Download the Habitat Fitness Repo 
 You can find the Habitat Fitness demo project here:
-https://github.com/Sitecore/Sitecore.HabitatHome.Omni
+[https://github.com/Sitecore/Sitecore.HabitatHome.Omni](https://github.com/Sitecore/Sitecore.HabitatHome.Omni)
 
 You can either download and unzip the project to a location of your choosing, or you can open a terminal/command line to that location and clone it with the following command:
 
