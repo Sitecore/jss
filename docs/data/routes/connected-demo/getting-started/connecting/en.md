@@ -44,7 +44,7 @@ y
       <img src="/assets/img/ConnectingToFitness.jpg" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
-      <p>When you have completed the series of prompts, the information provided will be stored in a scjssconfig.json in the root of your app. </p>
+      <p>When you have completed the series of prompts, the information provided will be stored in a scjssconfig.json file in the root of your app. </p>
       <p>A browser window should launch pointed to the local application, which is now connected to your remote Sitecore Instance!</p>
     </div>
   </div>
@@ -58,7 +58,7 @@ The app lists different types of events.
 You can use the menu at the top to personalize what your preferred types of events are. After you go through the personalization dialogs, you will only see the events that match your preferences.
 ![](/assets/img/connecting2.png)
 
-You can also you the header menu to view events that you've favorites and register for events (More on this later on in the tutorial).
+You can also use the header menu to view events that you've favorites and register for events (More on this later on in the tutorial).
 
 Open a new incognito browser window, and this time access the app with a promo code [http://localhost:3000/?sc_camp=C0D46075D0B249AD866092B5E525D639](http://localhost:3000/?sc_camp=C0D46075D0B249AD866092B5E525D639).
 This causes a special promotional event, the Power River Marathon, to be featured at the top of the list. Note: if the promo code did not work for you, please make sure it is a new incognito window and this is your first visit in incognito.
