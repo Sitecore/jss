@@ -17,8 +17,8 @@ In this exercise you will build a GraphQL query to fetch data from the remote Si
       <p><img src="/assets/img/GraphQL01.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
-      <p>From the Sitecore desktop, click on <strong>Content Editor</strong>.</p>      
-      <p>The <strong>Content Editor</strong> is an editing tool that you can use to manage and edit all the content on your website. It is designed for more experienced content authors who are familiar with Sitecore and the functionality that it contains. The Content Editors appearance and functionality vary depending on the user’s roles, the local security settings, and the customizations that have been implemented on the Sitecore installation.</p>
+      <p>From the Sitecore desktop, click on <strong>Content Editor</strong>.</p>
+      <p>The <strong>Content Editor</strong> is an editing tool that you can use to manage and edit all the content on your website. It is designed for more experienced content authors who are familiar with Sitecore and the functionality that it contains. The Content Editor's appearance and functionality vary depending on the user’s roles, the local security settings, and the customizations that have been implemented on the Sitecore installation.</p>
     </div>
   </div>
 <p>
@@ -29,7 +29,7 @@ In this exercise you will build a GraphQL query to fetch data from the remote Si
       <p><img src="/assets/img/GraphQL02.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
-      <p>In the content tree on the left, under <em>Sitecore &#62; content &#62; Habitat Fitness > Home</em>, expand the Events node. </p>
+      <p>In the content tree on the left, under <em>content &#62; Habitat Fitness > Home</em>, expand the Events node. </p>
       <p>The folders are arranged by region. Keep expanding until you find a base event page node that contains the data for the query. </p>
       <p>Click on <em>Canada &#62; Alberta &#62; Banff &#62; Banff 3 on 3 Basketball Challenge</em>. You can review the content details in the pane on the right.</p>
     </div>
@@ -67,7 +67,7 @@ This tool gives users a place to write and test custom queries. The left pane al
       <p><img src="/assets/img/GraphQL05.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
-      <p>Explore the schema for <strong>search</strong>. </p>      
+      <p>Explore the schema for <strong>search</strong>. </p>
     </div>
   </div>
 <p>
@@ -79,7 +79,7 @@ This tool gives users a place to write and test custom queries. The left pane al
     </div>
     <div class="col-md-6"> 
       <p>This query returns a <strong>ContentSearchResults</strong> object. Click on that and you will see it has the following fields.</p>
-      <p>You will see a results object of the type <strong>ContentSearchResultConnection</strong>.</p>      
+      <p>You will see a results object of the type <strong>ContentSearchResultConnection</strong>.</p>
     </div>
   </div>
 <p>
@@ -91,7 +91,7 @@ This tool gives users a place to write and test custom queries. The left pane al
     </div>
     <div class="col-md-6"> 
       <p>Click on that to find a number of pertinent fields.</p>
-      <p>The field of note is the <strong>items</strong> array. This will contain the items the search query will pull back.</p>      
+      <p>The field of note is the <strong>items</strong> array. This will contain the items the search query will pull back.</p>
     </div>
   </div>
 <p>

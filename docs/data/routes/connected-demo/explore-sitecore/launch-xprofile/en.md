@@ -43,7 +43,7 @@ The Activity tab will divide activity by Goals, Outcomes, Campaigns, etc. You’
 
 <br/><br/>
 
-The Profile tab will show you the best pattern matches for your profile based on information you provided and activities you completed in the first step.
+The Profiling tab will show you the best pattern matches for your profile based on information you provided and activities you completed in the first step.
 
 ![Habitat Fitness](/assets/img/xProfile5.jpg)
 

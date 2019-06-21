@@ -27,7 +27,7 @@ Click on “Edit Conditions.”
 
 <br/><br/>
 
-This will open a dialogue to personalize the component. Click Edit Rule to see how the specific condition is configured.
+This will open a dialog to personalize the component. Click Edit Rule to see how the specific condition is configured.
 
 ![Habitat Fitness](/assets/img/Personalization4.jpg)
 
