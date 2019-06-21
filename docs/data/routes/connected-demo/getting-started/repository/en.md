@@ -40,4 +40,6 @@ Open a terminal/console window in the `<repo root>\fitness\app` folder where pac
 npm install
 ```
 
-This will install all the NPM Modules required by the project. 
+This will install all the NPM Modules required by the project.
+
+Next: [Connecting to Sitecore](/connected-demo/getting-started/connecting)

@@ -34,3 +34,5 @@ Save your changes. Since hot reloading is enabled, the browser will automaticall
 
 ## Developer Trial Limitations
 If this were a normal development workflow, once you completed testing your code locally, the next step would be to deploy your changes to the server that hosts the remote Sitecore instance. This step is not supported for the Developer Trial. Because of this limitation, you can edit existing componenents freely in Connected Mode, but you are unable to create new components and add them to the page.
+
+Next: [GraphQL](/connected-demo/explore-code/graphql)

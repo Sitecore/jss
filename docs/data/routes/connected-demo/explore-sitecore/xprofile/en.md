@@ -78,3 +78,5 @@ Feel free to explore the app and trigger any additional notifications on other p
     </div>
   </div>
 <p>
+
+Next: [Launch Experience Profile](/connected-demo/explore-sitecore/launch-xprofile)

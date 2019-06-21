@@ -47,4 +47,4 @@ The Profile tab will show you the best pattern matches for your profile based on
 
 ![Habitat Fitness](/assets/img/xProfile5.jpg)
 
-<br/><br/>
+Next: [Updating a Component](/connected-demo/explore-code/updating-component)

@@ -4,7 +4,7 @@ routeTemplate: ./data/routes/connected-demo/en.yml
 title: Connecting
 ---
 
-# Connecting to Habitat Fitness
+# Connecting to Sitecore
 
 ## Connecting the Local Repository to the Remote Sitecore Instance
 Open terminal/console window in the `<repo root>\fitness\app` folder of your project. Run the following command:
@@ -68,3 +68,5 @@ This causes a special promotional event, the Power River Marathon, to be feature
 So the cool thing about all this is that the app that you're browsing locally is being hydrated with data from a remote Sitecore instance. And this data is being dynamically personalized, and appended with extra promotional content based on rules that Sitecore content administrators have configured.
 
 Use the menu in the left nav to continue exploring Connected Mode and learn more about how all this works.
+
+Next: [Experience Editor](/connected-demo/explore-sitecore/experience-editor)

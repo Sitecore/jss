@@ -39,3 +39,5 @@ To make inline edits to component fields (Event Title or Event Description), cli
 <br>
 
 When you are finished making edits, remember to click Save (also on the Home tab).
+
+Next: [Personalization](/connected-demo/explore-sitecore/personalization-in-experience-editor)

@@ -34,3 +34,5 @@ This will open a dialogue to personalize the component. Click Edit Rule to see h
 The first personalization rule relates to a specific campaign, which can only be accessed via a specific campaign code (Boston Marathon Campaign Code: sc_camp=C0D46075D0B249AD866092B5E525D639). The second is triggered when a contact’s skill level in Basketball is greater than 6 – this is the personalization rule that is triggered by moving the Basketball slider to “Expert.”
 
 Each version contains a mini-A/B test, one that will show you the Reach and Effect of each individual personalized version. Reach equals what percentage of people were shown the personalized version. Effect shows the increase/decrease in Engagement Value stemming from the personalized version.
+
+Next: [Data Generation for xProfile](/connected-demo/explore-sitecore/xprofile)
