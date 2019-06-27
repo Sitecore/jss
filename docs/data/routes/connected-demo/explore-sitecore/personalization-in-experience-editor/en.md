@@ -35,4 +35,6 @@ The first personalization rule relates to a specific campaign, which can only be
 
 Each version contains a mini-A/B test, one that will show you the Reach and Effect of each individual personalized version. Reach equals what percentage of people were shown the personalized version. Effect shows the increase/decrease in Engagement Value stemming from the personalized version.
 
+Note that the personalization rules here only demonstrate a tiny portion of Sitecore's broad range of personalization options. The platform's mature rules engine can drive personalization based on business goals, IP information, profiling taxonomy, and other data.
+
 Next: [Data Generation for xProfile](/connected-demo/explore-sitecore/xprofile)
