@@ -56,7 +56,7 @@ export type PlaceholdersData<TYPEDNAME extends string = string> = {
  * Content field data passed to a component
  */
 export interface ComponentFields {
-  [name: string]: Field | Item[];
+  [name: string]: ComponentFields | Field | Item[];
 }
 
 /**
