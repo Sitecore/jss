@@ -29,6 +29,7 @@ import { RouterLinkDirective } from './components/router-link.directive';
 import { TextDirective } from './components/text.directive';
 import { JssComponentFactoryService } from './jss-component-factory.service';
 import { LayoutService } from './layout.service';
+import { GenericLinkDirective } from './components/generic-link.directive';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { LayoutService } from './layout.service';
     ImageDirective,
     LinkDirective,
     RouterLinkDirective,
+    GenericLinkDirective,
     DateDirective,
     RenderEachDirective,
     RenderEmptyDirective,
@@ -55,6 +57,7 @@ import { LayoutService } from './layout.service';
     DateDirective,
     LinkDirective,
     RouterLinkDirective,
+    GenericLinkDirective,
     RenderEachDirective,
     RenderEmptyDirective,
     RenderComponentComponent,
