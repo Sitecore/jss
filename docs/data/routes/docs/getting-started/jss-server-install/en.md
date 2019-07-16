@@ -53,7 +53,7 @@ These steps only need to be performed once per Sitecore JSS server. A JSS server
     </dependentAssembly>
     ```
 
-1. Verify your server components install worked, by visiting `http://your-sitecore-instance/sitecore/api/layout/render/jss?item=/&sc_apikey=TEST`. You should receive **HTTP Error 400.0 - API key is not valid** if it is working correctly (you can use postman to see this message, rather than a browser).
+1. Verify your server components install worked, by visiting `http://your-sitecore-instance/sitecore/api/layout/render/jss?item=/&sc_apikey=TEST`. You should receive **HTTP Error 400.0 - API key is not valid** if it is working correctly (browsers may obscure the message behind a custom error page for HTTP 400; tools like Postman or browser DevTools may be needed to see this message).
 
 ## Scaled Sitecore Installations
 
