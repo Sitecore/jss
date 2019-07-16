@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
 
@@ -14,6 +14,9 @@ export class GenericLinkDirective extends LinkDirective {
 
   // tslint:disable-next-line:no-input-rename
   @Input('scGenericLink') field: LinkField;
+
+  // tslint:disable-next-line:no-input-rename
+  @Input('scGenericLinkExtras') extras?: NavigationExtras;
 
   constructor(
     viewContainer: ViewContainerRef,
@@ -30,13 +33,15 @@ export class GenericLinkDirective extends LinkDirective {
 
     viewRef.rootNodes.forEach((node) => {
       Object.keys(props).forEach((key) => {
-        this.renderer.setAttribute(node, key, props[key]);
-
         if (key === 'href' && !this.isAbsoluteUrl(props[key])) {
+          const urlTree = this.router.createUrlTree([props[key]], this.extras);
+          this.renderer.setAttribute(node, key, this.router.serializeUrl(urlTree));
           this.renderer.listen(node, 'click', (event) => {
-            this.router.navigate([props[key]]);
+            this.router.navigate([props[key]], this.extras);
             event.preventDefault();
           });
+        } else {
+          this.renderer.setAttribute(node, key, props[key]);
         }
       });
 
