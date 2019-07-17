@@ -10,13 +10,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'test-router-link',
   template: `
-    <a *scGenericLink="field; editable: editable; attrs: attrs" id="my-link"></a>
+    <a *scGenericLink="field; editable: editable; attrs: attrs; extras: extras" id="my-link"></a>
   `,
 })
 class TestComponent {
   @Input() field: any;
   @Input() editable = true;
   @Input() attrs = {};
+  @Input() extras = {};
 }
 
 describe('<a *scGenericLink />', () => {
@@ -170,13 +171,14 @@ describe('<a *scGenericLink />', () => {
 @Component({
   selector: 'test-router-link-children',
   template: `
-    <a *scGenericLink="field; editable: editable; attrs: attrs" id="my-link"><span *ngIf="true">hello world</span></a>
+    <a *scGenericLink="field; editable: editable; attrs: attrs; extras: extras" id="my-link"><span *ngIf="true">hello world</span></a>
   `,
 })
 class TestWithChildrenComponent {
   @Input() field: any;
   @Input() editable = true;
   @Input() attrs = {};
+  @Input() extras = {};
 }
 
 describe('<a *scGenericLink>children</a>', () => {
@@ -186,7 +188,7 @@ describe('<a *scGenericLink>children</a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [GenericLinkDirective, TestWithChildrenComponent,],
+      declarations: [GenericLinkDirective, TestWithChildrenComponent],
       imports: [ RouterTestingModule ]
     });
 
@@ -251,10 +253,28 @@ describe('<a *scGenericLink></a>', () => {
     fixture.detectChanges();
 
     const renderedLink = de.query(By.css('a')).nativeElement;
-    expect(renderedLink.getAttribute('href')).toBe(field.href);
+    expect(renderedLink.getAttribute('href')).toBe(`/${field.href}`);
     renderedLink.click();
     fixture.detectChanges();
-    expect(router.navigate).toHaveBeenCalledWith(['lorem']);
+    expect(comp.extras).toEqual({});
+    expect(router.navigate).toHaveBeenCalledWith(['lorem'], comp.extras);
+  });
+
+  it('should navigate to an internal link with query parameters using routerlink', () => {
+    const field = {
+      href: 'lorem',
+      text: 'ipsum',
+    };
+    const queryParams = { queryParams: { foo: 'bar' } }
+    comp.field = field;
+    comp.extras = queryParams;
+    fixture.detectChanges();
+
+    const renderedLink = de.query(By.css('a')).nativeElement;
+    expect(renderedLink.getAttribute('href')).toBe(`/${field.href}?foo=bar`);
+    renderedLink.click();
+    fixture.detectChanges();
+    expect(router.navigate).toHaveBeenCalledWith(['lorem'], queryParams);
   });
 
   it('should navigate to an external link using routerlink', () => {
