@@ -16,7 +16,7 @@ import { RichTextField } from './rendering-field';
   selector: '[scGenericRichText]',
 })
 export class GenericRichTextDirective implements OnChanges {
-  private viewRef: EmbeddedViewRef<any>;
+  private viewRef: EmbeddedViewRef<HTMLElement>;
 
   // tslint:disable-next-line:no-input-rename
   @Input('scGenericRichTextEditable')
@@ -53,12 +53,13 @@ export class GenericRichTextDirective implements OnChanges {
     const html = field.editable && this.editable ? field.editable : field.value;
     this.viewRef.rootNodes.forEach((node) => {
       node.innerHTML = html;
-      const links = node.querySelectorAll('a[href]');
+      const links: NodeListOf<HTMLLinkElement> = node.querySelectorAll('a[href]');
+      const linksArray: Array<HTMLLinkElement> = [].slice.call(links);
 
-      links.forEach((link) => {
+      linksArray.forEach((link) => {
         const href = link.getAttribute('href');
 
-        if (!isAbsoluteUrl(href)) {
+        if (href != null && !isAbsoluteUrl(href)) {
           this.renderer.listen(link, 'click', (event) => {
             this.router.navigateByUrl(href);
             event.preventDefault();

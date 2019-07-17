@@ -27,7 +27,7 @@ describe('<div *scGenericRichText />', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GenericRichTextDirective, TestComponent],
-      imports: [ RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }]) ],
+      imports: [RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
     });
 
     fixture = TestBed.createComponent(TestComponent);
