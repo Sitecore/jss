@@ -1,0 +1,126 @@
+import { Component, DebugElement, Input } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { richTextField as eeRichTextData } from '../testData/ee-data';
+import { GenericRichTextDirective } from './generic-rich-text.directive';
+
+@Component({
+  selector: 'test-rich-text',
+  template: `
+    <h1 *scGenericRichText="field; editable: editable"></h1>
+  `,
+})
+class TestComponent {
+  @Input()
+  field: any;
+  @Input()
+  editable = true;
+}
+
+describe('<div *scGenericRichText />', () => {
+  let fixture: ComponentFixture<TestComponent>;
+  let de: DebugElement;
+  let comp: TestComponent;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [GenericRichTextDirective, TestComponent],
+      imports: [RouterTestingModule],
+    });
+
+    fixture = TestBed.createComponent(TestComponent);
+    fixture.detectChanges();
+
+    de = fixture.debugElement.query(By.css('h1'));
+    comp = fixture.componentInstance;
+  });
+
+  it('should render nothing with missing field', () => {
+    const rendered = de.nativeElement.innerHTML;
+    expect(rendered).toBe('');
+  });
+
+  it('should render nothing with missing editable and value', () => {
+    comp.field = {};
+    fixture.detectChanges();
+
+    const rendered = de.nativeElement.innerHTML;
+    expect(rendered).toBe('');
+  });
+
+  it('should render editable with editable value', () => {
+    const field = {
+      value: 'value',
+      editable: 'editable',
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.nativeElement.innerHTML;
+    expect(rendered).toBe('editable');
+  });
+
+  it('should render value with editing explicitly disabled', () => {
+    const field = {
+      value: '<a href="www.example.com">Hello World</a>',
+      editable: 'editable',
+    };
+    comp.field = field;
+    comp.editable = false;
+    fixture.detectChanges();
+
+    const rendered = de.nativeElement.innerHTML;
+    expect(rendered).toBe('<a href="www.example.com">Hello World</a>');
+  });
+
+  it('should render value with with just a value', () => {
+    const field = {
+      value: 'value',
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.nativeElement.innerHTML;
+    expect(rendered).toBe('value');
+  });
+
+  it('should render embedded html as-is', () => {
+    const field = {
+      value: '<input type="text">some crazy stuff<script code="whaaaat">uh oh</script>',
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.nativeElement.innerHTML;
+    expect(rendered).toBe(field.value);
+  });
+
+  it('should navigate to an internal link using routerlink', () => {
+    const field = {
+      value: '<a href="/test">Click Me!</a>',
+    };
+    comp.field = field;
+    fixture.detectChanges();
+    const router: Router = TestBed.get(Router);
+
+    const renderedLink = de.nativeElement.querySelector('a[href]');
+    // expect(renderedLink.getAttribute('href')).toBe('/test');
+    renderedLink.click();
+    // fixture.detectChanges();
+    // expect(router.navigate).toHaveBeenCalledWith(['/test']);
+  });
+
+  it('should render ee HTML', () => {
+    const field = {
+      editable: eeRichTextData,
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.nativeElement.innerHTML;
+    expect(rendered).toContain('<input');
+    expect(rendered).toContain('<span class="scChromeData">');
+  });
+});
