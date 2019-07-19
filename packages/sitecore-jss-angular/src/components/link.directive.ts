@@ -63,7 +63,11 @@ export class LinkDirective implements OnChanges {
     viewRef.rootNodes.forEach((node) => {
       Object.keys(props).forEach((key) => {
         if (props[key] != null && props[key] !== '') {
-          this.updateAttribute(node, key, props[key]);
+          if (key === 'class' && node.className !== '') {
+            this.renderer.setAttribute(node, key, `${node.className} ${props[key]}`);
+          } else {
+            this.renderer.setAttribute(node, key, props[key]);
+          }
         }
       });
 
@@ -85,7 +89,11 @@ export class LinkDirective implements OnChanges {
     };
     Object.keys(attrs).forEach((key) => {
       if (attrs[key] != null && attrs[key] !== '') {
-        this.updateAttribute(span, key, attrs[key]);
+        if (key === 'class' && span.className !== '') {
+          this.renderer.setAttribute(span, key, `${span.className} ${attrs[key]}`);
+        } else {
+          this.renderer.setAttribute(span, key, attrs[key]);
+        }
       }
     });
 
