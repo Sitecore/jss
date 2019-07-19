@@ -14,6 +14,8 @@ import {
   Type,
   ViewChild,
   ViewContainerRef,
+  EventEmitter,
+  Output,
 } from '@angular/core';
 import { ActivatedRoute, Data, Router } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
@@ -60,6 +62,8 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
   renderings?: Array<ComponentRendering | HtmlElementRendering>;
   @Input()
   outputs: { [k: string]: (eventType: any) => void };
+  @Output()
+  loaded = new EventEmitter<string>();
   @ViewChild('view', { read: ViewContainerRef })
   private view: ViewContainerRef;
   @ContentChild(RenderEachDirective)
@@ -182,6 +186,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
       });
 
       this.changeDetectorRef.markForCheck();
+      this.loaded.emit(this.name);
     }
   }
 
