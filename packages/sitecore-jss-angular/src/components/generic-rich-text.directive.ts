@@ -9,6 +9,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { isAbsoluteUrl } from '@sitecore-jss/sitecore-jss';
 import { RichTextField } from './rendering-field';
 
 @Directive({
@@ -52,12 +53,12 @@ export class GenericRichTextDirective implements OnChanges {
     const html = field.editable && this.editable ? field.editable : field.value;
     this.viewRef.rootNodes.forEach((node) => {
       node.innerHTML = html;
-      const internalLinks = node.querySelectorAll('a[href]');
+      const links = node.querySelectorAll('a[href]');
 
-      internalLinks.forEach((link) => {
+      links.forEach((link) => {
         const href = link.getAttribute('href');
 
-        if (!this.isAbsoluteUrl(href)) {
+        if (!isAbsoluteUrl(href)) {
           this.renderer.listen(link, 'click', (event) => {
             this.router.navigateByUrl(href);
             event.preventDefault();
@@ -65,16 +66,5 @@ export class GenericRichTextDirective implements OnChanges {
         }
       });
     });
-  }
-
-  private isAbsoluteUrl(url?: string) {
-    if (url == null) {
-      return false;
-    }
-    if (typeof url !== 'string') {
-      throw new TypeError('Expected a string');
-    }
-
-    return /^[a-z][a-z0-9+.-]*:/.test(url);
   }
 }

@@ -27,7 +27,7 @@ describe('<div *scGenericRichText />', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GenericRichTextDirective, TestComponent],
-      imports: [RouterTestingModule],
+      imports: [ RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }]) ],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -99,17 +99,18 @@ describe('<div *scGenericRichText />', () => {
 
   it('should navigate to an internal link using routerlink', () => {
     const field = {
-      value: '<a href="/test">Click Me!</a>',
+      value: '<a href="/lorem">Click Me!</a>',
     };
     comp.field = field;
     fixture.detectChanges();
     const router: Router = TestBed.get(Router);
+    spyOn(router, 'navigateByUrl');
 
     const renderedLink = de.nativeElement.querySelector('a[href]');
-    // expect(renderedLink.getAttribute('href')).toBe('/test');
+    expect(renderedLink.getAttribute('href')).toBe('/lorem');
     renderedLink.click();
-    // fixture.detectChanges();
-    // expect(router.navigate).toHaveBeenCalledWith(['/test']);
+    fixture.detectChanges();
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/lorem');
   });
 
   it('should render ee HTML', () => {
