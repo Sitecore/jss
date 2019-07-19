@@ -35,13 +35,13 @@ export class GenericLinkDirective extends LinkDirective {
       Object.keys(props).forEach((key) => {
         if (key === 'href' && !this.isAbsoluteUrl(props[key])) {
           const urlTree = this.router.createUrlTree([props[key]], this.extras);
-          this.renderer.setAttribute(node, key, this.router.serializeUrl(urlTree));
+          this.updateAttribute(node, key, this.router.serializeUrl(urlTree));
           this.renderer.listen(node, 'click', (event) => {
             this.router.navigate([props[key]], this.extras);
             event.preventDefault();
           });
         } else {
-          this.renderer.setAttribute(node, key, props[key]);
+          this.updateAttribute(node, key, props[key]);
         }
       });
 
