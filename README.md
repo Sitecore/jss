@@ -40,3 +40,21 @@ Below is a list of samples included in this repo:
 - [StackExchange](https://sitecore.stackexchange.com/)
 - [Community Slack](https://sitecorechat.slack.com/messages/jss)
 - [Sitecore Community Forum](https://community.sitecore.net/developers/f/40)
+
+## Contributions
+
+We are very grateful to the community for contributing bugfixes and improvements. We welcome any and all efforts to evolve and improve Sitecore JavaScript Services; read below to learn how you can take part in those efforts.
+
+### [Code of Conduct](CODE_OF_CONDUCT.md)
+
+Sitecore has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+
+### [Contributing Guide](CONTRIBUTING.md)
+
+Read our [contributing guide](CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React.
+
+### License
+
+Sitecore JavaScript Services is using the [Apache 2.0 license](LICENSE.MD).
+
+## [Support](SUPPORT.md)

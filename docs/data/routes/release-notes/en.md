@@ -5,6 +5,13 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS vNext
+
+### New Features & Improvements
+
+* Angular projects can now take advantage of the new `*scRouterLink` component which creates a link that uses Angular routing from a Sitecore link field, instead of refreshing the page.
+* Angular placeholders now expose a `loaded` event that can be hooked for apps that need to know when a placeholder is done loading, i.e. `<sc-placeholder [...] (loaded)="onPlaceholderLoaded($event)"></sc-placeholder>`
+
 ## Sitecore JSS 11.0 for Sitecore 9.0 and 9.1
 
 ### Upgrading
@@ -26,7 +33,7 @@ There are [migration instructions](/upgrade-guides/11.0) from JSS 9-based (Techn
 * GraphQL now supports HTTP `GET` for [Automated Persisted Queries](https://blog.apollographql.com/improve-graphql-performance-with-automatic-persisted-queries-c31d27b8e6ea). This enables some CDN cacheability scenarios.
 * JSS apps' GraphQL endpoints are configured to automatically lock down schema introspection on Content Delivery servers.
 * [JavaScript renderings](/docs/techniques/mvc-integration/javascript-rendering) now support pooled Node SSR. See the JS rendering sample `/sitecore/config` for details.
-* Rendering Parameters Templates will now be created during import when a disconnected manifest defines rendering parameters on a component. Thie enables editors to have explicit fields to edit each parameter.
+* Rendering Parameters Templates will now be created during import when a disconnected manifest defines rendering parameters on a component. This enables editors to have explicit fields to edit each parameter.
 * Layout Service will now return the Sitecore Context JSON data even if a route item is not resolved. This means that apps' 404 routes will have access to LS context data, such as the site name and language, as well as any [context extensions](/docs/techniques/extending-layout-service/layoutservice-extending-context) that may have been added - such as global navigation data. LS will still return HTTP 404 in these cases; just now with extra context data. Sample apps' 404 routes demonstrate using this pattern. Also applies to disconnected mode.
 * It is now possible to specify icons for routes and content items in disconnected data, for example `icon: Network/16x16/home.png` at the root of the YAML.
 * Installing the JSS Server Sitecore package now automatically adds the JSS media handler to the `web.config` file, so this installation step is no longer required.
@@ -276,9 +283,9 @@ React placeholders now have flexible options to render their child components. T
 
 ### New Features and Improvements
 
-#### Expanded SDK support coverage 
+#### Expanded SDK support coverage
 1. Full support for Angular 5 along with the advanced sample.
-1. Initial (read: experimental) support for GraphQL - use all the power of GraphQL to query data from Sitecore and connect it to your UI. [Check out the sample app](https://github.com/Sitecore/jss/tree/master/samples/react) that is wired up via Apollo Client. 
+1. Initial (read: experimental) support for GraphQL - use all the power of GraphQL to query data from Sitecore and connect it to your UI. [Check out the sample app](https://github.com/Sitecore/jss/tree/master/samples/react) that is wired up via Apollo Client.
 1. Initial (read: experimental) support for React Native!
 1. Typings for core JSS SDK components (`Placeholder` and various field helpers).
 1. Bundle analyzer plugin were added to webpack config in sample apps.
@@ -305,12 +312,12 @@ React placeholders now have flexible options to render their child components. T
 #### Important changes
 
 1. Content Service is deprecated.
-    > Please use SSC or Sitecore.GraphQL service depending on the requirements. 
+    > Please use SSC or Sitecore.GraphQL service depending on the requirements.
 
 ### Bugfixes
 1. Pulling route data with media and subsequent code-first deploy would fail with "Empty strings are not allowed" message.
     > 🙏 Nick Hills for the reproducible scenario.
- 
+
 1. host name input wasn't validated during `setup` phase.
     > 🙏 Himadri Chakrabarti for reporting the issue.
 
@@ -399,7 +406,7 @@ Sorry, no upgrade path from the previous release is provided. If you are looking
 1. Field editor buttons are now automatically generated for every rendering during import.
 
 1. Added support for Display Name on Placeholder in manifest and import for enhanced Experience Editor support.
-   
+
 1. Added proxy headers including `X-Forwarded-For` for Sitecore analytics.
 
 ### Bugfixes
@@ -410,7 +417,7 @@ Sorry, no upgrade path from the previous release is provided. If you are looking
 
 1. The "default" datasource for was not returned during `npm run pull`.
 
-1. Indexing of datasource item names can cause duplicated content on subsequent import 
+1. Indexing of datasource item names can cause duplicated content on subsequent import
 
 1. "__OnSave" displaying in default EE workflow notification
 
@@ -420,7 +427,7 @@ Sorry, no upgrade path from the previous release is provided. If you are looking
 
 1. SSC API keys are required to be created prior to JSS app integration. Read more [here](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/api_keys_for_the_odata_item_service).
 
-1. Almost all `npm` scripts have been [renamed](/docs/fundamentals/cli). 
+1. Almost all `npm` scripts have been [renamed](/docs/fundamentals/cli).
 
 1. `React Rendering` and `JavaScript Rendering` templates consolidated into `JsonRendering` template.
 
@@ -552,11 +559,11 @@ Sorry, no upgrade path from the previous release is provided. If you are looking
     * Item templates can now be extended with route-level fields, so data can be stored and accessed on the route rather than datasource items exclusively.
     * The Layout Service already had the capability of outputting any route-level fields.
     * The Advanced App has been extended with examples of using route fields for page metadata, and within components.
-    
+
 * **Image field support during import**
     * The meta-data specified on the image field level (`alt`, `width` and `height`) will be imported into Sitecore.
 
-* The `sitecore\JssImport` user installed by the JSS server package is now disabled by default, to ensure it 
+* The `sitecore\JssImport` user installed by the JSS server package is now disabled by default, to ensure it
 cannot be used for login to Sitecore.
 
 * **New docs**
@@ -594,10 +601,10 @@ cannot be used for login to Sitecore.
     This prevents unexpected overwrites when content is changed in CMS by authors/editors.
 
 * New app packaging & deployment and npm scripts scripts.
-    
+
     File watcher is gone!
     JSS app is now deployed via generated `.update` package through Ship.
-    
+
     You can now see the logging messages coming from Ship right in the console!
 
 * Improved app import:
@@ -611,11 +618,11 @@ cannot be used for login to Sitecore.
     * better logging
 
 * Improved bi-directional sync:
-    
+
     The `pull` npm script that fetches route data from Sitecore was improved.
 
 * Support for rendering parameters.
-    
+
     `SitecorePropTypes` are replaced with `FieldPropTypes` and `ParamPropTypes`.
 
 * Layout Service got some love:

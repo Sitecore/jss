@@ -48,7 +48,7 @@ When the content user activity starts, it makes sense to think about the parts o
 
 The JSS import process is designed to gracefully skip items to which the configured import user does not have write permission. This allows you to utilize Sitecore Security to prevent the import from overwriting content which should no longer be "developer-owned."
 
-To further facilitate this, JSS includes a content workflow which is automatically applied to all generated templates. This workflow defines *Development Mode* and *Content Mode* states to designate the current "owership" of a content item.
+To further facilitate this, JSS includes a content workflow which is automatically applied to all generated templates. This workflow defines *Development Mode* and *Content Mode* states to designate the current "ownership" of a content item.
 
 ![JSS Workflow](/assets/img/jss-workflow.png "JSS Workflow")
 
@@ -83,7 +83,7 @@ Similar to designating content author "ownership" of content items is JSS's use 
 * Renderings
 * Placeholder settings
 
-Denying `item:write` and `item:create` access to the `sitecore\JSS Import Service Users` role or the specific import user allows a Sitecore developer or admin to limit items that the front-end developer can create and update. The import process will gracefully skip those items and output a warning indicating that it has done so. This allows the Sitecore developer to tweak the imported items without fear that the changes will be overwritten. 
+Denying `item:write` and `item:create` access to the `sitecore\JSS Import Service Users` role or the specific import user allows a Sitecore developer or admin to limit items that the front-end developer can create and update. The import process will gracefully skip those items and output a warning indicating that it has done so. This allows the Sitecore developer to tweak the imported items without fear that the changes will be overwritten.
 
 ![Item skip in import log](/assets/img/security-item-skip.png "Item skip in import log")
 

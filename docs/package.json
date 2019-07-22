@@ -23,7 +23,8 @@
     "prerender": "node -r babel-register ./build/prerender.js",
     "lint": "eslint --fix ./src/**/*.js ./sitecore/definitions/**/*.js ./build/**/*.js ./lib/**/*.js",
     "postinstall": "if-env HEROKU=true && npm run build || exit 0",
-    "deploy": "cd .. && git subtree push --prefix docs heroku master"
+    "deploy": "cd .. && git subtree push --prefix docs heroku master",
+    "heroku-postbuild": "echo Skip builds on Heroku"
   },
   "private": true,
   "babel": {

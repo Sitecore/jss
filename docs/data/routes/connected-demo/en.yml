@@ -1,0 +1,32 @@
+name: $name$
+fields:
+  title:
+    value: Untitled
+placeholders:
+  jssdocs-main:
+  - componentName: ArticleContainer
+    fields:
+      sidenav:
+        value: jssConnected
+      useSearch:
+        value: 'false'
+    placeholders:
+      jssdocs-jumbo:
+        - componentName: FeatureJumboShort
+          fields:
+            image:
+              src: /assets/img/transparent-1x1.png
+            imageclass:
+              value: defaultimage
+            csscolorclass:
+              value: default
+            title:
+              value: JSS Connected Demo
+            text:
+              value: Unlock the full potential of Sitecore with JSS in a live demo environment
+      jssdocs-content:
+        - componentName: Article
+          fields:
+            text:
+              value: |
+                $html$
