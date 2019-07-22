@@ -1,11 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import {
-  ANALYZE_FOR_ENTRY_COMPONENTS,
-  ModuleWithProviders,
-  NgModule,
-  Type,
-  Provider
-} from '@angular/core';
+import { ANALYZE_FOR_ENTRY_COMPONENTS, ModuleWithProviders, NgModule, Type } from '@angular/core';
 import { ROUTES } from '@angular/router';
 import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
@@ -19,7 +13,7 @@ import {
   DYNAMIC_COMPONENT,
   PLACEHOLDER_COMPONENTS,
   PLACEHOLDER_LAZY_COMPONENTS,
-  PLACEHOLDER_MISSING_COMPONENT_COMPONENT
+  PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { RenderComponentComponent } from './components/render-component.component';
@@ -31,9 +25,7 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
 import { LayoutService } from './layout.service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   declarations: [
     FileDirective,
     ImageDirective,
@@ -60,10 +52,7 @@ import { LayoutService } from './layout.service';
     RichTextDirective,
     TextDirective,
   ],
-  entryComponents: [
-    RawComponent,
-    MissingComponentComponent,
-  ],
+  entryComponents: [RawComponent, MissingComponentComponent],
 })
 export class JssModule {
   /**
@@ -73,11 +62,7 @@ export class JssModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: JssModule,
-      providers: [
-        LayoutService,
-        DatePipe,
-        JssComponentFactoryService,
-      ],
+      providers: [LayoutService, DatePipe, JssComponentFactoryService],
     };
   }
 
@@ -97,7 +82,10 @@ export class JssModule {
    * Instantiates the JSS module and specifies the mapping from component name to component implementation.
    * Appropriate when defining the set of JSS components that your app is aware of.
    */
-  static withComponents(components: ComponentNameAndType[], lazyComponents?: ComponentNameAndModule[]): ModuleWithProviders {
+  static withComponents(
+    components: ComponentNameAndType[],
+    lazyComponents?: ComponentNameAndModule[]
+  ): ModuleWithProviders {
     return {
       ngModule: JssModule,
       providers: [

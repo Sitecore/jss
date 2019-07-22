@@ -1,13 +1,13 @@
 import { InjectionToken, Type } from '@angular/core';
-import { CanActivate, Data, Resolve } from '@angular/router';
+import { CanActivate, Resolve } from '@angular/router';
 
 /** Registers a statically loaded component */
 export class ComponentNameAndType {
   name: string;
   type: Type<any>;
 
-  canActivate?: CanActivate;
-  resolve?: Resolve<Data>;
+  canActivate?: CanActivate | Type<CanActivate>;
+  resolve?: Resolve<unknown> | Type<Resolve<unknown>>;
 }
 
 /** Registers a lazily loaded component by name and module to lazy load when it's needed */
@@ -19,8 +19,8 @@ export interface ComponentNameAndModule {
    * e.g. ./path/to/lazyloadedcomponent.module#LazyLoadedComponentModuleExportName
    */
   loadChildren: string;
-  canActivate?: CanActivate;
-  resolve?: Resolve<Data>;
+  canActivate?: CanActivate | Type<CanActivate>;
+  resolve?: Resolve<unknown> | Type<Resolve<unknown>>;
 }
 
 export function instanceOfComponentNameAndType(object: any): object is ComponentNameAndType {

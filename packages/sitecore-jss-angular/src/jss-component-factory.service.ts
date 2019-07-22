@@ -6,7 +6,7 @@ import {
   NgModuleFactoryLoader,
   Type,
 } from '@angular/core';
-import { CanActivate, Data, Resolve } from '@angular/router';
+import { CanActivate, Resolve } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 import {
   ComponentNameAndModule,
@@ -22,8 +22,8 @@ export interface ComponentFactoryResult {
   componentImplementation?: Type<any>;
   componentDefinition: ComponentRendering | HtmlElementRendering;
   componentFactory?: ComponentFactory<any>;
-  canActivate?: CanActivate;
-  resolve?: Resolve<Data>;
+  canActivate?: CanActivate | Type<CanActivate>;
+  resolve?: Resolve<unknown> | Type<Resolve<unknown>>;
 }
 
 @Injectable()

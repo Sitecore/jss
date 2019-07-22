@@ -4,18 +4,19 @@ import {
   ComponentFactoryResolver,
   ContentChild,
   DoCheck,
+  EventEmitter,
   Inject,
+  Injector,
   Input,
   KeyValueDiffer,
   KeyValueDiffers,
   OnChanges,
   OnDestroy,
+  Output,
   SimpleChanges,
   Type,
   ViewChild,
   ViewContainerRef,
-  EventEmitter,
-  Output,
 } from '@angular/core';
 import { ActivatedRoute, Data, Router } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
@@ -86,6 +87,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private injector: Injector,
     @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>
   ) {}
 
@@ -237,11 +239,12 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
   private _resolveGuards(results: ComponentFactoryResult[]) {
     const resolved = results.map(async (factory) => {
       if (factory.canActivate != null) {
+        const guard =
+          'canActivate' in factory.canActivate
+            ? factory.canActivate
+            : this.injector.get(factory.canActivate);
         const canActivate$ = of(
-          factory.canActivate.canActivate(
-            this.activatedRoute.snapshot,
-            this.router.routerState.snapshot
-          )
+          guard.canActivate(this.activatedRoute.snapshot, this.router.routerState.snapshot)
         );
 
         const canActivate = await canActivate$.toPromise();
@@ -262,8 +265,10 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
   private _resolveData(factories: ComponentFactoryResult[]) {
     const resolved = factories.map(async (factory) => {
       if (factory.resolve != null) {
+        const resolver =
+          'resolve' in factory.resolve ? factory.resolve : this.injector.get(factory.resolve);
         const data$ = of(
-          factory.resolve.resolve(this.activatedRoute.snapshot, this.router.routerState.snapshot)
+          resolver.resolve(this.activatedRoute.snapshot, this.router.routerState.snapshot)
         );
         const data = await data$.toPromise();
 
