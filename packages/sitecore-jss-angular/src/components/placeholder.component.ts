@@ -63,8 +63,10 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
   renderings?: Array<ComponentRendering | HtmlElementRendering>;
   @Input()
   outputs: { [k: string]: (eventType: any) => void };
+
   @Output()
-  loaded = new EventEmitter<string>();
+  loaded = new EventEmitter<string | undefined>();
+
   @ViewChild('view', { read: ViewContainerRef })
   private view: ViewContainerRef;
   @ContentChild(RenderEachDirective)

@@ -1,6 +1,8 @@
 export { FileDirective } from './components/file.directive';
 export { ImageDirective } from './components/image.directive';
 export { LinkDirective } from './components/link.directive';
+export { RouterLinkDirective } from './components/router-link.directive';
+export { GenericLinkDirective } from './components/generic-link.directive';
 export { PlaceholderComponent } from './components/placeholder.component';
 export {
   ComponentNameAndType,

@@ -45,16 +45,16 @@ Below is a list of samples included in this repo:
 
 We are very grateful to the community for contributing bugfixes and improvements. We welcome any and all efforts to evolve and improve Sitecore JavaScript Services; read below to learn how you can take part in those efforts.
 
-### [Code of Conduct](code_of_conduct.md)
+### [Code of Conduct](CODE_OF_CONDUCT.md)
 
-Sitecore has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](code_of_conduct.md) so that you can understand what actions will and will not be tolerated.
+Sitecore has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 
-### [Contributing Guide](contributing.md)
+### [Contributing Guide](CONTRIBUTING.md)
 
-Read our [contributing guide](contributing.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React.
+Read our [contributing guide](CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React.
 
 ### License
 
-Sitecore JavaScript Services is using the [Apache 2.0 license](license.md).
+Sitecore JavaScript Services is using the [Apache 2.0 license](LICENSE.MD).
 
-## [Support](support.md)
+## [Support](SUPPORT.md)

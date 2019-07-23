@@ -52,6 +52,12 @@ export function args(yargs: Argv) {
       describe:
         'If true, no deployment is made and the manifest registration code for code-first is written to the console instead.',
       default: false,
+    })
+    .option('acceptCertificate', {
+      requiresArg: false,
+      type: 'string',
+      describe:
+        'Whitelists a specific SSL certificate thumbprint, regardless of normal SSL validation. Useful for self-signed certificates.'
     });
 }
 
