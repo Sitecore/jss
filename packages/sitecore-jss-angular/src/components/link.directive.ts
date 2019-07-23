@@ -49,7 +49,11 @@ export class LinkDirective implements OnChanges {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {
-      Object.keys(props).forEach((key) => this.renderer.setAttribute(node, key, props[key]));
+      Object.keys(props).forEach((key) => {
+        if (props[key] != null && props[key] !== '') {
+          this.updateAttribute(node, key, props[key]);
+        }
+      });
 
       if (node.childNodes && node.childNodes.length === 0 && linkText) {
         node.textContent = linkText;
@@ -67,7 +71,11 @@ export class LinkDirective implements OnChanges {
       ...this.getElementAttrs(),
       ...this.attrs,
     };
-    Object.keys(attrs).forEach((key) => this.renderer.setAttribute(span, key, attrs[key]));
+    Object.keys(attrs).forEach((key) => {
+      if (attrs[key] != null && attrs[key] !== '') {
+        this.updateAttribute(span, key, attrs[key]);
+      }
+    });
 
     this.viewContainer.createEmbeddedView(this.templateRef);
 
@@ -75,6 +83,14 @@ export class LinkDirective implements OnChanges {
     this.renderer.insertBefore(parentNode, span, this.elementRef.nativeElement);
 
     this.inlineRef = span;
+  }
+
+  protected updateAttribute(node: any, key: string, prop: any) {
+    if (key === 'class' && node.className !== '') {
+      this.renderer.setAttribute(node, key, `${node.className} ${prop}`);
+    } else {
+      this.renderer.setAttribute(node, key, prop);
+    }
   }
 
   private getElementAttrs(): { [key: string]: any; } {
