@@ -64,4 +64,10 @@ export class LayoutComponent implements OnInit, OnDestroy {
       this.meta.setTitle(routeFields.pageTitle.value as string || 'Page');
     }
   }
+
+  onPlaceholderLoaded(placeholderName: string) {
+    // you may optionally hook to the loaded event for a placeholder,
+    // which can be useful for analytics and other DOM-based things that need to know when a placeholder's content is available.
+    console.log(`layout.component.ts: placeholder component fired loaded event for the ${placeholderName} placeholder`);
+  }
 }

@@ -15,9 +15,9 @@ export class LinkDirective implements OnChanges {
   @Input('scLink') field: LinkField;
 
   constructor(
-    private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<any>,
-    private renderer: Renderer2,
+    protected viewContainer: ViewContainerRef,
+    protected templateRef: TemplateRef<any>,
+    protected renderer: Renderer2,
     private elementRef: ElementRef
   ) { }
 
@@ -45,7 +45,7 @@ export class LinkDirective implements OnChanges {
     }
   }
 
-  private renderTemplate(props: any, linkText: string) {
+  protected renderTemplate(props: any, linkText: string) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {

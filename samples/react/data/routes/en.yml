@@ -44,7 +44,7 @@ placeholders:
           <div class="alert alert-dark">
             <h4>This app is a boilerplate</h4>
             <p>The JSS samples are a boilerplate, not a library. That means that any code in this app is meant for you to own and customize to your own requirements.</p>
-            <p>Want to get change the lint settings? Do it. Want to read manifest data from a MongoDB database? Go for it. This app is yours.</p>
+            <p>Want to change the lint settings? Do it. Want to read manifest data from a MongoDB database? Go for it. This app is yours.</p>
           </div>
 
           <div class="alert alert-dark">
