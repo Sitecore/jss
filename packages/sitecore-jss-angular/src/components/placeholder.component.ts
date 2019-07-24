@@ -21,6 +21,7 @@ import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import { ComponentFactoryResult, JssComponentFactoryService } from '../jss-component-factory.service';
+import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import {
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT
 } from './placeholder.token';
@@ -38,7 +39,7 @@ function getPlaceholder(rendering: ComponentRendering, name: string) {
 @Component({
   selector: 'sc-placeholder,[sc-placeholder]',
   template: `
-    <ng-template #view></ng-template><ng-content *ngIf="isLoading"></ng-content>
+    <ng-template #view></ng-template><ng-template *ngIf="isLoading" [ngTemplateOutlet]="placeholderLoading?.templateRef"></ng-template>
   `,
 })
 export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
@@ -59,6 +60,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
   @ViewChild('view', { read: ViewContainerRef }) private view: ViewContainerRef;
   @ContentChild(RenderEachDirective) renderEachTemplate: RenderEachDirective;
   @ContentChild(RenderEmptyDirective) renderEmptyTemplate: RenderEmptyDirective;
+  @ContentChild(PlaceholderLoadingDirective) placeholderLoading: PlaceholderLoadingDirective;
 
   @Input()
   set inputs(value: { [key: string]: any }) {

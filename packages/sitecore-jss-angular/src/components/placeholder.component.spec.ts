@@ -1,6 +1,6 @@
 // tslint:disable:max-classes-per-file
 import { Component, DebugElement, EventEmitter, Input, NgModuleFactoryLoader, Output } from '@angular/core';
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
 
@@ -12,7 +12,9 @@ import { convertedDevData as nonEeDevData, convertedLayoutServiceData as nonEeLs
 @Component({
   selector: 'test-placeholder',
   template: `
-    <sc-placeholder [name]="name" [rendering]="rendering"><img src="loading.gif"></sc-placeholder>
+    <sc-placeholder [name]="name" [rendering]="rendering">
+      <img *sc-placeholder-loading src="loading.gif">
+    </sc-placeholder>
   `,
 })
 class TestPlaceholderComponent {
@@ -85,6 +87,7 @@ describe('<sc-placeholder />', () => {
 
   it('should show a loader while no rendering is defined yet', () => {
     const img = de.nativeElement.getElementsByTagName('img')[0];
+    expect(img).toBeDefined();
     expect(img.getAttribute('src')).toBe('loading.gif');
   });
 

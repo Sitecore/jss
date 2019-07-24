@@ -279,6 +279,6 @@ When lazy-loading a sitecore component, the placeholder will appear empty by def
 
 ``` html
   <sc-placeholder [rendering]="rendering">
-    <img class="loading.gif">
+    <img *sc-placeholder-loading src="loading.gif">
   </sc-placeholder>
 ```
