@@ -13,7 +13,7 @@ import { convertedDevData as nonEeDevData, convertedLayoutServiceData as nonEeLs
   selector: 'test-placeholder',
   template: `
     <sc-placeholder [name]="name" [rendering]="rendering">
-      <img *sc-placeholder-loading src="loading.gif">
+      <img *scPlaceholderLoading src="loading.gif">
     </sc-placeholder>
   `,
 })
@@ -54,7 +54,7 @@ describe('<sc-placeholder />', () => {
   let de: DebugElement;
   let comp: TestPlaceholderComponent;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         TestPlaceholderComponent,
@@ -72,8 +72,10 @@ describe('<sc-placeholder />', () => {
       providers: [
         { provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader },
       ],
-    });
+    }).compileComponents();
+  }));
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(TestPlaceholderComponent);
     de = fixture.debugElement;
 
