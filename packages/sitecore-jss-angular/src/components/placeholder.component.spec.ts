@@ -12,7 +12,7 @@ import { convertedDevData as nonEeDevData, convertedLayoutServiceData as nonEeLs
 @Component({
   selector: 'test-placeholder',
   template: `
-    <sc-placeholder [name]="name" [rendering]="rendering"></sc-placeholder>
+    <sc-placeholder [name]="name" [rendering]="rendering"><img src="loading.gif"></sc-placeholder>
   `,
 })
 class TestPlaceholderComponent {
@@ -83,6 +83,11 @@ describe('<sc-placeholder />', () => {
     expect(comp).toBeDefined();
   });
 
+  it('should show a loader while no rendering is defined yet', () => {
+    const img = de.nativeElement.getElementsByTagName('img')[0];
+    expect(img.getAttribute('src')).toBe('loading.gif');
+  });
+
   const testData = [
     { label: 'Dev data', data: nonEeDevData },
     { label: 'LayoutService data - EE off', data: nonEeLsData },
@@ -105,6 +110,9 @@ describe('<sc-placeholder />', () => {
           const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
           expect(downloadCallout).not.toBeNull();
           expect(downloadCallout.nativeElement.innerHTML).toContain('Download');
+
+          const img = de.nativeElement.getElementsByTagName('img')[0];
+          expect(img).not.toBeDefined();
         });
       }));
 
