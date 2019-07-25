@@ -41,5 +41,5 @@
     "typescript": "^3.1.3"
   },
   "types": "types/index.d.ts",
-  "gitHead": "f3c6b5d6bd7118f0736011f20efb9e0ae2d61ff5"
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
 }

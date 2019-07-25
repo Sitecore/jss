@@ -63,5 +63,5 @@
   "fesm5": "dist/fesm5/sitecore-jss-sitecore-jss-angular.js",
   "fesm2015": "dist/fesm2015/sitecore-jss-sitecore-jss-angular.js",
   "sideEffects": false,
-  "gitHead": "f3c6b5d6bd7118f0736011f20efb9e0ae2d61ff5"
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
 }
