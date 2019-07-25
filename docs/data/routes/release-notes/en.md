@@ -5,6 +5,33 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 12.0 for Sitecore 9.2
+
+### New Features & Improvements
+
+* JSS now supports Sitecore Forms. This means several things:
+    * JSS now provides a special content resolver for form components, which enables the Layout Service to send complete serialized form data
+    * a new framework-agnostic npm package is available (`sitecore-jss-forms`), which defines data types and components for forms.
+    * a React implementation of forms is also available via the new `sitecore-jss-react-forms` package (this package extends `sitecore-jss-forms`)
+* JSS now integrates with SXA. When SXA is installed, it's possible to create JSS tenants and sites that make it easier to scale JSS apps. Additional benefits:
+    * SXA site management for JSS apps.
+    * Cross-site presentation sharing using page designs and partial designs.
+    * Cross-site content sharing.
+    * Cross-site reusability of renderings.
+    * Cross-site linking.
+    * More info available on the [SXA documentation site](https://doc.sitecore.com/developers/sxa/19/sitecore-experience-accelerator/en/managing-jss-apps-with-sxa.html)
+* [PR #216]
+* [PR #214]
+* [PR #213]
+* [PR #210]
+* [PR #209]
+
+
+### Bug Fixes
+* [PR #211](https://github.com/Sitecore/jss/pull/211) Fix the case when working on a mac or linux with git config for autocrlf all the line endings in the repo are set to lf which fails eslint
+* [Bug #194](https://github.com/Sitecore/jss/issues/194) Implement `acceptCertificate` parameter in `jss deploy component/template`
+* [Bug #174](https://github.com/Sitecore/jss/issues/174) Resolve inherited templates/fields when building media output for the manifest
+
 ## Sitecore JSS vNext
 
 ### New Features & Improvements
