@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-proxy",
-  "version": "11.0.2",
+  "version": "12.0.0",
   "description": "Proxy middleware for express.js server.",
   "main": "dist/index.js",
   "scripts": {

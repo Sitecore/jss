@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-dev-tools",
-  "version": "11.0.2",
+  "version": "12.0.0",
   "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -29,9 +29,9 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^11.0.2",
-    "@sitecore-jss/sitecore-jss-manifest": "^11.0.2",
-    "@sitecore-jss/sitecore-jss-update-package": "^11.0.2",
+    "@sitecore-jss/sitecore-jss": "^12.0.0",
+    "@sitecore-jss/sitecore-jss-manifest": "^12.0.0",
+    "@sitecore-jss/sitecore-jss-update-package": "^12.0.0",
     "chokidar": "^2.0.4",
     "del": "^3.0.0",
     "express": "^4.16.4",
