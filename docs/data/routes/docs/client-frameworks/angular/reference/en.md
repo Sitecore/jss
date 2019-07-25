@@ -76,7 +76,7 @@ Advanced usage is also possible, using templates to customize the markup emitted
       <sc-placeholder [renderings]="renderings"></sc-placeholder>
     </div>
   </ng-template>
-  <ng-template placeholderLoading>
+  <ng-template scPlaceholderLoading>
     <img src="loading.gif">
   </ng-template>
 </div>
