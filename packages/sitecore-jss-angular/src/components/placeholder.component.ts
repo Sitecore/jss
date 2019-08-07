@@ -21,6 +21,7 @@ import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import { ComponentFactoryResult, JssComponentFactoryService } from '../jss-component-factory.service';
+import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import {
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT
 } from './placeholder.token';
@@ -38,6 +39,7 @@ function getPlaceholder(rendering: ComponentRendering, name: string) {
 @Component({
   selector: 'sc-placeholder,[sc-placeholder]',
   template: `
+    <ng-template *ngIf="isLoading" [ngTemplateOutlet]="placeholderLoading?.templateRef"></ng-template>
     <ng-template #view></ng-template>
   `,
 })
@@ -46,6 +48,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
   private _differ: KeyValueDiffer<string, any>;
   private _componentInstances: any[] = [];
   private destroyed = false;
+  public isLoading = true;
 
   @Input() name?: string;
   @Input() rendering: ComponentRendering;
@@ -58,6 +61,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
   @ViewChild('view', { read: ViewContainerRef }) private view: ViewContainerRef;
   @ContentChild(RenderEachDirective) renderEachTemplate: RenderEachDirective;
   @ContentChild(RenderEmptyDirective) renderEmptyTemplate: RenderEmptyDirective;
+  @ContentChild(PlaceholderLoadingDirective) placeholderLoading?: PlaceholderLoadingDirective;
 
   @Input()
   set inputs(value: { [key: string]: any }) {
@@ -127,6 +131,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
     if (!this.name && !this.renderings) {
       // tslint:disable-next-line:max-line-length
       console.warn(`Placeholder name was not specified, and explicit renderings array was not passed. Placeholder requires either name and rendering, or renderings.`);
+      this.isLoading = false;
       return;
     }
 
@@ -134,6 +139,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
 
     if (!placeholder) {
       console.warn(`Placeholder '${this.name}' was not found in the current rendering data`, JSON.stringify(this.rendering, null, 2));
+      this.isLoading = false;
       return;
     }
 
@@ -145,6 +151,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
         {
           renderings: placeholder,
         });
+      this.isLoading = false;
     } else {
       this.componentFactory.getComponents(placeholder)
         .then((components) => components.forEach((rendering, index) => {
@@ -153,6 +160,7 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
           } else {
             this._renderEmbeddedComponent(rendering, index);
           }
+          this.isLoading = false;
         })).then(() => {
           this.changeDetectorRef.markForCheck();
           this.loaded.emit(this.name);

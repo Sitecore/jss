@@ -1,6 +1,6 @@
 // tslint:disable:max-classes-per-file
 import { Component, DebugElement, EventEmitter, Input, NgModuleFactoryLoader, Output } from '@angular/core';
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
 
@@ -12,7 +12,9 @@ import { convertedDevData as nonEeDevData, convertedLayoutServiceData as nonEeLs
 @Component({
   selector: 'test-placeholder',
   template: `
-    <sc-placeholder [name]="name" [rendering]="rendering"></sc-placeholder>
+    <sc-placeholder [name]="name" [rendering]="rendering">
+      <img *scPlaceholderLoading src="loading.gif">
+    </sc-placeholder>
   `,
 })
 class TestPlaceholderComponent {
@@ -52,7 +54,7 @@ describe('<sc-placeholder />', () => {
   let de: DebugElement;
   let comp: TestPlaceholderComponent;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         TestPlaceholderComponent,
@@ -70,8 +72,10 @@ describe('<sc-placeholder />', () => {
       providers: [
         { provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader },
       ],
-    });
+    }).compileComponents();
+  }));
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(TestPlaceholderComponent);
     de = fixture.debugElement;
 
@@ -81,6 +85,12 @@ describe('<sc-placeholder />', () => {
 
   it('should be created', () => {
     expect(comp).toBeDefined();
+  });
+
+  it('should show a loader while no rendering is defined yet', () => {
+    const img = de.nativeElement.getElementsByTagName('img')[0];
+    expect(img).toBeDefined();
+    expect(img.getAttribute('src')).toBe('loading.gif');
   });
 
   const testData = [
@@ -105,6 +115,9 @@ describe('<sc-placeholder />', () => {
           const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
           expect(downloadCallout).not.toBeNull();
           expect(downloadCallout.nativeElement.innerHTML).toContain('Download');
+
+          const img = de.nativeElement.getElementsByTagName('img')[0];
+          expect(img).not.toBeDefined();
         });
       }));
 
