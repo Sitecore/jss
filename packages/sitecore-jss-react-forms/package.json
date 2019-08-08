@@ -1,0 +1,46 @@
+{
+  "name": "@sitecore-jss/sitecore-jss-react-forms",
+  "version": "12.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "del-cli dist types",
+    "lint": "tslint -p . -c ./tslint.json 'src/**/*.ts'",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=8.1"
+  },
+  "author": {
+    "name": "Sitecore Corporation",
+    "url": "https://jss.sitecore.net"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://jss.sitecore.net",
+  "bugs": {
+    "url": "https://github.com/sitecore/jss/issues"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/prop-types": "^15.5.8",
+    "@types/react": "16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "del-cli": "^1.1.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "ts-node": "^7.0.1",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.2"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
+  },
+  "dependencies": {
+    "@sitecore-jss/sitecore-jss-forms": "^12.0.0",
+    "prop-types": "^15.6.1"
+  },
+  "description": "",
+  "types": "types/index.d.ts",
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
+}

@@ -20,14 +20,14 @@ fields:
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
   jss-main:
-  - componentName: ContentBlock
-    fields:
-      heading: Welcome to Sitecore JSS
-      # to author content in YAML, use _multi-line values_ (prefixed with | + endline)
-      # as long as the same indent is preserved at the beginning of each line, no escaping
-      # is required at all in the value, making it easy to read
-      content: |
-          <p>Thanks for using JSS. Here are some resources to get you started:</p>
+    - componentName: ContentBlock
+      fields:
+        heading: Welcome to Sitecore JSS
+        # to author content in YAML, use _multi-line values_ (prefixed with | + endline)
+        # as long as the same indent is preserved at the beginning of each line, no escaping
+        # is required at all in the value, making it easy to read
+        content: |
+          <p>Thanks for using JSS!! Here are some resources to get you started:</p>
 
           <h3><a href="https://jss.sitecore.net" rel="noopener noreferrer">Documentation</a></h3>
           <p>The official JSS documentation can help you with any JSS task from getting started to advanced techniques.</p>
@@ -44,7 +44,7 @@ placeholders:
           <div class="alert alert-dark">
             <h4>This app is a boilerplate</h4>
             <p>The JSS samples are a boilerplate, not a library. That means that any code in this app is meant for you to own and customize to your own requirements.</p>
-            <p>Want to get change the lint settings? Do it. Want to read manifest data from a MongoDB database? Go for it. This app is yours.</p>
+            <p>Want to change the lint settings? Do it. Want to read manifest data from a MongoDB database? Go for it. This app is yours.</p>
           </div>
 
           <div class="alert alert-dark">
@@ -59,5 +59,3 @@ placeholders:
               <li>Delete <code>/data/dictionary/*.yml</code></li>
             </ol>
           </div>
-
-

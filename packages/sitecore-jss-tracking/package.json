@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-tracking",
-  "version": "11.0.2",
+  "version": "12.0.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -46,12 +46,12 @@
     "url-parse": "^1.4.3"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^11.0.2"
+    "@sitecore-jss/sitecore-jss": "^12.0.0"
   },
   "description": "",
   "types": "types/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "f3c6b5d6bd7118f0736011f20efb9e0ae2d61ff5"
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
 }

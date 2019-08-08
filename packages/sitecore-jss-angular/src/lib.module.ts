@@ -8,9 +8,11 @@ import {
 import { ROUTES } from '@angular/router';
 import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
+import { GenericLinkDirective } from './components/generic-link.directive';
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
+import { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 import { PlaceholderComponent } from './components/placeholder.component';
 import {
   ComponentNameAndModule,
@@ -39,9 +41,11 @@ import { LayoutService } from './layout.service';
     ImageDirective,
     LinkDirective,
     RouterLinkDirective,
+    GenericLinkDirective,
     DateDirective,
     RenderEachDirective,
     RenderEmptyDirective,
+    PlaceholderLoadingDirective,
     RenderComponentComponent,
     PlaceholderComponent,
     RawComponent,
@@ -55,10 +59,12 @@ import { LayoutService } from './layout.service';
     DateDirective,
     LinkDirective,
     RouterLinkDirective,
+    GenericLinkDirective,
     RenderEachDirective,
     RenderEmptyDirective,
     RenderComponentComponent,
     PlaceholderComponent,
+    PlaceholderLoadingDirective,
     RichTextDirective,
     TextDirective,
   ],
