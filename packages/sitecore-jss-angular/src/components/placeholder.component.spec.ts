@@ -34,6 +34,7 @@ class TestDownloadCalloutComponent {
 
 @Component({
   selector: 'test-home',
+  styles: [ 'sc-placeholder[name="page-content"] { background-color: red }' ],
   template: `
     <sc-placeholder name="page-header" [rendering]="rendering"></sc-placeholder>
     <sc-placeholder name="page-content" [rendering]="rendering"></sc-placeholder>
@@ -164,6 +165,35 @@ describe('<sc-placeholder />', () => {
         const keyAttribute = eeChrome.nativeElement.getAttribute('key');
         expect(keyAttribute).toBeDefined();
         expect(keyAttribute).toBe(phKey);
+      });
+  }));
+
+  it('should copy parent style attribute', async(() => {
+    const component = nonEeDevData.sitecore.route;
+    const phKey = 'main';
+    comp.name = phKey;
+    comp.rendering = component;
+    fixture.detectChanges();
+
+    fixture.whenStable()
+      .then(() => {
+        fixture.detectChanges();
+
+        // let's grab the style name from the parent
+        let parentKey = '';
+        const homeComp = de.query(By.directive(TestHomeComponent));
+        const homeAttributes = homeComp.nativeElement.attributes;
+        if (homeAttributes.length) {
+          const parentAttribute = homeComp.nativeElement.attributes.item(0).name;
+          parentKey = parentAttribute.replace('_nghost-', '');
+        }
+
+        fixture.whenStable()
+          .then(() => {
+            fixture.detectChanges();
+            const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
+            expect(downloadCallout.nativeElement.attributes.item(0).name).toEqual(`_ngcontent-${parentKey}`);
+          });
       });
   }));
 

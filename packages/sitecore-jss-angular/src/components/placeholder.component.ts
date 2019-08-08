@@ -4,6 +4,7 @@ import {
   ComponentFactoryResolver,
   ContentChild,
   DoCheck,
+  ElementRef,
   EventEmitter,
   Inject,
   Input,
@@ -11,7 +12,9 @@ import {
   KeyValueDiffers,
   OnChanges,
   OnDestroy,
+  OnInit,
   Output,
+  Renderer2,
   SimpleChanges,
   Type,
   ViewChild,
@@ -43,11 +46,12 @@ function getPlaceholder(rendering: ComponentRendering, name: string) {
     <ng-template #view></ng-template>
   `,
 })
-export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
+export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
   private _inputs: { [key: string]: any };
   private _differ: KeyValueDiffer<string, any>;
   private _componentInstances: any[] = [];
   private destroyed = false;
+  private parentStyleAttribute: string = '';
   public isLoading = true;
 
   @Input() name?: string;
@@ -76,8 +80,25 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
     private differs: KeyValueDiffers,
     private componentFactory: JssComponentFactoryService,
     private changeDetectorRef: ChangeDetectorRef,
+    private elementRef: ElementRef,
+    private renderer: Renderer2,
     @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>
   ) { }
+
+  ngOnInit() {
+    // just to ensure the element exists
+    const elem = this.elementRef.nativeElement;
+
+    if (elem) {
+      const attributes: NamedNodeMap = elem.attributes;
+      for (let i = 0; i < attributes.length; i++) {
+        const attr: Attr | null = attributes.item(i);
+        if (attr && attr.name.indexOf('_ngcontent') !== -1) {
+            this.parentStyleAttribute = attr.name;
+        }
+      }
+    }
+  }
 
   ngOnDestroy() {
     this.destroyed = true;
@@ -199,7 +220,14 @@ export class PlaceholderComponent implements OnChanges, DoCheck, OnDestroy {
     const componentFactory =
       rendering.componentFactory || this.componentFactoryResolver.resolveComponentFactory(rendering.componentImplementation);
 
-    const componentInstance = this.view.createComponent(componentFactory, index).instance;
+    // apply the parent style attribute _ngcontent
+    // work-around for https://github.com/angular/angular/issues/12215
+    const createdComponentRef = this.view.createComponent(componentFactory, index);
+    if (this.parentStyleAttribute) {
+      this.renderer.setAttribute(createdComponentRef.location.nativeElement, this.parentStyleAttribute, '');
+    }
+
+    const componentInstance = createdComponentRef.instance;
     componentInstance.rendering = rendering.componentDefinition;
     if (this._inputs) {
       this._setComponentInputs(componentInstance, this._inputs);
