@@ -326,6 +326,16 @@ export default {
             displayName: 'DevOps Guide',
           },
           {
+            url: 'performance',
+            displayName: 'Performance Guide',
+            children: [
+              {
+                url: 'caching',
+                displayName: 'Caching',
+              }
+            ]
+          },
+          {
             url: 'azure-deployment',
             displayName: 'Azure Deployment',
           },
