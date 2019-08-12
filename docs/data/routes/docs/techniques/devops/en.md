@@ -34,6 +34,8 @@ There is also less flexibility to do advanced client-side routing scenarios when
 
 ![integrated topology](/assets/img/integrated-topology.svg)
 
+> Note: We do not recommend integrated mode for heavy load production scenarios, because the entire page is server-side rendered using Node.js as a block, not as individual renderings, so traditional output caching mechanisms become all-or-nothing. In other words, if caching is enabled, it forces caching of the entire page, which is almost always not what is desired.
+
 ## Deployment Best Practices
 
 The deployment procedure for JSS will vary depending on the [development workflow](/docs/fundamentals/dev-workflows/overview) being used. In production, most apps will be using Sitecore-first workflow. For a Sitecore-first workflow, normal Sitecore DevOps best practices apply:
