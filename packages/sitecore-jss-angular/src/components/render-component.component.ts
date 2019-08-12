@@ -36,7 +36,7 @@ export class RenderComponentComponent implements OnChanges {
 
   @Input() rendering: ComponentRendering | HtmlElementRendering;
   @Input() outputs: { [k: string]: (eventType: any) => void };
-  @ViewChild('view', { read: ViewContainerRef }) private view: ViewContainerRef;
+  @ViewChild('view', { read: ViewContainerRef, static: false }) private view: ViewContainerRef;
 
   @Input()
   set inputs(value: { [key: string]: any }) {
