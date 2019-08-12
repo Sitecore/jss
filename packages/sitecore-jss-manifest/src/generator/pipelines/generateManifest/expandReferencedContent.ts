@@ -13,7 +13,7 @@ function expandReferencedContent(manifest: ManifestInstance) {
   const idMap = createIdMapping(manifest);
 
   // we expand copy: true ID references to be a copy of the original
-  idMap.usages.forEach((idReference) => {
+  idMap.usages.reverse().forEach((idReference) => {
     expandedItems = true;
 
     const source = idMap.ids.get(idReference.id);
