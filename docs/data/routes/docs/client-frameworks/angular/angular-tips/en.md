@@ -47,7 +47,7 @@ If you're using the default code-generated `app-components.module.ts` that's all
       // in this case, 'path' = the component name, loadChildren = the module path to load for it
       // this is exactly like lazy loaded routes, in fact it uses the router under the hood to do it.
       // loadChildren is the relative path to the module, with the hash and then the name of the exported module class.
-      { path: 'My', loadChildren: './my/my.module#MyModule'},
+      { path: 'My', loadChildren: import('./my/my.module').then(mod => mod.MyModule),
     ]),
   ],
   exports: [
@@ -120,8 +120,8 @@ There aren't changes in your component module. If you use multiple components la
     JssModule.withComponents([
       // non-lazy components
     ], [
-      { path: 'FirstComponent', loadChildren: './my/my.module#MyModule'},
-      { path: 'SecondComponent', loadChildren: './my/my.module#MyModule'},
+      { path: 'FirstComponent', loadChildren: import('./my/my.module').then(mod => mod.MyModule),
+      { path: 'SecondComponent', loadChildren: import('./my/my.module').then(mod => mod.MyModule),
     ]),
   ],
   exports: [

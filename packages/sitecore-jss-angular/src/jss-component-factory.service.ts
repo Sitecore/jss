@@ -4,7 +4,8 @@ import {
   Injectable,
   Injector,
   NgModuleFactoryLoader,
-  Type
+  Type,
+  NgModuleFactory
 } from '@angular/core';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 import {
@@ -12,7 +13,7 @@ import {
   ComponentNameAndType,
   DYNAMIC_COMPONENT,
   PLACEHOLDER_COMPONENTS,
-  PLACEHOLDER_LAZY_COMPONENTS
+  PLACEHOLDER_LAZY_COMPONENTS,
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { isRawRendering } from './components/rendering';
@@ -57,8 +58,13 @@ export class JssComponentFactoryService {
     const lazyComponent = this.lazyComponentMap.get(component.componentName);
 
     if (lazyComponent) {
-      return this.loader.load(lazyComponent.loadChildren)
-      .then((ngModuleFactory) => {
+      const isLoadChildrenString = typeof lazyComponent.loadChildren === "string" ;
+      const loadChildrenPromise = isLoadChildrenString
+        ? this.loader.load(lazyComponent.loadChildren as string) 
+        : (lazyComponent.loadChildren as () => Promise<NgModuleFactory<any>>)()
+      
+
+      return loadChildrenPromise.then((ngModuleFactory) => {
         let componentType = null;
         const moduleRef = ngModuleFactory.create(this.injector);
         const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);

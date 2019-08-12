@@ -95,7 +95,7 @@ function generateComponentFactory() {
     if (isLazyLoaded) {
       console.debug(`Registering JSS component (lazy) ${componentName}`);
       // tslint:disable-next-line:max-line-length
-      lazyRegistrations.push(`{ path: '${componentName}', loadChildren: './${componentFolder}/${componentFolder}.module#${componentName}Module'},`);
+      lazyRegistrations.push(`{ path: '${componentName}', loadChildren:  import('./${componentFolder}/${componentFolder}.module').then(mod => mod.${componentName}),`);
     } else {
       console.debug(`Registering JSS component ${componentName}`);
       imports.push(`import { ${importVarName} } from './${componentFolder}/${componentFolder}.component';`);

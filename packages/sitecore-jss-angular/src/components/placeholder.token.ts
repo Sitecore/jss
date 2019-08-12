@@ -1,4 +1,4 @@
-import { InjectionToken, Type } from '@angular/core';
+import { InjectionToken, Type, NgModuleFactory } from '@angular/core';
 
 /** Registers a statically loaded component */
 export class ComponentNameAndType {
@@ -14,7 +14,7 @@ export interface ComponentNameAndModule {
    * Module path that defines the component and export name,
    * e.g. ./path/to/lazyloadedcomponent.module#LazyLoadedComponentModuleExportName
    */
-  loadChildren: string;
+  loadChildren: (() => Promise<NgModuleFactory<any>>) | string;
 }
 
 export function instanceOfComponentNameAndType(object: any): object is ComponentNameAndType {
