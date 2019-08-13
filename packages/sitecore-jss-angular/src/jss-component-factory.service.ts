@@ -5,8 +5,12 @@ import {
   Injector,
   NgModuleFactoryLoader,
   Type,
-  NgModuleFactory
+  NgModuleFactory,
+  Compiler,
+  ɵisObservable as isObservable,
+  ɵisPromise as isPromise
 } from '@angular/core';
+import { LoadChildrenCallback, LoadChildren } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 import {
   ComponentNameAndModule,
@@ -17,6 +21,8 @@ import {
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { isRawRendering } from './components/rendering';
+import { Observable, from, of } from 'rxjs';
+import { mergeMap, take } from 'rxjs/operators';
 
 export interface ComponentFactoryResult {
   componentImplementation?: Type<any>;
@@ -30,6 +36,7 @@ export class JssComponentFactoryService {
   private lazyComponentMap: Map<string, ComponentNameAndModule>;
 
   constructor(
+    private compiler: Compiler,
     private loader: NgModuleFactoryLoader,
     private injector: Injector,
     @Inject(PLACEHOLDER_COMPONENTS) private components: ComponentNameAndType[],
@@ -58,13 +65,7 @@ export class JssComponentFactoryService {
     const lazyComponent = this.lazyComponentMap.get(component.componentName);
 
     if (lazyComponent) {
-      const isLoadChildrenString = typeof lazyComponent.loadChildren === "string" ;
-      const loadChildrenPromise = isLoadChildrenString
-        ? this.loader.load(lazyComponent.loadChildren as string) 
-        : (lazyComponent.loadChildren as () => Promise<NgModuleFactory<any>>)()
-      
-
-      return loadChildrenPromise.then((ngModuleFactory) => {
+      return this.loadModuleFactory(lazyComponent.loadChildren).then((ngModuleFactory) => {
         let componentType = null;
         const moduleRef = ngModuleFactory.create(this.injector);
         const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
@@ -101,7 +102,35 @@ export class JssComponentFactoryService {
     });
   }
 
-  getComponents(components: Array<ComponentRendering | HtmlElementRendering>): Promise<ComponentFactoryResult[]> {
+  private loadModuleFactory(loadChildren: LoadChildren): Promise<NgModuleFactory<any>> {
+    if (typeof loadChildren === 'string') {
+      return this.loader.load(loadChildren);
+    } else {
+      return this.wrapIntoObservable(loadChildren()).pipe(mergeMap((t: any) => {
+        if (t instanceof NgModuleFactory) {
+          return of (t);
+        } else {
+          return from(this.compiler.compileModuleAsync(t));
+        }
+      }), take(1)).toPromise();
+    }
+  }
+
+  private wrapIntoObservable<T>(value: T | Promise<T>| Observable<T>): Observable<T> {
+    if (isObservable(value)) {
+      return value;
+    }
+  
+    if (isPromise(value)) {
+      return from(Promise.resolve(value));
+    }
+  
+    return of (value);
+  }
+
+  getComponents(
+    components: Array<ComponentRendering | HtmlElementRendering>
+  ): Promise<ComponentFactoryResult[]> {
     // acquire all components and keep them in order while handling their potential async-ness
     return Promise.all(
       components.map((component) => isRawRendering(component)
