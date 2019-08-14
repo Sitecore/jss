@@ -272,3 +272,13 @@ class MyRendering {
   @Output() onSomething = new EventEmitter<string>();
 }
 ```
+
+## Lazy loading placeholder
+
+When lazy-loading a sitecore component, the placeholder will appear empty by default. A temporary body during loading of the component can be added to the placeholder by adding a body. When the component finished loading, the temporary body is replaced with the actual content. A simplified example is:
+
+``` html
+  <sc-placeholder [rendering]="rendering">
+    <img *scPlaceholderLoading src="loading.gif">
+  </sc-placeholder>
+```

@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-native",
-  "version": "11.0.2",
+  "version": "12.0.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -26,7 +26,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^11.0.2",
+    "@sitecore-jss/sitecore-jss": "^12.0.0",
     "prop-types": "^15.6.0",
     "react-native-htmlview": "^0.13.0"
   },
@@ -64,5 +64,5 @@
     "babel-core": "7.0.0-bridge.0"
   },
   "types": "./types/index.d.ts",
-  "gitHead": "f3c6b5d6bd7118f0736011f20efb9e0ae2d61ff5"
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
 }

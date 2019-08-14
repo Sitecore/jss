@@ -1,0 +1,19 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "HTTP Renderer Start",
+      "env": {
+        "NODE_ENV": "development",
+        "JSS_RENDER_ENGINE": "http"
+      },
+      "program": "${workspaceFolder}/scripts/http-renderer.js",
+      "runtimeArgs": ["--preserve-symlinks", "--preserve-symlinks-main"]
+    }
+  ]
+}

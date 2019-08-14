@@ -8,6 +8,7 @@ import { GenericRichTextDirective } from './components/generic-rich-text.directi
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
+import { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 import { PlaceholderComponent } from './components/placeholder.component';
 import {
   ComponentNameAndModule,
@@ -38,6 +39,7 @@ import { LayoutService } from './layout.service';
     DateDirective,
     RenderEachDirective,
     RenderEmptyDirective,
+    PlaceholderLoadingDirective,
     RenderComponentComponent,
     PlaceholderComponent,
     RawComponent,
@@ -57,6 +59,7 @@ import { LayoutService } from './layout.service';
     RenderEmptyDirective,
     RenderComponentComponent,
     PlaceholderComponent,
+    PlaceholderLoadingDirective,
     RichTextDirective,
     TextDirective,
     GenericRichTextDirective,
