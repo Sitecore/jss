@@ -7,7 +7,7 @@ title: Caching
 # Caching
 
 ## Sitecore Output Caching in MVC vs JSS
-Sitecore caching in JSS does work the same way as it does in MVC.
+Sitecore caching in JSS does not work the same way as it does in MVC.
 
 ![Sitecore output caching](/assets/img/sitecore-output-caching.png)
 
