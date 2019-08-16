@@ -16,13 +16,22 @@ JavaScript open source JSS components are _not supported_ by Sitecore Support, b
 1. For quick questions, [Sitecore Slack](slack://channel?team=T09SHRBNU&id=C7JT0NRQW)
 1. [Sitecore Community](https://community.sitecore.net/)
 
+## Contributing
+
+The front-end JavaScript layer of JSS is open-source, which means you are welcome to submit pull requests for new features, bug fixes, and documentation. See the [contributing guide](https://github.com/Sitecore/jss/blob/dev/CONTRIBUTING.md) in our GitHub.
+
+Contributing can also come in the form of making your voice heard and helping shape the roadmap. We look at GitHub issues, sorted by "most reaction" to determine what's most important to the community. So log your ideas, add details, add reactions to ideas you agree with - open source is a *community*.
+
 ## FAQ
 
 ### Is JSS ready for production?
 
-Yes! JSS 11.0 for Sitecore 9.0 and 9.1 is considered stable for React, Angular, Vue, and Layout Service API usage.
+Yes! The earliest version of JSS that is considered production-ready is JSS 11.0 for Sitecore 9.0 and 9.1. It is stable for React, Angular, Vue, and Layout Service API usage.
 
-[React Native](/docs/client-frameworks/react-native) and [JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) are considered experimental.
+### Why are some features marked as "Experimental"?
+[React Native](/docs/client-frameworks/react-native) is marked as experimental because React Native cannot render in the browser (RN apps are intended to be rendered on iOS/Android devices or emulators), so there is no Experience Editor support. This makes RN difficult to setup and difficult to work with.
+
+[JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) are marked as experimental because these rendering don't scale well. They satisfy edge-case requirements, and should be used sparingly.
 
 ### Where can I get a Sitecore license for JSS?
 JSS is a specifically enabled license feature. If you are a customer, contact your Sitecore account manager. If you are a partner, request a new license on [SPN](https://spn.sitecore.net/).
@@ -35,9 +44,16 @@ Here are the UI libraries/frameworks supported by JSS:
 1. React Native (experimental support)
 1. Vue.js 2.5+
 
+#### Are you going to upgrade the supported libraries?
+Yes, upgrading the supported frameworks, as well as updating the npm dependencies is on the radar.
+
 ### Is JSS a framework?
 
 No. It's a set of capabilities and you can pick what makes sense for your particular use case. To provide a smooth developer experience, the sample apps can seem like a framework, but it's easy to remove the default opinions and customize it to your needs.
+
+### Can JSS be retro-fitted to an existing SPA?
+
+Yes. JSS packages are normal npm packages, so they can be added as dependencies to an existing SPA. It's ok if the project was not created from a JSS starter project, our starters are just thin wrappers around the default React/Vue/Angular starters that are used in the front-end world. Use our starters as a guide to determine what functionality needs to be added.
 
 ### Do you recommend using code-first approach?
 
@@ -51,11 +67,14 @@ Unfortunately, we don't have a public roadmap to share at the moment.
 
 ### Can I use JSS with SXA?
 
-JSS can _coexist_ with SXA on the same Sitecore instance, as a separate site. JSS is not currently capable of acting as an SXA tenant or using SXA's experience editor extensions (i.e. drag and drop components, variants, partials, etc).
+JSS 11.1+: Yes! JSS has been integrated with SXA, and JSS can utilize SXA's scaling and multi-site automation capabilities. JSS Tenants and Partial Designs are supported. Headed features of SXA like drag-and-drop components and creative exchange are not supported. See [JSS 12.0 release notes](/release-notes#sitecore-jss-120-for-sitecore-92) for more details.
+
+JSS 11.0: JSS can _coexist_ with SXA on the same Sitecore instance, as a separate site. JSS is not currently capable of acting as an SXA tenant or using SXA's experience editor extensions (i.e. drag-and-drop components, variants, partials, etc).
 
 ### Can I use JSS with Sitecore Forms?
 
-No, this is not currently supported.
+Yes! JSS fully supports Sitecore Forms as of JSS 12.0.
+See [JSS 12.0 release notes](/release-notes#sitecore-jss-120-for-sitecore-92) for more details.
 
 ### Can I use JSS with Sitecore Commerce?
 

@@ -11,8 +11,10 @@ title: Release Notes
 
 * JSS now supports Sitecore Forms. This means several things:
     * JSS now provides a special content resolver for form components, which enables the Layout Service to send complete serialized form data
-    * a new framework-agnostic npm package is available (`sitecore-jss-forms`), which defines data types and components for forms.
-    * a React implementation of forms is also available via the new `sitecore-jss-react-forms` package (this package extends `sitecore-jss-forms`)
+    * A new framework-agnostic npm package is available (`sitecore-jss-forms`), which defines data types and components for forms.
+    * A React implementation of forms is also available via the new `sitecore-jss-react-forms` package (this package extends `sitecore-jss-forms`)
+    * Read about the [Forms Service here](/docs/fundamentals/services/forms-service)
+    * Read [forms documentation here](/docs/techniques/forms)
 * JSS now integrates with SXA. When SXA is installed, it's possible to create JSS tenants and sites that make it easier to scale JSS apps. Additional benefits:
     * SXA site management for JSS apps.
     * Cross-site presentation sharing using page designs and partial designs.
