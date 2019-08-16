@@ -7,6 +7,10 @@ title: Release Notes
 
 ## Sitecore JSS 12.0 for Sitecore 9.2
 
+### Upgrading
+
+No special upgrade steps needed, it's safe to promote to newer version.
+
 ### New Features & Improvements
 
 * JSS now supports Sitecore Forms. This means several things:
@@ -15,6 +19,27 @@ title: Release Notes
     * A React implementation of forms is also available via the new `sitecore-jss-react-forms` package (this package extends `sitecore-jss-forms`)
     * Read about the [Forms Service here](/docs/fundamentals/services/forms-service)
     * Read [forms documentation here](/docs/techniques/forms)
+
+> Note: JSS 12.0 includes all the features of JSS 11.1
+
+SXA and Sitecore Forms compatibility table
+| Sitecore  | JSS      | SXA   | Forms
+| --------- | -------- |------ | ------ 
+| 9.2       | 12.0     | 1.9   | Yes
+| 9.1.1     | 11.1     | 1.9   | No
+| 9.1       | 11.0     | No    | No
+| 9.0       | 11.0     | No    | No
+
+
+
+## Sitecore JSS 11.1 for Sitecore 9.1.1
+
+### Upgrading
+
+No special upgrade steps needed, it's safe to promote to newer version.
+
+### New Features & Improvements
+
 * JSS now integrates with SXA. When SXA is installed, it's possible to create JSS tenants and sites that make it easier to scale JSS apps. Additional benefits:
     * SXA site management for JSS apps.
     * Cross-site presentation sharing using page designs and partial designs.
