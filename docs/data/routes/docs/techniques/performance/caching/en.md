@@ -22,7 +22,7 @@ If you are dissatisfied with the performance of your headless JSS app:
 
 2. The next measure is to implement cache in the JavaScript layer. Here are some examples of what you can do:
     - Add “memory caching” to the Node server to save JSON for a route and reuse it
-    - Add “memory caching” to the Node server to save the HTML output of the entire route (all-or-nothing caching) in scenarios where caching the the entire page ic acceptable
+    - Add “memory caching” to the Node server to save the HTML output of the entire route (all-or-nothing caching) in scenarios where caching the the entire page is acceptable
     - Dynamically prerender routes and save to Node memory on a regular interval
     - If implementing a PWA, utilize service workers and browser cache strategies
 
