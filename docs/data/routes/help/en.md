@@ -33,8 +33,11 @@ Yes! The earliest version of JSS that is considered production-ready is JSS 11.0
 
 [JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) are marked as experimental because these rendering don't scale well. They satisfy edge-case requirements, and should be used sparingly.
 
-### Where can I get a Sitecore license for JSS?
-JSS is a specifically enabled license feature. If you are a customer, contact your Sitecore account manager. If you are a partner, request a new license on [SPN](https://spn.sitecore.net/).
+### Does JSS require a special Sitecore license and where can I get it?
+Sitecore offers different licensing bundles - some include JSS, and some require purchasing it an add-on.
+- If you are a customer, contact your Sitecore account manager.
+- If you are a partner, request a new license on [SPN](https://spn.sitecore.net/).
+- If you are a developer looking to try out Sitecore with JSS, request a temporary license by signing up for the JavaScript Services Trial on the [Sitecore Developer Trial Program](https://www.sitecore.com/trial) page.
 
 ### What UI libraries and frameworks are supported?
 
@@ -69,7 +72,7 @@ Unfortunately, we don't have a public roadmap to share at the moment.
 
 JSS 11.1+: Yes! JSS has been integrated with SXA, and JSS can utilize SXA's scaling and multi-site automation capabilities. JSS Tenants and Partial Designs are supported. Headed features of SXA like drag-and-drop components and creative exchange are not supported. See [JSS 12.0 release notes](/release-notes#sitecore-jss-120-for-sitecore-92) for more details.
 
-JSS 11.0: JSS can _coexist_ with SXA on the same Sitecore instance, as a separate site. JSS is not currently capable of acting as an SXA tenant or using SXA's experience editor extensions (i.e. drag-and-drop components, variants, partials, etc).
+JSS 11.0: JSS can _coexist_ with SXA on the same Sitecore instance, as a separate site. But, in this version, JSS cannot act as an SXA tenant or use SXA's Experience Editor extensions (i.e. drag-and-drop components, variants, partials, etc).
 
 ### Can I use JSS with Sitecore Forms?
 
@@ -78,7 +81,11 @@ See [JSS 12.0 release notes](/release-notes#sitecore-jss-120-for-sitecore-92) fo
 
 ### Can I use JSS with Sitecore Commerce?
 
-No, this is not currently supported.
+Yes! Just not out of the box (yet 😉). Currently, Sitecore Commerce ships with SXA components OOTB. Sitecore Commerce does not ship with JavaScript components OOTB, but it's possible to build them yourself. Here are a few recommended guidelines:
+- Build a thin wrapper around the Commerce Engine functions in C# layer.
+- Append commerce data to Layout Service output, thereby making it available to JS components.
+- Expose API from commerce wrapper for data that needs to be AJAX-ed or POST-ed from JS layer.
+- DO NOT interact directly with the Commerce Engine from client-side JS.
 
 ## Known Issues
 
