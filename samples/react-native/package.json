@@ -27,10 +27,10 @@
   },
   "dependencies": {
     "@sitecore-jss/sitecore-jss-react-native": "^12.0.0",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "prop-types": "^15.6.0",
     "react": "^16.4.1",
-    "react-native": "^0.55.4"
+    "react-native": "^0.60.5"
   },
   "private": true,
   "devDependencies": {
