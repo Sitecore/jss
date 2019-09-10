@@ -40,7 +40,7 @@ export default function i18nInit(language, dictionary) {
       // We're running client-side, so we get translation data from the Sitecore dictionary API using fetch backend
       // For higher performance (but less simplicity), consider adding the i18n chained backend to a local cache option like the local storage backend.
 
-      // eslint-disable-next-line prettier/prettier
+      // eslint-disable-next-line
       const dictionaryServicePath = `${config.sitecoreApiHost}/sitecore/api/jss/dictionary/${config.jssAppName}/{{lng}}?sc_apikey=${config.sitecoreApiKey}`;
 
       options.backend = {
