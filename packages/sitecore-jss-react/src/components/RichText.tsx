@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { InferProps } from 'prop-types';
 
 export interface RichTextProps {
   /** The rich text field data. */
@@ -21,7 +21,7 @@ export interface RichTextProps {
   [htmlAttributes: string]: any;
 }
 
-export const RichText: React.SFC<RichTextProps> = ({ field, tag, editable, ...otherProps }) => {
+export const RichText: React.SFC<RichTextProps> = ({ field, tag, editable, ...otherProps }: RichTextPropTypes) => {
   if (!field || (!field.editable && !field.value)) {
     return null;
   }
@@ -36,7 +36,7 @@ export const RichText: React.SFC<RichTextProps> = ({ field, tag, editable, ...ot
   return React.createElement(tag || 'div', htmlProps);
 };
 
-RichText.propTypes = {
+const richTextPropTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
@@ -44,6 +44,8 @@ RichText.propTypes = {
   tag: PropTypes.string,
   editable: PropTypes.bool,
 };
+
+type RichTextPropTypes = InferProps<typeof richTextPropTypes>;
 
 RichText.defaultProps = {
   tag: 'div',

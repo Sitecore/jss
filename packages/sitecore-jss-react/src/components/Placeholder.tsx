@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
+import { PlaceholderCommon, PlaceholderProps, PlaceholderCommonPropTypes } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 
@@ -22,9 +22,8 @@ function isRawRendering(rendering: HtmlElementRendering | ComponentRendering): r
 }
 
 class PlaceholderComponent extends PlaceholderCommon {
-  static propTypes = PlaceholderCommon.propTypes;
 
-  constructor(props: PlaceholderComponentProps) {
+  constructor(props: PlaceholderCommonPropTypes) {
     super(props);
   }
 
@@ -68,4 +67,4 @@ class PlaceholderComponent extends PlaceholderCommon {
   }
 }
 
-export const Placeholder = withComponentFactory(PlaceholderComponent);
+export const Placeholder = withComponentFactory<PlaceholderProps>(PlaceholderComponent);

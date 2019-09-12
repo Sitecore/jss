@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes, { InferProps } from 'prop-types';
 import React from 'react';
 
 export interface FileFieldValue {
@@ -19,7 +19,7 @@ export interface FileProps {
   [attributeName: string]: any;
 }
 
-export const File: React.SFC<FileProps> = ({ field, children, ...otherProps }) => {
+export const File: React.SFC<FileProps> = ({ field, children, ...otherProps }: FilePropTypes) => {
   /*
     File fields cannot be managed via the EE. We never output "editable."
   */
@@ -43,7 +43,7 @@ export const File: React.SFC<FileProps> = ({ field, children, ...otherProps }) =
   return React.createElement('a', { ...anchorAttrs, ...otherProps }, linkText, children);
 };
 
-File.propTypes = {
+const filePropTypes = {
   field: PropTypes.oneOfType([
     PropTypes.shape({
       src: PropTypes.string,
@@ -52,6 +52,9 @@ File.propTypes = {
       value: PropTypes.object,
     }),
   ]),
+  children: PropTypes.node
 };
+
+type FilePropTypes = InferProps<typeof filePropTypes>;
 
 File.displayName = 'File';

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { InferProps } from 'prop-types';
 
 export interface TextProps {
   /** The text field data. */
@@ -24,7 +24,7 @@ export interface TextProps {
   [htmlAttributes: string]: any;
 }
 
-export const Text: React.SFC<TextProps> = ({ field, tag, editable, encode, ...otherProps }) => {
+export const Text: React.SFC<TextProps> = ({ field, tag, editable, encode, ...otherProps }: TextPropTypes) => {
   if (!field || (!field.editable && !field.value)) {
     return null;
   }
@@ -58,7 +58,7 @@ export const Text: React.SFC<TextProps> = ({ field, tag, editable, encode, ...ot
   }
 };
 
-Text.propTypes = {
+const textPropTypes = {
   field: PropTypes.shape({
     value: PropTypes.any,
     editable: PropTypes.string,
@@ -67,6 +67,8 @@ Text.propTypes = {
   editable: PropTypes.bool,
   encode: PropTypes.bool,
 };
+
+type TextPropTypes = InferProps<typeof textPropTypes>;
 
 Text.defaultProps = {
   editable: true,

@@ -1,5 +1,5 @@
 import { mediaApi } from '@sitecore-jss/sitecore-jss';
-import PropTypes from 'prop-types';
+import PropTypes, { InferProps } from 'prop-types';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { convertAttributesToReactProps } from '../utils';
@@ -109,7 +109,7 @@ export const Image: React.SFC<ImageProps> = ({
   imageParams,
   field,
   ...otherProps
-}) => {
+}: ImagePropTypes) => {
   // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
   if (field && !media) {
     media = field;
@@ -155,7 +155,7 @@ export const Image: React.SFC<ImageProps> = ({
   return null; // we can't handle the truth
 };
 
-Image.propTypes = {
+const imagePropTypes = {
   media: PropTypes.oneOfType([
     PropTypes.shape({
       src: PropTypes.string,
@@ -167,7 +167,10 @@ Image.propTypes = {
   ]),
   editable: PropTypes.bool,
   imageParams: PropTypes.object,
+  field: PropTypes.any
 };
+
+type ImagePropTypes = InferProps<typeof imagePropTypes>;
 
 Image.defaultProps = {
   editable: true,
