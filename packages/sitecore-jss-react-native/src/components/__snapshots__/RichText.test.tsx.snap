@@ -3,16 +3,10 @@
 exports[`<RichText /> should render editable value if present 1`] = `
 <View>
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     onLongPress={null}
     onPress={null}
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           null,
@@ -39,9 +33,6 @@ exports[`<RichText /> should render other attributes with other props provided 1
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -54,9 +45,6 @@ exports[`<RichText /> should render other attributes with other props provided 1
     value with 
   </Text>
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     onLongPress={null}
     onPress={null}
     style={
@@ -67,9 +55,6 @@ exports[`<RichText /> should render other attributes with other props provided 1
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Array [
           Object {
@@ -91,9 +76,6 @@ exports[`<RichText /> should render other attributes with other props provided 1
 exports[`<RichText /> should render value if editable is undefined 1`] = `
 <View>
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         null,

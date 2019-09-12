@@ -41,7 +41,7 @@
     "apollo-link-http": "~1.5.9",
     "apollo-link-persisted-queries": "~0.2.2",
     "axios": "~0.18.0",
-    "bootstrap": "~4.2.1",
+    "bootstrap": "^4.3.1",
     "graphql": "~14.0.2",
     "graphql-tag": "~2.10.0",
     "i18next": "~13.1.2",
@@ -53,7 +53,7 @@
     "react-helmet": "~5.2.0",
     "react-i18next": "~9.0.2",
     "react-router-dom": "~4.3.1",
-    "react-scripts": "2.1.8",
+    "react-scripts": "3.1.1",
     "serialize-javascript": "~1.6.1"
   },
   "devDependencies": {
@@ -62,7 +62,7 @@
     "@sitecore-jss/sitecore-jss-dev-tools": "^11.0.2",
     "@sitecore-jss/sitecore-jss-manifest": "^11.0.2",
     "@sitecore-jss/sitecore-jss-rendering-host": "^11.0.2",
-    "babel-loader": "8.0.5",
+    "babel-loader": "^8.0.6",
     "babel-preset-react-app": "~7.0.0",
     "chalk": "~2.4.2",
     "chokidar": "~2.0.4",
@@ -76,7 +76,7 @@
     "url-loader": "~1.1.2",
     "speed-measure-webpack-plugin": "^1.3.1",
     "stats-webpack-plugin": "^0.7.0",
-    "webpack": "4.28.3",
+    "webpack": "^4.39.1",
     "webpack-cli": "~3.3.0"
   },
   "scripts": {
