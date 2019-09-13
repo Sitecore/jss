@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { Requireable, InferProps } from 'prop-types';
 import { MissingComponent } from '../components/MissingComponent';
 import { ComponentFactory } from '../components/sharedTypes';
 import { ComponentRendering, RouteData, Field, Item, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
@@ -49,15 +49,20 @@ export interface PlaceholderProps {
   [key: string]: any;
 }
 
-export class PlaceholderCommon extends React.Component<PlaceholderProps> {
-  static propTypes = {
-    rendering: PropTypes.object,
-    fields: PropTypes.object,
-    params: PropTypes.object,
-    missingComponentComponent: PropTypes.node,
-    errorComponent: PropTypes.node,
-  };
+const placeholderCommonPropTypes = {
+  name: PropTypes.string.isRequired,
+  rendering: PropTypes.oneOfType(
+    [PropTypes.object, PropTypes.object] as [Requireable<RouteData>, Requireable<ComponentRendering>]
+  ).isRequired,
+  fields: PropTypes.object,
+  params: PropTypes.object,
+  missingComponentComponent: PropTypes.node,
+  errorComponent: PropTypes.node,
+};
 
+export type PlaceholderCommonPropTypes = InferProps<typeof placeholderCommonPropTypes>;
+
+export class PlaceholderCommon extends React.Component<PlaceholderProps> {
   nodeRefs: any[];
   state: Readonly<{ error?: Error }>;
 
@@ -81,7 +86,7 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
     return result;
   }
 
-  constructor(props: PlaceholderProps) {
+  constructor(props: PlaceholderCommonPropTypes) {
     super(props);
     this.nodeRefs = [];
     this.state = {};
@@ -170,7 +175,7 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
       );
       return null;
     }
-    const attributes = convertAttributesToReactProps(elem.attributes);
+    const attributes: any = convertAttributesToReactProps(elem.attributes);
 
     const props: any = {
       ...baseProps,

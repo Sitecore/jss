@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { InferProps } from 'prop-types';
 
 export interface LinkFieldValue {
   href?: string;
@@ -32,7 +32,7 @@ export type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLA
   showLinkTextWithChildrenPresent?: boolean;
 };
 
-export const Link: React.SFC<LinkProps> = ({ field, editable, children, showLinkTextWithChildrenPresent, ...otherProps }) => {
+export const Link: React.SFC<LinkProps> = ({ field, editable, children, showLinkTextWithChildrenPresent, ...otherProps }: LinkPropTypes) => {
   const dynamicField: any = field;
 
   if (!field || (!dynamicField.editableFirstPart && !dynamicField.value && !dynamicField.href)) {
@@ -93,7 +93,7 @@ export const Link: React.SFC<LinkProps> = ({ field, editable, children, showLink
   return <React.Fragment>{resultTags}</React.Fragment>;
 };
 
-Link.propTypes = {
+const linkPropTypes = {
   field: PropTypes.oneOfType([
     PropTypes.shape({
       href: PropTypes.string,
@@ -105,7 +105,11 @@ Link.propTypes = {
     }),
   ]),
   editable: PropTypes.bool,
+  showLinkTextWithChildrenPresent: PropTypes.bool,
+  children: PropTypes.node
 };
+
+type LinkPropTypes = InferProps<typeof linkPropTypes>;
 
 Link.defaultProps = {
   editable: true,

@@ -138,7 +138,7 @@ describe('<Placeholder />', () => {
     const renderedComponent = mount(
       <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
     );
-    expect(renderedComponent.html()).to.be.null;
+    expect(renderedComponent.html()).to.be.empty;
   });
 });
 
