@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { InferProps } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export interface DateFieldProps {
   /** The date field data. */
@@ -21,7 +21,7 @@ export interface DateFieldProps {
   [htmlAttributes: string]: any;
 }
 
-export const DateField: React.SFC<DateFieldProps> = ({ field, tag, editable, render, ...otherProps }: DateFieldPropTypes) => {
+export const DateField: React.SFC<DateFieldProps> = ({ field, tag, editable, render, ...otherProps }) => {
   if (!field || (!field.editable && !field.value)) {
     return null;
   }
@@ -49,17 +49,15 @@ export const DateField: React.SFC<DateFieldProps> = ({ field, tag, editable, ren
   }
 };
 
-const dateFieldPropTypes = {
+DateField.propTypes = {
   field: PropTypes.shape({
     value: PropTypes.any,
     editable: PropTypes.string,
-  }),
+  }).isRequired,
   tag: PropTypes.string,
   editable: PropTypes.bool,
   render: PropTypes.func,
 };
-
-type DateFieldPropTypes = InferProps<typeof dateFieldPropTypes>;
 
 DateField.defaultProps = {
   editable: true,

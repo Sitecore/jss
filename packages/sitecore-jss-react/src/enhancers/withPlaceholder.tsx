@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes, { InferProps } from 'prop-types';
 import { ComponentRendering, RouteData, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
-import { PlaceholderProps, PlaceholderCommon, PlaceholderCommonPropTypes } from '../components/PlaceholderCommon';
+import { PlaceholderProps, PlaceholderCommon } from '../components/PlaceholderCommon';
 import { withComponentFactory } from './withComponentFactory';
 
 export interface WithPlaceholderOptions {
@@ -36,12 +35,14 @@ export type WithPlaceholderSpec = (string | PlaceholderToPropMapping) | (string 
 export function withPlaceholder(placeholders: WithPlaceholderSpec, options?: WithPlaceholderOptions) {
   return (WrappedComponent: React.ComponentClass<any> | React.SFC<any>) => {
     class WithPlaceholder extends PlaceholderCommon {
-      constructor(props: PlaceholderCommonPropTypes) {
+      static propTypes = PlaceholderCommon.propTypes;
+
+      constructor(props: any) {
         super(props);
       }
 
       render() {
-        let childProps: any = { ...this.props};
+        let childProps: any = { ...this.props };
 
         delete childProps.componentFactory;
 
@@ -57,7 +58,7 @@ export function withPlaceholder(placeholders: WithPlaceholderSpec, options?: Wit
           return (
             <div className="sc-jss-placeholder-error">
               A rendering error occurred: {this.state.error.message}.
-            </div>
+          </div>
           );
         }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { Requireable, InferProps } from 'prop-types';
+import PropTypes, { Requireable } from 'prop-types';
 import { MissingComponent } from '../components/MissingComponent';
 import { ComponentFactory } from '../components/sharedTypes';
 import { ComponentRendering, RouteData, Field, Item, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
@@ -49,20 +49,24 @@ export interface PlaceholderProps {
   [key: string]: any;
 }
 
-const placeholderCommonPropTypes = {
-  name: PropTypes.string.isRequired,
-  rendering: PropTypes.oneOfType(
-    [PropTypes.object, PropTypes.object] as [Requireable<RouteData>, Requireable<ComponentRendering>]
-  ).isRequired,
-  fields: PropTypes.object,
-  params: PropTypes.object,
-  missingComponentComponent: PropTypes.node,
-  errorComponent: PropTypes.node,
-};
-
-export type PlaceholderCommonPropTypes = InferProps<typeof placeholderCommonPropTypes>;
-
 export class PlaceholderCommon extends React.Component<PlaceholderProps> {
+  static propTypes = {
+    rendering: PropTypes.oneOfType([
+      PropTypes.object as Requireable<RouteData>,
+      PropTypes.object as Requireable<ComponentRendering>
+    ]).isRequired,
+    fields: PropTypes.objectOf(PropTypes.oneOfType([]).isRequired).isRequired,
+    params: PropTypes.objectOf(PropTypes.string.isRequired).isRequired,
+    missingComponentComponent: PropTypes.oneOfType([
+      PropTypes.object as Requireable<React.ComponentClass<any>>,
+      PropTypes.object as Requireable<React.SFC<any>>
+    ]).isRequired,
+    errorComponent: PropTypes.oneOfType([
+      PropTypes.object as Requireable<React.ComponentClass<any>>,
+      PropTypes.object as Requireable<React.SFC<any>>
+    ]).isRequired,
+  };
+
   nodeRefs: any[];
   state: Readonly<{ error?: Error }>;
 
@@ -86,7 +90,7 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
     return result;
   }
 
-  constructor(props: PlaceholderCommonPropTypes) {
+  constructor(props: PlaceholderProps) {
     super(props);
     this.nodeRefs = [];
     this.state = {};
@@ -129,7 +133,7 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
       if (!component) {
         console.error(
           `Placeholder ${name} contains unknown component ${
-            rendering.componentName
+          rendering.componentName
           }. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
         );
 
@@ -150,7 +154,7 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
 
       return React.createElement(component as any, finalProps);
     })
-    .filter((element: any) => element); // remove nulls
+      .filter((element: any) => element); // remove nulls
   }
 
   getComponentForRendering(renderingDefinition: { componentName: string }) {
