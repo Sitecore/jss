@@ -55,7 +55,10 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
       PropTypes.object as Requireable<RouteData>,
       PropTypes.object as Requireable<ComponentRendering>
     ]).isRequired,
-    fields: PropTypes.objectOf(PropTypes.oneOfType([]).isRequired),
+    fields: PropTypes.objectOf(PropTypes.oneOfType([
+      PropTypes.object as Requireable<Field>,
+      PropTypes.object as Requireable<Item[]>
+    ]).isRequired),
     params: PropTypes.objectOf(PropTypes.string.isRequired),
     missingComponentComponent: PropTypes.oneOfType([
       PropTypes.object as Requireable<React.ComponentClass<any>>,
