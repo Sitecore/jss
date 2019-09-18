@@ -26,7 +26,7 @@ function applyCertPinning(req: request.Request, options: PackageDeployOptions) {
       const fingerprint = (socket as TLSSocket).getPeerCertificate().fingerprint;
 
       // Match the fingerprint with our saved fingerprint
-      if (options.acceptCertificate && (options.acceptCertificate !== fingerprint)) {
+      if (options.acceptCertificate && (! doFingerprintsMatch(options.acceptCertificate, fingerprint))) {
         // Abort request, optionally emit an error event
         // tslint:disable-next-line:max-line-length
         req.emit('error', new Error(`Expected server SSL certificate to have thumbprint ${options.acceptCertificate} from acceptCertificate, but got ${fingerprint} from server. This may mean the certificate has changed, or that a malicious certificate is present.`));
@@ -35,6 +35,13 @@ function applyCertPinning(req: request.Request, options: PackageDeployOptions) {
       }
     });
   });
+}
+
+function normalizeFingerprint(fp: string): string {
+  return fp.toLowerCase().replace(new RegExp(':', 'g'),'');
+}
+function doFingerprintsMatch(fp1:string, fp2:string): boolean {
+  return normalizeFingerprint(fp1) === normalizeFingerprint(fp2);
 }
 
 async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
