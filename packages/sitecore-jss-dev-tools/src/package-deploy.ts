@@ -37,6 +37,21 @@ function applyCertPinning(req: request.Request, options: PackageDeployOptions) {
   });
 }
 function normalizeFingerprint(fp: string): string {
+  //
+  // The fingerprint for a certificate is a 20-byte value.
+  // Such values are typically expressed as strings, but 
+  // there are many different formats that may be used.
+  //
+  // For example, the following values all represent
+  // the same fingerprint:
+  //  * 5E:D1:5E:D4:D4:42:71:CC:30:A5:B6:A2:DA:A4:79:06:67:CB:F6:36
+  //  * 5ED15ED4D44271CC30A5B6A2DAA4790667CBF636
+  //  * 5e:d1:5e:d4:d4:42:71:cc:30:a5:b6:a2:da:a4:79:06:67:cb:f6:36
+  //  * 5ed15ed4d44271cc30a5b6a2daa4790667cbf636
+  //
+  // Before two fingerprints can be properly compared,
+  // they must be converted into the same format. This
+  // function implements the logic for that conversion.
   return fp.toLowerCase().replace(new RegExp(':', 'g'),'');
 }
 function doFingerprintsMatch(fp1:string, fp2:string): boolean {
