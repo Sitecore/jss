@@ -21,7 +21,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "babel-eslint": "10.0.2",
+    "babel-eslint": "10.0.3",
     "eslint": "6.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^6.2.0",
