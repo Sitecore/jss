@@ -113,7 +113,7 @@ describe('<Image />', () => {
   });
 
   it('should render no <img /> when media prop is empty', () => {
-    const props = {
+    const props: { media: null } = {
       media: null,
     };
     // Need to mock console.error as Vue will log an error for the missing "field" prop
