@@ -12,6 +12,8 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
     "strict": true,
     "typeRoots": ["node_modules/@types"],
     "outDir": "dist",
