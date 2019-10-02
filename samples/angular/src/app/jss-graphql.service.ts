@@ -109,7 +109,7 @@ export class JssGraphQLService {
   /**
    * Executes a GraphQL mutation (write) against the GraphQL endpoint
    */
-  mutate<T, V = R>(options: MutationOptions<V> & JssGraphQLOptions): Observable<FetchResult<T>> {
+  mutate<T, V = R>(options: MutationOptions<T, V> & JssGraphQLOptions): Observable<FetchResult<T>> {
     if (this.isEditingOrPreviewingAndSsr) {
       return empty();
     }
