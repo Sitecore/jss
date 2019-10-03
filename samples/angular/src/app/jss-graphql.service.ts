@@ -1,7 +1,7 @@
 import { Injectable, PLATFORM_ID, Inject, } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { ExtraSubscriptionOptions, R } from 'apollo-angular/types';
-import { QueryOptions, ApolloQueryResult, SubscriptionOptions, MutationOptions, OperationVariables } from 'apollo-client';
+import { QueryOptions, ApolloQueryResult, SubscriptionOptions, MutationOptions } from 'apollo-client';
 import { Observable, empty } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { FetchResult, DocumentNode } from 'apollo-link';
@@ -57,7 +57,7 @@ export class JssGraphQLService {
     return variableNames as { [key: string]: string };
   }
 
-  private addJssAmbientVariables<V = R>(query: DocumentNode, variables: OperationVariables & V, rendering?: ComponentRendering) {
+    private addJssAmbientVariables<V = R>(query: DocumentNode, variables: V, rendering?: ComponentRendering) {
     if (!variables) {
       variables = {} as V;
     }
@@ -65,7 +65,7 @@ export class JssGraphQLService {
     const usedVariables = JssGraphQLService.extractVariableNames(query);
 
     if (usedVariables.datasource && rendering && rendering.dataSource) {
-      variables.datasource = rendering.dataSource;
+      variables['datasource'] = rendering.dataSource;
     }
 
     if (
@@ -74,7 +74,7 @@ export class JssGraphQLService {
       this.sitecoreContext.state.value.sitecore.route &&
       this.sitecoreContext.state.value.sitecore.route.itemId
     ) {
-      variables.contextItem = this.sitecoreContext.state.value.sitecore.route.itemId;
+      variables['contextItem'] = this.sitecoreContext.state.value.sitecore.route.itemId;
     }
 
     return variables;
