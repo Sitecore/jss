@@ -11,10 +11,10 @@ export interface ComponentNameAndModule {
   /** Name of the component */
   path: string;
   /**
-   * Module path that defines the component and export name,
-   * e.g. ./path/to/lazyloadedcomponent.module#LazyLoadedComponentModuleExportName
+   * Dynamic import of the component,
+   * e.g. () => import('./path/to/lazyloadedcomponent.module').then(m => m.LazyLoadedComponentModuleExportName)
    */
-  loadChildren: string;
+  loadChildren: () => Promise<any>;
 }
 
 export function instanceOfComponentNameAndType(object: any): object is ComponentNameAndType {

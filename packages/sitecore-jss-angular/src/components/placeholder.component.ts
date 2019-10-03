@@ -62,10 +62,10 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   @Output()
   loaded = new EventEmitter<string | undefined>();
 
-  @ViewChild('view', { read: ViewContainerRef }) private view: ViewContainerRef;
-  @ContentChild(RenderEachDirective) renderEachTemplate: RenderEachDirective;
-  @ContentChild(RenderEmptyDirective) renderEmptyTemplate: RenderEmptyDirective;
-  @ContentChild(PlaceholderLoadingDirective) placeholderLoading?: PlaceholderLoadingDirective;
+  @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
+  @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
+  @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
+  @ContentChild(PlaceholderLoadingDirective, { static: true }) placeholderLoading?: PlaceholderLoadingDirective;
 
   @Input()
   set inputs(value: { [key: string]: any }) {
