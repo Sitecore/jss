@@ -11,7 +11,7 @@ export interface ComponentNameAndModule {
   /** Name of the component */
   path: string;
   /**
-   * Module path that defines the component and export name,
+   * Dynamic import of the component,
    * e.g. () => import('./path/to/lazyloadedcomponent.module').then(m => m.LazyLoadedComponentModuleExportName)
    */
   loadChildren: () => Promise<any>;
