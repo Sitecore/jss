@@ -24,20 +24,20 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "http-proxy-middleware": "^0.19.0",
+    "http-proxy-middleware": "^0.20.0",
     "set-cookie-parser": "^2.2.1"
   },
   "devDependencies": {
     "@types/chai": "^4.1.6",
-    "@types/http-proxy-middleware": "^0.17.5",
+    "@types/http-proxy-middleware": "^0.19.3",
     "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.0",
-    "@types/set-cookie-parser": "^0.0.3",
+    "@types/node": "^12.7.11",
+    "@types/set-cookie-parser": "^0.0.5",
     "chai": "^4.2.0",
-    "del-cli": "^1.1.0",
-    "mocha": "^5.2.0",
+    "del-cli": "^3.0.0",
+    "mocha": "^6.2.1",
     "sinon": "^7.0.0",
-    "ts-node": "^7.0.1",
+    "ts-node": "^8.4.1",
     "typescript": "^3.1.3"
   },
   "types": "types/index.d.ts",

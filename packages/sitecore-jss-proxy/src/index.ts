@@ -67,7 +67,7 @@ async function renderAppToResponse(
   }
 
   // we are going to set our own status code if rendering fails
-  serverResponse.writeHead = () => {};
+  serverResponse.writeHead = () => serverResponse;
 
   // buffer the response body as it is written for later processing
   let buf = Buffer.from('');
