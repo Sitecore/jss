@@ -1,7 +1,8 @@
 import { sync as delSync } from 'del';
 import { Application } from 'express';
 import { PathParams } from 'express-serve-static-core';
-import openBrowser from 'opn';
+// @ts-ignore 
+import openBrowser from 'opn'; 
 import path from 'path';
 import webpack from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';

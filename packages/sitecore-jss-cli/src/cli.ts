@@ -1,4 +1,4 @@
-import { Argv, CommandModule } from '../node_modules/@types/yargs';
+import { CommandModule, Arguments } from '../node_modules/@types/yargs';
 import cli from './cli-shared';
 import resolvePackage from './resolve-package';
 import runPackageScript from './run-package-script';
@@ -22,7 +22,7 @@ async function getPackageScriptCommands() {
       describe: 'package.json script',
       builder: {},
       disableStrictArgs: true,
-      handler: (argv: Argv) => {
+      handler: (argv: Arguments) => {
         if ((argv as any)._[0]) {
           runPackageScript(process.argv.slice(2));
         }
