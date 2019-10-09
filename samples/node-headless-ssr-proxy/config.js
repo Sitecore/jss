@@ -6,6 +6,12 @@ const NodeCache = require('node-cache');
 // We keep a cached copy of the site dictionary for performance. Default is 60 seconds.
 const dictionaryCache = new NodeCache({ stdTTL: 60 });
 
+process.env.SITECORE_JSS_APP_NAME = 'JssReactWeb'
+process.env.SITECORE_JSS_SERVER_BUNDLE = '../react/build/server.bundle.js'
+process.env.SITECORE_API_HOST = 'http://jss1e2e700'
+process.env.SITECORE_API_KEY = 'AD374DFF-58A6-4D02-9D76-F6E736BEA25D'
+process.env.SITECORE_ENABLE_DEBUG = true
+
 /**
  * The JSS application name defaults to providing part of the bundle path as well as the dictionary service endpoint.
  * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
