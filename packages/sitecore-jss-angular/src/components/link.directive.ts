@@ -49,7 +49,9 @@ export class LinkDirective implements OnChanges {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {
-      Object.keys(props).forEach((key) => this.renderer.setAttribute(node, key, props[key]));
+      Object.entries(props).forEach(([key, propValue]: [string, any]) => 
+        this.renderer.setAttribute(node, key, propValue)
+      )
 
       if (node.childNodes && node.childNodes.length === 0 && linkText) {
         node.textContent = linkText;
@@ -67,7 +69,9 @@ export class LinkDirective implements OnChanges {
       ...this.getElementAttrs(),
       ...this.attrs,
     };
-    Object.keys(attrs).forEach((key) => this.renderer.setAttribute(span, key, attrs[key]));
+    Object.entries(attrs).forEach(([key, attrValue]: [string, any]) => 
+      this.renderer.setAttribute(span, key, attrValue)
+    );
 
     this.viewContainer.createEmbeddedView(this.templateRef);
 

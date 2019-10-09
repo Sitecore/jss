@@ -61,9 +61,9 @@ export class ImageDirective implements OnChanges {
         return this.renderInlineWrapper(media.editable);
       }
       const tempImg: HTMLImageElement = this.renderer.createElement('img');
-      Object.keys(attrs).forEach((key) => {
-        tempImg.setAttribute(key, attrs[key]);
-      });
+      Object.entries(attrs).forEach(([key, attrValue]: [string, any]) =>
+        tempImg.setAttribute(key, attrValue)
+      );
       const editableMarkup = media.editable.replace(foundImg.imgTag, tempImg.outerHTML);
       return this.renderInlineWrapper(editableMarkup);
     }
@@ -107,7 +107,7 @@ export class ImageDirective implements OnChanges {
   private renderTemplate(imageProps: any) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
     viewRef.rootNodes.forEach((node) => {
-      Object.keys(imageProps).forEach((key) => this.renderer.setAttribute(node, key, imageProps[key]));
+      Object.entries(imageProps).forEach(([key, imgPropVal]: [string, any]) => this.renderer.setAttribute(node, key, imgPropVal));
     });
   }
 
