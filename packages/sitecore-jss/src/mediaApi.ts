@@ -47,7 +47,7 @@ export const updateImageUrl = (url: string, params?: { [key: string]: string | u
   }
   const parsed = URL(url, {}, true);
 
-  parsed.set('query', params || parsed.query);
+  parsed.set('query', { ...parsed.query, ...params });
 
   const match = mediaUrlPrefixRegex.exec(parsed.pathname);
   if (match && match.length > 1) {
