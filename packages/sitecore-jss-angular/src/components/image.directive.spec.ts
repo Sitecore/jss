@@ -213,7 +213,7 @@ describe('<img *scImage />', () => {
       expect(url.pathname).toContain('/-/jssmedia/');
       expect(url.query.h).toBe(imageParams.h);
       expect(url.query.w).toBe(imageParams.w);
-      expect(url.query.hash).toBeUndefined();
+      expect(url.query.hash).toEqual('B973470AA333773341C62A76511361C88897E2D4');
     });
   });
 

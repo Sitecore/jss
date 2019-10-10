@@ -89,7 +89,7 @@ describe('<Image />', () => {
       expect(url.pathname.indexOf('/-/jssmedia/')).toBeGreaterThan(-1);
       expect(url.query.h).toBe(props.imageParams.h);
       expect(url.query.w).toBe(props.imageParams.w);
-      expect(url.query.hash).toBeUndefined();
+      expect(url.query.hash).toBe('B973470AA333773341C62A76511361C88897E2D4')
     });
   });
 
