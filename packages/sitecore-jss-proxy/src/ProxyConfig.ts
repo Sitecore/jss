@@ -1,4 +1,4 @@
-import { ClientRequest, IncomingMessage, ServerResponse } from 'http';
+import { IncomingMessage, ServerResponse } from 'http';
 import { Config as HttpProxyConfig } from 'http-proxy-middleware';
 import { RenderResponse } from './RenderResponse';
 
@@ -34,19 +34,19 @@ export interface ProxyConfig {
   /** Enables transforming SSR'ed HTML after it is rendered, i.e. to replace paths. */
   transformSSRContent?: (
     response: RenderResponse,
-    request: ClientRequest,
+    request: IncomingMessage,
     serverResponse: ServerResponse
   ) => Promise<string>;
   /** Hook to fill the SSR viewBag object; if you're customizing the viewBag in Sitecore integrated SSR mode, do the same here. */
   createViewBag?: (
-    request: ClientRequest,
+    request: IncomingMessage,
     response: ServerResponse,
     proxyResponse: IncomingMessage,
     layoutServiceData: any
   ) => Promise<object>;
   /** Hook to alter HTTP headers in a custom way. */
   setHeaders?: (
-    request: ClientRequest,
+    request: IncomingMessage,
     response: ServerResponse,
     proxyResponse: IncomingMessage
   ) => void;
