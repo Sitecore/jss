@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import logo from './assets/sc_logo.png';
+import logo from './assets/sc_logo.svg';
 
 export default {
   name: 'Navigation',

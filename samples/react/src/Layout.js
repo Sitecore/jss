@@ -8,7 +8,7 @@ import Helmet from 'react-helmet';
 // without needing extra CSS in the sample app. Remove it in package.json as well if it's removed here.
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/app.css';
-import logo from './assets/sc_logo.png';
+import logo from './assets/sc_logo.svg';
 
 /*
   APP LAYOUT
