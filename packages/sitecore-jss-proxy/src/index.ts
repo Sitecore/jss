@@ -88,6 +88,11 @@ async function renderAppToResponse(
     return true;
   };
 
+  if (request.method === 'HEAD') {
+    completeProxyResponse(null, proxyResponse.statusCode || HttpStatus.OK)
+    return
+  }
+
   async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
     if (proxyResponse.statusCode === HttpStatus.OK || proxyResponse.statusCode === HttpStatus.NOT_FOUND) {
       let responseString: Promise<string>;
@@ -221,11 +226,6 @@ async function renderAppToResponse(
     }
 
     return viewBag;
-  }
-
-  if (request.method === 'HEAD') {
-    completeProxyResponse(null, proxyResponse.statusCode || HttpStatus.OK)
-    return
   }
 
   // as the response is ending, we parse the current response body which is JSON, then
