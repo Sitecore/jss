@@ -39,6 +39,7 @@ node_modules/
 buck-out/
 \.buckd/
 *.keystore
+!debug.keystore
 
 # fastlane
 #
@@ -50,6 +51,9 @@ buck-out/
 */fastlane/report.xml
 */fastlane/Preview.html
 */fastlane/screenshots
+
+# CocoaPods
+/ios/Pods/
 
 # sitecore
 
