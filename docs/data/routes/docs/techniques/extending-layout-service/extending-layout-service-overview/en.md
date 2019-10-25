@@ -117,7 +117,7 @@ The Layout Service JSON rendering process is highly configurable, and allows you
     </serialization>
 </config>
 ```
-> In terms of modifying serialization configuration, keep in mind that you can change the whole JSON beside field names. Field names can be changed in Sitecore, if you need to have camel-cased,  you can do it in sitecore. So basically serialization configuration is responsible for changing JSON on which user don't have influence.
+> In terms of modifying serialization configuration, keep in mind that you can change the whole JSON beside field names. Field names can be changed in Sitecore, if you need to e.g.: have them camel-cased, you need do it in Sitecore. So basically serialization configuration is responsible for changing JSON on which user don't have influence.
 
 ### Using a custom Layout Service configuration with JSS
 
