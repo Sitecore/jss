@@ -62,6 +62,10 @@ If you are installing the JSS server components to a scaled Sitecore installatio
 1. Extract the server components Sitecore package with an unzip tool such as 7-zip.
 1. Extract the inner `package.zip` the same way. Ignore any unzip warnings about `sc_*.txt` files.
 1. In the resulting items, deploy all of the items in the `files` folder to your CD server's webroot: `App_Config`, `bin`, `sitecore`, and `Views`.
+1. add this key in `<handlers>` section in Web.config on a CD server:
+    ```xml
+    <add verb="*" path="sitecorejss_media.ashx" type="Sitecore.JavaScriptServices.Media.MediaRequestHandler, Sitecore.JavaScriptServices.Media" name="Sitecore.JavaScriptServices.Media.MediaRequestHandler" />
+    ```
 1. Congratulations, your CD server is ready to host JSS apps.
 
 ## What's next?
