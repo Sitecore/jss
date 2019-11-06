@@ -3,24 +3,48 @@
   "displayName": "Home",
   "placeholders": {
     "jss-main": [
-      {
-        "componentName": "Welcome",
-        "fields": {
-          "title": {
-            "value": "Sitecore Experience Platform + JSS + React Native + disconnected!!"
-          },
-          "text": {
-            "value":
-              "<p>From a single connected platform that also integrates with other customer-facing platforms, to a single view of the customer in a big data marketing repository, to completely eliminating much of the complexity that has previously held marketers back, the latest version of Sitecore makes customer experience highly achievable. Learn how the latest version of Sitecore gives marketers the complete data, integrated tools, and automation capabilities to engage customers throughout an iterative lifecycle – the technology foundation absolutely necessary to win customers for life.</p><p>For further information, please go to the <a href=\"https://doc.sitecore.net/\" target=\"_blank\" title=\"Sitecore Documentation site\">Sitecore Documentation site</a></p>"
-          },
-          "logoImage": {
-            "value": {
-              "src": "/data/media/img/sc_logo.svg",
-              "alt": "Logo"
-            }
-          }
-        }
-      }
+			{
+				"componentName": "Styleguide-FieldUsage-Text",
+				"fields": {
+					"heading": {
+						"value": "Single-Line Text"
+					},
+					"sample": {
+						"value": "This is a sample text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see a <input type=\"text\">"
+					},
+					"sample2": {
+						"value": "This is another sample text field using rendering options. <mark>HTML supported with encode=false.</mark> Cannot edit because editable=false."
+					}
+				}
+			},
+			{
+				"componentName": "Styleguide-FieldUsage-Text",
+				"fields": {
+					"heading": {
+						"value": "Multi-Line Text"
+					},
+					"sample": {
+						"value": "This is a sample text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see a <input type=\"text\">"
+					},
+					"sample2": {
+						"value": "This is another sample text field using rendering options. <mark>HTML supported with encode=false.</mark> Cannot edit because editable=false."
+					}
+				}
+			},
+			{
+				"componentName": "Styleguide-FieldUsage-RichText",
+				"fields": {
+					"heading": {
+						"value": "Rich Text"
+					},
+					"sample": {
+						"value": "<p>This is a sample rich text field. <mark>HTML is always supported.</mark> In Sitecore, editors will see a WYSIWYG editor for these fields.</p>"
+					},
+					"sample2": {
+						"value": "<p>Another sample rich text field, using options. Keep markup entered in rich text fields as simple as possible - ideally bare tags only (no classes). Adding a wrapping class can help with styling within rich text blocks.</p><marquee>But you can use any valid HTML in a rich text field!</marquee>"
+					}
+				}
+			}
     ]
   }
 }
