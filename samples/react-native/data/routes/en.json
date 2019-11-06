@@ -44,6 +44,43 @@
 						"value": "<p>Another sample rich text field, using options. Keep markup entered in rich text fields as simple as possible - ideally bare tags only (no classes). Adding a wrapping class can help with styling within rich text blocks.</p><marquee>But you can use any valid HTML in a rich text field!</marquee>"
 					}
 				}
+			},
+			{
+				"componentName": "Styleguide-FieldUsage-Image",
+				"fields": {
+					"heading": {
+						"value": "Image"
+					},
+					"sample1": {
+						"value": {
+							"src": "/data/media/img/sc_logo.svg",
+							"alt": "Sitecore Logo"
+						}
+					},
+					"sample2": {
+						"value": {
+							"src": "/data/media/img/jss_logo.png",
+							"alt": "Sitecore JSS Logo"
+						}
+					}
+				}
+			},
+			{
+				"componentName": "Styleguide-FieldUsage-Number",
+				"fields": {
+					"description": {
+						"value": "Number tells Sitecore to use a number entry for editing."
+					},
+					"heading": {
+						"value": "Number"
+					},
+					"sample1": {
+						"value": 1.2
+					},
+					"sample2": {
+						"value": 23
+					}
+				}
 			}
     ]
   }
