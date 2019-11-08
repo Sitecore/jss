@@ -136,24 +136,16 @@
 				}
 			},
 			{
-				"componentName": "Styleguide-FieldUsage-ItemLink",
+				"componentName": "Styleguide-FieldUsage-Custom",
 				"fields": {
 					"heading": {
-						"value": "Item Link"
+						"value": "Custom Fields"
 					},
 					"description": {
-						"value": "<p><small>Item Links are a way to reference another content item to use data from it. Referenced items may be shared. To reference multiple content items, use a <em>Content List</em> field.<br /> <strong>Note:</strong> Sitecore does not support inline editing of Item Link fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.</small></p>"
+						"value": "<p><small>Any Sitecore field type can be consumed by JSS. In this sample we consume the <em>Integer</em> field type.<br /><strong>Note:</strong> For field types with complex data, custom <code>FieldSerializer</code>s may need to be implemented on the Sitecore side.</small></p>"
 					},
-					"sharedItemLink": {
-						"id": "styleguide-item-link-field-shared-1"
-					},
-					"localItemLink": {
-						"template": "Styleguide-ItemLink-Item-Template",
-						"fields": {
-							"textField": {
-								"value": "Referenced item textField"
-							}
-						}
+					"customIntField": {
+						"value": 31337
 					}
 				}
 			}

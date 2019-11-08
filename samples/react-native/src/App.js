@@ -56,7 +56,7 @@ class App extends React.Component {
           <Text>{this.state.error.toString()}</Text>
         </View>
       );
-    }
+		}
 
     const refreshControl = (
       <RefreshControl refreshing={this.state.loading} onRefresh={this.loadData} />
