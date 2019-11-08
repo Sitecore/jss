@@ -196,6 +196,22 @@
 						}
 					]
 				}
+			},
+			{
+				"componentName": "Styleguide-ComponentParams",
+				"fields": {
+					"heading": {
+						"value": "Component Params"
+					},
+					"description": {
+						"value": "Component params (also called Rendering Parameters) allow storing non-content parameters for a component. These params should be used for more technical options such as CSS class names or structural settings."
+					}
+				},
+				"params": {
+					"cssClass": "firstParagraph",
+					"columns": 5,
+					"useCallToAction": true
+				}
 			}
     ]
   }
