@@ -148,6 +148,54 @@
 						"value": 31337
 					}
 				}
+			},
+			{
+				"componentName": "Styleguide-Layout-Tabs",
+				"fields": {
+					"heading": {
+						"value": "Tabs"
+					},
+					"description": {
+						"value": "<p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>"
+					}
+				},
+				"placeholders": {
+					"jss-tabs": [
+						{
+							"componentName": "Styleguide-Layout-Tabs-Tab",
+							"fields": {
+								"title": {
+									"value": "Tab 1"
+								},
+								"content": {
+									"value": "Tab 1 contents!"
+								}
+							}
+						},
+						{
+							"componentName": "Styleguide-Layout-Tabs-Tab",
+							"fields": {
+								"title": {
+									"value": "Tab 2"
+								},
+								"content": {
+									"value": "Tab 2 contents!"
+								}
+							}
+						},
+						{
+							"componentName": "Styleguide-Layout-Tabs-Tab",
+							"fields": {
+								"title": {
+									"value": "Tab 3"
+								},
+								"content": {
+									"value": "Tab 3 contents!"
+								}
+							}
+						}
+					]
+				}
 			}
     ]
   }

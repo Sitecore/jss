@@ -8,6 +8,8 @@ import StyleguideFieldUsageDate from './components/Styleguide-FIeldUsage-Date';
 import StyleguideFieldUsageLink from './components/Styleguide-FieldUsage-Link';
 import StyleguideFieldUsageItemLink from './components/Styleguide-FieldUsage-ItemLink';
 import StyleguideFieldUsageCustom from './components/Styleguide-FieldUsage-Custom';
+import StyleguideLayoutTabs from './components/Styleguide-Layout-Tabs';
+import StyleguideLayoutTabsTab from './components/Styleguide-Layout-Tabs-Tab';
 
 const components = new Map();
 
@@ -20,6 +22,8 @@ components.set('Styleguide-FieldUsage-Date', StyleguideFieldUsageDate)
 components.set('Styleguide-FieldUsage-Link', StyleguideFieldUsageLink)
 components.set('Styleguide-FieldUsage-ItemLink', StyleguideFieldUsageItemLink)
 components.set('Styleguide-FieldUsage-Custom', StyleguideFieldUsageCustom)
+components.set('Styleguide-Layout-Tabs', StyleguideLayoutTabs)
+components.set('Styleguide-Layout-Tabs-Tab', StyleguideLayoutTabsTab)
 components.set('Welcome', Welcome);
 
 const componentFactory = (componentName) => components.get(componentName);
