@@ -51,7 +51,6 @@ To make the form render as a form, we need to tell React how to render the Sitec
 
 ```jsx
 import React from 'react';
-import { SitecoreForm } from '@sitecore-jss/sitecore-jss-forms';
 
 export default function Form(props) {
   /** @type {SitecoreForm} */
