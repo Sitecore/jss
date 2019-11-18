@@ -22,6 +22,7 @@ export { Text } from './components/Text';
 export { DateField } from './components/Date';
 export { Link } from './components/Link';
 export { File } from './components/File';
+export { FieldEditFrame } from './components/FieldEditFrame';
 export { VisitorIdentification } from './components/VisitorIdentification';
 export { SitecoreContext, SitecoreContextFactory, SitecoreContextReactContext } from './components/SitecoreContext';
 export { withSitecoreContext } from './enhancers/withSitecoreContext';
