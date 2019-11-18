@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { View, TouchableWithoutFeedback } from 'react-native'
+import PropTypes from 'prop-types'
 import { Text, Placeholder } from '@sitecore-jss/sitecore-jss-react-native'
 
 import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen'
@@ -38,6 +39,26 @@ const StyleguideLayoutTabs = ({ rendering, fields }) => {
 			/>
 		</StyleguideSpecimen>
 	)
+}
+
+const FieldsProps = PropTypes.shape({
+	heading: PropTypes.shape({
+		value: PropTypes.string,
+		editable: PropTypes.string
+	}),
+	description: PropTypes.shape({
+		value: PropTypes.string,
+		editable: PropTypes.string
+	})
+})
+
+StyleguideLayoutTabs.propTypes = {
+	componentFactory: PropTypes.func.isRequired,
+	rendering: PropTypes.shape({
+		componentName: PropTypes.string.isRequired,
+		fields: FieldsProps.isRequired
+	}).isRequired,
+	fields: FieldsProps.isRequired
 }
 
 export default StyleguideLayoutTabs

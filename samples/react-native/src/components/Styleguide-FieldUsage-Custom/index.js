@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text } from '@sitecore-jss/sitecore-jss-react-native';
+import PropTypes from 'prop-types'
 import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen';
 
 /**
@@ -13,5 +14,29 @@ const StyleguideFieldUsageCustom = ({ fields, rendering }) => (
 		<Text field={fields.customIntField} />
 	</StyleguideSpecimen>
 );
+
+const FieldsProps = PropTypes.shape({
+	heading: PropTypes.shape({
+		value: PropTypes.string,
+		editable: PropTypes.string
+	}),
+	description: PropTypes.shape({
+		value: PropTypes.string,
+		editable: PropTypes.string
+	}),
+	customIntField: PropTypes.shape({
+		value: PropTypes.number,
+		editable: PropTypes.number
+	})
+})
+
+StyleguideFieldUsageCustom.propTypes = {
+	componentFactory: PropTypes.func.isRequired,
+	rendering: PropTypes.shape({
+		componentName: PropTypes.string.isRequired,
+		fields: FieldsProps.isRequired
+	}).isRequired,
+	fields: FieldsProps.isRequired
+}
 
 export default StyleguideFieldUsageCustom;

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import PropTypes from 'prop-types'
 import { DateField } from '@sitecore-jss/sitecore-jss-react-native'
 import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen'
 import styles from './styles'
@@ -17,10 +18,6 @@ const StyleguideFieldUsageDate = ({ fields, rendering }) => {
 			</View>
 			<View style={styles.field}>
 				<Text>UTC Date string: </Text>
-				{/*
-					Date helper supports a render props API to give you direct access to the JS Date object for formatting.
-					IMPORTANT: the render prop is ignored when in Experience Editor mode to support inline editing.
-				*/}
 				<DateField field={fields.date} render={date => date.toUTCString()} />
 			</View>
 			<View style={styles.field}>
@@ -36,6 +33,34 @@ const StyleguideFieldUsageDate = ({ fields, rendering }) => {
 			</View>
 		</StyleguideSpecimen>
 	)
+}
+
+const FieldsProps = PropTypes.shape({
+	heading: PropTypes.shape({
+		value: PropTypes.string,
+		editable: PropTypes.string
+	}),
+	description: PropTypes.shape({
+		value: PropTypes.string,
+		editable: PropTypes.string
+	}),
+	date: PropTypes.shape({
+		value: PropTypes.string,
+		editable: PropTypes.string
+	}),
+	dateTime: PropTypes.shape({
+		value: PropTypes.string,
+		editable: PropTypes.string
+	})
+})
+
+StyleguideFieldUsageDate.propTypes = {
+	componentFactory: PropTypes.func.isRequired,
+	rendering: PropTypes.shape({
+		componentName: PropTypes.string.isRequired,
+		fields: FieldsProps.isRequired
+	}).isRequired,
+	fields: FieldsProps.isRequired
 }
 
 export default StyleguideFieldUsageDate

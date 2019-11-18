@@ -15,7 +15,7 @@ export default StyleSheet.create({
 		borderWidth: 1,
 		borderColor: '#dee2e6',
 		padding: 15,
-		paddingBottom: 25
+		paddingBottom: 15
 	},
 	tabTitle: {
 		color: '#007bff',

@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import PropTypes from 'prop-types'
 import { Link } from '@sitecore-jss/sitecore-jss-react-native'
 
 import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen'
@@ -29,6 +30,34 @@ const StyleguideFieldUsageLink = ({ fields, rendering }) => {
 			</View>
 		</StyleguideSpecimen>
 	)
+}
+
+const FieldsProps = PropTypes.shape({
+	heading: PropTypes.shape({
+		value: PropTypes.string,
+		editable: PropTypes.string
+	}),
+	description: PropTypes.shape({
+		value: PropTypes.string,
+		editable: PropTypes.string
+	}),
+	externalLink: PropTypes.shape({
+		href: PropTypes.string,
+		text: PropTypes.string
+	}),
+	emailLink: PropTypes.shape({
+		href: PropTypes.string,
+		text: PropTypes.string
+	})
+})
+
+StyleguideFieldUsageLink.propTypes = {
+	componentFactory: PropTypes.func.isRequired,
+	rendering: PropTypes.shape({
+		componentName: PropTypes.string.isRequired,
+		fields: FieldsProps.isRequired
+	}).isRequired,
+	fields: FieldsProps.isRequired
 }
 
 export default StyleguideFieldUsageLink

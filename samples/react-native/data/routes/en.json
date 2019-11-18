@@ -168,7 +168,7 @@
 									"value": "Tab 1"
 								},
 								"content": {
-									"value": "Tab 1 contents!"
+									"value": "Tab 1 super content!"
 								}
 							}
 						},
@@ -179,7 +179,7 @@
 									"value": "Tab 2"
 								},
 								"content": {
-									"value": "Tab 2 contents!"
+									"value": "Tab 2 low content!"
 								}
 							}
 						},
@@ -190,7 +190,7 @@
 									"value": "Tab 3"
 								},
 								"content": {
-									"value": "Tab 3 contents!"
+									"value": "Tab 3 medium content!"
 								}
 							}
 						}
