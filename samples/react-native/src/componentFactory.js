@@ -1,4 +1,4 @@
-import Welcome from './components/Welcome';
+import Home from './components/Home';
 import StyleguideFieldUsageText from './components/Styleguide-FieldUsage-Text'
 import StyleguideFieldUsageRichText from './components/Styleguide-FieldUsage-RichText';
 import StyleguideFieldUsageImage from './components/Styleguide-FieldUsage-Image';
@@ -24,7 +24,7 @@ components.set('Styleguide-FieldUsage-Custom', StyleguideFieldUsageCustom)
 components.set('Styleguide-Layout-Tabs', StyleguideLayoutTabs)
 components.set('Styleguide-Layout-Tabs-Tab', StyleguideLayoutTabsTab)
 components.set('Styleguide-ComponentParams', StyleguideComponentParams)
-components.set('Welcome', Welcome);
+components.set('Home', Home);
 
 const componentFactory = (componentName) => components.get(componentName);
 
