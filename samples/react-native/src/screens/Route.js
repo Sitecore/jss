@@ -12,14 +12,18 @@ import componentFactory from '../componentFactory';
 class Route extends Component {
 	state = {
 		loading: true,
+		lang: 'en',
 		route: null,
 		error: null
 	};
 
+	switchLanguage = lang => this.setState({ lang })
+
 	loadData = () => {
+		const { lang } = this.state
 		const { path } = this.props
 
-		getRouteData(path)
+		getRouteData(path, { language: lang })
 			.then((data) => {
 				this.setState({ route: data, loading: false });
 			})
@@ -31,8 +35,15 @@ class Route extends Component {
 
 	componentDidMount() {
 		const { path } = this.props
-
+		
 		path && this.loadData();
+	}
+
+	componentDidUpdate(_, prevState) {
+		const { lang } = this.state
+
+		if (lang !== prevState.lang)
+			this.loadData()
 	}
 
 	render() {
@@ -60,7 +71,7 @@ class Route extends Component {
 
 		return (
 			<SitecoreContext componentFactory={componentFactory}>
-				{render({ data: this.state.route, refreshControl })}
+				{render({ data: this.state.route, refreshControl, switchLanguage: this.switchLanguage })}
 			</SitecoreContext>
 		);
 	}

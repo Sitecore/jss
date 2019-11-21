@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
 const Styleguide = () => (
 	<Route
 		path='/styleguide'
-		render={({ data, refreshControl }) =>
+		render={({ data, refreshControl, switchLanguage }) =>
 			<ScrollView
 				style={styles.container}
 				refreshControl={refreshControl}
 				contentContainerStyle={styles.contentContainer}
 			>
-				<Placeholder name='jss-main' rendering={data} />
+				<Placeholder name='jss-main' rendering={data} switchLanguage={switchLanguage} />
 			</ScrollView>
 		}
 	/>

@@ -7,7 +7,6 @@ import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen'
 import styles from './styles'
 
 const StyleguideFieldUsageLink = ({ fields, rendering }) => {
-	console.log(fields, rendering)
 	return (
 		<StyleguideSpecimen fields={fields} rendering={rendering}>
 			<View style={styles.field}>

@@ -212,6 +212,15 @@
 					"columns": 5,
 					"useCallToAction": true
 				}
+			},
+			{
+				"componentName": "Styleguide-Multilingual",
+				"fields": {
+					"heading": {
+						"value": "Translation Patterns"
+					},
+					"sample": "This text can be translated in en.yml"
+				}
 			}
     ]
   }

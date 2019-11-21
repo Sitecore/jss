@@ -6,13 +6,20 @@
 import { convertRouteToLayoutServiceFormat } from '@sitecore-jss/sitecore-jss-react-native/dist/dataConversion';
 // eslint-disable-next-line
 import { images } from 'static-assets';
-import styleguideData from '../../data/routes/styleguide/en.json';
-import homeData from '../../data/routes/en.json'
+import styleguideEnData from '../../data/routes/styleguide/en.json';
+import styleguideDaDkData from '../../data/routes/styleguide/da-DK.json';
+import homeDataEn from '../../data/routes/en.json'
 import { mapNestedJson } from './util';
 
 const data = {
-  '/': homeData,
-  '/styleguide': styleguideData
+  en: {
+    '/': homeDataEn,
+    '/styleguide': styleguideEnData
+  },
+  'da-DK': {
+    '/': null,
+    '/styleguide': styleguideDaDkData
+  }
 }
 
 // In react-native, you need to "import" static assets via `require` statements
@@ -23,18 +30,18 @@ const data = {
 // The `mapNestedJson` function traverses route, using `processObjectMember` to modify `src` values with values from the images map.
 const processObjectProperty = (key, value) => (key === 'src' ? images[value] : value);
 
-const produceData = route => {
-  const formattedData = convertRouteToLayoutServiceFormat(data[route]);
+const produceData = (route, language) => {
+  const formattedData = convertRouteToLayoutServiceFormat(data[language][route]);
   return mapNestedJson(formattedData, processObjectProperty);
 }
 
-const getRouteData = (route) =>
+const getRouteData = (route, { language } = {}) =>
   new Promise((resolve, reject) => {
-    if (!data[route]) {
+    if (!data[language][route]) {
       reject(new Error(`no data for route "${route}"`));
     }
 
-    resolve(produceData(route))
+    resolve(produceData(route, language))
   });
 
 export { getRouteData };

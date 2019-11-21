@@ -18,8 +18,8 @@ const processObjectProperty = (key, value) => {
   return value;
 };
 
-const getRouteData = (route, options) => {
-  const baseOptions = baseGetFetchOptions('');
+const getRouteData = (route, { options = {}, language } = {}) => {
+  const baseOptions = baseGetFetchOptions(language);
 
   // set the Layout Service host to be the ngrok URL
   baseOptions.layoutServiceConfig.host = __SC_TUNNEL_HOST__;
@@ -31,7 +31,7 @@ const getRouteData = (route, options) => {
     ...options,
   };
 
-  return baseGetRouteData(route, newOptions).then((data) => {
+  return baseGetRouteData(route, { options: newOptions, language }).then((data) => {
     const newData = mapNestedJson(data, processObjectProperty);
     return newData;
   });

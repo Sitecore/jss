@@ -10,6 +10,7 @@ import StyleguideFieldUsageCustom from './components/Styleguide-FieldUsage-Custo
 import StyleguideLayoutTabs from './components/Styleguide-Layout-Tabs';
 import StyleguideLayoutTabsTab from './components/Styleguide-Layout-Tabs-Tab';
 import StyleguideComponentParams from './components/Styleguide-ComponentParams';
+import StyleguideMultilingual from './components/Styleguide-Multilingual'
 
 const components = new Map();
 
@@ -24,6 +25,7 @@ components.set('Styleguide-FieldUsage-Custom', StyleguideFieldUsageCustom)
 components.set('Styleguide-Layout-Tabs', StyleguideLayoutTabs)
 components.set('Styleguide-Layout-Tabs-Tab', StyleguideLayoutTabsTab)
 components.set('Styleguide-ComponentParams', StyleguideComponentParams)
+components.set('Styleguide-Multilingual', StyleguideMultilingual)
 components.set('Home', Home);
 
 const componentFactory = (componentName) => components.get(componentName);
