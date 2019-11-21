@@ -6,7 +6,7 @@ const Home = ({ navigation }) => (
   <Route 
     path='/'
     render={({ data }) =>
-      <Placeholder name='jss-home' rendering={data} navigation={navigation} />
+      <Placeholder name='jss-main' rendering={data} navigation={navigation} />
     }
   />
 );

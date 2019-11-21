@@ -2,7 +2,7 @@
   "name": "styleguide",
   "displayName": "Styleguide",
   "placeholders": {
-    "jss-styleguide": [
+    "jss-main": [
 			{
 				"componentName": "Styleguide-FieldUsage-Text",
 				"fields": {
@@ -53,7 +53,7 @@
 					},
 					"sample1": {
 						"value": {
-							"src": "/data/media/img/sc_logo.svg",
+							"src": "/data/media/img/sc_logo.png",
 							"alt": "Sitecore Logo"
 						}
 					},

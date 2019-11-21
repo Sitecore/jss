@@ -23,7 +23,7 @@ const Styleguide = () => (
 				refreshControl={refreshControl}
 				contentContainerStyle={styles.contentContainer}
 			>
-				<Placeholder name='jss-styleguide' rendering={data} />
+				<Placeholder name='jss-main' rendering={data} />
 			</ScrollView>
 		}
 	/>

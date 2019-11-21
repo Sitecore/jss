@@ -10,7 +10,10 @@ export default function(manifest) {
   manifest.addComponent({
     name: 'Styleguide-FieldUsage-Number',
     icon: SitecoreIcon.NumbersField,
-    fields: [{ name: 'sample', type: CommonFieldTypes.Number }],
+    fields: [
+      { name: 'sample1', type: CommonFieldTypes.Number },
+      { name: 'sample2', type: CommonFieldTypes.Number }
+    ],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
     inherits: ['styleguide-explanatory-component-template'],
