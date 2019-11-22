@@ -53,7 +53,7 @@
 					},
 					"sample1": {
 						"value": {
-							"src": "/data/media/img/sc_logo.png",
+							"src": "/data/media/img/sc_logo.svg",
 							"alt": "Sitecore Logo"
 						}
 					},
