@@ -29,9 +29,12 @@ export type LinkProps = {
    * NOTE: when in Sitecore Experience Editor, this setting is ignored due to technical limitations, and the description is always rendered.
    */
 	showLinkTextWithChildrenPresent?: boolean;
+
+	style?: object,
+	textStyle?: object
 };
 
-export const Link: React.FunctionComponent<LinkProps> = ({ field, editable, children, showLinkTextWithChildrenPresent, ...otherProps }) => {
+export const Link: React.FunctionComponent<LinkProps> = ({ field, editable, children, showLinkTextWithChildrenPresent, style, textStyle, ...otherProps }) => {
 	const dynamicField: any = field;
 
 	if (!field || (!dynamicField.editableFirstPart && !dynamicField.value && !dynamicField.href)) {
@@ -69,12 +72,12 @@ export const Link: React.FunctionComponent<LinkProps> = ({ field, editable, chil
 		: null;
 
 	resultTags.push(
-		<TouchableWithoutFeedback 
+		<TouchableWithoutFeedback
 			onPress={() => Linking.openURL(link.href)}
 			key='link'
 			{...otherProps}>
-			<View>
-				{linkText && <Text>{linkText}</Text>}
+			<View style={style}>
+				{linkText && <Text style={textStyle}>{linkText}</Text>}
 				{children}
 			</View>
 		</TouchableWithoutFeedback>

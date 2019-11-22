@@ -18,17 +18,17 @@ const StyleguideFieldUsageDate = ({ fields, rendering }) => {
 			</View>
 			<View style={styles.field}>
 				<Text>UTC Date string: </Text>
-				<DateField field={fields.date} render={date => <Text>{date.toUTCString()}</Text>} />
+				<DateField field={fields.date} render={date => date.toUTCString()} />
 			</View>
 			<View style={styles.field}>
 				<Text>Localized Date string (local timezone): </Text>
-				<DateField field={fields.date} render={(date) => <Text>{date.toLocaleDateString()}</Text>} />
+				<DateField field={fields.date} render={(date) => date.toLocaleDateString()} />
 			</View>
 			<View style={styles.field}>
 				<Text>Localized DateTime string (local timezone): </Text>
 				<DateField
 					field={fields.dateTime}
-					render={date => <Text>{date.toLocaleString()}</Text>}
+					render={date => date.toLocaleString()}
 				/>
 			</View>
 		</StyleguideSpecimen>

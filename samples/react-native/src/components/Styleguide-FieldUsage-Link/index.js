@@ -11,15 +11,15 @@ const StyleguideFieldUsageLink = ({ fields, rendering }) => {
 		<StyleguideSpecimen fields={fields} rendering={rendering}>
 			<View style={styles.field}>
 				<Text>External link: </Text>
-				<Link field={fields.externalLink} />
+				<Link textStyle={styles.link} field={fields.externalLink} />
 			</View>
 			<View style={styles.field}>
 				<Text>Email link: </Text>
-				<Link field={fields.emailLink} />
+				<Link textStyle={styles.link} field={fields.emailLink} />
 			</View>
 			<View style={styles.field}>
 				<Text>The link component accepts params of its own:</Text>
-				<Link
+				<Link textStyle={styles.link} 
 					field={fields.externalLink}
 					showLinkTextWithChildrenPresent
 					data-otherattributes="pass-through-to-anchor-tag"
