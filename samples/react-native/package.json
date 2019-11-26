@@ -31,8 +31,11 @@
     "prop-types": "^15.6.0",
     "react": "^16.9.0",
     "react-native": "^0.61.0",
-    "react-native-svg": "^9.13.2",
-    "react-native-svg-uri": "^1.2.3"
+    "react-native-gesture-handler": "^1.5.0",
+    "react-native-svg": "^9.13.3",
+    "react-native-svg-uri": "^1.2.3",
+    "react-navigation": "^4.0.10",
+    "react-navigation-stack": "^1.10.3"
   },
   "private": true,
   "devDependencies": {

@@ -32,8 +32,8 @@ const getFetchOptions = (language) => {
   };
 };
 
-const getRouteData = (route, options) => {
-  const fetchOptions = options || getFetchOptions('');
+const getRouteData = (route, { options, language } = {}) => {
+  const fetchOptions = options || getFetchOptions(language);
 
   return fetchRouteData(route, fetchOptions).then(
     (data) => (data && data.sitecore ? data.sitecore.route : {})
