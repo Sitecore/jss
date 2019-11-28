@@ -5,6 +5,43 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 13.0 for Sitecore 9.3
+
+### Upgrading
+
+Major frameworks and all dependent libraries has been updated to their latest version. This generates a few reaking changes:
+* one
+* two
+* three
+
+### New Features & Improvements
+
+* JSS Rendering host
+* React, Angular and Vue and all their dependencies has been updated to their latest versions ([#252](https://github.com/Sitecore/jss/pull/252), [#255](https://github.com/Sitecore/jss/pull/255), [#256](https://github.com/Sitecore/jss/pull/256), [#266](https://github.com/Sitecore/jss/pull/266), [#269](https://github.com/Sitecore/jss/pull/269), [#282](https://github.com/Sitecore/jss/pull/282))
+* New React Native sample app added
+* Documentation updates
+
+### Bug Fixes
+* [Bug #224](https://github.com/Sitecore/jss/issues/224) Export SitecoreContextReactContext
+* [Pull #223](https://github.com/Sitecore/jss/pull/223) Allow lazy loaded components to show a loading state
+* [Pull #224](https://github.com/Sitecore/jss/pull/191) Allow Scoped Styles to Work With Child Components
+* [Bug #61](https://github.com/Sitecore/jss/issues/61) Nested component definitions via Item Link returns only IDs
+* [Pull #146](https://github.com/Sitecore/jss/pull/146) Added support for TypeScript when jss build'ing
+* [Bug #267](https://github.com/Sitecore/jss/issues/267) Error in description of one of methods of Manifest interface
+* [Bug #220](https://github.com/Sitecore/jss/issues/220) Use Object.entries instead of Object.keys
+* [Bug #172](https://github.com/Sitecore/jss/issues/172) mediaApi.updateImageUrl loses revision querystring
+* [Bug #189](https://github.com/Sitecore/jss/issues/189) DevTools loading hidden files and crashing
+* [Bug #160](https://github.com/Sitecore/jss/issues/160) Node Proxy: CURL URL -IL returns 500 OK
+
+SXA and Sitecore Forms compatibility table
+| Sitecore  | JSS      | SXA   | Forms
+| --------- | -------- |------ | ------ 
+| 9.3       | 13.0     | 9.3   | Yes
+| 9.2       | 12.0     | 1.9   | Yes
+| 9.1.1     | 11.1     | 1.9   | No
+| 9.1       | 11.0     | No    | No
+| 9.0       | 11.0     | No    | No
+
 ## Sitecore JSS 12.0 for Sitecore 9.2
 
 ### Upgrading
