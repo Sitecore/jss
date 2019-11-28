@@ -12,8 +12,8 @@ title: Release Notes
 ### New Features & Improvements
 
 * JSS Rendering host
-* React, Angular and Vue and all their dependencies has been updated to their latest versions ([#252](https://github.com/Sitecore/jss/pull/252), [#255](https://github.com/Sitecore/jss/pull/255), [#256](https://github.com/Sitecore/jss/pull/256), [#266](https://github.com/Sitecore/jss/pull/266), [#269](https://github.com/Sitecore/jss/pull/269), [#282](https://github.com/Sitecore/jss/pull/282))
-* New React Native sample app added
+* React, Angular, Vue and Rect-Native and all their dependencies has been updated to their latest versions ([#252](https://github.com/Sitecore/jss/pull/252), [#255](https://github.com/Sitecore/jss/pull/255), [#256](https://github.com/Sitecore/jss/pull/256), [#266](https://github.com/Sitecore/jss/pull/266), [#269](https://github.com/Sitecore/jss/pull/269), [#282](https://github.com/Sitecore/jss/pull/282))
+* New React Native sample app added (implemented similarly to existing Styleguide sample apps)
 * Documentation updates
 
 ### Bug Fixes
