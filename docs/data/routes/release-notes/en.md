@@ -9,11 +9,6 @@ title: Release Notes
 
 ### Upgrading
 
-Major frameworks and all dependent libraries has been updated to their latest version. This generates a few reaking changes:
-* one
-* two
-* three
-
 ### New Features & Improvements
 
 * JSS Rendering host
@@ -32,6 +27,24 @@ Major frameworks and all dependent libraries has been updated to their latest ve
 * [Bug #172](https://github.com/Sitecore/jss/issues/172) mediaApi.updateImageUrl loses revision querystring
 * [Bug #189](https://github.com/Sitecore/jss/issues/189) DevTools loading hidden files and crashing
 * [Bug #160](https://github.com/Sitecore/jss/issues/160) Node Proxy: CURL URL -IL returns 500 OK
+
+### Breaking Changes
+
+* React sample
+	* Upgraded react-i18next: Migration guide https://react.i18next.com/latest/migrating-v9-to-v10
+* React-Native sample
+	* `getRouteData` function interface is changed. Now it accepts two params: `(route, { options, language })`
+* Angular sample
+	* Lazy loading syntax is changed: https://angular.io/guide/deprecations#loadchildren-string-syntax
+	* tsconfig.app.json and tsconfig.json: set "module": "commonjs", because `dynamic import` approach requires this module type
+	* Typescript 3.5 breaking changes: https://github.com/Microsoft/TypeScript/wiki/Breaking-Changes#typescript-35
+* sitecore-jss-angular package
+	* ng-packagr: option workingDirectory is removed, removed corresponding getter from NgPackage class. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#breaking-changes-5)
+	* Setting ngPackage.src has no effect any more. The source directory (base path) is equivalent to the location of the (primary) ng-package.json, package.json, or ng-package.js. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#breaking-changes-6)
+	* The setting for external dependencies (lib.externals) has been removed in favour of lib.umdModuleIds which is now just used to provide the UMD module identifiers of external dependencies. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#migrating-from-v1-breaking-changes-from-v160-to-v200)
+	* @angular/core: Default setting for @ViewChild and @ContentChild queries is changed (https://angular.io/guide/static-query-migration#should-i-use-static-true) ComponentNameAndModule interface is changed accordingly to new lazy loading syntax: https://angular.io/guide/deprecations#loadchildren-string-syntax 
+* sitecore-jss-cli package
+	yargs: CommandModule interface is changed https://github.com/Sitecore/jss/pull/272/files#diff-e0b90a991107a0e06b6fa1bb626b6d5eR25
 
 SXA and Sitecore Forms compatibility table
 | Sitecore  | JSS      | SXA   | Forms
