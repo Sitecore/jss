@@ -6,7 +6,7 @@ title: Sitecore Authentication
 
 # Sitecore Authentication and Security
 
-Sitecore's security model allows you to restrict content access by users and roles, personalize on user profile, and more. It is build on top of ASP.NET Membership and by default utilizes the `.ASPXAUTH` cookie by default.
+Sitecore's security model allows you to restrict content access by users and roles, personalize on user profile, and more. It is built on top of ASP.NET Membership and by default utilizes the `.ASPXAUTH` cookie by default.
 
 As the [Layout Service](/docs/fundamentals/services/layout-service) will respect any logged in users and Sitecore Security, you are fully able to utilize security and authentication with JSS.
 

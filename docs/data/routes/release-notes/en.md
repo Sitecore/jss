@@ -5,12 +5,114 @@ title: Release Notes
 ---
 # Release Notes
 
-## Sitecore JSS vNext
+## Sitecore JSS 13.0 for Sitecore 9.3
+
+### Upgrading
 
 ### New Features & Improvements
 
+* JSS Rendering host
+* React, Angular, Vue and Rect-Native and all their dependencies has been updated to their latest versions ([#252](https://github.com/Sitecore/jss/pull/252), [#255](https://github.com/Sitecore/jss/pull/255), [#256](https://github.com/Sitecore/jss/pull/256), [#266](https://github.com/Sitecore/jss/pull/266), [#269](https://github.com/Sitecore/jss/pull/269), [#282](https://github.com/Sitecore/jss/pull/282))
+* New React Native sample app added (implemented similarly to existing Styleguide sample apps)
+* Documentation updates
+
+### Bug Fixes
+* [Bug #224](https://github.com/Sitecore/jss/issues/224) Export SitecoreContextReactContext
+* [Pull #223](https://github.com/Sitecore/jss/pull/223) Allow lazy loaded components to show a loading state
+* [Pull #224](https://github.com/Sitecore/jss/pull/191) Allow Scoped Styles to Work With Child Components
+* [Bug #61](https://github.com/Sitecore/jss/issues/61) Nested component definitions via Item Link returns only IDs
+* [Pull #146](https://github.com/Sitecore/jss/pull/146) Added support for TypeScript when jss build'ing
+* [Bug #267](https://github.com/Sitecore/jss/issues/267) Error in description of one of methods of Manifest interface
+* [Bug #220](https://github.com/Sitecore/jss/issues/220) Use Object.entries instead of Object.keys
+* [Bug #172](https://github.com/Sitecore/jss/issues/172) mediaApi.updateImageUrl loses revision querystring
+* [Bug #189](https://github.com/Sitecore/jss/issues/189) DevTools loading hidden files and crashing
+* [Bug #160](https://github.com/Sitecore/jss/issues/160) Node Proxy: CURL URL -IL returns 500 OK
+
+### Breaking Changes
+
+* React sample
+	* Upgraded react-i18next: Migration guide https://react.i18next.com/latest/migrating-v9-to-v10
+* React-Native sample
+	* `getRouteData` function interface is changed. Now it accepts two params: `(route, { options, language })`
+* Angular sample
+	* Lazy loading syntax is changed: https://angular.io/guide/deprecations#loadchildren-string-syntax
+	* tsconfig.app.json and tsconfig.json: set "module": "commonjs", because `dynamic import` approach requires this module type
+	* Typescript 3.5 breaking changes: https://github.com/Microsoft/TypeScript/wiki/Breaking-Changes#typescript-35
+* sitecore-jss-angular package
+	* ng-packagr: option workingDirectory is removed, removed corresponding getter from NgPackage class. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#breaking-changes-5)
+	* Setting ngPackage.src has no effect any more. The source directory (base path) is equivalent to the location of the (primary) ng-package.json, package.json, or ng-package.js. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#breaking-changes-6)
+	* The setting for external dependencies (lib.externals) has been removed in favour of lib.umdModuleIds which is now just used to provide the UMD module identifiers of external dependencies. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#migrating-from-v1-breaking-changes-from-v160-to-v200)
+	* @angular/core: Default setting for @ViewChild and @ContentChild queries is changed (https://angular.io/guide/static-query-migration#should-i-use-static-true) ComponentNameAndModule interface is changed accordingly to new lazy loading syntax: https://angular.io/guide/deprecations#loadchildren-string-syntax 
+* sitecore-jss-cli package
+	yargs: CommandModule interface is changed https://github.com/Sitecore/jss/pull/272/files#diff-e0b90a991107a0e06b6fa1bb626b6d5eR25
+
+SXA and Sitecore Forms compatibility table
+| Sitecore  | JSS      | SXA   | Forms
+| --------- | -------- |------ | ------ 
+| 9.3       | 13.0     | 9.3   | Yes
+| 9.2       | 12.0     | 1.9   | Yes
+| 9.1.1     | 11.1     | 1.9   | No
+| 9.1       | 11.0     | No    | No
+| 9.0       | 11.0     | No    | No
+
+## Sitecore JSS 12.0 for Sitecore 9.2
+
+### Upgrading
+
+No special upgrade steps needed, it's safe to promote to newer version.
+
+### New Features & Improvements
+
+* JSS now supports Sitecore Forms. This means several things:
+    * JSS now provides a special content resolver for form components, which enables the Layout Service to send complete serialized form data
+    * A new framework-agnostic npm package is available (`sitecore-jss-forms`), which defines data types and components for forms.
+    * A React implementation of forms is also available via the new `sitecore-jss-react-forms` package (this package extends `sitecore-jss-forms`)
+    * Read about the [Forms Service here](/docs/fundamentals/services/forms-service)
+    * Read [forms documentation here](/docs/techniques/forms)
+
+> Note: JSS 12.0 includes all the features of JSS 11.1
+
+SXA and Sitecore Forms compatibility table
+| Sitecore  | JSS      | SXA   | Forms
+| --------- | -------- |------ | ------ 
+| 9.2       | 12.0     | 1.9   | Yes
+| 9.1.1     | 11.1     | 1.9   | No
+| 9.1       | 11.0     | No    | No
+| 9.0       | 11.0     | No    | No
+
+
+
+## Sitecore JSS 11.1 for Sitecore 9.1.1
+
+### Upgrading
+
+No special upgrade steps needed, it's safe to promote to newer version.
+
+### New Features & Improvements
+
+* JSS now integrates with SXA. When SXA is installed, it's possible to create JSS tenants and sites that make it easier to scale JSS apps. Additional benefits:
+    * SXA site management for JSS apps.
+    * Cross-site presentation sharing using page designs and partial designs.
+    * Cross-site content sharing.
+    * Cross-site reusability of renderings.
+    * Cross-site linking.
+    * More info available on the [SXA documentation site](https://doc.sitecore.com/developers/sxa/19/sitecore-experience-accelerator/en/managing-jss-apps-with-sxa.html)
 * Angular projects can now take advantage of the new `*scRouterLink` component which creates a link that uses Angular routing from a Sitecore link field, instead of refreshing the page.
 * Angular placeholders now expose a `loaded` event that can be hooked for apps that need to know when a placeholder is done loading, i.e. `<sc-placeholder [...] (loaded)="onPlaceholderLoaded($event)"></sc-placeholder>`
+* [PR #214](https://github.com/Sitecore/jss/pull/214) Pass through component props types when using `withSitecoreContext`
+* [PR #213](https://github.com/Sitecore/jss/pull/213) Add angular directive for general links that can be both internal and external.
+This allows Content Editors to not be limited to one type of predefined linkfield while maintaining angular routerlinks
+* The documentation site now has an initial draft of a new "guided learning" area for the JSS Developer Trial: [https://jss.sitecore.com/connected-demo](https://jss.sitecore.com/connected-demo)
+
+
+### Bug Fixes
+* [PR #211](https://github.com/Sitecore/jss/pull/211) Fix the case when working on a mac or linux with git config for autocrlf all the line endings in the repo are set to lf which fails eslint
+* [Bug #194](https://github.com/Sitecore/jss/issues/194) Implement `acceptCertificate` parameter in `jss deploy component/template`
+* [Bug #174](https://github.com/Sitecore/jss/issues/174) Resolve inherited templates/fields when building media output for the manifest
+* [PR #170](https://github.com/Sitecore/jss/pull/170) Changed proptypes of missingComponentComponent and errorComponent to PropTypes.func in
+packages/sitecore-jss-react/src/components/PlaceholderCommon.tsx to prevent console warning "Warning: Failed prop type: Invalid prop `missingComponentComponent` of type `function` supplied to `PlaceholderComponent`, expected `object`."
+* [PR #151](https://github.com/Sitecore/jss/pull/151) Re-add `!noDebug` to `jss-proxy` console logging to allow disabling of logging.
+* Various fixes to docs (**Thank you, community!!**)
 
 ## Sitecore JSS 11.0 for Sitecore 9.0 and 9.1
 
