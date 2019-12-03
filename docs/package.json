@@ -1,7 +1,11 @@
 {
   "name": "sitecore-jss-docs",
-  "version": "11.0.0",
+  "version": "13.0.0",
   "description": "Doc site for Sitecore JavaScript Services",
+  "engines": {
+    "node": "10.17.0",
+	"npm": "6.11.3"
+  },
   "config": {
     "appName": "JssDocs",
     "rootPlaceholders": [
@@ -13,7 +17,7 @@
     "staticOutputPublicPath": "/",
     "routeDataDir": "./data/routes",
     "language": "en"
-  },
+  },  
   "scripts": {
     "jss": "jss",
     "start": "node -r babel-register ./build/start.js --env.content=disconnected",
