@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<MissingComponent /> should render 1`] = `
-
-<div style="outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;">
+<div style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;">
   <h2>
     missing
   </h2>
@@ -10,5 +9,4 @@ exports[`<MissingComponent /> should render 1`] = `
     JSS component is missing Vue implementation. See the developer console for more information.
   </p>
 </div>
-
 `;

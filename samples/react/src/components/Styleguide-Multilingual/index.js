@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from '@sitecore-jss/sitecore-jss-react';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import StyleguideSpecimen from '../Styleguide-Specimen';
 
@@ -28,9 +28,9 @@ const StyleguideMultilingual = (props) => (
   </StyleguideSpecimen>
 );
 
-// the withNamespaces() _higher order component_ wraps the
+// the withTranslation() _higher order component_ wraps the
 // component in another component and injects the `i18n`
 // and `t` props into it so that we can use them for translation.
 // Any component that wants to use translation will need to use this,
 // or the react-i18next render props API. See the react-i18next docs for more details.
-export default withNamespaces()(StyleguideMultilingual);
+export default withTranslation()(StyleguideMultilingual);

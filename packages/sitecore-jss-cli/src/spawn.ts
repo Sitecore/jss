@@ -21,7 +21,7 @@ export default function(command: string, args: string[], options?: SpawnSyncOpti
     process.exit(1);
   }
 
-  if (result.status > 0) {
+  if (result.status && result.status > 0) {
     process.exit(result.status);
   }
 }

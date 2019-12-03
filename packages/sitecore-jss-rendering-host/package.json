@@ -1,0 +1,58 @@
+{
+  "name": "@sitecore-jss/sitecore-jss-rendering-host",
+  "version": "11.0.2",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "del-cli dist types",
+    "lint": "tslint -p . -c ../../tslint.json 'src/**/*.ts'",
+    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
+    "prepublishOnly": "npm run build",
+    "coverage": "nyc --require ts-node/register npm test"
+  },
+  "engines": {
+    "node": ">=8.10"
+  },
+  "author": {
+    "name": "Sitecore Corporation",
+    "url": "https://jss.sitecore.net"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://jss.sitecore.net",
+  "bugs": {
+    "url": "https://github.com/sitecore/jss/issues"
+  },
+  "dependencies": {
+    "del": "^5.1.0",
+    "import-fresh": "^3.1.0",
+    "ngrok": "^3.2.5",
+    "opn": "^6.0.0",
+    "webpack": "^4.41.0",
+    "webpack-dev-server": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.3",
+    "@types/compression": "^1.0.1",
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.11",
+    "@types/webpack": "^4.39.2",
+    "@types/webpack-dev-middleware": "^2.0.3",
+    "@types/webpack-dev-server": "^3.1.7",
+    "chai": "^4.2.0",
+    "del-cli": "^3.0.0",
+    "mocha": "^6.2.1",
+    "sinon": "^7.5.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  },
+  "description": "",
+  "types": "types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sitecore/jss.git"
+  }
+}

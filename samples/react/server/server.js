@@ -8,7 +8,7 @@ import config from '../src/temp/config';
 import i18ninit from '../src/i18n';
 import AppRoot, { routePatterns } from '../src/AppRoot';
 import { setServerSideRenderingState } from '../src/RouteHandler';
-import indexTemplate from '../build/index.html';
+import { getHtmlTemplate } from './htmlTemplateFactory';
 
 /** Asserts that a string replace actually replaced something */
 function assertReplace(string, value, replacement) {
@@ -45,7 +45,6 @@ export const appName = config.jssAppName;
 export function renderView(callback, path, data, viewBag) {
   try {
     const state = parseServerData(data, viewBag);
-
     setServerSideRenderingState(state);
 
     /*
@@ -68,7 +67,17 @@ export function renderView(callback, path, data, viewBag) {
           <AppRoot path={path} Router={StaticRouter} graphQLClient={graphQLClient} />
         )
       )
-      .then((renderedAppHtml) => {
+      .then((renderedAppHtml) =>
+        // getHtmlTemplate() should return the "shell" HTML template that the rendered app
+        // will be injected into. In many cases, the HTML template will be the same for client-side
+        // rendering and for server-sider rendering. However, in some instances (e.g. JSS render host)
+        // the HTML template needs to be modified or replaced when rendering.
+        getHtmlTemplate(state).then((htmlTemplate) => ({
+          htmlTemplate,
+          renderedAppHtml,
+        }))
+      )
+      .then(({ renderedAppHtml, htmlTemplate }) => {
         const helmet = Helmet.renderStatic();
 
         // We remove the viewBag from the server-side state before sending it back to the client.
@@ -86,7 +95,7 @@ export function renderView(callback, path, data, viewBag) {
         // Inject the rendered app into the index.html template (built from /public/index.html)
         // IMPORTANT: use serialize-javascript or similar instead of JSON.stringify() to emit initial state,
         // or else you're vulnerable to XSS.
-        let html = indexTemplate;
+        let html = htmlTemplate;
 
         // write the React app
         html = assertReplace(

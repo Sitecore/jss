@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-expressions */
 
+import { CreateElement, RenderContext } from 'vue'
+
 import { Placeholder } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
 
@@ -12,8 +14,9 @@ import { devData } from '../test/data/dev-data';
 import { lsDataEeOff } from '../test/data/LS-data-EE-off';
 import { lsDataEeOn } from '../test/data/LS-data-EE-on';
 
-import { config, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 
+// import { config } from '@vue/test-utils'
 // config.logModifiedComponents = false;
 
 const testComponents: any = {
@@ -31,7 +34,7 @@ const testComponents: any = {
       params: { type: Object, default: () => ({}) },
     },
 
-    render(createElement, context) {
+    render(createElement: CreateElement, context: RenderContext) {
       const { props } = context;
       const { rendering, ...otherProps } = props;
       const arbitraryProp = { value: 'magical', withFunction: () => 'indeed' };
@@ -67,7 +70,7 @@ const testComponents: any = {
       arbitrary: { type: Object, default: () => ({}) },
     },
 
-    render(createElement, context) {
+    render(createElement: CreateElement, context: RenderContext) {
       const { props } = context;
       return createElement('div', { class: 'download-callout-mock' }, [
         `message: ${props.fields.message ? props.fields.message.value : 'no message'}`,
@@ -83,19 +86,19 @@ const testComponents: any = {
   Jumbotron: {
     functional: true,
 
-    render(createElement) {
+    render(createElement: CreateElement) {
       return createElement('div', { class: 'jumbotron-mock' });
     },
   },
   ErrorThrowingComponent: {
     render() {
-      const blah = null;
+      const blah: any = null;
       return blah.nonExistantProperty;
     },
   },
 };
 
-const componentFactory = (componentName) => {
+const componentFactory = (componentName: string) => {
   const components = new Map();
   components.set('Home', testComponents.Home);
   components.set('SfcHome', testComponents.sfc.Home);
@@ -113,11 +116,11 @@ describe('<Placeholder />', () => {
     { label: 'LayoutService data - EE on', data: lsDataEeOn },
   ];
 
-  testData.forEach((dataSet, index) => {
+  testData.forEach(dataSet => {
     describe(`with ${dataSet.label}`, () => {
       it('should render a placeholder with given key', () => {
         const phData: any = dataSet.data.sitecore.route.placeholders.main;
-        const component = phData.find((c) => c.componentName);
+        const component = phData.find((c: any) => c.componentName);
         const phKey = 'page-content';
 
         // tslint:disable-next-line:no-shadowed-variable
@@ -140,7 +143,7 @@ describe('<Placeholder />', () => {
         const phKey = 'main';
 
         const testComponent = {
-          render(createElement) {
+          render(createElement: CreateElement) {
             return createElement(
               SitecoreContext,
               {
@@ -171,7 +174,7 @@ describe('<Placeholder />', () => {
         const phKey = 'main';
 
         const testComponent = {
-          render(createElement) {
+          render(createElement: CreateElement) {
             return createElement(SitecoreContext, { props: { componentFactory } }, [
               createElement(Placeholder, { props: { name: phKey, rendering: component } }),
             ]);
@@ -188,7 +191,7 @@ describe('<Placeholder />', () => {
         const phKey = 'main';
 
         const testComponent = {
-          render(createElement) {
+          render(createElement: CreateElement) {
             return createElement(SitecoreContext, { props: { componentFactory } }, [
               createElement(SampleScopedSlotPlaceholder, {
                 props: { name: phKey, rendering: component },
@@ -205,9 +208,9 @@ describe('<Placeholder />', () => {
   });
 
   describe('missing component', () => {
-    let errorSpy;
-    let warnSpy;
-    let logSpy;
+    let errorSpy: jest.SpyInstance;
+    let warnSpy: jest.SpyInstance;
+    let logSpy: jest.SpyInstance;
 
     const route = {
       placeholders: {
@@ -234,7 +237,7 @@ describe('<Placeholder />', () => {
 
     it('should render default missing component for unknown components', () => {
       const testComponent = {
-        render(createElement) {
+        render(createElement: CreateElement) {
           return createElement(Placeholder, {
             props: {
               name: 'main',
@@ -254,13 +257,13 @@ describe('<Placeholder />', () => {
 
     it('should render specific missing component for unknown components', () => {
       const missingComponent = {
-        render(createElement) {
+        render(createElement: CreateElement) {
           return createElement('div', {}, 'this is a custom missing component');
         },
       };
 
       const testComponent = {
-        render(createElement) {
+        render(createElement: CreateElement) {
           return createElement(Placeholder, {
             props: {
               name: 'main',
@@ -315,7 +318,7 @@ describe('<Placeholder />', () => {
     };
 
     const testComponent = {
-      render(createElement) {
+      render(createElement: CreateElement) {
         return createElement(SampleScopedSlotPlaceholderEmpty, {
           props: {
             componentFactory,
@@ -346,13 +349,13 @@ describe('<Placeholder />', () => {
     it('should render custom error component if provided', () => {
       const errorComponent = {
         props: { error: { type: Error } },
-        render(createElement) {
+        render(createElement: CreateElement) {
           return createElement('div', {}, 'this is a custom error component');
         },
       };
 
       const testComponent = {
-        render(createElement) {
+        render(createElement: CreateElement) {
           return createElement(Placeholder, {
             props: { name: 'main', rendering: route, componentFactory, errorComponent },
           });
@@ -366,7 +369,7 @@ describe('<Placeholder />', () => {
 
     it('should render default error component if no custom error component provided', () => {
       const testComponent = {
-        render(createElement) {
+        render(createElement: CreateElement) {
           return createElement(Placeholder, {
             props: { name: 'main', rendering: route, componentFactory },
           });

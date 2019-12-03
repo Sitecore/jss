@@ -7,7 +7,8 @@ import { Subscription } from 'rxjs';
  * Demonstrates advanced component techniques in JSS.
  * This example implements a simple-looking tabs component.
  * Each tab is itself a child component added to a placeholder defined on the tabs component.
- * The tab component introspects its child components to render the tab headings (i.e. the tab children render partial content in two places).
+ * The tab component introspects its child components to render the tab headings
+ * (i.e. the tab children render partial content in two places).
  * When this component is edited in Sitecore Experience Editor, the tabbing behavior is turned off and each tab stacks on top of each other
  * for easy inline editing.
  */

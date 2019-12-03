@@ -1,6 +1,7 @@
-import { ClientRequest, IncomingMessage, ServerResponse } from 'http';
+import { IncomingMessage, ServerResponse } from 'http';
 import proxy from 'http-proxy-middleware';
 import setCookieParser from 'set-cookie-parser';
+import HttpStatus from 'http-status-codes';
 import zlib from 'zlib'; // node.js standard lib
 import { AppRenderer } from './AppRenderer';
 import { ProxyConfig } from './ProxyConfig';
@@ -36,7 +37,7 @@ export const removeEmptyAnalyticsCookie = (proxyResponse: any) => {
 // inspired by: http://stackoverflow.com/a/22487927/9324
 async function renderAppToResponse(
   proxyResponse: IncomingMessage,
-  request: ClientRequest,
+  request: IncomingMessage,
   serverResponse: ServerResponse,
   renderer: AppRenderer,
   config: ProxyConfig
@@ -67,7 +68,7 @@ async function renderAppToResponse(
   }
 
   // we are going to set our own status code if rendering fails
-  serverResponse.writeHead = () => {};
+  serverResponse.writeHead = () => serverResponse;
 
   // buffer the response body as it is written for later processing
   let buf = Buffer.from('');
@@ -87,8 +88,13 @@ async function renderAppToResponse(
     return true;
   };
 
+  if (request.method === 'HEAD') {
+    completeProxyResponse(null, proxyResponse.statusCode || HttpStatus.OK)
+    return
+  }
+
   async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
-    if (proxyResponse.statusCode === 200 || proxyResponse.statusCode === 404) {
+    if (proxyResponse.statusCode === HttpStatus.OK || proxyResponse.statusCode === HttpStatus.NOT_FOUND) {
       let responseString: Promise<string>;
 
       if (
@@ -125,7 +131,7 @@ async function renderAppToResponse(
     console.error(error);
 
     let errorResponse = {
-      statusCode: proxyResponse.statusCode || 500,
+      statusCode: proxyResponse.statusCode || HttpStatus.INTERNAL_SERVER_ERROR,
       content: proxyResponse.statusMessage || 'Internal Server Error',
     };
 
@@ -176,7 +182,7 @@ async function renderAppToResponse(
       proxyResponse.headers['location'] = result.redirect;
     }
 
-    const finalStatusCode = result.status || proxyResponse.statusCode || 200;
+    const finalStatusCode = result.status || proxyResponse.statusCode || HttpStatus.OK;
 
     if (config.debug) {
       console.log(
@@ -190,13 +196,15 @@ async function renderAppToResponse(
     completeProxyResponse(content, finalStatusCode);
   }
 
-  function completeProxyResponse(content: Buffer, statusCode: number, headers?: any) {
+  function completeProxyResponse(content: Buffer | null, statusCode: number, headers?: any) {
     if (!headers) {
       headers = proxyResponse.headers;
     }
 
     originalWriteHead.apply(serverResponse, [statusCode, headers]);
-    originalWrite.call(serverResponse, content);
+
+    if (content) originalWrite.call(serverResponse, content);
+
     originalEnd.call(serverResponse);
   }
 
@@ -343,7 +351,7 @@ export function rewriteRequestPath(
 
   let path = `${config.layoutServiceRoute}?item=${encodeURIComponent(finalReqPath)}&sc_apikey=${
     config.apiKey
-  }`;
+    }`;
 
   if (lang) {
     path = `${path}&sc_lang=${lang}`;

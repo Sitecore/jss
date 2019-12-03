@@ -112,7 +112,7 @@ describe('<Image />', () => {
       expect(url.pathname).to.contain('/-/jssmedia/');
       expect(url.query.h).to.equal(props.imageParams.h);
       expect(url.query.w).to.equal(props.imageParams.w);
-      expect(url.query.hash).to.be.undefined;
+      expect(url.query.hash).to.equal('B973470AA333773341C62A76511361C88897E2D4');
     });
 
     it('should render <img /> with style and className props', () => {

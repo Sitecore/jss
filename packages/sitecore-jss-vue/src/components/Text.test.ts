@@ -16,7 +16,7 @@ describe('<Text />', () => {
   });
 
   it('should render nothing with missing editable and value', () => {
-    const props = { field: null };
+    const props: { field: null } = { field: null };
     // Need to mock console.error as Vue will log an error for the null "field" prop
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');

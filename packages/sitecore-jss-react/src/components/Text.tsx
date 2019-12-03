@@ -62,7 +62,7 @@ Text.propTypes = {
   field: PropTypes.shape({
     value: PropTypes.any,
     editable: PropTypes.string,
-  }),
+  }).isRequired,
   tag: PropTypes.string,
   editable: PropTypes.bool,
   encode: PropTypes.bool,
