@@ -55,6 +55,7 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
 
   componentFactory: ComponentFactory;
   contextFactory: SitecoreContextFactory;
+  myForceUpdate: () => void;
 
   constructor(props: SitecoreContextProps, context: any) {
     super(props, context);
@@ -66,9 +67,15 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
       this.contextFactory = new SitecoreContextFactory();
     }
 
+    this.myForceUpdate = () => this.forceUpdate();
+
     // we force the children of the context to re-render when the context is updated
     // even if the local props are unchanged; we assume the contents depend on the Sitecore context
-    this.contextFactory.subscribeToContext(() => this.forceUpdate());
+    this.contextFactory.subscribeToContext(this.myForceUpdate);
+  }
+
+  componentWillUnmount(): void {
+    this.contextFactory.unsubscribeFromContext(this.myForceUpdate);
   }
 
   render() {
