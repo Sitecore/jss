@@ -10,6 +10,11 @@ export interface SitecoreContextProps {
   [k: string]: any;
 }
 
+export interface SitecoreContextValueType {
+  setSitecoreContext: (value: any) => void;
+  [k: string]: any;
+}
+
 export class SitecoreContextFactory {
   subscribers: any[] = [];
   context: any;
@@ -18,9 +23,12 @@ export class SitecoreContextFactory {
     this.context = {
       pageEditing: false,
     };
+
+    this.setSitecoreContext = this.setSitecoreContext.bind(this);
   }
 
-  getSitecoreContext() {
+  getSitecoreContext(): SitecoreContextValueType {
+    this.context.setSitecoreContext = this.setSitecoreContext
     return this.context;
   }
 
@@ -41,7 +49,7 @@ export class SitecoreContextFactory {
   }
 }
 
-export const SitecoreContextReactContext = React.createContext<SitecoreContextFactory>({} as SitecoreContextFactory);
+export const SitecoreContextReactContext = React.createContext<SitecoreContextValueType>({} as SitecoreContextValueType);
 export const ComponentFactoryReactContext = React.createContext<ComponentFactory>({} as ComponentFactory);
 
 export class SitecoreContext extends React.Component<SitecoreContextProps> {
@@ -74,7 +82,7 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
   render() {
     return (
     <ComponentFactoryReactContext.Provider value={this.componentFactory}>
-      <SitecoreContextReactContext.Provider value={this.contextFactory}>
+      <SitecoreContextReactContext.Provider value={this.contextFactory.getSitecoreContext()}>
         {this.props.children}
       </SitecoreContextReactContext.Provider>
     </ComponentFactoryReactContext.Provider>
