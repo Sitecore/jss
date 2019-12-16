@@ -71,7 +71,7 @@ const config = {
    * Writes verbose request info to stdout for debugging.
    * Must be disabled in production for reasonable performance.
    */
-  debug: process.env.SITECORE_ENABLE_DEBUG || false,
+  debug: ((process.env.SITECORE_ENABLE_DEBUG || '').toLowerCase() === 'true') || false,
   /**
    * Maximum allowed proxy reply size in bytes. Replies larger than this are not sent.
    * Avoids starving the proxy of memory if large requests are proxied.
