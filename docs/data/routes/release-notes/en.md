@@ -9,10 +9,19 @@ title: Release Notes
 
 ### Upgrading
 
+There are [migration instructions](/upgrade-guides/13.0) from JSS 12-based applications.
+
 ### New Features & Improvements
 
 * JSS Rendering host
-* React, Angular, Vue and Rect-Native and all their dependencies has been updated to their latest versions ([#252](https://github.com/Sitecore/jss/pull/252), [#255](https://github.com/Sitecore/jss/pull/255), [#256](https://github.com/Sitecore/jss/pull/256), [#266](https://github.com/Sitecore/jss/pull/266), [#269](https://github.com/Sitecore/jss/pull/269), [#282](https://github.com/Sitecore/jss/pull/282))
+* 
+    Updated:
+    * React: from 16.3.0 to 16.12.0,
+    * Angular: from 7.0 to 8.2.8,
+    * Vue: from 2.5.17 to 2.6.10
+    * React-Native: 0.55.4 to 0.60.5
+
+    and all their dependencies has been updated to their latest versions ([#252](https://github.com/Sitecore/jss/pull/252), [#255](https://github.com/Sitecore/jss/pull/255), [#256](https://github.com/Sitecore/jss/pull/256), [#266](https://github.com/Sitecore/jss/pull/266), [#269](https://github.com/Sitecore/jss/pull/269), [#282](https://github.com/Sitecore/jss/pull/282))
 * New React Native sample app added (implemented similarly to existing Styleguide sample apps)
 * Documentation updates
 
