@@ -1,11 +1,11 @@
 ---
-name: react-native
+name: sample-app
 routeTemplate: ./data/component-templates/article.yml
-title: JSS React Native
+title: React-Native Sample App
 ---
-# sitecore-jss-react-native
 
-> Sitecore JSS for React Native is considered experimental. It is strongly recommended that you have prior experience working with React Native, the toolchain that it requires, and have some exposure to native app development.
+# The JSS React-Native Sample App
+JSS React-Native sample app is a practical sample that demonstrates patterns of how to use JSS with React-Native. React Native is marked as _experimental_ because React Native cannot render in the browser (RN apps are intended to be rendered on iOS/Android devices or emulators), so there is no Experience Editor support. This makes RN difficult to setup and difficult to work with. It is strongly recommended that you have prior experience working with JSS, React-Native, the toolchain that React-Native requires, and have some exposure to native app development.
 
 ## Prerequisites
 
@@ -31,13 +31,13 @@ The installation process for all the necessary Android/iOS dependencies and tool
 
 1. If you don't have Sitecore installed or aren't planning to immediately develop against a Sitecore instance, skip to the next step.
 
-   * Otherwise, if you have Sitecore installed: from a terminal, run `npm run setup`
+   * Otherwise, if you have Sitecore installed: from a terminal, run `jss setup`
 
 1. Choose your target platform:
 
-   * Android: run `npm run start-android`
+   * Android: run `jss start-android`
 
-   * iOS: run `npm run start-ios`
+   * iOS: run `jss start-ios`
 
 At this point, the React Native build process should start, opening 1 or 2 separate terminal window(s)/tab(s) containing the output from the React Native `Metro` bundler and the output from the React Native platform-specific compiler (e.g. Xcode, Android SDK).
 
@@ -85,6 +85,74 @@ Each target app OS has a npm script for starting connected tunnel mode:
 `start-android:connected-tunnel`
 
 `start-ios:connected-tunnel`
+
+## Routing + State Management
+The sample app uses dynamic routing based on the Layout Service (or local route data files in disconnected mode), and uses route/navigation changes to trigger app state changes. Thus tracing the primary execution flow should begin with the route configuration.
+
+## Client-side routing
+Every route is defined in App.js using [`react-navigation`](https://reactnavigation.org/).
+
+```jsx
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
+
+const Navigator = createStackNavigator({
+  Home: { screen: Home },
+  Styleguide: { screen: Styleguide }
+}, {
+  initialRouteName: 'Home'
+})
+
+const AppNavigator = createAppContainer(Navigator)
+
+export default AppNavigator
+```
+
+Route includes `<Route>` that renders components using `render` function that is coming from props.
+
+```jsx
+const Home = ({ navigation }) => (
+  <Route 
+    path='/'
+    render={({ data }) =>
+      <Placeholder name='jss-main' rendering={data} navigation={navigation} />
+    }
+  />
+);
+```
+
+In `Route.js`, Layout Service data is acquired for the current route, and the route and language state of the app are maintained.
+The remaining structure of the route is defined by the route data, that defines which components - and their content data - live in each placeholder.
+
+## Disconnected Mode Support
+The JSS disconnected mode enables development of JSS apps using a local mock version of the Sitecore JSS services - Layout Service. This is accomplished in `dataService.disconnected.js` where `getRouteData` function imports route data in json format
+
+## UI Components
+UI components are the most important part of the JSS app. Thankfully, they are no different from any other React-Native component - except that they are dynamically added inside a Placeholder component, which provides them with an ambient `fields` prop.
+
+```jsx
+import React from 'react';
+import { View } from 'react-native';
+import { Text } from '@sitecore-jss/sitecore-jss-react-native';
+
+const Welcome = ({ fields }) => (
+  <View>
+    <Text field={fields.title} />
+  </View>
+);
+
+export default Welcome;
+```
+
+> While the `Welcome` component is written as a _stateless functional_
+> component because there is no internal component state or need for
+> lifecycle methods, you can also use the ES6 class syntax and extend
+> from React.Component. Generally speaking, JSS does not place any
+> limitations on the usage of normal React-Native conventions.
+
+## Handling Sitecore Field Types
+
+You probably noticed the `<Text />` component being used above. It is a special component that comes with JSS and as a helper for rendering the field value properly for editing inside Content Editor. There are a number of helpers for different field types, such as images, dates, and rich text fields. Consult the Styleguide page in the sample app for working live examples of all these field types.
 
 ## Assets
 
