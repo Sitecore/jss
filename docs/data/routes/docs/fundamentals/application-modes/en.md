@@ -83,7 +83,7 @@ This mode allows your Sitecore users to manage content, presentation and other m
 * `http://your-configured-app-hostname` (from `/sitecore/config/*.config`, search on `hostName`)
 
 ## Headless server-side rendering mode
-This mode allows for running your app on any platform that supports `node.js` and and Express, opening up inexpensive rendering engine scaling.
+This mode allows for running your app on any platform that supports `node.js` and Express, opening up inexpensive rendering engine scaling.
 
 ### Characteristics
 - Rendering performed by server (SSR by Node-as-a-service provider, i.e. Azure App Service, Netlify, Heroku, etc)
