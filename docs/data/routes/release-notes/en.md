@@ -5,6 +5,65 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 13.0 for Sitecore 9.3
+
+### Upgrading
+
+There are [migration instructions](/upgrade-guides/13.0) from JSS 12-based applications.
+
+### New Features & Improvements
+
+* JSS Rendering host
+* 
+    Updated:
+    * React: from 16.3.0 to 16.12.0,
+    * Angular: from 7.0 to 8.2.8,
+    * Vue: from 2.5.17 to 2.6.10
+    * React-Native: 0.55.4 to 0.60.5
+
+    and all their dependencies has been updated to their latest versions ([#252](https://github.com/Sitecore/jss/pull/252), [#255](https://github.com/Sitecore/jss/pull/255), [#256](https://github.com/Sitecore/jss/pull/256), [#266](https://github.com/Sitecore/jss/pull/266), [#269](https://github.com/Sitecore/jss/pull/269), [#282](https://github.com/Sitecore/jss/pull/282))
+* New React Native sample app added (implemented similarly to existing Styleguide sample apps)
+* Documentation updates
+
+### Bug Fixes
+* [Bug #224](https://github.com/Sitecore/jss/issues/224) Export SitecoreContextReactContext
+* [Pull #223](https://github.com/Sitecore/jss/pull/223) Allow lazy loaded components to show a loading state
+* [Pull #224](https://github.com/Sitecore/jss/pull/191) Allow Scoped Styles to Work With Child Components
+* [Bug #61](https://github.com/Sitecore/jss/issues/61) Nested component definitions via Item Link returns only IDs
+* [Pull #146](https://github.com/Sitecore/jss/pull/146) Added support for TypeScript when jss build'ing
+* [Bug #267](https://github.com/Sitecore/jss/issues/267) Error in description of one of methods of Manifest interface
+* [Bug #220](https://github.com/Sitecore/jss/issues/220) Use Object.entries instead of Object.keys
+* [Bug #172](https://github.com/Sitecore/jss/issues/172) mediaApi.updateImageUrl loses revision querystring
+* [Bug #189](https://github.com/Sitecore/jss/issues/189) DevTools loading hidden files and crashing
+* [Bug #160](https://github.com/Sitecore/jss/issues/160) Node Proxy: CURL URL -IL returns 500 OK
+
+### Breaking Changes
+
+* React sample
+	* Upgraded react-i18next: Migration guide https://react.i18next.com/latest/migrating-v9-to-v10
+* React-Native sample
+	* `getRouteData` function interface is changed. Now it accepts two params: `(route, { options, language })`
+* Angular sample
+	* Lazy loading syntax is changed: https://angular.io/guide/deprecations#loadchildren-string-syntax
+	* tsconfig.app.json and tsconfig.json: set "module": "commonjs", because `dynamic import` approach requires this module type
+	* Typescript 3.5 breaking changes: https://github.com/Microsoft/TypeScript/wiki/Breaking-Changes#typescript-35
+* sitecore-jss-angular package
+	* ng-packagr: option workingDirectory is removed, removed corresponding getter from NgPackage class. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#breaking-changes-5)
+	* Setting ngPackage.src has no effect any more. The source directory (base path) is equivalent to the location of the (primary) ng-package.json, package.json, or ng-package.js. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#breaking-changes-6)
+	* The setting for external dependencies (lib.externals) has been removed in favour of lib.umdModuleIds which is now just used to provide the UMD module identifiers of external dependencies. (https://github.com/ng-packagr/ng-packagr/blob/master/CHANGELOG.md#migrating-from-v1-breaking-changes-from-v160-to-v200)
+	* @angular/core: Default setting for @ViewChild and @ContentChild queries is changed (https://angular.io/guide/static-query-migration#should-i-use-static-true) ComponentNameAndModule interface is changed accordingly to new lazy loading syntax: https://angular.io/guide/deprecations#loadchildren-string-syntax 
+* sitecore-jss-cli package
+	yargs: CommandModule interface is changed https://github.com/Sitecore/jss/pull/272/files#diff-e0b90a991107a0e06b6fa1bb626b6d5eR25
+
+SXA and Sitecore Forms compatibility table
+| Sitecore  | JSS      | SXA   | Forms
+| --------- | -------- |------ | ------ 
+| 9.3       | 13.0     | 9.3   | Yes
+| 9.2       | 12.0     | 1.9   | Yes
+| 9.1.1     | 11.1     | 1.9   | No
+| 9.1       | 11.0     | No    | No
+| 9.0       | 11.0     | No    | No
+
 ## Sitecore JSS 12.0 for Sitecore 9.2
 
 ### Upgrading

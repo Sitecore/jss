@@ -58,6 +58,20 @@ describe('updateImageUrl', () => {
     const url = URL(updated);
     expect(url.pathname).to.startsWith('/~/jssmedia/');
   });
+
+  it('should merge querystring and params', () => {
+    const src = '/media/lorem/ipsum.jpg?x=valueX';
+    const params = { y: 'valueY', z: 'valueZ' };
+    const parsed = updateImageUrl(src, params);
+    const url = URL(parsed, {}, true);
+
+    expect(url.toString()).equal('/media/lorem/ipsum.jpg?x=valueX&y=valueY&z=valueZ')
+    expect(url.query).deep.equal({
+      x: 'valueX',
+      y: 'valueY',
+      z: 'valueZ'
+    });
+  })
 });
 
 describe('getSrcSet', () => {

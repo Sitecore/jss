@@ -23,7 +23,7 @@ export const Text: React.SFC<TextProps> = ({ field, ...otherProps }) => {
 
 Text.propTypes = {
   field: PropTypes.shape({
-    value: PropTypes.string,
+    value: PropTypes.any,
     editable: PropTypes.string,
   }),
 };

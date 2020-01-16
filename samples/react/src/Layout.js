@@ -1,14 +1,14 @@
 import React from 'react';
 import { Placeholder, VisitorIdentification } from '@sitecore-jss/sitecore-jss-react';
 import { NavLink } from 'react-router-dom';
-import { withNamespaces } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import Helmet from 'react-helmet';
 
 // Using bootstrap is completely optional. It's used here to provide a clean layout for samples,
 // without needing extra CSS in the sample app. Remove it in package.json as well if it's removed here.
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/app.css';
-import logo from './assets/sc_logo.png';
+import logo from './assets/sc_logo.svg';
 
 /*
   APP LAYOUT
@@ -49,7 +49,7 @@ let Navigation = ({ t, i18n }) => (
 // inject dictionary props (`t`) into navigation so we can translate it
 // NOTE: using this is needed instead of using i18next directly to keep
 // the component state updated when i18n state (e.g. current language) changes
-Navigation = withNamespaces()(Navigation);
+Navigation = withTranslation()(Navigation);
 
 const Layout = ({ route }) => (
   <React.Fragment>

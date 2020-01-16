@@ -2,6 +2,8 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 import path from 'path';
 
+const IS_HIDDEN_FILE = (file: string): boolean => path.basename(file).startsWith('.')
+
 const tryParseJsonOrYaml = (jsonString: string) => {
   try {
     const json = yaml.safeLoad(jsonString);
@@ -60,6 +62,9 @@ const readDirSync = (dir: string) => {
     dirList: [],
   };
 
+  if (IS_HIDDEN_FILE(dir))
+    return result;
+
   const list = fs.readdirSync(dir);
   if (!list) {
     return result;
@@ -67,7 +72,12 @@ const readDirSync = (dir: string) => {
 
   list.forEach((file: string) => {
     const filePath = path.join(dir, file);
+
+    if (IS_HIDDEN_FILE(file))
+      return;
+
     const stats = fs.statSync(filePath);
+
     if (stats && stats.isDirectory()) {
       result.dirList.push(filePath);
     } else {

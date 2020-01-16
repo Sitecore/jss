@@ -93,9 +93,11 @@ export interface HtmlElementRendering {
 /**
  * Field value data on a component
  */
-export interface Field {
-  value: string | boolean | number | { [key: string]: any } | Array<{ [key: string]: any }>;
-  editable?: string;
+export type GenericFieldValue = string | boolean | number | { [key: string]: any } | Array<{ [key: string]: any }>;
+
+export interface Field<T = GenericFieldValue> {
+    value: T;
+    editable?: string;
 }
 
 /**

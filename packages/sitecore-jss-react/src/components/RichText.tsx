@@ -40,7 +40,7 @@ RichText.propTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
-  }),
+  }).isRequired,
   tag: PropTypes.string,
   editable: PropTypes.bool,
 };

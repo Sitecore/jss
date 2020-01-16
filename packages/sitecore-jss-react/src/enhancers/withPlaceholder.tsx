@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ComponentRendering, RouteData, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 import { PlaceholderProps, PlaceholderCommon } from '../components/PlaceholderCommon';
 import { withComponentFactory } from './withComponentFactory';
@@ -35,61 +34,61 @@ export type WithPlaceholderSpec = (string | PlaceholderToPropMapping) | (string 
 
 export function withPlaceholder(placeholders: WithPlaceholderSpec, options?: WithPlaceholderOptions) {
   return (WrappedComponent: React.ComponentClass<any> | React.SFC<any>) => {
-  class WithPlaceholder extends PlaceholderCommon {
-    static propTypes = PlaceholderCommon.propTypes;
+    class WithPlaceholder extends PlaceholderCommon {
+      static propTypes = PlaceholderCommon.propTypes;
 
-    constructor(props: any) {
-      super(props);
-    }
-
-    render() {
-      let childProps: any = { ...this.props};
-
-      delete childProps.componentFactory;
-
-      if (options && options.propsTransformer) {
-        childProps = options.propsTransformer(childProps);
+      constructor(props: any) {
+        super(props);
       }
 
-      if (this.state.error) {
-        if (childProps.errorComponent) {
-          return <childProps.errorComponent error={this.state.error} />;
+      render() {
+        let childProps: any = { ...this.props };
+
+        delete childProps.componentFactory;
+
+        if (options && options.propsTransformer) {
+          childProps = options.propsTransformer(childProps);
         }
 
-        return (
-          <div className="sc-jss-placeholder-error">
-            A rendering error occurred: {this.state.error.message}.
+        if (this.state.error) {
+          if (childProps.errorComponent) {
+            return <childProps.errorComponent error={this.state.error} />;
+          }
+
+          return (
+            <div className="sc-jss-placeholder-error">
+              A rendering error occurred: {this.state.error.message}.
           </div>
-        );
-      }
-
-      const renderingData = options && options.resolvePlaceholderDataFromProps
-        ? options.resolvePlaceholderDataFromProps(childProps)
-        : childProps.rendering;
-
-      const definitelyArrayPlacholders = !Array.isArray(placeholders)
-        ? [ placeholders ] : placeholders;
-
-      definitelyArrayPlacholders.forEach((placeholder: any) => {
-        let placeholderData: (ComponentRendering | HtmlElementRendering)[];
-
-        if (placeholder.placeholder && placeholder.prop) {
-          placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, placeholder.placeholder);
-          if (placeholderData) {
-            childProps[placeholder.prop] = this.getComponentsForRenderingData(placeholderData);
-          }
-        } else {
-          placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, placeholder);
-          if (placeholderData) {
-            childProps[placeholder] = this.getComponentsForRenderingData(placeholderData);
-          }
+          );
         }
-      });
 
-      return <WrappedComponent {...childProps} />;
+        const renderingData = options && options.resolvePlaceholderDataFromProps
+          ? options.resolvePlaceholderDataFromProps(childProps)
+          : childProps.rendering;
+
+        const definitelyArrayPlacholders = !Array.isArray(placeholders)
+          ? [ placeholders ] : placeholders;
+
+        definitelyArrayPlacholders.forEach((placeholder: any) => {
+          let placeholderData: (ComponentRendering | HtmlElementRendering)[];
+
+          if (placeholder.placeholder && placeholder.prop) {
+            placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, placeholder.placeholder);
+            if (placeholderData) {
+              childProps[placeholder.prop] = this.getComponentsForRenderingData(placeholderData);
+            }
+          } else {
+            placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, placeholder);
+            if (placeholderData) {
+              childProps[placeholder] = this.getComponentsForRenderingData(placeholderData);
+            }
+          }
+        });
+
+        return <WrappedComponent {...childProps} />;
+      }
     }
-  }
 
-  return withComponentFactory(WithPlaceholder);
-};
+    return withComponentFactory(WithPlaceholder);
+  };
 }

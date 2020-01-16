@@ -16,7 +16,7 @@ describe('<Link />', () => {
   });
 
   it('should render nothing with missing editable and value', () => {
-    const props = {
+    const props: { field: null } = {
       field: null,
     };
     // Need to mock console.error as Vue will log an error for the null "field" prop

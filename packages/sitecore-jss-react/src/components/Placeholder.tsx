@@ -29,7 +29,7 @@ class PlaceholderComponent extends PlaceholderCommon {
   }
 
   render() {
-    let childProps: any = {...this.props};
+    let childProps: any = { ...this.props };
 
     delete childProps.componentFactory;
 

@@ -51,7 +51,7 @@ File.propTypes = {
     PropTypes.shape({
       value: PropTypes.object,
     }),
-  ]),
+  ]).isRequired,
 };
 
 File.displayName = 'File';

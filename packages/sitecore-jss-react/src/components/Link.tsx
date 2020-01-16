@@ -103,7 +103,7 @@ Link.propTypes = {
       editableFirstPart: PropTypes.string,
       editableLastPart: PropTypes.string,
     }),
-  ]),
+  ]).isRequired,
   editable: PropTypes.bool,
 };
 
