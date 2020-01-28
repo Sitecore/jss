@@ -69,6 +69,7 @@ function getFieldValues({ field, templates }: { field: any; templates: any }) {
       return [getMediaFieldValue(field)];
     case 'File':
       return [getMediaFieldValue(field)];
+    case 'Droptree':
     case 'Multilist':
     case 'Treelist':
       return getNestedFieldValue(field, templates);
