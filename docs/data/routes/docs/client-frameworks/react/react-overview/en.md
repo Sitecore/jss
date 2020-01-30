@@ -26,6 +26,6 @@ The React Placeholder component is very powerful. Here are [some advanced techni
 
 ## Code Splitting
 
-JSS does not ship with code-splitting support out of the box for simplicity, but it is possible to implement using standard React component-based code splitting techniques, such as `react-loadable`.
+JSS does not ship with code-splitting support out of the box for simplicity, but it is possible to implement using standard React component-based code splitting techniques, such as `react-loadable` or `loadable-components (recommended by React)`.
 
 The JSS team has [blogged about one possible way to support code splitting using JSS and React](https://kamsar.net/index.php/2018/08/Code-splitting-with-Sitecore-JSS-React/).
