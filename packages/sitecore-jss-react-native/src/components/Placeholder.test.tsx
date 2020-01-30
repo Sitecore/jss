@@ -2,12 +2,13 @@ import { View } from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import renderer from 'react-test-renderer';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
 import { Placeholder } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
 import { devData } from '../../testData/dev-data';
 import { lsDataEeOff } from '../../testData/LS-data-EE-off';
 
-const componentFactory = (componentName) => {
+const componentFactory = (componentName: string) => {
   const components = new Map();
 
   // pass otherProps to page-content to test property cascading through the Placeholder
@@ -51,7 +52,7 @@ describe('<Placeholder />', () => {
     describe(`with ${dataSet.label}`, () => {
       test('should render a placeholder with given key', () => {
         const phData: any = dataSet.data.sitecore.route.placeholders.main;
-        const component = phData.find((c) => c.componentName);
+        const component = phData.find((c: ComponentRendering) => c.componentName);
         const phKey = 'page-content';
 
         // this will create a snapshot of the rendered component.
@@ -67,7 +68,7 @@ describe('<Placeholder />', () => {
       });
 
       test('should render nested placeholders and props correctly', () => {
-        const component = dataSet.data.sitecore.route;
+        const component: any = dataSet.data.sitecore.route;
         const phKey = 'main';
 
         const renderedComponent = renderer
@@ -89,7 +90,7 @@ describe('<Placeholder />', () => {
 
     // use local mocks to avoid console warnings from Placeholder about unknown nested placeholders
     const Home = () => <View testID="home-mock" />;
-    const factory: any = (componentName) => (componentName === 'Home' ? Home : null);
+    const factory: any = (componentName: string) => (componentName === 'Home' ? Home : null);
 
     const route: any = {
       placeholders: {

@@ -88,12 +88,17 @@ The Layout Service executes within the Sitecore MVC rendering engine, and thus r
 If you don't want analytics tracking for your JSS app, or for particular Layout Service calls, set the `tracking` parameter to `false`.
 
 ## Invoking the Layout Service from JSS
-The Sitecore JSS SDK provides an `axios`-based API to make utilizing the Layout Service easier. The `dataApi` object is found in the `@sitecore-jss\sitecore-jss` package but is also exposed via the framework-specific SDKs.
+
+The Sitecore JSS SDK provides a simple API to make utilizing the Layout Service easier. Enter your configuration into the `fetchOptions` object and pass it into `dataApi.fetchRouteData()`. The `fetcher` option enables you to implement whichever data access method you wish. JSS ships with axios, which can be imported from `src\dataFetcher.js`.
+
+The `dataApi` object is found in the `@sitecore-jss\sitecore-jss` package but is also exposed via the framework-specific SDKs
 
 ```javascript
 import { dataApi } from '@sitecore-jss/sitecore-jss-react';
+import { dataFetcher } from './dataFetcher'; 
 
 const fetchOptions = {
+    fetcher: dataFetcher, 
     layoutServiceConfig: {
         host: 'http://mysitecore',
         configurationName: 'jss',

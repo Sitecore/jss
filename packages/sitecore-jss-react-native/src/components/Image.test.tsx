@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { StyleSheet } from 'react-native';
-import { Image } from './Image';
+import { StyleSheet, ImageSourcePropType } from 'react-native';
+import { Image, isSvgImage } from './Image';
 
 // In react-native, you need to "import" static assets via `require` statements.
 // When the packager builds your app, it statically analyzes your code, extracts the assets that are `require`d into an array/map, then assigns them a numerical value.
@@ -86,5 +86,16 @@ describe('<Image />', () => {
         });
       });
     });
-  });
+	});
+
+	test('isSvgImage', () => {
+		const ut = (source: ImageSourcePropType, expected: boolean) =>
+			expect(isSvgImage(source)).toEqual(expected)
+
+		ut({ uri: './x.svg' }, true);
+		ut({ uri: './x.png' }, false);
+		ut({ uri: 'https://jssapp/-/media/myfile.svg&w=180' }, true);
+		ut({ uri: 'https://jssapp/-/media/myfile.svg?w=180' }, true);
+		ut({ uri: 'https://jssapp/-/media/myfile.png?w=180' }, false);
+	})
 });

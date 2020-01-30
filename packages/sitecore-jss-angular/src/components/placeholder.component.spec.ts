@@ -1,6 +1,6 @@
 // tslint:disable:max-classes-per-file
 import { Component, DebugElement, EventEmitter, Input, NgModuleFactoryLoader, Output } from '@angular/core';
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
 
@@ -12,7 +12,9 @@ import { convertedDevData as nonEeDevData, convertedLayoutServiceData as nonEeLs
 @Component({
   selector: 'test-placeholder',
   template: `
-    <sc-placeholder [name]="name" [rendering]="rendering"></sc-placeholder>
+    <sc-placeholder [name]="name" [rendering]="rendering">
+      <img *scPlaceholderLoading src="loading.gif">
+    </sc-placeholder>
   `,
 })
 class TestPlaceholderComponent {
@@ -32,6 +34,7 @@ class TestDownloadCalloutComponent {
 
 @Component({
   selector: 'test-home',
+  styles: [ 'sc-placeholder[name="page-content"] { background-color: red }' ],
   template: `
     <sc-placeholder name="page-header" [rendering]="rendering"></sc-placeholder>
     <sc-placeholder name="page-content" [rendering]="rendering"></sc-placeholder>
@@ -52,7 +55,7 @@ describe('<sc-placeholder />', () => {
   let de: DebugElement;
   let comp: TestPlaceholderComponent;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         TestPlaceholderComponent,
@@ -70,8 +73,10 @@ describe('<sc-placeholder />', () => {
       providers: [
         { provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader },
       ],
-    });
+    }).compileComponents();
+  }));
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(TestPlaceholderComponent);
     de = fixture.debugElement;
 
@@ -81,6 +86,12 @@ describe('<sc-placeholder />', () => {
 
   it('should be created', () => {
     expect(comp).toBeDefined();
+  });
+
+  it('should show a loader while no rendering is defined yet', () => {
+    const img = de.nativeElement.getElementsByTagName('img')[0];
+    expect(img).toBeDefined();
+    expect(img.getAttribute('src')).toBe('loading.gif');
   });
 
   const testData = [
@@ -105,6 +116,9 @@ describe('<sc-placeholder />', () => {
           const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
           expect(downloadCallout).not.toBeNull();
           expect(downloadCallout.nativeElement.innerHTML).toContain('Download');
+
+          const img = de.nativeElement.getElementsByTagName('img')[0];
+          expect(img).not.toBeDefined();
         });
       }));
 
@@ -151,6 +165,35 @@ describe('<sc-placeholder />', () => {
         const keyAttribute = eeChrome.nativeElement.getAttribute('key');
         expect(keyAttribute).toBeDefined();
         expect(keyAttribute).toBe(phKey);
+      });
+  }));
+
+  it('should copy parent style attribute', async(() => {
+    const component = nonEeDevData.sitecore.route;
+    const phKey = 'main';
+    comp.name = phKey;
+    comp.rendering = component;
+    fixture.detectChanges();
+
+    fixture.whenStable()
+      .then(() => {
+        fixture.detectChanges();
+
+        // let's grab the style name from the parent
+        let parentKey = '';
+        const homeComp = de.query(By.directive(TestHomeComponent));
+        const homeAttributes = homeComp.nativeElement.attributes;
+        if (homeAttributes.length) {
+          const parentAttribute = homeComp.nativeElement.attributes.item(0).name;
+          parentKey = parentAttribute.replace('_nghost-', '');
+        }
+
+        fixture.whenStable()
+          .then(() => {
+            fixture.detectChanges();
+            const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
+            expect(downloadCallout.nativeElement.attributes.item(0).name).toEqual(`_ngcontent-${parentKey}`);
+          });
       });
   }));
 

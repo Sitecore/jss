@@ -32,16 +32,16 @@ export class GenericLinkDirective extends LinkDirective {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {
-      Object.keys(props).forEach((key) => {
-        if (key === 'href' && !this.isAbsoluteUrl(props[key])) {
-          const urlTree = this.router.createUrlTree([props[key]], this.extras);
+      Object.entries(props).forEach(([key, propValue]: [string, any]) => {
+        if (key === 'href' && !this.isAbsoluteUrl(propValue)) {
+          const urlTree = this.router.createUrlTree([propValue], this.extras);
           this.renderer.setAttribute(node, key, this.router.serializeUrl(urlTree));
           this.renderer.listen(node, 'click', (event) => {
-            this.router.navigate([props[key]], this.extras);
+            this.router.navigate([propValue], this.extras);
             event.preventDefault();
           });
         } else {
-          this.renderer.setAttribute(node, key, props[key]);
+          this.renderer.setAttribute(node, key, propValue);
         }
       });
 

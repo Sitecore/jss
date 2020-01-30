@@ -33,11 +33,7 @@ export interface Manifest {
    */
   addRouteType: (...routeTypes: TemplateDefinition[]) => void;
   /**
-   * Adds a route type (a template containing a route-level fields definition).
-   * Route types are useful for data that is always present on a route - for example
-   * an article route type might contain a headline, category, and author. Favor
-   * component-level fields when possible, as they are personalizable. However
-   * route level fields are much more easily queryable and filterable for listings.
+   * Sets default route type (a template containing a route-level fields definition).
    */
   setDefaultRouteType: (defaultRouteType: TemplateDefinition) => void;
   /**

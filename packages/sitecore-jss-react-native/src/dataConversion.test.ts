@@ -4,14 +4,6 @@ import {
   convertRouteToLayoutServiceFormat,
 } from './dataConversion';
 import { convertedDevRouteData, devRouteData } from '../testData/dataConversionTestData/dev-data';
-import {
-  convertedData as eeShapedData,
-  rawData as eeRawData,
-} from '../testData/dataConversionTestData/ee-data';
-import {
-  convertedPlaceholderData,
-  rawPlaceholderData,
-} from '../testData/dataConversionTestData/non-ee-data';
 
 describe('data conversion', () => {
   describe('convertRouteToLayoutServiceFormat', () => {

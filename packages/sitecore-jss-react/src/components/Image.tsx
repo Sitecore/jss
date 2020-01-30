@@ -166,7 +166,10 @@ Image.propTypes = {
     }),
   ]),
   editable: PropTypes.bool,
-  imageParams: PropTypes.object,
+  imageParams: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.number.isRequired,
+    PropTypes.string.isRequired
+  ]).isRequired)
 };
 
 Image.defaultProps = {

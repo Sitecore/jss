@@ -1,13 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Placeholder /> missing component should render default missing component for unknown components 1`] = `
-
 <div>
   <div class="home-mock">
   </div>
   <div class="home-mock-sfc">
   </div>
-  <div style="outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;">
+  <div style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;">
     <h2>
       whatisthis
     </h2>
@@ -16,11 +15,9 @@ exports[`<Placeholder /> missing component should render default missing compone
     </p>
   </div>
 </div>
-
 `;
 
 exports[`<Placeholder /> missing component should render specific missing component for unknown components 1`] = `
-
 <div>
   <div class="home-mock">
   </div>
@@ -30,11 +27,9 @@ exports[`<Placeholder /> missing component should render specific missing compon
     this is a custom missing component
   </div>
 </div>
-
 `;
 
 exports[`<Placeholder /> should render empty placeholder template for empty placeholder 1`] = `
-
 <div class="placeholder-empty-scoped-slot-mock-sfc">
   <ul>
     <li>
@@ -44,11 +39,9 @@ exports[`<Placeholder /> should render empty placeholder template for empty plac
     </li>
   </ul>
 </div>
-
 `;
 
 exports[`<Placeholder /> with Dev data should pass properties to nested components 1`] = `
-
 <div>
   <div class="home-mock">
     <div>
@@ -95,11 +88,9 @@ exports[`<Placeholder /> with Dev data should pass properties to nested componen
     </div>
   </div>
 </div>
-
 `;
 
 exports[`<Placeholder /> with Dev data should render a placeholder with given key 1`] = `
-
 <div>
   <div class="download-callout-mock">
     message: no message
@@ -116,11 +107,9 @@ exports[`<Placeholder /> with Dev data should render a placeholder with given ke
     arbitrary function: no function
   </div>
 </div>
-
 `;
 
 exports[`<Placeholder /> with Dev data should render components via default scoped slot (i.e. render prop) 1`] = `
-
 <div class="placeholder-scoped-slot-mock-sfc">
   <ul>
     <li>
@@ -173,11 +162,9 @@ exports[`<Placeholder /> with Dev data should render components via default scop
     </li>
   </ul>
 </div>
-
 `;
 
 exports[`<Placeholder /> with Dev data should render nested placeholders 1`] = `
-
 <div>
   <div class="home-mock">
     <div>
@@ -224,11 +211,9 @@ exports[`<Placeholder /> with Dev data should render nested placeholders 1`] = `
     </div>
   </div>
 </div>
-
 `;
 
 exports[`<Placeholder /> with LayoutService data - EE off should pass properties to nested components 1`] = `
-
 <div>
   <div class="home-mock">
     <div>
@@ -246,11 +231,9 @@ exports[`<Placeholder /> with LayoutService data - EE off should pass properties
     </div>
   </div>
 </div>
-
 `;
 
 exports[`<Placeholder /> with LayoutService data - EE off should render a placeholder with given key 1`] = `
-
 <div>
   <div class="download-callout-mock">
     message: no message
@@ -260,11 +243,9 @@ exports[`<Placeholder /> with LayoutService data - EE off should render a placeh
     arbitrary function: no function
   </div>
 </div>
-
 `;
 
 exports[`<Placeholder /> with LayoutService data - EE off should render components via default scoped slot (i.e. render prop) 1`] = `
-
 <div class="placeholder-scoped-slot-mock-sfc">
   <ul>
     <li>
@@ -286,11 +267,9 @@ exports[`<Placeholder /> with LayoutService data - EE off should render componen
     </li>
   </ul>
 </div>
-
 `;
 
 exports[`<Placeholder /> with LayoutService data - EE off should render nested placeholders 1`] = `
-
 <div>
   <div class="home-mock">
     <div>
@@ -308,11 +287,9 @@ exports[`<Placeholder /> with LayoutService data - EE off should render nested p
     </div>
   </div>
 </div>
-
 `;
 
 exports[`<Placeholder /> with LayoutService data - EE on should pass properties to nested components 1`] = `
-
 <div>
   <code type="text/sitecore"
         chrometype="placeholder"
@@ -442,11 +419,9 @@ exports[`<Placeholder /> with LayoutService data - EE on should pass properties 
   >
   </code>
 </div>
-
 `;
 
 exports[`<Placeholder /> with LayoutService data - EE on should render a placeholder with given key 1`] = `
-
 <div>
   <code type="text/sitecore"
         chrometype="placeholder"
@@ -496,11 +471,9 @@ exports[`<Placeholder /> with LayoutService data - EE on should render a placeho
   >
   </code>
 </div>
-
 `;
 
 exports[`<Placeholder /> with LayoutService data - EE on should render components via default scoped slot (i.e. render prop) 1`] = `
-
 <div class="placeholder-scoped-slot-mock-sfc">
   <ul>
     <code type="text/sitecore"
@@ -634,11 +607,9 @@ exports[`<Placeholder /> with LayoutService data - EE on should render component
     </code>
   </ul>
 </div>
-
 `;
 
 exports[`<Placeholder /> with LayoutService data - EE on should render nested placeholders 1`] = `
-
 <div>
   <code type="text/sitecore"
         chrometype="placeholder"
@@ -768,5 +739,4 @@ exports[`<Placeholder /> with LayoutService data - EE on should render nested pl
   >
   </code>
 </div>
-
 `;

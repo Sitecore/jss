@@ -2,7 +2,7 @@
 import { mount } from '@vue/test-utils';
 
 import DateSlotSfc from '../test/components/sfc/SampleScopedSlotDateField.vue';
-import { DateField } from './Date';
+import { DateField, FormatterFunction } from './Date';
 
 describe('<Date />', () => {
   it('should render nothing with missing field', () => {
@@ -41,7 +41,12 @@ describe('<Date />', () => {
   });
 
   it('should render formatted value with formatter', () => {
-    const props = { field: { value: 'value' }, formatter: (val) => 'rendered val' };
+    const formatter: FormatterFunction = () => 'rendered val'
+    const props = { 
+      field: { value: 'value' },
+      formatter
+    };
+
     const rendered = mount(DateField, {
       context: { props },
     }).find('span');

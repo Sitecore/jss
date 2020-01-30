@@ -3,10 +3,10 @@ a[target='_blank']:after {
 }
 
 .logo {
-  background-image: url('/assets/images/sc_logo.png');
+  background-image: url('/assets/images/sc_logo.svg');
   display: block;
-  height: 51px;
-  width: 204px;
+  height: 48px;
+  width: 221px;
 }
 
 /*

@@ -3,7 +3,6 @@ import {
   Inject,
   Injectable,
   Injector,
-  NgModuleFactoryLoader,
   Type
 } from '@angular/core';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
@@ -29,7 +28,6 @@ export class JssComponentFactoryService {
   private lazyComponentMap: Map<string, ComponentNameAndModule>;
 
   constructor(
-    private loader: NgModuleFactoryLoader,
     private injector: Injector,
     @Inject(PLACEHOLDER_COMPONENTS) private components: ComponentNameAndType[],
     @Inject(PLACEHOLDER_LAZY_COMPONENTS) private lazyComponents: ComponentNameAndModule[]
@@ -57,7 +55,7 @@ export class JssComponentFactoryService {
     const lazyComponent = this.lazyComponentMap.get(component.componentName);
 
     if (lazyComponent) {
-      return this.loader.load(lazyComponent.loadChildren)
+      return lazyComponent.loadChildren()
       .then((ngModuleFactory) => {
         let componentType = null;
         const moduleRef = ngModuleFactory.create(this.injector);

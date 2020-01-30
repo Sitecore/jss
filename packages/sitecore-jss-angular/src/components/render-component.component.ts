@@ -36,7 +36,7 @@ export class RenderComponentComponent implements OnChanges {
 
   @Input() rendering: ComponentRendering | HtmlElementRendering;
   @Input() outputs: { [k: string]: (eventType: any) => void };
-  @ViewChild('view', { read: ViewContainerRef }) private view: ViewContainerRef;
+  @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
 
   @Input()
   set inputs(value: { [key: string]: any }) {
@@ -60,7 +60,7 @@ export class RenderComponentComponent implements OnChanges {
   }
 
   private _setComponentInputs(componentInstance: any, inputs: { [key: string]: any }) {
-    Object.keys(inputs).forEach((input) => componentInstance[input] = inputs[input]);
+    Object.entries(inputs).forEach(([input, inputValue]) => componentInstance[input] = inputValue);
   }
 
   private _subscribeComponentOutputs(componentInstance: any, outputs: { [k: string]: (eventType: any) => void }) {

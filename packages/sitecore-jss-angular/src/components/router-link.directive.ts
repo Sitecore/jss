@@ -29,12 +29,12 @@ export class RouterLinkDirective extends LinkDirective {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {
-      Object.keys(props).forEach((key) => {
-        this.renderer.setAttribute(node, key, props[key]);
+      Object.entries(props).forEach(([key, propValue]: [string, any]) => {
+        this.renderer.setAttribute(node, key, propValue);
 
         if (key === 'href') {
           this.renderer.listen(node, 'click', (event) => {
-            this.router.navigate([props[key]]);
+            this.router.navigate([propValue]);
             event.preventDefault();
           });
         }

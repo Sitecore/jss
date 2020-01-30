@@ -5,6 +5,7 @@ import { View, StyleSheet, Text } from 'react-native';
 export interface UnrenderableComponentProps {
   rendering?: {
     name?: string;
+    componentName?: string;
   } | null;
 }
 

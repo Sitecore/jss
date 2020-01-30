@@ -6,7 +6,7 @@ if(Cypress.env("SSR")) {
     it('Performs SSR on home page', () => {
       cy.request({ url: '/' })
         .then(response => {
-          expect(response.body).to.contain('<h2 class="display-4">Welcome to Sitecore JSS</h2>');
+          expect(response.body).to.contain('Welcome to Sitecore JSS</title>');
       });
     });
 

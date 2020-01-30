@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import fetchBackend from 'i18next-fetch-backend';
-import { reactI18nextModule } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 import config from './temp/config';
 
 /**
@@ -32,7 +32,7 @@ export default function i18nInit(language, dictionary) {
         translation: dictionary,
       };
 
-      i18n.use(reactI18nextModule).init(options, (error) => {
+      i18n.use(initReactI18next).init(options, (error) => {
         if (error) reject(error);
         resolve();
       });
@@ -40,7 +40,7 @@ export default function i18nInit(language, dictionary) {
       // We're running client-side, so we get translation data from the Sitecore dictionary API using fetch backend
       // For higher performance (but less simplicity), consider adding the i18n chained backend to a local cache option like the local storage backend.
 
-      // eslint-disable-next-line prettier/prettier
+      // eslint-disable-next-line
       const dictionaryServicePath = `${config.sitecoreApiHost}/sitecore/api/jss/dictionary/${config.jssAppName}/{{lng}}?sc_apikey=${config.sitecoreApiKey}`;
 
       options.backend = {
@@ -56,7 +56,7 @@ export default function i18nInit(language, dictionary) {
 
       i18n
         .use(fetchBackend)
-        .use(reactI18nextModule)
+        .use(initReactI18next)
         .init(options, (error) => {
           if (error) reject(error);
 

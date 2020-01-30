@@ -182,6 +182,20 @@ export default {
           {
             url: 'react-native',
             displayName: 'React Native',
+            children: [
+              {
+                url: 'react-native-overview',
+                displayName: 'Overview'
+              },
+              {
+                url: 'sample-app',
+                displayName: 'Sample App'
+              },
+              {
+                url: 'react-native-placeholders',
+                displayName: 'Placeholder Techniques'
+              }
+            ]
           },
         ],
       },

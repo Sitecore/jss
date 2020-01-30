@@ -1,5 +1,3 @@
-/* eslint-disable import/first */
-
 import 'cross-fetch/polyfill'; // Apollo uses `fetch`, which needs a polyfill for node and older browsers.
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';

@@ -53,7 +53,7 @@ DateField.propTypes = {
   field: PropTypes.shape({
     value: PropTypes.any,
     editable: PropTypes.string,
-  }),
+  }).isRequired,
   tag: PropTypes.string,
   editable: PropTypes.bool,
   render: PropTypes.func,

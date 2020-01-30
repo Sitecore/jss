@@ -1,0 +1,17 @@
+src
+testData
+sitecore
+index.test.js
+.vscode
+.babelrc
+.eslintrc.json
+.npmignore
+.gitignore
+jsconfig.json
+tsconfig.json
+tslint.json
+npm-debug*
+*.log
+!/types
+.nycrc
+*.tgz

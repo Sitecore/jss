@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Text /> should render editable value if present 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
->
+<Text>
   this value should be rendered
 </Text>
 `;
@@ -16,9 +12,6 @@ exports[`<Text /> should render nothing with missing field 1`] = `null`;
 
 exports[`<Text /> should render other attributes with other props provided 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   selectable={true}
   style={
     Object {
@@ -31,11 +24,7 @@ exports[`<Text /> should render other attributes with other props provided 1`] =
 `;
 
 exports[`<Text /> should render value if editable is undefined 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
->
+<Text>
   this value should be rendered
 </Text>
 `;
