@@ -302,7 +302,7 @@ To register the schema provider with an endpoint, use a Sitecore Config Patch so
         <api>
             <GraphQL>
                 <endpoints>
-                    <master type="Sitecore.Services.GraphQL.Hosting.GraphQLEndpoint, Sitecore.Services.GraphQL">
+                    <master type="Sitecore.Services.GraphQL.Hosting.GraphQLEndpoint, Sitecore.Services.GraphQL.NetFxHost">
                         <schema hint="list:AddSchemaProvider">
                             <whoDat type="Sitecore.Services.GraphQL.Examples.WhoAmISchemaProvider, Sitecore.Services.GraphQL.Examples.NetFxHost" />
                         </schema>
