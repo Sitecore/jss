@@ -56,6 +56,11 @@ function getMediaFieldValue(field: any) {
 }
 
 function getNestedFieldValue(field: any, templates: any) {
+  // If there is only one value
+  if (!Array.isArray(field.value)) {
+    return [getMediaFieldValue(field)];
+  }
+
   return field.value.reduce((result: any, item: any) => {
     // eslint-disable-next-line no-use-before-define
     const media = buildMediaOutput(item, templates);
