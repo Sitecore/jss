@@ -1,7 +1,7 @@
 {
   "name": "jss-sample-react",
   "description": "Application utilizing Sitecore JavaScript Services and React (create-react-app).",
-  "version": "13.0.0",
+  "version": "13.0.1",
   "private": true,
   "config": {
     "appName": "JssReactWeb",
