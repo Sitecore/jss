@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-vue",
-  "version": "13.0.0",
+  "version": "13.0.1",
   "description": "A library for building Sitecore JSS apps using Vue.js",
   "main": "dist/index.js",
   "scripts": {
