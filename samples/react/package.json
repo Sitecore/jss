@@ -104,7 +104,7 @@
     "graphql:update": "node -r babel-register ./scripts/update-graphql-fragment-data.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "eject:script": "ncp ./scripts ./scripts-copy && node ./scripts-copy/eject.js && ncp ./scripts-copy ./scripts"
+    "eject:script": "ncp ./scripts ./scripts-copy && node ./scripts-copy/eject.js && ncp ./scripts-copy ./scripts && del-cli ./scripts-copy"
   },
   "browserslist": [
     ">0.2%",
