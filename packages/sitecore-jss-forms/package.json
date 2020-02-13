@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-forms",
-  "version": "13.0.0",
+  "version": "13.0.1",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -42,7 +42,7 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^13.0.0"
+    "@sitecore-jss/sitecore-jss": "^13.0.1"
   },
   "description": "",
   "types": "types/index.d.ts",
