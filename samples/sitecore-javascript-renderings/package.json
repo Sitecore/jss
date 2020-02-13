@@ -1,6 +1,6 @@
 {
   "name": "jss-javascript-renderings-reactweb-sample",
-  "version": "13.0.1",
+  "version": "13.0.0",
   "description": "A basic component library utilizing Sitecore JavaScript Services. Demonstrates how to use indidivual components as renderings in Sitecore instead of full-fledged applications.",
   "config": {
     "appName": "JssComponentsReactWeb",

@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "13.0.1",
+  "version": "13.0.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",

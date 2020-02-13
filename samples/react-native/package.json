@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-reactnative",
-  "version": "13.0.1",
+  "version": "13.0.0",
   "description": "A basic React Native app utilizing Sitecore JavaScript Services",
   "config": {
     "appName": "JssReactNative",

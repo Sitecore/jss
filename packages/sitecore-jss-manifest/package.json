@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-manifest",
-  "version": "13.0.1",
+  "version": "13.0.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
