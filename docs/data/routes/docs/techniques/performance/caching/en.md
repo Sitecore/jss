@@ -29,4 +29,6 @@ If you are dissatisfied with the performance of your headless JSS app:
 > When a page is server-side rendered, Node renders the entire page as one block of HTML, not as individual renderings
 
 ## Cache Pitfalls of Integrated Mode
-We discourage Integrated Mode in production. However, if you choose to use Integrated Mode, this is what you need to know regarding caching. Since the entire page is server-side rendered as one block of HTML, not as individual renderings, traditional output caching mechanisms become all-or-nothing. In other words, if caching of any component is enabled, it forces caching of the entire page.
+
+We discourage Integrated Mode in production. However, if you choose to use Integrated Mode, this is what you need to know regarding caching. Since the entire page is server-side rendered as one block of HTML, not as individual renderings, traditional output caching mechanisms become all-or-nothing. In other words, when caching is enabled, the entire page is cached. This is rarely the desired outcome.
+
