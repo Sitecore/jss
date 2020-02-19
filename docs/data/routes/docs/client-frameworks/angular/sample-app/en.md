@@ -35,7 +35,7 @@ Client-side routing occurs in the web browser. The flow of client-side routing i
     * Updating route-level state, such as the page title or other meta fields
     * Binding valid route data to the root `sc-placeholder`, ultimately rendering the full route layout with all its components.
 
-### Server-side routing and data transfer
+### Server-side Rendering (SSR) and data transfer
 
 When the Angular app is pre-rendered by a Node server, thus returning HTML to the client in the initial response, the route data flow is similar but has a few key differences.
 
