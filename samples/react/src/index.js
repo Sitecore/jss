@@ -11,6 +11,8 @@ import i18ninit from './i18n';
 
 let renderFunction = ReactDOM.render;
 
+let initLanguage = config.defaultLanguage;
+
 /*
   SSR Data
   If we're running in a server-side rendering scenario,
@@ -35,6 +37,9 @@ if (__JSS_STATE__) {
 
   // when React initializes from a SSR-based initial state, you need to render with `hydrate` instead of `render`
   renderFunction = ReactDOM.hydrate;
+
+  // set i18n language SSR state language instead of static config default language
+  initLanguage = __JSS_STATE__.sitecore.context.language;
 }
 
 /*
@@ -54,7 +59,7 @@ const graphQLClient = GraphQLClientFactory(config.graphQLEndpoint, false, initia
 */
 // initialize the dictionary, then render the app
 // note: if not making a multlingual app, the dictionary init can be removed.
-i18ninit().then(() => {
+i18ninit(initLanguage).then(() => {
   // HTML element to place the app into
   const rootElement = document.getElementById('root');
 
