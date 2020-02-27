@@ -57,11 +57,16 @@ export default function i18nInit(language, dictionary) {
       i18n
         .use(fetchBackend)
         .use(initReactI18next)
-        .init(options, (error) => {
+        
+      if (!i18n.isInitialized) {
+        i18n.init(options, (error) => {
           if (error) reject(error);
 
           resolve();
         });
+      } else {
+        resolve();
+      }
     }
   });
 }
