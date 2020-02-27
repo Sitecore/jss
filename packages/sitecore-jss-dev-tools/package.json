@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-dev-tools",
-  "version": "13.0.2",
+  "version": "13.0.3",
   "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@sitecore-jss/sitecore-jss": "^13.0.2",
-    "@sitecore-jss/sitecore-jss-manifest": "^13.0.2",
+    "@sitecore-jss/sitecore-jss-manifest": "^13.0.3",
     "@sitecore-jss/sitecore-jss-update-package": "^13.0.2",
     "chokidar": "^3.2.1",
     "del": "^5.1.0",
