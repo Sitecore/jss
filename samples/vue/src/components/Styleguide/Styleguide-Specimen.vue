@@ -9,7 +9,7 @@
 
     <p>
       <small>
-        Implementation: <code>/src/components/{{ rendering.componentName }}/index.js</code>
+        Implementation: <code>/src/components/Styleguide/{{ rendering.componentName }}.vue</code>
         <br />
         Definition: <code>/sitecore/definitions/components/{{ rendering.componentName }}.sitecore.js</code>
       </small>
