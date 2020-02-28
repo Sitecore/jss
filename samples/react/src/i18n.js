@@ -32,10 +32,14 @@ export default function i18nInit(language, dictionary) {
         translation: dictionary,
       };
 
-      i18n.use(reactI18nextModule).init(options, (error) => {
-        if (error) reject(error);
-        resolve();
-      });
+      if (!i18n.isInitialized) {
+        i18n.use(initReactI18next).init(options, (error) => {
+          if (error) reject(error);
+          resolve();
+        });
+      } else {
+        resolve()
+      }
     } else {
       // We're running client-side, so we get translation data from the Sitecore dictionary API using fetch backend
       // For higher performance (but less simplicity), consider adding the i18n chained backend to a local cache option like the local storage backend.
