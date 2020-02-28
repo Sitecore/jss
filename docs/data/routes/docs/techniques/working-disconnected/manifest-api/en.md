@@ -188,6 +188,7 @@ To mock route-level fields, you can simply add a `fields` property to your route
 * `addRoute(...routes: route[])`: adds an app route data definition
 * `addRouteType(...routeTypes: template[])`: adds a Sitecore template type for a route
 * `addTemplate(...templates: template[])`
+* `addPlaceholder(...templates: template[])`: adds a placeholder definition to the manifest. Sample usage could be found in [placeholders.sitecore.js](https://github.com/Sitecore/jss/blob/dev/samples/react/sitecore/definitions/placeholders.sitecore.js)
 
 ### Manifest objects
 
