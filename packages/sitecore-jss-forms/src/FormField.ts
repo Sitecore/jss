@@ -31,6 +31,7 @@ export function instanceOfButtonFormField(object: FormField): object is ButtonFo
 
 export interface FormFieldSection extends FormField<ViewModel> {
   fields: FormField[];
+  cssClass?: string;
 }
 
 export function instanceOfFormFieldSection(object: FormField): object is FormFieldSection {
