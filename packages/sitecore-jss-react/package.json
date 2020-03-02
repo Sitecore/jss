@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react",
-  "version": "13.0.2",
+  "version": "13.0.3",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
