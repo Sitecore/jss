@@ -44,7 +44,7 @@ export default function addComponentContentToManifest(manifest) {
  * @returns {ItemDefinition}
  */
 function convertToItems(data, basePath, rootItemName, language) {
-  const itemPath = convertPhsyicalPathToItemRelativePath(data.path, basePath);
+  const itemPath = convertPhysicalPathToItemRelativePath(data.path, basePath);
   const name = itemPath.substr(itemPath.lastIndexOf('/') + 1);
 
   let result;
@@ -94,7 +94,7 @@ function convertToItems(data, basePath, rootItemName, language) {
  * @param {string} physicalPath
  * @param {string} basePath
  */
-function convertPhsyicalPathToItemRelativePath(physicalPath, basePath) {
+function convertPhysicalPathToItemRelativePath(physicalPath, basePath) {
   const targetPathSeparator = '/';
 
   // normalize path separators to /
