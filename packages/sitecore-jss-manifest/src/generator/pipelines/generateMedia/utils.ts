@@ -55,7 +55,12 @@ function getMediaFieldValue(field: any) {
   return field.value;
 }
 
-function getTreelistFieldValue(field: any, templates: any) {
+function getNestedFieldValue(field: any, templates: any) {
+  // If there is only one value
+  if (!Array.isArray(field.value)) {
+    return [getMediaFieldValue(field)];
+  }
+
   return field.value.reduce((result: any, item: any) => {
     // eslint-disable-next-line no-use-before-define
     const media = buildMediaOutput(item, templates);
@@ -69,8 +74,10 @@ function getFieldValues({ field, templates }: { field: any; templates: any }) {
       return [getMediaFieldValue(field)];
     case 'File':
       return [getMediaFieldValue(field)];
+    case 'Droptree':
+    case 'Multilist':
     case 'Treelist':
-      return getTreelistFieldValue(field, templates);
+      return getNestedFieldValue(field, templates);
     default:
       return null;
   }

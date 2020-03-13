@@ -27,15 +27,22 @@ export default function i18nInit(language, dictionary) {
     if (dictionary) {
       // if we got dictionary passed, that means we're in a SSR context with a server-provided dictionary
       // so we do not want a backend, because we already know all possible keys
-      options.resources = {};
-      options.resources[language] = {
-        translation: dictionary,
-      };
+      
+      if (!i18n.isInitialized) {
+        i18n.use(initReactI18next).init(options, (error) => {
+          if (error) reject(error);
 
-      i18n.use(initReactI18next).init(options, (error) => {
-        if (error) reject(error);
-        resolve();
-      });
+          i18n.addResourceBundle(language, 'translation', dictionary, true, true)
+
+          resolve();
+        });
+      } else {
+        i18n.changeLanguage(language).then(() => {
+          i18n.addResourceBundle(language, 'translation', dictionary, true, true)
+          
+          resolve()
+        })
+      }
     } else {
       // We're running client-side, so we get translation data from the Sitecore dictionary API using fetch backend
       // For higher performance (but less simplicity), consider adding the i18n chained backend to a local cache option like the local storage backend.
