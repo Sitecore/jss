@@ -144,11 +144,15 @@ Now we are all ready to deploy our JSS app to the Sitecore instance.
 
 If your Sitecore instance is local, or accessible via file share, you can use the CLI for an automated deployment. Skip to 3.2 for a remote instance.
 
-1. Open a command prompt/terminal within your JSS app
-1. Run command using wrong certificate thumbprint `jss deploy app --includeContent --includeDictionary --acceptCertificate test`
-1. From error message copy certificate thumbprint and paste instead of `test`
-<img src="/assets/img/certificate-error.png" alt="Certificate error" class="img-fluid img-thumbnail" />
-1. `jss deploy app --includeContent --includeDictionary --acceptCertificate CA:CD:3B:DB:19:D1:97:92:F9:80:91:FF:32:CC:F8:35:DC:F5:0B:01`
+If you are using local self-signed certificate:
+  1. Open a command prompt/terminal within your JSS app. If you know certificate value skip to step 4.
+  1. Run command using wrong certificate thumbprint `jss deploy app --includeContent --includeDictionary --acceptCertificate test`
+  1. From error message copy certificate thumbprint and paste instead of `test`
+  <img src="/assets/img/certificate-error.png" alt="Certificate error" class="img-fluid img-thumbnail" />
+  1. `jss deploy app --includeContent --includeDictionary --acceptCertificate CA:CD:3B:DB:19:D1:97:92:F9:80:91:FF:32:CC:F8:35:DC:F5:0B:01`
+
+If you are not using local self-signed certificate:
+1. `jss deploy app --includeContent --includeDictionary`
 
 This will:
 - Run the production build of your app (by default the `build` package script)
