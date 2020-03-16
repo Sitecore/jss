@@ -35,7 +35,7 @@ export const builder = {
     type: 'boolean',
     describe:
       'If true, no build task is invoked and any existing build artifacts at the source path are deployed.',
-    default: 'false',
+    default: false,
   },
   buildTaskName: {
     requiresArg: false,
@@ -50,7 +50,7 @@ export const builder = {
     type: 'boolean',
     describe:
       'Whether to delete all existing items in the destination before copying new artifacts.',
-    default: 'false',
+    default: false,
   },
 };
 
