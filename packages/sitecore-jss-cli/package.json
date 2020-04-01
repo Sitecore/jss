@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-cli",
-  "version": "13.0.3",
+  "version": "13.0.5",
   "description": "Sitecore JSS command-line",
   "scripts": {
     "build": "npm run clean && tsc",

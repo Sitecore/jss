@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-angular",
-  "version": "13.0.3",
+  "version": "13.0.5",
   "description": "Application utilizing Sitecore JavaScript Services and Angular (angular-cli).",
   "config": {
     "appName": "JssAngularWeb",
@@ -90,7 +90,7 @@
     "@angular/compiler-cli": "~8.2.8",
     "@angular/language-service": "~8.2.8",
     "@sitecore-jss/sitecore-jss-angular-schematics": "^13.0.2",
-    "@sitecore-jss/sitecore-jss-cli": "^13.0.3",
+    "@sitecore-jss/sitecore-jss-cli": "^13.0.5",
     "@sitecore-jss/sitecore-jss-dev-tools": "^13.0.3",
     "@sitecore-jss/sitecore-jss-manifest": "^13.0.3",
     "@types/jasmine": "~3.4.2",
