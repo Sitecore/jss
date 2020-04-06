@@ -1,5 +1,5 @@
 import { HtmlFormField } from './HtmlFormField';
-import { InputViewModel, TitleFieldViewModel, ViewModel } from './ViewModel';
+import { InputViewModel, TitleFieldViewModel, ViewModel, FieldViewModel } from './ViewModel';
 
 export interface FormField<TViewModel extends ViewModel = ViewModel> {
   model: TViewModel;
@@ -29,7 +29,7 @@ export function instanceOfButtonFormField(object: FormField): object is ButtonFo
   return 'buttonField' in object;
 }
 
-export interface FormFieldSection extends FormField<ViewModel> {
+export interface FormFieldSection extends FormField<FieldViewModel> {
   fields: FormField[];
 }
 

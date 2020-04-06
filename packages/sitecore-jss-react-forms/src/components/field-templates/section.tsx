@@ -6,7 +6,7 @@ const Section: React.FunctionComponent<FieldProps<FormFieldSection>> = ({
   field,
   fieldFactory,
 }) => (
-  <fieldset>
+  <fieldset className={field.model.cssClass}>
     {field.fields.map(fieldFactory)}
   </fieldset>
 );

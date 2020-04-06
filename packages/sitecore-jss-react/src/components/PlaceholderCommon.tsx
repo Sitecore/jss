@@ -49,7 +49,7 @@ export interface PlaceholderProps {
   [key: string]: any;
 }
 
-export class PlaceholderCommon extends React.Component<PlaceholderProps> {
+export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
   static propTypes = {
     rendering: PropTypes.oneOfType([
       PropTypes.object as Requireable<RouteData>,
@@ -93,7 +93,7 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
     return result;
   }
 
-  constructor(props: PlaceholderProps) {
+  constructor(props: T) {
     super(props);
     this.nodeRefs = [];
     this.state = {};
@@ -191,8 +191,8 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
     };
 
     /* Since we can't set the "key" attribute via React, stash it
-      * so we can set in the DOM after render.
-      */
+     * so we can set in the DOM after render.
+     */
     if (attributes && attributes.chrometype === 'placeholder') {
       props.phkey = elem.attributes.key; // props that get rendered as dom attribute names need to be lowercase, otherwise React complains.
       props.ref = this.addRef; // only need ref for placeholder containers, trying to add it to other components (e.g. stateless components) may result in a warning.

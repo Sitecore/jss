@@ -18,19 +18,19 @@ export type WithSitecoreContextHocProps<ComponentProps> = Pick<ComponentProps, E
 
 export function withSitecoreContext(options?: WithSitecoreContextOptions) {
 
-  return function withSitecoreContextHoc<ComponentProps extends ComponentConsumerProps>(Component: React.ComponentType<ComponentConsumerProps>) {
+  return function withSitecoreContextHoc<ComponentProps extends ComponentConsumerProps>(Component: React.ComponentType<ComponentProps>) {
 
     return function WithSitecoreContext(props: WithSitecoreContextHocProps<ComponentProps>) {
 
       return (
         <SitecoreContextReactContext.Consumer>
-          {context => <Component {...props}
+          {context => <Component {...props as ComponentProps}
                                  sitecoreContext={context.context}
                                  updateSitecoreContext={options && options.updatable && context.setSitecoreContext} />}
         </SitecoreContextReactContext.Consumer>
       );
     };
 
-    
+
   };
 }

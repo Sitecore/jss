@@ -1,7 +1,10 @@
 import i18ninit from './i18n';
 import { createApp } from './createApp';
+import config from './temp/config';
 
 /* eslint-disable no-underscore-dangle */
+
+let initLanguage = config.defaultLanguage;
 
 /*
   SSR Data
@@ -13,19 +16,21 @@ import { createApp } from './createApp';
 
   SSR is initiated from /server/server.js.
 */
+let __JSS_STATE__ = null;
+const ssrRawJson = document.getElementById('__JSS_STATE__');
+if (ssrRawJson) {
+  __JSS_STATE__ = JSON.parse(ssrRawJson.innerHTML);
+}
+if (__JSS_STATE__) {
+  // set i18n language SSR state language instead of static config default language
+  initLanguage = __JSS_STATE__.sitecore.context.language;
+}
 
 // initialize the dictionary, then render the app
 // note: if not making a multlingual app, the dictionary init can be removed.
-i18ninit().then((i18n) => {
+i18ninit(initLanguage).then((i18n) => {
   // HTML element to place the app into
   const rootElement = document.getElementById('root');
-
-  // retrieve the initial app state if it is defined
-  let __JSS_STATE__ = null;
-  const ssrRawJson = document.getElementById('__JSS_STATE__');
-  if (ssrRawJson) {
-    __JSS_STATE__ = JSON.parse(ssrRawJson.innerHTML);
-  }
 
   const initialState = __JSS_STATE__ || null;
 
