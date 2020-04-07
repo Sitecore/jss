@@ -5,6 +5,53 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 14.0 (alpha) for Sitecore 9.3
+
+Alpha release not reflect all changes that we will provide
+
+### Upgrading
+
+There are [migration instructions](/upgrade-guides/14.0) from JSS 13-based applications.
+
+### Bug Fixes
+
+* [PR #351](https://github.com/Sitecore/jss/pull/351) Include polyfills for IE11 in react sample app
+* [PR #338](https://github.com/Sitecore/jss/pull/338) Modified the section field template to use FormFieldSection in order to pass cssClass to the fieldset element and be able to customize the styles for it.
+* [Bug #257](https://github.com/Sitecore/jss/issues/257) Add doc for `--acceptCertificate` param
+* [PR #346](https://github.com/Sitecore/jss/pull/346) Adding srcSet to Image component removes the src Attribute
+* [Bug #336](https://github.com/Sitecore/jss/issues/336) CLI deploy options do not trigger build step (Vue sample app)
+* [PR #335](https://github.com/Sitecore/jss/pull/335) Vue sample Specimen component was displaying an incorrect implementation path
+* [PR #337](https://github.com/Sitecore/jss/pull/337) Vue sample - Set i18n initial language based on SSR language or static config defaultLanguage to prevent re-renders in multi-lingual apps during the hydration process
+* [Bug #324](https://github.com/Sitecore/jss/issues/324) [Bug #287](https://github.com/Sitecore/jss/issues/287) Memory leak in React app + node headless proxy. Change language and translation on every request, instead of create new i18n instance
+* [PR #285](https://github.com/Sitecore/jss/pull/285) Include media from Droptree and Multilist content
+* [Bug #323](https://github.com/Sitecore/jss/issues/323) Ability to eject react application
+* [Bug #324](https://github.com/Sitecore/jss/issues/324) [Bug #287](https://github.com/Sitecore/jss/issues/287) Memory leak in React app + node headless proxy
+* [PR #330](https://github.com/Sitecore/jss/pull/330) React sample - set i18n init lang to prevent SSR hydration from re-rendering app
+* [Commit](https://github.com/Sitecore/jss/commit/6ee8a40c3979408032c0de3fa16bb9cae55037e4) react app - Cannot read property 'forEach' of undefined
+* [PR #314](https://github.com/Sitecore/jss/issues/314) Angular scaffolding has error in polyfill.ts
+* [PR #287](https://github.com/Sitecore/jss/issues/287) Potential memory leak in React SitecoreContextFactory
+
+### Breaking Changes
+#### sitecore-jss-react
+* [PR #347](https://github.com/Sitecore/jss/pull/347)
+`withSitecoreContext` accept Component with props that extend `ComponentConsumerProps`, not exactly of type `ComponentConsumerProps`
+* [PR #350](https://github.com/Sitecore/jss/pull/350)
+`PlaceholderCommon` accept properties of type that extends `PlaceholderProps` interface.
+Changed definition of `PlaceholderComponentProps` interface:
+    * `renderEmpty`, `renderEach`, `render` can return `React Element`
+    * `renderEach` now have correct definition, with params `(component, index)`
+    * `renderEmpty` added to `PlaceholderComponentProps` interface.
+
+SXA and Sitecore Forms compatibility table
+| Sitecore  | JSS      | SXA   | Forms
+| --------- | -------- |------ | ------
+| 9.3       | 14.0     | 9.3   | Yes
+| 9.3       | 13.0     | 9.3   | Yes
+| 9.2       | 12.0     | 1.9   | Yes
+| 9.1.1     | 11.1     | 1.9   | No
+| 9.1       | 11.0     | No    | No
+| 9.0       | 11.0     | No    | No
+
 ## Sitecore JSS 13.0 for Sitecore 9.3
 
 ### Upgrading
