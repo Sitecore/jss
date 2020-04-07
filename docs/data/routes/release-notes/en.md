@@ -5,7 +5,7 @@ title: Release Notes
 ---
 # Release Notes
 
-## Sitecore JSS 14.0 (alpha) for Sitecore 9.4
+## Sitecore JSS 14.0 (alpha) for Sitecore 9.3
 
 Alpha release not reflect all changes that we will provide
 
@@ -45,7 +45,7 @@ Changed definition of `PlaceholderComponentProps` interface:
 SXA and Sitecore Forms compatibility table
 | Sitecore  | JSS      | SXA   | Forms
 | --------- | -------- |------ | ------
-| 9.4       | 14.0     | 9.3   | Yes
+| 9.3       | 14.0     | 9.3   | Yes
 | 9.3       | 13.0     | 9.3   | Yes
 | 9.2       | 12.0     | 1.9   | Yes
 | 9.1.1     | 11.1     | 1.9   | No
