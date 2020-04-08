@@ -17,10 +17,13 @@
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to change)
+- [ ] Documentation update (non-breaking change; modified files are limited to the `/docs` directory)
 
 ## Checklist:
 <!--- Go over all the following points, and put an `x` in all the boxes that apply. -->
 <!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
 - [ ] I have read the Contributing guide.
 - [ ] My code follows the code style of this project.
-- [ ] My change requires a change to the documentation.
+- [ ] My code/comments/docs fully adhere to the Code of Conduct.
+- [ ] My change is a code change and it requires an update to the documentation.
+- [ ] My change is a documentation change and it requires an update to the navigation.
