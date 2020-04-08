@@ -50,9 +50,9 @@ In order to add a form to the JSS app we need a component to render the form. A 
 > 
 > These packages ship with TypeScript typings and JSDoc comments so they are easily discoverable in typings-aware editors such as Code.
 
-To use the sample forms implementation, install the forms packages: 
-* `npm i @sitecore-jss/sitecore-jss-forms`
-* `npm i @sitecore-jss/sitecore-jss-react-forms`
+To use the sample forms implementation, install the forms packages:
+* run command `npm i @sitecore-jss/sitecore-jss-forms`
+* run command `npm i @sitecore-jss/sitecore-jss-react-forms`
 
 ### Implement the Form React component
 
