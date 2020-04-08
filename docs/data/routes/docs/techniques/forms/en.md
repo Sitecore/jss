@@ -42,6 +42,18 @@ In order to add a form to the JSS app we need a component to render the form. A 
 * Choose the Sitecore Form you created previously as the Associated Content
 * NOTE: you will see a warning that the component is missing its implementation. This is normal - we haven't yet defined what the form looks like.
 
+### Install NPM packages
+
+> There are two npm packages for JSS + Forms
+> * `sitecore-jss-react-forms` implements components to render forms in React
+> * `sitecore-jss-forms` implements framework-agnostic helpers to deal with the forms API (serializing forms to post, antiforgery, etc)
+> 
+> These packages ship with TypeScript typings and JSDoc comments so they are easily discoverable in typings-aware editors such as Code.
+
+To use the sample forms implementation, install the forms packages: 
+* `npm i @sitecore-jss/sitecore-jss-forms`
+* `npm i @sitecore-jss/sitecore-jss-react-forms`
+
 ### Implement the Form React component
 
 To make the form render as a form, we need to tell React how to render the Sitecore Forms schema.
@@ -69,16 +81,7 @@ export default function Form(props) {
 
 Sitecore provides a sample implementation of rendering this form data into a usable React form for your reference and modification. The sample implementation provides a native React state-based implementation using controlled form components. It supports client and server side validation and multistep forms.
 
-> There are two npm packages for JSS + Forms
-> * `sitecore-jss-react-forms` implements components to render forms in React
-> * `sitecore-jss-forms` implements framework-agnostic helpers to deal with the forms API (serializing forms to post, antiforgery, etc)
-> 
-> These packages ship with TypeScript typings and JSDoc comments so they are easily discoverable in typings-aware editors such as Code.
-
-To use the example React forms implementation:
-
-* Install the forms package: `npm i @sitecore-jss/sitecore-jss-react-forms`
-* Modify your Form component to use the library's form components:
+To use the example React forms implementation, modify your Form component to use the library's form components:
 
 ```jsx
 import { Form } from '@sitecore-jss/sitecore-jss-react-forms';
