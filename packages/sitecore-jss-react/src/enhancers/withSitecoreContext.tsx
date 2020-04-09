@@ -30,7 +30,5 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
         </SitecoreContextReactContext.Consumer>
       );
     };
-
-    
   };
 }

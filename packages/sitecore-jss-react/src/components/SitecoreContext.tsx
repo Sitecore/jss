@@ -20,22 +20,22 @@ export class SitecoreContextFactory {
     };
   }
 
-  getSitecoreContext() {
+  getSitecoreContext = () => {
     return this.context;
   }
 
-  subscribeToContext(func: any) {
+  subscribeToContext = (func: any) => {
     this.subscribers.push(func);
   }
 
-  unsubscribeFromContext(func: any) {
+  unsubscribeFromContext = (func: any) => {
     const index = this.subscribers.indexOf(func);
     if (index >= 0) {
       this.subscribers.splice(index, 1);
     }
   }
 
-  setSitecoreContext(value: any) {
+  setSitecoreContext = (value: any) => {
     this.context = value;
     this.subscribers.forEach((func) => func(value));
   }
@@ -79,10 +79,16 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
     this.contextFactory.unsubscribeFromContext(this.contextListener);
   }
 
+  /**
+   * React Context Provider should accept Object instead of
+   * SitecoreContextFactory class instance
+   */
+  getSitecoreContextValue = () => ({ ...this.contextFactory });
+
   render() {
     return (
     <ComponentFactoryReactContext.Provider value={this.componentFactory}>
-      <SitecoreContextReactContext.Provider value={this.contextFactory}>
+      <SitecoreContextReactContext.Provider value={this.getSitecoreContextValue()}>
         {this.props.children}
       </SitecoreContextReactContext.Provider>
     </ComponentFactoryReactContext.Provider>
