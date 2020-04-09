@@ -65,9 +65,7 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
     } else {
       this.contextFactory = new SitecoreContextFactory();
     }
-  }
 
-  componentDidMount() {
     // we force the children of the context to re-render when the context is updated
     // even if the local props are unchanged; we assume the contents depend on the Sitecore context
     this.contextFactory.subscribeToContext(this.contextListener);

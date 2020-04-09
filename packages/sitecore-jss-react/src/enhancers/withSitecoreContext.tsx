@@ -25,8 +25,8 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
       return (
         <SitecoreContextReactContext.Consumer>
           {context => <Component {...props}
-                                 sitecoreContext={context.context}
-                                 updateSitecoreContext={options && options.updatable && context.setSitecoreContext} />}
+              sitecoreContext={context.context}
+              updateSitecoreContext={options && options.updatable && context.setSitecoreContext} />}
         </SitecoreContextReactContext.Consumer>
       );
     };
