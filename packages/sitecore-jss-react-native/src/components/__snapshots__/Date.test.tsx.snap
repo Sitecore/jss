@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DateField /> should render nothing with missing field 1`] = `null`;
+
+exports[`<DateField /> should render value 1`] = `
+<Text>
+  xxx
+</Text>
+`;
+
+exports[`<DateField /> should render value using render function 1`] = `
+<View>
+  <Text>
+    Test test test...
+  </Text>
+  <Text>
+    Wed, 22 Oct 2003 21:00:00 GMT
+  </Text>
+</View>
+`;

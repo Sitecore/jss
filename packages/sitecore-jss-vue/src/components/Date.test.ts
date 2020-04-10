@@ -53,6 +53,20 @@ describe('<Date />', () => {
     expect(rendered.element.innerHTML).toBe('rendered val');
   });
 
+  it('should render null value with formatter', () => {
+    const formatter: FormatterFunction = (value) => 'rendered val ' + value;
+    const props = {
+      field: { value: undefined, editable: 'xxx' },
+      formatter,
+      editable: false,
+    };
+
+    const rendered = mount(DateField, {
+      context: { props },
+    }).find('span');
+    expect(rendered.element.innerHTML).toBe('rendered val null');
+  })
+
   it('should render other attributes with other props provided', () => {
     const field = { value: 'value' };
     const attrs = { id: 'my-date', class: 'my-css', arbitrary: 'somevalue' };

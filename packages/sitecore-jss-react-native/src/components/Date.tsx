@@ -15,7 +15,7 @@ export interface DateFieldProps {
    * @default true
    */
 	editable?: boolean;
-	render?: (date: Date | null) => React.ComponentType<any>;
+	render?: (date: Date | null) => React.ComponentType<any> | React.ReactNode;
 	[htmlAttributes: string]: any;
 }
 
