@@ -14,7 +14,7 @@ exports[`<DateField /> should render value using render function 1`] = `
     Test test test...
   </Text>
   <Text>
-    Wed, 22 Oct 2003 21:00:00 GMT
+    Thu Oct 23 2003
   </Text>
 </View>
 `;

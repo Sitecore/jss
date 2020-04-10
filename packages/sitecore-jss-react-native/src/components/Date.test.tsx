@@ -33,7 +33,7 @@ describe('<DateField />', () => {
 		const render = (date: Date | null) => (
 			<View>
 				<Text>Test test test...</Text>
-				<Text>{date ? date.toUTCString() : ''}</Text>
+				<Text>{date ? date.toDateString() : ''}</Text>
 			</View>
 		)
 		

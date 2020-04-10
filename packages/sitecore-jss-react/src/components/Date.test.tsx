@@ -27,7 +27,7 @@ describe('<DateField />', () => {
   });
 
   it('should render value using render prop function', () => {
-    const render = (date: Date | null) => <p>{date ? date.toUTCString() : ''}</p>;
+    const render = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
     const p = {
       field: {
         value: '11-23-2001'
@@ -37,11 +37,11 @@ describe('<DateField />', () => {
 
     const c = shallow(<DateField {...p} />);
 
-    expect(c.html()).equal('<p>Thu, 22 Nov 2001 22:00:00 GMT</p>');
+    expect(c.html()).equal('<p>Fri Nov 23 2001</p>');
   });
 
   it('should render null value using render prop function', () => {
-    const render = (date: Date | null) => <p>{date ? date.toUTCString() : ''}</p>;
+    const render = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
     const p = {
       field: {
         value: undefined,
