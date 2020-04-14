@@ -16,6 +16,12 @@ Out of the box, JSS includes the following properties in the `context`:
 
 You can enable/disable the out of the box properties and add your own data to the `context` via the `getLayoutServiceContext` pipeline provided by the Layout Service.
 
+### Context Extension performance considerations
+
+When creating custom Context Extensions be careful about their performance as they don't have the same caching options as e.g. JSON Renderings, Sublayouts etc. (`Vary by data / Vary by user / ...`). If your custom extension is slow or performs a lot of API calls / item reads you will find this slow performance is visible on every page load where the extension is activated.
+
+If you want to share content between multiple pages e.g. header and footer content, consider either using GraphQL and caching the data at the client or in your delivery application implement your own data cache and eviction policy per Context Extension.
+
 ## Extending the getLayoutServiceContext Pipeline
 
 ### Create your Processor
