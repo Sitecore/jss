@@ -1,7 +1,7 @@
 <!--
 -->
 <template>
-  <div>
+  <div id="root">
     <context-view :visible="contextViewVisible" />
     <!-- 'router-view' is a "global" component that is injected into the Vue component registry by vue-router. -->
     <router-view v-if="!languageIsChanging" />
