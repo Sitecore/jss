@@ -102,6 +102,8 @@ To configure the Sitecore connection, run `jss setup` at a command line within y
 
 * **'Website' folder**: This is the root physical path to the Sitecore instance, used to deploy config files and JS build artifacts. File share paths are fine for remote instances. Example: `c:\inetpub\wwwroot\MySitecore\Website`. If you do not have access to the website folder directly, answer 'no' when asked if your instance is remote.
 * **Sitecore host name**. This is the _host name of your JSS app_ (not the Sitecore root host name), which was configured previously. Example: `http://jssreactweb`
+* **Sitecore import service URL**. This is the _import service URL of your JSS app_, by default it will сonsist of _host name of your JSS app_
+plus `/sitecore/api/jss/import`: `http://JssReactWeb/sitecore/api/jss/import`. You can left blank value and default value will be set, in another case you can provide your custom URL.
 * **API key ID** created above.
 * **Deployment secret**. This is a shared secret that enables authentication to deploy your app's items to Sitecore. The setup process can auto-generate a random key, which we recommend. If you choose your own key, the secret must be:
     * 32 or more characters long
