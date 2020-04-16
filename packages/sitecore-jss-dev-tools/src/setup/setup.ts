@@ -114,19 +114,6 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
           process.exit(1);
         }
       }
-
-      if (
-        !fs.existsSync(path.join(configObject.instancePath, 'web.config')) &&
-        !fs.existsSync(path.join(configObject.instancePath, 'sitecore')) &&
-        !fs.existsSync(path.join(configObject.instancePath, 'package.json'))) {
-        // tslint:disable-next-line:max-line-length
-        console.log(chalk.red(`${configObject.instancePath} did not look like a valid Sitecore website or headless proxy (missing 'sitecore' folder, Web.config, or package.json)!`));
-        if (interactive) {
-          getInstancePath();
-        } else {
-          process.exit(1);
-        }
-      }
     } else {
       console.warn(chalk.yellow('Non-interactive mode specified and no instancePath given. File/config deployment will not be available.'));
     }
