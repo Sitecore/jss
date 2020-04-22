@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import ContextView from './ContextView';
+
+const ContextView = () => import('./ContextView');
 
 export default {
   name: 'AppRoot',

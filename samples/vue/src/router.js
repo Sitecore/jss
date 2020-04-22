@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import RouteHandler from './RouteHandler.vue';
+
+const RouteHandler = () => import('./RouteHandler.vue');
 
 Vue.use(Router);
 
