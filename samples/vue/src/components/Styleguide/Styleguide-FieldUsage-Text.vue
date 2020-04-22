@@ -28,8 +28,10 @@
 </template>
 
 <script>
-import { Text, getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import { getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
+
+const Text = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Text);
+const StyleguideSpecimen = () => import('./Styleguide-Specimen');
 
 export default {
   name: 'Styleguide-FieldUsage-Text',

@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import { Image } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+const Image = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Image);
+const StyleguideSpecimen = () => import('./Styleguide-Specimen');
 export default {
   name: 'Styleguide-FieldUsage-Image',
   props: {

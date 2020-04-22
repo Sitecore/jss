@@ -51,7 +51,8 @@
 </template>
 
 <script>
-import { Text, Link } from '@sitecore-jss/sitecore-jss-vue';
+const Text = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Text);
+const Link = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Link);
 
 export default {
   name: 'GraphQL-IntegratedDemo',

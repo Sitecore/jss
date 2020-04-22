@@ -57,8 +57,8 @@
 </template>
 
 <script>
-import { Placeholder } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+const Placeholder = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Placeholder);
+const StyleguideSpecimen = () => import('./Styleguide-Specimen');
 
 export default {
   name: 'Styleguide-Layout-Reuse',

@@ -20,7 +20,9 @@
 </template>
 
 <script>
-import { Placeholder, getChildPlaceholder, getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
+import { getChildPlaceholder, getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
+
+const Placeholder = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Placeholder)
 
 export default {
   name: 'Styleguide-Layout',
