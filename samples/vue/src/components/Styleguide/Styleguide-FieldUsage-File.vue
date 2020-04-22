@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import { File } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+const File = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.File);
+const StyleguideSpecimen = () => import('./Styleguide-Specimen');
 
 export default {
   name: 'Styleguide-FieldUsage-File',

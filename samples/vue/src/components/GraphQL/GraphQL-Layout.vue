@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { Placeholder } from '@sitecore-jss/sitecore-jss-vue';
+const Placeholder = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Placeholder);
 
 export default {
   name: 'GraphQL-Layout',

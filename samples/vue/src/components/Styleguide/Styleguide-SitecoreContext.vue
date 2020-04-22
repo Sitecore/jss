@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import StyleguideSpecimen from './Styleguide-Specimen';
+const StyleguideSpecimen = () => import('./Styleguide-Specimen');
 
 export default {
   name: 'Styleguide-SitecoreContext',

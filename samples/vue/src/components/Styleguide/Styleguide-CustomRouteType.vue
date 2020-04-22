@@ -18,7 +18,8 @@
 </template>
 
 <script>
-import { Text, RichText } from '@sitecore-jss/sitecore-jss-vue';
+const Text = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Text);
+const RichText = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.RichText);
 
 export default {
   name: 'Styleguide-CustomRouteType',

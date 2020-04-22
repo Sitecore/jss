@@ -11,7 +11,8 @@
 </template>
 
 <script>
-import { Placeholder, Text } from '@sitecore-jss/sitecore-jss-vue';
+const Text = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Text);
+const Placeholder = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Placeholder);
 
 export default {
   name: 'Styleguide-Section',

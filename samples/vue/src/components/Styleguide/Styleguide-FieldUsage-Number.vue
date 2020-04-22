@@ -16,8 +16,10 @@
 </template>
 
 <script>
-import { Text, getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import { getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
+
+const StyleguideSpecimen = () => import('./Styleguide-Specimen');
+const Text = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Text);
 
 export default {
   name: 'Styleguide-FieldUsage-Number',
