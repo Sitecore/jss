@@ -53,6 +53,8 @@ function getInteractiveData(
 }
 
 export function setup(interactive: boolean, outputFile?: string, initialData?: JssConfiguration, configName = 'sitecore') {
+  const getValidation = (regexp: RegExp) => initialData?.skipValidation ? undefined : regexp;
+
   let config: ScJssConfig = {
     sitecore: {
       instancePath: '',
@@ -100,7 +102,7 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
       'instancePath',
       'Path to the Sitecore folder',
       '(e.g. c:\\inetpub\\wwwroot\\my.siteco.re)',
-      /[A-z]/,
+      getValidation(/[A-z]/),
       'Invalid input.',
       true
     );
@@ -143,7 +145,7 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
       'host',
       'Sitecore hostname',
       '(e.g. http://myapp.local.siteco.re; see /sitecore/config; ensure added to hosts)',
-      /^https?:\/\/(.*)/,
+      getValidation(/^https?:\/\/(.*)/),
       'Invalid input. Must start with http(s)'
     );
   }
@@ -155,7 +157,7 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
       'host',
       'Sitecore import service URL',
       '(usually same as hostname)',
-      /^https?:\/\/(.*)/,
+      getValidation(/^https?:\/\/(.*)/),
       'Invalid input. Must start with http(s)'
     );
   }
@@ -167,7 +169,7 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
     'apiKey',
     'Sitecore API Key',
     '(ID of API key item)',
-    /^{?[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}}?$/i,
+    getValidation(/^{?[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}}?$/i),
     'Invalid API Key. Should be a GUID / Sitecore Item ID.'
   );
 
@@ -178,7 +180,7 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
     'deploySecret',
     'Please enter your deployment secret',
     '(32+ random chars; or press enter to generate one)',
-    /^(.{32,}|)$/,
+    getValidation(/^(.{32,}|)$/),
     'Invalid secret. Should be blank or at least 32 random characters.',
     true
   );
