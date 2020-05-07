@@ -18,8 +18,8 @@
 </template>
 
 <script>
-const RichText = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.RichText);
-const StyleguideSpecimen = () => import('./Styleguide-Specimen');
+import { RichText } from '@sitecore-jss/sitecore-jss-vue';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 export default {
   name: 'Styleguide-FieldUsage-RichText',

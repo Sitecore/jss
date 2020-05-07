@@ -11,7 +11,7 @@
 
 <script>
 
-const ContextView = () => import('./ContextView');
+import ContextView from './ContextView';
 
 export default {
   name: 'AppRoot',

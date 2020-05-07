@@ -19,8 +19,7 @@
 </template>
 
 <script>
-const Text = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Text);
-const RichText = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.RichText);
+import { RichText, Text } from '@sitecore-jss/sitecore-jss-vue';
 
 export default {
   name: 'StyleguideSpecimen',

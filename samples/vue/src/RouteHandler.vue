@@ -9,9 +9,9 @@ import { isExperienceEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-vu
 import { dataFetcher } from './dataFetcher';
 import config from './temp/config';
 
-const Layout = () => import('./Layout');
-const NotFound = () => import('./NotFound')
-const RouteLoading = () => import('./RouteLoading')
+import Layout from './Layout';
+import NotFound from './NotFound';
+import RouteLoading from './RouteLoading';
 
 // Dynamic route handler for Sitecore items.
 // Because JSS app routes are defined in Sitecore, traditional static routing isn't enough -

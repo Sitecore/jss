@@ -9,12 +9,12 @@
 </template>
 
 <script>
+import { Placeholder } from '@sitecore-jss/sitecore-jss-vue';
+import Navigation from './Navigation';
+import VisitorIdentification from './VisitorIdentification';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/app.css';
-
-const Placeholder = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Placeholder);
-const Navigation = () => import('./Navigation');
-const VisitorIdentification = () => import('./VisitorIdentification');
 
 export default {
   name: 'Layout',

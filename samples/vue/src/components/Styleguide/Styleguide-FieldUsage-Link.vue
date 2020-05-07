@@ -29,8 +29,8 @@
 </template>
 
 <script>
-const Link = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Link);
-const StyleguideSpecimen = () => import('./Styleguide-Specimen');
+import { Link } from '@sitecore-jss/sitecore-jss-vue';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 export default {
   name: 'Styleguide-FieldUsage-Link',

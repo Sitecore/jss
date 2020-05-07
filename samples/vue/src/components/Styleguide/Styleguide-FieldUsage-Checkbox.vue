@@ -29,7 +29,7 @@
 <script>
 import { getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
 
-const StyleguideSpecimen = () => import('./Styleguide-Specimen');
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 export default {
   name: 'Styleguide-FieldUsage-Checkbox',

@@ -58,7 +58,7 @@
 <script>
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
 
-const Text = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Text);
+import { Text } from '@sitecore-jss/sitecore-jss-vue';
 
 export default {
   name: 'GraphQL-SSRDemo',

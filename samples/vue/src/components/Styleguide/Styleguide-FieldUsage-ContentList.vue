@@ -34,8 +34,8 @@
 </template>
 
 <script>
-const Text = () => import('@sitecore-jss/sitecore-jss-vue').then((m) => m.Text);
-const StyleguideSpecimen = () => import('./Styleguide-Specimen');
+import { Text } from '@sitecore-jss/sitecore-jss-vue';
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 export default {
   name: 'Styleguide-FieldUsage-ContentList',

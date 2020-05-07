@@ -189,7 +189,7 @@ import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
 import { dataFetcher } from '../../dataFetcher';
 import config from '../../temp/config';
 
-const StyleguideSpecimen = () => import('./Styleguide-Specimen')
+import StyleguideSpecimen from './Styleguide-Specimen';
 
 export default {
   name: 'Styleguide-Tracking',
