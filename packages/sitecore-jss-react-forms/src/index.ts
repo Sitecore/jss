@@ -2,6 +2,7 @@ import { FieldProps, FieldChangeCallback, ListFieldProps, ValueFieldProps, Field
 import FieldFactory from './field-factory';
 import { Form, FormProps, ErrorComponentProps } from './components/form';
 import Button from './components/field-templates/button';
+import FileUpload from './components/field-templates/file-upload';
 import CheckboxList from './components/field-templates/checkbox-list';
 import Checkbox from './components/field-templates/checkbox';
 import DropdownList from './components/field-templates/dropdown-list';
@@ -22,6 +23,7 @@ import { createDefaultFieldFactory } from './default-field-factory';
 
 export {
   Button,
+  FileUpload,
   CheckboxList,
   Checkbox,
   DateField,

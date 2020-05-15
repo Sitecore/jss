@@ -12,7 +12,7 @@ export interface FieldProps<TFormField extends FormField = FormField> {
   key?: string;
 }
 
-export interface FieldWithValueProps<TFormField extends FormField = FormField, TValueType extends string | string[] = string> extends FieldProps<TFormField> {
+export interface FieldWithValueProps<TFormField extends FormField, TValueType extends string | string[] = string> extends FieldProps<TFormField> {
   /** Form field schema data */
   field: TFormField;
   /** The current value of the form field */
