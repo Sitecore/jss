@@ -78,7 +78,6 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
   componentWillUnmount() {
     this.contextFactory.unsubscribeFromContext(this.contextListener);
   }
-}
 
   render() {
     return (
