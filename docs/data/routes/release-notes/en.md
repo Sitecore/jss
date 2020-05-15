@@ -64,6 +64,15 @@ SXA and Sitecore Forms compatibility table
 | 9.1       | 11.0     | No    | No
 | 9.0       | 11.0     | No    | No
 
+## Sitecore JSS 12.0.1 for Sitecore 9.2
+
+### Upgrading
+
+No special upgrade steps needed, it's safe to promote to newer version.
+
+### Bug Fixes
+* [Bug #324](https://github.com/Sitecore/jss/issues/324) Sitecore jss + proxy has degrading performance in amount of requests served per second
+
 ## Sitecore JSS 12.0 for Sitecore 9.2
 
 ### Upgrading
@@ -89,7 +98,14 @@ SXA and Sitecore Forms compatibility table
 | 9.1       | 11.0     | No    | No
 | 9.0       | 11.0     | No    | No
 
+## Sitecore JSS 11.0.3 for Sitecore 9.1.1
 
+### Upgrading
+
+No special upgrade steps needed, it's safe to promote to newer version.
+
+### Bug Fixes
+* [Bug #324](https://github.com/Sitecore/jss/issues/324) Sitecore jss + proxy has degrading performance in amount of requests served per second
 
 ## Sitecore JSS 11.1 for Sitecore 9.1.1
 
