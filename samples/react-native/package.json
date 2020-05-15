@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-reactnative",
-  "version": "12.0.0",
+  "version": "12.0.1",
   "description": "A basic React Native app utilizing Sitecore JavaScript Services",
   "config": {
     "appName": "JssReactNative",
@@ -26,7 +26,7 @@
     "lint": "eslint --fix ./src/**/*.js ./sitecore/definitions/**/*.js ./**/*.js"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react-native": "^12.0.0",
+    "@sitecore-jss/sitecore-jss-react-native": "^12.0.1",
     "axios": "^0.18.1",
     "prop-types": "^15.6.0",
     "react": "^16.9.0",
@@ -39,9 +39,9 @@
   },
   "private": true,
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^12.0.0",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^12.0.0",
-    "@sitecore-jss/sitecore-jss-manifest": "^12.0.0",
+    "@sitecore-jss/sitecore-jss-cli": "^12.0.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^12.0.1",
+    "@sitecore-jss/sitecore-jss-manifest": "^12.0.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-plugin-inline-replace-variables": "^1.3.1",
