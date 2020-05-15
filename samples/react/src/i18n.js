@@ -29,7 +29,7 @@ export default function i18nInit(language, dictionary) {
       // so we do not want a backend, because we already know all possible keys
       
       if (!i18n.isInitialized) {
-        i18n.use(initReactI18next).init(options, (error) => {
+        i18n.use(reactI18nextModule).init(options, (error) => {
           if (error) reject(error);
 
           i18n.addResourceBundle(language, 'translation', dictionary, true, true)
