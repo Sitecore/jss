@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular-schematics",
-  "version": "11.0.2",
+  "version": "11.0.3",
   "description": "Scaffolding schematics for Sitecore JSS Angular apps",
   "scripts": {
     "build": "tsc -p tsconfig.json",
