@@ -40,7 +40,7 @@ export interface FieldWithValueProps<TFormField extends FormField, TValueType ex
   key?: string;
 }
 
-export type FieldChangeCallback = (fieldName: string, newValue: string | string[], isValid: boolean, errorMessages: string[]) => void;
+export type FieldChangeCallback = (fieldName: string, newValue: string | string[] | File, isValid: boolean, errorMessages: string[]) => void;
 
 export type ListFieldProps<TViewModel extends ListViewModel = ListViewModel> = FieldWithValueProps<ValueFormField<TViewModel>, string[]>;
 export type ValueFieldProps<TViewModel extends InputViewModel = InputViewModel> = FieldWithValueProps<ValueFormField<TViewModel>>;
