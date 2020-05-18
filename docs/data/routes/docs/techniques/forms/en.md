@@ -13,7 +13,7 @@ Usage of Sitecore Forms in JSS works like this:
 
 ## Getting Started
 
-This document assumes you are familiar with JSS fundamentals and have a React-based JSS app that you have set up and deployed to Sitecore. It is not possible to use Sitecore Forms in disconnected mode.
+This document assumes you are familiar with JSS fundamentals and have a React-based JSS app that you have set up and deployed to Sitecore. It is not possible to use Sitecore Forms in disconnected or headless mode.
 
 ### Creating a Sitecore Form
 
@@ -222,5 +222,5 @@ const FieldErrorComponent = (props) => (
 
 There are some limitations to be aware of with JSS' Sitecore Forms support.
 
-* Forms cannot be defined or rendered in disconnected mode (connected, integrated, or headless modes are supported)
+* Forms cannot be defined or rendered in disconnected or headless mode (connected, integrated are supported)
 * Conditional fields are not supported by the JSS forms example implementation; however conditional data is returned by the form API
