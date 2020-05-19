@@ -66,7 +66,11 @@ function generateComponentFactory() {
       return;
     }
 
-    const componentFilePath = path.join(componentRootPath, componentFolder, `${componentFolder}.component.ts`);
+    const componentFilePath = path.join(
+      componentRootPath,
+      componentFolder,
+      `${componentFolder}.component.ts`
+    );
 
     if (!fs.existsSync(componentFilePath)) {
       return;
@@ -79,26 +83,34 @@ function generateComponentFactory() {
     const componentClassMatch = /export class (.+)Component/g.exec(componentFileContents);
 
     if (componentClassMatch === null) {
-      console.debug(`Component ${componentFilePath} did not seem to export a component class. It will be skipped.`);
+      console.debug(
+        `Component ${componentFilePath} did not seem to export a component class. It will be skipped.`
+      );
       return;
     }
 
     const componentName = componentClassMatch[1];
     const importVarName = `${componentName}Component`;
 
-
-
     // check for lazy loading needs
-    const moduleFilePath = path.join(componentRootPath, componentFolder, `${componentFolder}.module.ts`);
+    const moduleFilePath = path.join(
+      componentRootPath,
+      componentFolder,
+      `${componentFolder}.module.ts`
+    );
     const isLazyLoaded = fs.existsSync(moduleFilePath);
 
     if (isLazyLoaded) {
       console.debug(`Registering JSS component (lazy) ${componentName}`);
       // tslint:disable-next-line:max-line-length
-      lazyRegistrations.push(`{ path: '${componentName}', loadChildren: () => import('./${componentFolder}/${componentFolder}.module').then(m => m.${componentName}Module) },`);
+      lazyRegistrations.push(
+        `{ path: '${componentName}', loadChildren: () => import('./${componentFolder}/${componentFolder}.module').then(m => m.${componentName}Module) },`
+      );
     } else {
       console.debug(`Registering JSS component ${componentName}`);
-      imports.push(`import { ${importVarName} } from './${componentFolder}/${componentFolder}.component';`);
+      imports.push(
+        `import { ${importVarName} } from './${componentFolder}/${componentFolder}.component';`
+      );
       registrations.push(`{ name: '${componentName}', type: ${importVarName} },`);
       declarations.push(`${importVarName},`);
     }
