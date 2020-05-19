@@ -1,13 +1,21 @@
 // tslint:disable:max-classes-per-file
-import { Component, DebugElement, EventEmitter, Input, NgModuleFactoryLoader, Output } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  EventEmitter,
+  Input,
+  NgModuleFactoryLoader,
+  Output,
+} from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
-
+import { RouterTestingModule, SpyNgModuleFactoryLoader } from '@angular/router/testing';
 import { JssModule } from '../lib.module';
-
 import { convertedData as eeData } from '../testData/ee-data';
-import { convertedDevData as nonEeDevData, convertedLayoutServiceData as nonEeLsData } from '../testData/non-ee-data';
+import {
+  convertedDevData as nonEeDevData,
+  convertedLayoutServiceData as nonEeLsData,
+} from '../testData/non-ee-data';
 
 @Component({
   selector: 'test-placeholder',
@@ -18,8 +26,10 @@ import { convertedDevData as nonEeDevData, convertedLayoutServiceData as nonEeLs
   `,
 })
 class TestPlaceholderComponent {
-  @Input() rendering: any;
-  @Input() name: string;
+  @Input()
+  rendering: any;
+  @Input()
+  name: string;
 }
 
 @Component({
@@ -29,26 +39,28 @@ class TestPlaceholderComponent {
   `,
 })
 class TestDownloadCalloutComponent {
-  @Input() rendering: any;
+  @Input()
+  rendering: any;
 }
 
 @Component({
   selector: 'test-home',
-  styles: [ 'sc-placeholder[name="page-content"] { background-color: red }' ],
+  styles: ['sc-placeholder[name="page-content"] { background-color: red }'],
   template: `
     <sc-placeholder name="page-header" [rendering]="rendering"></sc-placeholder>
     <sc-placeholder name="page-content" [rendering]="rendering"></sc-placeholder>
   `,
 })
 class TestHomeComponent {
-  @Input() rendering: any;
+  @Input()
+  rendering: any;
 }
 
 @Component({
   selector: 'test-jumbotron',
   template: ``,
 })
-class TestJumbotronComponent { }
+class TestJumbotronComponent {}
 
 describe('<sc-placeholder />', () => {
   let fixture: ComponentFixture<TestPlaceholderComponent>;
@@ -64,15 +76,14 @@ describe('<sc-placeholder />', () => {
         TestJumbotronComponent,
       ],
       imports: [
+        RouterTestingModule,
         JssModule.withComponents([
           { name: 'DownloadCallout', type: TestDownloadCalloutComponent },
           { name: 'Home', type: TestHomeComponent },
           { name: 'Jumbotron', type: TestJumbotronComponent },
         ]),
       ],
-      providers: [
-        { provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader },
-      ],
+      providers: [{ provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader }],
     }).compileComponents();
   }));
 
@@ -103,14 +114,15 @@ describe('<sc-placeholder />', () => {
   testData.forEach((dataSet: any) => {
     describe(`with ${dataSet.label}`, () => {
       it('should render a placeholder with given key', async(() => {
-        const component = dataSet.data.sitecore.route.placeholders.main.find((c: any) => c.componentName);
+        const component = dataSet.data.sitecore.route.placeholders.main.find(
+          (c: any) => c.componentName
+        );
         const phKey = 'page-content';
         comp.name = phKey;
         comp.rendering = component;
         fixture.detectChanges();
 
-        fixture.whenStable()
-        .then(() => {
+        fixture.whenStable().then(() => {
           fixture.detectChanges();
 
           const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
@@ -131,18 +143,16 @@ describe('<sc-placeholder />', () => {
 
         // because nested placeholders result in additional async loading _after_ whenStable,
         // we have to check for stability AGAIN internally
-        fixture.whenStable()
-          .then(() => {
-            fixture.detectChanges();
+        fixture.whenStable().then(() => {
+          fixture.detectChanges();
 
-            fixture.whenStable()
-              .then(() => {
-                fixture.detectChanges();
-                const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
-                expect(downloadCallout).not.toBeNull();
-                expect(downloadCallout.nativeElement.innerHTML).toContain('Download');
-              });
+          fixture.whenStable().then(() => {
+            fixture.detectChanges();
+            const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
+            expect(downloadCallout).not.toBeNull();
+            expect(downloadCallout.nativeElement.innerHTML).toContain('Download');
           });
+        });
       }));
     });
   });
@@ -155,17 +165,16 @@ describe('<sc-placeholder />', () => {
     comp.rendering = component;
     fixture.detectChanges();
 
-    fixture.whenStable()
-      .then(() => {
-        fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
 
-        const eeChrome = de.query(By.css(`[chrometype="placeholder"][kind="open"][id="${phKey}"]`));
-        expect(eeChrome).not.toBeNull();
+      const eeChrome = de.query(By.css(`[chrometype="placeholder"][kind="open"][id="${phKey}"]`));
+      expect(eeChrome).not.toBeNull();
 
-        const keyAttribute = eeChrome.nativeElement.getAttribute('key');
-        expect(keyAttribute).toBeDefined();
-        expect(keyAttribute).toBe(phKey);
-      });
+      const keyAttribute = eeChrome.nativeElement.getAttribute('key');
+      expect(keyAttribute).toBeDefined();
+      expect(keyAttribute).toBe(phKey);
+    });
   }));
 
   it('should copy parent style attribute', async(() => {
@@ -175,37 +184,40 @@ describe('<sc-placeholder />', () => {
     comp.rendering = component;
     fixture.detectChanges();
 
-    fixture.whenStable()
-      .then(() => {
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+
+      // let's grab the style name from the parent
+      let parentKey = '';
+      const homeComp = de.query(By.directive(TestHomeComponent));
+      const homeAttributes = homeComp.nativeElement.attributes;
+      if (homeAttributes.length) {
+        const parentAttribute = homeComp.nativeElement.attributes.item(0).name;
+        parentKey = parentAttribute.replace('_nghost-', '');
+      }
+
+      fixture.whenStable().then(() => {
         fixture.detectChanges();
-
-        // let's grab the style name from the parent
-        let parentKey = '';
-        const homeComp = de.query(By.directive(TestHomeComponent));
-        const homeAttributes = homeComp.nativeElement.attributes;
-        if (homeAttributes.length) {
-          const parentAttribute = homeComp.nativeElement.attributes.item(0).name;
-          parentKey = parentAttribute.replace('_nghost-', '');
-        }
-
-        fixture.whenStable()
-          .then(() => {
-            fixture.detectChanges();
-            const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
-            expect(downloadCallout.nativeElement.attributes.item(0).name).toEqual(`_ngcontent-${parentKey}`);
-          });
+        const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
+        expect(downloadCallout.nativeElement.attributes.item(0).name).toEqual(
+          `_ngcontent-${parentKey}`
+        );
       });
+    });
   }));
 
   it('should skip rendering unknown components', async(() => {
     const phKey = 'main';
     const route = {
       placeholders: {
-        main: [{
-          componentName: 'Home',
-        }, {
-          componentName: 'whatisthis',
-        }],
+        main: [
+          {
+            componentName: 'Home',
+          },
+          {
+            componentName: 'whatisthis',
+          },
+        ],
       },
     };
 
@@ -213,24 +225,25 @@ describe('<sc-placeholder />', () => {
     comp.rendering = route;
     fixture.detectChanges();
 
-    fixture.whenStable()
-      .then(() => {
-        fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
 
-        expect(de.children.length).toBe(1);
+      expect(de.children.length).toBe(1);
 
-        const homeDiv = de.query(By.directive(TestHomeComponent));
-        expect(homeDiv).not.toBeNull();
-      });
+      const homeDiv = de.query(By.directive(TestHomeComponent));
+      expect(homeDiv).not.toBeNull();
+    });
   }));
 
   it('should render null for unknown placeholder', async(() => {
     const phKey = 'unknown';
     const route = {
       placeholders: {
-        main: [{
-          componentName: 'Home',
-        }],
+        main: [
+          {
+            componentName: 'Home',
+          },
+        ],
       },
     };
 
@@ -238,13 +251,12 @@ describe('<sc-placeholder />', () => {
     comp.rendering = route;
     fixture.detectChanges();
 
-    fixture.whenStable()
-      .then(() => {
-        fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
 
-        const element = de.query(By.css('sc-placeholder')).nativeElement;
-        expect(element.children.length).toBe(0);
-      });
+      const element = de.query(By.css('sc-placeholder')).nativeElement;
+      expect(element.children.length).toBe(0);
+    });
   }));
 });
 
@@ -257,9 +269,12 @@ describe('<sc-placeholder />', () => {
 })
 class TestParentComponent {
   clickMessage = '';
-  @Input() rendering: any;
-  @Input() name: string;
-  @Input() set childMessage(message: string) {
+  @Input()
+  rendering: any;
+  @Input()
+  name: string;
+  @Input()
+  set childMessage(message: string) {
     this.inputs.childMessage = message;
   }
   public inputs = {
@@ -282,9 +297,12 @@ class TestParentComponent {
   `,
 })
 class TestChildComponent {
-  @Input() childMessage: string;
-  @Input() childNumber: number;
-  @Output() childEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Input()
+  childMessage: string;
+  @Input()
+  childNumber: number;
+  @Output()
+  childEvent: EventEmitter<string> = new EventEmitter<string>();
 
   triggerEvent() {
     this.childEvent.emit('dolor');
@@ -298,19 +316,15 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TestParentComponent,
-        TestChildComponent,
-      ],
+      declarations: [TestParentComponent, TestChildComponent],
       imports: [
+        RouterTestingModule,
         JssModule.withComponents([
           { name: 'Parent', type: TestParentComponent },
           { name: 'Child', type: TestChildComponent },
         ]),
       ],
-      providers: [
-        { provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader },
-      ],
+      providers: [{ provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader }],
     });
 
     fixture = TestBed.createComponent(TestParentComponent);
@@ -338,16 +352,15 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
     comp.childMessage = expectedMessage;
     fixture.detectChanges();
 
-    fixture.whenStable()
-      .then(() => {
-        fixture.detectChanges();
-        const childComponent = de.query(By.directive(TestChildComponent));
-        expect(childComponent.nativeElement.innerHTML).toContain(expectedMessage);
-        expect(childComponent.nativeElement.innerHTML).toContain(functionResult);
-        comp.childMessage = changedMessage;
-        fixture.detectChanges();
-        expect(childComponent.nativeElement.innerHTML).toContain(changedMessage);
-      });
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      const childComponent = de.query(By.directive(TestChildComponent));
+      expect(childComponent.nativeElement.innerHTML).toContain(expectedMessage);
+      expect(childComponent.nativeElement.innerHTML).toContain(functionResult);
+      comp.childMessage = changedMessage;
+      fixture.detectChanges();
+      expect(childComponent.nativeElement.innerHTML).toContain(changedMessage);
+    });
   }));
 
   it('should bind inputs to multiple', async(() => {
@@ -372,15 +385,14 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
     comp.childMessage = expectedMessage;
     fixture.detectChanges();
 
-    fixture.whenStable()
-      .then(() => {
-        fixture.detectChanges();
-        const childComponents = de.queryAll(By.directive(TestChildComponent));
-        expect(childComponents.length).toBe(3);
-        childComponents.forEach((childComponent) => {
-          expect(childComponent.nativeElement.innerHTML).toContain(expectedMessage);
-        });
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      const childComponents = de.queryAll(By.directive(TestChildComponent));
+      expect(childComponents.length).toBe(3);
+      childComponents.forEach((childComponent) => {
+        expect(childComponent.nativeElement.innerHTML).toContain(expectedMessage);
       });
+    });
   }));
 
   it('should bind outputs to children', async(() => {
@@ -395,14 +407,13 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
     };
     comp.name = 'children';
     fixture.detectChanges();
-    fixture.whenStable()
-      .then(() => {
-        fixture.detectChanges();
-        const button = de.query(By.css('button'));
-        button.nativeElement.click();
-        fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      const button = de.query(By.css('button'));
+      button.nativeElement.click();
+      fixture.detectChanges();
 
-        expect(de.nativeElement.innerHTML).toContain('dolor');
-      });
+      expect(de.nativeElement.innerHTML).toContain('dolor');
+    });
   }));
 });
