@@ -23,8 +23,6 @@ const FileUpload: React.FunctionComponent<ValueFieldProps<StringInputViewModel>>
         className={field.model.cssClass}
         id={field.valueField.id}
         name={field.valueField.name}
-        maxLength={field.model.maxLength}
-        placeholder={field.model.placeholderText}
         onChange={function (e) {
           console.log('Ev', e, e.target.files && e.target.files[0]);
           onChangeField(e.target.files, field, onChange);
