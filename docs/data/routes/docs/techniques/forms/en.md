@@ -13,7 +13,7 @@ Usage of Sitecore Forms in JSS works like this:
 
 ## Getting Started
 
-This document assumes you are familiar with JSS fundamentals and have a React-based JSS app that you have set up and deployed to Sitecore. It is not possible to use Sitecore Forms in disconnected or headless mode.
+This document assumes you are familiar with JSS fundamentals and have a React-based JSS app that you have set up and deployed to Sitecore. It is not possible to use Sitecore Forms in disconnected mode.
 
 ### Creating a Sitecore Form
 
@@ -167,6 +167,7 @@ const LabelComponent = (props) => (
     htmlFor={props.field.valueField.id}
     style={{ color: 'blue' }}
   >
+    {props.children}
     {props.field.model.title}
   </label>
 );
@@ -174,6 +175,8 @@ const LabelComponent = (props) => (
 // Usage on form component
 <Form labelComponent={LabelComponent} {...otherProps} />
 ```
+
+> Some of the components can contain markup that nested into basic `<Label />` component (for example `<Checkbox />`). In this case you should add `props.children` into markup of `<LabelComponent />`. So in `<Checkbox />` check button will be placed before `props.field.model.title`
 
 ##### Customizing Error Handling
 
