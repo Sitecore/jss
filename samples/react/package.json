@@ -86,7 +86,7 @@
     "jss": "jss",
     "start": "npm-run-all --serial bootstrap:disconnected --parallel start:react start:proxy start:watch-components",
     "start:connected": "scjss-verify-setup && npm-run-all --serial bootstrap:connected start:react start:watch-components",
-    "start:connected-ssr": "scjss-verify-setup && npm-run-all --serial bootstrap:connected --parallel start:react start:watch-components start:http-renderer",
+    "start:connected-ssr": "scjss-verify-setup && npm-run-all --serial bootstrap:connected --parallel start:react start:watch-components start:http-renderer-holygrail",
     "start:holygrail": "scjss-verify-setup && npm-run-all --serial bootstrap:connected --parallel start:watch-components start:http-renderer-holygrail",
     "start:http-renderer-holygrail": "cross-env-shell NODE_ENV=development JSS_RENDER_ENGINE=http \"node scripts/holygrail.js\"",
     "start:rendering-host": "cross-env-shell NODE_ENV=development JSS_RENDER_ENGINE=http \"node scripts/http-renderer.js\"",
