@@ -201,7 +201,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
    */
   onFieldChange(key: string, value: string | string[] | File, isValid: boolean, errors: string[]) {
     this.setState({
-      [key]: { value, isValid, errors },
+      [key.replace('.Value', '.Files')]: { value, isValid, errors },
     });
   }
 
