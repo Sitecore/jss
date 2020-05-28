@@ -1,46 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Placeholder, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import Helmet from 'react-helmet';
-import SideNav from '../components/SideNav';
+import SideNav from '../components/Navigation/SideNav';
+import { Layout, Row, Col } from 'antd';
 
 const ArticleContainer = ({ fields, rendering, sitecoreContext }) => (
-  <div className="main-wrapper">
+  <React.Fragment>
     <Helmet>
       <title>{`${sitecoreContext.route.fields.title.value} | Sitecore JSS Documentation`}</title>
     </Helmet>
-    <div className="border-bottom">
+    <Layout className="border-bottom">
       <Placeholder name="jssdocs-jumbo" rendering={rendering} />
-    </div>
-    <div className="container">
-      <div className="row">
-        <main className="col-md-8 pt-4 pb-4 pt-md-5 pb-md-5 pl-md-5 border-left border-top right-col">
+    </Layout>
+    <Row gutter={[40, 40]} justify="space-between" style={{margin: 0}}>
+      <Col flex="250px">
+        <aside>
+          <Placeholder name="jssdocs-aside" rendering={rendering} />
+        </aside>
+      </Col>
+      <Col flex="auto">
+        <main>
           <Placeholder name="jssdocs-content" rendering={rendering} />
         </main>
-        <aside className="col-md-4 pt-4 pb-4 pt-md-5 pb-md-5 pr-lg-5 left-col order-last order-md-first">
-          <SideNav 
-            navkey={(fields.sidenav) ? fields.sidenav.value : "docs"} 
-            useSearch={(fields.useSearch) ? fields.useSearch.value : "false"}
-            />
-        </aside>
-      </div>
-    </div>
-  </div>
+      </Col>
+    </Row>
+  </React.Fragment>
 );
-
-ArticleContainer.propTypes = {
-  fields: PropTypes.shape({
-    useSearch: PropTypes.shape({
-      value: PropTypes.string,
-      editable: PropTypes.string
-    }),
-    sidenav: PropTypes.shape({
-      value: PropTypes.string,
-      editable: PropTypes.string
-    })
-  }),
-
-
-};
 
 export default withSitecoreContext()(ArticleContainer);

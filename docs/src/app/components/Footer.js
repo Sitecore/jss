@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Layout } from 'antd';
+const LayoutFooter = Layout.Footer;
 
 const Logo = () => (
   <img src="/assets/img/sitecore-logo.svg" height="53px" className="logo" alt="Sitecore JSS" />
 );
 
 const Footer = ({ fields }) => (
-  <footer className="main-footer p-md-5">
+  <LayoutFooter>
     <div className="container">
       <div className="row">
         <div className="col-md-4 col-12">
@@ -174,7 +176,7 @@ const Footer = ({ fields }) => (
         </div>
       </div>
     </div>
-  </footer>
+  </LayoutFooter>
 );
 
 export default Footer;

@@ -3,13 +3,15 @@ fields:
   title:
     value: Untitled
 placeholders:
-  jssdocs-main:
-  - componentName: ArticleContainer
-    fields:    
-      sidenav:
+  jssdocs-header:
+  - componentName: SideNav
+    fields:
+      navType:
         value: docs
       useSearch:
-        value: 'true'
+        value: 'false'
+  jssdocs-main:
+  - componentName: ArticleContainer
     placeholders:
       jssdocs-jumbo:
         - componentName: FeatureJumboShort
@@ -24,6 +26,13 @@ placeholders:
               value: Documentation
             text:
               value: Read and search through all the Sitecore JSS documentation
+      jssdocs-aside:
+        - componentName: SideNav
+          fields:
+            navType:
+              value: docs
+            useSearch:
+              value: 'true'
       jssdocs-content:
         - componentName: Article
           fields:
