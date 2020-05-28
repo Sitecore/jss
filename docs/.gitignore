@@ -3,3 +3,6 @@
 /stats.json
 scjssconfig.json
 package-lock.json
+
+# generated file
+/assets/css/theme.css
