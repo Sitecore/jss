@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import SearchBox from './SearchBox';
+import SearchBox from '../SearchBox';
 import { NavLink } from 'react-router-dom';
-import sidenav from '../sidenav';
-import Menu from 'antd/lib/menu';
-import 'antd/lib/menu/style/index.css';
+import navTypes from './navTypes';
+import { Menu } from 'antd';
 const SubMenu = Menu.SubMenu;
 
 // state management ftw
@@ -51,14 +50,14 @@ class SideNav extends React.Component {
   };
 
   render() {
-    const { history, location } = this.props;
+    const { history, location, fields } = this.props;
     const openMenus = Array.from(openMenuState);
     const selected = location.pathname.split('/').reverse()[0];
-    const navkey = this.props.navkey;
-    const searchbox = (this.props.useSearch == 'true') ? <SearchBox /> : '';
+    const navType = fields.navType.value;
+    const searchbox = (fields.useSearch.value == 'true') ? <SearchBox /> : '';
 
     return (
-      <div className="side-nav">                           
+      <div className="side-nav">
         {searchbox}
 
         <Menu
@@ -68,11 +67,11 @@ class SideNav extends React.Component {
           selectable={false}
           mode="inline"
         >
-          {sidenav[navkey].children.map((menuItem) => renderMenu(`/${sidenav[navkey].url}`, menuItem, history))}
+          {navTypes[navType].children.map((menuItem) => renderMenu(`/${navTypes[navType].url}`, menuItem, history))}
         </Menu>
 
         <div className="navbar-nav bd-navbar-nav flex-column">
-          {sidenav[navkey].links.map(linkItem => (
+          {navTypes[navType].links.map(linkItem => (
             <NavLink to={"/"+linkItem.url} className={linkItem.className}>
               {linkItem.displayName}
             </NavLink>
