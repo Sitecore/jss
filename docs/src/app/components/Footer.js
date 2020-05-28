@@ -1,22 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout } from 'antd';
+import { Layout, Row, Col } from 'antd';
+import Logo from './Logo';
 const LayoutFooter = Layout.Footer;
-
-const Logo = () => (
-  <img src="/assets/img/sitecore-logo.svg" height="53px" className="logo" alt="Sitecore JSS" />
-);
 
 const Footer = ({ fields }) => (
   <LayoutFooter>
-    <div className="container">
-      <div className="row">
-        <div className="col-md-4 col-12">
-          <Link className="navbar-brand" to="/">
-            <Logo />
-          </Link>
-        </div>
-        <div className="col-md-2 col-12">
+      <Row gutter={{ md: 24, lg: 32 }} justify="center">
+        <Col xs={24} md={5}>
           <Link
             to="/features"
             className="nav-link text-uppercase small text-white font-weight-bold"
@@ -31,8 +22,8 @@ const Footer = ({ fields }) => (
               Why Sitecore?
             </Link>
           </nav>
-        </div>
-        <div className="col-md-2 col-12">
+        </Col>
+        <Col xs={24} md={5}>
           <Link to="/docs" className="nav-link text-uppercase small text-white font-weight-bold">
             Documentation
           </Link>
@@ -62,8 +53,8 @@ const Footer = ({ fields }) => (
               FAQs
             </Link>
           </nav>
-        </div>
-        <div className="col-md-2 col-12">
+        </Col>
+        <Col xs={24} md={5}>
           <a
             href="https://www.sitecore.com/getting-started/developer-trial"
             target="_blank"
@@ -72,8 +63,8 @@ const Footer = ({ fields }) => (
           >
             Start Trial
           </a>
-        </div>
-        <div className="col-md-2 col-12">
+        </Col>
+        <Col xs={24} md={5}>
           <Link
             to="/community"
             className="nav-link text-uppercase small text-white font-weight-bold"
@@ -146,9 +137,9 @@ const Footer = ({ fields }) => (
               Github
             </a>
           </nav>
-        </div>
-      </div>
-      <div className="row footer-end">
+        </Col>
+      </Row>
+      <Row>
         <div className="col-12 col-md-12 border-top mt-md-5 pt-md-4">
           <div className="footer-copyright small">
             <div className="footer-copyright-text pr-2">
@@ -174,8 +165,7 @@ const Footer = ({ fields }) => (
             </a>
           </div>
         </div>
-      </div>
-    </div>
+      </Row>
   </LayoutFooter>
 );
 
