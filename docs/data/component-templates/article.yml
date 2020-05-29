@@ -7,11 +7,14 @@ placeholders:
   - componentName: Row
     params:
       backgroundColor: "#666"
-      justify: end
+      justify: "end"
     placeholders:
       jssdocs-row:
         - componentName: MainNav
   - componentName: Row
+    params:
+      margin: "27 0 0 0"
+      padding: "25 0 30 0"
     placeholders:
       jssdocs-row:
         - componentName: Logo
