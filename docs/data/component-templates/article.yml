@@ -4,12 +4,18 @@ fields:
     value: Untitled
 placeholders:
   jssdocs-header:
-  - componentName: SideNav
-    fields:
-      navType:
-        value: docs
-      useSearch:
-        value: 'false'
+  - componentName: Row
+    params:
+      backgroundColor: "#666"
+      justify: end
+    placeholders:
+      jssdocs-row:
+        - componentName: MainNav
+  - componentName: Row
+    placeholders:
+      jssdocs-row:
+        - componentName: Logo
+        - componentName: SecondaryNav
   jssdocs-main:
   - componentName: ArticleContainer
     placeholders:

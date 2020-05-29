@@ -5,4 +5,5 @@ export default (manifest) => {
    */
 
   manifest.addPlaceholder({ name: 'jssdocs-main', displayName: 'Main' });
+  manifest.addPlaceholder({ name: 'jssdocs-header', displayName: 'Header' });
 };
