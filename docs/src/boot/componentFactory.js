@@ -1,11 +1,13 @@
 import Article from 'components/Article';
+import Disclaimers from 'components/Disclaimers';
 import FeatureJumbo from 'components/FeatureJumbo';
 import FeatureJumboShort from 'components/FeatureJumboShort';
+import FooterNav from 'components/navigation/FooterNav';
 import Hero from 'components/Hero';
 import Logo from 'components/Logo';
-import MainNav from 'components/Navigation/MainNav';
-import SecondaryNav from 'components/Navigation/SecondaryNav';
-import SideNav from 'components/Navigation/SideNav';
+import MainNav from 'components/navigation/MainNav';
+import SecondaryNav from 'components/navigation/SecondaryNav';
+import SideNav from 'components/navigation/SideNav';
 import TileHeadline from 'components/TileHeadline';
 import Tile from 'components/Tile';
 import TileWithButton from 'components/TileWithButton';
@@ -19,8 +21,10 @@ import Row from 'containers/Row';
 
 const components = new Map();
 components.set('Article', Article);
+components.set('Disclaimers', Disclaimers);
 components.set('FeatureJumbo', FeatureJumbo);
 components.set('FeatureJumboShort', FeatureJumboShort);
+components.set('FooterNav', FooterNav);
 components.set('Hero', Hero);
 components.set('Logo', Logo);
 components.set('MainNav', MainNav);

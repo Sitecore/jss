@@ -10,7 +10,8 @@
     "appName": "JssDocs",
     "rootPlaceholders": [
       "jssdocs-header",
-      "jssdocs-main"
+      "jssdocs-main",
+      "jssdocs-footer"
     ],
     "sitecoreDistPath": "/dist",
     "sitecoreConfigPath": "/App_Config/Include/zzz",

@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-react';
-import Footer from 'components/Footer';
 import { Layout } from 'antd';
 import './styles.js';
-const Header = Layout.Header;
+const { Header, Footer } = Layout;
 
 const App = ({ routeData }) => (
-  <Layout>
+  <Layout id="app-wrap">
     <Header>
       <Placeholder name="jssdocs-header" rendering={routeData} />
     </Header>
     <Placeholder name="jssdocs-main" rendering={routeData} />
-    <Footer />
+    <Footer>
+      <Placeholder name="jssdocs-footer" rendering={routeData} />
+    </Footer>
   </Layout>
 );
 
