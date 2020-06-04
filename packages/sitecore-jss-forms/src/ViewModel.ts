@@ -42,6 +42,14 @@ export interface NumberInputViewModel extends InputViewModel {
   step?: number;
 }
 
+export interface FileInputViewModel extends InputViewModel {
+  isMultiple: boolean;
+  maxFileCount: number;
+  maxFileSize: number;
+  fileSizeUnit: number;
+  allowedContentTypes: string;
+}
+
 export interface StringInputViewModel extends InputViewModel {
   minLength?: number;
   maxLength?: number;

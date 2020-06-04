@@ -17,6 +17,7 @@ export {
   TextViewModel,
   FieldViewModel,
   InputViewModel,
+  FileInputViewModel,
   StringInputViewModel,
   MultiLineStringInputViewModel,
   DateInputViewModel,

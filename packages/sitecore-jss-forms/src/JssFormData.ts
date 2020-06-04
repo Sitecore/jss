@@ -18,7 +18,7 @@ export class JssFormData {
   }
 
   /** Merges form data from a client-side state store (i.e. the user-specified values), overwriting any existing values for the keys */
-  public mergeOverwritingExisting(values: { [key: string]: string | string[] | boolean | File }) {
+  public mergeOverwritingExisting(values: { [key: string]: string | string[] | boolean | File[] }) {
     Object.keys(values).forEach((key) => {
       const value = values[key];
 
@@ -27,7 +27,7 @@ export class JssFormData {
       // we want to _set_ the first one to override anything existing,
       // but _append_ anything after that to avoid overwriting our own values
       if (Array.isArray(value)) {
-        value.forEach((v, index) => {
+        value.forEach((v: string | File, index: number) => {
           if (index === 0) {
             this.set(key, v);
           } else {
@@ -35,11 +35,6 @@ export class JssFormData {
           }
         });
       } else {
-        if (value instanceof File) {
-          this.set(key, value);
-          return;
-        }
-
         this.set(key, value.toString());
       }
     });
