@@ -20,19 +20,19 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
 
     if (files) {
       Array(files.length).fill(null).forEach((_, idx) => {
-        if (files[idx].size / field.model.fileSizeUnit > field.model.maxFileSize) {
-          errorMessages.push(`You cannot upload a file that exceeds the allowed file size limit (10 KB)`);
-          valid = false;
-        }
+        // if (files[idx].size / field.model.fileSizeUnit > field.model.maxFileSize) {
+        //   errorMessages.push(`You cannot upload a file that exceeds the allowed file size limit (10 KB)`);
+        //   valid = false;
+        // }
 
         list.push(files[idx]);
       });
     }
 
-    if (list.length > field.model.maxFileCount) {
-      valid = false;
-      errorMessages.push(`You can only upload up to ${field.model.maxFileCount} files in ${field.model.title}.`);
-    }
+    // if (list.length > field.model.maxFileCount) {
+    //   valid = false;
+    //   errorMessages.push(`You can only upload up to ${field.model.maxFileCount} files in ${field.model.title}.`);
+    // }
 
     if (field.model.required && !list.length) {
       valid = false;
