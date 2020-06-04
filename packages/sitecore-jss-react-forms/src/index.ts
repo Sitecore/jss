@@ -18,6 +18,7 @@ import Telephone from './components/field-templates/telephone';
 import NumberField from './components/field-templates/number';
 import DateField from './components/field-templates/date';
 import TextField from './components/field-templates/text';
+import { ValidationDataModels } from './ValidationDataModels';
 import { FieldTypes } from './FieldTypes';
 import { createDefaultFieldFactory } from './default-field-factory';
 
@@ -51,6 +52,7 @@ export {
   ValueFieldProps,
   LabelProps,
   FieldTypes,
+  ValidationDataModels,
 
   createDefaultFieldFactory,
 };

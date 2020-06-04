@@ -1,9 +1,17 @@
 /** The model for a given field's data elements */
+
+export interface ValidationDataModel {
+  itemId: string;
+  message: string;
+  name: string;
+}
+
 export interface ViewModel {
   itemId: string;
   name: string;
   templateId: string;
   fieldTypeItemId: string;
+  validationDataModels: ValidationDataModel[];
 }
 
 export interface TextViewModel extends ViewModel {
