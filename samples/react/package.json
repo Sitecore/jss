@@ -32,9 +32,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-forms": "^13.0.5",
     "@sitecore-jss/sitecore-jss-react": "^13.0.5",
-    "@sitecore-jss/sitecore-jss-react-forms": "^13.0.5",
     "@sitecore-jss/sitecore-jss-tracking": "^13.0.2",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
