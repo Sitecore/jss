@@ -8,19 +8,30 @@ import { FileInputViewModel, ValueFormField } from '@sitecore-jss/sitecore-jss-f
 class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
   fileInputRef = createRef<HTMLInputElement>();
 
+  SIZE_UNITS: { [key: string]: string } = {
+    '1': 'Bytes',
+    '1024': 'KB',
+    '1048576': 'MB',
+    '1073741824': 'GB'
+  };
+
   componentDidUpdate(prevProps: ValueFieldProps<FileInputViewModel>) {
     if (prevProps.value && !this.props.value && this.fileInputRef.current) {
       this.fileInputRef.current.value = '';
     }
   }
 
-  isValidatorEnabled(itemId: string) {
-    return !!this.props.field.model.validationDataModels.find(validation => validation.itemId === itemId);
+  getEnabledValidation(itemId: string) {
+    return this.props.field.model.validationDataModels.find(validation => validation.itemId === itemId);
+  }
+
+  getFileSizeUnitName(value: number): string {
+    return this.SIZE_UNITS[value];
   }
 
   onChangeField = (files: FileList | null, field: ValueFormField<FileInputViewModel>, cb: FieldChangeCallback) => {
-    const isFileSizeValidatorEnabled = this.isValidatorEnabled(ValidationDataModels.FileSizeValidator);
-    const isFileCountValidatorEnabled = this.isValidatorEnabled(ValidationDataModels.FileCountValidator);
+    const fileSizeValidator = this.getEnabledValidation(ValidationDataModels.FileSizeValidator);
+    const fileCountValidator = this.getEnabledValidation(ValidationDataModels.FileCountValidator);
 
     const list: File[] = [];
     const errorMessages = [];
@@ -30,8 +41,12 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
       Array(files.length).fill(null).forEach((_, idx) => {
         const fileSize = files[idx].size / field.model.fileSizeUnit;
 
-        if (valid && isFileSizeValidatorEnabled && (fileSize > field.model.maxFileSize)) {
-          errorMessages.push(`You cannot upload a file that exceeds the allowed file size limit (10 KB)`);
+        if (valid && fileSizeValidator && (fileSize > field.model.maxFileSize)) {
+          const msg = fileSizeValidator.message
+            .replace('{0}', field.model.maxFileSize.toString())
+            .replace('{1}', this.getFileSizeUnitName(field.model.fileSizeUnit));
+
+          errorMessages.push(msg);
           valid = false;
         }
 
@@ -39,9 +54,13 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
       });
     }
 
-    if (isFileCountValidatorEnabled && list.length > field.model.maxFileCount) {
+    if (fileCountValidator && list.length > field.model.maxFileCount) {
+      const msg = fileCountValidator.message
+        .replace('{0}', field.model.maxFileCount.toString())
+        .replace('{1}', field.model.title);
+
+      errorMessages.push(msg);
       valid = false;
-      errorMessages.push(`You can only upload up to ${field.model.maxFileCount} files in ${field.model.title}.`);
     }
 
     if (field.model.required && !list.length) {
@@ -55,7 +74,7 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
   render() {
     const { field, value, onChange, errors, tracker } = this.props;
 
-    const isFileTypeValidatorEnabled = this.isValidatorEnabled(ValidationDataModels.FileTypeValidator);
+    const fileTypeValidator = this.getEnabledValidation(ValidationDataModels.FileTypeValidator);
 
     return (
       <Fragment>
@@ -63,7 +82,7 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
         <input
           ref={this.fileInputRef}
           type="file"
-          accept={isFileTypeValidatorEnabled ? field.model.allowedContentTypes : undefined}
+          accept={fileTypeValidator ? field.model.allowedContentTypes : undefined}
           multiple={field.model.isMultiple}
           className={field.model.cssClass}
           id={field.valueField.id}
