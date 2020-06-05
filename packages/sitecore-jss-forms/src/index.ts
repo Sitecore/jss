@@ -14,9 +14,11 @@ export { HtmlFormField } from './HtmlFormField';
 export { serializeForm, SerializeFormOptions } from './serializeForm';
 export {
   ViewModel,
+  ValidationDataModel,
   TextViewModel,
   FieldViewModel,
   InputViewModel,
+  FileInputViewModel,
   StringInputViewModel,
   MultiLineStringInputViewModel,
   DateInputViewModel,

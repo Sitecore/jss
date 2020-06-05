@@ -1,9 +1,17 @@
 /** The model for a given field's data elements */
+
+export interface ValidationDataModel {
+  itemId: string;
+  message: string;
+  name: string;
+}
+
 export interface ViewModel {
   itemId: string;
   name: string;
   templateId: string;
   fieldTypeItemId: string;
+  validationDataModels: ValidationDataModel[];
 }
 
 export interface TextViewModel extends ViewModel {
@@ -40,6 +48,14 @@ export interface NumberInputViewModel extends InputViewModel {
   min?: number;
   max?: number;
   step?: number;
+}
+
+export interface FileInputViewModel extends InputViewModel {
+  isMultiple: boolean;
+  maxFileCount: number;
+  maxFileSize: number;
+  fileSizeUnit: number;
+  allowedContentTypes: string;
 }
 
 export interface StringInputViewModel extends InputViewModel {
