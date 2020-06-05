@@ -44,7 +44,7 @@ export interface FormProps {
 }
 
 export interface FieldState {
-  value?: string | string[] | boolean;
+  value?: string | string[] | File[] | boolean;
   isValid: boolean;
   errors: string[];
 }
@@ -199,7 +199,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
    * @param isValid Whether the field is valid or not
    * @param errors Validation error message(s) if field is invalid
    */
-  onFieldChange(key: string, value: string | string[], isValid: boolean, errors: string[]) {
+  onFieldChange(key: string, value: string | string[] | File[], isValid: boolean, errors: string[]) {
     this.setState({
       [key]: { value, isValid, errors },
     });
@@ -214,7 +214,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
 
     const form = this.state.nextForm || this.props.form;
 
-    const fieldValues: { [key: string]: string | string[] | boolean } = {};
+    const fieldValues: { [key: string]: string | string[] | boolean | File[] } = {};
 
     const currentFieldValues = this.collectCurrentFieldValues();
 

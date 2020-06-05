@@ -6,6 +6,7 @@ import {
   instanceOfFormFieldSection,
   instanceOfValueFormField,
 } from './FormField';
+import { TrackableValueFormField } from './FormTracker';
 import { getFieldValueFromModel } from './getFieldValueFromModel';
 import { HtmlFormField } from './HtmlFormField';
 import { JssFormData } from './JssFormData';
@@ -52,6 +53,14 @@ function pushFields(result: JssFormData, fields: Array<FormField<any>>, options:
       pushField(result, field.navigationButtonsField);
       pushField(result, field.navigationStepField);
     } else if (instanceOfValueFormField(field)) {
+      if (field.valueField.name.endsWith('.Files')) {
+        const fileUploadField: TrackableValueFormField = field;
+
+        if (!fileUploadField.originalValue) {
+          return;
+        }
+      }
+
       pushField(result, field.indexField);
       pushField(result, field.fieldIdField);
       // get stored value (i.e. if a multistep form)
