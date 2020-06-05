@@ -1,5 +1,3 @@
-// global FormData
-
 import { expect } from 'chai';
 
 import { JssFormData } from './JssFormData';
