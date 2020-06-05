@@ -47,7 +47,6 @@ export class JssFormData {
 
   /**
    * Converts the store into a FormData that can be POST-ed with fetch as multipart/form-data.
-   * NOTE: this should not be used as it is incompatible with Sitecore Forms' antiforgery tokens
    */
   public toMultipartFormData(): FormData {
     const formData = new FormData();
