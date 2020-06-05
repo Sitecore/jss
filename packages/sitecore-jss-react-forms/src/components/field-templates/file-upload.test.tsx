@@ -56,10 +56,16 @@ describe('<FileUpload />', () => {
     tracker: new FormTracker({ endpoint: 'xxx_endpoint' })
   };
 
-  it('should return null if no editable or value', () => {
+  it('should file input', () => {
     const c = shallow(<FileUpload {...p} />);
+    const input = c.find('input');
+    const prop = (name: string) => input.prop(name);
 
     expect(c.type()).to.exist;
+    expect(prop('id')).to.equal('value_field_id_xxx');
+    expect(prop('name')).to.equal('value_field_name_xxx');
+    expect(prop('className')).to.equal('xxx_css-class');
+    expect(prop('multiple')).to.be.true;
   });
 
   it('should check if validator is enabled', () => {
