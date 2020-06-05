@@ -30,7 +30,7 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
       Array(files.length).fill(null).forEach((_, idx) => {
         const fileSize = files[idx].size / field.model.fileSizeUnit;
 
-        if (isFileSizeValidatorEnabled && fileSize > field.model.maxFileSize) {
+        if (valid && isFileSizeValidatorEnabled && (fileSize > field.model.maxFileSize)) {
           errorMessages.push(`You cannot upload a file that exceeds the allowed file size limit (10 KB)`);
           valid = false;
         }
