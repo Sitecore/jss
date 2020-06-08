@@ -9,7 +9,6 @@ const PageContainer = ({ fields, rendering, sitecoreContext }) => (
       <title>{`${sitecoreContext.route.fields.title.value} | Sitecore JSS Documentation`}</title>
     </Helmet>
     <Placeholder name="jssdocs-jumbo" rendering={rendering} />
-    <Placeholder name="jssdocs-hero" rendering={rendering} />
     <Placeholder name="jssdocs-tiles-headline" rendering={rendering} />
     <div className="container mt-4 mb-4 mt-md-5 mb-md-5">
       <div className="row">
