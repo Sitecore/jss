@@ -27,6 +27,7 @@ describe('<FileUpload />', () => {
         maxFileCount: 1,
         maxFileSize: 9999,
         fileSizeUnit: 1024,
+        files: [],
         required: true,
         value: '',
         fieldTypeItemId: 'xxx_field_type_item_id',
