@@ -56,6 +56,7 @@ export interface FileInputViewModel extends InputViewModel {
   maxFileSize: number;
   fileSizeUnit: number;
   allowedContentTypes: string;
+  files: File[];
 }
 
 export interface StringInputViewModel extends InputViewModel {
