@@ -11,7 +11,7 @@ import { getFieldValueFromModel } from './getFieldValueFromModel';
 import { HtmlFormField } from './HtmlFormField';
 import { JssFormData } from './JssFormData';
 import { SitecoreForm } from './SitecoreForm';
-import { instanceOfInputViewModel } from './ViewModel';
+import { FileInputViewModel, instanceOfInputViewModel } from './ViewModel';
 
 export interface SerializeFormOptions {
   submitButtonName?: string | null;
@@ -54,9 +54,9 @@ function pushFields(result: JssFormData, fields: Array<FormField<any>>, options:
       pushField(result, field.navigationStepField);
     } else if (instanceOfValueFormField(field)) {
       if (field.valueField.name.endsWith('.Files')) {
-        const fileUploadField: TrackableValueFormField = field;
+        const fileUploadField: TrackableValueFormField & FormField<FileInputViewModel> = field;
 
-        if (!fileUploadField.originalValue) {
+        if (!fileUploadField.originalValue && !fileUploadField.model.files) {
           return;
         }
       }

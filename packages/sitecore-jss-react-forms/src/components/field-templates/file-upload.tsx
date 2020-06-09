@@ -32,6 +32,7 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
   onChangeField = (files: FileList | null, field: ValueFormField<FileInputViewModel>, cb: FieldChangeCallback) => {
     const fileSizeValidator = this.getEnabledValidation(ValidationDataModels.FileSizeValidator);
     const fileCountValidator = this.getEnabledValidation(ValidationDataModels.FileCountValidator);
+    const fileTypeValidator = this.getEnabledValidation(ValidationDataModels.FileTypeValidator);
 
     const list: File[] = [];
     const errorMessages = [];
@@ -51,6 +52,21 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
         }
 
         list.push(files[idx]);
+      });
+    }
+
+    if (fileTypeValidator) {
+      list.some(file => {
+        const ext = file.name.split('.').pop() || '';
+
+        if (field.model.allowedContentTypes.indexOf(ext) !== -1) {
+          return false;
+        }
+
+        const msg = fileTypeValidator.message.replace('{0}', field.model.allowedContentTypes);
+        errorMessages.push(msg);
+
+        return true;
       });
     }
 
