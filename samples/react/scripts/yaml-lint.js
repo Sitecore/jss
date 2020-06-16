@@ -1,10 +1,17 @@
+/*
+  YML Linter
+  This is a script that runs a linter over the YML files to pickup syntax issues before deployment.
+*/
+
+/* eslint-disable no-throw-literal,no-console */
+
 const path = require('path');
 var fs = require('fs');
 const yamlLint = require('yaml-lint');
 
 console.log("Started to validate the YML Files");
 
-const getAllFiles = function(dirPath, arrayOfFiles) {
+const getAllFiles = function(dirPath, allFiles) {
     files = fs.readdirSync(dirPath);
 
     arrayOfFiles = arrayOfFiles || [];
