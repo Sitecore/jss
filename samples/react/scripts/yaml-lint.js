@@ -11,7 +11,7 @@ const yamlLint = require('yaml-lint');
 
 console.log("Started to validate the YML Files");
 
-const getAllFiles = function(dirPath, allFiles) {
+const getAllFiles = function(dirPath, arrayOfFiles) {
     files = fs.readdirSync(dirPath);
 
     arrayOfFiles = arrayOfFiles || [];
@@ -28,7 +28,7 @@ const getAllFiles = function(dirPath, allFiles) {
 
 const allDataFiles = getAllFiles('./data/');
 for(var i=0; i<allDataFiles.length; i++) {
-    var fileName = allDataFiles[i];
+    let fileName = allDataFiles[i];
     
     if(fileName.indexOf('\\scripts') > -1)
         fileName = fileName.replace('\\scripts', '');
