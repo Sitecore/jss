@@ -22,15 +22,16 @@ const getAllFiles = function(dirPath, arrayOfFiles) {
 const allDataFiles = getAllFiles('./data/');
 for(var i=0; i<allDataFiles.length; i++) {
     var fileName = allDataFiles[i];
+    
     if(fileName.indexOf('\\scripts') > -1)
         fileName = fileName.replace('\\scripts', '');
 
     if(fileName.indexOf('.yml') > -1) {
         console.log('validating YML: ' + fileName);
         yamlLint.lintFile(fileName).then(() => {
-            console.log('Valid YAML file. > ' + fileName);
+            console.log('Valid YML file. > ' + fileName);
         }).catch((error) => {
-            console.error('Invalid YAML file > ' + fileName + '\n\r', error);
+            console.error('Invalid YML file > ' + fileName + '\n\r', error);
             process.exit(1); // Exit with a failure
         });
     }
