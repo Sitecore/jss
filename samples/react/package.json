@@ -80,7 +80,8 @@
     "stats-webpack-plugin": "^0.7.0",
     "url-loader": "~2.1.0",
     "webpack": "4.41.5",
-    "webpack-cli": "~3.3.9"
+    "webpack-cli": "~3.3.9",
+    "yaml-lint": "^1.2.4"
   },
   "scripts": {
     "jss": "jss",
@@ -90,7 +91,7 @@
     "start:holygrail": "scjss-verify-setup && npm-run-all --serial bootstrap:connected --parallel start:watch-components start:http-renderer-holygrail",
     "start:http-renderer-holygrail": "cross-env-shell NODE_ENV=development JSS_RENDER_ENGINE=http \"node scripts/holygrail.js\"",
     "start:rendering-host": "cross-env-shell NODE_ENV=development JSS_RENDER_ENGINE=http \"node scripts/http-renderer.js\"",
-    "build": "npm-run-all --serial bootstrap:connected build:client build:server",
+    "build": "npm-run-all yamllint --serial bootstrap:connected build:client build:server",
     "build:rendering-host": "npm-run-all --serial bootstrap:connected build:client:rendering-host build:server",
     "scaffold": "node scripts/scaffold-component.js",
     "start:react": "react-scripts start",
@@ -104,7 +105,8 @@
     "graphql:update": "node -r babel-register ./scripts/update-graphql-fragment-data.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "eject:script": "ncp ./scripts ./scripts-copy && node ./scripts-copy/eject.js && ncp ./scripts-copy ./scripts && del-cli ./scripts-copy"
+    "eject:script": "ncp ./scripts ./scripts-copy && node ./scripts-copy/eject.js && ncp ./scripts-copy ./scripts && del-cli ./scripts-copy",
+    "yamllint": "node ./scripts/yaml-lint.js"
   },
   "browserslist": [
     ">0.2%",
