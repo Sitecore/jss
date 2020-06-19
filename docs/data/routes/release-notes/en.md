@@ -5,6 +5,60 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 13.1 for Sitecore 9.3
+
+### New Features & Improvements
+
+* [PR #357](https://github.com/Sitecore/jss/pull/357) [Doc] Updated context extension docs around caching
+* [Commit](https://github.com/Sitecore/jss/commit/b0415c08f469a8dface7f43e2b24e53dd35f3577) [Doc] Extend JSS Forms documentation regarding customizing labels of different field types
+* [Commit](https://github.com/Sitecore/jss/commit/749d836291ffaaff9631596e3e2dd37361918bd6) Add --skipValidation for `jss setup` command
+* [PR #338](https://github.com/Sitecore/jss/pull/338) Section field template can use FormFieldSection in order to pass cssClass to the fieldset element and be able to customize the styles for it.
+* [PR #346](https://github.com/Sitecore/jss/pull/346) Responsive image srcset fallback with src output
+* [PR #303](https://github.com/Sitecore/jss/pull/303) [React-Native sample] documentation is improved and extended.
+
+### Bug Fixes
+
+* [PR #373](https://github.com/Sitecore/jss/pull/373) [Vue Sample] Fix route changes with path and a hash
+* [Bug #141](https://github.com/Sitecore/jss/issues/141) Cannot add components to placeholder without saving first
+* [PR #374](https://github.com/Sitecore/jss/pull/374) [React sample] Fixed start:connected-ssr npm script
+* [Commit](https://github.com/Sitecore/jss/commit/d6a5431ebaa4a2c288db83a986b069710a353b83) [Doc] Sitecore Forms + JSS article doesn't mention that the provided sample doesn't work for Headless mode
+* [Bug #348](https://github.com/Sitecore/jss/issues/348) Publishing configuration for sitecore-jss-angular gives errors for Angular 9 ngcc
+* [Commit](https://github.com/Sitecore/jss/commit/a1f323768506ccf1ec92d7c6bb6f2990c2de0ae7) [React sample] 'deploy template' does not accept --acceptCertificate
+* [Bug #358](https://github.com/Sitecore/jss/pull/358) [Vue sample] SSR - fixed hydration bailouts
+* [Bug #360](https://github.com/Sitecore/jss/issues/360) Quick Start with vue is failing
+* [Bug #363](https://github.com/Sitecore/jss/issues/363) Wrong Type Definition for ItemLink
+* [Bug #328](https://github.com/Sitecore/jss/issues/328) Item Links failing to find reference with disconnected mode
+* [PR #341](https://github.com/Sitecore/jss/issues/341) `jss setup` does not work with Sitecore Docker
+* [PR #359](https://github.com/Sitecore/jss/pull/359) Add description of import service URL question
+* [PR #356](https://github.com/Sitecore/jss/pull/356) [Doc] Fix broken react-native link on homepage
+* [Bug #299](https://github.com/Sitecore/jss/issues/299) SitecoreContextReactContext.Provider is not working properly, because value never changes as it is always same class instance
+* [Bug #333](https://github.com/Sitecore/jss/issues/333) [Doc] Document addPlaceholder function
+* [PR #353](https://github.com/Sitecore/jss/pull/353) [Doc] Move Forms installation documentation section above sample implementation
+* [PR #351](https://github.com/Sitecore/jss/pull/351) [React sample] Include polyfills for IE11
+* [Bug #257](https://github.com/Sitecore/jss/issues/257) [Doc] Add doc for `--acceptCertificate` param
+* [Bug #336](https://github.com/Sitecore/jss/issues/336) [Vue sample] CLI deploy options do not trigger build step
+* [PR #337](https://github.com/Sitecore/jss/pull/337) [Vue sample] set i18n initial language based on SSR language
+* [PR #335](https://github.com/Sitecore/jss/pull/335) Vue sample Specimen component updated with correct implementation path
+* [Bug #287](https://github.com/Sitecore/jss/issues/287) Potential memory leak in React SitecoreContextFactory
+* [PR #300](https://github.com/Sitecore/jss/pull/330) [React sample] set i18n init lang to prevent SSR hydration from re-rendering app
+* [Commit](https://github.com/Sitecore/jss/commit/6ee8a40c3979408032c0de3fa16bb9cae55037e4) react app - Cannot read property 'forEach' of undefined
+* [Bug #314](https://github.com/Sitecore/jss/issues/314) Angular scaffolding has error in polyfill.ts
+* [Bug #311](https://github.com/Sitecore/jss/issues/311) [React sample] npm run eject throws error
+* [PR #281](https://github.com/Sitecore/jss/pull/281) Wrong GraphQLEndpoint assembly name
+* [PR #302](https://github.com/Sitecore/jss/pull/302) Correctly evaluates the value of `SITECORE_ENABLE_DEBUG` variable
+* [PR #285](https://github.com/Sitecore/jss/pull/285) [Commit](https://github.com/Sitecore/jss/commit/4385791240447ad3cbf8582ca7ace76e7dfcb241) Include media from Droptree and Multilist content
+* [PR #306](https://github.com/Sitecore/jss/pull/306) [Doc] Docs missing configuration of fetcher
+
+SXA and Sitecore Forms compatibility table
+| Sitecore  | JSS      | SXA   | Forms
+| --------- | -------- |------ | ------
+| 9.3       | 13.1     | 9.3   | Yes
+| 9.3       | 13.0     | 9.3   | Yes
+| 9.2       | 12.0     | 1.9   | Yes
+| 9.1.1     | 11.1     | 1.9   | No
+| 9.1       | 11.0     | No    | No
+| 9.0       | 11.0     | No    | No
+
 ## Sitecore JSS 13.0 for Sitecore 9.3
 
 ### Upgrading
