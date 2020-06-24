@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { FieldValidationErrors } from './field-validation-errors';
 import { Label } from './label';
 import { ValueFieldProps, FieldChangeCallback } from '../../FieldProps';
-import { ValueFormField, DateInputViewModel } from '@sitecore-jss/sitecore-jss-forms';
+import { ValueFormField, NumberInputViewModel } from '@sitecore-jss/sitecore-jss-forms';
 
-const NumberField: React.FunctionComponent<ValueFieldProps<DateInputViewModel>> = (props) => {
+const NumberField: React.FunctionComponent<ValueFieldProps<NumberInputViewModel>> = (props) => {
   const { field, value, onChange, tracker, errors } = props;
 
   return (
@@ -16,7 +16,7 @@ const NumberField: React.FunctionComponent<ValueFieldProps<DateInputViewModel>> 
         id={field.valueField.id}
         name={field.valueField.name}
         value={value}
-        step={field.model.max}
+        step={field.model.step}
         min={field.model.min}
         max={field.model.max}
         onChange={(e) => handleOnChange(field, e.target.value, onChange)}
