@@ -326,7 +326,7 @@ export function rewriteRequestPath(
     if (config.debug) {
       console.log(`DEBUG: Parsing route URL using ${decodedReqPath} URL...`);
     }
-    const routeParams = parseRouteUrl(decodedReqPath);
+    const routeParams = parseRouteUrl(finalReqPath);
 
     if (routeParams) {
       if (routeParams.sitecoreRoute) {
