@@ -221,6 +221,51 @@ const FieldErrorComponent = (props) => (
 <Form fieldValidationErrorsComponent={FieldErrorComponent} {...otherProps} />
 ```
 
+#### Customizing Form Fetcher
+
+You can customize the behaviour of the default FormFetcher. You can add custom error handler, in case if unhandled error was thrown.
+
+```js
+export const formFetcher = (formData, endpoint) => fetch(endpoint, {
+  body: formData.toUrlEncodedFormData(),
+  method: 'post',
+  // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
+  credentials: 'include',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  }
+})
+  .then((res) => res.json())
+  .catch(() => {
+    return {
+      success: false,
+      errors: 'Something went wrong. Error was thrown when submit form'
+    }
+  })
+
+// Usage on form component
+<Form formFetcher={formFetcher} {...otherProps} />
+```
+
+You can implement _formFetcher_ using `multipart/form-data` Content-Type.
+
+```js
+export const formFetcher = (formData, endpoint) => fetch(endpoint, {
+  body: formData.toMultipartFormData(),
+  method: 'post',
+  // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
+  credentials: 'include',
+  // Browser set 'Content-Type' automatically with multipart/form-data; boundary
+})
+  .then((res) => res.json())
+  .catch(() => {
+    return {
+      success: false,
+      errors: 'Something went wrong. Error was thrown when submit form'
+    }
+  })
+```
+
 ### Limitations
 
 There are some limitations to be aware of with JSS' Sitecore Forms support.
