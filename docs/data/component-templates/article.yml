@@ -48,3 +48,6 @@ placeholders:
             text:
               value: |
                 $html$
+  jssdocs-footer:
+  - componentName: FooterNav
+  - componentName: Disclaimers

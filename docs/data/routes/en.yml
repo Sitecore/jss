@@ -52,3 +52,6 @@ placeholders:
                   - id: focus-on-development-tile
                   - id: js-support-tile
                   - id: headless-experiences-tile
+  jssdocs-footer:
+  - componentName: FooterNav
+  - componentName: Disclaimers
