@@ -12,5 +12,5 @@ fields:
     text: Visit Sitecore Community
     href: https://community.sitecore.net
   image:
-    src: /assets/img/community_icon_3.svg
+    src: /assets/img/content/community_icon_3.svg
     alt: GitHub logo

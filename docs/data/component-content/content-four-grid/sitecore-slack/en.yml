@@ -12,5 +12,5 @@ fields:
     text: Signup now!
     href: https://docs.google.com/forms/d/1bAVDgP5-FhFh8ohPchHtifq-rz7EBkuPojAzdEofJyo/viewform?edit_requested=true
   image:
-      src: /assets/img/community_icon_1.svg
+      src: /assets/img/content/community_icon_1.svg
       alt: Slack Logo
