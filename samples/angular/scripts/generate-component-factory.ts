@@ -76,7 +76,7 @@ function generateComponentFactory() {
 
     // ASSUMPTION: your component should export a class directly that follows Angular conventions,
     // i.e. `export class FooComponent` - so we can detect the component's name for auto registration.
-    const componentClassMatch = /export class (.+?)Component/g.exec(componentFileContents);
+    const componentClassMatch = /export class (.+?)Component\b/g.exec(componentFileContents);
 
     if (componentClassMatch === null) {
       console.debug(`Component ${componentFilePath} did not seem to export a component class. It will be skipped.`);
