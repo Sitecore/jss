@@ -32,7 +32,7 @@ title: Why Sitecore?
 ---
 
 <div class="section column pb-md-3 pt-md-3">
-<img src="/assets/img/analytics-profile.png" class="float-left pl-md-5 pr-md-5"/>
+<img src="/assets/img/features/analytics-profile.png" class="float-left pl-md-5 pr-md-5"/>
 <div class="section-content pl-md-5 pr-md-5">
 <h5 class="mb-md-4">Analytics</h5>
 <p>Gather analytics about the usage of your application, track your visitors across multiple sites and/or application and create a full 360 view of your visitors.</p>
