@@ -87,6 +87,10 @@ Yes! Just not out of the box (yet 😉). Currently, Sitecore Commerce ships with
 - Expose API from commerce wrapper for data that needs to be AJAX-ed or POST-ed from JS layer.
 - DO NOT interact directly with the Commerce Engine from client-side JS.
 
+### Can I use JSS with Sitecore AI?
+
+Yes! Sitecore AI works with JSS & SXA. Sitecore AI looks at data sources and the rules engine; it doesn't care about the rendering part of the process.
+
 ## Known Issues
 
 ### Azure PaaS
