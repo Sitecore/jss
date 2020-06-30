@@ -66,7 +66,6 @@ const parseRouteData = (sourceRouteData, file) => {
   converter.setOption('tables', true);
   converter.setOption('ghCompatibleHeaderId', true);
   const htmlContent = converter.makeHtml(markdownContent);
-
   const name = parsedMatter.data.name;
   if (!name) {
     throw `name is undefined on '${file}'`;
@@ -106,7 +105,7 @@ const processTokenReplacements = (obj, replaceMap) => {
   for (var k in obj) {
     if (typeof obj[k] == 'object' && obj[k] !== null) {
       processTokenReplacements(obj[k], replaceMap);
-    } else {
+    } else if (typeof obj[k] === 'string') {
       for (const [key, value] of replaceMap.entries()) {
         obj[k] = obj[k].replace(key, value);
       }
