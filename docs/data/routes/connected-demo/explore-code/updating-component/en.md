@@ -16,19 +16,19 @@ In your preferred editor, open the file EventListItem component, located in the 
 
 Find the `<NavLink>` tag that wraps the `<Text>` field for our event items name. (should be somewhere around line 60).
 
-![Habitat Fitness](/assets/img/Changes1.png)
+![Habitat Fitness](/assets/img/connected-demo/Changes1.png)
 
 <br><br>
 
 Change the order of the `<NavLink>` and `<DateField>` tags so that `<DateField>` appears first.
 
-![Habitat Fitness](/assets/img/Changes2.png)
+![Habitat Fitness](/assets/img/connected-demo/Changes2.png)
 
 <br><br>
 
 Save your changes. Since hot reloading is enabled, the browser will automatically refresh to reflect the changes.
 
-![Habitat Fitness](/assets/img/Changes3.png)
+![Habitat Fitness](/assets/img/connected-demo/Changes3.png)
 
 <br>
 

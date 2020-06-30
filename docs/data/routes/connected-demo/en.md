@@ -4,3 +4,4 @@ routeTemplate: ./data/routes/connected-demo/en.yml
 title: JSS Connected
 ---
 
+# JSS Connected
