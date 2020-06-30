@@ -49,7 +49,7 @@ The following environment variables can be set to configure the proxy instead of
 You should be able to see the following message:
 `server listening on port 3000!` and see all the communication between this server and your Sitecore CD instance in the console.
 
-More info on this setup can be found [here](https://jss.sitecore.net/#/application-modes?id=headless-server-side-rendering-mode).
+More info on this setup can be found [here](https://jss.sitecore.com/docs/fundamentals/application-modes#headless-server-side-rendering-mode).
 
 ## Production Notes
 
