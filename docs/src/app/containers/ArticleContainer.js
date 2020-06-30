@@ -5,15 +5,19 @@ import SideNav from '../components/navigation/SideNav';
 import { Layout, Row, Col } from 'antd';
 
 const ArticleContainer = ({ fields, rendering, sitecoreContext }) => (
-  <React.Fragment>
+  <div className="main-wrapper">
     <Helmet>
       <title>{`${sitecoreContext.route.fields.title.value} | Sitecore JSS Documentation`}</title>
     </Helmet>
     <Layout className="border-bottom">
       <Placeholder name="jssdocs-jumbo" rendering={rendering} />
     </Layout>
-    <Row gutter={[40, 40]} justify="space-between" style={{margin: 0}}>
-      <Col flex="250px">
+    <Row
+      gutter={40}
+      justify="space-between"
+      style={{flexWrap: 'nowrap', margin: 30}}
+    >
+      <Col flex="300px">
         <aside>
           <Placeholder name="jssdocs-aside" rendering={rendering} />
         </aside>
@@ -24,7 +28,7 @@ const ArticleContainer = ({ fields, rendering, sitecoreContext }) => (
         </main>
       </Col>
     </Row>
-  </React.Fragment>
+  </div>
 );
 
 export default withSitecoreContext()(ArticleContainer);

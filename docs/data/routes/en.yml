@@ -3,6 +3,19 @@ fields:
   title:
     value: Home
 placeholders:
+  jssdocs-header:
+  - componentName: Row
+    params:
+      justify: start
+      padding: 30
+    placeholders:
+      jssdocs-row:
+        - componentName: Logo
+          params:
+            flex: 300px
+        - componentName: MainNav
+          params:
+            flex: auto
   jssdocs-main:
     - componentName: PageContainer
       placeholders:

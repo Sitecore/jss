@@ -1,6 +1,14 @@
 export default (manifest) => {
   manifest.addComponent({
     name: 'Logo',
-    displayName: 'Logo'
+    params: [
+      {
+        name: 'flex',
+        type: manifest.fieldTypes.singleLineText,
+        description: 'horizontal fill',
+        required: false,
+        standardValue: 'auto',
+      }
+    ]
   });
 };

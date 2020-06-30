@@ -4,12 +4,10 @@ import { Row as LayoutRow } from 'antd';
 
 const Row = ({ params, rendering }) => (
   <LayoutRow
-    style={{
-        backgroundColor: params.backgroundColor,
-        padding: params.padding,
-        margin: params.margin
-      }}
-    justify={params.justify }
+    style={params}
+    justify={params.justify}
+    align={params.align}
+    gutter={params.gutter}
   >
     <Placeholder name="jssdocs-row" rendering={rendering} />
   </LayoutRow>

@@ -6,12 +6,19 @@ placeholders:
   jssdocs-header:
   - componentName: Row
     params:
-      margin: "27 0 0 0"
-      padding: "25 0 30 0"
+      justify: start
+      padding: 30
     placeholders:
       jssdocs-row:
         - componentName: Logo
+          params:
+            flex: 300px
         - componentName: MainNav
+          fields:
+            selectedMenuItem:
+              value: docs
+          params:
+            flex: auto
   jssdocs-main:
   - componentName: ArticleContainer
     placeholders:
@@ -34,7 +41,7 @@ placeholders:
             navType:
               value: docs
             useSearch:
-              value: 'true'
+              value: "true"
       jssdocs-content:
         - componentName: Article
           fields:
