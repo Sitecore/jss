@@ -1,0 +1,53 @@
+name: $name$
+fields:
+  title:
+    value: Untitled
+placeholders:
+  jssdocs-header:
+  - componentName: Row
+    params:
+      justify: start
+      padding: 30
+    placeholders:
+      jssdocs-row:
+        - componentName: Logo
+          params:
+            flex: 300px
+        - componentName: MainNav
+          fields:
+            selectedMenuItem:
+              value: guides
+          params:
+            flex: auto
+  jssdocs-main:
+  - componentName: ArticleContainer
+    placeholders:
+      jssdocs-jumbo:
+        - componentName: FeatureJumboShort
+          fields:
+            image:
+              src: /assets/img/transparent-1x1.png
+            imageclass:
+              value: defaultimage
+            csscolorclass:
+              value: default
+            title:
+              value: Guides & Recommended Practices
+            text:
+              value: A collection of learnings and recommendations from our team of JSS developers, based on from real-world projects and community feedback.
+      jssdocs-aside:
+        - componentName: SideNav
+          fields:
+            navType:
+              value: guides
+            useSearch:
+              value: 'true'
+      jssdocs-content:
+        - componentName: Article
+          fields:
+            text:
+              value: |
+                $html$
+  jssdocs-footer:
+  - componentName: FooterNav
+  - componentName: Disclaimers
