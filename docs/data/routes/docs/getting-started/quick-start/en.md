@@ -5,6 +5,8 @@ title: Quick Start
 ---
 # Quick Start
 
+> Before delving into JSS, a good knowledge base of JavaScript ES2015+ and one of the supported front-end frameworks is needed.
+
 ## The TL;DR Quick Start
 
 If you're in a hurry to play with a JSS app, you can get started in four commands (with [Node](https://nodejs.org) installed). We still recommend reading the rest of the quickstart for better understanding of what's happening.
@@ -47,11 +49,14 @@ The JSS CLI is used to create applications, which can be created from a several 
 
 ### Styleguide Templates
 
-Styleguide templates are mirror images of each other, supporting basic Sitecore features (routing, multilingual, GraphQL) and using popular supporting libraries for their frameworks. Each Styleguide template comes with a sample styleguide showing how to use and define various Sitecore field types and patterns in that framework.
+Styleguide templates are mirror images of each other, supporting basic Sitecore features (routing, multilingual, GraphQL) and using popular supporting libraries for their frameworks. Each Styleguide template comes with a sample implementations showing how to use and define various Sitecore field types and patterns in that framework.
 
 * `react` The React Styleguide template, based on `create-react-app`.
 * `vue` The Vue Styleguide template, based on `vue-cli`.
 * `angular` The Angular Styleguide template.
+* `react-native` The React Native StyleGuide template
+
+> If you are new to JSS, it's important not to skip the Styleguide exploration step, as the Styleguides contain valuable technical notes that are go beyond what's covered here, in the docs.
 
 ### Experimental Templates
 
