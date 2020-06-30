@@ -10,7 +10,7 @@ placeholders:
           - componentName: FeatureJumboShort
             fields:
               image:
-                src: /assets/img/community-jumbo.png
+                src: /assets/img/community/community-jumbo.png
                 alt: People talking
               imageclass:
                 value: smallimage
@@ -39,7 +39,7 @@ placeholders:
           - componentName: Hero
             fields:
               image:
-                src: /assets/img/community-hero-stack.svg
+                src: /assets/img/community/community-hero-stack.svg
                 alt: StackExchange
               title:
                 value: Learn from the Sitecore JSS Community Stack Exchange
