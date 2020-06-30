@@ -10,7 +10,7 @@ JSS Language agnostic. Use Sitecore features in your apps. Give users more contr
 
 ---
 
-### ![Development](/assets/img/features_icon_1.svg) Development
+### ![Development](/assets/img/features/features_icon_1.svg) Development
 
 **JSS CLI**  
 Sitecore JSS includes a handy Node-based command line tool to make it easy to get started and maintain your application.
@@ -23,7 +23,7 @@ With a code-first approach, your app can be imported into Sitecore XP, and JSS w
 
 ---
 
-### ![Deployment](/assets/img/features_icon_2.svg) Deployment
+### ![Deployment](/assets/img/features/features_icon_2.svg) Deployment
 
 **Cross Platform**  
 Support for physically decoupled "headless" deployments. Deploy your app "headlessly" to any platform that runs server-side JavaScript.
@@ -36,7 +36,7 @@ Use CDN’s, proxies and Node.js server to scale your applications
 
 ---
 
-### ![Services and Api’s](/assets/img/features_icon_3.svg) Services and Api’s
+### ![Services and Api’s](/assets/img/features/features_icon_3.svg) Services and Api’s
 
 **GraphQL**  
 Use GraphQL to query Sitecore and retrieve the data you need in the most efficient way
@@ -49,7 +49,7 @@ Sitecore JSS has been built to allow you to take advantage of one of Sitecore's 
 
 ---
 
-### ![Content management](/assets/img/features_icon_4.svg) Content management
+### ![Content management](/assets/img/features/features_icon_4.svg) Content management
 
 **Content Creation & Advanced Editor**  
 Use the Sitecore Experience Editor, a WYSIWYG editor that allows you to easily make changes to items directly on the page. You can edit all the items that are visible on the page — text, graphics, logos, links, and so on
@@ -62,7 +62,7 @@ The preview functionality lets you preview all your items on your website withou
 
 ---
 
-### ![Experience management](/assets/img/features_icon_5.svg) Experience management
+### ![Experience management](/assets/img/features/features_icon_5.svg) Experience management
 
 **Analytics**  
 Experience Analytics contains tools that let you view detailed reports about your website's visitors in real time

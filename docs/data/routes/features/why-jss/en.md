@@ -22,7 +22,7 @@ title: Why JavaScript Services?
 ---
 
 <div class="section column pb-md-3 pt-md-3">
-<img src="/assets/img/UnplugedDev.svg" class="float-right pl-md-5 pr-md-5"/>
+<img src="/assets/img/features/UnplugedDev.svg" class="float-right pl-md-5 pr-md-5"/>
 <div class="section-content pl-md-5 pr-md-5">
 <h5 class="mb-md-4">Workflow</h5>
 <p>Code-first or Sitecore-first; choose the development workflow that suits your situation best.</p>
@@ -32,7 +32,7 @@ title: Why JavaScript Services?
 ---
 
 <div class="section column pb-md-3 pt-md-3">
-<img src="/assets/img/AppIntegration.svg" class="float-left pl-md-5 pr-md-5"/>
+<img src="/assets/img/features/AppIntegration.svg" class="float-left pl-md-5 pr-md-5"/>
 <div class="section-content pl-md-5 pr-md-5">
 <h5 class="mb-md-4">Application Integration</h5>
 <p>With a code-first approach, your app can be imported into Sitecore XP, and JSS will take care of the generation of all the necessary artifacts.</p>
@@ -72,7 +72,7 @@ title: Why JavaScript Services?
 ---
 
 <div class="section column pb-md-3 pt-md-3">
-<img src="/assets/img/GraphQL.svg" class="float-left pl-md-5 pr-md-5"/>
+<img src="/assets/img/features/GraphQL.svg" class="float-left pl-md-5 pr-md-5"/>
 <div class="section-content pl-md-5 pr-md-5">
 <h5 class="mb-md-4">GraphQL</h5>
 <p>Use GraphQL to query Sitecore and retrieve the data you need in the most efficient way</p>
