@@ -127,7 +127,7 @@ describe('rewriteRequestPath', () => {
           },
         };
         const parseRouteUrl = (incomingUrl: string) => ({
-          sitecoreRoute: `${incomingUrl.slice(0, incomingUrl.indexOf('?'))}/dolor`,
+          sitecoreRoute: `${incomingUrl}/dolor`,
           lang: 'zz-ZZ',
         });
         const actual = rewriteRequestPath(url, req, config, parseRouteUrl);
