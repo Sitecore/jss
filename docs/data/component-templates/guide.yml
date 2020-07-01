@@ -34,7 +34,7 @@ placeholders:
             title:
               value: Guides & Recommended Practices
             text:
-              value: A collection of learnings and recommendations from our team of JSS developers, based on from real-world projects and community feedback.
+              value: A collection of learnings and recommendations from our team of JSS developers, based on real-world projects and community feedback.
       jssdocs-aside:
         - componentName: SideNav
           fields:
