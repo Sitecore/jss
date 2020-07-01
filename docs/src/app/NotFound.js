@@ -1,11 +1,7 @@
 import React from 'react';
-import { Layout } from 'antd';
-import Footer from 'components/Footer';
-const Header = Layout.Header;
 
 const NotFound = (props) => (
   <div id="app-wrap">
-    <Header />
     <div className="container">
       <div className="row">
         <div className="col-12 pt-5 pb-5">
@@ -16,7 +12,6 @@ const NotFound = (props) => (
         </div>
       </div>
     </div>
-    <Footer />
   </div>
 );
 
