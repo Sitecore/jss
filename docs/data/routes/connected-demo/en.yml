@@ -3,6 +3,19 @@ fields:
   title:
     value: Untitled
 placeholders:
+  jssdocs-header:
+  - componentName: Row
+    params:
+      justify: start
+      padding: 30
+    placeholders:
+      jssdocs-row:
+        - componentName: Logo
+          params:
+            flex: 300px
+        - componentName: MainNav
+          params:
+            flex: auto
   jssdocs-main:
   - componentName: ArticleContainer
     fields:
@@ -30,3 +43,19 @@ placeholders:
             text:
               value: |
                 $html$
+  jssdocs-footer:
+  - componentName: Row
+    params:
+      justify: center
+      compactGutter: 24
+      fullSizeGutter: 32
+    placeholders:
+      jssdocs-row:
+        - componentName: FooterNav
+  - componentName: Row
+    params:
+      justify: center
+      margin: 30
+    placeholders:
+      jssdocs-row:
+        - componentName: Disclaimers

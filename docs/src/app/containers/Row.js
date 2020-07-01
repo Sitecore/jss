@@ -7,7 +7,7 @@ const Row = ({ params, rendering }) => (
     style={params}
     justify={params.justify}
     align={params.align}
-    gutter={params.gutter}
+    gutter={{ md: params.compactGutter, lg: params.fullSizeGutter}}
   >
     <Placeholder name="jssdocs-row" rendering={rendering} />
   </LayoutRow>

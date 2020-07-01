@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col } from 'antd';
+import { Col } from 'antd';
 
 const FooterNav = ({ fields }) => (
-  <Row gutter={{ md: 24, lg: 32 }} justify="center">
+  <React.Fragment>
     <Col xs={24} md={5}>
       <Link
         to="/features"
@@ -135,7 +135,7 @@ const FooterNav = ({ fields }) => (
         </a>
       </nav>
     </Col>
-  </Row>
+  </React.Fragment>
 );
 
 export default FooterNav;

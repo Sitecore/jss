@@ -75,5 +75,18 @@ placeholders:
               linkUrl:
                 value: /features/why-jss
   jssdocs-footer:
-  - componentName: FooterNav
-  - componentName: Disclaimers
+  - componentName: Row
+    params:
+      justify: center
+      compactGutter: 24
+      fullSizeGutter: 32
+    placeholders:
+      jssdocs-row:
+        - componentName: FooterNav
+  - componentName: Row
+    params:
+      justify: center
+      margin: 30
+    placeholders:
+      jssdocs-row:
+        - componentName: Disclaimers

@@ -39,11 +39,18 @@ export default (manifest) => {
         validationMessage: 'Invalid value in "justify" field. Acceptable values are: top, middle, bottom.'
       },
       {
-        name: 'gutter',
+        name: 'compactGutter',
         type: manifest.fieldTypes.number,
-        description: 'spacing between columns',
+        description: 'horizontal spacing between columns on smaller screens',
         required: false,
         standardValue: 15,
+      },
+      {
+        name: 'fullSizeGutter',
+        type: manifest.fieldTypes.number,
+        description: 'horizontal spacing between columns on larger screens',
+        required: false,
+        standardValue: 30,
       }
     ],
     placeholders: [ 'jssdocs-row' ]
