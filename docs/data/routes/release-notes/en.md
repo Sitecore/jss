@@ -5,6 +5,18 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 13.2 for Sitecore 9.3
+
+### New Features & Improvements
+
+* [PR #357](https://github.com/Sitecore/jss/pull/392) [Forms] Implement FileUpload field
+* [Commit](https://github.com/Sitecore/jss/commit/097f734568bc81585c3c9612b571c83165614442) [Doc][Form] Document how to customize FormFetcher of the <Form> component
+
+### Bug Fixes
+
+* [PR #381](https://github.com/Sitecore/jss/pull/381) [Doc] Minor formatting fix in JSS Server Setup documentation
+* [PR #388](https://github.com/Sitecore/jss/pull/388) [Doc][node-headless-ssr-proxy sample] - Fix broken Headless SSR mode link
+
 ## Sitecore JSS 13.1 for Sitecore 9.3
 
 ### New Features & Improvements
