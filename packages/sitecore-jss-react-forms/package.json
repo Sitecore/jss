@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-forms",
-  "version": "13.1.0",
+  "version": "13.2.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -49,7 +49,7 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-forms": "^13.1.0",
+    "@sitecore-jss/sitecore-jss-forms": "^13.2.0",
     "prop-types": "^15.7.2"
   },
   "description": "",
