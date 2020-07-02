@@ -10,7 +10,7 @@
 	* [Terminology](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/sitecore-for-feds/terminology/en.md) 
 	* [Common Pitfalls](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/sitecore-for-feds/common-pitfalls/en.md) 
 * **Getting Started**	
-	* [Migrating to JSS](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/getting-started/migrating/en.md) 
+	* [Migrating to JSS](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/getting-started/migrating-to-jss/en.md) 
 	* [Solution Setup](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/getting-started/solution-setup/en.md) 
 	* [Solution Structure](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/getting-started/solution-structure/en.md) 
 	* [Component Granularity](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/getting-started/component-granularity/en.md) 
