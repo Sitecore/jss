@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withComponentFactory() should pass factory to wrapped component from context 1`] = `
+<View>
+  <Text>
+    Hello world...
+  </Text>
+  <Text>
+    Custom property:
+    yyy
+  </Text>
+  <Text>
+    I'm component from factory
+  </Text>
+</View>
+`;
+
+exports[`withComponentFactory() should pass factory to wrapped component from props 1`] = `
+<View>
+  <Text>
+    Hello world...
+  </Text>
+  <Text>
+    Custom property:
+    yyy
+  </Text>
+  <Text>
+    I'm component from props factory
+  </Text>
+</View>
+`;
