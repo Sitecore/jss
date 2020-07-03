@@ -26,6 +26,8 @@ export default class RouteHandler extends React.Component {
       defaultLanguage: config.defaultLanguage,
     };
 
+    debugger;
+
     if (ssrInitialState && ssrInitialState.sitecore && ssrInitialState.sitecore.route) {
       // set the initial sitecore context data if we got SSR initial state
       SitecoreContextFactory.setSitecoreContext({
@@ -49,8 +51,11 @@ export default class RouteHandler extends React.Component {
     // if we have an SSR state, and that state has language data, set the current language
     // (this makes the language of content follow the Sitecore context language cookie)
     // note that a route-based language (i.e. /de-DE) will override this default; this is for home.
-    if (ssrInitialState && ssrInitialState.context && ssrInitialState.context.language) {
-      this.state.defaultLanguage = ssrInitialState.context.language;
+    if (ssrInitialState &&
+      ssrInitialState.sitecore &&
+      ssrInitialState.sitecore.context &&
+      ssrInitialState.sitecore.context.language) {
+      this.state.defaultLanguage = ssrInitialState.sitecore.context.language;
     }
 
     // once we initialize the route handler, we've "used up" the SSR data,
