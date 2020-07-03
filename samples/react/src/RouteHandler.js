@@ -26,8 +26,6 @@ export default class RouteHandler extends React.Component {
       defaultLanguage: config.defaultLanguage,
     };
 
-    debugger;
-
     if (ssrInitialState && ssrInitialState.sitecore && ssrInitialState.sitecore.route) {
       // set the initial sitecore context data if we got SSR initial state
       SitecoreContextFactory.setSitecoreContext({
