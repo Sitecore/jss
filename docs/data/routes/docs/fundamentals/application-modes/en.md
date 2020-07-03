@@ -72,10 +72,10 @@ This mode allows your Sitecore users to manage content, presentation and other m
 ![integrated mode diagram](/assets/img/mode-integrated.svg)
 
 #### Characteristics
-- Rendering performed by server (SSR by Node instances orchestrated by Sitecore) 
+- Rendering performed by server (SSR by [Node instances orchestrated by Sitecore](/docs/fundamentals/services/view-engine#nodejs-rendering-engine) or via a [remote rendering host](/docs/fundamentals/services/view-engine#http-rendering-engine)) 
 - Data comes from Sitecore LayoutService, passed from Sitecore to Node with no extra HTTP call
 - Requires configuration of the application with Sitecore
-- Usage: Content Management/Authoring server, production Content Delivery server (if not using headless hosting)
+- Usage: Content Management/Authoring server, production Content Delivery server (if not using headless hosting or remote rendering host)
 
 #### How to use
 
