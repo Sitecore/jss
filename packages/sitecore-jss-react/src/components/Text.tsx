@@ -43,6 +43,10 @@ export const Text: FunctionComponent<TextProps> = ({ field, tag, editable, encod
   if (!field.editable && value) {
     const splitted = value.split('\n');
 
+    if (splitted.length) {
+      output = [];
+    }
+
     splitted.forEach((str, i) => {
       const isLast = i === splitted.length - 1;
 

@@ -71,7 +71,7 @@ describe('<Text />', () => {
     };
     const rendered = mount(<Text tag="span" field={field} />).find('span');
     expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('<span>\n<br></span>');
+    expect(rendered.html()).to.contain('<span><br></span>');
   });
 
   it('should render embedded html as-is when encoding is disabled', () => {
