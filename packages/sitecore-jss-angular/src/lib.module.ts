@@ -34,7 +34,9 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
 import { LayoutService } from './layout.service';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+  ],
   declarations: [
     FileDirective,
     ImageDirective,
@@ -69,7 +71,10 @@ import { LayoutService } from './layout.service';
     TextDirective,
     GenericRichTextDirective,
   ],
-  entryComponents: [RawComponent, MissingComponentComponent],
+  entryComponents: [
+    RawComponent,
+    MissingComponentComponent,
+  ],
 })
 export class JssModule {
   /**
@@ -103,10 +108,7 @@ export class JssModule {
    * Instantiates the JSS module and specifies the mapping from component name to component implementation.
    * Appropriate when defining the set of JSS components that your app is aware of.
    */
-  static withComponents(
-    components: ComponentNameAndType[],
-    lazyComponents?: ComponentNameAndModule[]
-  ): ModuleWithProviders {
+  static withComponents(components: ComponentNameAndType[], lazyComponents?: ComponentNameAndModule[]): ModuleWithProviders {
     return {
       ngModule: JssModule,
       providers: [

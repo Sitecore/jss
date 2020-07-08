@@ -1,12 +1,5 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  Renderer2,
-  TemplateRef,
-  ViewContainerRef,
-} from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Directive, ElementRef, Input, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 import { isAbsoluteUrl } from '@sitecore-jss/sitecore-jss';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
@@ -14,20 +7,16 @@ import { LinkField } from './rendering-field';
 @Directive({ selector: '[scGenericLink]' })
 export class GenericLinkDirective extends LinkDirective {
   // tslint:disable-next-line:no-input-rename
-  @Input('scGenericLinkEditable')
-  editable = true;
+  @Input('scGenericLinkEditable') editable = true;
 
   // tslint:disable-next-line:no-input-rename
-  @Input('scGenericLinkAttrs')
-  attrs: any = {};
+  @Input('scGenericLinkAttrs') attrs: any = {};
 
   // tslint:disable-next-line:no-input-rename
-  @Input('scGenericLink')
-  field: LinkField;
+  @Input('scGenericLink') field: LinkField;
 
   // tslint:disable-next-line:no-input-rename
-  @Input('scGenericLinkExtras')
-  extras?: NavigationExtras;
+  @Input('scGenericLinkExtras') extras?: NavigationExtras;
 
   constructor(
     viewContainer: ViewContainerRef,
