@@ -4,7 +4,7 @@ import {
   Injector,
   ModuleWithProviders,
   NgModule,
-  Type,
+  Type
 } from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { dataResolverFactory } from './components/data-resolver-factory';
@@ -25,7 +25,7 @@ import {
   GUARD_RESOLVER,
   PLACEHOLDER_COMPONENTS,
   PLACEHOLDER_LAZY_COMPONENTS,
-  PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
+  PLACEHOLDER_MISSING_COMPONENT_COMPONENT
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { RenderComponentComponent } from './components/render-component.component';

@@ -26,17 +26,14 @@ import { Data, UrlTree, Router } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
-import {
-  ComponentFactoryResult,
-  JssComponentFactoryService,
-} from '../jss-component-factory.service';
+import { ComponentFactoryResult, JssComponentFactoryService } from '../jss-component-factory.service';
 import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import {
   DataResolver,
   DATA_RESOLVER,
   GuardResolver,
   GUARD_RESOLVER,
-  PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
+  PLACEHOLDER_MISSING_COMPONENT_COMPONENT
 } from './placeholder.token';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
@@ -66,31 +63,21 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   private _differ: KeyValueDiffer<string, any>;
   private _componentInstances: any[] = [];
   private destroyed = false;
-  private parentStyleAttribute = '';
+  private parentStyleAttribute: string = '';
   public isLoading = true;
 
-  @Input()
-  name?: string;
-  @Input()
-  rendering: ComponentRendering;
-  @Input()
-  renderings?: Array<ComponentRendering | HtmlElementRendering>;
-  @Input()
-  outputs: { [k: string]: (eventType: any) => void };
-  @Input()
-  clientOnly = false;
+  @Input() name?: string;
+  @Input() rendering: ComponentRendering;
+  @Input() renderings?: Array<ComponentRendering | HtmlElementRendering>;
+  @Input() outputs: { [k: string]: (eventType: any) => void };
+  @Input() clientOnly = false;
 
-  @Output()
-  loaded = new EventEmitter<string | undefined>();
+  @Output() loaded = new EventEmitter<string | undefined>();
 
-  @ViewChild('view', { read: ViewContainerRef, static: true })
-  private view: ViewContainerRef;
-  @ContentChild(RenderEachDirective, { static: true })
-  renderEachTemplate: RenderEachDirective;
-  @ContentChild(RenderEmptyDirective, { static: true })
-  renderEmptyTemplate: RenderEmptyDirective;
-  @ContentChild(PlaceholderLoadingDirective, { static: true })
-  placeholderLoading?: PlaceholderLoadingDirective;
+  @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
+  @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
+  @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
+  @ContentChild(PlaceholderLoadingDirective, { static: true }) placeholderLoading?: PlaceholderLoadingDirective;
 
   @Input()
   set inputs(value: { [key: string]: any }) {
@@ -150,33 +137,24 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       return;
     }
     const updates: { [key: string]: any } = {};
-    changes.forEachRemovedItem((change) => (updates[change.key] = null));
-    changes.forEachAddedItem((change) => (updates[change.key] = change.currentValue));
-    changes.forEachChangedItem((change) => (updates[change.key] = change.currentValue));
-    this._componentInstances.forEach((componentInstance) =>
-      this._setComponentInputs(componentInstance, updates)
-    );
+    changes.forEachRemovedItem((change) => updates[change.key] = null);
+    changes.forEachAddedItem((change) => updates[change.key] = change.currentValue);
+    changes.forEachChangedItem((change) => updates[change.key] = change.currentValue);
+    this._componentInstances.forEach((componentInstance) => this._setComponentInputs(componentInstance, updates));
   }
 
   private _setComponentInputs(componentInstance: any, inputs: { [key: string]: any }) {
-    Object.entries(inputs).forEach(
-      ([input, inputValue]) => (componentInstance[input] = inputValue)
-    );
+    Object.entries(inputs).forEach(([input, inputValue]) => componentInstance[input] = inputValue);
   }
 
-  private _subscribeComponentOutputs(
-    componentInstance: any,
-    outputs: { [k: string]: (eventType: any) => void }
-  ) {
+  private _subscribeComponentOutputs(componentInstance: any, outputs: { [k: string]: (eventType: any) => void }) {
     Object.keys(outputs)
-      .filter(
-        (output) => componentInstance[output] && componentInstance[output] instanceof Observable
-      )
-      .forEach((output) =>
-        (componentInstance[output] as Observable<any>)
-          .pipe(takeWhile(() => !this.destroyed))
-          .subscribe(outputs[output])
-      );
+      .filter((output) => componentInstance[output] && componentInstance[output] instanceof Observable)
+      .forEach((output) => (componentInstance[output] as Observable<any>)
+        .pipe(
+          takeWhile(() => !this.destroyed)
+        )
+        .subscribe(outputs[output]));
   }
 
   private async _render() {
@@ -193,9 +171,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
     if (!this.name && !this.renderings) {
       // tslint:disable-next-line:max-line-length
-      console.warn(
-        `Placeholder name was not specified, and explicit renderings array was not passed. Placeholder requires either name and rendering, or renderings.`
-      );
+      console.warn(`Placeholder name was not specified, and explicit renderings array was not passed. Placeholder requires either name and rendering, or renderings.`);
       this.isLoading = false;
       return;
     }
@@ -203,21 +179,17 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     const placeholder = this.renderings || getPlaceholder(this.rendering, this.name || '');
 
     if (!placeholder) {
-      console.warn(
-        `Placeholder '${this.name}' was not found in the current rendering data`,
-        JSON.stringify(this.rendering, null, 2)
-      );
+      console.warn(`Placeholder '${this.name}' was not found in the current rendering data`, JSON.stringify(this.rendering, null, 2));
       this.isLoading = false;
       return;
     }
 
     // if the placeholder is empty (contains only raw renderings), then we may need to use the empty template if it's defined
-    const placeholderIsEmpty = placeholder.every(
-      (rendering: ComponentRendering | HtmlElementRendering) => isRawRendering(rendering)
-    );
+    const placeholderIsEmpty = placeholder.every((rendering: ComponentRendering | HtmlElementRendering) => isRawRendering(rendering));
 
     if (this.renderEmptyTemplate && placeholderIsEmpty) {
-      this.view.createEmbeddedView(this.renderEmptyTemplate.templateRef, {
+      this.view.createEmbeddedView(this.renderEmptyTemplate.templateRef,
+        {
         renderings: placeholder,
       });
       this.isLoading = false;
@@ -261,7 +233,8 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     // the render-each template takes care of all component mapping etc
     // generally using <sc-render-component> which is about like _renderEmbeddedComponent()
     // as a separate component
-    this.view.createEmbeddedView(this.renderEachTemplate.templateRef, {
+    this.view.createEmbeddedView(this.renderEachTemplate.templateRef,
+      {
       rendering,
       index,
     });
@@ -282,18 +255,13 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     }
 
     const componentFactory =
-      rendering.componentFactory ||
-      this.componentFactoryResolver.resolveComponentFactory(rendering.componentImplementation);
+      rendering.componentFactory || this.componentFactoryResolver.resolveComponentFactory(rendering.componentImplementation);
 
     // apply the parent style attribute _ngcontent
     // work-around for https://github.com/angular/angular/issues/12215
     const createdComponentRef = this.view.createComponent(componentFactory, index);
     if (this.parentStyleAttribute) {
-      this.renderer.setAttribute(
-        createdComponentRef.location.nativeElement,
-        this.parentStyleAttribute,
-        ''
-      );
+      this.renderer.setAttribute(createdComponentRef.location.nativeElement, this.parentStyleAttribute, '');
     }
 
     const componentInstance = createdComponentRef.instance;

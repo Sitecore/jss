@@ -46,18 +46,10 @@ export function instanceOfComponentNameAndModule(object: any): object is Compone
   return 'module' in object;
 }
 
-export const PLACEHOLDER_COMPONENTS = new InjectionToken<ComponentNameAndType[]>(
-  'Sc.placeholder.components'
-);
-export const PLACEHOLDER_LAZY_COMPONENTS = new InjectionToken<ComponentNameAndType[]>(
-  'Sc.placeholder.lazyComponents'
-);
-export const PLACEHOLDER_MISSING_COMPONENT_COMPONENT = new InjectionToken<Type<any>>(
-  'Sc.placeholder.missingComponentComponent'
-);
-export const DYNAMIC_COMPONENT = new InjectionToken<Type<any> | { [s: string]: any }>(
-  'Sc.placeholder.dynamicComponent'
-);
+export const PLACEHOLDER_COMPONENTS = new InjectionToken<ComponentNameAndType[]>('Sc.placeholder.components');
+export const PLACEHOLDER_LAZY_COMPONENTS = new InjectionToken<ComponentNameAndType[]>('Sc.placeholder.lazyComponents');
+export const PLACEHOLDER_MISSING_COMPONENT_COMPONENT = new InjectionToken<Type<any>>('Sc.placeholder.missingComponentComponent');
+export const DYNAMIC_COMPONENT = new InjectionToken<Type<any> | { [s: string]: any }>('Sc.placeholder.dynamicComponent');
 
 export type GuardResolver = (result: ComponentFactoryResult[]) => Promise<ComponentFactoryResult[]>;
 

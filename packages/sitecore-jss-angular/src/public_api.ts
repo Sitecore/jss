@@ -14,14 +14,7 @@ export {
 } from './components/placeholder.token';
 export { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 export { isRawRendering } from './components/rendering';
-export {
-  FileField,
-  ImageField,
-  LinkField,
-  RenderingField,
-  RichTextField,
-  TextField,
-} from './components/rendering-field';
+export { FileField, ImageField, LinkField, RenderingField, RichTextField, TextField } from './components/rendering-field';
 export { RichTextDirective } from './components/rich-text.directive';
 export { TextDirective } from './components/text.directive';
 export { LayoutService } from './layout.service';
@@ -45,5 +38,5 @@ export {
   ComponentParams,
   HttpJsonFetcher,
   HttpResponse,
-  isServer,
+  isServer
 } from '@sitecore-jss/sitecore-jss';

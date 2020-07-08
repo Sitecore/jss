@@ -6,7 +6,7 @@ import {
   Injector,
   NgModuleFactory,
   NgModuleFactoryLoader,
-  Type,
+  Type
 } from '@angular/core';
 import { LoadChildren } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
@@ -19,7 +19,7 @@ import {
   JssCanActivate,
   JssResolve,
   PLACEHOLDER_COMPONENTS,
-  PLACEHOLDER_LAZY_COMPONENTS,
+  PLACEHOLDER_LAZY_COMPONENTS
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { isRawRendering } from './components/rendering';
@@ -83,16 +83,15 @@ export class JssComponentFactoryService {
     const lazyComponent = this.lazyComponentMap.get(component.componentName);
 
     if (lazyComponent) {
-      return this.loadModuleFactory(lazyComponent.loadChildren).then((ngModuleFactory) => {
+      return this.loadModuleFactory(lazyComponent.loadChildren)
+      .then((ngModuleFactory) => {
         let componentType = null;
         const moduleRef = ngModuleFactory.create(this.injector);
         const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
         if (!dynamicComponentType) {
           throw new Error(
             // tslint:disable-next-line:max-line-length
-            `JssComponentFactoryService: Lazy load module for component "${
-              lazyComponent.path
-            }" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
+            `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
           );
         }
 
@@ -104,9 +103,7 @@ export class JssComponentFactoryService {
           } else {
             throw new Error(
               // tslint:disable-next-line:max-line-length
-              `JssComponentFactoryService: Lazy load module for component "${
-                lazyComponent.path
-              }" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
+              `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
             );
           }
         }
@@ -114,9 +111,7 @@ export class JssComponentFactoryService {
         return {
           componentDefinition: component,
           componentImplementation: componentType,
-          componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(
-            componentType
-          ),
+          componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(componentType),
           canActivate: lazyComponent.canActivate,
         };
       });
@@ -146,15 +141,12 @@ export class JssComponentFactoryService {
     }
   }
 
-  getComponents(
-    components: Array<ComponentRendering | HtmlElementRendering>
-  ): Promise<ComponentFactoryResult[]> {
+  getComponents(components: Array<ComponentRendering | HtmlElementRendering>): Promise<ComponentFactoryResult[]> {
     // acquire all components and keep them in order while handling their potential async-ness
     return Promise.all(
-      components.map(
-        (component) =>
-          isRawRendering(component) ? this.getRawComponent(component) : this.getComponent(component)
-      )
+      components.map((component) => isRawRendering(component)
+        ? this.getRawComponent(component)
+        : this.getComponent(component))
     );
   }
 
