@@ -34,7 +34,9 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
 import { LayoutService } from './layout.service';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+  ],
   declarations: [
     FileDirective,
     ImageDirective,

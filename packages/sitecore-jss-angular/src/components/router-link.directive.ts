@@ -1,11 +1,4 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  Renderer2,
-  TemplateRef,
-  ViewContainerRef,
-} from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
@@ -13,16 +6,13 @@ import { LinkField } from './rendering-field';
 @Directive({ selector: '[scRouterLink]' })
 export class RouterLinkDirective extends LinkDirective {
   // tslint:disable-next-line:no-input-rename
-  @Input('scRouterLinkEditable')
-  editable = true;
+  @Input('scRouterLinkEditable') editable = true;
 
   // tslint:disable-next-line:no-input-rename
-  @Input('scRouterLinkAttrs')
-  attrs: any = {};
+  @Input('scRouterLinkAttrs') attrs: any = {};
 
   // tslint:disable-next-line:no-input-rename
-  @Input('scRouterLink')
-  field: LinkField;
+  @Input('scRouterLink') field: LinkField;
 
   constructor(
     viewContainer: ViewContainerRef,
