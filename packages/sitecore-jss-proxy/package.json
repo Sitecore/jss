@@ -35,8 +35,8 @@
     "@types/node": "^12.7.11",
     "@types/set-cookie-parser": "^0.0.5",
     "chai": "^4.2.0",
-    "del-cli": "^3.0.0",
-    "mocha": "^6.2.1",
+    "del-cli": "^3.0.1",
+    "mocha": "^8.0.1",
     "sinon": "^7.0.0",
     "ts-node": "^8.4.1",
     "typescript": "^3.1.3"
