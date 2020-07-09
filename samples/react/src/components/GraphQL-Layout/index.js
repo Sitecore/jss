@@ -2,7 +2,7 @@ import React from 'react';
 import { Placeholder, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 
 const GraphQLLayout = ({ sitecoreContext, rendering }) => {
-  const disconnectedMode = sitecoreContext.route && sitecoreContext.route.layoutId === 'available-in-connected-mode';
+  const disconnectedMode = sitecoreContext.route.layoutId === 'available-in-connected-mode';
 
   return (
     <div data-e2e-id="graphql-layout">
