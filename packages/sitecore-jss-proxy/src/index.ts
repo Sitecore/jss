@@ -1,7 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import proxy from 'http-proxy-middleware';
-import setCookieParser from 'set-cookie-parser';
 import HttpStatus from 'http-status-codes';
+import setCookieParser from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
 import { AppRenderer } from './AppRenderer';
 import { ProxyConfig } from './ProxyConfig';
@@ -298,7 +298,7 @@ export function rewriteRequestPath(
   const decodedReqPath = decodeURIComponent(reqPath);
 
   // if the request URL contains a path/route that should not be re-written, then just pass it along as-is
-  if (isUrlIgnored(decodedReqPath, config)) {
+  if (isUrlIgnored(reqPath, config)) {
     // we do not return the decoded URL because we're using it verbatim - should be encoded.
     return reqPath;
   }
