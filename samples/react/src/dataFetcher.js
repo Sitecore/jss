@@ -1,12 +1,24 @@
 import axios from 'axios';
 import config from './temp/config';
 
-const hostnameContainsIP = () => window.location.href.includes(config.ipAddress);
+/**
+ * Check whether user access application using port or hostname
+ * @returns {boolean}
+ */
+const hostnameIncludesIP = () => window.location.href.includes(config.ipAddress);
 
-export const getHostname = () => hostnameContainsIP() ? config.ipAddress : config.sitecoreApiHost 
+/**
+ * Get hostname which used to access application
+ * @returns {string} hostname
+ */
+export const getHostname = () => hostnameIncludesIP() ? config.ipAddress : config.sitecoreApiHost 
 
+/**
+ * Get GraphQLEndpoint that depends on current hostname
+ * @returns {string} GraphQLEndpoint
+ */
 export const getGraphQLEndpoint = () =>
-  hostnameContainsIP() 
+  hostnameIncludesIP() 
     ? config.graphQLEndpoint.replace(config.sitecoreApiHost, config.ipAddress)
     : config.graphQLEndpoint 
 
