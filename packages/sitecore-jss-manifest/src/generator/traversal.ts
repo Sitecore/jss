@@ -60,7 +60,8 @@ export function traverseAllItems(items: any[], callback: (item: any, type: strin
         }
 
         // individual item reference (i.e. droplink, droptree)
-        if (currentField.value && currentField.value.id) {
+        // checking for resolvedFromItemId in case referenced objects were not fully built the first run through
+        if (currentField.value && (currentField.value.id || currentField.value.resolvedFromItemId)) {
           processCandidateFieldValue(currentField.value);
         }
       });

@@ -21,6 +21,7 @@
 
 <script>
 import StyleguideSpecimen from './Styleguide-Specimen';
+
 export default {
   name: 'Styleguide-Specimen',
   props: {

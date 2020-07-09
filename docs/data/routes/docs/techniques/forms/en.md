@@ -167,6 +167,7 @@ const LabelComponent = (props) => (
     htmlFor={props.field.valueField.id}
     style={{ color: 'blue' }}
   >
+    {props.children}
     {props.field.model.title}
   </label>
 );
@@ -174,6 +175,8 @@ const LabelComponent = (props) => (
 // Usage on form component
 <Form labelComponent={LabelComponent} {...otherProps} />
 ```
+
+> Some of the components can contain markup that nested into basic `<Label />` component (for example `<Checkbox />`). In this case you should add `props.children` into markup of `<LabelComponent />`. So in `<Checkbox />` check button will be placed before `props.field.model.title`
 
 ##### Customizing Error Handling
 
@@ -218,9 +221,54 @@ const FieldErrorComponent = (props) => (
 <Form fieldValidationErrorsComponent={FieldErrorComponent} {...otherProps} />
 ```
 
+#### Customizing Form Fetcher
+
+You can customize the behaviour of the default FormFetcher. You can add custom error handler, in case if unhandled error was thrown.
+
+```js
+export const formFetcher = (formData, endpoint) => fetch(endpoint, {
+  body: formData.toUrlEncodedFormData(),
+  method: 'post',
+  // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
+  credentials: 'include',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  }
+})
+  .then((res) => res.json())
+  .catch(() => {
+    return {
+      success: false,
+      errors: 'Something went wrong. Error was thrown when submit form'
+    }
+  })
+
+// Usage on form component
+<Form formFetcher={formFetcher} {...otherProps} />
+```
+
+You can implement _formFetcher_ using `multipart/form-data` Content-Type.
+
+```js
+export const formFetcher = (formData, endpoint) => fetch(endpoint, {
+  body: formData.toMultipartFormData(),
+  method: 'post',
+  // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
+  credentials: 'include',
+  // Browser set 'Content-Type' automatically with multipart/form-data; boundary
+})
+  .then((res) => res.json())
+  .catch(() => {
+    return {
+      success: false,
+      errors: 'Something went wrong. Error was thrown when submit form'
+    }
+  })
+```
+
 ### Limitations
 
 There are some limitations to be aware of with JSS' Sitecore Forms support.
 
-* Forms cannot be defined or rendered in disconnected mode (connected, integrated, or headless modes are supported)
+* Forms cannot be defined or rendered in disconnected or headless mode (connected, integrated are supported)
 * Conditional fields are not supported by the JSS forms example implementation; however conditional data is returned by the form API

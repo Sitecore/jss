@@ -28,6 +28,7 @@
 
 <script>
 import { getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
+
 import StyleguideSpecimen from './Styleguide-Specimen';
 
 export default {

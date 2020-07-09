@@ -14,7 +14,7 @@ const isComponentRendering = (element: any): element is ComponentRendering => el
 export const convertPropDataToLayoutServiceFormat = (
   propData:
     | {
-        [name: string]: Field | Item[] | undefined;
+        [name: string]: Field | Item | Item[] | undefined;
       }
     | undefined
 ): { [name: string]: Field } | {} => {
@@ -40,6 +40,14 @@ export const convertPropDataToLayoutServiceFormat = (
         };
       });
       return newResult;
+    }
+
+    // check if type is not a Field, so it's Item
+    if (!('value' in propValue) && !('editable' in propValue)) {
+      return {
+        ...propValue,
+        fields: convertPropDataToLayoutServiceFormat(propValue.fields)
+      }
     }
 
     // assume propValue _should_ always contain a 'value' key. if it doesn't then bail.

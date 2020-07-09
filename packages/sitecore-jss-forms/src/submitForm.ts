@@ -9,14 +9,11 @@ export interface FormSubmitOptions {
 
 export function createFetchBasedFormFetcher(options?: RequestInit): FormFetcher {
   return (formData: JssFormData, endpoint: string) => fetch(endpoint, {
-    // IMPORTANT: Sitecore's antiforgery tokens require x-www-form-urlencoded to validate correctly.
-    body: formData.toUrlEncodedFormData(),
+    body: formData.toMultipartFormData(),
     method: 'post',
     // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
     credentials: 'include',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
+    // Browser set 'Content-Type' automatically with multipart/form-data; boundary
     ...options,
   })
   .then((res) => res.json())

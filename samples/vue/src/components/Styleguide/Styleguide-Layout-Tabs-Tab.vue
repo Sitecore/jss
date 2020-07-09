@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { Text, RichText } from '@sitecore-jss/sitecore-jss-vue';
+import { RichText, Text } from '@sitecore-jss/sitecore-jss-vue';
 
 export default {
   name: 'Styleguide-Layout-Tabs-Tab',

@@ -1,5 +1,6 @@
 import Section from './components/field-templates/section';
 import TextField from './components/field-templates/text';
+import FileUpload from './components/field-templates/file-upload';
 import SingleLineText from './components/field-templates/single-line-text';
 import Button from './components/field-templates/button';
 import Checkbox from './components/field-templates/checkbox';
@@ -29,6 +30,7 @@ export function createDefaultFieldFactory() {
   defaultFieldFactory.setComponent(FieldTypes.NumberField, NumberField);
   defaultFieldFactory.setComponent(FieldTypes.Checkbox, Checkbox);
   defaultFieldFactory.setComponent(FieldTypes.Telephone, Telephone);
+  defaultFieldFactory.setComponent(FieldTypes.FileUpload, FileUpload);
 
   defaultFieldFactory.setComponent(FieldTypes.DropdownList, DropdownList);
   defaultFieldFactory.setComponent(FieldTypes.CheckboxList, CheckboxList);

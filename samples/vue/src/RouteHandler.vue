@@ -8,6 +8,7 @@
 import { isExperienceEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-vue';
 import { dataFetcher } from './dataFetcher';
 import config from './temp/config';
+
 import Layout from './Layout';
 import NotFound from './NotFound';
 import RouteLoading from './RouteLoading';
