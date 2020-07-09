@@ -32,7 +32,7 @@ export default class RouteHandler extends React.Component {
         route: ssrInitialState.sitecore.route,
         itemId: ssrInitialState.sitecore.route.itemId,
         ...ssrInitialState.sitecore.context,
-      });
+      }, true);
     }
 
     // route data from react-router - if route was resolved, it's not a 404

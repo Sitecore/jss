@@ -35,9 +35,12 @@ export class SitecoreContextFactory {
     }
   }
 
-  setSitecoreContext = (value: any) => {
+  setSitecoreContext = (value: any, silent: boolean = false) => {
     this.context = value;
-    this.subscribers.forEach((func) => func(value));
+    
+    if (!silent) {
+      this.subscribers.forEach((func) => func(value));
+    }
   }
 }
 
