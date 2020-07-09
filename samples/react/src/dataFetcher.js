@@ -1,4 +1,14 @@
 import axios from 'axios';
+import config from './temp/config';
+
+const hostnameContainsIP = () => window.location.href.includes(config.ipAddress);
+
+export const getHostname = () => hostnameContainsIP() ? config.ipAddress : config.sitecoreApiHost 
+
+export const getGraphQLEndpoint = () =>
+  hostnameContainsIP() 
+    ? config.graphQLEndpoint.replace(config.sitecoreApiHost, config.ipAddress)
+    : config.graphQLEndpoint 
 
 /**
  * Implements a data fetcher using Axios - replace with your favorite

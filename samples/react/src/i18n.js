@@ -2,6 +2,7 @@ import i18n from 'i18next';
 import fetchBackend from 'i18next-fetch-backend';
 import { initReactI18next } from 'react-i18next';
 import config from './temp/config';
+import { getHostname } from './dataFetcher';
 
 /**
  * Initializes the i18next library to provide a translation dictionary to the app.
@@ -48,7 +49,7 @@ export default function i18nInit(language, dictionary) {
       // For higher performance (but less simplicity), consider adding the i18n chained backend to a local cache option like the local storage backend.
 
       // eslint-disable-next-line
-      const dictionaryServicePath = `${config.sitecoreApiHost}/sitecore/api/jss/dictionary/${config.jssAppName}/{{lng}}?sc_apikey=${config.sitecoreApiKey}`;
+      const dictionaryServicePath = `${getHostname()}/sitecore/api/jss/dictionary/${config.jssAppName}/{{lng}}?sc_apikey=${config.sitecoreApiKey}`;
 
       options.backend = {
         loadPath: dictionaryServicePath,

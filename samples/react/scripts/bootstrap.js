@@ -1,3 +1,4 @@
+const ip = require('ip');
 const configGenerator = require('./generate-config');
 
 /*
@@ -15,7 +16,10 @@ const disconnected = process.argv.some((arg) => arg === '--disconnected');
   that the app can import and use.
 */
 const port = process.env.PORT || 3000;
-const configOverride = disconnected ? { sitecoreApiHost: `http://localhost:${port}` } : null;
+const configOverride = disconnected 
+  ? { sitecoreApiHost: `http://localhost:${port}`, ipAddress: `http://${ip.address()}:${port}` } 
+  : null;
+  
 configGenerator(configOverride);
 
 /*

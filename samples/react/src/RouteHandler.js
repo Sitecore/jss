@@ -3,7 +3,7 @@ import i18n from 'i18next';
 import Helmet from 'react-helmet';
 import { isExperienceEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-react';
 import SitecoreContextFactory from './lib/SitecoreContextFactory';
-import { dataFetcher } from './dataFetcher';
+import { dataFetcher, getHostname } from './dataFetcher';
 import config from './temp/config';
 import Layout from './Layout';
 import NotFound from './NotFound';
@@ -202,7 +202,7 @@ export function setServerSideRenderingState(ssrState) {
  */
 function getRouteData(route, language) {
   const fetchOptions = {
-    layoutServiceConfig: { host: config.sitecoreApiHost },
+    layoutServiceConfig: { host: getHostname() },
     querystringParams: { sc_lang: language, sc_apikey: config.sitecoreApiKey },
     fetcher: dataFetcher,
   };

@@ -1,15 +1,25 @@
 const proxy = require('http-proxy-middleware');
+const ip = require('ip');
 const config = require('./temp/config');
 
 module.exports = (app) => {
   const isDisconnected = /localhost/i.test(config.sitecoreApiHost);
 
+  // when disconnected we proxy to the local faux layout service host,
+  // see scripts/disconnected-mode-proxy.js
+  const proxyURL = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
+  const ipProxyURL = `http://${ip.address()}:${process.env.PROXY_PORT || 3042}/`;
+
   if (isDisconnected) {
-    // when disconnected we proxy to the local faux layout service host,
-    // see scripts/disconnected-mode-proxy.js
-    const proxyUrl = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
-    app.use(proxy('/sitecore', { target: proxyUrl }));
-    app.use(proxy('/data/media', { target: proxyUrl }));
+    const proxyOptions = {
+      target: proxyURL,
+      router: {
+        [config.ipAddress]: ipProxyURL
+      }
+    }
+
+    app.use(proxy('/sitecore', proxyOptions));
+    app.use(proxy('/data/media', proxyOptions));
   } else {
     // when in connected mode we want to proxy Sitecore paths
     // off to Sitecore
