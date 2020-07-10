@@ -85,7 +85,7 @@ export class JssComponentFactoryService {
         }
 
         if (component.componentName in dynamicComponentType) {
-          componentType = (dynamicComponentType as { [s: string]: any })[component.componentName];
+          componentType = (dynamicComponentType as {[s: string]: any})[component.componentName];
         } else {
           if (typeof dynamicComponentType === 'function') {
             componentType = dynamicComponentType;

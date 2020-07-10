@@ -51,7 +51,7 @@ export class RenderComponentComponent implements OnChanges {
     private differs: KeyValueDiffers,
     private componentFactory: JssComponentFactoryService,
     @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>
-    ) { }
+  ) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['rendering']) {
