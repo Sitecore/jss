@@ -99,7 +99,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     @Inject(GUARD_RESOLVER) private guardResolver: GuardResolver,
     @Inject(DATA_RESOLVER) private dataResolver: DataResolver,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) { }
 
   ngOnInit() {
     // just to ensure the element exists
