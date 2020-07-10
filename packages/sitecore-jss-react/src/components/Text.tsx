@@ -41,7 +41,7 @@ export const Text: FunctionComponent<TextProps> = ({ field, tag, editable, encod
 
   // when value isn't formatted, we should format line breaks
   if (!field.editable && value) {
-    const splitted = value.split('\n');
+    const splitted = String(value).split('\n');
 
     if (splitted.length) {
       output = [];
