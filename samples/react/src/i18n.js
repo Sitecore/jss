@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import fetchBackend from 'i18next-fetch-backend';
 import { initReactI18next } from 'react-i18next';
 import config from './temp/config';
-import { getHostname } from './dataFetcher';
+import { getHostname } from './util';
 
 /**
  * Initializes the i18next library to provide a translation dictionary to the app.

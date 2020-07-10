@@ -3,7 +3,6 @@
 import fetch from 'isomorphic-fetch';
 import fs from 'fs';
 import generateConfig from './generate-config';
-import { getGraphQLEndpoint } from '../src/dataFetcher';
 
 // Apollo Client supports caching GraphQL responses, which can greatly reduce network traffic needs.
 // In order to work correctly with interfaces in GraphQL, it needs to know some basic information about
@@ -27,9 +26,9 @@ try {
   process.exit(1);
 }
 
-console.log(`Updating GraphQL fragment type data from ${getGraphQLEndpoint()}...`);
+console.log(`Updating GraphQL fragment type data from ${jssConfig.graphQLEndpoint}...`);
 
-fetch(getGraphQLEndpoint(), {
+fetch(jssConfig.graphQLEndpoint, {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({

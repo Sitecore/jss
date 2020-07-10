@@ -1,16 +1,15 @@
 const proxy = require('http-proxy-middleware');
 const ip = require('ip');
 const config = require('./temp/config');
+const { isDisconnected } = require('./util');
 
 module.exports = (app) => {
-  const isDisconnected = /localhost/i.test(config.sitecoreApiHost);
-
   // when disconnected we proxy to the local faux layout service host,
   // see scripts/disconnected-mode-proxy.js
   const proxyURL = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
   const ipProxyURL = `http://${ip.address()}:${process.env.PROXY_PORT || 3042}/`;
 
-  if (isDisconnected) {
+  if (isDisconnected()) {
     const proxyOptions = {
       target: proxyURL,
       router: {

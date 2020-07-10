@@ -9,7 +9,6 @@ import { setServerSideRenderingState } from './RouteHandler';
 import GraphQLClientFactory from './lib/GraphQLClientFactory';
 import config from './temp/config';
 import i18ninit from './i18n';
-import { getGraphQLEndpoint } from './dataFetcher';
 
 /* eslint-disable no-underscore-dangle */
 
@@ -56,7 +55,7 @@ if (__JSS_STATE__) {
 const initialGraphQLState =
   __JSS_STATE__ && __JSS_STATE__.APOLLO_STATE ? __JSS_STATE__.APOLLO_STATE : null;
 
-const graphQLClient = GraphQLClientFactory(getGraphQLEndpoint(), false, initialGraphQLState);
+const graphQLClient = GraphQLClientFactory(config.graphQLEndpoint, false, initialGraphQLState);
 
 /*
   App Rendering
