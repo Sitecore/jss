@@ -1,9 +1,8 @@
 // tslint:disable:max-classes-per-file
-import { RouterTestingModule } from '@angular/router/testing';
 import { Component, DebugElement, EventEmitter, Input, NgModuleFactoryLoader, Output } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
+import { RouterTestingModule, SpyNgModuleFactoryLoader } from '@angular/router/testing';
 
 import { JssModule } from '../lib.module';
 
