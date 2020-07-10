@@ -48,15 +48,15 @@ export class JssComponentFactoryService {
     @Inject(PLACEHOLDER_COMPONENTS) private components: ComponentNameAndType[],
     @Inject(PLACEHOLDER_LAZY_COMPONENTS) private lazyComponents: ComponentNameAndModule[]
   ) {
-    this.componentMap = new Map();
-    this.lazyComponentMap = new Map();
+      this.componentMap = new Map();
+      this.lazyComponentMap = new Map();
 
-    this.components.forEach((c) => this.componentMap.set(c.name, c));
+      this.components.forEach((c) => this.componentMap.set(c.name, c));
 
-    if (this.lazyComponents) {
-      this.lazyComponents.forEach((c) => this.lazyComponentMap.set(c.path, c));
-    }
-  }
+      if (this.lazyComponents) {
+        this.lazyComponents.forEach((c) => this.lazyComponentMap.set(c.path, c));
+      }
+   }
 
   getComponent(component: ComponentRendering): Promise<ComponentFactoryResult> {
     const loadedComponent = this.componentMap.get(component.componentName);

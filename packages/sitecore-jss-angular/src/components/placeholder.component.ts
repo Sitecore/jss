@@ -110,7 +110,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       for (let i = 0; i < attributes.length; i++) {
         const attr: Attr | null = attributes.item(i);
         if (attr && attr.name.indexOf('_ngcontent') !== -1) {
-          this.parentStyleAttribute = attr.name;
+            this.parentStyleAttribute = attr.name;
         }
       }
     }
@@ -190,8 +190,8 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     if (this.renderEmptyTemplate && placeholderIsEmpty) {
       this.view.createEmbeddedView(this.renderEmptyTemplate.templateRef,
         {
-        renderings: placeholder,
-      });
+          renderings: placeholder,
+        });
       this.isLoading = false;
     } else {
       const factories = await this.componentFactory.getComponents(placeholder);
@@ -235,9 +235,9 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     // as a separate component
     this.view.createEmbeddedView(this.renderEachTemplate.templateRef,
       {
-      rendering,
-      index,
-    });
+        rendering,
+        index,
+      });
   }
 
   private _renderEmbeddedComponent(rendering: ComponentFactoryResult, data: Data, index: number) {

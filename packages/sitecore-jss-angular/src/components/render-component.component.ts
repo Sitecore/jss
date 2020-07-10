@@ -51,7 +51,7 @@ export class RenderComponentComponent implements OnChanges {
     private differs: KeyValueDiffers,
     private componentFactory: JssComponentFactoryService,
     @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>
-  ) {}
+    ) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['rendering']) {
@@ -65,10 +65,10 @@ export class RenderComponentComponent implements OnChanges {
 
   private _subscribeComponentOutputs(componentInstance: any, outputs: { [k: string]: (eventType: any) => void }) {
     Object.keys(outputs)
-    .filter((output) => componentInstance[output] && componentInstance[output] instanceof Observable)
-    .forEach((output) => (componentInstance[output] as Observable<any>)
-      .pipe(
-      takeWhile(() => !this.destroyed)
+      .filter((output) => componentInstance[output] && componentInstance[output] instanceof Observable)
+      .forEach((output) => (componentInstance[output] as Observable<any>)
+        .pipe(
+        takeWhile(() => !this.destroyed)
       )
       .subscribe(outputs[output]));
   }
@@ -81,7 +81,7 @@ export class RenderComponentComponent implements OnChanges {
     }
 
     const resolveComponent: Promise<ComponentFactoryResult> = isRawRendering(this.rendering)
-    ? Promise.resolve({ componentImplementation: RawComponent, componentDefinition: this.rendering })
+      ? Promise.resolve({ componentImplementation: RawComponent, componentDefinition: this.rendering })
       : this.componentFactory.getComponent(this.rendering);
 
     resolveComponent.then((rendering) => {
