@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export interface TextProps {
   /** The text field data. */
-  field: {
+  field?: {
     value?: string;
     editable?: string;
   };
@@ -82,9 +82,9 @@ export const Text: FunctionComponent<TextProps> = ({ field, tag, editable, encod
 
 Text.propTypes = {
   field: PropTypes.shape({
-    value: PropTypes.any,
+    value: PropTypes.string,
     editable: PropTypes.string,
-  }).isRequired,
+  }),
   tag: PropTypes.string,
   editable: PropTypes.bool,
   encode: PropTypes.bool,
