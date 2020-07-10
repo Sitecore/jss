@@ -2,7 +2,6 @@ import React from 'react';
 import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
 import { dataFetcher } from '../../dataFetcher';
-import { getHostname } from '../../util';
 import config from '../../temp/config';
 import StyleguideSpecimen from '../Styleguide-Specimen';
 
@@ -24,7 +23,7 @@ class StyleguideTracking extends React.Component {
     this.pageUrl = React.createRef();
 
     this.trackingApiOptions = {
-      host: getHostname(),
+      host: config.sitecoreApiHost,
       querystringParams: {
         sc_apikey: config.sitecoreApiKey,
       },
