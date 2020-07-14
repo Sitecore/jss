@@ -4,6 +4,8 @@ import 'isomorphic-fetch';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';
 
+/* eslint-disable import/order */
+
 /*
   INTROSPECTION DATA
   See https://www.apollographql.com/docs/react/recipes/fragment-matching.html

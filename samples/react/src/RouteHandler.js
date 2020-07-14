@@ -9,6 +9,8 @@ import config from './temp/config';
 import Layout from './Layout';
 import NotFound from './NotFound';
 
+/* eslint-disable no-console */
+
 // Dynamic route handler for Sitecore items.
 // Because JSS app routes are defined in Sitecore, traditional static React routing isn't enough -
 // we need to be able to load dynamic route data from Sitecore after the client side route changes.
@@ -50,10 +52,12 @@ export default class RouteHandler extends React.Component {
     // if we have an SSR state, and that state has language data, set the current language
     // (this makes the language of content follow the Sitecore context language cookie)
     // note that a route-based language (i.e. /de-DE) will override this default; this is for home.
-    if (ssrInitialState &&
+    if (
+      ssrInitialState &&
       ssrInitialState.sitecore &&
       ssrInitialState.sitecore.context &&
-      ssrInitialState.sitecore.context.language) {
+      ssrInitialState.sitecore.context.language
+    ) {
       this.state.defaultLanguage = ssrInitialState.sitecore.context.language;
     }
 

@@ -14,13 +14,11 @@ const StyleguideFieldUsageCheckbox = (props) => (
         without needing to check that props.fields or props.fields.checkbox are traversable,
         and allowing the specification of an optional default value (default is undefined if unspecified).
        */}
-      {props.fields &&
-        props.fields.checkbox &&
-        props.fields.checkbox.value && (
-          <li>
-            <code>checkbox</code> is true
-          </li>
-        )}
+      {props.fields && props.fields.checkbox && props.fields.checkbox.value && (
+        <li>
+          <code>checkbox</code> is true
+        </li>
+      )}
       {!props.fields ||
         !props.fields.checkbox ||
         (!props.fields.checkbox.value && (
