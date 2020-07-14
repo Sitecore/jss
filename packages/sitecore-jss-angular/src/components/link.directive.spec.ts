@@ -87,6 +87,23 @@ describe('<a *scLink />', () => {
     expect(rendered.nativeElement.innerHTML).toBe(field.text);
   });
 
+  it('should render value without href', () => {
+    const field = {
+      value: {
+        href: '',
+      },
+      text: 'ipsum',
+    };
+    comp.editable = false;
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.query(By.css('a'));
+
+    expect(rendered.nativeElement.href).toBe('');
+    expect(rendered.nativeElement.innerHTML).toBe(field.text);
+  });
+
   it('should render ee HTML', () => {
     const field = {
       editableFirstPart: eeLinkData,
@@ -218,5 +235,21 @@ describe('<a *scLink>children</a>', () => {
     const rendered = de.query(By.css('a'));
     expect(rendered.nativeElement.href).toContain(field.href);
     expect(rendered.nativeElement.innerHTML).toContain('<span>hello world</span>');
+  });
+
+  it('should render children and value without href', () => {
+    const field = {
+      value: {
+        href: '',
+      },
+      text: 'ipsum',
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.query(By.css('a'));
+
+    expect(rendered.nativeElement.href).toBe('');
+    expect(rendered.nativeElement.innerHTML).toContain('<span>hello world</span>')
   });
 });
