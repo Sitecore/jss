@@ -35,8 +35,8 @@
 	* [Deployment Topologies](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/infrastructure/deployment-topologies/en.md) 
 	* [Performance](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/infrastructure/performance/en.md) 
 * **GraphQL**
-	* [Extending GraphQL](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/graphql/extending-graphql/en.md) 
-	* [GraphQL Security](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/graphql/graphql-security/en.md)
+	* [Extending GraphQL](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/graphql/extending/en.md) 
+	* [GraphQL Security](https://github.com/Sitecore/jss/tree/guides/docs/data/routes/guides/graphql/security/en.md)
 
 ## Setup
 
