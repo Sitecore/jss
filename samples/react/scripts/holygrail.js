@@ -8,6 +8,8 @@ const ssrWebpackConfig = require('../server/server.webpack.config');
 const craWebpackConfig = require('../node_modules/react-scripts/config/webpack.config');
 const craWebpackDevServerConfig = require('../node_modules/react-scripts/config/webpackDevServer.config');
 
+/* eslint-disable no-console */
+
 startRenderHostTunnel('localhost', { port: 5000 })
   .then((tunnelUrl) => {
     const browserUrl = `${jssConfig.sitecore.layoutServiceHost}?sc_httprenderengineurl=${tunnelUrl}`;
