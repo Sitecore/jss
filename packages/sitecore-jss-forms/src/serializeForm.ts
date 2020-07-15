@@ -34,11 +34,6 @@ export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions
 
   const result = new JssFormData();
 
-  pushField(result, {
-    name: 'ContextItemId',
-    value: form.contextItemId,
-    id: form.contextItemId,
-  });
   pushField(result, form.formSessionId);
   pushField(result, form.antiForgeryToken);
   pushField(result, form.formItemId);
