@@ -10,7 +10,6 @@
 </template>
 
 <script>
-
 import ContextView from './ContextView';
 
 export default {
