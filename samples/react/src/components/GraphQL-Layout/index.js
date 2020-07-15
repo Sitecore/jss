@@ -2,7 +2,8 @@ import React from 'react';
 import { Placeholder, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 
 const GraphQLLayout = ({ sitecoreContext, rendering }) => {
-  const disconnectedMode = sitecoreContext.route && sitecoreContext.route.layoutId === 'available-in-connected-mode';
+  const disconnectedMode =
+    sitecoreContext.route && sitecoreContext.route.layoutId === 'available-in-connected-mode';
 
   return (
     <div data-e2e-id="graphql-layout">
@@ -18,8 +19,9 @@ const GraphQLLayout = ({ sitecoreContext, rendering }) => {
             box, however.
           </p>
           <p>
-            To view the GraphQL samples, restart the app using <code>jss start:connected</code>&nbsp;
-            or deploy the app to Sitecore to run in integrated mode per the JSS documentation.
+            To view the GraphQL samples, restart the app using <code>jss start:connected</code>
+            &nbsp; or deploy the app to Sitecore to run in integrated mode per the JSS
+            documentation.
           </p>
         </React.Fragment>
       )}
