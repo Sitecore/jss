@@ -8,7 +8,7 @@ import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-manifest'
  * Ensure that there is truly an inheritance relationship and not merely "they happen share some fields" before using inheritance.
  * @param {Manifest} manifest Manifest instance to add components to
  */
-export default function(manifest) {
+export default function (manifest) {
   manifest.addTemplate({
     name: 'Styleguide-Explanatory-Component',
     id: 'styleguide-explanatory-component-template',

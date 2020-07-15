@@ -1,10 +1,12 @@
 {
+  "root": true,
   "extends": [
     "prettier",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:prettier/recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:yaml/recommended"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -14,7 +16,8 @@
   },
   "plugins": [
     "import",
-    "react"
+    "react",
+    "yaml"
   ],
   "settings": {
     "import/ignore": [
