@@ -46,8 +46,8 @@ export class SitecoreContext extends React.Component<SitecoreContextProps, { con
 
   static displayName = 'SitecoreContext';
 
-  constructor(props: SitecoreContextProps, context: any) {
-    super(props, context);
+  constructor(props: SitecoreContextProps) {
+    super(props);
 
     const contextFactory = props.contextFactory
       ? props.contextFactory
