@@ -19,9 +19,7 @@ export default function(manifest) {
         // the path is based on the path the shared items are defined in, under /data/content.
         // Using 'source' is recommended to help content editors find the correct items to refer to,
         // unless they can refer to any item in the whole site.
-        source: `dataSource=/sitecore/content/${
-          packageJson.config.appName
-        }/Content/Styleguide/ItemLinkField`,
+        source: `dataSource=/sitecore/content/${packageJson.config.appName}/Content/Styleguide/ItemLinkField`,
       },
       { name: 'localItemLink', type: CommonFieldTypes.ItemLink },
     ],

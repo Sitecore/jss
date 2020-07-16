@@ -31,7 +31,9 @@ export default function(envVars) {
   return {
     devtool: envVars.devtool
       ? envVars.devtool
-      : envVars.production ? 'cheap-source-map' : undefined,
+      : envVars.production
+        ? 'cheap-source-map'
+        : undefined,
     context: path.resolve(process.cwd(), 'src'),
     output: {
       path: getOutputPath(envVars),

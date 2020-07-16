@@ -19,9 +19,9 @@ import {
 function GraphQLData(query, configuration = {}) {
   return function wrapComponent(Component) {
     class SitecoreRenderingWrapper extends React.Component {
-      static displayName = `JSSGraphQLComponent(${Component.displayName ||
-        Component.name ||
-        'Component'})`;
+      static displayName = `JSSGraphQLComponent(${
+        Component.displayName || Component.name || 'Component'
+      })`;
 
       render() {
         if (!query) {

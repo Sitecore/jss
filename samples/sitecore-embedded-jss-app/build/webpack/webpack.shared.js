@@ -31,7 +31,9 @@ export default function(envVars) {
   return {
     devtool: envVars.devtool
       ? envVars.devtool
-      : envVars.production ? 'cheap-source-map' : undefined,
+      : envVars.production
+      ? 'cheap-source-map'
+      : undefined,
     context: path.resolve(process.cwd(), 'src'),
     output: {
       path: getOutputPath(envVars),
@@ -174,7 +176,7 @@ function getGlobalVariables(envVars) {
     __SC_API_HOST__: JSON.stringify(jssConfig.sitecore.layoutServiceHost),
     __SC_API_KEY__: JSON.stringify(jssConfig.sitecore.apiKey),
     __TRANSLATION_PATH__: JSON.stringify(jssConfig.translationPath),
-    __BUNDLE_OUTPUT_PATH__: JSON.stringify(normalizeFrontendPath(envVars.publicPath))
+    __BUNDLE_OUTPUT_PATH__: JSON.stringify(normalizeFrontendPath(envVars.publicPath)),
   };
 
   const nodeEnv = envVars.production ? 'production' : 'development';

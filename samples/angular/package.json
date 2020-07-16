@@ -20,7 +20,8 @@
   },
   "scripts": {
     "ng": "ng",
-    "lint": "ng lint",
+    "lint:yml": "ts-node ./scripts/lint-yml.ts",
+    "lint": "ng lint && npm run lint:yml",
     "e2e": "ng e2e",
     "jss": "jss",
     "start": "npm-run-all --serial bootstrap:disconnected --parallel start:angular start:proxy start:watch-components",
@@ -119,6 +120,7 @@
     "ts-node": "~8.4.1",
     "tslint": "~5.20.0",
     "typescript": "~3.5.0",
-    "webpack-cli": "~3.3.9"
+    "webpack-cli": "~3.3.9",
+    "yaml-lint": "^1.2.4"
   }
 }

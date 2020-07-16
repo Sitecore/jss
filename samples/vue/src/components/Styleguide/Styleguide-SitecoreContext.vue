@@ -9,7 +9,7 @@
       this.$jss is defined on the Vue instance by the SitecoreJssPlugin and provides
       reactive access to the `sitecoreContext` provided in layout service data.
     -->
-    <pre :style="{maxHeight: '400px', overflow: 'scroll'}">
+    <pre :style="{ maxHeight: '400px', overflow: 'scroll' }">
   {{ JSON.stringify($jss.sitecoreContext(), null, 2) }}
     </pre>
   </styleguide-specimen>

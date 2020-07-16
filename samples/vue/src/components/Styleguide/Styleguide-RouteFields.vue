@@ -10,7 +10,9 @@
       <sc-text :field="routeData.fields.pageTitle" />
     </p>
     <p>
-      <router-link to="/styleguide/custom-route-type">Sample of using a custom route type</router-link>
+      <router-link to="/styleguide/custom-route-type"
+        >Sample of using a custom route type</router-link
+      >
     </p>
   </styleguide-specimen>
 </template>

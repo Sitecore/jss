@@ -5,45 +5,43 @@
     <h2>GraphQL Integrated Demo</h2>
 
     <p>
-      Integrated GraphQL executes GraphQL queries within the Layout Service endpoint, and merges
-      the query results into the Layout Service result JSON. The query results can be seen by
-      inspecting the Layout Service response in the browser devtools network tab.
+      Integrated GraphQL executes GraphQL queries within the Layout Service endpoint, and merges the
+      query results into the Layout Service result JSON. The query results can be seen by inspecting
+      the Layout Service response in the browser devtools network tab.
     </p>
 
     <div v-if="datasource">
       <h4>Datasource Item (via Integrated GraphQL)</h4>
       id: {{ datasource.id }}
       <br />
-      name: {{datasource.name}}
+      name: {{ datasource.name }}
       <br />
-      sample1: {{datasource.sample1.value}}
+      sample1: {{ datasource.sample1.value }}
       <br />
       sample1 (editable): <sc-text :field="datasource.sample1.jss" />
       <br />
       sample2:<br />
       <ul>
-        <li>text: {{datasource.sample2.text}}</li>
-        <li>url: {{datasource.sample2.url}}</li>
-        <li>target: {{datasource.sample2.target}}</li>
-        <li>
-          editable: <sc-link :field="datasource.sample2.jss" />
-        </li>
-        <li>field type: {{datasource.sample2.definition.type}}</li>
-        <li>field is shared?: {{datasource.sample2.definition.shared.toString()}}</li>
+        <li>text: {{ datasource.sample2.text }}</li>
+        <li>url: {{ datasource.sample2.url }}</li>
+        <li>target: {{ datasource.sample2.target }}</li>
+        <li>editable: <sc-link :field="datasource.sample2.jss" /></li>
+        <li>field type: {{ datasource.sample2.definition.type }}</li>
+        <li>field is shared?: {{ datasource.sample2.definition.shared.toString() }}</li>
       </ul>
     </div>
 
     <div v-if="contextItem">
       <h4>Route Item (via Integrated GraphQL)</h4>
-      id: {{contextItem.id}}
+      id: {{ contextItem.id }}
       <br />
-      page title: {{contextItem.pageTitle.value}}
+      page title: {{ contextItem.pageTitle.value }}
       <br />
       children:
       <ul>
-        <li v-for="(child) in contextItem.children" :key="child.id">
-          <router-link :to="child.url">{{child.pageTitle.value}}</router-link>&nbsp; (editable
-          title too! <sc-text :field="child.pageTitle.jss" />)
+        <li v-for="child in contextItem.children" :key="child.id">
+          <router-link :to="child.url">{{ child.pageTitle.value }}</router-link
+          >&nbsp; (editable title too! <sc-text :field="child.pageTitle.jss" />)
         </li>
       </ul>
     </div>
