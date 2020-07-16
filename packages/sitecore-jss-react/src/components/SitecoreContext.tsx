@@ -30,7 +30,7 @@ export class SitecoreContextFactory {
 
   setSitecoreContext = (value: any) => {
     this.context = value;
-    this.subscriber(value);
+    this.subscriber(this);
   }
 }
 
@@ -64,18 +64,19 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
     this.contextFactory.subscribeToContext(this.contextListener);
   }
 
-  contextListener = () => this.forceUpdate();
-
   /**
    * React Context Provider should accept Object instead of
    * SitecoreContextFactory class instance
    */
-  getSitecoreContextValue = () => ({ ...this.contextFactory });
+  contextListener = (ctx: SitecoreContextFactory) => {
+    this.contextFactory = { ...ctx };
+    this.forceUpdate();
+  }
 
   render() {
     return (
     <ComponentFactoryReactContext.Provider value={this.componentFactory}>
-      <SitecoreContextReactContext.Provider value={this.getSitecoreContextValue()}>
+      <SitecoreContextReactContext.Provider value={this.contextFactory}>
         {this.props.children}
       </SitecoreContextReactContext.Provider>
     </ComponentFactoryReactContext.Provider>
