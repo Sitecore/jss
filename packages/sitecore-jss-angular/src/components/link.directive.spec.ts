@@ -87,23 +87,6 @@ describe('<a *scLink />', () => {
     expect(rendered.nativeElement.innerHTML).toBe(field.text);
   });
 
-  it('should render value without href', () => {
-    const field = {
-      value: {
-        href: '',
-      },
-      text: 'ipsum',
-    };
-    comp.editable = false;
-    comp.field = field;
-    fixture.detectChanges();
-
-    const rendered = de.query(By.css('a'));
-
-    expect(rendered.nativeElement.href).toBe('');
-    expect(rendered.nativeElement.innerHTML).toBe(field.text);
-  });
-
   it('should render ee HTML', () => {
     const field = {
       editableFirstPart: eeLinkData,
@@ -181,6 +164,59 @@ describe('<a *scLink />', () => {
     expect(rendered.nativeElement.target).toBe('_blank');
     expect(rendered.nativeElement.title).toBe('footip');
   });
+
+  describe('should render empty href when href attribute is invalid', () => {
+    it('undefined', () => {
+      const field = {
+        value: {
+          href: '',
+        },
+        text: 'ipsum',
+      };
+      comp.editable = false;
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.query(By.css('a'));
+
+      expect(rendered.nativeElement.href).toBe('');
+      expect(rendered.nativeElement.innerHTML).toBe(field.text);
+    });
+
+    it('http://', () => {
+      const field = {
+        value: {
+          href: 'http://',
+        },
+        text: 'ipsum',
+      };
+      comp.editable = false;
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.query(By.css('a'));
+
+      expect(rendered.nativeElement.href).toBe('');
+      expect(rendered.nativeElement.innerHTML).toBe(field.text);
+    });
+
+    it('https://', () => {
+      const field = {
+        value: {
+          href: 'https://',
+        },
+        text: 'ipsum',
+      };
+      comp.editable = false;
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.query(By.css('a'));
+
+      expect(rendered.nativeElement.href).toBe('');
+      expect(rendered.nativeElement.innerHTML).toBe(field.text);
+    });
+  });
 });
 
 // tslint:disable-next-line:max-classes-per-file
@@ -250,6 +286,56 @@ describe('<a *scLink>children</a>', () => {
     const rendered = de.query(By.css('a'));
 
     expect(rendered.nativeElement.href).toBe('');
-    expect(rendered.nativeElement.innerHTML).toContain('<span>hello world</span>')
+    expect(rendered.nativeElement.innerHTML).toContain('<span>hello world</span>');
+  });
+
+  describe('should render children and value with empty href when href attribute is invalid', () => {
+    it('undefined', () => {
+      const field = {
+        value: {
+          href: '',
+        },
+        text: 'ipsum',
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.query(By.css('a'));
+
+      expect(rendered.nativeElement.href).toBe('');
+      expect(rendered.nativeElement.innerHTML).toContain('<span>hello world</span>');
+    });
+
+    it('http://', () => {
+      const field = {
+        value: {
+          href: 'http://',
+        },
+        text: 'ipsum',
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.query(By.css('a'));
+
+      expect(rendered.nativeElement.href).toBe('');
+      expect(rendered.nativeElement.innerHTML).toContain('<span>hello world</span>');
+    });
+
+    it('https://', () => {
+      const field = {
+        value: {
+          href: 'https://',
+        },
+        text: 'ipsum',
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.query(By.css('a'));
+
+      expect(rendered.nativeElement.href).toBe('');
+      expect(rendered.nativeElement.innerHTML).toContain('<span>hello world</span>');
+    });
   });
 });
