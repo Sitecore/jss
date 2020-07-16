@@ -37,7 +37,7 @@ export class SitecoreContextFactory {
 export const SitecoreContextReactContext = React.createContext<SitecoreContextFactory>({} as SitecoreContextFactory);
 export const ComponentFactoryReactContext = React.createContext<ComponentFactory>({} as ComponentFactory);
 
-export class SitecoreContext extends React.Component<SitecoreContextProps> {
+export class SitecoreContext extends React.Component<SitecoreContextProps, { contextFactory: SitecoreContextFactory, componentFactory: ComponentFactory }> {
   static propTypes = {
     children: PropTypes.any.isRequired,
     componentFactory: PropTypes.func,
@@ -46,22 +46,21 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
 
   static displayName = 'SitecoreContext';
 
-  componentFactory: ComponentFactory;
-  contextFactory: SitecoreContextFactory;
-
   constructor(props: SitecoreContextProps, context: any) {
     super(props, context);
 
-    this.componentFactory = props.componentFactory;
-    if (props.contextFactory) {
-      this.contextFactory = props.contextFactory;
-    } else {
-      this.contextFactory = new SitecoreContextFactory();
-    }
+    const contextFactory = props.contextFactory
+      ? props.contextFactory
+      : { ...new SitecoreContextFactory() };
+
+    this.state = {
+      contextFactory,
+      componentFactory: props.componentFactory
+    };
 
     // we force the children of the context to re-render when the context is updated
     // even if the local props are unchanged; we assume the contents depend on the Sitecore context
-    this.contextFactory.subscribeToContext(this.contextListener);
+    this.state.contextFactory.subscribeToContext(this.contextListener);
   }
 
   /**
@@ -69,14 +68,15 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
    * SitecoreContextFactory class instance
    */
   contextListener = (ctx: SitecoreContextFactory) => {
-    this.contextFactory = { ...ctx };
-    this.forceUpdate();
+    this.setState({
+      contextFactory: { ...ctx }
+    });
   }
 
   render() {
     return (
-    <ComponentFactoryReactContext.Provider value={this.componentFactory}>
-      <SitecoreContextReactContext.Provider value={this.contextFactory}>
+    <ComponentFactoryReactContext.Provider value={this.state.componentFactory}>
+      <SitecoreContextReactContext.Provider value={this.state.contextFactory}>
         {this.props.children}
       </SitecoreContextReactContext.Provider>
     </ComponentFactoryReactContext.Provider>
