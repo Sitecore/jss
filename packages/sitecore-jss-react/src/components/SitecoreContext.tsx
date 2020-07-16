@@ -11,7 +11,7 @@ export interface SitecoreContextProps {
 }
 
 export class SitecoreContextFactory {
-  subscribers: any[] = [];
+  subscriber: any;
   context: any;
 
   constructor() {
@@ -25,19 +25,12 @@ export class SitecoreContextFactory {
   }
 
   subscribeToContext = (func: any) => {
-    this.subscribers.push(func);
-  }
-
-  unsubscribeFromContext = (func: any) => {
-    const index = this.subscribers.indexOf(func);
-    if (index >= 0) {
-      this.subscribers.splice(index, 1);
-    }
+    this.subscriber = func;
   }
 
   setSitecoreContext = (value: any) => {
     this.context = value;
-    this.subscribers.forEach((func) => func(value));
+    this.subscriber(value);
   }
 }
 
@@ -72,10 +65,6 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
   }
 
   contextListener = () => this.forceUpdate();
-
-  componentWillUnmount() {
-    this.contextFactory.unsubscribeFromContext(this.contextListener);
-  }
 
   /**
    * React Context Provider should accept Object instead of
