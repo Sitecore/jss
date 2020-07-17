@@ -10,6 +10,11 @@ export interface SitecoreContextProps {
   [k: string]: any;
 }
 
+export interface SitecoreContextState { 
+  contextFactory: SitecoreContextFactory;
+  componentFactory: ComponentFactory;
+}
+
 export class SitecoreContextFactory {
   subscriber: any;
   context: any;
@@ -37,7 +42,7 @@ export class SitecoreContextFactory {
 export const SitecoreContextReactContext = React.createContext<SitecoreContextFactory>({} as SitecoreContextFactory);
 export const ComponentFactoryReactContext = React.createContext<ComponentFactory>({} as ComponentFactory);
 
-export class SitecoreContext extends React.Component<SitecoreContextProps, { contextFactory: SitecoreContextFactory, componentFactory: ComponentFactory }> {
+export class SitecoreContext extends React.Component<SitecoreContextProps, SitecoreContextState> {
   static propTypes = {
     children: PropTypes.any.isRequired,
     componentFactory: PropTypes.func,

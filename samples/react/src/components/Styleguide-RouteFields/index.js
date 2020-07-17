@@ -12,7 +12,7 @@ const StyleguideRouteFields = (props) => (
   <StyleguideSpecimen {...props} e2eId="styleguide-route-fields">
     <p>
       Route level <code>pageTitle</code> field:{' '}
-      {props.sitecoreContext.route && <Text field={props.sitecoreContext.route.fields.pageTitle} />}
+      <Text field={props.sitecoreContext.route.fields.pageTitle} />
     </p>
     <p>
       <Link to="/styleguide/custom-route-type">Sample of using a custom route type</Link>
