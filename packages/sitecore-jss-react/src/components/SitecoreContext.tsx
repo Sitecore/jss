@@ -18,7 +18,8 @@ export const ComponentFactoryReactContext = React.createContext<ComponentFactory
 export class SitecoreContext extends React.Component<SitecoreContextProps, SitecoreContextState> {
   static propTypes = {
     children: PropTypes.any.isRequired,
-    componentFactory: PropTypes.func
+    componentFactory: PropTypes.func,
+    context: PropTypes.any
   };
 
   static displayName = 'SitecoreContext';
