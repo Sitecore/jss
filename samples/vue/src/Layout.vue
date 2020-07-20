@@ -12,6 +12,7 @@
 import { Placeholder } from '@sitecore-jss/sitecore-jss-vue';
 import Navigation from './Navigation';
 import VisitorIdentification from './VisitorIdentification';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/app.css';
 

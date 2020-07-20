@@ -6,6 +6,7 @@ export interface JssConfiguration {
   instancePath?: string;
   apiKey?: string;
   layoutServiceHost?: string;
+  skipValidation?: boolean;
 }
 
 export interface ScJssConfig {

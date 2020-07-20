@@ -7,6 +7,7 @@
 
 <script>
 import { Text, RichText } from '@sitecore-jss/sitecore-jss-vue';
+
 export default {
   name: 'ContentBlock',
   props: {

@@ -43,6 +43,11 @@ export const builder = {
     type: 'string',
     describe: 'The file path to output the config to. Defaults to the app\'s scjssconfig.json',
   },
+  skipValidation: {
+    requiresArg: false,
+    type: 'boolean',
+    describe: 'Skip validation of command arguments (e.g. for CI)',
+  },
 };
 
 export async function handler(argv: any) {

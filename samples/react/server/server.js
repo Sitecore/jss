@@ -119,6 +119,10 @@ export function renderView(callback, path, data, viewBag) {
           `<head>${helmet.title.toString()}${helmet.meta.toString()}${helmet.link.toString()}`
         );
 
+        // replace phkey attribute with key attribute so that newly added renderings
+        // show correct placeholders, so save and refresh won't be needed after adding each rendering
+        html = html.replace(new RegExp('phkey', 'g'), 'key');
+
         callback(null, { html });
       })
       .catch((error) => callback(error, null));

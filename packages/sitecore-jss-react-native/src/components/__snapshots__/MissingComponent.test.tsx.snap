@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MissingComponent /> should render with component name 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "darkorange",
+      "flex": 1,
+      "padding": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "marginVertical": 20,
+      }
+    }
+  >
+    TestComponent
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "marginVertical": 20,
+      }
+    }
+  >
+    JSS component is missing React Native implementation.
+  </Text>
+</View>
+`;
+
+exports[`<MissingComponent /> should render without component name 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "darkorange",
+      "flex": 1,
+      "padding": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "marginVertical": 20,
+      }
+    }
+  >
+    Unnamed Component
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "marginVertical": 20,
+      }
+    }
+  >
+    JSS component is missing React Native implementation.
+  </Text>
+</View>
+`;

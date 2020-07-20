@@ -53,8 +53,9 @@
 </template>
 
 <script>
-import { Text, Link } from '@sitecore-jss/sitecore-jss-vue';
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
+
+import { Text, Link } from '@sitecore-jss/sitecore-jss-vue';
 
 export default {
   name: 'GraphQL-ConnectedDemo',

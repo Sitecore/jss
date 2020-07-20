@@ -42,6 +42,18 @@ In order to add a form to the JSS app we need a component to render the form. A 
 * Choose the Sitecore Form you created previously as the Associated Content
 * NOTE: you will see a warning that the component is missing its implementation. This is normal - we haven't yet defined what the form looks like.
 
+### Install NPM packages
+
+> There are two npm packages for JSS + Forms
+> * `sitecore-jss-react-forms` implements components to render forms in React
+> * `sitecore-jss-forms` implements framework-agnostic helpers to deal with the forms API (serializing forms to post, antiforgery, etc)
+> 
+> These packages ship with TypeScript typings and JSDoc comments so they are easily discoverable in typings-aware editors such as Code.
+
+To use the sample forms implementation, install the forms packages:
+* run command `npm i @sitecore-jss/sitecore-jss-forms`
+* run command `npm i @sitecore-jss/sitecore-jss-react-forms`
+
 ### Implement the Form React component
 
 To make the form render as a form, we need to tell React how to render the Sitecore Forms schema.
@@ -69,16 +81,7 @@ export default function Form(props) {
 
 Sitecore provides a sample implementation of rendering this form data into a usable React form for your reference and modification. The sample implementation provides a native React state-based implementation using controlled form components. It supports client and server side validation and multistep forms.
 
-> There are two npm packages for JSS + Forms
-> * `sitecore-jss-react-forms` implements components to render forms in React
-> * `sitecore-jss-forms` implements framework-agnostic helpers to deal with the forms API (serializing forms to post, antiforgery, etc)
-> 
-> These packages ship with TypeScript typings and JSDoc comments so they are easily discoverable in typings-aware editors such as Code.
-
-To use the example React forms implementation:
-
-* Install the forms package: `npm i @sitecore-jss/sitecore-jss-react-forms`
-* Modify your Form component to use the library's form components:
+To use the example React forms implementation, modify your Form component to use the library's form components:
 
 ```jsx
 import { Form } from '@sitecore-jss/sitecore-jss-react-forms';
@@ -164,6 +167,7 @@ const LabelComponent = (props) => (
     htmlFor={props.field.valueField.id}
     style={{ color: 'blue' }}
   >
+    {props.children}
     {props.field.model.title}
   </label>
 );
@@ -171,6 +175,8 @@ const LabelComponent = (props) => (
 // Usage on form component
 <Form labelComponent={LabelComponent} {...otherProps} />
 ```
+
+> Some of the components can contain markup that nested into basic `<Label />` component (for example `<Checkbox />`). In this case you should add `props.children` into markup of `<LabelComponent />`. So in `<Checkbox />` check button will be placed before `props.field.model.title`
 
 ##### Customizing Error Handling
 
@@ -215,9 +221,54 @@ const FieldErrorComponent = (props) => (
 <Form fieldValidationErrorsComponent={FieldErrorComponent} {...otherProps} />
 ```
 
+#### Customizing Form Fetcher
+
+You can customize the behaviour of the default FormFetcher. You can add custom error handler, in case if unhandled error was thrown.
+
+```js
+export const formFetcher = (formData, endpoint) => fetch(endpoint, {
+  body: formData.toUrlEncodedFormData(),
+  method: 'post',
+  // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
+  credentials: 'include',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  }
+})
+  .then((res) => res.json())
+  .catch(() => {
+    return {
+      success: false,
+      errors: 'Something went wrong. Error was thrown when submit form'
+    }
+  })
+
+// Usage on form component
+<Form formFetcher={formFetcher} {...otherProps} />
+```
+
+You can implement _formFetcher_ using `multipart/form-data` Content-Type.
+
+```js
+export const formFetcher = (formData, endpoint) => fetch(endpoint, {
+  body: formData.toMultipartFormData(),
+  method: 'post',
+  // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
+  credentials: 'include',
+  // Browser set 'Content-Type' automatically with multipart/form-data; boundary
+})
+  .then((res) => res.json())
+  .catch(() => {
+    return {
+      success: false,
+      errors: 'Something went wrong. Error was thrown when submit form'
+    }
+  })
+```
+
 ### Limitations
 
 There are some limitations to be aware of with JSS' Sitecore Forms support.
 
-* Forms cannot be defined or rendered in disconnected mode (connected, integrated, or headless modes are supported)
+* Forms cannot be defined or rendered in disconnected or headless mode (connected, integrated are supported)
 * Conditional fields are not supported by the JSS forms example implementation; however conditional data is returned by the form API

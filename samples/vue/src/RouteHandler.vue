@@ -8,6 +8,7 @@
 import { isExperienceEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-vue';
 import { dataFetcher } from './dataFetcher';
 import config from './temp/config';
+
 import Layout from './Layout';
 import NotFound from './NotFound';
 import RouteLoading from './RouteLoading';
@@ -112,10 +113,10 @@ export default {
   },
   watch: {
     // watch for a change in the 'route' prop
-    route(newRoute) {
+    route(newRoute, oldRoute) {
       // if the route contains a hash value, assume the URL is a named anchor/bookmark link, e.g. /page#anchorId.
       // in that scenario, we don't want to fetch new route data but instead allow default browser behavior.
-      if (newRoute.hash !== '') {
+      if (newRoute.hash !== '' && newRoute.path === oldRoute.path) {
         return;
       }
       // if in experience editor - force reload instead of route data update
