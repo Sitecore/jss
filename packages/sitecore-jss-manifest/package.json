@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-manifest",
-  "version": "14.0.0",
+  "version": "14.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -25,8 +25,8 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^14.0.0",
-    "@sitecore-jss/sitecore-pipelines": "^14.0.0",
+    "@sitecore-jss/sitecore-jss": "^14.0.1",
+    "@sitecore-jss/sitecore-pipelines": "^14.0.1",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.4",
     "import-fresh": "^3.1.0",
