@@ -23,7 +23,7 @@ export { DateField } from './components/Date';
 export { Link } from './components/Link';
 export { File } from './components/File';
 export { VisitorIdentification } from './components/VisitorIdentification';
-export { SitecoreContext, SitecoreContextFactory, SitecoreContextReactContext } from './components/SitecoreContext';
+export { SitecoreContext, SitecoreContextState, SitecoreContextReactContext } from './components/SitecoreContext';
 export { withSitecoreContext } from './enhancers/withSitecoreContext';
 export { withExperienceEditorChromes } from './enhancers/withExperienceEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';

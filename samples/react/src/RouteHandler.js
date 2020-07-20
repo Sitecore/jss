@@ -1,8 +1,7 @@
 import React from 'react';
 import i18n from 'i18next';
 import Helmet from 'react-helmet';
-import { isExperienceEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-react';
-import SitecoreContextFactory from './lib/SitecoreContextFactory';
+import { isExperienceEditorActive, dataApi, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import { dataFetcher } from './dataFetcher';
 import { getHostname } from './util';
 import config from './temp/config';
@@ -19,7 +18,7 @@ import NotFound from './NotFound';
 
 let ssrInitialState = null;
 
-export default class RouteHandler extends React.Component {
+class RouteHandler extends React.Component {
   constructor(props) {
     super(props);
 
@@ -28,16 +27,7 @@ export default class RouteHandler extends React.Component {
       routeData: ssrInitialState, // null when client-side rendering
       defaultLanguage: config.defaultLanguage,
     };
-
-    if (ssrInitialState && ssrInitialState.sitecore && ssrInitialState.sitecore.route) {
-      // set the initial sitecore context data if we got SSR initial state
-      SitecoreContextFactory.setSitecoreContext({
-        route: ssrInitialState.sitecore.route,
-        itemId: ssrInitialState.sitecore.route.itemId,
-        ...ssrInitialState.sitecore.context,
-      });
-    }
-
+    
     // route data from react-router - if route was resolved, it's not a 404
     if (props.route !== null) {
       this.state.notFound = false;
@@ -107,7 +97,7 @@ export default class RouteHandler extends React.Component {
     getRouteData(sitecoreRoutePath, language).then((routeData) => {
       if (routeData !== null && routeData.sitecore && routeData.sitecore.route) {
         // set the sitecore context data and push the new route
-        SitecoreContextFactory.setSitecoreContext({
+        this.props.updateSitecoreContext({
           route: routeData.sitecore.route,
           itemId: routeData.sitecore.route.itemId,
           ...routeData.sitecore.context,
@@ -200,6 +190,10 @@ export function setServerSideRenderingState(ssrState) {
   ssrInitialState = ssrState;
 }
 
+export function getServerSideRenderingState() {
+  return ssrInitialState;
+}
+
 /**
  * Gets route data from Sitecore. This data is used to construct the component layout for a JSS route.
  * @param {string} route Route path to get data for (e.g. /about)
@@ -222,3 +216,5 @@ function getRouteData(route, language) {
     return null;
   });
 }
+
+export default withSitecoreContext({ updatable: true })(RouteHandler)
