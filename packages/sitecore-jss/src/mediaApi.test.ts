@@ -59,6 +59,40 @@ describe('updateImageUrl', () => {
     expect(url.pathname).to.startsWith('/~/jssmedia/');
   });
 
+  describe('should replace url using custom mediaUrlPrefix', () => {
+    it('should replace /-assets/ with /-/jssmedia', () => {
+      const original = 'http://sitecore/-assets/lorem/ipsum.jpg';
+      const mediaUrlPrefix = /\/([-~]{1})assets\//i;
+      const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
+      const url = URL(updated);
+      expect(url.pathname).to.startsWith('/-/jssmedia/');
+    })
+
+    it('should replace /~assets/ with /~/jssmedia', () => {
+      const original = 'http://sitecore/~assets/lorem/ipsum.jpg';
+      const mediaUrlPrefix = /\/([-~]{1})assets\//i;
+      const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
+      const url = URL(updated);
+      expect(url.pathname).to.startsWith('/~/jssmedia/');
+    })
+
+    it('should replace /-/assets/ with /-/jssmedia/', () => {
+      const original = 'http://sitecore/-/assets/lorem/ipsum.jpg';
+      const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
+      const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
+      const url = URL(updated);
+      expect(url.pathname).to.startsWith('/-/jssmedia/');
+    })
+
+    it('should replace /~/assets/ with /~/jssmedia/', () => {
+      const original = 'http://sitecore/~/assets/lorem/ipsum.jpg';
+      const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
+      const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
+      const url = URL(updated);
+      expect(url.pathname).to.startsWith('/~/jssmedia/');
+    })
+  });
+
   it('should merge querystring and params', () => {
     const src = '/media/lorem/ipsum.jpg?x=valueX';
     const params = { y: 'valueY', z: 'valueZ' };
@@ -97,5 +131,44 @@ describe('getSrcSet', () => {
     ];
     const srcSet = getSrcSet(original, params, { as: '1', w: '9999' });
     expect(srcSet).to.equal(expected);
+  });
+
+  describe('should replace url using custom mediaUrlPrefix', () => {
+    const params = [
+      { w: '1000' },
+      { w: '500' },
+    ];
+
+    it('should replace /-assets/ with /-/jssmedia', () => {
+      const original = '/-assets/lorem/ipsum.jpg';
+      const expected = '/-/jssmedia/lorem/ipsum.jpg?w=1000 1000w, /-/jssmedia/lorem/ipsum.jpg?w=500 500w';
+      const mediaUrlPrefix = /\/([-~]{1})assets\//i;
+      const srcSet = getSrcSet(original, params, undefined, mediaUrlPrefix);
+      expect(srcSet).to.equal(expected);
+    })
+
+    it('should replace /~assets/ with /~/jssmedia', () => {
+      const original = '/~assets/lorem/ipsum.jpg';
+      const expected = '/~/jssmedia/lorem/ipsum.jpg?w=1000 1000w, /~/jssmedia/lorem/ipsum.jpg?w=500 500w';
+      const mediaUrlPrefix = /\/([-~]{1})assets\//i;
+      const srcSet = getSrcSet(original, params, undefined, mediaUrlPrefix);
+      expect(srcSet).to.equal(expected);
+    })
+
+    it('should replace /-/assets/ with /-/jssmedia/', () => {
+      const original = '/-/assets/lorem/ipsum.jpg';
+      const expected = '/-/jssmedia/lorem/ipsum.jpg?w=1000 1000w, /-/jssmedia/lorem/ipsum.jpg?w=500 500w';
+      const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
+      const srcSet = getSrcSet(original, params, undefined, mediaUrlPrefix);
+      expect(srcSet).to.equal(expected);
+    })
+
+    it('should replace /~/assets/ with /~/jssmedia/', () => {
+      const original = '/~/assets/lorem/ipsum.jpg';
+      const expected = '/~/jssmedia/lorem/ipsum.jpg?w=1000 1000w, /~/jssmedia/lorem/ipsum.jpg?w=500 500w';
+      const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
+      const srcSet = getSrcSet(original, params, undefined, mediaUrlPrefix);
+      expect(srcSet).to.equal(expected);
+    })
   });
 });

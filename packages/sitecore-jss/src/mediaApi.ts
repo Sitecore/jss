@@ -40,7 +40,11 @@ export const findEditorImageTag = (editorMarkup: string) => {
  * This replacement allows the JSS media handler to be used for JSS app assets.
  * Also, any provided `params` are used as the querystring parameters for the media URL.
  */
-export const updateImageUrl = (url: string, params?: { [key: string]: string | undefined }) => {
+export const updateImageUrl = (
+  url: string,
+  params?: { [key: string]: string | undefined },
+  mediaUrlPrefix: RegExp = mediaUrlPrefixRegex
+) => {
   // polyfill node `global` in browser to workaround https://github.com/unshiftio/url-parse/issues/150
   if (typeof window !== 'undefined' && !(window as any).global) {
     (window as any).global = {};
@@ -49,10 +53,10 @@ export const updateImageUrl = (url: string, params?: { [key: string]: string | u
 
   parsed.set('query', { ...parsed.query, ...params });
 
-  const match = mediaUrlPrefixRegex.exec(parsed.pathname);
+  const match = mediaUrlPrefix.exec(parsed.pathname);
   if (match && match.length > 1) {
     // regex will provide us with /-/ or /~/ type
-    parsed.set('pathname', parsed.pathname.replace(mediaUrlPrefixRegex, `/${match[1]}/jssmedia/`));
+    parsed.set('pathname', parsed.pathname.replace(mediaUrlPrefix, `/${match[1]}/jssmedia/`));
   }
 
   return parsed.toString();
@@ -72,7 +76,8 @@ export const updateImageUrl = (url: string, params?: { [key: string]: string | u
 export const getSrcSet = (
   url: string,
   srcSet: Array<{ [key: string]: string | undefined }>,
-  imageParams?: { [key: string]: string | undefined }
+  imageParams?: { [key: string]: string | undefined },
+  mediaUrlPrefix?: RegExp
 ) => {
   return srcSet
     .map((params) => {
@@ -81,7 +86,7 @@ export const getSrcSet = (
       if (!imageWidth) {
         return null;
       }
-      return `${updateImageUrl(url, newParams)} ${imageWidth}w`;
+      return `${updateImageUrl(url, newParams, mediaUrlPrefix)} ${imageWidth}w`;
     })
     .filter((value) => value)
     .join(', ');
