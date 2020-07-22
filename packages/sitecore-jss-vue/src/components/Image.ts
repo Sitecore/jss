@@ -26,6 +26,15 @@ export interface ImageProps {
   editable?: boolean;
 
   /**
+   * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
+   * @example
+   * /\/([-~]{1})assets\//i
+   * /-assets/website -> /-/jssmedia/website
+   * /~assets/website -> /~/jssmedia/website
+   */
+  mediaUrlPrefix?: RegExp;
+
+  /**
    * Parameters that will be attached to Sitecore media URLs
    */
   imageParams?: {
@@ -51,7 +60,8 @@ const getImageAttrs = (
     srcSet?: any;
     otherAttrs?: any;
   },
-  imageParams: any
+  imageParams: any,
+  mediaUrlPrefix?: RegExp
 ) => {
   if (!src) {
     return null;
@@ -61,10 +71,10 @@ const getImageAttrs = (
   };
 
   // update image URL for jss handler and image rendering params
-  const resolvedSrc = mediaApi.updateImageUrl(src, imageParams);
+  const resolvedSrc = mediaApi.updateImageUrl(src, imageParams, mediaUrlPrefix);
   if (srcSet) {
     // replace with HTML-formatted srcset, including updated image URLs
-    newAttrs.srcSet = mediaApi.getSrcSet(resolvedSrc, srcSet, imageParams);
+    newAttrs.srcSet = mediaApi.getSrcSet(resolvedSrc, srcSet, imageParams, mediaUrlPrefix);
   } else {
     newAttrs.src = resolvedSrc;
   }
@@ -79,12 +89,13 @@ export const Image: FunctionalComponentOptions<ImageProps> = {
     media: { type: Object, required: true },
     editable: { type: Boolean, default: true },
     imageParams: { type: Object },
+    mediaUrlPrefix: { type: RegExp },
   },
   // Need to assign `any` return type because Vue type definitions are inaccurate.
   // The Vue type definitions set `render` to a return type of VNode and that's it.
   // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
   render(createElement: CreateElement, context: RenderContext): any {
-    const { media, editable, imageParams } = context.props;
+    const { media, editable, imageParams, mediaUrlPrefix } = context.props;
     const contextAttrs = context.data.attrs;
 
     if (!media || (!media.editable && !media.value && !media.src)) {
@@ -98,7 +109,7 @@ export const Image: FunctionalComponentOptions<ImageProps> = {
         return getEditableWrapper(media.editable, createElement);
       }
 
-      const imgAttrs = getImageAttrs({ ...foundImg.attrs, ...contextAttrs }, imageParams);
+      const imgAttrs = getImageAttrs({ ...foundImg.attrs, ...contextAttrs }, imageParams, mediaUrlPrefix);
       if (!imgAttrs) {
         return getEditableWrapper(media.editable, createElement);
       }
@@ -114,7 +125,7 @@ export const Image: FunctionalComponentOptions<ImageProps> = {
       return null;
     }
 
-    const attrs = getImageAttrs({ ...img, ...contextAttrs }, imageParams);
+    const attrs = getImageAttrs({ ...img, ...contextAttrs }, imageParams, mediaUrlPrefix);
     if (attrs) {
       // in functional components, context.data should be passed along to the
       // `createElement` function in order to retain attributes and events
