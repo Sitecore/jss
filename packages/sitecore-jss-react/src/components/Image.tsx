@@ -58,6 +58,15 @@ export interface ImageProps {
 
   srcSet?: Array<ImageSizeParameters>;
 
+  /**
+   * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
+   * @example
+   * /\/([-~]{1})assets\//i
+   * /-assets/website -> /-/jssmedia/website
+   * /~assets/website -> /~/jssmedia/website
+   */
+  mediaUrlPrefix?: RegExp;
+
   /** HTML attributes that will be appended to the rendered <img /> tag. */
   [attributeName: string]: any;
 }
@@ -82,7 +91,8 @@ const getImageAttrs = (
     srcSet: any;
     otherAttrs: any[];
   },
-  imageParams: any
+  imageParams: any,
+  mediaUrlPrefix?: RegExp
 ) => {
   if (!src) {
     return null;
@@ -93,10 +103,10 @@ const getImageAttrs = (
   };
 
   // update image URL for jss handler and image rendering params
-  const resolvedSrc = mediaApi.updateImageUrl(src, imageParams);
+  const resolvedSrc = mediaApi.updateImageUrl(src, imageParams, mediaUrlPrefix);
   if (srcSet) {
     // replace with HTML-formatted srcset, including updated image URLs
-    newAttrs.srcSet = mediaApi.getSrcSet(resolvedSrc, srcSet, imageParams);
+    newAttrs.srcSet = mediaApi.getSrcSet(resolvedSrc, srcSet, imageParams, mediaUrlPrefix);
   }
   // always output original src as fallback for older browsers
   newAttrs.src = resolvedSrc;
@@ -108,6 +118,7 @@ export const Image: React.SFC<ImageProps> = ({
   editable,
   imageParams,
   field,
+  mediaUrlPrefix,
   ...otherProps
 }) => {
   // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
@@ -131,7 +142,7 @@ export const Image: React.SFC<ImageProps> = ({
     const foundImgProps = convertAttributesToReactProps(foundImg.attrs);
     // Note: otherProps may override values from foundImgProps, e.g. `style`, `className` prop
     // We do not attempt to merge.
-    const imgAttrs = getImageAttrs({ ...foundImgProps, ...otherProps } as any, imageParams);
+    const imgAttrs = getImageAttrs({ ...foundImgProps, ...otherProps } as any, imageParams, mediaUrlPrefix);
     if (!imgAttrs) {
       return getEditableWrapper(dynamicMedia.editable);
     }
@@ -147,7 +158,7 @@ export const Image: React.SFC<ImageProps> = ({
     return null;
   }
 
-  const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams);
+  const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);
   if (attrs) {
     return <img {...attrs} />;
   }
@@ -166,6 +177,7 @@ Image.propTypes = {
     }),
   ]),
   editable: PropTypes.bool,
+  mediaUrlPrefix: PropTypes.instanceOf(RegExp),
   imageParams: PropTypes.objectOf(PropTypes.oneOfType([
     PropTypes.number.isRequired,
     PropTypes.string.isRequired
