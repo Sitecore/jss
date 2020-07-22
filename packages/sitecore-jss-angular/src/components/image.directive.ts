@@ -12,6 +12,16 @@ export class ImageDirective implements OnChanges {
   // tslint:disable-next-line:no-input-rename
   @Input('scImageEditable') editable = true;
 
+  /**
+   * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
+   * @example
+   * /\/([-~]{1})assets\//i
+   * /-assets/website -> /-/jssmedia/website
+   * /~assets/website -> /~/jssmedia/website
+   */
+  // tslint:disable-next-line:no-input-rename
+  @Input('scImageMediaUrlPrefix') mediaUrlPrefix?: RegExp;
+
   // tslint:disable-next-line:no-input-rename
   @Input('scImageUrlParams') urlParams = {};
 
@@ -94,10 +104,10 @@ export class ImageDirective implements OnChanges {
       ...otherAttrs,
     };
     // update image URL for jss handler and image rendering params
-    src = mediaApi.updateImageUrl(src, imageParams);
+    src = mediaApi.updateImageUrl(src, imageParams, this.mediaUrlPrefix);
     if (srcSet) {
       // replace with HTML-formatted srcset, including updated image URLs
-      newAttrs.srcSet = mediaApi.getSrcSet(src, srcSet, imageParams);
+      newAttrs.srcSet = mediaApi.getSrcSet(src, srcSet, imageParams, this.mediaUrlPrefix);
     } else {
       newAttrs.src = src;
     }

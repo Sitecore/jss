@@ -21,7 +21,7 @@ class TestComponent {
 @Component({
   selector: 'test-image2',
   template: `
-    <img height="1" width="1" *scImage="field; editable: editable; urlParams: params; attrs: imageAttrs" />
+    <img height="1" width="1" *scImage="field; editable: editable; urlParams: params; attrs: imageAttrs; mediaUrlPrefix: mediaUrlPrefix" />
   `,
 })
 class AnotherTestComponent {
@@ -29,6 +29,7 @@ class AnotherTestComponent {
   @Input() editable = true;
   @Input() params: any = {};
   @Input() imageAttrs: any = { };
+  @Input() mediaUrlPrefix?: RegExp;
 }
 
 describe('<img *scImage />', () => {
@@ -214,6 +215,105 @@ describe('<img *scImage />', () => {
       expect(url.query.h).toBe(imageParams.h);
       expect(url.query.w).toBe(imageParams.w);
       expect(url.query.hash).toEqual('B973470AA333773341C62A76511361C88897E2D4');
+    });
+
+    it('should update image url using custom mediaUrlPrefix', () => {
+      const testImg = (expectedPrefix: string) => {
+        const img = de.nativeElement.getElementsByTagName('img')[0];
+        const url = URL(img.getAttribute('src'), null as any, true);
+
+        expect(url.pathname).toContain(expectedPrefix);
+        expect(url.query.h).toBe(imageParams.h);
+        expect(url.query.w).toBe(imageParams.w);
+        expect(url.query.hash).toBeUndefined();
+      };
+
+      comp2.mediaUrlPrefix = /\/([-~]{1})test\//i;
+      comp2.field = {
+        value: {
+          src: '/-test/assets/img/test0.png',
+          alt: 'my image',
+          height: '650',
+          width: '300',
+        },
+      };
+
+      fixture2.detectChanges();
+
+      testImg('/-/jssmedia/');
+
+      comp2.field = {
+        value: {
+          src: '/~test/assets/img/test0.png',
+          alt: 'my image',
+          height: '650',
+          width: '300',
+        },
+      };
+
+      fixture2.detectChanges();
+
+      testImg('/~/jssmedia/');
+
+      comp2.field = {
+        value: {
+          src: '/-invalid/assets/img/test0.png',
+          alt: 'my image',
+          height: '650',
+          width: '300',
+        },
+      };
+
+      fixture2.detectChanges();
+
+      testImg('/-invalid/');
+    });
+
+    it('should update image url using custom mediaUrlPrefix with srcSet', () => {
+      const testImg = (expectedPrefix: string) => {
+        const img = de.nativeElement.getElementsByTagName('img')[0];
+        const url = img.getAttribute('srcset');
+
+        expect(url).toBe(`${expectedPrefix}assets/img/test0.png?h=100&w=150&mw=100 150w, ${expectedPrefix}assets/img/test0.png?h=100&w=150&mw=300 150w`);
+      };
+
+      comp2.imageAttrs = {
+        srcSet: [{ mw: 100 }, { mw: 300 }],
+      };
+      comp2.mediaUrlPrefix = /\/([-~]{1})test\//i;
+
+      comp2.field = {
+        value: {
+          src: '/-test/assets/img/test0.png',
+          alt: 'my image',
+        },
+      };
+
+      fixture2.detectChanges();
+
+      testImg('/-/jssmedia/');
+
+      comp2.field = {
+        value: {
+          src: '/~test/assets/img/test0.png',
+          alt: 'my image',
+        },
+      };
+
+      fixture2.detectChanges();
+
+      testImg('/~/jssmedia/');
+
+      comp2.field = {
+        value: {
+          src: '/~invalid/assets/img/test0.png',
+          alt: 'my image',
+        },
+      };
+
+      fixture2.detectChanges();
+
+      testImg('/~invalid/');
     });
   });
 
