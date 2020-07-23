@@ -37,6 +37,7 @@ export const findEditorImageTag = (editorMarkup: string) => {
 
 /**
  * Receives a Sitecore media URL and replaces `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
+ * Can use `mediaUrlPrefix` in order to use custom checker.
  * This replacement allows the JSS media handler to be used for JSS app assets.
  * Also, any provided `params` are used as the querystring parameters for the media URL.
  */
