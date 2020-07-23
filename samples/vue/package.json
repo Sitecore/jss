@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-vue",
-  "version": "13.2.0",
+  "version": "14.0.1",
   "description": "Application utilizing Sitecore JavaScript Services and Vue (vue-cli).",
   "private": true,
   "config": {
@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@panter/vue-i18next": "~0.15.1",
-    "@sitecore-jss/sitecore-jss-vue": "^13.2.0",
+    "@sitecore-jss/sitecore-jss-vue": "^14.0.1",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
     "apollo-link": "~1.2.13",
@@ -70,10 +70,10 @@
   },
   "devDependencies": {
     "@babel/register": "7.6.2",
-    "@sitecore-jss/sitecore-jss-cli": "^13.2.0",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^13.2.0",
-    "@sitecore-jss/sitecore-jss-manifest": "^13.2.0",
-    "@sitecore-jss/sitecore-jss-tracking": "^13.2.0",
+    "@sitecore-jss/sitecore-jss-cli": "^14.0.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^14.0.1",
+    "@sitecore-jss/sitecore-jss-manifest": "^14.0.1",
+    "@sitecore-jss/sitecore-jss-tracking": "^14.0.1",
     "@vue/cli-plugin-babel": "~3.11.0",
     "@vue/cli-plugin-eslint": "~3.11.0",
     "@vue/cli-service": "~3.11.0",

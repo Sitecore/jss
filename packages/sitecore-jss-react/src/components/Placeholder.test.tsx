@@ -15,7 +15,7 @@ const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, any>();
 
   // pass otherProps to page-content to test property cascading through the Placeholder
-  const Home: React.SFC<any> = ({ rendering, ...otherProps }) => (
+  const Home: React.SFC<any> = ({ rendering, render, renderEach, renderEmpty, ...otherProps }) => (
     <div className="home-mock">
       <Placeholder name="page-header" rendering={rendering} />
       <Placeholder name="page-content" rendering={rendering} {...otherProps} />
@@ -83,6 +83,90 @@ describe('<Placeholder />', () => {
         );
 
         expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
+      });
+
+      it('should render components based on the rendereach function', () => {
+        const component: any = dataSet.data.sitecore.route;
+        const phKey = 'main';
+
+        const renderedComponent = mount(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder
+              name={phKey}
+              rendering={component}
+              renderEach={(comp) => <div className="wrapper">{comp}</div>}
+            />
+          </SitecoreContext>
+        );
+
+        expect(renderedComponent.find('.wrapper').length).to.equal(1);
+      });
+
+      it('should render components based on the render function', () => {
+        const component: any = dataSet.data.sitecore.route;
+        const phKey = 'main';
+
+        const renderedComponent = mount(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder
+              name={phKey}
+              rendering={component}
+              render={(comp) => <div className="wrapper">{comp}</div>}
+            />
+          </SitecoreContext>
+        );
+
+        expect(renderedComponent.find('.wrapper').length).to.equal(1);
+      });
+
+      it('when null passed to render function', () => {
+        it('should render empty placeholder', () => {
+          const component: any = dataSet.data.sitecore.route;
+          const phKey = 'main';
+
+          const renderedComponent = mount(
+            <SitecoreContext componentFactory={componentFactory}>
+              <Placeholder
+                name={phKey}
+                rendering={component}
+                render={() => null}
+              />
+            </SitecoreContext>
+          );
+
+          const placeholder = renderedComponent.find(Placeholder)
+          expect(placeholder.length).to.equal(1);
+          expect(placeholder.children()).to.be.empty;
+        });
+      })
+
+      it('should render output based on the renderEmpty function in case of no renderings', () => {
+        let component: any = dataSet.data.sitecore.route;
+        const renderings = component.placeholders.main.filter(({ componentName }: any) => !componentName);
+        const myComponent = {
+          ...component,
+          placeholders: {
+            ...component.placeholders,
+            main: [...renderings],
+          },
+        };
+
+        const phKey = 'main';
+
+        const renderedComponent = mount(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder
+              name={phKey}
+              rendering={myComponent}
+              renderEmpty={(comp) => <div className="wrapper">{comp}</div>}
+            />
+          </SitecoreContext>
+        );
+
+        expect(renderedComponent.find('.wrapper').length).to.equal(1);
+        expect(renderedComponent.find('.download-callout-mock').length).to.equal(0);
+        expect(renderedComponent.find('.home-mock').length).to.equal(0);
+        expect(renderedComponent.find('.jumbotron-mock').length).to.equal(0);
       });
 
       it('should pass properties to nested components', () => {
