@@ -3,8 +3,7 @@ import { SitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import { Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import componentFactory from './temp/componentFactory';
-import SitecoreContextFactory from './lib/SitecoreContextFactory';
-import RouteHandler from './RouteHandler';
+import RouteHandler, { getServerSideRenderingState } from './RouteHandler';
 
 // This is the main JSX entry point of the app invoked by the renderer (server or client rendering).
 // By default the app's normal rendering is delegated to <RouteHandler> that handles the loading of JSS route data.
@@ -24,9 +23,19 @@ export const routePatterns = [
 // Router: provides a basic routing setup that will resolve Sitecore item routes and allow for language URL prefixes.
 const AppRoot = ({ path, Router, graphQLClient }) => {
   const routeRenderFunction = (props) => <RouteHandler route={props} />;
+  const ssrInitialState = getServerSideRenderingState();
+
+  const sitecoreContext = ssrInitialState && ssrInitialState.sitecore && ssrInitialState.sitecore.route
+    ? {
+        route: ssrInitialState.sitecore.route,
+        itemId: ssrInitialState.sitecore.route.itemId,
+        ...ssrInitialState.sitecore.context,
+      }
+    : undefined
+
   return (
     <ApolloProvider client={graphQLClient}>
-      <SitecoreContext componentFactory={componentFactory} contextFactory={SitecoreContextFactory}>
+      <SitecoreContext componentFactory={componentFactory} context={sitecoreContext}>
         <Router location={path} context={{}}>
           <Switch>
             {routePatterns.map((routePattern) => (
