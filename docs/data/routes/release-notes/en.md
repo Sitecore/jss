@@ -5,6 +5,39 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 14.0.1
+
+### Bug Fixes
+
+* [Commit](https://github.com/Sitecore/jss/commit/a79edbadd04d50cf4ba88ac62836b26be90c8ac0) [Doc] Describe that global styles, scripts can't be inserted when a component is added to a route in Experience Editor
+* [PR #396](https://github.com/Sitecore/jss/pull/396) [Doc] Update tracking doc as it had a link that 404'ed
+* [PR #355](https://github.com/Sitecore/jss/pull/355) [Doc] Add rendering host documentation
+* [PR #394](https://github.com/Sitecore/jss/pull/394) [React sample rendering-host] Setup in order to run rendering host script
+* [Commit](https://github.com/Sitecore/jss/commit/64545fa7537ab1d84b60cdfb4a77130c248d9ed7) [React sample] Cannot read property 'fields' of undefined
+* [Commit](https://github.com/Sitecore/jss/commit/c28df0d5623bc00a037e52a13fbff86a67bf497e) [React sample] Fix dev dependencies versions
+
+## Sitecore JSS 14.0 for Sitecore 10
+
+### Upgrading
+
+There are [migration instructions](/upgrade-guides/14.0) from JSS 13-based applications.
+
+### New Features & Improvements
+
+* [PR #347](https://github.com/Sitecore/jss/pull/347) Fixes withSitecoreContext typescript definition
+* [PR #350](https://github.com/Sitecore/jss/pull/350) The types of the render functions in the Placeholder component props are not correct or missing
+
+SXA and Sitecore Forms compatibility table
+| Sitecore  | JSS      | SXA   | Forms
+| --------- | -------- |------ | ------
+| 10        | 14.0     | 10    | Yes
+| 9.3       | 13.1     | 9.3   | Yes
+| 9.3       | 13.0     | 9.3   | Yes
+| 9.2       | 12.0     | 1.9   | Yes
+| 9.1.1     | 11.1     | 1.9   | No
+| 9.1       | 11.0     | No    | No
+| 9.0       | 11.0     | No    | No
+
 ## Sitecore JSS 13.2 for Sitecore 9.3
 
 ### New Features & Improvements
