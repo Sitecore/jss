@@ -34,7 +34,7 @@ export type WithPlaceholderSpec = (string | PlaceholderToPropMapping) | (string 
 
 export function withPlaceholder(placeholders: WithPlaceholderSpec, options?: WithPlaceholderOptions) {
   return (WrappedComponent: React.ComponentClass<any> | React.SFC<any>) => {
-    class WithPlaceholder extends PlaceholderCommon {
+    class WithPlaceholder extends PlaceholderCommon<PlaceholderProps> {
       static propTypes = PlaceholderCommon.propTypes;
 
       constructor(props: any) {
