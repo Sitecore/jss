@@ -100,6 +100,10 @@ const JssForm = ({ fields, history }) => (
 
 export default withRouter(JssForm);
 ```
+
+> In case if you are using `headless` mode, set `sitecoreApiHost={''}`, so requests will be sent directly to your node server,
+> if you send requests directly to sitecore instance you will get error (only in headless mode).
+
 #### Customizing sample forms markup
 
 When using the JSS sample forms implementation there are several options to customize the final markup of the form.
@@ -270,5 +274,5 @@ export const formFetcher = (formData, endpoint) => fetch(endpoint, {
 
 There are some limitations to be aware of with JSS' Sitecore Forms support.
 
-* Forms cannot be defined or rendered in disconnected or headless mode (connected, integrated are supported)
+* Forms cannot be defined or rendered in disconnected (connected, integrated, headless are supported)
 * Conditional fields are not supported by the JSS forms example implementation; however conditional data is returned by the form API
