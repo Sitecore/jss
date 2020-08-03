@@ -6,6 +6,39 @@ title: Validation
 
 # Validation & Error Handling in Components
 
+## Accessing field values safely using getFieldValue()
+
+### Description
+The `sitecore-jss` package contains a helper function called `getFieldValue` that safely extracts a field value from a rendering or fields object. It returns `null` if the field is not defined.
+
+> `sitecore-jss/types/layoutDataUtils.d.ts`
+> ```javascript
+> export declare function getFieldValue<T>(renderingOrFields: ComponentRendering | {
+>     [name: string]: Field | Item[];
+> }, fieldName: string): T | undefined;
+> ```
+> ```javascript
+> export declare function getFieldValue<T>(renderingOrFields: ComponentRendering | {
+>     [name: string]: Field | Item[];
+> }, fieldName: string, defaultValue: T): T;
+> ```
+
+### Sample Usage
+This function is re-exported from the framework-specific packaged, for convenience. Sample usage in a JSS component looks like this:
+
+```javascript
+import React from 'react';
+import { getFieldValue } from '@sitecore-jss/sitecore-jss-react';
+
+export default ({hideComponent}) => (
+  {getFieldValue(props.fields, 'hideComponent', false) && (
+    <div>
+      <code>checkbox2</code> is true
+    <div>
+  )}
+);
+```
+
 ## Validation via Static Type Checking
 Static type checkers, such as Flow and TypeScript, can help you find bugs at compilation time, provide Intellisense code auto-completion, and aids in refactoring and making major changes safer in large codebases. 
 
