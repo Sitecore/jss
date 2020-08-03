@@ -11,6 +11,8 @@ import {
   CommonFieldTypes,
 } from '@sitecore-jss/sitecore-jss-manifest';
 import showdown from 'showdown';
+import generateToc from '../lib/generateToc';
+import { html } from 'cheerio';
 
 const routeTypeName = 'Docs Route';
 
@@ -62,11 +64,24 @@ const parseRouteData = (sourceRouteData, file) => {
     throw `unable to parse markdown content for '${file}'`;
   }
 
-  const converter = new showdown.Converter();
-  converter.setOption('tables', true);
-  converter.setOption('ghCompatibleHeaderId', true);
+  /*
+   * parseImgDimensions enables support for setting image dimensions from within markdown syntax.
+   * Usage:
+   * ![foo](foo.jpg =100x80)   simple, assumes units are in px
+   * ![bar](bar.jpg =100x*)    sets the height to "auto"
+   * ![baz](baz.jpg =80%x5em)  Image with width of 80% and height of 5em
+   */
+  const converter = new showdown.Converter({
+    simpleLineBreaks: true,
+    tables: true,
+    ghCompatibleHeaderId: true,
+    requireSpaceBeforeHeadingText: true,
+    parseImgDimensions: true
+  });
+
   const htmlContent = converter.makeHtml(markdownContent);
   const name = parsedMatter.data.name;
+
   if (!name) {
     throw `name is undefined on '${file}'`;
   }
@@ -75,28 +90,35 @@ const parseRouteData = (sourceRouteData, file) => {
   if (!routeTemplate) {
     throw `routeTemplate is undefined on '${file}'`;
   }
+
   if (!fs.existsSync(routeTemplate)) {
     throw `Specified routeTemplate doesn't exist: '${routeTemplate}'`;
   }
+
   const template = fs.readFileSync(routeTemplate, 'utf8');
   const routeData = yaml.safeLoad(template);
-
+  
   const tokenReplacements = new Map();
   tokenReplacements.set('$name$', name);
   tokenReplacements.set('$html$', htmlContent);
 
-  processTokenReplacements(routeData, tokenReplacements);
-
   if (parsedMatter.data.title) {
     routeData.fields.title.value = parsedMatter.data.title;
-
-    const rootPath = path.resolve(path.join(__dirname, '..', '..'));
-    const relativePath = path.relative(rootPath, file).replace(/\\/g, '/');
-    routeData.fields.editLink = {
-      text: 'Edit this on GitHub',
-      href: `https://github.com/Sitecore/jss/edit/master/docs/${relativePath}`,
-    };
   }
+
+  if (template.indexOf('$toc$') > -1) {
+    const toc = generateToc(htmlContent);
+    tokenReplacements.set('$toc$', toc);
+  }
+  
+  processTokenReplacements(routeData, tokenReplacements);
+
+  const rootPath = path.resolve(path.join(__dirname, '..', '..'));
+  const relativePath = path.relative(rootPath, file).replace(/\\/g, '/');
+  routeData.fields.editLink = {
+    text: 'Edit this on GitHub',
+    href: `https://github.com/Sitecore/jss/edit/master/docs/${relativePath}`,
+  };
 
   return routeData;
 };

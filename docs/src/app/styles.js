@@ -8,4 +8,4 @@ import 'assets/css/jss-docs.css';
 import 'assets/css/highlight-style-github.css';
 import 'assets/css/sidenav.css';
 import 'assets/css/sectiongrid.css';
-import 'assets/css/theme.css';
+import 'assets/css/site-styles.css';

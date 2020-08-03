@@ -47,6 +47,10 @@ placeholders:
           fields:
             text:
               value: |
+                <section class="toc-container">
+                  <div class="title">In this guide</div>
+                  $toc$
+                </section>
                 $html$
   jssdocs-footer:
   - componentName: Row
