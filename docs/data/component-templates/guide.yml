@@ -47,6 +47,7 @@ placeholders:
           fields:
             text:
               value: |
+                <h1>$title$</h1>
                 <section class="toc-container">
                   <div class="title">In this guide</div>
                   $toc$

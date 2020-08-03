@@ -104,6 +104,7 @@ const parseRouteData = (sourceRouteData, file) => {
 
   if (parsedMatter.data.title) {
     routeData.fields.title.value = parsedMatter.data.title;
+    tokenReplacements.set('$title$', parsedMatter.data.title);
   }
 
   if (template.indexOf('$toc$') > -1) {
