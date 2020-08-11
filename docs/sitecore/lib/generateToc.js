@@ -27,7 +27,7 @@ class TocEntry {
 
 function getHeaders(html) {
   const $ = cheerio.load(html);
-  return $('h2, h3').toArray()
+  return $('h2, h3, h4').toArray()
     .map(el => new TocEntry(el.name, $(el).text(), $(el).attr('id')));
 }
 

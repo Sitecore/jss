@@ -43,16 +43,14 @@ placeholders:
             useSearch:
               value: 'false'
       jssdocs-content:
-        - componentName: Article
+        - componentName: Guide
           fields:
             text:
               value: |
-                <h1>$title$</h1>
-                <section class="toc-container">
-                  <div class="title">In this guide</div>
-                  $toc$
-                </section>
                 $html$
+            toc:
+              value: |
+                $toc$
   jssdocs-footer:
   - componentName: Row
     params:

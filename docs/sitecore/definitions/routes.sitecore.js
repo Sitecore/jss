@@ -12,7 +12,6 @@ import {
 } from '@sitecore-jss/sitecore-jss-manifest';
 import showdown from 'showdown';
 import generateToc from '../lib/generateToc';
-import { html } from 'cheerio';
 
 const routeTypeName = 'Docs Route';
 
