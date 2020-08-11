@@ -32,16 +32,16 @@ placeholders:
             csscolorclass:
               value: default
             title:
-              value: Guides & Recommended Practices
+              value: Guides, Patterns, & Recommended Practices
             text:
-              value: A collection of learnings and recommendations from our team of JSS developers, based on real-world projects and community feedback.
+              value: A collection of learnings and recommendations from our developers and community, based on learnings from real-world projects.
       jssdocs-aside:
         - componentName: SideNav
           fields:
             navType:
               value: guides
             useSearch:
-              value: 'true'
+              value: 'false'
       jssdocs-content:
         - componentName: Article
           fields:
