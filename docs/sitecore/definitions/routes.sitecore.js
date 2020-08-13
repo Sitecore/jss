@@ -114,16 +114,22 @@ const parseRouteData = (sourceRouteData, file) => {
   }
   
   processTokenReplacements(routeData, tokenReplacements);
+  routeData.fields.editLink = getGitHubEditUrl(routeTemplate, file);
+  return routeData;
+};
+
+const getGitHubEditUrl = (routeTemplate, file, gitBranch = 'dev') => {
+  if (routeTemplate.indexOf('guide') > -1) {
+    gitBranch = 'guides';
+  }
 
   const rootPath = path.resolve(path.join(__dirname, '..', '..'));
   const relativePath = path.relative(rootPath, file).replace(/\\/g, '/');
-  routeData.fields.editLink = {
+  return {
     text: 'Edit this on GitHub',
-    href: `https://github.com/Sitecore/jss/edit/master/docs/${relativePath}`,
+    href: `https://github.com/Sitecore/jss/edit/${gitBranch}/docs/${relativePath}`,
   };
-
-  return routeData;
-};
+}
 
 const processTokenReplacements = (obj, replaceMap) => {
   for (var k in obj) {
