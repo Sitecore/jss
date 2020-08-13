@@ -59,7 +59,7 @@ const parseRouteData = (sourceRouteData, file) => {
   const parsedMatter = matter(sourceRouteData);
 
   const markdownContent = parsedMatter.content;
-  if (!markdownContent) {
+  if (markdownContent === undefined) {
     throw `unable to parse markdown content for '${file}'`;
   }
 
@@ -96,7 +96,7 @@ const parseRouteData = (sourceRouteData, file) => {
 
   const template = fs.readFileSync(routeTemplate, 'utf8');
   const routeData = yaml.safeLoad(template);
-  
+
   const tokenReplacements = new Map();
   tokenReplacements.set('$name$', name);
   tokenReplacements.set('$html$', htmlContent);
@@ -107,7 +107,9 @@ const parseRouteData = (sourceRouteData, file) => {
   }
 
   if (template.indexOf('$toc$') > -1) {
-    const toc = generateToc(htmlContent);
+    const toc = markdownContent.length === 0
+      ? ''
+      : generateToc(htmlContent);
     tokenReplacements.set('$toc$', toc);
   }
   
