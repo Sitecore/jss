@@ -4,7 +4,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  * Adds the Styleguide-FieldUsage-Number component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when `jss manifest` is run.
  */
-export default function(manifest: Manifest) {
+export default function StyleguideFieldUsageNumber(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideFieldUsageNumber',
     icon: SitecoreIcon.NumbersField,

@@ -4,7 +4,7 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  * Adds the Styleguide-SitecoreContext component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when `jss manifest` is run.
  */
-export default function(manifest: Manifest) {
+export default function StyleguideSitecoreContext(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideSitecoreContext',
     icon: SitecoreIcon.ControlPanel,
