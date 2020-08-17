@@ -1,46 +1,30 @@
 ---
-name: validation
+name: handling-errors-js
 routeTemplate: ./data/component-templates/guide.yml
-title: Validation
+title: Handling Errors in JS
 ---
 
-# Validation & Error Handling in Components
+## Compile-Time Errors
 
-## Accessing field values safely using getFieldValue()
+---
 
-### Description
-The `sitecore-jss` package contains a helper function called `getFieldValue` that safely extracts a field value from a rendering or fields object. It returns `null` if the field is not defined.
+## Run-Time Errors
 
-> `sitecore-jss/types/layoutDataUtils.d.ts`
-> ```javascript
-> export declare function getFieldValue<T>(renderingOrFields: ComponentRendering | {
->     [name: string]: Field | Item[];
-> }, fieldName: string): T | undefined;
-> ```
-> ```javascript
-> export declare function getFieldValue<T>(renderingOrFields: ComponentRendering | {
->     [name: string]: Field | Item[];
-> }, fieldName: string, defaultValue: T): T;
-> ```
+---
 
-### Sample Usage
-This function is re-exported from the framework-specific packaged, for convenience. Sample usage in a JSS component looks like this:
+## Errors in JavaScript
 
-```javascript
-import React from 'react';
-import { getFieldValue } from '@sitecore-jss/sitecore-jss-react';
+### Ensure all promise failures are handled
+A `promises` is a type of object that is returned when you make an async call to the server. ([Read more about promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises))
 
-export default ({hideComponent}) => (
-  {getFieldValue(props.fields, 'hideComponent', false) && (
-    <div>
-      <code>checkbox2</code> is true
-    <div>
-  )}
-);
-```
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+In addition to errors coming from the server, a JSS app needs to handle JavaScript errors as well. For that there are many possible implementations depending on what your specific use-case is. For example, React has [Error Boundaries](https://reactjs.org/docs/error-boundaries.html), which lets you bound the scope where an error is handled in React components.
+
+---
 
 ## Validation via Static Type Checking
-Static type checkers, such as Flow and TypeScript, can help you find bugs at compilation time, provide Intellisense code auto-completion, and aids in refactoring and making major changes safer in large codebases. 
+Static type checkers, such as Flow and TypeScript, can help you find bugs at compilation time, provide Intellisense code auto-completion, and aids in refactoring and making major changes safer in large code bases. 
 
 Sitecore JSS components types definitions are included in the npm package for all front-end frameworks.  For type checking your custom components, you can create these types manually.
 Some teams have experimented with extracting these types definitions from the Sitecore manifest.  JSS does not currently provide this functionality. https://github.com/Sitecore/jss/issues/74
@@ -60,6 +44,7 @@ Vue + TypeScript: https://blog.boro2g.co.uk/setting-up-jss-with-vue-typescript-a
 
 More info available on Vue docs: https://vuejs.org/v2/guide/typescript.html
 
+---
 
 ## Validation via Framework-Specific Parameter Validators
 
@@ -70,8 +55,7 @@ There is no compilation-time type checking on props passed to a component and wh
 >  - In Vue: use [Prop validation](https://vuejs.org/v2/guide/components-props.html#Prop-Validation)
 >  - In Angular: use [Template type checking](https://angular.io/guide/template-typecheck)
 
-
-**React Example**
+### React Example
 
 ```javascript
 import React from 'react';
@@ -97,26 +81,18 @@ Having trouble figuring out the propTypes? Check the source code of the relevant
 
 ```javascript
 Link.propTypes = {
-	field: PropTypes.oneOfType([
-		PropTypes.shape({
-			href: PropTypes.string,
-		}),
-		PropTypes.shape({
-			value: PropTypes.object,
-			editableFirstPart: PropTypes.string,
-			editableLastPart: PropTypes.string,
-		}),
-	]).isRequired,
-	editable: PropTypes.bool,
+  field: PropTypes.oneOfType([
+    PropTypes.shape({
+      href: PropTypes.string,
+    }),
+    PropTypes.shape({
+      value: PropTypes.object,
+      editableFirstPart: PropTypes.string,
+      editableLastPart: PropTypes.string,
+    }),
+  ]).isRequired,
+  editable: PropTypes.bool,
 };
 ```
 
 If using `React`, also check out [Error Boundaries](https://reactjs.org/docs/error-boundaries.html), which are components that catch errors in descendent components, and provide means for you to handle them gracefully.
-
-
-**Account for Content Author error**
-
-Don't assume that props.fields will always be provided to all components. It could be null/undefined either due to user error or by intended design of the component (the source code defines props.fields as `props.fields?`). If this is not accounted for in the code then Experience Editor can blow up when editors try to add renderings without data sources. 
-
-To validate:
-Check that all JSS components which use props.fields account for the case when props.fields is null or undefined.
