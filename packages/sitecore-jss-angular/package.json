@@ -19,13 +19,13 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@angular/common": "^8.2.8",
-    "@angular/compiler": "^8.2.8",
-    "@angular/compiler-cli": "^8.2.8",
-    "@angular/core": "^8.2.8",
-    "@angular/platform-browser": "^8.2.8",
-    "@angular/platform-browser-dynamic": "^8.2.8",
-    "@angular/router": "^8.2.8",
+    "@angular/common": "^9.1.12",
+    "@angular/compiler": "^9.1.12",
+    "@angular/compiler-cli": "^9.1.12",
+    "@angular/core": "^9.1.12",
+    "@angular/platform-browser": "^9.1.12",
+    "@angular/platform-browser-dynamic": "^9.1.12",
+    "@angular/router": "^9.1.12",
     "@types/jasmine": "^3.4.1",
     "@types/node": "^12.7.8",
     "codelyzer": "^4.5.0",
@@ -40,14 +40,14 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.3",
     "tsickle": "^0.37.0",
-    "typescript": "~3.5.0",
+    "typescript": "~3.8.3",
     "url-parse": "^1.4.7",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.3"
   },
   "peerDependencies": {
-    "@angular/common": "^8.0.0",
-    "@angular/core": "^8.0.0",
-    "@angular/router": "^8.0.0",
+    "@angular/common": "^9.1.12",
+    "@angular/core": "^9.1.12",
+    "@angular/router": "^9.1.12",
     "rxjs": "^6.5.3"
   },
   "dependencies": {
