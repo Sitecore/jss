@@ -26,7 +26,7 @@
     "jss": "jss",
     "start": "npm-run-all --serial bootstrap:disconnected --parallel start:angular start:proxy start:watch-components",
     "start:connected": "scjss-verify-setup && npm-run-all --serial bootstrap:connected start:angular start:watch-components",
-    "build": "npm-run-all --serial bootstrap:connected --parallel build:client build:server --serial build:server-wrapper",
+    "build": "npm-run-all --serial bootstrap:connected --serial build:client build:server --serial build:server-wrapper",
     "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component",
     "start:angular": "ng serve -o --base-href=/ --source-map=false",
     "start:proxy": "ts-node scripts/disconnected-mode-proxy.ts",
