@@ -21,7 +21,6 @@ GitHub references:
 ---
 
 ## Other Error Codes
-Handling other error codes is not configured OOTB, but it's straightforward to plug this in.
+Handling other error codes is not configured OOTB, but this is possible customizing the `fetcher` option passed to `dataApi.fetchRouteData`. (Either add logic to the default fetcher, or chain Promise handlers to it.)
 
-> TODO: discuss dataFetcher (samples/react/src/dataFetcher.js)
-> Update `src/RouteHandler.js` to handle the new HTTP code
+Refer to [Customizing route handling: Using the `querystringParams` option](/guides/code-patterns/routing#customizing-route-handling)
