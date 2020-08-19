@@ -1,12 +1,12 @@
 import { environment as env } from '../../environments/environment';
-import { Injectable } from "@angular/core";
+// import { Injectable } from "@angular/core";
 
 export class JssRoute {
   language: string;
   serverRoute: string;
 }
 
-@Injectable()
+// @Injectable()
 export class JssRouteBuilderService {
   buildRouteUrl(route: JssRoute) {
     if (!route.language) {

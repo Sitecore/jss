@@ -1,7 +1,6 @@
 // These are important and needed before anything else
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-import { renderModuleFactory } from '@angular/platform-server';
 import { enableProdMode } from '@angular/core';
 import { join } from 'path';
 import { readFileSync } from 'fs';
@@ -15,9 +14,8 @@ enableProdMode();
 const template = readFileSync(join(__dirname, 'browser', 'index.html')).toString();
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main');
+const { AppServerModule, renderModule } = require('./dist/server/main');
 
-const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader');
 
 // this is the function expected by the JSS View Engine for "integrated mode"
 function renderView (callback, path, data, viewBag) {
@@ -56,20 +54,17 @@ function renderView (callback, path, data, viewBag) {
     const transferState = { ...state };
     delete transferState.viewBag;
 
-    renderModuleFactory(AppServerModuleNgFactory, {
+    renderModule(AppServerModule, {
       document: template,
       url: path,
-      // DI so that we can get lazy-loading to work differently (since we need it to just instantly render it)
       extraProviders: [
-        provideModuleMap(LAZY_MODULE_MAP),
         // custom injection with the initial state that SSR should utilize
         { provide: 'JSS_SERVER_LAYOUT_DATA', useValue: transferState },
         { provide: 'JSS_SERVER_VIEWBAG', useValue: state.viewBag },
       ]
-    }).then(html => {
-      callback(null, { html });
     })
-    .catch((err) => callback(err, null));
+    .then(html => callback(null, { html }))
+    .catch(err => callback(err, null))
   } catch (err) {
     // need to ensure the callback is always invoked no matter what
     // or else SSR will hang
