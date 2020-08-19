@@ -61,4 +61,4 @@ The SXA integration adds Content-Author-friendly site management capabilities to
 - Full power of SXA’s page/partial designs in JSS sites
 - Dialog-driven import of disconnected apps into Sitecore
 
-Refer to the [SXA Integration Guide](/guides/sxa-integration) for more information on this topic.
+Refer to the [SXA Integration Guide](/guides/multisite/sxa-integration) for more information on this topic.

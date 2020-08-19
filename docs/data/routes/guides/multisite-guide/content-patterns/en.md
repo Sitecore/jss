@@ -20,7 +20,7 @@ Implementation instructions:
 - [SXA Docs - Page Designs](https://doc.sitecore.com/developers/sxa/93/sitecore-experience-accelerator/en/page-designs.html)
 - [SXA Docs - Share content between JSS sites](https://doc.sitecore.com/developers/sxa/93/sitecore-experience-accelerator/en/share-content-between-jss-sites.html)
 
-> See [SXA Integration](/guides/sxa-integration) for more information on JSS with SXA.
+> See [SXA Integration](/guides/multisite/sxa-integration) for more information on JSS with SXA.
 
 ### If using JSS without SXA
 
