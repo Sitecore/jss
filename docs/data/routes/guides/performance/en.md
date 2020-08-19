@@ -1,5 +1,5 @@
 ---
-name: performance-guide
+name: performance
 routeTemplate: ./data/component-templates/guide.yml
 title: Performance Guide
 ---
@@ -27,10 +27,10 @@ Reference:  [“Increasing Application Performance with HTTP Cache Headers” by
 > Warning: Node is a 3rd party software, so using Node caching modules is not something supported by Sitecore. Since the output from Node is the HTML for the entire page, Node caching is all-or-nothing. In other words, if you are using personalization on parts of the page, there is no way to tell Node to exclude parts of the page from the cache.
 
 Node caching modules:
-- https://www.npmjs.com/package/node-cache
-- https://www.npmjs.com/package/node-cache-redis
+- [Node Cache](https://www.npmjs.com/package/node-cache)
+- [Node Redis Cache](https://www.npmjs.com/package/node-cache-redis)
 
-Considerations - implementing a cache-invalidation strategy
+Considerations: implement a cache-invalidation strategy
 
 ### Service worker and HTTP cache
 
@@ -49,15 +49,16 @@ A common pitfall we've noticed teams stumble on is setting up routing in such a 
 ## Infrastructure
 
 ### Node clusters
-TODO
-[Node docs: how to run a cluster:](https://nodejs.org/api/cluster.html)
- 
-Generally speaking you’d want at least as many node processes as physical/virtual/hyperthreaded cores. Performance testing will give the best answers in a specific codebase/environment.
 
+By default, Node executes code on a **single thread** (for memory efficiency). The `Cluster` module allows you to handle a greater processing load by taking advantage of multi-core systems and create child processes that each run on their own single thread.
+
+Generally speaking, it's a good idea to have at least as many node processes as physical/virtual/hyper-threaded cores. Performance testing will give the best guidance for fine-tuning this in a specific codebase/environment.
+
+[Node docs: how to run a cluster](https://nodejs.org/api/cluster.html)
 
 ### Azure WebApps
 It's technically possible to have the CD server and Node.js running on a single WebApp, but this is not recommended. Sharing the service plan means sharing the Azure CPU resources between Node and CD, which can have unpredictable results for scalability. The best solution for scaling is to have dedicated app service plans for the headless Node rendering farm and the CDs.
- 
+
 ---
 
 ## Integrated Mode in Prod
