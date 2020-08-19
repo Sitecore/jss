@@ -1,7 +1,7 @@
 ---
 name: media-handling
 routeTemplate: ./data/component-templates/guide.yml
-title: Media Handling
+title: Media Handling Guide
 ---
 
 ## Image Resizing

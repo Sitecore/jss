@@ -1,7 +1,7 @@
 ---
 name: graphql-security
 routeTemplate: ./data/component-templates/guide.yml
-title: GraphQL Security
+title: GraphQL Security Recommendations
 ---
 
 ## Avoid using GraphQL mutations
@@ -52,3 +52,11 @@ To achieve higher security than what is provided OOTB with JSS GraphQL, there ar
 - Typical authorization of GraphQL can and should be implemented at the node level. This means that the resolver function for that particular node will check authorization before returning any data. This allows you to query public and protected data from the same query and endpoint.
 
 - If the entirety of a GraphQL API endpoint requires authorization, this can be achieved through [configuration](https://jss.sitecore.com/docs/techniques/graphql/graphql-overview#authorization). This configuration can be set up to use Identity Server token, SSO token, etc.
+
+---
+
+## Limit permissions granted by API key
+By default, the token generated for accessing the GraphQL API grants read access to whatever `extranet\anonymous` has read access to, which is the entire Sitecore tree.
+
+[Adam Lamarre](https://twitter.com/erzr) wrote a great guide about how to improve GraphQL security by creating a special user account with restricted access, for use specifically with the GraphQL API Key.
+Read the full post: [Creating a Site Specific Impersonation User for Sitecore JSS GraphQL](https://www.adamlamarre.com/creating-a-site-specific-impersonation-user-for-sitecore-jss-graphql/)

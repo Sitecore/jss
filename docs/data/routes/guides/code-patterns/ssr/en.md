@@ -1,7 +1,7 @@
 ---
 name: ssr
 routeTemplate: ./data/component-templates/guide.yml
-title: SSR 
+title: SSR Recommended Practices
 ---
 
 Server-Side Rendering (SSR) is required on Content Management (CM) servers to enable inline editing of data by Content Authors in Experience Editor. But as far as Content Delivery (CD) servers go, the primary reason for using SSR is to guarantee SEO compliancy.
@@ -62,6 +62,5 @@ Check the documentation for SSR compatibility - look for anything special regard
 - [Vue's (absolutely amazing) SSR Guide](https://ssr.vuejs.org/#what-is-server-side-rendering-ssr)
 - [Angular's docs on SSR](https://angular.io/guide/universal)
 
----
 
-Find more SSR content in the [Debugging guide](error-handling-debugging-guide/debugging-help#debugging-node).
+> Find more SSR content in the [Debugging guide](error-handling-debugging-guide/debugging-help#debugging-node).

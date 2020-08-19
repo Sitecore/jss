@@ -7,7 +7,7 @@ Performance Optimization is a complex topic because different optimizations can 
 
 ## Cache as much of the things as you can!
 
-> ⚠️ TODO: The [caching page in Docs](/docs/techniques/performance/caching) has addition content and examples on this topic. Need to merge together.
+> ⚠️ TODO: The [caching page in Docs](/docs/techniques/performance/caching) has addition content and examples on this topic. Need to merge together (probably under guides).
 
 ### Sitecore cache
 
