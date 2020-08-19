@@ -59,7 +59,7 @@ Below are resources that cover this topic.
 
 ---
 
-## Naming conventions
+## Key differences from "vanilla" JSS
 
 1. When creating a JSS Site, the site name must match the JSS app name that will be imported
 
@@ -69,6 +69,8 @@ Below are resources that cover this topic.
   When you deploy a JSS app to a JSS Site, all templates, components, and placeholders deploy to the *Tenant* level. That means that if you deploy additional JSS Sites to the same Tenant, and there are any name conflicts in the imported items, the new items will overwrite the older items.
 
   We recommend establishing a naming convention that includes a unique prefix per site.
+
+3. Sitecore import (i.e. app deployment) works differently in JSS+SXA. Components/templates are imported into `Project/Tenant`, and then you can create more sites based on this.  When you import additional sites, duplicates are ignores.
 
 ---
 
