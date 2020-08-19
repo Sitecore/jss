@@ -31,6 +31,7 @@
     "lint": "eslint --fix ./src/**/*.js ./sitecore/definitions/**/*.js ./build/**/*.js ./lib/**/*.js",
     "postinstall": "if-env HEROKU=true && npm run build || exit 0",
     "deploy": "cd .. && git subtree push --prefix docs heroku master",
+    "deploy:staging": "cd .. && git subtree push --prefix docs heroku-preview master",
     "heroku-postbuild": "echo Skip builds on Heroku"
   },
   "private": true,
