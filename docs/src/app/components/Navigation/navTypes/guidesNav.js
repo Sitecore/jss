@@ -3,65 +3,25 @@ const guidesNav = {
   displayName: 'Guides & Recommended Practices',
   children: [
     {
-      url: 'sitecore-for-feds',
-      displayName: 'Sitecore for Front-End Devs',
+      url: 'thinking-in-jss',
+      displayName: 'Thinking in JSS',
       children: [
         {
           url: 'js-vs-jss',
-          displayName: 'JS vs JSS'
+          displayName: `JS Apps vs JSS Apps`
         },
         {
           url: 'terminology',
-          displayName: 'Terminology'
+          displayName: 'Sitecore Terminology & Concepts'
         },
         {
-          url: 'common-pitfalls',
-          displayName: 'Common Pitfalls'
-        }
-      ]
-    },
-    {
-      url: 'getting-started',
-      displayName: 'Getting Started',
-      children: [
-        {
-          url: 'migrating',
-          displayName: 'Migrating to JSS'
+          url: 'project-structure',
+          displayName: '⚠️ Project Structure'
         },
-        {
-          url: 'solution-setup',
-          displayName: 'Solution Setup'
-        },
-        {
-          url: 'solution-structure',
-          displayName: 'Solution Structure'
-        },
-        {
-          url: 'component-granularity',
-          displayName: 'Component Granularity'
-        }
-      ]
-    },
-    {
-      url: 'devex',
-      displayName: 'DevEx',
-      children: [
         {
           url: 'developer-workflows',
           displayName: 'Developer Workflows'
-        },
-        {
-          url: 'tools',
-          displayName: 'Tools'
-        },
-        {
-          url: 'front-end-debugging',
-          displayName: 'Front-End Debugging'
-        },
-        {
-          url: 'back-end-debugging',
-          displayName: 'Back-End Debugging'
-        },
+        }
       ]
     },
     {
@@ -69,64 +29,72 @@ const guidesNav = {
       displayName: 'Code Patterns',
       children: [
         {
-          url: 'validation',
-          displayName: 'Validation'
+          url: 'layout-service',
+          displayName: 'Layout Service Customization'
         },
         {
           url: 'media-handling',
           displayName: 'Media Handling'
         },
         {
-          url: 'ssr',
-          displayName: 'SSR'
-        },
-        {
-          url: 'extend-layout-service',
-          displayName: 'Extend Layout Service'
-        },
-        {
-          url: 'custom-error-pages',
-          displayName: 'Custom Error Pages'
-        },
-        {
-          url: 'security',
-          displayName: 'Security'
-        },
-        {
-          url: 'tracking-and-personalization',
-          displayName: 'Tracking & Personalization'
-        },
-        {
-          url: 'dictionary-service',
-          displayName: 'Dictionary Service'
-        },
-        {
           url: 'routing',
           displayName: 'Routing'
-        }
-      ]
-    },
-    {
-      url: 'content-patterns',
-      displayName: 'Content Patterns',
-      children: [
-        {
-          url: 'shared-content',
-          displayName: 'Shared Content'
-        }
-      ]
-    },
-    {
-      url: 'infrastructure',
-      displayName: 'Infrastructure',
-      children: [
-        {
-          url: 'deployment-topologies',
-          displayName: 'Deployment Topologies'
         },
         {
-          url: 'performance',
-          displayName: 'Performance'
+          url: 'ssr',
+          displayName: 'SSR Recommendations'
+        }
+      ]
+    },
+    {
+      url: 'multisite',
+      displayName: 'Multisite Scenarios',
+      children: [
+        {
+          url: 'content-patterns',
+          displayName: 'Content Patterns'
+        },
+        {
+          url: 'implementation-patterns',
+          displayName: 'Implementation Patterns'
+        },
+        {
+          url: 'multi-language-support',
+          displayName: 'Multi-Lingual Support'
+        },
+        {
+          url: 'sxa-integration',
+          displayName: 'SXA Integration'
+        },
+      ]
+    },
+    {
+      url: 'performance',
+      displayName: 'Performance'
+    },
+    {
+      url: 'error-handling-debugging',
+      displayName: 'Debugging',
+      children: [
+        {
+          url: 'setup-checklist',
+          displayName: 'Setup Checklist'
+        },
+        {
+          url: 'common-pitfalls',
+          displayName: 'Common Pitfalls'
+        },
+        {
+          url: 'js-validation',
+          displayName: 'Validation in JS'
+        },
+        {
+          url: 'http-status-codes',
+          displayName: 'HTTP Status Codes'
+        },
+        {
+          url: 'debugging-help',
+          displayName: '⚠️ Debugging Help'
         }
       ]
     },
@@ -140,8 +108,28 @@ const guidesNav = {
         },
         {
           url: 'graphql-security',
-          displayName: 'GraphQL Security'
+          displayName: 'Security'
+        },
+        {
+          url: 'query-recipes',
+          displayName: 'Query Recipes'
         }
+      ]
+    },
+    {
+      url: 'wip',
+      displayName: '🚧 Work in Progress',
+      children: [
+        {
+          url: 'deployment-topologies',
+          displayName: 'Deployment Topologies'
+        },
+        
+        
+        {
+          url: 'migration-guide',
+          displayName: 'Migration Guide'
+        },
       ]
     },
   ],
