@@ -67,7 +67,7 @@
     "@ngx-translate/core": "~11.0.1",
     "@ngx-translate/http-loader": "~4.0.0",
     "@sitecore-jss/sitecore-jss": "^14.0.1",
-    "@sitecore-jss/sitecore-jss-angular": "f^14.0.1",
+    "@sitecore-jss/sitecore-jss-angular": "^14.0.1",
     "@sitecore-jss/sitecore-jss-tracking": "^14.0.1",
     "apollo-angular": "~1.7.0",
     "apollo-angular-link-http-batch": "~1.7.0",
