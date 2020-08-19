@@ -1,6 +1,6 @@
 import { ValueFormField } from './FormField';
 
-interface TrackableValueFormField extends ValueFormField {
+export interface TrackableValueFormField extends ValueFormField {
   focusedAtTick?: number;
   originalValue?: string | string[];
 }

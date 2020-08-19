@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-rendering-host",
-  "version": "13.1.0",
+  "version": "14.0.1",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",

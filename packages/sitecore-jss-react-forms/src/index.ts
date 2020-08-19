@@ -2,6 +2,7 @@ import { FieldProps, FieldChangeCallback, ListFieldProps, ValueFieldProps, Field
 import FieldFactory from './field-factory';
 import { Form, FormProps, ErrorComponentProps } from './components/form';
 import Button from './components/field-templates/button';
+import FileUpload from './components/field-templates/file-upload';
 import CheckboxList from './components/field-templates/checkbox-list';
 import Checkbox from './components/field-templates/checkbox';
 import DropdownList from './components/field-templates/dropdown-list';
@@ -17,11 +18,13 @@ import Telephone from './components/field-templates/telephone';
 import NumberField from './components/field-templates/number';
 import DateField from './components/field-templates/date';
 import TextField from './components/field-templates/text';
+import { ValidationDataModels } from './ValidationDataModels';
 import { FieldTypes } from './FieldTypes';
 import { createDefaultFieldFactory } from './default-field-factory';
 
 export {
   Button,
+  FileUpload,
   CheckboxList,
   Checkbox,
   DateField,
@@ -49,6 +52,7 @@ export {
   ValueFieldProps,
   LabelProps,
   FieldTypes,
+  ValidationDataModels,
 
   createDefaultFieldFactory,
 };

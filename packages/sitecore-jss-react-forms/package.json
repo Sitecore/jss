@@ -1,11 +1,12 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-forms",
-  "version": "13.1.0",
+  "version": "14.0.1",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "del-cli dist types",
     "lint": "tslint -p . -c ./tslint.json 'src/**/*.ts'",
+    "test": "mocha --require ts-node/register --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.tsx\"",
     "prepublishOnly": "npm run build"
   },
   "engines": {
@@ -21,13 +22,24 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/mocha": "^7.0.2",
     "@types/node": "*",
     "@types/prop-types": "^15.7.3",
     "@types/react": "16.9.5",
     "@types/react-dom": "^16.9.1",
+    "@types/sinon": "^9.0.4",
+    "chai": "^4.2.0",
     "del-cli": "^3.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jsdom": "^16.2.2",
+    "mocha": "^7.2.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "sinon": "^9.0.2",
     "ts-node": "^8.4.1",
     "tslint-react": "^4.1.0",
     "typescript": "^3.6.3"
@@ -37,7 +49,7 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-forms": "^13.1.0",
+    "@sitecore-jss/sitecore-jss-forms": "^14.0.1",
     "prop-types": "^15.7.2"
   },
   "description": "",
