@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import { Text, Link, withSitecoreContext, getFieldValue } from '@sitecore-jss/sitecore-jss-react';
 import RouteLinkedRichText from './RouteLinkedRichText';
 

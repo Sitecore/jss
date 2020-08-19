@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Placeholder, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import Helmet from 'react-helmet';
 
-const PageContainer = ({ fields, rendering, sitecoreContext }) => (
+const PageContainer = ({ rendering, sitecoreContext }) => (
   <div className="main-wrapper">
     <Helmet>
       <title>{`${sitecoreContext.route.fields.title.value} | Sitecore JSS Documentation`}</title>

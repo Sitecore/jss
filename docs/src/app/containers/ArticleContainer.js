@@ -1,10 +1,9 @@
 import React from 'react';
 import { Placeholder, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import Helmet from 'react-helmet';
-import SideNav from '../components/navigation/SideNav';
 import { Layout, Row, Col } from 'antd';
 
-const ArticleContainer = ({ fields, rendering, sitecoreContext }) => (
+const ArticleContainer = ({ rendering, sitecoreContext }) => (
   <div className="main-wrapper">
     <Helmet>
       <title>{`${sitecoreContext.route.fields.title.value} | Sitecore JSS Documentation`}</title>
