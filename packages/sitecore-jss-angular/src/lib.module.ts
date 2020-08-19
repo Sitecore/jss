@@ -67,7 +67,11 @@ import { LayoutService } from './layout.service';
     PlaceholderLoadingDirective,
     RichTextDirective,
     TextDirective,
-  ]
+  ],
+  entryComponents: [	
+    RawComponent,	
+    MissingComponentComponent,	
+  ],
 })
 export class JssModule {
   /**

@@ -111,7 +111,13 @@
             "production": {
               "outputHashing": "media",
               "sourceMap": false,
-              "optimization": true
+              "optimization": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         }

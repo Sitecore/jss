@@ -1,14 +1,11 @@
 // These are important and needed before anything else
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-import { enableProdMode } from '@angular/core';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
 import { environment } from './src/environments/environment';
 
-// Faster server renders w/ Prod mode (dev mode never needed)
-enableProdMode();
 
 // Our index.html we'll use as our template
 const template = readFileSync(join(__dirname, 'browser', 'index.html')).toString();
