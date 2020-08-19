@@ -107,14 +107,16 @@ manifestManager.getManifest(config.language).then((manifest) => {
   const ssrMiddleware = createSsrMiddleware(layoutServiceDataAdapter);
 
   if (process.env.HEROKU) {
+    const hostname = process.env.HOSTNAME || 'jss.sitecore.com';
     server.use(enforce.HTTPS({ trustProtoHeader: true }));
     server.use(
       forcedomain({
-        hostname: 'jss.sitecore.com',
+        hostname: hostname,
         protocol: 'https',
         excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.herokuapp\.com/i,
       })
     );
+    console.log(`Forcing domain to ${hostname}`);
   }
   server.use(compression());
 
