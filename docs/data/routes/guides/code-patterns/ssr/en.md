@@ -63,4 +63,4 @@ Check the documentation for SSR compatibility - look for anything special regard
 - [Angular's docs on SSR](https://angular.io/guide/universal)
 
 
-> Find more SSR content in the [Debugging guide](error-handling-debugging-guide/debugging-help#debugging-node).
+> Find more SSR content in the [Debugging guide](error-handling-debugging/debugging-help#debugging-node).

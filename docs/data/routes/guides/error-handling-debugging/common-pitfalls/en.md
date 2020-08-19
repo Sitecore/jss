@@ -43,4 +43,4 @@ Possible scenarios where these differences from a completely headless system wou
 ---
 
 ## Placeholder naming conventions
-Multiple placeholders with same name within same JSS component are not allowed.
+Multiple placeholders with same name within the same JSS component are not allowed.

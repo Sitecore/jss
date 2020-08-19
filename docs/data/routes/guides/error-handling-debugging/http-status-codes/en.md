@@ -1,7 +1,7 @@
 ---
 name: http-status-codes
 routeTemplate: ./data/component-templates/guide.yml
-title: Handling Different HTTP Status Codes
+title: Handling HTTP Status Codes
 ---
 
 ## 404 Response Code
