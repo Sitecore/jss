@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/guide.yml
 title: Debugging-help
 ---
 
-> ⚠️ Content Wanted - What tools do you use? How do you debug?
+> ⚠️ **Content Wanted** - What tools do you use? How do you debug?
 
 ## Debugging Node
 

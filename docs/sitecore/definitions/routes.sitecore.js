@@ -107,7 +107,7 @@ const parseRouteData = (sourceRouteData, file) => {
   }
 
   if (template.indexOf('$toc$') > -1) {
-    const toc = markdownContent.length === 0
+    const toc = htmlContent.length === 0
       ? ''
       : generateToc(htmlContent);
     tokenReplacements.set('$toc$', toc);
