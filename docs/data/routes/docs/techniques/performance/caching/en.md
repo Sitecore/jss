@@ -28,12 +28,11 @@ If you are dissatisfied with the performance of your headless JSS app:
 
 > When a page is server-side rendered, Node renders the entire page as one block of HTML, not as individual renderings
 
-3. **Node-level output caching:**
-Node hedless ssr proxy uses Node-level output caching by default , implementation of the caching you can find in cacheMiddleware.js file , also there is `server.use(cacheMiddleware(..))` in index.js.If you don't need Node-level output caching , please delete this line.
+3. Headless JSS app uses node-level output caching by default, implementation you can find in `cacheMiddleware.js`, middleware applied in `index.js` when you start application. It's configurable and optional.
 
-    ###Potential limitations of using node-level output caching:
-    - Security: It could be a case if users with different roles see the same output, in this case, you need to customize `cacheMiddleware` , f.e. add to cache key user identifier.
-    - Personalization : Potentially you have a limitation of using using output caching with personalization , need to customize `cacheMiddleware` if neeeded.
+> Potential limitations of using node-level output caching:
+> - `Security`: It could be a case if users with different roles see the same output, in this case, you need to customize `cacheMiddleware` , f.e. add to cache key user identifier.
+> - `Personalization`: potentially you can have a limitation of using output caching with personalization, need to customize `cacheMiddleware` if neeeded.
 
 ## Cache Pitfalls of Integrated Mode
 

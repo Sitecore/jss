@@ -21,8 +21,8 @@ server.use(
   })
 );
 
-// Node-level output caching,delete if you don't need output caching  
-server.use(cacheMiddleware(10));
+// Output caching, can be turned off
+server.use(cacheMiddleware());
 
 // For any other requests, we render app routes server-side and return them
 server.use('*', scProxy(config.serverBundle.renderView, config, config.serverBundle.parseRouteUrl));

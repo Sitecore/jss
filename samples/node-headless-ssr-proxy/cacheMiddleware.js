@@ -1,31 +1,56 @@
 //cacheMiddleware for Node-level output caching
-//duration: duration of the cache in seconds
-var mcache = require('memory-cache');
-var cacheMiddleware = (duration) => {
-    return (req, res, next) => {
-        if(req.method !== "GET" || req.originalUrl.includes("layouts/system") || req.originalUrl.includes("sitecore/api/jss/dictionary") || req.originalUrl.includes("/sitecore/api/layout")) return next();
-        let key = '__proxy_cache__' + req.originalUrl || req.url
-        let cachedBody = mcache.get(key)
-        if (cachedBody) {
-            res.send(cachedBody)
-        } else {
-            var _end = res.end;
-            var _write = res.write;
-            var buffer = new Buffer.alloc(0);
-           
-            // Rewrite response method and get the content.
-            res.write = function (data) {
-                buffer = Buffer.concat([buffer, data]);
-            };
-            
-            res.end = function() {
-                var body = buffer.toString();
-                mcache.put(key, body, duration * 1000);
-                _write.call(res, body);
-                _end.call(res);
-            };
-            next()
-        }
-    }
+
+const mcache = require('memory-cache');
+
+// List of urls that will be skipped during caching
+const EXCLUDED_PATHS = [
+    'layouts/system',
+    'sitecore/api/jss/dictionary',
+    '/sitecore/api/layout'
+]
+
+/**
+ * @param {string} method request method
+ * @param {string} url request url
+ * @returns {boolean} is path excluded
+ */
+const isExcludedPath = (method, url) => {
+    const containsExcludedPath = !!EXCLUDED_PATHS.find(path => url.includes(path));
+
+    return method !== 'GET' || containsExcludedPath;
 }
+
+/**
+ * Cache requests during {@link duration} that aren't excluded in {@link EXCLUDED_PATHS}
+ * @param {number} duration The number of milliseconds to cache request
+ */
+const cacheMiddleware = (duration = 10000) => (req, res, next) => {
+    if (isExcludedPath(req.method, req.originalUrl)) return next();
+
+    const key = '__proxy_cache__' + req.originalUrl || req.url
+    const cachedBody = mcache.get(key)
+
+    if (cachedBody) {
+        res.send(cachedBody);
+        return;
+    }
+
+    const { end: _end, write: _write } = res;
+    let buffer = new Buffer.alloc(0);
+    
+    // Rewrite response method and get the content.
+    res.write = data => {
+        buffer = Buffer.concat([buffer, data]);
+    };
+    
+    res.end = () => {
+        const body = buffer.toString();
+        mcache.put(key, body, duration);
+        _write.call(res, body);
+        _end.call(res);
+    };
+
+    next()
+}
+
 module.exports = cacheMiddleware;
