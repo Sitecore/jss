@@ -7,7 +7,7 @@ placeholders:
   - componentName: Row
     params:
       justify: start
-      padding: 30
+      padding: 30px
     placeholders:
       jssdocs-row:
         - componentName: Logo
@@ -60,7 +60,7 @@ placeholders:
   - componentName: Row
     params:
       justify: center
-      margin: 30
+      margin: 30px
     placeholders:
       jssdocs-row:
         - componentName: Disclaimers

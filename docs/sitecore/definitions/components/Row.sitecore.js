@@ -11,12 +11,12 @@ export default (manifest) => {
       },
       {
         name: 'padding',
-        type: manifest.fieldTypes.number,
+        type: manifest.fieldTypes.singleLineText,
         required: false,
       },
       {
         name: 'margin',
-        type: manifest.fieldTypes.number,
+        type: manifest.fieldTypes.singleLineText,
         required: false,
       },
       // This is a flex container, so all flex properties apply

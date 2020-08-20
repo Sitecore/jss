@@ -4,7 +4,7 @@ import { Row as LayoutRow } from 'antd';
 
 const Row = ({ params, rendering }) => (
   <LayoutRow
-    style={params}
+    style={{margin: params.margin, padding: params.padding}}
     justify={params.justify}
     align={params.align}
     gutter={{ md: params.compactGutter, lg: params.fullSizeGutter}}
