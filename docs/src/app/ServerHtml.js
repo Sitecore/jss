@@ -13,7 +13,7 @@ const ServerHtml = ({ component, initialState, distPath }) => {
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href={`${distPath}vendor-client.css`} />
+        <link rel="stylesheet" href={`${distPath}server.css`} />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
@@ -35,9 +35,6 @@ const ServerHtml = ({ component, initialState, distPath }) => {
             }}
           />
         )}
-        <script src="/assets/js/jquery-3.3.1.min.js" />
-        <script src="/assets/js/highlight.pack.js" />
-        <script src="/assets/js/bootstrap.bundle.min.js" />
         <script src={`${distPath}vendor-client.bundle.js`} />
         <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js" />
         <script src={`${distPath}client.bundle.js`} />
