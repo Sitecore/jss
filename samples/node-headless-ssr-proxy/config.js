@@ -1,4 +1,5 @@
 const fs = require('fs');
+const keepAlive = require("agentkeepalive");
 const ipaddr = require('ipaddr.js');
 const fetch = require('node-fetch');
 const NodeCache = require('node-cache');
@@ -19,7 +20,35 @@ const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/
 
 const serverBundle = require(bundlePath);
 
+const apiHost = process.env.SITECORE_API_HOST || 'http://my.sitecore.host'
+
 appName = appName || serverBundle.appName;
+
+/**
+ * Enable connection pooling. Adds `connection: keep-alive` header
+ * @param {string} apiHost sitecore api host
+ */
+const keepAliveAgent = (apiHost) => {
+  const keepAliveConfig = {
+    maxSockets: 100,
+    maxFreeSockets: 10,
+    timeout: 240 * 1000,
+    freeSocketTimeout: 240 * 1000,
+	};
+
+	if (!apiHost) {
+		throw new Error("[KEEP-ALIVE-CONFIG] SITECORE_API_HOST value is required, but was undefined")
+	}
+
+	if (!apiHost.indexOf("http://")) return new keepAlive(keepAliveConfig);
+
+	if (!apiHost.indexOf("https://")) return new keepAlive.HttpsAgent(keepAliveConfig);
+
+	throw new Error(
+		"[KEEP-ALIVE-CONFIG] Unexpected SITECORE_API_HOST value, expected http:// or https://, but was " +
+			apiHost
+	);
+}
 
 /**
  * @type {ProxyConfig}
@@ -34,7 +63,7 @@ const config = {
    * Should be https for production. Must be https to use SSC auth service,
    * if supporting Sitecore authentication.
    */
-  apiHost: process.env.SITECORE_API_HOST || 'http://my.sitecore.host',
+  apiHost,
   /**
    * layoutServiceRoot: The path to layout service for the JSS application.
    * Some apps, like advanced samples, use a custom LS configuration,
@@ -82,6 +111,8 @@ const config = {
    * Options object for http-proxy-middleware. Consult its docs.
    */
   proxyOptions: {
+		// Enable connection pooling
+    agent: keepAliveAgent(apiHost),
     // Setting this to false will disable SSL certificate validation
     // when proxying to a SSL Sitecore instance.
     // This is a major security issue, so NEVER EVER set this to false
