@@ -1,4 +1,5 @@
 {
     "root": "dist/prerender",
-    "clean_urls": true
+    "clean_urls": true,
+    "https_only": true
 }
