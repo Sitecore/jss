@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" data-reactroot=""><head><link rel="stylesheet" href="/dist/server.css"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/><link rel="stylesheet" href="/dist/client.css"/><link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="description" content="Sitecore JavaScript Services Documentation"/><title data-react-helmet="true">Manifest API Reference | Sitecore JSS Documentation</title></head><body><div id="app"><section class="ant-layout" id="app-wrap"><header class="ant-layout-header"><div class="ant-row ant-row-start" style="padding:30px"><a style="flex:300px" href="/"><img src="/assets/img/sitecore-logo.svg" height="53px" alt="Sitecore JSS" class="logo"/></a><ul flex="auto" style="border-bottom:none" class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal" role="menu"><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem"><a class="nav-link" href="/features">Features</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected" role="menuitem"><a class="nav-link" href="/docs">Documentation</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem"><a class="nav-link" href="/guides">Guides</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem"><a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.sitecore.com/getting-started/developer-trial">Trial</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem"><a class="nav-link" href="/community">Community</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item get-started-button ant-menu-item-only-child" role="menuitem"><a class="btn btn-secondary btn-sm float-left text-white" href="/docs/getting-started/quick-start">Get Started</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="visibility:hidden;position:absolute" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li></ul></div></header><div class="main-wrapper"><section class="ant-layout border-bottom"><section class="jumbo-container jumbo-container-short bg-light"><div class="default"><div class="circleContainer"><div class="circleContainer-outer-top"><div class="circleContainer-inner"><div class="circleContainer-inner-primary"><div class="circ circ_right circle-fg-right-lg bg-success" id="defaultimage"><img src="/assets/img/transparent-1x1.png"/></div></div><div class="circleContainer-inner-secondary"><div class="circ circ_right circle-fg-right-lg-sub bg-primary"></div></div></div></div><div class="circleContainer-outer-bottom"><div class="circleContainer-inner"><div class="circleContainer-inner-primary"><div class="circle circle-fg-left-md bg-success"></div></div></div></div></div><div class="shapes-wrapper"><div class="outer-shape container"><div class="inner-shape row"><div class="content-wrapper col-12 col-md-9 min-height"><div class="content-wrapper-inner"><h1 class="title mb-3">Documentation</h1><p class="copy mb-0 p-0">Read and search through all the Sitecore JSS documentation</p></div></div></div></div></div></div></section></section><div class="ant-row ant-row-space-between" style="margin-left:-20px;margin-right:-20px;flex-wrap:nowrap;margin:30px"><div style="padding-left:20px;padding-right:20px;flex:0 0 300px" class="ant-col"><aside><div class="side-nav"><form class="bd-search d-flex align-items-center"><input type="search" class="form-control" id="search-input" placeholder="Search..." aria-label="Search for..." autoComplete="off"/><button class="btn btn-link bd-search-docs-toggle d-md-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation"></button></form><ul class="ant-menu ant-menu-light ant-menu-root ant-menu-inline" role="menu"><li class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open" role="menuitem"><div style="padding-left:24px" class="ant-menu-submenu-title" role="button" aria-expanded="true" aria-owns="getting-started$Menu" aria-haspopup="true" title="Getting Started">Getting Started<i class="ant-menu-submenu-arrow"></i></div><ul id="getting-started$Menu" class="ant-menu ant-menu-sub ant-menu-inline" role="menu"><li class="ant-menu-item ant-menu-item-only-child" role="menuitem" style="padding-left:48px"><a href="/docs/getting-started/quick-start">1. Quick Start</a></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem" style="padding-left:48px"><a href="/docs/getting-started/first-component">2. Your First Component</a></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem" style="padding-left:48px"><a href="/docs/getting-started/jss-server-install">3. JSS Server Setup</a></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem" style="padding-left:48px"><a href="/docs/getting-started/app-deployment">4. App Deployment</a></li></ul></li><li class="ant-menu-submenu ant-menu-submenu-inline" role="menuitem"><div style="padding-left:24px" class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true" title="Fundamentals">Fundamentals<i class="ant-menu-submenu-arrow"></i></div><div></div></li><li class="ant-menu-submenu ant-menu-submenu-inline" role="menuitem"><div style="padding-left:24px" class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true" title="Client Frameworks">Client Frameworks<i class="ant-menu-submenu-arrow"></i></div><div></div></li><li class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-selected" role="menuitem"><div style="padding-left:24px" class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true" title="Techniques">Techniques<i class="ant-menu-submenu-arrow"></i></div><div></div></li></ul><div class="navbar-nav bd-navbar-nav flex-column"><a class="nav-link" href="/release-notes">Release Notes</a><a class="nav-link" href="/help">Help</a></div></div></aside></div><div style="padding-left:20px;padding-right:20px;flex:auto" class="ant-col"><main><div class="article markdown-section" match="[object Object]" location="[object Object]" history="[object Object]"><h1 id="manifest-api-reference">Manifest API Reference</h1>
+<p>The manifest API is used to define the structure of your JSS site while it is disconnected, so that it can be later imported into Sitecore.</p>
+<h2 id="defining-route-data">Defining Route data</h2>
+<p>Route data is used to represent the routes served by your app when running in <em>disconnected mode</em>. The <code>Placeholder</code> component, and any components that it renders, expect route data to adhere to a specific schema - outlined in the <a href="#reference">Reference</a> below.</p>
+<p>For disconnected development, route data is typically retrieved from static YAML or JSON files, or simple JavaScript files. For connected development or production, the route data is retrieved using calls to the Sitecore <a href="/docs/fundamentals/services/layout-service">Layout Service</a> (via HTTP, or in-process for integrated mode SSR).</p>
+<p>The sample apps define route data in <code>/data/routes</code> by using <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> files. You can choose to use JSON files instead if you prefer that format (just rename the file to .json and run the content through a <a href="https://jsonformatter.org/yaml-to-json">YAML-to-JSON converter</a>). YAML supports comments, multiline values, and other niceties that make the content authoring experience a bit nicer.</p>
+<p>Refer to the <a href="/docs/techniques/working-disconnected/disconnected-overview">Working Disconnected</a> documentation for more details about how the route data is built and consumed.</p>
+<h2 id="field-values">Field Values</h2>
+<h3 id="editable-values"><code>editable</code> values</h3>
+<p>The Layout Service emits <code>field</code> data in two formats:</p>
+<pre><code class="javascript language-javascript">fields: {
+  [fieldName]: {
+    value: '',
+    editable: '',
+  }
+}
+</code></pre>
+<h4 id="value">value</h4>
+<p>The <code>value</code> property of a <code>field</code> object contains the "raw", unrendered value of a field stored in Sitecore.</p>
+<p>The exception is <code>Image</code> fields and <code>Link</code> fields. The <code>value</code> property of an <code>Image</code> field is an object containing attributes for the image, e.g. <code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code>.</p>
+<h4 id="editable">editable</h4>
+<p>The <code>editable</code> property of a <code>field</code> object will contain the result of the <code>renderField</code> pipeline for the given field. As you might expect, this means <code>editable</code> may contain a different value depending on whether or not the Layout Service data are retrieved with Experienced Editor (EE) active.</p>
+<p>When EE is active, <code>editable</code> will contain all of the additional markup that EE emits for a field.</p>
+<p>When EE is not active, <code>editable</code> will contain the rendered field value - which may differ from the "raw" field value for certain field types (e.g. <code>Image</code>, <code>Rich Text</code>, <code>Link</code>) or if the <code>renderField</code> pipeline has been extended / customized.</p>
+<h2 id="params">Params</h2>
+<p>There are times when your components will need to receive values that aren't stored as fields on a data source item. In these cases, rendering parameters can be used.</p>
+<p>Rendering parameters are exposed via a <code>params</code> object on your component props data:</p>
+<pre><code class="javascript language-javascript">{
+  name: 'my-route',  
+  placeholders: {
+    jss-main: [
+      {
+        componentName: 'my-component',
+        params: {
+          paramName: 'paramValue'
+        }
+      }
+    ]
+  }
+}
+</code></pre>
+<blockquote>
+  <p>Note: param values may be defined in route data as any JS object type (i.e. number, boolean) but <em>all param values are strings</em> when they are received by components to render.</p>
+</blockquote>
+<p>Your component would then receive the <code>params</code> object via <code>props</code>, e.g. <code>props.params.paramName</code>.</p>
+<p>As part of the <a href="/docs/techniques/working-disconnected/disconnected-overview">manifest generation</a> process, your <code>params</code> data can be mapped to component objects you add to the manifest.</p>
+<p>See <a href="/docs/techniques/working-disconnected/import-process">import details</a> for details on how to specify <code>id</code> properties for any object.</p>
+<h4 id="example">Example</h4>
+<pre><code class="javascript language-javascript">{
+  name: 'home',
+  displayName: 'Home',
+  placeholders: {
+    jss-main: [
+      {
+        componentName: 'Welcome',
+        fields: {
+          title: {
+            value: 'Sitecore Experience Platform + JSS',
+          },
+          text: {
+            value: '&lt;p&gt;...&lt;/p&gt;',
+          },
+          logoImage: {
+            value: {
+              src: '/assets/img/sc_logo.png',
+              alt: 'Logo'
+            },
+          },
+        },
+        params: {
+          titleColor: "#000000",
+        },
+        placeholders: {
+
+        }
+      }
+    ]
+  },
+  children: [
+    // additional route objects
+  ]
+}
+</code></pre>
+<h1 id="creating-and-using-fields-on-routes">Creating and Using Fields on Routes</h1>
+<p>By default, all the imported fields in a JSS app are placed in what Sitecore calls <em>data sources</em>. These are data items which are referenced in the layout of the route item. The route item itself does not contain any of its own fields by default. To add fields to an item, you need to do it on a <em>data template</em>. JSS allows you to define fields for custom "route types" which will be imported as new data templates. You can also simply utilize fields from route data templates created in Sitecore, if you are not utilizing a code-first workflow.</p>
+<p>There may be situations in which you wish to add and use fields directly on the route:</p>
+<ul>
+<li>Fields which you need to utilize outside of <code>Placeholder</code>-managed components, such as header metadata or data in other staticly-placed components</li>
+<li>Content or data which you might want to utilize throughout the components in a route, rather than just in a single component</li>
+<li>You wish to add default layout to a route template on its <em>standard values</em> (currently this must be done in Sitecore itself)</li>
+<li>Other advanced data modeling scenarios</li>
+</ul>
+<blockquote>
+  <p>Note for Sitecore devs and admins: The JSS import process will always generate a route template for each app. This template is the default route template, but is also automatically set as a base template for any route types defined in the app manifest.</p>
+</blockquote>
+<h2 id="creating-a-route-type">Creating a Route Type</h2>
+<p>In the <code>*.sitecore.js</code> manifest generator where you define/add your routes (or in a new one if you like), use the <code>addRouteType</code> function to add a route type with a <code>name</code> and <code>fields</code>.</p>
+<pre><code class="javascript language-javascript">manifest.addRouteType({
+name: 'MyRoute',
+fields: [
+    { name: 'metaTitle', displayName: 'Meta Title', type: manifest.fieldTypes.singleLineText },
+    { name: 'titleText', displayName: 'Body Title', type: manifest.fieldTypes.singleLineText },
+    { name: 'body', displayName: 'Body Text', type: manifest.fieldTypes.richText }
+]
+});
+</code></pre>
+<blockquote>
+  <p>Fields are defined in the same manner as they are in a component.</p>
+</blockquote>
+<p>When defining your route, you will need to add a <code>template</code> property which matches the route name. If you are pulling route data from files, you may want to apply this dynamically, especially if all your routes utilize the same type. (See <code>routes.sitecore.js</code>).</p>
+<pre><code class="json language-json">{
+  "name": "route",
+  "template": "MyRoute",
+  "displayName": "Route",
+  "placeholders": {
+      // ...
+  }
+</code></pre>
+<p>On your next import, the route type <em>data template</em> will be created and any newly created routes will utilize the data template.</p>
+<blockquote>
+  <p><em>IMPORTANT</em>: Any existing routes will not have their <em>data template</em> changed during the import process. You will need to either manually delete them or change their template in Sitecore (or utilize Full Wipe mode during development).</p>
+</blockquote>
+<h2 id="mock-the-route-data">Mock the Route Data</h2>
+<p>To mock route-level fields, you can simply add a <code>fields</code> property to your route data.</p>
+<pre><code class="json language-json">{
+  "name": "route",
+  "template": "MyRoute",
+  "displayName": "Route",
+  "fields": {
+    "metaTitle": "My Route",
+    "titleText": "My Route",
+    "body": "Lorem ipsum dolor sit"
+  },
+  "placeholders": {
+      // ...
+  }
+</code></pre>
+<h3 id="manifest-api-instance-methods">Manifest API instance methods</h3>
+<ul>
+<li><code>addComponent(...components: component[])</code>: registers a JSS app component definition</li>
+<li><code>addContent(...contents: content[])</code></li>
+<li><code>addRoute(...routes: route[])</code>: adds an app route data definition</li>
+<li><code>addRouteType(...routeTypes: template[])</code>: adds a Sitecore template type for a route</li>
+<li><code>addTemplate(...templates: template[])</code></li>
+<li><code>addPlaceholder(...templates: template[])</code>: adds a placeholder definition to the manifest. Sample usage could be found in <a href="https://github.com/Sitecore/jss/blob/dev/samples/react/sitecore/definitions/placeholders.sitecore.js">placeholders.sitecore.js</a></li>
+</ul>
+<h3 id="manifest-objects">Manifest objects</h3>
+<blockquote>
+  <p>Note: using an editor that understands JS typings (such as VS Code) will cause manifest objects to have type information within the editor including helpful annotations, which is highly recommended.</p>
+</blockquote>
+<ul>
+<li><a href="#component">component</a></li>
+<li><a href="#content">content</a></li>
+<li><a href="#field">field</a></li>
+<li><a href="#fieldtypes">CommonFieldTypes</a></li>
+<li><a href="#param">param</a></li>
+<li><a href="#placeholder">placeholder</a></li>
+<li><a href="#placeholders">placeholders</a></li>
+<li><a href="#route">route</a></li>
+<li><a href="#template">template</a></li>
+<li><a href="#fields">fields</a></li>
+<li><a href="#params">params</a></li>
+</ul>
+<h4 id="component">component</h4>
+<pre><code class="javascript language-javascript">{
+  id: string:optional,
+  name: string:required,
+  displayName: string:optional,
+  fields: fields:optional,
+  params: params:optional,
+  placeholders: placeholders:optional, // placeholders exposed by rendering
+  allowedPlaceholders: array[string]:optional, // placeholders component is allowed in (normally inferred by route data)
+  displayFieldEditorButton: boolean:optional = true,
+  fieldEditorFields: array[string]:optional = all fields, // field names
+  customExperienceButtons: array[string]:optional, // names or IDs
+  insertOptions: array[string]:optional, // template names or IDs
+  graphQLQuery: string:optional, // see GraphQL integrated documentation
+  // note: while these use the same structure as a route, they do not use placeholders and are not mapped as routes. 
+  // This enables adding child items to the datasource.
+  children: array[route] 
+}
+</code></pre>
+<blockquote>
+  <p>The <code>displayFieldEditorButton</code> and <code>fieldEditorFields</code> properties allow controlling the behavior of the <em>Field Editor</em> button that will automatically be added to the component in the Sitecore Experience Editor. This button allows editing all the component data in a popup form interface. By default, all components will display the button, and all component fields will be editable. You do not need to supply either property if this is the desired behavior.</p>
+</blockquote>
+<h4 id="content">content</h4>
+<p>Content data uses the same schema as <a href="/docs/techniques/working-disconnected/manifest-api">route data</a>, except that the <code>placeholders</code> property is generally not used as it would have no effect.</p>
+<h4 id="field">field</h4>
+<blockquote>
+  <p>For the <code>type</code> property, it is recommended to use one of the available <a href="/docs/techniques/working-disconnected/disconnected-overview#fieldtypes"><code>CommonFieldTypes</code></a> values.</p>
+</blockquote>
+<pre><code class="javascript language-javascript">{
+  name: string:required,
+  type: string|CommonFieldTypes:required,
+  displayName: string:optional,
+  required: bool:optional,   // whether the field must have a value entered
+  validationPattern: string:optional, // regular expression (C#) to determine value validity
+  validationMessage: string:optional, // message shown when validationPattern fails
+  standardValue: string:optional, // the default value this field gets when a content editor creates a new item using it
+  section: string:optional, // Sitecore template section name
+  source: string:optional,  // Sitecore template field source (field-type specific)
+  sortOrder: int:optional,  // Template field sort order. Defaults to order defined in JSON.
+  storage: string:optional,  // Sitecore field storage: versioned (default), unversioned, shared (DO NOT CHANGE AFTER IMPORTED)
+  id: string:optional
+}
+</code></pre>
+<h4 id="commonfieldtypes">CommonFieldTypes</h4>
+<pre><code class="javascript language-javascript">{
+  SingleLineText: 'Single-Line Text',
+  MultiLineText: 'Multi-Line Text',
+  RichText: 'Rich Text',
+  ContentList: 'Treelist',
+  ItemLink: 'Droptree',
+  GeneralLink: 'General Link',
+  Image: 'Image',
+  File: 'File',
+  Number: 'Number',
+  Checkbox: 'Checkbox',
+  Date: 'Date',
+  DateTime: 'Datetime',
+}
+</code></pre>
+<blockquote>
+  <p>For custom Sitecore field types or other types not in the <code>CommonFieldTypes</code> enumeration, the string of their field type name in Sitecore (i.e. <code>Single-Line Text</code>) can be passed. Editors that support type annotations, like VS Code, will provide auto-completion on this enum.</p>
+</blockquote>
+<h4 id="param">param</h4>
+<pre><code class="javascript language-javascript">{
+  name: string:required
+}
+</code></pre>
+<h4 id="placeholder">placeholder</h4>
+<pre><code class="javascript language-javascript">{
+  name: string:required,
+  displayName: string:optional
+}
+</code></pre>
+<h4 id="placeholders">placeholders</h4>
+<pre><code class="javascript language-javascript">{
+  placeholderName: array[component]:optional,
+  // additional placeholder key/values can be added
+}
+</code></pre>
+<h4 id="route">route</h4>
+<pre><code class="javascript language-javascript">{
+  id: string:optional,
+  name: string:required,
+  displayName: string:optional,
+  template: string:optional, // note: this is optional in yaml/json as its defaulted before adding to manifest
+  fields: fields:optional,
+  children: array[route]:optional,
+  placeholders: placeholders:optional,
+  insertOptions: array[string]:optional,
+}
+</code></pre>
+<h4 id="template">template</h4>
+<pre><code class="javascript language-javascript">{
+  name: string:required,
+  displayName: string:optional,
+  inherits: array[string]:optional, // names of JSS template(s) to inherit from, OR Sitecore item GUIDs for non-JSS templates
+  fields: array[field]:optional,
+  icon: string:optional, // e.g. People/16x16/alarmclock.png
+  defaultWorkflow: string:optional // e.g. /sitecore/system/Workflows/Sample Workflow
+}
+</code></pre>
+<h4 id="fields">fields</h4>
+<pre><code class="javascript language-javascript">{
+  fieldName: object[fieldName] = field:required
+  // additional field key/values can be added, see the following
+}
+</code></pre>
+<h4 id="params-1">params</h4>
+<pre><code class="javascript language-javascript">{
+  paramName: array[string]:required,
+  // additional param key/values can be added
+  // note: all param values are provided to the component as strings,
+  // even if the defined value is a number/boolean value.
+}
+</code></pre>
+<h5 id="imagefieldvalue">imageFieldValue</h5>
+<p>The image field value is used when a <code>field</code> is an image type. It has additional properties compared to a normal field.</p>
+<pre><code class="javascript language-javascript">{
+  id: string:optional,
+  src: string:required,         // src of image. Should be under /sitecore/media on the JSS app.
+  alt: string:required,
+  displayName: string:optional, // media item display name
+  title: string:optional,       // media item field
+  keywords: string:optional,    // media item field
+  description: string:optional, // media item field
+  width: int:optional,
+  height: int:optional,
+  class: string:optional        // rendered image CSS class
+
+}
+</code></pre>
+<h5 id="linkfieldvalue">linkFieldValue</h5>
+<p>The link field value is used when a <code>field</code> is a link type. It has additional properties compared to a normal field.</p>
+<pre><code class="javascript language-javascript">{
+  href: string:required,
+  text: string:optional,        // link body text
+  class: string:optional,       // rendered &lt;a&gt; css class
+  target: string:optional,      // target attribute e.g. _blank
+  title: string:optional        // title attribute of &lt;a&gt;
+}
+</code></pre>
+<h5 id="multilistfieldvalue">multilistFieldValue</h5>
+<p>Sitecore multilist fields can be defined by specifying the item definitions that are selected in the multilist (as an array),<br />
+or by using ID references to pull in items defined in a shared content area (or explicit GUIDs to refer to non-app items in Sitecore)</p>
+<pre><code class="javascript language-javascript">// definition using array of content items (routes without placeholders)
+[route]:required
+
+// complete example including the top level fields (YAML):
+fields:
+  multilistFieldName:
+  - name: Option1
+    fields:
+      title:
+        value: Hello
+  - name: Option2
+  # ...
+
+// or define it using ID references to shared content items (also YAML):
+fields:
+  multilistFieldName:
+  - id: option-1
+  - id: option-2
+  # ...
+</code></pre>
+<h5 id="handling-date-field-values">Handling date field values</h5>
+<p>Date fields' values in the manifest are formatted using <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations">ISO 8601</a> formatted strings, for example <code>2012-04-23T18:25:43.511Z</code>. </p>
+<blockquote>
+  <p>Note: this is a JavaScript date format, and is different from how Sitecore stores date field values internally. Sitecore-formatted dates <em>will not work.</em></p>
+</blockquote>
+</div><hr/><div>Found a problem? Have something to add? <a href="https://github.com/Sitecore/jss/edit/dev/docs/data/routes/docs/techniques/working-disconnected/manifest-api/en.md">Edit this on GitHub</a></div></main></div></div></div><footer class="ant-layout-footer"><div class="ant-row ant-row-center" style="margin-left:-16px;margin-right:-16px"><div style="padding-left:16px;padding-right:16px" class="ant-col ant-col-xs-24 ant-col-md-5"><a class="nav-link text-uppercase small text-white font-weight-bold" href="/features">Features</a><nav class="nav flex-column"><a class="nav-link small text-white" href="/features/why-jss">Why JSS?</a><a class="nav-link small text-white" href="/features/why-sitecore">Why Sitecore?</a></nav></div><div style="padding-left:16px;padding-right:16px" class="ant-col ant-col-xs-24 ant-col-md-5"><a class="nav-link text-uppercase small text-white font-weight-bold" href="/docs">Documentation</a><nav class="nav flex-column"><a class="nav-link small text-white" href="/docs/getting-started/quick-start">Getting Started</a><a class="nav-link small text-white" href="/docs/fundamentals/architecture">Fundamentals</a><a class="nav-link small text-white" href="/docs/client-frameworks/react/react-overview">Client Frameworks</a><a class="nav-link small text-white" href="/docs/techniques/mvc-integration/javascript-rendering">Techniques</a><a class="nav-link small text-white" href="/release-notes">Release Notes</a><a class="nav-link small text-white" href="/help">FAQs</a></nav></div><div style="padding-left:16px;padding-right:16px" class="ant-col ant-col-xs-24 ant-col-md-5"><a href="https://www.sitecore.com/getting-started/developer-trial" target="_blank" rel="noopener noreferrer" class="nav-link text-uppercase small text-white font-weight-bold">Start Trial</a></div><div style="padding-left:16px;padding-right:16px" class="ant-col ant-col-xs-24 ant-col-md-5"><a class="nav-link text-uppercase small text-white font-weight-bold" href="/community">Community</a><nav class="nav flex-column"><a href="#" class="nav-link small text-white">Sitecore Community</a><a href="slack://channel?team=T09SHRBNU&amp;id=C7JT0NRQW" class="nav-link small text-white"><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" focusable="false"><title>Slack</title><path fill="currentColor" d="M210.787 234.832l68.31-22.883 22.1 65.977-68.309 22.882z"></path><path d="M490.54 185.6C437.7 9.59 361.6-31.34 185.6 21.46S-31.3 150.4 21.46 326.4 150.4 543.3 326.4 490.54 543.34 361.6 490.54 185.6zM401.7 299.8l-33.15 11.05 11.46 34.38c4.5 13.92-2.87 29.06-16.78 33.56-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18l-11.46-34.38-68.36 22.92 11.46 34.38c4.5 13.92-2.87 29.06-16.78 33.56-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18l-11.46-34.43-33.15 11.05c-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18c-4.5-13.92 2.87-29.06 16.78-33.56l33.12-11.03-22.1-65.9-33.15 11.05c-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18c-4.48-13.93 2.89-29.07 16.81-33.58l33.15-11.05-11.46-34.38c-4.5-13.92 2.87-29.06 16.78-33.56s29.06 2.87 33.56 16.78l11.46 34.38 68.36-22.92-11.46-34.38c-4.5-13.92 2.87-29.06 16.78-33.56s29.06 2.87 33.56 16.78l11.47 34.42 33.15-11.05c13.92-4.5 29.06 2.87 33.56 16.78s-2.87 29.06-16.78 33.56L329.7 194.6l22.1 65.9 33.15-11.05c13.92-4.5 29.06 2.87 33.56 16.78s-2.88 29.07-16.81 33.57z" fill="currentColor"></path></svg>JSS Slack</a><a href="https://sitecore.stackexchange.com/tags/jss" class="nav-link small text-white"><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><title>Sitecore StackExchange</title><path fill="currentColor" d="M22.4 57.5h74.8v15.4H22.4z"></path><path fill="currentColor" d="M22.4 37.6h74.8V53H22.4z"></path><path fill="currentColor" d="M85.5 17H34.4c-6.6 0-12 5.5-12 12.3v4h74.8v-4C97.2 22.5 92 17 85.5 17z"></path><path fill="currentColor" d="M22.4 77.3v4c0 6.8 5.4 12.3 12 12.3h32v16.3l15.8-16.3h3.5c6.6 0 12-5.5 12-12.3v-4H22.4z"></path></svg>Stack Exchange</a><a href="https://github.com/sitecore/jss" class="nav-link small text-white"><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 499.36" focusable="false"><title>GitHub</title><path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"></path></svg>Github</a></nav></div></div><div class="ant-row ant-row-center" style="margin:30px"><div class="ant-col footer-copyright small">© Copyright <!-- -->2020<!-- -->, Sitecore. All Rights Reserved.</div><div class="ant-col footer-copyright small"><a href="https://www.sitecore.com/trust" class="pl-2 pr-2" target="_blank" rel="noopener noreferrer">Legal</a><a href="https://www.sitecore.com/trust/privacy-policy" class="pl-2" target="_blank" rel="noopener noreferrer">Privacy</a></div></div></footer></section></div><script>window.__data={"sitecore":{"context":{"pageEditing":false,"site":{"name":"JssDisconnectedLayoutService"},"pageState":"normal","language":"en"},"route":{"databaseName":"available-in-connected-mode","deviceId":"available-in-connected-mode","itemId":"available-in-connected-mode","itemLanguage":"en","itemVersion":1,"layoutId":"available-in-connected-mode","templateId":"available-in-connected-mode","templateName":"Docs Route","name":"manifest-api","fields":{"title":{"value":"Manifest API Reference"},"editLink":{"value":{"text":"Edit this on GitHub","href":"https://github.com/Sitecore/jss/edit/dev/docs/data/routes/docs/techniques/working-disconnected/manifest-api/en.md"}}},"placeholders":{"jssdocs-header":[{"uid":"{FF64B250-AC1E-5DA3-A136-2FB9C53E72BB}","componentName":"Row","dataSource":"available-in-connected-mode","params":{"justify":"start","padding":"30px"},"fields":{},"placeholders":{"jssdocs-row":[{"uid":"{E34B2668-1C19-59AF-BB81-5DB5B09F16D9}","componentName":"Logo","dataSource":"available-in-connected-mode","params":{"flex":"300px"},"fields":{}},{"uid":"{858BC0BF-3820-5CC5-A4B2-6ABE1AEC2C9B}","componentName":"MainNav","dataSource":"available-in-connected-mode","params":{"flex":"auto"},"fields":{"selectedMenuItem":{"value":"docs"}}}]}}],"jssdocs-main":[{"uid":"{DD36CDB4-A991-5037-9651-6658E140A652}","componentName":"ArticleContainer","dataSource":"available-in-connected-mode","params":{},"fields":{},"placeholders":{"jssdocs-jumbo":[{"uid":"{832F269D-69C0-59A6-ADD2-77C01F6CB8DA}","componentName":"FeatureJumboShort","dataSource":"available-in-connected-mode","params":{},"fields":{"image":{"value":{"src":"/assets/img/transparent-1x1.png"}},"imageclass":{"value":"defaultimage"},"csscolorclass":{"value":"default"},"title":{"value":"Documentation"},"text":{"value":"Read and search through all the Sitecore JSS documentation"}}}],"jssdocs-aside":[{"uid":"{D4D2DC8B-2F2F-5619-8985-9EE730B9DA35}","componentName":"SideNav","dataSource":"available-in-connected-mode","params":{},"fields":{"navType":{"value":"docs"},"useSearch":{"value":"true"}}}],"jssdocs-content":[{"uid":"{3EBBE537-BC1C-5BB5-9F0B-7FDC693BFA18}","componentName":"Article","dataSource":"available-in-connected-mode","params":{},"fields":{"text":{"value":"<h1 id=\"manifest-api-reference\">Manifest API Reference</h1>\n<p>The manifest API is used to define the structure of your JSS site while it is disconnected, so that it can be later imported into Sitecore.</p>\n<h2 id=\"defining-route-data\">Defining Route data</h2>\n<p>Route data is used to represent the routes served by your app when running in <em>disconnected mode</em>. The <code>Placeholder</code> component, and any components that it renders, expect route data to adhere to a specific schema - outlined in the <a href=\"#reference\">Reference</a> below.</p>\n<p>For disconnected development, route data is typically retrieved from static YAML or JSON files, or simple JavaScript files. For connected development or production, the route data is retrieved using calls to the Sitecore <a href=\"/docs/fundamentals/services/layout-service\">Layout Service</a> (via HTTP, or in-process for integrated mode SSR).</p>\n<p>The sample apps define route data in <code>/data/routes</code> by using <a href=\"https://en.wikipedia.org/wiki/YAML\">YAML</a> files. You can choose to use JSON files instead if you prefer that format (just rename the file to .json and run the content through a <a href=\"https://jsonformatter.org/yaml-to-json\">YAML-to-JSON converter</a>). YAML supports comments, multiline values, and other niceties that make the content authoring experience a bit nicer.</p>\n<p>Refer to the <a href=\"/docs/techniques/working-disconnected/disconnected-overview\">Working Disconnected</a> documentation for more details about how the route data is built and consumed.</p>\n<h2 id=\"field-values\">Field Values</h2>\n<h3 id=\"editable-values\"><code>editable</code> values</h3>\n<p>The Layout Service emits <code>field</code> data in two formats:</p>\n<pre><code class=\"javascript language-javascript\">fields: {\n  [fieldName]: {\n    value: '',\n    editable: '',\n  }\n}\n</code></pre>\n<h4 id=\"value\">value</h4>\n<p>The <code>value</code> property of a <code>field</code> object contains the \"raw\", unrendered value of a field stored in Sitecore.</p>\n<p>The exception is <code>Image</code> fields and <code>Link</code> fields. The <code>value</code> property of an <code>Image</code> field is an object containing attributes for the image, e.g. <code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code>.</p>\n<h4 id=\"editable\">editable</h4>\n<p>The <code>editable</code> property of a <code>field</code> object will contain the result of the <code>renderField</code> pipeline for the given field. As you might expect, this means <code>editable</code> may contain a different value depending on whether or not the Layout Service data are retrieved with Experienced Editor (EE) active.</p>\n<p>When EE is active, <code>editable</code> will contain all of the additional markup that EE emits for a field.</p>\n<p>When EE is not active, <code>editable</code> will contain the rendered field value - which may differ from the \"raw\" field value for certain field types (e.g. <code>Image</code>, <code>Rich Text</code>, <code>Link</code>) or if the <code>renderField</code> pipeline has been extended / customized.</p>\n<h2 id=\"params\">Params</h2>\n<p>There are times when your components will need to receive values that aren't stored as fields on a data source item. In these cases, rendering parameters can be used.</p>\n<p>Rendering parameters are exposed via a <code>params</code> object on your component props data:</p>\n<pre><code class=\"javascript language-javascript\">{\n  name: 'my-route',  \n  placeholders: {\n    jss-main: [\n      {\n        componentName: 'my-component',\n        params: {\n          paramName: 'paramValue'\n        }\n      }\n    ]\n  }\n}\n</code></pre>\n<blockquote>\n  <p>Note: param values may be defined in route data as any JS object type (i.e. number, boolean) but <em>all param values are strings</em> when they are received by components to render.</p>\n</blockquote>\n<p>Your component would then receive the <code>params</code> object via <code>props</code>, e.g. <code>props.params.paramName</code>.</p>\n<p>As part of the <a href=\"/docs/techniques/working-disconnected/disconnected-overview\">manifest generation</a> process, your <code>params</code> data can be mapped to component objects you add to the manifest.</p>\n<p>See <a href=\"/docs/techniques/working-disconnected/import-process\">import details</a> for details on how to specify <code>id</code> properties for any object.</p>\n<h4 id=\"example\">Example</h4>\n<pre><code class=\"javascript language-javascript\">{\n  name: 'home',\n  displayName: 'Home',\n  placeholders: {\n    jss-main: [\n      {\n        componentName: 'Welcome',\n        fields: {\n          title: {\n            value: 'Sitecore Experience Platform + JSS',\n          },\n          text: {\n            value: '&lt;p&gt;...&lt;/p&gt;',\n          },\n          logoImage: {\n            value: {\n              src: '/assets/img/sc_logo.png',\n              alt: 'Logo'\n            },\n          },\n        },\n        params: {\n          titleColor: \"#000000\",\n        },\n        placeholders: {\n\n        }\n      }\n    ]\n  },\n  children: [\n    // additional route objects\n  ]\n}\n</code></pre>\n<h1 id=\"creating-and-using-fields-on-routes\">Creating and Using Fields on Routes</h1>\n<p>By default, all the imported fields in a JSS app are placed in what Sitecore calls <em>data sources</em>. These are data items which are referenced in the layout of the route item. The route item itself does not contain any of its own fields by default. To add fields to an item, you need to do it on a <em>data template</em>. JSS allows you to define fields for custom \"route types\" which will be imported as new data templates. You can also simply utilize fields from route data templates created in Sitecore, if you are not utilizing a code-first workflow.</p>\n<p>There may be situations in which you wish to add and use fields directly on the route:</p>\n<ul>\n<li>Fields which you need to utilize outside of <code>Placeholder</code>-managed components, such as header metadata or data in other staticly-placed components</li>\n<li>Content or data which you might want to utilize throughout the components in a route, rather than just in a single component</li>\n<li>You wish to add default layout to a route template on its <em>standard values</em> (currently this must be done in Sitecore itself)</li>\n<li>Other advanced data modeling scenarios</li>\n</ul>\n<blockquote>\n  <p>Note for Sitecore devs and admins: The JSS import process will always generate a route template for each app. This template is the default route template, but is also automatically set as a base template for any route types defined in the app manifest.</p>\n</blockquote>\n<h2 id=\"creating-a-route-type\">Creating a Route Type</h2>\n<p>In the <code>*.sitecore.js</code> manifest generator where you define/add your routes (or in a new one if you like), use the <code>addRouteType</code> function to add a route type with a <code>name</code> and <code>fields</code>.</p>\n<pre><code class=\"javascript language-javascript\">manifest.addRouteType({\nname: 'MyRoute',\nfields: [\n    { name: 'metaTitle', displayName: 'Meta Title', type: manifest.fieldTypes.singleLineText },\n    { name: 'titleText', displayName: 'Body Title', type: manifest.fieldTypes.singleLineText },\n    { name: 'body', displayName: 'Body Text', type: manifest.fieldTypes.richText }\n]\n});\n</code></pre>\n<blockquote>\n  <p>Fields are defined in the same manner as they are in a component.</p>\n</blockquote>\n<p>When defining your route, you will need to add a <code>template</code> property which matches the route name. If you are pulling route data from files, you may want to apply this dynamically, especially if all your routes utilize the same type. (See <code>routes.sitecore.js</code>).</p>\n<pre><code class=\"json language-json\">{\n  \"name\": \"route\",\n  \"template\": \"MyRoute\",\n  \"displayName\": \"Route\",\n  \"placeholders\": {\n      // ...\n  }\n</code></pre>\n<p>On your next import, the route type <em>data template</em> will be created and any newly created routes will utilize the data template.</p>\n<blockquote>\n  <p><em>IMPORTANT</em>: Any existing routes will not have their <em>data template</em> changed during the import process. You will need to either manually delete them or change their template in Sitecore (or utilize Full Wipe mode during development).</p>\n</blockquote>\n<h2 id=\"mock-the-route-data\">Mock the Route Data</h2>\n<p>To mock route-level fields, you can simply add a <code>fields</code> property to your route data.</p>\n<pre><code class=\"json language-json\">{\n  \"name\": \"route\",\n  \"template\": \"MyRoute\",\n  \"displayName\": \"Route\",\n  \"fields\": {\n    \"metaTitle\": \"My Route\",\n    \"titleText\": \"My Route\",\n    \"body\": \"Lorem ipsum dolor sit\"\n  },\n  \"placeholders\": {\n      // ...\n  }\n</code></pre>\n<h3 id=\"manifest-api-instance-methods\">Manifest API instance methods</h3>\n<ul>\n<li><code>addComponent(...components: component[])</code>: registers a JSS app component definition</li>\n<li><code>addContent(...contents: content[])</code></li>\n<li><code>addRoute(...routes: route[])</code>: adds an app route data definition</li>\n<li><code>addRouteType(...routeTypes: template[])</code>: adds a Sitecore template type for a route</li>\n<li><code>addTemplate(...templates: template[])</code></li>\n<li><code>addPlaceholder(...templates: template[])</code>: adds a placeholder definition to the manifest. Sample usage could be found in <a href=\"https://github.com/Sitecore/jss/blob/dev/samples/react/sitecore/definitions/placeholders.sitecore.js\">placeholders.sitecore.js</a></li>\n</ul>\n<h3 id=\"manifest-objects\">Manifest objects</h3>\n<blockquote>\n  <p>Note: using an editor that understands JS typings (such as VS Code) will cause manifest objects to have type information within the editor including helpful annotations, which is highly recommended.</p>\n</blockquote>\n<ul>\n<li><a href=\"#component\">component</a></li>\n<li><a href=\"#content\">content</a></li>\n<li><a href=\"#field\">field</a></li>\n<li><a href=\"#fieldtypes\">CommonFieldTypes</a></li>\n<li><a href=\"#param\">param</a></li>\n<li><a href=\"#placeholder\">placeholder</a></li>\n<li><a href=\"#placeholders\">placeholders</a></li>\n<li><a href=\"#route\">route</a></li>\n<li><a href=\"#template\">template</a></li>\n<li><a href=\"#fields\">fields</a></li>\n<li><a href=\"#params\">params</a></li>\n</ul>\n<h4 id=\"component\">component</h4>\n<pre><code class=\"javascript language-javascript\">{\n  id: string:optional,\n  name: string:required,\n  displayName: string:optional,\n  fields: fields:optional,\n  params: params:optional,\n  placeholders: placeholders:optional, // placeholders exposed by rendering\n  allowedPlaceholders: array[string]:optional, // placeholders component is allowed in (normally inferred by route data)\n  displayFieldEditorButton: boolean:optional = true,\n  fieldEditorFields: array[string]:optional = all fields, // field names\n  customExperienceButtons: array[string]:optional, // names or IDs\n  insertOptions: array[string]:optional, // template names or IDs\n  graphQLQuery: string:optional, // see GraphQL integrated documentation\n  // note: while these use the same structure as a route, they do not use placeholders and are not mapped as routes. \n  // This enables adding child items to the datasource.\n  children: array[route] \n}\n</code></pre>\n<blockquote>\n  <p>The <code>displayFieldEditorButton</code> and <code>fieldEditorFields</code> properties allow controlling the behavior of the <em>Field Editor</em> button that will automatically be added to the component in the Sitecore Experience Editor. This button allows editing all the component data in a popup form interface. By default, all components will display the button, and all component fields will be editable. You do not need to supply either property if this is the desired behavior.</p>\n</blockquote>\n<h4 id=\"content\">content</h4>\n<p>Content data uses the same schema as <a href=\"/docs/techniques/working-disconnected/manifest-api\">route data</a>, except that the <code>placeholders</code> property is generally not used as it would have no effect.</p>\n<h4 id=\"field\">field</h4>\n<blockquote>\n  <p>For the <code>type</code> property, it is recommended to use one of the available <a href=\"/docs/techniques/working-disconnected/disconnected-overview#fieldtypes\"><code>CommonFieldTypes</code></a> values.</p>\n</blockquote>\n<pre><code class=\"javascript language-javascript\">{\n  name: string:required,\n  type: string|CommonFieldTypes:required,\n  displayName: string:optional,\n  required: bool:optional,   // whether the field must have a value entered\n  validationPattern: string:optional, // regular expression (C#) to determine value validity\n  validationMessage: string:optional, // message shown when validationPattern fails\n  standardValue: string:optional, // the default value this field gets when a content editor creates a new item using it\n  section: string:optional, // Sitecore template section name\n  source: string:optional,  // Sitecore template field source (field-type specific)\n  sortOrder: int:optional,  // Template field sort order. Defaults to order defined in JSON.\n  storage: string:optional,  // Sitecore field storage: versioned (default), unversioned, shared (DO NOT CHANGE AFTER IMPORTED)\n  id: string:optional\n}\n</code></pre>\n<h4 id=\"commonfieldtypes\">CommonFieldTypes</h4>\n<pre><code class=\"javascript language-javascript\">{\n  SingleLineText: 'Single-Line Text',\n  MultiLineText: 'Multi-Line Text',\n  RichText: 'Rich Text',\n  ContentList: 'Treelist',\n  ItemLink: 'Droptree',\n  GeneralLink: 'General Link',\n  Image: 'Image',\n  File: 'File',\n  Number: 'Number',\n  Checkbox: 'Checkbox',\n  Date: 'Date',\n  DateTime: 'Datetime',\n}\n</code></pre>\n<blockquote>\n  <p>For custom Sitecore field types or other types not in the <code>CommonFieldTypes</code> enumeration, the string of their field type name in Sitecore (i.e. <code>Single-Line Text</code>) can be passed. Editors that support type annotations, like VS Code, will provide auto-completion on this enum.</p>\n</blockquote>\n<h4 id=\"param\">param</h4>\n<pre><code class=\"javascript language-javascript\">{\n  name: string:required\n}\n</code></pre>\n<h4 id=\"placeholder\">placeholder</h4>\n<pre><code class=\"javascript language-javascript\">{\n  name: string:required,\n  displayName: string:optional\n}\n</code></pre>\n<h4 id=\"placeholders\">placeholders</h4>\n<pre><code class=\"javascript language-javascript\">{\n  placeholderName: array[component]:optional,\n  // additional placeholder key/values can be added\n}\n</code></pre>\n<h4 id=\"route\">route</h4>\n<pre><code class=\"javascript language-javascript\">{\n  id: string:optional,\n  name: string:required,\n  displayName: string:optional,\n  template: string:optional, // note: this is optional in yaml/json as its defaulted before adding to manifest\n  fields: fields:optional,\n  children: array[route]:optional,\n  placeholders: placeholders:optional,\n  insertOptions: array[string]:optional,\n}\n</code></pre>\n<h4 id=\"template\">template</h4>\n<pre><code class=\"javascript language-javascript\">{\n  name: string:required,\n  displayName: string:optional,\n  inherits: array[string]:optional, // names of JSS template(s) to inherit from, OR Sitecore item GUIDs for non-JSS templates\n  fields: array[field]:optional,\n  icon: string:optional, // e.g. People/16x16/alarmclock.png\n  defaultWorkflow: string:optional // e.g. /sitecore/system/Workflows/Sample Workflow\n}\n</code></pre>\n<h4 id=\"fields\">fields</h4>\n<pre><code class=\"javascript language-javascript\">{\n  fieldName: object[fieldName] = field:required\n  // additional field key/values can be added, see the following\n}\n</code></pre>\n<h4 id=\"params-1\">params</h4>\n<pre><code class=\"javascript language-javascript\">{\n  paramName: array[string]:required,\n  // additional param key/values can be added\n  // note: all param values are provided to the component as strings,\n  // even if the defined value is a number/boolean value.\n}\n</code></pre>\n<h5 id=\"imagefieldvalue\">imageFieldValue</h5>\n<p>The image field value is used when a <code>field</code> is an image type. It has additional properties compared to a normal field.</p>\n<pre><code class=\"javascript language-javascript\">{\n  id: string:optional,\n  src: string:required,         // src of image. Should be under /sitecore/media on the JSS app.\n  alt: string:required,\n  displayName: string:optional, // media item display name\n  title: string:optional,       // media item field\n  keywords: string:optional,    // media item field\n  description: string:optional, // media item field\n  width: int:optional,\n  height: int:optional,\n  class: string:optional        // rendered image CSS class\n\n}\n</code></pre>\n<h5 id=\"linkfieldvalue\">linkFieldValue</h5>\n<p>The link field value is used when a <code>field</code> is a link type. It has additional properties compared to a normal field.</p>\n<pre><code class=\"javascript language-javascript\">{\n  href: string:required,\n  text: string:optional,        // link body text\n  class: string:optional,       // rendered &lt;a&gt; css class\n  target: string:optional,      // target attribute e.g. _blank\n  title: string:optional        // title attribute of &lt;a&gt;\n}\n</code></pre>\n<h5 id=\"multilistfieldvalue\">multilistFieldValue</h5>\n<p>Sitecore multilist fields can be defined by specifying the item definitions that are selected in the multilist (as an array),<br />\nor by using ID references to pull in items defined in a shared content area (or explicit GUIDs to refer to non-app items in Sitecore)</p>\n<pre><code class=\"javascript language-javascript\">// definition using array of content items (routes without placeholders)\n[route]:required\n\n// complete example including the top level fields (YAML):\nfields:\n  multilistFieldName:\n  - name: Option1\n    fields:\n      title:\n        value: Hello\n  - name: Option2\n  # ...\n\n// or define it using ID references to shared content items (also YAML):\nfields:\n  multilistFieldName:\n  - id: option-1\n  - id: option-2\n  # ...\n</code></pre>\n<h5 id=\"handling-date-field-values\">Handling date field values</h5>\n<p>Date fields' values in the manifest are formatted using <a href=\"https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations\">ISO 8601</a> formatted strings, for example <code>2012-04-23T18:25:43.511Z</code>. </p>\n<blockquote>\n  <p>Note: this is a JavaScript date format, and is different from how Sitecore stores date field values internally. Sitecore-formatted dates <em>will not work.</em></p>\n</blockquote>\n"}}}]}}],"jssdocs-footer":[{"uid":"{9CA48C16-5780-5B1B-8213-51D2B4DEF099}","componentName":"Row","dataSource":"available-in-connected-mode","params":{"justify":"center","compactGutter":"24","fullSizeGutter":"32"},"fields":{},"placeholders":{"jssdocs-row":[{"uid":"{0660D38F-D825-5D14-90AC-B8235E1767C9}","componentName":"FooterNav","dataSource":"available-in-connected-mode","params":{},"fields":{}}]}},{"uid":"{D6BBC291-0943-5F60-9988-A78AB0D15CAD}","componentName":"Row","dataSource":"available-in-connected-mode","params":{"justify":"center","margin":"30px"},"fields":{},"placeholders":{"jssdocs-row":[{"uid":"{8F28A708-ED9B-56BE-8A94-A318BF3C6304}","componentName":"Disclaimers","dataSource":"available-in-connected-mode","params":{},"fields":{}}]}}]}}},"viewBag":{}};</script><script src="/dist/vendor-client.bundle.js"></script><script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script src="/dist/client.bundle.js"></script></body></html>
