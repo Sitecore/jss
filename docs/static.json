@@ -1,0 +1,4 @@
+{
+    "root": "dist/prerender",
+    "clean_urls": true
+}
