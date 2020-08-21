@@ -24,7 +24,11 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "@sitecore-jss/sitecore-jss",
+              "zen-observable"
+            ]
           },
           "configurations": {
             "production": {
