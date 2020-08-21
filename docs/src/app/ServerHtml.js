@@ -35,6 +35,7 @@ const ServerHtml = ({ component, initialState, distPath }) => {
             }}
           />
         )}
+        <script src="/assets/js/highlight.pack.js" />
         <script src={`${distPath}vendor-client.bundle.js`} />
         <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js" />
         <script src={`${distPath}client.bundle.js`} />
