@@ -42,5 +42,20 @@ Possible scenarios where these differences from a completely headless system wou
 
 ---
 
-## Placeholder naming conventions
-Multiple placeholders with same name within the same JSS component are not allowed.
+## Naming conventions
+
+### Recommended Practices
+- Define and export only one component per file.
+- Keep filenames and exported component names in sync.
+
+It's easy to overlook updating filenames when renaming components. Although this will not break your build, it will made it difficult to navigate around the solution, especially as it grows.
+
+In this example, the Sitecore definition file is named `Welcome.sitecore.js`, but the manifest defines a component named `Article`, and this functions fine.
+![Article component](/assets/img/guides/solution-structure/filename-and-export-do-not-match.png)
+
+But this makes it impossible to navigate to files by component name, which is really convenient in large solutions.
+![Search for file by name](/assets/img/guides/solution-structure/search-file-by-name.png)
+
+### Placeholder naming conventions
+- Multiple placeholders with same name within the same JSS component are not allowed.
+- Multiple static placeholders with the name within the same Sitecore instance are not allowed (static placeholders are typically root-level placeholders like `jss-main`). This means that multiple JSS apps using the same root-level placeholders will cause conflicts if deployed to the same Sitecore instance. To avoid this, it is recommended to adopt a naming convention that differentiates apps. For example, using the app name as a prefix for placeholders.

@@ -16,7 +16,7 @@ const guidesNav = {
         },
         {
           url: 'project-structure',
-          displayName: '⚠️ Project Structure'
+          displayName: 'Project Structure'
         },
         {
           url: 'developer-workflows',

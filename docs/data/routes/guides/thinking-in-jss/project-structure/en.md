@@ -4,36 +4,64 @@ routeTemplate: ./data/component-templates/guide.yml
 title: Project Structure
 ---
 
-> This discussion and recommendations on this page apply only to the directory of the JSS project that contains front-end components (`/src`, typically).
+> This recommendations on this page apply the portion of a project that contains  front-end code.
 
 ## The default structure that JSS CLI generates
 
-### The pros of the default structure
+Recall that `jss scaffold` is a command for generating files for new component. Since `jss scaffold` creates new files on the file system, it thereby makes some decisions about components structure. The default location convention is `src/components/{ComponentName}/index.js`.
 
-> TODO
+Sample component structure
+```
+src/
+  components/
+    layout/
+      Header/
+        index.js
+      Footer/
+        index.js
+    Article/
+      index.js
+    Navigation/
+      index.js
+  index.js
+```
+
+This file structure is significant because it is used by the `Component Factory` to determine which components should be mapped to Sitecore renderings.
 
 ---
 
-## Can front-end devs use a different structure?
+## How front-end components get mapped to Sitecore renderings
 
-### Recommended practices for making your custom structure integrate well with Sitecore
+> The component factory is simply a JavaScript `Map` object that matches front-end components to names of Sitecore renderings.
 
-It comes down to expanding your approach `component granularity`
+`src/boot/componentFactory.js` *(This is a generated file)*
+```javascript
+import Article from 'components/Article';
+import Disclaimers from 'components/Disclaimers';
+import Hero from 'components/Hero';
+import Logo from 'components/Logo';
+import MainNav from 'components/navigation/MainNav';
+import SideNav from 'components/navigation/SideNav';
+import ArticleContainer from 'containers/ArticleContainer';
+import PageContainer from 'containers/PageContainer';
+import Row from 'containers/Row';
 
-### Component granularity considerations
+const components = new Map();
+components.set('Article', Article);
+components.set('Disclaimers', Disclaimers);
+components.set('Hero', Hero);
+components.set('Logo', Logo);
+components.set('MainNav', MainNav);
+components.set('SideNav', SideNav);
+components.set('ArticleContainer', ArticleContainer);
+components.set('PageContainer', PageContainer);
+components.set('Row', Row);
 
-Topics:
-* Component Factory
-* 
+const componentFactory = (componentName) => components.get(componentName);
+export default componentFactory;
+```
 
-The “React codebase” is a subset of a JSS project (I’m referring to the /src part of a JSS project created from our starter). It houses code for the React components, the React application entry point, and a bunch of helper scripts. One thing that I could imagine causing issues is if the front-end devs have not had a chance to see the Experience Editor, to get a sense of how their React components will map to Sitecore components that Content Authors have to interacts with. React components tend to get broken up a lot more granularly for the sake of reusability. For example, there might be a component called “Visibility” that does one thing – toggle the visibility state with an animation. This component encapsulates a behavior that’s imported by multiple other components, but by itself it’s pretty useless, so it wouldn’t make sense to expose it to Content Authors as a Sitecore component.
- 
-Luckily, the way that React components are mapped to Sitecore components are controlled by a script in your solution (generate-component-factory.js, it can be customized if needed). It doesn’t just grab ALL react components, it only grabs the ones that match a specific pattern. This makes it pretty easy to add shared/utility/helper components that help break up the code, but don’t influence Experience Editor.
- 
-See slides 16 – 18 from my SUGCON presentation for more on this subject.
- [https://noti.st/anastasiyaflynn/rCKoF0/sitecore-javascript-services-immersion-lessons-learned#s7VE4zd](https://noti.st/anastasiyaflynn/rCKoF0/sitecore-javascript-services-immersion-lessons-learned#s7VE4zd) 
- 
-So the bottom line is that there is no Sitecore-specific or JSS-specific structure that needs to be enforced within the /src folder. Front-end devs are free to follow the same best practices that apply to regular react projects within this folder. But they need to be aware how their React components are getting mapped to Sitecore components, and they may need to edit the Component Factory generator script to fit their needs if they are doing something special with the structure.
+By default, the `Component Factory` does not add all components under `src` to the `Map`; it only adds components that follow a specific filesystem path convention: `src/components/{ComponentName}/index.js`.
 
 ---
 
@@ -42,34 +70,25 @@ So the bottom line is that there is no Sitecore-specific or JSS-specific structu
 - Larger, logical components should be composed in the front-end framework in a way that content authors would use them.  
 - Only these components should be imported to Sitecore as renderings.
  
-### In Code-First workflow
+
 By default, the `scripts/generate-component-factory.js` script includes all files that follow the naming convention: `src/components/{ComponentName}/index.js`.
 To ensure that your granular components are not being included in the componentFactory, you can:
 * Use a filename other than `index.js` (example: `Background.js`, `Card.js`, etc)
 * Move component to another folder (example: `src/shared/{ComponentName}.js`)
-* Update `generate-component-factory.js` script to include components matching your conventions
+* Update `generate-component-factory.js` script to exclude components matching your conventions
  
 ![](/assets/img/guides/component-composition.png)
 
 ---
 
-## Naming conventions
+## Can front-end devs use a different file structure?
+Sure! Front-end developers are free to adjustment the project structure to their liking.
 
-> **Recommended Practices**
-> - Define and export only one component per file.
-> - Keep filenames and exported component names in sync.
+- Customize `scripts/scaffold-component.js` to change the file structure and file content created by `jss scaffold`. (Community guide: [Customizing Scaffolding of Components](https://codealamode.blog/jss-customizing-scaffolding-components) by [Anastasiya Flynn](https://twitter.com/AnastasiyaFlynn))
 
-Yes, this is basic stuff, but it's easy to overlook updating filenames when renaming components. Here is why this is important:
+- Customize `scripts/generate-component-factory.js` to change how the `Component Factory` is generated.
 
-In this example, the Sitecore definition file is named `Welcome.sitecore.js`, but the manifest defines a component named `Article`, and this functions fine.
-![Article component](/assets/img/guides/solution-structure/filename-and-export-do-not-match.png)
-
-But this makes it impossible to navigate to files by component name, which is really convenient in large solutions.
-![Search for file by name](/assets/img/guides/solution-structure/search-file-by-name.png)
-
-> **Additional Recommended Practice for Multisite apps**
-> - Adopt a site-based prefix naming convention
-> See also: [Multisite Guide](/)
+As long as the end result is that components intended for Content Author editing are included in the Component Factory map, and all other helper components are ignored, then everything will work fine.
 
 ---
 
