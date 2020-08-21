@@ -1,4 +1,5 @@
 import { environment as env } from '../../environments/environment';
+import { Injectable } from "@angular/core";
 // import { Injectable } from "@angular/core";
 
 export class JssRoute {
@@ -7,6 +8,7 @@ export class JssRoute {
 }
 
 // @Injectable()
+@Injectable()
 export class JssRouteBuilderService {
   buildRouteUrl(route: JssRoute) {
     if (!route.language) {

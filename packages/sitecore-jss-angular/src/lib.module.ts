@@ -78,7 +78,7 @@ export class JssModule {
    * Instantiates the JSS module with no component factory.
    * Useful for using it from libraries. Most of the time you'd want withComponents()
    */
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
       providers: [
@@ -90,7 +90,7 @@ export class JssModule {
   }
 
   /** Instantiates a module for a lazy-loaded JSS component */
-  static forChild(component: Type<any>): ModuleWithProviders {
+  static forChild(component: Type<any>): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
       providers: [
@@ -105,7 +105,7 @@ export class JssModule {
    * Instantiates the JSS module and specifies the mapping from component name to component implementation.
    * Appropriate when defining the set of JSS components that your app is aware of.
    */
-  static withComponents(components: ComponentNameAndType[], lazyComponents?: ComponentNameAndModule[]): ModuleWithProviders {
+  static withComponents(components: ComponentNameAndType[], lazyComponents?: ComponentNameAndModule[]): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
       providers: [
