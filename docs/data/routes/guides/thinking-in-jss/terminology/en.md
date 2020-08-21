@@ -29,27 +29,27 @@ This topic is also covered in the [JSS Developer Trial guide](/connected-demo/ex
 
 ## Sitecore Renderings
 Exported components need to make sense from the perspective of a Content Author; this is usually defined by the Business Analyst or Product Owner. You may create as many micro components as you wish to compose to the logical author-friendly blocks - the level of granularity is up to developers. But only the components that are specifically intended to be used by Content Authors should be exported by the `Component Factory`.
-![Breaking up a page into author-friendly components](/assets/img/guides/terminology-components.png)
+![Breaking up a page into author-friendly components](/assets/img/guides/terminology-components.png =70%x*)
 
 From Sitecore Content Authoring Documentation - [An overview of how authors edit the page in Experience Editor](https://doc.sitecore.com/users/100/sitecore-experience-platform/en/edit-a-field-in-the-experience-editor.html)
 
 ---
 
 ## The importance of locale
-![A page defined for the en-US locale](/assets/img/guides/terminology-page-route-language.png)
+![A page defined for the en-US locale](/assets/img/guides/terminology-page-route-language.png =50%x*)
 
 ---
 
 ## Placeholders
-![How placeholders appear in an authoring interface](/assets/img/guides/terminology-placeholders.png)
+![How placeholders appear in an authoring interface](/assets/img/guides/terminology-placeholders.png =50%x*)
 
 ### Nested Placeholders
-![](/assets/img/guides/terminology-nested-placeholders.png)
+![](/assets/img/guides/terminology-nested-placeholders.png =70%x*)
 
 ---
 
 ## Presentations Details
-![](/assets/img/guides/terminology-presentation-details.png)
+![](/assets/img/guides/terminology-presentation-details.png =70%x*)
 
 ---
 
