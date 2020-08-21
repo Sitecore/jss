@@ -10,12 +10,12 @@ const SubMenu = Menu.SubMenu;
 // state management ftw
 const openMenuState = new Set();
 
-const renderMenu = (baseUrl, menuItem, history) => {
+const renderMenu = (baseUrl, menuItem, history, key) => {
   const url = `${baseUrl}/${menuItem.url}`;
   if (menuItem.children) {
     return (
-      <SubMenu key={menuItem.url} title={menuItem.displayName}>
-        {menuItem.children.map((child) => renderMenu(url, child, history))}
+      <SubMenu key={key} title={menuItem.displayName}>
+        {menuItem.children.map((child) => renderMenu(url, child, history, url))}
       </SubMenu>
     );
   } else {
@@ -61,13 +61,14 @@ class SideNav extends React.Component {
         {searchbox}
 
         <Menu
-          defaultOpenKeys={openMenus}
-          defaultSelectedKeys={[selected]}
+          defaultOpenKeys={['0','1','2','3','4','5','6']}
+          defaultSelectedKeys={['0']}
           onOpenChange={this.handleOpenChange}
           selectable={false}
           mode="inline"
+          forceSubMenuRender={true}
         >
-          {navTypes[navType].children.map((menuItem) => renderMenu(`/${navTypes[navType].url}`, menuItem, history))}
+          {navTypes[navType].children.map((menuItem, index) => renderMenu(`/${navTypes[navType].url}`, menuItem, history, index))}
         </Menu>
 
         <div className="navbar-nav bd-navbar-nav flex-column">
