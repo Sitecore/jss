@@ -1,6 +1,6 @@
-import React from './node_modules/react';
-import { Link } from './node_modules/react-router-dom';
-import { Col } from './node_modules/antd';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Col } from 'antd';
 
 const FooterNav = ({ fields }) => (
   <React.Fragment>

@@ -34,7 +34,7 @@ class Guide extends React.Component {
           <div class="title">In this guide</div>
           <RouteLinkedRichText tag="div" field={fields.toc} />
         </section>}
-        <RouteLinkedRichText tag="div" field={fields.text} className="Guide markdown-section" />
+        <RouteLinkedRichText tag="div" field={fields.text} className="article markdown-section" />
         <hr />
         <div>
           Found a problem? Have something to add?&nbsp;
