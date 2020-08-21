@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-reactroot=""><head><link rel="stylesheet" href="/dist/server.css"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/><link rel="stylesheet" href="/dist/client.css"/><link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="description" content="Sitecore JavaScript Services Documentation"/><title data-react-helmet="true">SSR Recommended Practices | Sitecore JSS Documentation</title></head><body><div id="app"><section class="ant-layout" id="app-wrap"><header class="ant-layout-header"><div class="ant-row ant-row-start" style="padding:30px"><a style="flex:300px" href="/"><img src="/assets/img/sitecore-logo.svg" height="53px" alt="Sitecore JSS" class="logo"/></a><ul flex="auto" style="border-bottom:none" class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal" role="menu"><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem"><a class="nav-link" href="/features">Features</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem"><a class="nav-link" href="/docs">Documentation</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected" role="menuitem"><a class="nav-link" href="/guides">Guides</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem"><a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.sitecore.com/getting-started/developer-trial">Trial</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem"><a class="nav-link" href="/community">Community</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="display:none" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li><li class="ant-menu-item get-started-button ant-menu-item-only-child" role="menuitem"><a class="btn btn-secondary btn-sm float-left text-white" href="/docs/getting-started/quick-start">Get Started</a></li><li class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu" style="visibility:hidden;position:absolute" role="menuitem"><div class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true"><span>···</span><i class="ant-menu-submenu-arrow"></i></div></li></ul></div></header><div class="main-wrapper"><section class="ant-layout border-bottom"><section class="jumbo-container jumbo-container-short bg-light"><div class="default"><div class="circleContainer"><div class="circleContainer-outer-top"><div class="circleContainer-inner"><div class="circleContainer-inner-primary"><div class="circ circ_right circle-fg-right-lg bg-success" id="defaultimage"><img src="/assets/img/transparent-1x1.png"/></div></div><div class="circleContainer-inner-secondary"><div class="circ circ_right circle-fg-right-lg-sub bg-primary"></div></div></div></div><div class="circleContainer-outer-bottom"><div class="circleContainer-inner"><div class="circleContainer-inner-primary"><div class="circle circle-fg-left-md bg-success"></div></div></div></div></div><div class="shapes-wrapper"><div class="outer-shape container"><div class="inner-shape row"><div class="content-wrapper col-12 col-md-9 min-height"><div class="content-wrapper-inner"><h1 class="title mb-3">Guides, Patterns, &amp; Recommended Practices</h1><p class="copy mb-0 p-0">A collection of learnings and recommendations from our developers and community, based on learnings from real-world projects.</p></div></div></div></div></div></div></section></section><div class="ant-row ant-row-space-between" style="margin-left:-20px;margin-right:-20px;flex-wrap:nowrap;margin:30px"><div style="padding-left:20px;padding-right:20px;flex:0 0 300px" class="ant-col"><aside><div class="side-nav"><ul class="ant-menu ant-menu-light ant-menu-root ant-menu-inline" role="menu"><li class="ant-menu-submenu ant-menu-submenu-inline" role="menuitem"><div style="padding-left:24px" class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true" title="Thinking in JSS">Thinking in JSS<i class="ant-menu-submenu-arrow"></i></div><div></div></li><li class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-selected" role="menuitem"><div style="padding-left:24px" class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true" title="Code Patterns">Code Patterns<i class="ant-menu-submenu-arrow"></i></div><div></div></li><li class="ant-menu-submenu ant-menu-submenu-inline" role="menuitem"><div style="padding-left:24px" class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true" title="Multisite Scenarios">Multisite Scenarios<i class="ant-menu-submenu-arrow"></i></div><div></div></li><li class="ant-menu-item ant-menu-item-only-child" role="menuitem" style="padding-left:24px"><a href="/guides/performance">Performance</a></li><li class="ant-menu-submenu ant-menu-submenu-inline" role="menuitem"><div style="padding-left:24px" class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true" title="Debugging">Debugging<i class="ant-menu-submenu-arrow"></i></div><div></div></li><li class="ant-menu-submenu ant-menu-submenu-inline" role="menuitem"><div style="padding-left:24px" class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true" title="GraphQL">GraphQL<i class="ant-menu-submenu-arrow"></i></div><div></div></li><li class="ant-menu-submenu ant-menu-submenu-inline" role="menuitem"><div style="padding-left:24px" class="ant-menu-submenu-title" role="button" aria-expanded="false" aria-haspopup="true" title="🚧 Work in Progress">🚧 Work in Progress<i class="ant-menu-submenu-arrow"></i></div><div></div></li></ul><div class="navbar-nav bd-navbar-nav flex-column"></div></div></aside></div><div style="padding-left:20px;padding-right:20px;flex:auto" class="ant-col"><main><h1>SSR Recommended Practices</h1><section class="toc-container"><div class="title">In this guide</div><div match="[object Object]" location="[object Object]" history="[object Object]"><div class="toc">
+<ul>
+<li><a href="#route-handling-in-jss">Route handling in JSS</a><ul>
+<li><a href="#why-does-jss-need-custom-route-handling">Why does JSS need custom route handling?</a></li>
+<li><a href="#how-does-jss-route-handling-work">How does JSS route handling work?</a></li>
+<li><a href="#customizing-route-handling">Customizing route handling</a><ul>
+<li><a href="#using-the-querystringparams-option">Using the querystringParams option</a></li>
+<li><a href="#using-the-fetcher-option">Using the fetcher option</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#routing-impact-on-performance">Routing impact on performance</a><ul>
+<li><a href="#link-fields">Link Fields</a></li>
+<li><a href="#rich-text-fields">Rich Text Fields</a></li>
+<li><a href="#advanced-usages">Advanced Usages</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div></section><div class="article markdown-section" match="[object Object]" location="[object Object]" history="[object Object]"><h2 id="route-handling-in-jss">Route handling in JSS</h2>
+<h3 id="why-does-jss-need-custom-route-handling">Why does JSS need custom route handling?</h3>
+<p>In Sitecore, Content Authors have the power to control the URL of each page by organizing the content tree is accordance with the desired URL structure.</p>
+<p>For example, assuming the content items in this Sitecore tree structure are pages (i.e. routes)…</p>
+<pre><code>content
+  site 1
+    Home
+      About
+      Products
+        Product X
+        Product Y
+        Product Z
+  site 2
+    Home
+  site 3
+    Home
+</code></pre>
+<p>Sitecore would automatically map those pages to these URLs.</p>
+<pre><code>https://site-1-hostname/
+  https://site-1-hostname/about
+  https://site-1-hostname/products
+    https://site-1-hostname/products/product-x
+    https://site-1-hostname/products/product-y
+    https://site-1-hostname/products/product-y
+
+https://site-2-hostname/
+
+https://site-3-hostname/
+</code></pre>
+<blockquote>
+  <p>Note: Site hostnames, and rules for how to map page names to URL segments (casing, white-space replacement, etc) are defined in XML configs. Discuss with the Sitecore developers on your team if this needs to be customized per business requirements. Any customizations to how Sitecore handles routing requirements collaboration between front-end and back-end developers.</p>
+</blockquote>
+<p>JSS apps are expected to fully support this feature, which is why the sample apps define custom routing implementations.</p>
+<ul>
+<li><p><a href="https://github.com/Sitecore/jss/blob/dev/samples/react/src/RouteHandler.js">React route handler</a></p></li>
+<li><p><a href="https://github.com/Sitecore/jss/blob/dev/samples/vue/src/RouteHandler.vue">Vue route handler</a></p></li>
+<li><p><a href="https://github.com/Sitecore/jss/blob/e8a8368ea63d8c55ec03b0c118a903b00c0e9017/samples/angular/src/app/jss-context.service.ts#L40">Angular route handler</a> | <a href="https://github.com/Sitecore/jss/blob/e8a8368ea63d8c55ec03b0c118a903b00c0e9017/samples/angular/src/app/jss-context.server-side.service.ts#L26">Angular server-side route handler</a></p></li>
+<li><p><a href="https://github.com/Sitecore/jss/blob/dev/samples/react-native/src/dataService/dataService.connected.js#L35">React Native route handler</a></p></li>
+</ul>
+<h3 id="how-does-jss-route-handling-work">How does JSS route handling work?</h3>
+<p>Changing routes boils down to making a call to Layout Service to fetch data for the new route. Refer to <a href="/docs/fundamentals/services/layout-service#invoking-the-layout-service-from-jss">Invoking the Layout Service from JSS</a> documentation for an explanation of how this process works.</p>
+<h3 id="customizing-route-handling">Customizing route handling</h3>
+<p>As described in the documentation, fetching page data from the Layout Service API requires calling <a href="https://github.com/Sitecore/jss/blob/e8a8368ea63d8c55ec03b0c118a903b00c0e9017/packages/sitecore-jss/src/dataApi.ts#L97"><code>dataApi.fetchRouteData</code></a>, which takes an <code>options</code> object. These options can be used for points of customization.</p>
+<p>Supported <code>options</code> properties are:</p>
+<ul>
+<li><code>host</code> (host name of the Sitecore instance serving Layout Service requests)</li>
+<li><code>configurationName</code> (Layout Service "named" configuration)</li>
+<li><code>serviceUrl</code> (overrides the default layout service URL)</li>
+<li><code>querystringParams</code> (object of key:value pairs)</li>
+<li><code>fetcher</code> (function that performs the HTTP request and returns a promise to JSON)</li>
+</ul>
+<blockquote>
+  <p>View TypeScript definitions in <a href="https://github.com/Sitecore/jss/blob/e8a8368ea63d8c55ec03b0c118a903b00c0e9017/packages/sitecore-jss/src/dataApi.ts#L77">dataApi.ts</a></p>
+</blockquote>
+<h4 id="using-the-querystringparams-option">Using the <code>querystringParams</code> option</h4>
+<p>Layout service recognizes the following query string params <a href="https://doc.sitecore.com/developers/100/developer-tools/en/sitecore-layout-service.html">Reference</a>:</p>
+<ul>
+<li><code>sc_site</code>: Specify which site to fetch items from</li>
+<li><code>sc_lang</code>: Specify which language to fetch data in</li>
+<li><code>item</code>: Fetch an item by path or GUID</li>
+<li><code>sc_apikey</code></li>
+</ul>
+<blockquote>
+  <p>Additional custom params could be added. This requires patching in custom UrlResolver or ItemResolver pipelines on the back-en.</p>
+</blockquote>
+<h4 id="using-the-fetcher-option">Using the <code>fetcher</code> option</h4>
+<p>The <code>fetcher</code> function handles the actual call to Layout Service and returns a promise. JSS provides a default implementation of the <code>fetcher</code> function that utilizes <code>Axios</code>.</p>
+<p>Being able to provide your own <code>fetcher</code> function is very powerful, as this enables you to customize how server responses are processes. For example, you can write logic to handle different http response codes in different ways, you can add logging to measure the roundtrip speed of Layout Service calls, you can even override values in the response.</p>
+<p>Since the <code>fetcher</code> returns a <code>Promise</code> object, instead of rewriting it, we recommend chaining promise handler to it before passing it to <code>fetchRouteData</code>. This allows you to encapsulate customizations into individual steps, and provide error handling at every step.</p>
+<hr />
+<h2 id="routing-impact-on-performance">Routing impact on performance</h2>
+<p>A common pitfall found in JSS apps that are experiencing performance issues is that, as an end-user navigates through an app, every page is loaded using SSR. </p>
+<p>To avoid full page reloads when clicking links, convert Sitecore links into router links.</p>
+<p>The following guide on how to route Sitecore links in JSS was written by JSS developer <a href="https://twitter.com/kamsar">Kam Figy</a>, on his <a href="https://kamsar.net/index.php/2018/09/Routing-Sitecore-links-with-JSS/">blog</a>. It is copied here with Kam's permission.</p>
+<hr />
+<p>When building a single-page app with Sitecore JSS and defining internal links in Sitecore content, you may notice that clicking the link in the JSS app does not act like a single page app. Instead the link click causes a full page refresh to occur, because the routing library used by the app is not aware that the link emitted by JSS can be treated as a route link.</p>
+<p>Maybe you don’t want that to happen, because you like the fluidity of single-page apps or want to reduce bandwidth. Excellent! You’ve come to the right place.</p>
+<p>The following examples use React, but the same architectural principles will translate well to Vue or Angular apps and the JSS field data schema is identical.</p>
+<p>There are two places where we can receive links back from Sitecore:</p>
+<h3 id="link-fields">Link Fields</h3>
+<p>Sitecore supports content fields that are explicitly hyperlinks (usually General Link fields, also referred to as CommonFieldTypes.GeneralLink in JSS disconnected data). When returned these fields contain link data (a href, optionally body text, CSS class, target, etc). In JSS apps, these are rendered using the Link component like so:</p>
+<pre><code class="javascript language-javascript">import { Link } from '@sitecore-jss/sitecore-jss-react';
+
+export default MyJSSComponent = props =&gt;
+    &lt;Link field={props.fields.externalLink} /&gt;;
+</code></pre>
+<p>This gives us normal anchor tag output in the DOM:</p>
+<pre><code class="javascript language-javascript">&lt;a href="/path"&gt;Link Text&lt;/a&gt;
+</code></pre>
+<p>But in react-router, a link needs to be rendered using react-router-dom‘s Link component instead, for example:</p>
+<pre><code class="javascript language-javascript">import { Link } from 'react-router-dom';
+
+export default RouterLinkComponent = () =&gt; &lt;Link to="/path"&gt;Link Text&lt;/Link&gt;;
+</code></pre>
+<p>To make JSS general links render using react-router links for internal links, we can create a component that conditionally chooses the link component like this:</p>
+<pre><code class="javascript language-javascript">import React from 'react';
+import { Link } from '@sitecore-jss/sitecore-jss-react';
+// note we're aliasing the router's link component name, since it conflicts with JSS' link component
+import { Link as RouterLink } from 'react-router-dom';
+
+/** React component that turns Sitecore link values that start with / into react-router route links */
+const RoutableSitecoreLink = (props) =&gt; {
+  const hasValidHref = props.field &amp;&amp; props.field.value &amp;&amp; props.field.value.href;
+  const isEditing = props.editable &amp;&amp; props.field.editable;
+
+  // only want to apply the routing link if not editing (if editing, need to render editable link value)
+  if(hasValidHref &amp;&amp; !isEditing) {
+    const value = props.field.value;
+
+    // determine if a link is a route or not. This logic may not be appropriate for all usages.
+    if(value.href.startsWith('/')) {
+      return (
+        &lt;RouterLink to={value.href} title={value.title} target={value.target} className={value.class}&gt;
+          {props.children || value.text || value.href}
+        &lt;/RouterLink&gt;
+      );
+    }
+  }
+
+  return &lt;Link {...props} /&gt;;
+};
+
+// usage - drop-in replacement for JSS' Link component
+export default MyJSSComponent = (props) =&gt;
+    &lt;RoutableSitecoreLink field={props.fields.externalLink} /&gt;;
+</code></pre>
+<p>With this component, now your internal link values will be turned into router links and result in only a new fetch of route data instead of a page refresh!</p>
+<h3 id="rich-text-fields">Rich Text Fields</h3>
+<p>Rich Text fields are a more interesting proposition because they contain free text that is placed into the DOM, and we cannot inject RouterLink components directly into the HTML blob. Instead we can use React’s DOM access to attach an event handler to the rich text markup after it’s rendered by React that will trigger route navigation.</p>
+<p>Similar to the general link field handling, we can wrap the JSS default RichText component with our own component that selects whether to bind the route handling events based on whether we’re editing the page or not:</p>
+<pre><code class="javascript language-javascript">import React from 'react';
+import ReactDOM from 'react-dom';
+import { RichText } from '@sitecore-jss/sitecore-jss-react';
+import { withRouter } from 'react-router-dom';
+
+/** Binds route handling to internal links within a rich text field */
+class RouteLinkedRichText extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.routeHandler = this.routeHandler.bind(this);
+  }
+
+  // handler function called on click of route links
+  // pushes the click into the router history thus changing the route
+  // props.history comes from the react-router withRouter() higher order component.
+  routeHandler(event) {
+    event.preventDefault();
+    this.props.history.push(event.target.pathname);
+  }
+
+  // rebinds event handlers to route links within this component
+  // fired both on mount and update
+  bindRouteLinks() {
+    const hasText = this.props.field &amp;&amp; this.props.field.value;
+    const isEditing = this.props.editable &amp;&amp; this.props.field.editable;
+
+    if(hasText &amp;&amp; !isEditing) {
+      const node = ReactDOM.findDOMNode(this);
+      // selects all links that start with '/' - this logic may be inappropriate for some advanced uses
+      const internalLinks = node.querySelectorAll('a[href^="/"]');
+
+      internalLinks.forEach((link) =&gt; {
+        // the component can be updated multiple times during its lifespan,
+        // and we don't want to bind the same event handler several times so unbind first
+        link.removeEventListener('click', this.routeHandler, false);
+        link.addEventListener('click', this.routeHandler, false);
+      });
+    }
+  }
+
+  // called once when component is created
+  componentDidMount() {
+    this.bindRouteLinks();
+  }
+
+  // called if component data changes _after_ created
+  componentDidUpdate() {
+    this.bindRouteLinks();
+  }
+
+  render() {
+    // strip the 'staticContext' prop from withRouter() 
+    // to avoid confusing React before we pass it down
+    const { staticContext, ...props } = this.props;
+    return &lt;RichText {...props} /&gt;;
+  }
+};
+
+// augment the component with the react-router context using withRouter()
+// this gives us props.history to push new routes
+RouteLinkedRichText = withRouter(RouteLinkedRichText);
+
+// usage - drop-in replacement for JSS' RichText component
+export default MyJSSComponent = (props) =&gt;
+  &lt;RouteLinkedRichText field={props.fields.richText} /&gt;;
+</code></pre>
+<p>Now internal links entered in rich text fields will also be treated as route links.</p>
+<h3 id="advanced-usages">Advanced Usages</h3>
+<p>These examples use simple internal link detection that consists of “starts with /.” There are some edge cases that can defeat simple link detection, such as:</p>
+<p>Scheme-insensitive links (//google.com) that are HTTP or HTTPS depending on the current page. These are an antipattern; encrypt all your resources.<br />
+Links to static files (i.e. media files).<br />
+For use cases such as this, more advanced detection of internal links may be required that is situational for your implementation.</p>
+<hr />
+<p>Avoid page reloads when clicking links, make sure to you are converting Sitecore links into router links.</p>
+<p>If using SSR, it will be used for the first rendering of your application, but by using router links it will then only require the Layout Service from there, instead of performing a SSR on every page load.</p>
+<h3 id="references">References</h3>
+<ul>
+<li>https://kamsar.net/index.php/2018/09/Routing-Sitecore-links-with-JSS</li>
+<li>https://blog.vitaliitylyk.com/guide-on-refactoring-your-sitecore-solution-to-sitecore-jss/</li>
+</ul>
+</div><hr/><div>Found a problem? Have something to add? <a href="https://github.com/Sitecore/jss/edit/guides/docs/data/routes/guides/code-patterns/ssr/en.md">Edit this on GitHub</a></div></main></div></div></div><footer class="ant-layout-footer"><div class="ant-row ant-row-center" style="margin-left:-16px;margin-right:-16px"><div style="padding-left:16px;padding-right:16px" class="ant-col ant-col-xs-24 ant-col-md-5"><a class="nav-link text-uppercase small text-white font-weight-bold" href="/features">Features</a><nav class="nav flex-column"><a class="nav-link small text-white" href="/features/why-jss">Why JSS?</a><a class="nav-link small text-white" href="/features/why-sitecore">Why Sitecore?</a></nav></div><div style="padding-left:16px;padding-right:16px" class="ant-col ant-col-xs-24 ant-col-md-5"><a class="nav-link text-uppercase small text-white font-weight-bold" href="/docs">Documentation</a><nav class="nav flex-column"><a class="nav-link small text-white" href="/docs/getting-started/quick-start">Getting Started</a><a class="nav-link small text-white" href="/docs/fundamentals/architecture">Fundamentals</a><a class="nav-link small text-white" href="/docs/client-frameworks/react/react-overview">Client Frameworks</a><a class="nav-link small text-white" href="/docs/techniques/mvc-integration/javascript-rendering">Techniques</a><a class="nav-link small text-white" href="/release-notes">Release Notes</a><a class="nav-link small text-white" href="/help">FAQs</a></nav></div><div style="padding-left:16px;padding-right:16px" class="ant-col ant-col-xs-24 ant-col-md-5"><a href="https://www.sitecore.com/getting-started/developer-trial" target="_blank" rel="noopener noreferrer" class="nav-link text-uppercase small text-white font-weight-bold">Start Trial</a></div><div style="padding-left:16px;padding-right:16px" class="ant-col ant-col-xs-24 ant-col-md-5"><a class="nav-link text-uppercase small text-white font-weight-bold" href="/community">Community</a><nav class="nav flex-column"><a href="#" class="nav-link small text-white">Sitecore Community</a><a href="slack://channel?team=T09SHRBNU&amp;id=C7JT0NRQW" class="nav-link small text-white"><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" focusable="false"><title>Slack</title><path fill="currentColor" d="M210.787 234.832l68.31-22.883 22.1 65.977-68.309 22.882z"></path><path d="M490.54 185.6C437.7 9.59 361.6-31.34 185.6 21.46S-31.3 150.4 21.46 326.4 150.4 543.3 326.4 490.54 543.34 361.6 490.54 185.6zM401.7 299.8l-33.15 11.05 11.46 34.38c4.5 13.92-2.87 29.06-16.78 33.56-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18l-11.46-34.38-68.36 22.92 11.46 34.38c4.5 13.92-2.87 29.06-16.78 33.56-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18l-11.46-34.43-33.15 11.05c-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18c-4.5-13.92 2.87-29.06 16.78-33.56l33.12-11.03-22.1-65.9-33.15 11.05c-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18c-4.48-13.93 2.89-29.07 16.81-33.58l33.15-11.05-11.46-34.38c-4.5-13.92 2.87-29.06 16.78-33.56s29.06 2.87 33.56 16.78l11.46 34.38 68.36-22.92-11.46-34.38c-4.5-13.92 2.87-29.06 16.78-33.56s29.06 2.87 33.56 16.78l11.47 34.42 33.15-11.05c13.92-4.5 29.06 2.87 33.56 16.78s-2.87 29.06-16.78 33.56L329.7 194.6l22.1 65.9 33.15-11.05c13.92-4.5 29.06 2.87 33.56 16.78s-2.88 29.07-16.81 33.57z" fill="currentColor"></path></svg>JSS Slack</a><a href="https://sitecore.stackexchange.com/tags/jss" class="nav-link small text-white"><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><title>Sitecore StackExchange</title><path fill="currentColor" d="M22.4 57.5h74.8v15.4H22.4z"></path><path fill="currentColor" d="M22.4 37.6h74.8V53H22.4z"></path><path fill="currentColor" d="M85.5 17H34.4c-6.6 0-12 5.5-12 12.3v4h74.8v-4C97.2 22.5 92 17 85.5 17z"></path><path fill="currentColor" d="M22.4 77.3v4c0 6.8 5.4 12.3 12 12.3h32v16.3l15.8-16.3h3.5c6.6 0 12-5.5 12-12.3v-4H22.4z"></path></svg>Stack Exchange</a><a href="https://github.com/sitecore/jss" class="nav-link small text-white"><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 499.36" focusable="false"><title>GitHub</title><path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"></path></svg>Github</a></nav></div></div><div class="ant-row ant-row-center" style="margin:30px"><div class="ant-col footer-copyright small">© Copyright <!-- -->2020<!-- -->, Sitecore. All Rights Reserved.</div><div class="ant-col footer-copyright small"><a href="https://www.sitecore.com/trust" class="pl-2 pr-2" target="_blank" rel="noopener noreferrer">Legal</a><a href="https://www.sitecore.com/trust/privacy-policy" class="pl-2" target="_blank" rel="noopener noreferrer">Privacy</a></div></div></footer></section></div><script>window.__data={"sitecore":{"context":{"pageEditing":false,"site":{"name":"JssDisconnectedLayoutService"},"pageState":"normal","language":"en"},"route":{"databaseName":"available-in-connected-mode","deviceId":"available-in-connected-mode","itemId":"available-in-connected-mode","itemLanguage":"en","itemVersion":1,"layoutId":"available-in-connected-mode","templateId":"available-in-connected-mode","templateName":"Docs Route","name":"routing","fields":{"title":{"value":"Routing Guide"},"editLink":{"value":{"text":"Edit this on GitHub","href":"https://github.com/Sitecore/jss/edit/guides/docs/data/routes/guides/code-patterns/routing/en.md"}}},"placeholders":{"jssdocs-header":[{"uid":"{3FE5CC96-5C33-5C14-A2A6-2E142B33043F}","componentName":"Row","dataSource":"available-in-connected-mode","params":{"justify":"start","padding":"30px"},"fields":{},"placeholders":{"jssdocs-row":[{"uid":"{571BCDEC-AC29-53EF-BAC2-EC38D721E109}","componentName":"Logo","dataSource":"available-in-connected-mode","params":{"flex":"300px"},"fields":{}},{"uid":"{18CC3A0D-7CFC-509D-8E58-B9939A56BDC7}","componentName":"MainNav","dataSource":"available-in-connected-mode","params":{"flex":"auto"},"fields":{"selectedMenuItem":{"value":"guides"}}}]}}],"jssdocs-main":[{"uid":"{8504955A-F419-5DF5-A712-1C3731C915D8}","componentName":"ArticleContainer","dataSource":"available-in-connected-mode","params":{},"fields":{},"placeholders":{"jssdocs-jumbo":[{"uid":"{758E4E57-A12C-5E22-887A-D1ACE67EE1BD}","componentName":"FeatureJumboShort","dataSource":"available-in-connected-mode","params":{},"fields":{"image":{"value":{"src":"/assets/img/transparent-1x1.png"}},"imageclass":{"value":"defaultimage"},"csscolorclass":{"value":"default"},"title":{"value":"Guides, Patterns, & Recommended Practices"},"text":{"value":"A collection of learnings and recommendations from our developers and community, based on learnings from real-world projects."}}}],"jssdocs-aside":[{"uid":"{3C3225E6-1B27-57FB-810F-8B9279F5F4CE}","componentName":"SideNav","dataSource":"available-in-connected-mode","params":{},"fields":{"navType":{"value":"guides"},"useSearch":{"value":"false"}}}],"jssdocs-content":[{"uid":"{103409E1-5605-5368-B687-08F456414BB9}","componentName":"Guide","dataSource":"available-in-connected-mode","params":{},"fields":{"text":{"value":"<h2 id=\"route-handling-in-jss\">Route handling in JSS</h2>\n<h3 id=\"why-does-jss-need-custom-route-handling\">Why does JSS need custom route handling?</h3>\n<p>In Sitecore, Content Authors have the power to control the URL of each page by organizing the content tree is accordance with the desired URL structure.</p>\n<p>For example, assuming the content items in this Sitecore tree structure are pages (i.e. routes)…</p>\n<pre><code>content\n  site 1\n    Home\n      About\n      Products\n        Product X\n        Product Y\n        Product Z\n  site 2\n    Home\n  site 3\n    Home\n</code></pre>\n<p>Sitecore would automatically map those pages to these URLs.</p>\n<pre><code>https://site-1-hostname/\n  https://site-1-hostname/about\n  https://site-1-hostname/products\n    https://site-1-hostname/products/product-x\n    https://site-1-hostname/products/product-y\n    https://site-1-hostname/products/product-y\n\nhttps://site-2-hostname/\n\nhttps://site-3-hostname/\n</code></pre>\n<blockquote>\n  <p>Note: Site hostnames, and rules for how to map page names to URL segments (casing, white-space replacement, etc) are defined in XML configs. Discuss with the Sitecore developers on your team if this needs to be customized per business requirements. Any customizations to how Sitecore handles routing requirements collaboration between front-end and back-end developers.</p>\n</blockquote>\n<p>JSS apps are expected to fully support this feature, which is why the sample apps define custom routing implementations.</p>\n<ul>\n<li><p><a href=\"https://github.com/Sitecore/jss/blob/dev/samples/react/src/RouteHandler.js\">React route handler</a></p></li>\n<li><p><a href=\"https://github.com/Sitecore/jss/blob/dev/samples/vue/src/RouteHandler.vue\">Vue route handler</a></p></li>\n<li><p><a href=\"https://github.com/Sitecore/jss/blob/e8a8368ea63d8c55ec03b0c118a903b00c0e9017/samples/angular/src/app/jss-context.service.ts#L40\">Angular route handler</a> | <a href=\"https://github.com/Sitecore/jss/blob/e8a8368ea63d8c55ec03b0c118a903b00c0e9017/samples/angular/src/app/jss-context.server-side.service.ts#L26\">Angular server-side route handler</a></p></li>\n<li><p><a href=\"https://github.com/Sitecore/jss/blob/dev/samples/react-native/src/dataService/dataService.connected.js#L35\">React Native route handler</a></p></li>\n</ul>\n<h3 id=\"how-does-jss-route-handling-work\">How does JSS route handling work?</h3>\n<p>Changing routes boils down to making a call to Layout Service to fetch data for the new route. Refer to <a href=\"/docs/fundamentals/services/layout-service#invoking-the-layout-service-from-jss\">Invoking the Layout Service from JSS</a> documentation for an explanation of how this process works.</p>\n<h3 id=\"customizing-route-handling\">Customizing route handling</h3>\n<p>As described in the documentation, fetching page data from the Layout Service API requires calling <a href=\"https://github.com/Sitecore/jss/blob/e8a8368ea63d8c55ec03b0c118a903b00c0e9017/packages/sitecore-jss/src/dataApi.ts#L97\"><code>dataApi.fetchRouteData</code></a>, which takes an <code>options</code> object. These options can be used for points of customization.</p>\n<p>Supported <code>options</code> properties are:</p>\n<ul>\n<li><code>host</code> (host name of the Sitecore instance serving Layout Service requests)</li>\n<li><code>configurationName</code> (Layout Service \"named\" configuration)</li>\n<li><code>serviceUrl</code> (overrides the default layout service URL)</li>\n<li><code>querystringParams</code> (object of key:value pairs)</li>\n<li><code>fetcher</code> (function that performs the HTTP request and returns a promise to JSON)</li>\n</ul>\n<blockquote>\n  <p>View TypeScript definitions in <a href=\"https://github.com/Sitecore/jss/blob/e8a8368ea63d8c55ec03b0c118a903b00c0e9017/packages/sitecore-jss/src/dataApi.ts#L77\">dataApi.ts</a></p>\n</blockquote>\n<h4 id=\"using-the-querystringparams-option\">Using the <code>querystringParams</code> option</h4>\n<p>Layout service recognizes the following query string params <a href=\"https://doc.sitecore.com/developers/100/developer-tools/en/sitecore-layout-service.html\">Reference</a>:</p>\n<ul>\n<li><code>sc_site</code>: Specify which site to fetch items from</li>\n<li><code>sc_lang</code>: Specify which language to fetch data in</li>\n<li><code>item</code>: Fetch an item by path or GUID</li>\n<li><code>sc_apikey</code></li>\n</ul>\n<blockquote>\n  <p>Additional custom params could be added. This requires patching in custom UrlResolver or ItemResolver pipelines on the back-en.</p>\n</blockquote>\n<h4 id=\"using-the-fetcher-option\">Using the <code>fetcher</code> option</h4>\n<p>The <code>fetcher</code> function handles the actual call to Layout Service and returns a promise. JSS provides a default implementation of the <code>fetcher</code> function that utilizes <code>Axios</code>.</p>\n<p>Being able to provide your own <code>fetcher</code> function is very powerful, as this enables you to customize how server responses are processes. For example, you can write logic to handle different http response codes in different ways, you can add logging to measure the roundtrip speed of Layout Service calls, you can even override values in the response.</p>\n<p>Since the <code>fetcher</code> returns a <code>Promise</code> object, instead of rewriting it, we recommend chaining promise handler to it before passing it to <code>fetchRouteData</code>. This allows you to encapsulate customizations into individual steps, and provide error handling at every step.</p>\n<hr />\n<h2 id=\"routing-impact-on-performance\">Routing impact on performance</h2>\n<p>A common pitfall found in JSS apps that are experiencing performance issues is that, as an end-user navigates through an app, every page is loaded using SSR. </p>\n<p>To avoid full page reloads when clicking links, convert Sitecore links into router links.</p>\n<p>The following guide on how to route Sitecore links in JSS was written by JSS developer <a href=\"https://twitter.com/kamsar\">Kam Figy</a>, on his <a href=\"https://kamsar.net/index.php/2018/09/Routing-Sitecore-links-with-JSS/\">blog</a>. It is copied here with Kam's permission.</p>\n<hr />\n<p>When building a single-page app with Sitecore JSS and defining internal links in Sitecore content, you may notice that clicking the link in the JSS app does not act like a single page app. Instead the link click causes a full page refresh to occur, because the routing library used by the app is not aware that the link emitted by JSS can be treated as a route link.</p>\n<p>Maybe you don’t want that to happen, because you like the fluidity of single-page apps or want to reduce bandwidth. Excellent! You’ve come to the right place.</p>\n<p>The following examples use React, but the same architectural principles will translate well to Vue or Angular apps and the JSS field data schema is identical.</p>\n<p>There are two places where we can receive links back from Sitecore:</p>\n<h3 id=\"link-fields\">Link Fields</h3>\n<p>Sitecore supports content fields that are explicitly hyperlinks (usually General Link fields, also referred to as CommonFieldTypes.GeneralLink in JSS disconnected data). When returned these fields contain link data (a href, optionally body text, CSS class, target, etc). In JSS apps, these are rendered using the Link component like so:</p>\n<pre><code class=\"javascript language-javascript\">import { Link } from '@sitecore-jss/sitecore-jss-react';\n\nexport default MyJSSComponent = props =&gt;\n    &lt;Link field={props.fields.externalLink} /&gt;;\n</code></pre>\n<p>This gives us normal anchor tag output in the DOM:</p>\n<pre><code class=\"javascript language-javascript\">&lt;a href=\"/path\"&gt;Link Text&lt;/a&gt;\n</code></pre>\n<p>But in react-router, a link needs to be rendered using react-router-dom‘s Link component instead, for example:</p>\n<pre><code class=\"javascript language-javascript\">import { Link } from 'react-router-dom';\n\nexport default RouterLinkComponent = () =&gt; &lt;Link to=\"/path\"&gt;Link Text&lt;/Link&gt;;\n</code></pre>\n<p>To make JSS general links render using react-router links for internal links, we can create a component that conditionally chooses the link component like this:</p>\n<pre><code class=\"javascript language-javascript\">import React from 'react';\nimport { Link } from '@sitecore-jss/sitecore-jss-react';\n// note we're aliasing the router's link component name, since it conflicts with JSS' link component\nimport { Link as RouterLink } from 'react-router-dom';\n\n/** React component that turns Sitecore link values that start with / into react-router route links */\nconst RoutableSitecoreLink = (props) =&gt; {\n  const hasValidHref = props.field &amp;&amp; props.field.value &amp;&amp; props.field.value.href;\n  const isEditing = props.editable &amp;&amp; props.field.editable;\n\n  // only want to apply the routing link if not editing (if editing, need to render editable link value)\n  if(hasValidHref &amp;&amp; !isEditing) {\n    const value = props.field.value;\n\n    // determine if a link is a route or not. This logic may not be appropriate for all usages.\n    if(value.href.startsWith('/')) {\n      return (\n        &lt;RouterLink to={value.href} title={value.title} target={value.target} className={value.class}&gt;\n          {props.children || value.text || value.href}\n        &lt;/RouterLink&gt;\n      );\n    }\n  }\n\n  return &lt;Link {...props} /&gt;;\n};\n\n// usage - drop-in replacement for JSS' Link component\nexport default MyJSSComponent = (props) =&gt;\n    &lt;RoutableSitecoreLink field={props.fields.externalLink} /&gt;;\n</code></pre>\n<p>With this component, now your internal link values will be turned into router links and result in only a new fetch of route data instead of a page refresh!</p>\n<h3 id=\"rich-text-fields\">Rich Text Fields</h3>\n<p>Rich Text fields are a more interesting proposition because they contain free text that is placed into the DOM, and we cannot inject RouterLink components directly into the HTML blob. Instead we can use React’s DOM access to attach an event handler to the rich text markup after it’s rendered by React that will trigger route navigation.</p>\n<p>Similar to the general link field handling, we can wrap the JSS default RichText component with our own component that selects whether to bind the route handling events based on whether we’re editing the page or not:</p>\n<pre><code class=\"javascript language-javascript\">import React from 'react';\nimport ReactDOM from 'react-dom';\nimport { RichText } from '@sitecore-jss/sitecore-jss-react';\nimport { withRouter } from 'react-router-dom';\n\n/** Binds route handling to internal links within a rich text field */\nclass RouteLinkedRichText extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.routeHandler = this.routeHandler.bind(this);\n  }\n\n  // handler function called on click of route links\n  // pushes the click into the router history thus changing the route\n  // props.history comes from the react-router withRouter() higher order component.\n  routeHandler(event) {\n    event.preventDefault();\n    this.props.history.push(event.target.pathname);\n  }\n\n  // rebinds event handlers to route links within this component\n  // fired both on mount and update\n  bindRouteLinks() {\n    const hasText = this.props.field &amp;&amp; this.props.field.value;\n    const isEditing = this.props.editable &amp;&amp; this.props.field.editable;\n\n    if(hasText &amp;&amp; !isEditing) {\n      const node = ReactDOM.findDOMNode(this);\n      // selects all links that start with '/' - this logic may be inappropriate for some advanced uses\n      const internalLinks = node.querySelectorAll('a[href^=\"/\"]');\n\n      internalLinks.forEach((link) =&gt; {\n        // the component can be updated multiple times during its lifespan,\n        // and we don't want to bind the same event handler several times so unbind first\n        link.removeEventListener('click', this.routeHandler, false);\n        link.addEventListener('click', this.routeHandler, false);\n      });\n    }\n  }\n\n  // called once when component is created\n  componentDidMount() {\n    this.bindRouteLinks();\n  }\n\n  // called if component data changes _after_ created\n  componentDidUpdate() {\n    this.bindRouteLinks();\n  }\n\n  render() {\n    // strip the 'staticContext' prop from withRouter() \n    // to avoid confusing React before we pass it down\n    const { staticContext, ...props } = this.props;\n    return &lt;RichText {...props} /&gt;;\n  }\n};\n\n// augment the component with the react-router context using withRouter()\n// this gives us props.history to push new routes\nRouteLinkedRichText = withRouter(RouteLinkedRichText);\n\n// usage - drop-in replacement for JSS' RichText component\nexport default MyJSSComponent = (props) =&gt;\n  &lt;RouteLinkedRichText field={props.fields.richText} /&gt;;\n</code></pre>\n<p>Now internal links entered in rich text fields will also be treated as route links.</p>\n<h3 id=\"advanced-usages\">Advanced Usages</h3>\n<p>These examples use simple internal link detection that consists of “starts with /.” There are some edge cases that can defeat simple link detection, such as:</p>\n<p>Scheme-insensitive links (//google.com) that are HTTP or HTTPS depending on the current page. These are an antipattern; encrypt all your resources.<br />\nLinks to static files (i.e. media files).<br />\nFor use cases such as this, more advanced detection of internal links may be required that is situational for your implementation.</p>\n<hr />\n<p>Avoid page reloads when clicking links, make sure to you are converting Sitecore links into router links.</p>\n<p>If using SSR, it will be used for the first rendering of your application, but by using router links it will then only require the Layout Service from there, instead of performing a SSR on every page load.</p>\n<h3 id=\"references\">References</h3>\n<ul>\n<li>https://kamsar.net/index.php/2018/09/Routing-Sitecore-links-with-JSS</li>\n<li>https://blog.vitaliitylyk.com/guide-on-refactoring-your-sitecore-solution-to-sitecore-jss/</li>\n</ul>\n"},"toc":{"value":"<div class=\"toc\">\n<ul>\n<li><a href=\"#route-handling-in-jss\">Route handling in JSS</a><ul>\n<li><a href=\"#why-does-jss-need-custom-route-handling\">Why does JSS need custom route handling?</a></li>\n<li><a href=\"#how-does-jss-route-handling-work\">How does JSS route handling work?</a></li>\n<li><a href=\"#customizing-route-handling\">Customizing route handling</a><ul>\n<li><a href=\"#using-the-querystringparams-option\">Using the querystringParams option</a></li>\n<li><a href=\"#using-the-fetcher-option\">Using the fetcher option</a></li>\n</ul>\n</li>\n</ul>\n</li>\n<li><a href=\"#routing-impact-on-performance\">Routing impact on performance</a><ul>\n<li><a href=\"#link-fields\">Link Fields</a></li>\n<li><a href=\"#rich-text-fields\">Rich Text Fields</a></li>\n<li><a href=\"#advanced-usages\">Advanced Usages</a></li>\n<li><a href=\"#references\">References</a></li>\n</ul>\n</li>\n</ul>\n</div>\n\n"}}}]}}],"jssdocs-footer":[{"uid":"{B2C7DB16-5CC5-5D46-96C4-4CC4181B54BA}","componentName":"Row","dataSource":"available-in-connected-mode","params":{"justify":"center","compactGutter":"24","fullSizeGutter":"32"},"fields":{},"placeholders":{"jssdocs-row":[{"uid":"{0AD6650C-E258-5820-92C9-E76AC7594190}","componentName":"FooterNav","dataSource":"available-in-connected-mode","params":{},"fields":{}}]}},{"uid":"{6934E15E-26FE-5DE2-91FB-8B27C74B0FE9}","componentName":"Row","dataSource":"available-in-connected-mode","params":{"justify":"center","margin":"30px"},"fields":{},"placeholders":{"jssdocs-row":[{"uid":"{D000617B-779B-520A-A4CD-CCF9B957C268}","componentName":"Disclaimers","dataSource":"available-in-connected-mode","params":{},"fields":{}}]}}]}}},"viewBag":{}};</script><script src="/assets/js/highlight.pack.js"></script><script src="/dist/vendor-client.bundle.js"></script><script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script src="/dist/client.bundle.js"></script></body></html>

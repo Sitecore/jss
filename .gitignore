@@ -7,7 +7,7 @@ node_modules/
 *.log
 npm-debug.log*
 dist
-dist/!prerender
+/docs/prerender/!dist
 
 lerna-debug.log
 .nyc_output
