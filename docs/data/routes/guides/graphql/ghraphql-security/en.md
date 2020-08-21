@@ -4,6 +4,9 @@ routeTemplate: ./data/component-templates/guide.yml
 title: GraphQL Security Recommendations
 ---
 
+## Sitecore Developer Documentation
+[GraphQL security](https://doc.sitecore.com/developers/100/sitecore-experience-manager/en/graphql-security.html)
+
 ## Avoid using GraphQL mutations
  
 Unless building a custom administrative app to modify Sitecore content, we do not recommend public sites pushing data back into Sitecore. There are optional GraphQL mutations that enable writing data back, but they are not registered by default for security reasons.

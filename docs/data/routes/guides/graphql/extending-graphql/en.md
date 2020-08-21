@@ -6,6 +6,9 @@ title: Guide to Extending GraphQL
 
 ## Create your own GraphQL schema
 
+### Sitecore Developer Documentation
+[Create GraphQL schemas](https://doc.sitecore.com/developers/100/sitecore-experience-manager/en/create-graphql-schemas.html)
+
 ### Community Guide
 ["Sitecore JSS: Create your own GraphQL schema"](https://gary.wenneker.org/sitecore-jss-create-you-own-graphql-schema/) by Gary Wenneker
 
