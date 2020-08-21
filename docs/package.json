@@ -22,11 +22,11 @@
   },
   "scripts": {
     "jss": "jss",
-    "start": "node -r babel-register ./build/start.js --env.content=disconnected",
+    "start": "npm run build:css && node -r babel-register ./build/start.js --env.content=disconnected",
     "start:prod": "node -r babel-register ./build/start-prod.js --env.content=disconnected",
     "start:connected": "scjss-verify-setup && jss clean && node -r babel-register ./build/start.js --env.content=connected",
     "build:css": "lessc --js assets/less/site-styles.less assets/css/site-styles.css",
-    "build": "jss clean && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.production",
+    "build": "jss clean && npm run build:css && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.production",
     "prerender": "node -r babel-register ./build/prerender.js",
     "lint": "eslint --fix ./src/**/*.js ./sitecore/definitions/**/*.js ./build/**/*.js ./lib/**/*.js",
     "postinstall": "if-env HEROKU=true && npm run build || exit 0",
