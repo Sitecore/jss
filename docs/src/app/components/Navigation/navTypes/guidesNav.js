@@ -94,7 +94,7 @@ const guidesNav = {
         },
         {
           url: 'debugging-help',
-          displayName: '⚠️ Debugging Help'
+          displayName: 'Debugging Help'
         }
       ]
     },

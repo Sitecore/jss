@@ -60,11 +60,51 @@ See [‘Console’ page in Node docs](https://nodejs.org/api/console.html) for m
 
 ## VSCode ❤️
 
-> TODO
-
 ### Helpful VSCode Extensions
 
-### Helpful VSCode Debug Profiles
+- [Docker by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker): Makes it easy to deploy and manage JSS apps in Azure.
+
+- ~~Debugger for Chrome~~:  Previously, to debug a URL in a browser, you had to install the `Debugger for Chrome` extension and write a `launch.json` config file to debug a page. But this feature is now natively supported in VSCode (version 1.48.1+) by using the [`Debug: Open Link` command](https://code.visualstudio.com/updates/v1_48#_debug-open-link-command).
+
+- [GraphQL](https://marketplace.visualstudio.com/items?itemName=Prisma.vscode-graphql): Adds syntax highlighting, validation, and other GraphQL-specific features.
+
+- [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2): A customizable extension for colorizing matching brackets and visualizing your current functional scope.
+    ![](/assets/img/guides/bracket-pair-colorizer.png =50%x*)
+
+- [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost): Display import/require package size in the editor.
+
+- [YAML ❤️ JSON](https://marketplace.visualstudio.com/items?itemName=hilleer.yaml-plus-json): Convert yaml to json and json to yaml. (Note: There are other extensions that beautify/validate your yaml; but for those of us who just can't get used to yaml and would rather debug json, there's this)
+
+### Helpful VSCode Debugging Configurations
+
+#### Debugging specific JS files
+To start debugging from a specific JS file (for example, one of the files in `/scrips` that kicks of tasks like manifest generation, component factory generation, etc)
+
+*.vscode/launch.json*
+```json
+{
+  "type": "node",
+  "request": "launch",
+  "name": "Name of your debug task",
+  "program": "${workspaceRoot}/path/to/your/script.js",
+}
+```
+
+#### Debugging NPM scripts
+To start debugging from a specific npm script. For example, `npm run build` would run `scripts.build` from `package.json`. In the React starter, `script.build` is defined as `"npm-run-all --serial bootstrap:connected build:client build:server"`, which is really just a call to several other scripts. But starting the debugger from the entry scripts allows you to place breakpoints in any of the files that get executed.
+
+*.vscode/launch.json*
+```json
+{
+  "name": "npm run script",
+  "type": "node",
+  "request": "launch",
+  "cwd": "${workspaceRoot}/packages/sitecore-jss",
+  "runtimeExecutable": "npm",
+  "runtimeArgs": ["run-script", "build"],
+  "port": 5858
+},
+```
 
 ---
 
