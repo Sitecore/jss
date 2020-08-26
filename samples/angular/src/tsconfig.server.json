@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
+    "target": "es2016",
     "module": "commonjs",
     "newLine": "LF",
     "types": []

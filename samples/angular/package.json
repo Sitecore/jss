@@ -29,15 +29,14 @@
     "build": "npm-run-all --serial bootstrap:connected --serial build:client build:server --serial build:server-wrapper",
     "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component",
     "start:angular": "ng serve -o --base-href=/ --source-map=false",
-    "start:proxy": "ts-node scripts/disconnected-mode-proxy.ts",
-    "start:watch-components": "ts-node scripts/generate-component-factory.ts --watch",
+    "start:proxy": "ts-node --project src/tsconfig.webpack-server.json scripts/disconnected-mode-proxy.ts",
+    "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory.ts --watch",
     "build:client": "cross-env-shell ng build --prod --deploy-url $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
-    "build:server": "cross-env-shell ng run JssAngularWeb:server:production --output-path=$npm_package_config_buildArtifactsPath/server --output-hashing=none",
+    "build:server": "cross-env-shell ng run JssAngularWeb:server:production --output-path=$npm_package_config_buildArtifactsPath/server --output-hashing=none --bundleDependencies true",
     "build:server-wrapper": "cross-env-shell webpack --config webpack.server.config.js --progress --colors --output-path $npm_package_config_buildArtifactsPath",
-    "bootstrap:connected": "ts-node scripts/bootstrap.ts",
-    "bootstrap:disconnected": "ts-node scripts/bootstrap.ts --disconnected",
-    "graphql:update": "ts-node ./scripts/update-graphql-fragment-data.ts",
-    "postinstall": "ngcc"
+    "bootstrap:connected": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
+    "bootstrap:disconnected": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts --disconnected",
+    "graphql:update": "ts-node --project src/tsconfig.webpack-server.json ./scripts/update-graphql-fragment-data.ts"
   },
   "private": true,
   "author": {

@@ -36,7 +36,7 @@
     "karma-firefox-launcher": "^1.2.0",
     "karma-jasmine": "^2.0.1",
     "karma-typescript": "^5.0.3",
-    "ng-packagr": "^5.5.1",
+    "ng-packagr": "^10.0.4",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.3",
     "tsickle": "^0.37.0",
