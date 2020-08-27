@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
-import {  } from '@angular-devkit/schematics';
 
 function dasherize(str) {
   return str.replace(/[A-Z](?:(?=[^A-Z])|[A-Z]*(?=[A-Z][^A-Z]|$))/g, function (s, i) {

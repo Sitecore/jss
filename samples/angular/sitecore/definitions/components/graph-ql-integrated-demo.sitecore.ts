@@ -10,7 +10,7 @@ const query = readFileSync(
  * Adds the GraphQL-IntegratedDemo component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when `jss manifest` is run.
  */
-export default function(manifest: Manifest) {
+export default function GraphQLIntegratedDemo(manifest: Manifest) {
   manifest.addComponent({
     name: 'GraphQLIntegratedDemo',
     icon: SitecoreIcon.GraphConnection_directed,

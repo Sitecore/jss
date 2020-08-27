@@ -4,7 +4,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  * Adds the GraphQL-ConnectedDemo component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when `jss manifest` is run.
  */
-export default function(manifest: Manifest) {
+export default function GraphQLConnectedDemo(manifest: Manifest) {
   manifest.addComponent({
     name: 'GraphQLConnectedDemo',
     icon: SitecoreIcon.GraphConnection_directed,

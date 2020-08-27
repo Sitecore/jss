@@ -4,7 +4,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  * Adds the ContentBlock component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when `jss manifest` is run.
  */
-export default function(manifest: Manifest) {
+export default function ContentBlock(manifest: Manifest) {
   manifest.addComponent({
     name: 'ContentBlock',
     icon: SitecoreIcon.DocumentTag,
