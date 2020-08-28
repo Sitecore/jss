@@ -18,8 +18,6 @@ The team who took JSS from POC to SDK had these goals:
 
 ## Sitecore's "Hybrid Headless" Approach
 
-TODO
-
 Out of this vision came what we at Sitecore call the "Hybrid Headless" approach. This means that JSS brings the benefits of headless apps to the CMS world.
 
 For more info, check out this article from the Sitecore knowledge center - [What is a headless CMS?](https://www.sitecore.com/knowledge%20center/digital%20marketing%20resources/what%20is%20a%20headless%20cms). And more specifically, [this section](https://www.sitecore.com/knowledge%20center/digital%20marketing%20resources/what%20is%20a%20headless%20cms#hybrid) covers the nuances of the "hybrid-headless" cms.
