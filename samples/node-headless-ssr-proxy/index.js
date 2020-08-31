@@ -21,8 +21,11 @@ server.use(
   })
 );
 
-// Output caching, can be turned off
-server.use(cacheMiddleware());
+/**
+ * Output caching, can be enabled,
+ * Read about restrictions here: {@link https://jss.sitecore.com/docs/techniques/performance/caching}
+ */
+// server.use(cacheMiddleware());
 
 // For any other requests, we render app routes server-side and return them
 server.use('*', scProxy(config.serverBundle.renderView, config, config.serverBundle.parseRouteUrl));

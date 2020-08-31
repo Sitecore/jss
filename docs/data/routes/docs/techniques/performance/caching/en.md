@@ -33,6 +33,7 @@ If you are dissatisfied with the performance of your headless JSS app:
 > Potential limitations of using node-level output caching:
 > - `Security`: It could be a case if users with different roles see the same output, in this case, you need to customize `cacheMiddleware` , f.e. add to cache key user identifier.
 > - `Personalization`: potentially you can have a limitation of using output caching with personalization, need to customize `cacheMiddleware` if neeeded.
+> - `Tracking`: will not be working.
 
 ## Cache Pitfalls of Integrated Mode
 
