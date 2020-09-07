@@ -7,6 +7,9 @@ import config from './temp/config';
 
 Vue.use(VueI18n);
 
+// SSR i18n instance
+let serverI18n = undefined;
+
 /**
  * Initializes the i18next library to provide a translation dictionary to the app.
  * If your app is not multilingual, this file and references to it can be removed.
@@ -31,15 +34,31 @@ export default function i18nInit(language, dictionary) {
     if (dictionary) {
       // if we got dictionary passed, that means we're in a SSR context with a server-provided dictionary
       // so we do not want a backend, because we already know all possible keys
-      options.resources = {};
-      options.resources[language] = {
-        translation: dictionary,
-      };
 
-      i18n.init(options, (error) => {
-        if (error) reject(error);
-        resolve(new VueI18n(i18n));
-      });
+      const appendResource = () => i18n.addResourceBundle(language, 'translation', dictionary, true, true);
+
+      if (!i18n.isInitialized) {
+        i18n.init(options, (error) => {
+          if (error) reject(error);
+
+          appendResource();
+
+          serverI18n = new VueI18n(i18n)
+
+          resolve(serverI18n);
+        });
+      } else {
+        const resolveInstance = () => {
+          appendResource();
+          resolve(serverI18n);
+        }
+
+        if (i18n.language === language) {
+          return resolveInstance();
+        }
+
+        i18n.changeLanguage(language).then(resolveInstance);
+      }
     } else {
       // We're running client-side, so we get translation data from the Sitecore dictionary API using fetch backend
       // For higher performance (but less simplicity), consider adding the i18n chained backend to a local cache option like the local storage backend.
