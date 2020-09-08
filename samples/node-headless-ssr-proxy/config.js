@@ -30,8 +30,8 @@ appName = appName || serverBundle.appName;
  */
 const keepAliveAgent = (apiHost) => {
   const keepAliveConfig = {
-    maxSockets: 100,
-    maxFreeSockets: 10,
+		maxSockets: 200,
+		maxFreeSockets: 20,
     timeout: 240 * 1000,
     freeSocketTimeout: 240 * 1000,
 	};
