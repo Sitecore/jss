@@ -56,21 +56,19 @@ export function renderView(callback, path, data, viewBag) {
       App Rendering
     */
     initializei18n(state)
-      .then(() => {
+      .then(() =>
         // renderToStringWithData() allows any GraphQL queries to complete their async call
         // before the SSR result is returned, so that the resulting HTML from GQL query results
         // is included in the SSR'ed markup instead of whatever the 'loading' state is.
         // Not using GraphQL? Use ReactDOMServer.renderToString() instead.
-        const renderedAppHtml = renderToStringWithData(
+        renderToStringWithData(
           <AppRoot path={path}
             Router={StaticRouter}
             graphQLClient={graphQLClient}
             ssrState={state}
           />
         )
-
-        return renderedAppHtml;
-      })
+      )
       .then((renderedAppHtml) =>
         // getHtmlTemplate() should return the "shell" HTML template that the rendered app
         // will be injected into. In many cases, the HTML template will be the same for client-side
