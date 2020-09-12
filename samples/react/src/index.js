@@ -8,7 +8,6 @@ import AppRoot from './AppRoot';
 import GraphQLClientFactory from './lib/GraphQLClientFactory';
 import config from './temp/config';
 import i18ninit from './i18n';
-import { SitecoreContextFactory } from '@sitecore-jss/sitecore-jss-react';
 
 /* eslint-disable no-underscore-dangle */
 
@@ -69,7 +68,6 @@ i18ninit(initLanguage).then(() => {
       Router={BrowserRouter}
       graphQLClient={graphQLClient}
       ssrState={__JSS_STATE__}
-      contextFactory={new SitecoreContextFactory()}
     />,
     rootElement
   );

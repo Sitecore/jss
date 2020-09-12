@@ -4,7 +4,6 @@ import { StaticRouter, matchPath } from 'react-router-dom';
 import { renderToStringWithData } from 'react-apollo';
 import Helmet from 'react-helmet';
 import GraphQLClientFactory from '../src/lib/GraphQLClientFactory';
-import { SitecoreContextFactory } from '@sitecore-jss/sitecore-jss-react';
 import config from '../src/temp/config';
 import i18ninit from '../src/i18n';
 import AppRoot, { routePatterns } from '../src/AppRoot';
@@ -58,8 +57,6 @@ export function renderView(callback, path, data, viewBag) {
     */
     initializei18n(state)
       .then(() => {
-        const contextFactory = new SitecoreContextFactory();
-
         // renderToStringWithData() allows any GraphQL queries to complete their async call
         // before the SSR result is returned, so that the resulting HTML from GQL query results
         // is included in the SSR'ed markup instead of whatever the 'loading' state is.
@@ -69,7 +66,7 @@ export function renderView(callback, path, data, viewBag) {
             Router={StaticRouter}
             graphQLClient={graphQLClient}
             ssrState={state}
-            contextFactory={contextFactory} />
+          />
         )
 
         return renderedAppHtml;
