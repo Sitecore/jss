@@ -2,7 +2,6 @@ import React from 'react';
 import i18n from 'i18next';
 import Helmet from 'react-helmet';
 import { isExperienceEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-react';
-import SitecoreContextFactory from './lib/SitecoreContextFactory';
 import { dataFetcher } from './dataFetcher';
 import config from './temp/config';
 import Layout from './Layout';
@@ -14,26 +13,17 @@ import NotFound from './NotFound';
 // So react-router delegates all route rendering to this handler, which attempts to get the right
 // route data from Sitecore - and if none exists, renders the not found component.
 
-let ssrInitialState = null;
-
 export default class RouteHandler extends React.Component {
   constructor(props) {
     super(props);
+
+    const ssrInitialState = props.ssrState;
 
     this.state = {
       notFound: true,
       routeData: ssrInitialState, // null when client-side rendering
       defaultLanguage: config.defaultLanguage,
     };
-
-    if (ssrInitialState && ssrInitialState.sitecore && ssrInitialState.sitecore.route) {
-      // set the initial sitecore context data if we got SSR initial state
-      SitecoreContextFactory.setSitecoreContext({
-        route: ssrInitialState.sitecore.route,
-        itemId: ssrInitialState.sitecore.route.itemId,
-        ...ssrInitialState.sitecore.context,
-      });
-    }
 
     // route data from react-router - if route was resolved, it's not a 404
     if (props.route !== null) {
@@ -51,17 +41,6 @@ export default class RouteHandler extends React.Component {
     // note that a route-based language (i.e. /de-DE) will override this default; this is for home.
     if (ssrInitialState && ssrInitialState.context && ssrInitialState.context.language) {
       this.state.defaultLanguage = ssrInitialState.context.language;
-    }
-
-    // once we initialize the route handler, we've "used up" the SSR data,
-    // if it existed, so we want to clear it now that it's in react state.
-    // future route changes that might destroy/remount this component should ignore any SSR data.
-    // EXCEPTION: Unless we are still SSR-ing. Because SSR can re-render the component twice
-    // (once to find GraphQL queries that need to run, the second time to refresh the view with
-    // GraphQL query results)
-    // We test for SSR by checking for Node-specific process.env variable.
-    if (typeof window !== 'undefined') {
-      ssrInitialState = null;
     }
 
     this.componentIsMounted = false;
@@ -99,7 +78,7 @@ export default class RouteHandler extends React.Component {
     getRouteData(sitecoreRoutePath, language).then((routeData) => {
       if (routeData !== null && routeData.sitecore && routeData.sitecore.route) {
         // set the sitecore context data and push the new route
-        SitecoreContextFactory.setSitecoreContext({
+        this.props.contextFactory.setSitecoreContext({
           route: routeData.sitecore.route,
           itemId: routeData.sitecore.route.itemId,
           ...routeData.sitecore.context,
@@ -181,15 +160,6 @@ export default class RouteHandler extends React.Component {
     // Render the app's root structural layout
     return <Layout route={routeData.sitecore.route} />;
   }
-}
-
-/**
- * Sets the initial state provided by server-side rendering.
- * Setting this state will bypass initial route data fetch calls.
- * @param {object} ssrState
- */
-export function setServerSideRenderingState(ssrState) {
-  ssrInitialState = ssrState;
 }
 
 /**

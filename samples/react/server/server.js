@@ -4,10 +4,10 @@ import { StaticRouter, matchPath } from 'react-router-dom';
 import { renderToStringWithData } from 'react-apollo';
 import Helmet from 'react-helmet';
 import GraphQLClientFactory from '../src/lib/GraphQLClientFactory';
+import { SitecoreContextFactory } from '@sitecore-jss/sitecore-jss-react';
 import config from '../src/temp/config';
 import i18ninit from '../src/i18n';
 import AppRoot, { routePatterns } from '../src/AppRoot';
-import { setServerSideRenderingState } from '../src/RouteHandler';
 import { getHtmlTemplate } from './htmlTemplateFactory';
 
 /** Asserts that a string replace actually replaced something */
@@ -45,7 +45,6 @@ export const appName = config.jssAppName;
 export function renderView(callback, path, data, viewBag) {
   try {
     const state = parseServerData(data, viewBag);
-    setServerSideRenderingState(state);
 
     /*
       GraphQL Data
@@ -58,15 +57,23 @@ export function renderView(callback, path, data, viewBag) {
       App Rendering
     */
     initializei18n(state)
-      .then(() =>
+      .then(() => {
+        const contextFactory = new SitecoreContextFactory();
+
         // renderToStringWithData() allows any GraphQL queries to complete their async call
         // before the SSR result is returned, so that the resulting HTML from GQL query results
         // is included in the SSR'ed markup instead of whatever the 'loading' state is.
         // Not using GraphQL? Use ReactDOMServer.renderToString() instead.
-        renderToStringWithData(
-          <AppRoot path={path} Router={StaticRouter} graphQLClient={graphQLClient} />
+        const renderedAppHtml = renderToStringWithData(
+          <AppRoot path={path}
+            Router={StaticRouter}
+            graphQLClient={graphQLClient}
+            ssrState={state}
+            contextFactory={contextFactory} />
         )
-      )
+
+        return renderedAppHtml;
+      })
       .then((renderedAppHtml) =>
         // getHtmlTemplate() should return the "shell" HTML template that the rendered app
         // will be injected into. In many cases, the HTML template will be the same for client-side
