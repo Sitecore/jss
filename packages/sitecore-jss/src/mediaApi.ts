@@ -50,9 +50,15 @@ export const updateImageUrl = (
   if (typeof window !== 'undefined' && !(window as any).global) {
     (window as any).global = {};
   }
-  const parsed = URL(url, {}, true);
+	const parsed = URL(url, {}, true);
+ 
+	const query = params || parsed.query
 
-  parsed.set('query', { ...parsed.query, ...params });
+	if (parsed.query.rev) {
+		query.rev = parsed.query.rev
+	}
+
+  parsed.set('query', query);
 
   const match = mediaUrlPrefix.exec(parsed.pathname);
   if (match && match.length > 1) {

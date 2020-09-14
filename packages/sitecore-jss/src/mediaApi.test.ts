@@ -94,16 +94,16 @@ describe('updateImageUrl', () => {
   });
 
   it('should merge querystring and params', () => {
-    const src = '/media/lorem/ipsum.jpg?x=valueX';
+    const src = '/media/lorem/ipsum.jpg?x=valueX&y=value111&rev=109010';
     const params = { y: 'valueY', z: 'valueZ' };
     const parsed = updateImageUrl(src, params);
     const url = URL(parsed, {}, true);
 
-    expect(url.toString()).equal('/media/lorem/ipsum.jpg?x=valueX&y=valueY&z=valueZ')
+    expect(url.toString()).equal('/media/lorem/ipsum.jpg?y=valueY&z=valueZ&rev=109010')
     expect(url.query).deep.equal({
-      x: 'valueX',
       y: 'valueY',
-      z: 'valueZ'
+			z: 'valueZ',
+			rev: "109010"
     });
   })
 });
