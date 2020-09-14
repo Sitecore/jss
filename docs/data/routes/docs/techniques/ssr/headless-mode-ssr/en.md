@@ -35,6 +35,17 @@ All Sitecore marketing features are supported by this headless mode, including p
 
 ## Tips & Tricks
 
+### Headers handling
+
+You can explicitly control which headers your app will return. Use `setHeaders` function in `./config.js`.
+By default:
+```
+setHeaders: (req, serverRes, proxyRes) => {
+	delete proxyRes.headers['content-security-policy'];
+}
+```
+But you can extend it and remove additional headers.
+
 ### Media URLs in headless mode
 
 The [Layout Service](/docs/fundamentals/services/layout-service) will return URLs to images with the Sitecore server URL included. For example:
