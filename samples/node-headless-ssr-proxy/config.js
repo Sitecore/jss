@@ -139,7 +139,14 @@ const config = {
         proxyReq.setHeader('Accept-Encoding', 'gzip, deflate');
       }
     },
-  },
+	},
+	/**
+	 * Custom headers handling.
+	 * You can remove different headers from proxy response.
+	*/
+	setHeaders: (req, serverRes, proxyRes) => {
+		delete proxyRes.headers['content-security-policy'];
+	},
   /**
    * Custom error handling in case our app fails to render.
    * Return null to pass through server response, or { content, statusCode }
