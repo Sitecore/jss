@@ -26,11 +26,11 @@ class AppRoot extends React.Component {
     ssrRenderComplete: false
   }
 
-  setSsrRenderComplete = ssrRenderComplete => {
+  setSsrRenderComplete = ssrRenderComplete => (
     this.setState({
       ssrRenderComplete
     })
-  }
+  )
 
   render() {
     const { path, Router, graphQLClient, ssrState } = this.props;
@@ -45,13 +45,12 @@ class AppRoot extends React.Component {
       });
     }
 
-    const routeRenderFunction = (props) => 
+    const routeRenderFunction = (props) =>
       <RouteHandler 
         route={props}
-        ssrState={this.state.ssrRenderComplete ? null : ssrState}
-        contextFactory={contextFactory}
+        ssrRenderComplete={this.state.ssrRenderComplete}
         setSsrRenderComplete={this.setSsrRenderComplete}
-      />;
+      />
 
     return (
       <ApolloProvider client={graphQLClient}>
