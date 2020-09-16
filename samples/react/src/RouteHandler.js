@@ -43,6 +43,14 @@ export default class RouteHandler extends React.Component {
       this.state.defaultLanguage = ssrInitialState.context.language;
     }
 
+    this.componentIsMounted = false;
+    this.languageIsChanging = false;
+
+    // tell i18next to sync its current language with the route language
+    this.updateLanguage();
+  }
+
+  componentDidMount() {
     // once we initialize the route handler, we've "used up" the SSR data,	
     // if it existed, so we want to clear it now that it's in react state.	
     // future route changes that might destroy/remount this component should ignore any SSR data.	
@@ -54,16 +62,8 @@ export default class RouteHandler extends React.Component {
       this.props.setSsrRenderComplete(true);
     }
 
-    this.componentIsMounted = false;
-    this.languageIsChanging = false;
-
-    // tell i18next to sync its current language with the route language
-    this.updateLanguage();
-  }
-
-  componentDidMount() {
     // if no existing routeData is present (from SSR), get Layout Service fetching the route data or SSR render is complete
-    if (!this.state.routeData || this.props.ssrRenderComplete) {
+    if (!this.state.routeData) {
       this.updateRouteData();
     }
 

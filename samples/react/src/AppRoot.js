@@ -48,9 +48,8 @@ class AppRoot extends React.Component {
     const routeRenderFunction = (props) => 
       <RouteHandler 
         route={props}
-        ssrState={ssrState}
+        ssrState={this.state.ssrRenderComplete ? null : ssrState}
         contextFactory={contextFactory}
-        ssrRenderComplete={this.state.ssrRenderComplete}
         setSsrRenderComplete={this.setSsrRenderComplete}
       />;
 
