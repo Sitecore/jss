@@ -1,4 +1,4 @@
-import { IncomingMessage, ServerResponse } from 'http';
+import { IncomingMessage, ServerResponse, ClientRequest } from 'http';
 import proxy from 'http-proxy-middleware';
 import setCookieParser from 'set-cookie-parser';
 import HttpStatus from 'http-status-codes';
@@ -88,10 +88,7 @@ async function renderAppToResponse(
     return true;
   };
 
-  if (request.method === 'HEAD') {
-    completeProxyResponse(null, proxyResponse.statusCode || HttpStatus.OK)
-    return
-  }
+
 
   async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
     if (proxyResponse.statusCode === HttpStatus.OK || proxyResponse.statusCode === HttpStatus.NOT_FOUND) {
@@ -169,10 +166,16 @@ async function renderAppToResponse(
     }
 
     // we have to convert back to a buffer so that we can get the *byte count* (rather than character count) of the body
-    const content = Buffer.from(result.html);
+    let content = Buffer.from(result.html);
 
     // setting the content-length header is not absolutely necessary, but is recommended
     proxyResponse.headers['content-length'] = content.length.toString(10);
+
+    // if original request was a HEAD, we should not return a response body
+    if (request.method === 'HEAD') {
+      console.log('DEBUG: Original request method was HEAD, clearing response body');
+      content = Buffer.from([]);
+    }
 
     if (result.redirect) {
       if (!result.status) {
@@ -418,6 +421,20 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
   return false;
 }
 
+function handleProxyRequest(proxyReq: any, req: IncomingMessage, res: ServerResponse,
+  customOnProxyReq: ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void) | undefined) {
+  // if a HEAD request, we still need to issue a GET so we can return accurate headers
+  // proxyReq defined as 'any' to allow us to mutate this
+  if (proxyReq.method === 'HEAD') {
+    console.log('DEBUG: Rewriting HEAD request to GET');
+    proxyReq.method = 'GET';
+  }
+  // invoke custom onProxyReq
+  if (customOnProxyReq) {
+    customOnProxyReq(proxyReq, req, res);
+  }
+}
+
 function createOptions(
   renderer: AppRenderer,
   config: ProxyConfig,
@@ -438,14 +455,16 @@ function createOptions(
     console.log('DEBUG: Final proxy config', config);
   }
 
+  const customOnProxyReq = config.proxyOptions?.onProxyReq;
   return {
+    ...config.proxyOptions,
     target: config.apiHost,
     changeOrigin: true, // required otherwise need to include CORS headers
     ws: true,
     pathRewrite: (reqPath, req) => rewriteRequestPath(reqPath, req, config, parseRouteUrl),
     logLevel: config.debug ? 'debug' : 'info',
+    onProxyReq: (proxyReq, req, res) => handleProxyRequest(proxyReq, req, res, customOnProxyReq),
     onProxyRes: (proxyRes, req, res) => handleProxyResponse(proxyRes, req, res, renderer, config),
-    ...config.proxyOptions,
   };
 }
 
