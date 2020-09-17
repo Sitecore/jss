@@ -173,7 +173,9 @@ async function renderAppToResponse(
 
     // if original request was a HEAD, we should not return a response body
     if (request.method === 'HEAD') {
-      console.log('DEBUG: Original request method was HEAD, clearing response body');
+      if (config.debug) {
+        console.log('DEBUG: Original request method was HEAD, clearing response body');
+      }
       content = Buffer.from([]);
     }
 
@@ -421,12 +423,14 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
   return false;
 }
 
-function handleProxyRequest(proxyReq: any, req: IncomingMessage, res: ServerResponse,
+function handleProxyRequest(proxyReq: any, req: IncomingMessage, res: ServerResponse, config: ProxyConfig,
   customOnProxyReq: ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void) | undefined) {
   // if a HEAD request, we still need to issue a GET so we can return accurate headers
   // proxyReq defined as 'any' to allow us to mutate this
   if (proxyReq.method === 'HEAD') {
-    console.log('DEBUG: Rewriting HEAD request to GET');
+    if (config.debug) {
+      console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+    }
     proxyReq.method = 'GET';
   }
   // invoke custom onProxyReq
@@ -463,7 +467,7 @@ function createOptions(
     ws: true,
     pathRewrite: (reqPath, req) => rewriteRequestPath(reqPath, req, config, parseRouteUrl),
     logLevel: config.debug ? 'debug' : 'info',
-    onProxyReq: (proxyReq, req, res) => handleProxyRequest(proxyReq, req, res, customOnProxyReq),
+    onProxyReq: (proxyReq, req, res) => handleProxyRequest(proxyReq, req, res, config, customOnProxyReq),
     onProxyRes: (proxyRes, req, res) => handleProxyResponse(proxyRes, req, res, renderer, config),
   };
 }
