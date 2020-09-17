@@ -386,7 +386,7 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
     );
 
     if (!noDebug && config.debug) {
-      if (result) {
+      if (!result) {
         console.log(
           `DEBUG: URL ${originalUrl} did not match the proxy exclude list, and will be treated as a layout service route to render. Excludes:`,
           config.pathRewriteExcludeRoutes
@@ -406,7 +406,7 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
     result = config.pathRewriteExcludePredicate(originalUrl);
 
     if (!noDebug && config.debug) {
-      if (result) {
+      if (!result) {
         console.log(
           `DEBUG: URL ${originalUrl} did not match the proxy exclude function, and will be treated as a layout service route to render.`
         );
@@ -423,11 +423,12 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
   return false;
 }
 
-function handleProxyRequest(proxyReq: any, req: IncomingMessage, res: ServerResponse, config: ProxyConfig,
+function handleProxyRequest(proxyReq: any, req: any, res: ServerResponse, config: ProxyConfig,
   customOnProxyReq: ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void) | undefined) {
+      
   // if a HEAD request, we still need to issue a GET so we can return accurate headers
   // proxyReq defined as 'any' to allow us to mutate this
-  if (proxyReq.method === 'HEAD') {
+  if (proxyReq.method === 'HEAD' && !isUrlIgnored(req.originalUrl, config, true)) {
     if (config.debug) {
       console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
     }
