@@ -76,7 +76,7 @@ class RouteHandler extends React.Component {
   }
 
   extractRouteData = () => {
-    if (!this.props.sitecoreContext) return null;
+    if (!this.props.sitecoreContext || !this.props.sitecoreContext.route) return null;
 
     const { route, ...context } = this.props.sitecoreContext;
 
