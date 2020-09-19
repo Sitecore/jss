@@ -23,38 +23,40 @@ export const routePatterns = [
 // Router: provides a basic routing setup that will resolve Sitecore item routes and allow for language URL prefixes.
 class AppRoot extends React.Component {
   state = {
-    ssrRenderComplete: false
+    ssrRenderComplete: false,
+    contextFactory: new SitecoreContextFactory()
   }
 
-  setSsrRenderComplete = ssrRenderComplete => (
+  setSsrRenderComplete = ssrRenderComplete => {
     this.setState({
       ssrRenderComplete
     })
-  )
+  }
 
   render() {
     const { path, Router, graphQLClient, ssrState } = this.props;
-    const contextFactory = new SitecoreContextFactory();
 
     if (ssrState && ssrState.sitecore && ssrState.sitecore.route) {
       // set the initial sitecore context data if we got SSR initial state
-      contextFactory.setSitecoreContext({
+      this.state.contextFactory.setSitecoreContext({
         route: ssrState.sitecore.route,
         itemId: ssrState.sitecore.route.itemId,
         ...ssrState.sitecore.context,
       });
     }
 
-    const routeRenderFunction = (props) =>
+    const routeRenderFunction = (props) => 
       <RouteHandler 
         route={props}
-        ssrRenderComplete={this.state.ssrRenderComplete}
+        ssrState={this.state.ssrRenderComplete ? null : ssrState}
+        contextFactory={this.state.contextFactory}
         setSsrRenderComplete={this.setSsrRenderComplete}
-      />
+        ssrRenderComplete={this.state.ssrRenderComplete}
+      />;
 
     return (
       <ApolloProvider client={graphQLClient}>
-        <SitecoreContext componentFactory={componentFactory} contextFactory={contextFactory}>
+        <SitecoreContext componentFactory={componentFactory} contextFactory={this.state.contextFactory}>
           <Router location={path} context={{}}>
             <Switch>
               {routePatterns.map((routePattern) => (
