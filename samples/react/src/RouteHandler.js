@@ -16,17 +16,16 @@ import NotFound from './NotFound';
 // So react-router delegates all route rendering to this handler, which attempts to get the right
 // route data from Sitecore - and if none exists, renders the not found component.
 
-let ssrInitialState = null;
-
 class RouteHandler extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       notFound: true,
-      routeData: ssrInitialState, // null when client-side rendering
       defaultLanguage: config.defaultLanguage,
     };
+
+    const routeData = this.extractRouteData();
     
     // route data from react-router - if route was resolved, it's not a 404
     if (props.route !== null) {
@@ -35,7 +34,7 @@ class RouteHandler extends React.Component {
 
     // if we have an initial SSR state, and that state doesn't have a valid route data,
     // then this is a 404 route.
-    if (ssrInitialState && (!ssrInitialState.sitecore || !ssrInitialState.sitecore.route)) {
+    if (routeData && (!routeData.sitecore || !routeData.sitecore.route)) {
       this.state.notFound = true;
     }
 
@@ -43,43 +42,38 @@ class RouteHandler extends React.Component {
     // (this makes the language of content follow the Sitecore context language cookie)
     // note that a route-based language (i.e. /de-DE) will override this default; this is for home.
     if (
-      ssrInitialState &&
-      ssrInitialState.sitecore &&
-      ssrInitialState.sitecore.context &&
-      ssrInitialState.sitecore.context.language
+      routeData &&
+      routeData.sitecore &&
+      routeData.sitecore.context &&
+      routeData.sitecore.context.language
     ) {
-      this.state.defaultLanguage = ssrInitialState.sitecore.context.language;
+      this.state.defaultLanguage = routeData.sitecore.context.language;
     }
-
-    // once we initialize the route handler, we've "used up" the SSR data,
-    // if it existed, so we want to clear it now that it's in react state.
-    // future route changes that might destroy/remount this component should ignore any SSR data.
-    // EXCEPTION: Unless we are still SSR-ing. Because SSR can re-render the component twice
-    // (once to find GraphQL queries that need to run, the second time to refresh the view with
-    // GraphQL query results)
-    // We test for SSR by checking for Node-specific process.env variable.
-    if (typeof window !== 'undefined') {
-      ssrInitialState = null;
-    }
-
-    this.componentIsMounted = false;
-    this.languageIsChanging = false;
 
     // tell i18next to sync its current language with the route language
     this.updateLanguage();
   }
 
   componentDidMount() {
-    // if no existing routeData is present (from SSR), get Layout Service fetching the route data
-    if (!this.state.routeData) {
+    const routeData = this.extractRouteData();
+
+    // if no existing routeData is present (from SSR), get Layout Service fetching the route data or ssr render complete
+    if (!routeData || this.props.ssrRenderComplete) {
       this.updateRouteData();
     }
-
-    this.componentIsMounted = true;
   }
 
-  componentWillUnmount() {
-    this.componentIsMounted = false;
+  extractRouteData = () => {
+    if (!this.props.sitecoreContext || !this.props.sitecoreContext.route) return null;
+
+    const { route, ...context } = this.props.sitecoreContext;
+
+    return  {
+      sitecore: {
+        route,
+        context
+      }
+    }
   }
 
   /**
@@ -102,9 +96,9 @@ class RouteHandler extends React.Component {
           itemId: routeData.sitecore.route.itemId,
           ...routeData.sitecore.context,
         });
-        this.setState({ routeData, notFound: false });
+        this.setState({ notFound: false });
       } else {
-        this.setState({ routeData, notFound: true });
+        this.setState({ notFound: true });
       }
     });
   }
@@ -116,20 +110,7 @@ class RouteHandler extends React.Component {
     const newLanguage = this.props.route.match.params.lang || this.state.defaultLanguage;
 
     if (i18n.language !== newLanguage) {
-      this.languageIsChanging = true;
-
-      i18n.changeLanguage(newLanguage, () => {
-        this.languageIsChanging = false;
-
-        // if the component is not mounted, we don't care
-        // (next time it mounts, it will render with the right language context)
-        if (this.componentIsMounted) {
-          // after we change the i18n language, we need to force-update React,
-          // since otherwise React won't know that the dictionary has changed
-          // because it is stored in i18next state not React state
-          this.forceUpdate();
-        }
-      });
+      i18n.changeLanguage(newLanguage);
     }
   }
 
@@ -154,7 +135,8 @@ class RouteHandler extends React.Component {
   }
 
   render() {
-    const { notFound, routeData } = this.state;
+    const { notFound } = this.state;
+    const routeData = this.extractRouteData();
 
     // no route data for the current route in Sitecore - show not found component.
     // Note: this is client-side only 404 handling. Server-side 404 handling is the responsibility
@@ -172,26 +154,13 @@ class RouteHandler extends React.Component {
 
     // Don't render anything if the route data or dictionary data is not fully loaded yet.
     // This is a good place for a "Loading" component, if one is needed.
-    if (!routeData || this.languageIsChanging) {
+    if (!routeData) {
       return null;
     }
 
     // Render the app's root structural layout
     return <Layout route={routeData.sitecore.route} />;
   }
-}
-
-/**
- * Sets the initial state provided by server-side rendering.
- * Setting this state will bypass initial route data fetch calls.
- * @param {object} ssrState
- */
-export function setServerSideRenderingState(ssrState) {
-  ssrInitialState = ssrState;
-}
-
-export function getServerSideRenderingState() {
-  return ssrInitialState;
 }
 
 /**
