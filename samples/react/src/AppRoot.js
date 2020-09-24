@@ -22,9 +22,26 @@ export const routePatterns = [
 // SitecoreContext: provides component resolution and context services via withSitecoreContext
 // Router: provides a basic routing setup that will resolve Sitecore item routes and allow for language URL prefixes.
 class AppRoot extends React.Component {
-  state = {
-    ssrRenderComplete: false,
-    contextFactory: new SitecoreContextFactory()
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      ssrRenderComplete: false,
+      contextFactory: new SitecoreContextFactory()
+    }
+
+    if (props.ssrState && props.ssrState.sitecore && props.ssrState.sitecore.route) {
+      // set the initial sitecore context data if we got SSR initial state
+      this.state.contextFactory.setSitecoreContext({
+        route: props.ssrState.sitecore.route,
+        itemId: props.ssrState.sitecore.route.itemId,
+        ...props.ssrState.sitecore.context,
+      });
+    } else if (props.ssrState) {
+      this.state.contextFactory.setSitecoreContext(props.ssrState.sitecore.context)
+    } else {
+      this.state.contextFactory.setSitecoreContext(null);
+    }
   }
 
   setSsrRenderComplete = ssrRenderComplete => {
@@ -34,16 +51,7 @@ class AppRoot extends React.Component {
   }
     
   render() {
-    const { path, Router, graphQLClient, ssrState } = this.props;
-
-    if (ssrState && ssrState.sitecore && ssrState.sitecore.route) {
-      // set the initial sitecore context data if we got SSR initial state
-      this.state.contextFactory.setSitecoreContext({
-        route: ssrState.sitecore.route,
-        itemId: ssrState.sitecore.route.itemId,
-        ...ssrState.sitecore.context,
-      });
-    }
+    const { path, Router, graphQLClient } = this.props;
 
     const routeRenderFunction = (props) => 
       <RouteHandler
