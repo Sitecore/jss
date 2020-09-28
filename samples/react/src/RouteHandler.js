@@ -28,7 +28,7 @@ class RouteHandler extends React.Component {
     const routeData = this.extractRouteData();
     
     // route data from react-router - if route was resolved, it's not a 404
-    if (props.route !== null) {
+    if (routeData !== null) {
       this.state.notFound = false;
     }
 
@@ -64,7 +64,7 @@ class RouteHandler extends React.Component {
   }
 
   extractRouteData = () => {
-    if (!this.props.sitecoreContext || !this.props.sitecoreContext.route) return null;
+    if (!this.props.sitecoreContext) return null;
 
     const { route, ...context } = this.props.sitecoreContext;
 
@@ -98,7 +98,9 @@ class RouteHandler extends React.Component {
         });
         this.setState({ notFound: false });
       } else {
-        this.setState({ notFound: true });
+        this.setState({ notFound: true }, () =>
+          this.props.updateSitecoreContext(routeData.sitecore.context)
+        )
       }
     });
   }
@@ -141,7 +143,7 @@ class RouteHandler extends React.Component {
     // no route data for the current route in Sitecore - show not found component.
     // Note: this is client-side only 404 handling. Server-side 404 handling is the responsibility
     // of the server being used (i.e. node-headless-ssr-proxy and Sitecore intergrated rendering know how to send 404 status codes).
-    if (notFound) {
+    if (notFound && routeData) {
       return (
         <div>
           <Helmet>
