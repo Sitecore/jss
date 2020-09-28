@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react",
-  "version": "13.2.1",
+  "version": "13.2.2",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -56,7 +56,7 @@
     "react-dom": "^16.9.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^13.2.1",
+    "@sitecore-jss/sitecore-jss": "^13.2.2",
     "prop-types": "^15.7.2",
     "style-attr": "^1.3.0"
   },
