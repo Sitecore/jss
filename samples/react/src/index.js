@@ -5,7 +5,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoot from './AppRoot';
-import { setServerSideRenderingState } from './RouteHandler';
 import GraphQLClientFactory from './lib/GraphQLClientFactory';
 import config from './temp/config';
 import i18ninit from './i18n';
@@ -35,9 +34,6 @@ if (ssrRawJson) {
   __JSS_STATE__ = JSON.parse(ssrRawJson.innerHTML);
 }
 if (__JSS_STATE__) {
-  // push the initial SSR state into the route handler, where it will be used
-  setServerSideRenderingState(__JSS_STATE__);
-
   // when React initializes from a SSR-based initial state, you need to render with `hydrate` instead of `render`
   renderFunction = ReactDOM.hydrate;
 
@@ -71,6 +67,7 @@ i18ninit(initLanguage).then(() => {
       path={window.location.pathname}
       Router={BrowserRouter}
       graphQLClient={graphQLClient}
+      ssrState={__JSS_STATE__}
     />,
     rootElement
   );
