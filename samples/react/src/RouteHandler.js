@@ -28,7 +28,7 @@ class RouteHandler extends React.Component {
     const routeData = this.extractRouteData();
     
     // route data from react-router - if route was resolved, it's not a 404
-    if (routeData !== null) {
+    if (props.route !== null) {
       this.state.notFound = false;
     }
 
