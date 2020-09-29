@@ -7,7 +7,6 @@ import GraphQLClientFactory from '../src/lib/GraphQLClientFactory';
 import config from '../src/temp/config';
 import i18ninit from '../src/i18n';
 import AppRoot, { routePatterns } from '../src/AppRoot';
-import { setServerSideRenderingState } from '../src/RouteHandler';
 import { getHtmlTemplate } from './htmlTemplateFactory';
 
 /** Asserts that a string replace actually replaced something */
@@ -45,7 +44,6 @@ export const appName = config.jssAppName;
 export function renderView(callback, path, data, viewBag) {
   try {
     const state = parseServerData(data, viewBag);
-    setServerSideRenderingState(state);
 
     /*
       GraphQL Data
@@ -64,7 +62,12 @@ export function renderView(callback, path, data, viewBag) {
         // is included in the SSR'ed markup instead of whatever the 'loading' state is.
         // Not using GraphQL? Use ReactDOMServer.renderToString() instead.
         renderToStringWithData(
-          <AppRoot path={path} Router={StaticRouter} graphQLClient={graphQLClient} />
+          <AppRoot 
+            path={path}
+            Router={StaticRouter}
+            graphQLClient={graphQLClient}
+            ssrState={state}
+          />
         )
       )
       .then((renderedAppHtml) =>

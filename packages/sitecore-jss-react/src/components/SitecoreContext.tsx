@@ -27,10 +27,20 @@ export class SitecoreContext extends React.Component<SitecoreContextProps, Sitec
   constructor(props: SitecoreContextProps) {
     super(props);
 
+    let context: any = {
+      pageEditing: false,
+    }
+
+    if (props.context) {
+      context = props.context;
+    }
+
+    if (props.context === null) {
+      context = null;
+    }
+
     this.state = {
-      context: props.context || {
-        pageEditing: false,
-      },
+      context,
       setContext: this.setContext
     };
   }
