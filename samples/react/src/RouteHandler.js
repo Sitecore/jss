@@ -76,6 +76,19 @@ class RouteHandler extends React.Component {
     }
   }
 
+  extractRouteData = () => {
+    if (!this.props.sitecoreContext) return null;
+
+    const { route, ...context } = this.props.sitecoreContext;
+
+    return  {
+      sitecore: {
+        route,
+        context
+      }
+    }
+  }
+
   /**
    * Loads route data from Sitecore Layout Service into state.routeData
    */
