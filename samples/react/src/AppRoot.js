@@ -1,5 +1,5 @@
 import React from 'react';
-import { SitecoreContext, SitecoreContextFactory } from '@sitecore-jss/sitecore-jss-react';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import { Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import componentFactory from './temp/componentFactory';
