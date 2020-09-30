@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentType } from 'react';
 import PropTypes, { Requireable } from 'prop-types';
 import { MissingComponent } from '../components/MissingComponent';
 import { ComponentFactory } from '../components/sharedTypes';
@@ -132,15 +132,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         return this.createRawElement(rendering, commonProps);
       }
 
-      let component: React.ReactNode | null = this.getComponentForRendering(rendering);
+      let component: ComponentType | null = this.getComponentForRendering(rendering);
       if (!component) {
         console.error(
-          `Placeholder ${name} contains unknown component ${
-          rendering.componentName
+          `Placeholder ${name} contains unknown component ${rendering.componentName
           }. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
         );
 
-        component = missingComponentComponent || MissingComponent;
+        component = missingComponentComponent ?? MissingComponent;
       }
 
       const finalProps = {
