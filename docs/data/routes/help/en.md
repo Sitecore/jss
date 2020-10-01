@@ -35,10 +35,12 @@ Assistance with the JSS products can also be obtained in community-based channel
 
 Yes! The earliest version of JSS that is considered production-ready is JSS 11.0 for Sitecore 9.0 and 9.1. It is stable for React, Angular, Vue, and Layout Service API usage.
 
+There are multiple enterprise JSS sites running in production today.
+
 ### Why are some features marked as "Experimental"?
 [React Native](/docs/client-frameworks/react-native) is marked as experimental because React Native cannot render in the browser (RN apps are intended to be rendered on iOS/Android devices or emulators), so there is no Experience Editor support. This makes RN difficult to setup and difficult to work with.
 
-[JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) are marked as experimental because these rendering don't scale well. They satisfy edge-case requirements, and should be used sparingly.
+[JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) are marked as experimental because these rendering don't scale well. They satisfy edge-case requirements, and should be used sparingly. (**JavaScript Renderings have been deprecated as of Oct 2020**)
 
 ### Does JSS require a special Sitecore license and where can I get it?
 Sitecore offers different licensing bundles - some include JSS, and some require purchasing it an add-on.
