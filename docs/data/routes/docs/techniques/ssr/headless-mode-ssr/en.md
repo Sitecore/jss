@@ -44,7 +44,6 @@ server.use((req, res, next) => {
   // set dynamic headers here
   next();
 });
-
 ```
 
 ### Headers handling
