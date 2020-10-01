@@ -41,7 +41,7 @@ All Sitecore marketing features are supported by this headless mode, including p
 
 ```
 server.use((req, res, next) => {
-  // set dynamic headers here
+  // add custom logic here
   next();
 });
 ```
