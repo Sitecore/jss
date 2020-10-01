@@ -35,6 +35,18 @@ All Sitecore marketing features are supported by this headless mode, including p
 
 ## Tips & Tricks
 
+### Keep-Alive
+
+> NOTE: Currently here is a limitation for usage of `proxyOptions.onProxyReq`. Using `onProxyReq` with `keep-alive` can cause server to crash. You can add custom middleware where you can modify request before proxying to contain the values you wish to proxy. Here is an [opened GitHub issue](https://github.com/chimurai/http-proxy-middleware/issues/472).
+
+```
+server.use((req, res, next) => {
+  // set dynamic headers here
+  next();
+});
+
+```
+
 ### Headers handling
 
 You can explicitly control which headers your app will return. Use `setHeaders` function in `./config.js`.
