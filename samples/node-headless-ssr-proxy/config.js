@@ -1,8 +1,7 @@
 const fs = require('fs');
-const keepAlive = require("agentkeepalive");
-const ipaddr = require('ipaddr.js');
 const fetch = require('node-fetch');
 const NodeCache = require('node-cache');
+const httpAgents = require("./httpAgents");
 
 // We keep a cached copy of the site dictionary for performance. Default is 60 seconds.
 const dictionaryCache = new NodeCache({ stdTTL: 60 });
@@ -20,35 +19,11 @@ const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/
 
 const serverBundle = require(bundlePath);
 
+httpAgents.setUpDefaultAgents(serverBundle);
+
 const apiHost = process.env.SITECORE_API_HOST || 'http://my.sitecore.host'
 
 appName = appName || serverBundle.appName;
-
-/**
- * Enable connection pooling. Adds `connection: keep-alive` header
- * @param {string} apiHost sitecore api host
- */
-const keepAliveAgent = (apiHost) => {
-  const keepAliveConfig = {
-		maxSockets: 200,
-		maxFreeSockets: 20,
-    timeout: 240 * 1000,
-    freeSocketTimeout: 240 * 1000,
-	};
-
-	if (!apiHost) {
-		throw new Error("[KEEP-ALIVE-CONFIG] SITECORE_API_HOST value is required, but was undefined")
-	}
-
-	if (!apiHost.indexOf("http://")) return new keepAlive(keepAliveConfig);
-
-	if (!apiHost.indexOf("https://")) return new keepAlive.HttpsAgent(keepAliveConfig);
-
-	throw new Error(
-		"[KEEP-ALIVE-CONFIG] Unexpected SITECORE_API_HOST value, expected http:// or https://, but was " +
-			apiHost
-	);
-}
 
 /**
  * @type {ProxyConfig}
@@ -111,8 +86,8 @@ const config = {
    * Options object for http-proxy-middleware. Consult its docs.
    */
   proxyOptions: {
-		// Enable connection pooling
-    agent: keepAliveAgent(apiHost),
+    // Enable connection pooling
+    agent: httpAgents.getAgent(apiHost),
     // Setting this to false will disable SSL certificate validation
     // when proxying to a SSL Sitecore instance.
     // This is a major security issue, so NEVER EVER set this to false
@@ -188,7 +163,12 @@ const config = {
     return fetch(
       `${config.apiHost}/sitecore/api/jss/dictionary/${appName}/${language}?sc_apikey=${
         config.apiKey
-      }`
+      }`,
+      {
+        headers: {
+          connection: "keep-alive",
+        },
+      }
     )
       .then((result) => result.json())
       .then((json) => {
