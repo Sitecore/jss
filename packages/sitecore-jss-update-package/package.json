@@ -31,7 +31,7 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.11",
     "chai": "^4.2.0",
-    "del-cli": "^3.0.0",
+    "del-cli": "^3.0.1",
     "fetch-mock": "^7.4.0",
     "mocha": "^6.2.1",
     "sinon": "^7.5.0",
