@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/full-page.yml
 title: Help
 ---
 
-# Help & FAQ
+# Help
 
 ## Sitecore Support
 
@@ -27,6 +27,7 @@ Assistance with the JSS products can also be obtained in community-based channel
 1. For quick questions, [Sitecore Slack](slack://channel?team=T09SHRBNU&id=C7JT0NRQW)
 1. [Sitecore Community](https://community.sitecore.net/)
 
+----
 
 ## FAQ
 
