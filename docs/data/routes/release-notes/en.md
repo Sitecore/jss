@@ -5,6 +5,12 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 14.0.2
+
+### Bug Fixes
+
+* [PR #455](https://github.com/Sitecore/jss/pull/455) [React sample] Race condition, under load React app may render HTML from a different route
+
 ## Sitecore JSS 14.0.1
 
 ### Bug Fixes
