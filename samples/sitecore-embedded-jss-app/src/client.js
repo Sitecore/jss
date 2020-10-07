@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './boot/Root';
 import SitecoreContentService from './boot/SitecoreContentService';
-import SitecoreContextFactory from './boot/SitecoreContextFactory';
 
 /* eslint-disable no-underscore-dangle */
 
@@ -38,9 +37,5 @@ if (window.__data) {
 
 // render with initial route data
 SitecoreContentService.getRouteData('/EmbeddedWizard/Wizard').then((routeData) => {
-  if (routeData && routeData.sitecore && routeData.sitecore.context) {
-    SitecoreContextFactory.setSitecoreContext(routeData.sitecore.context);
-  }
-
   return render(routeData, window.__data ? ReactDOM.hydrate : ReactDOM.render);
 });

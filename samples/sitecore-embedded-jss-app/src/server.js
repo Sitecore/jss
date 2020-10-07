@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom/server';
 import initialState from 'boot/initialState';
 import Root from 'boot/Root';
 import SitecoreContentService from 'boot/SitecoreContentService';
-import SitecoreContextFactory from 'boot/SitecoreContextFactory';
 import ServerHtml from 'app/ServerHtml';
 
 /*
@@ -23,7 +22,6 @@ export function renderView(callback, path, data, viewBag) {
     // get the route data and then render from it
     SitecoreContentService.getRouteData(path)
       .then((routeData) => {
-        SitecoreContextFactory.setSitecoreContext(routeData.sitecore.context);
         return <Root initialState={routeData} path={path} />;
       })
       .then((content) => {
