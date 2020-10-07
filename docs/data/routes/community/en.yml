@@ -3,6 +3,22 @@ fields:
   title:
     value: Community
 placeholders:
+  jssdocs-header:
+  - componentName: Row
+    params:
+      justify: start
+      padding: 30px
+    placeholders:
+      jssdocs-row:
+        - componentName: Logo
+          params:
+            flex: 300px
+        - componentName: MainNav
+          fields:
+            selectedMenuItem:
+              value: community
+          params:
+            flex: auto
   jssdocs-main:
     - componentName: PageContainer
       placeholders:
@@ -10,7 +26,7 @@ placeholders:
           - componentName: FeatureJumboShort
             fields:
               image:
-                src: /assets/img/community-jumbo.png
+                src: /assets/img/community/community-jumbo.png
                 alt: People talking
               imageclass:
                 value: smallimage
@@ -39,9 +55,25 @@ placeholders:
           - componentName: Hero
             fields:
               image:
-                src: /assets/img/community-hero-stack.svg
+                src: /assets/img/community/community-hero-stack.svg
                 alt: StackExchange
               title:
                 value: Learn from the Sitecore JSS Community Stack Exchange
               text:
                 value: Ask questions yourself and help answering questions from other community members
+  jssdocs-footer:
+  - componentName: Row
+    params:
+      justify: center
+      compactGutter: 24
+      fullSizeGutter: 32
+    placeholders:
+      jssdocs-row:
+        - componentName: FooterNav
+  - componentName: Row
+    params:
+      justify: center
+      margin: 30px
+    placeholders:
+      jssdocs-row:
+        - componentName: Disclaimers

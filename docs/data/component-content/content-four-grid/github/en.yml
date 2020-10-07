@@ -12,5 +12,5 @@ fields:
     text: GitHub
     href: https://github.com/sitecore/jss
   image:
-    src: /assets/img/community_icon_2.svg
+    src: /assets/img/content/community_icon_2.svg
     alt: Sitecore Logo

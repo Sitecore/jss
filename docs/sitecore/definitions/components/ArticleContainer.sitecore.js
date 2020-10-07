@@ -11,5 +11,10 @@ export default (manifest) => {
         type: manifest.fieldTypes.singleLineText,
       },
     ],
+    placeholders: [
+      'jssdocs-jumbo', 
+      'jssdocs-aside',
+      'jssdocs-content'
+    ]
   });
 };

@@ -14,7 +14,7 @@ In this exercise you will build a GraphQL query to fetch data from the remote Si
 <p>
   <div class="row">
     <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL01.png" alt="Habitat Fitness"></p>
+      <p><img src="/assets/img/connected-demo/GraphQL01.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
       <p>From the Sitecore desktop, click on <strong>Content Editor</strong>.</p>
@@ -26,7 +26,7 @@ In this exercise you will build a GraphQL query to fetch data from the remote Si
 <p>
   <div class="row">
     <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL02.png" alt="Habitat Fitness"></p>
+      <p><img src="/assets/img/connected-demo/GraphQL02.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
       <p>In the content tree on the left, under <em>content &#62; Habitat Fitness > Home</em>, expand the Events node. </p>
@@ -42,7 +42,7 @@ Now that you know where the data lives, it’s time to create a query.
 
 In your browser, navigate to `<Sitecore hostname>/Sitecore/api/graph/items/master/ui` to bring up the Sitecore Experience Graph Browser.
 
-![Habitat Fitness](/assets/img/GraphQL03.png)
+![Habitat Fitness](/assets/img/connected-demo/GraphQL03.png)
 
 This tool gives users a place to write and test custom queries. The left pane allows for query input. The right pane will display return results.
 
@@ -51,7 +51,7 @@ This tool gives users a place to write and test custom queries. The left pane al
 <p>
   <div class="row">
     <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL04.png" alt="Habitat Fitness"></p>
+      <p><img src="/assets/img/connected-demo/GraphQL04.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
       <p>In the sidebar is the Documentation Explorer, where you can browse through various schemas to see what form the data takes. </p>
@@ -64,7 +64,7 @@ This tool gives users a place to write and test custom queries. The left pane al
 <p>
   <div class="row">
     <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL05.png" alt="Habitat Fitness"></p>
+      <p><img src="/assets/img/connected-demo/GraphQL05.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
       <p>Explore the schema for <strong>search</strong>. </p>
@@ -75,7 +75,7 @@ This tool gives users a place to write and test custom queries. The left pane al
 <p>
   <div class="row">
     <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL06.png" alt="Habitat Fitness"></p>
+      <p><img src="/assets/img/connected-demo/GraphQL06.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
       <p>This query returns a <strong>ContentSearchResults</strong> object. Click on that and you will see it has the following fields.</p>
@@ -87,7 +87,7 @@ This tool gives users a place to write and test custom queries. The left pane al
 <p>
   <div class="row">
     <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL07.png" alt="Habitat Fitness"></p>
+      <p><img src="/assets/img/connected-demo/GraphQL07.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
       <p>Click on that to find a number of pertinent fields.</p>
@@ -122,7 +122,7 @@ Now specify how the return results should be formatted. After looking at the sch
 
 Execute the query. You should get the following result.
 
-![Habitat Fitness](/assets/img/GraphQL09.png)
+![Habitat Fitness](/assets/img/connected-demo/GraphQL09.png)
 
 This pulls back every item under the Events node. This isn’t helpful yet, though, as it’s pulling back every node.
 
@@ -132,7 +132,7 @@ Refine the search by searching only for those Event Page nodes that contain the 
 
 Return to the Content Editor and view the _Canada &#62; Alberta &#62; Banff &#62; Banff 3 on 3 Basketball Challenge_ node, and verify in “Quick Info” that its template type is event-page.
 
-![Habitat Fitness](/assets/img/GraphQL10.png)
+![Habitat Fitness](/assets/img/connected-demo/GraphQL10.png)
 
 <br>
 
@@ -158,7 +158,7 @@ This time, specify that you need these items to also have a `_templatename` prop
 
 Execute the query and see that the result set has been refined.
 
-![Habitat Fitness](/assets/img/GraphQL12.png)
+![Habitat Fitness](/assets/img/connected-demo/GraphQL12.png)
 
 Now that you are getting the nodes you need, start pulling the event data for these items.
 
@@ -167,7 +167,7 @@ Now that you are getting the nodes you need, start pulling the event data for th
 <p>
   <div class="row">
     <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL13.png" alt="Habitat Fitness"></p>
+      <p><img src="/assets/img/connected-demo/GraphQL13.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
       <p>To find these in the schema, go back to the Documentation Explorer and drill down to <em>Query &#62; ContentSearchResults &#62; ContentSearchResultConnection</em>, then click on the items type, <strong>ContentSearchResult</strong>.</p>     
@@ -180,7 +180,7 @@ Now that you are getting the nodes you need, start pulling the event data for th
 <p>
   <div class="row">
     <div class="col-md-6"> 
-      <p><img src="/assets/img/GraphQL14.png" alt="Habitat Fitness"></p>
+      <p><img src="/assets/img/connected-demo/GraphQL14.png" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
       <p>This will show the <strong>ContentSearchResult</strong> schema.</p>      
@@ -216,7 +216,7 @@ The property you will need is `fields`, an array of <em>name : value</em> pairs 
 
 Execute the query and see that each node is pulling back a lot of useful information.
 
-![Habitat Fitness](/assets/img/GraphQL16.png)
+![Habitat Fitness](/assets/img/connected-demo/GraphQL16.png)
 
 <br>
 
@@ -249,7 +249,7 @@ Start by setting the items name to the event’s `name` field. (for clarity, com
 
 Execute the query and get the following.
 
-![Habitat Fitness](/assets/img/GraphQL18.png)
+![Habitat Fitness](/assets/img/connected-demo/GraphQL18.png)
 
 <br>
 
@@ -279,7 +279,7 @@ Now add a few more fields that you will need, like `description`, `date`, `image
 
 Execute the query once again and get a nicely formatted result set that looks like this.
 
-![Habitat Fitness](/assets/img/GraphQL20.png)
+![Habitat Fitness](/assets/img/connected-demo/GraphQL20.png)
 
 Excellent! That looks like some usable data! 
 
@@ -294,7 +294,8 @@ fragment ImageQuery on ImageField {
 }
 ```
 
-Now add an 'item' property that retrieves a field named `image`. Have it reference our ImageQuery fragment. 
+Now add an 'item' property that retrieves a field named `image`. Have it reference our ImageQuery fragment.
+
 ```javascript
 { 
   firstSearch: search(fieldsEqual: [
@@ -302,12 +303,12 @@ Now add an 'item' property that retrieves a field named `image`. Have it referen
     {name:"_templatename", value:"event-page" }
   ]){
     results{
-      items {        
-        name: field(name: "name")                
+      items {
+        name: field(name: "name")
         description: field(name: "description") 
         date: field(name: "date")
-        latitude: field(name: "latitude") 
-        longitude: field(name: "longitude")				
+        latitude: field(name: "latitude")
+        longitude: field(name: "longitude")
         item{
           image: field(name: "image"){
             ...ImageQuery
@@ -324,12 +325,11 @@ fragment ImageQuery on ImageField {
 }
 ```
 
-
 <br>
 
 Now run the query to see the following:
 
-![Habitat Fitness](/assets/img/GraphQL22.png)
+![Habitat Fitness](/assets/img/connected-demo/GraphQL22.png)
 
 Now the image `alt` and `src` data is available to display the image in a component. Excellent!
 

@@ -4,7 +4,6 @@ import WebpackDevServer from 'webpack-dev-server';
 import {
   createDisconnectedAssetMiddleware,
   createDisconnectedLayoutService,
-  createDisconnectedContentService,
   createDisconnectedDictionaryService,
   createDefaultDocumentMiddleware,
   ManifestManager,

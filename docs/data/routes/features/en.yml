@@ -3,6 +3,22 @@ fields:
   title:
     value: Untitled
 placeholders:
+  jssdocs-header:
+  - componentName: Row
+    params:
+      justify: start
+      padding: 30px
+    placeholders:
+      jssdocs-row:
+        - componentName: Logo
+          params:
+            flex: 300px
+        - componentName: MainNav
+          fields:
+            selectedMenuItem:
+              value: features
+          params:
+            flex: auto
   jssdocs-main:
     - componentName: TwocolContainer
       placeholders:
@@ -58,3 +74,19 @@ placeholders:
                 value: Why JSS?
               linkUrl:
                 value: /features/why-jss
+  jssdocs-footer:
+  - componentName: Row
+    params:
+      justify: center
+      compactGutter: 24
+      fullSizeGutter: 32
+    placeholders:
+      jssdocs-row:
+        - componentName: FooterNav
+  - componentName: Row
+    params:
+      justify: center
+      margin: 30px
+    placeholders:
+      jssdocs-row:
+        - componentName: Disclaimers

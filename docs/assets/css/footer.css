@@ -1,7 +1,5 @@
 footer {
-  outline: 3px dotted rgba(0,0,255,0.25);
-  outline-offset: -3px;
-  background-color: #141919;
+  background-color: #666;
 }
 footer .logo {
   filter: brightness(0) invert(1);
@@ -17,11 +15,11 @@ footer .navbar-nav-svg {
 footer .footer-copyright, footer .footer-copyright a {
   color: rgba(255,255,255,0.8);
 }
-footer .footer-copyright-text {
-  float: left;
-}
-footer .border-top {
-  border-color: #4A4E4E!important;
+
+footer .footer-copyright a {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-left: 1px solid #fff;
 }
 
 @media only screen and (max-width: 767px) {

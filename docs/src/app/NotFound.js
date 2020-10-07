@@ -1,10 +1,7 @@
 import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
 
 const NotFound = (props) => (
   <div id="app-wrap">
-    <Header />
     <div className="container">
       <div className="row">
         <div className="col-12 pt-5 pb-5">
@@ -15,7 +12,6 @@ const NotFound = (props) => (
         </div>
       </div>
     </div>
-    <Footer />
   </div>
 );
 

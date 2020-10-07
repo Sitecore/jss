@@ -10,7 +10,7 @@ Navigate to the Sitecore log-in screen and enter the login credentials provided 
 <p>
   <div class="row">
     <div class="col-md-6"> 
-      <p><img src="/assets/img/ExperienceEditor1.jpg" alt="Habitat Fitness"></p>
+      <p><img src="/assets/img/connected-data/ExperienceEditor1.jpg" alt="Habitat Fitness"></p>
     </div>
     <div class="col-md-6"> 
       <p>Enter the Experience Editor from the Launchpad.</p>
@@ -23,18 +23,18 @@ View in Experience Editor mode.
 
 From here you can edit component fields inline, right on this page. But first you need to lock the page for editing to prevent other authors from overwriting your changes. This is a feature of Sitecore's workflow capabilities. To lock the page:
 1. Expand the page ribbon using the toggle in the upper right corner
-![Habitat Fitness](/assets/img/ExperienceEditor4.png)
+![Habitat Fitness](/assets/img/connected-data/ExperienceEditor4.png)
 
 2. Click "Lock"
-![Habitat Fitness](/assets/img/ExperienceEditor5.png)
+![Habitat Fitness](/assets/img/connected-data/ExperienceEditor5.png)
 
 <br>
 
 Now you may begin editing the page by clicking "Edit"
-![Habitat Fitness](/assets/img/ExperienceEditor2.png)
+![Habitat Fitness](/assets/img/connected-data/ExperienceEditor2.png)
 
 To make inline edits to component fields (Event Title or Event Description), click on the text you want to edit. A cursor will appear, and you will be able to type in changes.
-![Habitat Fitness](/assets/img/ExperienceEditor3.png)
+![Habitat Fitness](/assets/img/connected-data/ExperienceEditor3.png)
 
 <br>
 

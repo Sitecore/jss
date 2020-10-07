@@ -102,6 +102,8 @@ export default function(envVars) {
       extensions: ['.js', '.jsx', '.react.js'],
       alias: {
         assets: path.resolve(process.cwd(), 'assets'),
+        components: path.resolve(process.cwd(), 'src/app/components'),
+        containers: path.resolve(process.cwd(), 'src/app/containers'),
       },
     },
     plugins: [

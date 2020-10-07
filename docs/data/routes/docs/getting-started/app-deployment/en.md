@@ -150,7 +150,7 @@ If you are using local self-signed certificate:
   1. Open a command prompt/terminal within your JSS app. If you know certificate value skip to step 4.
   1. Run command using wrong certificate thumbprint `jss deploy app --includeContent --includeDictionary --acceptCertificate test`
   1. From error message copy certificate thumbprint and paste instead of `test`
-  <img src="/assets/img/certificate-error.png" alt="Certificate error" class="img-fluid img-thumbnail" />
+  <img src="/assets/img/docs/certificate-error.png" alt="Certificate error" class="img-fluid img-thumbnail" />
   1. `jss deploy app --includeContent --includeDictionary --acceptCertificate CA:CD:3B:DB:19:D1:97:92:F9:80:91:FF:32:CC:F8:35:DC:F5:0B:01`
 
 If you are not using local self-signed certificate:
@@ -205,7 +205,7 @@ You should now be able to run the JSS app in _integrated mode_ by visiting the h
 
 Try launching the `/Home` page in Experience Editor. For example, `http://myapp.siteco.re/?sc_mode=edit` - or launch it from the dashboard:
 
-<img src="/assets/img/basic-app-editable-ee.png" alt="Fully editable app in Experience Editor!" class="img-fluid img-thumbnail" />
+<img src="/assets/img/docs/basic-app-editable-ee.png" alt="Fully editable app in Experience Editor!" class="img-fluid img-thumbnail" />
 
 
 ## Now what?

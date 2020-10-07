@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, Image, Link } from '@sitecore-jss/sitecore-jss-react';
+import { Text, Image } from '@sitecore-jss/sitecore-jss-react';
 import RouteLinkedRichText from './RouteLinkedRichText';
 import RoutableSitecoreLink from './RoutableSitecoreLink';
 

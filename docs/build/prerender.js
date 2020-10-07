@@ -5,7 +5,6 @@ import { join } from 'path';
 import { mkdirs } from 'fs-extra';
 import app from '../dist/server.bundle';
 import manifest from '../sitecore/manifest/sitecore-import.json';
-import config from './config';
 
 // super prototype prerendering demo
 // prerenders with SSR all defined routes in a manifest and writes them

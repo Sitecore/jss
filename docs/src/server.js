@@ -4,7 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import initialState from './boot/initialState';
-import NotFound from './app/NotFound';
 import Root from './boot/Root';
 import SitecoreContentService from './boot/SitecoreContentService';
 import SitecoreContextFactory from './boot/SitecoreContextFactory';

@@ -1,0 +1,5 @@
+{
+    "root": "prerender",
+    "clean_urls": true,
+    "https_only": true
+}

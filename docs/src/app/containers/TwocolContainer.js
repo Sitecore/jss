@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Placeholder, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import Helmet from 'react-helmet';
 

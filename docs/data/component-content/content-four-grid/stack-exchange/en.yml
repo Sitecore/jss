@@ -12,5 +12,5 @@ fields:
     text: Learn more
     href: https://sitecore.stackexchange.com/
   image:
-      src: /assets/img/community_icon_4.svg
+      src: /assets/img/content/community_icon_4.svg
       alt: StackExchange Logo
