@@ -14,7 +14,7 @@ title: Help
 
 Note that **Sitecore's general [Scope of Support](https://kb.sitecore.net/articles/463549#ScopeOfSupport) applies to JSS** products as well.
 
-**The [JSS application samples](https://github.com/Sitecore/jss/tree/dev/packages) are supported in a limited manner**. They were designed as examples of JSS application starting points, and not as ready-for-production code. Developers are expected to extend and customize these examples according to their requirements. Bug reports and feature requests for the samples can be submitted. Immediate fixes and implementation assistance/advice is not provided for the sample apps.
+**The [JSS application samples](https://github.com/Sitecore/jss/tree/dev/samples) are supported in a limited manner**. They were designed as examples of JSS application starting points, and not as ready-for-production code. Developers are expected to extend and customize these examples according to their requirements. Bug reports and feature requests for the samples can be submitted. Immediate fixes and implementation assistance/advice is not provided for the sample apps.
 
 ## GitHub Support
 The JavaScript layer of JSS is open-source. You can use the GitHub repository to submit issues, feature requests, and pull requests. See the [contributing guide](https://github.com/Sitecore/jss/blob/dev/CONTRIBUTING.md) for guidelines.
