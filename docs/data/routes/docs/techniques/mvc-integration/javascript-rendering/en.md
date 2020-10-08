@@ -4,13 +4,15 @@ routeTemplate: ./data/component-templates/article.yml
 title: JavaScript Renderings
 ---
 
-# Sitecore JavaScript rendering
+# Sitecore JavaScript rendering [Deprecated]
+
+> This template is flagged as deprecated as of Oct 2020 because these rendering don't scale well. They satisfy edge-case requirements, and should generally be avoided.
 
 This is a technique to allow JavaScript contents to render into a rendering added to a traditional Sitecore MVC page. Doing this allows embedding a JavaScript app within an existing Sitecore MVC site, as opposed to as its own standalone JSS site. This technique executes server-side rendering of the app and returns the rendered markup.
 
 Compared to [Client-Side Embedding](/docs/techniques/mvc-integration/javascript-rendering), JavaScript Renderings have a different scope. With client embedding, a JSS app is embedded into a Sitecore MVC rendering, and rendered on the browser. JS renderings are pre-rendered on the Sitecore server (SSR) and serve working HTML at page load time, _however you cannot use them to host JSS apps_, because they are only provided with the data for their rendering. JavaScript renderings are also only compatible with Sitecore MVC, and will not work with Web Forms.
 
-> Note: this feature is considered **experimental**. Please read the [important notes](#important-notes) section carefully to fully understand current limitations and potential pain points. It is important to understand that JS renderings are an alternate programming model from a JSS app. You cannot use JS renderings to place a regular JSS app within a Sitecore MVC rendering. This is because a JSS app is larger, full-layout-controlling app. A JS rendering is a piece within a Sitecore MVC site, and has the context of its datasource item not an entire layout.
+> Note: Please read the [important notes](#important-notes) section carefully to fully understand current limitations and potential pain points. It is important to understand that JS renderings are an alternate programming model from a JSS app. You cannot use JS renderings to place a regular JSS app within a Sitecore MVC rendering. This is because a JSS app is larger, full-layout-controlling app. A JS rendering is a piece within a Sitecore MVC site, and has the context of its datasource item not an entire layout.
 
 ## How it works
 
