@@ -57,7 +57,7 @@
     "apollo-link-persisted-queries": "~0.2.2",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
-    "cross-fetch": "~2.2.3",
+    "cross-fetch": "~3.0.6",
     "graphql": "~14.5.8",
     "i18next": "~17.0.16",
     "i18next-fetch-backend": "~2.2.0",
