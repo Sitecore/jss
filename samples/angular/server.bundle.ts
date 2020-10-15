@@ -6,6 +6,8 @@ import { readFileSync } from 'fs';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
 import { environment } from './src/environments/environment';
 
+const http = require('http');
+const https = require('https');
 
 // Our index.html we'll use as our template
 const template = readFileSync(join(__dirname, 'browser', 'index.html')).toString();
@@ -13,6 +15,12 @@ const template = readFileSync(join(__dirname, 'browser', 'index.html')).toString
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const { AppServerModule, renderModule } = require('./dist/server/main');
 
+
+// Setup Http/Https agents for keep-alive. Used in headless-proxy
+const setUpDefaultAgents = (httpAgent, httpsAgent) => {
+  http.globalAgent = httpAgent;
+  https.globalAgent = httpsAgent;
+};
 
 // this is the function expected by the JSS View Engine for "integrated mode"
 function renderView (callback, path, data, viewBag) {
@@ -81,6 +89,7 @@ function parseRouteUrl(url) {
 module.exports = {
   renderView,
   parseRouteUrl,
+  setUpDefaultAgents,
   apiKey: environment.sitecoreApiKey,
   appName: environment.jssAppName
 };
