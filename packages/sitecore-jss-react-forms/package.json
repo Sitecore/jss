@@ -32,7 +32,7 @@
     "@types/react-dom": "^16.9.1",
     "@types/sinon": "^9.0.4",
     "chai": "^4.2.0",
-    "del-cli": "^3.0.0",
+    "del-cli": "^3.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "jsdom": "^16.2.2",

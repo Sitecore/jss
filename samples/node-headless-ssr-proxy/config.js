@@ -92,28 +92,11 @@ const config = {
     // when proxying to a SSL Sitecore instance.
     // This is a major security issue, so NEVER EVER set this to false
     // outside local development. Use a real CA-issued certificate.
-    secure: true,
-    /**
-     * Add the original client IP as a header for Sitecore Analytics and GeoIP.
-     * We could use the xfwd option of http-proxy, but express will use ipv6 formatted
-     * IPs by default and there are reported issues using ipv6 with GeoIP.
-     */
-    onProxyReq: (proxyReq, req, res) => {
-      let ipv4 = ipaddr.process(req.ip).toString(); // strip ipv6 prefix added by node/express
-      if (ipv4 === '::1') {
-        ipv4 = '127.0.0.1';
-      }
-      proxyReq.setHeader('X-Forwarded-For', ipv4);
-
-      // because this is a proxy, all headers are forwarded on to the Sitecore server
-      // but, if we SSR we only understand how to decompress gzip and deflate. Some
-      // modern browsers would send 'br' (brotli) as well, and if the Sitecore server
-      // supported that (maybe via CDN) it would fail SSR as we can't decode the Brotli
-      // response. So, we force the accept-encoding header to only include what we can understand.
-      if (req.headers['accept-encoding']) {
-        proxyReq.setHeader('Accept-Encoding', 'gzip, deflate');
-      }
-    },
+		secure: true,
+		headers: {
+			"accept-encoding": "gzip, deflate"
+		},
+		xfwd: true
 	},
 	/**
 	 * Custom headers handling.

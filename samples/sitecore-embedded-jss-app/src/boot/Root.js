@@ -4,14 +4,13 @@ import 'babel-polyfill';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-react';
-import SitecoreContextFactory from './SitecoreContextFactory';
 import componentFactory from '../app/componentFactory';
 import App from '../app';
 
 class Root extends Component {
   render() {
     return (
-      <SitecoreContext componentFactory={componentFactory} contextFactory={SitecoreContextFactory}>
+      <SitecoreContext componentFactory={componentFactory} context={this.props.initialState.sitecore.context}>
         <App route={this.props.initialState.sitecore.route} />
       </SitecoreContext>
     );
