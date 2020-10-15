@@ -5,6 +5,12 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 14.0.3
+
+### Bug Fixes
+
+* [PR #471](https://github.com/Sitecore/jss/pull/471) [node-headless-proxy] Upgrade lodash, node-fetch libraries
+
 ## Sitecore JSS 14.0.2
 
 ### Bug Fixes
