@@ -209,6 +209,11 @@ SXA and Sitecore Forms compatibility table
 | 9.1       | 11.0     | No    | No
 | 9.0       | 11.0     | No    | No
 
+## Sitecore JSS 11.0.4
+
+### Bug Fixes
+* [PR #453](https://github.com/Sitecore/jss/pull/453) [React sample] Race condition, under load React app may render HTML from a different route
+
 ## Sitecore JSS 11.0.3 for Sitecore 9.1.1
 
 ### Upgrading
