@@ -1,6 +1,6 @@
 /* eslint-disable import/first */
 
-import 'isomorphic-fetch';
+import 'cross-fetch/polyfill';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';
 

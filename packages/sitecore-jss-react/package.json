@@ -48,7 +48,7 @@
     "sinon": "^7.4.2",
     "ts-node": "^8.3.0",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.6.3",
+    "typescript": "3.7.5",
     "url-parse": "^1.4.7"
   },
   "peerDependencies": {
