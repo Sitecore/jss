@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-update-package",
-  "version": "14.0.2",
+  "version": "14.0.3",
   "description": "Allows creation of Sitecore Update Packages in JavaScript (currently files only).",
   "main": "dist/index.js",
   "scripts": {
