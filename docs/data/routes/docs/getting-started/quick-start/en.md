@@ -45,20 +45,30 @@ The JSS CLI is used to create applications, which can be created from a several 
 
 > Which framework you use for JSS is a matter of opinion. JSS provides equal support to React, Vue, and Angular. If you're a newcomer to modern frontend development and don't have your own opinion yet, React or Vue are the easiest to get started with.
 
-### Styleguide Templates
+### App Starter Templates
 
-Styleguide templates are mirror images of each other, supporting basic Sitecore features (routing, multilingual, GraphQL) and using popular supporting libraries for their frameworks. Each Styleguide template comes with a sample styleguide showing how to use and define various Sitecore field types and patterns in that framework.
+These are the main templates that should be used when you're getting started with JSS. They were designed as examples of JSS application starting points, and they contain StyleGuides that demonstrate how to work with JSS components using your chosen JS framework.
+
+The Styleguides in these templates are mirror images of each other, supporting basic Sitecore features (routing, multilingual, GraphQL) and using popular supporting libraries for their frameworks.
 
 * `react` The React Styleguide template, based on `create-react-app`.
 * `vue` The Vue Styleguide template, based on `vue-cli`.
 * `angular` The Angular Styleguide template.
 
+Note that these templates are examples of project starting points, and are not ready-for-production code. Developers are expected to extend and customize these examples according to their requirements.
+
 ### Experimental Templates
 
 Experimental templates are experimental specialized JSS examples. They are examples of how to do advanced tasks, but may not be stable or thoroughly documented.
 
+* `react-native` The React Native Styleguide template
 * `sitecore-embedded-jss-app` This app shows how to embed a JSS application inside an existing Sitecore site as a rendering. [Read more here](/docs/techniques/mvc-integration/client-side-embedding).
-* `sitecore-javascript-renderings` This app shows how to render a JavaScript app as a rendering embedded within a traditional Sitecore MVC site. See [JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) for details.
+
+### Special Templates
+* `node-headless-ssr-proxy` This app shows how to configure a Node server to act as a proxy between the browser and Sitecore. [Read more here]()
+
+### Deprecated Templates
+* `sitecore-javascript-renderings` This app shows how to render a JavaScript app as a rendering embedded within a traditional Sitecore MVC site. See [JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) for details. This template is flagged as deprecated as of Oct 2020 because these rendering don't scale well. They satisfy edge-case requirements, and should generally be avoided.
 
 ## Step 4: Create application using selected template
 

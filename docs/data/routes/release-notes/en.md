@@ -5,6 +5,18 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 14.0.3
+
+### Bug Fixes
+
+* [PR #471](https://github.com/Sitecore/jss/pull/471) [node-headless-proxy] Upgrade lodash, node-fetch libraries
+
+## Sitecore JSS 14.0.2
+
+### Bug Fixes
+
+* [PR #455](https://github.com/Sitecore/jss/pull/455) [React sample] Race condition, under load React app may render HTML from a different route
+
 ## Sitecore JSS 14.0.1
 
 ### Bug Fixes
@@ -196,6 +208,11 @@ SXA and Sitecore Forms compatibility table
 | 9.1.1     | 11.1     | 1.9   | No
 | 9.1       | 11.0     | No    | No
 | 9.0       | 11.0     | No    | No
+
+## Sitecore JSS 11.0.4
+
+### Bug Fixes
+* [PR #453](https://github.com/Sitecore/jss/pull/453) [React sample] Race condition, under load React app may render HTML from a different route
 
 ## Sitecore JSS 11.0.3 for Sitecore 9.1.1
 

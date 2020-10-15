@@ -6,21 +6,28 @@ title: Help
 
 # Help
 
-## Support
+## Sitecore Support
 
-Server-side JSS components are supported by Sitecore via normal support channels.
-JavaScript open source JSS components are _not supported_ by Sitecore Support, but pull requests and issues on GitHub are welcome.
+**The following JSS products are fully supported**:
+- [Server-side JSS components](https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services.aspx) and
+- [JavaScript JSS components (JSS npm packages)](https://github.com/Sitecore/jss/tree/dev/packages) that were officially released on npm starting from version 11.0.0.
+
+Note that **Sitecore's general [Scope of Support](https://kb.sitecore.net/articles/463549#ScopeOfSupport) applies to JSS** products as well.
+
+**The [JSS application samples](https://github.com/Sitecore/jss/tree/dev/samples) are supported in a limited manner**. They were designed as examples of JSS application starting points, and not as ready-for-production code. Developers are expected to extend and customize these examples according to their requirements. Bug reports and feature requests for the samples can be submitted. Immediate fixes and implementation assistance/advice is not provided for the sample apps.
+
+## GitHub Support
+The JavaScript layer of JSS is open-source. You can use the GitHub repository to submit issues, feature requests, and pull requests. See the [contributing guide](https://github.com/Sitecore/jss/blob/dev/CONTRIBUTING.md) for guidelines.
+
+## Community Support
+Assistance with the JSS products can also be obtained in community-based channels.
 
 1. For any issues, post on [Sitecore Stack Exchange] (https://sitecore.stackexchange.com/questions/tagged/jss/) with `jss` tag
 1. File an issue on [GitHub](https://github.com/Sitecore/jss)
 1. For quick questions, [Sitecore Slack](slack://channel?team=T09SHRBNU&id=C7JT0NRQW)
 1. [Sitecore Community](https://community.sitecore.net/)
 
-## Contributing
-
-The front-end JavaScript layer of JSS is open-source, which means you are welcome to submit pull requests for new features, bug fixes, and documentation. See the [contributing guide](https://github.com/Sitecore/jss/blob/dev/CONTRIBUTING.md) in our GitHub.
-
-Contributing can also come in the form of making your voice heard and helping shape the roadmap. We look at GitHub issues, sorted by "most reaction" to determine what's most important to the community. So log your ideas, add details, add reactions to ideas you agree with - open source is a *community*.
+----
 
 ## FAQ
 
@@ -28,10 +35,12 @@ Contributing can also come in the form of making your voice heard and helping sh
 
 Yes! The earliest version of JSS that is considered production-ready is JSS 11.0 for Sitecore 9.0 and 9.1. It is stable for React, Angular, Vue, and Layout Service API usage.
 
+There are multiple enterprise JSS sites running in production today.
+
 ### Why are some features marked as "Experimental"?
 [React Native](/docs/client-frameworks/react-native) is marked as experimental because React Native cannot render in the browser (RN apps are intended to be rendered on iOS/Android devices or emulators), so there is no Experience Editor support. This makes RN difficult to setup and difficult to work with.
 
-[JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) are marked as experimental because these rendering don't scale well. They satisfy edge-case requirements, and should be used sparingly.
+[JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) are marked as experimental because these rendering don't scale well. They satisfy edge-case requirements, and should be used sparingly. (**JavaScript Renderings have been deprecated as of Oct 2020**)
 
 ### Does JSS require a special Sitecore license and where can I get it?
 Sitecore offers different licensing bundles - some include JSS, and some require purchasing it an add-on.
