@@ -9,15 +9,19 @@ title: Cloning repository
 ## Installing the Habitat Fitness Demo App
 
 ### Step 1: Clone or Download the Habitat Fitness Repo 
-You can find the Habitat Fitness demo project here:
-[https://github.com/Sitecore/Sitecore.HabitatHome.Omni](https://github.com/Sitecore/Sitecore.HabitatHome.Omni)
-
-> Note: Use the `jss-trial` tag on the `master` to check out the same codebase that's been deployed to your trial instance.
+You can find the `Habitat Fitness demo repository` here:
+[https://github.com/Sitecore/Sitecore.HabitatHome.Omni](https://github.com/Sitecore/Sitecore.HabitatHome.Omni). Use the `jss-trial` tag on the `master` branch to check out the same codebase that's been deployed to your trial instance.
 
 You can either download and unzip the project to a location of your choosing, or you can open a terminal/command line to that location and clone it with the following command:
 
 ```text
-git clone https://github.com/Sitecore/Sitecore.HabitatHome.Omni.git
+git clone -b jss-trial --single-branch https://github.com/Sitecore/Sitecore.HabitatHome.Omni.git
+```
+
+Since you'll be making code changes to the app later in this guide, now is a good time to create a new branch for your work. Run this command from the root of the repository you just cloned.
+
+```text
+git checkout -b <new-branch-name>
 ```
 
 ### Step 2 (optional): Create .env file with Google Maps and Firebase API Keys
