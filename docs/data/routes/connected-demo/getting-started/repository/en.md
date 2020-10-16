@@ -12,6 +12,8 @@ title: Cloning repository
 You can find the Habitat Fitness demo project here:
 [https://github.com/Sitecore/Sitecore.HabitatHome.Omni](https://github.com/Sitecore/Sitecore.HabitatHome.Omni)
 
+> Note: Use the `jss-trial` tag on the `master` to check out the same codebase that's been deployed to your trial instance.
+
 You can either download and unzip the project to a location of your choosing, or you can open a terminal/command line to that location and clone it with the following command:
 
 ```text
