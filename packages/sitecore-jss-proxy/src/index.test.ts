@@ -134,5 +134,38 @@ describe('rewriteRequestPath', () => {
         expect(actual).to.equal(expected);
       });
     });
+    describe('when config contains qsParams', () => {
+      it('should return route prefixed with layout service route and with qsParams appended', () => {
+        const url = '/about';
+        const expected =
+          '/sitecore/layoutsvc/render/jss?item=%2Fabout&sc_apikey={GUID}&sc_site=mysite';
+        const qsParamsConfig = { ...config, qsParams: 'sc_site=mysite' };
+        const req = {
+          headers: {
+            'accept-encoding': 'gzip or whatever',
+          },
+        };
+
+        const actual = rewriteRequestPath(url, req, qsParamsConfig);
+
+        expect(actual).to.equal(expected);
+      });
+      it('should return route prefixed with layout service route, querystring and with qsParams appended', () => {
+        const url = '/about?sc_camp=123456%2078';
+        const expected =
+          '/sitecore/layoutsvc/render/jss?item=%2Fabout&sc_apikey={GUID}&sc_camp=123456%2078&sc_site=mysite';
+        const qsParamsConfig = { ...config, qsParams: 'sc_site=mysite' };
+        const req = {
+          query: { sc_camp: '123456 78' },
+          headers: {
+            'accept-encoding': 'gzip or whatever',
+          },
+        };
+
+        const actual = rewriteRequestPath(url, req, qsParamsConfig);
+
+        expect(actual).to.equal(expected);
+      });
+    });
   });
 });
