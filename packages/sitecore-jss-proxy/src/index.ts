@@ -89,12 +89,15 @@ async function renderAppToResponse(
   };
 
   if (request.method === 'HEAD') {
-    completeProxyResponse(null, proxyResponse.statusCode || HttpStatus.OK)
-    return
+    completeProxyResponse(null, proxyResponse.statusCode || HttpStatus.OK);
+    return;
   }
 
   async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
-    if (proxyResponse.statusCode === HttpStatus.OK || proxyResponse.statusCode === HttpStatus.NOT_FOUND) {
+    if (
+      proxyResponse.statusCode === HttpStatus.OK ||
+      proxyResponse.statusCode === HttpStatus.NOT_FOUND
+    ) {
       let responseString: Promise<string>;
 
       if (
@@ -351,7 +354,7 @@ export function rewriteRequestPath(
 
   let path = `${config.layoutServiceRoute}?item=${encodeURIComponent(finalReqPath)}&sc_apikey=${
     config.apiKey
-    }`;
+  }`;
 
   if (lang) {
     path = `${path}&sc_lang=${lang}`;
@@ -383,12 +386,12 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
     if (!noDebug && config.debug) {
       if (result) {
         console.log(
-          `DEBUG: URL ${originalUrl} did not match the proxy exclude list, and will be treated as a layout service route to render. Excludes:`,
+          `DEBUG: URL ${originalUrl} matched the proxy exclude list and will be served verbatim as received. Excludes: `,
           config.pathRewriteExcludeRoutes
         );
       } else {
         console.log(
-          `DEBUG: URL ${originalUrl} matched the proxy exclude list and will be served verbatim as received. Excludes: `,
+          `DEBUG: URL ${originalUrl} did not match the proxy exclude list, and will be treated as a layout service route to render. Excludes:`,
           config.pathRewriteExcludeRoutes
         );
       }
@@ -403,11 +406,11 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
     if (!noDebug && config.debug) {
       if (result) {
         console.log(
-          `DEBUG: URL ${originalUrl} did not match the proxy exclude function, and will be treated as a layout service route to render.`
+          `DEBUG: URL ${originalUrl} matched the proxy exclude function and will be served verbatim as received.`
         );
       } else {
         console.log(
-          `DEBUG: URL ${originalUrl} matched the proxy exclude function and will be served verbatim as received.`
+          `DEBUG: URL ${originalUrl} did not match the proxy exclude function, and will be treated as a layout service route to render.`
         );
       }
     }
