@@ -19,7 +19,7 @@ For development:
 
 For production:
 - [Headless server-side rendering mode](#headless-server-side-rendering-mode) - Server-side rendering performed on Node server, data from Sitecore CD.
-- [Integrated mode](#integrated-mode) - Server-side rendering performed on Sitecore CD server.
+- [Integrated mode](#integrated-mode) - Server-side rendering performed on Sitecore CM server (for compatibility with Experience Editor only).
 - [API-only mode](#api-only-mode) - Consume personalized Sitecore layout data from any platform that understands JSON.
 
 ## Disconnected developer mode
