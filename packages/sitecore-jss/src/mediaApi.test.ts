@@ -4,7 +4,7 @@
 import chai = require('chai');
 import chaiString = require('chai-string');
 import URL = require('url-parse');
-import { findEditorImageTag, getSrcSet, updateImageUrl } from './mediaApi';
+import { findEditorImageTag, getSrcSet, updateImageUrl, getRequiredParams } from './mediaApi';
 
 // chai.should();
 const expect = chai.use(chaiString).expect;
@@ -34,6 +34,30 @@ describe('findEditorImageTag', () => {
     expect(imgMatch.attrs['lorem']).to.equal('&><');
   });
 });
+
+describe('getRequiredParams', () => {
+  it('should return required query string params', () => {
+    const parsedQs = { 
+      rev: '11',
+      db: '22',
+      xxx: 'ppp',
+      la: '33',
+      vs: '44',
+      ts: '55',
+      yyy: 'vvv'
+    }
+
+    const params = getRequiredParams(parsedQs);
+    
+    expect(params).to.deep.equal({
+      rev: '11',
+      db: '22',
+      la: '33',
+      vs: '44',
+      ts: '55'
+    })
+  })
+})
 
 describe('updateImageUrl', () => {
   it('should override parameters with those provided', () => {
@@ -94,16 +118,20 @@ describe('updateImageUrl', () => {
   });
 
   it('should merge querystring and params', () => {
-    const src = '/media/lorem/ipsum.jpg?x=valueX&y=value111&rev=109010';
+    const src = '/media/lorem/ipsum.jpg?x=valueX&y=value111&rev=109010&db=333&la=444&vs=555&ts=666&unknownParam=54321';
     const params = { y: 'valueY', z: 'valueZ' };
     const parsed = updateImageUrl(src, params);
     const url = URL(parsed, {}, true);
 
-    expect(url.toString()).equal('/media/lorem/ipsum.jpg?y=valueY&z=valueZ&rev=109010')
+    expect(url.toString()).equal('/media/lorem/ipsum.jpg?y=valueY&z=valueZ&rev=109010&db=333&la=444&vs=555&ts=666')
     expect(url.query).deep.equal({
       y: 'valueY',
 			z: 'valueZ',
-			rev: "109010"
+      rev: "109010",
+      db: '333',
+      la: '444',
+      vs: '555',
+      ts: '666'
     });
   })
 });
