@@ -5,6 +5,56 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 15.0 for Sitecore 10
+
+### Upgrading
+
+There are [migration instructions](/upgrade-guides/15.0) from JSS 14-based applications.
+
+### Breaking changes
+
+* [PR #414](https://github.com/Sitecore/jss/pull/414), [PR #456](https://github.com/Sitecore/jss/pull/456) React:
+    * SitecoreContextFactory class was removed. Subscribers were removed, so context value now stored in SitecoreContext state.
+    * SitecoreContext accepts `context` value instead of `contextFactory` SitecoreContextFactory instance.
+
+* [PR #440](https://github.com/Sitecore/jss/pull/440) [Angular sample] Upgrade angular to v10
+
+### New Features & Improvements
+
+* [PR #466](https://github.com/Sitecore/jss/pull/466) [sitecore-embedded-jss-app] Remove usage of SitecoreContextFactory
+* [PR #463](https://github.com/Sitecore/jss/pull/463) [React][Vue][Angular] Use keep-alive agent throughout sample apps for server-side web requests
+* [PR #430](https://github.com/Sitecore/jss/pull/430) [node-headless-proxy] Connection pooling to layout service
+* [PR #429](https://github.com/Sitecore/jss/pull/429) [node-headless-proxy] Output caching
+* [PR #386](https://github.com/Sitecore/jss/pull/386) [Forms] Assign contextItemId in Forms submit actions on a JSS Forms submit
+* [PR #390](https://github.com/Sitecore/jss/pull/390) [sitecore-jss-react] Replace line breaks with `<br/>` in the `<Text>` component
+* [PR #407](https://github.com/Sitecore/jss/pull/407) [React sample] enable eslint
+* [PR #413](https://github.com/Sitecore/jss/pull/413) [All samples] Add yaml-lint
+* [PR #419](https://github.com/Sitecore/jss/pull/419) [sitecore-jss-angular][sitecore-jss-react][sitecore-jss-vue] Provide ability to configure mediaUrlPrefix in mediaApi using `<Image />` component
+
+### Bug Fixes
+* [PR #478](https://github.com/Sitecore/jss/pull/478) [sitecore-jss] Merge specific params from layout service into query string
+* [Issue #326](https://github.com/Sitecore/jss/issues/326) [Angular sample] en.yml changes in Angular JSS app giving error: Duplicate function implementation
+* [PR #471](https://github.com/Sitecore/jss/pull/471) [node-headless-proxy] Upgrade lodash, node-fetch libraries
+* [PR #461](https://github.com/Sitecore/jss/pull/461) [node-headless-proxy] Remove use of onProxyReq event in sample proxy options
+* [Issue #452](https://github.com/Sitecore/jss/issues/452) [sitecore-jss-angular] ngcc config not correctly implemented
+* [PR #464](https://github.com/Sitecore/jss/pull/464) [Security] Review and resolve security vulnerabilities
+* [PR #456](https://github.com/Sitecore/jss/pull/456) [React sample] Race condition, under load React app may render HTML from a different route
+* [Issue #428](https://github.com/Sitecore/jss/issues/428) imageParams on Image react component don't play nice with allowedMediaParams
+* [PR #448](https://github.com/Sitecore/jss/pull/448) [node-headless-proxy] Extend headers handling and remove content-security-policy header 
+* [PR #444](https://github.com/Sitecore/jss/pull/444) [Vue sample] Fix i18n memory leak
+* [PR #414](https://github.com/Sitecore/jss/pull/414) [sitecore-jss-react] Memory leak in SitecoreContext
+* [Commit](https://github.com/Sitecore/jss/commit/88eb05ec0288c82bd8d4f24a647b8d5ba82b8ead) [Forms] Number Forms field has incorrect model and step attribute
+* [Issue #140](https://github.com/Sitecore/jss/issues/140) [sitecore-jss-proxy] query string values aren't transferred properly
+* [PR #391](https://github.com/Sitecore/jss/pull/391) [Angular sample] Component factory match first occurrence of Component name
+* [PR #379](https://github.com/Sitecore/jss/pull/379) [sitecore-jss-angular] Prevent existing anchor element classes from being wiped out by the link directive
+* [PR #395](https://github.com/Sitecore/jss/pull/395) [React sample] Retrieving language from ssrInitialState is incorrect
+* [PR #400](https://github.com/Sitecore/jss/pull/400) [sitecore-jss-proxy] Percentage symbol in query string breaks in SSR
+* [PR #401](https://github.com/Sitecore/jss/pull/401) [React sample] Application is broken when visit from /graphql to / in disconnected mode
+* [PR #403](https://github.com/Sitecore/jss/pull/403) [React sample] Doesn't work with url ip:port
+* [PR #404](https://github.com/Sitecore/jss/pull/404) [sitecore-jss-react][React sample] Fix invalid types, fix invalid type in data/*.yml
+* [PR #406](https://github.com/Sitecore/jss/pull/406) [sitecore-jss-angular] Prevent the Angular scLink directive from adding an empty href attribute
+* [PR #409](https://github.com/Sitecore/jss/pull/409) [sitecore-jss-angular] Prevent the Angular scLink directive from adding an href attribute, when href is equal to `http://` or `https://`
+
 ## Sitecore JSS 14.0.3
 
 ### Bug Fixes
