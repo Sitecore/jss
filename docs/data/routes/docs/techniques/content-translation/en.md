@@ -66,7 +66,7 @@ To deploy each language issue a deployment command using the `--language` parame
 jss deploy items --language=es-MX --includeContent --includeDictionary
 ```
 
-> Note: `jss deploy items` does not deploy files. To deploy files as well, 
+> Note: `jss deploy items` does not deploy files. To deploy files use `jss deploy files`. To deploy items and files use `jss deploy app`.
 
 ## Headless Mode / Layout Service Proxying
 
