@@ -36,6 +36,18 @@ export const findEditorImageTag = (editorMarkup: string) => {
 };
 
 /**
+ * Get required query string params which should be merged with user params
+ * @param qs layout service parsed query string
+ */
+export const getRequiredParams = (qs: { 
+  [key: string]: string | undefined 
+}) => {
+  const { rev, db, la, vs, ts } = qs;
+  
+  return { rev, db, la, vs, ts }
+}
+
+/**
  * Receives a Sitecore media URL and replaces `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
  * Can use `mediaUrlPrefix` in order to use custom checker.
  * This replacement allows the JSS media handler to be used for JSS app assets.
@@ -52,11 +64,18 @@ export const updateImageUrl = (
   }
 	const parsed = URL(url, {}, true);
  
-	const query = params || parsed.query
+  const query = params || parsed.query
 
-	if (parsed.query.rev) {
-		query.rev = parsed.query.rev
-	}
+  // In case if imageParams provided
+  if (params) {
+    const requiredParams = getRequiredParams(parsed.query);
+  
+    Object.entries(requiredParams).forEach(([key, param]) => {
+      if (param) {
+        query[key] = param;
+      }
+    })
+  }
 
   parsed.set('query', query);
 
