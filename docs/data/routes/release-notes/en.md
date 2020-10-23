@@ -55,6 +55,18 @@ There are [migration instructions](/upgrade-guides/15.0) from JSS 14-based appli
 * [PR #406](https://github.com/Sitecore/jss/pull/406) [sitecore-jss-angular] Prevent the Angular scLink directive from adding an empty href attribute
 * [PR #409](https://github.com/Sitecore/jss/pull/409) [sitecore-jss-angular] Prevent the Angular scLink directive from adding an href attribute, when href is equal to `http://` or `https://`
 
+SXA and Sitecore Forms compatibility table
+| Sitecore  | JSS      | SXA   | Forms
+| --------- | -------- |------ | ------
+| 10        | 15.0     | 10    | Yes
+| 10        | 14.0     | 10    | Yes
+| 9.3       | 13.1     | 9.3   | Yes
+| 9.3       | 13.0     | 9.3   | Yes
+| 9.2       | 12.0     | 1.9   | Yes
+| 9.1.1     | 11.1     | 1.9   | No
+| 9.1       | 11.0     | No    | No
+| 9.0       | 11.0     | No    | No
+
 ## Sitecore JSS 14.0.3
 
 ### Bug Fixes
