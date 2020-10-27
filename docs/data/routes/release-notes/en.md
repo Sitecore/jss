@@ -67,6 +67,12 @@ SXA and Sitecore Forms compatibility table
 | 9.1       | 11.0     | No    | No
 | 9.0       | 11.0     | No    | No
 
+## Sitecore JSS 14.0.4
+
+### Bug Fixes
+
+* [Commit](https://github.com/Sitecore/jss/commit/af1cd33170ca87b8c1e2b2ccfd520e720452983d) [sitecore-jss-rendering-host] Upgrade security vulnerable "yargs-parser"
+
 ## Sitecore JSS 14.0.3
 
 ### Bug Fixes
