@@ -5,6 +5,12 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 14.0.4
+
+### Bug Fixes
+
+* [Commit](https://github.com/Sitecore/jss/commit/af1cd33170ca87b8c1e2b2ccfd520e720452983d) [sitecore-jss-rendering-host] Upgrade security vulnerable "yargs-parser"
+
 ## Sitecore JSS 14.0.3
 
 ### Bug Fixes
