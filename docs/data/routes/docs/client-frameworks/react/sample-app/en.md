@@ -95,49 +95,42 @@ const MyComponent = (props) => <div>Page editing: {props.sitecoreContext.pageEdi
 export default withSitecoreContext()(MyComponent);
 ```
 
-Usage of `withSitecoreContext()` is dependent on having a `<SitecoreContext>` component wrapping anything using `withSitecoreContext()` that maintains a `SitecoreContextFactory` instance in the component hierarchy. Here's an example of that:
+Usage of `withSitecoreContext()` is dependent on having a `<SitecoreContext>` component wrapping anything using `withSitecoreContext()` that maintains a `context` state. Here's an example of that:
 
 _Root.js_ (the root component in your app)
 
 ```javascript
 import React from 'react';
-import { SitecoreContext, SitecoreContextFactory } from '@sitecore-jss/sitecore-jss-react';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import componentFactory from './componentFactory';
 
 export default class extends React.Component {
   constructor(props) {
     super(props);
-    
-    this.state = {
-      contextFactory: new SitecoreContextFactory()
-    }
 
-    // Setup default sitecoreContext state
-    if (props.ssrState && props.ssrState.sitecore && props.ssrState.sitecore.route) {
-      // set the initial sitecore context data if we got SSR initial state
-      this.state.contextFactory.setSitecoreContext({
-        route: props.ssrState.sitecore.route,
-        itemId: props.ssrState.sitecore.route.itemId,
-        ...props.ssrState.sitecore.context,
-      });
-    } else if (props.ssrState) {
-      this.state.contextFactory.setSitecoreContext(props.ssrState.sitecore.context)
+    // Set default sitecoreContext
+    if (props.ssrState) {
+      this.sitecoreContext = props.ssrState.sitecore && props.ssrState.sitecore.route
+        ? {
+            route: props.ssrState.sitecore.route,
+            itemId: props.ssrState.sitecore.route.itemId,
+            ...props.ssrState.sitecore.context,
+          }
+        : props.ssrState.sitecore.context
     } else {
-      this.state.contextFactory.setSitecoreContext(null);
+      this.sitecoreContext = null;
     }
   }
 
   render() {
     return (
-      <SitecoreContext contextFactory={this.state.contextFactory}>
+      <SitecoreContext context={this.sitecoreContext}>
         <YourAppsComponentsHere />
       </SitecoreContext>
     )
   }
 }
 ```
-
-> NOTE: Don't use `SitecoreContextFactory` singleton through the app, use `withSitecoreContext`.
 
 The final piece of using `withSitecoreContext()` is to ensure that the `props.sitecoreContext` is updated when the Sitecore context changes. You can wrap component by `withSitecoreContext({ updatable: true })` in order to get access to `props.updateSitecoreContext` and update `props.sitecoreContext` inside the nested component. This could be when the route changes in your app, or when server-side rendering passes down a state object - any time new layout data is pulled from Sitecore and rendered.
 
