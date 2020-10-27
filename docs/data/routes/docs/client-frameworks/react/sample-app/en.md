@@ -100,35 +100,65 @@ Usage of `withSitecoreContext()` is dependent on having a `<SitecoreContext>` co
 _Root.js_ (the root component in your app)
 
 ```javascript
-import { SitecoreContext } from '@sitecore-jss/sitecore-jss-react';
+import React from 'react';
+import { SitecoreContext, SitecoreContextFactory } from '@sitecore-jss/sitecore-jss-react';
 import componentFactory from './componentFactory';
-import SitecoreContextFactory from './SitecoreContextFactory';
 
-export default (props) => (
-  <SitecoreContext contextFactory={SitecoreContextFactory}>
-    <YourAppsComponentsHere />
-  </SitecoreContext>
-);
+export default class extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      contextFactory: new SitecoreContextFactory()
+    }
+
+    // Setup default sitecoreContext state
+    if (props.ssrState && props.ssrState.sitecore && props.ssrState.sitecore.route) {
+      // set the initial sitecore context data if we got SSR initial state
+      this.state.contextFactory.setSitecoreContext({
+        route: props.ssrState.sitecore.route,
+        itemId: props.ssrState.sitecore.route.itemId,
+        ...props.ssrState.sitecore.context,
+      });
+    } else if (props.ssrState) {
+      this.state.contextFactory.setSitecoreContext(props.ssrState.sitecore.context)
+    } else {
+      this.state.contextFactory.setSitecoreContext(null);
+    }
+  }
+
+  render() {
+    return (
+      <SitecoreContext contextFactory={this.state.contextFactory}>
+        <YourAppsComponentsHere />
+      </SitecoreContext>
+    )
+  }
+}
 ```
 
-_SitecoreContextFactory.js_ (creates and configures the context factory instance; imported above)
+> NOTE: Don't use `SitecoreContextFactory` singleton through the app, use `withSitecoreContext`.
+
+The final piece of using `withSitecoreContext()` is to ensure that the `props.sitecoreContext` is updated when the Sitecore context changes. You can wrap component by `withSitecoreContext({ updatable: true })` in order to get access to `props.updateSitecoreContext` and update `props.sitecoreContext` inside the nested component. This could be when the route changes in your app, or when server-side rendering passes down a state object - any time new layout data is pulled from Sitecore and rendered.
 
 ```javascript
-import { SitecoreContextFactory } from '@sitecore-jss/sitecore-jss-react';
+import React from 'react';
+import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 
-export default new SitecoreContextFactory();
+class RouteHandler extends React.Component {
+  getContext = () => this.props.sitecoreContext
+
+  async updateRouteData() {
+    const routeData = await getRouteData("/"); // makes a request for new route data, for example
+    
+    this.props.updateSitecoreContext(routeData.sitecore.context);
+  }
+}
+
+export default withSitecoreContext({ updatable: true })(RouteHandler)
 ```
 
-The final piece of using `withSitecoreContext()` is to ensure that the `SitecoreContextFactory` is updated when the Sitecore context changes. This could be when the route changes in your app, or when server-side rendering passes down a state object - any time new layout data is pulled from Sitecore and rendered. To accomplish this, we import our `SitecoreContextFactory`, which due to ES6 module semantics is essentially a singleton so it can store state.
-
-```javascript
-import SitecoreContextFactory from "boot/SitecoreContextFactory";
-
-const routeData = await getRouteData("/"); // makes a request for new route data, for example
-
-// push the route data's context into the context factory
-SitecoreContextFactory.setSitecoreContext(routeData.sitecore.context);
-```
+> NOTE: You shouldn't store `ssrInitialState` global variable and use it across the application. Instead you should pass `ssrInitialState` into `AppRoot` and store all required data inside `SitecoreContext`. As mentioned above you can access it using `withSitecoreContext()`.
 
 ### UI Components
 
