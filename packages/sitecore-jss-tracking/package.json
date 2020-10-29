@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-tracking",
-  "version": "14.0.4",
+  "version": "15.0.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -45,7 +45,7 @@
     "url-parse": "^1.4.7"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^14.0.4"
+    "@sitecore-jss/sitecore-jss": "^15.0.0"
   },
   "description": "",
   "types": "types/index.d.ts",
