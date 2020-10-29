@@ -88,7 +88,5 @@ function addGraphQLConfig(baseConfig) {
   }
 
   // eslint-disable-next-line no-param-reassign
-  baseConfig.graphQLEndpoint = `${baseConfig.sitecoreApiHost}${
-    baseConfig.graphQLEndpointPath
-  }?sc_apikey=${baseConfig.sitecoreApiKey}`;
+  baseConfig.graphQLEndpoint = `${baseConfig.sitecoreApiHost}${baseConfig.graphQLEndpointPath}?sc_apikey=${baseConfig.sitecoreApiKey}`;
 }

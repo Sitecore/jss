@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export interface RichTextProps {
   /** The rich text field data. */
-  field: {
+  field?: {
     value?: string;
     editable?: string;
   };
@@ -40,7 +40,7 @@ RichText.propTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
-  }).isRequired,
+  }),
   tag: PropTypes.string,
   editable: PropTypes.bool,
 };

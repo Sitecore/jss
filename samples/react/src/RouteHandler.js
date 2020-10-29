@@ -3,9 +3,12 @@ import i18n from 'i18next';
 import Helmet from 'react-helmet';
 import { isExperienceEditorActive, dataApi, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import { dataFetcher } from './dataFetcher';
+import { getHostname } from './util';
 import config from './temp/config';
 import Layout from './Layout';
 import NotFound from './NotFound';
+
+/* eslint-disable no-console */
 
 // Dynamic route handler for Sitecore items.
 // Because JSS app routes are defined in Sitecore, traditional static React routing isn't enough -
@@ -23,9 +26,9 @@ class RouteHandler extends React.Component {
     };
 
     const routeData = this.extractRouteData();
-
+    
     // route data from react-router - if route was resolved, it's not a 404
-    if (routeData !== null) {
+    if (props.route !== null) {
       this.state.notFound = false;
     }
 
@@ -38,12 +41,14 @@ class RouteHandler extends React.Component {
     // if we have an SSR state, and that state has language data, set the current language
     // (this makes the language of content follow the Sitecore context language cookie)
     // note that a route-based language (i.e. /de-DE) will override this default; this is for home.
-    if (routeData && routeData.context && routeData.context.language) {
-      this.state.defaultLanguage = routeData.context.language;
+    if (
+      routeData &&
+      routeData.sitecore &&
+      routeData.sitecore.context &&
+      routeData.sitecore.context.language
+    ) {
+      this.state.defaultLanguage = routeData.sitecore.context.language;
     }
-
-    this.componentIsMounted = false;
-    this.languageIsChanging = false;
 
     // tell i18next to sync its current language with the route language
     this.updateLanguage();
@@ -52,27 +57,10 @@ class RouteHandler extends React.Component {
   componentDidMount() {
     const routeData = this.extractRouteData();
 
-    // if no existing routeData is present (from SSR), get Layout Service fetching the route data or SSR render is complete
+    // if no existing routeData is present (from SSR), get Layout Service fetching the route data or ssr render complete
     if (!routeData || this.props.ssrRenderComplete) {
       this.updateRouteData();
     }
-
-    // once we initialize the route handler, we've "used up" the SSR data,	
-    // if it existed, so we want to clear it now that it's in react state.	
-    // future route changes that might destroy/remount this component should ignore any SSR data.	
-    // EXCEPTION: Unless we are still SSR-ing. Because SSR can re-render the component twice	
-    // (once to find GraphQL queries that need to run, the second time to refresh the view with	
-    // GraphQL query results)	
-    // We test for SSR by checking for Node-specific process.env variable.	
-    if (typeof window !== "undefined" && !this.props.ssrRenderComplete && this.props.setSsrRenderComplete) {
-      this.props.setSsrRenderComplete(true);
-    }
-
-    this.componentIsMounted = true;
-  }
-
-  componentWillUnmount() {
-    this.componentIsMounted = false;
   }
 
   extractRouteData = () => {
@@ -124,20 +112,7 @@ class RouteHandler extends React.Component {
     const newLanguage = this.props.route.match.params.lang || this.state.defaultLanguage;
 
     if (i18n.language !== newLanguage) {
-      this.languageIsChanging = true;
-
-      i18n.changeLanguage(newLanguage, () => {
-        this.languageIsChanging = false;
-
-        // if the component is not mounted, we don't care
-        // (next time it mounts, it will render with the right language context)
-        if (this.componentIsMounted) {
-          // after we change the i18n language, we need to force-update React,
-          // since otherwise React won't know that the dictionary has changed
-          // because it is stored in i18next state not React state
-          this.forceUpdate();
-        }
-      });
+      i18n.changeLanguage(newLanguage);
     }
   }
 
@@ -181,7 +156,7 @@ class RouteHandler extends React.Component {
 
     // Don't render anything if the route data or dictionary data is not fully loaded yet.
     // This is a good place for a "Loading" component, if one is needed.
-    if (!routeData || this.languageIsChanging) {
+    if (!routeData) {
       return null;
     }
 
@@ -190,8 +165,6 @@ class RouteHandler extends React.Component {
   }
 }
 
-export default withSitecoreContext({ updatable: true })(RouteHandler)
-
 /**
  * Gets route data from Sitecore. This data is used to construct the component layout for a JSS route.
  * @param {string} route Route path to get data for (e.g. /about)
@@ -199,7 +172,7 @@ export default withSitecoreContext({ updatable: true })(RouteHandler)
  */
 function getRouteData(route, language) {
   const fetchOptions = {
-    layoutServiceConfig: { host: config.sitecoreApiHost },
+    layoutServiceConfig: { host: getHostname() },
     querystringParams: { sc_lang: language, sc_apikey: config.sitecoreApiKey },
     fetcher: dataFetcher,
   };
@@ -214,3 +187,5 @@ function getRouteData(route, language) {
     return null;
   });
 }
+
+export default withSitecoreContext({ updatable: true })(RouteHandler)

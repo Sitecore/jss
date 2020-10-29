@@ -28,7 +28,7 @@
     "ngrok": "^3.2.5",
     "opn": "^6.0.0",
     "webpack": "4.41.0",
-    "webpack-dev-server": "3.11.0"
+    "webpack-dev-server": "^3.11.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.3",

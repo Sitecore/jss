@@ -6,9 +6,7 @@
     <sc-text tag="h3" :field="routeData.fields.headline" />
 
     <p>
-      <em>
-        By <sc-text :field="routeData.fields.author" />
-      </em>
+      <em> By <sc-text :field="routeData.fields.author" /> </em>
     </p>
 
     <sc-rich-text :field="routeData.fields.content" />

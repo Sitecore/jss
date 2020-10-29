@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import { createRenderer } from 'vue-server-renderer';
 import serializeJavascript from 'serialize-javascript';
+import axios from "axios";
+import http from "http";
+import https from "https";
 import i18ninit from '../src/i18n';
 import { createApp } from '../src/createApp';
 import { createRouter } from '../src/router';
@@ -27,6 +30,15 @@ function assertReplace(string, value, replacement) {
 
   return result;
 }
+
+// Setup Http/Https agents for keep-alive. Used in headless-proxy
+export const setUpDefaultAgents = (httpAgent, httpsAgent) => {
+  axios.defaults.httpAgent = httpAgent;
+  axios.defaults.httpsAgent = httpsAgent;
+
+  http.globalAgent = httpAgent;
+  https.globalAgent = httpsAgent;
+};
 
 /** Export the API key. This will be used by default in Headless mode, removing the need to manually configure the API key on the proxy. */
 export const apiKey = config.sitecoreApiKey;

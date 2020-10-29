@@ -4,7 +4,7 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  * Adds the Styleguide-Angular-LazyLoading component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when `jss manifest` is run.
  */
-export default function(manifest: Manifest) {
+export default function StyleguideAngularLazyLoading(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideAngularLazyLoading',
     icon: SitecoreIcon.Gearwheels,

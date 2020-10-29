@@ -1,7 +1,7 @@
 const fs = require('fs');
-const ipaddr = require('ipaddr.js');
 const fetch = require('node-fetch');
 const NodeCache = require('node-cache');
+const httpAgents = require("./httpAgents");
 
 // We keep a cached copy of the site dictionary for performance. Default is 60 seconds.
 const dictionaryCache = new NodeCache({ stdTTL: 60 });
@@ -19,6 +19,10 @@ const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/
 
 const serverBundle = require(bundlePath);
 
+httpAgents.setUpDefaultAgents(serverBundle);
+
+const apiHost = process.env.SITECORE_API_HOST || 'http://my.sitecore.host'
+
 appName = appName || serverBundle.appName;
 
 /**
@@ -34,7 +38,7 @@ const config = {
    * Should be https for production. Must be https to use SSC auth service,
    * if supporting Sitecore authentication.
    */
-  apiHost: process.env.SITECORE_API_HOST || 'http://my.sitecore.host',
+  apiHost,
   /**
    * layoutServiceRoot: The path to layout service for the JSS application.
    * Some apps, like advanced samples, use a custom LS configuration,
@@ -82,33 +86,25 @@ const config = {
    * Options object for http-proxy-middleware. Consult its docs.
    */
   proxyOptions: {
+    // Enable connection pooling
+    agent: httpAgents.getAgent(apiHost),
     // Setting this to false will disable SSL certificate validation
     // when proxying to a SSL Sitecore instance.
     // This is a major security issue, so NEVER EVER set this to false
     // outside local development. Use a real CA-issued certificate.
-    secure: true,
-    /**
-     * Add the original client IP as a header for Sitecore Analytics and GeoIP.
-     * We could use the xfwd option of http-proxy, but express will use ipv6 formatted
-     * IPs by default and there are reported issues using ipv6 with GeoIP.
-     */
-    onProxyReq: (proxyReq, req, res) => {
-      let ipv4 = ipaddr.process(req.ip).toString(); // strip ipv6 prefix added by node/express
-      if (ipv4 === '::1') {
-        ipv4 = '127.0.0.1';
-      }
-      proxyReq.setHeader('X-Forwarded-For', ipv4);
-
-      // because this is a proxy, all headers are forwarded on to the Sitecore server
-      // but, if we SSR we only understand how to decompress gzip and deflate. Some
-      // modern browsers would send 'br' (brotli) as well, and if the Sitecore server
-      // supported that (maybe via CDN) it would fail SSR as we can't decode the Brotli
-      // response. So, we force the accept-encoding header to only include what we can understand.
-      if (req.headers['accept-encoding']) {
-        proxyReq.setHeader('Accept-Encoding', 'gzip, deflate');
-      }
-    },
-  },
+		secure: true,
+		headers: {
+			"accept-encoding": "gzip, deflate"
+		},
+		xfwd: true
+	},
+	/**
+	 * Custom headers handling.
+	 * You can remove different headers from proxy response.
+	*/
+	setHeaders: (req, serverRes, proxyRes) => {
+		delete proxyRes.headers['content-security-policy'];
+	},
   /**
    * Custom error handling in case our app fails to render.
    * Return null to pass through server response, or { content, statusCode }
@@ -150,7 +146,12 @@ const config = {
     return fetch(
       `${config.apiHost}/sitecore/api/jss/dictionary/${appName}/${language}?sc_apikey=${
         config.apiKey
-      }`
+      }`,
+      {
+        headers: {
+          connection: "keep-alive",
+        },
+      }
     )
       .then((result) => result.json())
       .then((json) => {

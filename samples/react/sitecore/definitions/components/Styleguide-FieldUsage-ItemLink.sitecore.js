@@ -7,7 +7,7 @@ import packageJson from '../../../package.json';
  * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
-export default function(manifest) {
+export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-FieldUsage-ItemLink',
     icon: SitecoreIcon.Link,
@@ -19,9 +19,7 @@ export default function(manifest) {
         // the path is based on the path the shared items are defined in, under /data/content.
         // Using 'source' is recommended to help content editors find the correct items to refer to,
         // unless they can refer to any item in the whole site.
-        source: `dataSource=/sitecore/content/${
-          packageJson.config.appName
-        }/Content/Styleguide/ItemLinkField`,
+        source: `dataSource=/sitecore/content/${packageJson.config.appName}/Content/Styleguide/ItemLinkField`,
       },
       { name: 'localItemLink', type: CommonFieldTypes.ItemLink },
     ],

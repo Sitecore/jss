@@ -6,6 +6,8 @@ const {
 const path = require('path');
 const express = require('express');
 
+/* eslint-disable no-console */
+
 startRenderHostTunnel('localhost', { port: 5000 })
   .then((tunnelUrl) => {
     // const buildArtifactsPath = path.resolve(__dirname, '../build');

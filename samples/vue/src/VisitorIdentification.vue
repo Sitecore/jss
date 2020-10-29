@@ -1,5 +1,9 @@
 <template>
-  <meta v-if="visitorIdentificationTimestamp" name="VIcurrentDateTime" :content="visitorIdentificationTimestamp" />
+  <meta
+    v-if="visitorIdentificationTimestamp"
+    name="VIcurrentDateTime"
+    :content="visitorIdentificationTimestamp"
+  />
 </template>
 
 <script>

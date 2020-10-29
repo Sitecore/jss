@@ -34,7 +34,13 @@ import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
 export default function(endpoint, ssr, initialCacheState) {
   /* HTTP link selection: default to batched + APQ */
   const link = createPersistedQueryLink().concat(
-    new BatchHttpLink({ uri: endpoint, credentials: 'include' })
+    new BatchHttpLink({ 
+      uri: endpoint,
+      credentials: 'include',
+      headers: {
+        connection: "keep-alive"
+      }
+    })
   );
   // basic HTTP link
   // const link = createHttpLink({ uri: endpoint, credentials: 'include' });

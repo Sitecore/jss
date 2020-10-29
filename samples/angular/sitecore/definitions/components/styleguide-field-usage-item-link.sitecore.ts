@@ -5,7 +5,7 @@ const packageJson = require('../../../package.json');
  * Adds the Styleguide-FieldUsage-ItemLink component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when `jss manifest` is run.
  */
-export default function(manifest: Manifest) {
+export default function StyleguideFieldUsageItemLink(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideFieldUsageItemLink',
     icon: SitecoreIcon.Link,

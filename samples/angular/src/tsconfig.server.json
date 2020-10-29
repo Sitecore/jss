@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
+    "target": "es2016",
     "module": "commonjs",
     "newLine": "LF",
     "types": []
@@ -13,7 +14,10 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts",
-    "**/*.sitecore.ts"
+    "**/*.sitecore.ts",
+    "./main.ts",
+    "./polyfills.ts",
+    "./environments/environment.prod.ts"
   ],
   "angularCompilerOptions": {
     "entryModule": "app/app.server.module#AppServerModule"

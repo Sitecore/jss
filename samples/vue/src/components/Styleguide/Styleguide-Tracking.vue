@@ -8,35 +8,26 @@
     </p>
     <div v-else>
       <p class="alert alert-warning">
-        Note: The JSS tracker API is disabled by default. Consult the <a href="https://jss.sitecore.com/docs/fundamentals/services/tracking">tracking documentation</a> to enable it.
+        Note: The JSS tracker API is disabled by default. Consult the
+        <a href="https://jss.sitecore.com/docs/fundamentals/services/tracking"
+          >tracking documentation</a
+        >
+        to enable it.
       </p>
       <div class="row">
         <fieldset class="form-group col-sm">
           <legend>Event</legend>
-          <p>
-            Events are defined in <code>/sitecore/system/Settings/Analytics/Page Events</code>
-          </p>
+          <p>Events are defined in <code>/sitecore/system/Settings/Analytics/Page Events</code></p>
           <label for="event">Event GUID or Name</label>
-          <input
-            type="text"
-            id="event"
-            class="form-control"
-            v-model="txtEvent"
-          />
-          <button
-            type="button"
-            class="btn btn-primary mt-3"
-            v-on:click="submitEvent"
-          >
+          <input type="text" id="event" class="form-control" v-model="txtEvent" />
+          <button type="button" class="btn btn-primary mt-3" v-on:click="submitEvent">
             Submit
           </button>
         </fieldset>
 
         <fieldset class="form-group col-sm">
           <legend>Goal</legend>
-          <p>
-            Goals are defined in <code>/sitecore/system/Marketing Control Panel/Goals</code>
-          </p>
+          <p>Goals are defined in <code>/sitecore/system/Marketing Control Panel/Goals</code></p>
           <label for="goal">Goal GUID or Name</label>
           <input
             type="text"
@@ -45,11 +36,7 @@
             v-model="txtGoal"
             placeholder="i.e. Register"
           />
-          <button
-            type="button"
-            class="btn btn-primary mt-3"
-            v-on:click="submitGoal"
-          >
+          <button type="button" class="btn btn-primary mt-3" v-on:click="submitGoal">
             Submit
           </button>
         </fieldset>
@@ -77,11 +64,7 @@
             v-model="txtOutcomeValue"
             placeholder="i.e. 1337.00"
           />
-          <button
-            type="button"
-            class="btn btn-primary mt-3"
-            v-on:click="submitOutcome"
-          >
+          <button type="button" class="btn btn-primary mt-3" v-on:click="submitOutcome">
             Submit
           </button>
         </fieldset>
@@ -92,16 +75,8 @@
             Campaigns are defined in <code>/sitecore/system/Marketing Control Panel/Campaigns</code>
           </p>
           <label for="campaign">Campaign GUID or Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="campaign"
-            v-model="txtCampaign" />
-          <button
-            type="button"
-            class="btn btn-primary mt-3"
-            v-on:click="triggerCampaign"
-          >
+          <input type="text" class="form-control" id="campaign" v-model="txtCampaign" />
+          <button type="button" class="btn btn-primary mt-3" v-on:click="triggerCampaign">
             Submit
           </button>
         </fieldset>
@@ -110,9 +85,9 @@
         <fieldset class="form-group col-sm">
           <legend>Page View</legend>
           <p>
-            Track arbitrary page views for custom routing or offline use. Note that Layout
-            Service tracks page views by default unless <code>tracking=false</code> is passed
-            in its query string.
+            Track arbitrary page views for custom routing or offline use. Note that Layout Service
+            tracks page views by default unless <code>tracking=false</code> is passed in its query
+            string.
           </p>
           <label for="pageId">Page Item GUID</label>
           <input
@@ -131,11 +106,7 @@
             v-model="txtPageUrl"
             placeholder="i.e. /foo/bar"
           />
-          <button
-            type="button"
-            class="btn btn-primary mt-3"
-            v-on:click="submitPageView"
-          >
+          <button type="button" class="btn btn-primary mt-3" v-on:click="submitPageView">
             Submit
           </button>
         </fieldset>
@@ -143,14 +114,10 @@
         <fieldset class="form-group col-sm">
           <legend>Batching</legend>
           <p>
-            The tracking API supports pushing a whole batch of events in a single request.
-            This can be useful for queuing strategies or offline PWA usage.
+            The tracking API supports pushing a whole batch of events in a single request. This can
+            be useful for queuing strategies or offline PWA usage.
           </p>
-          <button
-            type="button"
-            class="btn btn-primary"
-            v-on:click="submitBatching"
-          >
+          <button type="button" class="btn btn-primary" v-on:click="submitBatching">
             Submit Batch of Events
           </button>
         </fieldset>
@@ -159,23 +126,20 @@
         <fieldset class="form-group col-sm">
           <legend>Interaction Control</legend>
           <p>
-            Tracking data is not pushed into the xConnect service until your session ends on
-            the Sitecore server. Click this button to instantly end your session and flush the
-            data - great for debugging and testing.
+            Tracking data is not pushed into the xConnect service until your session ends on the
+            Sitecore server. Click this button to instantly end your session and flush the data -
+            great for debugging and testing.
           </p>
           <p class="alert alert-warning">
-            Note: By default <em>anonymous</em> contacts will not be shown in Experience
-            Profile. If your interactions are not showing up in Experience Profile, you may
-            need to
-            <a href="https://doc.sitecore.net/developers/xp/xconnect/xconnect-search-indexer/enable-anonymous-contact-indexing.html">
+            Note: By default <em>anonymous</em> contacts will not be shown in Experience Profile. If
+            your interactions are not showing up in Experience Profile, you may need to
+            <a
+              href="https://doc.sitecore.net/developers/xp/xconnect/xconnect-search-indexer/enable-anonymous-contact-indexing.html"
+            >
               enable anonymous contact indexing.
             </a>
           </p>
-          <button
-            type="button"
-            class="btn btn-primary"
-            v-on:click="abandonSession"
-          >
+          <button type="button" class="btn btn-primary" v-on:click="abandonSession">
             End Interaction
           </button>
         </fieldset>

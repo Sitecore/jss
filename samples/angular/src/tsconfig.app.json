@@ -3,7 +3,6 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
-    "module": "commonjs",
     "newLine": "LF",
     "types": []
   },
@@ -13,6 +12,11 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts",
-    "**/*.sitecore.ts"
-  ]
+    "**/*.sitecore.ts",
+    "./app/jss-context.server-side.service.ts",
+    "./app/i18n/jss-translation-server-loader.service.ts",
+    "./app/app.server.module.ts",
+    "./main.server.ts",
+    "./environments/environment.prod.ts"
+  ],
 }

@@ -13,7 +13,7 @@
     "start": "jss clean && node -r babel-register ./build/start.js --env.content=disconnected",
     "deploy:watch": "scjss-verify-setup && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.watch --env.outputPath=sitecore",
     "build": "jss clean && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.production",
-    "lint": "eslint --fix ./src/**/*.js ./sitecore/definitions/**/*.js ./build/**/*.js ./lib/**/*.js"
+    "lint": "eslint --fix ./src/**/*.js ./build/**/*.js ./data/**/*.yml"
   },
   "engines": {
     "node": ">=8.1",
@@ -48,8 +48,8 @@
     "@sitecore-jss/sitecore-jss-react": "^14.0.4",
     "babel-polyfill": "~6.26.0",
     "prop-types": "~15.6.2",
-    "react": "~16.4.2",
-    "react-dom": "~16.4.2"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@sitecore-jss/sitecore-jss-cli": "^14.0.4",
@@ -63,20 +63,21 @@
     "babel-preset-react": "~6.24.1",
     "babel-preset-stage-0": "~6.24.1",
     "chalk": "~2.3.0",
-    "chokidar": "~2.0.3",
+    "chokidar": "~3.4.2",
     "cross-env": "~5.0.5",
     "css-loader": "~3.2.0",
     "del": "~3.0.0",
-    "eslint": "~4.16.0",
+    "eslint": "^7.4.0",
     "eslint-config-prettier": "~2.9.0",
     "eslint-import-resolver-webpack": "~0.10.1",
     "eslint-plugin-import": "~2.13.0",
     "eslint-plugin-prettier": "~2.6.2",
     "eslint-plugin-react": "~7.10.0",
+    "eslint-plugin-yaml": "^0.2.0",
     "extract-text-webpack-plugin": "~3.0.2",
     "file-loader": "1.1.7",
     "fs-extra": "~7.0.0",
-    "isomorphic-fetch": "~2.2.1",
+    "isomorphic-fetch": "~3.0.0",
     "js-yaml": "^3.13.1",
     "lodash.merge": "^4.6.2",
     "opn": "~5.3.0",
@@ -84,7 +85,6 @@
     "progress-bar-webpack-plugin": "~1.11.0",
     "replace-ext": "~1.0.0",
     "style-loader": "~0.22.1",
-    "uglifyjs-webpack-plugin": "~1.2.7",
     "url-loader": "~1.0.1",
     "uuid": "~3.3.2",
     "webpack": "~3.10.0",

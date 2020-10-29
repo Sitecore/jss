@@ -13,11 +13,9 @@
       on each element to make React's DOM updating happy:
     -->
     <template v-if="fields.sharedContentList">
-      <div v-for="(listItem, index) in fields.sharedContentList" :key="`sharedListItem-${index}`" >
+      <div v-for="(listItem, index) in fields.sharedContentList" :key="`sharedListItem-${index}`">
         <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
-        <p>
-          Field: <sc-text :field="listItem.fields.textField" />
-        </p>
+        <p>Field: <sc-text :field="listItem.fields.textField" /></p>
       </div>
     </template>
 
@@ -25,9 +23,7 @@
     <template v-if="fields.localContentList">
       <div v-for="(listItem, index) in fields.localContentList" :key="`localListItem-${index}`">
         <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
-        <p>
-          Field: <sc-text :field="listItem.fields.textField" />
-        </p>
+        <p>Field: <sc-text :field="listItem.fields.textField" /></p>
       </div>
     </template>
   </styleguide-specimen>
