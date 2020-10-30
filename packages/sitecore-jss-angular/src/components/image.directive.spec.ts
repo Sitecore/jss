@@ -155,7 +155,7 @@ describe('<img *scImage />', () => {
     const eeMedia = {
       editable: eeImageData,
     };
-    const imageParams = {
+    let imageParams = {
       h: '100',
       w: '150',
     };
@@ -169,6 +169,11 @@ describe('<img *scImage />', () => {
         de = fixture2.debugElement;
         comp2 = fixture2.componentInstance;
         fixture2.detectChanges();
+        
+        imageParams = {
+          h: '100',
+          w: '150',
+        }
 
         comp2.params = imageParams;
         comp2.imageAttrs = imageAttrs;
