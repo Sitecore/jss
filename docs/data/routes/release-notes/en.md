@@ -5,6 +5,15 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 15.0.1
+
+### Bug Fixes
+
+* [PR #487](https://github.com/Sitecore/jss/pull/487) [sitecore-jss-proxy][#CS0195052] changes to HEAD request handling
+* [PR #486](https://github.com/Sitecore/jss/pull/486) [sitecore-jss][mediaApi] Prevent editing of original query/params
+* [PR #483](https://github.com/Sitecore/jss/pull/483) [sitecore-jss-manifest] Process media field with single item recursively
+* [PR #484](https://github.com/Sitecore/jss/pull/484) [sitecore-jss-angular] Fix ngcc.config.js incorrect structure
+
 ## Sitecore JSS 15.0 for Sitecore 10
 
 ### Upgrading
