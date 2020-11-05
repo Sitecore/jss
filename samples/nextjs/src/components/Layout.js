@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useI18n } from 'next-localization';
 import { Placeholder, withSitecoreContext, VisitorIdentification } from '@sitecore-jss/sitecore-jss-nextjs';
 
@@ -11,7 +12,7 @@ const Navigation = () => {
   return (
     <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
       <h5 className="my-0 mr-md-auto font-weight-normal">
-        <a className="text-dark" href="/"><img src="/sc_logo.svg" alt="Sitecore" /></a>
+        <a className="text-dark" href="/"><Image src="/sc_logo.svg" alt="Sitecore" width={221} height={48} /></a>
       </h5>
       <nav className="my-2 my-md-0 mr-md-3">
         <a
