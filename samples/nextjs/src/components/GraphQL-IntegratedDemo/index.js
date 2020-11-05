@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
 

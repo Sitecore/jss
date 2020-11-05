@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Link as RouterLink } from 'react-router-dom';
 import { loader as gqlLoader } from 'graphql.macro';

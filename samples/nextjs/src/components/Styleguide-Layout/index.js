@@ -1,4 +1,3 @@
-import React from 'react';
 import { Placeholder, getChildPlaceholder, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**

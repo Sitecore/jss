@@ -1,4 +1,3 @@
-import React from 'react';
 import { Placeholder, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**

@@ -1,4 +1,3 @@
-import React from 'react';
 import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from '../Styleguide-Specimen';
 

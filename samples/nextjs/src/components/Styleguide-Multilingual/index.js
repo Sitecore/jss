@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import Link from 'next/link';
 import { useI18n } from 'next-localization';

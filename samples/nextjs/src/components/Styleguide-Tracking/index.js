@@ -1,4 +1,3 @@
-import React from 'react';
 import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
 import { dataFetcher } from '../../lib/data-fetcher';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text, RichText, withSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**

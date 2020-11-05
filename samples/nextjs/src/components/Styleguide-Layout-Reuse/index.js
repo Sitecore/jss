@@ -1,4 +1,3 @@
-import React from 'react';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from '../Styleguide-Specimen';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from '../Styleguide-Specimen';
 

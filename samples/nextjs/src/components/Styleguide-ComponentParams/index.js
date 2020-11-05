@@ -1,4 +1,3 @@
-import React from 'react';
 import StyleguideSpecimen from '../Styleguide-Specimen';
 
 const StyleguideComponentParams = (props) => {

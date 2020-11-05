@@ -73,8 +73,7 @@ if (manifestOutputPath) {
 function scaffoldComponent() {
   const exportVarName = componentName.replace(/[^\w]+/g, '');
 
-  const componentTemplate = `import React from 'react';
-import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
+  const componentTemplate = `import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const ${exportVarName} = (props) => (
   <div>

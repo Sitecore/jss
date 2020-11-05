@@ -1,4 +1,3 @@
-import React from 'react';
 import { Placeholder, withSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const GraphQLLayout = ({ sitecoreContext, rendering }) => {
