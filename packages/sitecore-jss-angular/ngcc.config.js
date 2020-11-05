@@ -1,9 +1,7 @@
 module.exports = {
-  packages: {
-    entryPoints: {
-      './dist': {
-        ignore: true,
-      },
+  entryPoints: {
+    './dist': {
+      ignore: true,
     },
   },
 };
