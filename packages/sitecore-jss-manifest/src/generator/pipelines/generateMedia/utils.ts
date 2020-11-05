@@ -56,9 +56,9 @@ function getMediaFieldValue(field: any) {
 }
 
 function getNestedFieldValue(field: any, templates: any) {
-  // If there is only one value
+  // If there is only one item
   if (!Array.isArray(field.value)) {
-    return [getMediaFieldValue(field)];
+    return buildMediaOutput(field.value, templates);
   }
 
   return field.value.reduce((result: any, item: any) => {
