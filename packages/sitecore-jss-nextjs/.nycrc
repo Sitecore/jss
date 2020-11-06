@@ -1,0 +1,20 @@
+{
+  "extension": [
+    ".ts",
+    ".tsx"
+  ],
+  "exclude": [
+    "**/*.d.ts",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "src/tests",
+    "src/testData",
+    "dist",
+    "**/sharedTypes.ts"
+  ],
+  "all": true,
+  "reporter": [
+    "json-summary",
+    "text"
+  ]
+}
