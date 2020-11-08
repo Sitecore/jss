@@ -1,20 +1,19 @@
 // These are important and needed before anything else
-import 'zone.js/dist/zone-node';
-import 'reflect-metadata';
-import { join } from 'path';
 import { readFileSync } from 'fs';
+import { join } from 'path';
+import 'reflect-metadata';
+import 'zone.js/dist/zone-node';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
 import { environment } from './src/environments/environment';
+import { AppServerModule, renderModule } from './src/main.server';
+
+export * from './src/main.server';
 
 const http = require('http');
 const https = require('https');
 
 // Our index.html we'll use as our template
 const template = readFileSync(join(__dirname, 'browser', 'index.html')).toString();
-
-// * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModule, renderModule } = require('./dist/server/main');
-
 
 // Setup Http/Https agents for keep-alive. Used in headless-proxy
 const setUpDefaultAgents = (httpAgent, httpsAgent) => {
@@ -23,7 +22,7 @@ const setUpDefaultAgents = (httpAgent, httpsAgent) => {
 };
 
 // this is the function expected by the JSS View Engine for "integrated mode"
-function renderView (callback, path, data, viewBag) {
+function renderView(callback, path, data, viewBag) {
   try {
     /*
       Data from server is double-encoded since MS JSS does not allow control
@@ -68,8 +67,8 @@ function renderView (callback, path, data, viewBag) {
         { provide: 'JSS_SERVER_VIEWBAG', useValue: state.viewBag },
       ]
     })
-    .then(html => callback(null, { html }))
-    .catch(err => callback(err, null))
+      .then(html => callback(null, { html }))
+      .catch(err => callback(err, null))
   } catch (err) {
     // need to ensure the callback is always invoked no matter what
     // or else SSR will hang

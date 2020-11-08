@@ -11,6 +11,10 @@
   "lib": [
     "esnext.asynciterable"
   ],
+  "files": [
+    "main.server.ts",
+    "../server.bundle.ts"
+  ],
   "exclude": [
     "test.ts",
     "**/*.spec.ts",
