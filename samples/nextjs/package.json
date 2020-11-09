@@ -73,23 +73,24 @@
     "graphql.macro": "~1.4.2",
     "npm-run-all": "~4.1.5",
     "prettier": "^2.0.5",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   },
   "scripts": {
     "jss": "jss",
-    "bootstrap": "node scripts/bootstrap.js",
+    "bootstrap": "ts-node scripts/bootstrap.ts",
     "build": "npm-run-all --serial bootstrap next:build",
     "export": "cross-env-shell BUILD_MODE=export \"npm-run-all --serial bootstrap next:build next:export\"",
-    "graphql:update": "node -r babel-register ./scripts/update-graphql-fragment-data.js",
+    "graphql:update": "ts-node ./scripts/update-graphql-fragment-data.ts",
     "next:build": "next build",
     "next:dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "next:export": "next export",
     "next:start": "next start",
-    "scaffold": "node scripts/scaffold-component.js",
+    "scaffold": "ts-node scripts/scaffold-component.ts",
     "start": "npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
     "start:disconnected": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
-    "start:disconnected-proxy": "node scripts/disconnected-mode-proxy.js",
+    "start:disconnected-proxy": "ts-node ./scripts/disconnected-mode-proxy.ts",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
-    "start:watch-components": "node scripts/generate-component-factory.js --watch"
+    "start:watch-components": "ts-node scripts/generate-component-factory.ts --watch"
   }
 }

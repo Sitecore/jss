@@ -7,6 +7,7 @@ export {
   LayoutServiceContextData,
   RouteData,
   Field,
+  Item,
   HtmlElementRendering,
   LayoutServiceRequestOptions,
   getChildPlaceholder,
@@ -15,14 +16,18 @@ export {
   ComponentFields,
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss';
+
 export { 
   Placeholder,
   Image,
+  ImageField,
   RichText,
   Text,
   DateField,
   Link,
+  LinkField,
   File,
+  FileField
   VisitorIdentification,
   SitecoreContext, 
   SitecoreContextState, 

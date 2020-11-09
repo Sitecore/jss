@@ -48,10 +48,22 @@
       },
       {
         "kind": "INTERFACE",
+        "name": "InsertOptions",
+        "possibleTypes": [
+          {
+            "name": "ItemTemplate"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
         "name": "Item",
         "possibleTypes": [
           {
             "name": "UnknownItem"
+          },
+          {
+            "name": "StyleguideTracking"
           },
           {
             "name": "StyleguideSitecoreContext"
@@ -117,6 +129,9 @@
             "name": "StyleguideContentListItemTemplate"
           },
           {
+            "name": "StyleguideComponentParamsRenderingParameters"
+          },
+          {
             "name": "StyleguideComponentParams"
           },
           {
@@ -143,6 +158,9 @@
         "kind": "INTERFACE",
         "name": "StyleguideExplanatoryComponent",
         "possibleTypes": [
+          {
+            "name": "StyleguideTracking"
+          },
           {
             "name": "StyleguideSitecoreContext"
           },
