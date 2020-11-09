@@ -7,8 +7,7 @@ import componentFactory from '../temp/componentFactory';
 import { configBasedLayoutService as layoutService } from '../lib/layout-service';
 import { configBasedDictionaryService as dictionaryService } from '../lib/dictionary-service';
 
-const SitecorePage: NextPage<SitecorePageProps> = (props) => {
-  const { layoutData } = props;
+const SitecorePage: NextPage<SitecorePageProps> = ({ layoutData }) => {
 
   if (!layoutData?.sitecore?.route) {
     // layoutData will be missing for an invalid path
