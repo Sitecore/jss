@@ -12,7 +12,7 @@ import {
   This enables the Apollo cache to process fragments on interface types correctly.
   If this file does not exist, you may need to run the `jss graphql:update` script.
 */
-import introspectionQueryResultData from '../temp/GraphQLFragmentTypes.json';
+import introspectionQueryResultData from 'temp/GraphQLFragmentTypes.json';
 
 /*
   QUERY LINK SELECTION

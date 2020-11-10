@@ -1,5 +1,5 @@
 import { Text, Field, ComponentRendering, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from '../Styleguide-Specimen';
+import StyleguideSpecimen from 'components/Styleguide-Specimen';
 
 interface StyleguideFieldUsageTextProps {
   fields: {

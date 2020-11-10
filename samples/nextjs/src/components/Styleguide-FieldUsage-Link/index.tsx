@@ -1,5 +1,5 @@
 import { ComponentRendering, Field, Link, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from '../Styleguide-Specimen';
+import StyleguideSpecimen from 'components/Styleguide-Specimen';
 
 interface StyleguideFieldUsageLinkProps {
   fields: {

@@ -34,6 +34,7 @@
   "globals": {
     "React": "writable"
   },
+  "ignorePatterns": "**/*.js",
   "rules": {
     "react/prop-types": "off",
     "prettier/prettier": "error",

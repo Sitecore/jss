@@ -1,6 +1,6 @@
 import { dataApi, LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { AxiosDataFetcher } from './data-fetcher';
-import config from '../temp/config';
+import config from 'temp/config';
 import { IncomingMessage, ServerResponse } from 'http';
 
 export class LayoutService {

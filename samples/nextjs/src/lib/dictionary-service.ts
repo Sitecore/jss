@@ -1,5 +1,5 @@
 import { DictionaryServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
-import config from '../temp/config';
+import config from 'temp/config';
 import { dataFetcher } from './data-fetcher';
 
 export interface DictionaryPhrases {

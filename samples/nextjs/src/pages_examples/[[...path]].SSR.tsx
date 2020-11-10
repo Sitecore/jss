@@ -2,11 +2,11 @@ import { NextPage, GetServerSideProps } from 'next';
 import Error from 'next/error';
 import { AxiosError } from 'axios';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import Layout from '../components/Layout';
-import { SitecorePageProps, extractPath } from '../lib/page-props';
-import componentFactory from '../temp/componentFactory';
-import { configBasedLayoutService as layoutService } from '../lib/layout-service';
-import { configBasedDictionaryService as dictionaryService } from '../lib/dictionary-service';
+import Layout from 'components/Layout';
+import { SitecorePageProps, extractPath } from 'lib/page-props';
+import componentFactory from 'temp/componentFactory';
+import { configBasedLayoutService as layoutService } from 'lib/layout-service';
+import { configBasedDictionaryService as dictionaryService } from 'lib/dictionary-service';
 
 const SitecorePage: NextPage<SitecorePageProps> = (props) => {
   const { layoutData } = props;

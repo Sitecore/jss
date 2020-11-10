@@ -1,4 +1,4 @@
-import StyleguideSpecimen from '../Styleguide-Specimen';
+import StyleguideSpecimen from 'components/Styleguide-Specimen';
 import { ComponentRendering, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface StyleguideComponentParamsProps {

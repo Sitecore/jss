@@ -26,7 +26,7 @@ const GraphQLLayout: React.FC<GraphQLLayoutProps> = ({ sitecoreContext, renderin
           </p>
           <p>
             Libraries such as <code>graphql-tools</code> can provide GraphQL API mocking
-            capabilities, which could enable disconnected GraphQL. This is not suppo rted out of the
+            capabilities, which could enable disconnected GraphQL. This is not supported out of the
             box, however.
           </p>
           <p>
