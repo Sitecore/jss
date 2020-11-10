@@ -3,7 +3,7 @@ import { ComponentRendering, Field, Placeholder, Text } from '@sitecore-jss/site
 interface StyleguideSectionProps {
   fields: {
     heading: Field<string>;
-  }
+  };
   rendering: ComponentRendering;
 }
 

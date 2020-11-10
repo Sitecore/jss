@@ -50,8 +50,8 @@ fetch(jssConfig.graphQLEndpoint, {
   .then((result) => result.json())
   .then((result) => {
     // here we're filtering out any type information unrelated to unions or interfaces
-    const filteredData = result.data.__schema.types.filter((
-      type: { possibleTypes: { name: string } }) => type.possibleTypes !== null
+    const filteredData = result.data.__schema.types.filter(
+      (type: { possibleTypes: { name: string } }) => type.possibleTypes !== null
     );
 
     const filteredResult = { ...result };

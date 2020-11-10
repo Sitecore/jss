@@ -2,7 +2,12 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useI18n } from 'next-localization';
-import { Placeholder, withSitecoreContext, VisitorIdentification, RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Placeholder,
+  withSitecoreContext,
+  VisitorIdentification,
+  RouteData,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 const LOGO_SIZE = { WIDTH: 221, HEIGHT: 48 };
 
@@ -15,7 +20,14 @@ const Navigation = () => {
     <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
       <h5 className="my-0 mr-md-auto font-weight-normal">
         <Link href="/">
-          <a className="text-dark"><Image src="/sc_logo.svg" alt="Sitecore" width={LOGO_SIZE.WIDTH} height={LOGO_SIZE.HEIGHT} /></a>
+          <a className="text-dark">
+            <Image
+              src="/sc_logo.svg"
+              alt="Sitecore"
+              width={LOGO_SIZE.WIDTH}
+              height={LOGO_SIZE.HEIGHT}
+            />
+          </a>
         </Link>
       </h5>
       <nav className="my-2 my-md-0 mr-md-3">
@@ -41,12 +53,11 @@ const Navigation = () => {
 interface LayoutProps {
   route: RouteData;
   sitecoreContext: {
-    pageEditing?: boolean; 
-  }
+    pageEditing?: boolean;
+  };
 }
 
 const Layout: React.FC<LayoutProps> = ({ route, sitecoreContext }) => {
-
   return (
     <>
       <Head>

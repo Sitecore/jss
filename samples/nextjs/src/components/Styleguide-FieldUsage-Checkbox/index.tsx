@@ -7,7 +7,7 @@ interface StyleguideFieldUsageCheckboxProps {
     description: Field<string>;
     checkbox: Field<boolean>;
     checkbox2: Field<boolean>;
-  },
+  };
   rendering: ComponentRendering;
 }
 

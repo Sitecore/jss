@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import { Manifest } from '@sitecore-jss/sitecore-jss-manifest';
 
 /**

@@ -1,10 +1,15 @@
-import { RouteData, Placeholder, withSitecoreContext, ComponentRendering } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  RouteData,
+  Placeholder,
+  withSitecoreContext,
+  ComponentRendering,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface GraphQLLayoutProps {
   sitecoreContext: {
-    route: RouteData
-  },
-  rendering: ComponentRendering
+    route: RouteData;
+  };
+  rendering: ComponentRendering;
 }
 
 const GraphQLLayout: React.FC<GraphQLLayoutProps> = ({ sitecoreContext, rendering }) => {
@@ -21,7 +26,7 @@ const GraphQLLayout: React.FC<GraphQLLayoutProps> = ({ sitecoreContext, renderin
           </p>
           <p>
             Libraries such as <code>graphql-tools</code> can provide GraphQL API mocking
-            capabilities, which could enable disconnected GraphQL. This is not suppo  rted out of the
+            capabilities, which could enable disconnected GraphQL. This is not suppo rted out of the
             box, however.
           </p>
           <p>

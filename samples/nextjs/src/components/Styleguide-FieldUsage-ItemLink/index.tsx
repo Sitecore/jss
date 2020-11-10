@@ -7,7 +7,7 @@ interface StyleguideFieldUsageItemLinkProps {
     description: Field<string>;
     sharedItemLink: Item;
     localItemLink: Item;
-  },
+  };
   rendering: ComponentRendering;
 }
 

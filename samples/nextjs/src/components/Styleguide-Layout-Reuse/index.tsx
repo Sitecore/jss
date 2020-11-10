@@ -5,7 +5,7 @@ interface StyleguideLayoutReuse {
   fields: {
     heading: Field<string>;
     description: Field<string>;
-  }
+  };
   rendering: ComponentRendering;
 }
 

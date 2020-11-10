@@ -5,13 +5,13 @@ interface StyleguideComponentParamsProps {
   fields: {
     description: Field<string>;
     heading: Field<string>;
-  },
-  rendering: ComponentRendering,
+  };
+  rendering: ComponentRendering;
   params: {
     cssClass: string;
     columns: string;
     useCallToAction: 'false' | 'true';
-  }
+  };
 }
 
 const StyleguideComponentParams: React.FC<StyleguideComponentParamsProps> = (props) => {

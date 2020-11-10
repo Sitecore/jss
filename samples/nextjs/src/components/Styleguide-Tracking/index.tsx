@@ -1,10 +1,15 @@
 import React, { RefObject } from 'react';
-import { ComponentRendering, Field, RouteData, withSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  ComponentRendering,
+  Field,
+  RouteData,
+  withSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
 import { dataFetcher } from '../../lib/data-fetcher';
 import config from '../../temp/config';
 import StyleguideSpecimen from '../Styleguide-Specimen';
-import {TrackingRequestOptions} from '@sitecore-jss/sitecore-jss-tracking/types/trackingRequestOptions';
+import { TrackingRequestOptions } from '@sitecore-jss/sitecore-jss-tracking/types/trackingRequestOptions';
 
 /* eslint-disable no-alert,no-undef */
 
@@ -12,7 +17,7 @@ interface StyleguideTrackingProps {
   fields: {
     heading: Field<string>;
     description: Field<string>;
-  }
+  };
   rendering: ComponentRendering;
   sitecoreContext: RouteData;
 }
@@ -93,7 +98,12 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
   submitPageView() {
     trackingApi
       .trackEvent(
-        [{ pageId: this.pageId.current!.value, url: this.pageUrl.current!.value }],
+        [
+          {
+            pageId: this.pageId.current!.value,
+            url: this.pageUrl.current!.value,
+          },
+        ],
         this.trackingApiOptions
       )
       .then(() => alert('Page view pushed'))
@@ -119,7 +129,10 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
           { eventId: 'Download' },
           { goalId: 'Instant Demo' },
           { outcomeId: 'Opportunity' },
-          { pageId: '{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}', url: '/arbitrary/url/you/own' },
+          {
+            pageId: '{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}',
+            url: '/arbitrary/url/you/own',
+          },
           // this goal will be added to the new page/route ID set above, not the current route
           { goalId: 'Register' },
         ],

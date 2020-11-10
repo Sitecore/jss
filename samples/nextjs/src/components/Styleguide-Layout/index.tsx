@@ -1,4 +1,9 @@
-import { Placeholder, getChildPlaceholder, getFieldValue, ComponentRendering } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Placeholder,
+  getChildPlaceholder,
+  getFieldValue,
+  ComponentRendering,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface StyleguideLayoutProps {
   rendering: ComponentRendering;
@@ -10,12 +15,12 @@ interface StyleguideLayoutProps {
  * and does not need to be manually maintained.
  */
 const StyleguideLayout: React.FC<StyleguideLayoutProps> = (props) => {
-  const getRendering = (section: any) => section as ComponentRendering
+  const getRendering = (section: any) => section as ComponentRendering;
 
   const convertUID = (uid?: string) => {
     if (!uid) return '';
     return uid.replace(/[{}]/g, '');
-  }
+  };
 
   // this code reads the components in the child placeholders of this component,
   // and projects them into the left navigation column for the styleguide

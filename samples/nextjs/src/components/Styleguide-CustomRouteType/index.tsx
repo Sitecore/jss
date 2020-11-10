@@ -8,9 +8,9 @@ interface StyleguideCustomRouteTypeProps {
         headline: Field<string>;
         author: Field<string>;
         content: Field<string>;
-      }
-    }
-  },
+      };
+    };
+  };
 }
 
 // this fancy destructure syntax is essentially equivalent to
@@ -31,7 +31,9 @@ const StyleguideCustomRouteType: React.FC<StyleguideCustomRouteTypeProps> = ({
 
     <RichText field={fields.content} />
 
-    <Link href="/styleguide"><a>Return to the Styleguide</a></Link>
+    <Link href="/styleguide">
+      <a>Return to the Styleguide</a>
+    </Link>
   </div>
 );
 

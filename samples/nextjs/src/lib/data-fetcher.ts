@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosInstance } from 'axios';
 
 export class AxiosDataFetcher {
   instance: AxiosInstance;
-  
+
   constructor(config?: AxiosRequestConfig) {
     this.instance = axios.create(config);
   }

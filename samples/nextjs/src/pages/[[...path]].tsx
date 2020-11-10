@@ -12,28 +12,27 @@ const SitecorePage: NextPage<SitecorePageProps> = (props) => {
 
   if (!layoutData?.sitecore?.route) {
     // layoutData will be missing for an invalid path
-    return <Error statusCode={404} />
+    return <Error statusCode={404} />;
   }
 
   const context = {
     route: layoutData.sitecore.route,
     itemId: layoutData.sitecore.route?.itemId,
-    ...layoutData.sitecore.context
+    ...layoutData.sitecore.context,
   };
 
   return (
     <SitecoreContext componentFactory={componentFactory} context={context}>
       <Layout route={layoutData.sitecore.route} />
     </SitecoreContext>
-  )
-}
+  );
+};
 
-// This function gets called at build and export time to determine 
+// This function gets called at build and export time to determine
 // pages for SSG ("paths", as tokenized array).
 export const getStaticPaths: GetStaticPaths = async () => {
-  if (process.env.BUILD_MODE === "export") {
-
-    // If performing an export, fallback is not allowed. 
+  if (process.env.BUILD_MODE === 'export') {
+    // If performing an export, fallback is not allowed.
     // Use hard-coded values for now for demo-purposes.
     // Ultimately, this is where we'll request a "sitemap" from Sitecore.
     return {
@@ -41,34 +40,33 @@ export const getStaticPaths: GetStaticPaths = async () => {
         { params: { path: [''] }, locale: 'en' },
         { params: { path: ['styleguide'] }, locale: 'en' },
         { params: { path: ['styleguide', 'custom-route-type'] }, locale: 'en' },
-        { params: { path: ['graphql'] }, locale: 'en' }
+        { params: { path: ['graphql'] }, locale: 'en' },
       ],
-      fallback: false
-    }
+      fallback: false,
+    };
   } else {
-
-    // Fallback, along with revalidate in getStaticProps (below), 
-    // enables Incremental Static Regeneration. This allows us to 
+    // Fallback, along with revalidate in getStaticProps (below),
+    // enables Incremental Static Regeneration. This allows us to
     // leave certain (or all) paths empty if desired and static pages
     // will be generated on request.
     // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
     return {
       paths: [],
-      fallback: 'blocking'
-    }
+      fallback: 'blocking',
+    };
   }
-}
+};
 
 // This function gets called at build time on server-side.
 // It may be called again, on a serverless function, if
 // revalidation (or fallback) is enabled and a new request comes in.
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const path = extractPath(params);
-  
-  let props: SitecorePageProps = {
+
+  const props: SitecorePageProps = {
     locale: locale ?? 'en',
     layoutData: null,
-    dictionary: null
+    dictionary: null,
   };
 
   // Retrieve layoutData from Layout Service
@@ -88,6 +86,6 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     // - At most once every 5 seconds
     revalidate: 5, // In seconds
   };
-}
+};
 
 export default SitecorePage;

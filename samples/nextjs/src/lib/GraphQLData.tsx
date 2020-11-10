@@ -5,7 +5,7 @@ import {
   resetExperienceEditorChromes,
   ComponentRendering,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import {DocumentNode, OperationDefinitionNode, VariableDefinitionNode} from 'graphql';
+import { DocumentNode, OperationDefinitionNode, VariableDefinitionNode } from 'graphql';
 
 /**
  * Higher order component that abstracts common JSS + Apollo integration needs.
@@ -18,7 +18,10 @@ import {DocumentNode, OperationDefinitionNode, VariableDefinitionNode} from 'gra
  * @param {*} query The GraphQL AST to execute (should go through graphql-tag, no strings)
  * @param {*} configuration Values passed in are shipped to react-apollo configuration (https://www.apollographql.com/docs/react/basics/setup.html#graphql-config)
  */
-function GraphQLData(query: DocumentNode, configuration: any = {}): (Component: React.ComponentClass | React.FC) => any {
+function GraphQLData(
+  query: DocumentNode,
+  configuration: any = {}
+): (Component: React.ComponentClass | React.FC) => any {
   return function wrapComponent(Component: React.ComponentClass | React.FC) {
     interface SitecoreRenderingWrapperProps {
       sitecoreContext: {
@@ -32,7 +35,7 @@ function GraphQLData(query: DocumentNode, configuration: any = {}): (Component: 
         itemId: string;
       };
       rendering: ComponentRendering;
-    };
+    }
 
     class SitecoreRenderingWrapper extends React.Component<SitecoreRenderingWrapperProps> {
       static displayName = `JSSGraphQLComponent(${
@@ -115,7 +118,7 @@ function GraphQLData(query: DocumentNode, configuration: any = {}): (Component: 
 }
 
 function extractVariableNames(query: any) {
-  const variableNames: { [s: string]: boolean; } = {};
+  const variableNames: { [s: string]: boolean } = {};
   query.definitions
     .map((def: OperationDefinitionNode) => def.variableDefinitions)
     .filter((def: VariableDefinitionNode) => def)

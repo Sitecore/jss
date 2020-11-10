@@ -2,9 +2,9 @@ import { Text, RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface ContentBlockProps {
   fields: {
-    heading: Field<string>,
-    content: Field<string>
-  }
+    heading: Field<string>;
+    content: Field<string>;
+  };
 }
 
 /**
@@ -18,6 +18,6 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ fields }) => (
 
     <RichText className="contentDescription" field={fields.content} />
   </>
-)
+);
 
 export default ContentBlock;

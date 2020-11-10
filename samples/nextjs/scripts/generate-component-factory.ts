@@ -47,7 +47,9 @@ function writeComponentFactory() {
 
   console.log(`Writing component factory to ${componentFactoryPath}`);
 
-  fs.writeFileSync(componentFactoryPath, componentFactory, { encoding: 'utf8' });
+  fs.writeFileSync(componentFactoryPath, componentFactory, {
+    encoding: 'utf8',
+  });
 }
 
 function generateComponentFactory() {

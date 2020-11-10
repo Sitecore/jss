@@ -1,5 +1,11 @@
 import React, { ReactElement } from 'react';
-import { withPlaceholder, withSitecoreContext, Text, ComponentRendering, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  withPlaceholder,
+  withSitecoreContext,
+  Text,
+  ComponentRendering,
+  Field,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from '../Styleguide-Specimen';
 
 interface StyleguideLayoutTabsState {
@@ -11,7 +17,7 @@ interface StyleguideLayoutTabsProps {
   fields: {
     heading: Field<string>;
     description: Field<string>;
-  }
+  };
   rendering: ComponentRendering;
   tabsPlaceholder: ReactElement[];
   sitecoreContext: {
@@ -27,7 +33,10 @@ interface StyleguideLayoutTabsProps {
  * When this component is edited in Sitecore Experience Editor, the tabbing behavior is turned off and each tab stacks on top of each other
  * for easy inline editing.
  */
-class StyleguideLayoutTabs extends React.Component<StyleguideLayoutTabsProps, StyleguideLayoutTabsState> {
+class StyleguideLayoutTabs extends React.Component<
+  StyleguideLayoutTabsProps,
+  StyleguideLayoutTabsState
+> {
   constructor(props: StyleguideLayoutTabsProps) {
     super(props);
 
@@ -43,7 +52,6 @@ class StyleguideLayoutTabs extends React.Component<StyleguideLayoutTabsProps, St
   }
 
   render() {
-    console.log('PROPS:', this.props)
     const { tabsPlaceholder, sitecoreContext } = this.props;
 
     let validTabIndex = 0;

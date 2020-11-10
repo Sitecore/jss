@@ -45,7 +45,7 @@ module.exports = ${JSON.stringify(config, null, 2)};`;
   console.log(`Writing runtime config to ${configPath}`);
 
   fs.writeFileSync(configPath, configText, { encoding: 'utf8' });
-};
+}
 
 function transformScJssConfig() {
   // scjssconfig.json may not exist if you've never run setup

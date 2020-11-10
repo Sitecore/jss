@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-vars */
 import { Manifest, ItemDefinition } from '@sitecore-jss/sitecore-jss-manifest';
 import { mergeFs, MergeFsResult } from '@sitecore-jss/sitecore-jss-dev-tools';
 import path from 'path';
 import fs from 'fs';
-/* eslint-enable no-unused-vars */
 
 /**
  * Adds non-route content items to the disconnected manifest.
@@ -43,7 +41,12 @@ export default function addContentToManifest(manifest: Manifest) {
  * @param {string} language Language the manifest is being created in. Conventionally affects the expected filename.
  * @returns {ItemDefinition}
  */
-function convertToItems(data: MergeFsResult, basePath: string, rootItemName: string, language: string): ItemDefinition {
+function convertToItems(
+  data: MergeFsResult,
+  basePath: string,
+  rootItemName: string,
+  language: string
+): ItemDefinition {
   const itemPath = convertPhsyicalPathToItemRelativePath(data.path, basePath);
   const name = itemPath.substr(itemPath.lastIndexOf('/') + 1);
 

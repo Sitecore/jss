@@ -7,7 +7,7 @@ interface StyleguideFieldUsageDateProps {
     description: Field<string>;
     date: Field<string>;
     dateTime: Field<string>;
-  },
+  };
   rendering: ComponentRendering;
 }
 
@@ -34,7 +34,10 @@ const StyleguideFieldUsageDate: React.FC<StyleguideFieldUsageDateProps> = (props
         </li>
         <li>
           Localized Date string (local timezone):&nbsp;
-          <DateField field={props.fields.date} render={(date) => date && date.toLocaleDateString()} />
+          <DateField
+            field={props.fields.date}
+            render={(date) => date && date.toLocaleDateString()}
+          />
         </li>
         <li>
           Localized DateTime string (local timezone):&nbsp;

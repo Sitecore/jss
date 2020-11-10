@@ -1,15 +1,19 @@
-import { ComponentRendering, Field, RouteData, withSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  ComponentRendering,
+  Field,
+  RouteData,
+  withSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from '../Styleguide-Specimen';
 
 interface StyleguideSitecoreContextProps {
   fields: {
     heading: Field<string>;
     description: Field<string>;
-  }
+  };
   rendering: ComponentRendering;
   sitecoreContext: RouteData;
 }
-
 
 /**
  * Demonstrates gaining access to the route-level Sitecore Context from

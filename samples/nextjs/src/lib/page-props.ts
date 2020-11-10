@@ -2,9 +2,9 @@ import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ParsedUrlQuery } from 'querystring';
 
 export interface SitecorePageProps {
-    locale: string,
-    layoutData: LayoutServiceData | null,
-    dictionary: object | null
+  locale: string;
+  layoutData: LayoutServiceData | null;
+  dictionary: object | null;
 }
 
 export const extractPath = (params: ParsedUrlQuery | undefined): string => {
@@ -19,4 +19,4 @@ export const extractPath = (params: ParsedUrlQuery | undefined): string => {
   }
 
   return path;
-}
+};

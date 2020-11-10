@@ -4,10 +4,10 @@ interface StyleguideLayoutTabsTabProps {
   fields: {
     content: Field<string>;
     title: Field<string>;
-  }
+  };
   sitecoreContext: {
     pageEditing?: boolean;
-  }
+  };
 }
 
 /**

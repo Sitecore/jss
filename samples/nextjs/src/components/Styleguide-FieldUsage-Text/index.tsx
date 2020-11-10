@@ -7,7 +7,7 @@ interface StyleguideFieldUsageTextProps {
     description: Field<string>;
     sample: Field<string>;
     sample2: Field<string>;
-  },
+  };
   rendering: ComponentRendering;
 }
 

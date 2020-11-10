@@ -7,8 +7,8 @@ interface StyleguideFieldUsageContentListProps {
     description: Field<string>;
     sharedContentList: Item[];
     localContentList: Item[];
-  },
-  rendering: ComponentRendering
+  };
+  rendering: ComponentRendering;
 }
 
 /**

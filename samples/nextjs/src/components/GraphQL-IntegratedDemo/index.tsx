@@ -2,8 +2,8 @@ import { Text, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
 
 interface DataSource {
-  sample1: any,
-  sample2: any,
+  sample1: any;
+  sample2: any;
   name: string;
   id: string;
 }
@@ -11,10 +11,10 @@ interface DataSource {
 interface GraphQlIntegratedDemoProps {
   fields: {
     data: {
-      datasource: DataSource,
-      contextItem: any
-    }
-  }
+      datasource: DataSource;
+      contextItem: any;
+    };
+  };
 }
 
 const GraphQLIntegratedDemo: React.FC<GraphQlIntegratedDemoProps> = (props) => {
@@ -68,8 +68,10 @@ const GraphQLIntegratedDemo: React.FC<GraphQlIntegratedDemoProps> = (props) => {
           <ul>
             {contextItem.children.map((child: any) => (
               <li key={child.id}>
-                <NextLink href={child.url}><a>{child.pageTitle.value}</a></NextLink>&nbsp; (editable
-                title too! <Text field={child.pageTitle.jss} />)
+                <NextLink href={child.url}>
+                  <a>{child.pageTitle.value}</a>
+                </NextLink>
+                &nbsp; (editable title too! <Text field={child.pageTitle.jss} />)
               </li>
             ))}
           </ul>

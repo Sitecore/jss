@@ -6,7 +6,7 @@ interface StyleguideFieldUsageFileProps {
     heading: Field<string>;
     description: Field<string>;
     file: FileField;
-  },
+  };
   rendering: ComponentRendering;
 }
 

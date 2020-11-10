@@ -6,8 +6,8 @@ interface StyleguideFieldUsageCustomProps {
     heading: Field<string>;
     description: Field<string>;
     customIntField: Field<string>;
-  },
-  rendering: ComponentRendering
+  };
+  rendering: ComponentRendering;
 }
 
 /**

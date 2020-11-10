@@ -7,7 +7,7 @@ interface StyleguideFieldUsageImageProps {
     description: Field<string>;
     sample1: ImageField;
     sample2: ImageField;
-  },
+  };
   rendering: ComponentRendering;
 }
 

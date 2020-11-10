@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
 
 /**
  * Adds the Styleguide-FieldUsage-Custom component to the disconnected manifest.

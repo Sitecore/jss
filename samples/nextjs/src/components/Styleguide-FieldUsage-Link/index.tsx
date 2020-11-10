@@ -9,7 +9,7 @@ interface StyleguideFieldUsageLinkProps {
     internalLink: LinkField;
     emailLink: LinkField;
     paramsLink: LinkField;
-  },
+  };
   rendering: ComponentRendering;
 }
 

@@ -4,15 +4,10 @@ import config from '../temp/config';
 import { IncomingMessage, ServerResponse } from 'http';
 
 export class LayoutService {
-
-  constructor(
-    private apiHost: string, 
-    private apiKey: string, 
-    private siteName: string
-  ) {}
+  constructor(private apiHost: string, private apiKey: string, private siteName: string) {}
 
   private getFetchOptions = (language?: string) => {
-    let params: any = {};
+    const params: any = {};
     if (language) {
       params.sc_lang = language;
     }
@@ -28,16 +23,20 @@ export class LayoutService {
       layoutServiceConfig: {
         host: this.apiHost,
       },
-      querystringParams: { ...params }
+      querystringParams: { ...params },
     };
-  }
+  };
 
-  fetchLayoutData(itemPath: string, language?: string, req?: IncomingMessage, res?: ServerResponse) {
+  fetchLayoutData(
+    itemPath: string,
+    language?: string,
+    req?: IncomingMessage,
+    res?: ServerResponse
+  ) {
     const fetchOptions = this.getFetchOptions(language);
     const axiosFetcher = new AxiosDataFetcher();
 
     if (req && res) {
-
       // If we have access to the request/response (SSR), we want to pass along
       // certain headers to properly allow Sitecore analytics tracking.
       //
@@ -47,8 +46,8 @@ export class LayoutService {
       //  referer (request)
       //  X-Forwarded-For (request)
       //  set-cookie (response)
-      //  
-      // Obviously might need to be a bit more graceful about all this 
+      //
+      // Obviously might need to be a bit more graceful about all this
       // (not stomping on existing data potentially), but you get the point ...
 
       axiosFetcher.instance.interceptors.request.use((config) => {
@@ -57,10 +56,10 @@ export class LayoutService {
           config.headers.common['cookie'] = req.headers['cookie'];
         }
         if (req.headers['referer']) {
-          config.headers.common['referer'] = req.headers['referer']
+          config.headers.common['referer'] = req.headers['referer'];
         }
         if (req.headers['user-agent']) {
-          config.headers.common['user-agent'] = req.headers['user-agent']
+          config.headers.common['user-agent'] = req.headers['user-agent'];
         }
         if (req.connection.remoteAddress) {
           config.headers.common['X-Forwarded-For'] = req.connection.remoteAddress;
@@ -78,10 +77,16 @@ export class LayoutService {
       });
     }
 
-    const fetcher = (url: string, data?: any) => { return axiosFetcher.fetch(url, data) };
+    const fetcher = (url: string, data?: any) => {
+      return axiosFetcher.fetch(url, data);
+    };
     return dataApi.fetchRouteData(itemPath, { fetcher, ...fetchOptions });
   }
 }
 
-var configBasedLayoutService = new LayoutService(config.sitecoreApiHost, config.sitecoreApiKey, config.jssAppName);
+const configBasedLayoutService = new LayoutService(
+  config.sitecoreApiHost,
+  config.sitecoreApiKey,
+  config.jssAppName
+);
 export { configBasedLayoutService };
