@@ -57,29 +57,42 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
   }
 
   submitEvent() {
+    if (!this.event.current) return;
+
     trackingApi
-      .trackEvent([{ eventId: this.event.current!.value }], this.trackingApiOptions)
+      .trackEvent([{ eventId: this.event.current.value }], this.trackingApiOptions)
       .then(() => alert('Page event pushed'))
       .catch((error) => alert(error));
   }
 
   submitGoal() {
+    if (!this.goal.current) return;
+
     trackingApi
-      .trackEvent([{ goalId: this.goal.current!.value }], this.trackingApiOptions)
+      .trackEvent([{ goalId: this.goal.current.value }], this.trackingApiOptions)
       .then(() => alert('Goal pushed'))
       .catch((error) => alert(error));
   }
 
   submitOutcome() {
+    if (
+      !this.pageUrl.current ||
+      !this.pageId.current ||
+      !this.outcomeName.current ||
+      !this.outcomeValue.current
+    ) {
+      return;
+    }
+
     trackingApi
       .trackEvent(
         [
           {
-            url: this.pageUrl.current!.value,
-            pageId: this.pageId.current!.value,
-            outcomeId: this.outcomeName.current!.value,
+            url: this.pageUrl.current.value,
+            pageId: this.pageId.current.value,
+            outcomeId: this.outcomeName.current.value,
             currencyCode: 'USD',
-            monetaryValue: this.outcomeValue.current!.value,
+            monetaryValue: this.outcomeValue.current.value,
           },
         ],
         this.trackingApiOptions
@@ -89,19 +102,23 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
   }
 
   triggerCampaign() {
+    if (!this.campaign.current) return;
+
     trackingApi
-      .trackEvent([{ campaignId: this.campaign.current!.value }], this.trackingApiOptions)
+      .trackEvent([{ campaignId: this.campaign.current.value }], this.trackingApiOptions)
       .then(() => alert('Campaign set'))
       .catch((error) => alert(error));
   }
 
   submitPageView() {
+    if (!this.pageId.current || !this.pageUrl.current) return;
+
     trackingApi
       .trackEvent(
         [
           {
-            pageId: this.pageId.current!.value,
-            url: this.pageUrl.current!.value,
+            pageId: this.pageId.current.value,
+            url: this.pageUrl.current.value,
           },
         ],
         this.trackingApiOptions

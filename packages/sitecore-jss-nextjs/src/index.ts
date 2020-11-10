@@ -3,6 +3,7 @@ export {
   mediaApi,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  DictionaryServiceData,
   LayoutServiceData,
   LayoutServiceContextData,
   RouteData,
@@ -27,7 +28,7 @@ export {
   Link,
   LinkField,
   File,
-  FileField
+  FileField,
   VisitorIdentification,
   SitecoreContext, 
   SitecoreContextState, 

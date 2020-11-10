@@ -10,7 +10,7 @@ import fs from 'fs';
  * @param {Manifest} manifest
  * @returns {Promise}
  */
-export default function addContentToManifest(manifest: Manifest) {
+export default function addContentToManifest(manifest: Manifest): Promise<void> {
   const rootItemName = 'Content';
   const startPath = './data/content'; // relative to process invocation (i.e. where package.json lives)
 

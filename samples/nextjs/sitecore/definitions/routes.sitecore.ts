@@ -10,7 +10,7 @@ import { mergeFs, MergeFsResult } from '@sitecore-jss/sitecore-jss-dev-tools';
  * @param {Manifest} manifest The manifest instance to add routes to
  * @returns {Promise}
  */
-export default function addRoutesToManifest(manifest: Manifest) {
+export default function addRoutesToManifest(manifest: Manifest): Promise<void> {
   // Configure the default route type for the app
   // this lets us enable route-level data fields,
   // which most apps will want for metadata like page titles, SEO metas, or OpenGraph.

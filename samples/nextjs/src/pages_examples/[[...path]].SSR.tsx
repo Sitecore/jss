@@ -1,7 +1,8 @@
 import { NextPage, GetServerSideProps } from 'next';
 import Error from 'next/error';
-import Layout from '../components/Layout';
+import { AxiosError } from 'axios';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import Layout from '../components/Layout';
 import { SitecorePageProps, extractPath } from '../lib/page-props';
 import componentFactory from '../temp/componentFactory';
 import { configBasedLayoutService as layoutService } from '../lib/layout-service';
@@ -43,9 +44,9 @@ export const getServerSideProps: GetServerSideProps = async ({ params, locale, r
   // headers for proper Sitecore analytics tracking.
   props.layoutData = await layoutService
     .fetchLayoutData(path, props.locale, req, res)
-    .catch((error: any) => {
+    .catch((error: AxiosError) => {
       // Let 404s (invalid path) through
-      if (error?.response?.status === 404) return null;
+      if (error.response?.status === 404) return null;
       throw error;
     });
 

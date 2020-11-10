@@ -1,5 +1,3 @@
-/* eslint-disable no-console, no-underscore-dangle */
-
 import fetch from 'cross-fetch';
 import fs from 'fs';
 import { generateConfig } from './generate-config';
@@ -16,7 +14,7 @@ generateConfig();
 let jssConfig;
 
 try {
-  // eslint-disable-next-line global-require
+  // eslint-disable-next-line
   jssConfig = require('../src/temp/config').default;
 } catch (e) {
   console.error(

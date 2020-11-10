@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-const packageConfig = require('../package.json');
+import packageConfig from '../package.json';
 
 /* eslint-disable no-console */
 
@@ -12,7 +12,7 @@ const packageConfig = require('../package.json');
  * NOTE! Any configs returned here will be written into the client-side JS bundle. DO NOT PUT SECRETS HERE.
  * @param {object} configOverrides Keys in this object will override any equivalent global config keys.
  */
-export function generateConfig(configOverrides?: { [key: string]: string }) {
+export function generateConfig(configOverrides?: { [key: string]: string }): void {
   const defaultConfig = {
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',

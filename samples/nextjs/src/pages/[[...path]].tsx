@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
 import Error from 'next/error';
 import Layout from '../components/Layout';
@@ -70,11 +71,13 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   };
 
   // Retrieve layoutData from Layout Service
-  props.layoutData = await layoutService.fetchLayoutData(path, props.locale).catch((error: any) => {
-    // Let 404s (invalid path) through
-    if (error?.response?.status === 404) return null;
-    throw error;
-  });
+  props.layoutData = await layoutService
+    .fetchLayoutData(path, props.locale)
+    .catch((error: AxiosError) => {
+      // Let 404s (invalid path) through
+      if (error.response?.status === 404) return null;
+      throw error;
+    });
 
   // Retrieve dictionary data from Dictionary Service
   props.dictionary = await dictionaryService.fetchDictionaryData(props.locale);

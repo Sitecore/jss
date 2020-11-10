@@ -5,7 +5,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
-export default function (manifest: Manifest) {
+export default function (manifest: Manifest): void {
   // This registers the custom route type with the manifest.
   // Like a component, a route type contains data fields -
   // but unlike a component, the fields are shared at the route level,

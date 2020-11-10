@@ -9,19 +9,18 @@ import fs from 'fs';
  * @param {Manifest} manifest
  * @returns {Promise}
  */
-export default function addDictionaryToManifest(manifest: Manifest) {
+export default function addDictionaryToManifest(manifest: Manifest): Promise<void> | undefined {
   const startPath = './data/dictionary'; // relative to process invocation (i.e. where package.json lives)
 
   if (!fs.existsSync(startPath)) return;
 
-  // eslint-disable-next-line consistent-return
   return mergeFs(startPath)
     .then((result) => mergeDictionaryFiles(result, manifest.language))
     .then((mergedDictionary) => convertToManifestDictionary(mergedDictionary))
     .then((dictionary) => manifest.addDictionary(...dictionary));
 }
 
-function convertToManifestDictionary(mergedDictionary: { [key: string]: any }) {
+function convertToManifestDictionary(mergedDictionary: { [key: string]: string }) {
   return Object.keys(mergedDictionary).map((key) => ({
     key,
     value: mergedDictionary[key],

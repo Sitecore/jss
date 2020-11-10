@@ -1,4 +1,4 @@
-import { dataApi } from '@sitecore-jss/sitecore-jss-nextjs';
+import { dataApi, LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { AxiosDataFetcher } from './data-fetcher';
 import config from '../temp/config';
 import { IncomingMessage, ServerResponse } from 'http';
@@ -7,17 +7,23 @@ export class LayoutService {
   constructor(private apiHost: string, private apiKey: string, private siteName: string) {}
 
   private getFetchOptions = (language?: string) => {
-    const params: any = {};
+    const params: {
+      sc_apikey: string;
+      sc_site: string;
+      tracking: boolean;
+      sc_lang?: string;
+    } = {
+      sc_apikey: this.apiKey,
+      sc_site: this.siteName,
+      // Enables/disables analytics tracking for the Layout Service invocation (default is true).
+      // More than likely, this would be set to false for SSG/hybrid implementations, and the
+      // JSS tracker would instead be used on the client-side: https://jss.sitecore.com/docs/fundamentals/services/tracking
+      tracking: true,
+    };
+
     if (language) {
       params.sc_lang = language;
     }
-    params.sc_apikey = this.apiKey;
-    params.sc_site = this.siteName;
-
-    // Enables/disables analytics tracking for the Layout Service invocation (default is true).
-    // More than likely, this would be set to false for SSG/hybrid implementations, and the
-    // JSS tracker would instead be used on the client-side: https://jss.sitecore.com/docs/fundamentals/services/tracking
-    params.tracking = true;
 
     return {
       layoutServiceConfig: {
@@ -32,7 +38,7 @@ export class LayoutService {
     language?: string,
     req?: IncomingMessage,
     res?: ServerResponse
-  ) {
+  ): Promise<LayoutServiceData> {
     const fetchOptions = this.getFetchOptions(language);
     const axiosFetcher = new AxiosDataFetcher();
 
@@ -77,7 +83,7 @@ export class LayoutService {
       });
     }
 
-    const fetcher = (url: string, data?: any) => {
+    const fetcher = (url: string, data?: unknown) => {
       return axiosFetcher.fetch(url, data);
     };
     return dataApi.fetchRouteData(itemPath, { fetcher, ...fetchOptions });

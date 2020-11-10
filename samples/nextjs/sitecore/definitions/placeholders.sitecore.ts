@@ -6,7 +6,7 @@ import { Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  * Invoked by convention (*.sitecore.js) when `jss manifest` is run.
  * @param {Manifest} manifest
  */
-export default function addPlaceholdersToManifest(manifest: Manifest) {
+export default function addPlaceholdersToManifest(manifest: Manifest): void {
   manifest.addPlaceholder(
     { name: 'jss-main', displayName: 'Main' },
     // you can optionally pass a GUID or unique (app-wide) string as an ID

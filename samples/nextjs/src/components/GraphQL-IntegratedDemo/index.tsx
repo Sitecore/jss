@@ -2,17 +2,56 @@ import { Text, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
 
 interface DataSource {
-  sample1: any;
-  sample2: any;
+  sample1: {
+    jss: {
+      value: string;
+    };
+    value: string;
+  };
+  sample2: {
+    definition: {
+      type: string;
+      shared: boolean;
+    };
+    jss: {
+      value: {
+        href: string;
+        linktype: string;
+        target: string;
+        text: string;
+        url: string;
+      };
+    };
+    target: string;
+    text: string;
+    url: string;
+  };
   name: string;
   id: string;
+}
+
+interface ContextItemChild {
+  id: string;
+  url: string;
+  pageTitle: {
+    value: string;
+    jss: {
+      value: string;
+    };
+  };
 }
 
 interface GraphQlIntegratedDemoProps {
   fields: {
     data: {
       datasource: DataSource;
-      contextItem: any;
+      contextItem: {
+        id: string;
+        children: ContextItemChild[];
+        pageTitle: {
+          value: string;
+        };
+      };
     };
   };
 }
@@ -66,7 +105,7 @@ const GraphQLIntegratedDemo: React.FC<GraphQlIntegratedDemoProps> = (props) => {
           <br />
           children:
           <ul>
-            {contextItem.children.map((child: any) => (
+            {contextItem.children.map((child: ContextItemChild) => (
               <li key={child.id}>
                 <NextLink href={child.url}>
                   <a>{child.pageTitle.value}</a>

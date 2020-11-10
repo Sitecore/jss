@@ -10,6 +10,7 @@ export {
 export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
 
 export {
+  DictionaryServiceData,
   LayoutServiceData,
   LayoutServiceContextData,
   RouteData,

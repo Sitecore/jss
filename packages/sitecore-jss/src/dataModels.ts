@@ -1,4 +1,13 @@
 /**
+ * A reply from the Sitecore Dictionary Service
+ */
+export interface DictionaryServiceData {
+  lang: string;
+  app: string;
+  phrases: { [k: string]: string };
+}
+
+/**
  * A reply from the Sitecore Layout Service
  */
 export interface LayoutServiceData {

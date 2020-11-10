@@ -12,7 +12,6 @@
 import fs from 'fs';
 import path from 'path';
 import { createDefaultDisconnectedServer } from '@sitecore-jss/sitecore-jss-dev-tools';
-import { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
 import { config } from '../package.json';
 
 const touchToReloadFilePath = 'src/temp/config.js';
@@ -23,7 +22,7 @@ const serverOptions = {
   watchPaths: ['./data'],
   language: config.language,
   port: Number(process.env.DISCONNECTED_SERVER_PORT) || 3042,
-  onManifestUpdated: (manifest: ManifestInstance) => {
+  onManifestUpdated: () => {
     // if we can resolve the config file, we can alter it to force reloading the app automatically
     // instead of waiting for a manual reload. We must materially alter the _contents_ of the file to trigger
     // an actual reload, so we append "// reloadnow" to the file each time. This will not cause a problem,

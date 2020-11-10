@@ -10,7 +10,7 @@ import fs from 'fs';
  * @param {Manifest} manifest
  * @returns {Promise}
  */
-export default function addComponentContentToManifest(manifest: Manifest) {
+export default function addComponentContentToManifest(manifest: Manifest): Promise<void> {
   const rootItemName = 'Components';
   const startPath = './data/component-content'; // relative to process invocation (i.e. where package.json lives)
 

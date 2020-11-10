@@ -3,6 +3,7 @@ import {
   getChildPlaceholder,
   getFieldValue,
   ComponentRendering,
+  HtmlElementRendering,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface StyleguideLayoutProps {
@@ -15,7 +16,8 @@ interface StyleguideLayoutProps {
  * and does not need to be manually maintained.
  */
 const StyleguideLayout: React.FC<StyleguideLayoutProps> = (props) => {
-  const getRendering = (section: any) => section as ComponentRendering;
+  const getRendering = (section: ComponentRendering | HtmlElementRendering) =>
+    section as ComponentRendering;
 
   const convertUID = (uid?: string) => {
     if (!uid) return '';
