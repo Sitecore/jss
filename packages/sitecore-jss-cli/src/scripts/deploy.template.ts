@@ -39,7 +39,13 @@ export function args(yargs: Argv) {
       requiresArg: false,
       type: 'string',
       describe: 'The name of the app. Defaults to the package.json config value.',
-    })
+		})
+		.option('config', {
+			requiresArg: false,
+			type: 'string',
+			describe: 'Path to scjssconfig file.',
+			default: './scjssconfig.json'
+		})
     .option('deployUrl', {
       requiresArg: false,
       type: 'string',
