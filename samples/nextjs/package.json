@@ -10,7 +10,8 @@
     ],
     "sitecoreDistPath": "/dist/JssNextWeb",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
-    "graphQLEndpointPath": "/api/jssnextweb"
+    "graphQLEndpointPath": "/api/jssnextweb",
+    "language": "en"
   },
   "engines": {
     "node": ">=8.1",
