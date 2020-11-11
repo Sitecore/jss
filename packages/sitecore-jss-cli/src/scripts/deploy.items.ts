@@ -35,7 +35,13 @@ export const builder = {
       // tslint:disable-next-line:max-line-length
       'If true, skips build, manifest, and packaging steps. This can be used to consume existing output from jss package (via the packageOutputPath parameter) without rebuilding it.',
     default: false,
-  },
+	},
+	config: {
+		requiresArg: false,
+		type: 'string',
+		describe: 'Path to scjssconfig file.',
+		default: './scjssconfig.json'
+	},
   proxy: {
     requiresArgs: false,
     type: 'string',
@@ -61,7 +67,7 @@ export async function handler(argv: any) {
     throw new Error('App Name was not defined as a parameter or in the package.json config');
   }
 
-  const jssConfig = await resolveScJssConfig();
+  const jssConfig = await resolveScJssConfig({ configPath: argv.config });
 
   if (!argv.deployUrl) {
     const legacyConfig = jssConfig.sitecore as any;
