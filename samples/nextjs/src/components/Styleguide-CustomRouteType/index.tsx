@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { withSitecoreContext, Text, RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideComponentWithContextProps } from 'lib/component-props';
 
-interface StyleguideCustomRouteTypeProps {
+type StyleguideCustomRouteTypeProps = StyleguideComponentWithContextProps & {
   sitecoreContext: {
     route: {
       fields: {
@@ -11,15 +12,15 @@ interface StyleguideCustomRouteTypeProps {
       };
     };
   };
-}
+};
 
 // this fancy destructure syntax is essentially equivalent to
 // const fields = props.sitecoreContext.route.fields
-const StyleguideCustomRouteType: React.FC<StyleguideCustomRouteTypeProps> = ({
+const StyleguideCustomRouteType = ({
   sitecoreContext: {
     route: { fields },
   },
-}) => (
+}: StyleguideCustomRouteTypeProps) => (
   <div data-e2e-id="styleguide-customroutetype">
     <Text tag="h3" field={fields.headline} />
 

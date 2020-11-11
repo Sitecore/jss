@@ -22,4 +22,4 @@ generateConfig(configOverride);
 /*
   COMPONENT FACTORY GENERATION
 */
-require('./generate-component-factory');
+import './generate-component-factory';

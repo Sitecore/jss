@@ -1,6 +1,5 @@
-import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
+import { DictionaryPhrases, LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ParsedUrlQuery } from 'querystring';
-import { DictionaryPhrases } from './dictionary-service';
 
 export interface SitecorePageProps {
   locale: string;

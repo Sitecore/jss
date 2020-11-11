@@ -3,10 +3,14 @@ export {
   mediaApi,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  DictionaryPhrases,
+  DictionaryServiceData,
   LayoutServiceData,
+  LayoutServiceContext,
   LayoutServiceContextData,
   RouteData,
   Field,
+  Item,
   HtmlElementRendering,
   LayoutServiceRequestOptions,
   getChildPlaceholder,
@@ -15,6 +19,7 @@ export {
   ComponentFields,
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss';
+export { ComponentFactory } from './components/sharedTypes';
 export { Placeholder } from './components/Placeholder';
 export { Image, ImageField } from './components/Image';
 export { RichText } from './components/RichText';

@@ -1,25 +1,21 @@
-import { Text, Field, ComponentRendering } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import Link from 'next/link';
 import { useI18n } from 'next-localization';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideMultilingualProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-    sample: Field<string>;
+type StyleguideMultilingualProps = StyleguideComponentWithContextProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      sample: Field<string>;
+    };
   };
-  rendering: ComponentRendering;
-  sitecoreContext: {
-    pageEditing?: boolean;
-  };
-}
 
 /**
  * Demonstrates using the dictionary functionality and defining route data in
  * multiple languages.
  */
-const StyleguideMultilingual: React.FC<StyleguideMultilingualProps> = (props) => {
+const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element => {
   const i18n = useI18n();
 
   return (

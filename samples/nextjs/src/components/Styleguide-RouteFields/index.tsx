@@ -1,36 +1,31 @@
 import Link from 'next/link';
 import {
-  Field,
-  ComponentRendering,
+  // Field,
   withSitecoreContext,
   Text,
-  RouteData,
+  Field,
+  // RouteData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface RouteFieldsRouteData extends RouteData {
-  fields: {
-    pageTitle: Field<string>;
+type StyleguideRouteFieldsProps = StyleguideComponentWithContextProps &
+  StyleguideSpecimenFields & {
+    sitecoreContext: {
+      route: {
+        fields: {
+          pageTitle: Field<string>;
+        };
+      };
+    };
   };
-}
-
-interface StyleguideRouteFieldsProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-  };
-  rendering: ComponentRendering;
-  sitecoreContext: {
-    route: RouteFieldsRouteData;
-  };
-}
 
 /**
  * Demonstrates gaining access to route-level fields.
  * This technique builds on the Styleguide-SitecoreContext technique,
  * to also get the route level field data and make it editable.
  */
-const StyleguideRouteFields: React.FC<StyleguideRouteFieldsProps> = (props) => (
+const StyleguideRouteFields = (props: StyleguideRouteFieldsProps) => (
   <StyleguideSpecimen {...props} e2eId="styleguide-route-fields">
     <p>
       Route level <code>pageTitle</code> field:{' '}

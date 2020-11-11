@@ -1,20 +1,16 @@
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
-import { ComponentRendering, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideComponentParamsProps {
-  fields: {
-    description: Field<string>;
-    heading: Field<string>;
+type StyleguideComponentParamsProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    params: {
+      cssClass: string;
+      columns: string;
+      useCallToAction: 'false' | 'true';
+    };
   };
-  rendering: ComponentRendering;
-  params: {
-    cssClass: string;
-    columns: string;
-    useCallToAction: 'false' | 'true';
-  };
-}
 
-const StyleguideComponentParams: React.FC<StyleguideComponentParamsProps> = (props) => {
+const StyleguideComponentParams = (props: StyleguideComponentParamsProps): JSX.Element => {
   // props.params (i.e. props.params.cssClass without destructuring) contains the component's params
   const { cssClass, columns, useCallToAction } = props.params;
 

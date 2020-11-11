@@ -1,18 +1,7 @@
-import {
-  RouteData,
-  Placeholder,
-  withSitecoreContext,
-  ComponentRendering,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Placeholder, withSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideComponentWithContextProps } from 'lib/component-props';
 
-interface GraphQLLayoutProps {
-  sitecoreContext: {
-    route: RouteData;
-  };
-  rendering: ComponentRendering;
-}
-
-const GraphQLLayout: React.FC<GraphQLLayoutProps> = ({ sitecoreContext, rendering }) => {
+const GraphQLLayout = ({ sitecoreContext, rendering }: StyleguideComponentWithContextProps) => {
   const disconnectedMode =
     sitecoreContext.route && sitecoreContext.route.layoutId === 'available-in-connected-mode';
 

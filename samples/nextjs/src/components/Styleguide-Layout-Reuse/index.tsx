@@ -1,13 +1,8 @@
-import { ComponentRendering, Field, Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideLayoutReuse {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-  };
-  rendering: ComponentRendering;
-}
+type StyleguideLayoutReuseProps = StyleguideComponentProps & StyleguideSpecimenFields;
 
 /**
  * Demonstrates how to reuse content within JSS. See /data/routes/styleguide/en.yml
@@ -15,7 +10,7 @@ interface StyleguideLayoutReuse {
  * the Placeholder component's render props API to wrap all components in the placeholder
  * in a column tag (thus creating a horizontally laid out placeholder)
  */
-const StyleguideLayoutReuse: React.FC<StyleguideLayoutReuse> = (props) => (
+const StyleguideLayoutReuse = (props: StyleguideLayoutReuseProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-layout-reuse">
     <div className="row">
       {/*

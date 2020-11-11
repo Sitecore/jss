@@ -1,20 +1,19 @@
-import { ComponentRendering, DateField, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { DateField, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideFieldUsageDateProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-    date: Field<string>;
-    dateTime: Field<string>;
+type StyleguideFieldUsageDateProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      date: Field<string>;
+      dateTime: Field<string>;
+    };
   };
-  rendering: ComponentRendering;
-}
 
 /**
  * Demonstrates usage of date and time content field types within JSS.
  */
-const StyleguideFieldUsageDate: React.FC<StyleguideFieldUsageDateProps> = (props) => {
+const StyleguideFieldUsageDate = (props: StyleguideFieldUsageDateProps): JSX.Element => {
   return (
     <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-date">
       <ul>

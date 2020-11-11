@@ -75,13 +75,13 @@ function scaffoldComponent() {
 
   const componentTemplate = `import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 
-interface IProps {
+interface ${exportVarName}Props {
   fields: {
     heading: Field<string>;
   };
 }
 
-const ${exportVarName}: React.FC<IProps> = (props) => (
+const ${exportVarName} = (props: ${exportVarName}Props): JSX.Element => (
   <div>
     <p>${componentName} Component</p>
     <Text field={props.fields.heading} />

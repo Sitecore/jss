@@ -1,21 +1,20 @@
-import { ComponentRendering, Field, Image, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Image, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideFieldUsageImageProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-    sample1: ImageField;
-    sample2: ImageField;
+type StyleguideFieldUsageImageProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      sample1: ImageField;
+      sample2: ImageField;
+    };
   };
-  rendering: ComponentRendering;
-}
 
 /**
  * Demonstrates usage of an Image content field within JSS.
  * Image field data is uploaded into the Sitecore Media Library.
  */
-const StyleguideFieldUsageImage: React.FC<StyleguideFieldUsageImageProps> = (props) => (
+const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-image">
     <p>Plain image</p>
     <Image media={props.fields.sample1} />

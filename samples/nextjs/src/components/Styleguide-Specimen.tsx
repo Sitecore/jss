@@ -1,24 +1,22 @@
-import { Text, RichText, Field, ComponentRendering } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideSpecimenProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
+type StyleguideSpecimenProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    e2eId: string;
+    children: React.ReactNode;
   };
-  rendering: ComponentRendering;
-  e2eId: string;
-}
 
 /**
  * Helper component that displays explanatory information and where to find the definitions
  * of styleguide specimens.
  */
-const StyleguideSpecimen: React.FC<StyleguideSpecimenProps> = ({
+const StyleguideSpecimen = ({
   fields: { heading, description },
   children,
   rendering,
   e2eId,
-}) => (
+}: StyleguideSpecimenProps): JSX.Element => (
   <div
     className="pt-3"
     id={`i${rendering.uid && rendering.uid.replace(/[{}]/g, '')}`}

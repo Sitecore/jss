@@ -56,7 +56,7 @@ interface GraphQlIntegratedDemoProps {
   };
 }
 
-const GraphQLIntegratedDemo: React.FC<GraphQlIntegratedDemoProps> = (props) => {
+const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element => {
   // Query results in integrated GraphQL replace the normal `fields` data
   // i.e. with { data, }
   const { datasource, contextItem } = props.fields.data;

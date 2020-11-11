@@ -3,8 +3,10 @@ export {
   mediaApi,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  DictionaryPhrases,
   DictionaryServiceData,
   LayoutServiceData,
+  LayoutServiceContext,
   LayoutServiceContextData,
   RouteData,
   Field,
@@ -18,7 +20,8 @@ export {
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss';
 
-export { 
+export {
+  ComponentFactory,
   Placeholder,
   Image,
   ImageField,

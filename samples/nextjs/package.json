@@ -84,19 +84,19 @@
   "scripts": {
     "jss": "jss",
     "lint": "eslint --fix ./src/**/*.tsx ./src/**/*.ts ./sitecore/definitions/**/*.ts ./scripts/**/*.ts ./data/**/*.yml",
-    "bootstrap": "ts-node scripts/bootstrap.ts",
+    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts",
     "build": "npm-run-all --serial bootstrap next:build",
     "export": "cross-env-shell BUILD_MODE=export \"npm-run-all --serial bootstrap next:build next:export\"",
-    "graphql:update": "ts-node ./scripts/update-graphql-fragment-data.ts",
+    "graphql:update": "ts-node --project tsconfig.scripts.json ./scripts/update-graphql-fragment-data.ts",
     "next:build": "next build",
     "next:dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "next:export": "next export",
     "next:start": "next start",
-    "scaffold": "ts-node scripts/scaffold-component.ts",
+    "scaffold": "ts-node --project tsconfig.scripts.json scripts/scaffold-component.ts",
     "start": "npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
     "start:disconnected": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
-    "start:disconnected-proxy": "ts-node ./scripts/disconnected-mode-proxy.ts",
+    "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
-    "start:watch-components": "ts-node scripts/generate-component-factory.ts --watch"
+    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch"
   }
 }

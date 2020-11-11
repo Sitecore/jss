@@ -1,21 +1,20 @@
-import { ComponentRendering, Field, Text, Item } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Text, Item } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideFieldUsageItemLinkProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-    sharedItemLink: Item;
-    localItemLink: Item;
+type StyleguideFieldUsageItemLinkProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      sharedItemLink: Item;
+      localItemLink: Item;
+    };
   };
-  rendering: ComponentRendering;
-}
 
 /**
  * Demonstrates usage of a Content Link content field within JSS.
  * Content links are a reference to a single other piece of content.
  */
-const StyleguideFieldUsageItemLink: React.FC<StyleguideFieldUsageItemLinkProps> = (props) => {
+const StyleguideFieldUsageItemLink = (props: StyleguideFieldUsageItemLinkProps): JSX.Element => {
   const { sharedItemLink, localItemLink } = props.fields;
 
   return (

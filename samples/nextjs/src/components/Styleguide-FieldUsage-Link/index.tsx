@@ -1,22 +1,21 @@
-import { ComponentRendering, Field, Link, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Link, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideFieldUsageLinkProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-    externalLink: LinkField;
-    internalLink: LinkField;
-    emailLink: LinkField;
-    paramsLink: LinkField;
+type StyleguideFieldUsageLinkProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      externalLink: LinkField;
+      internalLink: LinkField;
+      emailLink: LinkField;
+      paramsLink: LinkField;
+    };
   };
-  rendering: ComponentRendering;
-}
 
 /**
  * Demonstrates usage of a General Link (hyperlink) content field within JSS.
  */
-const StyleguideFieldUsageLink: React.FC<StyleguideFieldUsageLinkProps> = (props) => (
+const StyleguideFieldUsageLink = (props: StyleguideFieldUsageLinkProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-link">
     External link:&nbsp;
     <Link field={props.fields.externalLink} />

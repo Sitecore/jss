@@ -1,20 +1,19 @@
-import { RichText, Field, ComponentRendering } from '@sitecore-jss/sitecore-jss-nextjs';
+import { RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideFieldUsageRichTextProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-    sample: Field<string>;
-    sample2: Field<string>;
+type StyleguideFieldUsageRichTextProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      sample: Field<string>;
+      sample2: Field<string>;
+    };
   };
-  rendering: ComponentRendering;
-}
 
 /**
  * Demonstrates usage of a Rich Text (HTML) content field within JSS.
  */
-const StyleguideFieldUsageRichText: React.FC<StyleguideFieldUsageRichTextProps> = (props) => (
+const StyleguideFieldUsageRichText = (props: StyleguideFieldUsageRichTextProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-richtext">
     {/* Basic use of a rich text field. Wraps in a <div>. */}
     <RichText field={props.fields.sample} />

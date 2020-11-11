@@ -1,22 +1,23 @@
-import { ComponentRendering, Field, Text, Item } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Text, Item } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideFieldUsageContentListProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-    sharedContentList: Item[];
-    localContentList: Item[];
+type StyleguideFieldUsageContentListProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      sharedContentList: Item[];
+      localContentList: Item[];
+    };
   };
-  rendering: ComponentRendering;
-}
 
 /**
  * Demonstrates usage of a Content List field type within JSS.
  * Content Lists are references to 0..n other content items.
  * In Sitecore terms, this maps by default to a Treelist field.
  */
-const StyleguideFieldUsageContentList: React.FC<StyleguideFieldUsageContentListProps> = (props) => {
+const StyleguideFieldUsageContentList = (
+  props: StyleguideFieldUsageContentListProps
+): JSX.Element => {
   const { sharedContentList, localContentList } = props.fields;
 
   return (

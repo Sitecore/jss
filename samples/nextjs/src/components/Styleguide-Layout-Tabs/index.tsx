@@ -1,29 +1,17 @@
 import React, { ReactElement } from 'react';
-import {
-  withPlaceholder,
-  withSitecoreContext,
-  Text,
-  ComponentRendering,
-  Field,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { withPlaceholder, withSitecoreContext, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
 
 interface StyleguideLayoutTabsState {
   activeTabIndex: number;
 }
 
-interface StyleguideLayoutTabsProps {
-  name: string;
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
+type StyleguideLayoutTabsProps = StyleguideComponentWithContextProps &
+  StyleguideSpecimenFields & {
+    name: string;
+    tabsPlaceholder: ReactElement[];
   };
-  rendering: ComponentRendering;
-  tabsPlaceholder: ReactElement[];
-  sitecoreContext: {
-    pageEditing?: boolean;
-  };
-}
 
 /**
  * Demonstrates advanced component techniques in JSS.

@@ -15,15 +15,12 @@ export class LayoutService {
     } = {
       sc_apikey: this.apiKey,
       sc_site: this.siteName,
+      sc_lang: language,
       // Enables/disables analytics tracking for the Layout Service invocation (default is true).
       // More than likely, this would be set to false for SSG/hybrid implementations, and the
       // JSS tracker would instead be used on the client-side: https://jss.sitecore.com/docs/fundamentals/services/tracking
       tracking: true,
     };
-
-    if (language) {
-      params.sc_lang = language;
-    }
 
     return {
       layoutServiceConfig: {

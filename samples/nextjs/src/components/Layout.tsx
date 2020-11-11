@@ -57,7 +57,7 @@ interface LayoutProps {
   };
 }
 
-const Layout: React.FC<LayoutProps> = ({ route, sitecoreContext }) => {
+const Layout = ({ route, sitecoreContext }: LayoutProps) => {
   return (
     <>
       <Head>

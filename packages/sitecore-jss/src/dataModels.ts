@@ -1,10 +1,17 @@
 /**
+ * Phrases from the Sitecore Dictionary Service
+ */
+export interface DictionaryPhrases {
+  [k: string]: string;
+}
+
+/**
  * A reply from the Sitecore Dictionary Service
  */
 export interface DictionaryServiceData {
   lang: string;
   app: string;
-  phrases: { [k: string]: string };
+  phrases: DictionaryPhrases;
 }
 
 /**
@@ -17,20 +24,24 @@ export interface LayoutServiceData {
 }
 
 /**
+ * Shape of context data from the Sitecore Layout Service
+ */
+export interface LayoutServiceContext {
+  pageEditing?: boolean;
+  language?: string;
+  pageState?: 'preview' | 'edit' | 'normal';
+  visitorIdentificationTimestamp?: number;
+  site?: {
+    name?: string;
+  };
+  [key: string]: any;
+};
+
+/**
  * Context information from the Sitecore Layout Service
  */
 export interface LayoutServiceContextData {
-  context: {
-    pageEditing?: boolean;
-    language?: string;
-    pageState?: 'preview' | 'edit' | 'normal';
-    visitorIdentificationTimestamp?: number;
-    site?: {
-      name?: string;
-    };
-
-    [key: string]: any;
-  };
+  context: LayoutServiceContext
 }
 
 /**

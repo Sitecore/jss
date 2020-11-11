@@ -1,20 +1,19 @@
-import { File, Field, ComponentRendering, FileField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { File, FileField } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideFieldUsageFileProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-    file: FileField;
+type StyleguideFieldUsageFileProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      file: FileField;
+    };
   };
-  rendering: ComponentRendering;
-}
 
 /**
  * Demonstrates usage of a File content field within JSS.
  * File types are stored within Sitecore's Media Library data, and can be edited.
  */
-const StyleguideFieldUsageFile: React.FC<StyleguideFieldUsageFileProps> = (props) => (
+const StyleguideFieldUsageFile = (props: StyleguideFieldUsageFileProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-file">
     {/* Renders a file link */}
     <File field={props.fields.file} />

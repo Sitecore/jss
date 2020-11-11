@@ -1,21 +1,19 @@
 import { Text, RichText, withSitecoreContext, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideComponentWithContextProps } from 'lib/component-props';
 
-interface StyleguideLayoutTabsTabProps {
+type StyleguideLayoutTabsTabProps = StyleguideComponentWithContextProps & {
   fields: {
     content: Field<string>;
     title: Field<string>;
   };
-  sitecoreContext: {
-    pageEditing?: boolean;
-  };
-}
+};
 
 /**
  * This is a single tab within the tabs sample component. These are added to the tabs placeholder.
  * This component demonstrates conditionally altering rendering when in the Sitecore Experience Editor to improve
  * author experience.
  */
-const StyleguideLayoutTabsTab: React.FC<StyleguideLayoutTabsTabProps> = (props) => (
+const StyleguideLayoutTabsTab = (props: StyleguideLayoutTabsTabProps) => (
   <div data-e2e-class="styleguide-layout-tabs-tab">
     {/*
       When we're editing the tabs we stack each tab vertically,

@@ -1,21 +1,20 @@
-import { Text, Field, getFieldValue, ComponentRendering } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideFieldUsageTextProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-    sample: Field<string>;
-    sample2: Field<string>;
+type StyleguideFieldUsageTextProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      sample: Field<string>;
+      sample2: Field<string>;
+    };
   };
-  rendering: ComponentRendering;
-}
 
 /**
  * Demonstrates usage of a Text content field within JSS.
  * Text fields are HTML encoded by default.
  */
-const StyleguideFieldUsageText: React.FC<StyleguideFieldUsageTextProps> = (props) => (
+const StyleguideFieldUsageText = (props: StyleguideFieldUsageTextProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-text">
     {/* Basic use of a text field. No wrapper. */}
     <Text field={props.fields.sample} />

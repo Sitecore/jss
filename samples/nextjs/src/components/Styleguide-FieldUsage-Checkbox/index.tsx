@@ -1,20 +1,19 @@
-import { ComponentRendering, Field, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-interface StyleguideFieldUsageCheckboxProps {
-  fields: {
-    heading: Field<string>;
-    description: Field<string>;
-    checkbox: Field<boolean>;
-    checkbox2: Field<boolean>;
+type StyleguideFieldUsageCheckboxProps = StyleguideComponentProps &
+  StyleguideSpecimenFields & {
+    fields: {
+      checkbox: Field<boolean>;
+      checkbox2: Field<boolean>;
+    };
   };
-  rendering: ComponentRendering;
-}
 
 /**
  * Demonstrates usage of a Checkbox (boolean) content field within JSS.
  */
-const StyleguideFieldUsageCheckbox: React.FC<StyleguideFieldUsageCheckboxProps> = (props) => (
+const StyleguideFieldUsageCheckbox = (props: StyleguideFieldUsageCheckboxProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-checkbox">
     {/* Checkbox fields do not have the ability to be inline edited, so they are directly accessed via their value: */}
     <ul>
