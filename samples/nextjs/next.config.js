@@ -1,4 +1,5 @@
 const jssConfig = require('./src/temp/config');
+const packageConfig = require('./package.json').config;
 
 const disconnectedServerUrl = `http://localhost:${process.env.DISCONNECTED_SERVER_PORT || 3042}/`;
 const disconnected = process.env.JSS_MODE === 'disconnected';
@@ -12,8 +13,9 @@ module.exports = (phase) => {
   }
 
   const i18n = {
+    // The locales configured here should match those setup in Sitecore
     locales: ['en', 'da-DK'],
-    defaultLocale: 'en'
+    defaultLocale: packageConfig.language
   }
 
   async function rewrites() {
