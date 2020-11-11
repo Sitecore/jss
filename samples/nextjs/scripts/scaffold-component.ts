@@ -74,8 +74,9 @@ function scaffoldComponent() {
   const exportVarName = componentName.replace(/[^\w]+/g, '');
 
   const componentTemplate = `import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideComponentProps } from 'lib/component-props';
 
-interface ${exportVarName}Props {
+type ${exportVarName}Props = StyleguideComponentProps & {
   fields: {
     heading: Field<string>;
   };
