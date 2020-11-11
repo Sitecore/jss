@@ -5,18 +5,21 @@ const disconnectedServerUrl = `http://localhost:${process.env.DISCONNECTED_SERVE
 const disconnected = process.env.JSS_MODE === 'disconnected';
 
 module.exports = (phase) => {
-  
+
   const env = {
     // Expose current Next.js phase as an environment variable
     // See available phases here: https://github.com/vercel/next.js/blob/canary/packages/next/next-server/lib/constants.ts#L1-L4
-    NEXT_PHASE: phase
-  }
+    NEXT_PHASE: phase,
+  };
 
   const i18n = {
-    // The locales configured here should match those setup in Sitecore
+    // These are all the locales you want to support in your application.
+    // These should generally match (or at least be a subset of) those in Sitecore.
     locales: ['en', 'da-DK'],
-    defaultLocale: packageConfig.language
-  }
+    // This is the locale that will be used when visiting a non-locale
+    // prefixed path e.g. `/styleguide`.
+    defaultLocale: packageConfig.language,
+  };
 
   async function rewrites() {
     if (disconnected) {
@@ -31,7 +34,7 @@ module.exports = (phase) => {
           source: '/data/media/:path*',
           destination: `${disconnectedServerUrl}/data/media/:path*`,
         },
-      ]
+      ];
     } else {
       // When in connected mode we want to proxy Sitecore paths off to Sitecore
       return [
@@ -49,13 +52,13 @@ module.exports = (phase) => {
           source: '/layouts/:path*',
           destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
         },
-      ]
+      ];
     }
   }
 
   return {
     env,
     i18n,
-    rewrites
+    rewrites,
   };
 };

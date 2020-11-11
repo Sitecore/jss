@@ -7,6 +7,7 @@ import { SitecorePageProps, extractPath } from 'lib/page-props';
 import componentFactory from 'temp/componentFactory';
 import { configBasedLayoutService as layoutService } from 'lib/layout-service';
 import { configBasedDictionaryService as dictionaryService } from 'lib/dictionary-service';
+import { config as packageConfig } from '../../package.json';
 
 const SitecorePage = ({ layoutData }: SitecorePageProps): JSX.Element => {
   if (!layoutData?.sitecore?.route) {
@@ -32,7 +33,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params, locale, r
   const path = extractPath(params);
 
   const props: SitecorePageProps = {
-    locale: locale ?? 'en',
+    // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
+    locale: locale ?? packageConfig.language,
     layoutData: null,
     dictionary: null,
   };
