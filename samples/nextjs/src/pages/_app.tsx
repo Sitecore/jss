@@ -21,8 +21,9 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   const { dictionary, ...rest } = pageProps;
 
   return (
-    // Will be doing further evaluation on best i18n library to use for dictionary translation with Next.js.
-    // 'i18next' and 'react-i18next' seem heavy-handed, 'next-localization' (used here) is promising ...
+    // Use the next-localization (w/ rosetta) library to provide our translation dictionary to the app.
+    // Note Next.js does not (currently) provide anything for translation, only i18n routing.
+    // If your app is not multilingual, next-localization and references to it can be removed.
     <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
       <Component {...rest} />
     </I18nProvider>

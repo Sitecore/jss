@@ -16,7 +16,7 @@ type StyleguideMultilingualProps = StyleguideComponentWithContextProps &
  * multiple languages.
  */
 const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element => {
-  const i18n = useI18n();
+  const { t, locale } = useI18n();
 
   return (
     <StyleguideSpecimen {...props} e2eId="styleguide-multilingual">
@@ -25,7 +25,7 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
       <p>
         This is a static dictionary entry from <code>/data/dictionary</code>
         :&nbsp;
-        {i18n.t('styleguide-sample')}
+        {t('styleguide-sample')}
       </p>
 
       <p>
@@ -38,7 +38,7 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
         </Link>
       </p>
 
-      <p>The current language is: {i18n.locale()}</p>
+      <p>The current language is: {locale()}</p>
     </StyleguideSpecimen>
   );
 };
