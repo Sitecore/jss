@@ -1,8 +1,8 @@
-import axios, { AxiosRequestConfig, AxiosInstance } from 'axios';
+import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios';
 
 export class AxiosDataFetcher {
   instance: AxiosInstance;
-  
+
   constructor(config?: AxiosRequestConfig) {
     this.instance = axios.create(config);
   }
@@ -13,7 +13,7 @@ export class AxiosDataFetcher {
    * @param {string} url The URL to request; may include query string
    * @param {any} data Optional data to POST with the request.
    */
-  fetch(url: string, data?: any) {
+  fetch(url: string, data?: unknown): Promise<AxiosResponse> {
     return this.instance.request({
       url,
       method: data ? 'POST' : 'GET',
@@ -32,6 +32,9 @@ export class AxiosDataFetcher {
  * @param {string} url The URL to request; may include query string
  * @param {any} data Optional data to POST with the request.
  */
-export function dataFetcher(url: string, data?: any) {
+export function dataFetcher<ResponseType>(
+  url: string,
+  data?: unknown
+): Promise<AxiosResponse<ResponseType>> {
   return new AxiosDataFetcher().fetch(url, data);
 }

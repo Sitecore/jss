@@ -1,59 +1,47 @@
 {
   "root": true,
   "extends": [
-    "prettier",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:prettier/recommended",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
     "plugin:yaml/recommended"
   ],
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
   },
   "plugins": [
-    "import",
+    "@typescript-eslint",
     "react",
+    "prettier",
     "yaml"
   ],
   "settings": {
-    "import/ignore": [
-      "node_modules",
-      ".png$",
-      ".jpg$"
-    ],
     "react": {
       "version": "detect"
     }
   },
-  "globals": {
-    "window": true,
-    "document": true
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
   },
+  "globals": {
+    "React": "writable"
+  },
+  "ignorePatterns": "**/*.js",
   "rules": {
-    "import/no-duplicates": "off",
-    "import/no-named-as-default": "off",
-    "max-len": "off",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true,
-        "optionalDependencies": true
-      }
-    ],
-    "linebreak-style": "off",
-    "react/jsx-filename-extension": 0,
-    "import/prefer-default-export": "off",
-    "react/forbid-prop-types": "off",
-    "react/prop-types": 0,
-    "react/no-danger": "off",
-    "react/require-default-props": "off",
-    "react/no-array-index-key": "off",
-    "no-use-before-define": 0,
-    "global-require": 0,
-    "no-param-reassign": 0
+    // Prevent missing props validation in a React component definition
+    "react/prop-types": "off",
+    // enable prettier 
+    "prettier/prettier": "error",
+    // needed for NextJS's in order to use jsx without react import
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "error"
   }
 }
