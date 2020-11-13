@@ -22,7 +22,7 @@ const SitecorePage = ({ layoutData }: SitecorePageProps): JSX.Element => {
 
   const PageLayout = () => (
     <SitecoreContext componentFactory={componentFactory} context={context}>
-      <Layout sitecoreContext={context} route={layoutData.sitecore.route} />
+      <Layout route={layoutData.sitecore.route} />
     </SitecoreContext>
   );
 
