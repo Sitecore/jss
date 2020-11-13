@@ -26,7 +26,7 @@ Below is a list of samples included in this repo:
 
    This app demonstrates experimental JSS usage with React Native. Due to the experimental nature of React Native support in JSS, this app does not have feature parity with the other framework samples (e.g. React, Vue). [Documentation](http://jss.sitecore.net/docs/client-frameworks/react-native)
 
-1. [Sitecore JavaScript rendering](/samples/sitecore-javascript-renderings)
+1. [~~Sitecore JavaScript rendering~~](/samples/sitecore-javascript-renderings) [Deprecated]
 
    This project demonstrates experimental support for creating Sitecore renderings that will server-side render individual JavaScript components or apps. The Sitecore JavaScript renderings can be used alongside traditional MVC-based renderings. [Documentation](http://jss.sitecore.net/docs/techniques/mvc-integration/javascript-rendering)
 
