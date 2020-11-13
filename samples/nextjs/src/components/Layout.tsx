@@ -2,12 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useI18n } from 'next-localization';
-import {
-  Placeholder,
-  withSitecoreContext,
-  VisitorIdentification,
-  RouteData,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Placeholder, VisitorIdentification, RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const LOGO_SIZE = { WIDTH: 221, HEIGHT: 48 };
 
@@ -57,7 +52,7 @@ interface LayoutProps {
   };
 }
 
-const Layout = ({ route, sitecoreContext }: LayoutProps) => {
+const Layout = ({ route, sitecoreContext }: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
@@ -86,4 +81,4 @@ const Layout = ({ route, sitecoreContext }: LayoutProps) => {
   );
 };
 
-export default withSitecoreContext()(Layout);
+export default Layout;
