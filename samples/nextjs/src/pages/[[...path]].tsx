@@ -20,11 +20,13 @@ const SitecorePage = ({ layoutData }: SitecorePageProps): JSX.Element => {
     ...layoutData.sitecore.context,
   };
 
-  return (
+  const PageLayout = () => (
     <SitecoreContext componentFactory={componentFactory} context={context}>
       <Layout route={layoutData.sitecore.route} />
     </SitecoreContext>
   );
+
+  return <PageLayout />;
 };
 
 // This function gets called at build and export time to determine
