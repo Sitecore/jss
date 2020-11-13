@@ -24,12 +24,21 @@ export interface LayoutServiceData {
 }
 
 /**
+ * Layout Service page state enum
+ */
+export enum LayoutServicePageState {
+  Preview = 'preview',
+  Edit = 'edit',
+  Normal = 'normal'
+}
+
+/**
  * Shape of context data from the Sitecore Layout Service
  */
 export interface LayoutServiceContext {
   pageEditing?: boolean;
   language?: string;
-  pageState?: 'preview' | 'edit' | 'normal';
+  pageState?: LayoutServicePageState;
   visitorIdentificationTimestamp?: number;
   site?: {
     name?: string;

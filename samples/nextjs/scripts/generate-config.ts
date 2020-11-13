@@ -71,21 +71,24 @@ function transformPackageConfig() {
 
   return {
     jssAppName: packageConfig.config.appName,
-    graphQLEndpointPath: packageConfig.config.graphQLEndpointPath || null,
+    graphQLEndpointPath: packageConfig.config.graphQLEndpointPath,
   };
+}
+
+/**
+ * Base config definition
+ */
+interface BaseConfig {
+  jssAppName: string;
+  sitecoreApiHost: string;
+  sitecoreApiKey: string;
+  graphQLEndpointPath: string;
+  graphQLEndpoint?: string;
 }
 
 /**
  * Adds the GraphQL endpoint URL to the config object, and ensures that components needed to calculate it are valid
  */
-function addGraphQLConfig(baseConfig: { [key: string]: string }) {
-  if (!baseConfig.graphQLEndpointPath || typeof baseConfig.sitecoreApiHost === 'undefined') {
-    console.error(
-      'The `graphQLEndpointPath` and/or `layoutServiceHost` configurations were not defined. You may need to run `jss setup`.'
-    );
-    process.exit(1);
-  }
-
-  // eslint-disable-next-line no-param-reassign
+function addGraphQLConfig(baseConfig: BaseConfig) {
   baseConfig.graphQLEndpoint = `${baseConfig.sitecoreApiHost}${baseConfig.graphQLEndpointPath}?sc_apikey=${baseConfig.sitecoreApiKey}`;
 }

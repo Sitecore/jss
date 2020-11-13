@@ -13,6 +13,7 @@ export {
   DictionaryPhrases,
   DictionaryServiceData,
   LayoutServiceData,
+  LayoutServicePageState,
   LayoutServiceContext,
   LayoutServiceContextData,
   RouteData,
