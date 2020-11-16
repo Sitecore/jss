@@ -4,10 +4,11 @@ import Image from 'next/image';
 import { useI18n } from 'next-localization';
 import {
   Placeholder,
-  withSitecoreContext,
   VisitorIdentification,
   RouteData,
+  withSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideSitecoreContext } from 'lib/component-props';
 
 const LOGO_SIZE = { WIDTH: 221, HEIGHT: 48 };
 
@@ -50,12 +51,9 @@ const Navigation = () => {
   );
 };
 
-interface LayoutProps {
+type LayoutProps = StyleguideSitecoreContext & {
   route: RouteData;
-  sitecoreContext: {
-    pageEditing?: boolean;
-  };
-}
+};
 
 const Layout = ({ route, sitecoreContext }: LayoutProps) => {
   return (
