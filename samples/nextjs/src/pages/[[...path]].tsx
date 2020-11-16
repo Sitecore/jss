@@ -31,30 +31,17 @@ const SitecorePage = ({ layoutData }: SitecorePageProps): JSX.Element => {
 // This function gets called at build and export time to determine
 // pages for SSG ("paths", as tokenized array).
 export const getStaticPaths: GetStaticPaths = async () => {
-  if (process.env.BUILD_MODE === 'export') {
-    // If performing an export, fallback is not allowed.
-    // Use hard-coded values for now for demo-purposes.
-    // Ultimately, this is where we'll request a "sitemap" from Sitecore.
-    return {
-      paths: [
-        { params: { path: [''] }, locale: 'en' },
-        { params: { path: ['styleguide'] }, locale: 'en' },
-        { params: { path: ['styleguide', 'custom-route-type'] }, locale: 'en' },
-        { params: { path: ['graphql'] }, locale: 'en' },
-      ],
-      fallback: false,
-    };
-  } else {
-    // Fallback, along with revalidate in getStaticProps (below),
-    // enables Incremental Static Regeneration. This allows us to
-    // leave certain (or all) paths empty if desired and static pages
-    // will be generated on request.
-    // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
-    return {
-      paths: [],
-      fallback: 'blocking',
-    };
-  }
+  // Fallback, along with revalidate in getStaticProps (below),
+  // enables Incremental Static Regeneration. This allows us to
+  // leave certain (or all) paths empty if desired and static pages
+  // will be generated on request.
+  // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
+  //
+  // Ultimately, this is where we'll also be able to request a "sitemap" from Sitecore.
+  return {
+    paths: [],
+    fallback: 'blocking',
+  };
 };
 
 // This function gets called at build time on server-side.
