@@ -4,17 +4,18 @@ import Image from 'next/image';
 import { useI18n } from 'next-localization';
 import {
   Placeholder,
-  withSitecoreContext,
   VisitorIdentification,
   RouteData,
+  withSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideSitecoreContext } from 'lib/component-props';
 
 const LOGO_SIZE = { WIDTH: 221, HEIGHT: 48 };
 
 // This is boilerplate navigation for sample purposes. Most apps should throw this away and use their own navigation implementation.
 // Most apps may also wish to use GraphQL for their navigation construction; this sample does not simply to support disconnected mode.
 const Navigation = () => {
-  const i18n = useI18n();
+  const { t } = useI18n();
 
   return (
     <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
@@ -37,25 +38,22 @@ const Navigation = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {i18n.t('Documentation')}
+          {t('Documentation')}
         </a>
         <Link href="/styleguide">
-          <a className="p-2 text-dark">{i18n.t('Styleguide')}</a>
+          <a className="p-2 text-dark">{t('Styleguide')}</a>
         </Link>
         <Link href="/graphql">
-          <a className="p-2 text-dark">{i18n.t('GraphQL')}</a>
+          <a className="p-2 text-dark">{t('GraphQL')}</a>
         </Link>
       </nav>
     </div>
   );
 };
 
-interface LayoutProps {
+type LayoutProps = StyleguideSitecoreContext & {
   route: RouteData;
-  sitecoreContext: {
-    pageEditing?: boolean;
-  };
-}
+};
 
 const Layout = ({ route, sitecoreContext }: LayoutProps) => {
   return (
