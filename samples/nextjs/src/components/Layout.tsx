@@ -2,13 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useI18n } from 'next-localization';
-import {
-  Placeholder,
-  VisitorIdentification,
-  RouteData,
-  withSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideSitecoreContext } from 'lib/component-props';
+import { Placeholder, RouteData, VisitorIdentification } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const LOGO_SIZE = { WIDTH: 221, HEIGHT: 48 };
 
@@ -51,11 +45,11 @@ const Navigation = () => {
   );
 };
 
-type LayoutProps = StyleguideSitecoreContext & {
+type LayoutProps = {
   route: RouteData;
 };
 
-const Layout = ({ route, sitecoreContext }: LayoutProps) => {
+const Layout = ({ route }: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
@@ -72,7 +66,7 @@ const Layout = ({ route, sitecoreContext }: LayoutProps) => {
 
         VI detection only runs once for a given analytics ID, so this is not a recurring operation once cookies are established.
       */}
-      {!sitecoreContext.pageEditing && <VisitorIdentification />}
+      <VisitorIdentification />
 
       <Navigation />
 
@@ -84,4 +78,4 @@ const Layout = ({ route, sitecoreContext }: LayoutProps) => {
   );
 };
 
-export default withSitecoreContext()(Layout);
+export default Layout;
