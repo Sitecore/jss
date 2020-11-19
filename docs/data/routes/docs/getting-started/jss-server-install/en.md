@@ -37,6 +37,8 @@ If you do not have a JSS-enabled license, please reach out to your Sitecore Acco
 
 These steps only need to be performed once per Sitecore JSS server. A JSS server may host many JSS applications. In a scaled Sitecore installation, perform these steps on a _Standalone_ or _Content Management_ server.
 
+> In case the instance is intented to operate with both SXA and JSS - please install corresponding compatible version of SXA first, before JSS.
+
 1. [Download the JSS Server Components Sitecore package](https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services.aspx).
 
 1. Login to your Sitecore instance, and open the Desktop. On the Sitecore menu (lower left), click `Development Tools`, then `Installation Wizard`.
