@@ -3,7 +3,6 @@ import { withSitecoreContext } from '../enhancers/withSitecoreContext';
 
 interface VIProps {
   sitecoreContext: {
-    pageEditing?: boolean;
     visitorIdentificationTimestamp?: string;
   };
 }
@@ -13,12 +12,10 @@ const VIComponent: React.FC<VIProps> = ({ sitecoreContext }) => {
   if (
     emittedVI ||
     typeof document === 'undefined' ||
-    sitecoreContext.pageEditing ||
     !sitecoreContext.visitorIdentificationTimestamp
   ) {
     // Don't emit VI script and meta tag if we've already done so,
-    // aren't rendering client-side, are in Experience Editor, or
-    // don't have a VI timestamp.
+    // aren't rendering client-side, or don't have a VI timestamp.
     return null;
   }
   emittedVI = true;
@@ -31,9 +28,9 @@ const VIComponent: React.FC<VIProps> = ({ sitecoreContext }) => {
   meta.name = 'VIcurrentDateTime';
   meta.content = sitecoreContext.visitorIdentificationTimestamp;
 
-  const head = document.getElementsByTagName('head')[0];
-  head.appendChild(script);
-  head.appendChild(meta);
+  const head = document.querySelector('head');
+  head && head.appendChild(script);
+  head && head.appendChild(meta);
 
   return null;
 };
