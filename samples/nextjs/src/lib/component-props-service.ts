@@ -3,7 +3,7 @@ import {
   LayoutServiceData,
   PlaceholdersData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { componentPropsFactory } from 'temp/componentFactory';
+import { componentModule } from 'temp/componentFactory';
 import { ComponentPropsFetchFunction } from './component-props';
 import { ComponentProps } from './component-props';
 
@@ -26,7 +26,7 @@ export class ComponentPropsService {
     // Array of side effect functions
     const requests: {
       fetch: ComponentPropsFetchFunction<PropsContext>;
-      routeData: LayoutServiceData | null;
+      layoutData: LayoutServiceData | null;
       rendering: ComponentRendering;
       context?: PropsContext;
     }[] = [];
@@ -39,7 +39,7 @@ export class ComponentPropsService {
 
       renderings.map((r) => {
         // get component by name
-        const module = componentPropsFactory(r.componentName);
+        const module = componentModule(r.componentName);
 
         if (!module) {
           return;
@@ -49,7 +49,7 @@ export class ComponentPropsService {
         const fetchFunc = ssr ? module.getServerSideProps : module.getStaticProps;
 
         if (fetchFunc) {
-          requests.push({ fetch: fetchFunc, rendering: r, routeData: layoutData, context });
+          requests.push({ fetch: fetchFunc, rendering: r, layoutData: layoutData, context });
         }
 
         // If placeholders exist in current rendering
@@ -62,7 +62,7 @@ export class ComponentPropsService {
     traverseTree(layoutData.sitecore.route.placeholders);
 
     const promises = requests.map((req) =>
-      req.fetch(req.rendering, req.routeData, context).then((result) => {
+      req.fetch(req.rendering, req.layoutData, context).then((result) => {
         // Set component specific data in componentProps store
         componentProps[req.rendering.componentName] = result;
       })

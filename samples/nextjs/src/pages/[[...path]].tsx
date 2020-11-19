@@ -53,7 +53,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // This function gets called at build time on server-side.
 // It may be called again, on a serverless function, if
 // revalidation (or fallback) is enabled and a new request comes in.
-export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { params, locale } = context;
   const path = extractPath(params);
 
   const props: SitecorePageProps = {
@@ -77,6 +78,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     // Retrieve component props using side-effects defined on components level
     props.componentProps = await componentPropsService.fetchComponentProps<GetStaticPropsContext>({
       layoutData: props.layoutData,
+      context,
     });
   }
 

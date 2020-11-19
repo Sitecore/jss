@@ -8,6 +8,7 @@ import {
   RouteData,
   LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 
 /**
  * Shape of component props storage
@@ -34,13 +35,17 @@ export const useComponentProps = <ComponentData>(componentName: string): Compone
 /**
  * Type of side effect function which could be invoked on component level (getStaticProps/getServerSideProps)
  */
-export type ComponentPropsFetchFunction<PropsContext> = {
+export type ComponentPropsFetchFunction<NextContext, FetchedProps = { [key: string]: unknown }> = {
   (
     rendering: ComponentRendering,
-    routeData: LayoutServiceData | null,
-    context: PropsContext
-  ): Promise<unknown>;
+    layoutData: LayoutServiceData | null,
+    context: NextContext
+  ): Promise<FetchedProps>;
 };
+
+export type GetServerSideComponentProps = ComponentPropsFetchFunction<GetServerSidePropsContext>;
+
+export type GetStaticComponentProps = ComponentPropsFetchFunction<GetStaticPropsContext>;
 
 /**
  * Sitecore Context which you can access using withSitecoreContext

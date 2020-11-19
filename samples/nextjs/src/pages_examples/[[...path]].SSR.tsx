@@ -35,7 +35,8 @@ const SitecorePage = ({ layoutData, componentProps }: SitecorePageProps): JSX.El
 };
 
 // This function gets called at request time on server-side.
-export const getServerSideProps: GetServerSideProps = async ({ params, locale, req, res }) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { params, locale, req, res } = context;
   const path = extractPath(params);
 
   const props: SitecorePageProps = {
@@ -62,6 +63,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params, locale, r
       GetServerSidePropsContext
     >({
       layoutData: props.layoutData,
+      context,
       ssr: true,
     });
   }

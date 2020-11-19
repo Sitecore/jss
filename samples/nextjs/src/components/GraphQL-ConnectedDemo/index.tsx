@@ -1,20 +1,24 @@
 import { Text, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 import RouterLink from 'next/link';
-
-import { ConnectedDemoQueryDocument, AppRoute, Item, GraphQlConnectedDemo } from './query.graphql';
+import {
+  ConnectedDemoQueryDocument,
+  AppRoute,
+  Item,
+  GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
+} from './query.graphql';
 import initializeApollo from 'lib/GraphQLClientFactory';
 import config from 'temp/config';
 import {
-  ComponentPropsFetchFunction,
+  GetServerSideComponentProps,
+  GetStaticComponentProps,
   StyleguideComponentProps,
   useComponentProps,
 } from 'lib/component-props';
-import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 
 type RouteItem = AppRoute & Item;
 
 type GraphQLConnectedDemoData = {
-  datasource: GraphQlConnectedDemo;
+  datasource: GrapQLConnectedDemoDatasource;
   contextItem: RouteItem;
 };
 
@@ -86,36 +90,40 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
   );
 };
 
-// Will be called during SSG
-export const getStaticProps: ComponentPropsFetchFunction<GetStaticPropsContext> = async (
-  rendering,
-  routeData
-) => {
+/**
+ * Will be called during SSG
+ * @param rendering
+ * @param layoutData
+ * @param context
+ */
+export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
   const apolloClient = initializeApollo({ endpoint: config.graphQLEndpoint });
 
   const result = await apolloClient.query({
     query: ConnectedDemoQueryDocument,
     variables: {
       datasource: rendering.dataSource,
-      contextItem: routeData?.sitecore.route.itemId,
+      contextItem: layoutData?.sitecore.route.itemId,
     },
   });
 
   return result.data;
 };
 
-// Will be called during SSR
-export const getServerSideProps: ComponentPropsFetchFunction<GetServerSidePropsContext> = async (
-  rendering,
-  routeData
-) => {
+/**
+ * Will be called during SSR
+ * @param rendering
+ * @param layoutData
+ * @param context
+ */
+export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
   const apolloClient = initializeApollo({ endpoint: config.graphQLEndpoint });
 
   const result = await apolloClient.query({
     query: ConnectedDemoQueryDocument,
     variables: {
       datasource: rendering.dataSource,
-      contextItem: routeData?.sitecore.route.itemId,
+      contextItem: layoutData?.sitecore.route.itemId,
     },
   });
 

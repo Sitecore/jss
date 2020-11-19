@@ -1,11 +1,11 @@
 schema:
   - './src/temp/GraphQLIntrospectionResult.json'
-documents: '**/*.graphql'
+documents: 'src/**/*.graphql'
 plugins:
   - typescript
   - typescript-operations
   - typescript-react-apollo
-cacheDir: __generated__
+cacheDir: .generated
 config:
     reactApolloVersion: 2
     useIndexSignature: true

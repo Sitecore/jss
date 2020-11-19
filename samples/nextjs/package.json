@@ -82,7 +82,6 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-yaml": "^0.2.0",
     "graphql-let": "^0.16.2",
-    "graphql.macro": "~1.4.2",
     "npm-run-all": "~4.1.5",
     "prettier": "^2.1.2",
     "ts-node": "^9.0.0",
@@ -92,9 +91,8 @@
   "scripts": {
     "jss": "jss",
     "lint": "eslint --fix ./src/**/*.tsx ./src/**/*.ts ./sitecore/definitions/**/*.ts ./scripts/**/*.ts ./data/**/*.yml",
-    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts",
+    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let",
     "build": "npm-run-all --serial bootstrap next:build",
-    "graphql:fetch-introspection": "ts-node --project tsconfig.scripts.json ./scripts/fetch-graphql-introspection-data.ts",
     "graphql:update": "ts-node --project tsconfig.scripts.json ./scripts/update-graphql-fragment-data.ts",
     "next:build": "next build",
     "next:dev": "cross-env NODE_OPTIONS='--inspect' next dev",
