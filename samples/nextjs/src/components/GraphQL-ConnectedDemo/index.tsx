@@ -97,6 +97,10 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
  * @param context
  */
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
+  if (process.env.JSS_MODE === 'disconnected') {
+    return null;
+  }
+
   const apolloClient = initializeApollo({ endpoint: config.graphQLEndpoint });
 
   const result = await apolloClient.query({
@@ -117,6 +121,10 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
  * @param context
  */
 export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
+  if (process.env.JSS_MODE === 'disconnected') {
+    return null;
+  }
+
   const apolloClient = initializeApollo({ endpoint: config.graphQLEndpoint });
 
   const result = await apolloClient.query({

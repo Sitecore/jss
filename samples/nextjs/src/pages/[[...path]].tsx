@@ -74,7 +74,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       throw error;
     });
 
-  if (props.layoutData && process.env.JSS_MODE !== 'disconnected') {
+  if (props.layoutData) {
     // Retrieve component props using side-effects defined on components level
     props.componentProps = await componentPropsService.fetchComponentProps<GetStaticPropsContext>({
       layoutData: props.layoutData,
