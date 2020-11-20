@@ -3,6 +3,8 @@ import Router from 'next/router';
 import { ApolloProvider } from 'react-apollo';
 import { I18nProvider } from 'next-localization';
 import NProgress from 'nprogress';
+import { useApollo } from 'lib/GraphQLClientFactory';
+import config from 'temp/config';
 
 // Using bootstrap and nprogress are completely optional.
 //  bootstrap is used here to provide a clean layout for samples, without needing extra CSS in the sample app
@@ -11,8 +13,6 @@ import NProgress from 'nprogress';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'nprogress/nprogress.css';
 import 'assets/app.css';
-import { useApollo } from 'lib/GraphQLClientFactory';
-import config from 'temp/config';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 

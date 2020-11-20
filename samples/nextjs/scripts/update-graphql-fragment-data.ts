@@ -65,8 +65,6 @@ fetch(jssConfig.graphQLEndpoint, {
         }
 
         console.log('GraphQL Fragment types successfully extracted!');
-
-        require('./fetch-graphql-introspection-data');
       }
     );
   })

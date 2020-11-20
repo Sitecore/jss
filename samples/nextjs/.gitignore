@@ -11,7 +11,7 @@
 /out/
 
 # graphql code generation
-.generated
+/.generated
 *.graphql.d.ts
 *.graphqls.d.ts
 
