@@ -58,7 +58,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       throw error;
     });
 
-  if (props.layoutData) {
+  if (props.layoutData && process.env.JSS_MODE !== 'disconnected') {
     props.componentProps = await componentPropsService.fetchComponentProps<
       GetServerSidePropsContext
     >({
