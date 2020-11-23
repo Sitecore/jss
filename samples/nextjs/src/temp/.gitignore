@@ -1,3 +1,4 @@
 *
 !.gitignore
 !GraphQLFragmentTypes.json
+!GraphQLIntrospectionResult.json

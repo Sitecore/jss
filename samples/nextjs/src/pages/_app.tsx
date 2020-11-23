@@ -1,7 +1,10 @@
 import type { AppProps } from 'next/app';
 import Router from 'next/router';
+import { ApolloProvider } from 'react-apollo';
 import { I18nProvider } from 'next-localization';
 import NProgress from 'nprogress';
+import { useApollo } from 'lib/GraphQLClientFactory';
+import config from 'temp/config';
 
 // Using bootstrap and nprogress are completely optional.
 //  bootstrap is used here to provide a clean layout for samples, without needing extra CSS in the sample app
@@ -20,12 +23,16 @@ Router.events.on('routeChangeError', () => NProgress.done());
 function App({ Component, pageProps }: AppProps): JSX.Element {
   const { dictionary, ...rest } = pageProps;
 
+  const apolloClient = useApollo({ endpoint: config.graphQLEndpoint });
+
   return (
     // Use the next-localization (w/ rosetta) library to provide our translation dictionary to the app.
     // Note Next.js does not (currently) provide anything for translation, only i18n routing.
     // If your app is not multilingual, next-localization and references to it can be removed.
     <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
-      <Component {...rest} />
+      <ApolloProvider client={apolloClient}>
+        <Component {...rest} />
+      </ApolloProvider>
     </I18nProvider>
   );
 }

@@ -10,6 +10,11 @@
 /.next/
 /out/
 
+# graphql code generation
+/.generated
+*.graphql.d.ts
+*.graphqls.d.ts
+
 # production
 /build
 

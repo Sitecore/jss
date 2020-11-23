@@ -34,7 +34,7 @@
   "globals": {
     "React": "writable"
   },
-  "ignorePatterns": "**/*.js",
+  "ignorePatterns": [".generated/**/*", "src/components/**/*.d.ts", "**/*.js"],
   "rules": {
     // Prevent missing props validation in a React component definition
     "react/prop-types": "off",

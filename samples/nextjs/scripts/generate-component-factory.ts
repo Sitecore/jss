@@ -56,8 +56,10 @@ function generateComponentFactory() {
   // by convention, we expect to find React components
   // * under /components/ComponentName
   // * with an index.ts under the folder to define the component
+  // Generate componentModule specific to nextjs approach, in order to get access to component and exported functions.
+  // componentFactory exports only React component.
   // If you'd like to use your own convention, encode it below.
-  // NOTE: generating the component factory is also totally optional,
+  // NOTE: generating the componentFactory is also totally optional,
   // and it can be maintained manually if preferred.
 
   const imports: string[] = [];
@@ -73,7 +75,7 @@ function generateComponentFactory() {
       const importVarName = componentFolder.replace(/[^\w]+/g, '');
 
       console.debug(`Registering JSS component ${componentFolder}`);
-      imports.push(`import ${importVarName} from 'components/${componentFolder}';`);
+      imports.push(`import * as ${importVarName} from 'components/${componentFolder}';`);
       registrations.push(`components.set('${componentFolder}', ${importVarName});`);
     }
   });
@@ -86,8 +88,12 @@ ${imports.join('\n')}
 const components = new Map();
 ${registrations.join('\n')}
 
-export default function componentFactory(componentName: string) {
+export function componentModule(componentName: string) {
   return components.get(componentName);
+};
+
+export function componentFactory(componentName: string) {
+  return components.get(componentName)?.default;
 };
 `;
 }
