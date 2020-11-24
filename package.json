@@ -2,12 +2,12 @@
   "scripts": {
     "reset": "lerna clean --yes && lerna bootstrap && npm run build-packages",
     "bootstrap": "lerna bootstrap",
-    "bootstrap-packages": "lerna bootstrap --scope @sitecore-jss/*",
-    "bootstrap-packages:ci": "lerna bootstrap --ci --scope @sitecore-jss/*",
+    "bootstrap:ci": "lerna bootstrap --ci",
     "build-packages": "lerna run build --ignore *-sample*",
-    "lint-packages": "lerna run lint --ignore *-sample*",
-    "test-packages": "lerna run test --ignore *-sample*",
     "build-apps": "lerna run build --scope *-sample*",
+    "lint-packages": "lerna run lint --ignore *-sample*",
+    "lint-apps": "lerna run lint --scope *-sample-nextjs",
+    "test-packages": "lerna run test --ignore *-sample*",
     "test": "lerna run test",
     "coverage-packages": "lerna run coverage --ignore *-sample*"
   },
