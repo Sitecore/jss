@@ -23,6 +23,27 @@ export {
 } from '@sitecore-jss/sitecore-jss';
 
 export {
+	ComponentProps,
+	GetStaticComponentProps,
+	GetServerSideComponentProps,
+	ComponentPropsFetchFunction,
+} from './sharedTypes/component-props';
+
+export { ComponentModule } from './sharedTypes/component-module';
+
+export {
+	ComponentPropsService,
+	FetchComponentPropsArguments,
+} from './services/component-props-service';
+
+export { 
+	ComponentPropsReactContext,
+	ComponentPropsContextProps,
+	ComponentPropsContext,
+	useComponentProps,
+} from './components/ComponentPropsContext';
+
+export {
   ComponentFactory,
   Placeholder,
   Image,

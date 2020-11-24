@@ -1,4 +1,11 @@
-import { Text, Link } from '@sitecore-jss/sitecore-jss-nextjs';
+import React from 'react';
+import {
+  Text,
+  Link,
+  GetServerSideComponentProps,
+  GetStaticComponentProps,
+  useComponentProps,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import RouterLink from 'next/link';
 import {
   ConnectedDemoQueryDocument,
@@ -8,12 +15,7 @@ import {
 } from './query.graphql';
 import initializeApollo from 'lib/GraphQLClientFactory';
 import config from 'temp/config';
-import {
-  GetServerSideComponentProps,
-  GetStaticComponentProps,
-  StyleguideComponentProps,
-  useComponentProps,
-} from 'lib/component-props';
+import { StyleguideComponentProps } from 'lib/component-props';
 
 type RouteItem = AppRoute & Item;
 
