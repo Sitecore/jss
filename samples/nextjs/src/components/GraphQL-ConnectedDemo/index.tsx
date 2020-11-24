@@ -6,8 +6,7 @@ import {
   Item,
   GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
 } from './query.graphql';
-import initializeApollo from 'lib/GraphQLClientFactory';
-import config from 'temp/config';
+import GraphQLClientFactory from 'lib/GraphQLClientFactory';
 import {
   GetServerSideComponentProps,
   GetStaticComponentProps,
@@ -101,9 +100,9 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
     return null;
   }
 
-  const apolloClient = initializeApollo({ endpoint: config.graphQLEndpoint });
+  const graphQLClient = GraphQLClientFactory();
 
-  const result = await apolloClient.query({
+  const result = await graphQLClient.query({
     query: ConnectedDemoQueryDocument,
     variables: {
       datasource: rendering.dataSource,
@@ -125,9 +124,9 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
     return null;
   }
 
-  const apolloClient = initializeApollo({ endpoint: config.graphQLEndpoint });
+  const graphQLClient = GraphQLClientFactory();
 
-  const result = await apolloClient.query({
+  const result = await graphQLClient.query({
     query: ConnectedDemoQueryDocument,
     variables: {
       datasource: rendering.dataSource,
