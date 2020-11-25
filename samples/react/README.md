@@ -10,7 +10,7 @@ Disconnected development is appropriate when no Sitecore instance is available, 
 
 ## Deploying to Sitecore
 
-* Install the JSS server components on your local Sitecore installation according to the JSS documentation
+* Install the Headless server components on your local Sitecore installation according to the JSS documentation
 * `jss setup` to configure the connection to a local Sitecore installation
 * Review the application config patch file(s) in `/sitecore/config` to ensure that it is configured appropriately for your Sitecore installation.
 * `jss deploy config` to deploy the Sitecore config patch files to the Sitecore instance (you may need to add the `hostName` to your `hosts` file)

@@ -5,7 +5,7 @@ title: Server Setup
 ---
 # JSS Server Setup
 
-In order to deploy a JSS app to Sitecore, or to pull data from a remote Sitecore instance into a headless JSS app, a Sitecore instance running the JSS Server Components is required.
+In order to deploy a JSS app to Sitecore, or to pull data from a remote Sitecore instance into a headless JSS app, a Sitecore instance running the Headless Server Components is required.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ To run in Integrated Mode (required for editing JSS sites), the Sitecore server 
 
 ### Sitecore
 
-The JSS server components require Sitecore 9.0 Update-1 or later. Install Sitecore according to the instructions for your version available on [the dev site](https://dev.sitecore.net).
+The Headless server components require Sitecore 9.0 Update-1 or later. Install Sitecore according to the instructions for your version available on [the dev site](https://dev.sitecore.net).
 
 ### Sitecore JSS License
 
@@ -35,13 +35,13 @@ If you do not have a JSS-enabled license, please reach out to your Sitecore Acco
 
 ## Server Components Installation
 
-These steps only need to be performed once per Sitecore JSS server. A JSS server may host many JSS applications. In a scaled Sitecore installation, perform these steps on a _Standalone_ or _Content Management_ server.
+These steps only need to be performed once per Sitecore Headless server. A Headless server may host many JSS applications. In a scaled Sitecore installation, perform these steps on a _Standalone_ or _Content Management_ server.
 
-1. [Download the JSS Server Components Sitecore package](https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services.aspx).
+1. [Download the Headless Server Components Sitecore package](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx).
 
 1. Login to your Sitecore instance, and open the Desktop. On the Sitecore menu (lower left), click `Development Tools`, then `Installation Wizard`.
 
-1. Install the JSS Server Components zip package using the Installation Wizard.
+1. Install the Headless Server Components zip package using the Installation Wizard.
 
 1. For **Sitecore 9.0.x only** (not 9.1), alter the binding redirect for `Newtonsoft.Json` in your `Web.config`:
 
@@ -57,7 +57,7 @@ These steps only need to be performed once per Sitecore JSS server. A JSS server
 
 ## Scaled Sitecore Installations
 
-If you are installing the JSS server components to a scaled Sitecore installation (i.e. production environments with separate CM and CD servers), additional configuration is required to complete the JSS installation for the CD (Content Delivery) servers.
+If you are installing the Headless server components to a scaled Sitecore installation (i.e. production environments with separate CM and CD servers), additional configuration is required to complete the Headless installation for the CD (Content Delivery) servers.
 
 1. Extract the server components Sitecore package with an unzip tool such as 7-Zip.
 1. Extract the inner `package.zip` the same way. Ignore any unzip warnings about `sc_*.txt` files.
