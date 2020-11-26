@@ -10,7 +10,7 @@ use(spies);
 describe('ComponentPropsService', () => {
   const service = new ComponentPropsService();
 
-  const rendering = (componentUid: string, componentName?: string): ComponentRendering => ({
+  const rendering = (componentUid?: string, componentName?: string): ComponentRendering => ({
     uid: componentUid,
     componentName: componentName || `name${componentUid}`,
   });
@@ -68,7 +68,7 @@ describe('ComponentPropsService', () => {
 
   const req = (
     expectedData: unknown,
-    componentUid: string,
+    componentUid?: string,
     err?: string
   ): ComponentPropsRequest<CustomContext> => ({
     fetch: fetchFn(expectedData, err),
@@ -319,6 +319,41 @@ describe('ComponentPropsService', () => {
         layoutData,
         context
       );
+
+      expect(requests[2].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x3',
+          componentName: 'namex3',
+        },
+        layoutData,
+        context
+      );
+    })
+  
+    it('one of them does not have uid', async () => {
+      const requests: ComponentPropsRequest<CustomContext>[] = [
+        req(11, 'x1'),
+        req(22, undefined),
+        req(33, 'x3'),
+      ];
+
+      const result = await service.execRequests(requests);
+
+      expect(result).to.deep.equal({
+        x1: 11,
+        x3: 33,
+      });
+
+      expect(requests[0].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x1',
+          componentName: 'namex1',
+        },
+        layoutData,
+        context
+      );
+
+      expect(requests[1].fetch).not.to.be.called;
 
       expect(requests[2].fetch).to.be.called.with.exactly(
         {
