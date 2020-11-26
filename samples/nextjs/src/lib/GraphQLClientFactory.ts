@@ -5,6 +5,7 @@ import {
   IntrospectionFragmentMatcher,
   NormalizedCacheObject,
 } from 'apollo-cache-inmemory';
+import config from 'temp/config';
 
 /*
   INTROSPECTION DATA
@@ -35,22 +36,15 @@ import { BatchHttpLink } from 'apollo-link-batch-http';
 // the APQ link is _chained_ behind another link that performs the actual HTTP calls, so you can choose
 // APQ + batched, or APQ + http links for example.
 import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
-import { useMemo } from 'react';
-import config from 'temp/config';
-
-let apolloClient: ApolloClient<NormalizedCacheObject> | undefined;
 
 /**
  * Create new apollo client instance
  */
-const createApolloClient = (
-  endpoint: string,
-  initialCacheState: NormalizedCacheObject
-): ApolloClient<NormalizedCacheObject> => {
+export default function (endpoint?: string): ApolloClient<NormalizedCacheObject> {
   /* HTTP link selection: default to batched + APQ */
   const link = createPersistedQueryLink().concat(
     new BatchHttpLink({
-      uri: endpoint,
+      uri: endpoint ?? config.graphQLEndpoint,
       credentials: 'include',
       headers: {
         connection: 'keep-alive',
@@ -68,37 +62,6 @@ const createApolloClient = (
     ssrMode: typeof window === 'undefined',
     ssrForceFetchDelay: 100,
     link,
-    cache: cache.restore(initialCacheState),
+    cache: cache,
   });
-};
-
-type InitializeApolloOptions = {
-  endpoint?: string;
-  initialState?: NormalizedCacheObject;
-};
-
-/**
- * Get new/current apollo client instance, depends on application mode (SSR/SSG)
- */
-export default function initializeApollo({
-  endpoint = config.graphQLEndpoint,
-  initialState = {},
-}: InitializeApolloOptions): ApolloClient<NormalizedCacheObject> {
-  const _apolloClient = apolloClient ?? createApolloClient(endpoint, initialState);
-
-  // For SSG and SSR always create a new Apollo Client
-  if (typeof window === 'undefined') return _apolloClient;
-  // Create the Apollo Client once in the client
-  if (!apolloClient) apolloClient = _apolloClient;
-
-  return _apolloClient;
-}
-
-/**
- * Hook in order to get access to apollo client instance
- */
-export function useApollo(options: InitializeApolloOptions): ApolloClient<NormalizedCacheObject> {
-  const store = useMemo(() => initializeApollo(options), [options.initialState]);
-
-  return store;
 }

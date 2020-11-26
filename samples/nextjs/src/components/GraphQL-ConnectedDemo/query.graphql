@@ -7,8 +7,7 @@
 
 query ConnectedDemoQuery($datasource: String!, $contextItem: String!) {
   # Datasource query
-  # $datasource will always be set to the ID of the rendering's datasource item
-  # (as long as the GraphQLData helper is used)
+  # $datasource should be set to the ID of the rendering's datasource item
   datasource(value: $datasource) {
     id
     name
@@ -38,8 +37,7 @@ query ConnectedDemoQuery($datasource: String!, $contextItem: String!) {
   }
 
   # Context/route item query
-  # $contextItem will always be set to the ID of the current context item (the route item)
-  # (as long as the GraphQLData helper is used)
+  # $contextItem should be set to the ID of the current context item (the route item)
   contextItem: item(path: $contextItem) {
     id
     # Get the page title from the app route template
