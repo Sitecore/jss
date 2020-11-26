@@ -40,7 +40,9 @@ import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
 /**
  * Create new apollo client instance
  */
-export default function (endpoint?: string): ApolloClient<NormalizedCacheObject> {
+export default function GraphQLClientFactory(
+  endpoint?: string
+): ApolloClient<NormalizedCacheObject> {
   /* HTTP link selection: default to batched + APQ */
   const link = createPersistedQueryLink().concat(
     new BatchHttpLink({
