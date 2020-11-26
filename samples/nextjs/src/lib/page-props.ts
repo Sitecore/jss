@@ -1,7 +1,7 @@
 import {
   DictionaryPhrases,
   LayoutServiceData,
-  ComponentProps,
+  ComponentPropsCollection,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ParsedUrlQuery } from 'querystring';
 
@@ -9,7 +9,7 @@ export type SitecorePageProps = {
   locale: string;
   layoutData: LayoutServiceData | null;
   dictionary: DictionaryPhrases | null;
-  componentProps: ComponentProps;
+  componentProps: ComponentPropsCollection;
 };
 
 export const extractPath = (params: ParsedUrlQuery | undefined): string => {

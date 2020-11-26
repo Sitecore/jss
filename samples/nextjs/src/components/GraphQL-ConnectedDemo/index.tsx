@@ -25,9 +25,9 @@ type GraphQLConnectedDemoData = {
 };
 
 const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
-  const data = useComponentProps<GraphQLConnectedDemoData>(props.rendering.componentName);
-
-  const { datasource, contextItem } = data;
+  const data = props.rendering.uid
+    ? useComponentProps<GraphQLConnectedDemoData>(props.rendering.uid)
+    : undefined;
 
   return (
     <div data-e2e-id="graphql-connected">
@@ -41,41 +41,41 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
         the cache. Consult the Apollo documentation for details.
       </p>
 
-      {datasource && (
+      {data && data.datasource && (
         <div>
           <h4>Datasource Item (via Connected GraphQL)</h4>
-          id: {datasource.id}
+          id: {data.datasource.id}
           <br />
-          name: {datasource.name}
+          name: {data.datasource.name}
           <br />
-          sample1: {datasource.sample1?.value}
+          sample1: {data.datasource.sample1?.value}
           <br />
-          sample1 (editable): <Text field={datasource.sample1?.jss} />
+          sample1 (editable): <Text field={data.datasource.sample1?.jss} />
           <br />
           sample2:
           <br />
           <ul>
-            <li>text: {datasource.sample2?.text}</li>
-            <li>url: {datasource.sample2?.url}</li>
-            <li>target: {datasource.sample2?.target}</li>
+            <li>text: {data.datasource.sample2?.text}</li>
+            <li>url: {data.datasource.sample2?.url}</li>
+            <li>target: {data.datasource.sample2?.target}</li>
             <li>
-              editable: <Link field={datasource.sample2?.jss} />
+              editable: <Link field={data.datasource.sample2?.jss} />
             </li>
-            <li>field type: {datasource.sample2?.definition?.type}</li>
-            <li>field is shared?: {datasource.sample2?.definition?.shared.toString()}</li>
+            <li>field type: {data.datasource.sample2?.definition?.type}</li>
+            <li>field is shared?: {data.datasource.sample2?.definition?.shared.toString()}</li>
           </ul>
         </div>
       )}
-      {contextItem && (
+      {data && data.contextItem && (
         <div>
           <h4>Route Item (via Connected GraphQL)</h4>
-          id: {contextItem.id}
+          id: {data.contextItem.id}
           <br />
-          page title: {contextItem.pageTitle?.value}
+          page title: {data.contextItem.pageTitle?.value}
           <br />
           children:
           <ul>
-            {contextItem.children.map((child) => {
+            {data.contextItem.children.map((child) => {
               const routeItem = child as RouteItem;
 
               return (

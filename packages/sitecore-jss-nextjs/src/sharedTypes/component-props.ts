@@ -4,8 +4,8 @@ import {ComponentRendering, LayoutServiceData} from '@sitecore-jss/sitecore-jss'
 /**
  * Shape of component props storage
  */
-export type ComponentProps = {
-  [componentName: string]: unknown;
+export type ComponentPropsCollection = {
+  [componentUid: string]: unknown;
 };
 
 /**

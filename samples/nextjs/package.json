@@ -46,7 +46,7 @@
     "express": "^4.17.1",
     "graphql": "~14.5.7",
     "graphql-tag": "^2.11.0",
-    "next": "^10.0.0",
+    "next": "^10.0.3",
     "next-localization": "^0.10.0",
     "nprogress": "~0.2.0",
     "react": "^16.9.0",
@@ -89,7 +89,6 @@
     "yaml-loader": "^0.6.0"
   },
   "scripts": {
-    "prepare": "cd ./node_modules/@sitecore-jss/sitecore-jss-nextjs && npm link ../../react",
     "jss": "jss",
     "lint": "eslint --fix ./src/**/*.tsx ./src/**/*.ts ./sitecore/definitions/**/*.ts ./scripts/**/*.ts ./data/**/*.yml",
     "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let",

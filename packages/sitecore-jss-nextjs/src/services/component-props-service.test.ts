@@ -1,8 +1,8 @@
 import { ComponentRendering, PlaceholdersData } from '@sitecore-jss/sitecore-jss';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
-import {IncomingMessage, ServerResponse} from 'http';
-import {ParsedUrlQuery} from 'querystring';
+import { IncomingMessage, ServerResponse } from 'http';
+import { ParsedUrlQuery } from 'querystring';
 import { ComponentPropsService, ComponentPropsRequest } from './component-props-service';
 
 use(spies);
@@ -10,9 +10,9 @@ use(spies);
 describe('ComponentPropsService', () => {
   const service = new ComponentPropsService();
 
-  const rendering = (name: string): ComponentRendering => ({
-    uid: name,
-    componentName: name,
+  const rendering = (componentUid: string, componentName?: string): ComponentRendering => ({
+    uid: componentUid,
+    componentName: componentName || `name${componentUid}`,
   });
 
   type CustomContext = { locale: string };
@@ -28,7 +28,11 @@ describe('ComponentPropsService', () => {
             {
               ...rendering('x15'),
               placeholders: {
-                x14ph: [rendering('x16'), rendering('x17')],
+                x14ph: [
+                  rendering('x16', 'MyCustomComponent'),
+                  rendering('x161', 'MyCustomComponent'),
+                  rendering('x17'),
+                ],
               },
             },
           ],
@@ -40,7 +44,7 @@ describe('ComponentPropsService', () => {
       {
         ...rendering('x22'),
         placeholders: {
-          x22ph: [rendering('x23')],
+          x22ph: [rendering('x23', 'MyCustomComponent')],
         },
       },
       rendering('x24'),
@@ -57,34 +61,34 @@ describe('ComponentPropsService', () => {
     },
   };
 
-	const context = { locale: 'en' };
+  const context = { locale: 'en' };
 
-  const fetchFn = (expectedData: unknown) => spy(() => Promise.resolve(expectedData));
+  const fetchFn = (expectedData: unknown, err?: string) =>
+    spy(() => (err ? Promise.reject(err) : Promise.resolve(expectedData)));
 
   const req = (
     expectedData: unknown,
-    componentName: string
+    componentUid: string,
+    err?: string
   ): ComponentPropsRequest<CustomContext> => ({
-    fetch: fetchFn(expectedData),
+    fetch: fetchFn(expectedData, err),
     layoutData,
-    rendering: rendering(componentName),
+    rendering: rendering(componentUid),
     context,
   });
 
+  // In real world: list of imported modules
   const modules: { [componentName: string]: any } = {
-    x11: {
+    namex11: {
       fn: fetchFn('x11Data'),
     },
-    x14: {
+    namex14: {
       fn: fetchFn('x14Data'),
     },
-    x16: {
-      fn: fetchFn('x16Data'),
+    MyCustomComponent: {
+      fn: fetchFn('myCustomComponentData'),
     },
-    x23: {
-      fn: fetchFn('x23Data'),
-    },
-    x24: {
+    namex24: {
       fn: fetchFn('x24Data'),
     },
   };
@@ -95,86 +99,82 @@ describe('ComponentPropsService', () => {
     const module = componentModule(componentName);
 
     return module?.fn;
-	};
+  };
 
-	it('fetchServerSideComponentProps', async () => {
-		const ssrModules: { [componentName: string]: any } = {
-			x11: {
-				getServerSideProps: fetchFn('x11SSRData'),
-			},
-			x14: {
-				getServerSideProps: fetchFn('x14SSRData'),
-			},
-			x16: {
-				getServerSideProps: fetchFn('x16SSRData'),
-			},
-			x23: {
-				getServerSideProps: fetchFn('x23SSRData'),
-			},
-			x24: {
-				getServerSideProps: fetchFn('x24SSRData'),
-			},
-		};
+  it('fetchServerSideComponentProps', async () => {
+    const ssrModules: { [componentName: string]: any } = {
+      namex11: {
+        getServerSideProps: fetchFn('x11SSRData'),
+      },
+      namex14: {
+        getServerSideProps: fetchFn('x14SSRData'),
+      },
+      MyCustomComponent: {
+        getServerSideProps: fetchFn('myCustomComponentSSRData'),
+      },
+      namex24: {
+        getServerSideProps: fetchFn('x24SSRData'),
+      },
+    };
 
-		const ssrContext = {
-			req: {} as IncomingMessage,
-			res: {} as ServerResponse,
-			query: {} as ParsedUrlQuery,
-			resolvedUrl: ''
-		}
+    const ssrContext = {
+      req: {} as IncomingMessage,
+      res: {} as ServerResponse,
+      query: {} as ParsedUrlQuery,
+      resolvedUrl: '',
+    };
 
-		const ssrComponentModule = (componentName: string) => ssrModules[componentName];
+    const ssrComponentModule = (componentName: string) => ssrModules[componentName];
 
-		const result = await service.fetchServerSideComponentProps({
-			componentModule: ssrComponentModule,
-			context: ssrContext,
-			layoutData
-		})
+    const result = await service.fetchServerSideComponentProps({
+      componentModule: ssrComponentModule,
+      context: ssrContext,
+      layoutData,
+    });
 
-		expect(result).to.deep.equal({
-			x11: 'x11SSRData',
-			x14: 'x14SSRData',
-			x16: 'x16SSRData',
-			x23: 'x23SSRData',
-			x24: 'x24SSRData'
-		})
-	})
-	
-	it('fetchStaticComponentProps', async () => {
-		const ssgModules: { [componentName: string]: any } = {
-			x11: {
-				getStaticProps: fetchFn('x11StaticData'),
-			},
-			x14: {
-				getStaticProps: fetchFn('x14StaticData'),
-			},
-			x16: {
-				getStaticProps: fetchFn('x16StaticData'),
-			},
-			x23: {
-				getStaticProps: fetchFn('x23StaticData'),
-			},
-			x24: {
-				getStaticProps: fetchFn('x24StaticData'),
-			},
-		};
+    expect(result).to.deep.equal({
+      x11: 'x11SSRData',
+      x14: 'x14SSRData',
+      x16: 'myCustomComponentSSRData',
+      x161: 'myCustomComponentSSRData',
+      x23: 'myCustomComponentSSRData',
+      x24: 'x24SSRData',
+    });
+  });
 
-		const ssgComponentModule = (componentName: string) => ssgModules[componentName];
+  it('fetchStaticComponentProps', async () => {
+    const ssgModules: { [componentName: string]: any } = {
+      namex11: {
+        getStaticProps: fetchFn('x11StaticData'),
+      },
+      namex14: {
+        getStaticProps: fetchFn('x14StaticData'),
+      },
+      MyCustomComponent: {
+        getStaticProps: fetchFn('myCustomComponentStaticData'),
+      },
+      namex24: {
+        getStaticProps: fetchFn('x24StaticData'),
+      },
+    };
 
-		const result = await service.fetchStaticComponentProps({
-			componentModule: ssgComponentModule,
-			context,
-			layoutData
-		})
+    const ssgComponentModule = (componentName: string) => ssgModules[componentName];
 
-		expect(result).to.deep.equal({
-			x11: 'x11StaticData',
-			x14: 'x14StaticData',
-			x16: 'x16StaticData',
-			x23: 'x23StaticData',
-			x24: 'x24StaticData'
-		})
-	})
+    const result = await service.fetchStaticComponentProps({
+      componentModule: ssgComponentModule,
+      context,
+      layoutData,
+    });
+
+    expect(result).to.deep.equal({
+      x11: 'x11StaticData',
+      x14: 'x14StaticData',
+      x16: 'myCustomComponentStaticData',
+      x161: 'myCustomComponentStaticData',
+      x23: 'myCustomComponentStaticData',
+      x24: 'x24StaticData',
+    });
+  });
 
   it('fetchComponentProps', async () => {
     const fetchedData = await service.fetchComponentProps<CustomContext>(
@@ -184,12 +184,13 @@ describe('ComponentPropsService', () => {
     );
 
     expect(fetchedData).to.deep.equal({
-			x11: 'x11Data',
-			x14: 'x14Data',
-			x16: 'x16Data',
-			x23: 'x23Data',
-			x24: 'x24Data'
-		});
+      x11: 'x11Data',
+      x14: 'x14Data',
+      x16: 'myCustomComponentData',
+      x161: 'myCustomComponentData',
+      x23: 'myCustomComponentData',
+      x24: 'x24Data',
+    });
   });
 
   it('collectRequests', () => {
@@ -202,79 +203,132 @@ describe('ComponentPropsService', () => {
 
     expect(requests).to.deep.equal([
       {
-        fetch: modules.x11.fn,
-        rendering: { uid: 'x11', componentName: 'x11' },
+        fetch: modules.namex11.fn,
+        rendering: { uid: 'x11', componentName: 'namex11' },
         layoutData,
         context,
       },
       {
-        fetch: modules.x14.fn,
-        rendering: { uid: 'x14', componentName: 'x14' },
+        fetch: modules.namex14.fn,
+        rendering: { uid: 'x14', componentName: 'namex14' },
         layoutData,
         context,
       },
       {
-        fetch: modules.x16.fn,
-        rendering: { uid: 'x16', componentName: 'x16' },
+        fetch: modules.MyCustomComponent.fn,
+        rendering: { uid: 'x16', componentName: 'MyCustomComponent' },
         layoutData,
         context,
       },
       {
-        fetch: modules.x23.fn,
-        rendering: { uid: 'x23', componentName: 'x23' },
+        fetch: modules.MyCustomComponent.fn,
+        rendering: { uid: 'x161', componentName: 'MyCustomComponent' },
         layoutData,
         context,
       },
       {
-        fetch: modules.x24.fn,
-        rendering: { uid: 'x24', componentName: 'x24' },
+        fetch: modules.MyCustomComponent.fn,
+        rendering: { uid: 'x23', componentName: 'MyCustomComponent' },
+        layoutData,
+        context,
+      },
+      {
+        fetch: modules.namex24.fn,
+        rendering: { uid: 'x24', componentName: 'namex24' },
         layoutData,
         context,
       },
     ]);
   });
 
-  it('execRequests', async () => {
-    const requests: ComponentPropsRequest<CustomContext>[] = [
-      req(11, 'x1'),
-      req(22, 'x2'),
-      req(33, 'x3'),
-    ];
+  describe('execRequests', () => {
+    it('success', async () => {
+      const requests: ComponentPropsRequest<CustomContext>[] = [
+        req(11, 'x1'),
+        req(22, 'x2'),
+        req(33, 'x3'),
+      ];
 
-    const result = await service.execRequests(requests);
+      const result = await service.execRequests(requests);
 
-    expect(result).to.deep.equal({
-      x1: 11,
-      x2: 22,
-      x3: 33,
+      expect(result).to.deep.equal({
+        x1: 11,
+        x2: 22,
+        x3: 33,
+      });
+
+      expect(requests[0].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x1',
+          componentName: 'namex1',
+        },
+        layoutData,
+        context
+      );
+
+      expect(requests[1].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x2',
+          componentName: 'namex2',
+        },
+        layoutData,
+        context
+      );
+
+      expect(requests[2].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x3',
+          componentName: 'namex3',
+        },
+        layoutData,
+        context
+      );
     });
+  
+    it('one of them rejected', async () => {
+      const requests: ComponentPropsRequest<CustomContext>[] = [
+        req(11, 'x1'),
+        req(null, 'x2', 'You do not have access rights to load data for this component'),
+        req(33, 'x3'),
+      ];
 
-    expect(requests[0].fetch).to.be.called.with.exactly(
-      {
-        uid: 'x1',
-        componentName: 'x1',
-      },
-      layoutData,
-      context
-    );
+      const result = await service.execRequests(requests);
 
-    expect(requests[1].fetch).to.be.called.with.exactly(
-      {
-        uid: 'x2',
-        componentName: 'x2',
-      },
-      layoutData,
-      context
-    );
+      expect(result).to.deep.equal({
+        x1: 11,
+        x2: {
+          error: 'You do not have access rights to load data for this component'
+        },
+        x3: 33,
+      });
 
-    expect(requests[2].fetch).to.be.called.with.exactly(
-      {
-        uid: 'x3',
-        componentName: 'x3',
-      },
-      layoutData,
-      context
-    );
+      expect(requests[0].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x1',
+          componentName: 'namex1',
+        },
+        layoutData,
+        context
+      );
+
+      expect(requests[1].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x2',
+          componentName: 'namex2',
+        },
+        layoutData,
+        context
+      );
+
+      expect(requests[2].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x3',
+          componentName: 'namex3',
+        },
+        layoutData,
+        context
+      );
+    })
   });
 
   describe('flatRenderings', () => {

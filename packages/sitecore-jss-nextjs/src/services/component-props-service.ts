@@ -4,7 +4,10 @@ import {
   ComponentRendering,
   PlaceholdersData,
 } from '@sitecore-jss/sitecore-jss';
-import { ComponentProps, ComponentPropsFetchFunction } from '../sharedTypes/component-props';
+import {
+  ComponentPropsCollection,
+  ComponentPropsFetchFunction,
+} from '../sharedTypes/component-props';
 import { ComponentModule } from '../sharedTypes/component-module';
 
 export type FetchComponentPropsArguments<NextContext> = {
@@ -25,13 +28,13 @@ type FetchFunctionFactory<NextContext> = (
 ) => ComponentPropsFetchFunction<NextContext> | undefined;
 
 export class ComponentPropsService {
-	/**
-	 * SSR mode
-	 * Fetch component props using getServerSideProps function
-	 */
+  /**
+   * SSR mode
+   * Fetch component props using getServerSideProps function
+   */
   async fetchServerSideComponentProps(
     params: FetchComponentPropsArguments<GetServerSidePropsContext>
-  ): Promise<ComponentProps> {
+  ): Promise<ComponentPropsCollection> {
     const { componentModule, layoutData, context } = params;
 
     const fetchFunctionFactory = (componentName: string) => {
@@ -47,13 +50,13 @@ export class ComponentPropsService {
     );
   }
 
-	/**
-	 * SSG mode
-	 * Fetch component props using getStaticProps function
-	 */
+  /**
+   * SSG mode
+   * Fetch component props using getStaticProps function
+   */
   async fetchStaticComponentProps(
     params: FetchComponentPropsArguments<GetStaticPropsContext>
-  ): Promise<ComponentProps> {
+  ): Promise<ComponentPropsCollection> {
     const { componentModule, layoutData, context } = params;
 
     const fetchFunctionFactory = (componentName: string) => {
@@ -77,7 +80,7 @@ export class ComponentPropsService {
     fetchFunctionFactory: FetchFunctionFactory<NextContext>,
     layoutData: LayoutServiceData,
     context: NextContext
-  ): Promise<ComponentProps> {
+  ): Promise<ComponentPropsCollection> {
     // Array of side effect functions
     const requests = this.collectRequests({
       placeholders: layoutData.sitecore.route.placeholders,
@@ -102,7 +105,7 @@ export class ComponentPropsService {
   }) {
     const { placeholders, fetchFunctionFactory, layoutData, context } = params;
 
-		// Will be called on first round
+    // Will be called on first round
     if (!params.requests) params.requests = [];
 
     const renderings = this.flatRenderings(placeholders);
@@ -136,14 +139,29 @@ export class ComponentPropsService {
    * Execute request for component props
    */
   async execRequests<NextContext>(requests: ComponentPropsRequest<NextContext>[]) {
-    const componentProps: ComponentProps = {};
+    const componentProps: ComponentPropsCollection = {};
 
-    const promises = requests.map((req) =>
-      req.fetch(req.rendering, req.layoutData, req.context).then((result) => {
-        // Set component specific data in componentProps store
-        componentProps[req.rendering.componentName] = result;
-      })
-    );
+    const promises = requests.map((req) => {
+      if (!req.rendering.uid) {
+        console.log(
+          `Component ${req.rendering.componentName} doesn't have uid, can't store data for this component`
+        );
+        return;
+      }
+
+      return req
+        .fetch(req.rendering, req.layoutData, req.context)
+        .then((result) => {
+          // Set component specific data in componentProps store
+          componentProps[req.rendering.uid!] = result;
+        })
+        .catch((error) => {
+          console.log(`Error during preload data for component ${req.rendering.uid}:`, error);
+          componentProps[req.rendering.uid!] = {
+            error,
+          };
+        });
+    });
 
     await Promise.all(promises);
 

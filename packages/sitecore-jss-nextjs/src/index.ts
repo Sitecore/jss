@@ -8,8 +8,8 @@ export {
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,
-	LayoutServiceContextData,
-	PlaceholdersData,
+  LayoutServiceContextData,
+  PlaceholdersData,
   RouteData,
   Field,
   Item,
@@ -23,24 +23,20 @@ export {
 } from '@sitecore-jss/sitecore-jss';
 
 export {
-	ComponentProps,
-	GetStaticComponentProps,
-	GetServerSideComponentProps,
-	ComponentPropsFetchFunction,
+  ComponentPropsCollection,
+  GetStaticComponentProps,
+  GetServerSideComponentProps,
 } from './sharedTypes/component-props';
 
 export { ComponentModule } from './sharedTypes/component-module';
 
-export {
-	ComponentPropsService,
-	FetchComponentPropsArguments,
-} from './services/component-props-service';
+export { ComponentPropsService } from './services/component-props-service';
 
-export { 
-	ComponentPropsReactContext,
-	ComponentPropsContextProps,
-	ComponentPropsContext,
-	useComponentProps,
+export {
+  ComponentPropsReactContext,
+  ComponentPropsContextProps,
+  ComponentPropsContext,
+  useComponentProps,
 } from './components/ComponentPropsContext';
 
 export {
@@ -56,8 +52,8 @@ export {
   File,
   FileField,
   VisitorIdentification,
-  SitecoreContext, 
-  SitecoreContextState, 
+  SitecoreContext,
+  SitecoreContextState,
   SitecoreContextReactContext,
   withSitecoreContext,
   withExperienceEditorChromes,

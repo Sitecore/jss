@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "reset": "lerna clean --yes && lerna bootstrap && npm run build-packages",
-    "bootstrap": "lerna bootstrap",
+    "reset": "lerna clean --yes && npm run bootstrap && npm run build-packages",
+    "bootstrap": "lerna bootstrap && npm run bootstrap-nextjs-sample",
+    "bootstrap-nextjs-sample": "cd ./samples/nextjs/node_modules/@sitecore-jss/sitecore-jss-nextjs && npm link ../../react",
     "bootstrap-packages": "lerna bootstrap --scope @sitecore-jss/*",
     "bootstrap-packages:ci": "lerna bootstrap --ci --scope @sitecore-jss/*",
     "build-packages": "lerna run build --ignore *-sample*",

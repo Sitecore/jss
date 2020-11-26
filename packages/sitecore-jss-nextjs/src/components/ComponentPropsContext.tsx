@@ -1,24 +1,24 @@
 import React, { createContext, useContext, ReactNode } from 'react';
-import { ComponentProps } from "../sharedTypes/component-props";
+import { ComponentPropsCollection } from "../sharedTypes/component-props";
 
 /**
  * Component props context which we are using in order to store data fetched on components level (getStaticProps/getServerSideProps)
  */
-export const ComponentPropsReactContext = createContext<ComponentProps>({});
+export const ComponentPropsReactContext = createContext<ComponentPropsCollection>({});
 
 /**
  * Hook in order to get access to props related to specific component. Data comes from ComponentPropsContext.
  * @see ComponentPropsContext
  */
-export function useComponentProps<ComponentData>(componentName: string): ComponentData {
+export function useComponentProps<ComponentData>(componentUid: string): ComponentData {
   const data = useContext(ComponentPropsReactContext);
 
-  return data[componentName] as ComponentData;
+  return data[componentUid] as ComponentData;
 };
 
 export type ComponentPropsContextProps = {
 	children: ReactNode;
-	value: ComponentProps;
+	value: ComponentPropsCollection;
 }
 
 export const ComponentPropsContext = ({ children, value }: ComponentPropsContextProps) => (
