@@ -23,6 +23,23 @@ export {
 } from '@sitecore-jss/sitecore-jss';
 
 export {
+  ComponentPropsCollection,
+  GetStaticComponentProps,
+  GetServerSideComponentProps,
+} from './sharedTypes/component-props';
+
+export { ComponentModule } from './sharedTypes/component-module';
+
+export { ComponentPropsService } from './services/component-props-service';
+
+export {
+  ComponentPropsReactContext,
+  ComponentPropsContextProps,
+  ComponentPropsContext,
+  useComponentProps,
+} from './components/ComponentPropsContext';
+
+export {
   ComponentFactory,
   Placeholder,
   Image,
@@ -35,8 +52,8 @@ export {
   File,
   FileField,
   VisitorIdentification,
-  SitecoreContext, 
-  SitecoreContextState, 
+  SitecoreContext,
+  SitecoreContextState,
   SitecoreContextReactContext,
   withSitecoreContext,
   withExperienceEditorChromes,
