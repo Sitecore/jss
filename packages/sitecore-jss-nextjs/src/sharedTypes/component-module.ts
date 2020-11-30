@@ -1,4 +1,4 @@
-import {GetServerSideComponentProps, GetStaticComponentProps} from "./component-props";
+import { GetServerSideComponentProps, GetStaticComponentProps } from './component-props';
 
 type Module = {
   default: React.Component;
