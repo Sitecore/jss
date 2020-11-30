@@ -1,15 +1,19 @@
 import { AxiosError } from 'axios';
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Error from 'next/error';
 import Layout from 'components/Layout';
-import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  SitecoreContext,
+  ComponentPropsContext,
+  ComponentPropsService,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps, extractPath } from 'lib/page-props';
-import { componentFactory } from 'temp/componentFactory';
+import { componentFactory, componentModule } from 'temp/componentFactory';
 import { configBasedLayoutService as layoutService } from 'lib/layout-service';
 import { configBasedDictionaryService as dictionaryService } from 'lib/dictionary-service';
-import { ComponentPropsContext } from 'lib/component-props';
-import { componentPropsService } from 'lib/component-props-service';
 import { config as packageConfig } from '../../package.json';
+
+const componentPropsService = new ComponentPropsService();
 
 const SitecorePage = ({ layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   if (!layoutData?.sitecore?.route) {
@@ -24,11 +28,11 @@ const SitecorePage = ({ layoutData, componentProps }: SitecorePageProps): JSX.El
   };
 
   const PageLayout = () => (
-    <ComponentPropsContext.Provider value={componentProps}>
+    <ComponentPropsContext value={componentProps}>
       <SitecoreContext componentFactory={componentFactory} context={context}>
         <Layout route={layoutData.sitecore.route} />
       </SitecoreContext>
-    </ComponentPropsContext.Provider>
+    </ComponentPropsContext>
   );
 
   return <PageLayout />;
@@ -76,9 +80,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   if (props.layoutData) {
     // Retrieve component props using side-effects defined on components level
-    props.componentProps = await componentPropsService.fetchComponentProps<GetStaticPropsContext>({
+    props.componentProps = await componentPropsService.fetchStaticComponentProps({
       layoutData: props.layoutData,
       context,
+      componentModule,
     });
   }
 
