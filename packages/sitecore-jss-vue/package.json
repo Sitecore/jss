@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "del-cli dist types",
-    "lint": "tslint -p . -c ../../tslint.json 'src/**/*.ts'",
+    "lint": "tslint -p . -c ../../tslint.json \"src/**/*.ts\"",
     "test": "jest",
     "prepublishOnly": "npm run build",
     "coverage": "jest --config ./jest.config.coverage.js"

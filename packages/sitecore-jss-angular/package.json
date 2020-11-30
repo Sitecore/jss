@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
-    "lint": "tslint -p . -c tslint.json 'src/**/*.ts'",
+    "lint": "tslint -p . -c tslint.json \"src/**/*.ts\"",
     "test": "karma start",
     "test:watch": "karma start --no-single-run --browsers Chrome",
     "coverage": "npm test"

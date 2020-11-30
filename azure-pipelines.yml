@@ -37,11 +37,17 @@ steps:
     npm ci
   displayName: 'npm ci'
 - script: |
-    npm run bootstrap-packages:ci
+    npm run bootstrap:ci
   displayName: 'bootstrapping packages'
 - script: |
     npm run build-packages
   displayName: 'building packages'
+- script: |
+    npm run lint-packages
+  displayName: 'linting packages'
+- script: |
+    npm run lint-apps
+  displayName: 'linting apps'
 - script: |
     npm run test-packages
   displayName: 'running tests'

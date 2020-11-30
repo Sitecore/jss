@@ -106,7 +106,9 @@ export class ComponentPropsService {
     const { placeholders, fetchFunctionFactory, layoutData, context } = params;
 
     // Will be called on first round
-    if (!params.requests) params.requests = [];
+    if (!params.requests) {
+      params.requests = [];
+    }
 
     const renderings = this.flatRenderings(placeholders);
 
