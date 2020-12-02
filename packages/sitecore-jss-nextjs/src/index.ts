@@ -44,11 +44,11 @@ export { RichText } from './components/RichText';
 
 export {
   ComponentFactory,
-	Placeholder,
-	Image,
-	ImageField,
+  Placeholder,
+  Image,
+  ImageField,
   Text,
-	DateField,
+  DateField,
   File,
   FileField,
   VisitorIdentification,
