@@ -34,6 +34,16 @@ export type LinkProps = React.DetailedHTMLProps<
    * NOTE: when in Sitecore Experience Editor, this setting is ignored due to technical limitations, and the description is always rendered.
    */
   showLinkTextWithChildrenPresent?: boolean;
+
+  /**
+   * Should component prefetch route
+   */
+  prefetch?: boolean;
+
+  /**
+   * Locale which will be used when prefetch route
+   */
+  locale?: string;
 };
 
 export const Link = ({
@@ -41,6 +51,8 @@ export const Link = ({
   editable,
   children,
   showLinkTextWithChildrenPresent,
+  prefetch,
+  locale,
   ...otherProps
 }: LinkProps) => {
   if (!field || (!field.editableFirstPart && !field.value && !(field as LinkFieldValue).href)) {
@@ -88,7 +100,7 @@ export const Link = ({
   }
 
   resultTags.push(
-    <NextLink href={link.href} key="link">
+    <NextLink href={link.href} key="link" prefetch={prefetch} locale={locale}>
       <a title={link.title} target={link.target} className={link.class} {...otherProps}>
         {text}
         {children}

@@ -25,13 +25,23 @@ export interface RichTextProps {
 	 */
 	internalLinksSelector?: string;
 
+	/**
+	 * Should component prefetch routes
+	 */
+	prefetch?: boolean;
+
+	/**
+	 * Locale which will be used when prefetch route
+	 */
+	locale?: string;
+
 	[htmlAttributes: string]: any;
 }
 
 const prefetched: { [cacheKey: string]: boolean } = {}
 
 export const RichText = (props: RichTextProps) => {
-	const { internalLinksSelector, ...rest } = props;
+	const { internalLinksSelector = 'a[href^="/"]', prefetch = true, locale, ...rest } = props;
 	const hasText = props.field && props.field.value;
 	const isEditing = props.editable && props.field && props.field.editable;
 
@@ -57,13 +67,13 @@ export const RichText = (props: RichTextProps) => {
 		const node = richTextRef.current;
 
 		// selects all links that start with '/'
-		const internalLinks = node && node.querySelectorAll<HTMLAnchorElement>(internalLinksSelector || 'a[href^="/"]');
+		const internalLinks = node && node.querySelectorAll<HTMLAnchorElement>(internalLinksSelector);
 		
 		if (!internalLinks) return;
 
 		internalLinks.forEach((link) => {
-			if (!prefetched[link.pathname]) {
-				router.prefetch(link.pathname);
+			if (prefetch && !prefetched[link.pathname]) {
+				router.prefetch(link.pathname, undefined, { locale });
 				prefetched[link.pathname] = true;
 			}
 			
