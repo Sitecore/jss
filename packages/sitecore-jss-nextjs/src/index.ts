@@ -39,16 +39,16 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
+export { Link, LinkField, LinkFieldValue } from './components/Link';
+export { RichText } from './components/RichText';
+
 export {
   ComponentFactory,
-  Placeholder,
-  Image,
-  ImageField,
-  RichText,
+	Placeholder,
+	Image,
+	ImageField,
   Text,
-  DateField,
-  Link,
-  LinkField,
+	DateField,
   File,
   FileField,
   VisitorIdentification,

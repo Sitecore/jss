@@ -8,7 +8,7 @@
     "lint": "tslint -p . -c ./tslint.json 'src/**/*.ts'",
     "test": "mocha --require ts-node/register --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\"",
     "prepublishOnly": "npm run build",
-    "coverage": "nyc --require ts-node/register npm test"
+    "coverage": "nyc npm test"
   },
   "engines": {
     "node": ">=8.1"
