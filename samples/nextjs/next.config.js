@@ -1,10 +1,24 @@
 const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
+const { JSS_MODE_DISCONNECTED, JSS_MODE_EDITING } = require('@sitecore-jss/sitecore-jss-nextjs');
+const { parse } = require('url');
 
 const disconnectedServerUrl = `http://localhost:${process.env.DISCONNECTED_SERVER_PORT || 3042}/`;
-const disconnected = process.env.JSS_MODE === 'disconnected';
+const disconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
+const editing = process.env.JSS_MODE === JSS_MODE_EDITING;
+const publicUrl = process.env.PUBLIC_URL;
 
-module.exports = (phase) => {
+module.exports = (phase, { defaultConfig }) => {
+  
+  const assetPrefix = editing & publicUrl ? publicUrl : '';
+
+  let images = defaultConfig.images;
+
+  if (editing && publicUrl) {
+    const domain = parse(publicUrl).hostname;
+    images.domains = [domain];
+    images.path = publicUrl + defaultConfig.images.path;
+  }
 
   const env = {
     // Expose current Next.js phase as an environment variable
@@ -101,12 +115,24 @@ module.exports = (phase) => {
   const webpack = (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);
 
+    // Fixes getInitialProps (_edit.tsx) use of npm packages that depend on server-only modules
+    // See https://github.com/vercel/next.js/issues/7755#issuecomment-508633125
+    if (!options.isServer) {
+      //config.externals.push('express');
+      config.node = {
+        net: 'empty',
+        fs: 'empty'
+      };
+    }
+
     return config;
   }
 
   return {
+    assetPrefix,
     env,
     i18n,
+    images,
     rewrites,
     webpack
   };

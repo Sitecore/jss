@@ -22,6 +22,8 @@ export {
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss';
 
+export * from './constants';
+
 export {
   ComponentPropsCollection,
   GetStaticComponentProps,
@@ -38,6 +40,12 @@ export {
   ComponentPropsContext,
   useComponentProps,
 } from './components/ComponentPropsContext';
+
+export { 
+  EditingServerOptions,
+  startEditingServer
+} from './editing/editing-server';
+export { extractEditingDataFromRequest } from './editing/editing-data';
 
 export {
   ComponentFactory,
