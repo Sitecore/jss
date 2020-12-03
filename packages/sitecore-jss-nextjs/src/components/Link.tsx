@@ -10,7 +10,7 @@ import {
 
 export type LinkProps = ReactLinkProps & {
 	/**
-	 * If `href` starts with `internalLinkMatcher` value, then it's internal link
+	 * If `href` starts with `internalLinkMatcher` value, then it's internal link and NextLink will be rendered
 	 * @defaultvalue '/'
 	 */
 	internalLinkMatcher?: string;
