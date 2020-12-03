@@ -39,7 +39,7 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { Link, LinkField, LinkFieldValue } from './components/Link';
+export { Link } from './components/Link';
 export { RichText } from './components/RichText';
 
 export {
@@ -47,6 +47,8 @@ export {
   Placeholder,
   Image,
   ImageField,
+  LinkField,
+  LinkFieldValue,
   Text,
   DateField,
   File,

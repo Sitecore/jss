@@ -23,10 +23,10 @@ export {
 export { ComponentFactory } from './components/sharedTypes';
 export { Placeholder } from './components/Placeholder';
 export { Image, ImageField } from './components/Image';
-export { RichText } from './components/RichText';
+export { RichText, RichTextProps, RichTextPropTypes } from './components/RichText';
 export { Text } from './components/Text';
 export { DateField } from './components/Date';
-export { Link, LinkField } from './components/Link';
+export { Link, LinkField, LinkFieldValue, LinkProps, LinkPropTypes } from './components/Link';
 export { File, FileField } from './components/File';
 export { VisitorIdentification } from './components/VisitorIdentification';
 export { SitecoreContext, SitecoreContextState, SitecoreContextReactContext } from './components/SitecoreContext';

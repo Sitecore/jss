@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { use, expect, spy } from 'chai';
+import { RichText as ReactRichText } from '@sitecore-jss/sitecore-jss-react';
 import { mount } from 'enzyme';
 import spies from 'chai-spies';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
@@ -45,7 +46,6 @@ describe('RichText', () => {
 
 		const c = mount(<Page value={router}><RichText {...props} /></Page>, { attachTo: app });
 				
-		expect(c.html()).contains('<div class="nextjsRichTextWrapper">');
 		expect(c.html()).contains('<div id="test">');
 		expect(c.html()).contains('<h1>Hello!</h1>');
 		expect(c.html()).contains('<a href="/t10">1</a>');
@@ -70,6 +70,8 @@ describe('RichText', () => {
 		link2 && link2.click();
 
 		expect(router.push).called.exactly(2);
+		
+		expect(c.find(ReactRichText).length).to.equal(1);
 
 		document.body.removeChild(app);
 	})
@@ -90,7 +92,6 @@ describe('RichText', () => {
 
 		const c = mount(<Page value={router}><RichText {...props} /></Page>, { attachTo: app });
 				
-		expect(c.html()).contains('<div class="nextjsRichTextWrapper">');
 		expect(c.html()).contains('<div id="test">');
 		expect(c.html()).contains('<h1>Hello!</h1>');
 
@@ -113,6 +114,8 @@ describe('RichText', () => {
 		// Check that push not invoked, because second link don't have event listener
 		expect(router.push).called.exactly(1);
 
+		expect(c.find(ReactRichText).length).to.equal(1);
+
 		document.body.removeChild(app);
 	})
 
@@ -123,9 +126,11 @@ describe('RichText', () => {
 			field: {}
 		}
 
-		mount(<Page value={router}><RichText {...props} /></Page>);
+		const c = mount(<Page value={router}><RichText {...props} /></Page>);
 
 		expect(router.prefetch).called.exactly(0);
+		
+		expect(c.find(ReactRichText).length).to.equal(1);
 	})
 
 	it('should not initialize links if no links in markup', () => {
@@ -133,17 +138,18 @@ describe('RichText', () => {
 
 		const props = {
 			field: {
-				editable: '<div id="test"><h1>Hello!</h1></div>'
+				value: '<div id="test"><h1>Hello!</h1></div>'
 			}
 		}
 
 		const c = mount(<Page value={router}><RichText {...props} /></Page>);
 
-		expect(c.html()).contains('<div class="nextjsRichTextWrapper">');
 		expect(c.html()).contains('<div id="test">');
 		expect(c.html()).contains('<h1>Hello!</h1>');
 
 		expect(router.prefetch).called.exactly(0);
+
+		expect(c.find(ReactRichText).length).to.equal(1);
 	})
 
 	it('should not initialize links when editable', () => {
@@ -157,12 +163,13 @@ describe('RichText', () => {
 
 		const c = mount(<Page value={router}><RichText {...props} /></Page>);
 
-		expect(c.html()).contains('<div class="nextjsRichTextWrapper">');
 		expect(c.html()).contains('<div id="test">');
 		expect(c.html()).contains('<h1>Hello!</h1>');
 		expect(c.html()).contains('<a href="/t1">t1</a>');
 		expect(c.html()).contains('<a href="/t2">t2</a>');
 
 		expect(router.prefetch).called.exactly(0);
+
+		expect(c.find(ReactRichText).length).to.equal(1);
 	})
 })
