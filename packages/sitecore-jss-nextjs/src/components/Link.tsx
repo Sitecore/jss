@@ -12,8 +12,8 @@ export type LinkProps = ReactLinkProps;
 export const Link = (props: LinkProps) => {
   const { editable, showLinkTextWithChildrenPresent, ...htmlLinkProps } = props;
 
-	const value = (props.field as LinkFieldValue).href ? props.field : props.field.value;
-	const hasValidHref = value && value.href;
+  const value = (props.field as LinkFieldValue).href ? props.field : props.field.value;
+  const hasValidHref = value && value.href;
   const isEditing = editable && (props.field as LinkFieldValue).editable;
 
   if (hasValidHref && !isEditing) {

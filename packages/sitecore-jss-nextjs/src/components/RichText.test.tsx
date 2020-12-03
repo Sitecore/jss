@@ -26,150 +26,172 @@ const Router = () => ({
 });
 
 // Should provide RouterContext in case if we render Link from next/link
-const Page = ({ children, value }: { children: ReactNode, value?: any }) => (
+const Page = ({ children, value }: { children: ReactNode; value?: any }) => (
   <RouterContext.Provider value={value || Router()}>{children}</RouterContext.Provider>
 );
 
 describe('RichText', () => {
-	it('should initialize links', () => {
-		const app = document.createElement('main');
+  it('should initialize links', () => {
+    const app = document.createElement('main');
 
-		document.body.appendChild(app);
+    document.body.appendChild(app);
 
-		const router = Router();
+    const router = Router();
 
-		const props = {
-			field: {
-				value: `<div id="test"><h1>Hello!</h1><a href="/t10">1</a><a href="/t10">2</a></div>`
-			}
-		}
+    const props = {
+      field: {
+        value: `<div id="test"><h1>Hello!</h1><a href="/t10">1</a><a href="/t10">2</a></div>`,
+      },
+    };
 
-		const c = mount(<Page value={router}><RichText {...props} /></Page>, { attachTo: app });
-				
-		expect(c.html()).contains('<div id="test">');
-		expect(c.html()).contains('<h1>Hello!</h1>');
-		expect(c.html()).contains('<a href="/t10">1</a>');
-		expect(c.html()).contains('<a href="/t10">2</a>');
+    const c = mount(
+      <Page value={router}>
+        <RichText {...props} />
+      </Page>,
+      { attachTo: app }
+    );
 
-		expect(router.prefetch).called.exactly(1);
+    expect(c.html()).contains('<div id="test">');
+    expect(c.html()).contains('<h1>Hello!</h1>');
+    expect(c.html()).contains('<a href="/t10">1</a>');
+    expect(c.html()).contains('<a href="/t10">2</a>');
 
-		const main = document.querySelector('main');
+    expect(router.prefetch).called.exactly(1);
 
-		const links = main && main.querySelectorAll('a');
+    const main = document.querySelector('main');
 
-		const link1 = links && links[0];
-		const link2 = links && links[1];
+    const links = main && main.querySelectorAll('a');
 
-		expect(link1!.href).to.equal('/t10');
-		expect(link2!.href).to.equal('/t10');
+    const link1 = links && links[0];
+    const link2 = links && links[1];
 
-		link1 && link1.click();
+    expect(link1!.href).to.equal('/t10');
+    expect(link2!.href).to.equal('/t10');
 
-		expect(router.push).called.exactly(1);
+    link1 && link1.click();
 
-		link2 && link2.click();
+    expect(router.push).called.exactly(1);
 
-		expect(router.push).called.exactly(2);
-		
-		expect(c.find(ReactRichText).length).to.equal(1);
+    link2 && link2.click();
 
-		document.body.removeChild(app);
-	})
+    expect(router.push).called.exactly(2);
 
-	it('should initialize links using internalLinksSelector', () => {
-		const app = document.createElement('main');
+    expect(c.find(ReactRichText).length).to.equal(1);
 
-		document.body.appendChild(app);
+    document.body.removeChild(app);
+  });
 
-		const router = Router();
+  it('should initialize links using internalLinksSelector', () => {
+    const app = document.createElement('main');
 
-		const props = {
-			field: {
-				value: `<div id="test"><h1>Hello!</h1><a href="/testpath/t1">t1</a><a href="/t2">t2</a></div>`
-			},
-			internalLinksSelector: 'a[href^="/testpath"]'
-		}
+    document.body.appendChild(app);
 
-		const c = mount(<Page value={router}><RichText {...props} /></Page>, { attachTo: app });
-				
-		expect(c.html()).contains('<div id="test">');
-		expect(c.html()).contains('<h1>Hello!</h1>');
+    const router = Router();
 
-		const main = document.querySelector('main');
+    const props = {
+      field: {
+        value: `<div id="test"><h1>Hello!</h1><a href="/testpath/t1">t1</a><a href="/t2">t2</a></div>`,
+      },
+      internalLinksSelector: 'a[href^="/testpath"]',
+    };
 
-		const links = main && main.querySelectorAll('a');
+    const c = mount(
+      <Page value={router}>
+        <RichText {...props} />
+      </Page>,
+      { attachTo: app }
+    );
 
-		const link1 = links && links[0];
-		const link2 = links && links[1];
+    expect(c.html()).contains('<div id="test">');
+    expect(c.html()).contains('<h1>Hello!</h1>');
 
-		expect(link1!.href).to.equal('/testpath/t1');
-		expect(link2!.href).to.equal('/t2');
+    const main = document.querySelector('main');
 
-		link1 && link1.click();
+    const links = main && main.querySelectorAll('a');
 
-		expect(router.push).called.exactly(1);
+    const link1 = links && links[0];
+    const link2 = links && links[1];
 
-		link2 && link2.click();
+    expect(link1!.href).to.equal('/testpath/t1');
+    expect(link2!.href).to.equal('/t2');
 
-		// Check that push not invoked, because second link don't have event listener
-		expect(router.push).called.exactly(1);
+    link1 && link1.click();
 
-		expect(c.find(ReactRichText).length).to.equal(1);
+    expect(router.push).called.exactly(1);
 
-		document.body.removeChild(app);
-	})
+    link2 && link2.click();
 
-	it('should not initialize links when does not have value', () => {
-		const router = Router();
+    // Check that push not invoked, because second link don't have event listener
+    expect(router.push).called.exactly(1);
 
-		const props = {
-			field: {}
-		}
+    expect(c.find(ReactRichText).length).to.equal(1);
 
-		const c = mount(<Page value={router}><RichText {...props} /></Page>);
+    document.body.removeChild(app);
+  });
 
-		expect(router.prefetch).called.exactly(0);
-		
-		expect(c.find(ReactRichText).length).to.equal(1);
-	})
+  it('should not initialize links when does not have value', () => {
+    const router = Router();
 
-	it('should not initialize links if no links in markup', () => {
-		const router = Router();
+    const props = {
+      field: {},
+    };
 
-		const props = {
-			field: {
-				value: '<div id="test"><h1>Hello!</h1></div>'
-			}
-		}
+    const c = mount(
+      <Page value={router}>
+        <RichText {...props} />
+      </Page>
+    );
 
-		const c = mount(<Page value={router}><RichText {...props} /></Page>);
+    expect(router.prefetch).called.exactly(0);
 
-		expect(c.html()).contains('<div id="test">');
-		expect(c.html()).contains('<h1>Hello!</h1>');
+    expect(c.find(ReactRichText).length).to.equal(1);
+  });
 
-		expect(router.prefetch).called.exactly(0);
+  it('should not initialize links if no links in markup', () => {
+    const router = Router();
 
-		expect(c.find(ReactRichText).length).to.equal(1);
-	})
+    const props = {
+      field: {
+        value: '<div id="test"><h1>Hello!</h1></div>',
+      },
+    };
 
-	it('should not initialize links when editable', () => {
-		const router = Router();
+    const c = mount(
+      <Page value={router}>
+        <RichText {...props} />
+      </Page>
+    );
 
-		const props = {
-			field: {
-				editable: '<div id="test"><h1>Hello!</h1><a href="/t1">t1</a><a href="/t2">t2</a></div>'
-			}
-		}
+    expect(c.html()).contains('<div id="test">');
+    expect(c.html()).contains('<h1>Hello!</h1>');
 
-		const c = mount(<Page value={router}><RichText {...props} /></Page>);
+    expect(router.prefetch).called.exactly(0);
 
-		expect(c.html()).contains('<div id="test">');
-		expect(c.html()).contains('<h1>Hello!</h1>');
-		expect(c.html()).contains('<a href="/t1">t1</a>');
-		expect(c.html()).contains('<a href="/t2">t2</a>');
+    expect(c.find(ReactRichText).length).to.equal(1);
+  });
 
-		expect(router.prefetch).called.exactly(0);
+  it('should not initialize links when editable', () => {
+    const router = Router();
 
-		expect(c.find(ReactRichText).length).to.equal(1);
-	})
-})
+    const props = {
+      field: {
+        editable: '<div id="test"><h1>Hello!</h1><a href="/t1">t1</a><a href="/t2">t2</a></div>',
+      },
+    };
+
+    const c = mount(
+      <Page value={router}>
+        <RichText {...props} />
+      </Page>
+    );
+
+    expect(c.html()).contains('<div id="test">');
+    expect(c.html()).contains('<h1>Hello!</h1>');
+    expect(c.html()).contains('<a href="/t1">t1</a>');
+    expect(c.html()).contains('<a href="/t2">t2</a>');
+
+    expect(router.prefetch).called.exactly(0);
+
+    expect(c.find(ReactRichText).length).to.equal(1);
+  });
+});

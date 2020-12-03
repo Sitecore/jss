@@ -40,11 +40,11 @@ export const RichText = (props: RichTextProps) => {
   };
 
   const initializeLinks = () => {
-		const node = richTextRef.current;
+    const node = richTextRef.current;
 
     // selects all links that start with '/'
-		const internalLinks = node && node.querySelectorAll<HTMLAnchorElement>(internalLinksSelector);
-		
+    const internalLinks = node && node.querySelectorAll<HTMLAnchorElement>(internalLinksSelector);
+
     if (!internalLinks || !internalLinks.length) return;
 
     internalLinks.forEach((link) => {
@@ -56,14 +56,14 @@ export const RichText = (props: RichTextProps) => {
       link.removeEventListener('click', routeHandler, false);
       link.addEventListener('click', routeHandler, false);
     });
-	};
-	
+  };
+
   return <ReactRichText ref={richTextRef} {...rest} />;
 };
 
 RichText.propTypes = {
-	internalLinksSelector: PropTypes.string,
-	...RichTextPropTypes
+  internalLinksSelector: PropTypes.string,
+  ...RichTextPropTypes,
 };
 
 RichText.defaultProps = {

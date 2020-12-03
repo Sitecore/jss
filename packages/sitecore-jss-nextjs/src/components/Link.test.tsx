@@ -41,23 +41,23 @@ describe('<Link />', () => {
         title: 'My Link',
         target: '_blank',
       },
-		};
-		
-		const c = mount(
+    };
+
+    const c = mount(
       <Page>
         <Link field={field} />
       </Page>
-		)
+    );
 
     const link = c.find('a');
-		
+
     expect(link.html()).to.contain(`href="${field.value.href}"`);
     expect(link.html()).to.contain(`class="${field.value.class}"`);
     expect(link.html()).to.contain(`title="${field.value.title}"`);
-		expect(link.html()).to.contain(`target="${field.value.target}"`);
+    expect(link.html()).to.contain(`target="${field.value.target}"`);
 
-		expect(c.find(NextLink).length).to.equal(1);
-		expect(c.find(ReactLink).length).to.equal(0);
+    expect(c.find(NextLink).length).to.equal(1);
+    expect(c.find(ReactLink).length).to.equal(0);
   });
 
   it('should render with href directly on provided field', () => {
@@ -69,15 +69,15 @@ describe('<Link />', () => {
       <Page>
         <Link field={field} />
       </Page>
-		)
+    );
 
-		const link = c.find('a');
-		
+    const link = c.find('a');
+
     expect(link.html()).to.contain(field.href);
-		expect(link.html()).to.contain(field.text);
-		
-		expect(c.find(NextLink).length).to.equal(1);
-		expect(c.find(ReactLink).length).to.equal(0);
+    expect(link.html()).to.contain(field.text);
+
+    expect(c.find(NextLink).length).to.equal(1);
+    expect(c.find(ReactLink).length).to.equal(0);
   });
 
   it('should render link text with children', () => {
@@ -96,15 +96,15 @@ describe('<Link />', () => {
           <p>Hello world...</p>
         </Link>
       </Page>
-		);
-		
-		const link = c.find('a');
+    );
+
+    const link = c.find('a');
 
     expect(link.html()).to.contain('ipsum');
-		expect(link.html()).to.contain('<p>Hello world...</p>');
-		
-		expect(c.find(NextLink).length).to.equal(1);
-		expect(c.find(ReactLink).length).to.equal(0);
+    expect(link.html()).to.contain('<p>Hello world...</p>');
+
+    expect(c.find(NextLink).length).to.equal(1);
+    expect(c.find(ReactLink).length).to.equal(0);
   });
 
   it('should render link href with children', () => {
@@ -122,16 +122,16 @@ describe('<Link />', () => {
           <p>Hello world...</p>
         </Link>
       </Page>
-		);
-		
-		const link = c.find('a');
+    );
+
+    const link = c.find('a');
 
     expect(link.html()).to.contain('/lorem');
-		expect(link.html()).to.contain('<p>Hello world...</p>');
-		
-		expect(c.find(NextLink).length).to.equal(1);
-		expect(c.find(ReactLink).length).to.equal(0);
-  })
+    expect(link.html()).to.contain('<p>Hello world...</p>');
+
+    expect(c.find(NextLink).length).to.equal(1);
+    expect(c.find(ReactLink).length).to.equal(0);
+  });
 
   it('should render children instead of link text', () => {
     const field = {
@@ -149,16 +149,16 @@ describe('<Link />', () => {
           <p>Hello world...</p>
         </Link>
       </Page>
-		);
-		
-		const link = c.find('a');
+    );
+
+    const link = c.find('a');
 
     expect(link.html()).to.not.contain('ipsum');
-		expect(link.html()).to.contain('<p>Hello world...</p>');
-		
-		expect(c.find(NextLink).length).to.equal(1);
-		expect(c.find(ReactLink).length).to.equal(0);
-  })
+    expect(link.html()).to.contain('<p>Hello world...</p>');
+
+    expect(c.find(NextLink).length).to.equal(1);
+    expect(c.find(ReactLink).length).to.equal(0);
+  });
 
   it('should render other attributes with other props provided', () => {
     const field = {
@@ -171,20 +171,19 @@ describe('<Link />', () => {
       <Page>
         <Link field={field} id="my-link" accessKey="a" />
       </Page>
-		);
+    );
 
-		const link = c.find('a');
+    const link = c.find('a');
 
-		
     expect(link.html()).to.contain('id="my-link"');
-		expect(link.html()).to.contain('accesskey="a"');
-		
-		expect(c.find(NextLink).length).to.equal(1);
-		expect(c.find(ReactLink).length).to.equal(0);
+    expect(link.html()).to.contain('accesskey="a"');
+
+    expect(c.find(NextLink).length).to.equal(1);
+    expect(c.find(ReactLink).length).to.equal(0);
   });
 
-	it('should render ReactLink if link is external', () => {
-		const field = {
+  it('should render ReactLink if link is external', () => {
+    const field = {
       value: {
         href: 'http://jssreactweb/lorem',
         text: 'ipsum',
@@ -200,12 +199,12 @@ describe('<Link />', () => {
         </Link>
       </Page>
     );
-		expect(rendered.find(NextLink).length).to.equal(0);
-		expect(rendered.find(ReactLink).length).to.equal(1);
-	})
+    expect(rendered.find(NextLink).length).to.equal(0);
+    expect(rendered.find(ReactLink).length).to.equal(1);
+  });
 
-	it('should render ReactLink if href not exists', () => {
-		const field = {
+  it('should render ReactLink if href not exists', () => {
+    const field = {
       value: {
         href: null,
         text: 'ipsum',
@@ -221,7 +220,7 @@ describe('<Link />', () => {
         </Link>
       </Page>
     );
-		expect(rendered.find(NextLink).length).to.equal(0);
-		expect(rendered.find(ReactLink).length).to.equal(1);
-	})
+    expect(rendered.find(NextLink).length).to.equal(0);
+    expect(rendered.find(ReactLink).length).to.equal(1);
+  });
 });
