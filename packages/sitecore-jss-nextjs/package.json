@@ -8,7 +8,7 @@
     "lint": "tslint -p . -c ./tslint.json \"src/**/*.ts\"",
     "test": "mocha --require ts-node/register --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\"",
     "prepublishOnly": "npm run build",
-    "coverage": "nyc --require ts-node/register npm test"
+    "coverage": "nyc npm test"
   },
   "engines": {
     "node": ">=8.1"
@@ -57,7 +57,8 @@
   },
   "dependencies": {
     "@sitecore-jss/sitecore-jss": "^15.0.1",
-    "@sitecore-jss/sitecore-jss-react": "^15.0.1"
+    "@sitecore-jss/sitecore-jss-react": "^15.0.1",
+    "prop-types": "^15.7.2"
   },
   "description": "",
   "types": "types/index.d.ts",
