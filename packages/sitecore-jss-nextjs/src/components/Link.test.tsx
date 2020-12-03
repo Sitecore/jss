@@ -194,7 +194,7 @@ describe('<Link />', () => {
     };
     const rendered = mount(
       <Page>
-        <Link field={field} showLinkTextWithChildrenPresent internalLinkMatcher='http://jssreactweb'>
+        <Link field={field} showLinkTextWithChildrenPresent internalLinkMatcher={/^http:\/\/jssreactweb/g}>
           <p>Hello world...</p>
         </Link>
       </Page>
