@@ -108,7 +108,7 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
     query: ConnectedDemoQueryDocument,
     variables: {
       datasource: rendering.dataSource,
-      contextItem: layoutData?.sitecore.route.itemId,
+      contextItem: layoutData?.sitecore?.route?.itemId,
     },
   });
 
@@ -132,7 +132,7 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
     query: ConnectedDemoQueryDocument,
     variables: {
       datasource: rendering.dataSource,
-      contextItem: layoutData?.sitecore.route.itemId,
+      contextItem: layoutData?.sitecore?.route?.itemId,
     },
   });
 

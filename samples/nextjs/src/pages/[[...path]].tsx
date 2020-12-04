@@ -1,11 +1,12 @@
 import { AxiosError } from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Error from 'next/error';
+import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
 import {
   SitecoreContext,
   ComponentPropsContext,
   ComponentPropsService,
+  LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps, extractPath } from 'lib/page-props';
 import { componentFactory, componentModule } from 'temp/componentFactory';
@@ -18,7 +19,7 @@ const componentPropsService = new ComponentPropsService();
 const SitecorePage = ({ layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   if (!layoutData?.sitecore?.route) {
     // layoutData will be missing for an invalid path
-    return <Error statusCode={404} />;
+    return <NotFound context={layoutData?.sitecore.context} />;
   }
 
   const context = {
@@ -27,10 +28,12 @@ const SitecorePage = ({ layoutData, componentProps }: SitecorePageProps): JSX.El
     ...layoutData.sitecore.context,
   };
 
+  const routeData = layoutData.sitecore.route;
+
   const PageLayout = () => (
     <ComponentPropsContext value={componentProps}>
       <SitecoreContext componentFactory={componentFactory} context={context}>
-        <Layout route={layoutData.sitecore.route} />
+        <Layout route={routeData} />
       </SitecoreContext>
     </ComponentPropsContext>
   );
@@ -72,23 +75,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // Retrieve layoutData from Layout Service
   props.layoutData = await layoutService
     .fetchLayoutData(path, props.locale)
-    .catch((error: AxiosError) => {
+    .catch((error: AxiosError<LayoutServiceData>) => {
       // Let 404s (invalid path) through
-      if (error.response?.status === 404) return null;
+      if (error.response?.status === 404) return error.response.data;
+
       throw error;
     });
 
-  if (props.layoutData) {
+  if (props.layoutData.sitecore.route) {
     // Retrieve component props using side-effects defined on components level
     props.componentProps = await componentPropsService.fetchStaticComponentProps({
       layoutData: props.layoutData,
       context,
       componentModule,
     });
-  }
 
-  // Retrieve dictionary data from Dictionary Service
-  props.dictionary = await dictionaryService.fetchDictionaryData(props.locale);
+    // Retrieve dictionary data from Dictionary Service
+    props.dictionary = await dictionaryService.fetchDictionaryData(props.locale);
+  }
 
   return {
     props,
