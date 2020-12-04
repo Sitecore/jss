@@ -3,16 +3,26 @@ import { Request, Response } from 'express';
 import Server from 'next/dist/next-server/server/next-server';
 import absolutify from './absolutify';
 import { EDIT_ROUTE } from '../constants';
-import { EditingData, attachEditingDataToRequest } from './editing-data';
+import { EditingData } from './editing-data';
+
+// Extend Express Request with our custom EditingData
+// NOTE: The property name ("editingData") needs to match EditingRequest, which is used in the consuming app.
+declare global {
+  namespace Express {
+      export interface Request {
+        editingData: EditingData;
+      }
+  }
+}
 
 /**
  * Express middleware for handling requests from the Sitecore Experience Editor.
  * @constructor
  * @param {object} nextApp The Next.js app.
- * @param {string} appUrl The app URL. This will be used when replacing relative links with absolute ones.
+ * @param {string} publicUrl The public URL. This will be used when replacing relative links with absolute ones.
  */
 export default class EditingMiddleware {
-  constructor(readonly nextApp: Server, readonly appUrl: string) {}
+  constructor(readonly nextApp: Server, readonly publicUrl: string) {}
 
   getRequestHandler(): (req: Request, res: Response) => Promise<void> {
     return this.handleRequest.bind(this);
@@ -37,7 +47,11 @@ export default class EditingMiddleware {
       req.url = EDIT_ROUTE;
 
       // Attach data to request for use in our edit route
-      attachEditingDataToRequest(req, data);
+      req.editingData = data;
+
+      // Set our public URL as the asset prefix, which is used by Next.js for the JavaScript and CSS files it loads
+      // See https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
+      this.nextApp.setAssetPrefix(this.publicUrl);
 
       // Now render the page
       let html = await this.nextApp.renderToHTML(req, res, EDIT_ROUTE, parsedUrl.query);
@@ -48,7 +62,7 @@ export default class EditingMiddleware {
 
       // Run any post-render processing of the html.
       // At the moment, this includes replacing any remaining relative links with absolute ones.
-      html = processHtml(html, this.appUrl);
+      html = processHtml(html, this.publicUrl);
 
       res.send({
         html,

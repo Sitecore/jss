@@ -2,6 +2,7 @@ const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
 const { JSS_MODE_DISCONNECTED, JSS_MODE_EDITING } = require('@sitecore-jss/sitecore-jss-nextjs');
 const { parse } = require('url');
+const chalk = require('chalk');
 
 const disconnectedServerUrl = `http://localhost:${process.env.DISCONNECTED_SERVER_PORT || 3042}/`;
 const disconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
@@ -10,14 +11,25 @@ const publicUrl = process.env.PUBLIC_URL;
 
 module.exports = (phase, { defaultConfig }) => {
   
-  const assetPrefix = editing & publicUrl ? publicUrl : '';
-
+  let assetPrefix = '';
   let images = defaultConfig.images;
 
-  if (editing && publicUrl) {
-    const domain = parse(publicUrl).hostname;
-    images.domains = [domain];
-    images.path = publicUrl + defaultConfig.images.path;
+  //TODO: Move editing-specific config mods
+  if (editing) {
+    if (!publicUrl || publicUrl.length === 0) {
+      console.warn(chalk.yellow.bold('Warning: ') + 'A PUBLIC_URL environment variable is not defined. Falling back to http://localhost:3000.')
+      publicUrl = 'http://localhost:3000';
+    } else {
+      // Set our public URL as the asset prefix, which is used by Next.js for the JavaScript and CSS files it loads
+      // See https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
+      assetPrefix = publicUrl;
+      
+      // Set our public URL to be used by Next.js image optimization
+      // See https://nextjs.org/docs/basic-features/image-optimization
+      const domain = parse(publicUrl).hostname;
+      images.domains = [domain];
+      images.path = publicUrl + defaultConfig.images.path;
+    }
   }
 
   const env = {
@@ -115,14 +127,10 @@ module.exports = (phase, { defaultConfig }) => {
   const webpack = (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);
 
-    // Fixes getInitialProps (_edit.tsx) use of npm packages that depend on server-only modules
-    // See https://github.com/vercel/next.js/issues/7755#issuecomment-508633125
     if (!options.isServer) {
-      //config.externals.push('express');
-      config.node = {
-        net: 'empty',
-        fs: 'empty'
-      };
+      // Exclude express (for Editing Server) from the client bundle
+      // https://stackoverflow.com/a/56482335/233024
+      config.externals.push({ express: { commonjs: 'express' } });
     }
 
     return config;

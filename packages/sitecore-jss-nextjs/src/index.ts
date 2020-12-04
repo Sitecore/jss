@@ -45,7 +45,10 @@ export {
   EditingServerOptions,
   startEditingServer
 } from './editing/editing-server';
-export { extractEditingDataFromRequest } from './editing/editing-data';
+export { 
+  EditingData,
+  EditingRequest
+} from './editing/editing-data';
 
 export {
   ComponentFactory,
