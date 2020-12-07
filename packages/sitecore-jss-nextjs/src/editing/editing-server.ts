@@ -1,3 +1,4 @@
+import compression from 'compression';
 import express from 'express';
 import next from 'next';
 import bodyParser from 'body-parser';
@@ -28,6 +29,11 @@ export interface EditingServerOptions {
    * @default '*'
    */
   editMiddlewarePath?: string;
+  /**
+   * Enable compression on the Experience Editor POST request.
+   * Defaults to `true`.
+   */
+  enableCompression?: boolean;
 }
 
 /**
@@ -39,6 +45,7 @@ export function startEditingServer({
   hostname = 'localhost',
   editRoute = '/_edit',
   editMiddlewarePath = '*',
+  enableCompression = true,
 }: EditingServerOptions = {}): void {
   const dev = process.env.NODE_ENV !== 'production';
   const serverUrl = `http://${hostname}:${port}`;
@@ -58,15 +65,23 @@ export function startEditingServer({
       const handle = app.getRequestHandler();
       const handleEdit = new EditingMiddleware(app, editRoute, publicUrl).getRequestHandler();
 
+      // Disable X-Powered-By header
+      server.disable('x-powered-by');
+
       // Wire up the middleware for Experience Editor (assume only POST requests should be handled)
-      server.post(editMiddlewarePath, bodyParser.json({ limit: '2mb' }), handleEdit);
+      // Note Next.js already includes compression with its handler, so we're only concerned with ours
+      const editHandlers = [ compression(), bodyParser.json({ limit: '2mb' }), handleEdit ];
+      if (!enableCompression) {
+        editHandlers.shift();
+      }
+      server.post(editMiddlewarePath, editHandlers);
 
       // Send everything else to Next.js
       server.all('*', (req, res) => {
         return handle(req, res);
       });
 
-      server.listen(port, (err?: any) => {
+      server.listen(port, hostname, (err?: any) => {
         if (err) {
           throw err;
         }
