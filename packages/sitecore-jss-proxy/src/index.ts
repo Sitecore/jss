@@ -91,7 +91,10 @@ async function renderAppToResponse(
 
 
   async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
-    if (proxyResponse.statusCode === HttpStatus.OK || proxyResponse.statusCode === HttpStatus.NOT_FOUND) {
+    if (
+      proxyResponse.statusCode === HttpStatus.OK ||
+      proxyResponse.statusCode === HttpStatus.NOT_FOUND
+    ) {
       let responseString: Promise<string>;
 
       if (
@@ -316,14 +319,17 @@ export function rewriteRequestPath(
 
   let finalReqPath = decodedReqPath;
   const qsIndex = finalReqPath.indexOf('?');
-  let qs;
+  let qs = '';
   if (qsIndex > -1) {
     qs = buildQueryString(req.query);
     finalReqPath = finalReqPath.slice(0, qsIndex);
   }
 
   if (config.qsParams) {
-    qs += `&${config.qsParams}`;
+    if (qs) {
+      qs += '&';
+    }
+    qs += `${config.qsParams}`;
   }
 
   let lang;
@@ -356,7 +362,7 @@ export function rewriteRequestPath(
 
   let path = `${config.layoutServiceRoute}?item=${encodeURIComponent(finalReqPath)}&sc_apikey=${
     config.apiKey
-    }`;
+  }`;
 
   if (lang) {
     path = `${path}&sc_lang=${lang}`;
