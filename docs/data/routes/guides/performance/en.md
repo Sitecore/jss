@@ -88,7 +88,7 @@ Every framework provides guidance on configuration changes that should be turned
 
 - [React's 'Optimizing Performance' Guide](https://reactjs.org/docs/optimizing-performance.html)
 - [Vue's 'Production Deployment' Guide](https://vuejs.org/v2/guide/deployment.html)
-- [Angular's 'Production optiimizations' Guide](https://angular.io/guide/deployment#production-optimizations)
+- [Angular's 'Production optimizations' Guide](https://angular.io/guide/deployment#production-optimizations)
 
 ---
 
