@@ -11,11 +11,16 @@ const publicUrl = process.env.PUBLIC_URL;
 
 module.exports = (phase, { defaultConfig }) => {
   
-  let assetPrefix = '';
+  let distDir = defaultConfig.distDir;
+  let assetPrefix = defaultConfig.assetPrefix;
   let images = defaultConfig.images;
 
   //TODO: Move editing-specific config mods
   if (editing) {
+
+    // Use dedicated build directory (main app uses '.next')
+    distDir = '.next-editing';
+
     if (!publicUrl || publicUrl.length === 0) {
       console.warn(chalk.yellow.bold('Warning: ') + 'A PUBLIC_URL environment variable is not defined. Falling back to http://localhost:3000.')
       publicUrl = 'http://localhost:3000';
@@ -128,8 +133,7 @@ module.exports = (phase, { defaultConfig }) => {
     applyGraphQLCodeGenerationLoaders(config, options);
 
     if (!options.isServer) {
-      // Exclude express (for Editing Server) from the client bundle
-      // https://stackoverflow.com/a/56482335/233024
+      // Always exclude express (used by the Editing Server) from the client bundle
       config.externals.push({ express: { commonjs: 'express' } });
     }
 
@@ -139,6 +143,7 @@ module.exports = (phase, { defaultConfig }) => {
   return {
     assetPrefix,
     env,
+    distDir,
     i18n,
     images,
     rewrites,

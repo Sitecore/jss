@@ -100,8 +100,7 @@
     "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
     "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch",
-    "build:editing": "cross-env-shell JSS_MODE=editing \"npm-run-all --serial bootstrap next:build build:editing-server\"",
-    "start:editing": "cross-env-shell NODE_ENV=production JSS_MODE=editing node .editing/index.js",
-    "build:editing-server": "tsc --project tsconfig.editing.json"
+    "build:editing": "cross-env-shell JSS_MODE=editing \"npm-run-all --serial bootstrap next:build\"",
+    "start:editing": "cross-env-shell NODE_ENV=production JSS_MODE=editing ts-node --project tsconfig.scripts.json scripts/editing-server.ts"
   }
 }
