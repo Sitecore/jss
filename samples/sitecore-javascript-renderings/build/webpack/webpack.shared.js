@@ -3,7 +3,6 @@ import webpack from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import chalk from 'chalk';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import jssConfig from '../config';
 
 /* eslint-disable no-param-reassign, no-nested-ternary */
@@ -11,6 +10,7 @@ import jssConfig from '../config';
 /*
   The core Webpack configuration used by all output bundles.
   Imported by client and server bundles for reuse.
+  It's not intended for production use, as sample use pretty old version of webpack - v3
 */
 
 export default function(envVars) {
@@ -18,7 +18,7 @@ export default function(envVars) {
     content: 'disconnected', // or connected; where the content to display comes from (local or Sitecore respectively)
     publicPath: jssConfig.buildArtifactsPath, // see Webpack docs on publicPath
     outputPath: 'local', // local (/dist) or sitecore (direct deploy to configured Sitecore root) or anything else for literal path
-    production: false, // when true sets node env to prod (production react) and enables uglify
+    production: false, // when true sets node env to prod (production react)
     devtool: undefined, // webpack devtool setting (defaults to cheap-source-map if production is true)
     watch: false, // controls webpack watch mode (watch without dev-server)
     devserver: false, // whether to use webpack-dev-server or not (note: only used by client bundle)
@@ -31,7 +31,9 @@ export default function(envVars) {
   return {
     devtool: envVars.devtool
       ? envVars.devtool
-      : envVars.production ? 'cheap-source-map' : undefined,
+      : envVars.production
+        ? 'cheap-source-map'
+        : undefined,
     context: path.resolve(process.cwd(), 'src'),
     output: {
       path: getOutputPath(envVars),
@@ -125,26 +127,6 @@ function getExtraPlugins(envVars) {
 
   // minify JS in production (options based on create-react-app)
   if (envVars.production) {
-    plugins.push(
-      new UglifyJsPlugin({
-        sourceMap: true,
-        uglifyOptions: {
-          ecma: 7,
-          compress: {
-            warnings: false,
-            comparisons: false,
-          },
-          mangle: {
-            keep_fnames: true,
-            safari10: true,
-          },
-          output: {
-            comments: false,
-            ascii_only: true,
-          },
-        },
-      })
-    );
   }
 
   return plugins;

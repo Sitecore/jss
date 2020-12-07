@@ -1,4 +1,20 @@
 /**
+ * Phrases from the Sitecore Dictionary Service
+ */
+export interface DictionaryPhrases {
+  [k: string]: string;
+}
+
+/**
+ * A reply from the Sitecore Dictionary Service
+ */
+export interface DictionaryServiceData {
+  lang: string;
+  app: string;
+  phrases: DictionaryPhrases;
+}
+
+/**
  * A reply from the Sitecore Layout Service
  */
 export interface LayoutServiceData {
@@ -8,20 +24,33 @@ export interface LayoutServiceData {
 }
 
 /**
+ * Layout Service page state enum
+ */
+export enum LayoutServicePageState {
+  Preview = 'preview',
+  Edit = 'edit',
+  Normal = 'normal'
+}
+
+/**
+ * Shape of context data from the Sitecore Layout Service
+ */
+export interface LayoutServiceContext {
+  pageEditing?: boolean;
+  language?: string;
+  pageState?: LayoutServicePageState;
+  visitorIdentificationTimestamp?: number;
+  site?: {
+    name?: string;
+  };
+  [key: string]: any;
+};
+
+/**
  * Context information from the Sitecore Layout Service
  */
 export interface LayoutServiceContextData {
-  context: {
-    pageEditing?: boolean;
-    language?: string;
-    pageState?: 'preview' | 'edit' | 'normal';
-    visitorIdentificationTimestamp?: number;
-    site?: {
-      name?: string;
-    };
-
-    [key: string]: any;
-  };
+  context: LayoutServiceContext
 }
 
 /**

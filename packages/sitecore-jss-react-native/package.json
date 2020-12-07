@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-native",
-  "version": "14.0.3",
+  "version": "15.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "clean": "del-cli dist types",
     "typecheck": "tsc",
     "fixcrlf": "eslint --rule 'linebreak-style: [\"error\", \"unix\"]' --ext .ts --no-eslintrc --fix ./dist",
-    "lint": "tslint -p . -c ./tslint.json 'src/**/*.ts'",
+    "lint": "tslint -p . -c ./tslint.json \"src/**/*.ts\"",
     "test": "jest",
     "prepublishOnly": "npm test && npm run build",
     "coverage": "jest --config ./jest.config.coverage.js"
@@ -26,7 +26,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^14.0.3",
+    "@sitecore-jss/sitecore-jss": "^15.0.1",
     "prop-types": "^15.7.2",
     "react-native-htmlview": "^0.15.0",
     "react-native-svg": "^9.13.2",
@@ -52,11 +52,11 @@
     "babel-core": "6.26.3",
     "babel-jest": "^24.9.0",
     "babel-preset-env": "^1.7.0",
-    "del-cli": "^3.0.0",
+    "del-cli": "^3.0.1",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
     "react": "^16.9.0",
-    "react-native": "^0.60.5",
+    "react-native": "^0.63.3",
     "react-test-renderer": "^16.9.0",
     "ts-jest": "24.1.0",
     "tslint-react": "^4.1.0",

@@ -8,9 +8,9 @@
 
     <p>
       <!-- $t is attached to the Vue instance by the i18n plugin -->
-      This is a static dictionary entry from <code>/data/dictionary</code>:&nbsp;{{$t(
-        'styleguide-sample'
-      )}}
+      This is a static dictionary entry from <code>/data/dictionary</code>:&nbsp;{{
+        $t('styleguide-sample')
+      }}
     </p>
 
     <p>
@@ -20,8 +20,7 @@
     </p>
 
     <!-- $i18n is attached to the Vue instance by the i18n plugin -->
-    <p>The current language is: {{$i18n.i18next.language}}</p>
-
+    <p>The current language is: {{ $i18n.i18next.language }}</p>
   </styleguide-specimen>
 </template>
 

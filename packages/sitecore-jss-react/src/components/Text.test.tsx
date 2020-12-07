@@ -47,13 +47,31 @@ describe('<Text />', () => {
     expect(rendered.html()).to.contain('&lt; &gt;');
   });
 
-  it('should render value with with just a value', () => {
+  it('should render value with just a value', () => {
     const field = {
       value: 'value',
     };
     const rendered = mount(<Text tag="span" field={field} />).find('span');
     expect(rendered).to.have.length(1);
     expect(rendered.html()).to.contain('value');
+  });
+
+  it('should render value with just a value that contains line breaks', () => {
+    const field = {
+      value: 'xxx\n\naa\nbbb\ndd'
+    };
+    const rendered = mount(<Text tag="span" field={field} />).find('span');
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.contain('xxx<br><br>aa<br>bbb<br>dd');
+  });
+
+  it('should render value with just a value that contains only one line break', () => {
+    const field = {
+      value: '\n'
+    };
+    const rendered = mount(<Text tag="span" field={field} />).find('span');
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.contain('<span><br></span>');
   });
 
   it('should render embedded html as-is when encoding is disabled', () => {
@@ -73,6 +91,15 @@ describe('<Text />', () => {
     expect(rendered).to.have.length(1);
     expect(rendered.html()).to.contain('<input');
     expect(rendered.html()).to.contain('<span class="scChromeData">');
+  });
+  
+  it('should render ee HTML with line breaks', () => {
+    const field = {
+      editable: 'xxx\n\naa\nbbb\n',
+    };
+    const rendered = mount(<Text field={field} />).find('span');
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.equal('<span>xxx\n\naa\nbbb\n</span>');
   });
 
   it('should render tag with a tag provided', () => {

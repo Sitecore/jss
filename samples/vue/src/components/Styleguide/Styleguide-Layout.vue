@@ -12,7 +12,9 @@
       <nav v-for="section in sections" :key="section.heading" class="nav flex-column pt-2">
         <a :href="`#${section.id}`" class="nav-item font-weight-bold">{{ section.heading }}</a>
         <nav class="nav flex-column" v-if="section.children">
-          <a v-for="child in section.children" :key="child.id" :href="`#${child.id}`">{{ child.heading }}</a>
+          <a v-for="child in section.children" :key="child.id" :href="`#${child.id}`">{{
+            child.heading
+          }}</a>
         </nav>
       </nav>
     </div>

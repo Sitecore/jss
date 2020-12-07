@@ -1,5 +1,5 @@
 import React from 'react';
-import { SitecoreContext, SitecoreContextFactory } from '@sitecore-jss/sitecore-jss-react';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import { Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import componentFactory from './temp/componentFactory';
@@ -23,49 +23,48 @@ export const routePatterns = [
 // Router: provides a basic routing setup that will resolve Sitecore item routes and allow for language URL prefixes.
 class AppRoot extends React.Component {
   constructor(props) {
-    super(props);
-    
+    super(props)
+
     this.state = {
-      ssrRenderComplete: false,
-      contextFactory: new SitecoreContextFactory()
+      ssrRenderComplete: false
     }
 
-    if (props.ssrState && props.ssrState.sitecore && props.ssrState.sitecore.route) {
-      // set the initial sitecore context data if we got SSR initial state
-      this.state.contextFactory.setSitecoreContext({
-        route: props.ssrState.sitecore.route,
-        itemId: props.ssrState.sitecore.route.itemId,
-        ...props.ssrState.sitecore.context,
-      });
-    } else if (props.ssrState) {
-      this.state.contextFactory.setSitecoreContext(props.ssrState.sitecore.context)
+    if (props.ssrState) {
+      this.sitecoreContext = props.ssrState.sitecore && props.ssrState.sitecore.route
+        ? {
+            route: props.ssrState.sitecore.route,
+            itemId: props.ssrState.sitecore.route.itemId,
+            ...props.ssrState.sitecore.context,
+          }
+        : props.ssrState.sitecore.context
     } else {
-      this.state.contextFactory.setSitecoreContext(null);
+      this.sitecoreContext = null;
     }
   }
 
-  setSsrRenderComplete = ssrRenderComplete => (
+  setSsrRenderComplete = ssrRenderComplete =>
     this.setState({
       ssrRenderComplete
     })
-  )
+
+  componentDidMount() {
+    this.setSsrRenderComplete(true);
+  }
 
   render() {
     const { path, Router, graphQLClient } = this.props;
 
-    const routeRenderFunction = (props) => 
-      <RouteHandler
-        route={props}
-        ssrRenderComplete={this.state.ssrRenderComplete}
-        setSsrRenderComplete={this.setSsrRenderComplete}
-      />;
     return (
       <ApolloProvider client={graphQLClient}>
-        <SitecoreContext componentFactory={componentFactory} contextFactory={this.state.contextFactory}>
+        <SitecoreContext componentFactory={componentFactory} context={this.sitecoreContext}>
           <Router location={path} context={{}}>
             <Switch>
               {routePatterns.map((routePattern) => (
-                <Route key={routePattern} path={routePattern} render={routeRenderFunction} />
+                <Route 
+                  key={routePattern}
+                  path={routePattern}
+                  render={(props) => <RouteHandler route={props} ssrRenderComplete={this.state.ssrRenderComplete} />}
+                />
               ))}
             </Switch>
           </Router>

@@ -15,7 +15,10 @@
       -->
       <template v-if="!isEditing">
         <li v-for="(tab, index) in tabsPlaceholder" :key="`tab${index}`" class="nav-item">
-          <button :class="`nav-link ${index === activeTabIndex ? 'active' : null}`" v-on:click="activeTabIndex = index">
+          <button
+            :class="`nav-link ${index === activeTabIndex ? 'active' : null}`"
+            v-on:click="activeTabIndex = index"
+          >
             <sc-text :field="tab.props.fields.title" />
           </button>
         </li>

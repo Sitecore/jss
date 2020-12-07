@@ -36,23 +36,53 @@ export const findEditorImageTag = (editorMarkup: string) => {
 };
 
 /**
+ * Get required query string params which should be merged with user params
+ * @param qs layout service parsed query string
+ */
+export const getRequiredParams = (qs: { 
+  [key: string]: string | undefined 
+}) => {
+  const { rev, db, la, vs, ts } = qs;
+  
+  return { rev, db, la, vs, ts }
+}
+
+/**
  * Receives a Sitecore media URL and replaces `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
+ * Can use `mediaUrlPrefix` in order to use custom checker.
  * This replacement allows the JSS media handler to be used for JSS app assets.
  * Also, any provided `params` are used as the querystring parameters for the media URL.
  */
-export const updateImageUrl = (url: string, params?: { [key: string]: string | undefined }) => {
+export const updateImageUrl = (
+  url: string,
+  params?: { [key: string]: string | undefined },
+  mediaUrlPrefix: RegExp = mediaUrlPrefixRegex
+) => {
   // polyfill node `global` in browser to workaround https://github.com/unshiftio/url-parse/issues/150
   if (typeof window !== 'undefined' && !(window as any).global) {
     (window as any).global = {};
   }
-  const parsed = URL(url, {}, true);
+	const parsed = URL(url, {}, true);
+ 
+  const query = { ...(params || parsed.query) }
 
-  parsed.set('query', { ...parsed.query, ...params });
+  // In case if imageParams provided
+  if (params) {
+    const requiredParams = getRequiredParams(parsed.query);
+  
+    Object.entries(requiredParams).forEach(([key, param]) => {
+      if (param) {
+        query[key] = param;
+      }
+    })
+  }
 
-  const match = mediaUrlPrefixRegex.exec(parsed.pathname);
+  parsed.set('query', query);
+
+  const match = mediaUrlPrefix.exec(parsed.pathname);
   if (match && match.length > 1) {
     // regex will provide us with /-/ or /~/ type
-    parsed.set('pathname', parsed.pathname.replace(mediaUrlPrefixRegex, `/${match[1]}/jssmedia/`));
+    parsed.set('pathname', parsed.pathname.replace(mediaUrlPrefix, `/${match[1]}/jssmedia/`));
   }
 
   return parsed.toString();
@@ -72,7 +102,8 @@ export const updateImageUrl = (url: string, params?: { [key: string]: string | u
 export const getSrcSet = (
   url: string,
   srcSet: Array<{ [key: string]: string | undefined }>,
-  imageParams?: { [key: string]: string | undefined }
+  imageParams?: { [key: string]: string | undefined },
+  mediaUrlPrefix?: RegExp
 ) => {
   return srcSet
     .map((params) => {
@@ -81,7 +112,7 @@ export const getSrcSet = (
       if (!imageWidth) {
         return null;
       }
-      return `${updateImageUrl(url, newParams)} ${imageWidth}w`;
+      return `${updateImageUrl(url, newParams, mediaUrlPrefix)} ${imageWidth}w`;
     })
     .filter((value) => value)
     .join(', ');

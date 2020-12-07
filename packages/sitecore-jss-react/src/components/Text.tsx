@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactElement, FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
 
 export interface TextProps {
   /** The text field data. */
-  field: {
+  field?: {
     value?: string;
     editable?: string;
   };
@@ -24,7 +24,7 @@ export interface TextProps {
   [htmlAttributes: string]: any;
 }
 
-export const Text: React.SFC<TextProps> = ({ field, tag, editable, encode, ...otherProps }) => {
+export const Text: FunctionComponent<TextProps> = ({ field, tag, editable, encode, ...otherProps }) => {
   if (!field || (!field.editable && !field.value)) {
     return null;
   }
@@ -35,7 +35,29 @@ export const Text: React.SFC<TextProps> = ({ field, tag, editable, encode, ...ot
     editable = false;
   }
 
-  const output = field.editable && editable ? field.editable : field.value;
+  const value = (field.editable && editable ? field.editable : field.value) || '';
+
+  let output: (ReactElement | string)[] = [value];
+
+  // when value isn't formatted, we should format line breaks
+  if (!field.editable && value) {
+    const splitted = String(value).split('\n');
+
+    if (splitted.length) {
+      output = [];
+    }
+
+    splitted.forEach((str, i) => {
+      const isLast = i === splitted.length - 1;
+
+      output.push(str);
+
+      if (!isLast) {
+        output.push(<br key={i}/>);
+      }
+    });
+  }
+
   const setDangerously = (field.editable && editable) || !encode;
 
   let children = null;
@@ -60,9 +82,9 @@ export const Text: React.SFC<TextProps> = ({ field, tag, editable, encode, ...ot
 
 Text.propTypes = {
   field: PropTypes.shape({
-    value: PropTypes.any,
+    value: PropTypes.string,
     editable: PropTypes.string,
-  }).isRequired,
+  }),
   tag: PropTypes.string,
   editable: PropTypes.bool,
   encode: PropTypes.bool,

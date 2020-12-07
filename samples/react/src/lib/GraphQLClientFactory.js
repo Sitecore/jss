@@ -1,8 +1,10 @@
 /* eslint-disable import/first */
 
-import 'isomorphic-fetch';
+import 'cross-fetch/polyfill';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';
+
+/* eslint-disable import/order */
 
 /*
   INTROSPECTION DATA
@@ -34,10 +36,16 @@ import { BatchHttpLink } from 'apollo-link-batch-http';
 // APQ + batched, or APQ + http links for example.
 import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
 
-export default function(endpoint, ssr, initialCacheState) {
+export default function (endpoint, ssr, initialCacheState) {
   /* HTTP link selection: default to batched + APQ */
   const link = createPersistedQueryLink().concat(
-    new BatchHttpLink({ uri: endpoint, credentials: 'include' })
+    new BatchHttpLink({ 
+      uri: endpoint,
+      credentials: 'include',
+      headers: {
+        connection: "keep-alive"
+      }
+    })
   );
 
   const cache = new InMemoryCache({

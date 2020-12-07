@@ -5,11 +5,11 @@
     <h2>GraphQL Connected Demo</h2>
 
     <p>
-      Connected GraphQL executes GraphQL queries directly against the Sitecore GraphQL endpoint.
-      You can review the query execution in the browser devtools network tab. Note that Apollo
-      Client maintains a query cache - so the same query will not execute twice (i.e. after route
-      changes) unless either the page is refreshed, or the <em>fetch policy</em> is set to not use
-      the cache. Consult the Apollo documentation for details.
+      Connected GraphQL executes GraphQL queries directly against the Sitecore GraphQL endpoint. You
+      can review the query execution in the browser devtools network tab. Note that Apollo Client
+      maintains a query cache - so the same query will not execute twice (i.e. after route changes)
+      unless either the page is refreshed, or the <em>fetch policy</em> is set to not use the cache.
+      Consult the Apollo documentation for details.
     </p>
 
     <p v-if="loadingQueriesCount > 0" class="alert alert-info">GraphQL query is executing...</p>
@@ -18,7 +18,7 @@
       <h4>Datasource Item (via Connected GraphQL)</h4>
       id: {{ datasource.id }}
       <br />
-      name: {{  datasource.name }}
+      name: {{ datasource.name }}
       <br />
       sample1: {{ datasource.sample1.value }}
       <br />
@@ -29,9 +29,7 @@
         <li>text: {{ datasource.sample2.text }}</li>
         <li>url: {{ datasource.sample2.url }}</li>
         <li>target: {{ datasource.sample2.target }}</li>
-        <li>
-          editable: <sc-link :field="datasource.sample2.jss" />
-        </li>
+        <li>editable: <sc-link :field="datasource.sample2.jss" /></li>
         <li>field type: {{ datasource.sample2.definition.type }}</li>
         <li>field is shared?: {{ datasource.sample2.definition.shared.toString() }}</li>
       </ul>
@@ -44,8 +42,9 @@
       <br />
       children:
       <ul>
-        <li v-for="(child) in contextItem.children" :key="child.id">
-          <router-link :to="child.url">{{child.pageTitle.value}}</router-link>&nbsp; (editable title too! <sc-text :field="child.pageTitle.jss" />)
+        <li v-for="child in contextItem.children" :key="child.id">
+          <router-link :to="child.url">{{ child.pageTitle.value }}</router-link
+          >&nbsp; (editable title too! <sc-text :field="child.pageTitle.jss" />)
         </li>
       </ul>
     </div>

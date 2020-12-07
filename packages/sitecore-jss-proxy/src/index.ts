@@ -1,7 +1,7 @@
-import { IncomingMessage, ServerResponse } from 'http';
+import { IncomingMessage, ServerResponse, ClientRequest } from 'http';
 import proxy from 'http-proxy-middleware';
-import setCookieParser from 'set-cookie-parser';
 import HttpStatus from 'http-status-codes';
+import setCookieParser from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
 import { AppRenderer } from './AppRenderer';
 import { ProxyConfig } from './ProxyConfig';
@@ -88,10 +88,7 @@ async function renderAppToResponse(
     return true;
   };
 
-  if (request.method === 'HEAD') {
-    completeProxyResponse(null, proxyResponse.statusCode || HttpStatus.OK);
-    return;
-  }
+
 
   async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
     if (
@@ -172,10 +169,18 @@ async function renderAppToResponse(
     }
 
     // we have to convert back to a buffer so that we can get the *byte count* (rather than character count) of the body
-    const content = Buffer.from(result.html);
+    let content = Buffer.from(result.html);
 
     // setting the content-length header is not absolutely necessary, but is recommended
     proxyResponse.headers['content-length'] = content.length.toString(10);
+
+    // if original request was a HEAD, we should not return a response body
+    if (request.method === 'HEAD') {
+      if (config.debug) {
+        console.log('DEBUG: Original request method was HEAD, clearing response body');
+      }
+      content = Buffer.from([]);
+    }
 
     if (result.redirect) {
       if (!result.status) {
@@ -301,7 +306,7 @@ export function rewriteRequestPath(
   const decodedReqPath = decodeURIComponent(reqPath);
 
   // if the request URL contains a path/route that should not be re-written, then just pass it along as-is
-  if (isUrlIgnored(decodedReqPath, config)) {
+  if (isUrlIgnored(reqPath, config)) {
     // we do not return the decoded URL because we're using it verbatim - should be encoded.
     return reqPath;
   }
@@ -332,7 +337,7 @@ export function rewriteRequestPath(
     if (config.debug) {
       console.log(`DEBUG: Parsing route URL using ${decodedReqPath} URL...`);
     }
-    const routeParams = parseRouteUrl(decodedReqPath);
+    const routeParams = parseRouteUrl(finalReqPath);
 
     if (routeParams) {
       if (routeParams.sitecoreRoute) {
@@ -387,7 +392,7 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
     );
 
     if (!noDebug && config.debug) {
-      if (result) {
+      if (!result) {
         console.log(
           `DEBUG: URL ${originalUrl} did not match the proxy exclude list, and will be treated as a layout service route to render. Excludes:`,
           config.pathRewriteExcludeRoutes
@@ -407,7 +412,7 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
     result = config.pathRewriteExcludePredicate(originalUrl);
 
     if (!noDebug && config.debug) {
-      if (result) {
+      if (!result) {
         console.log(
           `DEBUG: URL ${originalUrl} did not match the proxy exclude function, and will be treated as a layout service route to render.`
         );
@@ -422,6 +427,23 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
   }
 
   return false;
+}
+
+function handleProxyRequest(proxyReq: any, req: any, res: ServerResponse, config: ProxyConfig,
+  customOnProxyReq: ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void) | undefined) {
+      
+  // if a HEAD request, we still need to issue a GET so we can return accurate headers
+  // proxyReq defined as 'any' to allow us to mutate this
+  if (proxyReq.method === 'HEAD' && !isUrlIgnored(req.originalUrl, config, true)) {
+    if (config.debug) {
+      console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
+    }
+    proxyReq.method = 'GET';
+  }
+  // invoke custom onProxyReq
+  if (customOnProxyReq) {
+    customOnProxyReq(proxyReq, req, res);
+  }
 }
 
 function createOptions(
@@ -444,14 +466,16 @@ function createOptions(
     console.log('DEBUG: Final proxy config', config);
   }
 
+  const customOnProxyReq = config.proxyOptions?.onProxyReq;
   return {
+    ...config.proxyOptions,
     target: config.apiHost,
     changeOrigin: true, // required otherwise need to include CORS headers
     ws: true,
     pathRewrite: (reqPath, req) => rewriteRequestPath(reqPath, req, config, parseRouteUrl),
     logLevel: config.debug ? 'debug' : 'info',
+    onProxyReq: (proxyReq, req, res) => handleProxyRequest(proxyReq, req, res, config, customOnProxyReq),
     onProxyRes: (proxyRes, req, res) => handleProxyResponse(proxyRes, req, res, renderer, config),
-    ...config.proxyOptions,
   };
 }
 

@@ -37,9 +37,9 @@
       and place it within a column div so that we can select it correctly.
     -->
     <sc-placeholder :rendering="rendering" name="jss-reuse-example">
-      <div class="row" slot-scope="{components, isEmpty}">
+      <div class="row" slot-scope="{ components, isEmpty }">
         <template v-if="!isEmpty">
-          <template v-for="(component, index) in components" >
+          <template v-for="(component, index) in components">
             <div v-if="!component.isxEditorComponent" :key="index" class="col-sm">
               <component :is="component" />
             </div>

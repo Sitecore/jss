@@ -4,7 +4,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  * Adds the Styleguide-FieldUsage-Date component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when `jss manifest` is run.
  */
-export default function(manifest: Manifest) {
+export default function StyleguideFieldUsageDate(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideFieldUsageDate',
     icon: SitecoreIcon.Clock,

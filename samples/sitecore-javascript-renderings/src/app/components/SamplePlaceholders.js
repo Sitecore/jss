@@ -8,9 +8,8 @@ const SamplePlaceholders = (props) => (
   <div>
     <h2>Child placeholder example</h2>
     <p>
-      JS renderings can have child placeholders within them. Normal JSS rendering helpers (<code>
-        Placeholder
-      </code>) work here.
+      JS renderings can have child placeholders within them. Normal JSS rendering helpers (
+      <code>Placeholder</code>) work here.
     </p>
 
     <p>

@@ -95,6 +95,23 @@ describe('rewriteRequestPath', () => {
 
         expect(actual).to.equal(expected);
       });
+
+      it('should return route prefixed with layout service route and with querystring appended that contains percentage symbol', () => {
+        const url = '/styleguide?x=%25';
+        const expected = '/sitecore/layoutsvc/render/jss?item=%2Fstyleguide&sc_apikey={GUID}&x=%25&y=test';
+        const mockRequest = {
+          query: {
+            x: '%',
+            y: 'test',
+          },
+          headers: {
+            'accept-encoding': 'gzip or whatever',
+          },
+        };
+
+        const actual = rewriteRequestPath(url, mockRequest, config);
+        expect(actual).to.equal(expected);
+      });
     });
     describe('when a route parsing function is provided', () => {
       it('should use the item path and language provided by the function', () => {
@@ -127,7 +144,7 @@ describe('rewriteRequestPath', () => {
           },
         };
         const parseRouteUrl = (incomingUrl: string) => ({
-          sitecoreRoute: `${incomingUrl.slice(0, incomingUrl.indexOf('?'))}/dolor`,
+          sitecoreRoute: `${incomingUrl}/dolor`,
           lang: 'zz-ZZ',
         });
         const actual = rewriteRequestPath(url, req, config, parseRouteUrl);

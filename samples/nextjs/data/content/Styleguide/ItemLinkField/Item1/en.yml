@@ -1,0 +1,6 @@
+id: styleguide-item-link-field-shared-1
+displayName: Styleguide Item Link Item 1 (Shared)
+# Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ItemLink-Template.sitecore.js
+template: Styleguide-ItemLink-Item-Template
+fields:
+  textField: ItemLink Demo (Shared) Item 1 Text Field

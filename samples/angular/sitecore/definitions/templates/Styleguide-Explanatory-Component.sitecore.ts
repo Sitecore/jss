@@ -7,7 +7,7 @@ import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-manifest'
  * Note: inherited fields cannot be modified when inherited (e.g. with different validation rules or help text).
  * Ensure that there is truly an inheritance relationship and not merely "they happen share some fields" before using inheritance.
  */
-export default function(manifest: Manifest) {
+export default function StyleguideExplanatoryComponentTemplate(manifest: Manifest) {
   manifest.addTemplate({
     name: 'Styleguide-Explanatory-Component',
     id: 'styleguide-explanatory-component-template',

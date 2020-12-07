@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-vue",
-  "version": "14.0.3",
+  "version": "15.0.1",
   "description": "Application utilizing Sitecore JavaScript Services and Vue (vue-cli).",
   "private": true,
   "config": {
@@ -45,11 +45,11 @@
     "bootstrap:connected": "node scripts/bootstrap.js",
     "bootstrap:disconnected": "node scripts/bootstrap.js --disconnected",
     "graphql:update": "cross-env-shell VUE_CLI_BABEL_TRANSPILE_MODULES=true VUE_CLI_BABEL_TARGET_NODE=true \"node -r @babel/register ./scripts/update-graphql-fragment-data.js\"",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint ./src/**/*.vue ./src/**/*.js ./sitecore/definitions/**/*.js ./scripts/**/*.js ./server/**/*.js ./data/**/*.yml"
   },
   "dependencies": {
     "@panter/vue-i18next": "~0.15.1",
-    "@sitecore-jss/sitecore-jss-vue": "^14.0.3",
+    "@sitecore-jss/sitecore-jss-vue": "^15.0.1",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
     "apollo-link": "~1.2.13",
@@ -66,24 +66,25 @@
     "vue-apollo": "3.0.0-beta.27",
     "vue-meta": "~2.2.2",
     "vue-router": "~3.1.3",
-    "vue-server-renderer": "~2.6.10"
+    "vue-server-renderer": "^2.6.12"
   },
   "devDependencies": {
     "@babel/register": "7.6.2",
-    "@sitecore-jss/sitecore-jss-cli": "^14.0.3",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^14.0.3",
-    "@sitecore-jss/sitecore-jss-manifest": "^14.0.3",
-    "@sitecore-jss/sitecore-jss-tracking": "^14.0.3",
-    "@vue/cli-plugin-babel": "~3.11.0",
-    "@vue/cli-plugin-eslint": "~3.11.0",
-    "@vue/cli-service": "~3.11.0",
+    "@sitecore-jss/sitecore-jss-cli": "^15.0.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^15.0.1",
+    "@sitecore-jss/sitecore-jss-manifest": "^15.0.1",
+    "@sitecore-jss/sitecore-jss-tracking": "^15.0.1",
+    "@vue/cli-plugin-babel": "~4.5.6",
+    "@vue/cli-plugin-eslint": "~4.5.6",
+    "@vue/cli-service": "~4.5.6",
     "@vue/eslint-config-prettier": "~5.0.0",
     "babel-eslint": "~10.0.3",
     "chokidar": "~3.1.1",
     "cross-env": "~6.0.0",
-    "eslint": "~6.5.0",
+    "eslint": "^7.4.0",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "~5.2.3",
+    "eslint-plugin-yaml": "^0.2.0",
     "graphql-tag": "~2.10.1",
     "html-loader": "~0.5.5",
     "npm-run-all": "~4.1.5",

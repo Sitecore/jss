@@ -10,20 +10,13 @@ use(spies);
 
 describe('withSitecoreContext', () => {
   it('should pass context property', () => {
-    const setSitecoreContext = spy();
-    const subscribeToContext = spy();
-    const getSitecoreContext = spy();
-    const unsubscribeFromContext = spy();
+    const setContext = spy();
 
     const testComponentProps = {
       context: {
         text: 'value'
       },
-      setSitecoreContext,
-      subscribers: [],
-      subscribeToContext,
-      getSitecoreContext,
-      unsubscribeFromContext
+      setContext
     };
 
     const TestComponent: React.FC<any> = (props: any) => (
@@ -45,7 +38,7 @@ describe('withSitecoreContext', () => {
     expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
     wrapper.find('div').simulate('click');
 
-    expect(testComponentProps.setSitecoreContext).not.to.be.called();
+    expect(testComponentProps.setContext).not.to.be.called();
 
     TestComponentWithContext = withSitecoreContext({ updatable: true })(TestComponent);
 
@@ -57,6 +50,6 @@ describe('withSitecoreContext', () => {
 
     wrapper.find('div').simulate('click');
 
-    expect(testComponentProps.setSitecoreContext).to.be.called();
+    expect(testComponentProps.setContext).to.be.called();
   });
 });

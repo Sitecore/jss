@@ -1,95 +1,63 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 import { ComponentFactory } from './sharedTypes';
 
 export interface SitecoreContextProps {
   componentFactory: ComponentFactory;
-  contextFactory?: SitecoreContextFactory;
   context?: any;
-  [k: string]: any;
 }
 
-export class SitecoreContextFactory {
-  subscribers: any[] = [];
+export interface SitecoreContextState {
+  setContext: (value: any) => void;
   context: any;
-
-  constructor() {
-    this.context = {
-      pageEditing: false,
-    };
-  }
-
-  getSitecoreContext = () => {
-    return this.context;
-  }
-
-  subscribeToContext = (func: any) => {
-    this.subscribers.push(func);
-  }
-
-  unsubscribeFromContext = (func: any) => {
-    const index = this.subscribers.indexOf(func);
-    if (index >= 0) {
-      this.subscribers.splice(index, 1);
-    }
-  }
-
-  setSitecoreContext = (value: any) => {
-    this.context = value;
-    this.subscribers.forEach((func) => func(value));
-  }
 }
 
-export const SitecoreContextReactContext = React.createContext<SitecoreContextFactory>({} as SitecoreContextFactory);
+export const SitecoreContextReactContext = React.createContext<SitecoreContextState>({} as SitecoreContextState);
 export const ComponentFactoryReactContext = React.createContext<ComponentFactory>({} as ComponentFactory);
 
-export class SitecoreContext extends React.Component<SitecoreContextProps> {
+export class SitecoreContext extends React.Component<SitecoreContextProps, SitecoreContextState> {
   static propTypes = {
     children: PropTypes.any.isRequired,
     componentFactory: PropTypes.func,
-    contextFactory: PropTypes.object,
+    context: PropTypes.any
   };
 
   static displayName = 'SitecoreContext';
 
-  componentFactory: ComponentFactory;
-  contextFactory: SitecoreContextFactory;
+  constructor(props: SitecoreContextProps) {
+    super(props);
 
-  constructor(props: SitecoreContextProps, context: any) {
-    super(props, context);
-
-    this.componentFactory = props.componentFactory;
-    if (props.contextFactory) {
-      this.contextFactory = props.contextFactory;
-    } else {
-      this.contextFactory = new SitecoreContextFactory();
+    let context: any = {
+      pageEditing: false,
     }
 
-    // we force the children of the context to re-render when the context is updated
-    // even if the local props are unchanged; we assume the contents depend on the Sitecore context
-    this.contextFactory.subscribeToContext(this.contextListener);
+    if (props.context) {
+      context = props.context;
+    }
+
+    if (props.context === null) {
+      context = null;
+    }
+
+    this.state = {
+      context,
+      setContext: this.setContext
+    };
   }
 
-  contextListener = () => this.forceUpdate();
-
-  componentWillUnmount() {
-    this.contextFactory.unsubscribeFromContext(this.contextListener);
+  setContext = (value: any) => {
+    this.setState({
+      context: value
+    });
   }
-
-  /**
-   * React Context Provider should accept Object instead of
-   * SitecoreContextFactory class instance
-   */
-  getSitecoreContextValue = () => ({ ...this.contextFactory });
 
   render() {
     return (
-    <ComponentFactoryReactContext.Provider value={this.componentFactory}>
-      <SitecoreContextReactContext.Provider value={this.getSitecoreContextValue()}>
-        {this.props.children}
-      </SitecoreContextReactContext.Provider>
-    </ComponentFactoryReactContext.Provider>
+      <ComponentFactoryReactContext.Provider value={this.props.componentFactory}>
+        <SitecoreContextReactContext.Provider value={this.state}>
+          {this.props.children}
+        </SitecoreContextReactContext.Provider>
+      </ComponentFactoryReactContext.Provider>
     );
   }
 }
