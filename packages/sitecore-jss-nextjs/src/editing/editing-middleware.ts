@@ -2,7 +2,6 @@ import { parse } from 'url';
 import { Request, Response } from 'express';
 import Server from 'next/dist/next-server/server/next-server';
 import absolutify from './absolutify';
-import { EDIT_ROUTE } from '../constants';
 import { EditingData } from './editing-data';
 
 // Extend Express Request with our custom EditingData
@@ -22,7 +21,7 @@ declare global {
  * @param {string} publicUrl The public URL. This will be used when replacing relative links with absolute ones.
  */
 export default class EditingMiddleware {
-  constructor(readonly nextApp: Server, readonly publicUrl: string) {}
+  constructor(readonly nextApp: Server, readonly editRoute: string, readonly publicUrl: string) {}
 
   getRequestHandler(): (req: Request, res: Response) => Promise<void> {
     return this.handleRequest.bind(this);
@@ -44,7 +43,7 @@ export default class EditingMiddleware {
 
       // Set the url to our edit route
       // NOTE: renderToHTML() ONLY works with routes/pages using getInitialProps (not getStatic/ServerSideProps)
-      req.url = EDIT_ROUTE;
+      req.url = this.editRoute;
 
       // Attach data to request for use in our edit route
       req.editingData = data;
@@ -54,7 +53,7 @@ export default class EditingMiddleware {
       this.nextApp.setAssetPrefix(this.publicUrl);
 
       // Now render the page
-      let html = await this.nextApp.renderToHTML(req, res, EDIT_ROUTE, parsedUrl.query);
+      let html = await this.nextApp.renderToHTML(req, res, this.editRoute, parsedUrl.query);
 
       if (!html) {
         throw new Error(`Failed to render html for ${parsedUrl}`);

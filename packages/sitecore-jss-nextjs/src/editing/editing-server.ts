@@ -16,6 +16,12 @@ export interface EditingServerOptions {
    */
   hostname?: string;
   /**
+   * The Next.js route which is used to render a page in the Experience Editor. 
+   * Defaults to `'/_edit'` if no value is provided.
+   * @default '/_edit'
+   */
+  editRoute?: string;
+  /**
    * Defines the path for which the Experience Editor middleware is invoked (on POST request).
    * Defaults to `'*'` if no value is provided.
    * More information can be found in the Express docs: https://expressjs.com/en/4x/api.html#path-examples
@@ -31,8 +37,9 @@ export interface EditingServerOptions {
 export function startEditingServer({
   port = 3000,
   hostname = 'localhost',
+  editRoute = '/_edit',
   editMiddlewarePath = '*',
-}: EditingServerOptions): void {
+}: EditingServerOptions = {}): void {
   const dev = process.env.NODE_ENV !== 'production';
   const serverUrl = `http://${hostname}:${port}`;
 
@@ -49,7 +56,7 @@ export function startEditingServer({
 
       const server = express();
       const handle = app.getRequestHandler();
-      const handleEdit = new EditingMiddleware(app, publicUrl).getRequestHandler();
+      const handleEdit = new EditingMiddleware(app, editRoute, publicUrl).getRequestHandler();
 
       // Wire up the middleware for Experience Editor (assume only POST requests should be handled)
       server.post(editMiddlewarePath, bodyParser.json({ limit: '2mb' }), handleEdit);
