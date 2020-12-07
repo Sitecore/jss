@@ -5,6 +5,15 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 16.0 for Sitecore 10
+
+### Upgrading
+
+### Breaking changes
+
+### New Features & Improvements
+### Bug Fixes
+* [PR #506](https://github.com/Sitecore/jss/pull/506) [React sample] `Cannot read property 'sitecore' of null`, when 404 and routeData is null
 ## Sitecore JSS 15.0.1
 
 ### Bug Fixes

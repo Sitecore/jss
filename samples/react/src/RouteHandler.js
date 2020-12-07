@@ -98,9 +98,11 @@ class RouteHandler extends React.Component {
         });
         this.setState({ notFound: false });
       } else {
-        this.setState({ notFound: true }, () =>
-          this.props.updateSitecoreContext(routeData.sitecore.context)
-        )
+        this.setState({ notFound: true }, () => {
+          const context = routeData && routeData.sitecore ? routeData.sitecore.context : null;
+
+          this.props.updateSitecoreContext(context)
+        })
       }
     });
   }
