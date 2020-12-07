@@ -12,10 +12,10 @@ import {
 import { convertedData as eeData } from '../testData/ee-data';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
-  const components = new Map<string, any>();
+  const components = new Map<string, React.FC>();
 
   // pass otherProps to page-content to test property cascading through the Placeholder
-  const Home: React.SFC<any> = ({ rendering, render, renderEach, renderEmpty, ...otherProps }) => (
+  const Home: React.FC<any> = ({ rendering, render, renderEach, renderEmpty, ...otherProps }) => (
     <div className="home-mock">
       <Placeholder name="page-header" rendering={rendering} />
       <Placeholder name="page-content" rendering={rendering} {...otherProps} />
@@ -27,7 +27,7 @@ const componentFactory: ComponentFactory = (componentName: string) => {
 
   components.set('Home', Home);
 
-  const DownloadCallout: React.SFC<any> = (props) => (
+  const DownloadCallout: React.FC<any> = (props) => (
     <div className="download-callout-mock">
       {props.fields.message ? props.fields.message.value : ''}
     </div>
@@ -41,7 +41,7 @@ const componentFactory: ComponentFactory = (componentName: string) => {
   components.set('DownloadCallout', DownloadCallout);
   components.set('Jumbotron', () => <div className="jumbotron-mock" />);
 
-  return components.get(componentName);
+  return components.get(componentName) || null;
 };
 
 describe('<Placeholder />', () => {
