@@ -4,7 +4,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  * Adds the Styleguide-Layout-Tabs-Tab component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when `jss manifest` is run.
  */
-export default function(manifest: Manifest) {
+export default function StyleguideLayoutTabsTab(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideLayoutTabsTab',
     icon: SitecoreIcon.TabPane,

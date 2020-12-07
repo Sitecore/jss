@@ -3,7 +3,7 @@ a[target='_blank']:after {
 }
 
 .logo {
-  background-image: url('/assets/images/sc_logo.svg');
+  background-image: url('assets/images/sc_logo.svg');
   display: block;
   height: 48px;
   width: 221px;

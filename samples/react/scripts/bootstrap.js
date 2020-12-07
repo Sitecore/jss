@@ -16,6 +16,7 @@ const disconnected = process.argv.some((arg) => arg === '--disconnected');
 */
 const port = process.env.PORT || 3000;
 const configOverride = disconnected ? { sitecoreApiHost: `http://localhost:${port}` } : null;
+
 configGenerator(configOverride);
 
 /*

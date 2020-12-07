@@ -83,13 +83,212 @@ describe('<Image />', () => {
     it('should render img with additional props', () => {
       expect(imgAttrs).toMatchObject(attrs);
     });
+  });
 
-    it('should update image url', () => {
+  describe('update image url', () => {
+    const attrs = { id: 'some-id', height: '100', width: '150' };
+
+    it('should handle /-/media', () => {
+      const props = {
+        media: {
+          value: {
+            src: '/-/media/img/test0.png',
+            alt: 'my image',
+          },
+        },
+        imageParams: {
+          h: '100',
+          w: '150',
+        },
+      };
+
+      const rendered = mount(Image, { context: { props, attrs } }).find('img');
+      const img = rendered.find('img');
+
       const url = new URL(img.attributes().src, {}, true);
-      expect(url.pathname.indexOf('/-/jssmedia/')).toBeGreaterThan(-1);
+      expect(url.pathname).toContain('/-/jssmedia/');
       expect(url.query.h).toBe(props.imageParams.h);
       expect(url.query.w).toBe(props.imageParams.w);
-      expect(url.query.hash).toBe('B973470AA333773341C62A76511361C88897E2D4')
+    });
+
+    it('should handle /~/media', () => {
+      const props = {
+        media: {
+          value: {
+            src: '/~/media/img/test0.png',
+            alt: 'my image',
+          },
+        },
+        imageParams: {
+          h: '100',
+          w: '150',
+        },
+      };
+
+      const rendered = mount(Image, { context: { props, attrs } }).find('img');
+      const img = rendered.find('img');
+
+      const url = new URL(img.attributes().src, {}, true);
+      expect(url.pathname).toContain('/~/jssmedia/');
+      expect(url.query.h).toBe(props.imageParams.h);
+      expect(url.query.w).toBe(props.imageParams.w);
+    });
+
+    it('should handle custom mediaUrlPrefix, /-assets', () => {
+      const props = {
+        media: {
+          value: {
+            src: '/-assets/img/test0.png',
+            alt: 'my image',
+          },
+        },
+        imageParams: {
+          h: '100',
+          w: '150',
+        },
+        mediaUrlPrefix: /\/([-~]{1})assets\//i,
+      };
+
+      const rendered = mount(Image, { context: { props, attrs } }).find('img');
+      const img = rendered.find('img');
+
+      const url = new URL(img.attributes().src, {}, true);
+      expect(url.pathname).toContain('/-/jssmedia/');
+      expect(url.query.h).toBe(props.imageParams.h);
+      expect(url.query.w).toBe(props.imageParams.w);
+    });
+
+    it('should handle custom mediaUrlPrefix, /~assets', () => {
+      const props = {
+        media: {
+          value: {
+            src: '/~assets/img/test0.png',
+            alt: 'my image',
+          },
+        },
+        imageParams: {
+          h: '100',
+          w: '150',
+        },
+        mediaUrlPrefix: /\/([-~]{1})assets\//i,
+      };
+
+      const rendered = mount(Image, { context: { props, attrs } }).find('img');
+      const img = rendered.find('img');
+
+      const url = new URL(img.attributes().src, {}, true);
+      expect(url.pathname).toContain('/~/jssmedia/');
+      expect(url.query.h).toBe(props.imageParams.h);
+      expect(url.query.w).toBe(props.imageParams.w);
+    });
+  });
+
+  describe('update image srcSet', () => {
+    const attrs = {
+      srcSet: [{ mw: 100 }, { mw: 300 }],
+    };
+
+    it('should handle /-/media', () => {
+      const props = {
+        media: {
+          value: {
+            src: '/-/media/img/test0.png',
+            alt: 'my image',
+          },
+        },
+        imageParams: {
+          h: '100',
+          w: '150',
+        }
+      };
+
+      const rendered = mount(Image, { context: { props, attrs } }).find('img');
+      const img = rendered.find('img');
+
+      expect(img.attributes().srcset).toBe('/-/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /-/jssmedia/img/test0.png?h=100&w=150&mw=300 150w');
+    });
+
+    it('should handle /~/media', () => {
+      const props = {
+        media: {
+          value: {
+            src: '/~/media/img/test0.png',
+            alt: 'my image',
+          },
+        },
+        imageParams: {
+          h: '100',
+          w: '150',
+        },
+      };
+
+      const rendered = mount(Image, { context: { props, attrs } }).find('img');
+      const img = rendered.find('img');
+
+      expect(img.attributes().srcset).toBe('/~/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /~/jssmedia/img/test0.png?h=100&w=150&mw=300 150w');
+    });
+
+    it('should handle custom mediaUrlPrefix, /-assets', () => {
+      const props = {
+        media: {
+          value: {
+            src: '/-assets/img/test0.png',
+            alt: 'my image',
+          },
+        },
+        imageParams: {
+          h: '100',
+          w: '150',
+        },
+        mediaUrlPrefix: /\/([-~]{1})assets\//i,
+      };
+
+      const rendered = mount(Image, { context: { props, attrs } }).find('img');
+      const img = rendered.find('img');
+
+      expect(img.attributes().srcset).toBe('/-/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /-/jssmedia/img/test0.png?h=100&w=150&mw=300 150w');
+    });
+
+    it('should handle custom mediaUrlPrefix, /~assets', () => {
+      const props = {
+        media: {
+          value: {
+            src: '/~assets/img/test0.png',
+            alt: 'my image',
+          },
+        },
+        imageParams: {
+          h: '100',
+          w: '150',
+        },
+        mediaUrlPrefix: /\/([-~]{1})assets\//i,
+      };
+
+      const rendered = mount(Image, { context: { props, attrs } }).find('img');
+      const img = rendered.find('img');
+
+      expect(img.attributes().srcset).toBe('/~/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /~/jssmedia/img/test0.png?h=100&w=150&mw=300 150w');
+    });
+
+    it('should handle custom mediaUrlPrefix, invalid prefix', () => {
+      const props = {
+        media: {
+          value: {
+            src: '/~invalid/img/test0.png',
+            alt: 'my image',
+          },
+        },
+        imageParams: {
+          h: '100',
+          w: '150',
+        },
+        mediaUrlPrefix: /\/([-~]{1})assets\//i,
+      };
+
+      const rendered = mount(Image, { context: { props, attrs } }).find('img');
+      const img = rendered.find('img');
+
+      expect(img.attributes().srcset).toBe('/~invalid/img/test0.png?h=100&w=150&mw=100 150w, /~invalid/img/test0.png?h=100&w=150&mw=300 150w');
     });
   });
 

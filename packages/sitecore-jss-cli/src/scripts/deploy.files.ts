@@ -23,7 +23,13 @@ export const builder = {
     describe:
       // tslint:disable-next-line:max-line-length
       'Destination path to deploy to. Defaults to the \'instancePath\' set in scjssconfig.json, combined with the \'sitecoreDistPath\' setting from package.json.',
-  },
+	},
+	config: {
+		requiresArg: false,
+		type: 'string',
+		describe: 'Path to scjssconfig file.',
+		default: './scjssconfig.json'
+	},
   exclude: {
     requiresArg: false,
     type: 'array',
@@ -89,7 +95,7 @@ export async function handler(argv: any) {
     }
 
     if (!options.destinationPath) {
-      const scJssConfig = await resolveScJssConfig();
+      const scJssConfig = await resolveScJssConfig({ configPath: argv.config });
 
       options.destinationPath = path.join(
         scJssConfig.sitecore.instancePath as string,

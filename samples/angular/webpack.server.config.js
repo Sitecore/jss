@@ -22,6 +22,9 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'ts-loader',
+        options: {
+          configFile: './src/tsconfig.webpack-server.json'
+        }
       },
     ],
   },

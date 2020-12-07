@@ -1,23 +1,26 @@
 // These are important and needed before anything else
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-import { renderModuleFactory } from '@angular/platform-server';
-import { enableProdMode } from '@angular/core';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
 import { environment } from './src/environments/environment';
 
-// Faster server renders w/ Prod mode (dev mode never needed)
-enableProdMode();
+const http = require('http');
+const https = require('https');
 
 // Our index.html we'll use as our template
 const template = readFileSync(join(__dirname, 'browser', 'index.html')).toString();
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main');
+const { AppServerModule, renderModule } = require('./dist/server/main');
 
-const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader');
+
+// Setup Http/Https agents for keep-alive. Used in headless-proxy
+const setUpDefaultAgents = (httpAgent, httpsAgent) => {
+  http.globalAgent = httpAgent;
+  https.globalAgent = httpsAgent;
+};
 
 // this is the function expected by the JSS View Engine for "integrated mode"
 function renderView (callback, path, data, viewBag) {
@@ -56,20 +59,17 @@ function renderView (callback, path, data, viewBag) {
     const transferState = { ...state };
     delete transferState.viewBag;
 
-    renderModuleFactory(AppServerModuleNgFactory, {
+    renderModule(AppServerModule, {
       document: template,
       url: path,
-      // DI so that we can get lazy-loading to work differently (since we need it to just instantly render it)
       extraProviders: [
-        provideModuleMap(LAZY_MODULE_MAP),
         // custom injection with the initial state that SSR should utilize
         { provide: 'JSS_SERVER_LAYOUT_DATA', useValue: transferState },
         { provide: 'JSS_SERVER_VIEWBAG', useValue: state.viewBag },
       ]
-    }).then(html => {
-      callback(null, { html });
     })
-    .catch((err) => callback(err, null));
+    .then(html => callback(null, { html }))
+    .catch(err => callback(err, null))
   } catch (err) {
     // need to ensure the callback is always invoked no matter what
     // or else SSR will hang
@@ -89,6 +89,7 @@ function parseRouteUrl(url) {
 module.exports = {
   renderView,
   parseRouteUrl,
+  setUpDefaultAgents,
   apiKey: environment.sitecoreApiKey,
   appName: environment.jssAppName
 };

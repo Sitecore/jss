@@ -1,0 +1,6 @@
+id: styleguide-content-list-field-shared-2
+displayName: Styleguide Content List Item 2 (Shared)
+# Template defines the available fields. See /sitecore/definitions/templates/Styleguide-ContentList-Template.sitecore.js
+template: Styleguide-ContentList-Item-Template
+fields:
+  textField: ContentList Demo (Shared) Item 2 Text Field

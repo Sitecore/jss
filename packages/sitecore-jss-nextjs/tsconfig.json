@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "newLine": "LF",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2017", "dom"],
+    "jsx": "react",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "strict": true,
+    "typeRoots": ["node_modules/@types"],
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "./types",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "node_modules",
+    "types",
+    "typings",
+    "dist",
+    "src/tests/*",
+    "src/testData/*",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}

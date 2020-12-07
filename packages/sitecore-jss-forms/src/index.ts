@@ -22,6 +22,7 @@ export {
   StringInputViewModel,
   MultiLineStringInputViewModel,
   DateInputViewModel,
+  NumberInputViewModel,
   TitleFieldViewModel,
   ListFieldItem,
   ListViewModel,

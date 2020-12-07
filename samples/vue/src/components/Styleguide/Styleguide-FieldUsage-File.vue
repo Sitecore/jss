@@ -17,7 +17,9 @@
       For instance, you may wish to render a button (<button />) instead of a link (<a />).
     -->
     <sc-file :field="fields.file" target="_blank">
-      <a slot-scope="file" target="_blank" v-bind:href="file.src">Custom link body ({{file.title || file.displayName}})</a>
+      <a slot-scope="file" target="_blank" v-bind:href="file.src"
+        >Custom link body ({{ file.title || file.displayName }})</a
+      >
     </sc-file>
   </styleguide-specimen>
 </template>

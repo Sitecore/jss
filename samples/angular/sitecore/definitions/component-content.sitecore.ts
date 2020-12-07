@@ -22,7 +22,7 @@ export default function addComponentContentToManifest(manifest: Manifest): Promi
 
   return mergeFs(startPath)
     .then((result) => {
-      const items = convertToItems(
+      const items = convertToComponentItems(
         result,
         resolvePath(startPath),
         rootItemName,
@@ -40,8 +40,8 @@ export default function addComponentContentToManifest(manifest: Manifest): Promi
 /**
  * Maps filesystem content data into manifest content item data.
  */
-function convertToItems(data: MergeFsResult, basePath: string, rootItemName: string, language: string): ItemDefinition {
-  const itemPath = convertPhsyicalPathToItemRelativePath(data.path, basePath);
+function convertToComponentItems(data: MergeFsResult, basePath: string, rootItemName: string, language: string): ItemDefinition {
+  const itemPath = convertPhysicalComponentPathToItemRelativePath(data.path, basePath);
   const name = itemPath.substr(itemPath.lastIndexOf('/') + 1);
 
   let result: TemporaryItemDefinition;
@@ -78,7 +78,7 @@ function convertToItems(data: MergeFsResult, basePath: string, rootItemName: str
   // recursively process child paths
   if (data.folders.length > 0) {
     result.children = data.folders
-      .map((folder) => convertToItems(folder, basePath, rootItemName, language))
+      .map((folder) => convertToComponentItems(folder, basePath, rootItemName, language))
       .filter((item) => item); // remove null results
   }
 
@@ -89,7 +89,7 @@ function convertToItems(data: MergeFsResult, basePath: string, rootItemName: str
  * Converts a physical filesystem path into a relative Sitecore item path.
  * i.e. if physicalPath = /var/log and basePath = /var, this returns /log.
  */
-function convertPhsyicalPathToItemRelativePath(physicalPath: string, basePath: string) {
+function convertPhysicalComponentPathToItemRelativePath(physicalPath: string, basePath: string) {
   const targetPathSeparator = '/';
 
   // normalize path separators to /

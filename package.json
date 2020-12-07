@@ -1,13 +1,14 @@
 {
   "scripts": {
-    "reset": "lerna clean --yes && lerna bootstrap && npm run build-packages",
-    "bootstrap": "lerna bootstrap",
-    "bootstrap-packages": "lerna bootstrap --scope @sitecore-jss/*",
-    "bootstrap-packages:ci": "lerna bootstrap --ci --scope @sitecore-jss/*",
+    "reset": "lerna clean --yes && npm run bootstrap && npm run build-packages",
+    "bootstrap": "lerna bootstrap && npm run bootstrap-nextjs-sample",
+    "bootstrap:ci": "lerna bootstrap --ci",
+    "bootstrap-nextjs-sample": "cd ./samples/nextjs/node_modules/@sitecore-jss/sitecore-jss-nextjs && npm link ../../react",
     "build-packages": "lerna run build --ignore *-sample*",
-    "lint-packages": "lerna run lint --ignore *-sample*",
-    "test-packages": "lerna run test --ignore *-sample*",
     "build-apps": "lerna run build --scope *-sample*",
+    "lint-packages": "lerna run lint --scope @sitecore-jss/sitecore-jss-nextjs",
+    "lint-apps": "lerna run lint --scope jss-sample-nextjs",
+    "test-packages": "lerna run test --ignore *-sample*",
     "test": "lerna run test",
     "coverage-packages": "lerna run coverage --ignore *-sample*"
   },
@@ -21,7 +22,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "babel-eslint": "10.0.3",
+    "babel-eslint": "10.1.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^6.2.0",
@@ -31,10 +32,10 @@
     "eslint-plugin-react-native": "^3.3.0",
     "eslint-plugin-vue": "^4.7.1",
     "lerna": "^3.4.0",
-    "metro": "^0.58.0",
+    "metro": "^0.60.0",
     "nyc": "^14.1.1",
     "prettier": "^1.14.3",
     "tslint": "^5.11.0",
-    "typescript": "^2.8.3"
+    "typescript": "^3.9.6"
   }
 }

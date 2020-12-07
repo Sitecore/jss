@@ -28,7 +28,8 @@ const GraphQLIntegratedDemo = (props) => {
           <br />
           sample1 (editable): <Text field={datasource.sample1.jss} />
           <br />
-          sample2:<br />
+          sample2:
+          <br />
           <ul>
             <li>text: {datasource.sample2.text}</li>
             <li>url: {datasource.sample2.url}</li>

@@ -141,7 +141,7 @@ describe('<Image />', () => {
       expect(url.pathname).to.contain('/-/jssmedia/');
       expect(url.query.h).to.equal(props.imageParams.h);
       expect(url.query.w).to.equal(props.imageParams.w);
-      expect(url.query.hash).to.equal('B973470AA333773341C62A76511361C88897E2D4');
+      expect(url.query.hash).to.be.undefined;
     });
 
     it('should render <img /> with style and className props', () => {
@@ -168,6 +168,86 @@ describe('<Image />', () => {
     it('should render <img /> with style and className props', () => {
       expect(rendered.prop('style')).to.eql(props.style);
       expect(rendered.prop('className')).to.eql(props.className);
+    });
+  });
+
+  describe('with "mediaUrlPrefix" property', () => {
+    it('should transform url with "value" property value', () => {
+      const props = {
+        media: { value: { src: '/~assets/img/test0.png', alt: 'my image' } },
+        id: 'some-id',
+        style: { width: '100%' },
+        className: 'the-dude-abides',
+        mediaUrlPrefix: /\/([-~]{1})assets\//i
+      };
+      const rendered = mount(<Image {...props} />);
+
+      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png');
+
+      rendered.setProps({
+        ...props,
+        media: { value: { src: '/-assets/img/test0.png', alt: 'my image' } },
+      });
+
+      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png');
+    });
+
+    it('should transform url with direct image object, no value/editable', () => {
+      const props = {
+        media: {
+          src: '/~assets/img/test0.png',
+          width: 8,
+          height: 10,
+        },
+        id: 'some-id',
+        style: {
+          width: '100%',
+        },
+        className: 'the-dude-abides',
+        mediaUrlPrefix: /\/([-~]{1})assets\//i
+      };
+      const rendered = mount(<Image {...props} />);
+
+      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png');
+
+      rendered.setProps({
+        ...props,
+        media: {
+          src: '/-assets/img/test0.png',
+          width: 8,
+          height: 10,
+        }
+      });
+
+      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png');
+    });
+    
+    it('should transform url with responsive image object', () => {
+      const props = {
+        media: {
+          src: '/~assets/img/test0.png',
+        },
+        srcSet: [{ mw: 100 }, { mw: 300 }],
+        sizes: '(min-width: 960px) 300px, 100px',
+        id: 'some-id',
+        className: 'the-dude-abides',
+        mediaUrlPrefix: /\/([-~]{1})assets\//i
+      };
+
+      const rendered = mount(<Image {...props} />);
+
+      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png');
+
+      rendered.setProps({
+        ...props,
+        media: {
+          src: '/-assets/img/test0.png',
+          width: 8,
+          height: 10,
+        }
+      });
+
+      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png');
     });
   });
 

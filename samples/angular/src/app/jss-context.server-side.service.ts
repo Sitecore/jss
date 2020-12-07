@@ -32,7 +32,8 @@ export class JssContextServerSideService extends JssContextService {
       this.serverToSsrState.routeFetchError = {
         status: 404,
         statusText: 'Not Found',
-        data: this.serverToSsrState,
+        // spread in order to not have a reference to serverToSsrState, because will have a circular structure with routeFetchError
+        data: { ...this.serverToSsrState },
       };
     }
 

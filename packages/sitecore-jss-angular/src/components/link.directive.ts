@@ -49,9 +49,25 @@ export class LinkDirective implements OnChanges {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {
-      Object.entries(props).forEach(([key, propValue]: [string, any]) => 
+      Object.entries(props).forEach(([key, propValue]: [string, any]) => {
+        if (key === 'href') {
+          const isInvalidLink = !propValue || /^https?:\/\/$/.test(propValue);
+
+          if (isInvalidLink) {
+            if (!node.href) {
+              return;
+            }
+
+            propValue = node.href;
+          }
+        }
+
+        if (key === 'class' && node.className) {
+          propValue += ` ${node.className}`;
+        }
+
         this.renderer.setAttribute(node, key, propValue)
-      )
+      });
 
       if (node.childNodes && node.childNodes.length === 0 && linkText) {
         node.textContent = linkText;
