@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es6",
+    "module": "es6",
     "newLine": "LF",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -16,7 +16,7 @@
     "noUnusedParameters": true,
     "strict": true,
     "typeRoots": ["node_modules/@types"],
-    "outDir": "dist",
+    "outDir": "dist/esm",
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,
