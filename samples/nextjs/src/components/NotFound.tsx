@@ -19,7 +19,7 @@ const NotFound = ({ context }: NotFoundProps): JSX.Element => (
       <p>This page does not exist.</p>
       {context && (
         <p>
-          Site: {context.site && context.site.name}
+          Site: {context.site?.name}
           <br />
           Language: {context.language}
         </p>
