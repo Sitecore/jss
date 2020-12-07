@@ -11,7 +11,7 @@ Upgrading a JSS 9.0 or later application to JSS 11.0 is relatively simple.
 ## JSS Server Upgrade (Sitecore)
 
 1. If you are upgrading Sitecore to Sitecore 9.1 from 9.0.x, do that first.
-1. Upgrade the JSS Server Components. Follow [the Server Install instructions](/docs/getting-started/jss-server-install); original installation and upgrading are the same steps.
+1. Upgrade the Headless Server Components. Follow [the Server Install instructions](/docs/getting-started/jss-server-install); original installation and upgrading are the same steps.
 1. *If upgrading Sitecore to 9.1 only*, migrate your SSC API key. In 9.1, the API keys moved to the `master` database from the `core` database. The `Transfer` function can help you move the API key item between databases, or you can elect to create a new key and update the API key in the JSS config.
 
 ## JSS Application Upgrade (JS)

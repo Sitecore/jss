@@ -55,7 +55,7 @@ Tip: when running `jss` CLI commands in an environment where you cannot install 
 
 ### JSS Deployment Service
 
-The JSS deployment service is used to deploy code-first Sitecore item artifacts to Sitecore, as well as for Sitecore-first developer scaffolding. This service is automatically installed when the [JSS Server Components](/docs/getting-started/jss-server-install) are set up.
+The JSS deployment service is used to deploy code-first Sitecore item artifacts to Sitecore, as well as for Sitecore-first developer scaffolding. This service is automatically installed when the [Headless Server Components](/docs/getting-started/jss-server-install) are set up.
 
 * The deployment service uses shared secrets for authentication. These should be unique per environment, _randomly generated_ (no passphrases), and at least 32 characters. The shared secret uses HMAC with the package being deployed as a factor, so there is signature validation that the package is not tampered with and the shared secret is never sent over the wire.
 * We strongly recommend running all Sitecore HTTP services, including import service, over TLS-secured channels even with signature validation.

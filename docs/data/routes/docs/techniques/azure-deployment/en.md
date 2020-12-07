@@ -10,11 +10,11 @@ title: Azure Deployment
 
 ## Step 1: Provision Sitecore and JSS
 
-Starting from Sitecore 9.1 release JSS server components can be provisioned alongside with Sitecore through the Azure Marketplace. You will need a JSS-enabled license file. For the purposes of simplicity, choose an XP Developer installation. In production, a more repeatable deployment methodology such as ARM templates and the Sitecore Azure Toolkit should be used, but the Marketplace installation is the simplest to get started with. Consult the Sitecore documentation for help with production Azure setup.
+Starting from Sitecore 9.1 release Headless server components can be provisioned alongside with Sitecore through the Azure Marketplace. You will need a JSS-enabled license file. For the purposes of simplicity, choose an XP Developer installation. In production, a more repeatable deployment methodology such as ARM templates and the Sitecore Azure Toolkit should be used, but the Marketplace installation is the simplest to get started with. Consult the Sitecore documentation for help with production Azure setup.
 
 > After provisioning, ensure to increase the `core` and `master` database sizes to at least S2 (50 DTU). Lower scaled databases will cause slow UI and may fail the package installation.
 
-## Step 2: Install the JSS server components (optional)
+## Step 2: Install the Headless server components (optional)
 
 In case you already have Sitecore instance in Azure you have to use ARM templates methodology.
 1. Download official released Sitecore JSS WDP package https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services/110/Sitecore_JavaScript_Services_1100.aspx
