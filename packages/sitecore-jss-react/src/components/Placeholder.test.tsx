@@ -10,6 +10,7 @@ import {
   convertedLayoutServiceData as nonEeLsData,
 } from '../testData/non-ee-data';
 import { convertedData as eeData } from '../testData/ee-data';
+import { MissingComponent, MissingComponentProps } from './MissingComponent';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
@@ -224,6 +225,35 @@ describe('<Placeholder />', () => {
     );
     expect(renderedComponent.html()).to.be.empty;
   });
+});
+
+it('should render MissingComponent for unknown rendering', () => {
+  const route: any = {
+    placeholders: {
+      main: [
+        {
+          componentName: 'Unknown',
+        },
+      ],
+    },
+  };
+  const phKey = 'main';
+
+  const CustomMissingComponent: React.FC<MissingComponentProps> = (props) => (
+    <div className="missing-component">
+      <MissingComponent {...props} />
+    </div>
+  );
+
+  const renderedComponent = mount(
+    <Placeholder
+      name={phKey}
+      rendering={route}
+      componentFactory={componentFactory}
+      missingComponentComponent={CustomMissingComponent}
+    />
+  );
+  expect(renderedComponent.find('.missing-component').length).to.equal(1);
 });
 
 after(() => {
