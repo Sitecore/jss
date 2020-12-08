@@ -40,7 +40,7 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
 }
 
 /**
- * This hook grants acess to the current SiteCore page context
+ * This hook grants acсess to the current SiteCore page context
  * by default JSS includes the following properties in this context:
  * - pageEditing - Provided by Layout Service, a boolean indicating whether the route is being accessed via the Experience Editor.
  * - pageState - Like pageEditing, but a string: normal, preview or edit.
