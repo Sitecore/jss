@@ -12,8 +12,11 @@ title: Release Notes
 ### Breaking changes
 
 ### New Features & Improvements
+* [PR #508](https://github.com/Sitecore/jss/pull/508) [sitecore-jss-react] add useSitecoreContext hook
+
 ### Bug Fixes
 * [PR #506](https://github.com/Sitecore/jss/pull/506) [React sample] `Cannot read property 'sitecore' of null`, when 404 and routeData is null
+
 ## Sitecore JSS 15.0.1
 
 ### Bug Fixes
