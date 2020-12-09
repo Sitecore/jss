@@ -57,7 +57,7 @@ export function startEditingServer({
       let publicUrl = process.env.PUBLIC_URL;
 
       if (!publicUrl || publicUrl.length === 0) {
-        console.warn(chalk.yellow.bold('Warning: ') + `A PUBLIC_URL environment variable is not defined. Falling back to ${serverUrl}.`)
+        console.warn(`${chalk.yellow.bold('Warning:')} A PUBLIC_URL environment variable is not defined. Falling back to ${serverUrl}.`);
         publicUrl = serverUrl;
       }
 
@@ -88,7 +88,7 @@ export function startEditingServer({
         console.log(`> Editing server listening at ${serverUrl}`);
       });
     });
-  } catch(e) {
+  } catch (e) {
     console.error(e);
     process.exit(1);
   }

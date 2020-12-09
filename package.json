@@ -6,7 +6,7 @@
     "bootstrap-nextjs-sample": "cd ./samples/nextjs/node_modules/@sitecore-jss/sitecore-jss-nextjs && npm link ../../react && cd ../sitecore-jss-nextjs-editing-host && npm link ../../react",
     "build-packages": "lerna run build --ignore *-sample*",
     "build-apps": "lerna run build --scope *-sample*",
-    "lint-packages": "lerna run lint --scope @sitecore-jss/sitecore-jss-nextjs",
+    "lint-packages": "lerna run lint --scope @sitecore-jss/sitecore-jss-nextjs*",
     "lint-apps": "lerna run lint --scope jss-sample-nextjs",
     "test-packages": "lerna run test --ignore *-sample*",
     "test": "lerna run test",

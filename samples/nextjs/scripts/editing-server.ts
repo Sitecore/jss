@@ -6,11 +6,12 @@
 
   This should be set as the Http rendering engine in your Sitecore configuration
   (already complete in the included sample \sitecore\config\JssNextWeb.config).
-  https://jss.sitecore.com/docs/fundamentals/services/view-engine
+  See https://jss.sitecore.com/docs/fundamentals/services/view-engine
 
   For local development, you may wish to utilize ngrok to proxy requests, which can
   be helpful for certain firewall configurations or testing remote instances
   via the 'sc_httprenderengineurl' query string paramter.
+  See https://ngrok.com
 */
 
 import { startEditingServer } from '@sitecore-jss/sitecore-jss-nextjs-editing-host';

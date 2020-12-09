@@ -15,5 +15,5 @@ export type EditingData = {
  * Request with payload data from Experience Editor POST
  */
 export interface EditingRequest extends IncomingMessage {
-  editingData: EditingData
+  editingData: EditingData;
 }

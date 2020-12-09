@@ -2,7 +2,7 @@ const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
 const { JSS_MODE_DISCONNECTED, JSS_MODE_EDITING } = require('@sitecore-jss/sitecore-jss-nextjs');
 
-const withEditing = require('./next.config.editing')({
+const withEditing = require('@sitecore-jss/sitecore-jss-nextjs-editing-host').config({
   enabled: process.env.JSS_MODE === JSS_MODE_EDITING,
 });
 
@@ -77,7 +77,7 @@ const nextConfig = {
   
   webpack: (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);
-    
+
     return config;
   },
 }
