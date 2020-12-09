@@ -48,10 +48,12 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
  *
  * @see https://jss.sitecore.com/docs/techniques/extending-layout-service/layoutservice-extending-context
  *
+ * @param {WithSitecoreContextOptions} [options]
+ * 
  * @example
  * const EditMode = () => {
- *    const {pageEditing} = useSitecoreContext();
- *    return <span>Edit Mode is {pageEditing ? 'active' : 'inactive'}</span>
+ *    const { sitecoreContext } = useSitecoreContext();
+ *    return <span>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
  * }
  */
 export function useSitecoreContext(options?: WithSitecoreContextOptions) {
