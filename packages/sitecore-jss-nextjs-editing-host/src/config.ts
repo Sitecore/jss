@@ -16,6 +16,11 @@ interface ConfigOptions {
   distDir?: string;
 }
 
+/**
+ * Editing host configuration for next.config.js as a Next.js "plugin"
+ * See https://github.com/vercel/next-plugins
+ * @param {ConfigOptions} options Configuration options
+ */
 export function config({
   enabled = false,
   distDir = '.next-editing',
