@@ -9,7 +9,7 @@ import {
 import Layout from 'components/Layout';
 import { SitecorePageProps, extractPath } from 'lib/page-props';
 import { componentFactory, componentModule } from 'temp/componentFactory';
-import { configBasedLayoutService as layoutService } from 'lib/layout-service';
+import { invokeSsrBasedLayoutService } from 'lib/layout-service';
 import { configBasedDictionaryService as dictionaryService } from 'lib/dictionary-service';
 import { config as packageConfig } from '../../package.json';
 
@@ -56,14 +56,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // Retrieve layoutData from Layout Service for path.
   // Note we pass along req/res here as well to allow transfer of
   // headers for proper Sitecore analytics tracking.
-  props.layoutData = await layoutService
-    .fetchLayoutData(path, props.locale, req, res)
-    .catch((error: AxiosError) => {
+  props.layoutData = await invokeSsrBasedLayoutService(path, props.locale, req, res).catch(
+    (error: AxiosError) => {
       // Let 404s (invalid path) through
       if (error.response?.status === 404) return error.response.data;
 
       throw error;
-    });
+    }
+  );
 
   if (props.layoutData?.sitecore.route) {
     props.componentProps = await componentPropsService.fetchServerSideComponentProps({

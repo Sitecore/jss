@@ -10,7 +10,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps, extractPath } from 'lib/page-props';
 import { componentFactory, componentModule } from 'temp/componentFactory';
-import { configBasedLayoutService as layoutService } from 'lib/layout-service';
+import { invokeLayoutService } from 'lib/layout-service';
 import { configBasedDictionaryService as dictionaryService } from 'lib/dictionary-service';
 import { config as packageConfig } from '../../package.json';
 
@@ -73,14 +73,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 
   // Retrieve layoutData from Layout Service
-  props.layoutData = await layoutService
-    .fetchLayoutData(path, props.locale)
-    .catch((error: AxiosError<LayoutServiceData>) => {
+  props.layoutData = await invokeLayoutService(path, props.locale).catch(
+    (error: AxiosError<LayoutServiceData>) => {
       // Let 404s (invalid path) through
       if (error.response?.status === 404) return error.response.data;
 
       throw error;
-    });
+    }
+  );
 
   if (props.layoutData.sitecore.route) {
     // Retrieve component props using side-effects defined on components level
