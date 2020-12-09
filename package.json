@@ -3,7 +3,7 @@
     "reset": "lerna clean --yes && npm run bootstrap && npm run build-packages",
     "bootstrap": "lerna bootstrap && npm run bootstrap-nextjs-sample",
     "bootstrap:ci": "lerna bootstrap --ci",
-    "bootstrap-nextjs-sample": "cd ./samples/nextjs/node_modules/@sitecore-jss/sitecore-jss-nextjs && npm link ../../react",
+    "bootstrap-nextjs-sample": "cd ./samples/nextjs/node_modules/@sitecore-jss/sitecore-jss-nextjs && npm link ../../react && cd ../sitecore-jss-nextjs-editing-host && npm link ../../react",
     "build-packages": "lerna run build --ignore *-sample*",
     "build-apps": "lerna run build --scope *-sample*",
     "lint-packages": "lerna run lint --scope @sitecore-jss/sitecore-jss-nextjs",

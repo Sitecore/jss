@@ -2,15 +2,12 @@ import { parse } from 'url';
 import { Request, Response } from 'express';
 import Server from 'next/dist/next-server/server/next-server';
 import absolutify from './absolutify';
-import { EditingData } from './editing-data';
+import { EditingData, EditingRequest } from '@sitecore-jss/sitecore-jss-nextjs';
 
-// Extend Express Request with our custom EditingData
-// NOTE: The property name ("editingData") needs to match EditingRequest, which is used in the consuming app.
+// Extend Express Request with our custom EditingRequest
 declare global {
   namespace Express {
-      export interface Request {
-        editingData: EditingData;
-      }
+      export interface Request extends EditingRequest {}
   }
 }
 

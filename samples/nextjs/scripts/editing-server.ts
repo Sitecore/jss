@@ -13,6 +13,6 @@
   via the 'sc_httprenderengineurl' query string paramter.
 */
 
-import { startEditingServer } from '@sitecore-jss/sitecore-jss-nextjs';
+import { startEditingServer } from '@sitecore-jss/sitecore-jss-nextjs-editing-host';
 
 startEditingServer();

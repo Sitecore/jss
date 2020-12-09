@@ -77,12 +77,7 @@ const nextConfig = {
   
   webpack: (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);
-
-    if (!options.isServer) {
-      // Always exclude express (used by the Editing Server) from the client bundle
-      config.externals.push({ express: { commonjs: 'express' } });
-    }
-
+    
     return config;
   },
 }

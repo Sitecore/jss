@@ -32,6 +32,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@sitecore-jss/sitecore-jss-nextjs": "^15.0.1",
+    "@sitecore-jss/sitecore-jss-nextjs-editing-host": "^15.0.1",
     "@sitecore-jss/sitecore-jss-tracking": "^15.0.1",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",

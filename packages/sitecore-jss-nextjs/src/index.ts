@@ -42,13 +42,9 @@ export {
 } from './components/ComponentPropsContext';
 
 export { 
-  EditingServerOptions,
-  startEditingServer
-} from './editing/editing-server';
-export { 
   EditingData,
   EditingRequest
-} from './editing/editing-data';
+} from './sharedTypes/editing-data';
 
 export {
   ComponentFactory,
