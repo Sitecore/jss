@@ -55,6 +55,13 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
  *    const { sitecoreContext } = useSitecoreContext();
  *    return <span>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
  * }
+ * 
+ * @example
+ * const EditMode = () => {
+ *    const { sitecoreContext, updateSitecoreContext } = useSitecoreContext({ updatable: true });
+ *    const onClick = () => updateSitecoreContext({ pageEditing: 'inactive' });
+ *    return <span onClick={onClick}>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
+ * }
  */
 export function useSitecoreContext(options?: WithSitecoreContextOptions) {
   const reactContext = React.useContext(SitecoreContextReactContext);
