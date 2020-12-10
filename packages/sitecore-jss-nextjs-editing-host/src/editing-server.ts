@@ -38,7 +38,7 @@ export interface EditingServerOptions {
 
 /**
  * Starts the editing server
- * @param {EditingServerOptions} options Editing server options
+ * @param {EditingServerOptions} [options] Editing server options
  */
 export function startEditingServer({
   port = 3000,
