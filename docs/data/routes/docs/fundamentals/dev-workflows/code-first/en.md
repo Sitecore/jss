@@ -10,7 +10,7 @@ title: Code-first Workflow
 
 ## Initial app deployment
 
-Before deploying, ensure that you have a Sitecore install with JSS server components installed.
+Before deploying, ensure that you have a Sitecore install with Headless server components installed.
 
 The app drives all the initial content hierarchy (routes -> page-level items), renderings (for each component there will be one rendering item in Sitecore) and presentation details on page-level items.
 

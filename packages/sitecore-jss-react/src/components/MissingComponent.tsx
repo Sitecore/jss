@@ -7,7 +7,7 @@ export interface MissingComponentProps {
   };
 }
 
-export const MissingComponent: React.SFC<MissingComponentProps> = (props) => {
+export const MissingComponent: React.FC<MissingComponentProps> = (props) => {
   const componentName =
     props.rendering && props.rendering.componentName
       ? props.rendering.componentName

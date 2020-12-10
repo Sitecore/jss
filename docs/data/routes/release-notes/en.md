@@ -5,6 +5,15 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 16.0 for Sitecore 10
+
+### Upgrading
+
+### Breaking changes
+
+### New Features & Improvements
+### Bug Fixes
+* [PR #506](https://github.com/Sitecore/jss/pull/506) [React sample] `Cannot read property 'sitecore' of null`, when 404 and routeData is null
 ## Sitecore JSS 15.0.1
 
 ### Bug Fixes
@@ -412,7 +421,7 @@ There are [migration instructions](/upgrade-guides/manifest-packages) from JSS 8
 
 We've replaced Sitecore.Ship with a _manifest package_ deployment system that uses a more secure system to import JSS apps. A shared secret known to the deployer and server is used to deploy signed packages using HMAC, significantly increasing the security of the default setup. `jss setup` will offer to automatically create and configure a random shared secret for you.
 
-This change has also enabled improved code-first deployment experience. Logs are now sent in real-time, and the import process is run as a background job meaning that it can continue to completion even if a network level error interrupts the client. The import process also scales better to larger numbers of imported items, and is more cloud friendly. The server component installation experience is also now simpler, with a single Sitecore package for JSS server components. The import service endpoint is automatically disabled on CD servers, so no config transformation is required.
+This change has also enabled improved code-first deployment experience. Logs are now sent in real-time, and the import process is run as a background job meaning that it can continue to completion even if a network level error interrupts the client. The import process also scales better to larger numbers of imported items, and is more cloud friendly. The server component installation experience is also now simpler, with a single Sitecore package for Headless server components. The import service endpoint is automatically disabled on CD servers, so no config transformation is required.
 
 Existing JSS servers and apps running JSS 8 or earlier can follow [migration instructions](/upgrade-guides/manifest-packages) to upgrade to the JSS 9 manifest package endpoint for deployment.
 

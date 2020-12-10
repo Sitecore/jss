@@ -93,7 +93,7 @@ export const Link: React.SFC<LinkProps> = ({ field, editable, children, showLink
   return <React.Fragment>{resultTags}</React.Fragment>;
 };
 
-Link.propTypes = {
+export const LinkPropTypes = {
   field: PropTypes.oneOfType([
     PropTypes.shape({
       href: PropTypes.string,
@@ -106,6 +106,8 @@ Link.propTypes = {
   ]).isRequired,
   editable: PropTypes.bool,
 };
+
+Link.propTypes = LinkPropTypes;
 
 Link.defaultProps = {
   editable: true,

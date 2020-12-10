@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentType } from 'react';
 import PropTypes, { Requireable } from 'prop-types';
 import { MissingComponent } from '../components/MissingComponent';
 import { ComponentFactory } from '../components/sharedTypes';
@@ -38,7 +38,7 @@ export interface PlaceholderProps {
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
    */
-  missingComponentComponent?: React.ComponentClass<any> | React.SFC<any>;
+  missingComponentComponent?: React.ComponentClass<any> | React.FC<any>;
 
   /**
    * A component that is rendered in place of the placeholder when an error occurs rendering
@@ -62,7 +62,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     params: PropTypes.objectOf(PropTypes.string.isRequired),
     missingComponentComponent: PropTypes.oneOfType([
       PropTypes.object as Requireable<React.ComponentClass<any>>,
-      PropTypes.object as Requireable<React.SFC<any>>
+      PropTypes.func as Requireable<React.FC<any>>
     ]),
     errorComponent: PropTypes.oneOfType([
       PropTypes.object as Requireable<React.ComponentClass<any>>,
@@ -132,15 +132,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         return this.createRawElement(rendering, commonProps);
       }
 
-      let component: React.ReactNode | null = this.getComponentForRendering(rendering);
+      let component: ComponentType | null = this.getComponentForRendering(rendering);
       if (!component) {
         console.error(
-          `Placeholder ${name} contains unknown component ${
-          rendering.componentName
+          `Placeholder ${name} contains unknown component ${rendering.componentName
           }. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
         );
 
-        component = missingComponentComponent || MissingComponent;
+        component = missingComponentComponent ?? MissingComponent;
       }
 
       const finalProps = {

@@ -46,16 +46,18 @@ export {
   EditingRequest
 } from './sharedTypes/editing-data';
 
+export { Link } from './components/Link';
+export { RichText } from './components/RichText';
+
 export {
   ComponentFactory,
   Placeholder,
   Image,
   ImageField,
-  RichText,
+  LinkField,
+  LinkFieldValue,
   Text,
   DateField,
-  Link,
-  LinkField,
   File,
   FileField,
   VisitorIdentification,

@@ -1,3 +1,3 @@
-import { Component } from 'react';
+import { ComponentType } from 'react';
 
-export type ComponentFactory = (componentName: string) => Component;
+export type ComponentFactory = (componentName: string) => ComponentType | null;
