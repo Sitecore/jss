@@ -1,19 +1,28 @@
-import { Directive, ElementRef, Input, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  Renderer2,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
 
 @Directive({ selector: '[scRouterLink]' })
 export class RouterLinkDirective extends LinkDirective {
+  // tslint:disable-next-line:no-input-rename
+  @Input('scRouterLinkEditable')
+  editable = true;
 
   // tslint:disable-next-line:no-input-rename
-  @Input('scRouterLinkEditable') editable = true;
+  @Input('scRouterLinkAttrs')
+  attrs: any = {};
 
   // tslint:disable-next-line:no-input-rename
-  @Input('scRouterLinkAttrs') attrs: any = {};
-
-  // tslint:disable-next-line:no-input-rename
-  @Input('scRouterLink') field: LinkField;
+  @Input('scRouterLink')
+  field: LinkField;
 
   constructor(
     viewContainer: ViewContainerRef,
@@ -30,7 +39,7 @@ export class RouterLinkDirective extends LinkDirective {
 
     viewRef.rootNodes.forEach((node) => {
       Object.entries(props).forEach(([key, propValue]: [string, any]) => {
-        this.renderer.setAttribute(node, key, propValue);
+        this.updateAttribute(node, key, propValue);
 
         if (key === 'href') {
           this.renderer.listen(node, 'click', (event) => {

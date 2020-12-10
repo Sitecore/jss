@@ -9,6 +9,7 @@ import { ROUTES } from '@angular/router';
 import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
 import { GenericLinkDirective } from './components/generic-link.directive';
+import { GenericRichTextDirective } from './components/generic-rich-text.directive';
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
@@ -33,9 +34,7 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
 import { LayoutService } from './layout.service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   declarations: [
     FileDirective,
     ImageDirective,
@@ -50,6 +49,7 @@ import { LayoutService } from './layout.service';
     PlaceholderComponent,
     RawComponent,
     RichTextDirective,
+    GenericRichTextDirective,
     TextDirective,
     MissingComponentComponent,
   ],
@@ -67,6 +67,7 @@ import { LayoutService } from './layout.service';
     PlaceholderLoadingDirective,
     RichTextDirective,
     TextDirective,
+    GenericRichTextDirective,
   ],
   entryComponents: [	
     RawComponent,	

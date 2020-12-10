@@ -7,7 +7,7 @@ export {
   LayoutServiceRequestOptions
 } from './dataApi';
 
-export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
+export { isExperienceEditorActive, isServer, isAbsoluteUrl, resetExperienceEditorChromes } from './util';
 
 export {
   DictionaryPhrases,
