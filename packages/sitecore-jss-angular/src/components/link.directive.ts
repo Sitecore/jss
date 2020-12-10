@@ -110,12 +110,13 @@ export class LinkDirective implements OnChanges {
   }
 
   protected updateAttribute(node: any, key: string, prop: any) {
-    if (prop != null && prop !== '') {
-      if (key === 'class' && node.className !== '') {
-        this.renderer.setAttribute(node, key, `${node.className} ${prop}`);
-      } else {
-        this.renderer.setAttribute(node, key, prop);
-      }
+    if (!prop || prop === '') {
+      return;
+    }
+    if (key === 'class' && node.className !== '') {
+      this.renderer.setAttribute(node, key, `${node.className} ${prop}`);
+    } else {
+      this.renderer.setAttribute(node, key, prop);
     }
   }
 

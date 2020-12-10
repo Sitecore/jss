@@ -53,21 +53,25 @@ export class GenericRichTextDirective implements OnChanges {
     const html = field.editable && this.editable ? field.editable : field.value;
     this.viewRef.rootNodes.forEach((node) => {
       node.innerHTML = html;
-      if(node.querySelectorAll != null) {
-        const links: NodeListOf<HTMLLinkElement> = node.querySelectorAll('a[href]');
-        const linksArray: Array<HTMLLinkElement> = [].slice.call(links);
-
-        linksArray.forEach((link) => {
-          const href = link.getAttribute('href');
-
-          if (href != null && !isAbsoluteUrl(href)) {
-            this.renderer.listen(link, 'click', (event) => {
-              this.router.navigateByUrl(href);
-              event.preventDefault();
-            });
-          }
-        });
+      if(!node.querySelectorAll) {
+        return
       }
+      const links: NodeListOf<HTMLLinkElement> = node.querySelectorAll('a[href]');
+      const linksArray: Array<HTMLLinkElement> = [].slice.call(links);
+
+      linksArray.forEach((link) => {
+        const href = link.getAttribute('href');
+        const target = link.getAttribute('target');
+
+        if (!href || isAbsoluteUrl(href) || target === '_blank' || target === '_top') {
+          return;
+        }
+       
+        this.renderer.listen(link, 'click', (event) => {
+          this.router.navigateByUrl(href);
+          event.preventDefault();
+        });
+      });
     });
   }
 }
