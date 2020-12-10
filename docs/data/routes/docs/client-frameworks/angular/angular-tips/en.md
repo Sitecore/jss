@@ -135,7 +135,7 @@ There aren't changes in your component module. If you use multiple components la
 export class AppComponentsModule { }
 ```
 
-Components can also have a  for loading using canActivate and canResolve. Classes can be provided as well, they should be derived from JssCanActivate and/or JssResolve.
+Components can also have a for loading using canActivate and resolve. Classes can be provided as well, they should be derived from JssCanActivate and/or JssResolve.
 
 ```js
 @NgModule({
