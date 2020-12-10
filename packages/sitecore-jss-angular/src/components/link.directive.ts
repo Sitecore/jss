@@ -1,13 +1,4 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  OnChanges,
-  Renderer2,
-  SimpleChanges,
-  TemplateRef,
-  ViewContainerRef,
-} from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
 import { LinkField } from './rendering-field';
 
 @Directive({ selector: '[scLink]' })
@@ -15,23 +6,20 @@ export class LinkDirective implements OnChanges {
   private inlineRef: HTMLSpanElement | null = null;
 
   // tslint:disable-next-line:no-input-rename
-  @Input('scLinkEditable')
-  editable = true;
+  @Input('scLinkEditable') editable = true;
 
   // tslint:disable-next-line:no-input-rename
-  @Input('scLinkAttrs')
-  attrs: any = {};
+  @Input('scLinkAttrs') attrs: any = {};
 
   // tslint:disable-next-line:no-input-rename
-  @Input('scLink')
-  field: LinkField;
+  @Input('scLink') field: LinkField;
 
   constructor(
     protected viewContainer: ViewContainerRef,
     protected templateRef: TemplateRef<any>,
     protected renderer: Renderer2,
     private elementRef: ElementRef
-  ) {}
+  ) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['field'] || changes['editable'] || changes['attrs']) {
@@ -120,13 +108,13 @@ export class LinkDirective implements OnChanges {
     }
   }
 
-  private getElementAttrs(): { [key: string]: any } {
+  private getElementAttrs(): { [key: string]: any; } {
     const view = this.templateRef.createEmbeddedView(null);
     const element: Element = view.rootNodes[0];
     if (!element) {
       return {};
     }
-    const attrs: { [key: string]: any } = {};
+    const attrs: { [key: string]: any; } = {};
     for (let i = 0; i < element.attributes.length; i++) {
       const attr = element.attributes.item(i);
       if (attr) {
