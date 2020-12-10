@@ -50,22 +50,6 @@ export class LinkDirective implements OnChanges {
 
     viewRef.rootNodes.forEach((node) => {
       Object.entries(props).forEach(([key, propValue]: [string, any]) => {
-        if (key === 'href') {
-          const isInvalidLink = !propValue || /^https?:\/\/$/.test(propValue);
-
-          if (isInvalidLink) {
-            if (!node.href) {
-              return;
-            }
-
-            propValue = node.href;
-          }
-        }
-
-        if (key === 'class' && node.className) {
-          propValue += ` ${node.className}`;
-        }
-
         this.updateAttribute(node, key, propValue)
       });
 
@@ -101,7 +85,18 @@ export class LinkDirective implements OnChanges {
     if (!prop || prop === '') {
       return;
     }
-    if (key === 'class' && node.className !== '') {
+    if (key === 'href') {
+      const isInvalidLink = !prop || /^https?:\/\/$/.test(prop);
+
+      if (isInvalidLink) {
+        if (!node.href) {
+          return;
+        }
+
+        prop = node.href;
+      }
+      this.renderer.setAttribute(node, key, prop);
+    } else if (key === 'class' && node.className !== '') {
       this.renderer.setAttribute(node, key, `${node.className} ${prop}`);
     } else {
       this.renderer.setAttribute(node, key, prop);
