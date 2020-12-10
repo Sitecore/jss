@@ -2,14 +2,7 @@ import { parse } from 'url';
 import { Request, Response } from 'express';
 import Server from 'next/dist/next-server/server/next-server';
 import absolutify from './absolutify';
-import { EditingData, EditingRequest } from '@sitecore-jss/sitecore-jss-nextjs';
-
-// Extend Express Request with our custom EditingRequest
-declare global {
-  namespace Express {
-      export interface Request extends EditingRequest {}
-  }
-}
+import { EditingData } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
  * Express middleware for handling requests from the Sitecore Experience Editor.
