@@ -32,6 +32,9 @@ pool:
   # todo: we dgaf what specific version of Linux is installed, is there any way to wildcard the version?
   vmImage: 'Ubuntu-16.04'
 
+variables:
+  isDev: $[startsWith(variables['Build.SourceBranch'], 'refs/heads/dev')]
+
 steps:
 - script: |
     npm ci
@@ -54,3 +57,23 @@ steps:
   env: {
     testEnv: 'ci'
   }
+- script: |
+    npm install -g lerna
+  displayName: 'install lerna'
+  condition: and(succeeded(), eq(variables.isDev, true))
+- script: |
+    git config user.email builds@sitecore.com
+    git config user.name "Automated Build"
+    git remote set-url origin https://nickwesselman:$GITHUB-PAT-ENV@github.com/Sitecore/jss.git
+    lerna version prerelease --preid canary
+  displayName: 'pre-release version update'
+  condition: and(succeeded(), eq(variables.isDev, true))
+  env:
+    GITHUB-PAT-ENV: $(GITHUB-PAT)
+- script: 
+    echo //registry.npmjs.org/:_authToken=${NPM-TOKEN-ENV} > .npmrc
+    lerna publish from-git --canary --pre-dist-tag canary --preid canary
+  displayName: 'pre-release canary publish'
+  condition: and(succeeded(), eq(variables.isDev, true))
+  env:
+    NPM-TOKEN-ENV: $(NPM-TOKEN)
