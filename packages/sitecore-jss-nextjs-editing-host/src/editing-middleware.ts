@@ -38,10 +38,6 @@ export default class EditingMiddleware {
       // Attach data to request for use in our edit route
       req.editingData = data;
 
-      // Set our public URL as the asset prefix, which is used by Next.js for the JavaScript and CSS files it loads
-      // See https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
-      this.nextApp.setAssetPrefix(this.publicUrl);
-
       // Now render the page
       let html = await this.nextApp.renderToHTML(req, res, this.editRoute, parsedUrl.query);
 

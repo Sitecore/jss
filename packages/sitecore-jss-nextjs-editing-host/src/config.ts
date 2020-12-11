@@ -49,11 +49,14 @@ export function config({
     const publicUrl = getPublicUrl();
 
     return Object.assign({}, nextConfig, {
+
       // Set our public URL as the asset prefix, which is used by Next.js for the JavaScript and CSS files it loads
       // See https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
       assetPrefix: publicUrl.toString().replace(/\/$/, ''),
+      
       // Use dedicated build directory (main app uses '.next')
       distDir,
+      
       // Set our public URL to be used by Next.js image optimization
       // See https://nextjs.org/docs/basic-features/image-optimization
       images: {
