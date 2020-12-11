@@ -17,6 +17,9 @@
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.net"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "Apache-2.0",
   "homepage": "https://jss.sitecore.net",
   "bugs": {
