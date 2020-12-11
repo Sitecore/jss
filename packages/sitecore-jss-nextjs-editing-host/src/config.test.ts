@@ -1,0 +1,91 @@
+import chai = require('chai');
+import chaiString = require('chai-string');
+import { config } from './config';
+
+const expect = chai.use(chaiString).expect;
+
+describe('config', () => {
+  const publicUrl = 'http://test.com';
+  const publicUrlDomain = 'test.com';
+
+  beforeEach(() => {
+    process.env.PUBLIC_URL = publicUrl;
+  })
+
+  after(() => {
+    delete process.env.PUBLIC_URL;
+  })
+
+  it('should not apply if disabled', () => {
+    const withEditing = config({ enabled: false });
+    const nextConfig = withEditing();
+    expect(nextConfig).to.not.have.property('assetPrefix');
+    expect(nextConfig).to.not.have.property('distDir');
+    expect(nextConfig).to.not.have.property('images');
+  });
+
+  it('should set assetPrefix to public url', () => {
+    const withEditing = config({ enabled: true });
+    const nextConfig = withEditing();
+    expect(nextConfig).to.have.property('assetPrefix').that.equal(publicUrl);
+  });
+
+  it ('should set images.path using public url', () => {
+    const withEditing = config({ enabled: true });
+    const nextConfig = withEditing();
+    expect(nextConfig).to.have.property('images').with.property('path').that.startsWith(publicUrl);
+  });
+
+  it ('should set images.domains using public url', () => {
+    const withEditing = config({ enabled: true });
+    const nextConfig = withEditing();
+    expect(nextConfig).to.have.property('images').with.property('domains').that.contains(publicUrlDomain);
+  });
+
+  it ('should concat existing images.domains', () => {
+    const withEditing = config({ enabled: true });
+    const nextConfig = withEditing({
+      images: { domains: ['foo'] }
+    });
+    expect(nextConfig).to.have.property('images').with.property('domains').that.contains('foo');
+    expect(nextConfig).to.have.property('images').with.property('domains').that.contains(publicUrlDomain);
+  });
+
+  it('should fallback to http://localhost:3000 if public url missing', () => {
+    delete process.env.PUBLIC_URL;
+    const withEditing = config({ enabled: true });
+    const nextConfig = withEditing();
+    expect(nextConfig).to.have.property('assetPrefix').that.equal('http://localhost:3000');
+    expect(nextConfig).to.have.property('images').with.property('path').that.startsWith('http://localhost:3000');
+    expect(nextConfig).to.have.property('images').with.property('domains').that.contains('localhost');
+  });
+
+  it('should fallback to http://localhost:3000 if public url invalid', () => {
+    process.env.PUBLIC_URL = "nope";
+    const withEditing = config({ enabled: true });
+    const nextConfig = withEditing();
+    expect(nextConfig).to.have.property('assetPrefix').with.equal('http://localhost:3000');
+    expect(nextConfig).to.have.property('images').with.property('path').that.startsWith('http://localhost:3000');
+    expect(nextConfig).to.have.property('images').with.property('domains').that.contains('localhost');
+  });
+
+  it('should set distDir', () => {
+    const withEditing = config({ enabled: true, distDir: '.build-editing' });
+    const nextConfig = withEditing();
+    expect(nextConfig).to.have.property('distDir').that.equal('.build-editing');
+  });
+
+  it('should throw if distDir is ".next"', () => {
+    const withEditing = config({ enabled: true, distDir: '.next' });
+    expect(withEditing).to.throw();
+  });
+
+  it('should set distDir to ".next" if primary distDir is different', () => {
+    const withEditing = config({ enabled: true, distDir: '.next' });
+    const nextConfig = withEditing({
+      distDir: 'build'
+    });
+    expect(nextConfig).to.have.property('distDir').that.equal('.next');
+  });
+
+});
