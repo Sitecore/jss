@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
+import { NextPageContext, GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import {
   LayoutServiceData,
   ComponentRendering,
@@ -70,6 +70,24 @@ export class ComponentPropsService {
       layoutData,
       context
     );
+  }
+
+  /**
+   * Editing mode
+   * Fetch component props using getInitialProps function
+   */
+  async fetchInitialComponentProps(
+    params: FetchComponentPropsArguments<NextPageContext>
+  ): Promise<ComponentPropsCollection> {
+    const { componentModule, layoutData, context } = params;
+
+    const fetchFunctionFactory = (componentName: string) => {
+      const module = componentModule(componentName);
+
+      return module?.getInitialProps;
+    };
+
+    return this.fetchComponentProps<NextPageContext>(fetchFunctionFactory, layoutData, context);
   }
 
   /**
