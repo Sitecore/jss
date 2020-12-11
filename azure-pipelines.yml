@@ -58,10 +58,6 @@ steps:
     testEnv: 'ci'
   }
 - script: |
-    npm install -g lerna
-  displayName: 'install lerna'
-  condition: and(succeeded(), eq(variables.isDev, true))
-- script: |
     git config user.email builds@sitecore.com
     git config user.name "Automated Build"
     git remote set-url origin https://nickwesselman:$GITHUB-PAT-ENV@github.com/Sitecore/jss.git
