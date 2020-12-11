@@ -65,6 +65,7 @@ export {
   SitecoreContextState,
   SitecoreContextReactContext,
   withSitecoreContext,
+  useSitecoreContext,
   withExperienceEditorChromes,
   withPlaceholder,
 } from '@sitecore-jss/sitecore-jss-react';
