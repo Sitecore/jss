@@ -3,6 +3,7 @@ import { AxiosDataFetcher } from './data-fetcher';
 import { LayoutServiceData } from './dataModels';
 import * as dataApi from './dataApi';
 import { HttpJsonFetcher } from './httpClientInterface';
+import { IncomingMessage, ServerResponse } from 'http';
 
 interface LayoutServiceConfig {
   apiHost: string;
@@ -53,6 +54,16 @@ type FetchConfig = {
    * @param {any} data Optional data to POST with the request.
    */
   dataFetcher?: HttpJsonFetcher<LayoutServiceData>;
+  /**
+   * Request object to layout service
+   * Using default fetcher will assign required request headers
+   */
+  req?: IncomingMessage;
+  /**
+   * Response from layout service
+   * Using default fetcher will assign required response headers
+   */
+  res?: ServerResponse;
 };
 
 interface FetchParams {
@@ -99,9 +110,32 @@ export class LayoutService {
   private getDefaultFetcher = (config?: FetchConfig) => {
     const axiosFetcher = new AxiosDataFetcher();
 
-    axiosFetcher.instance.interceptors.request.use(config?.onReq, config?.onReqError);
+    axiosFetcher.instance.interceptors.request.use((reqConfig: AxiosRequestConfig) => {
+      if (config?.req) {
+        const { req } = config;
 
-    axiosFetcher.instance.interceptors.response.use(config?.onRes, config?.onResError);
+        reqConfig.headers.common = {
+          ...reqConfig.headers.common,
+          ...(req.headers.cookie && { cookie: req.headers.cookie }),
+          ...(req.headers.referer && { referer: req.headers.referer }),
+          ...(req.headers['user-agent'] && { 'user-agent': req.headers['user-agent'] }),
+          ...(req.connection.remoteAddress && { 'X-Forwarded-For': req.connection.remoteAddress }),
+        };
+      }
+
+      return config?.onReq ? config.onReq(reqConfig) : reqConfig;
+    }, config?.onReqError);
+
+    axiosFetcher.instance.interceptors.response.use((layoutServiceRes: AxiosResponse) => {
+      if (config?.res) {
+        const { res } = config;
+
+        layoutServiceRes.headers['set-cookie'] &&
+          res.setHeader('set-cookie', layoutServiceRes.headers['set-cookie']);
+      }
+
+      return config?.onRes ? config.onRes(layoutServiceRes) : layoutServiceRes;
+    }, config?.onResError);
 
     const fetcher = (url: string, data?: unknown) => {
       return axiosFetcher.fetch(url, data);

@@ -81,24 +81,20 @@ describe('LayoutService', () => {
     const onReqSpy = spy((config: AxiosRequestConfig) => {
       config.headers.common = {
         ...config.headers.common,
-        ...(req.headers.cookie && { cookie: req.headers.cookie }),
-        ...(req.headers.referer && { referer: req.headers.referer }),
-        ...(req.headers['user-agent'] && { 'user-agent': req.headers['user-agent'] }),
-        ...(req.connection.remoteAddress && { 'X-Forwarded-For': req.connection.remoteAddress }),
+        'test-req-header': 'test-req-header-value'
       }
 
       expect(config.headers.common['cookie']).to.equal('test-cookie-value');
       expect(config.headers.common['referer']).to.equal('http://sctest');
       expect(config.headers.common['user-agent']).to.equal('test-user-agent-value');
       expect(config.headers.common['X-Forwarded-For']).to.equal('192.168.1.10');
+      expect(config.headers.common['test-req-header']).to.equal('test-req-header-value');
 
       return config;
     });
 
     const onResSpy = spy((response: AxiosResponse) => {
-      if (response.headers['set-cookie']) {
-        res.setHeader('set-cookie', response.headers['set-cookie']);
-      }
+      res.setHeader('test-res-header', 'test-res-header-value');
 
       return response;
     });
@@ -114,6 +110,74 @@ describe('LayoutService', () => {
       .fetchLayoutData('/home', 'da-DK', {
         onReq: onReqSpy,
         onRes: onResSpy,
+        req,
+        res
+      })
+      .then((layoutServiceData: any) => {
+        expect(layoutServiceData.headers['cookie']).to.equal('test-cookie-value');
+        expect(layoutServiceData.headers['referer']).to.equal('http://sctest');
+        expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
+        expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
+        expect(layoutServiceData.headers['test-req-header']).to.equal('test-req-header-value');
+
+        expect(layoutServiceData.url).to.equal(
+          'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
+        );
+        expect(layoutServiceData.data).to.deep.equal({
+          sitecore: {
+            context: {},
+            route: { name: 'xxx' },
+          },
+        });
+        expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
+
+        expect(onReqSpy).to.be.called.once;
+        expect(onResSpy).to.be.called.once;
+      });
+  });
+
+  it('should fetch route data and assign headers', () => {
+    mock.onGet().reply((config) => {
+      return [
+        200,
+        {
+          ...config,
+          data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+        },
+        {
+          'set-cookie': 'test-set-cookie-value',
+        },
+      ];
+    });
+
+    const req = {
+      connection: {
+        remoteAddress: '192.168.1.10',
+      },
+      headers: {
+        cookie: 'test-cookie-value',
+        referer: 'http://sctest',
+        'user-agent': 'test-user-agent-value',
+      },
+    } as IncomingMessage;
+
+    const setHeaderSpy: any = spy();
+
+    const res = {
+      setHeader: setHeaderSpy,
+    } as ServerResponse;
+
+    const service = new LayoutService({
+      apiHost: 'http://sctest',
+      apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+      siteName: 'supersite',
+      tracking: false,
+    });
+
+    return service
+      .fetchLayoutData('/home', 'da-DK', {
+        req,
+        res
       })
       .then((layoutServiceData: any) => {
         expect(layoutServiceData.headers['cookie']).to.equal('test-cookie-value');
@@ -131,11 +195,8 @@ describe('LayoutService', () => {
           },
         });
         expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
-
-        expect(onReqSpy).to.be.called.once;
-        expect(onResSpy).to.be.called.once;
       });
-  });
+  })
 
   it('should fetch route data using custom fetcher', () => {
     const fetcherSpy = spy((url: string) => {
