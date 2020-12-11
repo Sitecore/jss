@@ -104,6 +104,35 @@ export class LayoutService {
   };
 
   /**
+   * Setup request headers
+   * @param {IncomingMessage} req
+   * @param {AxiosRequestConfig} reqConfig 
+   */
+  private setupReqHeaders(req: IncomingMessage, reqConfig: AxiosRequestConfig) {
+    reqConfig.headers.common = {
+      ...reqConfig.headers.common,
+      ...(req.headers.cookie && { cookie: req.headers.cookie }),
+      ...(req.headers.referer && { referer: req.headers.referer }),
+      ...(req.headers['user-agent'] && { 'user-agent': req.headers['user-agent'] }),
+      ...(req.connection.remoteAddress && { 'X-Forwarded-For': req.connection.remoteAddress }),
+    };
+
+    return reqConfig;
+  }
+
+  /**
+   * Setup response headers based on response from layout service
+   * @param {ServerResponse} res 
+   * @param {AxiosResponse} layoutServiceRes 
+   */
+  private setupResHeaders(res: ServerResponse, layoutServiceRes: AxiosResponse) {
+    layoutServiceRes.headers['set-cookie'] &&
+      res.setHeader('set-cookie', layoutServiceRes.headers['set-cookie']);
+
+    return layoutServiceRes;
+  }
+
+  /**
    * Provides default @see AxiosDataFetcher data fetcher
    * @param {FetchConfig} [config]
    */
@@ -112,15 +141,7 @@ export class LayoutService {
 
     axiosFetcher.instance.interceptors.request.use((reqConfig: AxiosRequestConfig) => {
       if (config?.req) {
-        const { req } = config;
-
-        reqConfig.headers.common = {
-          ...reqConfig.headers.common,
-          ...(req.headers.cookie && { cookie: req.headers.cookie }),
-          ...(req.headers.referer && { referer: req.headers.referer }),
-          ...(req.headers['user-agent'] && { 'user-agent': req.headers['user-agent'] }),
-          ...(req.connection.remoteAddress && { 'X-Forwarded-For': req.connection.remoteAddress }),
-        };
+        reqConfig = this.setupReqHeaders(config.req, reqConfig);
       }
 
       return config?.onReq ? config.onReq(reqConfig) : reqConfig;
@@ -128,10 +149,7 @@ export class LayoutService {
 
     axiosFetcher.instance.interceptors.response.use((layoutServiceRes: AxiosResponse) => {
       if (config?.res) {
-        const { res } = config;
-
-        layoutServiceRes.headers['set-cookie'] &&
-          res.setHeader('set-cookie', layoutServiceRes.headers['set-cookie']);
+        layoutServiceRes = this.setupResHeaders(config.res, layoutServiceRes);
       }
 
       return config?.onRes ? config.onRes(layoutServiceRes) : layoutServiceRes;
