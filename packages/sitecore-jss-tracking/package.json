@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-tracking",
-  "version": "16.0.0-canary.1",
+  "version": "16.0.0-canary.2",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -45,7 +45,7 @@
     "url-parse": "^1.4.7"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.1"
+    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.2"
   },
   "description": "",
   "types": "types/index.d.ts",
