@@ -3,4 +3,13 @@ export {
   startEditingServer
 } from './editing-server';
 
+export {
+  EditingMiddleware
+} from './editing-middleware';
+
+export {
+  HtmlProcessor,
+  AbsolutifyHtmlProcessor
+} from './html-processors';
+
 export { config } from './config';

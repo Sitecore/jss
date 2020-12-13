@@ -1,25 +1,29 @@
 import { parse } from 'url';
 import { Request, Response } from 'express';
 import Server from 'next/dist/next-server/server/next-server';
-import absolutify from './absolutify';
 import { EditingData } from '@sitecore-jss/sitecore-jss-nextjs';
+import { HtmlProcessor } from './html-processors';
 
 /**
  * Express middleware for handling requests from the Sitecore Experience Editor.
  * @constructor
  * @param {object} nextApp The Next.js app.
- * @param {string} publicUrl The public URL. This will be used when replacing relative links with absolute ones.
+ * @param {string} editRoute The Next.js route to use for rendering.
+ * @param {HtmlProcessor[]} [htmlProcessors] Html processors to run on rendered html.
  */
-export default class EditingMiddleware {
-  constructor(readonly nextApp: Server, readonly editRoute: string, readonly publicUrl: string) {}
+export class EditingMiddleware {
+  constructor(readonly nextApp: Server, readonly editRoute: string, readonly htmlProcessors?: HtmlProcessor[]) {}
 
-  getRequestHandler(): (req: Request, res: Response) => Promise<void> {
+  /**
+   * Get Express request handler
+   */
+  public getRequestHandler(): (req: Request, res: Response) => Promise<void> {
     return this.handleRequest.bind(this);
   }
 
-  async handleRequest(req: Request, res: Response): Promise<void> {
+  private async handleRequest(req: Request, res: Response): Promise<void> {
     // Extract Experience Editor data from the request
-    const data = extractData(req);
+    const data = extractEditingData(req);
 
     // path contains the URL requested via Sitecore
     const parsedUrl = parse(data.path, true);
@@ -41,49 +45,31 @@ export default class EditingMiddleware {
       // Now render the page
       let html = await this.nextApp.renderToHTML(req, res, this.editRoute, parsedUrl.query);
 
-      if (!html) {
-        throw new Error(`Failed to render html for ${parsedUrl}`);
+      if (html === null || html.length === 0) {
+        throw new Error(`Failed to render html for ${data.path}`);
       }
 
-      // Run any post-render processing of the html.
-      // At the moment, this includes replacing any remaining relative links with absolute ones.
-      html = processHtml(html, this.publicUrl);
+      // Run any post-render processing of the html
+      if (this.htmlProcessors) {
+        this.htmlProcessors.forEach(processor => {
+          html = processor.processHtml(html!);
+        });
+      }
 
-      res.send({
+      res.status(200).json({
         html,
-        status: res.statusCode,
-        redirect: '',
       });
     } catch (err) {
       console.error(err);
 
-      res.send({
+      res.status(500).json({
         html: `<html><body>${err}</body></html>`,
-        status: 500,
-        redirect: '',
       });
     }
   }
 }
 
-function processHtml(html: string, appUrl: string) {
-  // URL path prefixes that should be ignored during link replacement
-  // (both with a leading slash "/" and without will be checked)
-  const ignoredPaths = ['-/media/', '~/media/', '-/jssmedia/', '~/jssmedia/', 'sitecore/shell/'];
-
-  // Replace relative links with absolute
-  return absolutify(html, (relativeUrl) => {
-    const ignored = ignoredPaths.some(
-      (value) => relativeUrl.startsWith(value) || relativeUrl.startsWith('/' + value)
-    );
-    if (ignored) {
-      return relativeUrl;
-    }
-    return appUrl + relativeUrl;
-  });
-}
-
-function extractData(req: Request): EditingData {
+export function extractEditingData(req: Request): EditingData {
   // req.body should have already been parsed as JSON at this point (via `body-parser` middleware)
   const payload = req.body;
 
@@ -91,9 +77,15 @@ function extractData(req: Request): EditingData {
   // though we're only concerned with the "args".
   // {
   //   id: 'JSS app name',
-  //   args: ['route path', 'serialized layout data object', 'serialized viewbag object'],
+  //   args: ['path', 'serialized layout data object', 'serialized viewbag object'],
   //   functionName: 'renderView',
   //   moduleName: 'server.bundle'
+  // }
+  // The 'serialized viewbag object' structure:
+  // {
+  //   language: 'language',
+  //   dictionary: 'key-value representation of tokens and their corresponding translations',
+  //   httpContext: 'serialized request data'
   // }
 
   const result = {
