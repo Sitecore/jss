@@ -12,18 +12,19 @@ export interface HtmlProcessor {
  * @param {string[]} ignoredPaths URL path prefixes that should be ignored during link replacement.
  */
 export class AbsolutifyHtmlProcessor implements HtmlProcessor {
-  public constructor(readonly publicUrl: string, readonly ignoredPaths: string[]) {}
+  public constructor(readonly publicUrl: string, readonly ignoredPaths?: string[]) {}
   
   public processHtml(html: string) {
+
     return absolutify(html, (relativeUrl) => {
-      const ignored = this.ignoredPaths.some(
+      const ignored = this.ignoredPaths && this.ignoredPaths.some(
         // Check both with a leading slash "/" and without
         (value) => relativeUrl.startsWith(value) || relativeUrl.startsWith('/' + value)
       );
       if (ignored) {
         return relativeUrl;
       }
-      return this.publicUrl + relativeUrl;
+      return this.publicUrl.replace(/\/$/, '') + relativeUrl;
     });
   }
 }
