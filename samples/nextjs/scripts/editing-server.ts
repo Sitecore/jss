@@ -6,6 +6,8 @@
 
   This should be set as the Http rendering engine in your Sitecore configuration
   (already complete in the included sample \sitecore\config\JssNextWeb.config).
+  Be sure to update the `serverSideRenderingEngineEndpointUrl` accordingly as your
+  Editing Server configuration / endpoint changes.
   See https://jss.sitecore.com/docs/fundamentals/services/view-engine
 
   For local development, you may wish to utilize ngrok to proxy requests, which can

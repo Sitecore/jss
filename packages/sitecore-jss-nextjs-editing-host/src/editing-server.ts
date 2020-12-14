@@ -8,12 +8,12 @@ import chalk from 'chalk';
 
 export interface EditingServerOptions {
   /**
-   * The port number the server should listen on. Defaults to `3000` if no value is provided.
+   * The port number the server should listen on.
    * @default 3000
    */
   port?: number;
   /**
-   * The hostname the server should bind to. Defaults to `localhost` if no value is provided.
+   * The hostname the server should bind to.
    * @default localhost
    */
   hostname?: string;
@@ -21,25 +21,23 @@ export interface EditingServerOptions {
    * The Next.js route which is used to render a page in the Experience Editor.
    * Note this route must use getInitialProps (not getStatic/ServerSideProps)
    * in order for the Experience Editor data to be passed along on the request.
-   * Defaults to `'/_edit'` if no value is provided.
    * @default '/_edit'
    */
   editRoute?: string;
   /**
    * Defines the path for which the Experience Editor middleware is invoked (on POST request).
-   * Defaults to `'*'` if no value is provided.
    * More information can be found in the Express docs: https://expressjs.com/en/4x/api.html#path-examples
    * @default '*'
    */
   editPath?: string;
   /**
    * Enable compression on the Experience Editor POST request.
-   * Defaults to `true`.
+   * @default true
    */
   enableCompression?: boolean;
   /**
    * URL path prefixes that should be ignored during relative to absolute link replacement.
-   * Defaults to `['-/media/', '~/media/', '-/jssmedia/', '~/jssmedia/', 'sitecore/shell/']`
+   * @default ['-/media/', '~/media/', '-/jssmedia/', '~/jssmedia/', 'sitecore/shell/']
    */  
   ignoredReplacementPaths?: string[];
 }
