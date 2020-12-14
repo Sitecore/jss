@@ -4,12 +4,12 @@ import { ComponentFactory } from './sharedTypes';
 
 export interface SitecoreContextProps {
   componentFactory: ComponentFactory;
-  context?: any;
+  context?: unknown;
 }
 
 export interface SitecoreContextState {
-  setContext: (value: any) => void;
-  context: any;
+  setContext: (value: unknown) => void;
+  context: unknown;
 }
 
 export const SitecoreContextReactContext = React.createContext<SitecoreContextState>({} as SitecoreContextState);
@@ -19,7 +19,7 @@ export class SitecoreContext extends React.Component<SitecoreContextProps, Sitec
   static propTypes = {
     children: PropTypes.any.isRequired,
     componentFactory: PropTypes.func,
-    context: PropTypes.any
+    context: PropTypes.any,
   };
 
   static displayName = 'SitecoreContext';
@@ -27,9 +27,9 @@ export class SitecoreContext extends React.Component<SitecoreContextProps, Sitec
   constructor(props: SitecoreContextProps) {
     super(props);
 
-    let context: any = {
+    let context: unknown = {
       pageEditing: false,
-    }
+    };
 
     if (props.context) {
       context = props.context;
@@ -41,15 +41,15 @@ export class SitecoreContext extends React.Component<SitecoreContextProps, Sitec
 
     this.state = {
       context,
-      setContext: this.setContext
+      setContext: this.setContext,
     };
   }
 
-  setContext = (value: any) => {
+  setContext = (value: unknown) => {
     this.setState({
-      context: value
+      context: value,
     });
-  }
+  };
 
   render() {
     return (

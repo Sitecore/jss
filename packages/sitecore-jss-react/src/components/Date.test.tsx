@@ -44,7 +44,6 @@ describe('<DateField />', () => {
     const render = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
     const p = {
       field: {
-        value: undefined,
         editable: 'xxx'
       },
       editable: false,

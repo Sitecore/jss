@@ -1,0 +1,80 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "react"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "React": "writable"
+  },
+  "ignorePatterns": ["src/**/*.test.*", "src/tests/*", "src/testData/*"],
+  "rules": {
+    "@typescript-eslint/indent": ["error", 2],
+    "no-restricted-globals": "off",
+    "no-restricted-properties": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "format": ["PascalCase"],
+        "selector": "typeLike",
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": false
+        }
+      }
+    ],
+    "spaced-comment": "error",
+    "curly": "error",
+    "eol-last": ["error", "always"],
+    "guard-for-in": "error",
+    "valid-jsdoc": "error",
+    "no-unused-labels": "error",
+    "max-len": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/member-ordering": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "no-caller": "error",
+    "no-bitwise": "error",
+    "no-console": ["error", { "allow": ["log", "warn", "error", "info"] }],
+    "no-multiple-empty-lines": "error",
+    "no-new-wrappers": "error",
+    "no-debugger": "error",
+    "no-redeclare": "error",
+    "no-empty": "error",
+    "no-eval": "error",
+    "no-shadow": "error",
+    "dot-notation": "error",
+    "no-fallthrough": "error",
+    "no-trailing-spaces": "error",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "@typescript-eslint/no-use-before-define": "error",
+    "brace-style": "error",
+    "quotes": ["error", "single"],
+    "radix": "error",
+    "@typescript-eslint/semi": "error",
+    "default-case": "error",
+    "comma-dangle": ["error", { "objects": "always-multiline", "imports": "always-multiline", "exports": "always-multiline" }],
+    "eqeqeq": "error",
+    "@typescript-eslint/typedef": "error",
+    "@typescript-eslint/type-annotation-spacing": "error"
+  }
+}

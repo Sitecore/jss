@@ -65,11 +65,12 @@ describe('withSitecoreContext', () => {
       };
   
       const TestComponent: React.FC<any> = (props: any) => {
-        const reactContext = useSitecoreContext();
+				const reactContext = useSitecoreContext();
+				const context = reactContext.sitecoreContext as { text: string }
   
         return (
           <div onClick={reactContext.updateSitecoreContext}>
-            {reactContext.sitecoreContext.text}{props.customProp}
+            {context.text}{props.customProp}
           </div>
         )
       }
@@ -99,11 +100,12 @@ describe('withSitecoreContext', () => {
       };
   
       const TestComponent: React.FC<any> = (props: any) => {
-        const reactContext = useSitecoreContext({ updatable: true });
+				const reactContext = useSitecoreContext({ updatable: true });
+				const context = reactContext.sitecoreContext as { text: string }
   
         return (
           <div onClick={reactContext.updateSitecoreContext}>
-            {reactContext.sitecoreContext.text}{props.customProp}
+            {context.text}{props.customProp}
           </div>
         )
       }

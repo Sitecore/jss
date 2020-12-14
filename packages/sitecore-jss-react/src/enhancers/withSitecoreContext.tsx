@@ -6,8 +6,8 @@ export interface WithSitecoreContextOptions {
 }
 
 export interface WithSitecoreContextProps {
-  sitecoreContext: any;
-  updateSitecoreContext?: ((value: any) => void) | false;
+  sitecoreContext: unknown;
+  updateSitecoreContext?: ((value: unknown) => void) | false;
 }
 
 export interface ComponentConsumerProps extends WithSitecoreContextProps {
@@ -48,20 +48,21 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
  *
  * @see https://jss.sitecore.com/docs/techniques/extending-layout-service/layoutservice-extending-context
  *
- * @param {WithSitecoreContextOptions} [options]
- * 
+ * @param {WithSitecoreContextOptions} [options] hook options
+ *
  * @example
  * const EditMode = () => {
  *    const { sitecoreContext } = useSitecoreContext();
  *    return <span>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
  * }
- * 
+ *
  * @example
  * const EditMode = () => {
  *    const { sitecoreContext, updateSitecoreContext } = useSitecoreContext({ updatable: true });
  *    const onClick = () => updateSitecoreContext({ pageEditing: true });
  *    return <span onClick={onClick}>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
  * }
+ * @returns {Object} { sitecoreContext, updateSitecoreContext }
  */
 export function useSitecoreContext(options?: WithSitecoreContextOptions) {
   const reactContext = React.useContext(SitecoreContextReactContext);
@@ -69,6 +70,6 @@ export function useSitecoreContext(options?: WithSitecoreContextOptions) {
 
   return {
     sitecoreContext: reactContext.context,
-    updateSitecoreContext: updatable ? reactContext.setContext : undefined
-  }
+    updateSitecoreContext: updatable ? reactContext.setContext : undefined,
+  };
 }

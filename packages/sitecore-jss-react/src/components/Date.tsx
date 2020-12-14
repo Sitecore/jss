@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 export interface DateFieldProps {
   /** The date field data. */
+  [htmlAttributes: string]: unknown;
   field: {
     value?: string;
     editable?: string;
@@ -17,8 +18,7 @@ export interface DateFieldProps {
    * @default true
    */
   editable?: boolean;
-  render?: (date: Date | null) => React.ComponentClass<any> | React.FunctionComponent<any> | React.ReactNode;
-  [htmlAttributes: string]: any;
+  render?: (date: Date | null) => React.ComponentClass<unknown> | React.FunctionComponent<unknown> | React.ReactNode;
 }
 
 export const DateField: React.SFC<DateFieldProps> = ({ field, tag, editable, render, ...otherProps }) => {
@@ -26,9 +26,12 @@ export const DateField: React.SFC<DateFieldProps> = ({ field, tag, editable, ren
     return null;
   }
 
-  let children: any;
+  let children: React.ComponentType | React.ReactNode;
 
-  const htmlProps: any = {
+  const htmlProps: {
+    [htmlAttr: string]: unknown,
+    children?: React.ReactNode
+  } = {
     ...otherProps,
   };
 

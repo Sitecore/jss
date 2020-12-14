@@ -10,7 +10,7 @@ export interface WithPlaceholderOptions {
    * However, if your component data is in a different prop, like say 'route' in a sample app,
    * this lets you map that.
    */
-  resolvePlaceholderDataFromProps?: (props: any) => ComponentRendering | RouteData;
+  resolvePlaceholderDataFromProps?: (props: unknown) => ComponentRendering | RouteData;
   /**
    * Function to alter the placeholder props from within the HOC. Enables the props to be
    * transformed before being used by the placeholder/HOC, for example to customize the
@@ -33,16 +33,16 @@ export interface PlaceholderToPropMapping {
 export type WithPlaceholderSpec = (string | PlaceholderToPropMapping) | (string | PlaceholderToPropMapping)[];
 
 export function withPlaceholder(placeholders: WithPlaceholderSpec, options?: WithPlaceholderOptions) {
-  return (WrappedComponent: React.ComponentClass<any> | React.SFC<any>) => {
+  return (WrappedComponent: React.ComponentClass<PlaceholderProps> | React.SFC<PlaceholderProps>) => {
     class WithPlaceholder extends PlaceholderCommon<PlaceholderProps> {
       static propTypes = PlaceholderCommon.propTypes;
 
-      constructor(props: any) {
+      constructor(props: PlaceholderProps) {
         super(props);
       }
 
       render() {
-        let childProps: any = { ...this.props };
+        let childProps: PlaceholderProps = { ...this.props };
 
         delete childProps.componentFactory;
 
@@ -58,7 +58,7 @@ export function withPlaceholder(placeholders: WithPlaceholderSpec, options?: Wit
           return (
             <div className="sc-jss-placeholder-error">
               A rendering error occurred: {this.state.error.message}.
-          </div>
+            </div>
           );
         }
 
@@ -69,18 +69,18 @@ export function withPlaceholder(placeholders: WithPlaceholderSpec, options?: Wit
         const definitelyArrayPlacholders = !Array.isArray(placeholders)
           ? [ placeholders ] : placeholders;
 
-        definitelyArrayPlacholders.forEach((placeholder: any) => {
+        definitelyArrayPlacholders.forEach((placeholder: string | PlaceholderToPropMapping) => {
           let placeholderData: (ComponentRendering | HtmlElementRendering)[];
 
-          if (placeholder.placeholder && placeholder.prop) {
+          if (typeof placeholder !== 'string' && placeholder.placeholder && placeholder.prop) {
             placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, placeholder.placeholder);
             if (placeholderData) {
               childProps[placeholder.prop] = this.getComponentsForRenderingData(placeholderData);
             }
           } else {
-            placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, placeholder);
+            placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, placeholder as string);
             if (placeholderData) {
-              childProps[placeholder] = this.getComponentsForRenderingData(placeholderData);
+              childProps[placeholder as string] = this.getComponentsForRenderingData(placeholderData);
             }
           }
         });

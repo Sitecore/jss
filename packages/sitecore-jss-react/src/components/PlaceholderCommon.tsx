@@ -5,7 +5,12 @@ import { ComponentFactory } from '../components/sharedTypes';
 import { ComponentRendering, RouteData, Field, Item, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
 
+type ErrorComponentProps = {
+  [prop: string]: unknown;
+};
+
 export interface PlaceholderProps {
+  [key: string]: unknown;
   /** Name of the placeholder to render. */
   name: string;
   /** Rendering data to be used when rendering the placeholder. */
@@ -38,15 +43,13 @@ export interface PlaceholderProps {
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
    */
-  missingComponentComponent?: React.ComponentClass<any> | React.FC<any>;
+  missingComponentComponent?: React.ComponentClass<unknown> | React.FC<unknown>;
 
   /**
    * A component that is rendered in place of the placeholder when an error occurs rendering
    * the placeholder
    */
-  errorComponent?: React.ComponentClass<any> | React.SFC<any>;
-
-  [key: string]: any;
+  errorComponent?: React.ComponentClass<ErrorComponentProps> | React.SFC<ErrorComponentProps>;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -61,17 +64,26 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     ]).isRequired),
     params: PropTypes.objectOf(PropTypes.string.isRequired),
     missingComponentComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<any>>,
-      PropTypes.func as Requireable<React.FC<any>>
+      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
+      PropTypes.func as Requireable<React.FC<unknown>>
     ]),
     errorComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<any>>,
-      PropTypes.object as Requireable<React.SFC<any>>
+      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
+      PropTypes.object as Requireable<React.SFC<unknown>>
     ]),
   };
 
-  nodeRefs: any[];
+  nodeRefs: Element[];
   state: Readonly<{ error?: Error }>;
+
+  constructor(props: T) {
+    super(props);
+    this.nodeRefs = [];
+    this.state = {};
+    this.addRef = this.addRef.bind(this);
+    this.updateKeyAttributes = this.updateKeyAttributes.bind(this);
+    this.createRawElement = this.createRawElement.bind(this);
+  }
 
   static getPlaceholderDataFromRenderingData(rendering: ComponentRendering | RouteData, name: string) {
     let result;
@@ -91,15 +103,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     }
 
     return result;
-  }
-
-  constructor(props: T) {
-    super(props);
-    this.nodeRefs = [];
-    this.state = {};
-    this.addRef = this.addRef.bind(this);
-    this.updateKeyAttributes = this.updateKeyAttributes.bind(this);
-    this.createRawElement = this.createRawElement.bind(this);
   }
 
   componentDidMount() {
@@ -123,19 +126,23 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       ...placeholderProps
     } = this.props;
 
-    return placeholderData.map((rendering: any, index: number) => {
-      const key = rendering.uid ? rendering.uid : `component-${index}`;
+    return placeholderData.map((rendering: ComponentRendering | HtmlElementRendering, index: number) => {
+      const key = (rendering as ComponentRendering).uid
+        ? (rendering as ComponentRendering).uid
+        : `component-${index}`;
       const commonProps = { key };
 
       // if the element is not a 'component rendering', render it 'raw'
-      if (!rendering.componentName && rendering.name) {
-        return this.createRawElement(rendering, commonProps);
+      if (!(rendering as ComponentRendering).componentName && (rendering as HtmlElementRendering).name) {
+        return this.createRawElement(rendering as HtmlElementRendering, commonProps);
       }
 
-      let component: ComponentType | null = this.getComponentForRendering(rendering);
+      const componentRendering = rendering as ComponentRendering;
+
+      let component = this.getComponentForRendering(componentRendering);
       if (!component) {
         console.error(
-          `Placeholder ${name} contains unknown component ${rendering.componentName
+          `Placeholder ${name} contains unknown component ${componentRendering.componentName
           }. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
         );
 
@@ -145,21 +152,21 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       const finalProps = {
         ...commonProps,
         ...placeholderProps,
-        ...((placeholderFields || rendering.fields) && {
-          fields: { ...placeholderFields, ...rendering.fields },
+        ...((placeholderFields || componentRendering.fields) && {
+          fields: { ...placeholderFields, ...componentRendering.fields },
         }),
-        ...((placeholderParams || rendering.params) && {
-          params: { ...placeholderParams, ...rendering.params },
+        ...((placeholderParams || componentRendering.params) && {
+          params: { ...placeholderParams, ...componentRendering.params },
         }),
-        rendering,
+        rendering: componentRendering,
       };
 
-      return React.createElement(component as any, finalProps);
+      return React.createElement<{ [attr: string]: unknown }>(component as React.ComponentType, finalProps);
     })
-      .filter((element: any) => element); // remove nulls
+      .filter(element => element); // remove nulls
   }
 
-  getComponentForRendering(renderingDefinition: { componentName: string }) {
+  getComponentForRendering(renderingDefinition: { componentName: string }): ComponentType | null {
     const componentFactory = this.props.componentFactory;
 
     if (!componentFactory || typeof componentFactory !== 'function') {
@@ -170,20 +177,26 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     return componentFactory(renderingDefinition.componentName);
   }
 
-  addRef(nodeRef: any) {
+  addRef(nodeRef: Element) {
     this.nodeRefs.push(nodeRef);
   }
 
-  createRawElement(elem: any, baseProps: any) {
+  createRawElement(elem: HtmlElementRendering, baseProps: { key?: string }) {
     if (!elem.name) {
       console.error(
         '"elem.name" is undefined in "createRawElement". Something is likely wrong with your component data. Ensure that your components have a name.'
       );
       return null;
     }
-    const attributes: any = convertAttributesToReactProps(elem.attributes);
+    const attributes  = convertAttributesToReactProps(elem.attributes);
 
-    const props: any = {
+    const props: {
+      [attr: string]: unknown;
+      key?: string;
+      dangerouslySetInnerHTML: {
+        __html: string | null
+      }
+    } = {
       ...baseProps,
       ...attributes,
       dangerouslySetInnerHTML: { __html: elem.contents },
@@ -192,7 +205,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     /* Since we can't set the "key" attribute via React, stash it
      * so we can set in the DOM after render.
      */
-    if (attributes && attributes.chrometype === 'placeholder') {
+    if (!Array.isArray(attributes) && attributes && attributes.chrometype === 'placeholder') {
       props.phkey = elem.attributes.key; // props that get rendered as dom attribute names need to be lowercase, otherwise React complains.
       props.ref = this.addRef; // only need ref for placeholder containers, trying to add it to other components (e.g. stateless components) may result in a warning.
     }
@@ -205,7 +218,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       return;
     }
 
-    this.nodeRefs.forEach((ref: any) => {
+    this.nodeRefs.forEach((ref: Element) => {
       if (ref && ref.getAttribute) {
         // ref might be a wrapped component, so check for existence of getAttribute method
         const key = ref.getAttribute('phkey');

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ComponentType } from 'react';
 import { resetExperienceEditorChromes } from '../';
 
-export const withExperienceEditorChromes = (WrappedComponent: React.ComponentClass<any> | React.SFC<any>) => {
-  class Enhancer extends React.Component<{}> {
-    displayName: string = (WrappedComponent as any).displayName || WrappedComponent.name || 'Component';
+export const withExperienceEditorChromes = (WrappedComponent: React.ComponentClass<unknown> | React.SFC<unknown>) => {
+  class Enhancer extends React.Component<unknown> {
+    displayName: string = (WrappedComponent as ComponentType).displayName || WrappedComponent.name || 'Component';
 
     componentDidUpdate() {
       resetExperienceEditorChromes();
