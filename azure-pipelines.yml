@@ -33,7 +33,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  isDev: $[startsWith(variables['Build.SourceBranch'], 'refs/heads/dev')]
+  isDev: $[eq(variables['Build.SourceBranch'], 'refs/heads/dev')]
 
 steps:
 - script: |
@@ -57,6 +57,16 @@ steps:
   env: {
     testEnv: 'ci'
   }
+  #
+  # LERNA VERSION 
+  # * Configure git with a commit user
+  # * Update git remote to include a Personal Access Token, so lerna can push
+  # * Explicitly check out the current branch since Pipelines will use disconnected HEAD by default
+  # * Increment pre-release version
+  #     * Force version update even if lerna doesn't detect changes
+  #     * Include [skip ci] in commit message to stop pipeline from triggering again when lerna pushes
+  # * Only run for 'dev' branch
+  #
 - script: |
     git config user.email builds@sitecore.com
     git config user.name "Automated Build"
@@ -67,6 +77,14 @@ steps:
   condition: and(succeeded(), eq(variables.isDev, true))
   env:
     GITHUB_PAT_ENV: $(GITHUB-PAT)
+  #
+  # LERNA PUBLISH
+  # * Configure npm to use the provided access token, so lerna can publish
+  # * Do a lerna canary publish of the version we've already updated and pushed
+  # * Disable access verification (no-verify-access) as this doesn't seem to work behind Azure DevOps' npm proxy
+  #     * https://github.com/lerna/lerna/issues/1685
+  # * Only run for 'dev' branch
+  #
 - script: |
     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
     $(npm bin)/lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
