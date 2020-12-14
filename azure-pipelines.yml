@@ -69,7 +69,7 @@ steps:
     GITHUB_PAT_ENV: $(GITHUB-PAT)
 - script: |
     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-    $(npm bin)/lerna publish from-git --canary --pre-dist-tag canary --preid canary --yes
+    $(npm bin)/lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
   displayName: 'pre-release canary publish'
   condition: and(succeeded(), eq(variables.isDev, true))
   env:
