@@ -44,6 +44,22 @@ describe('AbsolutifyHtmlProcessor', () => {
     expect(html).contains('http://test.local/dist/styles.css');
   });
 
+  it('handles root relative url', () => {
+    const publicUrl = 'http://test.local';
+    const processor = new AbsolutifyHtmlProcessor(publicUrl);
+    let html = `
+      <html>
+        <body>
+          <a href="/">Homepage</a>
+        </body>
+      </html>
+    `;
+
+    html = processor.processHtml(html);
+    
+    expect(html).contains('<a href="http://test.local/">');
+  });
+
   it('ignores specified paths', () => {
     const publicUrl = 'http://test.local';
     const ignoredPaths = ['/-/media/','/~/jssmedia/', '/sitecore/shell/'];

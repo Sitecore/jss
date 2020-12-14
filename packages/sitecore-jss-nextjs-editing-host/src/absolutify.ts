@@ -22,7 +22,7 @@ const rx = /((href|src|codebase|cite|background|cite|action|profile|formaction|i
 /*!
  * Match the same as above, but capture the full URL for iteration
  */
-const captureRx = /((href|src|codebase|cite|background|cite|action|profile|formaction|icon|manifest|archive|srcset|poster)=["'])((([.]+\/)|(?:\/))(?!\/)[^"']+)/g;
+const captureRx = /((href|src|codebase|cite|background|cite|action|profile|formaction|icon|manifest|archive|srcset|poster)=["'])((([.]+\/)|(?:\/))(?!\/)[^"']*)/g;
 
 /**
  * URL replacement using function iteration, this is handled slightly
