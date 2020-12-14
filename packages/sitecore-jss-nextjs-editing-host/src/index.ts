@@ -12,4 +12,7 @@ export {
   AbsolutifyHtmlProcessor
 } from './html-processors';
 
-export { config } from './config';
+export {
+  ConfigOptions,
+  config
+} from './config';

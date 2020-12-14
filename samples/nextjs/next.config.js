@@ -4,6 +4,7 @@ const { JSS_MODE_DISCONNECTED, JSS_MODE_EDITING } = require('@sitecore-jss/sitec
 
 const withEditing = require('@sitecore-jss/sitecore-jss-nextjs-editing-host').config({
   enabled: process.env.JSS_MODE === JSS_MODE_EDITING,
+  publicUrl: process.env.EDITING_HOST_PUBLIC_URL,
 });
 
 const disconnectedServerUrl = `http://localhost:${process.env.DISCONNECTED_SERVER_PORT || 3042}/`;

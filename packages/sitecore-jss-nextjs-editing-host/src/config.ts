@@ -4,24 +4,22 @@ import chalk from 'chalk';
 const NEXT_IMAGE_PATH = '/_next/image';
 const NEXT_DEFAULT_DIST_DIR = '.next';
 
-function getPublicUrl(): URL {
-  let url = process.env.PUBLIC_URL;
-  if (url === undefined) {
-    console.warn(`${chalk.yellow.bold('Warning:')} A PUBLIC_URL environment variable is not defined. Falling back to http://localhost:3000.`);
-    url = 'http://localhost:3000';
-  } else {
-    try {
-      new URL(url);
-    } catch (error) {
-      console.warn(`${chalk.yellow.bold('Warning:')} The PUBLIC_URL environment variable '${url}' is not a valid URL. Falling back to http://localhost:3000.`);
-      url = 'http://localhost:3000';
-    }
-  }
-  return new URL(url);
-}
-
 export interface ConfigOptions {
+  /**
+   * Enable the configuration (e.g. based on process.env.JSS_MODE).
+   * @default false
+   */
   enabled?: boolean;
+  /**
+   * The public URL to use for absolute URLs, which are required when
+   * the Next.js app is run within the Sitecore Experience Editor.
+   * @default 'http://localhost:3000'
+   */
+  publicUrl?: string;
+  /**
+   * The build directory. This should be different than your primary Next.js 'distDir' ('.next' by default).
+   * @default '.next-editing'
+   */
   distDir?: string;
 }
 
@@ -32,6 +30,7 @@ export interface ConfigOptions {
  */
 export function config({
   enabled = false,
+  publicUrl = 'http://localhost:3000',
   distDir = '.next-editing',
 }: ConfigOptions = {}) {
   return function plugin(nextConfig: any = {}) {
@@ -45,14 +44,20 @@ export function config({
     }
 
     console.info(`${chalk.cyan('info')}  - Applying editing host configuration`);
+ 
+    try {
+      new URL(publicUrl);
+    } catch (error) {
+      throw new Error(`The provided publicUrl '${publicUrl}' is not a valid URL`);
+    }
 
-    const publicUrl = getPublicUrl();
+    publicUrl = publicUrl.replace(/\/$/, '');
 
     return Object.assign({}, nextConfig, {
 
       // Set our public URL as the asset prefix, which is used by Next.js for the JavaScript and CSS files it loads
       // See https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
-      assetPrefix: publicUrl.toString().replace(/\/$/, ''),
+      assetPrefix: publicUrl,
       
       // Use dedicated build directory (main app uses '.next')
       distDir,
@@ -60,8 +65,13 @@ export function config({
       // Set our public URL to be used by Next.js image optimization
       // See https://nextjs.org/docs/basic-features/image-optimization
       images: {
-        domains: (nextConfig?.images?.domains ?? []).concat(publicUrl.hostname),
+        domains: (nextConfig?.images?.domains ?? []).concat(new URL(publicUrl).hostname),
         path: new URL(NEXT_IMAGE_PATH, publicUrl).toString().replace(/\/$/, ''),
+      },
+
+      // Make our public URL available as an environment variable key
+      env: {
+        publicUrl
       },
     });
   };

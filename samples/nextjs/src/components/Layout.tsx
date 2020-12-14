@@ -2,12 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useI18n } from 'next-localization';
-import {
-  Placeholder,
-  RouteData,
-  VisitorIdentification,
-  useSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Placeholder, RouteData, VisitorIdentification } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const LOGO_SIZE = { WIDTH: 221, HEIGHT: 48 };
 
@@ -15,12 +10,14 @@ const LOGO_SIZE = { WIDTH: 221, HEIGHT: 48 };
 // Most apps may also wish to use GraphQL for their navigation construction; this sample does not simply to support disconnected mode.
 const Navigation = () => {
   const { t } = useI18n();
-  const { sitecoreContext } = useSitecoreContext();
+  // The publicUrl will only be set for Editing Host builds.
+  // This is currently the only way to make Next.js disable prefetching for these completely (since this will be different than the window.location)
+  const publicUrl = process.env.publicUrl || '';
 
   return (
     <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
       <h5 className="my-0 mr-md-auto font-weight-normal">
-        <Link href="/" prefetch={!sitecoreContext.pageEditing}>
+        <Link href={`${publicUrl}/`}>
           <a className="text-dark">
             <Image
               src="/sc_logo.svg"
@@ -40,10 +37,10 @@ const Navigation = () => {
         >
           {t('Documentation')}
         </a>
-        <Link href="/styleguide" prefetch={!sitecoreContext.pageEditing}>
+        <Link href={`${publicUrl}/styleguide`}>
           <a className="p-2 text-dark">{t('Styleguide')}</a>
         </Link>
-        <Link href="/graphql" prefetch={!sitecoreContext.pageEditing}>
+        <Link href={`${publicUrl}/graphql`}>
           <a className="p-2 text-dark">{t('GraphQL')}</a>
         </Link>
       </nav>

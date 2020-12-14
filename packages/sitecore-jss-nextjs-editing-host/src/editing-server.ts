@@ -4,7 +4,6 @@ import next from 'next';
 import bodyParser from 'body-parser';
 import { EditingMiddleware } from './editing-middleware';
 import { AbsolutifyHtmlProcessor } from './html-processors';
-import chalk from 'chalk';
 
 export interface EditingServerOptions {
   /**
@@ -14,9 +13,15 @@ export interface EditingServerOptions {
   port?: number;
   /**
    * The hostname the server should bind to.
-   * @default localhost
+   * @default 'localhost'
    */
   hostname?: string;
+  /**
+   * The public URL to use during relative to absolute link replacement, which
+   * is required when the Next.js app is run within the Experience Editor.
+   * @default `http://${hostname}:${port}`
+   */
+  publicUrl?: string;
   /**
    * The Next.js route which is used to render a page in the Experience Editor.
    * Note this route must use getInitialProps (not getStatic/ServerSideProps)
@@ -49,6 +54,7 @@ export interface EditingServerOptions {
 export function startEditingServer({
   port = 3000,
   hostname = 'localhost',
+  publicUrl = undefined,
   editRoute = '/_edit',
   editPath = '*',
   enableCompression = true,
@@ -61,11 +67,15 @@ export function startEditingServer({
 
   try {
     app.prepare().then(() => {
-      let publicUrl = process.env.PUBLIC_URL;
 
-      if (!publicUrl || publicUrl.length === 0) {
-        console.warn(`${chalk.yellow.bold('Warning:')} A PUBLIC_URL environment variable is not defined. Falling back to ${serverUrl}.`);
+      if (publicUrl === undefined) {
         publicUrl = serverUrl;
+      } else {
+        try {
+          new URL(publicUrl);
+        } catch (error) {
+          throw new Error(`The provided publicUrl '${publicUrl}' is not a valid URL`);
+        }
       }
 
       const server = express();
