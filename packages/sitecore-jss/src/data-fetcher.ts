@@ -74,8 +74,8 @@ export class AxiosDataFetcher {
    * Implements a data fetcher. @see HttpJsonFetcher<T> type for implementation details/notes.
    * @param {string} url The URL to request; may include query string
    * @param {any} [data] Optional data to POST with the request.
-	 * @param {IncomingMessage} [req] Request instance
-	 * @param {ServerResponse} [res] Response instance
+   * @param {IncomingMessage} [req] Request instance
+   * @param {ServerResponse} [res] Response instance
    */
   fetch(
     url: string,

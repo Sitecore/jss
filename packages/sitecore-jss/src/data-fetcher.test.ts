@@ -161,26 +161,25 @@ describe('AxiosDataFetcher', () => {
 
     const fetcher = new AxiosDataFetcher(config);
 
-    return fetcher.fetch('/home', undefined, req, res)
-      .then((res: any) => {
-				expect(res.status).to.equal(200);
-        expect(res.data.headers['cookie']).to.equal('test-cookie-value');
-        expect(res.data.headers['referer']).to.equal('http://sctest');
-        expect(res.data.headers['user-agent']).to.equal('test-user-agent-value');
-        expect(res.data.headers['X-Forwarded-For']).to.equal('192.168.1.10');
-        expect(res.data.headers['test-req-header']).to.equal('test-req-header-value');
+    return fetcher.fetch('/home', undefined, req, res).then((res: any) => {
+      expect(res.status).to.equal(200);
+      expect(res.data.headers['cookie']).to.equal('test-cookie-value');
+      expect(res.data.headers['referer']).to.equal('http://sctest');
+      expect(res.data.headers['user-agent']).to.equal('test-user-agent-value');
+      expect(res.data.headers['X-Forwarded-For']).to.equal('192.168.1.10');
+      expect(res.data.headers['test-req-header']).to.equal('test-req-header-value');
 
-        expect(res.data.url).to.equal('/home');
-        expect(res.data.data).to.deep.equal({
-          sitecore: {
-            context: {},
-            route: { name: 'xxx' },
-          },
-        });
-        expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
-
-        expect(onReqSpy).to.be.called.once;
-        expect(onResSpy).to.be.called.once;
+      expect(res.data.url).to.equal('/home');
+      expect(res.data.data).to.deep.equal({
+        sitecore: {
+          context: {},
+          route: { name: 'xxx' },
+        },
       });
+      expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
+
+      expect(onReqSpy).to.be.called.once;
+      expect(onResSpy).to.be.called.once;
+    });
   });
 });

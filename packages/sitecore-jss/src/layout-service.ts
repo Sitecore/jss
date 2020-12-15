@@ -20,8 +20,8 @@ export type LayoutServiceConfig = {
    * By default used @see AxiosDataFetcher
    * @param {string} url The URL to request; may include query string
    * @param {any} [data] Data to POST with the request.
-	 * @param {IncomingMessage} [req] Request instance
-	 * @param {ServerResponse} [res] Response instance
+   * @param {IncomingMessage} [req] Request instance
+   * @param {ServerResponse} [res] Response instance
    */
   dataFetcher?: HttpJsonFetcher<LayoutServiceData>;
 };
@@ -66,7 +66,7 @@ export class LayoutService {
   /**
    * Provides default @see AxiosDataFetcher data fetcher
    * @param {IncomingMessage} [req] Request instance
-	 * @param {ServerResponse} [res] Response instance
+   * @param {ServerResponse} [res] Response instance
    */
   private getDefaultFetcher = (req?: IncomingMessage, res?: ServerResponse) => {
     const axiosFetcher = new AxiosDataFetcher();
@@ -83,7 +83,7 @@ export class LayoutService {
    * @param {string} itemPath
    * @param {string} [language]
    * @param {IncomingMessage} [req] Request instance
-	 * @param {ServerResponse} [res] Response instance
+   * @param {ServerResponse} [res] Response instance
    */
   fetchLayoutData(
     itemPath: string,
