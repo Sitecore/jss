@@ -55,7 +55,7 @@ export const getRequiredParams = (qs: {
  */
 export const updateImageUrl = (
   url: string,
-  params?: { [key: string]: string | undefined },
+  params?: { [key: string]: string | number | undefined },
   mediaUrlPrefix: RegExp = mediaUrlPrefixRegex
 ) => {
   // polyfill node `global` in browser to workaround https://github.com/unshiftio/url-parse/issues/150
@@ -101,8 +101,8 @@ export const updateImageUrl = (
  */
 export const getSrcSet = (
   url: string,
-  srcSet: Array<{ [key: string]: string | undefined }>,
-  imageParams?: { [key: string]: string | undefined },
+  srcSet: Array<{ [key: string]: string | number | undefined }>,
+  imageParams?: { [key: string]: string | number | undefined },
   mediaUrlPrefix?: RegExp
 ) => {
   return srcSet

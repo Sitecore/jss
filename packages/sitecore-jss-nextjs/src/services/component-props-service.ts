@@ -31,6 +31,8 @@ export class ComponentPropsService {
   /**
    * SSR mode
    * Fetch component props using getServerSideProps function
+   * @param {FetchComponentPropsArguments<GetServerSidePropsContext>} params fetch params
+   * @returns {Promise<ComponentPropsCollection>} props
    */
   async fetchServerSideComponentProps(
     params: FetchComponentPropsArguments<GetServerSidePropsContext>
@@ -53,6 +55,8 @@ export class ComponentPropsService {
   /**
    * SSG mode
    * Fetch component props using getStaticProps function
+   * @param {FetchComponentPropsArguments<GetStaticPropsContext>} params fetch arguments
+   * @returns {Promise<ComponentPropsCollection>} props
    */
   async fetchStaticComponentProps(
     params: FetchComponentPropsArguments<GetStaticPropsContext>
@@ -75,6 +79,10 @@ export class ComponentPropsService {
   /**
    * Traverse Layout Service data tree and call side effects on component level.
    * Side effect function can be: getStaticProps (SSG) or getServerSideProps (SSR)
+   * @param {FetchFunctionFactory<NextContext>} fetchFunctionFactory fetch function factory
+   * @param {LayoutServiceData} layoutData layout data
+   * @param {NextContext} context next context
+   * @returns {Promise<ComponentPropsCollection>} component props
    */
   async fetchComponentProps<NextContext>(
     fetchFunctionFactory: FetchFunctionFactory<NextContext>,
@@ -95,6 +103,8 @@ export class ComponentPropsService {
   /**
    * Go through layout service data, check all renderings using displayName, which should make some side effects.
    * Write result in requests variable
+   * @param {Object} params params
+   * @returns {ComponentPropsRequest<NextContext>[]} array of requests
    */
   collectRequests<NextContext>(params: {
     placeholders: PlaceholdersData;
@@ -102,7 +112,7 @@ export class ComponentPropsService {
     layoutData: LayoutServiceData;
     context: NextContext;
     requests?: ComponentPropsRequest<NextContext>[];
-  }) {
+  }): ComponentPropsRequest<NextContext>[] {
     const { placeholders, fetchFunctionFactory, layoutData, context } = params;
 
     // Will be called on first round
@@ -139,8 +149,12 @@ export class ComponentPropsService {
 
   /**
    * Execute request for component props
+   * @param {ComponentPropsRequest<NextContext>[]} requests requests
+   * @returns {Promise<ComponentPropsCollection>} requests result
    */
-  async execRequests<NextContext>(requests: ComponentPropsRequest<NextContext>[]) {
+  async execRequests<NextContext>(
+    requests: ComponentPropsRequest<NextContext>[]
+  ): Promise<ComponentPropsCollection> {
     const componentProps: ComponentPropsCollection = {};
 
     const promises = requests.map((req) => {
@@ -155,11 +169,11 @@ export class ComponentPropsService {
         .fetch(req.rendering, req.layoutData, req.context)
         .then((result) => {
           // Set component specific data in componentProps store
-          componentProps[req.rendering.uid!] = result;
+          componentProps[req.rendering.uid] = result;
         })
         .catch((error) => {
           console.log(`Error during preload data for component ${req.rendering.uid}:`, error);
-          componentProps[req.rendering.uid!] = {
+          componentProps[req.rendering.uid] = {
             error,
           };
         });
@@ -181,6 +195,9 @@ export class ComponentPropsService {
    * flatRenderings(placeholders);
    *
    * RESULT: [{ uid: 1 }, { uid: 2 }, { uid: 11 }, { uid: 22 }]
+   *
+   * @param {PlaceholdersData} placeholders placeholders
+   * @returns {ComponentRendering[]} renderings
    */
   flatRenderings(placeholders: PlaceholdersData): ComponentRendering[] {
     const allComponentRenderings: ComponentRendering[] = [];
