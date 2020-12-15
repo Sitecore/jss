@@ -1,3 +1,4 @@
+/// <reference types="../global" />
 import { parse } from 'url';
 import { Request, Response } from 'express';
 import Server from 'next/dist/next-server/server/next-server';
@@ -15,20 +16,20 @@ export class EditingMiddleware {
   constructor(readonly nextApp: Server, readonly editRoute: string, readonly htmlProcessors?: HtmlProcessor[]) {}
 
   /**
-   * Get Express request handler
+   * Returns the Express request handler for Experience Editor POST requests.
    */
   public getRequestHandler(): (req: Request, res: Response) => Promise<void> {
-    return this.handleRequest.bind(this);
+    return this.handleRequest;
   }
 
-  private async handleRequest(req: Request, res: Response): Promise<void> {
-    // Extract Experience Editor data from the request
-    const data = extractEditingData(req);
-
-    // path contains the URL requested via Sitecore
-    const parsedUrl = parse(data.path, true);
-
+  private handleRequest = async (req: Request, res: Response): Promise<void> => {
     try {
+      // Extract Experience Editor data from the request
+      const data = extractEditingData(req);
+
+      // path contains the URL requested via Sitecore
+      const parsedUrl = parse(data.path, true);
+
       // Use Next.js to render the html via renderToHTML()
       // First, some prep...
 
@@ -44,7 +45,6 @@ export class EditingMiddleware {
 
       // Now render the page
       let html = await this.nextApp.renderToHTML(req, res, this.editRoute, parsedUrl.query);
-
       if (html === null || html.length === 0) {
         throw new Error(`Failed to render html for ${data.path}`);
       }
@@ -70,9 +70,6 @@ export class EditingMiddleware {
 }
 
 export function extractEditingData(req: Request): EditingData {
-  // req.body should have already been parsed as JSON at this point (via `body-parser` middleware)
-  const payload = req.body;
-
   // The Experience Editor will send the following body data structure,
   // though we're only concerned with the "args".
   // {
@@ -88,6 +85,12 @@ export function extractEditingData(req: Request): EditingData {
   //   httpContext: 'serialized request data'
   // }
 
+  // req.body _should_ have already been parsed as JSON at this point (via `body-parser` middleware)
+  const payload = req.body;
+  if (!payload || !payload.args || !Array.isArray(payload.args) || payload.args.length < 3) {
+    throw new Error(`Unable to extract editing data from request`);
+  }
+  
   const result = {
     path: '',
     language: '',
@@ -95,37 +98,11 @@ export function extractEditingData(req: Request): EditingData {
     dictionary: null,
   } as EditingData;
 
-  if (!payload || !payload.args || !Array.isArray(payload.args)) {
-    return result;
-  }
-
   result.path = payload.args[0];
-
-  if (payload.args.length > 0 && payload.args[1]) {
-    result.layoutData = tryParseJson(payload.args[1]);
-  }
-
-  if (payload.args.length > 1 && payload.args[2]) {
-    const viewBag = tryParseJson(payload.args[2]);
-    if (viewBag) {
-      result.dictionary = viewBag.dictionary;
-      result.language = viewBag.language;
-    }
-  }
+  result.layoutData = JSON.parse(payload.args[1]);
+  const viewBag = JSON.parse(payload.args[2]);
+  result.dictionary = viewBag.dictionary;
+  result.language = viewBag.language;
 
   return result;
-}
-
-function tryParseJson(jsonString: string) {
-  try {
-    const json = JSON.parse(jsonString);
-    // handle non-exception-throwing cases
-    if (json && typeof json === 'object' && json !== null) {
-      return json;
-    }
-  } catch (e) {
-    console.error(`error parsing json string '${jsonString}'`, e);
-  }
-
-  return null;
 }

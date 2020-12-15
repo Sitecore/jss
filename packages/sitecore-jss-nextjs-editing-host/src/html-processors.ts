@@ -2,19 +2,24 @@
 import absolutify from './absolutify';
 
 export interface HtmlProcessor {
+  /**
+   * Process HTML string
+   * @param html {string} The input HTML to process
+   * @returns {string} The HTML with processing applied
+   */
   processHtml(html: string): string;
 }
 
 /**
- * Absolutify html processor
+ * Absolutify HTML processor
  * @constructor
  * @param {string} publicUrl The public URL. This will be used when replacing relative links with absolute ones.
  * @param {string[]} ignoredPaths URL path prefixes that should be ignored during link replacement.
  */
 export class AbsolutifyHtmlProcessor implements HtmlProcessor {
-  public constructor(readonly publicUrl: string, readonly ignoredPaths?: string[]) {}
+  constructor(readonly publicUrl: string, readonly ignoredPaths?: string[]) {}
   
-  public processHtml(html: string) {
+  processHtml(html: string) {
 
     return absolutify(html, (relativeUrl) => {
       const ignored = this.ignoredPaths && this.ignoredPaths.some(

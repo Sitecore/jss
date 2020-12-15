@@ -1,5 +1,5 @@
-import chai = require('chai');
-import chaiString = require('chai-string');
+import chai from 'chai';
+import chaiString from 'chai-string';
 import { AbsolutifyHtmlProcessor } from './html-processors';
 
 const expect = chai.use(chaiString).expect;

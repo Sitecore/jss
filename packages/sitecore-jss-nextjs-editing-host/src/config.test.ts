@@ -1,5 +1,5 @@
-import chai = require('chai');
-import chaiString = require('chai-string');
+import chai from 'chai';
+import chaiString from 'chai-string';
 import { config } from './config';
 
 const expect = chai.use(chaiString).expect;

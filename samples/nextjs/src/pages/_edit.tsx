@@ -1,5 +1,5 @@
 import { NextPageContext } from 'next';
-import Error from 'next/error';
+import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
 import { SitecoreContext, EditingRequest } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
@@ -7,8 +7,7 @@ import { componentFactory } from 'temp/componentFactory';
 
 const SitecorePage = ({ layoutData }: SitecorePageProps): JSX.Element => {
   if (!layoutData?.sitecore?.route) {
-    // layoutData will be missing for an invalid path
-    return <Error statusCode={404} />;
+    return <NotFound />;
   }
 
   const context = {
@@ -33,9 +32,9 @@ SitecorePage.getInitialProps = async (context: NextPageContext) => {
   const data = (req as EditingRequest).editingData;
 
   const props: SitecorePageProps = {
-    locale: data?.language ?? 'en',
-    layoutData: data?.layoutData || null,
-    dictionary: data?.dictionary || null,
+    locale: data.language,
+    layoutData: data.layoutData,
+    dictionary: data.dictionary,
     componentProps: {},
   };
 

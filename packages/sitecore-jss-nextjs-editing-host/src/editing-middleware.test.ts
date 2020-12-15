@@ -5,6 +5,7 @@ import sinonChai from 'sinon-chai';
 import { Request, Response } from 'express';
 import { EditingMiddleware, extractEditingData } from './editing-middleware';
 import { HtmlProcessor } from './html-processors';
+import { EE_PATH, EE_LANGUAGE, EE_LAYOUT, EE_DICTIONARY, EE_BODY } from './testData/ee-data';
 import { EditingRequest } from '@sitecore-jss/sitecore-jss-nextjs';
 import Server from 'next/dist/next-server/server/next-server';
 
@@ -31,7 +32,7 @@ const mockResponse = () => {
 describe('EditingMiddleware', () => {
 
   it('should call renderToHTML', async () => {
-    const req = mockRequest();
+    const req = mockRequest(EE_BODY);
     const res = mockResponse();
 
     const nextApp = sinon.createStubInstance(Server);
@@ -48,7 +49,7 @@ describe('EditingMiddleware', () => {
   });
   
   it('should use custom editRoute', async () => {
-    const req = mockRequest();
+    const req = mockRequest(EE_BODY);
     const res = mockResponse();
     const customEditRoute = 'testRoute';
 
@@ -64,7 +65,7 @@ describe('EditingMiddleware', () => {
   });
 
   it('should set editingData on request', async () => {
-    const req = mockRequest();
+    const req = mockRequest(EE_BODY);
     const res = mockResponse();
 
     const nextApp = sinon.createStubInstance(Server);
@@ -77,7 +78,7 @@ describe('EditingMiddleware', () => {
   });
   
   it('should return json with rendered html', async () => {
-    const req = mockRequest();
+    const req = mockRequest(EE_BODY);
     const res = mockResponse();
     const html = '<html></html>';
 
@@ -92,7 +93,7 @@ describe('EditingMiddleware', () => {
     expect(res.json).to.have.been.calledWith({ html });
   });
 
-  it('should respond with 500 if rendered html empty', async () => {
+  it('should respond with 500 if body empty', async () => {
     const req = mockRequest();
     const res = mockResponse();
 
@@ -106,8 +107,23 @@ describe('EditingMiddleware', () => {
     expect(res.status).to.have.been.calledWith(500);
   });
 
+
+  it('should respond with 500 if rendered html empty', async () => {
+    const req = mockRequest(EE_BODY);
+    const res = mockResponse();
+
+    const nextApp = sinon.createStubInstance(Server);
+    nextApp.renderToHTML.resolves('');
+    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const handler = middleware.getRequestHandler();
+
+    await handler(req, res);
+
+    expect(res.status).to.have.been.calledWith(500);
+  });
+
   it('should run html processors', async () => {
-    const req = mockRequest();
+    const req = mockRequest(EE_BODY);
     const res = mockResponse();
     const html = '<html></html>';
     const processor = {
@@ -128,74 +144,34 @@ describe('EditingMiddleware', () => {
 
 describe('extractEditingData', () => {
 
-  // The Experience Editor will send the following body data structure,
-  // though we're only concerned with the "args".
-  // {
-  //   id: 'JSS app name', UNUSED
-  //   args: ['path', 'serialized layout data object', 'serialized viewbag object'],
-  //   functionName: 'renderView', UNUSED
-  //   moduleName: 'server.bundle' UNUSED
-  // }
-  // The 'serialized viewbag object' structure:
-  // {
-  //   language: 'language',
-  //   dictionary: 'key-value representation of tokens and their corresponding translations',
-  //   httpContext: 'serialized request data' UNUSED
-  // }
-
-  const TEST_PATH = '/test/path';
-  const TEST_LANGUAGE = 'en';
-  const TEST_LAYOUT = '{\"sitecore\":{\"context\":{\"pageEditing\":true,\"site\":{\"name\":\"JssNext\"},\"pageState\":\"normal\",\"language\":\"en\"},\"route\":{\"name\":\"home\",\"displayName\":\"home\",\"fields\":{\"pageTitle\":{\"value\":\"Welcome to Sitecore JSS\"}},\"databaseName\":\"master\",\"deviceId\":\"fe5d7fdf-89c0-4d99-9aa3-b5fbd009c9f3\",\"itemId\":\"d6ac9d26-9474-51cf-982d-4f8d44951229\",\"itemLanguage\":\"en\",\"itemVersion\":1,\"layoutId\":\"4092f843-b14e-5f7a-9ae6-3ed9f5c2b919\",\"templateId\":\"ca5a5aeb-55ae-501b-bb10-d37d009a97e1\",\"templateName\":\"App Route\",\"placeholders\":{\"jss-main\":[{\"uid\":\"2c4a53cc-9da8-5f51-9d79-6ee2fc671b2d\",\"componentName\":\"ContentBlock\",\"dataSource\":\"{FF0E7D28-D8EF-539C-9CEC-28E1175F8C1D}\",\"params\":{},\"fields\":{\"heading\":{\"value\":\"Welcome to Sitecore JSS\"},\"content\":{\"value\":\"<p>Thanks for using JSS!! Here are some resources to get you started:<\/p>\"}}}]}}}}';
-  const TEST_DICTIONARY = '{\"entry1\":\"Entry One\",\"entry2\":\"Entry Two\"}';
-  const TEST_ARGS = [
-    TEST_PATH, 
-    TEST_LAYOUT,
-    `{\"language\":\"${TEST_LANGUAGE}\",\"dictionary\":${TEST_DICTIONARY}}`
-  ];
-
-  it('should return empty result if body missing', () => {
-    const emptyResult = {
-      path: '',
-      language: '',
-      layoutData: null,
-      dictionary: null,
-    };
+  it('should throw if body missing', () => {
     const req = mockRequest();
-    const data = extractEditingData(req);
-    expect(data).to.eql(emptyResult);
+    expect(() => extractEditingData(req)).to.throw;
   });
 
   it('should return path', () => {
-    const req = mockRequest({
-      args: TEST_ARGS,
-    })
+    const req = mockRequest(EE_BODY);
     const data = extractEditingData(req);
-    expect(data.path).to.equal(TEST_PATH);
+    expect(data.path).to.equal(EE_PATH);
   });
 
   it('should return language', () => {
-    const req = mockRequest({
-      args: TEST_ARGS,
-    })
+    const req = mockRequest(EE_BODY);
     const data = extractEditingData(req);
-    expect(data.language).to.equal(TEST_LANGUAGE);
+    expect(data.language).to.equal(EE_LANGUAGE);
   });
   
   it('should return layout data', () => {
-    const req = mockRequest({
-      args: TEST_ARGS,
-    })
+    const req = mockRequest(EE_BODY);
     const data = extractEditingData(req);
-    const expected = JSON.parse(TEST_LAYOUT);
+    const expected = JSON.parse(EE_LAYOUT);
     expect(data.layoutData).to.eql(expected);
   });
 
   it('should return dictionary', () => {
-    const req = mockRequest({
-      args: TEST_ARGS,
-    })
+    const req = mockRequest(EE_BODY);
     const data = extractEditingData(req);
-    const expected = JSON.parse(TEST_DICTIONARY);
+    const expected = JSON.parse(EE_DICTIONARY);
     expect(data.dictionary).to.eql(expected);
   });
 
