@@ -4,6 +4,8 @@ import * as dataApi from './dataApi';
 import { HttpJsonFetcher } from './httpClientInterface';
 import { IncomingMessage, ServerResponse } from 'http';
 
+export type DataFetcherResolver = (req?: IncomingMessage, res?: ServerResponse) => HttpJsonFetcher<LayoutServiceData>;
+
 export type LayoutServiceConfig = {
   apiHost: string;
   apiKey: string;
@@ -16,14 +18,14 @@ export type LayoutServiceConfig = {
    */
   tracking?: boolean;
   /**
-   * Custom data fetcher. @see HttpJsonFetcher<T> type for implementation details/notes.
-   * By default used @see AxiosDataFetcher
-   * @param {string} url The URL to request; may include query string
-   * @param {any} [data] Data to POST with the request.
+   * Data fetcher resolver in order to provide custom data fetcher
+   * @see DataFetcherResolver
+   * @see HttpJsonFetcher<T>
+   * @see AxiosDataFetcher used by default
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
    */
-  dataFetcher?: HttpJsonFetcher<LayoutServiceData>;
+  dataFetcherResolver?: DataFetcherResolver;
 };
 
 interface FetchParams {
@@ -93,7 +95,9 @@ export class LayoutService {
   ): Promise<LayoutServiceData> {
     const fetchOptions = this.getFetchOptions(language);
 
-    const fetcher = this.serviceConfig.dataFetcher || this.getDefaultFetcher(req, res);
+    const fetcher = this.serviceConfig.dataFetcherResolver
+      ? this.serviceConfig.dataFetcherResolver(req, res)
+      : this.getDefaultFetcher(req, res);
 
     return dataApi.fetchRouteData(itemPath, { fetcher, ...fetchOptions });
   }

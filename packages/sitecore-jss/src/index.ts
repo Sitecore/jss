@@ -9,7 +9,7 @@ export {
 
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
 
-export { LayoutService, LayoutServiceConfig } from './layout-service';
+export { LayoutService, LayoutServiceConfig, DataFetcherResolver } from './layout-service';
 
 export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
 

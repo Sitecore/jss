@@ -174,7 +174,7 @@ describe('LayoutService', () => {
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
-      dataFetcher: fetcherSpy,
+      dataFetcherResolver: () => fetcherSpy,
     });
 
     return service.fetchLayoutData('/home', 'da-DK').then((layoutServiceData: any) => {
