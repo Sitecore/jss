@@ -5,7 +5,6 @@ import { LinkField } from './rendering-field';
 
 @Directive({ selector: '[scRouterLink]' })
 export class RouterLinkDirective extends LinkDirective {
-
   // tslint:disable-next-line:no-input-rename
   @Input('scRouterLinkEditable') editable = true;
 
@@ -30,7 +29,7 @@ export class RouterLinkDirective extends LinkDirective {
 
     viewRef.rootNodes.forEach((node) => {
       Object.entries(props).forEach(([key, propValue]: [string, any]) => {
-        this.renderer.setAttribute(node, key, propValue);
+        this.updateAttribute(node, key, propValue);
 
         if (key === 'href') {
           this.renderer.listen(node, 'click', (event) => {

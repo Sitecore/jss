@@ -50,23 +50,7 @@ export class LinkDirective implements OnChanges {
 
     viewRef.rootNodes.forEach((node) => {
       Object.entries(props).forEach(([key, propValue]: [string, any]) => {
-        if (key === 'href') {
-          const isInvalidLink = !propValue || /^https?:\/\/$/.test(propValue);
-
-          if (isInvalidLink) {
-            if (!node.href) {
-              return;
-            }
-
-            propValue = node.href;
-          }
-        }
-
-        if (key === 'class' && node.className) {
-          propValue += ` ${node.className}`;
-        }
-
-        this.renderer.setAttribute(node, key, propValue)
+        this.updateAttribute(node, key, propValue)
       });
 
       if (node.childNodes && node.childNodes.length === 0 && linkText) {
@@ -85,8 +69,8 @@ export class LinkDirective implements OnChanges {
       ...this.getElementAttrs(),
       ...this.attrs,
     };
-    Object.entries(attrs).forEach(([key, attrValue]: [string, any]) => 
-      this.renderer.setAttribute(span, key, attrValue)
+    Object.entries(attrs).forEach(([key, attrValue]: [string, any]) =>
+      this.updateAttribute(span, key, attrValue)
     );
 
     this.viewContainer.createEmbeddedView(this.templateRef);
@@ -95,6 +79,28 @@ export class LinkDirective implements OnChanges {
     this.renderer.insertBefore(parentNode, span, this.elementRef.nativeElement);
 
     this.inlineRef = span;
+  }
+
+  protected updateAttribute(node: any, key: string, prop: any) {
+    if (!prop || prop === '') {
+      return;
+    }
+    if (key === 'href') {
+      const isInvalidLink = !prop || /^https?:\/\/$/.test(prop);
+
+      if (isInvalidLink) {
+        if (!node.href) {
+          return;
+        }
+
+        prop = node.href;
+      }
+      this.renderer.setAttribute(node, key, prop);
+    } else if (key === 'class' && node.className !== '') {
+      this.renderer.setAttribute(node, key, `${node.className} ${prop}`);
+    } else {
+      this.renderer.setAttribute(node, key, prop);
+    }
   }
 
   private getElementAttrs(): { [key: string]: any; } {
