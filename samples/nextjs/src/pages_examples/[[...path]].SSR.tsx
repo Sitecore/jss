@@ -57,7 +57,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // Note we pass along req/res here as well to allow transfer of
   // headers for proper Sitecore analytics tracking.
   props.layoutData = await layoutService
-    .fetchLayoutData(path, props.locale, { req, res })
+    .fetchLayoutData(path, props.locale, req, res)
     .catch((error: AxiosError) => {
       // Let 404s (invalid path) through
       if (error.response?.status === 404) return error.response.data;

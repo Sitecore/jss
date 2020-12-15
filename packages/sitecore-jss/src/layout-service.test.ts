@@ -1,7 +1,7 @@
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import { LayoutService } from './layout-service';
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { IncomingMessage, ServerResponse } from 'http';
 import { AxiosDataFetcher } from './data-fetcher';
@@ -78,27 +78,6 @@ describe('LayoutService', () => {
       setHeader: setHeaderSpy,
     } as ServerResponse;
 
-    const onReqSpy = spy((config: AxiosRequestConfig) => {
-      config.headers.common = {
-        ...config.headers.common,
-        'test-req-header': 'test-req-header-value'
-      }
-
-      expect(config.headers.common['cookie']).to.equal('test-cookie-value');
-      expect(config.headers.common['referer']).to.equal('http://sctest');
-      expect(config.headers.common['user-agent']).to.equal('test-user-agent-value');
-      expect(config.headers.common['X-Forwarded-For']).to.equal('192.168.1.10');
-      expect(config.headers.common['test-req-header']).to.equal('test-req-header-value');
-
-      return config;
-    });
-
-    const onResSpy = spy((response: AxiosResponse) => {
-      res.setHeader('test-res-header', 'test-res-header-value');
-
-      return response;
-    });
-
     const service = new LayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
@@ -106,34 +85,23 @@ describe('LayoutService', () => {
       tracking: false,
     });
 
-    return service
-      .fetchLayoutData('/home', 'da-DK', {
-        onReq: onReqSpy,
-        onRes: onResSpy,
-        req,
-        res
-      })
-      .then((layoutServiceData: any) => {
-        expect(layoutServiceData.headers['cookie']).to.equal('test-cookie-value');
-        expect(layoutServiceData.headers['referer']).to.equal('http://sctest');
-        expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
-        expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
-        expect(layoutServiceData.headers['test-req-header']).to.equal('test-req-header-value');
+    return service.fetchLayoutData('/home', 'da-DK', req, res).then((layoutServiceData: any) => {
+      expect(layoutServiceData.headers['cookie']).to.equal('test-cookie-value');
+      expect(layoutServiceData.headers['referer']).to.equal('http://sctest');
+      expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
+      expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
 
-        expect(layoutServiceData.url).to.equal(
-          'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
-        );
-        expect(layoutServiceData.data).to.deep.equal({
-          sitecore: {
-            context: {},
-            route: { name: 'xxx' },
-          },
-        });
-        expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
-
-        expect(onReqSpy).to.be.called.once;
-        expect(onResSpy).to.be.called.once;
+      expect(layoutServiceData.url).to.equal(
+        'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
+      );
+      expect(layoutServiceData.data).to.deep.equal({
+        sitecore: {
+          context: {},
+          route: { name: 'xxx' },
+        },
       });
+      expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
+    });
   });
 
   it('should fetch route data and assign headers', () => {
@@ -174,29 +142,24 @@ describe('LayoutService', () => {
       tracking: false,
     });
 
-    return service
-      .fetchLayoutData('/home', 'da-DK', {
-        req,
-        res
-      })
-      .then((layoutServiceData: any) => {
-        expect(layoutServiceData.headers['cookie']).to.equal('test-cookie-value');
-        expect(layoutServiceData.headers['referer']).to.equal('http://sctest');
-        expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
-        expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
+    return service.fetchLayoutData('/home', 'da-DK', req, res).then((layoutServiceData: any) => {
+      expect(layoutServiceData.headers['cookie']).to.equal('test-cookie-value');
+      expect(layoutServiceData.headers['referer']).to.equal('http://sctest');
+      expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
+      expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
 
-        expect(layoutServiceData.url).to.equal(
-          'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
-        );
-        expect(layoutServiceData.data).to.deep.equal({
-          sitecore: {
-            context: {},
-            route: { name: 'xxx' },
-          },
-        });
-        expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
+      expect(layoutServiceData.url).to.equal(
+        'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
+      );
+      expect(layoutServiceData.data).to.deep.equal({
+        sitecore: {
+          context: {},
+          route: { name: 'xxx' },
+        },
       });
-  })
+      expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
+    });
+  });
 
   it('should fetch route data using custom fetcher', () => {
     const fetcherSpy = spy((url: string) => {
@@ -211,57 +174,24 @@ describe('LayoutService', () => {
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
+      dataFetcher: fetcherSpy,
     });
 
-    return service
-      .fetchLayoutData('/home', 'da-DK', { dataFetcher: fetcherSpy })
-      .then((layoutServiceData: any) => {
-        expect(layoutServiceData.url).to.equal(
-          'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
-        );
-        expect(layoutServiceData.data).to.deep.equal({
-          sitecore: {
-            context: {},
-            route: { name: 'xxx' },
-          },
-        });
-
-        expect(fetcherSpy).to.be.called.once;
-        expect(fetcherSpy).to.be.called.with(
-          'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
-        );
+    return service.fetchLayoutData('/home', 'da-DK').then((layoutServiceData: any) => {
+      expect(layoutServiceData.url).to.equal(
+        'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
+      );
+      expect(layoutServiceData.data).to.deep.equal({
+        sitecore: {
+          context: {},
+          route: { name: 'xxx' },
+        },
       });
-  });
 
-  it('should handle response error', () => {
-    mock.onGet().reply((config) => {
-      return [
-        400,
-        {
-          ...config,
-        },
-        {
-          'set-cookie': 'test-set-cookie-value',
-        },
-      ];
-    });
-
-    const onResErrorSpy = spy((error: any) => {
-      expect(error.response.status).to.equal(400);
-
-      return 'Unexpected error happenned...';
-    });
-
-    const service = new LayoutService({
-      apiHost: 'http://sctest',
-      apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
-      siteName: 'supersite',
-      tracking: false,
-    });
-
-    return service.fetchLayoutData('/home', 'da-DK', { onResError: onResErrorSpy }).catch((err) => {
-      expect(err.response).to.equal('Unexpected error happenned...');
-      expect(onResErrorSpy).to.be.called.once;
+      expect(fetcherSpy).to.be.called.once;
+      expect(fetcherSpy).to.be.called.with(
+        'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
+      );
     });
   });
 });
