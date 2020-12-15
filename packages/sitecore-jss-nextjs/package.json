@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "16.0.0-canary.1",
+  "version": "16.0.0-canary.5",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -59,8 +59,8 @@
     "react-dom": "^16.9.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.1",
-    "@sitecore-jss/sitecore-jss-react": "^16.0.0-canary.1",
+    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.5",
+    "@sitecore-jss/sitecore-jss-react": "^16.0.0-canary.5",
     "prop-types": "^15.7.2"
   },
   "description": "",
