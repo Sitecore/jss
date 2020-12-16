@@ -158,7 +158,9 @@ export class ComponentPropsService {
     const componentProps: ComponentPropsCollection = {};
 
     const promises = requests.map((req) => {
-      if (!req.rendering.uid) {
+      const { uid } = req.rendering;
+
+      if (!uid) {
         console.log(
           `Component ${req.rendering.componentName} doesn't have uid, can't store data for this component`
         );
@@ -169,11 +171,11 @@ export class ComponentPropsService {
         .fetch(req.rendering, req.layoutData, req.context)
         .then((result) => {
           // Set component specific data in componentProps store
-          componentProps[req.rendering.uid] = result;
+          componentProps[uid] = result;
         })
         .catch((error) => {
-          console.log(`Error during preload data for component ${req.rendering.uid}:`, error);
-          componentProps[req.rendering.uid] = {
+          console.log(`Error during preload data for component ${uid}:`, error);
+          componentProps[uid] = {
             error,
           };
         });

@@ -5,6 +5,7 @@ export interface LinkFieldValue {
   [attributeName: string]: unknown;
   href?: string;
   className?: string;
+  class?: string;
   title?: string;
   target?: string;
   text?: string;
