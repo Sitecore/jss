@@ -6,18 +6,18 @@ import {
   RouteData,
 } from '@sitecore-jss/sitecore-jss';
 
-const isComponentRendering = (element: any): element is ComponentRendering => element.componentName;
+const isComponentRendering = (element: unknown) => (element as ComponentRendering).componentName;
 
 /**
  * Receives dev prop data and creates or assigns "value/editable" values where needed to match signature of LayoutService data.
  */
 export const convertPropDataToLayoutServiceFormat = (
   propData:
-    | {
-        [name: string]: Field | Item | Item[] | undefined;
-      }
-    | undefined
-): { [name: string]: Field } | {} => {
+  | {
+    [name: string]: Field | Item | Item[] | undefined;
+  }
+  | undefined
+): { [name: string]: Field } => {
   if (!propData) {
     return {};
   }
@@ -29,7 +29,7 @@ export const convertPropDataToLayoutServiceFormat = (
       return { ...result, [propName]: propValue };
     }
 
-    const newResult: { [name: string]: any } = { ...result };
+    const newResult: { [name: string]: unknown } = { ...result };
 
     // field value might be an array, in which case we need to iterate the array entries for more prop values
     if (Array.isArray(propValue)) {
@@ -103,15 +103,16 @@ export const convertRouteToLayoutServiceFormat = (routeData: RouteData) => {
         const placeholder = placeholders[placeholderName];
         const elements = placeholder.map((element) => {
           if (isComponentRendering(element)) {
+            const componentRendering = element as ComponentRendering;
             // https://stackoverflow.com/a/40560953/9324
             return {
-              ...element,
-              ...(element.placeholders && {
-                placeholders: transformPlaceholders(element.placeholders),
+              ...componentRendering,
+              ...(componentRendering.placeholders && {
+                placeholders: transformPlaceholders(componentRendering.placeholders),
               }),
-              ...(element.params && { params: element.params }),
-              ...(element.fields && {
-                fields: convertPropDataToLayoutServiceFormat(element.fields),
+              ...(componentRendering.params && { params: componentRendering.params }),
+              ...(componentRendering.fields && {
+                fields: convertPropDataToLayoutServiceFormat(componentRendering.fields),
               }),
             };
           }

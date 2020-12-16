@@ -5,7 +5,7 @@ import { RichText } from './RichText';
 
 describe('<RichText />', () => {
   test('should render nothing with missing field', () => {
-    const field: any = null;
+    const field = null;
     const rendered = renderer.create(<RichText field={field} />);
     expect(rendered).toMatchSnapshot();
   });
@@ -47,8 +47,10 @@ describe('<RichText />', () => {
       editable: 'value with <p>markup</p>',
     };
     const rawTextStyles = StyleSheet.create({
-      fontSize: 22,
-    } as any);
+      style: {
+        fontSize: 22,
+      }
+    });
     const markupStyles = StyleSheet.create({
       p: {
         fontSize: 16,
@@ -65,7 +67,7 @@ describe('<RichText />', () => {
         field={field}
         style={{ flex: 1 }}
         stylesheet={markupStyles}
-        textComponentProps={{ style: rawTextStyles }}
+        textComponentProps={rawTextStyles}
       />
     );
     expect(rendered).toMatchSnapshot();

@@ -8,7 +8,7 @@ export interface TextProps {
     value?: string;
     editable?: string;
   } | null;
-  [nativeTextProps: string]: any;
+  [nativeTextProps: string]: unknown;
 }
 
 export const Text: React.SFC<TextProps> = ({ field, ...otherProps }) => {

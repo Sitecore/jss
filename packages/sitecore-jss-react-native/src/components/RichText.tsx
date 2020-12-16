@@ -8,7 +8,7 @@ export interface RichTextProps {
     value?: string;
     editable?: string;
   } | null;
-  [htmlViewProps: string]: any;
+  [htmlViewProps: string]: unknown;
 }
 
 export const RichText: React.SFC<RichTextProps> = ({ field, ...otherProps }) => {
@@ -16,9 +16,9 @@ export const RichText: React.SFC<RichTextProps> = ({ field, ...otherProps }) => 
     return null;
   }
 
-  const htmlValue: any = field.editable ? field.editable : field.value;
+  const htmlValue = field.editable ? field.editable : field.value;
 
-  return <HtmlView value={htmlValue} {...otherProps} />;
+  return <HtmlView value={htmlValue as string} {...otherProps} />;
 };
 
 RichText.propTypes = {
