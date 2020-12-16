@@ -1,5 +1,5 @@
-import { URL } from 'url';
 import chalk from 'chalk';
+import { getPublicUrl } from './util';
 
 const NEXT_IMAGE_PATH = '/_next/image';
 const NEXT_DEFAULT_DIST_DIR = '.next';
@@ -10,12 +10,6 @@ export interface ConfigOptions {
    * @default false
    */
   enabled?: boolean;
-  /**
-   * The public URL to use for absolute URLs, which are required when
-   * the Next.js app is run within the Sitecore Experience Editor.
-   * @default 'http://localhost:3000'
-   */
-  publicUrl?: string;
   /**
    * The build directory. This should be different than your primary Next.js 'distDir' ('.next' by default).
    * @default '.next-editing'
@@ -30,7 +24,6 @@ export interface ConfigOptions {
  */
 export function config({
   enabled = false,
-  publicUrl = 'http://localhost:3000',
   distDir = '.next-editing',
 }: ConfigOptions = {}) {
   return function plugin(nextConfig: any = {}) {
@@ -44,14 +37,8 @@ export function config({
     }
 
     console.info(`${chalk.cyan('info')}  - Applying editing host configuration`);
- 
-    try {
-      new URL(publicUrl);
-    } catch (error) {
-      throw new Error(`The provided publicUrl '${publicUrl}' is not a valid URL`);
-    }
 
-    publicUrl = publicUrl.replace(/\/$/, '');
+    const publicUrl = getPublicUrl();
 
     return Object.assign({}, nextConfig, {
 

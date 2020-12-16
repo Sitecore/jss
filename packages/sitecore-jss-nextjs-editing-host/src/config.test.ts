@@ -7,6 +7,14 @@ const expect = chai.use(chaiString).expect;
 describe('config', () => {
   const publicUrl = 'http://test.com';
   const publicUrlDomain = 'test.com';
+ 
+  beforeEach(() => {
+    process.env.EDITING_HOST_PUBLIC_URL = publicUrl;
+  })
+
+  after(() => {
+    delete process.env.EDITING_HOST_PUBLIC_URL;
+  })
 
   it('should not apply if disabled', () => {
     const withEditing = config({ enabled: false });
@@ -18,37 +26,37 @@ describe('config', () => {
   });
 
   it('should set assetPrefix to public url', () => {
-    const withEditing = config({ enabled: true, publicUrl });
+    const withEditing = config({ enabled: true });
     const nextConfig = withEditing();
     expect(nextConfig).to.have.property('assetPrefix').that.equal(publicUrl);
   });
   
   it('should add env.publicUrl as public url', () => {
-    const withEditing = config({ enabled: true, publicUrl });
+    const withEditing = config({ enabled: true });
     const nextConfig = withEditing();
     expect(nextConfig).to.have.property('env').with.property('publicUrl').that.equal(publicUrl);
   });
   
   it('should override existing env.publicUrl', () => {
-    const withEditing = config({ enabled: true, publicUrl });
+    const withEditing = config({ enabled: true });
     const nextConfig = withEditing({ env: { publicUrl: 'http://something.else' }});
     expect(nextConfig).to.have.property('env').with.property('publicUrl').that.equal(publicUrl);
   });
 
   it ('should set images.path using public url', () => {
-    const withEditing = config({ enabled: true, publicUrl });
+    const withEditing = config({ enabled: true });
     const nextConfig = withEditing();
     expect(nextConfig).to.have.property('images').with.property('path').that.startsWith(publicUrl);
   });
 
   it ('should set images.domains using public url', () => {
-    const withEditing = config({ enabled: true, publicUrl });
+    const withEditing = config({ enabled: true });
     const nextConfig = withEditing();
     expect(nextConfig).to.have.property('images').with.property('domains').that.contains(publicUrlDomain);
   });
 
   it ('should concat existing images.domains', () => {
-    const withEditing = config({ enabled: true, publicUrl });
+    const withEditing = config({ enabled: true });
     const nextConfig = withEditing({
       images: { domains: ['foo'] }
     });
@@ -57,6 +65,7 @@ describe('config', () => {
   });
 
   it('should fallback to http://localhost:3000 if public url missing', () => {
+    delete process.env.EDITING_HOST_PUBLIC_URL;
     const withEditing = config({ enabled: true });
     const nextConfig = withEditing();
     expect(nextConfig).to.have.property('assetPrefix').that.equal('http://localhost:3000');
@@ -65,7 +74,8 @@ describe('config', () => {
   });
 
   it('should throw if public url invalid', () => {
-    const withEditing = config({ enabled: true, publicUrl: 'nope' });
+    process.env.EDITING_HOST_PUBLIC_URL = 'nope';
+    const withEditing = config({ enabled: true });
     expect(withEditing).to.throw();
   });
 

@@ -2,6 +2,7 @@ import compression from 'compression';
 import express from 'express';
 import next from 'next';
 import bodyParser from 'body-parser';
+import { getPublicUrl } from './util';
 import { EditingMiddleware } from './editing-middleware';
 import { AbsolutifyHtmlProcessor } from './html-processors';
 
@@ -16,12 +17,6 @@ export interface EditingServerOptions {
    * @default 'localhost'
    */
   hostname?: string;
-  /**
-   * The public URL to use during relative to absolute link replacement, which
-   * is required when the Next.js app is run within the Experience Editor.
-   * @default `http://${hostname}:${port}`
-   */
-  publicUrl?: string;
   /**
    * The Next.js route which is used to render a page in the Experience Editor.
    * Note this route must use getInitialProps (not getStatic/ServerSideProps)
@@ -54,7 +49,6 @@ export interface EditingServerOptions {
 export function startEditingServer({
   port = 3000,
   hostname = 'localhost',
-  publicUrl = undefined,
   editRoute = '/_edit',
   editPath = '*',
   enableCompression = true,
@@ -67,21 +61,10 @@ export function startEditingServer({
 
   try {
     app.prepare().then(() => {
-
-      if (publicUrl === undefined) {
-        publicUrl = serverUrl;
-      } else {
-        try {
-          new URL(publicUrl);
-        } catch (error) {
-          throw new Error(`The provided publicUrl '${publicUrl}' is not a valid URL`);
-        }
-      }
-
       const server = express();
       const handle = app.getRequestHandler();
       const handleEdit = new EditingMiddleware(app, editRoute, [ 
-        new AbsolutifyHtmlProcessor(publicUrl, ignoredReplacementPaths) 
+        new AbsolutifyHtmlProcessor(getPublicUrl(), ignoredReplacementPaths) 
       ]).getRequestHandler();
 
       // Disable X-Powered-By header

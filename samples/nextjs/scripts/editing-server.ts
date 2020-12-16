@@ -18,6 +18,4 @@
 
 import { startEditingServer } from '@sitecore-jss/sitecore-jss-nextjs-editing-host';
 
-startEditingServer({
-  publicUrl: process.env.EDITING_HOST_PUBLIC_URL,
-});
+startEditingServer();
