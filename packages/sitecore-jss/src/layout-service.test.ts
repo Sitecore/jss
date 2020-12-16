@@ -175,7 +175,7 @@ describe('LayoutService', () => {
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
-      layoutDataFetcherResolver: () => fetcherSpy,
+      dataFetcherResolver: () => fetcherSpy,
     });
 
     return service.fetchLayoutData('/home', 'da-DK').then((layoutServiceData: LayoutServiceData) => {
@@ -232,7 +232,7 @@ describe('LayoutService', () => {
       tracking: false,
     });
 
-    return service.fetchPlaceholderData('superPh', '/xxx', req, res).then((placeholderData: PlaceholderData) => {
+    return service.fetchPlaceholderData('superPh', '/xxx', 'da-DK', req, res).then((placeholderData: PlaceholderData) => {
       expect(placeholderData).to.deep.equal({
         name: 'x1',
         path: 'x1/x2',
@@ -259,10 +259,10 @@ describe('LayoutService', () => {
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
-      placeholderDataFetcherResolver: () => fetcherSpy,
+      dataFetcherResolver: () => fetcherSpy,
     });
 
-    return service.fetchPlaceholderData('superPh', '/xxx').then((placeholderData: PlaceholderData) => {
+    return service.fetchPlaceholderData('superPh', '/xxx', 'da-DK').then((placeholderData: PlaceholderData) => {
       expect(placeholderData).to.deep.equal({
         name: 'x1',
         path: 'x1/x2',
@@ -271,7 +271,7 @@ describe('LayoutService', () => {
 
       expect(fetcherSpy).to.be.called.once;
       expect(fetcherSpy).to.be.called.with(
-        'http://sctest/sitecore/api/layout/placeholder/jss?placeholderName=superPh&item=%2Fxxx&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=undefined&tracking=true'
+        'http://sctest/sitecore/api/layout/placeholder/jss?placeholderName=superPh&item=%2Fxxx&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
       );
     });
   })

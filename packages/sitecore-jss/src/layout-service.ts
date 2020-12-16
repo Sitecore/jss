@@ -4,7 +4,7 @@ import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './dat
 import { HttpJsonFetcher } from './httpClientInterface';
 import { IncomingMessage, ServerResponse } from 'http';
 
-export type DataFetcherResolver<T> = (req?: IncomingMessage, res?: ServerResponse) => HttpJsonFetcher<T>;
+export type DataFetcherResolver = <T>(req?: IncomingMessage, res?: ServerResponse) => HttpJsonFetcher<T>;
 
 export type LayoutServiceInstanceConfig = {
   apiHost: string;
@@ -18,23 +18,14 @@ export type LayoutServiceInstanceConfig = {
    */
   tracking?: boolean;
   /**
-   * Layout data fetcher resolver in order to provide custom data fetcher
-   * @see DataFetcherResolver<T>
+   * Data fetcher resolver in order to provide custom data fetcher
+   * @see DataFetcherResolver
    * @see HttpJsonFetcher<T>
    * @see AxiosDataFetcher used by default
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
    */
-  layoutDataFetcherResolver?: DataFetcherResolver<LayoutServiceData>;
-  /**
-   * Placeholder data fetcher resolver in order to provide custom data fetcher
-   * @see DataFetcherResolver<T>
-   * @see HttpJsonFetcher<T>
-   * @see AxiosDataFetcher used by default
-   * @param {IncomingMessage} [req] Request instance
-   * @param {ServerResponse} [res] Response instance
-   */
-  placeholderDataFetcherResolver?: DataFetcherResolver<PlaceholderData>;
+  dataFetcherResolver?: DataFetcherResolver;
 };
 
 interface FetchParams {
@@ -102,8 +93,8 @@ export class LayoutService {
   ): Promise<LayoutServiceData> {
     const fetchOptions = this.getFetchOptions(language);
 
-    const fetcher = this.serviceConfig.layoutDataFetcherResolver
-      ? this.serviceConfig.layoutDataFetcherResolver(req, res)
+    const fetcher = this.serviceConfig.dataFetcherResolver
+      ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
       : this.getDefaultFetcher(req, res);
 
     return fetchRouteData(itemPath, { fetcher, ...fetchOptions });
@@ -115,19 +106,21 @@ export class LayoutService {
    * a specific route item. Allows you to retrieve rendered data for individual placeholders instead of entire routes.
    * @param {string} placeholderName
    * @param {string} itemPath
+   * @param {string} [language]
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
    */
   fetchPlaceholderData(
     placeholderName: string,
     itemPath: string,
+    language?: string,
     req?: IncomingMessage,
     res?: ServerResponse
   ): Promise<PlaceholderData> {
-    const fetchOptions = this.getFetchOptions();
+    const fetchOptions = this.getFetchOptions(language);
 
-    const fetcher = this.serviceConfig.placeholderDataFetcherResolver
-    ? this.serviceConfig.placeholderDataFetcherResolver(req, res)
+    const fetcher = this.serviceConfig.dataFetcherResolver
+    ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
     : this.getDefaultFetcher(req, res);
 
     return fetchPlaceholderData(placeholderName, itemPath, { fetcher, ...fetchOptions });
