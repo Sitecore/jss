@@ -113,8 +113,8 @@ export class LayoutService {
    * Fetch route data from LayoutService using @see dataApi.fetchPlaceholderData
    * Makes a request to Sitecore Layout Service for the specified placeholder in
    * a specific route item. Allows you to retrieve rendered data for individual placeholders instead of entire routes.
+   * @param {string} placeholderName
    * @param {string} itemPath
-   * @param {string} [language]
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
    */
