@@ -1,12 +1,12 @@
 import { AxiosDataFetcher } from './data-fetcher';
-import { LayoutServiceData } from './dataModels';
-import * as dataApi from './dataApi';
+import { LayoutServiceData, PlaceholderData } from './dataModels';
+import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './dataApi';
 import { HttpJsonFetcher } from './httpClientInterface';
 import { IncomingMessage, ServerResponse } from 'http';
 
-export type DataFetcherResolver = (req?: IncomingMessage, res?: ServerResponse) => HttpJsonFetcher<LayoutServiceData>;
+export type DataFetcherResolver<T> = (req?: IncomingMessage, res?: ServerResponse) => HttpJsonFetcher<T>;
 
-export type LayoutServiceConfig = {
+export type LayoutServiceInstanceConfig = {
   apiHost: string;
   apiKey: string;
   siteName: string;
@@ -18,14 +18,23 @@ export type LayoutServiceConfig = {
    */
   tracking?: boolean;
   /**
-   * Data fetcher resolver in order to provide custom data fetcher
-   * @see DataFetcherResolver
+   * Layout data fetcher resolver in order to provide custom data fetcher
+   * @see DataFetcherResolver<T>
    * @see HttpJsonFetcher<T>
    * @see AxiosDataFetcher used by default
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
    */
-  dataFetcherResolver?: DataFetcherResolver;
+  layoutDataFetcherResolver?: DataFetcherResolver<LayoutServiceData>;
+  /**
+   * Placeholder data fetcher resolver in order to provide custom data fetcher
+   * @see DataFetcherResolver<T>
+   * @see HttpJsonFetcher<T>
+   * @see AxiosDataFetcher used by default
+   * @param {IncomingMessage} [req] Request instance
+   * @param {ServerResponse} [res] Response instance
+   */
+  placeholderDataFetcherResolver?: DataFetcherResolver<PlaceholderData>;
 };
 
 interface FetchParams {
@@ -36,14 +45,12 @@ interface FetchParams {
 }
 
 interface FetchOptions {
-  layoutServiceConfig: {
-    host: string;
-  };
+  layoutServiceConfig: LayoutServiceConfig;
   querystringParams: FetchParams;
 }
 
 export class LayoutService {
-  constructor(private serviceConfig: LayoutServiceConfig) {}
+  constructor(private serviceConfig: LayoutServiceInstanceConfig) {}
 
   /**
    * Provides fetch options in order to fetch route data
@@ -95,10 +102,34 @@ export class LayoutService {
   ): Promise<LayoutServiceData> {
     const fetchOptions = this.getFetchOptions(language);
 
-    const fetcher = this.serviceConfig.dataFetcherResolver
-      ? this.serviceConfig.dataFetcherResolver(req, res)
+    const fetcher = this.serviceConfig.layoutDataFetcherResolver
+      ? this.serviceConfig.layoutDataFetcherResolver(req, res)
       : this.getDefaultFetcher(req, res);
 
-    return dataApi.fetchRouteData(itemPath, { fetcher, ...fetchOptions });
+    return fetchRouteData(itemPath, { fetcher, ...fetchOptions });
+  }
+
+  /**
+   * Fetch route data from LayoutService using @see dataApi.fetchPlaceholderData
+   * Makes a request to Sitecore Layout Service for the specified placeholder in
+   * a specific route item. Allows you to retrieve rendered data for individual placeholders instead of entire routes.
+   * @param {string} itemPath
+   * @param {string} [language]
+   * @param {IncomingMessage} [req] Request instance
+   * @param {ServerResponse} [res] Response instance
+   */
+  fetchPlaceholderData(
+    placeholderName: string,
+    itemPath: string,
+    req?: IncomingMessage,
+    res?: ServerResponse
+  ): Promise<PlaceholderData> {
+    const fetchOptions = this.getFetchOptions();
+
+    const fetcher = this.serviceConfig.placeholderDataFetcherResolver
+    ? this.serviceConfig.placeholderDataFetcherResolver(req, res)
+    : this.getDefaultFetcher(req, res);
+
+    return fetchPlaceholderData(placeholderName, itemPath, { fetcher, ...fetchOptions });
   }
 }

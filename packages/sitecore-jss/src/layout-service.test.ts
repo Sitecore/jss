@@ -5,6 +5,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { IncomingMessage, ServerResponse } from 'http';
 import { AxiosDataFetcher } from './data-fetcher';
+import { LayoutServiceData, PlaceholderData } from './dataModels';
 
 use(spies);
 
@@ -47,7 +48,7 @@ describe('LayoutService', () => {
     });
   });
 
-  it('should fetch route data and invoke callbacks', () => {
+  it('should fetch layout data and invoke callbacks', () => {
     mock.onGet().reply((config) => {
       return [
         200,
@@ -104,7 +105,7 @@ describe('LayoutService', () => {
     });
   });
 
-  it('should fetch route data and assign headers', () => {
+  it('should fetch layout data', () => {
     mock.onGet().reply((config) => {
       return [
         200,
@@ -161,27 +162,24 @@ describe('LayoutService', () => {
     });
   });
 
-  it('should fetch route data using custom fetcher', () => {
+  it('should fetch layout data using custom fetcher resolver', () => {
     const fetcherSpy = spy((url: string) => {
       return new AxiosDataFetcher().fetch(url);
     });
 
-    mock.onGet().reply((config) => {
-      return [200, { ...config, data: { sitecore: { context: {}, route: { name: 'xxx' } } } }];
+    mock.onGet().reply(() => {
+      return [200, { sitecore: { context: {}, route: { name: 'xxx' } } }];
     });
 
     const service = new LayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
-      dataFetcherResolver: () => fetcherSpy,
+      layoutDataFetcherResolver: () => fetcherSpy,
     });
 
-    return service.fetchLayoutData('/home', 'da-DK').then((layoutServiceData: any) => {
-      expect(layoutServiceData.url).to.equal(
-        'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
-      );
-      expect(layoutServiceData.data).to.deep.equal({
+    return service.fetchLayoutData('/home', 'da-DK').then((layoutServiceData: LayoutServiceData) => {
+      expect(layoutServiceData).to.deep.equal({
         sitecore: {
           context: {},
           route: { name: 'xxx' },
@@ -194,4 +192,87 @@ describe('LayoutService', () => {
       );
     });
   });
+
+  it('should fetch placeholder data', () => {
+    mock.onGet().reply(() => {
+      return [
+        200,
+        {
+          name: 'x1',
+          path: 'x1/x2',
+          elements: []
+        },
+        {
+          'set-cookie': 'test-set-cookie-value',
+        },
+      ];
+    });
+
+    const req = {
+      connection: {
+        remoteAddress: '192.168.1.10',
+      },
+      headers: {
+        cookie: 'test-cookie-value',
+        referer: 'http://sctest',
+        'user-agent': 'test-user-agent-value',
+      },
+    } as IncomingMessage;
+
+    const setHeaderSpy: any = spy();
+
+    const res = {
+      setHeader: setHeaderSpy,
+    } as ServerResponse;
+
+    const service = new LayoutService({
+      apiHost: 'http://sctest',
+      apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+      siteName: 'supersite',
+      tracking: false,
+    });
+
+    return service.fetchPlaceholderData('superPh', '/xxx', req, res).then((placeholderData: PlaceholderData) => {
+      expect(placeholderData).to.deep.equal({
+        name: 'x1',
+        path: 'x1/x2',
+        elements: []
+      });
+      expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
+    });
+  })
+
+  it('should fetch placeholder data using custom fetcher resolver', () => {
+    const fetcherSpy = spy((url: string) => {
+      return new AxiosDataFetcher().fetch(url);
+    });
+
+    mock.onGet().reply(() => {
+      return [200, {
+        name: 'x1',
+        path: 'x1/x2',
+        elements: []
+      }];
+    });
+
+    const service = new LayoutService({
+      apiHost: 'http://sctest',
+      apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+      siteName: 'supersite',
+      placeholderDataFetcherResolver: () => fetcherSpy,
+    });
+
+    return service.fetchPlaceholderData('superPh', '/xxx').then((placeholderData: PlaceholderData) => {
+      expect(placeholderData).to.deep.equal({
+        name: 'x1',
+        path: 'x1/x2',
+        elements: []
+      });
+
+      expect(fetcherSpy).to.be.called.once;
+      expect(fetcherSpy).to.be.called.with(
+        'http://sctest/sitecore/api/layout/placeholder/jss?placeholderName=superPh&item=%2Fxxx&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=undefined&tracking=true'
+      );
+    });
+  })
 });
