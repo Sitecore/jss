@@ -7,7 +7,7 @@ import { componentFactory } from 'temp/componentFactory';
 
 const SitecorePage = ({ layoutData }: SitecorePageProps): JSX.Element => {
   if (!layoutData?.sitecore?.route) {
-    return <NotFound />;
+    return <NotFound context={layoutData?.sitecore?.context} />;
   }
 
   const context = {

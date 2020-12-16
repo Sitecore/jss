@@ -19,7 +19,7 @@ const componentPropsService = new ComponentPropsService();
 const SitecorePage = ({ layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   if (!layoutData?.sitecore?.route) {
     // layoutData will be missing for an invalid path
-    return <NotFound context={layoutData?.sitecore.context} />;
+    return <NotFound context={layoutData?.sitecore?.context} />;
   }
 
   const context = {
