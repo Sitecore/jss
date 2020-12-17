@@ -6,13 +6,13 @@ export default (manifest: Manifest) => {
     name: 'Component0-0',
     displayName: 'Component0-0',
     fields: [
-      { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText },
+      { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText }
     ],
     placeholders: [
-      { name: 'page-header' },
+      { name: 'page-header' }
     ],
     params: [
-      { name: 'param1' },
+      { name: 'param1' }
     ],
   });
 };

@@ -24,7 +24,9 @@ export default (args: GenerateContentItemArgs) => {
     let renderingFields = args.content.fields;
     if (template) {
       // tslint:disable-next-line:max-line-length
-      const handleError = (fieldName: string) => { throw chalk.red(`Item '${item.name}' defined data for field '${fieldName}'. This field is not defined on '${template.name}'. It may be a typo, or the field may need to be added to the template/component definition.`); };
+      const handleError = (fieldName: string) => {
+        throw chalk.red(`Item '${item.name}' defined data for field '${fieldName}'. This field is not defined on '${template.name}'. It may be a typo, or the field may need to be added to the template/component definition.`);
+      };
       renderingFields = validateFieldDefinitions(args.content.fields, template, handleError, args.templates, args.components);
     }
 

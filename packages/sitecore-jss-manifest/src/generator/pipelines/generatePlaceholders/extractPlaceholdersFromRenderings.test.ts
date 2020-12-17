@@ -13,7 +13,7 @@ describe('generatePlaceholders pipeline', () => {
           },
           {
             exposedPlaceholders: expected.slice(2, 5),
-          },
+          }
         ],
         placeholderNames: expected.slice(5, 7),
       };

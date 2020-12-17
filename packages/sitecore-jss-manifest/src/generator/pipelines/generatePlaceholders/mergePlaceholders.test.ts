@@ -5,7 +5,7 @@ describe('generatePlaceholders pipeline', () => {
   describe('mergePlaceholders processor', () => {
     it('should add placeholders that are not already in the collection', () => {
       const root = [
-        'porg',
+        'porg'
       ];
 
       const existing = [
@@ -20,7 +20,7 @@ describe('generatePlaceholders pipeline', () => {
         {
           name: 'ash',
           displayName: 'Ash',
-        },
+        }
       ];
       const additional = ['oak', 'maple'];
       const discovered = [...additional, ...existing.slice(0, 2).map((ph) => ph.name)];

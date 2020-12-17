@@ -157,8 +157,7 @@ export interface FieldDefinition {
  * Defines a non-content parameter that can be set on a component.
  * Parameters are more developer-focused options than fields, such as configurable CSS classes.
  */
-export interface RenderingParameterDefinition extends FieldDefinition {
-}
+export type RenderingParameterDefinition = FieldDefinition;
 
 /**
  * Explicitly defines a placeholder name, and allows setting the display name.
@@ -365,6 +364,7 @@ export interface ComponentInstanceDefinition extends ItemDefinition {
 }
 
 export interface GeneratePipelineArgs {
+  [key: string]: any;
   debug: boolean;
   skipPlaceholderBlacklist: boolean;
   components: ComponentDefinition[];
@@ -377,8 +377,6 @@ export interface GeneratePipelineArgs {
   language: string;
   pipelines: { [key: string]: ExecutablePipeline };
   pipelineResult: ManifestInstance & { [key: string]: any };
-
-  [key: string]: any;
 }
 
 export interface GenerateContentItemArgs extends GeneratePipelineArgs {
@@ -397,24 +395,23 @@ export interface GeneratePlaceholdersPipelineArgs {
 }
 
 export interface GenerateRouteItemPipelineArgs {
+  [key: string]: any;
   route: RouteDefinition;
   components: ComponentDefinition[];
   pipelines: { [key: string]: ExecutablePipeline };
   item: any;
   dynamicPlaceholderKeyGenerator: (key: string, rendering: any, parentKey: string) => string;
-  datasourceNamer: ({ item, placeholder, rendering, index, }: {
-      item: any;
-      placeholder: any;
-      rendering: any;
-      index: number;
-    }) => string;
-  datasourceDisplayNamer: ({ rendering, index, }: {
-      item: any;
-      placeholder: any;
-      rendering: any;
-      index: number;
-    }) => string;
+  datasourceNamer: ({ item, placeholder, rendering, index }: {
+    item: any;
+    placeholder: any;
+    rendering: any;
+    index: number;
+  }) => string;
+  datasourceDisplayNamer: ({ rendering, index }: {
+    item: any;
+    placeholder: any;
+    rendering: any;
+    index: number;
+  }) => string;
   onRenderingProcessed?: (rendering: any) => void;
-
-  [key: string]: any;
 }

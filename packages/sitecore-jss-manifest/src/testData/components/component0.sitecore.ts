@@ -7,13 +7,13 @@ export default (manifest: Manifest) => {
     displayName: 'Component0',
     fields: [
       { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText },
-      { name: 'relatedItems', displayName: 'Related Items', type: CommonFieldTypes.ContentList },
+      { name: 'relatedItems', displayName: 'Related Items', type: CommonFieldTypes.ContentList }
     ],
     placeholders: [
-      { name: 'page-header' },
+      { name: 'page-header' }
     ],
     params: [
-      { name: 'param0' },
+      { name: 'param0' }
     ],
   });
 
@@ -22,7 +22,7 @@ export default (manifest: Manifest) => {
     displayName: 'Related Item',
     fields: [
       { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText },
-      { name: 'image', displayName: 'Image', type: CommonFieldTypes.Image },
+      { name: 'image', displayName: 'Image', type: CommonFieldTypes.Image }
     ],
   });
 };

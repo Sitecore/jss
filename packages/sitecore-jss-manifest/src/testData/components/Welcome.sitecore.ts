@@ -8,7 +8,7 @@ export default (manifest: Manifest) => {
     fields: [
       { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText },
       { name: 'text', displayName: 'Text', type: CommonFieldTypes.RichText },
-      { name: 'logoImage', displayName: 'LogoImage', type: CommonFieldTypes.Image },
+      { name: 'logoImage', displayName: 'LogoImage', type: CommonFieldTypes.Image }
     ],
     placeholders: [],
     params: [],

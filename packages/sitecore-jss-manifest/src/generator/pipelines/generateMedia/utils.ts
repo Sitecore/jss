@@ -27,7 +27,7 @@ function getAllTemplateFields(template: any, templateCollection: any) {
   }
 
   const allFields: any[] = [];
-  
+
   // If the template has its own fields, add them to the `allFields` array.
   if (template.fields && Array.isArray(template.fields)) {
     allFields.push(...template.fields);
@@ -40,7 +40,7 @@ function getAllTemplateFields(template: any, templateCollection: any) {
       if (!inheritedTemplate || !inheritedTemplate.fields || !Array.isArray(inheritedTemplate.fields)) {
         return;
       }
-      
+
       const inheritedFields = getAllTemplateFields(inheritedTemplate, templateCollection);
       if (inheritedFields) {
         allFields.push(...inheritedFields);

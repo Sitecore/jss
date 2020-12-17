@@ -16,7 +16,7 @@ const args = {
     },
     {
       name: 'dolor',
-    },
+    }
   ],
   componentFactory: (components: any, componentName: string) =>
     components.find((component: any) => component.name === componentName),
@@ -44,7 +44,7 @@ describe('generateRouteItem pipeline', () => {
             },
             {
               componentName: 'dolor',
-            },
+            }
           ],
         },
       };
@@ -65,7 +65,7 @@ describe('generateRouteItem pipeline', () => {
           main: [
             {
               componentName: 'lorem',
-            },
+            }
           ],
         },
       };
@@ -88,7 +88,7 @@ describe('generateRouteItem pipeline', () => {
               name: expectedName,
               displayName: expectedDisplayName,
               componentName: 'lorem',
-            },
+            }
           ],
         },
       };
@@ -128,7 +128,7 @@ describe('generateRouteItem pipeline', () => {
 
       const argObject: any = { ...args, route, item };
 
-      // tslint:disable-next-line no-unused-expression
+      // eslint-disable-next-line no-unused-expressions
       expect(() => processRenderings(argObject)).to.throw;
     });
   });

@@ -5,7 +5,7 @@ export default (manifest: Manifest) => {
     manifest1.addComponent({
       name: 'AsyncComponent',
       placeholders: [
-        { name: 'ph1' },
+        { name: 'ph1' }
       ],
     });
   });

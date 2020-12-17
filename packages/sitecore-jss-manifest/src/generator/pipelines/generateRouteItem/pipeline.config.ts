@@ -44,10 +44,10 @@ const defaultDatasourceDisplayNamer = ({
   rendering: any,
   index: number
 }) =>
-`${rendering.componentName}-${index + 1}`;
+  `${rendering.componentName}-${index + 1}`;
 
 const defaultComponentFactory = (components: ComponentDefinition[], componentName: string) =>
-components.find((component) => component.name === componentName);
+  components.find((component) => component.name === componentName);
 
 export const config = (pipelines: PipelineRegistry) => {
   const pipeline = pipelineFactory.create('generateRouteItem');

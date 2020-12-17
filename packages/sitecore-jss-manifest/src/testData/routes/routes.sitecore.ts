@@ -4,7 +4,7 @@ import data from './route';
 
 export default (manifest: Manifest) => {
   json.children = [
-    data,
+    data
   ];
   manifest.addRoute(json);
 };

@@ -27,7 +27,9 @@ function expandReferencedContent(manifest: ManifestInstance) {
     // in a duplicate ID definition. There are two possible cases here:
     // (a) an ID reference, in which case removing the ID will not affect the original referenced child ID
     // (b) an ID with copy reference, in which case the copy would legitimately always be a duplicate ID unless we unset it
-    traverseAllItems(refDeepClone.children, (item) => { delete item.id; });
+    traverseAllItems(refDeepClone.children, (item) => {
+      delete item.id;
+    });
 
     if (targetType === 'rendering') {
       expandedRef.dataSource = expandedRef.dataSource || {};

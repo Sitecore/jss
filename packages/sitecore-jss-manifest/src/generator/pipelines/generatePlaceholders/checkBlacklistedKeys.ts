@@ -28,7 +28,7 @@ export default (args: GeneratePlaceholdersPipelineArgs) => {
     return args;
   }
 
-  console.error(`The manifest used the following reserved placeholder key names:`);
+  console.error('The manifest used the following reserved placeholder key names:');
   blacklistedPlaceholders.forEach((ph) => console.error(ph.name));
   console.error();
   console.error('These placeholder name(s) are reserved by the Sitecore system or SXA, and cannot be used without conflict.');

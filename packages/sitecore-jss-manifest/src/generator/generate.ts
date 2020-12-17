@@ -112,7 +112,7 @@ const writeOutput = async ({
     }
 
     // we remove the media prop as it's unused by the manifest after copying media
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { media, ...finalManifest } = manifest;
 
     await fs.writeJson(outputPath, finalManifest, { spaces: 2 });
@@ -134,10 +134,10 @@ const getPipelineConfig = async ({ patchGlobs }: { patchGlobs: string[] }) => {
   });
   const patchedConfig = patchGlobs
     ? await configLoader({
-        fileGlobs: patchGlobs,
-        existingConfig: manifestConfig,
-        allowEmptyGlobs: true,
-      })
+      fileGlobs: patchGlobs,
+      existingConfig: manifestConfig,
+      allowEmptyGlobs: true,
+    })
     : manifestConfig;
   return patchedConfig;
 };

@@ -23,7 +23,7 @@ const generateRenderingParams = (component: any, rendering: any) => {
       {
         name: paramName,
         value: rendering.params[paramName],
-      },
+      }
     ];
   }, []);
 
@@ -59,7 +59,9 @@ const generateFields = (
   let renderingFields = rendering.fields;
   if (component) {
     // tslint:disable-next-line:max-line-length
-    const handleError = (fieldName: string) => { throw chalk.red(`${dataSourceItem.name} route datasource defined data for '${fieldName}' on component ${component.name}. This field is not defined on this component. It may be a typo, or the field may need to be added to the component definition.`); };
+    const handleError = (fieldName: string) => {
+      throw chalk.red(`${dataSourceItem.name} route datasource defined data for '${fieldName}' on component ${component.name}. This field is not defined on this component. It may be a typo, or the field may need to be added to the component definition.`);
+    };
     renderingFields = validateFieldDefinitions(rendering.fields, component, handleError, allComponents);
   }
 
@@ -91,6 +93,7 @@ const createDataSourceItem = ({
   datasourceDisplayNamer,
   ...context
 }: {
+  [key: string]: any
   rendering: any,
   datasourceNamer: (options: {
     item: any,
@@ -103,7 +106,6 @@ const createDataSourceItem = ({
     rendering: any,
     index: number
   }) => string,
-  [key: string]: any
 }) => {
   // rendering is an ID reference, not a whole rendering, so this will come from elsewhere
   // UNLESS it's a copy - in which case we still want it to get named as a local DS item

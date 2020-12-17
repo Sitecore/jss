@@ -26,7 +26,7 @@ const formatGuid = (guid: string) => {
 
 export const getDynamicPlaceholderKey = (
   parentPlaceholderPath: string,
-  rendering: { uid: string, [key: string]: any },
+  rendering: { [key: string]: any, uid: string },
   placeholderName: string
 ) => {
   if (rendering && rendering.uid) {

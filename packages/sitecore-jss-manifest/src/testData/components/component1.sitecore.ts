@@ -6,7 +6,7 @@ export default (manifest: Manifest) => {
     displayName: 'Component1',
     placeholders: [
       { name: 'page-header' },
-      { name: 'page-content' },
+      { name: 'page-content' }
     ],
   });
 };

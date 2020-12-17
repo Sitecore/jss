@@ -2,6 +2,9 @@ import { ComponentDefinition, ItemDefinition, TemplateDefinition } from './manif
 
 /**
  * Iterates the keys of the given object and constructs a new object with keys that satisfy the given filter function.
+ * @param {Object} obj
+ * @param {Function} filter
+ * @returns {Object} filtered object
  */
 export const filterObject = (obj: any, filter: (key: string, value: any) => boolean) =>
   Object.keys(obj).reduce((res, key) => {
@@ -15,12 +18,12 @@ export const filterObject = (obj: any, filter: (key: string, value: any) => bool
   }, {});
 
 export const convertComponentDataToFields = ({ data, context: { item = {} as ItemDefinition } = {} }:
-  {
-    data: any,
-    context: {
-      item?: ItemDefinition,
-    }
-  }) => {
+{
+  data: any,
+  context: {
+    item?: ItemDefinition,
+  }
+}) => {
   if (!data) {
     return;
   }
@@ -147,19 +150,26 @@ export function checkUnique(input: any[], selector: (element: any) => string) {
   return duplicates;
 }
 
-/** Finds a template definition by name in one or more arrays of template/component definitions */
-export function findTemplate(templateName: string, ...templates: Array<Array<TemplateDefinition | ComponentDefinition>>)
-: TemplateDefinition | ComponentDefinition | null {
+/**
+ * Finds a template definition by name in one or more arrays of template/component definitions
+ * @param {string} templateName
+ * @returns {TemplateDefinition | ComponentDefinition | null} template
+ */
+export function findTemplate(templateName: string, ...templates: Array<Array<TemplateDefinition | ComponentDefinition>>): TemplateDefinition | ComponentDefinition | null {
   let templateResult: TemplateDefinition | ComponentDefinition | null = null;
 
-  if (!templates) { return null; }
+  if (!templates) {
+    return null;
+  }
 
   templates.forEach((templateList) => {
-    if (!templateList) { return; }
+    if (!templateList) {
+      return;
+    }
 
     const template = templateList.find((templateDef: any) => templateDef.name === templateName);
 
-    if (template && templateResult != null) {
+    if (template && templateResult !== null) {
       // tslint:disable-next-line:no-string-throw
       throw `Template ${templateName} was defined more than once with the same name.`;
     }
@@ -172,13 +182,20 @@ export function findTemplate(templateName: string, ...templates: Array<Array<Tem
   return templateResult;
 }
 
-/** Validates that a set of field values are defined on their template definitions */
+/**
+ * Validates that a set of field values are defined on their template definitions
+ * @param {Object} fields
+ * @param {TemplateDefinition | ComponentDefinition} template
+ * @param {Function} handleError
+ * @returns {Object} validated fields
+ */
 export function validateFieldDefinitions(
   fields: { [key: string]: any },
   template: TemplateDefinition | ComponentDefinition,
   handleError: (fieldName: string) => void,
   ...inheritedTemplates: Array<Array<TemplateDefinition | ComponentDefinition>>
 ) {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   inheritedTemplates.forEach(() => {});
 
   return filterObject(
