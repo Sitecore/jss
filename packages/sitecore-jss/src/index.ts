@@ -7,6 +7,10 @@ export {
   LayoutServiceRequestOptions
 } from './dataApi';
 
+export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
+
+export { LayoutService, LayoutServiceInstanceConfig, DataFetcherResolver } from './layout-service';
+
 export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
 
 export {

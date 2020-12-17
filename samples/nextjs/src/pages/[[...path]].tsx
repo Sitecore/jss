@@ -10,7 +10,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps, extractPath } from 'lib/page-props';
 import { componentFactory, componentModule } from 'temp/componentFactory';
-import { configBasedLayoutService as layoutService } from 'lib/layout-service';
+import { layoutService } from 'lib/layout-service';
 import { configBasedDictionaryService as dictionaryService } from 'lib/dictionary-service';
 import { config as packageConfig } from '../../package.json';
 

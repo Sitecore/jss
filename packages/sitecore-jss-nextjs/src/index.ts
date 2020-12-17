@@ -3,6 +3,8 @@ export {
   mediaApi,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  AxiosDataFetcher,
+  LayoutService,
   DictionaryPhrases,
   DictionaryServiceData,
   LayoutServiceData,
