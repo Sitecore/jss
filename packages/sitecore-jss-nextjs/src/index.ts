@@ -3,6 +3,8 @@ export {
   mediaApi,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  AxiosDataFetcher,
+  LayoutService,
   DictionaryPhrases,
   DictionaryServiceData,
   LayoutServiceData,
@@ -66,6 +68,7 @@ export {
   SitecoreContextState,
   SitecoreContextReactContext,
   withSitecoreContext,
+  useSitecoreContext,
   withExperienceEditorChromes,
   withPlaceholder,
 } from '@sitecore-jss/sitecore-jss-react';

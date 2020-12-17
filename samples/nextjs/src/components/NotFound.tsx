@@ -1,6 +1,5 @@
 import { LayoutServiceContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Head from 'next/head';
-import Link from 'next/link';
 
 type NotFoundProps = {
   context?: LayoutServiceContext;
@@ -24,9 +23,7 @@ const NotFound = ({ context }: NotFoundProps): JSX.Element => (
           Language: {context.language}
         </p>
       )}
-      <Link href="/" locale={false}>
-        Go to the Home page
-      </Link>
+      <a href="/">Go to the Home page</a>
     </div>
   </>
 );

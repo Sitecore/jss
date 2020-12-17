@@ -10,7 +10,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps, extractPath } from 'lib/page-props';
 import { componentFactory, componentModule } from 'temp/componentFactory';
-import { configBasedLayoutService as layoutService } from 'lib/layout-service';
+import { layoutService } from 'lib/layout-service';
 import { configBasedDictionaryService as dictionaryService } from 'lib/dictionary-service';
 import { config as packageConfig } from '../../package.json';
 
@@ -19,7 +19,7 @@ const componentPropsService = new ComponentPropsService();
 const SitecorePage = ({ layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   if (!layoutData?.sitecore?.route) {
     // layoutData will be missing for an invalid path
-    return <NotFound context={layoutData?.sitecore.context} />;
+    return <NotFound context={layoutData?.sitecore?.context} />;
   }
 
   const context = {

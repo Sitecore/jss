@@ -1,5 +1,5 @@
 import { NextPageContext } from 'next';
-import Error from 'next/error';
+import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
 import {
   SitecoreContext,
@@ -13,8 +13,7 @@ const componentPropsService = new ComponentPropsService();
 
 const SitecorePage = ({ layoutData }: SitecorePageProps): JSX.Element => {
   if (!layoutData?.sitecore?.route) {
-    // layoutData will be missing for an invalid path
-    return <Error statusCode={404} />;
+    return <NotFound context={layoutData?.sitecore?.context} />;
   }
 
   const context = {
@@ -39,9 +38,9 @@ SitecorePage.getInitialProps = async (context: NextPageContext) => {
   const data = (req as EditingRequest).editingData;
 
   const props: SitecorePageProps = {
-    locale: data?.language ?? 'en',
-    layoutData: data?.layoutData || null,
-    dictionary: data?.dictionary || null,
+    locale: data.language,
+    layoutData: data.layoutData,
+    dictionary: data.dictionary,
     componentProps: {},
   };
 
@@ -53,6 +52,16 @@ SitecorePage.getInitialProps = async (context: NextPageContext) => {
       componentModule,
     });
   }
+
+  //TODO: implement getInitialProps-compatible component props functionality
+  // if (props.layoutData) {
+  //   // Retrieve component props using side-effects defined on components level
+  //   props.componentProps = await componentPropsService.fetchInitialComponentProps({
+  //     layoutData: props.layoutData,
+  //     context,
+  //     componentModule,
+  //   });
+  // }
 
   return props;
 };

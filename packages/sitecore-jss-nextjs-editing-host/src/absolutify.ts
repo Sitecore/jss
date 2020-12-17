@@ -22,7 +22,7 @@ const rx = /((href|src|codebase|cite|background|cite|action|profile|formaction|i
 /*!
  * Match the same as above, but capture the full URL for iteration
  */
-const captureRx = /((href|src|codebase|cite|background|cite|action|profile|formaction|icon|manifest|archive|srcset|poster)=["'])((([.]+\/)|(?:\/))(?!\/)[^"']+)/g;
+const captureRx = /((href|src|codebase|cite|background|cite|action|profile|formaction|icon|manifest|archive|srcset|poster)=["'])((([.]+\/)|(?:\/))(?!\/)[^"']*)/g;
 
 /**
  * URL replacement using function iteration, this is handled slightly
@@ -44,7 +44,7 @@ const iterate = function (str: string, iterator: IteratorFunction): string {
  */
 export default function absolutify(str: string, url: string | IteratorFunction): string {
   if (typeof url === 'string') {
-    return str.replace(rx, '$1' + url + '/$4');
+    return str.replace(rx, '$1' + url.replace(/\/$/, '') + '/$4');
   }
   return iterate(str, url);
 }

@@ -1,5 +1,6 @@
 import { Text, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
+import { getPublicUrl } from 'lib/util';
 
 interface DataSource {
   sample1: {
@@ -60,6 +61,9 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
   // Query results in integrated GraphQL replace the normal `fields` data
   // i.e. with { data, }
   const { datasource, contextItem } = props.fields.data;
+  // Prefix next/link paths with a publicUrl to disable Next.js prefetching in the Sitecore Experience Editor.
+  // If you're not supporting the Experience Editor, you can remove this.
+  const publicUrl = getPublicUrl();
 
   return (
     <div data-e2e-id="graphql-integrated">
@@ -107,7 +111,7 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
           <ul>
             {contextItem.children.map((child: ContextItemChild) => (
               <li key={child.id}>
-                <NextLink href={child.url}>
+                <NextLink href={publicUrl + child.url}>
                   <a>{child.pageTitle.value}</a>
                 </NextLink>
                 &nbsp; (editable title too! <Text field={child.pageTitle.jss} />)
