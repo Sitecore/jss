@@ -1,24 +1,13 @@
-import { AxiosError } from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
-import {
-  SitecoreContext,
-  ComponentPropsContext,
-  ComponentPropsService,
-  LayoutServiceData,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { SitecorePageProps, extractPath } from 'lib/page-props';
-import { componentFactory, componentModule } from 'temp/componentFactory';
-import { layoutService } from 'lib/layout-service';
-import { configBasedDictionaryService as dictionaryService } from 'lib/dictionary-service';
-import { config as packageConfig } from '../../package.json';
+import { SitecoreContext, ComponentPropsContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { SitecorePageProps } from 'lib/page-props';
+import { SitecorePagePropsFactory } from 'lib/page-props-factory';
+import { componentFactory } from 'temp/componentFactory';
 
-const componentPropsService = new ComponentPropsService();
-
-const SitecorePage = ({ layoutData, componentProps }: SitecorePageProps): JSX.Element => {
-  if (!layoutData?.sitecore?.route) {
-    // layoutData will be missing for an invalid path
+const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
+  if (notFound) {
     return <NotFound context={layoutData?.sitecore?.context} />;
   }
 
@@ -61,38 +50,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // It may be called again, on a serverless function, if
 // revalidation (or fallback) is enabled and a new request comes in.
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { params, locale } = context;
-  const path = extractPath(params);
-
-  const props: SitecorePageProps = {
-    // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
-    locale: locale ?? packageConfig.language,
-    layoutData: null,
-    dictionary: null,
-    componentProps: {},
-  };
-
-  // Retrieve layoutData from Layout Service
-  props.layoutData = await layoutService
-    .fetchLayoutData(path, props.locale)
-    .catch((error: AxiosError<LayoutServiceData>) => {
-      // Let 404s (invalid path) through
-      if (error.response?.status === 404) return error.response.data;
-
-      throw error;
-    });
-
-  if (props.layoutData.sitecore.route) {
-    // Retrieve component props using side-effects defined on components level
-    props.componentProps = await componentPropsService.fetchStaticComponentProps({
-      layoutData: props.layoutData,
-      context,
-      componentModule,
-    });
-
-    // Retrieve dictionary data from Dictionary Service
-    props.dictionary = await dictionaryService.fetchDictionaryData(props.locale);
-  }
+  const propsFactory = new SitecorePagePropsFactory();
+  const props = await propsFactory.create(context);
 
   return {
     props,

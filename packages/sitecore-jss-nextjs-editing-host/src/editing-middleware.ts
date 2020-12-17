@@ -90,19 +90,15 @@ export function extractEditingData(req: Request): EditingData {
   if (!payload || !payload.args || !Array.isArray(payload.args) || payload.args.length < 3) {
     throw new Error(`Unable to extract editing data from request`);
   }
-  
-  const result = {
-    path: '',
-    language: '',
-    layoutData: null,
-    dictionary: null,
-  } as EditingData;
 
-  result.path = payload.args[0];
-  result.layoutData = JSON.parse(payload.args[1]);
+  const path = payload.args[0];
+  const layoutData = JSON.parse(payload.args[1]);
   const viewBag = JSON.parse(payload.args[2]);
-  result.dictionary = viewBag.dictionary;
-  result.language = viewBag.language;
 
-  return result;
+  return {
+    path,
+    layoutData,
+    language: viewBag.language,
+    dictionary: viewBag.dictionary,
+  };
 }

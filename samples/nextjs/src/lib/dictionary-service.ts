@@ -5,19 +5,16 @@ import { dataFetcher } from './data-fetcher';
 export class DictionaryService {
   constructor(private apiHost: string, private apiKey: string, private jssAppName: string) {}
 
-  async fetchDictionaryData(language: string): Promise<DictionaryPhrases | null> {
+  async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
     const dictionaryServiceUrl = `${this.apiHost}/sitecore/api/jss/dictionary/${this.jssAppName}/${language}?sc_apikey=${this.apiKey}`;
     const response = await dataFetcher<DictionaryServiceData>(dictionaryServiceUrl);
-    if (response.data?.phrases) {
-      return response.data.phrases;
-    }
-    return null;
+    return response.data.phrases;
   }
 }
 
-const configBasedDictionaryService = new DictionaryService(
+const dictionaryService = new DictionaryService(
   config.sitecoreApiHost,
   config.sitecoreApiKey,
   config.jssAppName
 );
-export { configBasedDictionaryService };
+export { dictionaryService };
