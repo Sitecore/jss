@@ -38,7 +38,7 @@ export {
   FormTrackerOptions,
   TrackingEvent,
   createFetchBasedTrackerFetcher,
-  TrackerFetcher
+  TrackerFetcher,
 } from './FormTracker';
 
 export { FormResult, FieldValidationErrors } from './FormResult';

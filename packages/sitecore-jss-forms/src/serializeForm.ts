@@ -15,13 +15,15 @@ import { FileInputViewModel, instanceOfInputViewModel } from './ViewModel';
 
 export interface SerializeFormOptions {
   submitButtonName?: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fieldValueParser?: (field: FormField<any>) => string | string[] | boolean;
 }
 
 /**
  * Serializes a Sitecore Form data into a format ready to POST to the server.
- * @param form The form schema data from the server
- * @param submitButtonName The name of the submit button that was clicked. Excludes other buttons from serialization. If not passed, all buttons are serialized.
+ * @param {SitecoreForm} form The form schema data from the server
+ * @param {SerializeFormOptions} [options]
+ * @returns {JssFormData} form data
  */
 export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions): JssFormData {
   if (!options) {
@@ -43,13 +45,14 @@ export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions
   return result;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function pushFields(result: JssFormData, fields: Array<FormField<any>>, options: SerializeFormOptions) {
   fields.forEach((field) => {
     if (
       instanceOfButtonFormField(field) &&
       (!options.submitButtonName || field.buttonField.name === options.submitButtonName)
     ) {
-      pushField(result, field.buttonField, (field.model as any).title);
+      pushField(result, field.buttonField, field.model.title);
       pushField(result, field.navigationButtonsField);
       pushField(result, field.navigationStepField);
     } else if (instanceOfValueFormField(field)) {

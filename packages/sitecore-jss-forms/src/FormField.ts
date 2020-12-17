@@ -5,6 +5,7 @@ export interface FormField<TViewModel extends ViewModel = ViewModel> {
   model: TViewModel;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function instanceOfFormField<T extends ViewModel>(object: any): object is FormField<T> {
   return 'model' in object;
 }

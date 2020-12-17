@@ -16,8 +16,8 @@ export function createFetchBasedFormFetcher(options?: RequestInit): FormFetcher 
     // Browser set 'Content-Type' automatically with multipart/form-data; boundary
     ...options,
   })
-  .then((res) => res.json())
-  .then((res) => res as FormResult);
+    .then((res) => res.json())
+    .then((res) => res as FormResult);
 }
 
 export function submitForm(formData: JssFormData, endpoint: string, options?: FormSubmitOptions): Promise<FormResult> {

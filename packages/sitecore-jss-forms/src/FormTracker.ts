@@ -19,7 +19,8 @@ enum EventIds {
   FieldError = 'ea27aca5-432f-424a-b000-26ba5f8ae60a',
 }
 
-export type TrackerFetcher = (formData: TrackingEvent[], endpoint: string) => Promise<{}> | void;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type TrackerFetcher = (formData: TrackingEvent[], endpoint: string) => Promise<any> | void;
 
 export interface FormTrackerOptions {
   endpoint: string;
@@ -49,7 +50,12 @@ export class FormTracker {
     this._endpoint = options.endpoint;
   }
 
-  /** Should be called prior to pushing any events, and again whenever new form schema data is received */
+  /**
+	 * Should be called prior to pushing any events, and again whenever new form schema data is received
+	 * @param {string} formId
+	 * @param {string} formSessionId
+	 * @param {string} enableTracking
+	*/
   setFormData(formId: string, formSessionId: string, enableTracking: boolean) {
     this._formId = formId;
     this._formSessionId = formSessionId;
@@ -157,12 +163,12 @@ export class FormTracker {
     }
 
     return {
-        formId: this._formId,
-        sessionId: this._formSessionId,
-        eventId,
-        fieldId: field.fieldIdField.value,
-        duration,
-        fieldName: field.model.name,
+      formId: this._formId,
+      sessionId: this._formSessionId,
+      eventId,
+      fieldId: field.fieldIdField.value,
+      duration,
+      fieldName: field.model.name,
     };
   }
 
