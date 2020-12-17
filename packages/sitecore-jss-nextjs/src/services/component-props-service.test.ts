@@ -2,6 +2,7 @@ import { ComponentRendering, PlaceholdersData } from '@sitecore-jss/sitecore-jss
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';
+import { NextPageContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { ComponentPropsService, ComponentPropsRequest } from './component-props-service';
 
@@ -176,6 +177,42 @@ describe('ComponentPropsService', () => {
     });
   });
 
+  it('fetchInitialComponentProps', async () => {
+    const ssgModules: { [componentName: string]: any } = {
+      namex11: {
+        getInitialProps: fetchFn('x11InitialPropsData'),
+      },
+      namex14: {
+        getInitialProps: fetchFn('x14InitialPropsData'),
+      },
+      MyCustomComponent: {
+        getInitialProps: fetchFn('myCustomComponentInitialPropsData'),
+      },
+      namex24: {
+        getInitialProps: fetchFn('x24InitialPropsData'),
+      },
+    };
+
+    const context = {} as NextPageContext;
+
+    const ssgComponentModule = (componentName: string) => ssgModules[componentName];
+
+    const result = await service.fetchInitialComponentProps({
+      componentModule: ssgComponentModule,
+      context,
+      layoutData,
+    });
+
+    expect(result).to.deep.equal({
+      x11: 'x11InitialPropsData',
+      x14: 'x14InitialPropsData',
+      x16: 'myCustomComponentInitialPropsData',
+      x161: 'myCustomComponentInitialPropsData',
+      x23: 'myCustomComponentInitialPropsData',
+      x24: 'x24InitialPropsData',
+    });
+  });
+
   it('fetchComponentProps', async () => {
     const fetchedData = await service.fetchComponentProps<CustomContext>(
       fetchFunctionFactory,
@@ -284,7 +321,7 @@ describe('ComponentPropsService', () => {
         context
       );
     });
-  
+
     it('one of them rejected', async () => {
       const requests: ComponentPropsRequest<CustomContext>[] = [
         req(11, 'x1'),
@@ -297,7 +334,7 @@ describe('ComponentPropsService', () => {
       expect(result).to.deep.equal({
         x1: 11,
         x2: {
-          error: 'You do not have access rights to load data for this component'
+          error: 'You do not have access rights to load data for this component',
         },
         x3: 33,
       });
@@ -328,8 +365,8 @@ describe('ComponentPropsService', () => {
         layoutData,
         context
       );
-    })
-  
+    });
+
     it('one of them does not have uid', async () => {
       const requests: ComponentPropsRequest<CustomContext>[] = [
         req(11, 'x1'),
@@ -363,7 +400,7 @@ describe('ComponentPropsService', () => {
         layoutData,
         context
       );
-    })
+    });
   });
 
   describe('flatRenderings', () => {

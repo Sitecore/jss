@@ -1,9 +1,15 @@
 import { NextPageContext } from 'next';
 import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
-import { SitecoreContext, EditingRequest } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  SitecoreContext,
+  EditingRequest,
+  ComponentPropsService,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
-import { componentFactory } from 'temp/componentFactory';
+import { componentFactory, componentModule } from 'temp/componentFactory';
+
+const componentPropsService = new ComponentPropsService();
 
 const SitecorePage = ({ layoutData }: SitecorePageProps): JSX.Element => {
   if (!layoutData?.sitecore?.route) {
@@ -37,6 +43,15 @@ SitecorePage.getInitialProps = async (context: NextPageContext) => {
     dictionary: data.dictionary,
     componentProps: {},
   };
+
+  if (props?.layoutData?.sitecore.route) {
+    // Retrieve component props using side-effects defined on components level
+    props.componentProps = await componentPropsService.fetchInitialComponentProps({
+      layoutData: props.layoutData,
+      context,
+      componentModule,
+    });
+  }
 
   //TODO: implement getInitialProps-compatible component props functionality
   // if (props.layoutData) {
