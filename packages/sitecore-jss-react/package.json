@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react",
-  "version": "16.0.0-canary.5",
+  "version": "16.0.0-canary.6",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -59,7 +59,7 @@
     "react-dom": "^16.9.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.5",
+    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.6",
     "prop-types": "^15.7.2",
     "style-attr": "^1.3.0"
   },

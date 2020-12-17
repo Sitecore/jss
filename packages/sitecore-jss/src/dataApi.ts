@@ -93,6 +93,8 @@ const resolveLayoutServiceUrl = (options: LayoutServiceConfig = {}, verb: string
 
 /**
  * Makes a request to Sitecore Layout Service for the specified route item path.
+ * @deprecated Will be removed in a future release. Please use LayoutService.fetchLayoutData instead,
+ * @see {LayoutService} - fetchLayoutData
  */
 export function fetchRouteData(
   itemPath: string,
@@ -111,6 +113,8 @@ export function fetchRouteData(
 /**
  * Makes a request to Sitecore Layout Service for the specified placeholder in
  * a specific route item. Allows you to retrieve rendered data for individual placeholders instead of entire routes.
+ * @deprecated Will be removed in a future release. Please use LayoutService.fetchPlaceholderData instead,
+ * @see {LayoutService} - fetchPlaceholderData
  */
 export function fetchPlaceholderData(
   placeholderName: string,
