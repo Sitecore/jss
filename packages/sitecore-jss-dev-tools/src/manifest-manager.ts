@@ -27,13 +27,14 @@ export class ManifestManager {
   rootPath: string;
   watcher?: FSWatcher;
   watcherSourcePaths: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   manifestArgs: any;
 
   constructor({
     rootPath = process.cwd(),
     sourceFiles = [
       './sitecore/definitions/**/*.sitecore.js',
-      './sitecore/definitions/**/*.sitecore.ts',
+      './sitecore/definitions/**/*.sitecore.ts'
     ],
     watchOnlySourceFiles = [],
     requireArg = './sitecore/definitions/config.js',

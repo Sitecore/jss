@@ -2,7 +2,7 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 import path from 'path';
 
-const IS_HIDDEN_FILE = (file: string): boolean => path.basename(file).startsWith('.')
+const IS_HIDDEN_FILE = (file: string): boolean => path.basename(file).startsWith('.');
 
 const tryParseJsonOrYaml = (jsonString: string) => {
   try {
@@ -21,15 +21,17 @@ const tryParseJsonOrYaml = (jsonString: string) => {
 export interface FileResult {
   filename: string;
   path: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   contents: any;
 }
 
-export type CustomFileParser = (filePath: string, contents: string) => any | null;
+export type CustomFileParser = (filePath: string, contents: string) => unknown | null;
 
 const processFileSync = (filePath: string, parseFileContents?: CustomFileParser): FileResult | null => {
   // if no encoding is specified, readFileSync returns a buffer instead of a string
   const contents = fs.readFileSync(filePath, 'utf8');
   if (contents) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let contentObject: any;
 
     if (parseFileContents) {
@@ -62,8 +64,9 @@ const readDirSync = (dir: string) => {
     dirList: [],
   };
 
-  if (IS_HIDDEN_FILE(dir))
+  if (IS_HIDDEN_FILE(dir)) {
     return result;
+  }
 
   const list = fs.readdirSync(dir);
   if (!list) {
@@ -73,8 +76,9 @@ const readDirSync = (dir: string) => {
   list.forEach((file: string) => {
     const filePath = path.join(dir, file);
 
-    if (IS_HIDDEN_FILE(file))
+    if (IS_HIDDEN_FILE(file)) {
       return;
+    }
 
     const stats = fs.statSync(filePath);
 

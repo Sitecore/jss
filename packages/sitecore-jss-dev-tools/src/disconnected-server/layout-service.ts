@@ -1,5 +1,8 @@
+/* eslint-disable */
+
 import { ManifestInstance, RouteDefinition } from '@sitecore-jss/sitecore-jss-manifest';
 import chalk from 'chalk';
+import {Request, Response} from 'express';
 import { CustomizeRenderFunction, DisconnectedLayoutServiceOptions } from './DisconnectedLayoutServiceOptions';
 
 /*
@@ -219,6 +222,7 @@ export function remapFieldsArrayToFieldsObject(input: any) {
   }, {});
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function convertManifestLayoutDataToLayoutServiceFormat(manifestLayout: any, placeholders: string[], currentManifest: ManifestInstance, request: any, response: any, customizeHook?: CustomizeRenderFunction) {
   const result: any = {};
 
@@ -312,8 +316,8 @@ export function createDisconnectedLayoutService({
   console.log(`🔌  Disconnected ${chalk.red('Layout Service')} initializing...⏳`);
 
   const service = {
-    middleware: async function disconnectedLayoutServiceMiddleware(request: any, response: any) {
-      const language = request.query.sc_lang ? request.query.sc_lang : 'en';
+    middleware: async function disconnectedLayoutServiceMiddleware(request: Request, response: Response) {
+      const language = (request.query.sc_lang ? request.query.sc_lang : 'en') as string;
       const routePath = request.query.item;
 
       // check to see if the language is different than what we have loaded, and if so change it
@@ -349,7 +353,7 @@ export function createDisconnectedLayoutService({
       }
 
       // lookup route data
-      const rawRoute = getRouteData(routePath, currentManifest);
+      const rawRoute = getRouteData(routePath as string, currentManifest);
       let route;
 
       if (rawRoute) {

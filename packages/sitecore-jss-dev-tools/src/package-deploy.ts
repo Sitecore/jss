@@ -39,7 +39,7 @@ function applyCertPinning(req: request.Request, options: PackageDeployOptions) {
 function normalizeFingerprint(fp: string): string {
   //
   // The fingerprint for a certificate is a 20-byte value.
-  // Such values are typically expressed as strings, but 
+  // Such values are typically expressed as strings, but
   // there are many different formats that may be used.
   //
   // For example, the following values all represent
@@ -54,7 +54,7 @@ function normalizeFingerprint(fp: string): string {
   // function implements the logic for that conversion.
   return fp.toLowerCase().replace(new RegExp(':', 'g'),'');
 }
-function doFingerprintsMatch(fp1:string, fp2:string): boolean {
+function doFingerprintsMatch(fp1: string, fp2: string): boolean {
   return normalizeFingerprint(fp1) === normalizeFingerprint(fp2);
 }
 async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
@@ -266,5 +266,5 @@ export async function packageDeploy(options: PackageDeployOptions) {
 
     applyCertPinning(req, options);
   })
-  .then((taskName) => watchJobStatus(options, taskName));
+    .then((taskName) => watchJobStatus(options, taskName));
 }

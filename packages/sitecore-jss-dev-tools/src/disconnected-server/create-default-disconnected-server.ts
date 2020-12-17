@@ -34,6 +34,7 @@ export interface DisconnectedServerOptions {
    * Express-like server instance to attach to. Defaults to a new Express instance if not passed.
    * Extra middleware, etc can be attached before passing the option.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   server?: any;
 
   /**
@@ -50,6 +51,7 @@ export interface DisconnectedServerOptions {
    * Hook function that is called after the disconnected server middleware is registered with the server,
    * but before the server starts listening. Useful to add your own middleware after the disconnected middleware.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   afterMiddlewareRegistered?: (server: any) => void;
 
   /**

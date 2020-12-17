@@ -12,7 +12,7 @@ export {
   DisconnectedLayoutServiceOptions,
   CustomizeContextFunction,
   CustomizeRenderFunction,
-  CustomizeRouteFunction
+  CustomizeRouteFunction,
 } from './disconnected-server/DisconnectedLayoutServiceOptions';
 export { createDisconnectedDictionaryService, DisconnectedDictionaryServiceOptions } from './disconnected-server/dictionary-service';
 export { createDefaultDocumentMiddleware, DefaultDocumentMiddlewareOptions } from './disconnected-server/default-document';

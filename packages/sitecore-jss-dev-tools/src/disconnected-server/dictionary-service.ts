@@ -1,4 +1,6 @@
-import { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+/* eslint-disable */
+
+import { DictionaryDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
 
 /*
   Implements a fake version of the Sitecore JSS Dictionary Service that is powered by a local manifest file
@@ -10,9 +12,9 @@ export interface DictionaryServiceOutput {
   phrases: { [k: string]: string };
 }
 
-function defaultCustomizeDictionary(dictionary: any, language: string, appName: string) {
+function defaultCustomizeDictionary(dictionary: DictionaryDefinition[], language: string, appName: string) {
   // turn dictionary from { key: foo, value: bar } into { foo: bar }
-  const finalDictionary = dictionary.reduce((result: any, current: { key: string, value: string }) => {
+  const finalDictionary = dictionary.reduce((result: { [key: string]: unknown }, current: { key: string, value: string }) => {
     // eslint-disable-next-line no-param-reassign
     result[current.key] = current.value;
     return result;
@@ -42,7 +44,7 @@ export function createDisconnectedDictionaryService({
   customizeDictionary,
   manifestLanguageChangeCallback,
 }: DisconnectedDictionaryServiceOptions) {
-  let currentManifest = manifest;
+  let currentManifest: ManifestInstance = manifest;
 
   const service = {
     middleware: async function disconnectedLayoutServiceMiddleware(request: any, response: any) {

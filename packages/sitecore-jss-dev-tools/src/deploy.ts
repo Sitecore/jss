@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import del from 'del';
-import fsExtra from 'fs-extra';
+import fsExtra, { CopyOptionsSync } from 'fs-extra';
 import path from 'path';
 
 export interface DeployOptions {
@@ -19,7 +19,7 @@ export function deploy(options: DeployOptions) {
     fsExtra.ensureDirSync(options.destinationPath);
   }
 
-  const copyOptions: any = {};
+  const copyOptions: CopyOptionsSync = {};
   if (options.excludeFile) {
     if (typeof options.excludeFile === 'string') {
       copyOptions.filter = (src: string) => {

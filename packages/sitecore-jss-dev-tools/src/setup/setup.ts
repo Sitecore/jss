@@ -22,7 +22,7 @@ function getInteractiveData(
   examplePrompt: string,
   validation?: RegExp,
   validationMessage?: string,
-  skipValidationIfNonInteractive: boolean = false
+  skipValidationIfNonInteractive = false
 ): string {
   if (!allowInteraction && !initialData && !skipValidationIfNonInteractive) {
     throw new Error(`Non interactive mode specified and ${paramName} not provided.`);
@@ -191,7 +191,7 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
      + Math.random().toString(36).substring(2, 15)
      + Math.random().toString(36).substring(2, 15);
 
-    console.log(`Deployment secret has been generated. Ensure the JSS app config on the Sitecore end has the same secret set.`);
+    console.log('Deployment secret has been generated. Ensure the JSS app config on the Sitecore end has the same secret set.');
   }
 
   if (configObject.deploySecret) {
@@ -207,13 +207,13 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
         console.log('Ensure this configuration is deployed to Sitecore.');
       } else {
         console.log(chalk.yellow(`Unable to resolve JSS app name in ${appConfig}`));
-        console.log(chalk.yellow(`For deployment to succeed the app's 'deploySecret' must be set in a Sitecore config patch similar to:`));
+        console.log(chalk.yellow('For deployment to succeed the app\'s \'deploySecret\' must be set in a Sitecore config patch similar to:'));
         console.log(createSecretPatchContents('YOUR-JSS-APP-NAME-HERE', configObject.deploySecret));
         console.log('');
       }
     } else {
-      console.log(chalk.yellow(`No JSS config patches were in ./sitecore/config to get the JSS app name from.`));
-      console.log(chalk.yellow(`For deployment to succeed the app's 'deploySecret' must be set in a Sitecore config patch similar to:`));
+      console.log(chalk.yellow('No JSS config patches were in ./sitecore/config to get the JSS app name from.'));
+      console.log(chalk.yellow('For deployment to succeed the app\'s \'deploySecret\' must be set in a Sitecore config patch similar to:'));
       console.log(createSecretPatchContents('YOUR-JSS-APP-NAME-HERE', configObject.deploySecret));
       console.log('');
     }

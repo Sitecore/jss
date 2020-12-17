@@ -1,3 +1,5 @@
+import { Request, Response, NextFunction } from 'express';
+
 /*
   Implements middleware that returns the app index.html for route requests
 */
@@ -7,7 +9,7 @@ export interface DefaultDocumentMiddlewareOptions {
 }
 
 export function createDefaultDocumentMiddleware({ indexFilePath }: DefaultDocumentMiddlewareOptions) {
-  return function defaultDocumentMiddleware(req: any, res: any, next: any) {
+  return function defaultDocumentMiddleware(req: Request, res: Response, next: NextFunction) {
     if (req.path === '/favicon.ico' || req.path.endsWith('.map')) {
       next();
       return;

@@ -8,7 +8,7 @@ export function digest(path: string): Promise<string> {
 
     createReadStream(path)
       .pipe(hash.setEncoding('base64'))
-      .on('error', (err: any) => reject(err))
+      .on('error', (err: unknown) => reject(err))
       .on('finish', () => resolve(hash.read() as string));
   });
 }
