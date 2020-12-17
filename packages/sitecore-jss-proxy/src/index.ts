@@ -53,7 +53,7 @@ async function renderAppToResponse(
   proxyResponse.headers['content-type'] = 'text/html; charset=utf-8';
 
   // remove IIS server header for security
-  delete proxyResponse.headers['server'];
+  delete proxyResponse.headers.server;
 
   if (config.setHeaders) {
     config.setHeaders(request, serverResponse, proxyResponse);
@@ -87,7 +87,6 @@ async function renderAppToResponse(
 
     return true;
   };
-
 
 
   async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
@@ -187,7 +186,7 @@ async function renderAppToResponse(
         result.status = 302;
       }
 
-      proxyResponse.headers['location'] = result.redirect;
+      proxyResponse.headers.location = result.redirect;
     }
 
     const finalStatusCode = result.status || proxyResponse.statusCode || HttpStatus.OK;
@@ -355,7 +354,7 @@ export function rewriteRequestPath(
       }
 
       if (config.debug) {
-        console.log(`DEBUG: parseRouteUrl() result`, routeParams);
+        console.log('DEBUG: parseRouteUrl() result', routeParams);
       }
     }
   }
@@ -375,7 +374,7 @@ export function rewriteRequestPath(
   return path;
 }
 
-function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean = false): boolean {
+function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false): boolean {
   if (config.pathRewriteExcludePredicate && config.pathRewriteExcludeRoutes) {
     console.error(
       'ERROR: pathRewriteExcludePredicate and pathRewriteExcludeRoutes were both provided in config. Provide only one.'
@@ -431,7 +430,7 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
 
 function handleProxyRequest(proxyReq: any, req: any, res: ServerResponse, config: ProxyConfig,
   customOnProxyReq: ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void) | undefined) {
-      
+
   // if a HEAD request, we still need to issue a GET so we can return accurate headers
   // proxyReq defined as 'any' to allow us to mutate this
   if (proxyReq.method === 'HEAD' && !isUrlIgnored(req.originalUrl, config, true)) {

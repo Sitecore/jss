@@ -7,7 +7,7 @@ describe('removeEmptyAnalyticsCookie', () => {
     const mockResponse = {
       headers: {
         'set-cookie': [
-          'SC_ANALYTICS_GLOBAL_COOKIE=; expires=Wed, 17-Mar-2027 14:28:58 GMT; path=/; HttpOnly',
+          'SC_ANALYTICS_GLOBAL_COOKIE=; expires=Wed, 17-Mar-2027 14:28:58 GMT; path=/; HttpOnly'
         ],
       },
     };
