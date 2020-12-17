@@ -1,3 +1,6 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+/* eslint-disable no-unused-expressions */
+
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import { LayoutService } from './layout-service';
@@ -58,7 +61,7 @@ describe('LayoutService', () => {
         },
         {
           'set-cookie': 'test-set-cookie-value',
-        },
+        }
       ];
     });
 
@@ -87,8 +90,8 @@ describe('LayoutService', () => {
     });
 
     return service.fetchLayoutData('/home', 'da-DK', req, res).then((layoutServiceData: any) => {
-      expect(layoutServiceData.headers['cookie']).to.equal('test-cookie-value');
-      expect(layoutServiceData.headers['referer']).to.equal('http://sctest');
+      expect(layoutServiceData.headers.cookie).to.equal('test-cookie-value');
+      expect(layoutServiceData.headers.referer).to.equal('http://sctest');
       expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
       expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
 
@@ -115,7 +118,7 @@ describe('LayoutService', () => {
         },
         {
           'set-cookie': 'test-set-cookie-value',
-        },
+        }
       ];
     });
 
@@ -144,8 +147,8 @@ describe('LayoutService', () => {
     });
 
     return service.fetchLayoutData('/home', 'da-DK', req, res).then((layoutServiceData: any) => {
-      expect(layoutServiceData.headers['cookie']).to.equal('test-cookie-value');
-      expect(layoutServiceData.headers['referer']).to.equal('http://sctest');
+      expect(layoutServiceData.headers.cookie).to.equal('test-cookie-value');
+      expect(layoutServiceData.headers.referer).to.equal('http://sctest');
       expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
       expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
 
@@ -200,11 +203,11 @@ describe('LayoutService', () => {
         {
           name: 'x1',
           path: 'x1/x2',
-          elements: []
+          elements: [],
         },
         {
           'set-cookie': 'test-set-cookie-value',
-        },
+        }
       ];
     });
 
@@ -236,11 +239,11 @@ describe('LayoutService', () => {
       expect(placeholderData).to.deep.equal({
         name: 'x1',
         path: 'x1/x2',
-        elements: []
+        elements: [],
       });
       expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
     });
-  })
+  });
 
   it('should fetch placeholder data using custom fetcher resolver', () => {
     const fetcherSpy = spy((url: string) => {
@@ -251,7 +254,7 @@ describe('LayoutService', () => {
       return [200, {
         name: 'x1',
         path: 'x1/x2',
-        elements: []
+        elements: [],
       }];
     });
 
@@ -266,7 +269,7 @@ describe('LayoutService', () => {
       expect(placeholderData).to.deep.equal({
         name: 'x1',
         path: 'x1/x2',
-        elements: []
+        elements: [],
       });
 
       expect(fetcherSpy).to.be.called.once;
@@ -274,5 +277,5 @@ describe('LayoutService', () => {
         'http://sctest/sitecore/api/layout/placeholder/jss?placeholderName=superPh&item=%2Fxxx&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
       );
     });
-  })
+  });
 });

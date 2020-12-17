@@ -1,4 +1,4 @@
-/* tslint:disable:no-unused-expression max-line-length */
+/* eslint-disable no-unused-expressions */
 
 // what is `import x = require('x');`? great question: https://github.com/Microsoft/TypeScript/issues/5073
 import chai = require('chai');
@@ -16,48 +16,50 @@ describe('findEditorImageTag', () => {
     const imgTag = '<img src=\"http:\/\/jssadvancedapp\/sitecore\/shell\/-\/media\/JssAdvancedApp\/assets\/img\/portfolio\/1.ashx?h=350&amp;la=en&amp;w=650&amp;hash=CC5043DC03C6C27F40EDB08CF84AB8670C05D63D\" alt=\"\" width=\"650\" height=\"350\" \/>';
     /* eslint-enable no-useless-escape */
 
-    const imgMatch = findEditorImageTag(editableField) as any;
+    const imgMatch = findEditorImageTag(editableField);
 
-    expect(imgMatch.imgTag).to.equal(imgTag);
-    expect(Object.keys(imgMatch.attrs).length).to.equal(4);
-    expect(imgMatch.attrs['width']).to.equal('650');
-    expect(imgMatch.attrs['height']).to.equal('350');
-    expect(imgMatch.attrs['alt']).to.be.empty; // eslint-disable-line no-unused-expressions
-    expect(imgMatch.attrs['src']).to.startsWith('http://jssadvancedapp');
-    expect(imgMatch.attrs['src']).to.endsWith('CC5043DC03C6C27F40EDB08CF84AB8670C05D63D');
-    expect(imgMatch.attrs['src']).to.not.contain('&amp;');
+    expect(imgMatch).to.not.be.undefined;
+
+    expect(imgMatch?.imgTag).to.equal(imgTag);
+    expect(imgMatch && Object.keys(imgMatch.attrs).length).to.equal(4);
+    expect(imgMatch?.attrs.width).to.equal('650');
+    expect(imgMatch?.attrs.height).to.equal('350');
+    expect(imgMatch?.attrs.alt).to.be.empty; // eslint-disable-line no-unused-expressions
+    expect(imgMatch?.attrs.src).to.startsWith('http://jssadvancedapp');
+    expect(imgMatch?.attrs.src).to.endsWith('CC5043DC03C6C27F40EDB08CF84AB8670C05D63D');
+    expect(imgMatch?.attrs.src).to.not.contain('&amp;');
   });
 
   it('should decode html entities', () => {
     const editableField = '<input><code><img lorem="&amp;&gt;&lt;" /></code></input>';
-    const imgMatch = findEditorImageTag(editableField) as any;
-    expect(imgMatch.attrs['lorem']).to.equal('&><');
+    const imgMatch = findEditorImageTag(editableField);
+    expect(imgMatch?.attrs.lorem).to.equal('&><');
   });
 });
 
 describe('getRequiredParams', () => {
   it('should return required query string params', () => {
-    const parsedQs = { 
+    const parsedQs = {
       rev: '11',
       db: '22',
       xxx: 'ppp',
       la: '33',
       vs: '44',
       ts: '55',
-      yyy: 'vvv'
-    }
+      yyy: 'vvv',
+    };
 
     const params = getRequiredParams(parsedQs);
-    
+
     expect(params).to.deep.equal({
       rev: '11',
       db: '22',
       la: '33',
       vs: '44',
-      ts: '55'
-    })
-  })
-})
+      ts: '55',
+    });
+  });
+});
 
 describe('updateImageUrl', () => {
   it('should override parameters with those provided', () => {
@@ -90,7 +92,7 @@ describe('updateImageUrl', () => {
       const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/-/jssmedia/');
-    })
+    });
 
     it('should replace /~assets/ with /~/jssmedia', () => {
       const original = 'http://sitecore/~assets/lorem/ipsum.jpg';
@@ -98,7 +100,7 @@ describe('updateImageUrl', () => {
       const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/~/jssmedia/');
-    })
+    });
 
     it('should replace /-/assets/ with /-/jssmedia/', () => {
       const original = 'http://sitecore/-/assets/lorem/ipsum.jpg';
@@ -106,7 +108,7 @@ describe('updateImageUrl', () => {
       const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/-/jssmedia/');
-    })
+    });
 
     it('should replace /~/assets/ with /~/jssmedia/', () => {
       const original = 'http://sitecore/~/assets/lorem/ipsum.jpg';
@@ -114,7 +116,7 @@ describe('updateImageUrl', () => {
       const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/~/jssmedia/');
-    })
+    });
   });
 
   it('should merge querystring and params', () => {
@@ -123,17 +125,17 @@ describe('updateImageUrl', () => {
     const parsed = updateImageUrl(src, params);
     const url = URL(parsed, {}, true);
 
-    expect(url.toString()).equal('/media/lorem/ipsum.jpg?y=valueY&z=valueZ&rev=109010&db=333&la=444&vs=555&ts=666')
+    expect(url.toString()).equal('/media/lorem/ipsum.jpg?y=valueY&z=valueZ&rev=109010&db=333&la=444&vs=555&ts=666');
     expect(url.query).deep.equal({
       y: 'valueY',
-			z: 'valueZ',
-      rev: "109010",
+      z: 'valueZ',
+      rev: '109010',
       db: '333',
       la: '444',
       vs: '555',
-      ts: '666'
+      ts: '666',
     });
-  })
+  });
 });
 
 describe('getSrcSet', () => {
@@ -144,7 +146,7 @@ describe('getSrcSet', () => {
       { h: '1000', w: '1000' },
       { h: '500', w: '500' },
       { mh: '250', mw: '250' },
-      { h: '100' },
+      { h: '100' }
     ];
     const srcSet = getSrcSet(original, params);
     expect(srcSet).to.equal(expected);
@@ -155,7 +157,7 @@ describe('getSrcSet', () => {
     const expected = '/ipsum.jpg?as=1&w=1000 1000w, /ipsum.jpg?as=1&w=500 500w';
     const params = [
       { w: '1000' },
-      { w: '500' },
+      { w: '500' }
     ];
     const srcSet = getSrcSet(original, params, { as: '1', w: '9999' });
     expect(srcSet).to.equal(expected);
@@ -164,7 +166,7 @@ describe('getSrcSet', () => {
   describe('should replace url using custom mediaUrlPrefix', () => {
     const params = [
       { w: '1000' },
-      { w: '500' },
+      { w: '500' }
     ];
 
     it('should replace /-assets/ with /-/jssmedia', () => {
@@ -173,7 +175,7 @@ describe('getSrcSet', () => {
       const mediaUrlPrefix = /\/([-~]{1})assets\//i;
       const srcSet = getSrcSet(original, params, undefined, mediaUrlPrefix);
       expect(srcSet).to.equal(expected);
-    })
+    });
 
     it('should replace /~assets/ with /~/jssmedia', () => {
       const original = '/~assets/lorem/ipsum.jpg';
@@ -181,7 +183,7 @@ describe('getSrcSet', () => {
       const mediaUrlPrefix = /\/([-~]{1})assets\//i;
       const srcSet = getSrcSet(original, params, undefined, mediaUrlPrefix);
       expect(srcSet).to.equal(expected);
-    })
+    });
 
     it('should replace /-/assets/ with /-/jssmedia/', () => {
       const original = '/-/assets/lorem/ipsum.jpg';
@@ -189,7 +191,7 @@ describe('getSrcSet', () => {
       const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
       const srcSet = getSrcSet(original, params, undefined, mediaUrlPrefix);
       expect(srcSet).to.equal(expected);
-    })
+    });
 
     it('should replace /~/assets/ with /~/jssmedia/', () => {
       const original = '/~/assets/lorem/ipsum.jpg';
@@ -197,6 +199,6 @@ describe('getSrcSet', () => {
       const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
       const srcSet = getSrcSet(original, params, undefined, mediaUrlPrefix);
       expect(srcSet).to.equal(expected);
-    })
+    });
   });
 });

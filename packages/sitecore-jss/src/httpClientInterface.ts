@@ -4,7 +4,7 @@ export interface HttpResponse<T> {
   /** HTTP status text i.e. 'OK', 'Bad Request' */
   statusText: string;
   /** Parsed JSON response data from server */
-  data?: T;
+  data: T;
 }
 
 /**
@@ -16,4 +16,5 @@ export interface HttpResponse<T> {
  * - Parse response values as JSON and return them into <T>
  * - Send HTTP POST requests if `data` param is specified; GET is suggested but not required for data-less requests
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type HttpJsonFetcher<T> = (url: string, data?: { [key: string]: any }) => Promise<HttpResponse<T>>;

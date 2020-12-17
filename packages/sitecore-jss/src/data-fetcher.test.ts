@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { expect, use, spy } from 'chai';
@@ -30,7 +32,7 @@ describe('AxiosDataFetcher', () => {
 
     const fetcher = new AxiosDataFetcher();
 
-    return fetcher.fetch('/styleguide', { x: 'val1', y: 'val2' }).then((res: any) => {
+    return fetcher.fetch('/styleguide', { x: 'val1', y: 'val2' }).then((res: AxiosResponse) => {
       expect(res.status).to.equal(200);
       expect(res.data.data).to.equal('{"x":"val1","y":"val2"}');
       expect(res.data.url).to.equal('/styleguide');
@@ -46,7 +48,7 @@ describe('AxiosDataFetcher', () => {
 
     const fetcher = new AxiosDataFetcher();
 
-    return fetcher.fetch('/home').then((res: any) => {
+    return fetcher.fetch('/home').then((res: AxiosResponse) => {
       expect(res.status).to.equal(200);
       expect(res.data.data).to.equal(undefined);
       expect(res.data.url).to.equal('/home');
@@ -84,7 +86,7 @@ describe('AxiosDataFetcher', () => {
 
     const fetcher = new AxiosDataFetcher(config);
 
-    return fetcher.fetch('/home').then((res: any) => {
+    return fetcher.fetch('/home').then((res: AxiosResponse) => {
       expect(res.status).to.equal(204);
       expect(res.data.auth).to.deep.equal({
         username: 'xxx',
@@ -107,7 +109,7 @@ describe('AxiosDataFetcher', () => {
         },
         {
           'set-cookie': 'test-set-cookie-value',
-        },
+        }
       ];
     });
 
@@ -122,7 +124,7 @@ describe('AxiosDataFetcher', () => {
       },
     } as IncomingMessage;
 
-    const setHeaderSpy: any = spy();
+    const setHeaderSpy: (name: string, value: number | string | string[]) => void = spy();
 
     const res = {
       setHeader: setHeaderSpy,
@@ -134,8 +136,8 @@ describe('AxiosDataFetcher', () => {
         'test-req-header': 'test-req-header-value',
       };
 
-      expect(config.headers.common['cookie']).to.equal('test-cookie-value');
-      expect(config.headers.common['referer']).to.equal('http://sctest');
+      expect(config.headers.common.cookie).to.equal('test-cookie-value');
+      expect(config.headers.common.referer).to.equal('http://sctest');
       expect(config.headers.common['user-agent']).to.equal('test-user-agent-value');
       expect(config.headers.common['X-Forwarded-For']).to.equal('192.168.1.10');
       expect(config.headers.common['test-req-header']).to.equal('test-req-header-value');
@@ -161,10 +163,10 @@ describe('AxiosDataFetcher', () => {
 
     const fetcher = new AxiosDataFetcher(config);
 
-    return fetcher.fetch('/home', undefined, req, res).then((res: any) => {
+    return fetcher.fetch('/home', undefined, req, res).then((res: AxiosResponse) => {
       expect(res.status).to.equal(200);
-      expect(res.data.headers['cookie']).to.equal('test-cookie-value');
-      expect(res.data.headers['referer']).to.equal('http://sctest');
+      expect(res.data.headers.cookie).to.equal('test-cookie-value');
+      expect(res.data.headers.referer).to.equal('http://sctest');
       expect(res.data.headers['user-agent']).to.equal('test-user-agent-value');
       expect(res.data.headers['X-Forwarded-For']).to.equal('192.168.1.10');
       expect(res.data.headers['test-req-header']).to.equal('test-req-header-value');

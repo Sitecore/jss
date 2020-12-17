@@ -1,4 +1,5 @@
-/* tslint:disable:no-unused-expression */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
@@ -60,7 +61,7 @@ describe('fetchRouteData', () => {
       {
         fetcher: axiosFetcher,
         layoutServiceConfig: { host: 'https://www.myhost.net' },
-        querystringParams: { sc_camp: 123456 }
+        querystringParams: { sc_camp: 123456 },
       })
       .then((data) => {
         // testData should contain the 'config' object from the mock request

@@ -2,17 +2,17 @@ import { LayoutServiceData, PlaceholderData } from './dataModels';
 import { HttpJsonFetcher, HttpResponse } from './httpClientInterface';
 
 class ResponseError extends Error {
-  constructor(message: string, response: HttpResponse<any>) {
+  response: HttpResponse<unknown>;
+
+  constructor(message: string, response: HttpResponse<unknown>) {
     super(message);
 
     Object.setPrototypeOf(this, ResponseError.prototype);
     this.response = response;
   }
-
-  response: HttpResponse<any>;
 }
 
-function checkStatus(response: HttpResponse<any>) {
+function checkStatus<T>(response: HttpResponse<T>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -24,7 +24,7 @@ function checkStatus(response: HttpResponse<any>) {
 // note: encodeURIComponent is available via browser (window) or natively in node.js
 // if you use another js engine for server-side rendering you may not have native encodeURIComponent
 // and would then need to install a package for that functionality
-function getQueryString(params: { [key: string]: any }): string {
+function getQueryString(params: { [key: string]: string | number | boolean }): string {
   return Object.keys(params)
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
     .join('&');
@@ -33,7 +33,7 @@ function getQueryString(params: { [key: string]: any }): string {
 function fetchData<T>(
   url: string,
   fetcher: HttpJsonFetcher<T>,
-  params: { [key: string]: any } = {}
+  params: { [key: string]: string | number | boolean } = {}
 ) {
   const qs = getQueryString(params);
   const fetchUrl = url.indexOf('?') !== -1 ? `${url}&${qs}` : `${url}?${qs}`;
@@ -68,7 +68,7 @@ export interface BaseRequestOptions<T> {
   /**
    * An object of key:value pairs to be stringified and used as querystring parameters.
    */
-  querystringParams?: { [key: string]: any };
+  querystringParams?: { [key: string]: string | number | boolean };
 
   /** The fetcher that performs the HTTP request and returns a promise to JSON */
   fetcher: HttpJsonFetcher<T>;
@@ -95,6 +95,9 @@ const resolveLayoutServiceUrl = (options: LayoutServiceConfig = {}, verb: string
  * Makes a request to Sitecore Layout Service for the specified route item path.
  * @deprecated Will be removed in a future release. Please use LayoutService.fetchLayoutData instead,
  * @see {LayoutService} - fetchLayoutData
+ * @param {string} itemPath
+ * @param {LayoutServiceRequestOptions<LayoutServiceData>} options
+ * @returns {Promise<LayoutServiceData>} layout data
  */
 export function fetchRouteData(
   itemPath: string,
@@ -115,6 +118,10 @@ export function fetchRouteData(
  * a specific route item. Allows you to retrieve rendered data for individual placeholders instead of entire routes.
  * @deprecated Will be removed in a future release. Please use LayoutService.fetchPlaceholderData instead,
  * @see {LayoutService} - fetchPlaceholderData
+ * @param {string} placeholderName
+ * @param {string} itemPath
+ * @param {LayoutServiceRequestOptions<PlaceholderData>} options
+ * @returns {Promise<PlaceholderData>} placeholder data
  */
 export function fetchPlaceholderData(
   placeholderName: string,

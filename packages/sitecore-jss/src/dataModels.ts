@@ -36,6 +36,7 @@ export enum LayoutServicePageState {
  * Shape of context data from the Sitecore Layout Service
  */
 export interface LayoutServiceContext {
+  [key: string]: unknown;
   pageEditing?: boolean;
   language?: string;
   pageState?: LayoutServicePageState;
@@ -43,8 +44,7 @@ export interface LayoutServiceContext {
   site?: {
     name?: string;
   };
-  [key: string]: any;
-};
+}
 
 /**
  * Context information from the Sitecore Layout Service
@@ -79,7 +79,7 @@ export interface RouteData {
  */
 export type PlaceholdersData<TYPEDNAME extends string = string> = {
   [P in TYPEDNAME]: Array<ComponentRendering | HtmlElementRendering>;
-}
+};
 
 /**
  * Content field data passed to a component
@@ -122,11 +122,11 @@ export interface HtmlElementRendering {
 /**
  * Field value data on a component
  */
-export type GenericFieldValue = string | boolean | number | { [key: string]: any } | Array<{ [key: string]: any }>;
+export type GenericFieldValue = string | boolean | number | { [key: string]: unknown } | Array<{ [key: string]: unknown }>;
 
 export interface Field<T = GenericFieldValue> {
-    value: T;
-    editable?: string;
+  value: T;
+  editable?: string;
 }
 
 /**

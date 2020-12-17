@@ -13,6 +13,8 @@ const mediaUrlPrefixRegex = /\/([-~]{1})\/media\//i;
 
 /**
  * Makes a request to Sitecore Content Service for the specified item path.
+ * @param {string} editorMarkup
+ * @returns {Object | null} found image tag
  */
 export const findEditorImageTag = (editorMarkup: string) => {
   // match the tag
@@ -24,7 +26,7 @@ export const findEditorImageTag = (editorMarkup: string) => {
   // find the attrs and turn them into a Map
   const attrs = {} as { [key: string]: string };
   let match = htmlAttrsRegex.exec(tagMatch[1]);
-  while (match != null) {
+  while (match !== null) {
     attrs[match[1]] = unescape(match[3]);
     match = htmlAttrsRegex.exec(tagMatch[1]);
   }
@@ -37,21 +39,26 @@ export const findEditorImageTag = (editorMarkup: string) => {
 
 /**
  * Get required query string params which should be merged with user params
- * @param qs layout service parsed query string
+ * @param {object} qs layout service parsed query string
+ * @returns {object} requiredParams
  */
-export const getRequiredParams = (qs: { 
-  [key: string]: string | undefined 
+export const getRequiredParams = (qs: {
+  [key: string]: string | undefined
 }) => {
   const { rev, db, la, vs, ts } = qs;
-  
-  return { rev, db, la, vs, ts }
-}
+
+  return { rev, db, la, vs, ts };
+};
 
 /**
  * Receives a Sitecore media URL and replaces `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
  * Can use `mediaUrlPrefix` in order to use custom checker.
  * This replacement allows the JSS media handler to be used for JSS app assets.
  * Also, any provided `params` are used as the querystring parameters for the media URL.
+ * @param {string} url
+ * @param {Object} [params]
+ * @param {RegExp} [mediaUrlPrefix=mediaUrlPrefixRegex]
+ * @returns {string} url
  */
 export const updateImageUrl = (
   url: string,
@@ -59,22 +66,24 @@ export const updateImageUrl = (
   mediaUrlPrefix: RegExp = mediaUrlPrefixRegex
 ) => {
   // polyfill node `global` in browser to workaround https://github.com/unshiftio/url-parse/issues/150
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if (typeof window !== 'undefined' && !(window as any).global) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).global = {};
   }
-	const parsed = URL(url, {}, true);
- 
-  const query = { ...(params || parsed.query) }
+  const parsed = URL(url, {}, true);
+
+  const query = { ...(params || parsed.query) };
 
   // In case if imageParams provided
   if (params) {
     const requiredParams = getRequiredParams(parsed.query);
-  
+
     Object.entries(requiredParams).forEach(([key, param]) => {
       if (param) {
         query[key] = param;
       }
-    })
+    });
   }
 
   parsed.set('query', query);
@@ -98,6 +107,12 @@ export const updateImageUrl = (
  * getSrcSet('/ipsum.jpg', [{ h: 1000, w: 1000 }, { mh: 250, mw: 250 } ])
  *
  * More information about `srcSet`: {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img}
+ *
+ * @param {string} url
+ * @param {Array} srcSet
+ * @param {Object} [imageParams]
+ * @param {RegExp} [mediaUrlPrefix]
+ * @returns {string} src set
  */
 export const getSrcSet = (
   url: string,
