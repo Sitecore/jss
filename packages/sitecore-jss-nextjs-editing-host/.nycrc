@@ -1,0 +1,18 @@
+{
+  "extension": [
+    ".ts"
+  ],
+  "exclude": [
+    "**/*.d.ts",
+    "**/*.test.ts",
+    "src/tests",
+    "src/testData",
+    "dist",
+    "types"
+  ],
+  "all": true,
+  "reporter": [
+    "json-summary",
+    "text"
+  ]
+}

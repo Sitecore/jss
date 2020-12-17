@@ -7,16 +7,15 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2017", "dom"],
-    "jsx": "react",
     "moduleResolution": "node",
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
     "typeRoots": ["node_modules/@types"],
-    "outDir": "dist/cjs",
+    "outDir": "dist",
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,
@@ -25,11 +24,9 @@
   "exclude": [
     "node_modules",
     "types",
-    "typings",
     "dist",
     "src/tests/*",
     "src/testData/*",
-    "**/*.test.ts",
-    "**/*.test.tsx"
+    "**/*.test.ts"
   ]
 }

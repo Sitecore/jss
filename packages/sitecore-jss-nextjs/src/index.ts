@@ -24,6 +24,8 @@ export {
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss';
 
+export * from './constants';
+
 export {
   ComponentPropsCollection,
   GetStaticComponentProps,
@@ -40,6 +42,11 @@ export {
   ComponentPropsContext,
   useComponentProps,
 } from './components/ComponentPropsContext';
+
+export { 
+  EditingData,
+  EditingRequest
+} from './sharedTypes/editing-data';
 
 export { Link } from './components/Link';
 export { RichText } from './components/RichText';
@@ -60,6 +67,7 @@ export {
   SitecoreContextState,
   SitecoreContextReactContext,
   withSitecoreContext,
+  useSitecoreContext,
   withExperienceEditorChromes,
   withPlaceholder,
 } from '@sitecore-jss/sitecore-jss-react';

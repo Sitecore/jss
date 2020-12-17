@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { withSitecoreContext, Text, RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideComponentWithContextProps } from 'lib/component-props';
+import { getPublicUrl } from 'lib/util';
 
 type StyleguideCustomRouteTypeProps = StyleguideComponentWithContextProps & {
   sitecoreContext: {
@@ -20,23 +21,29 @@ const StyleguideCustomRouteType = ({
   sitecoreContext: {
     route: { fields },
   },
-}: StyleguideCustomRouteTypeProps) => (
-  <div data-e2e-id="styleguide-customroutetype">
-    <Text tag="h3" field={fields.headline} />
+}: StyleguideCustomRouteTypeProps): JSX.Element => {
+  // Prefix next/link paths with a publicUrl to disable Next.js prefetching in the Sitecore Experience Editor.
+  // If you're not supporting the Experience Editor, you can remove this.
+  const publicUrl = getPublicUrl();
 
-    <p>
-      <em>
-        By <Text field={fields.author} />
-      </em>
-    </p>
+  return (
+    <div data-e2e-id="styleguide-customroutetype">
+      <Text tag="h3" field={fields.headline} />
 
-    <RichText field={fields.content} />
+      <p>
+        <em>
+          By <Text field={fields.author} />
+        </em>
+      </p>
 
-    <Link href="/styleguide">
-      <a>Return to the Styleguide</a>
-    </Link>
-  </div>
-);
+      <RichText field={fields.content} />
+
+      <Link href={`${publicUrl}/styleguide`}>
+        <a>Return to the Styleguide</a>
+      </Link>
+    </div>
+  );
+};
 
 // withSitecoreContext() is the magical glue that gives you route-level context access
 // see the context examples in the styleguide for more details.

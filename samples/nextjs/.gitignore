@@ -15,8 +15,8 @@
 *.graphql.d.ts
 *.graphqls.d.ts
 
-# production
-/build
+# editing server
+/.next-editing/
 
 # misc
 .DS_Store
