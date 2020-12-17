@@ -3,10 +3,12 @@ import fs from 'fs-extra';
 import path from 'path';
 
 export class FolderSource {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   argv: any;
   destinationPath: string;
   templatePath = '';
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   constructor(argv: any, destinationPath: string) {
     this.argv = argv;
     this.destinationPath = destinationPath;

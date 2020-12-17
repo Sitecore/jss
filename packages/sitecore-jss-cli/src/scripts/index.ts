@@ -17,5 +17,5 @@ export {
   deploy,
   pkg,
   manifest,
-  clean
+  clean,
 };

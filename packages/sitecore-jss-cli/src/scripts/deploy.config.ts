@@ -20,15 +20,16 @@ export const builder = {
     describe:
       // tslint:disable-next-line:max-line-length
       'Destination path to deploy to. Defaults to the \'instancePath\' set in scjssconfig.json, combined with the \'sitecoreConfigPath\' setting from package.json.',
-	},
-	config: {
-		requiresArg: false,
-		type: 'string',
-		describe: 'Path to scjssconfig file.',
-		default: './scjssconfig.json'
-	}
+  },
+  config: {
+    requiresArg: false,
+    type: 'string',
+    describe: 'Path to scjssconfig file.',
+    default: './scjssconfig.json',
+  },
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   verifySetup();
 

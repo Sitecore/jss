@@ -23,6 +23,7 @@ async function getPackageScriptCommands() {
       builder: {},
       disableStrictArgs: true,
       handler: (argv: Arguments) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if ((argv as any)._[0]) {
           runPackageScript(process.argv.slice(2));
         }

@@ -61,6 +61,7 @@ export function builder(yargs: Argv) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handler(argv: any) {
   const newProjectPath = path.join(process.cwd(), argv.name);
   const createScriptPath = path.join(newProjectPath, 'jss-create.js');
@@ -88,7 +89,7 @@ async function handler(argv: any) {
   }
 
   nextStepsList.push(`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`);
-  nextStepsList.push(`* Check out the JSS documentation at https://jss.sitecore.net`);
+  nextStepsList.push('* Check out the JSS documentation at https://jss.sitecore.net');
 
   if (!fs.existsSync(createScriptPath)) {
     console.warn(

@@ -39,13 +39,13 @@ export function args(yargs: Argv) {
       requiresArg: false,
       type: 'string',
       describe: 'The name of the app. Defaults to the package.json config value.',
-		})
-		.option('config', {
-			requiresArg: false,
-			type: 'string',
-			describe: 'Path to scjssconfig file.',
-			default: './scjssconfig.json'
-		})
+    })
+    .option('config', {
+      requiresArg: false,
+      type: 'string',
+      describe: 'Path to scjssconfig file.',
+      default: './scjssconfig.json',
+    })
     .option('deployUrl', {
       requiresArg: false,
       type: 'string',
@@ -63,10 +63,11 @@ export function args(yargs: Argv) {
       requiresArg: false,
       type: 'string',
       describe:
-        'Whitelists a specific SSL certificate thumbprint, regardless of normal SSL validation. Useful for self-signed certificates.'
+        'Whitelists a specific SSL certificate thumbprint, regardless of normal SSL validation. Useful for self-signed certificates.',
     });
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handler(argv: any) {
   // create micro-manifest to deploy from
   const fields: Array<{ name: string, type: string }> = [];

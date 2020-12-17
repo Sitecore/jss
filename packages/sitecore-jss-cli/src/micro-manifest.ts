@@ -6,6 +6,7 @@ import resolvePackage from './resolve-package';
 import { handler as manifestHandler } from './scripts/manifest';
 import { handler as packageHandler } from './scripts/package';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function microManifest(argv: { [key: string]: any }, manifestContents: string) {
   verifySetup();
 
@@ -18,9 +19,10 @@ export default async function microManifest(argv: { [key: string]: any }, manife
     throw new Error('App Name was not defined as a parameter or in the package.json config');
   }
 
-  const jssConfig = await resolveScJssConfig({ configPath: argv.config });
+  const jssConfig = await resolveScJssConfig({ configPath: argv.config as string });
 
   if (!argv.deployUrl) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const legacyConfig = jssConfig.sitecore as any;
     argv.deployUrl = legacyConfig.shipUrl
       ? legacyConfig.shipUrl
@@ -44,13 +46,17 @@ export default async function microManifest(argv: { [key: string]: any }, manife
     throw new Error('deploySecret was not defined as a parameter or in the scjssconfig.json file');
   }
 
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     tmp.dir({ unsafeCleanup: true }, async (err, tempDir, cleanupTempDir) => {
-      if (err) { reject(err); }
+      if (err) {
+        reject(err);
+      }
 
       // generate micro-manifest to deploy with
       const manifestFolder = path.join(tempDir, 'manifest');
-      if (!fs.existsSync(manifestFolder)) { fs.mkdirSync(manifestFolder); }
+      if (!fs.existsSync(manifestFolder)) {
+        fs.mkdirSync(manifestFolder);
+      }
 
       const manifestArgs = {
         manifestSourceFiles: [path.join(manifestFolder, 'tempManifestSource.js')],
@@ -66,7 +72,9 @@ export default async function microManifest(argv: { [key: string]: any }, manife
 
       // run a package deploy of our custom manifest
       const packageDir = path.join(tempDir, 'package');
-      if (!fs.existsSync(packageDir)) { fs.mkdirSync(packageDir); }
+      if (!fs.existsSync(packageDir)) {
+        fs.mkdirSync(packageDir);
+      }
 
       const packageArgs = {
         skipManifest: true,

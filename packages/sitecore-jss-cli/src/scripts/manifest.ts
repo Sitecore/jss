@@ -102,6 +102,7 @@ export const builder = {
   },
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   const packageJson = await resolvePackage();
 

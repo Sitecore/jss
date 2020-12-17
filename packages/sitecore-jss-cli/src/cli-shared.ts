@@ -12,6 +12,7 @@ export default function cli(commands: { [key: string]: CommandModule & { disable
 
   // this prevents yargs from showing help with 'jss.js' as the base command
   // when the command is just 'jss' as a global bin
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (appCommands as any).$0 = 'jss';
 
   for (const cmd of Object.keys(commands)) {

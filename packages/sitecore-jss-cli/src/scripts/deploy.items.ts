@@ -35,13 +35,13 @@ export const builder = {
       // tslint:disable-next-line:max-line-length
       'If true, skips build, manifest, and packaging steps. This can be used to consume existing output from jss package (via the packageOutputPath parameter) without rebuilding it.',
     default: false,
-	},
-	config: {
-		requiresArg: false,
-		type: 'string',
-		describe: 'Path to scjssconfig file.',
-		default: './scjssconfig.json'
-	},
+  },
+  config: {
+    requiresArg: false,
+    type: 'string',
+    describe: 'Path to scjssconfig file.',
+    default: './scjssconfig.json',
+  },
   proxy: {
     requiresArgs: false,
     type: 'string',
@@ -55,6 +55,7 @@ export const builder = {
   ...packageBuilder,
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   verifySetup();
 
@@ -70,6 +71,7 @@ export async function handler(argv: any) {
   const jssConfig = await resolveScJssConfig({ configPath: argv.config });
 
   if (!argv.deployUrl) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const legacyConfig = jssConfig.sitecore as any;
     argv.deployUrl = legacyConfig.shipUrl
       ? legacyConfig.shipUrl
@@ -93,7 +95,7 @@ export async function handler(argv: any) {
     throw new Error('deploySecret was not defined as a parameter or in the scjssconfig.json file');
   }
 
-  let continuation: Promise<any> = Promise.resolve();
+  let continuation: Promise<unknown> = Promise.resolve();
 
   if (!argv.skipPackage) {
     continuation = packageHandler(argv);

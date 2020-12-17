@@ -8,5 +8,5 @@ import * as elephant from './elephant';
 export {
   easterEgg,
   elephant,
-  create as any
+  create as any,
 };

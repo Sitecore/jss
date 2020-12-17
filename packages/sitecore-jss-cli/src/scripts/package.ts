@@ -27,6 +27,7 @@ export const builder = {
   ...manifestBuilder,
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   const packageJson = await resolvePackage();
 
@@ -37,7 +38,7 @@ export async function handler(argv: any) {
     throw new Error('App Name was not defined as a parameter or in the package.json config');
   }
 
-  let continuation: Promise<any> = Promise.resolve();
+  let continuation: Promise<unknown> = Promise.resolve();
 
   // if we need items, generate the manifest
   if (!argv.noItems && !argv.skipManifest) {
