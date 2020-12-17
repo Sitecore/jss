@@ -1,3 +1,4 @@
+import { isPlatformServer } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
@@ -14,18 +15,24 @@ import {
   OnDestroy,
   OnInit,
   Output,
+  PLATFORM_ID,
   Renderer2,
   SimpleChanges,
   Type,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
+import { Data, UrlTree, Router } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import { ComponentFactoryResult, JssComponentFactoryService } from '../jss-component-factory.service';
 import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import {
+  DataResolver,
+  DATA_RESOLVER,
+  GuardResolver,
+  GUARD_RESOLVER,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT
 } from './placeholder.token';
 import { RenderEachDirective } from './render-each.directive';
@@ -37,6 +44,11 @@ function getPlaceholder(rendering: ComponentRendering, name: string) {
     return rendering.placeholders[name];
   }
   return null;
+}
+
+export interface FactoryWithData {
+  factory: ComponentFactoryResult;
+  data?: Data;
 }
 
 @Component({
@@ -58,9 +70,9 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   @Input() rendering: ComponentRendering;
   @Input() renderings?: Array<ComponentRendering | HtmlElementRendering>;
   @Input() outputs: { [k: string]: (eventType: any) => void };
+  @Input() clientOnly = false;
 
-  @Output()
-  loaded = new EventEmitter<string | undefined>();
+  @Output() loaded = new EventEmitter<string | undefined>();
 
   @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
   @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
@@ -82,7 +94,11 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     private changeDetectorRef: ChangeDetectorRef,
     private elementRef: ElementRef,
     private renderer: Renderer2,
-    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>
+    private router: Router,
+    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>,
+    @Inject(GUARD_RESOLVER) private guardResolver: GuardResolver,
+    @Inject(DATA_RESOLVER) private dataResolver: DataResolver,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
   ngOnInit() {
@@ -141,7 +157,11 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
         .subscribe(outputs[output]));
   }
 
-  private _render() {
+  private async _render() {
+    if (this.clientOnly && isPlatformServer(this.platformId)) {
+      return;
+    }
+
     this._componentInstances = [];
     this.view.clear();
 
@@ -174,18 +194,35 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
         });
       this.isLoading = false;
     } else {
-      this.componentFactory.getComponents(placeholder)
-        .then((components) => components.forEach((rendering, index) => {
-          if (this.renderEachTemplate && !isRawRendering(rendering.componentDefinition)) {
-            this._renderTemplatedComponent(rendering.componentDefinition, index);
+      const factories = await this.componentFactory.getComponents(placeholder);
+
+      try {
+        const nonGuarded = await this.guardResolver(factories);
+        const withData = await this.dataResolver(nonGuarded);
+
+        withData.forEach((rendering, index) => {
+          if (this.renderEachTemplate && !isRawRendering(rendering.factory.componentDefinition)) {
+            this._renderTemplatedComponent(rendering.factory.componentDefinition, index);
           } else {
-            this._renderEmbeddedComponent(rendering, index);
+            this._renderEmbeddedComponent(rendering.factory, rendering.data, index);
           }
-          this.isLoading = false;
-        })).then(() => {
-          this.changeDetectorRef.markForCheck();
-          this.loaded.emit(this.name);
         });
+
+        this.isLoading = false;
+        this.changeDetectorRef.markForCheck();
+        this.loaded.emit(this.name);
+      } catch (e) {
+        this.isLoading = false;
+        if (e instanceof UrlTree) {
+          this.router.navigateByUrl(e);
+        } else if (typeof e === 'string') {
+          this.router.navigate([e]);
+        } else if (Array.isArray(e)) {
+          this.router.navigate(e);
+        } else {
+          throw e;
+        }
+      }
     }
   }
 
@@ -203,7 +240,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       });
   }
 
-  private _renderEmbeddedComponent(rendering: ComponentFactoryResult, index: number) {
+  private _renderEmbeddedComponent(rendering: ComponentFactoryResult, data: Data, index: number) {
     if (!rendering.componentImplementation) {
       const componentName = (rendering.componentDefinition as ComponentRendering).componentName;
       console.error(
@@ -229,6 +266,8 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
     const componentInstance = createdComponentRef.instance;
     componentInstance.rendering = rendering.componentDefinition;
+    componentInstance.data = data;
+
     if (this._inputs) {
       this._setComponentInputs(componentInstance, this._inputs);
     }
