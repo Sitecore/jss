@@ -1,18 +1,18 @@
-export { 
+export {
   EditingServerOptions,
-  startEditingServer
+  startEditingServer,
 } from './editing-server';
 
 export {
-  EditingMiddleware
+  EditingMiddleware,
 } from './editing-middleware';
 
 export {
   HtmlProcessor,
-  AbsolutifyHtmlProcessor
+  AbsolutifyHtmlProcessor,
 } from './html-processors';
 
 export {
   ConfigOptions,
-  config
+  config,
 } from './config';

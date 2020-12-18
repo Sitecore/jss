@@ -11,7 +11,7 @@
  */
 type IteratorFunction = (url: string, attributeName: string) => string;
 
-/*!
+/* !
  * The magic, find all occurences of `attr="/`, ignoring any `//` found,
  * ensure that the leading `/` of the url is not captured
  *
@@ -19,7 +19,7 @@ type IteratorFunction = (url: string, attributeName: string) => string;
  */
 const rx = /((href|src|codebase|cite|background|cite|action|profile|formaction|icon|manifest|archive|srcset|poster)=["'])(([.]+\/)|(?:\/))(?!\/)/g;
 
-/*!
+/* !
  * Match the same as above, but capture the full URL for iteration
  */
 const captureRx = /((href|src|codebase|cite|background|cite|action|profile|formaction|icon|manifest|archive|srcset|poster)=["'])((([.]+\/)|(?:\/))(?!\/)[^"']*)/g;
@@ -28,6 +28,9 @@ const captureRx = /((href|src|codebase|cite|background|cite|action|profile|forma
  * URL replacement using function iteration, this is handled slightly
  * different as the user will be supplied with the full attribute value
  * for replacement, and will be inserted back correctly
+ * @param {string} str
+ * @param {IteratorFunction} iterator
+ * @returns {string} result
  */
 const iterate = function (str: string, iterator: IteratorFunction): string {
   return str.replace(captureRx, (_full, prefix, prop, url) => {

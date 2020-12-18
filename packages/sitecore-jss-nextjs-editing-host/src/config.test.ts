@@ -7,14 +7,14 @@ const expect = chai.use(chaiString).expect;
 describe('config', () => {
   const publicUrl = 'http://test.com';
   const publicUrlDomain = 'test.com';
- 
+
   beforeEach(() => {
     process.env.EDITING_HOST_PUBLIC_URL = publicUrl;
-  })
+  });
 
   after(() => {
     delete process.env.EDITING_HOST_PUBLIC_URL;
-  })
+  });
 
   it('should not apply if disabled', () => {
     const withEditing = config({ enabled: false });
@@ -30,13 +30,13 @@ describe('config', () => {
     const nextConfig = withEditing();
     expect(nextConfig).to.have.property('assetPrefix').that.equal(publicUrl);
   });
-  
+
   it('should add env.publicUrl as public url', () => {
     const withEditing = config({ enabled: true });
     const nextConfig = withEditing();
     expect(nextConfig).to.have.property('env').with.property('publicUrl').that.equal(publicUrl);
   });
-  
+
   it('should override existing env.publicUrl', () => {
     const withEditing = config({ enabled: true });
     const nextConfig = withEditing({ env: { publicUrl: 'http://something.else' }});
@@ -58,7 +58,7 @@ describe('config', () => {
   it ('should concat existing images.domains', () => {
     const withEditing = config({ enabled: true });
     const nextConfig = withEditing({
-      images: { domains: ['foo'] }
+      images: { domains: ['foo'] },
     });
     expect(nextConfig).to.have.property('images').with.property('domains').that.contains('foo');
     expect(nextConfig).to.have.property('images').with.property('domains').that.contains(publicUrlDomain);
@@ -93,7 +93,7 @@ describe('config', () => {
   it('should set distDir to ".next" if primary distDir is different', () => {
     const withEditing = config({ enabled: true, distDir: '.next' });
     const nextConfig = withEditing({
-      distDir: 'build'
+      distDir: 'build',
     });
     expect(nextConfig).to.have.property('distDir').that.equal('.next');
   });

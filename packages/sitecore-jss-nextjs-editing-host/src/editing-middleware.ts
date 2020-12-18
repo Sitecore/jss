@@ -1,22 +1,25 @@
+// eslint-disable-next-line spaced-comment
 /// <reference types="../global" />
 import { parse } from 'url';
 import { Request, Response } from 'express';
 import Server from 'next/dist/next-server/server/next-server';
 import { EditingData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { HtmlProcessor } from './html-processors';
-
-/**
+export class EditingMiddleware {
+  /**
  * Express middleware for handling requests from the Sitecore Experience Editor.
  * @constructor
- * @param {object} nextApp The Next.js app.
+ * @param {Server} nextApp The Next.js app.
  * @param {string} editRoute The Next.js route to use for rendering.
  * @param {HtmlProcessor[]} [htmlProcessors] Html processors to run on rendered html.
  */
-export class EditingMiddleware {
   constructor(readonly nextApp: Server, readonly editRoute: string, readonly htmlProcessors?: HtmlProcessor[]) {}
 
   /**
    * Returns the Express request handler for Experience Editor POST requests.
+	 * @param {Request} req
+	 * @param {Response} res
+	 * @returns {Promise<void>} request handler
    */
   public getRequestHandler(): (req: Request, res: Response) => Promise<void> {
     return this.handleRequest;
@@ -52,7 +55,7 @@ export class EditingMiddleware {
       // Run any post-render processing of the html
       if (this.htmlProcessors) {
         this.htmlProcessors.forEach(processor => {
-          html = processor.processHtml(html!);
+          html = html && processor.processHtml(html);
         });
       }
 
@@ -66,7 +69,7 @@ export class EditingMiddleware {
         html: `<html><body>${err}</body></html>`,
       });
     }
-  }
+  };
 }
 
 export function extractEditingData(req: Request): EditingData {
@@ -88,9 +91,9 @@ export function extractEditingData(req: Request): EditingData {
   // req.body _should_ have already been parsed as JSON at this point (via `body-parser` middleware)
   const payload = req.body;
   if (!payload || !payload.args || !Array.isArray(payload.args) || payload.args.length < 3) {
-    throw new Error(`Unable to extract editing data from request`);
+    throw new Error('Unable to extract editing data from request');
   }
-  
+
   const result = {
     path: '',
     language: '',

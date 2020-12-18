@@ -1,4 +1,6 @@
-/// <reference types="../global" />
+/* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// / <reference types="../global" />
 import chai from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -14,7 +16,7 @@ chai.use(sinonChai);
 
 const EDIT_ROUTE = '_edit';
 
-const mockRequest = (body?: object) => {
+const mockRequest = (body?: any) => {
   return {
     method: 'POST',
     url: '/',
@@ -47,7 +49,7 @@ describe('EditingMiddleware', () => {
     expect(nextApp.renderToHTML.args[0][0].url, 'request.url').to.equal(EDIT_ROUTE);
     expect(nextApp.renderToHTML.args[0][2], 'pathname').to.equal(EDIT_ROUTE);
   });
-  
+
   it('should use custom editRoute', async () => {
     const req = mockRequest(EE_BODY);
     const res = mockResponse();
@@ -76,7 +78,7 @@ describe('EditingMiddleware', () => {
     await handler(req, res);
     expect((nextApp.renderToHTML.args[0][0] as EditingRequest).editingData, 'request.editingData').to.not.be.undefined;
   });
-  
+
   it('should return json with rendered html', async () => {
     const req = mockRequest(EE_BODY);
     const res = mockResponse();
@@ -127,7 +129,7 @@ describe('EditingMiddleware', () => {
     const res = mockResponse();
     const html = '<html></html>';
     const processor = {
-      processHtml: sinon.stub()
+      processHtml: sinon.stub(),
     } as HtmlProcessor;
 
     const nextApp = sinon.createStubInstance(Server);
@@ -160,7 +162,7 @@ describe('extractEditingData', () => {
     const data = extractEditingData(req);
     expect(data.language).to.equal(EE_LANGUAGE);
   });
-  
+
   it('should return layout data', () => {
     const req = mockRequest(EE_BODY);
     const data = extractEditingData(req);

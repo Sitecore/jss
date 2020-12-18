@@ -22,7 +22,7 @@ describe('AbsolutifyHtmlProcessor', () => {
     `;
 
     html = processor.processHtml(html);
-    
+
     expect(html).contains('http://test.local/dist/styles.css', 'link href');
     expect(html).contains('http://test.local/path/file.pdf', 'a href');
     expect(html).contains('http://test.local/logo.png', 'img src');
@@ -40,7 +40,7 @@ describe('AbsolutifyHtmlProcessor', () => {
     `;
 
     html = processor.processHtml(html);
-    
+
     expect(html).contains('http://test.local/dist/styles.css');
   });
 
@@ -56,7 +56,7 @@ describe('AbsolutifyHtmlProcessor', () => {
     `;
 
     html = processor.processHtml(html);
-    
+
     expect(html).contains('<a href="http://test.local/">');
   });
 
@@ -77,7 +77,7 @@ describe('AbsolutifyHtmlProcessor', () => {
     `;
 
     html = processor.processHtml(html);
-    
+
     expect(html).contains('href="/sitecore/shell/styles.css"');
     expect(html).contains('href="/-/media/path/file.pdf"');
     expect(html).contains('src="/~/jssmedia/logo.png"');
@@ -100,7 +100,7 @@ describe('AbsolutifyHtmlProcessor', () => {
     `;
 
     html = processor.processHtml(html);
-    
+
     expect(html).contains('href="/sitecore/shell/styles.css"');
     expect(html).contains('href="/-/media/path/file.pdf"');
     expect(html).contains('src="/~/jssmedia/logo.png"');

@@ -23,7 +23,7 @@ export const EE_DICTIONARY = '{\"entry1\":\"Entry One\",\"entry2\":\"Entry Two\"
 export const EE_BODY = {
   id: 'JssApp',
   args: [
-    EE_PATH, 
+    EE_PATH,
     EE_LAYOUT,
     `{\"language\":\"${EE_LANGUAGE}\",\"dictionary\":${EE_DICTIONARY}}`
   ],
