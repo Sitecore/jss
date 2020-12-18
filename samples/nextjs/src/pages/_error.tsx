@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-import Link from 'next/link';
 import Head from 'next/head';
 
 interface ErrorPageProps {
@@ -19,9 +18,7 @@ const ErrorPage: NextPage<ErrorPageProps> = ({ statusCode }) => (
       <p>
         {statusCode ? `An error ${statusCode} occurred on server` : 'An error occurred on client'}
       </p>
-      <Link href="/" locale={false}>
-        Go to the Home page
-      </Link>
+      <a href="/">Go to the Home page</a>
     </div>
   </>
 );

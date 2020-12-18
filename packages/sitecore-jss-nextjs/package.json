@@ -1,9 +1,11 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "16.0.0-canary.6",
-  "main": "dist/index.js",
+  "version": "16.0.0-canary.8",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint --fix ./src/**/*.tsx ./src/**/*.ts",
     "test": "mocha --require ts-node/register --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\"",
@@ -36,8 +38,6 @@
     "@types/react": "16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/url-parse": "^1.4.3",
-    "@typescript-eslint/eslint-plugin": "^4.9.1",
-    "@typescript-eslint/parser": "^4.9.1",
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
     "chai-string": "^1.5.0",
@@ -54,16 +54,16 @@
     "react-dom": "^16.9.0",
     "react-test-renderer": "^16.9.0",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.2",
-    "url-parse": "^1.4.7"
+    "typescript": "^4.0.2"
   },
   "peerDependencies": {
+    "next": "^10.0.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.6",
-    "@sitecore-jss/sitecore-jss-react": "^16.0.0-canary.6",
+    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.8",
+    "@sitecore-jss/sitecore-jss-react": "^16.0.0-canary.8",
     "prop-types": "^15.7.2"
   },
   "description": "",

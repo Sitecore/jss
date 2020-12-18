@@ -1,7 +1,7 @@
 {
   "name": "jss-sample-nextjs",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
-  "version": "16.0.0-canary.6",
+  "version": "16.0.0-canary.8",
   "private": true,
   "config": {
     "appName": "JssNextWeb",
@@ -31,8 +31,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-nextjs": "^16.0.0-canary.6",
-    "@sitecore-jss/sitecore-jss-tracking": "^16.0.0-canary.6",
+    "@sitecore-jss/sitecore-jss-nextjs": "^16.0.0-canary.8",
+    "@sitecore-jss/sitecore-jss-nextjs-editing-host": "^16.0.0-canary.8",
+    "@sitecore-jss/sitecore-jss-tracking": "^16.0.0-canary.8",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
     "apollo-link": "~1.2.13",
@@ -40,10 +41,8 @@
     "apollo-link-http": "~1.5.16",
     "apollo-link-persisted-queries": "~0.2.2",
     "axios": "~0.19.0",
-    "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "cross-fetch": "^3.0.6",
-    "express": "^4.17.1",
     "graphql": "~14.5.7",
     "graphql-tag": "^2.11.0",
     "next": "^10.0.3",
@@ -60,11 +59,9 @@
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-react-apollo": "^2.1.1",
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
-    "@sitecore-jss/sitecore-jss-cli": "^16.0.0-canary.6",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^16.0.0-canary.6",
-    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.6",
-    "@types/body-parser": "^1.19.0",
-    "@types/express": "^4.17.8",
+    "@sitecore-jss/sitecore-jss-cli": "^16.0.0-canary.8",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^16.0.0-canary.8",
+    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.8",
     "@types/node": "^14.6.4",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^16.9.0",
@@ -103,6 +100,8 @@
     "start:disconnected": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
     "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
-    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch"
+    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch",
+    "build:editing-host": "cross-env-shell JSS_MODE=editing \"npm-run-all --serial bootstrap next:build\"",
+    "start:editing-host": "cross-env-shell NODE_ENV=production JSS_MODE=editing ts-node --project tsconfig.scripts.json scripts/editing-server.ts"
   }
 }
