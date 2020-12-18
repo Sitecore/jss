@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable react/prop-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { expect } from 'chai';
@@ -16,6 +19,7 @@ const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
 
   // pass otherProps to page-content to test property cascading through the Placeholder
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const Home: React.FC<any> = ({ rendering, render, renderEach, renderEmpty, ...otherProps }) => (
     <div className="home-mock">
       <Placeholder name="page-header" rendering={rendering} />
@@ -55,7 +59,7 @@ describe('<Placeholder />', () => {
   const testData = [
     { label: 'Dev data', data: nonEeDevData },
     { label: 'LayoutService data - EE off', data: nonEeLsData },
-    { label: 'LayoutService data - EE on', data: eeData },
+    { label: 'LayoutService data - EE on', data: eeData }
   ];
 
   testData.forEach((dataSet) => {
@@ -135,14 +139,14 @@ describe('<Placeholder />', () => {
             </SitecoreContext>
           );
 
-          const placeholder = renderedComponent.find(Placeholder)
+          const placeholder = renderedComponent.find(Placeholder);
           expect(placeholder.length).to.equal(1);
           expect(placeholder.children()).to.be.empty;
         });
-      })
+      });
 
       it('should render output based on the renderEmpty function in case of no renderings', () => {
-        let component: any = dataSet.data.sitecore.route;
+        const component: any = dataSet.data.sitecore.route;
         const renderings = component.placeholders.main.filter(({ componentName }: any) => !componentName);
         const myComponent = {
           ...component,
@@ -213,8 +217,8 @@ describe('<Placeholder />', () => {
       placeholders: {
         main: [
           {
-            componentName: 'Home'
-          },
+            componentName: 'Home',
+          }
         ],
       },
     };
@@ -233,7 +237,7 @@ it('should render MissingComponent for unknown rendering', () => {
       main: [
         {
           componentName: 'Unknown',
-        },
+        }
       ],
     },
   };

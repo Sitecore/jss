@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import { createRenderer } from 'vue-server-renderer';
 import serializeJavascript from 'serialize-javascript';
-import axios from "axios";
-import http from "http";
-import https from "https";
+import axios from 'axios';
+import http from 'http';
+import https from 'https';
 import i18ninit from '../src/i18n';
 import { createApp } from '../src/createApp';
 import { createRouter } from '../src/router';

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { HtmlFormField } from './HtmlFormField';
 import { InputViewModel, TitleFieldViewModel, ViewModel, FieldViewModel } from './ViewModel';
 

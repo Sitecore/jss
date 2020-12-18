@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import React from 'react';
@@ -6,7 +7,7 @@ import { DateField } from './Date';
 describe('<DateField />', () => {
   it('should return null if no editable or value', () => {
     const p = {
-      field: {}
+      field: {},
     };
 
     const c = shallow(<DateField {...p} />);
@@ -17,8 +18,8 @@ describe('<DateField />', () => {
   it('should render value', () => {
     const p = {
       field: {
-        value: '23-11-2001'
-      }
+        value: '23-11-2001',
+      },
     };
 
     const c = shallow(<DateField {...p} />);
@@ -30,9 +31,9 @@ describe('<DateField />', () => {
     const render = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
     const p = {
       field: {
-        value: '11-23-2001'
+        value: '11-23-2001',
       },
-      render
+      render,
     };
 
     const c = shallow(<DateField {...p} />);
@@ -44,23 +45,23 @@ describe('<DateField />', () => {
     const render = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
     const p = {
       field: {
-        editable: 'xxx'
+        editable: 'xxx',
       },
       editable: false,
-      render
+      render,
     };
 
     const c = shallow(<DateField {...p} />);
 
     expect(c.html()).equal('<p></p>');
-  })
+  });
 
   it('should render value with provided tag', () => {
     const p = {
       field: {
-        value: '11-23-2001'
+        value: '11-23-2001',
       },
-      tag: 'h3'
+      tag: 'h3',
     };
 
     const c = shallow(<DateField {...p} />);
@@ -71,9 +72,9 @@ describe('<DateField />', () => {
   it('should render editable value', () => {
     const p = {
       field: {
-        editable: '<h1 class="super">11-23-2001</h1>'
+        editable: '<h1 class="super">11-23-2001</h1>',
       },
-      editable: true
+      editable: true,
     };
 
     const c = shallow(<DateField {...p} />);

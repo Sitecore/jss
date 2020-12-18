@@ -7,7 +7,8 @@ import {
 } from './dataService.connected';
 import { mapNestedJson } from './util';
 
-global.__SC_API_HOST__ = __SC_API_HOST__
+// eslint-disable-next-line no-underscore-dangle
+global.__SC_API_HOST__ = __SC_API_HOST__;
 
 const processObjectProperty = (key, value) => {
   // replace 'jssreactnative' with ngrok URL.

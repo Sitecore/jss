@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
@@ -58,7 +59,7 @@ describe('<Text />', () => {
 
   it('should render value with just a value that contains line breaks', () => {
     const field = {
-      value: 'xxx\n\naa\nbbb\ndd'
+      value: 'xxx\n\naa\nbbb\ndd',
     };
     const rendered = mount(<Text tag="span" field={field} />).find('span');
     expect(rendered).to.have.length(1);
@@ -67,7 +68,7 @@ describe('<Text />', () => {
 
   it('should render value with just a value that contains only one line break', () => {
     const field = {
-      value: '\n'
+      value: '\n',
     };
     const rendered = mount(<Text tag="span" field={field} />).find('span');
     expect(rendered).to.have.length(1);
@@ -92,7 +93,7 @@ describe('<Text />', () => {
     expect(rendered.html()).to.contain('<input');
     expect(rendered.html()).to.contain('<span class="scChromeData">');
   });
-  
+
   it('should render ee HTML with line breaks', () => {
     const field = {
       editable: 'xxx\n\naa\nbbb\n',

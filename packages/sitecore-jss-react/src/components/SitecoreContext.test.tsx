@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
-import { withSitecoreContext, ComponentConsumerProps } from '../enhancers/withSitecoreContext'
+import { withSitecoreContext, ComponentConsumerProps } from '../enhancers/withSitecoreContext';
 
 interface NestedComponentProps extends ComponentConsumerProps {
   anotherProperty?: string,
@@ -17,7 +17,7 @@ const mockComponentFactory: ComponentFactory = name => components.get(name);
 
 const mockSitecoreContext = {
   x: 'test1',
-  y: 'test2'
+  y: 'test2',
 };
 
 describe('SitecoreContext', () => {
@@ -32,19 +32,19 @@ describe('SitecoreContext', () => {
 
     expect(value).deep.equal({
       x: 'test1',
-      y: 'test2'
+      y: 'test2',
     });
 
     component.instance().setContext({
       x: 'test11',
-      y: 'test22'
+      y: 'test22',
     });
 
     const updatedValue = component.instance().state.context;
 
     expect(updatedValue).deep.equal({
       x: 'test11',
-      y: 'test22'
+      y: 'test22',
     });
   });
 

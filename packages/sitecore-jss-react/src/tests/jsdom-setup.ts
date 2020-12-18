@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md
 
 declare module 'style-attr';
+// eslint-disable-next-line no-var
 declare var global: any;
 
 const { JSDOM } = require('jsdom');
