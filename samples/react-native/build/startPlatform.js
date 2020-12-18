@@ -10,7 +10,7 @@ const start = (platform, envVars, port) => {
   // by default the RN packager will cache resolved dependencies.
   // but, we're changing dependencies based on environment variable in .babelrc.js.
   // so, need to reset the cache on start.
-  const startCommand = `node node_modules/react-native/local-cli/cli.js start --reset-cache`;
+  const startCommand = 'node node_modules/react-native/local-cli/cli.js start --reset-cache';
 
   // if on MacOS (darwin), we're using "ttab" to launch terminal windows/tabs
   if (process.platform === 'darwin') {
