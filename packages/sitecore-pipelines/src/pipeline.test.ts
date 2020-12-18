@@ -17,7 +17,7 @@ describe('runProcessors', () => {
     {
       name: 'proc1',
       process: (args: any) => ({ ...args, proc1result: true }),
-    },
+    }
   ];
 
   const fileProcessors = () => [
@@ -35,7 +35,7 @@ describe('runProcessors', () => {
     {
       name: 'proc2',
       modulePath: './src/test/pipelines/pipeline0/proc2.ts',
-    },
+    }
   ];
 
   it('should execute function-based processors', () => {

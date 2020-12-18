@@ -1,4 +1,3 @@
-import { Pipeline } from './pipelineFactory';
 import { createPipelinesRegistry } from './pipelinesRegistry';
 import { importModules } from './utils';
 
@@ -22,8 +21,8 @@ const config = async ({
     throw new Error('no pipeline config file search patterns specified');
   }
   const pipelinesRegistry = createPipelinesRegistryImplementation
-   ? createPipelinesRegistryImplementation(existingConfig)
-   : createPipelinesRegistry(existingConfig);
+    ? createPipelinesRegistryImplementation(existingConfig)
+    : createPipelinesRegistry(existingConfig);
 
   const moduleWrappers = importModulesImplementation
     ? importModulesImplementation({ fileGlobs, workingDirectory, allowEmptyGlobs })

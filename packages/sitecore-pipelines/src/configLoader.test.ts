@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { expect } from 'chai';
 import 'mocha';
 import * as sinon from 'sinon';
@@ -21,7 +22,7 @@ describe('configLoader', () => {
     const fakeImportModules = () => {
       const mockModules = [
         { import: () => Promise.resolve({ config: spy1 }) },
-        { import: () => Promise.resolve({ config: spy2 }) },
+        { import: () => Promise.resolve({ config: spy2 }) }
       ];
       return mockModules;
     };
@@ -53,7 +54,7 @@ describe('configLoader', () => {
     const fakeImportModules = () => {
       const mockModules = [
         { import: () => Promise.resolve({ config: () => {} }) },
-        { import: () => Promise.resolve({ config: () => {} }) },
+        { import: () => Promise.resolve({ config: () => {} }) }
       ];
       return mockModules;
     };

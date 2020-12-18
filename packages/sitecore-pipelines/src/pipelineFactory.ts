@@ -73,6 +73,8 @@ export interface Pipeline extends ExecutablePipeline {
 export const pipelineFactory = {
   /**
    * Create a pipeline
+   * @param {string} [name]
+   * @returns {Pipeline} pipeline
    */
   create: (name = '') => {
     const processors: Processor[] = [];
