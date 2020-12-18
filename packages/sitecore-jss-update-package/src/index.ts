@@ -22,7 +22,7 @@ interface FileEntry {
 
 const getEntries = (folder: string): FileEntry[] => {
   const files = walkSync(folder);
-  const entries: any = [];
+  const entries: { path: string, name: string }[] = [];
   files.forEach((entry) => {
     const entryPath = path.join('.', entry);
     // remove initial folder and convert to fwd slash
@@ -40,7 +40,9 @@ export const createPackage = (contentsPath: string, outputPath: string, callback
   const zip = new JSZip();
   const contents = getEntries(contentsPath);
   contents.forEach((entry) => {
-    if (entry.name.endsWith('/')) { return; }
+    if (entry.name.endsWith('/')) {
+      return;
+    }
     console.log(`Adding ${entry.name}`);
     zip.file(entry.name, fs.readFileSync(path.normalize(entry.path)), { createFolders: false });
   });
@@ -48,7 +50,7 @@ export const createPackage = (contentsPath: string, outputPath: string, callback
   zip
     .generateNodeStream({ type: 'nodebuffer' })
     .pipe(fs.createWriteStream(outputPath))
-    .on('error', (error: any) => {
+    .on('error', error => {
       console.error(error);
     })
     .on('finish', () => {
