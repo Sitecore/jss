@@ -45,4 +45,5 @@ export type FieldChangeCallback = (fieldName: string, newValue: string | string[
 export type ListFieldProps<TViewModel extends ListViewModel = ListViewModel> = FieldWithValueProps<ValueFormField<TViewModel>, string[]>;
 export type ValueFieldProps<TViewModel extends InputViewModel = InputViewModel> = FieldWithValueProps<ValueFormField<TViewModel>>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type LabelProps<TViewModel extends InputViewModel = InputViewModel> = FieldWithValueProps<ValueFormField<TViewModel>, any>;

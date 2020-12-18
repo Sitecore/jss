@@ -13,7 +13,7 @@ const ListBox: React.FunctionComponent<ListFieldProps<ListBoxViewModel>> = (prop
     value,
     onChange,
     tracker,
-    errors
+    errors,
   } = props;
 
   let finalValue: string | string[] = value;

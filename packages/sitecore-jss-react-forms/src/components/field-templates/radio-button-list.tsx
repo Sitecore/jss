@@ -13,7 +13,7 @@ const RadioButtonList: React.FunctionComponent<ListFieldProps> = (props) => {
     value,
     onChange,
     tracker,
-    errors
+    errors,
   } = props;
 
   return (

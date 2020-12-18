@@ -28,6 +28,7 @@ export interface FormProps {
   sitecoreApiKey: string;
   onRedirect?: (url: string) => void;
   errorComponent?: ComponentType<ErrorComponentProps>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fieldWrapperComponent?: ComponentType<FieldWithValueProps<any>>;
 
   /** Optionally override the label component for any field components that render a label */
@@ -72,6 +73,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
       // the form passed in from props if present
       nextForm: null,
       submitButton: null,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any; // workaround index type limitations in TS
 
     this.createFieldComponent = this.createFieldComponent.bind(this);
@@ -113,6 +115,8 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
 
   /**
    * Creates a field component to render a field based on the form schema data
+   * @param {FormField} field
+   * @returns {React.ReactNode} field component
    */
   createFieldComponent(field: FormField): React.ReactNode {
     const props = {
@@ -125,7 +129,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
       labelComponent: this.props.labelComponent,
       tracker: this._tracker,
       ...this.getCurrentFieldState(field),
-    } as FieldWithValueProps<any>;
+    } as FieldWithValueProps;
 
     const component = (this.props.fieldFactory || DefaultFieldFactory).get(field, props);
 
@@ -143,6 +147,8 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
    * - The form schema/current data (default values, previously saved steps in multistep)
    * - This component's state (the mutated state of the field after user changes)
    * The field state includes both current value as well as current validity.
+   * @param {FormField} field
+   * @returns {Object | null} field state
    */
   getCurrentFieldState(field: FormField) {
     // non-valued fields, i.e. text, section, do not have a value or validity state
@@ -186,6 +192,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
   /**
    * Handler triggered by child components that informs us which button triggered a submit.
    * This is important for multistep forms to disambiguate between back and next/submit buttons.
+   * @param {string} buttonName
    */
   onButtonClick(buttonName: string) {
     this.setState({ submitButton: buttonName });
@@ -194,10 +201,10 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
   /**
    * Handler triggered by child components that updates a given field's current value
    * (which we then push back down to the child via prop)
-   * @param key Field's name attribute
-   * @param value New field value
-   * @param isValid Whether the field is valid or not
-   * @param errors Validation error message(s) if field is invalid
+   * @param {string} key Field's name attribute
+   * @param {string | string[] | File[]} value New field value
+   * @param {boolean} isValid Whether the field is valid or not
+   * @param {string[]} errors Validation error message(s) if field is invalid
    */
   onFieldChange(key: string, value: string | string[] | File[], isValid: boolean, errors: string[]) {
     this.setState({
@@ -208,6 +215,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
   /**
    * Handler triggered when the form is submitted. May transition its state between
    * steps in a multistep form or handle a final submit.
+   * @param {FormEvent} e
    */
   onSubmit(e: FormEvent) {
     e.preventDefault();

@@ -12,10 +12,12 @@ export type FormFieldComponent<TProps extends FieldProps> = React.ComponentType<
  * but it maps form element components instead of layout components
  */
 class FieldFactory {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private _fieldMap = new Map<string, React.ComponentType<any>>();
   private _defaultComponent: React.ComponentType<FormField>;
 
   constructor() {
+    // eslint-disable-next-line react/display-name
     this._defaultComponent = (props: FormField) => (
       <div key={props.model.fieldTypeItemId}>{props.model.name}: No renderer for form element type {props.model.fieldTypeItemId}</div>
     );

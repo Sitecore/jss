@@ -12,7 +12,7 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
     '1': 'Bytes',
     '1024': 'KB',
     '1048576': 'MB',
-    '1073741824': 'GB'
+    '1073741824': 'GB',
   };
 
   componentDidUpdate(prevProps: ValueFieldProps<FileInputViewModel>) {
@@ -85,7 +85,7 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
     }
 
     cb(field.valueField.name, list, valid, errorMessages);
-  }
+  };
 
   render() {
     const { field, value, onChange, errors, tracker } = this.props;

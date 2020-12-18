@@ -13,7 +13,7 @@ const DropdownList: React.FunctionComponent<ListFieldProps<DropdownListViewModel
     value,
     onChange,
     tracker,
-    errors
+    errors,
   } = props;
 
   return (
