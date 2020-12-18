@@ -26,16 +26,17 @@ export interface WithPlaceholderOptions {
 }
 
 declare module 'vue/types/options' {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface ComponentOptions<V extends Vue> {
     withPlaceholder?:
-      | (() => {
-          placeholders: WithPlaceholderSpec;
-          options?: WithPlaceholderOptions;
-        })
-      | {
-          placeholders: WithPlaceholderSpec;
-          options?: WithPlaceholderOptions;
-        };
+    | (() => {
+      placeholders: WithPlaceholderSpec;
+      options?: WithPlaceholderOptions;
+    })
+    | {
+      placeholders: WithPlaceholderSpec;
+      options?: WithPlaceholderOptions;
+    };
   }
 }
 

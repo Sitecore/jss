@@ -11,6 +11,7 @@ import { MissingComponent } from './MissingComponent';
 import { ComponentFactory } from './sharedTypes';
 
 export interface PlaceholderProps {
+  [key: string]: any;
   /** Name of the placeholder to render. */
   name: string;
   /** Rendering data to be used when rendering the placeholder. */
@@ -46,8 +47,6 @@ export interface PlaceholderProps {
    * the placeholder
    */
   errorComponent?: Component;
-
-  [key: string]: any;
 }
 
 export type JssDynamicComponent = Component & { isxEditorComponent?: boolean };
@@ -80,6 +79,11 @@ export const getPlaceholderDataFromRenderingData = (
  * and createVueElement to create VNodes for use in a Vue `render` function. Note: you can't use VNodes in
  * component templates. You'll need to convert the VNodes to "renderable" components, a.k.a. dynamic components.
  * @see convertVNodesToDynamicComponents or @see getDynamicComponentsFromRenderingData for options.
+ * @param {Array<ComponentRendering | HtmlElementRendering>} placeholderData
+ * @param {PlaceholderProps} placeholderProps
+ * @param {CreateElement} createVueElement
+ * @param {ComponentFactory} [componentFactory]
+ * @returns {VNode[]} vnodes
  */
 export function getVNodesForRenderingData(
   placeholderData: Array<ComponentRendering | HtmlElementRendering>,
@@ -131,6 +135,11 @@ export function getVNodesForRenderingData(
 /**
  * Convenience method that calls {@link getVNodesForRenderingData} and {@link convertVNodesToDynamicComponents}
  * to return "renderable" components, i.e. components that can be rendered in a Vue template, a.k.a. dynamic components.
+ * @param {Array<ComponentRendering | HtmlElementRendering>} placeholderData
+ * @param {PlaceholderProps} placeholderProps
+ * @param {CreateElement} createVueElement
+ * @param {ComponentFactory} componentFactory
+ * @returns {JssDynamicComponent[]} dynamic components
  */
 export function getDynamicComponentsFromRenderingData(
   placeholderData: Array<ComponentRendering | HtmlElementRendering>,
@@ -147,6 +156,8 @@ export function getDynamicComponentsFromRenderingData(
  * Converts VNodes to simple functional components that render the vnode.
  * Also evaluates VNodes to determine if they are Experience Editor components/elements and if so,
  * adds an identifying property to the component.
+ * @param {VNode[]} vnodes
+ * @returns {JssDynamicComponent[]} dynamic components
  */
 export function convertVNodesToDynamicComponents(vnodes: VNode[]) {
   return vnodes.map((vnode) => {

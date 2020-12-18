@@ -1,11 +1,11 @@
 import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
 
 export interface LinkFieldValue {
+  [attributeName: string]: any;
   href?: string;
   className?: string;
   title?: string;
   target?: string;
-  [attributeName: string]: any;
 }
 
 export interface LinkField {
@@ -95,7 +95,7 @@ export const Link: FunctionalComponentOptions<LinkProps> = {
 
         return createElement('span', { class: 'sc-link-editable-wrapper' }, [
           xEditorElement,
-          childElements,
+          childElements
         ]);
       }
 

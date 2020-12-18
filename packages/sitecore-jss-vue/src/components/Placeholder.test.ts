@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-unused-expressions */
 
-import { CreateElement, RenderContext } from 'vue'
+import { CreateElement, RenderContext } from 'vue';
 
 import { Placeholder } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
@@ -58,7 +59,7 @@ const testComponents: any = {
             arbitrary: arbitraryProp,
             ...otherProps,
           },
-        }),
+        })
       ]);
     },
   },
@@ -79,7 +80,7 @@ const testComponents: any = {
         createElement('br'),
         `arbitrary function: ${
           props.arbitrary.withFunction ? props.arbitrary.withFunction() : 'no function'
-        }`,
+        }`
       ]);
     },
   },
@@ -113,7 +114,7 @@ describe('<Placeholder />', () => {
   const testData = [
     { label: 'Dev data', data: devData },
     { label: 'LayoutService data - EE off', data: lsDataEeOff },
-    { label: 'LayoutService data - EE on', data: lsDataEeOn },
+    { label: 'LayoutService data - EE on', data: lsDataEeOn }
   ];
 
   testData.forEach(dataSet => {
@@ -158,7 +159,7 @@ describe('<Placeholder />', () => {
                     rendering: component,
                     componentFactory,
                   },
-                }),
+                })
               ]
             );
           },
@@ -176,7 +177,7 @@ describe('<Placeholder />', () => {
         const testComponent = {
           render(createElement: CreateElement) {
             return createElement(SitecoreContext, { props: { componentFactory } }, [
-              createElement(Placeholder, { props: { name: phKey, rendering: component } }),
+              createElement(Placeholder, { props: { name: phKey, rendering: component } })
             ]);
           },
         };
@@ -195,7 +196,7 @@ describe('<Placeholder />', () => {
             return createElement(SitecoreContext, { props: { componentFactory } }, [
               createElement(SampleScopedSlotPlaceholder, {
                 props: { name: phKey, rendering: component },
-              }),
+              })
             ]);
           },
         };
@@ -217,7 +218,7 @@ describe('<Placeholder />', () => {
         main: [
           { componentName: 'Home' },
           { componentName: 'SfcHome' },
-          { componentName: 'whatisthis' },
+          { componentName: 'whatisthis' }
         ],
       },
     };
@@ -312,7 +313,7 @@ describe('<Placeholder />', () => {
             type: 'text/sitecore',
             contents: 'this is the only element that should render within the "li" element',
             attributes: { type: 'text/sitecore' },
-          },
+          }
         ],
       },
     };

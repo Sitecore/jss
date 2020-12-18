@@ -42,11 +42,11 @@ export { PlaceholderProps };
 // e.g. $router, $apollo
 
 export const Placeholder: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  any,
-  any,
-  any,
-  PlaceholderProps
+Vue,
+any,
+any,
+any,
+PlaceholderProps
 > = {
   name: 'Placeholder',
 

@@ -1,0 +1,7 @@
+{
+  "extends": ["plugin:vue/recommended", "../../.eslintrc"],
+  "rules": {
+    // TODO: fix errors
+    "@typescript-eslint/no-explicit-any": "off"
+  }
+}

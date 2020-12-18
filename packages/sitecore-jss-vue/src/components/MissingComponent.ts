@@ -36,7 +36,7 @@ export const MissingComponent: FunctionalComponentOptions<MissingComponentProps>
         createElement(
           'p',
           'JSS component is missing Vue implementation. See the developer console for more information.'
-        ),
+        )
       ]
     );
   },

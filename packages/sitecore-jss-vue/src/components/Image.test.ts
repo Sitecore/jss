@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { mount } from '@vue/test-utils';
 import URL from 'url-parse';
 
@@ -199,7 +200,7 @@ describe('<Image />', () => {
         imageParams: {
           h: '100',
           w: '150',
-        }
+        },
       };
 
       const rendered = mount(Image, { context: { props, attrs } }).find('img');

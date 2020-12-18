@@ -9,11 +9,11 @@ export interface SitecoreContextProps {
 // For an explanation of why `ThisTypedComponentOptionsWithRecordProps`
 // is used here, see the `Placeholder.ts` component file.
 export const SitecoreContext: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  any,
-  any,
-  any,
-  SitecoreContextProps
+Vue,
+any,
+any,
+any,
+SitecoreContextProps
 > = {
   props: {
     componentFactory: {

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "del-cli dist types",
-    "lint": "tslint -p . -c ../../tslint.json \"src/**/*.ts\"",
+    "lint": "eslint --fix ./src/**/*.ts",
     "test": "jest",
     "prepublishOnly": "npm run build",
     "coverage": "jest --config ./jest.config.coverage.js"
@@ -29,6 +29,8 @@
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "^6.26.3",
     "del-cli": "^3.0.1",
+    "eslint": "^7.15.0",
+    "eslint-plugin-vue": "^7.3.0",
     "jest": "^26.4.2",
     "jest-serializer-html": "^7.0.0",
     "ts-jest": "24.1.0",
