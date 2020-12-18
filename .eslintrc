@@ -39,6 +39,7 @@
     "@typescript-eslint/type-annotation-spacing": "error",
     "@typescript-eslint/semi": "error",
     "@typescript-eslint/no-var-requires": "off",
+    "no-useless-escape": "off",
     "no-restricted-globals": "off",
     "no-restricted-properties": "off",
     "spaced-comment": "error",
