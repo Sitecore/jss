@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { ComponentRendering, PlaceholdersData } from '@sitecore-jss/sitecore-jss';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
@@ -32,13 +33,13 @@ describe('ComponentPropsService', () => {
                 x14ph: [
                   rendering('x16', 'MyCustomComponent'),
                   rendering('x161', 'MyCustomComponent'),
-                  rendering('x17'),
+                  rendering('x17')
                 ],
               },
-            },
+            }
           ],
         },
-      },
+      }
     ],
     x21ph: [
       rendering('x21'),
@@ -48,7 +49,7 @@ describe('ComponentPropsService', () => {
           x22ph: [rendering('x23', 'MyCustomComponent')],
         },
       },
-      rendering('x24'),
+      rendering('x24')
     ],
   };
 
@@ -79,6 +80,7 @@ describe('ComponentPropsService', () => {
   });
 
   // In real world: list of imported modules
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const modules: { [componentName: string]: any } = {
     namex11: {
       fn: fetchFn('x11Data'),
@@ -103,6 +105,7 @@ describe('ComponentPropsService', () => {
   };
 
   it('fetchServerSideComponentProps', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ssrModules: { [componentName: string]: any } = {
       namex11: {
         getServerSideProps: fetchFn('x11SSRData'),
@@ -144,6 +147,7 @@ describe('ComponentPropsService', () => {
   });
 
   it('fetchStaticComponentProps', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ssgModules: { [componentName: string]: any } = {
       namex11: {
         getStaticProps: fetchFn('x11StaticData'),
@@ -178,6 +182,7 @@ describe('ComponentPropsService', () => {
   });
 
   it('fetchInitialComponentProps', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ssgModules: { [componentName: string]: any } = {
       namex11: {
         getInitialProps: fetchFn('x11InitialPropsData'),
@@ -274,7 +279,7 @@ describe('ComponentPropsService', () => {
         rendering: { uid: 'x24', componentName: 'namex24' },
         layoutData,
         context,
-      },
+      }
     ]);
   });
 
@@ -283,7 +288,7 @@ describe('ComponentPropsService', () => {
       const requests: ComponentPropsRequest<CustomContext>[] = [
         req(11, 'x1'),
         req(22, 'x2'),
-        req(33, 'x3'),
+        req(33, 'x3')
       ];
 
       const result = await service.execRequests(requests);
@@ -326,7 +331,7 @@ describe('ComponentPropsService', () => {
       const requests: ComponentPropsRequest<CustomContext>[] = [
         req(11, 'x1'),
         req(null, 'x2', 'You do not have access rights to load data for this component'),
-        req(33, 'x3'),
+        req(33, 'x3')
       ];
 
       const result = await service.execRequests(requests);
@@ -371,7 +376,7 @@ describe('ComponentPropsService', () => {
       const requests: ComponentPropsRequest<CustomContext>[] = [
         req(11, 'x1'),
         req(22, undefined),
-        req(33, 'x3'),
+        req(33, 'x3')
       ];
 
       const result = await service.execRequests(requests);
@@ -420,7 +425,7 @@ describe('ComponentPropsService', () => {
         rendering('22'),
         rendering('111'),
         rendering('222'),
-        rendering('333'),
+        rendering('333')
       ]);
     });
 

@@ -30,7 +30,7 @@ export {
   ComponentPropsCollection,
   GetStaticComponentProps,
   GetServerSideComponentProps,
-  GetInitialComponentProps
+  GetInitialComponentProps,
 } from './sharedTypes/component-props';
 
 export { ComponentModule } from './sharedTypes/component-module';
@@ -44,9 +44,9 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { 
+export {
   EditingData,
-  EditingRequest
+  EditingRequest,
 } from './sharedTypes/editing-data';
 
 export { Link } from './components/Link';

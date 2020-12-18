@@ -182,8 +182,8 @@ describe('<Link />', () => {
     expect(c.find(ReactLink).length).to.equal(0);
   });
 
-	it('should render NextLink using internalLinkMatcher', () => {
-		const field = {
+  it('should render NextLink using internalLinkMatcher', () => {
+    const field = {
       value: {
         href: 'http://jssreactweb/home',
         text: 'ipsum',
@@ -201,9 +201,9 @@ describe('<Link />', () => {
     );
     expect(rendered.find(NextLink).length).to.equal(1);
     expect(rendered.find(ReactLink).length).to.equal(0);
-	})
-	
-	it('should render ReactLink if link is external', () => {
+  });
+
+  it('should render ReactLink if link is external', () => {
     const field = {
       value: {
         href: 'http://jssreactweb/lorem',

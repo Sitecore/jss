@@ -35,7 +35,7 @@ export const convertedDevData = {
                     },
                   },
                   uid: '53c31a2a-75d5-43c6-a0b8-66b7c7859c30',
-                },
+                }
               ],
               'page-content': [
                 {
@@ -47,10 +47,10 @@ export const convertedDevData = {
                   },
                   uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
                   params: [],
-                },
+                }
               ],
             },
-          },
+          }
         ],
       },
       fields: {
@@ -107,7 +107,7 @@ export const convertedLayoutServiceData = {
                     },
                   },
                   uid: '53c31a2a-75d5-43c6-a0b8-66b7c7859c30',
-                },
+                }
               ],
               'page-content': [
                 {
@@ -120,10 +120,10 @@ export const convertedLayoutServiceData = {
                   },
                   uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
                   params: [],
-                },
+                }
               ],
             },
-          },
+          }
         ],
       },
       fields: {

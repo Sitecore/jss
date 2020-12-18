@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { ReactNode } from 'react';
 import { use, expect, spy } from 'chai';
 import { RichText as ReactRichText } from '@sitecore-jss/sitecore-jss-react';
@@ -26,6 +27,7 @@ const Router = () => ({
 });
 
 // Should provide RouterContext in case if we render Link from next/link
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Page = ({ children, value }: { children: ReactNode; value?: any }) => (
   <RouterContext.Provider value={value || Router()}>{children}</RouterContext.Provider>
 );
@@ -40,7 +42,7 @@ describe('RichText', () => {
 
     const props = {
       field: {
-        value: `<div id="test"><h1>Hello!</h1><a href="/t10">1</a><a href="/t10">2</a></div>`,
+        value: '<div id="test"><h1>Hello!</h1><a href="/t10">1</a><a href="/t10">2</a></div>',
       },
     };
 
@@ -90,7 +92,7 @@ describe('RichText', () => {
 
     const props = {
       field: {
-        value: `<div id="test"><h1>Hello!</h1><a href="/testpath/t1">t1</a><a href="/t2">t2</a></div>`,
+        value: '<div id="test"><h1>Hello!</h1><a href="/testpath/t1">t1</a><a href="/t2">t2</a></div>',
       },
       internalLinksSelector: 'a[href^="/testpath"]',
     };
