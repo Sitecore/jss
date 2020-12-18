@@ -1,6 +1,5 @@
 {
-  "root": true,
-  "extends": ["plugin:@typescript-eslint/recommended"],
+  "extends": ["../../.eslintrc"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["react-native", "@typescript-eslint"],
   "parserOptions": {

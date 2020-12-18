@@ -4,9 +4,9 @@ import HtmlView from 'react-native-htmlview';
 import { Text, View, Linking, TouchableWithoutFeedback } from 'react-native';
 
 export interface LinkFieldValue {
+  [attributeName: string]: unknown;
   href?: string;
   text?: string;
-  [attributeName: string]: unknown;
 }
 
 export interface LinkField {
@@ -73,10 +73,10 @@ export const Link: React.FunctionComponent<LinkProps> = ({
   }
 
   // handle link directly on field for forgetful devs
-  const link = ((dynamicField as LinkFieldValue).href 
+  const link = ((dynamicField as LinkFieldValue).href
     ? field
     : (dynamicField as LinkField).value) as LinkFieldValue;
-    
+
   if (!link) {
     return null;
   }
@@ -104,7 +104,7 @@ Link.propTypes = {
       value: PropTypes.object,
       editableFirstPart: PropTypes.string,
       editableLastPart: PropTypes.string,
-    }),
+    })
   ]).isRequired,
   editable: PropTypes.bool,
 };

@@ -4,6 +4,7 @@ import { Text } from 'react-native';
 import HtmlView from 'react-native-htmlview';
 
 export interface DateFieldProps {
+  [htmlAttributes: string]: unknown;
   /** The date field data. */
   field: {
     value?: string;
@@ -16,7 +17,6 @@ export interface DateFieldProps {
    */
   editable?: boolean;
   render?: (date: Date | null) => React.ComponentType | React.ReactNode;
-  [htmlAttributes: string]: unknown;
 }
 
 export const DateField: React.FunctionComponent<DateFieldProps> = ({
@@ -40,7 +40,7 @@ export const DateField: React.FunctionComponent<DateFieldProps> = ({
   if (field.editable && editable) {
     return <HtmlView value={children as string} {...otherProps} />;
   }
-  return render 
+  return render
     ? <>{children}</>
     : <Text>{children}</Text>;
 };

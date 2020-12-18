@@ -5,12 +5,12 @@ import SvgUri from 'react-native-svg-uri';
 import { mediaApi } from '@sitecore-jss/sitecore-jss';
 
 export interface ImageFieldValue {
+  /** HTML attributes that will be appended to the rendered <img /> tag. */
+  [attributeName: string]: unknown;
   src?: string | number;
   width?: number;
   height?: number;
   style?: unknown;
-  /** HTML attributes that will be appended to the rendered <img /> tag. */
-  [attributeName: string]: unknown;
 }
 
 export interface ImageField {
@@ -19,6 +19,9 @@ export interface ImageField {
 }
 
 export interface ImageProps {
+  /** HTML attributes that will be appended to the rendered <img /> tag. */
+
+  [attributeName: string]: unknown;
   /** The image field data. */
   media: ImageField | ImageFieldValue | null;
   field?: ImageField | ImageFieldValue | null;
@@ -31,9 +34,6 @@ export interface ImageProps {
     [paramName: string]: string;
   }
   | null;
-
-  /** HTML attributes that will be appended to the rendered <img /> tag. */
-  [attributeName: string]: unknown;
 }
 
 const getImageAttrs = (
@@ -44,11 +44,11 @@ const getImageAttrs = (
     style,
     ...otherAttrs
   }: {
+    [attr: string]: unknown;
     src?: string | number;
     width?: number | undefined;
     height?: number | undefined;
     style?: unknown;
-    [attr: string]: unknown;
   },
   imageUrlParams?: { [paramName: string]: string } | null
 ) => {
@@ -129,7 +129,7 @@ Image.propTypes = {
     }),
     PropTypes.shape({
       value: PropTypes.object,
-    }),
+    })
   ]),
   imageUrlParams: PropTypes.any,
 };

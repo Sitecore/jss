@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Text as NativeText } from 'react-native';
 
 export interface TextProps {
+  [nativeTextProps: string]: unknown;
   /** The text field data. */
   field: {
     value?: string;
     editable?: string;
   } | null;
-  [nativeTextProps: string]: unknown;
 }
 
 export const Text: React.SFC<TextProps> = ({ field, ...otherProps }) => {

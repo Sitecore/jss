@@ -12,6 +12,7 @@ import {
 import { UnrenderableComponent } from './UnrenderableComponent';
 
 export interface PlaceholderProps {
+  [key: string]: unknown;
   /** Name of the placeholder to render. */
   name: string;
   /** Rendering data to be used when rendering the placeholder. */
@@ -53,8 +54,6 @@ export interface PlaceholderProps {
    * but are not renderable by react-native (i.e. DOM elements)
    */
   unrenderableComponentComponent?: React.ComponentClass<unknown> | React.SFC<unknown> | null;
-
-  [key: string]: unknown;
 }
 
 export class PlaceholderCommon extends React.Component<PlaceholderProps> {
@@ -71,6 +70,12 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
 
   nodeRefs: unknown[];
   state: Readonly<{ error?: Error }>;
+
+  constructor(props: PlaceholderProps) {
+    super(props);
+    this.nodeRefs = [];
+    this.state = {};
+  }
 
   static getPlaceholderDataFromRenderingData(
     rendering: ComponentRendering | RouteData,
@@ -93,12 +98,6 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
     }
 
     return result;
-  }
-
-  constructor(props: PlaceholderProps) {
-    super(props);
-    this.nodeRefs = [];
-    this.state = {};
   }
 
   componentDidCatch(error: Error) {

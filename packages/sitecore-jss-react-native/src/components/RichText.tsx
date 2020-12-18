@@ -3,12 +3,12 @@ import HtmlView from 'react-native-htmlview';
 import PropTypes from 'prop-types';
 
 export interface RichTextProps {
+  [htmlViewProps: string]: unknown;
   /** The rich text field data. */
   field: {
     value?: string;
     editable?: string;
   } | null;
-  [htmlViewProps: string]: unknown;
 }
 
 export const RichText: React.SFC<RichTextProps> = ({ field, ...otherProps }) => {

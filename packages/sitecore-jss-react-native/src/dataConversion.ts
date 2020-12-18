@@ -10,6 +10,8 @@ const isComponentRendering = (element: unknown) => (element as ComponentRenderin
 
 /**
  * Receives dev prop data and creates or assigns "value/editable" values where needed to match signature of LayoutService data.
+ * @param {Object | undefined} propData
+ * @returns {Object} prop data in layout service format
  */
 export const convertPropDataToLayoutServiceFormat = (
   propData:
@@ -46,8 +48,8 @@ export const convertPropDataToLayoutServiceFormat = (
     if (!('value' in propValue) && !('editable' in propValue)) {
       return {
         ...propValue,
-        fields: convertPropDataToLayoutServiceFormat(propValue.fields)
-      }
+        fields: convertPropDataToLayoutServiceFormat(propValue.fields),
+      };
     }
 
     // assume propValue _should_ always contain a 'value' key. if it doesn't then bail.
@@ -89,6 +91,8 @@ export const convertPropDataToLayoutServiceFormat = (
 /**
  * Receives dev route data and creates or assigns "value/editable" values where needed
  * for all fields and rendering props to match signature of LayoutService data.
+ * @param {RouteData} routeData
+ * @returns {Object} route data in layout service format
  */
 export const convertRouteToLayoutServiceFormat = (routeData: RouteData) => {
   const fields = convertPropDataToLayoutServiceFormat(routeData.fields);
