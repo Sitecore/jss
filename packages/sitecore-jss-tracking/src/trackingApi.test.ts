@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* tslint:disable:no-unused-expression */
 
 import { HttpJsonFetcher } from '@sitecore-jss/sitecore-jss';
@@ -8,7 +9,7 @@ import { trackEvent } from './trackingApi';
 
 // note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
 // which is necessary for analytics and such
-const axiosFetcher: HttpJsonFetcher<any> = (url, data) => axios({
+const axiosFetcher: HttpJsonFetcher<void> = (url, data) => axios({
   url,
   method: data ? 'POST' : 'GET',
   data,
@@ -39,7 +40,7 @@ describe('trackEvent', () => {
     });
 
     return trackEvent([
-      { eventId: 'porgs' },
+      { eventId: 'porgs' }
     ],
     {
       host: 'https://www.myhost.net',
@@ -48,6 +49,7 @@ describe('trackEvent', () => {
     })
       .then((data) => {
         // testData should contain the 'config' object from the mock request
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const testData = data as any;
         expect(testData.url).to.equal(expectedUrl);
         expect(testData.withCredentials, 'with credentials is not true').to.be.true;
@@ -64,7 +66,7 @@ describe('trackEvent', () => {
     });
 
     return trackEvent([
-      { campaignId: '123456' },
+      { campaignId: '123456' }
     ],
     {
       host: 'https://www.myhost.net',
@@ -74,6 +76,7 @@ describe('trackEvent', () => {
     })
       .then((data) => {
         // testData should contain the 'config' object from the mock request
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const testData = data as any;
         expect(testData.url).to.equal(expectedUrl);
         expect(testData.withCredentials, 'with credentials is not true').to.be.true;

@@ -3,17 +3,17 @@ import { CampaignInstance, EventInstance, GoalInstance, OutcomeInstance, PageVie
 import { TrackingRequestOptions } from './trackingRequestOptions';
 
 class ResponseError extends Error {
-  constructor(message: string, response: HttpResponse<any>) {
+  response: HttpResponse<unknown>;
+
+  constructor(message: string, response: HttpResponse<unknown>) {
     super(message);
 
     Object.setPrototypeOf(this, ResponseError.prototype);
     this.response = response;
   }
-
-  response: HttpResponse<any>;
 }
 
-function checkStatus(response: HttpResponse<any>) {
+function checkStatus(response: HttpResponse<unknown>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -25,9 +25,9 @@ function checkStatus(response: HttpResponse<any>) {
 // note: encodeURIComponent is available via browser (window) or natively in node.js
 // if you use another js engine for server-side rendering you may not have native encodeURIComponent
 // and would then need to install a package for that functionality
-function getQueryString(params: { [key: string]: any }) {
+function getQueryString(params: { [key: string]: unknown }) {
   return Object.keys(params)
-    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
+    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k] as string)}`)
     .join('&');
 }
 
@@ -35,8 +35,10 @@ function getQueryString(params: { [key: string]: any }) {
 // which is necessary for analytics and such
 function fetchData<T>(
   url: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any,
   fetcher: HttpJsonFetcher<T>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params: { [key: string]: any } = {}) {
 
   const qs = getQueryString(params);
@@ -44,9 +46,9 @@ function fetchData<T>(
 
   return fetcher(fetchUrl, data)
     .then(checkStatus)
-    .then((response: HttpResponse<T>) => {
+    .then(response => {
       // axios auto-parses JSON responses, don't need to JSON.parse
-      return response.data;
+      return response.data as T;
     });
 }
 
@@ -58,6 +60,9 @@ function resolveTrackingUrl(options: TrackingRequestOptions) {
 
 /**
  * Makes a request to Sitecore Layout Service for the specified route item path.
+ * @param {Array<EventInstance | GoalInstance | OutcomeInstance | CampaignInstance | PageViewInstance>} events
+ * @param {TrackingRequestOptions} options
+ * @returns {Promise<void>} void
  */
 export function trackEvent(
   events: Array<EventInstance | GoalInstance | OutcomeInstance | CampaignInstance | PageViewInstance>,
