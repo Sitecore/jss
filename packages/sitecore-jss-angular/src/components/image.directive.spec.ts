@@ -165,14 +165,14 @@ describe('<img *scImage />', () => {
     };
 
     beforeEach(() => {
-        fixture2 = TestBed.createComponent(AnotherTestComponent);
-        de = fixture2.debugElement;
-        comp2 = fixture2.componentInstance;
-        fixture2.detectChanges();
+      fixture2 = TestBed.createComponent(AnotherTestComponent);
+      de = fixture2.debugElement;
+      comp2 = fixture2.componentInstance;
+      fixture2.detectChanges();
 
-        comp2.params = imageParams;
-        comp2.imageAttrs = imageAttrs;
-        fixture2.detectChanges();
+      comp2.params = imageParams;
+      comp2.imageAttrs = imageAttrs;
+      fixture2.detectChanges();
     });
 
     it('should render img with addtional props', () => {

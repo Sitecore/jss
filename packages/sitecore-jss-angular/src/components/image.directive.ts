@@ -36,7 +36,7 @@ export class ImageDirective implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['field'] || changes['editable'] || changes['urlParams'] || changes['attrs']) {
+    if (changes.field || changes.editable || changes.urlParams || changes.attrs) {
       this.viewContainer.clear();
       if (this.inlineRef) {
         this.inlineRef.remove();
@@ -95,7 +95,7 @@ export class ImageDirective implements OnChanges {
       ...fieldAttrs,
       ...parsedAttrs,
     };
-    // tslint:disable-next-line:prefer-const
+    // eslint-disable-next-line prefer-const
     let { src, srcSet, ...otherAttrs } = combinedAttrs;
     if (!src) {
       return null;

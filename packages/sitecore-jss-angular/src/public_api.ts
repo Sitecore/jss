@@ -31,5 +31,5 @@ export {
   ComponentParams,
   HttpJsonFetcher,
   HttpResponse,
-  isServer
+  isServer,
 } from '@sitecore-jss/sitecore-jss';

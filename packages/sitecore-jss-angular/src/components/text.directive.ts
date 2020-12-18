@@ -22,7 +22,7 @@ export class TextDirective implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['field'] || changes['editable'] || changes['encode']) {
+    if (changes.field || changes.editable || changes.encode) {
       if (!this.viewRef) {
         this.viewContainer.clear();
         this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);

@@ -52,7 +52,7 @@ export class GenericLinkDirective extends LinkDirective {
   }
 
   private isAbsoluteUrl(url?: string) {
-    if (url == null) {
+    if (url === null) {
       return false;
     }
     if (typeof url !== 'string') {

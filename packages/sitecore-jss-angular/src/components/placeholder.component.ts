@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-conflicting-lifecycle */
 import {
   ChangeDetectorRef,
   Component,
@@ -26,7 +27,7 @@ import { takeWhile } from 'rxjs/operators';
 import { ComponentFactoryResult, JssComponentFactoryService } from '../jss-component-factory.service';
 import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
 import {
-  PLACEHOLDER_MISSING_COMPONENT_COMPONENT
+  PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
 } from './placeholder.token';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
@@ -51,7 +52,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   private _differ: KeyValueDiffer<string, any>;
   private _componentInstances: any[] = [];
   private destroyed = false;
-  private parentStyleAttribute: string = '';
+  private parentStyleAttribute = '';
   public isLoading = true;
 
   @Input() name?: string;
@@ -94,7 +95,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       for (let i = 0; i < attributes.length; i++) {
         const attr: Attr | null = attributes.item(i);
         if (attr && attr.name.indexOf('_ngcontent') !== -1) {
-            this.parentStyleAttribute = attr.name;
+          this.parentStyleAttribute = attr.name;
         }
       }
     }
@@ -106,7 +107,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['rendering'] || changes['renderings']) {
+    if (changes.rendering || changes.renderings) {
       this._render();
     }
   }
@@ -151,7 +152,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
     if (!this.name && !this.renderings) {
       // tslint:disable-next-line:max-line-length
-      console.warn(`Placeholder name was not specified, and explicit renderings array was not passed. Placeholder requires either name and rendering, or renderings.`);
+      console.warn('Placeholder name was not specified, and explicit renderings array was not passed. Placeholder requires either name and rendering, or renderings.');
       this.isLoading = false;
       return;
     }

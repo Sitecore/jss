@@ -19,7 +19,7 @@ export interface LinkField extends RenderingField {
 }
 
 // tslint:disable-next-line:no-empty-interface
-export interface RichTextField extends RenderingField { }
+export type RichTextField = RenderingField;
 
 // tslint:disable-next-line:no-empty-interface
-export interface TextField extends RenderingField { }
+export type TextField = RenderingField;

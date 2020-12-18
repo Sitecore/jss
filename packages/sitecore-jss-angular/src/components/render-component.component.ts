@@ -54,7 +54,7 @@ export class RenderComponentComponent implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['rendering']) {
+    if (changes.rendering) {
       this._render();
     }
   }
@@ -68,9 +68,9 @@ export class RenderComponentComponent implements OnChanges {
       .filter((output) => componentInstance[output] && componentInstance[output] instanceof Observable)
       .forEach((output) => (componentInstance[output] as Observable<any>)
         .pipe(
-        takeWhile(() => !this.destroyed)
-      )
-      .subscribe(outputs[output]));
+          takeWhile(() => !this.destroyed)
+        )
+        .subscribe(outputs[output]));
   }
 
   private _render() {

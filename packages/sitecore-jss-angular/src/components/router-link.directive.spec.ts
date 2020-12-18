@@ -26,7 +26,7 @@ describe('<a *scRouterLink />', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [RouterLinkDirective, TestComponent],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -186,7 +186,7 @@ describe('<a *scRouterLink>children</a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [RouterLinkDirective, TestWithChildrenComponent],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);

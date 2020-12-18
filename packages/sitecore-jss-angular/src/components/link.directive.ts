@@ -22,7 +22,7 @@ export class LinkDirective implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['field'] || changes['editable'] || changes['attrs']) {
+    if (changes.field || changes.editable || changes.attrs) {
       this.viewContainer.clear();
       if (this.inlineRef) {
         this.inlineRef.remove();
@@ -66,7 +66,7 @@ export class LinkDirective implements OnChanges {
           propValue += ` ${node.className}`;
         }
 
-        this.renderer.setAttribute(node, key, propValue)
+        this.renderer.setAttribute(node, key, propValue);
       });
 
       if (node.childNodes && node.childNodes.length === 0 && linkText) {
@@ -85,7 +85,7 @@ export class LinkDirective implements OnChanges {
       ...this.getElementAttrs(),
       ...this.attrs,
     };
-    Object.entries(attrs).forEach(([key, attrValue]: [string, any]) => 
+    Object.entries(attrs).forEach(([key, attrValue]: [string, any]) =>
       this.renderer.setAttribute(span, key, attrValue)
     );
 

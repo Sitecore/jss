@@ -46,7 +46,7 @@ class TestHomeComponent {
 
 @Component({
   selector: 'test-jumbotron',
-  template: ``,
+  template: '',
 })
 class TestJumbotronComponent { }
 
@@ -61,17 +61,17 @@ describe('<sc-placeholder />', () => {
         TestPlaceholderComponent,
         TestDownloadCalloutComponent,
         TestHomeComponent,
-        TestJumbotronComponent,
+        TestJumbotronComponent
       ],
       imports: [
         JssModule.withComponents([
           { name: 'DownloadCallout', type: TestDownloadCalloutComponent },
           { name: 'Home', type: TestHomeComponent },
-          { name: 'Jumbotron', type: TestJumbotronComponent },
-        ]),
+          { name: 'Jumbotron', type: TestJumbotronComponent }
+        ])
       ],
       providers: [
-        { provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader },
+        { provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader }
       ],
     }).compileComponents();
   }));
@@ -97,7 +97,7 @@ describe('<sc-placeholder />', () => {
   const testData = [
     { label: 'Dev data', data: nonEeDevData },
     { label: 'LayoutService data - EE off', data: nonEeLsData },
-    { label: 'LayoutService data - EE on', data: eeData },
+    { label: 'LayoutService data - EE on', data: eeData }
   ];
 
   testData.forEach((dataSet: any) => {
@@ -110,16 +110,16 @@ describe('<sc-placeholder />', () => {
         fixture.detectChanges();
 
         fixture.whenStable()
-        .then(() => {
-          fixture.detectChanges();
+          .then(() => {
+            fixture.detectChanges();
 
-          const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
-          expect(downloadCallout).not.toBeNull();
-          expect(downloadCallout.nativeElement.innerHTML).toContain('Download');
+            const downloadCallout = de.query(By.directive(TestDownloadCalloutComponent));
+            expect(downloadCallout).not.toBeNull();
+            expect(downloadCallout.nativeElement.innerHTML).toContain('Download');
 
-          const img = de.nativeElement.getElementsByTagName('img')[0];
-          expect(img).not.toBeDefined();
-        });
+            const img = de.nativeElement.getElementsByTagName('img')[0];
+            expect(img).not.toBeDefined();
+          });
       }));
 
       it('should render nested placeholders', async(() => {
@@ -300,16 +300,16 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
     TestBed.configureTestingModule({
       declarations: [
         TestParentComponent,
-        TestChildComponent,
+        TestChildComponent
       ],
       imports: [
         JssModule.withComponents([
           { name: 'Parent', type: TestParentComponent },
-          { name: 'Child', type: TestChildComponent },
-        ]),
+          { name: 'Child', type: TestChildComponent }
+        ])
       ],
       providers: [
-        { provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader },
+        { provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader }
       ],
     });
 
@@ -330,7 +330,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
         children: [
           {
             componentName: 'Child',
-          },
+          }
         ],
       },
     };
@@ -364,7 +364,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
           },
           {
             componentName: 'Child',
-          },
+          }
         ],
       },
     };
@@ -389,7 +389,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
         children: [
           {
             componentName: 'Child',
-          },
+          }
         ],
       },
     };

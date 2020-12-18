@@ -15,11 +15,11 @@ export class RichTextDirective implements OnChanges {
 
   constructor(
     private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<any>,
+    private templateRef: TemplateRef<any>
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['field'] || changes['editable']) {
+    if (changes.field || changes.editable) {
       if (!this.viewRef) {
         this.viewContainer.clear();
         this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);

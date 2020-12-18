@@ -5,7 +5,7 @@ import {
   Injector,
   Type,
   Compiler,
-  NgModuleFactory
+  NgModuleFactory,
 } from '@angular/core';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 import {
@@ -13,7 +13,7 @@ import {
   ComponentNameAndType,
   DYNAMIC_COMPONENT,
   PLACEHOLDER_COMPONENTS,
-  PLACEHOLDER_LAZY_COMPONENTS
+  PLACEHOLDER_LAZY_COMPONENTS,
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { isRawRendering } from './components/rendering';
@@ -35,24 +35,24 @@ export class JssComponentFactoryService {
     @Inject(PLACEHOLDER_COMPONENTS) private components: ComponentNameAndType[],
     @Inject(PLACEHOLDER_LAZY_COMPONENTS) private lazyComponents: ComponentNameAndModule[]
   ) {
-      this.componentMap = new Map();
-      this.lazyComponentMap = new Map();
+    this.componentMap = new Map();
+    this.lazyComponentMap = new Map();
 
-      this.components.forEach((c) => this.componentMap.set(c.name, c.type));
+    this.components.forEach((c) => this.componentMap.set(c.name, c.type));
 
-      if (this.lazyComponents) {
-        this.lazyComponents.forEach((c) => this.lazyComponentMap.set(c.path, c));
-      }
-   }
+    if (this.lazyComponents) {
+      this.lazyComponents.forEach((c) => this.lazyComponentMap.set(c.path, c));
+    }
+  }
 
   private loadModuleFactory(lazyComponent: ComponentNameAndModule): Promise<NgModuleFactory<any>> {
     return lazyComponent.loadChildren().then(loaded => {
       if (loaded instanceof NgModuleFactory) {
-        return loaded
+        return loaded;
       } else {
-        return this.compiler.compileModuleAsync(loaded)
+        return this.compiler.compileModuleAsync(loaded);
       }
-    })
+    });
   }
 
   getComponent(component: ComponentRendering): Promise<ComponentFactoryResult> {
@@ -69,36 +69,36 @@ export class JssComponentFactoryService {
 
     if (lazyComponent) {
       return this.loadModuleFactory(lazyComponent)
-      .then((ngModuleFactory) => {
-        let componentType = null;
-        const moduleRef = ngModuleFactory.create(this.injector);
-        const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
-        if (!dynamicComponentType) {
-          throw new Error(
-            // tslint:disable-next-line:max-line-length
-            `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
-          );
-        }
-
-        if (component.componentName in dynamicComponentType) {
-          componentType = (dynamicComponentType as {[s: string]: any})[component.componentName];
-        } else {
-          if (typeof dynamicComponentType === 'function') {
-            componentType = dynamicComponentType;
-          } else {
+        .then((ngModuleFactory) => {
+          let componentType = null;
+          const moduleRef = ngModuleFactory.create(this.injector);
+          const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
+          if (!dynamicComponentType) {
             throw new Error(
-              // tslint:disable-next-line:max-line-length
+            // tslint:disable-next-line:max-line-length
               `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
             );
           }
-        }
 
-        return {
-          componentDefinition: component,
-          componentImplementation: componentType,
-          componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(componentType),
-        };
-      });
+          if (component.componentName in dynamicComponentType) {
+            componentType = (dynamicComponentType as {[s: string]: any})[component.componentName];
+          } else {
+            if (typeof dynamicComponentType === 'function') {
+              componentType = dynamicComponentType;
+            } else {
+              throw new Error(
+              // tslint:disable-next-line:max-line-length
+                `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
+              );
+            }
+          }
+
+          return {
+            componentDefinition: component,
+            componentImplementation: componentType,
+            componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(componentType),
+          };
+        });
     }
 
     return Promise.resolve({

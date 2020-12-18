@@ -13,11 +13,11 @@ export class FileDirective implements OnChanges {
 
   constructor(
     private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<any>,
+    private templateRef: TemplateRef<any>
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['field']) {
+    if (changes.field) {
       if (!this.viewRef) {
         this.viewContainer.clear();
         this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);

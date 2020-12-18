@@ -3,7 +3,7 @@ import { HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 
 @Component({
   selector: 'sc-raw',
-  template: ``,
+  template: '',
 })
 export class RawComponent implements OnInit {
   @Input() rendering: HtmlElementRendering;
@@ -18,6 +18,7 @@ export class RawComponent implements OnInit {
     const contents = this.renderer.createText(this.rendering.contents || '');
     const attributes = this.rendering.attributes;
     for (const attr in attributes) {
+      // eslint-disable-next-line no-prototype-builtins
       if ((attributes as any).hasOwnProperty(attr)) {
         const value = attributes[attr];
         this.renderer.setAttribute(el, attr, value || '');
