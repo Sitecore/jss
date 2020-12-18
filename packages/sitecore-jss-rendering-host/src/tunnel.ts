@@ -20,7 +20,7 @@ export function startRenderHostTunnel(
     ...options,
     host_header: 'rewrite',
     addr: rewriteHost,
-  }
+  };
 
   return ngrok
     .connect(finalOptions)

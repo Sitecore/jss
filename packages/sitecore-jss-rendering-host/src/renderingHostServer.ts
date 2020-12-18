@@ -66,11 +66,11 @@ export function startRenderingHostServer({
 
   const middleware = ssrMiddleware
     ? ssrMiddleware({
-        appInvocationInfoResolver,
-      })
+      appInvocationInfoResolver,
+    })
     : defaultSSRMiddleware({
-        appInvocationInfoResolver,
-      });
+      appInvocationInfoResolver,
+    });
 
   // Give devs a chance to add custom middleware before the SSR middleware is registered.
   invokeHook(hooks.beforeSSRMiddlewareRegistered, server);
@@ -95,6 +95,7 @@ export function startRenderingHostServer({
   });
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 function invokeHook(hook: Function | undefined, ...args: any[]) {
   if (hook && typeof hook === 'function') {
     hook(...args);

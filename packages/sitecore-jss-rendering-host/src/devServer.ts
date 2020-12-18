@@ -1,8 +1,9 @@
 import { sync as delSync } from 'del';
 import { Application } from 'express';
 import { PathParams } from 'express-serve-static-core';
-// @ts-ignore 
-import openBrowser from 'opn'; 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import openBrowser from 'opn';
 import path from 'path';
 import webpack from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
@@ -202,11 +203,11 @@ export function startDevServer({
   serverOptions.after = (app: Application, server: WebpackDevServer) => {
     const middleware = ssrMiddleware
       ? ssrMiddleware({
-          appInvocationInfoResolver,
-        })
+        appInvocationInfoResolver,
+      })
       : defaultSSRMiddleware({
-          appInvocationInfoResolver,
-        });
+        appInvocationInfoResolver,
+      });
 
     // Give devs a chance to add custom middleware before the SSR middleware is registered,
     // but after all WDS middleware.
@@ -251,6 +252,7 @@ export function startDevServer({
   });
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 function invokeHook(hook: Function | undefined, ...args: any[]) {
   if (hook && typeof hook === 'function') {
     hook(...args);

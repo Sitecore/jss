@@ -35,7 +35,7 @@ export const ssrMiddleware: SSRMiddleware = ({
   appInvocationInfoResolver,
 }: SSRMiddlewareOptions) => {
   if (!appInvocationInfoResolver) {
-    throw new Error(`No AppInvocationInfo resolver was provided for SSR middleware`);
+    throw new Error('No AppInvocationInfo resolver was provided for SSR middleware');
   }
   return (req: IncomingMessage, res: ServerResponse) => {
     let callback: RenderCallback;
@@ -116,7 +116,7 @@ export function onReadableStreamDataHandler(dataWriter: { output: Buffer }) {
   };
 }
 
-export function extractJsonFromStreamData(data: Buffer, contentEncoding?: string): Promise<object> {
+export function extractJsonFromStreamData(data: Buffer, contentEncoding?: string): Promise<any> {
   let responseString: Promise<string>;
 
   if (
