@@ -17,7 +17,7 @@ export interface FileProps {
   /** The file field data. */
   field: FileFieldValue | FileField;
   /** HTML attributes that will be appended to the rendered <a /> tag. */
-  children?: React.ReactNode[];
+  children?: React.ReactNode;
 }
 
 export const File: React.SFC<FileProps> = ({ field, children, ...otherProps }) => {
@@ -55,7 +55,7 @@ File.propTypes = {
       value: PropTypes.object,
     }),
   ]).isRequired,
-  children: PropTypes.array,
+  children: PropTypes.node,
 };
 
 File.displayName = 'File';
