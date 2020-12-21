@@ -100,7 +100,7 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
 /**
  * Will be called during SSG
  * @param rendering {ComponentRendering}
- * @param layoutData {LayoutServiceData | null}
+ * @param layoutData {LayoutServiceData}
  * @param context {GetStaticPropsContext}
  */
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
@@ -124,7 +124,7 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
 /**
  * Will be called during SSR
  * @param rendering {ComponentRendering}
- * @param layoutData {LayoutServiceData | null}
+ * @param layoutData {LayoutServiceData}
  * @param context {GetServerSidePropsContext}
  */
 export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
@@ -148,7 +148,7 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
 /**
  * Will be called during editing
  * @param rendering {ComponentRendering}
- * @param layoutData {LayoutServiceData | null}
+ * @param layoutData {LayoutServiceData}
  * @param context {NextPageContext}
  */
 export const getInitialProps: GetInitialComponentProps = async (rendering, layoutData) => {

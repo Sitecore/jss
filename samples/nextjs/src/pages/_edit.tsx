@@ -3,7 +3,7 @@ import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
 import { SitecoreContext, ComponentPropsContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
-import { SitecorePagePropsFactory } from 'lib/page-props-factory';
+import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
@@ -29,8 +29,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 };
 
 SitecorePage.getInitialProps = async (context: NextPageContext) => {
-  const propsFactory = new SitecorePagePropsFactory();
-  const props = await propsFactory.createForEditing(context);
+  const props = await sitecorePagePropsFactory.createForEditing(context);
   return props;
 };
 

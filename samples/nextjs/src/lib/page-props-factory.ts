@@ -30,19 +30,11 @@ const extractPath = function (params: ParsedUrlQuery | undefined): string {
   return path;
 };
 
-/**
- * Determine if Next.js context is GetServerSidePropsContext
- * @param context {GetStaticPropsContext|GetServerSidePropsContext}
- */
-const isGetServerSidePropsContext = function (
-  context: GetServerSidePropsContext | GetStaticPropsContext
-): context is GetServerSidePropsContext {
-  return 'req' in context;
-};
-
 export class SitecorePagePropsFactory {
-  private get componentPropsService(): ComponentPropsService {
-    return new ComponentPropsService();
+  private componentPropsService: ComponentPropsService;
+
+  constructor() {
+    this.componentPropsService = new ComponentPropsService();
   }
 
   private get layoutService(): LayoutService {
@@ -60,13 +52,12 @@ export class SitecorePagePropsFactory {
   }
 
   /**
-   * Create SitecorePageProps in an SSG/SSR context (within getStaticProps/getServerSideProps function).
-   * @param context {GetStaticPropsContext|GetServerSidePropsContext}
+   * Create SitecorePageProps in a SSG context (within getStaticProps function).
+   * If you're not using SSG, you can remove this.
+   * @param context {GetStaticPropsContext}
    * @see SitecorePageProps
    */
-  public async create<T extends GetStaticPropsContext | GetServerSidePropsContext>(
-    context: T
-  ): Promise<SitecorePageProps> {
+  public async createForStatic(context: GetStaticPropsContext): Promise<SitecorePageProps> {
     // Get normalized Sitecore item path
     const path = extractPath(context.params);
     // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
@@ -91,19 +82,61 @@ export class SitecorePagePropsFactory {
     // Retrieve component props using side-effects defined on components level
     let componentProps = {};
     if (layoutData.sitecore.route) {
-      if (isGetServerSidePropsContext(context)) {
-        componentProps = await this.componentPropsService.fetchServerSideComponentProps({
-          layoutData,
-          context,
-          componentModule,
-        });
-      } else {
-        componentProps = await this.componentPropsService.fetchStaticComponentProps({
-          layoutData,
-          context,
-          componentModule,
-        });
-      }
+      componentProps = await this.componentPropsService.fetchStaticComponentProps({
+        layoutData,
+        context,
+        componentModule,
+      });
+    }
+
+    // Retrieve dictionary data from Dictionary Service
+    const dictionary = await this.dictionaryService.fetchDictionaryData(locale);
+
+    return {
+      locale,
+      layoutData,
+      dictionary,
+      componentProps,
+      notFound,
+    };
+  }
+
+  /**
+   * Create SitecorePageProps in a SSR context (within getServerSideProps function).
+   * If you're not using SSR, you can remove this.
+   * @param context {GetServerSidePropsContext}
+   * @see SitecorePageProps
+   */
+  public async createForServerSide(context: GetServerSidePropsContext): Promise<SitecorePageProps> {
+    // Get normalized Sitecore item path
+    const path = extractPath(context.params);
+    // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
+    const locale = context.locale ?? packageConfig.language;
+
+    let notFound = false;
+
+    // Retrieve layoutData from Layout Service
+    const layoutData = await this.layoutService
+      .fetchLayoutData(path, locale, context.req, context.res)
+      .catch((error: AxiosError<LayoutServiceData>) => {
+        if (error.response?.status === 404) {
+          // Let 404s (invalid path) through.
+          // layoutData.sitecore.route will be missing, but
+          // layoutData.sitecore.context will provide valuable information
+          notFound = true;
+          return error.response.data;
+        }
+        throw error;
+      });
+
+    // Retrieve component props using side-effects defined on components level
+    let componentProps = {};
+    if (layoutData.sitecore.route) {
+      componentProps = await this.componentPropsService.fetchServerSideComponentProps({
+        layoutData,
+        context,
+        componentModule,
+      });
     }
 
     // Retrieve dictionary data from Dictionary Service
@@ -147,3 +180,5 @@ export class SitecorePagePropsFactory {
     };
   }
 }
+
+export const sitecorePagePropsFactory = new SitecorePagePropsFactory();

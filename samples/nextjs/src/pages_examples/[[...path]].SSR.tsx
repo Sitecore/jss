@@ -3,7 +3,7 @@ import NotFound from 'components/NotFound';
 import { SitecoreContext, ComponentPropsContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Layout from 'components/Layout';
 import { SitecorePageProps } from 'lib/page-props';
-import { SitecorePagePropsFactory } from 'lib/page-props-factory';
+import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
@@ -32,8 +32,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
 // This function gets called at request time on server-side.
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const propsFactory = new SitecorePagePropsFactory();
-  const props = await propsFactory.create(context);
+  const props = await sitecorePagePropsFactory.createForServerSide(context);
 
   return {
     props,
