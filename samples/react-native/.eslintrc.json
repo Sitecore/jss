@@ -1,4 +1,5 @@
 {
+  "root": true,
   "parser": "babel-eslint",
   "extends": [
     "airbnb-base",
@@ -13,12 +14,16 @@
     "import/ignore": ["node_modules", ".png$", ".jpg$"],
     "import/resolver": {
       "babel-module": {}
+    },
+    "react": {
+      "version": "detect"
     }
   },
   "env": {
     "jest": true
   },
   "rules": {
+    "react/prop-types": "off",
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": [
@@ -37,7 +42,33 @@
         "args": "none"
       }
     ],
+    "func-names": "off",
     "radix": ["error", "as-needed"],
-    "prefer-destructuring": "off"
+    "prefer-destructuring": "off",
+    "no-useless-escape": "off",
+    "no-restricted-globals": "off",
+    "no-restricted-properties": "off",
+    "spaced-comment": "error",
+    "curly": ["error", "multi-line"],
+    "eol-last": ["error", "always"],
+    "guard-for-in": "error",
+    "no-unused-labels": "error",
+    "max-len": "off",
+    "no-caller": "error",
+    "no-bitwise": "error",
+    "no-console": ["error", { "allow": ["log", "warn", "error", "info"] }],
+    "no-multiple-empty-lines": "error",
+    "no-new-wrappers": "error",
+    "no-debugger": "error",
+    "no-empty": "error",
+    "no-eval": "error",
+    "dot-notation": "error",
+    "no-fallthrough": "error",
+    "no-trailing-spaces": "error",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "brace-style": "error",
+    "quotes": ["error", "single"],
+    "default-case": "error",
+    "eqeqeq": "error"
   }
 }

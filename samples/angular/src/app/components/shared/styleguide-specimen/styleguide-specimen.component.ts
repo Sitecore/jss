@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 function dasherize(str) {
-  return str.replace(/[A-Z](?:(?=[^A-Z])|[A-Z]*(?=[A-Z][^A-Z]|$))/g, function (s, i) {
+  // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+  return str.replace(/[A-Z](?:(?=[^A-Z])|[A-Z]*(?=[A-Z][^A-Z]|$))/g, function(s, i) {
     return (i > 0 ? '-' : '') + s.toLowerCase();
   });
 }
@@ -28,8 +30,8 @@ function dasherize(str) {
 })
 export class StyleguideSpecimenComponent implements OnInit {
   @Input() rendering: ComponentRendering;
-  id: string;
   @Input() e2eId: string;
+  id: string;
   componentName: string;
 
   constructor() { }

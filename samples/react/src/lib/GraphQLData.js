@@ -78,8 +78,9 @@ function GraphQLData(query, configuration = {}) {
           resultProps[newConfiguration.name] = innerQuery;
 
           // run a user-specified props function too if one exists
-          if (configuration.props)
+          if (configuration.props) {
             resultProps = Object.assign(resultProps, configuration.props(props));
+          }
 
           return resultProps;
         };

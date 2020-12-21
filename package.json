@@ -7,8 +7,8 @@
     "bootstrap-react-dom": "cd ./packages/sitecore-jss-react/node_modules/react-dom && npm link && cd ../../../sitecore-jss-nextjs && npm link react-dom && cd ../sitecore-jss-nextjs-editing-host && npm link react-dom && cd ../../samples/nextjs && npm link react-dom && cd ../react && npm link react-dom",
     "build-packages": "lerna run build --ignore *-sample*",
     "build-apps": "lerna run build --scope *-sample*",
-    "lint-packages": "lerna run lint --scope @sitecore-jss/sitecore-jss-nextjs*",
-    "lint-apps": "lerna run lint --scope jss-sample-nextjs",
+    "lint-packages": "lerna run lint --ignore *-sample*",
+    "lint-apps": "lerna run lint --ignore @sitecore-jss/*",
     "test-packages": "lerna run test --ignore *-sample*",
     "test": "lerna run test",
     "coverage-packages": "lerna run coverage --ignore *-sample*"

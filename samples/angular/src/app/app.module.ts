@@ -25,9 +25,7 @@ import { JssDataFetcherService } from './jss-data-fetcher.service';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (http: HttpClient) => {
-          return new JssTranslationClientLoaderService(new JssTranslationLoaderService(http));
-        },
+        useFactory: (http: HttpClient) => new JssTranslationClientLoaderService(new JssTranslationLoaderService(http)),
         deps: [HttpClient, TransferState]
       }
     }),
