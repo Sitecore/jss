@@ -1,10 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import {
-  ANALYZE_FOR_ENTRY_COMPONENTS,
-  ModuleWithProviders,
-  NgModule,
-  Type,
-} from '@angular/core';
+import { ANALYZE_FOR_ENTRY_COMPONENTS, ModuleWithProviders, NgModule, Type } from '@angular/core';
 import { ROUTES } from '@angular/router';
 import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
@@ -33,9 +28,7 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
 import { LayoutService } from './layout.service';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [
     FileDirective,
     ImageDirective,
@@ -51,7 +44,7 @@ import { LayoutService } from './layout.service';
     RawComponent,
     RichTextDirective,
     TextDirective,
-    MissingComponentComponent
+    MissingComponentComponent,
   ],
   exports: [
     FileDirective,
@@ -66,12 +59,9 @@ import { LayoutService } from './layout.service';
     PlaceholderComponent,
     PlaceholderLoadingDirective,
     RichTextDirective,
-    TextDirective
+    TextDirective,
   ],
-  entryComponents: [
-    RawComponent,
-    MissingComponentComponent
-  ],
+  entryComponents: [RawComponent, MissingComponentComponent],
 })
 export class JssModule {
   /**
@@ -82,11 +72,7 @@ export class JssModule {
   static forRoot(): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
-      providers: [
-        LayoutService,
-        DatePipe,
-        JssComponentFactoryService
-      ],
+      providers: [LayoutService, DatePipe, JssComponentFactoryService],
     };
   }
 
@@ -94,14 +80,14 @@ export class JssModule {
    * Instantiates a module for a lazy-loaded JSS component
    * @param {Type<any>} component
    * @returns {ModuleWithProviders<JssModule>} module
-  */
+   */
   static forChild(component: Type<any>): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
       providers: [
         { provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: component, multi: true },
         { provide: ROUTES, useValue: [], multi: true },
-        { provide: DYNAMIC_COMPONENT, useValue: component }
+        { provide: DYNAMIC_COMPONENT, useValue: component },
       ],
     };
   }
@@ -113,7 +99,10 @@ export class JssModule {
    * @param {ComponentNameAndModule[]} [lazyComponents]
    * @returns {ModuleWithProviders<JssModule>} module
    */
-  static withComponents(components: ComponentNameAndType[], lazyComponents?: ComponentNameAndModule[]): ModuleWithProviders<JssModule> {
+  static withComponents(
+    components: ComponentNameAndType[],
+    lazyComponents?: ComponentNameAndModule[]
+  ): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
       providers: [
@@ -126,7 +115,7 @@ export class JssModule {
         { provide: PLACEHOLDER_LAZY_COMPONENTS, useValue: lazyComponents || [] },
         { provide: ROUTES, useValue: lazyComponents || [], multi: true },
         { provide: PLACEHOLDER_MISSING_COMPONENT_COMPONENT, useValue: MissingComponentComponent },
-        ...(JssModule.forRoot().providers as any[])
+        ...(JssModule.forRoot().providers as any[]),
       ],
     };
   }

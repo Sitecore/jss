@@ -24,7 +24,13 @@ export interface TextProps {
   encode?: boolean;
 }
 
-export const Text: FunctionComponent<TextProps> = ({ field, tag, editable, encode, ...otherProps }) => {
+export const Text: FunctionComponent<TextProps> = ({
+  field,
+  tag,
+  editable,
+  encode,
+  ...otherProps
+}) => {
   if (!field || (!field.editable && !field.value)) {
     return null;
   }
@@ -53,7 +59,7 @@ export const Text: FunctionComponent<TextProps> = ({ field, tag, editable, encod
       output.push(str);
 
       if (!isLast) {
-        output.push(<br key={i}/>);
+        output.push(<br key={i} />);
       }
     });
   }

@@ -126,7 +126,7 @@ export const convertedData = {
                     hintname: 'page-header',
                     class: 'scpm',
                   },
-                }
+                },
               ],
               'page-content': [
                 {
@@ -209,7 +209,7 @@ export const convertedData = {
                     hintname: 'page-content',
                     class: 'scpm',
                   },
-                }
+                },
               ],
             },
           },
@@ -238,13 +238,14 @@ export const convertedData = {
               hintname: 'main',
               class: 'scpm',
             },
-          }
+          },
         ],
       },
       fields: {
         key: {
           value: '',
-          editable: '<input id=\'fld_9BCF4A172EC7416095045ABD096B46AE_30F5C2ACE7C842418AD031434E4E96CF_en_1_a95ded857429473e8ced62dee49d6747_15\' class=\'scFieldValue\' name=\'fld_9BCF4A172EC7416095045ABD096B46AE_30F5C2ACE7C842418AD031434E4E96CF_en_1_a95ded857429473e8ced62dee49d6747_15\' type=\'hidden\' value="This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;" /><span class="scChromeData">{"commands":[{"click":"chrome:common:edititem({command:\\"webedit:open\\"})","header":"Edit the related item","icon":"/temp/iconcache/office/16x16/cubes.png","disabledIcon":"/temp/cubes_disabled16x16.png","isDivider":false,"tooltip":"Edit the related item in the Content Editor.","type":"common"},{"click":"chrome:rendering:personalize({command:\\"webedit:personalize\\"})","header":"Personalize","icon":"/temp/iconcache/office/16x16/users_family.png","disabledIcon":"/temp/users_family_disabled16x16.png","isDivider":false,"tooltip":"Create or edit personalization for this component.","type":"sticky"},{"click":"chrome:rendering:editvariations({command:\\"webedit:editvariations\\"})","header":"Edit variations","icon":"/temp/iconcache/office/16x16/windows.png","disabledIcon":"/temp/windows_disabled16x16.png","isDivider":false,"tooltip":"Edit the variations.","type":"sticky"}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&ver=1","custom":{},"displayName":"Key","expandedDisplayName":null}</span><span id="fld_9BCF4A172EC7416095045ABD096B46AE_30F5C2ACE7C842418AD031434E4E96CF_en_1_a95ded857429473e8ced62dee49d6747_15_edit" sc_parameters="prevent-line-break=true" contenteditable="true" class="scWebEditInput" scFieldType="single-line text" scDefaultText="[No text in field]">This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;</span>',
+          editable:
+            '<input id=\'fld_9BCF4A172EC7416095045ABD096B46AE_30F5C2ACE7C842418AD031434E4E96CF_en_1_a95ded857429473e8ced62dee49d6747_15\' class=\'scFieldValue\' name=\'fld_9BCF4A172EC7416095045ABD096B46AE_30F5C2ACE7C842418AD031434E4E96CF_en_1_a95ded857429473e8ced62dee49d6747_15\' type=\'hidden\' value="This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;" /><span class="scChromeData">{"commands":[{"click":"chrome:common:edititem({command:\\"webedit:open\\"})","header":"Edit the related item","icon":"/temp/iconcache/office/16x16/cubes.png","disabledIcon":"/temp/cubes_disabled16x16.png","isDivider":false,"tooltip":"Edit the related item in the Content Editor.","type":"common"},{"click":"chrome:rendering:personalize({command:\\"webedit:personalize\\"})","header":"Personalize","icon":"/temp/iconcache/office/16x16/users_family.png","disabledIcon":"/temp/users_family_disabled16x16.png","isDivider":false,"tooltip":"Create or edit personalization for this component.","type":"sticky"},{"click":"chrome:rendering:editvariations({command:\\"webedit:editvariations\\"})","header":"Edit variations","icon":"/temp/iconcache/office/16x16/windows.png","disabledIcon":"/temp/windows_disabled16x16.png","isDivider":false,"tooltip":"Edit the variations.","type":"sticky"}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&ver=1","custom":{},"displayName":"Key","expandedDisplayName":null}</span><span id="fld_9BCF4A172EC7416095045ABD096B46AE_30F5C2ACE7C842418AD031434E4E96CF_en_1_a95ded857429473e8ced62dee49d6747_15_edit" sc_parameters="prevent-line-break=true" contenteditable="true" class="scWebEditInput" scFieldType="single-line text" scDefaultText="[No text in field]">This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;</span>',
         },
       },
     },

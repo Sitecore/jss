@@ -92,7 +92,8 @@ describe('RichText', () => {
 
     const props = {
       field: {
-        value: '<div id="test"><h1>Hello!</h1><a href="/testpath/t1">t1</a><a href="/t2">t2</a></div>',
+        value:
+          '<div id="test"><h1>Hello!</h1><a href="/testpath/t1">t1</a><a href="/t2">t2</a></div>',
       },
       internalLinksSelector: 'a[href^="/testpath"]',
     };

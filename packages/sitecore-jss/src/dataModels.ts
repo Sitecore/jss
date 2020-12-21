@@ -19,7 +19,7 @@ export interface DictionaryServiceData {
  */
 export interface LayoutServiceData {
   sitecore: LayoutServiceContextData & {
-    route: RouteData
+    route: RouteData;
   };
 }
 
@@ -29,7 +29,7 @@ export interface LayoutServiceData {
 export enum LayoutServicePageState {
   Preview = 'preview',
   Edit = 'edit',
-  Normal = 'normal'
+  Normal = 'normal',
 }
 
 /**
@@ -50,7 +50,7 @@ export interface LayoutServiceContext {
  * Context information from the Sitecore Layout Service
  */
 export interface LayoutServiceContextData {
-  context: LayoutServiceContext
+  context: LayoutServiceContext;
 }
 
 /**
@@ -60,7 +60,7 @@ export interface RouteData {
   name: string;
   displayName?: string;
   fields?: {
-    [name: string]: Field
+    [name: string]: Field;
   };
   databaseName?: string;
   deviceId?: string;
@@ -115,14 +115,19 @@ export interface HtmlElementRendering {
   type?: string;
   contents: string | null;
   attributes: {
-    [name: string]: string | undefined,
+    [name: string]: string | undefined;
   };
 }
 
 /**
  * Field value data on a component
  */
-export type GenericFieldValue = string | boolean | number | { [key: string]: unknown } | Array<{ [key: string]: unknown }>;
+export type GenericFieldValue =
+  | string
+  | boolean
+  | number
+  | { [key: string]: unknown }
+  | Array<{ [key: string]: unknown }>;
 
 export interface Field<T = GenericFieldValue> {
   value: T;

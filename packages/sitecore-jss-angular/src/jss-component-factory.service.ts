@@ -46,7 +46,7 @@ export class JssComponentFactoryService {
   }
 
   private loadModuleFactory(lazyComponent: ComponentNameAndModule): Promise<NgModuleFactory<any>> {
-    return lazyComponent.loadChildren().then(loaded => {
+    return lazyComponent.loadChildren().then((loaded) => {
       if (loaded instanceof NgModuleFactory) {
         return loaded;
       } else {
@@ -68,37 +68,38 @@ export class JssComponentFactoryService {
     const lazyComponent = this.lazyComponentMap.get(component.componentName);
 
     if (lazyComponent) {
-      return this.loadModuleFactory(lazyComponent)
-        .then((ngModuleFactory) => {
-          let componentType = null;
-          const moduleRef = ngModuleFactory.create(this.injector);
-          const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
-          if (!dynamicComponentType) {
-            throw new Error(
+      return this.loadModuleFactory(lazyComponent).then((ngModuleFactory) => {
+        let componentType = null;
+        const moduleRef = ngModuleFactory.create(this.injector);
+        const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
+        if (!dynamicComponentType) {
+          throw new Error(
             // tslint:disable-next-line:max-line-length
+            `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
+          );
+        }
+
+        if (component.componentName in dynamicComponentType) {
+          componentType = (dynamicComponentType as { [s: string]: any })[component.componentName];
+        } else {
+          if (typeof dynamicComponentType === 'function') {
+            componentType = dynamicComponentType;
+          } else {
+            throw new Error(
+              // tslint:disable-next-line:max-line-length
               `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
             );
           }
+        }
 
-          if (component.componentName in dynamicComponentType) {
-            componentType = (dynamicComponentType as {[s: string]: any})[component.componentName];
-          } else {
-            if (typeof dynamicComponentType === 'function') {
-              componentType = dynamicComponentType;
-            } else {
-              throw new Error(
-              // tslint:disable-next-line:max-line-length
-                `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
-              );
-            }
-          }
-
-          return {
-            componentDefinition: component,
-            componentImplementation: componentType,
-            componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(componentType),
-          };
-        });
+        return {
+          componentDefinition: component,
+          componentImplementation: componentType,
+          componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(
+            componentType
+          ),
+        };
+      });
     }
 
     return Promise.resolve({
@@ -106,12 +107,14 @@ export class JssComponentFactoryService {
     });
   }
 
-  getComponents(components: Array<ComponentRendering | HtmlElementRendering>): Promise<ComponentFactoryResult[]> {
+  getComponents(
+    components: Array<ComponentRendering | HtmlElementRendering>
+  ): Promise<ComponentFactoryResult[]> {
     // acquire all components and keep them in order while handling their potential async-ness
     return Promise.all(
-      components.map((component) => isRawRendering(component)
-        ? this.getRawComponent(component)
-        : this.getComponent(component))
+      components.map((component) =>
+        isRawRendering(component) ? this.getRawComponent(component) : this.getComponent(component)
+      )
     );
   }
 

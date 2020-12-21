@@ -28,13 +28,14 @@ export interface FormTrackerOptions {
 }
 
 export function createFetchBasedTrackerFetcher(options?: RequestInit): TrackerFetcher {
-  return (formData, endpoint) => fetch(endpoint, {
-    body: JSON.stringify(formData),
-    method: 'post',
-    // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
-    credentials: 'include',
-    ...options,
-  });
+  return (formData, endpoint) =>
+    fetch(endpoint, {
+      body: JSON.stringify(formData),
+      method: 'post',
+      // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
+      credentials: 'include',
+      ...options,
+    });
 }
 
 export class FormTracker {
@@ -51,11 +52,11 @@ export class FormTracker {
   }
 
   /**
-	 * Should be called prior to pushing any events, and again whenever new form schema data is received
-	 * @param {string} formId
-	 * @param {string} formSessionId
-	 * @param {string} enableTracking
-	*/
+   * Should be called prior to pushing any events, and again whenever new form schema data is received
+   * @param {string} formId
+   * @param {string} formSessionId
+   * @param {string} enableTracking
+   */
   setFormData(formId: string, formSessionId: string, enableTracking: boolean) {
     this._formId = formId;
     this._formSessionId = formSessionId;
@@ -80,11 +81,15 @@ export class FormTracker {
 
     const blurredAtTick = new Date().getTime();
 
-    let duration = trackableField.focusedAtTick ? Math.round((blurredAtTick - trackableField.focusedAtTick) / 1000) : 0;
+    let duration = trackableField.focusedAtTick
+      ? Math.round((blurredAtTick - trackableField.focusedAtTick) / 1000)
+      : 0;
 
     trackableField.focusedAtTick = undefined;
 
-    const fieldChanged = this._currentField && this._currentField.fieldIdField.value !== trackableField.fieldIdField.value;
+    const fieldChanged =
+      this._currentField &&
+      this._currentField.fieldIdField.value !== trackableField.fieldIdField.value;
     if (fieldChanged) {
       this._startTrackingField(field, value);
       duration = 0;

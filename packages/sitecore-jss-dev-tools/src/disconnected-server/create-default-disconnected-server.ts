@@ -3,7 +3,11 @@ import Express from 'express';
 import { join } from 'path';
 import { ManifestManager } from '../manifest-manager';
 import { createDisconnectedDictionaryService } from './dictionary-service';
-import { CustomizeContextFunction, CustomizeRenderFunction, CustomizeRouteFunction } from './DisconnectedLayoutServiceOptions';
+import {
+  CustomizeContextFunction,
+  CustomizeRenderFunction,
+  CustomizeRouteFunction,
+} from './DisconnectedLayoutServiceOptions';
 import { createDisconnectedLayoutService } from './layout-service';
 
 export interface DisconnectedServerOptions {
@@ -101,7 +105,7 @@ export function createDefaultDisconnectedServer(options: DisconnectedServerOptio
   // for GA the appRoot was expected to be $app/scripts
   // which didn't make sense. This allows both sane app roots
   // and GA-style app roots to keep working.
-  if(options.appRoot.endsWith('scripts')) {
+  if (options.appRoot.endsWith('scripts')) {
     options.appRoot = join(options.appRoot, '..');
   }
 
@@ -110,7 +114,9 @@ export function createDefaultDisconnectedServer(options: DisconnectedServerOptio
   // to keep working even with appRoot now relative to the actual app root
   // We do this by stripping '../' from path leads, making the path './data' instead - theoretically, the chance of
   // wanting to actually escape from the app root entirely otherwise is awfully low.
-  options.watchPaths = options.watchPaths.map(path => path.startsWith('../') ? path.substring(1) : path);
+  options.watchPaths = options.watchPaths.map((path) =>
+    path.startsWith('../') ? path.substring(1) : path
+  );
 
   // the manifest manager maintains the state of the disconnected manifest data during the course of the dev run
   // it provides file watching services, and language switching capabilities
@@ -164,7 +170,9 @@ export function createDefaultDisconnectedServer(options: DisconnectedServerOptio
           if (options.onListening) {
             options.onListening();
           } else {
-            console.log(`JSS Disconnected-mode Proxy is listening on port ${options.port}. (PID: ${process.pid})`);
+            console.log(
+              `JSS Disconnected-mode Proxy is listening on port ${options.port}. (PID: ${process.pid})`
+            );
           }
         });
       }

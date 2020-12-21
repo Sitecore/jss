@@ -1,5 +1,13 @@
 import { DatePipe } from '@angular/common';
-import { Directive, EmbeddedViewRef, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  EmbeddedViewRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { TextField } from './rendering-field';
 
 @Directive({
@@ -27,7 +35,7 @@ export class DateDirective implements OnChanges {
     private viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<any>,
     private datePipe: DatePipe
-  ) { }
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.format) {

@@ -31,7 +31,12 @@ export {
   instanceOfListViewModel,
   instanceOfInputViewModel,
 } from './ViewModel';
-export { submitForm, createFetchBasedFormFetcher, FormSubmitOptions, FormFetcher } from './submitForm';
+export {
+  submitForm,
+  createFetchBasedFormFetcher,
+  FormSubmitOptions,
+  FormFetcher,
+} from './submitForm';
 export { getFieldValueFromModel } from './getFieldValueFromModel';
 export {
   FormTracker,

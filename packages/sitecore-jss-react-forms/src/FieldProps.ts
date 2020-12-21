@@ -1,5 +1,11 @@
 import { ReactNode, ComponentType } from 'react';
-import { FormField, ValueFormField, ListViewModel, InputViewModel, FormTracker } from '@sitecore-jss/sitecore-jss-forms';
+import {
+  FormField,
+  ValueFormField,
+  ListViewModel,
+  InputViewModel,
+  FormTracker,
+} from '@sitecore-jss/sitecore-jss-forms';
 
 export interface FieldProps<TFormField extends FormField = FormField> {
   /** Form field schema data */
@@ -12,7 +18,10 @@ export interface FieldProps<TFormField extends FormField = FormField> {
   key?: string;
 }
 
-export interface FieldWithValueProps<TFormField extends FormField = FormField, TValueType extends string | string[] = string> extends FieldProps<TFormField> {
+export interface FieldWithValueProps<
+  TFormField extends FormField = FormField,
+  TValueType extends string | string[] = string
+> extends FieldProps<TFormField> {
   /** Form field schema data */
   field: TFormField;
   /** The current value of the form field */
@@ -40,10 +49,23 @@ export interface FieldWithValueProps<TFormField extends FormField = FormField, T
   key?: string;
 }
 
-export type FieldChangeCallback = (fieldName: string, newValue: string | string[] | File[], isValid: boolean, errorMessages: string[]) => void;
+export type FieldChangeCallback = (
+  fieldName: string,
+  newValue: string | string[] | File[],
+  isValid: boolean,
+  errorMessages: string[]
+) => void;
 
-export type ListFieldProps<TViewModel extends ListViewModel = ListViewModel> = FieldWithValueProps<ValueFormField<TViewModel>, string[]>;
-export type ValueFieldProps<TViewModel extends InputViewModel = InputViewModel> = FieldWithValueProps<ValueFormField<TViewModel>>;
+export type ListFieldProps<TViewModel extends ListViewModel = ListViewModel> = FieldWithValueProps<
+  ValueFormField<TViewModel>,
+  string[]
+>;
+export type ValueFieldProps<
+  TViewModel extends InputViewModel = InputViewModel
+> = FieldWithValueProps<ValueFormField<TViewModel>>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type LabelProps<TViewModel extends InputViewModel = InputViewModel> = FieldWithValueProps<ValueFormField<TViewModel>, any>;
+export type LabelProps<TViewModel extends InputViewModel = InputViewModel> = FieldWithValueProps<
+  ValueFormField<TViewModel>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any
+>;

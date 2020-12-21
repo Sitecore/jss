@@ -10,7 +10,9 @@ const DefaultError = (props: ErrorComponentProps) => (
     ))}
     {props.fieldErrors.map((error, index) => (
       <div className="invalid" key={`fieldError-${index}`}>
-        {error.state.errors.map(message => <div key={message}>{message}</div>)}
+        {error.state.errors.map((message) => (
+          <div key={message}>{message}</div>
+        ))}
       </div>
     ))}
   </div>

@@ -40,9 +40,7 @@ export const DateField: React.FunctionComponent<DateFieldProps> = ({
   if (field.editable && editable) {
     return <HtmlView value={children as string} {...otherProps} />;
   }
-  return render
-    ? <>{children}</>
-    : <Text>{children}</Text>;
+  return render ? <>{children}</> : <Text>{children}</Text>;
 };
 
 DateField.propTypes = {

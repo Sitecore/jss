@@ -111,9 +111,7 @@ export function getVNodesForRenderingData(
       let component = getComponentForRendering(rendering, componentFactory);
       if (!component) {
         console.error(
-          `Placeholder ${placeholderName} contains unknown component ${
-            rendering.componentName
-          }. Ensure that a Vue component exists for it, and that it is mapped in your component factory.`
+          `Placeholder ${placeholderName} contains unknown component ${rendering.componentName}. Ensure that a Vue component exists for it, and that it is mapped in your component factory.`
         );
         component = missingComponentComponent || MissingComponent;
       }
@@ -206,9 +204,7 @@ function getComponentForRendering(
 ) {
   if (!componentFactory) {
     console.warn(
-      `No componentFactory was available to service request for component ${
-        renderingDefinition.componentName
-      }`
+      `No componentFactory was available to service request for component ${renderingDefinition.componentName}`
     );
     return null;
   }

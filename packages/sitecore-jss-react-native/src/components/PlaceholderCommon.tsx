@@ -131,9 +131,7 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
           // register a warning instead.
           if (!componentRendering.componentName && htmlElementRendering.name) {
             console.error(
-              `Placeholder ${name} contains a rendering that cannot be rendered in React Native '${
-                htmlElementRendering.name
-              }'. This is likely the result of including Experience Editor output in rendering data
+              `Placeholder ${name} contains a rendering that cannot be rendered in React Native '${htmlElementRendering.name}'. This is likely the result of including Experience Editor output in rendering data
             or using non-JSON renderings in an item's presentation details / layout. React Native
             is not able to render DOM elements, your Sitecore renderings must map to React components
             defined in your componentFactory.js.`
@@ -145,9 +143,7 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
             component = this.getComponentForRendering(componentRendering);
             if (!component) {
               console.error(
-                `Placeholder ${name} contains unknown component ${
-                  componentRendering.componentName
-                }. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
+                `Placeholder ${name} contains unknown component ${componentRendering.componentName}. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
               );
 
               component = missingComponentComponent || MissingComponent;
@@ -166,7 +162,10 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
             rendering,
           };
 
-          return React.createElement<{ [attr: string]: unknown }>(component as React.ComponentType, finalProps);
+          return React.createElement<{ [attr: string]: unknown }>(
+            component as React.ComponentType,
+            finalProps
+          );
         })
         .filter((element: React.ReactNode) => element)
     ); // remove nulls

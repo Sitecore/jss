@@ -45,14 +45,18 @@ export default (args: any) => {
 
   if (duplicateIds.length > 0) {
     // tslint:disable-next-line:no-string-throw
-    throw `The manifest defined duplicate template IDs: ${duplicateIds.join(',')}. This is not allowed.`;
+    throw `The manifest defined duplicate template IDs: ${duplicateIds.join(
+      ','
+    )}. This is not allowed.`;
   }
 
   const duplicateNames = checkUnique(finalTemplates, (template) => template.name);
 
   if (duplicateNames.length > 0) {
     // tslint:disable-next-line:no-string-throw
-    throw `The manifest defined duplicate template names: ${duplicateNames.join(',')}. This is not allowed.`;
+    throw `The manifest defined duplicate template names: ${duplicateNames.join(
+      ','
+    )}. This is not allowed.`;
   }
 
   return {

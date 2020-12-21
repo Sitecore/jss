@@ -1,4 +1,11 @@
-import { FieldProps, FieldChangeCallback, ListFieldProps, ValueFieldProps, FieldWithValueProps, LabelProps } from './FieldProps';
+import {
+  FieldProps,
+  FieldChangeCallback,
+  ListFieldProps,
+  ValueFieldProps,
+  FieldWithValueProps,
+  LabelProps,
+} from './FieldProps';
 import FieldFactory from './field-factory';
 import { Form, FormProps, ErrorComponentProps } from './components/form';
 import Button from './components/field-templates/button';
@@ -41,7 +48,6 @@ export {
   Telephone,
   TextField,
   Form,
-
   FormProps,
   ErrorComponentProps,
   FieldFactory,
@@ -53,6 +59,5 @@ export {
   LabelProps,
   FieldTypes,
   ValidationDataModels,
-
   createDefaultFieldFactory,
 };

@@ -5,7 +5,6 @@ import { AbsolutifyHtmlProcessor } from './html-processors';
 const expect = chai.use(chaiString).expect;
 
 describe('AbsolutifyHtmlProcessor', () => {
-
   it('adds public url to relative urls', () => {
     const publicUrl = 'http://test.local';
     const processor = new AbsolutifyHtmlProcessor(publicUrl);
@@ -62,7 +61,7 @@ describe('AbsolutifyHtmlProcessor', () => {
 
   it('ignores specified paths', () => {
     const publicUrl = 'http://test.local';
-    const ignoredPaths = ['/-/media/','/~/jssmedia/', '/sitecore/shell/'];
+    const ignoredPaths = ['/-/media/', '/~/jssmedia/', '/sitecore/shell/'];
     const processor = new AbsolutifyHtmlProcessor(publicUrl, ignoredPaths);
     let html = `
       <html>
@@ -85,7 +84,7 @@ describe('AbsolutifyHtmlProcessor', () => {
 
   it('ignores specified paths without leading slash', () => {
     const publicUrl = 'http://test.local';
-    const ignoredPaths = ['-/media/','~/jssmedia/', 'sitecore/shell/'];
+    const ignoredPaths = ['-/media/', '~/jssmedia/', 'sitecore/shell/'];
     const processor = new AbsolutifyHtmlProcessor(publicUrl, ignoredPaths);
     let html = `
       <html>

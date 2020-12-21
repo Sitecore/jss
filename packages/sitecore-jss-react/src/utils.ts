@@ -2,9 +2,8 @@ import { parse as styleParse } from 'style-attr';
 
 // https://stackoverflow.com/a/10426674/9324
 export const convertKebabCasetoCamelCase = (str: string) =>
-  str.replace(
-    /^.|-./g,
-    (letter, index) => (index === 0 ? letter.toLowerCase() : letter.substr(1).toUpperCase())
+  str.replace(/^.|-./g, (letter, index) =>
+    index === 0 ? letter.toLowerCase() : letter.substr(1).toUpperCase()
   );
 
 /**

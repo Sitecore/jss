@@ -169,7 +169,9 @@ describe('<a *scRouterLink />', () => {
 @Component({
   selector: 'test-router-link-children',
   template: `
-    <a *scRouterLink="field; editable: editable; attrs: attrs" id="my-link"><span *ngIf="true">hello world</span></a>
+    <a *scRouterLink="field; editable: editable; attrs: attrs" id="my-link"
+      ><span *ngIf="true">hello world</span></a
+    >
   `,
 })
 class TestWithChildrenComponent {

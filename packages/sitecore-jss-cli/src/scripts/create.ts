@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
@@ -54,8 +55,7 @@ export function builder(yargs: Argv) {
         .option('proxy', {
           requiresArg: false,
           type: 'string',
-          describe:
-            'Specify a HTTP proxy when downloading templates.',
+          describe: 'Specify a HTTP proxy when downloading templates.',
         }),
     handler
   );
@@ -94,9 +94,7 @@ async function handler(argv: any) {
   if (!fs.existsSync(createScriptPath)) {
     console.warn(
       chalk.yellow(
-        `Template ${
-          argv.template
-        } did not have a jss-create.js in its root to invoke. No template configuration will be performed.`
+        `Template ${argv.template} did not have a jss-create.js in its root to invoke. No template configuration will be performed.`
       )
     );
   } else {

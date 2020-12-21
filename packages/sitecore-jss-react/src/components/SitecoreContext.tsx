@@ -12,8 +12,12 @@ export interface SitecoreContextState {
   context: unknown;
 }
 
-export const SitecoreContextReactContext = React.createContext<SitecoreContextState>({} as SitecoreContextState);
-export const ComponentFactoryReactContext = React.createContext<ComponentFactory>({} as ComponentFactory);
+export const SitecoreContextReactContext = React.createContext<SitecoreContextState>(
+  {} as SitecoreContextState
+);
+export const ComponentFactoryReactContext = React.createContext<ComponentFactory>(
+  {} as ComponentFactory
+);
 
 export class SitecoreContext extends React.Component<SitecoreContextProps, SitecoreContextState> {
   static propTypes = {

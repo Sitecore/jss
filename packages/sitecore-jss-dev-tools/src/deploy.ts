@@ -58,7 +58,9 @@ export function deploy(options: DeployOptions) {
     del.sync([`${options.destinationPath}/**`, `!${options.destinationPath}`], { force: true });
   }
 
-  console.log(`Copying ${chalk.green(options.sourcePath)} to ${chalk.green(options.destinationPath)}...`);
+  console.log(
+    `Copying ${chalk.green(options.sourcePath)} to ${chalk.green(options.destinationPath)}...`
+  );
   fsExtra.copySync(options.sourcePath, options.destinationPath, copyOptions);
 
   console.log();

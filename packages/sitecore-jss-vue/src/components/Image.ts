@@ -108,7 +108,11 @@ export const Image: FunctionalComponentOptions<ImageProps> = {
         return getEditableWrapper(media.editable, createElement);
       }
 
-      const imgAttrs = getImageAttrs({ ...foundImg.attrs, ...contextAttrs }, imageParams, mediaUrlPrefix);
+      const imgAttrs = getImageAttrs(
+        { ...foundImg.attrs, ...contextAttrs },
+        imageParams,
+        mediaUrlPrefix
+      );
       if (!imgAttrs) {
         return getEditableWrapper(media.editable, createElement);
       }

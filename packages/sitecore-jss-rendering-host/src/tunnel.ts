@@ -22,12 +22,10 @@ export function startRenderHostTunnel(
     addr: rewriteHost,
   };
 
-  return ngrok
-    .connect(finalOptions)
-    .then((url: string) => {
-      if (!options.quiet) {
-        console.log(`Tunnel started, forwarding '${url}' to '${rewriteHost}'`);
-      }
-      return url;
-    });
+  return ngrok.connect(finalOptions).then((url: string) => {
+    if (!options.quiet) {
+      console.log(`Tunnel started, forwarding '${url}' to '${rewriteHost}'`);
+    }
+    return url;
+  });
 }

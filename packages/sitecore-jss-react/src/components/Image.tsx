@@ -104,19 +104,10 @@ const getImageAttrs = (
   };
 
   // update image URL for jss handler and image rendering params
-  const resolvedSrc = mediaApi.updateImageUrl(
-    src,
-    imageParams,
-    mediaUrlPrefix
-  );
+  const resolvedSrc = mediaApi.updateImageUrl(src, imageParams, mediaUrlPrefix);
   if (srcSet) {
     // replace with HTML-formatted srcset, including updated image URLs
-    newAttrs.srcSet = mediaApi.getSrcSet(
-      resolvedSrc,
-      srcSet,
-      imageParams,
-      mediaUrlPrefix
-    );
+    newAttrs.srcSet = mediaApi.getSrcSet(resolvedSrc, srcSet, imageParams, mediaUrlPrefix);
   }
   // always output original src as fallback for older browsers
   newAttrs.src = resolvedSrc;
@@ -138,7 +129,10 @@ export const Image: React.SFC<ImageProps> = ({
 
   const dynamicMedia = media as ImageField | ImageFieldValue;
 
-  if (!media || (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)) {
+  if (
+    !media ||
+    (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
+  ) {
     return null;
   }
 
@@ -154,7 +148,11 @@ export const Image: React.SFC<ImageProps> = ({
     const foundImgProps = convertAttributesToReactProps(foundImg.attrs);
     // Note: otherProps may override values from foundImgProps, e.g. `style`, `className` prop
     // We do not attempt to merge.
-    const imgAttrs = getImageAttrs({ ...foundImgProps, ...otherProps }, imageParams, mediaUrlPrefix);
+    const imgAttrs = getImageAttrs(
+      { ...foundImgProps, ...otherProps },
+      imageParams,
+      mediaUrlPrefix
+    );
     if (!imgAttrs) {
       return getEditableWrapper(imageField.editable);
     }
@@ -165,7 +163,9 @@ export const Image: React.SFC<ImageProps> = ({
   }
 
   // some wise-guy/gal is passing in a 'raw' image object value
-  const img = (dynamicMedia as ImageFieldValue).src ? media : dynamicMedia.value as ImageFieldValue;
+  const img = (dynamicMedia as ImageFieldValue).src
+    ? media
+    : (dynamicMedia.value as ImageFieldValue);
   if (!img) {
     return null;
   }
@@ -186,7 +186,7 @@ Image.propTypes = {
     PropTypes.shape({
       value: PropTypes.object,
       editable: PropTypes.string,
-    })
+    }),
   ]),
   field: PropTypes.oneOfType([
     PropTypes.shape({
@@ -195,14 +195,13 @@ Image.propTypes = {
     PropTypes.shape({
       value: PropTypes.object,
       editable: PropTypes.string,
-    })
+    }),
   ]),
   editable: PropTypes.bool,
   mediaUrlPrefix: PropTypes.instanceOf(RegExp),
-  imageParams: PropTypes.objectOf(PropTypes.oneOfType([
-    PropTypes.number.isRequired,
-    PropTypes.string.isRequired
-  ]).isRequired),
+  imageParams: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
+  ),
 };
 
 Image.defaultProps = {

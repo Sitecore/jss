@@ -30,10 +30,17 @@ export interface PlaceholderToPropMapping {
   prop: string;
 }
 
-export type WithPlaceholderSpec = (string | PlaceholderToPropMapping) | (string | PlaceholderToPropMapping)[];
+export type WithPlaceholderSpec =
+  | (string | PlaceholderToPropMapping)
+  | (string | PlaceholderToPropMapping)[];
 
-export function withPlaceholder(placeholders: WithPlaceholderSpec, options?: WithPlaceholderOptions) {
-  return (WrappedComponent: React.ComponentClass<PlaceholderProps> | React.SFC<PlaceholderProps>) => {
+export function withPlaceholder(
+  placeholders: WithPlaceholderSpec,
+  options?: WithPlaceholderOptions
+) {
+  return (
+    WrappedComponent: React.ComponentClass<PlaceholderProps> | React.SFC<PlaceholderProps>
+  ) => {
     class WithPlaceholder extends PlaceholderCommon<PlaceholderProps> {
       static propTypes = PlaceholderCommon.propTypes;
 
@@ -62,25 +69,35 @@ export function withPlaceholder(placeholders: WithPlaceholderSpec, options?: Wit
           );
         }
 
-        const renderingData = options && options.resolvePlaceholderDataFromProps
-          ? options.resolvePlaceholderDataFromProps(childProps)
-          : childProps.rendering;
+        const renderingData =
+          options && options.resolvePlaceholderDataFromProps
+            ? options.resolvePlaceholderDataFromProps(childProps)
+            : childProps.rendering;
 
         const definitelyArrayPlacholders = !Array.isArray(placeholders)
-          ? [ placeholders ] : placeholders;
+          ? [placeholders]
+          : placeholders;
 
         definitelyArrayPlacholders.forEach((placeholder: string | PlaceholderToPropMapping) => {
           let placeholderData: (ComponentRendering | HtmlElementRendering)[];
 
           if (typeof placeholder !== 'string' && placeholder.placeholder && placeholder.prop) {
-            placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, placeholder.placeholder);
+            placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
+              renderingData,
+              placeholder.placeholder
+            );
             if (placeholderData) {
               childProps[placeholder.prop] = this.getComponentsForRenderingData(placeholderData);
             }
           } else {
-            placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, placeholder as string);
+            placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
+              renderingData,
+              placeholder as string
+            );
             if (placeholderData) {
-              childProps[placeholder as string] = this.getComponentsForRenderingData(placeholderData);
+              childProps[placeholder as string] = this.getComponentsForRenderingData(
+                placeholderData
+              );
             }
           }
         });

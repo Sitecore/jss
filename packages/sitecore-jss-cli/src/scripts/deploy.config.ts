@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { deploy, verifySetup, resolveScJssConfig } from '@sitecore-jss/sitecore-jss-dev-tools';
 import path from 'path';
 import resolvePackage from '../resolve-package';

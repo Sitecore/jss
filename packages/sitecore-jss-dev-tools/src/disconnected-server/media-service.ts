@@ -11,7 +11,10 @@ export interface DisconnectedAssetMiddlewareOptions {
   staticRootPath: string;
 }
 
-export function createDisconnectedAssetMiddleware({ manifestPath, staticRootPath }: DisconnectedAssetMiddlewareOptions) {
+export function createDisconnectedAssetMiddleware({
+  manifestPath,
+  staticRootPath,
+}: DisconnectedAssetMiddlewareOptions) {
   return function disconnectedAssetMiddleware(request: Request, response: Response) {
     let localUrl = request.originalUrl;
 

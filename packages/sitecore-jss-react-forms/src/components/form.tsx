@@ -18,7 +18,7 @@ import { DefaultError } from './default-error';
 export interface ErrorComponentProps {
   form: SitecoreForm;
   formErrors: string[];
-  fieldErrors: Array<{ fieldName: string, state: FieldState }>;
+  fieldErrors: Array<{ fieldName: string; state: FieldState }>;
 }
 
 export interface FormProps {
@@ -73,7 +73,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
       // the form passed in from props if present
       nextForm: null,
       submitButton: null,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any; // workaround index type limitations in TS
 
     this.createFieldComponent = this.createFieldComponent.bind(this);
@@ -90,20 +90,24 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
     const form = this.state.nextForm || this.props.form;
 
     if (!form) {
-      return (<div>No form data was provided. Need to set a datasource?</div>);
+      return <div>No form data was provided. Need to set a datasource?</div>;
     }
 
     if (!form.metadata) {
-      return (<div>Form data invalid. Forget to set the rendering contents resolver?</div>);
+      return <div>Form data invalid. Forget to set the rendering contents resolver?</div>;
     }
 
     const action = `${this.props.sitecoreApiHost}/api/jss/formbuilder?fxb.FormItemId=${form.metadata.itemId}&fxb.HtmlPrefix=${form.htmlPrefix}&sc_apikey=${this.props.sitecoreApiKey}&sc_itemid=${form.contextItemId}`;
 
-    this._tracker.setFormData(form.formItemId.value, form.formSessionId.value, form.metadata.isTrackingEnabled);
+    this._tracker.setFormData(
+      form.formItemId.value,
+      form.formSessionId.value,
+      form.metadata.isTrackingEnabled
+    );
 
     const fieldComponents = form.fields.map(this.createFieldComponent);
     const ErrorComponent = this.props.errorComponent || DefaultError;
-    const fieldErrors = this.collectCurrentFieldValues().filter(field => !field.state.isValid);
+    const fieldErrors = this.collectCurrentFieldValues().filter((field) => !field.state.isValid);
 
     return (
       <form action={action} method="POST" onSubmit={this.onSubmit.bind(this)}>
@@ -206,7 +210,12 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
    * @param {boolean} isValid Whether the field is valid or not
    * @param {string[]} errors Validation error message(s) if field is invalid
    */
-  onFieldChange(key: string, value: string | string[] | File[], isValid: boolean, errors: string[]) {
+  onFieldChange(
+    key: string,
+    value: string | string[] | File[],
+    isValid: boolean,
+    errors: string[]
+  ) {
     this.setState({
       [key]: { value, isValid, errors },
     });
@@ -226,7 +235,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
 
     const currentFieldValues = this.collectCurrentFieldValues();
 
-    currentFieldValues.forEach(field => {
+    currentFieldValues.forEach((field) => {
       if (typeof field.state.value !== 'undefined') {
         fieldValues[field.fieldName] = field.state.value;
       }
@@ -301,7 +310,9 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
 
   collectCurrentFieldValues() {
     return Object.keys(this.state)
-      .filter((fieldName) => this.state[fieldName] && typeof this.state[fieldName].isValid !== 'undefined')
+      .filter(
+        (fieldName) => this.state[fieldName] && typeof this.state[fieldName].isValid !== 'undefined'
+      )
       .map((fieldName) => ({ fieldName: fieldName, state: this.state[fieldName] as FieldState }));
   }
 

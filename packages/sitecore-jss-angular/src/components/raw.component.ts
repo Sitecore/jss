@@ -8,10 +8,7 @@ import { HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 export class RawComponent implements OnInit {
   @Input() rendering: HtmlElementRendering;
 
-  constructor(
-    private renderer: Renderer2,
-    private elementRef: ElementRef
-  ) { }
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
 
   ngOnInit() {
     const el = this.renderer.createElement(this.rendering.name);

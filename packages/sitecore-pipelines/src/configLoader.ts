@@ -10,12 +10,16 @@ const config = async ({
   createPipelinesRegistryImplementation,
   importModulesImplementation,
 }: {
-  fileGlobs: string[],
-  workingDirectory?: string,
-  existingConfig?: any,
-  allowEmptyGlobs?: boolean,
+  fileGlobs: string[];
+  workingDirectory?: string;
+  existingConfig?: any;
+  allowEmptyGlobs?: boolean;
   createPipelinesRegistryImplementation?: (existingConfig: any) => any;
-  importModulesImplementation?: (options: { fileGlobs: string[], workingDirectory: string, allowEmptyGlobs: boolean }) => any;
+  importModulesImplementation?: (options: {
+    fileGlobs: string[];
+    workingDirectory: string;
+    allowEmptyGlobs: boolean;
+  }) => any;
 }) => {
   if (!fileGlobs || fileGlobs.length === 0) {
     throw new Error('no pipeline config file search patterns specified');

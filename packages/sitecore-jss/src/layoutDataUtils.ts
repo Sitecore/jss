@@ -8,22 +8,24 @@ type Fields = { [name: string]: Field | Item[] };
  */
 export function getFieldValue<T>(
   renderingOrFields: ComponentRendering | Fields,
-  fieldName: string): T | undefined;
+  fieldName: string
+): T | undefined;
 export function getFieldValue<T>(
   renderingOrFields: ComponentRendering | Fields,
   fieldName: string,
-  defaultValue: T): T;
+  defaultValue: T
+): T;
 export function getFieldValue<T>(
   renderingOrFields: ComponentRendering | Fields,
   fieldName: string,
-  defaultValue?: T) {
-
+  defaultValue?: T
+) {
   if (!renderingOrFields || !fieldName) {
     return defaultValue;
   }
 
   const fields = renderingOrFields as Fields;
-  const field = fields[fieldName] as unknown as Field<T>;
+  const field = (fields[fieldName] as unknown) as Field<T>;
   if (field && typeof field.value !== 'undefined') {
     return field.value;
   }
@@ -37,7 +39,7 @@ export function getFieldValue<T>(
     return defaultValue;
   }
 
-  return (rendering.fields[fieldName] as unknown as Field<T>).value;
+  return ((rendering.fields[fieldName] as unknown) as Field<T>).value;
 }
 
 /**
@@ -46,7 +48,10 @@ export function getFieldValue<T>(
  * @param {string} placeholderName
  * @returns {Array<ComponentRendering | HtmlElementRendering>} child placeholder
  */
-export function getChildPlaceholder(rendering: ComponentRendering, placeholderName: string): Array<ComponentRendering | HtmlElementRendering> {
+export function getChildPlaceholder(
+  rendering: ComponentRendering,
+  placeholderName: string
+): Array<ComponentRendering | HtmlElementRendering> {
   if (
     !rendering ||
     !placeholderName ||

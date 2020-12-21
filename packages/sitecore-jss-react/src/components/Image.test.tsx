@@ -60,7 +60,9 @@ describe('<Image />', () => {
     it('should render <img /> with needed img tags', () => {
       expect(rendered).to.have.length(1);
       expect(rendered.prop('src')).to.equal(props.media.src);
-      expect(rendered.prop('srcSet')).to.equal('/assets/img/test0.png?mw=100 100w, /assets/img/test0.png?mw=300 300w');
+      expect(rendered.prop('srcSet')).to.equal(
+        '/assets/img/test0.png?mw=100 100w, /assets/img/test0.png?mw=300 300w'
+      );
       expect(rendered.prop('sizes')).to.equal('(min-width: 960px) 300px, 100px');
     });
 

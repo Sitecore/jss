@@ -17,30 +17,54 @@ const generateRenderingParams = (component: any, rendering: any) => {
     return [];
   }
 
-  const reducedParams =  Object.keys(rendering.params).reduce((result: any, paramName: string) => {
+  const reducedParams = Object.keys(rendering.params).reduce((result: any, paramName: string) => {
     return [
       ...result,
       {
         name: paramName,
         value: rendering.params[paramName],
-      }
+      },
     ];
   }, []);
 
   if (!Array.isArray(component.params)) {
     // tslint:disable-next-line:max-line-length no-string-throw
-    throw chalk.red(`An instance of ${component.name} defined param(s) '${reducedParams.map((rp) => rp.name).join(', ')}', but the component definition did not define any params. Define them on the manifest component definition to use them. Instance definition: ${JSON.stringify(rendering, null, 2)}`);
+    throw chalk.red(
+      `An instance of ${component.name} defined param(s) '${reducedParams
+        .map((rp) => rp.name)
+        .join(
+          ', '
+        )}', but the component definition did not define any params. Define them on the manifest component definition to use them. Instance definition: ${JSON.stringify(
+        rendering,
+        null,
+        2
+      )}`
+    );
   }
 
   // find params that are not defined in manifest
   // tslint:disable-next-line:max-line-length
-  const invalidParams = reducedParams.filter((param) => !component.params.some((componentParam: any) => (componentParam.name ? componentParam.name : componentParam) === param.name));
+  const invalidParams = reducedParams.filter(
+    (param) =>
+      !component.params.some(
+        (componentParam: any) =>
+          (componentParam.name ? componentParam.name : componentParam) === param.name
+      )
+  );
 
   if (invalidParams.length > 0) {
     const validParams = component.params.map((cp: any) => (cp.name ? cp.name : cp)).join(',');
     const invalidParamsString = invalidParams.map((ip) => ip.name).join(', ');
     // tslint:disable-next-line:max-line-length no-string-throw
-    throw chalk.red(`Param(s) ${invalidParamsString} defined on an instance of component ${component.name} was not defined on the component definition. Add it to the manifest component definition to use it. Valid params: ${validParams}. Instance definition: ${JSON.stringify(rendering, null, 2)}`);
+    throw chalk.red(
+      `Param(s) ${invalidParamsString} defined on an instance of component ${
+        component.name
+      } was not defined on the component definition. Add it to the manifest component definition to use it. Valid params: ${validParams}. Instance definition: ${JSON.stringify(
+        rendering,
+        null,
+        2
+      )}`
+    );
   }
 
   return reducedParams;
@@ -60,9 +84,16 @@ const generateFields = (
   if (component) {
     // tslint:disable-next-line:max-line-length
     const handleError = (fieldName: string) => {
-      throw chalk.red(`${dataSourceItem.name} route datasource defined data for '${fieldName}' on component ${component.name}. This field is not defined on this component. It may be a typo, or the field may need to be added to the component definition.`);
+      throw chalk.red(
+        `${dataSourceItem.name} route datasource defined data for '${fieldName}' on component ${component.name}. This field is not defined on this component. It may be a typo, or the field may need to be added to the component definition.`
+      );
     };
-    renderingFields = validateFieldDefinitions(rendering.fields, component, handleError, allComponents);
+    renderingFields = validateFieldDefinitions(
+      rendering.fields,
+      component,
+      handleError,
+      allComponents
+    );
   }
 
   return convertComponentDataToFields({ data: renderingFields, context: { item: dataSourceItem } });
@@ -76,7 +107,10 @@ const generateChildrenFields = (children: Array<ItemDefinition | ItemReference>)
     }
 
     if (child.fields) {
-      (child.fields as any) = convertComponentDataToFields({ data: child.fields, context: { item: child } });
+      (child.fields as any) = convertComponentDataToFields({
+        data: child.fields,
+        context: { item: child },
+      });
     }
 
     if (child.children) {
@@ -93,19 +127,20 @@ const createDataSourceItem = ({
   datasourceDisplayNamer,
   ...context
 }: {
-  [key: string]: any
-  rendering: any,
+  [key: string]: any;
+  rendering: any;
   datasourceNamer: (options: {
-    item: any,
-    placeholder: any,
-    rendering: any,
-    index: number}) => string,
+    item: any;
+    placeholder: any;
+    rendering: any;
+    index: number;
+  }) => string;
   datasourceDisplayNamer: (options: {
-    item: any,
-    placeholder: any,
-    rendering: any,
-    index: number
-  }) => string,
+    item: any;
+    placeholder: any;
+    rendering: any;
+    index: number;
+  }) => string;
 }) => {
   // rendering is an ID reference, not a whole rendering, so this will come from elsewhere
   // UNLESS it's a copy - in which case we still want it to get named as a local DS item
@@ -144,14 +179,18 @@ const createDataSourceItem = ({
 
 const generatePlaceholderKey = (
   dynamicPlaceholderKeyGenerator: (key: string, rendering: any, parentKey: string) => string,
-  placeholder: { phKey: string, phName: string },
+  placeholder: { phKey: string; phName: string },
   rendering: any
 ) => {
   const phKey = dynamicPlaceholderKeyGenerator(placeholder.phKey, rendering, placeholder.phName);
   return phKey;
 };
 
-const generateRenderingUid = (renderingName: string, renderingIndex: number, parentPlaceholderKey: string) => {
+const generateRenderingUid = (
+  renderingName: string,
+  renderingIndex: number,
+  parentPlaceholderKey: string
+) => {
   // 1. We calculate the deterministic namespace UUID for the parent placeholder
   const parentNamespace = uuid(renderingName + parentPlaceholderKey, JSS_UUID_NAMESPACE);
 
@@ -162,7 +201,11 @@ const generateRenderingUid = (renderingName: string, renderingIndex: number, par
   return `{${renderingUid.toUpperCase()}}`;
 };
 
-const processRendering = (rendering: any, index: number, context: GenerateRouteItemPipelineArgs) => {
+const processRendering = (
+  rendering: any,
+  index: number,
+  context: GenerateRouteItemPipelineArgs
+) => {
   const newContext = { ...context, rendering, index };
   const dsItem = createDataSourceItem(newContext);
 
@@ -171,7 +214,8 @@ const processRendering = (rendering: any, index: number, context: GenerateRouteI
   // (defines id but not name)
   if (!component && rendering.componentName) {
     // tslint:disable-next-line:max-line-length
-    throw chalk.red(`The component '${rendering.componentName}' used on route '${context.route.name}' was not defined in the manifest. Please define this component with 'manifest.addComponent()', or change the name to an existing component name.`
+    throw chalk.red(
+      `The component '${rendering.componentName}' used on route '${context.route.name}' was not defined in the manifest. Please define this component with 'manifest.addComponent()', or change the name to an existing component name.`
     );
   }
 
@@ -180,7 +224,7 @@ const processRendering = (rendering: any, index: number, context: GenerateRouteI
   const fields = generateFields(component, rendering, dsItem, context.components);
   dsItem.fields = fields;
 
-  const layoutRendering: {[k: string]: any} = {
+  const layoutRendering: { [k: string]: any } = {
     renderingName: rendering.componentName,
     placeholderKey: context.placeholder.phKey,
     placeholderName: context.placeholder.phName,
@@ -219,8 +263,8 @@ const processRendering = (rendering: any, index: number, context: GenerateRouteI
 
 const processPlaceholders = (
   context: GenerateRouteItemPipelineArgs,
-  placeholders?: { [key: string]: ComponentInstanceDefinition[] }) => {
-
+  placeholders?: { [key: string]: ComponentInstanceDefinition[] }
+) => {
   if (!placeholders) {
     return;
   }
@@ -272,7 +316,9 @@ export default (args: GenerateRouteItemPipelineArgs) => {
   if (duplicateDatasourceNames.size > 0) {
     const dupes = JSON.stringify(Array.from(duplicateDatasourceNames));
     // tslint:disable-next-line:max-line-length
-    throw chalk.red(`Route "${args.item.name}" has rendering(s) with identical names: ${dupes}. Please assign unique rendering names using the 'name' property.`);
+    throw chalk.red(
+      `Route "${args.item.name}" has rendering(s) with identical names: ${dupes}. Please assign unique rendering names using the 'name' property.`
+    );
   }
 
   return {

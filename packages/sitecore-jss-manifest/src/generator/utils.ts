@@ -17,12 +17,14 @@ export const filterObject = (obj: any, filter: (key: string, value: any) => bool
     return res;
   }, {});
 
-export const convertComponentDataToFields = ({ data, context: { item = {} as ItemDefinition } = {} }:
-{
-  data: any,
+export const convertComponentDataToFields = ({
+  data,
+  context: { item = {} as ItemDefinition } = {},
+}: {
+  data: any;
   context: {
-    item?: ItemDefinition,
-  }
+    item?: ItemDefinition;
+  };
 }) => {
   if (!data) {
     return;
@@ -49,13 +51,18 @@ export const convertComponentDataToFields = ({ data, context: { item = {} as Ite
   }, initialReduceValue);
 };
 
-const mapFieldValueItem = (item: ItemDefinition, fieldValueItem: ItemDefinition, index: number, fieldName?: string) => {
+const mapFieldValueItem = (
+  item: ItemDefinition,
+  fieldValueItem: ItemDefinition,
+  index: number,
+  fieldName?: string
+) => {
   // if a field references a shared item by ID, we don't want to auto-name/template it
   if (fieldValueItem.id && !fieldValueItem.name) {
     return fieldValueItem;
   }
 
-  const fieldItem: ItemDefinition & {[k: string]: any} = {
+  const fieldItem: ItemDefinition & { [k: string]: any } = {
     template: `${item.template}-${fieldName}-Item`,
     name: `${item.name}-item-${index}`,
   };
@@ -84,8 +91,8 @@ const mapFieldValueItem = (item: ItemDefinition, fieldValueItem: ItemDefinition,
 export interface FieldValue {
   fieldValue: any;
   context: {
-    fieldName?: string,
-    item: any
+    fieldName?: string;
+    item: any;
   };
 }
 
@@ -155,7 +162,10 @@ export function checkUnique(input: any[], selector: (element: any) => string) {
  * @param {string} templateName
  * @returns {TemplateDefinition | ComponentDefinition | null} template
  */
-export function findTemplate(templateName: string, ...templates: Array<Array<TemplateDefinition | ComponentDefinition>>): TemplateDefinition | ComponentDefinition | null {
+export function findTemplate(
+  templateName: string,
+  ...templates: Array<Array<TemplateDefinition | ComponentDefinition>>
+): TemplateDefinition | ComponentDefinition | null {
   let templateResult: TemplateDefinition | ComponentDefinition | null = null;
 
   if (!templates) {
@@ -198,22 +208,20 @@ export function validateFieldDefinitions(
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   inheritedTemplates.forEach(() => {});
 
-  return filterObject(
-    fields,
-    (fieldName: string) => {
-      // we don't have a good way to look up all inherited fields here - so if the rendering inherits a template
-      // we disable field filtering so as to allow inherited fields to be defined.
-      if (template.inherits) {
-        // in future `inheritedTemplates` may be trawled to find inherited values and validate them too
-        return true;
-      }
-
-      const fieldIsValid = Array.isArray(template.fields) && template.fields.some((field) => field.name === fieldName);
-      if (!fieldIsValid) {
-        // tslint:disable-next-line:no-string-throw max-line-length
-        handleError(fieldName);
-      }
-      return fieldIsValid;
+  return filterObject(fields, (fieldName: string) => {
+    // we don't have a good way to look up all inherited fields here - so if the rendering inherits a template
+    // we disable field filtering so as to allow inherited fields to be defined.
+    if (template.inherits) {
+      // in future `inheritedTemplates` may be trawled to find inherited values and validate them too
+      return true;
     }
-  );
+
+    const fieldIsValid =
+      Array.isArray(template.fields) && template.fields.some((field) => field.name === fieldName);
+    if (!fieldIsValid) {
+      // tslint:disable-next-line:no-string-throw max-line-length
+      handleError(fieldName);
+    }
+    return fieldIsValid;
+  });
 }

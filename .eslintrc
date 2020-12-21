@@ -2,7 +2,8 @@
   "root": true,
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -12,14 +13,14 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "env": {
     "browser": true,
     "node": true,
     "es6": true
   },
   "rules": {
-    "@typescript-eslint/indent": ["error", 2],
+    "prettier/prettier": "error",
     "@typescript-eslint/naming-convention": [
       "error",
       {
@@ -65,7 +66,6 @@
     "quotes": ["error", "single"],
     "radix": "error",
     "default-case": "error",
-    "comma-dangle": ["error", { "objects": "always-multiline", "imports": "always-multiline", "exports": "always-multiline" }],
     "eqeqeq": "error"
   }
 }

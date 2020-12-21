@@ -11,26 +11,24 @@ describe('ComponentPropsContext', () => {
   const X1Component = () => {
     const data = useComponentProps<number>('x1');
 
-    return (
-      <div>First: {data}</div>
-    );
+    return <div>First: {data}</div>;
   };
 
   const X2Component = () => {
     const data = useComponentProps<number>('y1');
 
-    return (
-      <div>Second: {data}</div>
-    );
+    return <div>Second: {data}</div>;
   };
 
   it('should render', () => {
-    const component = mount(<ComponentPropsContext value={VALUE}>
-      <>
-        <X1Component />
-        <X2Component />
-      </>
-    </ComponentPropsContext>);
+    const component = mount(
+      <ComponentPropsContext value={VALUE}>
+        <>
+          <X1Component />
+          <X2Component />
+        </>
+      </ComponentPropsContext>
+    );
 
     const x1Div = component.find(X1Component);
     const x2Div = component.find(X2Component);

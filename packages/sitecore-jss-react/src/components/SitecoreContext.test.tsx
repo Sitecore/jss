@@ -7,13 +7,15 @@ import { ComponentFactory } from './sharedTypes';
 import { withSitecoreContext, ComponentConsumerProps } from '../enhancers/withSitecoreContext';
 
 interface NestedComponentProps extends ComponentConsumerProps {
-  anotherProperty?: string,
+  anotherProperty?: string;
 }
-const NestedComponent: FC<NestedComponentProps> = (props: NestedComponentProps) => <div>{props.sitecoreContext && 'test'}</div>;
+const NestedComponent: FC<NestedComponentProps> = (props: NestedComponentProps) => (
+  <div>{props.sitecoreContext && 'test'}</div>
+);
 const NestedComponentWithContext = withSitecoreContext()(NestedComponent);
 
 const components = new Map();
-const mockComponentFactory: ComponentFactory = name => components.get(name);
+const mockComponentFactory: ComponentFactory = (name) => components.get(name);
 
 const mockSitecoreContext = {
   x: 'test1',

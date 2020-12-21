@@ -79,7 +79,7 @@ export class ComponentPropsService {
   /**
    * Editing mode
    * Fetch component props using getInitialProps function
-	 * @param {FetchComponentPropsArguments<NextPageContext>} params
+   * @param {FetchComponentPropsArguments<NextPageContext>} params
    */
   async fetchInitialComponentProps(
     params: FetchComponentPropsArguments<NextPageContext>

@@ -8,7 +8,7 @@ export interface Processor {
   /**
    * optional but must be specified if process is not
    */
-  modulePath?: { workingDirectory: string, filePath: string } | string;
+  modulePath?: { workingDirectory: string; filePath: string } | string;
   /**
    * optional but must be specified if modulePath is not
    */
@@ -21,11 +21,12 @@ export interface Processor {
 }
 
 export const processorFactory = {
-  create: (name = '') => ({
-    name,
-    modulePath: '',
-    args: {},
-  } as Processor),
+  create: (name = '') =>
+    ({
+      name,
+      modulePath: '',
+      args: {},
+    } as Processor),
 };
 
 export interface ExecutablePipeline {
@@ -87,9 +88,7 @@ export const pipelineFactory = {
         processors.push({ ...processor }); // weak attempt at immutability
       } else {
         console.warn(
-          `processor "${
-            processor.name
-          }" already exists. you may experience unexpected results when trying to reference the processor by name.`
+          `processor "${processor.name}" already exists. you may experience unexpected results when trying to reference the processor by name.`
         );
       }
     };
@@ -99,7 +98,7 @@ export const pipelineFactory = {
       if (!procName) {
         throw new Error(
           'no processor name specified for call to "updateProcessor", you must specify either' +
-          ' processor.name or pass in a name via the "processorName" argument.'
+            ' processor.name or pass in a name via the "processorName" argument.'
         );
       }
       const found = processors.findIndex((proc) => proc.name === procName);

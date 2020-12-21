@@ -33,13 +33,13 @@ describe('ComponentPropsService', () => {
                 x14ph: [
                   rendering('x16', 'MyCustomComponent'),
                   rendering('x161', 'MyCustomComponent'),
-                  rendering('x17')
+                  rendering('x17'),
                 ],
               },
-            }
+            },
           ],
         },
-      }
+      },
     ],
     x21ph: [
       rendering('x21'),
@@ -49,7 +49,7 @@ describe('ComponentPropsService', () => {
           x22ph: [rendering('x23', 'MyCustomComponent')],
         },
       },
-      rendering('x24')
+      rendering('x24'),
     ],
   };
 
@@ -279,7 +279,7 @@ describe('ComponentPropsService', () => {
         rendering: { uid: 'x24', componentName: 'namex24' },
         layoutData,
         context,
-      }
+      },
     ]);
   });
 
@@ -288,7 +288,7 @@ describe('ComponentPropsService', () => {
       const requests: ComponentPropsRequest<CustomContext>[] = [
         req(11, 'x1'),
         req(22, 'x2'),
-        req(33, 'x3')
+        req(33, 'x3'),
       ];
 
       const result = await service.execRequests(requests);
@@ -331,7 +331,7 @@ describe('ComponentPropsService', () => {
       const requests: ComponentPropsRequest<CustomContext>[] = [
         req(11, 'x1'),
         req(null, 'x2', 'You do not have access rights to load data for this component'),
-        req(33, 'x3')
+        req(33, 'x3'),
       ];
 
       const result = await service.execRequests(requests);
@@ -376,7 +376,7 @@ describe('ComponentPropsService', () => {
       const requests: ComponentPropsRequest<CustomContext>[] = [
         req(11, 'x1'),
         req(22, undefined),
-        req(33, 'x3')
+        req(33, 'x3'),
       ];
 
       const result = await service.execRequests(requests);
@@ -425,7 +425,7 @@ describe('ComponentPropsService', () => {
         rendering('22'),
         rendering('111'),
         rendering('222'),
-        rendering('333')
+        rendering('333'),
       ]);
     });
 

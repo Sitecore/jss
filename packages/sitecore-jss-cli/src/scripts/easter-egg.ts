@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const command = 'whats-the-password';
 
 export const describe = false;

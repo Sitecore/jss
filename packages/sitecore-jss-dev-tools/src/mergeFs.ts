@@ -27,7 +27,10 @@ export interface FileResult {
 
 export type CustomFileParser = (filePath: string, contents: string) => unknown | null;
 
-const processFileSync = (filePath: string, parseFileContents?: CustomFileParser): FileResult | null => {
+const processFileSync = (
+  filePath: string,
+  parseFileContents?: CustomFileParser
+): FileResult | null => {
   // if no encoding is specified, readFileSync returns a buffer instead of a string
   const contents = fs.readFileSync(filePath, 'utf8');
   if (contents) {
@@ -119,7 +122,10 @@ export interface MergeFsResult {
   folders: MergeFsResult[];
 }
 
-export const mergeFs = (rootPath: string, parseFileContents?: CustomFileParser): Promise<MergeFsResult> =>
+export const mergeFs = (
+  rootPath: string,
+  parseFileContents?: CustomFileParser
+): Promise<MergeFsResult> =>
   new Promise((resolve, reject) => {
     if (!rootPath) {
       reject(new Error('rootPath is not defined'));

@@ -107,10 +107,7 @@ export function fetchRouteData(
 
   const fetchUrl = resolveLayoutServiceUrl(layoutServiceConfig, 'render');
 
-  return fetchData(
-    fetchUrl,
-    options.fetcher,
-    { item: itemPath, ...querystringParams });
+  return fetchData(fetchUrl, options.fetcher, { item: itemPath, ...querystringParams });
 }
 
 /**
@@ -132,9 +129,9 @@ export function fetchPlaceholderData(
 
   const fetchUrl = resolveLayoutServiceUrl(layoutServiceConfig, 'placeholder');
 
-  return fetchData(
-    fetchUrl,
-    options.fetcher,
-    { placeholderName, item: itemPath, ...querystringParams }
-  );
+  return fetchData(fetchUrl, options.fetcher, {
+    placeholderName,
+    item: itemPath,
+    ...querystringParams,
+  });
 }

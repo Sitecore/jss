@@ -31,8 +31,13 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
   ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
 }
 
-function isRawRendering(rendering: HtmlElementRendering | ComponentRendering): rendering is HtmlElementRendering {
-  return !(rendering as ComponentRendering).componentName && (rendering as HtmlElementRendering).name !== undefined;
+function isRawRendering(
+  rendering: HtmlElementRendering | ComponentRendering
+): rendering is HtmlElementRendering {
+  return (
+    !(rendering as ComponentRendering).componentName &&
+    (rendering as HtmlElementRendering).name !== undefined
+  );
 }
 
 class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> {
@@ -61,10 +66,18 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
 
     const renderingData = childProps.rendering;
 
-    const placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, this.props.name);
+    const placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
+      renderingData,
+      this.props.name
+    );
     const components = this.getComponentsForRenderingData(placeholderData);
 
-    if (this.props.renderEmpty && placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) => isRawRendering(rendering))) {
+    if (
+      this.props.renderEmpty &&
+      placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
+        isRawRendering(rendering)
+      )
+    ) {
       return this.props.renderEmpty(components);
     } else if (this.props.render) {
       return this.props.render(components, placeholderData, childProps);

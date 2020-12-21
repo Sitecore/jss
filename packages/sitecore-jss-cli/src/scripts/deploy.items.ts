@@ -1,4 +1,9 @@
-import { packageDeploy, verifySetup, resolveScJssConfig } from '@sitecore-jss/sitecore-jss-dev-tools';
+/* eslint-disable prettier/prettier */
+import {
+  packageDeploy,
+  verifySetup,
+  resolveScJssConfig,
+} from '@sitecore-jss/sitecore-jss-dev-tools';
 import resolvePackage from '../resolve-package';
 import { builder as packageBuilder, handler as packageHandler } from './package';
 
@@ -50,7 +55,8 @@ export const builder = {
   acceptCertificate: {
     requiresArgs: false,
     type: 'string',
-    describe: 'Whitelists a specific SSL certificate thumbprint, regardless of normal SSL validation. Useful for self-signed certificates.',
+    describe:
+      'Whitelists a specific SSL certificate thumbprint, regardless of normal SSL validation. Useful for self-signed certificates.',
   },
   ...packageBuilder,
 };
@@ -73,9 +79,7 @@ export async function handler(argv: any) {
   if (!argv.deployUrl) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const legacyConfig = jssConfig.sitecore as any;
-    argv.deployUrl = legacyConfig.shipUrl
-      ? legacyConfig.shipUrl
-      : jssConfig.sitecore.deployUrl;
+    argv.deployUrl = legacyConfig.shipUrl ? legacyConfig.shipUrl : jssConfig.sitecore.deployUrl;
   }
   if (!argv.deployUrl) {
     throw new Error('deployUrl was not defined as a parameter or in the scjssconfig.json file');

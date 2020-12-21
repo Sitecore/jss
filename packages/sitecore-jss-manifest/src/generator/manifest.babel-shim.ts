@@ -9,7 +9,10 @@ import { Manifest } from './manifest.types';
 
 // DEPRECATED: favor using typing JSDoc instead, e.g. @param {Manifest} manifest Manifest instance to add components to
 
-export function addComponent(manifest: Manifest, ...components: ManifestTypes.ComponentDefinition[]) {
+export function addComponent(
+  manifest: Manifest,
+  ...components: ManifestTypes.ComponentDefinition[]
+) {
   manifest.addComponent(...components);
 }
 
@@ -17,10 +20,16 @@ export function addTemplate(manifest: Manifest, ...templates: ManifestTypes.Temp
   manifest.addTemplate(...templates);
 }
 
-export function addPlaceholder(manifest: Manifest, ...placeholders: ManifestTypes.PlaceholderDefinition[]) {
+export function addPlaceholder(
+  manifest: Manifest,
+  ...placeholders: ManifestTypes.PlaceholderDefinition[]
+) {
   manifest.addPlaceholder(...placeholders);
 }
-export function addRouteType(manifest: Manifest, ...routeTypes: ManifestTypes.TemplateDefinition[]) {
+export function addRouteType(
+  manifest: Manifest,
+  ...routeTypes: ManifestTypes.TemplateDefinition[]
+) {
   manifest.addRouteType(...routeTypes);
 }
 
@@ -32,6 +41,9 @@ export function addContent(manifest: Manifest, ...contents: ManifestTypes.ItemDe
   manifest.addContent(...contents);
 }
 
-export function addDictionary(manifest: Manifest, ...entries: Array<{ key: string, value: string }>) {
+export function addDictionary(
+  manifest: Manifest,
+  ...entries: Array<{ key: string; value: string }>
+) {
   manifest.addDictionary(...entries);
 }

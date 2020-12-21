@@ -1,4 +1,8 @@
-import { packageDeploy, resolveScJssConfig, verifySetup } from '@sitecore-jss/sitecore-jss-dev-tools';
+import {
+  packageDeploy,
+  resolveScJssConfig,
+  verifySetup,
+} from '@sitecore-jss/sitecore-jss-dev-tools';
 import fs from 'fs';
 import path from 'path';
 import tmp from 'tmp';
@@ -6,8 +10,11 @@ import resolvePackage from './resolve-package';
 import { handler as manifestHandler } from './scripts/manifest';
 import { handler as packageHandler } from './scripts/package';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async function microManifest(argv: { [key: string]: any }, manifestContents: string) {
+export default async function microManifest(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  argv: { [key: string]: any },
+  manifestContents: string
+) {
   verifySetup();
 
   const packageJson = await resolvePackage();
@@ -24,9 +31,7 @@ export default async function microManifest(argv: { [key: string]: any }, manife
   if (!argv.deployUrl) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const legacyConfig = jssConfig.sitecore as any;
-    argv.deployUrl = legacyConfig.shipUrl
-      ? legacyConfig.shipUrl
-      : jssConfig.sitecore.deployUrl;
+    argv.deployUrl = legacyConfig.shipUrl ? legacyConfig.shipUrl : jssConfig.sitecore.deployUrl;
   }
   if (!argv.deployUrl) {
     throw new Error('deployUrl was not defined as a parameter or in the scjssconfig.json file');

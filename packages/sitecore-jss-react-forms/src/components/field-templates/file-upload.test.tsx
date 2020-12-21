@@ -37,7 +37,7 @@ describe('<FileUpload />', () => {
         validationDataModels: [
           { itemId: 'xxx', message: 'xxx_message', name: 'xxx_name' },
           { itemId: 'yyy', message: 'yyy_message', name: 'yyy_name' },
-          { itemId: 'zzz', message: 'zzz_message', name: 'zzz_name' }
+          { itemId: 'zzz', message: 'zzz_message', name: 'zzz_name' },
         ],
       },
       indexField: {

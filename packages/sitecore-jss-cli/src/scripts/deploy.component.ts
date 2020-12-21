@@ -34,7 +34,7 @@ export function args(yargs: Argv) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handler(argv: any) {
   // create micro-manifest to deploy from
-  const fields: Array<{ name: string, type: string }> = [];
+  const fields: Array<{ name: string; type: string }> = [];
 
   if (argv.fields && argv.fields.length > 0) {
     argv.fields.forEach((field: string) => {
@@ -71,11 +71,11 @@ ${chalk.green('Your component has been created (or updated)!')}
 ${chalk.green('NEXT STEPS FOR NEW COMPONENTS')}
 
 * Create a component in your JSS application called ${chalk.green(argv.name)} (${chalk.green(
-  `jss scaffold ${argv.name}`
-)})
+      `jss scaffold ${argv.name}`
+    )})
 * Deploy your app with the new component to Sitecore (${chalk.green(
-    'jss deploy:watch'
-  )} or ${chalk.green('jss deploy files')})
+      'jss deploy:watch'
+    )} or ${chalk.green('jss deploy files')})
 * Add the new component to a route item using the Experience Editor
 `);
   }

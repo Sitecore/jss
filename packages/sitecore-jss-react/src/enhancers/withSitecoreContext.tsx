@@ -14,19 +14,21 @@ export interface ComponentConsumerProps extends WithSitecoreContextProps {
   children?: ReactNode;
 }
 
-export type WithSitecoreContextHocProps<ComponentProps> = Pick<ComponentProps, Exclude<keyof ComponentProps, keyof WithSitecoreContextProps>>;
+export type WithSitecoreContextHocProps<ComponentProps> = Pick<
+  ComponentProps,
+  Exclude<keyof ComponentProps, keyof WithSitecoreContextProps>
+>;
 
 export function withSitecoreContext(options?: WithSitecoreContextOptions) {
-
-  return function withSitecoreContextHoc<ComponentProps extends ComponentConsumerProps>(Component: React.ComponentType<ComponentProps>) {
-
+  return function withSitecoreContextHoc<ComponentProps extends ComponentConsumerProps>(
+    Component: React.ComponentType<ComponentProps>
+  ) {
     return function WithSitecoreContext(props: WithSitecoreContextHocProps<ComponentProps>) {
-
       return (
         <SitecoreContextReactContext.Consumer>
-          {context => (
+          {(context) => (
             <Component
-              {...props as ComponentProps}
+              {...(props as ComponentProps)}
               sitecoreContext={context.context}
               updateSitecoreContext={options && options.updatable && context.setContext}
             />
@@ -34,8 +36,6 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
         </SitecoreContextReactContext.Consumer>
       );
     };
-
-
   };
 }
 

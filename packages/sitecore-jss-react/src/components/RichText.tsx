@@ -21,21 +21,23 @@ export interface RichTextProps {
   editable?: boolean;
 }
 
-export const RichText: React.SFC<RichTextProps> = forwardRef(({ field, tag, editable, ...otherProps }, ref) => {
-  if (!field || (!field.editable && !field.value)) {
-    return null;
+export const RichText: React.SFC<RichTextProps> = forwardRef(
+  ({ field, tag, editable, ...otherProps }, ref) => {
+    if (!field || (!field.editable && !field.value)) {
+      return null;
+    }
+
+    const htmlProps = {
+      dangerouslySetInnerHTML: {
+        __html: field.editable && editable ? field.editable : field.value,
+      },
+      ref,
+      ...otherProps,
+    };
+
+    return React.createElement(tag || 'div', htmlProps);
   }
-
-  const htmlProps = {
-    dangerouslySetInnerHTML: {
-      __html: field.editable && editable ? field.editable : field.value,
-    },
-    ref,
-    ...otherProps,
-  };
-
-  return React.createElement(tag || 'div', htmlProps);
-});
+);
 
 export const RichTextPropTypes = {
   field: PropTypes.shape({

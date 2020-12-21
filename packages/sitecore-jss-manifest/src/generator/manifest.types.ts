@@ -48,7 +48,7 @@ export interface Manifest {
   /**
    * Adds a translation dictionary entry to the manifest.
    */
-  addDictionary: (...entries: Array<{ key: string, value: string }>) => void;
+  addDictionary: (...entries: Array<{ key: string; value: string }>) => void;
   language: string;
 }
 
@@ -56,8 +56,8 @@ export interface ManifestInstance {
   appName: string;
   templates: TemplateDefinition[];
   items: {
-    routes: RouteDefinition[],
-    nonRoutes: ItemDefinition[],
+    routes: RouteDefinition[];
+    nonRoutes: ItemDefinition[];
   };
   placeholders: PlaceholderDefinition[];
   media?: any[];
@@ -331,7 +331,13 @@ export interface LinkFieldValue {
 }
 
 export interface ContentFieldValue {
-  value: string | number | boolean | ImageFieldValue | LinkFieldValue | Array<ItemDefinition | ItemReference>;
+  value:
+    | string
+    | number
+    | boolean
+    | ImageFieldValue
+    | LinkFieldValue
+    | Array<ItemDefinition | ItemReference>;
   editable?: string;
 }
 
@@ -340,7 +346,7 @@ export interface ItemDefinition {
   template: string;
   displayName?: string;
   id?: string;
-  fields?: {[key: string]: ContentFieldValue};
+  fields?: { [key: string]: ContentFieldValue };
   children?: Array<ItemDefinition | ItemReference>;
   path?: string;
   insertOptions?: string[];
@@ -355,12 +361,12 @@ export function isItemDefinition(obj: ItemDefinition | ItemReference): obj is It
 }
 
 export interface RouteDefinition extends ItemDefinition {
-  placeholders?: {[key: string]: ComponentInstanceDefinition[]};
+  placeholders?: { [key: string]: ComponentInstanceDefinition[] };
 }
 
 export interface ComponentInstanceDefinition extends ItemDefinition {
   componentName: string;
-  placeholders?: {[key: string]: ComponentInstanceDefinition[]};
+  placeholders?: { [key: string]: ComponentInstanceDefinition[] };
 }
 
 export interface GeneratePipelineArgs {
@@ -401,13 +407,21 @@ export interface GenerateRouteItemPipelineArgs {
   pipelines: { [key: string]: ExecutablePipeline };
   item: any;
   dynamicPlaceholderKeyGenerator: (key: string, rendering: any, parentKey: string) => string;
-  datasourceNamer: ({ item, placeholder, rendering, index }: {
+  datasourceNamer: ({
+    item,
+    placeholder,
+    rendering,
+    index,
+  }: {
     item: any;
     placeholder: any;
     rendering: any;
     index: number;
   }) => string;
-  datasourceDisplayNamer: ({ rendering, index }: {
+  datasourceDisplayNamer: ({
+    rendering,
+    index,
+  }: {
     item: any;
     placeholder: any;
     rendering: any;

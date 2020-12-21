@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { clean } from '@sitecore-jss/sitecore-jss-dev-tools';
 import resolvePackage from '../resolve-package';
 

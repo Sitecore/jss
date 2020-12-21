@@ -7,19 +7,23 @@ import { EditingData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { HtmlProcessor } from './html-processors';
 export class EditingMiddleware {
   /**
- * Express middleware for handling requests from the Sitecore Experience Editor.
- * @constructor
- * @param {Server} nextApp The Next.js app.
- * @param {string} editRoute The Next.js route to use for rendering.
- * @param {HtmlProcessor[]} [htmlProcessors] Html processors to run on rendered html.
- */
-  constructor(readonly nextApp: Server, readonly editRoute: string, readonly htmlProcessors?: HtmlProcessor[]) {}
+   * Express middleware for handling requests from the Sitecore Experience Editor.
+   * @constructor
+   * @param {Server} nextApp The Next.js app.
+   * @param {string} editRoute The Next.js route to use for rendering.
+   * @param {HtmlProcessor[]} [htmlProcessors] Html processors to run on rendered html.
+   */
+  constructor(
+    readonly nextApp: Server,
+    readonly editRoute: string,
+    readonly htmlProcessors?: HtmlProcessor[]
+  ) {}
 
   /**
    * Returns the Express request handler for Experience Editor POST requests.
-	 * @param {Request} req
-	 * @param {Response} res
-	 * @returns {Promise<void>} request handler
+   * @param {Request} req
+   * @param {Response} res
+   * @returns {Promise<void>} request handler
    */
   public getRequestHandler(): (req: Request, res: Response) => Promise<void> {
     return this.handleRequest;
@@ -54,7 +58,7 @@ export class EditingMiddleware {
 
       // Run any post-render processing of the html
       if (this.htmlProcessors) {
-        this.htmlProcessors.forEach(processor => {
+        this.htmlProcessors.forEach((processor) => {
           html = html && processor.processHtml(html);
         });
       }

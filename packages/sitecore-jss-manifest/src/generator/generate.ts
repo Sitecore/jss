@@ -134,10 +134,10 @@ const getPipelineConfig = async ({ patchGlobs }: { patchGlobs: string[] }) => {
   });
   const patchedConfig = patchGlobs
     ? await configLoader({
-      fileGlobs: patchGlobs,
-      existingConfig: manifestConfig,
-      allowEmptyGlobs: true,
-    })
+        fileGlobs: patchGlobs,
+        existingConfig: manifestConfig,
+        allowEmptyGlobs: true,
+      })
     : manifestConfig;
   return patchedConfig;
 };

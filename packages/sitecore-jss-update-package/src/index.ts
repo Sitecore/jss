@@ -22,7 +22,7 @@ interface FileEntry {
 
 const getEntries = (folder: string): FileEntry[] => {
   const files = walkSync(folder);
-  const entries: { path: string, name: string }[] = [];
+  const entries: { path: string; name: string }[] = [];
   files.forEach((entry) => {
     const entryPath = path.join('.', entry);
     // remove initial folder and convert to fwd slash
@@ -50,7 +50,7 @@ export const createPackage = (contentsPath: string, outputPath: string, callback
   zip
     .generateNodeStream({ type: 'nodebuffer' })
     .pipe(fs.createWriteStream(outputPath))
-    .on('error', error => {
+    .on('error', (error) => {
       console.error(error);
     })
     .on('finish', () => {

@@ -7,7 +7,9 @@ process.on('unhandledRejection', (err) => {
   throw err;
 });
 
-export default function cli(commands: { [key: string]: CommandModule & { disableStrictArgs?: boolean} }) {
+export default function cli(commands: {
+  [key: string]: CommandModule & { disableStrictArgs?: boolean };
+}) {
   let appCommands = yargs.usage('$0 <command>');
 
   // this prevents yargs from showing help with 'jss.js' as the base command

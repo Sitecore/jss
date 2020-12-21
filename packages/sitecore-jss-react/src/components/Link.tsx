@@ -17,7 +17,10 @@ export interface LinkField {
   editableLastPart?: string;
 }
 
-export type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
+export type LinkProps = React.DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+> & {
   /** The link field data. */
   field: LinkField | LinkFieldValue;
   /**
@@ -34,10 +37,21 @@ export type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLA
   showLinkTextWithChildrenPresent?: boolean;
 };
 
-export const Link: React.SFC<LinkProps> = ({ field, editable, children, showLinkTextWithChildrenPresent, ...otherProps }) => {
+export const Link: React.SFC<LinkProps> = ({
+  field,
+  editable,
+  children,
+  showLinkTextWithChildrenPresent,
+  ...otherProps
+}) => {
   const dynamicField: LinkField | LinkFieldValue = field;
 
-  if (!field || (!dynamicField.editableFirstPart && !dynamicField.value && !(dynamicField as LinkFieldValue).href)) {
+  if (
+    !field ||
+    (!dynamicField.editableFirstPart &&
+      !dynamicField.value &&
+      !(dynamicField as LinkFieldValue).href)
+  ) {
     return null;
   }
 
@@ -91,9 +105,11 @@ export const Link: React.SFC<LinkProps> = ({ field, editable, children, showLink
     anchorAttrs.rel = 'noopener noreferrer';
   }
 
-  const linkText = showLinkTextWithChildrenPresent || !children ? (link.text || link.href) : null;
+  const linkText = showLinkTextWithChildrenPresent || !children ? link.text || link.href : null;
 
-  resultTags.push(React.createElement('a', { ...anchorAttrs, ...otherProps, key: 'link' }, linkText, children));
+  resultTags.push(
+    React.createElement('a', { ...anchorAttrs, ...otherProps, key: 'link' }, linkText, children)
+  );
 
   return <React.Fragment>{resultTags}</React.Fragment>;
 };
@@ -107,7 +123,7 @@ export const LinkPropTypes = {
       value: PropTypes.object,
       editableFirstPart: PropTypes.string,
       editableLastPart: PropTypes.string,
-    })
+    }),
   ]).isRequired,
   editable: PropTypes.bool,
   children: PropTypes.node,

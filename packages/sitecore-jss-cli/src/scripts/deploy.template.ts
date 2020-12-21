@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import chalk from 'chalk';
 import { Argv } from '../../node_modules/@types/yargs';
 import microManifest from '../micro-manifest';
@@ -70,7 +71,7 @@ export function args(yargs: Argv) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handler(argv: any) {
   // create micro-manifest to deploy from
-  const fields: Array<{ name: string, type: string }> = [];
+  const fields: Array<{ name: string; type: string }> = [];
 
   if (argv.fields && argv.fields.length > 0) {
     argv.fields.forEach((field: string) => {

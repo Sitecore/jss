@@ -126,7 +126,7 @@ export const lsDataEeOn = {
                     hintname: 'page-header',
                     class: 'scpm',
                   },
-                }
+                },
               ],
               'page-content': [
                 {
@@ -209,7 +209,7 @@ export const lsDataEeOn = {
                     hintname: 'page-content',
                     class: 'scpm',
                   },
-                }
+                },
               ],
             },
           },
@@ -238,7 +238,7 @@ export const lsDataEeOn = {
               hintname: 'main',
               class: 'scpm',
             },
-          }
+          },
         ],
       },
       fields: {

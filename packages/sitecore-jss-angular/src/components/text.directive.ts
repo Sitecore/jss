@@ -1,4 +1,12 @@
-import { Directive, EmbeddedViewRef, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  EmbeddedViewRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { TextField } from './rendering-field';
 
 @Directive({
@@ -16,10 +24,7 @@ export class TextDirective implements OnChanges {
   // tslint:disable-next-line:no-input-rename
   @Input('scText') field: TextField;
 
-  constructor(
-    private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<any>
-  ) { }
+  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<any>) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.encode) {
@@ -46,7 +51,7 @@ export class TextDirective implements OnChanges {
     }
 
     const html = field.editable && editable ? field.editable : field.value;
-    const setDangerously = field.editable && editable || !this.encode;
+    const setDangerously = (field.editable && editable) || !this.encode;
 
     this.viewRef.rootNodes.forEach((node) => {
       if (setDangerously) {

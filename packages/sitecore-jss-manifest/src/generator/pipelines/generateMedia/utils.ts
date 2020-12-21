@@ -37,7 +37,11 @@ function getAllTemplateFields(template: any, templateCollection: any) {
   if (template.inherits && Array.isArray(template.inherits)) {
     template.inherits.forEach((inheritedTemplateName) => {
       const inheritedTemplate = templateCollection.find((t) => t.name === inheritedTemplateName);
-      if (!inheritedTemplate || !inheritedTemplate.fields || !Array.isArray(inheritedTemplate.fields)) {
+      if (
+        !inheritedTemplate ||
+        !inheritedTemplate.fields ||
+        !Array.isArray(inheritedTemplate.fields)
+      ) {
         return;
       }
 

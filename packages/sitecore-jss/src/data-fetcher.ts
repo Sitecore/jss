@@ -48,7 +48,7 @@ export class AxiosDataFetcher {
    * @param {any} [data] Optional data to POST with the request.
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
-	 * @returns {Promise<AxiosResponse>} response
+   * @returns {Promise<AxiosResponse>} response
    */
   fetch(
     url: string,
@@ -86,7 +86,7 @@ export class AxiosDataFetcher {
    * Setup request headers
    * @param {IncomingMessage} req
    * @param {AxiosRequestConfig} reqConfig
-	 * @returns {AxiosRequestConfig} axios request config
+   * @returns {AxiosRequestConfig} axios request config
    */
   private setupReqHeaders(req: IncomingMessage, reqConfig: AxiosRequestConfig) {
     reqConfig.headers.common = {
@@ -104,7 +104,7 @@ export class AxiosDataFetcher {
    * Setup response headers based on response from layout service
    * @param {ServerResponse} res
    * @param {AxiosResponse} serverRes
-	 * @returns {AxiosResponse} response
+   * @returns {AxiosResponse} response
    */
   private setupResHeaders(res: ServerResponse, serverRes: AxiosResponse) {
     serverRes.headers['set-cookie'] && res.setHeader('set-cookie', serverRes.headers['set-cookie']);

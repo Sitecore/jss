@@ -42,9 +42,7 @@ export const findEditorImageTag = (editorMarkup: string) => {
  * @param {object} qs layout service parsed query string
  * @returns {object} requiredParams
  */
-export const getRequiredParams = (qs: {
-  [key: string]: string | undefined
-}) => {
+export const getRequiredParams = (qs: { [key: string]: string | undefined }) => {
   const { rev, db, la, vs, ts } = qs;
 
   return { rev, db, la, vs, ts };

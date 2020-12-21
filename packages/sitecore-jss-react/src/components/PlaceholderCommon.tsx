@@ -2,7 +2,13 @@ import React, { ComponentType } from 'react';
 import PropTypes, { Requireable } from 'prop-types';
 import { MissingComponent } from '../components/MissingComponent';
 import { ComponentFactory } from '../components/sharedTypes';
-import { ComponentRendering, RouteData, Field, Item, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
+import {
+  ComponentRendering,
+  RouteData,
+  Field,
+  Item,
+  HtmlElementRendering,
+} from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
 
 type ErrorComponentProps = {
@@ -14,9 +20,7 @@ export interface PlaceholderProps {
   /** Name of the placeholder to render. */
   name: string;
   /** Rendering data to be used when rendering the placeholder. */
-  rendering:
-  | ComponentRendering
-  | RouteData;
+  rendering: ComponentRendering | RouteData;
   /**
    * A factory function that will receive a componentName and return an instance of a React component.
    * When rendered within a <SitecoreContext> component, defaults to the context componentFactory.
@@ -27,9 +31,7 @@ export interface PlaceholderProps {
    * Any component or placeholder rendered by a placeholder will have access to this data via `props.fields`.
    */
   fields?: {
-    [name: string]:
-    | Field
-    | Item[];
+    [name: string]: Field | Item[];
   };
   /**
    * An object of rendering parameter names/values that are aggregated and propagated through the component tree created by a placeholder.
@@ -56,20 +58,22 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
   static propTypes = {
     rendering: PropTypes.oneOfType([
       PropTypes.object as Requireable<RouteData>,
-      PropTypes.object as Requireable<ComponentRendering>
+      PropTypes.object as Requireable<ComponentRendering>,
     ]).isRequired,
-    fields: PropTypes.objectOf(PropTypes.oneOfType([
-      PropTypes.object as Requireable<Field>,
-      PropTypes.object as Requireable<Item[]>
-    ]).isRequired),
+    fields: PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.object as Requireable<Field>,
+        PropTypes.object as Requireable<Item[]>,
+      ]).isRequired
+    ),
     params: PropTypes.objectOf(PropTypes.string.isRequired),
     missingComponentComponent: PropTypes.oneOfType([
       PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.func as Requireable<React.FC<unknown>>
+      PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
     errorComponent: PropTypes.oneOfType([
       PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.object as Requireable<React.SFC<unknown>>
+      PropTypes.object as Requireable<React.SFC<unknown>>,
     ]),
   };
 
@@ -85,7 +89,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     this.createRawElement = this.createRawElement.bind(this);
   }
 
-  static getPlaceholderDataFromRenderingData(rendering: ComponentRendering | RouteData, name: string) {
+  static getPlaceholderDataFromRenderingData(
+    rendering: ComponentRendering | RouteData,
+    name: string
+  ) {
     let result;
     if (rendering && rendering.placeholders && Object.keys(rendering.placeholders).length > 0) {
       result = rendering.placeholders[name];
@@ -126,51 +133,59 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       ...placeholderProps
     } = this.props;
 
-    return placeholderData.map((rendering: ComponentRendering | HtmlElementRendering, index: number) => {
-      const key = (rendering as ComponentRendering).uid
-        ? (rendering as ComponentRendering).uid
-        : `component-${index}`;
-      const commonProps = { key };
+    return placeholderData
+      .map((rendering: ComponentRendering | HtmlElementRendering, index: number) => {
+        const key = (rendering as ComponentRendering).uid
+          ? (rendering as ComponentRendering).uid
+          : `component-${index}`;
+        const commonProps = { key };
 
-      // if the element is not a 'component rendering', render it 'raw'
-      if (!(rendering as ComponentRendering).componentName && (rendering as HtmlElementRendering).name) {
-        return this.createRawElement(rendering as HtmlElementRendering, commonProps);
-      }
+        // if the element is not a 'component rendering', render it 'raw'
+        if (
+          !(rendering as ComponentRendering).componentName &&
+          (rendering as HtmlElementRendering).name
+        ) {
+          return this.createRawElement(rendering as HtmlElementRendering, commonProps);
+        }
 
-      const componentRendering = rendering as ComponentRendering;
+        const componentRendering = rendering as ComponentRendering;
 
-      let component = this.getComponentForRendering(componentRendering);
-      if (!component) {
-        console.error(
-          `Placeholder ${name} contains unknown component ${componentRendering.componentName
-          }. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
+        let component = this.getComponentForRendering(componentRendering);
+        if (!component) {
+          console.error(
+            `Placeholder ${name} contains unknown component ${componentRendering.componentName}. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
+          );
+
+          component = missingComponentComponent ?? MissingComponent;
+        }
+
+        const finalProps = {
+          ...commonProps,
+          ...placeholderProps,
+          ...((placeholderFields || componentRendering.fields) && {
+            fields: { ...placeholderFields, ...componentRendering.fields },
+          }),
+          ...((placeholderParams || componentRendering.params) && {
+            params: { ...placeholderParams, ...componentRendering.params },
+          }),
+          rendering: componentRendering,
+        };
+
+        return React.createElement<{ [attr: string]: unknown }>(
+          component as React.ComponentType,
+          finalProps
         );
-
-        component = missingComponentComponent ?? MissingComponent;
-      }
-
-      const finalProps = {
-        ...commonProps,
-        ...placeholderProps,
-        ...((placeholderFields || componentRendering.fields) && {
-          fields: { ...placeholderFields, ...componentRendering.fields },
-        }),
-        ...((placeholderParams || componentRendering.params) && {
-          params: { ...placeholderParams, ...componentRendering.params },
-        }),
-        rendering: componentRendering,
-      };
-
-      return React.createElement<{ [attr: string]: unknown }>(component as React.ComponentType, finalProps);
-    })
-      .filter(element => element); // remove nulls
+      })
+      .filter((element) => element); // remove nulls
   }
 
   getComponentForRendering(renderingDefinition: { componentName: string }): ComponentType | null {
     const componentFactory = this.props.componentFactory;
 
     if (!componentFactory || typeof componentFactory !== 'function') {
-      console.warn(`No componentFactory was available to service request for component ${renderingDefinition}`);
+      console.warn(
+        `No componentFactory was available to service request for component ${renderingDefinition}`
+      );
       return null;
     }
 
@@ -188,14 +203,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       );
       return null;
     }
-    const attributes  = convertAttributesToReactProps(elem.attributes);
+    const attributes = convertAttributesToReactProps(elem.attributes);
 
     const props: {
       [attr: string]: unknown;
       key?: string;
       dangerouslySetInnerHTML: {
-        __html: string | null
-      }
+        __html: string | null;
+      };
     } = {
       ...baseProps,
       ...attributes,

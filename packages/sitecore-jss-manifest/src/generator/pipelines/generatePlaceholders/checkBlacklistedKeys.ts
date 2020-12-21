@@ -22,7 +22,9 @@ export default (args: GeneratePlaceholdersPipelineArgs) => {
     return args;
   }
 
-  const blacklistedPlaceholders = args.placeholders.filter((placeholder) => blacklistedKeys.has(placeholder.name));
+  const blacklistedPlaceholders = args.placeholders.filter((placeholder) =>
+    blacklistedKeys.has(placeholder.name)
+  );
 
   if (blacklistedPlaceholders.length === 0) {
     return args;
@@ -31,9 +33,13 @@ export default (args: GeneratePlaceholdersPipelineArgs) => {
   console.error('The manifest used the following reserved placeholder key names:');
   blacklistedPlaceholders.forEach((ph) => console.error(ph.name));
   console.error();
-  console.error('These placeholder name(s) are reserved by the Sitecore system or SXA, and cannot be used without conflict.');
+  console.error(
+    'These placeholder name(s) are reserved by the Sitecore system or SXA, and cannot be used without conflict.'
+  );
   console.error('Consider renaming these placeholders to have a prefix specific to your JSS app.');
-  console.error('If you understand the risks and want to use these placeholder names anyway, pass --allowConflictingPlaceholderNames');
+  console.error(
+    'If you understand the risks and want to use these placeholder names anyway, pass --allowConflictingPlaceholderNames'
+  );
 
   // tslint:disable-next-line:no-string-throw
   throw 'Aborting due to invalid placeholder name.';

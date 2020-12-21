@@ -1,4 +1,13 @@
-import { Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  OnChanges,
+  Renderer2,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { mediaApi } from '@sitecore-jss/sitecore-jss';
 import { ImageField } from './rendering-field';
 
@@ -33,7 +42,7 @@ export class ImageDirective implements OnChanges {
     private templateRef: TemplateRef<any>,
     private renderer: Renderer2,
     private elementRef: ElementRef
-  ) { }
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.urlParams || changes.attrs) {
@@ -117,17 +126,19 @@ export class ImageDirective implements OnChanges {
   private renderTemplate(imageProps: any) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
     viewRef.rootNodes.forEach((node) => {
-      Object.entries(imageProps).forEach(([key, imgPropVal]: [string, any]) => this.renderer.setAttribute(node, key, imgPropVal));
+      Object.entries(imageProps).forEach(([key, imgPropVal]: [string, any]) =>
+        this.renderer.setAttribute(node, key, imgPropVal)
+      );
     });
   }
 
-  private getElementAttrs(): { [key: string]: any; } {
+  private getElementAttrs(): { [key: string]: any } {
     const view = this.templateRef.createEmbeddedView(null);
     const element: Element = view.rootNodes[0];
     if (!element) {
       return {};
     }
-    const attrs: { [key: string]: any; } = {};
+    const attrs: { [key: string]: any } = {};
     for (let i = 0; i < element.attributes.length; i++) {
       const attr = element.attributes.item(i);
       if (attr) {

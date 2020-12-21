@@ -1,9 +1,14 @@
 import { runPipeline } from '@sitecore-jss/sitecore-pipelines';
 import { GeneratePipelineArgs, GeneratePlaceholdersPipelineArgs } from '../../manifest.types';
 
-const generatePlaceholders = async (
-  { items, renderings, placeholders, pipelines, rootPlaceholders, skipPlaceholderBlacklist }: any) => {
-
+const generatePlaceholders = async ({
+  items,
+  renderings,
+  placeholders,
+  pipelines,
+  rootPlaceholders,
+  skipPlaceholderBlacklist,
+}: any) => {
   const pipeline = { ...pipelines.generatePlaceholders };
 
   const pipelineArgs: GeneratePlaceholdersPipelineArgs = {

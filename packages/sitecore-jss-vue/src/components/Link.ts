@@ -95,7 +95,7 @@ export const Link: FunctionalComponentOptions<LinkProps> = {
 
         return createElement('span', { class: 'sc-link-editable-wrapper' }, [
           xEditorElement,
-          childElements
+          childElements,
         ]);
       }
 
@@ -109,7 +109,9 @@ export const Link: FunctionalComponentOptions<LinkProps> = {
     }
 
     const linkText =
-      showLinkTextWithChildrenPresent || !children || children.length === 0 ? (link.text || link.href) : null;
+      showLinkTextWithChildrenPresent || !children || children.length === 0
+        ? link.text || link.href
+        : null;
 
     const finalChildren = children ? [linkText, ...children] : linkText;
 

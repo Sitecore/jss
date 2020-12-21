@@ -66,11 +66,11 @@ export function startRenderingHostServer({
 
   const middleware = ssrMiddleware
     ? ssrMiddleware({
-      appInvocationInfoResolver,
-    })
+        appInvocationInfoResolver,
+      })
     : defaultSSRMiddleware({
-      appInvocationInfoResolver,
-    });
+        appInvocationInfoResolver,
+      });
 
   // Give devs a chance to add custom middleware before the SSR middleware is registered.
   invokeHook(hooks.beforeSSRMiddlewareRegistered, server);

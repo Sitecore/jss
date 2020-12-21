@@ -23,10 +23,7 @@ export interface ConfigOptions {
  * @param {ConfigOptions} [options] Configuration options
  * @returns {ConfigOptions} config
  */
-export function config({
-  enabled = false,
-  distDir = '.next-editing',
-}: ConfigOptions = {}) {
+export function config({ enabled = false, distDir = '.next-editing' }: ConfigOptions = {}) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return function plugin(nextConfig: any = {}) {
     if (!enabled) {
@@ -35,7 +32,9 @@ export function config({
 
     const primaryDistDir = nextConfig.distDir ?? NEXT_DEFAULT_DIST_DIR;
     if (distDir === primaryDistDir) {
-      throw new Error(`The editing 'distDir' (${distDir}) can not be the same as the primary 'distDir' (${primaryDistDir})`);
+      throw new Error(
+        `The editing 'distDir' (${distDir}) can not be the same as the primary 'distDir' (${primaryDistDir})`
+      );
     }
 
     console.info(`${chalk.cyan('info')}  - Applying editing host configuration`);
@@ -43,7 +42,6 @@ export function config({
     const publicUrl = getPublicUrl();
 
     return Object.assign({}, nextConfig, {
-
       // Set our public URL as the asset prefix, which is used by Next.js for the JavaScript and CSS files it loads
       // See https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
       assetPrefix: publicUrl,

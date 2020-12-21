@@ -6,7 +6,10 @@ export { deploy } from './deploy';
 export { clean } from './clean';
 export { packageDeploy, PackageDeployOptions } from './package-deploy';
 export { packageGenerate } from './package-generate';
-export { createDisconnectedAssetMiddleware, DisconnectedAssetMiddlewareOptions } from './disconnected-server/media-service';
+export {
+  createDisconnectedAssetMiddleware,
+  DisconnectedAssetMiddlewareOptions,
+} from './disconnected-server/media-service';
 export { createDisconnectedLayoutService } from './disconnected-server/layout-service';
 export {
   DisconnectedLayoutServiceOptions,
@@ -14,8 +17,14 @@ export {
   CustomizeRenderFunction,
   CustomizeRouteFunction,
 } from './disconnected-server/DisconnectedLayoutServiceOptions';
-export { createDisconnectedDictionaryService, DisconnectedDictionaryServiceOptions } from './disconnected-server/dictionary-service';
-export { createDefaultDocumentMiddleware, DefaultDocumentMiddlewareOptions } from './disconnected-server/default-document';
+export {
+  createDisconnectedDictionaryService,
+  DisconnectedDictionaryServiceOptions,
+} from './disconnected-server/dictionary-service';
+export {
+  createDefaultDocumentMiddleware,
+  DefaultDocumentMiddlewareOptions,
+} from './disconnected-server/default-document';
 export { ManifestManager } from './manifest-manager';
 export { createDefaultDisconnectedServer } from './disconnected-server/create-default-disconnected-server';
 export { ScJssConfig, JssConfiguration, resolveScJssConfig } from './resolve-scjssconfig';

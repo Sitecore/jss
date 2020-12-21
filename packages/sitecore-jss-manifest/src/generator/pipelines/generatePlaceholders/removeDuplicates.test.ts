@@ -14,7 +14,7 @@ describe('generatePlaceholders pipeline', () => {
           'maple',
           '/lorem/ipsum/maple',
           '/sycamore',
-          'poplar'
+          'poplar',
         ],
       };
       const result = removeDuplicates(args);

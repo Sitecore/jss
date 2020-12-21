@@ -39,12 +39,7 @@ export const Link = (props: LinkProps) => {
     if (internalLinkMatcher.test(href)) {
       return (
         <NextLink href={href} key="link" locale={false}>
-          <a
-            title={value.title}
-            target={value.target}
-            className={value.class}
-            {...htmlLinkProps}
-          >
+          <a title={value.title} target={value.target} className={value.class} {...htmlLinkProps}>
             {text}
             {props.children}
           </a>

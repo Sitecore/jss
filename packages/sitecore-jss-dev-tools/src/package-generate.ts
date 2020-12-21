@@ -20,7 +20,10 @@ export function packageGenerate(options: PackageGenerateOptions) {
   fsExtra.copySync(path.join('.', options.manifestPath), packageManifestPath);
 
   // generate manifest package
-  const updatePackage = path.join(options.outputPath, `${options.appName}.${datepath}.manifest.zip`);
+  const updatePackage = path.join(
+    options.outputPath,
+    `${options.appName}.${datepath}.manifest.zip`
+  );
 
   return new Promise((resolve) => {
     createPackage(packageManifestPath, updatePackage, resolve);

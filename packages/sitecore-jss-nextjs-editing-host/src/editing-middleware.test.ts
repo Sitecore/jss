@@ -32,14 +32,13 @@ const mockResponse = () => {
 };
 
 describe('EditingMiddleware', () => {
-
   it('should call renderToHTML', async () => {
     const req = mockRequest(EE_BODY);
     const res = mockResponse();
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves('<html></html>');
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
@@ -57,7 +56,7 @@ describe('EditingMiddleware', () => {
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves('<html></html>');
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, customEditRoute);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, customEditRoute);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
@@ -72,11 +71,12 @@ describe('EditingMiddleware', () => {
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves('<html></html>');
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
-    expect((nextApp.renderToHTML.args[0][0] as EditingRequest).editingData, 'request.editingData').to.not.be.undefined;
+    expect((nextApp.renderToHTML.args[0][0] as EditingRequest).editingData, 'request.editingData')
+      .to.not.be.undefined;
   });
 
   it('should return json with rendered html', async () => {
@@ -86,7 +86,7 @@ describe('EditingMiddleware', () => {
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves(html);
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
@@ -101,7 +101,7 @@ describe('EditingMiddleware', () => {
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves('');
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
@@ -109,14 +109,13 @@ describe('EditingMiddleware', () => {
     expect(res.status).to.have.been.calledWith(500);
   });
 
-
   it('should respond with 500 if rendered html empty', async () => {
     const req = mockRequest(EE_BODY);
     const res = mockResponse();
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves('');
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
@@ -134,18 +133,18 @@ describe('EditingMiddleware', () => {
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves(html);
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE, [ processor ]);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE, [
+      processor,
+    ]);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
 
     expect(processor.processHtml).to.have.been.calledWith(html);
   });
-
 });
 
 describe('extractEditingData', () => {
-
   it('should throw if body missing', () => {
     const req = mockRequest();
     expect(() => extractEditingData(req)).to.throw;
@@ -176,5 +175,4 @@ describe('extractEditingData', () => {
     const expected = JSON.parse(EE_DICTIONARY);
     expect(data.dictionary).to.eql(expected);
   });
-
 });

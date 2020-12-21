@@ -88,7 +88,6 @@ async function renderAppToResponse(
     return true;
   };
 
-
   async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
     if (
       proxyResponse.statusCode === HttpStatus.OK ||
@@ -428,9 +427,15 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false)
   return false;
 }
 
-function handleProxyRequest(proxyReq: any, req: any, res: ServerResponse, config: ProxyConfig,
-  customOnProxyReq: ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void) | undefined) {
-
+function handleProxyRequest(
+  proxyReq: any,
+  req: any,
+  res: ServerResponse,
+  config: ProxyConfig,
+  customOnProxyReq:
+    | ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void)
+    | undefined
+) {
   // if a HEAD request, we still need to issue a GET so we can return accurate headers
   // proxyReq defined as 'any' to allow us to mutate this
   if (proxyReq.method === 'HEAD' && !isUrlIgnored(req.originalUrl, config, true)) {
@@ -473,7 +478,8 @@ function createOptions(
     ws: true,
     pathRewrite: (reqPath, req) => rewriteRequestPath(reqPath, req, config, parseRouteUrl),
     logLevel: config.debug ? 'debug' : 'info',
-    onProxyReq: (proxyReq, req, res) => handleProxyRequest(proxyReq, req, res, config, customOnProxyReq),
+    onProxyReq: (proxyReq, req, res) =>
+      handleProxyRequest(proxyReq, req, res, config, customOnProxyReq),
     onProxyRes: (proxyRes, req, res) => handleProxyResponse(proxyRes, req, res, renderer, config),
   };
 }

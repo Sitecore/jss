@@ -17,7 +17,7 @@ export interface FileProps {
   /** The file field data. */
   field: FileFieldValue | FileField;
   /** HTML attributes that will be appended to the rendered <a /> tag. */
-  children?: React.ReactNode[]
+  children?: React.ReactNode[];
 }
 
 export const File: React.SFC<FileProps> = ({ field, children, ...otherProps }) => {
@@ -32,7 +32,9 @@ export const File: React.SFC<FileProps> = ({ field, children, ...otherProps }) =
   }
 
   // handle link directly on field for forgetful devs
-  const file = ((dynamicField as FileFieldValue).src ? field : dynamicField.value) as FileFieldValue;
+  const file = ((dynamicField as FileFieldValue).src
+    ? field
+    : dynamicField.value) as FileFieldValue;
   if (!file) {
     return null;
   }
@@ -51,7 +53,7 @@ File.propTypes = {
     }),
     PropTypes.shape({
       value: PropTypes.object,
-    })
+    }),
   ]).isRequired,
   children: PropTypes.array,
 };

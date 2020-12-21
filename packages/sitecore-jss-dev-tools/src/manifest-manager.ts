@@ -34,7 +34,7 @@ export class ManifestManager {
     rootPath = process.cwd(),
     sourceFiles = [
       './sitecore/definitions/**/*.sitecore.js',
-      './sitecore/definitions/**/*.sitecore.ts'
+      './sitecore/definitions/**/*.sitecore.ts',
     ],
     watchOnlySourceFiles = [],
     requireArg = './sitecore/definitions/config.js',

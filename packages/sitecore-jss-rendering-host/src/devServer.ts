@@ -195,7 +195,8 @@ export function startDevServer({
   const modulePath = path.join(buildArtifactsPath, serverBundleFileName);
   console.log('Resolved server bundle path', modulePath);
   const appInvocationInfoResolver =
-    customAppInvocationInfoResolver || getDefaultAppInvocationInfoResolver({ appPathResolver: () => modulePath });
+    customAppInvocationInfoResolver ||
+    getDefaultAppInvocationInfoResolver({ appPathResolver: () => modulePath });
 
   // Devs may have assigned a value to `serverOptions.after` via `configs.devServerConfig`, so
   // preserve the existing value so we can invoke it later.
@@ -203,11 +204,11 @@ export function startDevServer({
   serverOptions.after = (app: Application, server: WebpackDevServer) => {
     const middleware = ssrMiddleware
       ? ssrMiddleware({
-        appInvocationInfoResolver,
-      })
+          appInvocationInfoResolver,
+        })
       : defaultSSRMiddleware({
-        appInvocationInfoResolver,
-      });
+          appInvocationInfoResolver,
+        });
 
     // Give devs a chance to add custom middleware before the SSR middleware is registered,
     // but after all WDS middleware.

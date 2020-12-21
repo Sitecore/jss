@@ -13,10 +13,10 @@ const defaultDatasourceNamer = ({
   rendering,
   index,
 }: {
-  item: any,
-  placeholder: any,
-  rendering: any,
-  index: number
+  item: any;
+  placeholder: any;
+  rendering: any;
+  index: number;
 }) => {
   const placeholderKeys = placeholder.phKey.split('/');
   let finalPlaceholderKey;
@@ -39,12 +39,11 @@ const defaultDatasourceDisplayNamer = ({
   rendering,
   index,
 }: {
-  item: any,
-  placeholder: any,
-  rendering: any,
-  index: number
-}) =>
-  `${rendering.componentName}-${index + 1}`;
+  item: any;
+  placeholder: any;
+  rendering: any;
+  index: number;
+}) => `${rendering.componentName}-${index + 1}`;
 
 const defaultComponentFactory = (components: ComponentDefinition[], componentName: string) =>
   components.find((component) => component.name === componentName);

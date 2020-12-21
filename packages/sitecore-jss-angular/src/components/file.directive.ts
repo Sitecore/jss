@@ -1,4 +1,12 @@
-import { Directive, EmbeddedViewRef, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  EmbeddedViewRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { FileField } from './rendering-field';
 
 /**
@@ -11,10 +19,7 @@ export class FileDirective implements OnChanges {
   // tslint:disable-next-line:no-input-rename
   @Input('scFile') field: FileField;
 
-  constructor(
-    private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<any>
-  ) { }
+  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<any>) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.field) {

@@ -46,7 +46,12 @@ export const Link: React.FunctionComponent<LinkProps> = ({
 }) => {
   const dynamicField = field;
 
-  if (!field || (!dynamicField.editableFirstPart && !dynamicField.value && !(dynamicField as LinkFieldValue).href)) {
+  if (
+    !field ||
+    (!dynamicField.editableFirstPart &&
+      !dynamicField.value &&
+      !(dynamicField as LinkFieldValue).href)
+  ) {
     return null;
   }
 
@@ -84,7 +89,11 @@ export const Link: React.FunctionComponent<LinkProps> = ({
   const linkText = showLinkTextWithChildrenPresent || !children ? link.text || link.href : null;
 
   resultTags.push(
-    <TouchableWithoutFeedback onPress={() => link.href && Linking.openURL(link.href)} key="link" {...otherProps}>
+    <TouchableWithoutFeedback
+      onPress={() => link.href && Linking.openURL(link.href)}
+      key="link"
+      {...otherProps}
+    >
       <View style={style}>
         {linkText && <Text style={textStyle}>{linkText}</Text>}
         {children}
@@ -104,7 +113,7 @@ Link.propTypes = {
       value: PropTypes.object,
       editableFirstPart: PropTypes.string,
       editableLastPart: PropTypes.string,
-    })
+    }),
   ]).isRequired,
   editable: PropTypes.bool,
 };

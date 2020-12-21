@@ -18,10 +18,18 @@ export interface DateFieldProps {
    * @default true
    */
   editable?: boolean;
-  render?: (date: Date | null) => React.ComponentClass<unknown> | React.FunctionComponent<unknown> | React.ReactNode;
+  render?: (
+    date: Date | null
+  ) => React.ComponentClass<unknown> | React.FunctionComponent<unknown> | React.ReactNode;
 }
 
-export const DateField: React.SFC<DateFieldProps> = ({ field, tag, editable, render, ...otherProps }) => {
+export const DateField: React.SFC<DateFieldProps> = ({
+  field,
+  tag,
+  editable,
+  render,
+  ...otherProps
+}) => {
   if (!field || (!field.editable && !field.value)) {
     return null;
   }
@@ -29,8 +37,8 @@ export const DateField: React.SFC<DateFieldProps> = ({ field, tag, editable, ren
   let children: React.ComponentType | React.ReactNode;
 
   const htmlProps: {
-    [htmlAttr: string]: unknown,
-    children?: React.ReactNode
+    [htmlAttr: string]: unknown;
+    children?: React.ReactNode;
   } = {
     ...otherProps,
   };

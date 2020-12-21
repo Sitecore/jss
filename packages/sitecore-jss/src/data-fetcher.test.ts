@@ -109,7 +109,7 @@ describe('AxiosDataFetcher', () => {
         },
         {
           'set-cookie': 'test-set-cookie-value',
-        }
+        },
       ];
     });
 

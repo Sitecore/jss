@@ -45,8 +45,12 @@ export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions
   return result;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function pushFields(result: JssFormData, fields: Array<FormField<any>>, options: SerializeFormOptions) {
+function pushFields(
+  result: JssFormData,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  fields: Array<FormField<any>>,
+  options: SerializeFormOptions
+) {
   fields.forEach((field) => {
     if (
       instanceOfButtonFormField(field) &&

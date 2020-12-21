@@ -7,7 +7,7 @@ describe('removeEmptyAnalyticsCookie', () => {
     const mockResponse = {
       headers: {
         'set-cookie': [
-          'SC_ANALYTICS_GLOBAL_COOKIE=; expires=Wed, 17-Mar-2027 14:28:58 GMT; path=/; HttpOnly'
+          'SC_ANALYTICS_GLOBAL_COOKIE=; expires=Wed, 17-Mar-2027 14:28:58 GMT; path=/; HttpOnly',
         ],
       },
     };
@@ -98,7 +98,8 @@ describe('rewriteRequestPath', () => {
 
       it('should return route prefixed with layout service route and with querystring appended that contains percentage symbol', () => {
         const url = '/styleguide?x=%25';
-        const expected = '/sitecore/layoutsvc/render/jss?item=%2Fstyleguide&sc_apikey={GUID}&x=%25&y=test';
+        const expected =
+          '/sitecore/layoutsvc/render/jss?item=%2Fstyleguide&sc_apikey={GUID}&x=%25&y=test';
         const mockRequest = {
           query: {
             x: '%',

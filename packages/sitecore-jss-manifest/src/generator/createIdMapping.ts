@@ -57,9 +57,7 @@ export const createIdMapping = (manifest: ManifestInstance) => {
     if (!usedIdMap.has(reference.id)) {
       if (isGuid(reference.id)) {
         console.warn(
-          `The referenced ID ${
-            reference.id
-          } was not defined in the manifest. Ensure that this item ID already exists in Sitecore before importing.`
+          `The referenced ID ${reference.id} was not defined in the manifest. Ensure that this item ID already exists in Sitecore before importing.`
         );
       } else {
         throw new Error(

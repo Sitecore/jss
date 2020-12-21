@@ -32,7 +32,7 @@ const captureRx = /((href|src|codebase|cite|background|cite|action|profile|forma
  * @param {IteratorFunction} iterator
  * @returns {string} result
  */
-const iterate = function (str: string, iterator: IteratorFunction): string {
+const iterate = function(str: string, iterator: IteratorFunction): string {
   return str.replace(captureRx, (_full, prefix, prop, url) => {
     return prefix + iterator(url, prop);
   });

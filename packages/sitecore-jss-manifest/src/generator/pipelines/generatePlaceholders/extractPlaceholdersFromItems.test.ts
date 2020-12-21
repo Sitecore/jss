@@ -16,7 +16,7 @@ describe('generatePlaceholders pipeline', () => {
             layout: {
               placeholders: expected.slice(2, 5),
             },
-          }
+          },
         ],
         placeholderNames: expected.slice(5, 7),
       };

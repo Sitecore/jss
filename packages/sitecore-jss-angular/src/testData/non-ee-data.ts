@@ -34,11 +34,12 @@ export const convertedDevData = {
                       value: 'Your Favorite Source of Free Bootstrap Themes!',
                     },
                     body: {
-                      value: '<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>',
+                      value:
+                        '<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>',
                     },
                   },
                   uid: '53c31a2a-75d5-43c6-a0b8-66b7c7859c30',
-                }
+                },
               ],
               'page-content': [
                 {
@@ -50,10 +51,10 @@ export const convertedDevData = {
                   },
                   uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
                   params: [],
-                }
+                },
               ],
             },
-          }
+          },
         ],
       },
       fields: {
@@ -93,8 +94,10 @@ export const convertedLayoutServiceData = {
                       editable: 'Your Favorite Source of Free Bootstrap Themes!',
                     },
                     body: {
-                      value: '<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>',
-                      editable: '<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>',
+                      value:
+                        '<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>',
+                      editable:
+                        '<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>',
                     },
                   },
                   params: {
@@ -108,7 +111,7 @@ export const convertedLayoutServiceData = {
                     },
                   },
                   uid: '53c31a2a-75d5-43c6-a0b8-66b7c7859c30',
-                }
+                },
               ],
               'page-content': [
                 {
@@ -121,10 +124,10 @@ export const convertedLayoutServiceData = {
                   },
                   uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
                   params: [],
-                }
+                },
               ],
             },
-          }
+          },
         ],
       },
       fields: {

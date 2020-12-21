@@ -171,7 +171,9 @@ describe('<a *scGenericLink />', () => {
 @Component({
   selector: 'test-router-link-children',
   template: `
-    <a *scGenericLink="field; editable: editable; attrs: attrs; extras: extras" id="my-link"><span *ngIf="true">hello world</span></a>
+    <a *scGenericLink="field; editable: editable; attrs: attrs; extras: extras" id="my-link"
+      ><span *ngIf="true">hello world</span></a
+    >
   `,
 })
 class TestWithChildrenComponent {
@@ -189,7 +191,7 @@ describe('<a *scGenericLink>children</a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GenericLinkDirective, TestWithChildrenComponent],
-      imports: [ RouterTestingModule ],
+      imports: [RouterTestingModule],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);
@@ -232,7 +234,7 @@ describe('<a *scGenericLink></a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GenericLinkDirective, TestComponent],
-      imports: [ RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
+      imports: [RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
     });
 
     router = TestBed.get(Router);

@@ -29,11 +29,9 @@ export interface ImageProps {
   /**
    * Parameters that will be attached to Sitecore media URLs
    */
-  imageUrlParams?:
-  | {
+  imageUrlParams?: {
     [paramName: string]: string;
-  }
-  | null;
+  } | null;
 }
 
 const getImageAttrs = (
@@ -108,7 +106,9 @@ export const Image: React.SFC<ImageProps> = ({ media, imageUrlParams, field, ...
   }
 
   // some wise-guy/gal might pass in a 'raw' image object value
-  const img = (dynamicMedia as ImageFieldValue).src ? dynamicMedia : (dynamicMedia as ImageField).value;
+  const img = (dynamicMedia as ImageFieldValue).src
+    ? dynamicMedia
+    : (dynamicMedia as ImageField).value;
   if (!img) {
     return null;
   }
@@ -129,7 +129,7 @@ Image.propTypes = {
     }),
     PropTypes.shape({
       value: PropTypes.object,
-    })
+    }),
   ]),
   imageUrlParams: PropTypes.any,
 };

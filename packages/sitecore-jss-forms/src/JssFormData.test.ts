@@ -13,7 +13,7 @@ describe('JssFormData', () => {
     expect(formData.get()).to.deep.equal([
       { key: 'xxx', value: 'val-xxx' },
       { key: 'xxx', value: 'val-xxx' },
-      { key: 'yyy', value: 'val-yyy' }
+      { key: 'yyy', value: 'val-yyy' },
     ]);
   });
 
@@ -27,7 +27,7 @@ describe('JssFormData', () => {
 
     expect(formData.get()).to.deep.equal([
       { key: 'xxx', value: 'val-xxx' },
-      { key: 'yyy', value: 'val-yyy' }
+      { key: 'yyy', value: 'val-yyy' },
     ]);
   });
 
@@ -42,18 +42,14 @@ describe('JssFormData', () => {
 
     expect(x1formData.get()).to.deep.equal([
       { key: 'a1', value: 'a1-val' },
-      { key: 'a2', value: 'a2-val' }
+      { key: 'a2', value: 'a2-val' },
     ]);
 
     const x2formData = new JssFormData();
     const x2 = {
       x21: 'a1-val',
       x22: 'a2-val',
-      x23: [
-        'x231-arr-val',
-        'x232-arr-val',
-        'x233-arr-val'
-      ],
+      x23: ['x231-arr-val', 'x232-arr-val', 'x233-arr-val'],
     };
 
     x2formData.mergeOverwritingExisting(x2);
@@ -63,7 +59,7 @@ describe('JssFormData', () => {
       { key: 'x22', value: 'a2-val' },
       { key: 'x23', value: 'x231-arr-val' },
       { key: 'x23', value: 'x232-arr-val' },
-      { key: 'x23', value: 'x233-arr-val' }
+      { key: 'x23', value: 'x233-arr-val' },
     ]);
   });
 

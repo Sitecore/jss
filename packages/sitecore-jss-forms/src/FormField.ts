@@ -12,7 +12,8 @@ export function instanceOfFormField<T extends ViewModel>(object: any): object is
   return 'model' in object;
 }
 
-export interface ValueFormField<TViewModel extends InputViewModel = InputViewModel> extends FormField<TViewModel> {
+export interface ValueFormField<TViewModel extends InputViewModel = InputViewModel>
+  extends FormField<TViewModel> {
   indexField: HtmlFormField;
   fieldIdField: HtmlFormField;
   valueField: HtmlFormField;

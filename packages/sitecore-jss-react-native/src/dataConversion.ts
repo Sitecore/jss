@@ -14,11 +14,7 @@ const isComponentRendering = (element: unknown) => (element as ComponentRenderin
  * @returns {Object} prop data in layout service format
  */
 export const convertPropDataToLayoutServiceFormat = (
-  propData:
-  | {
-    [name: string]: Field | Item | Item[] | undefined;
-  }
-  | undefined
+  propData: { [name: string]: Field | Item | Item[] | undefined } | undefined
 ): { [name: string]: Field } => {
   if (!propData) {
     return {};
@@ -102,31 +98,28 @@ export const convertRouteToLayoutServiceFormat = (routeData: RouteData) => {
       return {};
     }
 
-    return Object.keys(placeholders).reduce(
-      (result, placeholderName) => {
-        const placeholder = placeholders[placeholderName];
-        const elements = placeholder.map((element) => {
-          if (isComponentRendering(element)) {
-            const componentRendering = element as ComponentRendering;
-            // https://stackoverflow.com/a/40560953/9324
-            return {
-              ...componentRendering,
-              ...(componentRendering.placeholders && {
-                placeholders: transformPlaceholders(componentRendering.placeholders),
-              }),
-              ...(componentRendering.params && { params: componentRendering.params }),
-              ...(componentRendering.fields && {
-                fields: convertPropDataToLayoutServiceFormat(componentRendering.fields),
-              }),
-            };
-          }
-          return element;
-        });
-        result[placeholderName] = elements;
-        return result;
-      },
-      {} as PlaceholdersData
-    );
+    return Object.keys(placeholders).reduce((result, placeholderName) => {
+      const placeholder = placeholders[placeholderName];
+      const elements = placeholder.map((element) => {
+        if (isComponentRendering(element)) {
+          const componentRendering = element as ComponentRendering;
+          // https://stackoverflow.com/a/40560953/9324
+          return {
+            ...componentRendering,
+            ...(componentRendering.placeholders && {
+              placeholders: transformPlaceholders(componentRendering.placeholders),
+            }),
+            ...(componentRendering.params && { params: componentRendering.params }),
+            ...(componentRendering.fields && {
+              fields: convertPropDataToLayoutServiceFormat(componentRendering.fields),
+            }),
+          };
+        }
+        return element;
+      });
+      result[placeholderName] = elements;
+      return result;
+    }, {} as PlaceholdersData);
   };
 
   const transformedPlaceholders = transformPlaceholders(routeData.placeholders);

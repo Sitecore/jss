@@ -61,7 +61,7 @@ describe('LayoutService', () => {
         },
         {
           'set-cookie': 'test-set-cookie-value',
-        }
+        },
       ];
     });
 
@@ -118,7 +118,7 @@ describe('LayoutService', () => {
         },
         {
           'set-cookie': 'test-set-cookie-value',
-        }
+        },
       ];
     });
 
@@ -181,19 +181,21 @@ describe('LayoutService', () => {
       dataFetcherResolver: () => fetcherSpy,
     });
 
-    return service.fetchLayoutData('/home', 'da-DK').then((layoutServiceData: LayoutServiceData) => {
-      expect(layoutServiceData).to.deep.equal({
-        sitecore: {
-          context: {},
-          route: { name: 'xxx' },
-        },
-      });
+    return service
+      .fetchLayoutData('/home', 'da-DK')
+      .then((layoutServiceData: LayoutServiceData) => {
+        expect(layoutServiceData).to.deep.equal({
+          sitecore: {
+            context: {},
+            route: { name: 'xxx' },
+          },
+        });
 
-      expect(fetcherSpy).to.be.called.once;
-      expect(fetcherSpy).to.be.called.with(
-        'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
-      );
-    });
+        expect(fetcherSpy).to.be.called.once;
+        expect(fetcherSpy).to.be.called.with(
+          'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
+        );
+      });
   });
 
   it('should fetch placeholder data', () => {
@@ -207,7 +209,7 @@ describe('LayoutService', () => {
         },
         {
           'set-cookie': 'test-set-cookie-value',
-        }
+        },
       ];
     });
 
@@ -235,14 +237,16 @@ describe('LayoutService', () => {
       tracking: false,
     });
 
-    return service.fetchPlaceholderData('superPh', '/xxx', 'da-DK', req, res).then((placeholderData: PlaceholderData) => {
-      expect(placeholderData).to.deep.equal({
-        name: 'x1',
-        path: 'x1/x2',
-        elements: [],
+    return service
+      .fetchPlaceholderData('superPh', '/xxx', 'da-DK', req, res)
+      .then((placeholderData: PlaceholderData) => {
+        expect(placeholderData).to.deep.equal({
+          name: 'x1',
+          path: 'x1/x2',
+          elements: [],
+        });
+        expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
       });
-      expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
-    });
   });
 
   it('should fetch placeholder data using custom fetcher resolver', () => {
@@ -251,11 +255,14 @@ describe('LayoutService', () => {
     });
 
     mock.onGet().reply(() => {
-      return [200, {
-        name: 'x1',
-        path: 'x1/x2',
-        elements: [],
-      }];
+      return [
+        200,
+        {
+          name: 'x1',
+          path: 'x1/x2',
+          elements: [],
+        },
+      ];
     });
 
     const service = new LayoutService({
@@ -265,17 +272,19 @@ describe('LayoutService', () => {
       dataFetcherResolver: () => fetcherSpy,
     });
 
-    return service.fetchPlaceholderData('superPh', '/xxx', 'da-DK').then((placeholderData: PlaceholderData) => {
-      expect(placeholderData).to.deep.equal({
-        name: 'x1',
-        path: 'x1/x2',
-        elements: [],
-      });
+    return service
+      .fetchPlaceholderData('superPh', '/xxx', 'da-DK')
+      .then((placeholderData: PlaceholderData) => {
+        expect(placeholderData).to.deep.equal({
+          name: 'x1',
+          path: 'x1/x2',
+          elements: [],
+        });
 
-      expect(fetcherSpy).to.be.called.once;
-      expect(fetcherSpy).to.be.called.with(
-        'http://sctest/sitecore/api/layout/placeholder/jss?placeholderName=superPh&item=%2Fxxx&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
-      );
-    });
+        expect(fetcherSpy).to.be.called.once;
+        expect(fetcherSpy).to.be.called.with(
+          'http://sctest/sitecore/api/layout/placeholder/jss?placeholderName=superPh&item=%2Fxxx&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
+        );
+      });
   });
 });

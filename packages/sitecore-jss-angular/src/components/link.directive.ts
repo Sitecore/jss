@@ -1,4 +1,13 @@
-import { Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  OnChanges,
+  Renderer2,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { LinkField } from './rendering-field';
 
 @Directive({ selector: '[scLink]' })
@@ -19,7 +28,7 @@ export class LinkDirective implements OnChanges {
     protected templateRef: TemplateRef<any>,
     protected renderer: Renderer2,
     private elementRef: ElementRef
-  ) { }
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.attrs) {
@@ -97,13 +106,13 @@ export class LinkDirective implements OnChanges {
     this.inlineRef = span;
   }
 
-  private getElementAttrs(): { [key: string]: any; } {
+  private getElementAttrs(): { [key: string]: any } {
     const view = this.templateRef.createEmbeddedView(null);
     const element: Element = view.rootNodes[0];
     if (!element) {
       return {};
     }
-    const attrs: { [key: string]: any; } = {};
+    const attrs: { [key: string]: any } = {};
     for (let i = 0; i < element.attributes.length; i++) {
       const attr = element.attributes.item(i);
       if (attr) {

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { setup } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 export const command = 'setup';

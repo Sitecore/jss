@@ -20,13 +20,7 @@ const enhanceProcessors = (processors: Processor[]) =>
     return processor;
   });
 
-const runProcessor = async ({
-  processor,
-  args,
-}: {
-  processor: Processor,
-  args: any
-}) => {
+const runProcessor = async ({ processor, args }: { processor: Processor; args: any }) => {
   if (args && args.debug) {
     console.log(`executing processor ${processor.name}`);
   }
@@ -69,8 +63,8 @@ export const runProcessors = async ({
   processors,
   pipelineArgs = {},
 }: {
-  processors: Processor[],
-  pipelineArgs: any
+  processors: Processor[];
+  pipelineArgs: any;
 }) => {
   if (!processors || processors.length === 0) {
     throw new Error('no processors specified to run');

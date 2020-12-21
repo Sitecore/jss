@@ -22,7 +22,8 @@ describe('withSitecoreContext', () => {
 
     const TestComponent: React.FC<any> = (props: any) => (
       <div onClick={props.updateSitecoreContext}>
-        {props.sitecoreContext.text}{props.customProp}
+        {props.sitecoreContext.text}
+        {props.customProp}
       </div>
     );
 
@@ -71,7 +72,8 @@ describe('withSitecoreContext', () => {
 
         return (
           <div onClick={reactContext.updateSitecoreContext}>
-            {context.text}{props.customProp}
+            {context.text}
+            {props.customProp}
           </div>
         );
       };
@@ -106,7 +108,8 @@ describe('withSitecoreContext', () => {
 
         return (
           <div onClick={reactContext.updateSitecoreContext}>
-            {context.text}{props.customProp}
+            {context.text}
+            {props.customProp}
           </div>
         );
       };

@@ -8,7 +8,9 @@ export interface DefaultDocumentMiddlewareOptions {
   indexFilePath: string;
 }
 
-export function createDefaultDocumentMiddleware({ indexFilePath }: DefaultDocumentMiddlewareOptions) {
+export function createDefaultDocumentMiddleware({
+  indexFilePath,
+}: DefaultDocumentMiddlewareOptions) {
   return function defaultDocumentMiddleware(req: Request, res: Response, next: NextFunction) {
     if (req.path === '/favicon.ico' || req.path.endsWith('.map')) {
       next();

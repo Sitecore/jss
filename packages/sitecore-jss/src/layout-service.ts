@@ -4,7 +4,10 @@ import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './dat
 import { HttpJsonFetcher } from './httpClientInterface';
 import { IncomingMessage, ServerResponse } from 'http';
 
-export type DataFetcherResolver = <T>(req?: IncomingMessage, res?: ServerResponse) => HttpJsonFetcher<T>;
+export type DataFetcherResolver = <T>(
+  req?: IncomingMessage,
+  res?: ServerResponse
+) => HttpJsonFetcher<T>;
 
 export type LayoutServiceInstanceConfig = {
   apiHost: string;
@@ -50,7 +53,7 @@ export class LayoutService {
    * @param {string} [language]
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
-	 * @returns {Promise<LayoutServiceData>} layout service data
+   * @returns {Promise<LayoutServiceData>} layout service data
    */
   fetchLayoutData(
     itemPath: string,
@@ -76,7 +79,7 @@ export class LayoutService {
    * @param {string} [language]
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
-	 * @returns {Promise<PlaceholderData>} placeholder data
+   * @returns {Promise<PlaceholderData>} placeholder data
    */
   fetchPlaceholderData(
     placeholderName: string,
@@ -97,7 +100,7 @@ export class LayoutService {
   /**
    * Provides fetch options in order to fetch route data
    * @param {string} [language] language will be applied to `sc_lang` param
-	 * @returns {FetchOptions} fetch options
+   * @returns {FetchOptions} fetch options
    */
   private getFetchOptions = (language?: string): FetchOptions => {
     const params: FetchParams = {
@@ -119,7 +122,7 @@ export class LayoutService {
    * Provides default @see AxiosDataFetcher data fetcher
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
-	 * @returns default fetcher
+   * @returns default fetcher
    */
   private getDefaultFetcher = (req?: IncomingMessage, res?: ServerResponse) => {
     const axiosFetcher = new AxiosDataFetcher();

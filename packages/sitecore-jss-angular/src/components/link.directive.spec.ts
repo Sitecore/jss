@@ -223,7 +223,9 @@ describe('<a *scLink />', () => {
 @Component({
   selector: 'test-link-children',
   template: `
-    <a *scLink="field; editable: editable; attrs: attrs" id="my-link"><span *ngIf="true">hello world</span></a>
+    <a *scLink="field; editable: editable; attrs: attrs" id="my-link"
+      ><span *ngIf="true">hello world</span></a
+    >
   `,
 })
 class TestWithChildrenComponent {
