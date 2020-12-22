@@ -23,7 +23,10 @@ export type ComponentPropsContextProps = {
   value: ComponentPropsCollection;
 };
 
-export const ComponentPropsContext = ({ children, value }: ComponentPropsContextProps) => (
+export const ComponentPropsContext = ({
+  children,
+  value,
+}: ComponentPropsContextProps): JSX.Element => (
   <ComponentPropsReactContext.Provider value={value}>
     {children}
   </ComponentPropsReactContext.Provider>

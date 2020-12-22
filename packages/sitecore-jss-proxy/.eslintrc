@@ -1,7 +1,7 @@
 {
   "extends": "../../.eslintrc",
   "rules": {
-    // TODO: around 190 errors
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }

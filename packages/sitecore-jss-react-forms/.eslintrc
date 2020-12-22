@@ -13,6 +13,7 @@
     "React": "writable"
 	},
 	"rules": {
-		"react/prop-types": "off" // TODO: fix errors
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
 	}
 }

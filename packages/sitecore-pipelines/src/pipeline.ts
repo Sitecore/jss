@@ -56,6 +56,7 @@ const runProcessor = async ({ processor, args }: { processor: Processor; args: a
 };
 
 /**
+ * @param {Object} args
  * @param {Processor[]} args.processors the processors to run (optional but must be specified if pipeline is not specified)
  * @param {any} args.pipelineArgs arguments to pass to the pipeline processors
  */

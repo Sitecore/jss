@@ -36,7 +36,11 @@ const getEntries = (folder: string): FileEntry[] => {
   return entries;
 };
 
-export const createPackage = (contentsPath: string, outputPath: string, callback: () => void) => {
+export const createPackage = (
+  contentsPath: string,
+  outputPath: string,
+  callback: () => void
+): void => {
   const zip = new JSZip();
   const contents = getEntries(contentsPath);
   contents.forEach((entry) => {

@@ -40,7 +40,6 @@
         }
       }
     ],
-    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/member-ordering": "error",
     "@typescript-eslint/no-explicit-any": "error",
 		"@typescript-eslint/no-use-before-define": ["error", { "functions": false, "variables": false }],
@@ -59,7 +58,6 @@
     "max-len": "off",
     "no-caller": "error",
     "no-bitwise": "error",
-    "no-console": ["error", { "allow": ["log", "warn", "error", "info"] }],
     "no-multiple-empty-lines": "error",
     "no-new-wrappers": "error",
     "no-debugger": "error",

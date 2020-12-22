@@ -1,7 +1,7 @@
 {
   "extends": ["plugin:vue/recommended", "../../.eslintrc"],
   "rules": {
-    // TODO: fix errors
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }

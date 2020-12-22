@@ -18,7 +18,7 @@ export interface HtmlProcessor {
 export class AbsolutifyHtmlProcessor implements HtmlProcessor {
   constructor(readonly publicUrl: string, readonly ignoredPaths?: string[]) {}
 
-  processHtml(html: string) {
+  processHtml(html: string): string {
     return absolutify(html, (relativeUrl) => {
       const ignored =
         this.ignoredPaths &&

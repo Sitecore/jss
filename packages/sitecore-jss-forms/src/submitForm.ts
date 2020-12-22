@@ -25,8 +25,8 @@ export function createFetchBasedFormFetcher(options?: RequestInit): FormFetcher 
 }
 
 /**
- * @param formData
- * @param endpoint
+ * @param {JssFormData} formData
+ * @param {string} endpoint
  * @param {FormSubmitOptions} [options]
  */
 export function submitForm(

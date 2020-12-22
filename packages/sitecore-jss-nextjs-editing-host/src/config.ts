@@ -25,7 +25,7 @@ export interface ConfigOptions {
  */
 export function config({ enabled = false, distDir = '.next-editing' }: ConfigOptions = {}) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return function plugin(nextConfig: any = {}) {
+  return function plugin(nextConfig: any = {}): any {
     if (!enabled) {
       return nextConfig;
     }

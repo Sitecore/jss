@@ -17,7 +17,7 @@ export type LinkProps = ReactLinkProps & {
   internalLinkMatcher?: RegExp;
 };
 
-export const Link = (props: LinkProps) => {
+export const Link = (props: LinkProps): JSX.Element => {
   const {
     editable,
     internalLinkMatcher = /^\//g,

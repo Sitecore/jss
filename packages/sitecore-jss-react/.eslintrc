@@ -11,5 +11,8 @@
   },
   "globals": {
     "React": "writable"
+  },
+  "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }
