@@ -6,7 +6,7 @@ title: JSS View Engine/SSR
 
 # Server-Side JavaScript rendering
 
-Server-side JavaScript rendering enables execution of the same JS application you run in dev but now within Content Management environment running full Sitecore instance. Rendering is performed by a rendering engine.
+Server-side JavaScript rendering enables execution of the same JS application you run in dev but now within the Content Management environment running a full Sitecore instance. Rendering is performed by a rendering engine.
 
 Sitecore provides 2 implementations of a rendering engine:
 - nodejs (enabled by default)
@@ -82,7 +82,7 @@ By default, an exported `renderView` function in your app's server bundle is inv
 
 # Http rendering engine
 
-Http rendering engine uses a remote `node.js` instance, also known as rendering host. The communication between Sitecore Content Management instance and a rendering host is performed via a http call. In such a setup, `node.js` and JSS app artifacts do not need to be deployed to the Content Management server.
+Http rendering engine uses a remote `node.js` instance, also known as a rendering host. The communication between Sitecore Content Management instance and a rendering host is performed via a http call. In such a setup, `node.js` and JSS app artifacts do not need to be deployed to the Content Management server.
 
 ## How to use
 
@@ -93,9 +93,9 @@ To configure a http rendering engine you need to make some changes in both clien
 The React sample app implementation provides an [example](https://github.com/Sitecore/jss/tree/dev/samples/react) of a rendering host setup. 
 
 To run the rendering host:
-1. Update the `tunnelUrl` setting in the `packages.json` file. It should point to a URL of your rendering host (can be local or remote url). For local testing you can set it to "http://localhost:5000". This URL is neededed at build time to replace all static asset urls (such as images, javascript and css files) to become absolute instead of relative. This ensures that static assets are rendered properly by a remote Sitecore instance, since they are not deployed to Sitecore servers anymore.
+1. Update the `tunnelUrl` setting in the `packages.json` file. It should point to a URL of your rendering host (can be local or remote url). For local testing you can set it to "http://localhost:5000". This URL is needed at build time to replace all static asset urls (such as images, javascript and css files) to become absolute instead of relative. This ensures that static assets are rendered properly by a remote Sitecore instance, since they are not deployed to Sitecore servers anymore.
 2. Run `npm run build:rendering-host` command. This will build an app for the rendering host and place it into the */build* folder. This build is not much different from the default `build` command: the only difference is that `build:rendering-host` is replacing static asset URLs to be absolute based on `tunnelUrl` setting.
-3. Run `npm run start:rendering-host` command. This will run a rendering host instance on http://localhost:5000 (default) and start a [Ngrok tunnel](https://ngrok.com/). The tunnel will expose your local rendering host to an outside world via a puplic HTTP endpoint. This can be useful when you want to render your JSS app in Experience Editor of a remote Sitecore instance for testing purposes (for example when you are working on a new feature).
+3. Run `npm run start:rendering-host` command. This will run a rendering host instance on http://localhost:5000 (default) and start a [Ngrok tunnel](https://ngrok.com/). The tunnel will expose your local rendering host to an outside world via a public HTTP endpoint. This can be useful when you want to render your JSS app in Experience Editor of a remote Sitecore instance for testing purposes (for example when you are working on a new feature).
 
 ### Server-side setup
 
@@ -103,7 +103,7 @@ Update your [JSS app configuration](/docs/fundamentals/services/app-configuratio
 1. Set `serverSideRenderingEngine` to `http`
 2. Set `serverSideRenderingEngineEndpointUrl` to point to your rendering host URL (e.g http://localhost:5000)
 
-> Note: the URL of a rendering host can also be set dynamically via the `sc_httprenderengineurl` query string paramter.
+> Note: the URL of a rendering host can also be set dynamically via the `sc_httprenderengineurl` query string parameter.
 For this to work, ensure that `<AllowOptionsOverride>true</AllowOptionsOverride>` is set to `true` in your http rendering engine configuration (*\App_Config\Sitecore\JavaScriptServices\Sitecore.JavaScriptServices.ViewEngine.Http.config*).
 
 After this change Sitecore will start using your remote rendering host for SSR.
@@ -115,7 +115,7 @@ After this change Sitecore will start using your remote rendering host for SSR.
 - Node.js is not needed on Sitecore server, you choose where to host the rendering host
 - JSS app artifacts do not need to be deployed to Sitecore server
 - Full control over Node.js management: startup, pooling, clustering, profiling, debugging, etc.
-- With the help of tunneling software like [Ngrok](https://ngrok.com/), frontend developers are able to test Experience Editor integration by using their local JSS apps for SSR. This is possible by dynamically seting the rendering host URL in Experience Editor with the help of the `sc_httprenderengineurl` query string parameter.
+- With the help of tunneling software like [Ngrok](https://ngrok.com/), frontend developers are able to test Experience Editor integration by using their local JSS apps for SSR. This is possible by dynamically setting the rendering host URL in Experience Editor with the help of the `sc_httprenderengineurl` query string parameter.
 
 *Cons*
 
