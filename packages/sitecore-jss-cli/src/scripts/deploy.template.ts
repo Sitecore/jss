@@ -3,6 +3,9 @@ import chalk from 'chalk';
 import { Argv } from '../../node_modules/@types/yargs';
 import microManifest from '../micro-manifest';
 
+/**
+ * @param {Argv} yargs
+ */
 export default function builder(yargs: Argv) {
   return yargs.command(
     'template <name>',
@@ -13,6 +16,9 @@ export default function builder(yargs: Argv) {
   );
 }
 
+/**
+ * @param {Argv} yargs
+ */
 export function args(yargs: Argv) {
   return yargs
     .positional('name', {
@@ -68,6 +74,9 @@ export function args(yargs: Argv) {
     });
 }
 
+/**
+ * @param {Argv} argv
+ */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handler(argv: any) {
   // create micro-manifest to deploy from

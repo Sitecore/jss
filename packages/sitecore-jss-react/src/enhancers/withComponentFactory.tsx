@@ -6,6 +6,9 @@ export interface ComponentFactoryProps {
   componentFactory?: ComponentFactory;
 }
 
+/**
+ * @param {React.ComponentClass<T> | React.SFC<T>} Component
+ */
 export function withComponentFactory<T extends ComponentFactoryProps>(
   Component: React.ComponentClass<T> | React.SFC<T>
 ) {

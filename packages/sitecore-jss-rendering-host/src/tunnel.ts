@@ -5,6 +5,10 @@ export interface TunnelOptions extends INgrokOptions {
   quiet?: boolean;
 }
 
+/**
+ * @param {string} renderHostname
+ * @param {INgrokOptions} options
+ */
 export function startRenderHostTunnel(
   renderHostname: string,
   options: INgrokOptions = { port: 80, proto: 'http', quiet: false }

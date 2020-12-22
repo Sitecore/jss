@@ -10,6 +10,10 @@ import resolvePackage from './resolve-package';
 import { handler as manifestHandler } from './scripts/manifest';
 import { handler as packageHandler } from './scripts/package';
 
+/**
+ * @param {any} argv
+ * @param {string} manifestContents
+ */
 export default async function microManifest(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   argv: { [key: string]: any },

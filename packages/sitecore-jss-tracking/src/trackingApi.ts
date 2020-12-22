@@ -19,6 +19,9 @@ class ResponseError extends Error {
   }
 }
 
+/**
+ * @param {HttpResponse<unknown>} response
+ */
 function checkStatus(response: HttpResponse<unknown>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -28,17 +31,26 @@ function checkStatus(response: HttpResponse<unknown>) {
   throw error;
 }
 
-// note: encodeURIComponent is available via browser (window) or natively in node.js
-// if you use another js engine for server-side rendering you may not have native encodeURIComponent
-// and would then need to install a package for that functionality
+/**
+ * note: encodeURIComponent is available via browser (window) or natively in node.js
+ * if you use another js engine for server-side rendering you may not have native encodeURIComponent
+ * and would then need to install a package for that functionality
+ * @param {Object} params
+ */
 function getQueryString(params: { [key: string]: unknown }) {
   return Object.keys(params)
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k] as string)}`)
     .join('&');
 }
 
-// note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
-// which is necessary for analytics and such
+/**
+ * Note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
+ * which is necessary for analytics and such
+ * @param {string} url
+ * @param {any} data
+ * @param {HttpJsonFetcher<T>} fetcher
+ * @param {Object} params
+ */
 function fetchData<T>(
   url: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -58,6 +70,9 @@ function fetchData<T>(
     });
 }
 
+/**
+ * @param {TrackingRequestOptions} options
+ */
 function resolveTrackingUrl(options: TrackingRequestOptions) {
   const { host = '', serviceUrl = '/sitecore/api/jss/track', action = 'event' } = options;
 

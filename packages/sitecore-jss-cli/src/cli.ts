@@ -4,6 +4,9 @@ import resolvePackage from './resolve-package';
 import runPackageScript from './run-package-script';
 import * as commands from './scripts';
 
+/**
+ * Get package script commands
+ */
 async function getPackageScriptCommands() {
   const packageJson = await resolvePackage();
   const result: { [key: string]: CommandModule } = {};
@@ -36,7 +39,9 @@ async function getPackageScriptCommands() {
   return result;
 }
 
-// implements CLI commands when executed from a local node_modules folder
+/**
+ * implements CLI commands when executed from a local node_modules folder
+ */
 export default async function() {
   const packageScripts = await getPackageScriptCommands();
 

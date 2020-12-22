@@ -27,6 +27,9 @@ export interface FormTrackerOptions {
   fetcher?: TrackerFetcher;
 }
 
+/**
+ * @param {RequestInit} [options]
+ */
 export function createFetchBasedTrackerFetcher(options?: RequestInit): TrackerFetcher {
   return (formData, endpoint) =>
     fetch(endpoint, {

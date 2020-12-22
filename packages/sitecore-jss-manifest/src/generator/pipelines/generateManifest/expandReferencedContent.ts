@@ -6,6 +6,9 @@ import { traverseAllItems } from '../../traversal';
 // into the manifest. Only items with 'copy:true' are normally fully expanded.
 // If manifesting for disconnected mode, we expand everything to provide a complete datasource.
 
+/**
+ * @param {ManifestInstance} manifest
+ */
 function expandReferencedContent(manifest: ManifestInstance) {
   // because of transitive references we may need to make multiple expand passes
   let expandedItems = false;

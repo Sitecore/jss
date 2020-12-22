@@ -27,6 +27,7 @@
     "@typescript-eslint/parser": "^4.10.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-jsdoc": "^30.7.9",
     "eslint-plugin-prettier": "^3.3.0",
     "lerna": "^3.4.0",
     "metro": "^0.60.0",

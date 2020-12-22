@@ -11,6 +11,10 @@ const { JSDOM } = require('jsdom');
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
 const jsDomWindow = jsdom.window;
 
+/**
+ * @param {any} src
+ * @param {any} target
+ */
 function copyProps(src: any, target: any) {
   const props = Object.getOwnPropertyNames(src)
     .filter((prop) => typeof target[prop] === 'undefined')

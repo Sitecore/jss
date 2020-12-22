@@ -22,16 +22,25 @@ export const traverseItems = (items: any[], callback: (item: any, currentPath: s
   traverseInternal(items, []);
 };
 
-// traverses a tree of items on the manifest
-// includes traversal of non-root items (e.g. datasource items, treelist items)
-// `items` is the root of the tree, eg routes or nonRoutes
-// the callback gets two arguments: the item definition, and the item type
-// ('item', 'rendering', or 'datasource')
+/**
+ * traverses a tree of items on the manifest
+ * includes traversal of non-root items (e.g. datasource items, treelist items)
+ * `items` is the root of the tree, eg routes or nonRoutes
+ * the callback gets two arguments: the item definition, and the item type
+ * ('item', 'rendering', or 'datasource')
+ *
+ * @param {any[]} items
+ * @param {Function} callback
+ */
 export function traverseAllItems(items: any[], callback: (item: any, type: string) => any) {
   if (!items || !items.forEach) {
     return;
   }
 
+  /**
+   * @param {any} item
+   * @param {string} type
+   */
   function processSingleItem(item: any, type: string) {
     callback(item, type);
 
@@ -85,7 +94,12 @@ export function traverseAllItems(items: any[], callback: (item: any, type: strin
   items.forEach((item: any) => processSingleItem(item, 'item'));
 }
 
-// traverses every field value in an item array, including all children, datasource items, etc
+/**
+ * Traverses every field value in an item array, including all children, datasource items, etc
+ *
+ * @param {any} items
+ * @param {Function} callback
+ */
 export function traverseAllFields(items: any, callback: (field: any) => any) {
   traverseAllItems(items, (item) => {
     if (!item.fields || !Array.isArray(item.fields)) {
@@ -96,7 +110,12 @@ export function traverseAllFields(items: any, callback: (field: any) => any) {
   });
 }
 
-// traverses all rendering instance definitions in an item tree
+/**
+ * Traverses all rendering instance definitions in an item tree
+ *
+ * @param {any} items
+ * @param {Function} callback
+ */
 export function traverseAllRenderings(items: any, callback: (rendering: any, item: any) => any) {
   traverseAllItems(items, (item, type) => {
     if (type !== 'item' || !item.layout || !item.layout.renderings) {

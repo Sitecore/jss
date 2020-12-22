@@ -12,6 +12,9 @@ class ResponseError extends Error {
   }
 }
 
+/**
+ * @param {HttpResponse<T>} response
+ */
 function checkStatus<T>(response: HttpResponse<T>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -24,12 +27,20 @@ function checkStatus<T>(response: HttpResponse<T>) {
 // note: encodeURIComponent is available via browser (window) or natively in node.js
 // if you use another js engine for server-side rendering you may not have native encodeURIComponent
 // and would then need to install a package for that functionality
+/**
+ * @param {Object} params
+ */
 function getQueryString(params: { [key: string]: string | number | boolean }): string {
   return Object.keys(params)
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
     .join('&');
 }
 
+/**
+ * @param {string} url
+ * @param {HttpJsonFetcher} fetcher
+ * @param {Object} params
+ */
 function fetchData<T>(
   url: string,
   fetcher: HttpJsonFetcher<T>,

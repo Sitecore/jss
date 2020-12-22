@@ -8,6 +8,9 @@ import { GitHubSource } from '../create/create.source.github';
 import { runPackageManagerCommand } from '../run-package-script';
 import spawn from '../spawn';
 
+/**
+ * @param {any} yargs
+ */
 export function builder(yargs: Argv) {
   return yargs.command(
     'create <name> <template>',
@@ -61,6 +64,9 @@ export function builder(yargs: Argv) {
   );
 }
 
+/**
+ * @param {any} argv
+ */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handler(argv: any) {
   const newProjectPath = path.join(process.cwd(), argv.name);
@@ -108,6 +114,10 @@ async function handler(argv: any) {
   nextSteps(argv.name, nextStepsList);
 }
 
+/**
+ * @param {string} name
+ * @param {string} proposedPath
+ */
 function checkName(name: string, proposedPath: string) {
   if (!/^[a-z\-_.]+$/.test(name)) {
     console.error(
@@ -126,6 +136,9 @@ function checkName(name: string, proposedPath: string) {
   }
 }
 
+/**
+ * @param {string} projectFolder
+ */
 function installPackages(projectFolder: string) {
   console.log(chalk.cyan('Installing packages...'));
   runPackageManagerCommand(['install'], { cwd: projectFolder, encoding: 'utf8' });
@@ -158,6 +171,10 @@ function installPackages(projectFolder: string) {
   }
 }
 
+/**
+ * @param {string} name
+ * @param {string[]} nextStepsArray
+ */
 function nextSteps(name: string, nextStepsArray: string[]) {
   console.log(chalk.red('                 -/oyhdmNNNNmdhyo/-                '));
   console.log(chalk.red('             :sdMMMMMMMMMMMMMMMMMMMMds:            '));

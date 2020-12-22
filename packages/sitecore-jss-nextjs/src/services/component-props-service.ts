@@ -123,6 +123,11 @@ export class ComponentPropsService {
    * Go through layout service data, check all renderings using displayName, which should make some side effects.
    * Write result in requests variable
    * @param {Object} params params
+   * @param {PlaceholdersData} params.placeholders
+   * @param {FetchFunctionFactory<NextContext>} params.fetchFunctionFactory
+   * @param {LayoutServiceData} params.layoutData
+   * @param {NextContext} params.context
+   * @param {ComponentPropsRequest<NextContext>[]} params.requests
    * @returns {ComponentPropsRequest<NextContext>[]} array of requests
    */
   collectRequests<NextContext>(params: {

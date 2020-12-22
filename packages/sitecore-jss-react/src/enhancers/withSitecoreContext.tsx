@@ -19,6 +19,9 @@ export type WithSitecoreContextHocProps<ComponentProps> = Pick<
   Exclude<keyof ComponentProps, keyof WithSitecoreContextProps>
 >;
 
+/**
+ * @param {WithSitecoreContextOptions} [options]
+ */
 export function withSitecoreContext(options?: WithSitecoreContextOptions) {
   return function withSitecoreContextHoc<ComponentProps extends ComponentConsumerProps>(
     Component: React.ComponentType<ComponentProps>

@@ -35,6 +35,9 @@ export interface InputViewModel extends TitleFieldViewModel {
   value: string | boolean;
 }
 
+/**
+ * @param {ViewModel} object
+ */
 export function instanceOfInputViewModel(object: ViewModel): object is InputViewModel {
   return 'value' in object;
 }
@@ -69,6 +72,9 @@ export interface MultiLineStringInputViewModel extends StringInputViewModel {
   rows?: number;
 }
 
+/**
+ * @param {ViewModel} object
+ */
 export function instanceOfListViewModel(object: ViewModel): object is ListViewModel {
   return 'items' in object;
 }

@@ -7,6 +7,9 @@ process.on('unhandledRejection', (err) => {
   throw err;
 });
 
+/**
+ * @param {any} commands
+ */
 export default function cli(commands: {
   [key: string]: CommandModule & { disableStrictArgs?: boolean };
 }) {

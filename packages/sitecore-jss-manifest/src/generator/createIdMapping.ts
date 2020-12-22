@@ -1,6 +1,9 @@
 import { ManifestInstance } from './manifest.types';
 import { traverseAllItems, traverseAllRenderings } from './traversal';
 
+/**
+ * @param {string} value
+ */
 function isGuid(value: string) {
   return /^(\{{0,1}([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}\}{0,1})$/.test(
     value

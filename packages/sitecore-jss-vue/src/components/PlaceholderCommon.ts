@@ -178,6 +178,10 @@ export function convertVNodesToDynamicComponents(vnodes: VNode[]) {
   });
 }
 
+/**
+ * @param {any} elem
+ * @param {CreateElement} createVueElement
+ */
 function createRawElement(elem: any, createVueElement: CreateElement) {
   if (!elem.name) {
     console.error(
@@ -198,6 +202,11 @@ function createRawElement(elem: any, createVueElement: CreateElement) {
   return component;
 }
 
+/**
+ * @param {Object} renderingDefinition
+ * @param {string} renderingDefinition.componentName
+ * @param {ComponentFactory} [componentFactory]
+ */
 function getComponentForRendering(
   renderingDefinition: { componentName: string },
   componentFactory?: ComponentFactory

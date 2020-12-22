@@ -17,10 +17,16 @@ export interface ComponentNameAndModule {
   loadChildren: () => Promise<any>;
 }
 
+/**
+ * @param {any} object
+ */
 export function instanceOfComponentNameAndType(object: any): object is ComponentNameAndType {
   return 'type' in object;
 }
 
+/**
+ * @param {any} object
+ */
 export function instanceOfComponentNameAndModule(object: any): object is ComponentNameAndModule {
   return 'module' in object;
 }

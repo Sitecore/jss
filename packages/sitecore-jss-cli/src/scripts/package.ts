@@ -27,6 +27,9 @@ export const builder = {
   ...manifestBuilder,
 };
 
+/**
+ * @param {any} argv
+ */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   const packageJson = await resolvePackage();

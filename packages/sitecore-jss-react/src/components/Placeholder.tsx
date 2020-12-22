@@ -31,6 +31,9 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
   ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
 }
 
+/**
+ * @param {HtmlElementRendering | ComponentRendering} rendering
+ */
 function isRawRendering(
   rendering: HtmlElementRendering | ComponentRendering
 ): rendering is HtmlElementRendering {

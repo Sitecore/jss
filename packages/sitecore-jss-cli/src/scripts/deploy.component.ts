@@ -3,6 +3,9 @@ import { Argv } from '../../node_modules/@types/yargs';
 import microManifest from '../micro-manifest';
 import { args as templateArgs } from './deploy.template';
 
+/**
+ * @param {Argv} yargs
+ */
 export default function builder(yargs: Argv) {
   return yargs.command(
     'component <name>',
@@ -13,6 +16,9 @@ export default function builder(yargs: Argv) {
   );
 }
 
+/**
+ * @param {Argv} yargs
+ */
 export function args(yargs: Argv) {
   return templateArgs(yargs)
     .option('allowedPlaceholders', {
@@ -31,6 +37,9 @@ export function args(yargs: Argv) {
     });
 }
 
+/**
+ * @param {any} argv
+ */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handler(argv: any) {
   // create micro-manifest to deploy from

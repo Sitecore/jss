@@ -12,7 +12,7 @@ export const convertKebabCasetoCamelCase = (str: string) =>
  * We don't need to convert any other attributes (that we know of), because the placeholder renders them "as-is" by using the special "is" React prop.
  * For whatever reason though, the "style" prop is still validated as needing to be an object when using the "is" prop, which is why we need to convert from string to object.
  * @param {string} [style] style
- * @returns {array} converted attributes
+ * @returns {Array} converted attributes
  */
 export const convertStyleAttribute = (style = '') => {
   // styleParse converts a style attribute string into an object format

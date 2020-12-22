@@ -12,7 +12,7 @@ import {
 export type LinkProps = ReactLinkProps & {
   /**
    * If `href` match with `internalLinkMatcher` regexp, then it's internal link and NextLink will be rendered
-   * @defaultvalue /^\//g
+   * @default /^\//g
    */
   internalLinkMatcher?: RegExp;
 };

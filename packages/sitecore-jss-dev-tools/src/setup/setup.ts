@@ -14,6 +14,16 @@ const userConfigFileName = 'scjssconfig.json';
 
 export const userConfigPath = path.resolve(process.cwd(), userConfigFileName);
 
+/**
+ * @param {string | undefined} initialData
+ * @param {boolean} allowInteraction
+ * @param {string} paramName
+ * @param {string} prompt
+ * @param {string} examplePrompt
+ * @param {RegExp} [validation]
+ * @param {string} [validationMessage]
+ * @param {boolean} skipValidationIfNonInteractive
+ */
 function getInteractiveData(
   initialData: string | undefined,
   allowInteraction: boolean,
@@ -52,6 +62,12 @@ function getInteractiveData(
   return result;
 }
 
+/**
+ * @param {boolean} interactive
+ * @param {string} outputFile
+ * @param {JssConfiguration} [initialData]
+ * @param {string} [configName]
+ */
 export function setup(
   interactive: boolean,
   outputFile?: string,

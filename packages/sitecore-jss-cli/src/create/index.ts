@@ -3,6 +3,11 @@ import fs from 'fs';
 import glob from 'glob';
 import path from 'path';
 
+/**
+ * @param {string} projectFolder
+ * @param {string} name
+ * @param {string} hostName
+ */
 export function applyNameToProject(projectFolder: string, name: string, hostName: string) {
   console.log(chalk.cyan(`Setting package name ${name}...`));
 

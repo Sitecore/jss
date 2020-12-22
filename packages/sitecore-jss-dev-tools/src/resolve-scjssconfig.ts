@@ -14,6 +14,9 @@ export interface ScJssConfig {
   sitecore: JssConfiguration;
 }
 
+/**
+ * @param {any} config
+ */
 export function resolveScJssConfig({
   configPath = './scjssconfig.json',
   configName = 'sitecore',

@@ -94,6 +94,9 @@ export interface DisconnectedServerOptions {
   customizeRendering?: CustomizeRenderFunction;
 }
 
+/**
+ * @param {DisconnectedServerOptions} options
+ */
 export function createDefaultDisconnectedServer(options: DisconnectedServerOptions) {
   let app = options.server;
 

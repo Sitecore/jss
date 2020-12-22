@@ -70,6 +70,9 @@ export interface DevServerOptions {
   clean?: boolean;
 }
 
+/**
+ * @param {any} config
+ */
 export function startDevServer({
   port = 0,
   tunnelUrl,
@@ -253,6 +256,10 @@ export function startDevServer({
   });
 }
 
+/**
+ * @param {Function | undefined} hook
+ * @param {...any} args
+ */
 // eslint-disable-next-line @typescript-eslint/ban-types
 function invokeHook(hook: Function | undefined, ...args: any[]) {
   if (hook && typeof hook === 'function') {

@@ -356,6 +356,9 @@ export interface ItemReference {
   id: string;
 }
 
+/**
+ * @param {ItemDefinition | ItemReference} obj
+ */
 export function isItemDefinition(obj: ItemDefinition | ItemReference): obj is ItemDefinition {
   return (obj as ItemDefinition).name !== undefined;
 }

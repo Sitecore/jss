@@ -1,6 +1,9 @@
 import { createHash, createHmac } from 'crypto';
 import { createReadStream } from 'fs';
 
+/**
+ * @param {string} path
+ */
 export function digest(path: string): Promise<string> {
   return new Promise((resolve, reject) => {
     const hash = createHash('sha256');
@@ -12,6 +15,10 @@ export function digest(path: string): Promise<string> {
   });
 }
 
+/**
+ * @param {string[]} factors
+ * @param {string} secret
+ */
 export function hmac(factors: string[], secret: string) {
   const mac = createHmac('sha256', secret);
   mac.setEncoding('base64');

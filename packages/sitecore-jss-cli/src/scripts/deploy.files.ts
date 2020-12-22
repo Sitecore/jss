@@ -61,6 +61,9 @@ export const builder = {
   },
 };
 
+/**
+ * @param {any} argv
+ */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   verifySetup();

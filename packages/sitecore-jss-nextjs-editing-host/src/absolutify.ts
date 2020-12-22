@@ -43,7 +43,7 @@ const iterate = function(str: string, iterator: IteratorFunction): string {
  *
  * @param {string} str The html source
  * @param {(string|IteratorFunction)} url The base url to use for replacement, or an iterator function called with (url, attributeName)
- * @return {string} The replaced html source
+ * @returns {string} The replaced html source
  */
 export default function absolutify(str: string, url: string | IteratorFunction): string {
   if (typeof url === 'string') {

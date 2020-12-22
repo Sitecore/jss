@@ -41,6 +41,11 @@ const DropdownList: React.FunctionComponent<ListFieldProps<DropdownListViewModel
   );
 };
 
+/**
+ * @param {ValueFormField} field
+ * @param {string} newValue
+ * @param {FieldChangeCallback} callback
+ */
 function handleOnChange(field: ValueFormField, newValue: string, callback: FieldChangeCallback) {
   let valid = true;
   const errorMessages = [];

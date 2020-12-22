@@ -164,10 +164,26 @@ export interface GenerateToFileOptions extends GenerateOptions {
   excludeMedia?: boolean;
 }
 
-// generates the JSON manifest and returns it as a variable
-// NOTE: media is not copied into the manifest when using this method,
-// and no files are written to disk. Use generateToFile() to make a manifest
-// that is designed to get packaged/imported.
+/**
+ * generates the JSON manifest and returns it as a variable
+ * NOTE: media is not copied into the manifest when using this method,
+ * and no files are written to disk. Use generateToFile() to make a manifest
+ * that is designed to get packaged/imported.
+ *
+ * @param {Object} config
+ * @param {string} config.requireArg
+ * @param {string[]} config.fileGlobs
+ * @param {any} config.pipelines
+ * @param {string} config.appName
+ * @param {boolean} [config.excludeItems]
+ * @param {boolean} [config.excludeDictionary]
+ * @param {string} config.language
+ * @param {string[]} config.pipelinePatchFileGlobs
+ * @param {boolean} config.debug
+ * @param {boolean} config.wipe
+ * @param {string[]} config.rootPlaceholders
+ * @param {boolean} config.skipPlaceholderBlacklist
+ */
 export async function generateToVariable({
   requireArg,
   fileGlobs,
@@ -207,6 +223,11 @@ export async function generateToVariable({
 
 // generates a JSON manifest and writes its contents to a directory. Media referenced in the manifest
 // is also copied to the directory.
+/**
+ * @param {Object} config
+ * @param {string} [config.outputPath]
+ * @param {boolean} [config.excludeMedia]
+ */
 export async function generateToFile({
   outputPath = 'console',
   excludeMedia = false,

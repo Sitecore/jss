@@ -9,6 +9,9 @@ import * as items from './deploy.items';
 import * as pkg from './deploy.package';
 import template from './deploy.template';
 
+/**
+ * @param {Argv} yargs
+ */
 export function builder(yargs: Argv) {
   return yargs
     .command({

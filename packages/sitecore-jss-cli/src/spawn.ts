@@ -1,6 +1,11 @@
 import { SpawnSyncOptionsWithStringEncoding } from 'child_process';
 import spawn from 'cross-spawn';
 
+/**
+ * @param {string} command
+ * @param {string[]} args
+ * @param {SpawnSyncOptionsWithStringEncoding} options
+ */
 export default function(
   command: string,
   args: string[],

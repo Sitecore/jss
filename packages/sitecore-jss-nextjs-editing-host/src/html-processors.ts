@@ -11,7 +11,7 @@ export interface HtmlProcessor {
 
 /**
  * Absolutify HTML processor
- * @constructor
+ * @class
  * @param {string} publicUrl The public URL. This will be used when replacing relative links with absolute ones.
  * @param {string[]} ignoredPaths URL path prefixes that should be ignored during link replacement.
  */

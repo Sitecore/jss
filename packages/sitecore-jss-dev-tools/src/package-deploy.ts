@@ -20,6 +20,10 @@ export interface PackageDeployOptions {
 // using a Windows trusted CA - so SSL connections to Sitecore will fail from Node.
 // If the options.acceptCertificate is passed, we disable normal SSL validation and use this function
 // to whitelist only a cert with the specific thumbprint - essentially certificate pinning.
+/**
+ * @param {request.Request} req
+ * @param {PackageDeployOptions} options
+ */
 function applyCertPinning(req: request.Request, options: PackageDeployOptions) {
   req.on('socket', (socket) => {
     socket.on('secureConnect', () => {
@@ -44,6 +48,9 @@ function applyCertPinning(req: request.Request, options: PackageDeployOptions) {
     });
   });
 }
+/**
+ * @param {string} fp
+ */
 function normalizeFingerprint(fp: string): string {
   //
   // The fingerprint for a certificate is a 20-byte value.
@@ -62,9 +69,17 @@ function normalizeFingerprint(fp: string): string {
   // function implements the logic for that conversion.
   return fp.toLowerCase().replace(new RegExp(':', 'g'), '');
 }
+/**
+ * @param {string} fp1
+ * @param {string} fp2
+ */
 function doFingerprintsMatch(fp1: string, fp2: string): boolean {
   return normalizeFingerprint(fp1) === normalizeFingerprint(fp2);
 }
+/**
+ * @param {PackageDeployOptions} options
+ * @param {string} taskName
+ */
 async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
   let logOffset = 0;
   const errors: string[] = [];
@@ -96,6 +111,9 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
   }
 
   return new Promise((resolve, reject) => {
+    /**
+     * Send job status request
+     */
     function sendJobStatusRequest() {
       // tslint:disable-next-line:max-line-length
       const req = request.get(
@@ -208,6 +226,9 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
   });
 }
 
+/**
+ * @param {PackageDeployOptions} options
+ */
 export async function packageDeploy(options: PackageDeployOptions) {
   if (!options.secret) {
     // tslint:disable-next-line:max-line-length

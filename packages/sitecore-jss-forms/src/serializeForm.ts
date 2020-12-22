@@ -45,6 +45,11 @@ export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions
   return result;
 }
 
+/**
+ * @param {JssFormData} result
+ * @param {Array<FormField<any>>} fields
+ * @param {SerializeFormOptions} options
+ */
 function pushFields(
   result: JssFormData,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -85,11 +90,21 @@ function pushFields(
   });
 }
 
+/**
+ * @param {JssFormData} result
+ * @param {HtmlFormField} field
+ * @param {string} [overrideValue]
+ */
 function pushField(result: JssFormData, field: HtmlFormField, overrideValue?: string) {
   // the '' fallback prevents serializing 'null' as a string for empty field values ;)
   return pushFieldValue(result, field.name, overrideValue || field.value || '');
 }
 
+/**
+ * @param {JssFormData} result
+ * @param {string} fieldName
+ * @param {string} fieldValue
+ */
 function pushFieldValue(result: JssFormData, fieldName: string, fieldValue: string) {
   if (!fieldName) {
     throw new Error('Field had no name');

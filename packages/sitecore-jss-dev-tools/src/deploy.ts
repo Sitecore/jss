@@ -10,6 +10,9 @@ export interface DeployOptions {
   clean?: boolean;
 }
 
+/**
+ * @param {DeployOptions} options
+ */
 export function deploy(options: DeployOptions) {
   let createdDestination = false;
 

@@ -7,6 +7,9 @@ export interface FormSubmitOptions {
   fetcher?: FormFetcher;
 }
 
+/**
+ * @param {RequestInit} [options]
+ */
 export function createFetchBasedFormFetcher(options?: RequestInit): FormFetcher {
   return (formData: JssFormData, endpoint: string) =>
     fetch(endpoint, {
@@ -21,6 +24,11 @@ export function createFetchBasedFormFetcher(options?: RequestInit): FormFetcher 
       .then((res) => res as FormResult);
 }
 
+/**
+ * @param formData
+ * @param endpoint
+ * @param {FormSubmitOptions} [options]
+ */
 export function submitForm(
   formData: JssFormData,
   endpoint: string,

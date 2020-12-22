@@ -34,6 +34,10 @@ import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
 import { isRawRendering } from './rendering';
 
+/**
+ * @param {ComponentRendering} rendering
+ * @param {string} name
+ */
 function getPlaceholder(rendering: ComponentRendering, name: string) {
   if (rendering && rendering.placeholders && Object.keys(rendering.placeholders).length > 0) {
     return rendering.placeholders[name];

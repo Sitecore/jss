@@ -3,6 +3,10 @@ import spawn from './spawn';
 
 // runs a package.json script using npm
 // uses yarn semantics for args (i.e. pass ['scriptname', '--myarg=value'], no -- needed)
+/**
+ * @param {string[]} args
+ * @param {SpawnSyncOptionsWithStringEncoding} [options]
+ */
 export default function runPackageScript(
   args: string[],
   options?: SpawnSyncOptionsWithStringEncoding
@@ -15,6 +19,10 @@ export default function runPackageScript(
 
 // runs a package.json script using yarn or npm
 // uses yarn semantics for args (i.e. pass ['scriptname', '--myarg=value'], no -- needed)
+/**
+ * @param {string[]} npmArgs
+ * @param {SpawnSyncOptionsWithStringEncoding} options
+ */
 export function runPackageManagerCommand(
   npmArgs: string[],
   options?: SpawnSyncOptionsWithStringEncoding

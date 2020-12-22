@@ -11,6 +11,11 @@ export interface DisconnectedAssetMiddlewareOptions {
   staticRootPath: string;
 }
 
+/**
+ * @param {Object} config
+ * @param {string} config.manifestPath
+ * @param {string} config.staticRootPath
+ */
 export function createDisconnectedAssetMiddleware({
   manifestPath,
   staticRootPath,

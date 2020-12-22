@@ -134,8 +134,12 @@ const processFieldValue = ({ fieldValue, context: { fieldName, item } }: FieldVa
   return null;
 };
 
-// checks if an array contains duplicate values using a selector function to get the value to check for uniqueness
-// returns array of duplicate keys - or empty array if no dupes
+/**
+ * checks if an array contains duplicate values using a selector function to get the value to check for uniqueness
+ * returns array of duplicate keys - or empty array if no dupes
+ * @param {any[]} input
+ * @param {Function} selector
+ */
 export function checkUnique(input: any[], selector: (element: any) => string) {
   const uniques = new Set();
   const duplicates: string[] = [];
@@ -160,6 +164,7 @@ export function checkUnique(input: any[], selector: (element: any) => string) {
 /**
  * Finds a template definition by name in one or more arrays of template/component definitions
  * @param {string} templateName
+ * @param {...Array<Array<TemplateDefinition | ComponentDefinition>>} templates
  * @returns {TemplateDefinition | ComponentDefinition | null} template
  */
 export function findTemplate(
@@ -197,6 +202,7 @@ export function findTemplate(
  * @param {Object} fields
  * @param {TemplateDefinition | ComponentDefinition} template
  * @param {Function} handleError
+ * @param {...Array<Array<TemplateDefinition | ComponentDefinition>>} inheritedTemplates
  * @returns {Object} validated fields
  */
 export function validateFieldDefinitions(

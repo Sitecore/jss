@@ -34,6 +34,10 @@ export type WithPlaceholderSpec =
   | (string | PlaceholderToPropMapping)
   | (string | PlaceholderToPropMapping)[];
 
+/**
+ * @param {WithPlaceholderSpec} placeholders
+ * @param {WithPlaceholderOptions} [options]
+ */
 export function withPlaceholder(
   placeholders: WithPlaceholderSpec,
   options?: WithPlaceholderOptions

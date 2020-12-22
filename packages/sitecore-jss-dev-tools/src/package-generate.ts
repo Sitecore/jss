@@ -8,6 +8,9 @@ export interface PackageGenerateOptions {
   manifestPath: string;
   manifestFileName: string;
 }
+/**
+ * @param {PackageGenerateOptions} options
+ */
 export function packageGenerate(options: PackageGenerateOptions) {
   // clear output folder
   fsExtra.emptyDirSync(options.outputPath);

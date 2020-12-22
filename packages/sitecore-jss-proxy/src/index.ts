@@ -35,6 +35,13 @@ export const removeEmptyAnalyticsCookie = (proxyResponse: any) => {
 };
 
 // inspired by: http://stackoverflow.com/a/22487927/9324
+/**
+ * @param {IncomingMessage} proxyResponse
+ * @param {IncomingMessage} request
+ * @param {ServerResponse} serverResponse
+ * @param {AppRenderer} renderer
+ * @param {ProxyConfig} config
+ */
 async function renderAppToResponse(
   proxyResponse: IncomingMessage,
   request: IncomingMessage,
@@ -88,6 +95,9 @@ async function renderAppToResponse(
     return true;
   };
 
+  /**
+   * Extract layout service data from proxy response
+   */
   async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
     if (
       proxyResponse.statusCode === HttpStatus.OK ||
@@ -124,7 +134,10 @@ async function renderAppToResponse(
     return Promise.resolve(null);
   }
 
-  // function replies with HTTP 500 when an error occurs
+  /**
+   * function replies with HTTP 500 when an error occurs
+   * @param {Error} error
+   */
   async function replyWithError(error: Error) {
     console.error(error);
 
@@ -142,6 +155,10 @@ async function renderAppToResponse(
   }
 
   // callback handles the result of server-side rendering
+  /**
+   * @param {Error | null} error
+   * @param {RenderResponse} result
+   */
   async function handleRenderingResult(error: Error | null, result: RenderResponse | null) {
     if (!error && !result) {
       return replyWithError(new Error('Render function did not return a result or an error!'));
@@ -202,6 +219,11 @@ async function renderAppToResponse(
     completeProxyResponse(content, finalStatusCode);
   }
 
+  /**
+   * @param {Buffer | null} content
+   * @param {number} statusCode
+   * @param {any} [headers]
+   */
   function completeProxyResponse(content: Buffer | null, statusCode: number, headers?: any) {
     if (!headers) {
       headers = proxyResponse.headers;
@@ -214,6 +236,9 @@ async function renderAppToResponse(
     originalEnd.call(serverResponse);
   }
 
+  /**
+   * @param {any} layoutServiceData
+   */
   async function createViewBag(layoutServiceData: any): Promise<any> {
     let viewBag = {
       statusCode: proxyResponse.statusCode,
@@ -259,6 +284,13 @@ async function renderAppToResponse(
   };
 }
 
+/**
+ * @param {IncomingMessage} proxyResponse
+ * @param {any} request
+ * @param {ServerResponse} serverResponse
+ * @param {AppRenderer} renderer
+ * @param {ProxyConfig} config
+ */
 function handleProxyResponse(
   proxyResponse: IncomingMessage,
   request: any,
@@ -291,6 +323,12 @@ function handleProxyResponse(
   return renderAppToResponse(proxyResponse, request, serverResponse, renderer, config);
 }
 
+/**
+ * @param {string} reqPath
+ * @param {any} req
+ * @param {ProxyConfig} config
+ * @param {RouteUrlParser} parseRouteUrl
+ */
 export function rewriteRequestPath(
   reqPath: string,
   req: any,
@@ -373,6 +411,11 @@ export function rewriteRequestPath(
   return path;
 }
 
+/**
+ * @param {string} originalUrl
+ * @param {ProxyConfig} config
+ * @param {boolean} noDebug
+ */
 function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false): boolean {
   if (config.pathRewriteExcludePredicate && config.pathRewriteExcludeRoutes) {
     console.error(
@@ -427,6 +470,13 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false)
   return false;
 }
 
+/**
+ * @param {any} proxyReq
+ * @param {any} req
+ * @param {ServerResponse} res
+ * @param {ProxyConfig} config
+ * @param {Function} customOnProxyReq
+ */
 function handleProxyRequest(
   proxyReq: any,
   req: any,
@@ -450,6 +500,11 @@ function handleProxyRequest(
   }
 }
 
+/**
+ * @param {AppRenderer} renderer
+ * @param {ProxyConfig} config
+ * @param {RouteUrlParser} parseRouteUrl
+ */
 function createOptions(
   renderer: AppRenderer,
   config: ProxyConfig,
@@ -484,6 +539,11 @@ function createOptions(
   };
 }
 
+/**
+ * @param {AppRenderer} renderer
+ * @param {ProxyConfig} config
+ * @param {RouteUrlParser} parseRouteUrl
+ */
 export default function scProxy(
   renderer: AppRenderer,
   config: ProxyConfig,

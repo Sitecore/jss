@@ -8,7 +8,7 @@ import { HtmlProcessor } from './html-processors';
 export class EditingMiddleware {
   /**
    * Express middleware for handling requests from the Sitecore Experience Editor.
-   * @constructor
+   * @class
    * @param {Server} nextApp The Next.js app.
    * @param {string} editRoute The Next.js route to use for rendering.
    * @param {HtmlProcessor[]} [htmlProcessors] Html processors to run on rendered html.
@@ -76,6 +76,9 @@ export class EditingMiddleware {
   };
 }
 
+/**
+ * @param {Request} req
+ */
 export function extractEditingData(req: Request): EditingData {
   // The Experience Editor will send the following body data structure,
   // though we're only concerned with the "args".
