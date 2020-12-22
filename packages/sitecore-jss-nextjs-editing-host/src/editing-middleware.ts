@@ -5,10 +5,10 @@ import { Request, Response } from 'express';
 import Server from 'next/dist/next-server/server/next-server';
 import { EditingData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { HtmlProcessor } from './html-processors';
+
+/** Express middleware for handling requests from the Sitecore Experience Editor. */
 export class EditingMiddleware {
   /**
-   * Express middleware for handling requests from the Sitecore Experience Editor.
-   * @class
    * @param {Server} nextApp The Next.js app.
    * @param {string} editRoute The Next.js route to use for rendering.
    * @param {HtmlProcessor[]} [htmlProcessors] Html processors to run on rendered html.

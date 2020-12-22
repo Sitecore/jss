@@ -9,8 +9,7 @@ export interface DefaultDocumentMiddlewareOptions {
 }
 
 /**
- * @param {object} config
- * @param {string} config.indexFilePath
+ * @param {DefaultDocumentMiddlewareOptions} config
  */
 export function createDefaultDocumentMiddleware({
   indexFilePath,

@@ -357,12 +357,7 @@ function defaultCustomizeRoute(
 }
 
 /**
- * @param {Object} config
- * @param {ManifestInstance} config.manifest
- * @param {CustomizeContextFunction | undefined} config.customizeContext
- * @param {CustomizeRouteFunction | undefined} config.customizeRoute
- * @param {Function} config.manifestLanguageChangeCallback
- * @param {CustomizeRenderFunction | undefined} config.customizeRendering
+ * @param {DisconnectedLayoutServiceOptions} config
  */
 export function createDisconnectedLayoutService({
   manifest,
