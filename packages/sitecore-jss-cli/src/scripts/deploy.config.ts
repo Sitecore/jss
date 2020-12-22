@@ -19,7 +19,6 @@ export const builder = {
     requiresArg: false,
     type: 'string',
     describe:
-      // tslint:disable-next-line:max-line-length
       'Destination path to deploy to. Defaults to the \'instancePath\' set in scjssconfig.json, combined with the \'sitecoreConfigPath\' setting from package.json.',
   },
   config: {

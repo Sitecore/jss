@@ -34,7 +34,6 @@
     "jest": "^26.4.2",
     "jest-serializer-html": "^7.0.0",
     "ts-jest": "24.1.0",
-    "tslint": "^5.20.0",
     "typescript": "~3.6.3",
     "url-parse": "^1.4.7",
     "vue": "^2.6.10",

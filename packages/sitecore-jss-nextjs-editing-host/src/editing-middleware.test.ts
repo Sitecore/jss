@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// / <reference types="../global" />
+// eslint-disable-next-line spaced-comment
+/// <reference types="../global" />
 import chai from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';

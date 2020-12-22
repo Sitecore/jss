@@ -8,8 +8,6 @@ import { ScJssConfig, JssConfiguration } from '../resolve-scjssconfig';
 import { findAppNameInConfig } from './find-app-name';
 import { createSecretPatchContents, writeSecretPatchFile } from './secret-patch';
 
-// tslint:disable:max-line-length
-
 const userConfigFileName = 'scjssconfig.json';
 
 export const userConfigPath = path.resolve(process.cwd(), userConfigFileName);
@@ -171,7 +169,6 @@ export function setup(
   const defaultDeployUrl = '/sitecore/api/jss/import';
 
   if (!interactive && !configObject.layoutServiceHost) {
-    // tslint:disable-next-line:no-string-throw
     throw 'Non interactive mode specified and layoutServiceHost not provided.';
   }
 

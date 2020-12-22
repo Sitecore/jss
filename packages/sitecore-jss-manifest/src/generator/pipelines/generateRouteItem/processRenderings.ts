@@ -28,7 +28,6 @@ const generateRenderingParams = (component: any, rendering: any) => {
   }, []);
 
   if (!Array.isArray(component.params)) {
-    // tslint:disable-next-line:max-line-length no-string-throw
     throw chalk.red(
       `An instance of ${component.name} defined param(s) '${reducedParams
         .map((rp) => rp.name)
@@ -43,7 +42,6 @@ const generateRenderingParams = (component: any, rendering: any) => {
   }
 
   // find params that are not defined in manifest
-  // tslint:disable-next-line:max-line-length
   const invalidParams = reducedParams.filter(
     (param) =>
       !component.params.some(
@@ -55,7 +53,6 @@ const generateRenderingParams = (component: any, rendering: any) => {
   if (invalidParams.length > 0) {
     const validParams = component.params.map((cp: any) => (cp.name ? cp.name : cp)).join(',');
     const invalidParamsString = invalidParams.map((ip) => ip.name).join(', ');
-    // tslint:disable-next-line:max-line-length no-string-throw
     throw chalk.red(
       `Param(s) ${invalidParamsString} defined on an instance of component ${
         component.name
@@ -82,7 +79,6 @@ const generateFields = (
 
   let renderingFields = rendering.fields;
   if (component) {
-    // tslint:disable-next-line:max-line-length
     const handleError = (fieldName: string) => {
       throw chalk.red(
         `${dataSourceItem.name} route datasource defined data for '${fieldName}' on component ${component.name}. This field is not defined on this component. It may be a typo, or the field may need to be added to the component definition.`
@@ -213,7 +209,6 @@ const processRendering = (
   // check for component def, as long as the component isn't an id-only ref
   // (defines id but not name)
   if (!component && rendering.componentName) {
-    // tslint:disable-next-line:max-line-length
     throw chalk.red(
       `The component '${rendering.componentName}' used on route '${context.route.name}' was not defined in the manifest. Please define this component with 'manifest.addComponent()', or change the name to an existing component name.`
     );
@@ -315,7 +310,6 @@ export default (args: GenerateRouteItemPipelineArgs) => {
   ); // https://stackoverflow.com/a/47298567/201808
   if (duplicateDatasourceNames.size > 0) {
     const dupes = JSON.stringify(Array.from(duplicateDatasourceNames));
-    // tslint:disable-next-line:max-line-length
     throw chalk.red(
       `Route "${args.item.name}" has rendering(s) with identical names: ${dupes}. Please assign unique rendering names using the 'name' property.`
     );

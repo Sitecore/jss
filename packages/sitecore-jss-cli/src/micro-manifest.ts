@@ -43,7 +43,6 @@ export default async function microManifest(
 
   if (/\/ship\/services\/package/.test(argv.deployUrl)) {
     throw new Error(
-      // tslint:disable-next-line:max-line-length
       'deployUrl appears to be a Sitecore.Ship endpoint. JSS no longer uses Ship. You will need to reconfigure your endpoint to the JSS deploy service and provide an app shared secret to deploy.'
     );
   }

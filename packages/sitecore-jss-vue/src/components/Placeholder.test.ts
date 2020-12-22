@@ -124,7 +124,6 @@ describe('<Placeholder />', () => {
         const component = phData.find((c: any) => c.componentName);
         const phKey = 'page-content';
 
-        // tslint:disable-next-line:no-shadowed-variable
         const renderedComponent = mount(Placeholder, {
           propsData: {
             name: phKey,
@@ -165,7 +164,6 @@ describe('<Placeholder />', () => {
           },
         };
 
-        // tslint:disable-next-line:no-shadowed-variable
         const renderedComponent = mount(testComponent);
         expect(renderedComponent.html()).toMatchSnapshot();
       });
@@ -182,7 +180,6 @@ describe('<Placeholder />', () => {
           },
         };
 
-        // tslint:disable-next-line:no-shadowed-variable
         const renderedComponent = mount(testComponent);
         expect(renderedComponent.html()).toMatchSnapshot();
       });
@@ -201,7 +198,6 @@ describe('<Placeholder />', () => {
           },
         };
 
-        // tslint:disable-next-line:no-shadowed-variable
         const renderedComponent = mount(testComponent);
         expect(renderedComponent.html()).toMatchSnapshot();
       });
@@ -249,7 +245,6 @@ describe('<Placeholder />', () => {
         },
       };
 
-      // tslint:disable-next-line:no-shadowed-variable
       const renderedComponent = mount(testComponent);
       expect(renderedComponent.html()).toMatchSnapshot();
 
@@ -276,7 +271,6 @@ describe('<Placeholder />', () => {
         },
       };
 
-      // tslint:disable-next-line:no-shadowed-variable
       const renderedComponent = mount(testComponent);
       expect(renderedComponent.html()).toMatchSnapshot();
     });
@@ -288,7 +282,6 @@ describe('<Placeholder />', () => {
     const route = { placeholders: { main: [{ componentName: 'Home' }] } };
     const phKey = 'unknown-test';
 
-    // tslint:disable-next-line:no-shadowed-variable
     const renderedComponent = mount(Placeholder, {
       propsData: {
         name: phKey,
@@ -330,7 +323,6 @@ describe('<Placeholder />', () => {
       },
     };
 
-    // tslint:disable-next-line:no-shadowed-variable
     const renderedComponent = mount(testComponent);
     expect(renderedComponent.html()).toMatchSnapshot();
   });
@@ -363,7 +355,6 @@ describe('<Placeholder />', () => {
         },
       };
 
-      // tslint:disable-next-line:no-shadowed-variable
       const renderedComponent = mount(testComponent);
       expect(renderedComponent.html()).toMatchSnapshot();
     });
@@ -377,7 +368,6 @@ describe('<Placeholder />', () => {
         },
       };
 
-      // tslint:disable-next-line:no-shadowed-variable
       const renderedComponent = mount(testComponent);
       expect(renderedComponent.html()).toMatchSnapshot();
     });

@@ -9,7 +9,6 @@ import { args as templateArgs } from './deploy.template';
 export default function builder(yargs: Argv) {
   return yargs.command(
     'component <name>',
-    // tslint:disable-next-line:max-line-length
     'Deploys a new component (or updates an existing component) to the Sitecore server when using Sitecore-first development. `jss deploy component --help` for options.',
     args,
     handler
@@ -25,14 +24,12 @@ export function args(yargs: Argv) {
       requiresArg: false,
       type: 'array',
       describe:
-        // tslint:disable-next-line:max-line-length
         'The placeholder name(s) to allow the rendering to be placed in. For example --allowedPlaceholders Foo or --allowedPlaceholders Foo Bar',
     })
     .option('exposesPlaceholders', {
       requiresArg: false,
       type: 'array',
       describe:
-        // tslint:disable-next-line:max-line-length
         'The names of any placeholders that are exposed on this component (to place other components in). This will cause placeholder settings items to be generated for them.',
     });
 }

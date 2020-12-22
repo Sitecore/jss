@@ -8,7 +8,6 @@ import runPackageScript from '../run-package-script';
 export const command = 'files';
 
 export const describe =
-  // tslint:disable-next-line:max-line-length
   'Deploys the app\'s build artifact files to the Sitecore server using a direct file copy (no Sitecore items will be deployed). `jss deploy files --help` for options.';
 
 export const builder = {
@@ -22,7 +21,6 @@ export const builder = {
     requiresArg: false,
     type: 'string',
     describe:
-      // tslint:disable-next-line:max-line-length
       'Destination path to deploy to. Defaults to the \'instancePath\' set in scjssconfig.json, combined with the \'sitecoreDistPath\' setting from package.json.',
   },
   config: {
@@ -48,7 +46,6 @@ export const builder = {
     requiresArg: false,
     type: 'string',
     describe:
-      // tslint:disable-next-line:max-line-length
       'Name of the npm script to run to perform a build before deploying. To skip running any script, use --skipBuild or pass the argument with a blank value.',
     default: 'build',
   },

@@ -52,7 +52,6 @@ export class GitHubSource {
 
   async verifyTemplate() {
     return new Promise((resolve) => {
-      // tslint:disable-next-line:max-line-length
       request.get(
         this.githubListApi,
         { proxy: this.argv.proxy, json: true, headers: { 'User-Agent': 'SitecoreJSSCLI' } },

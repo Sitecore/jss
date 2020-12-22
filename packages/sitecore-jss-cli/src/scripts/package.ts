@@ -5,7 +5,6 @@ import { builder as manifestBuilder, handler as manifestHandler } from './manife
 export const command = 'package';
 
 export const describe =
-  // tslint:disable-next-line:max-line-length
   'Generates a JSS manifest package file that can be deployed to Sitecore. Nothing is deployed. See also jss deploy package, which takes the package and deploys it to Sitecore. `jss package --help` for options.';
 
 export const builder = {
@@ -19,7 +18,6 @@ export const builder = {
     requiresArgs: false,
     type: 'boolean',
     describe:
-      // tslint:disable-next-line:max-line-length
       'If true, skips manifest generation. This can be used to consume existing output from jss manifest (via the manifestOutputPath parameter) without rebuilding it.',
     default: false,
   },

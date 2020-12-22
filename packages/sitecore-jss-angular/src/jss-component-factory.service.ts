@@ -74,7 +74,6 @@ export class JssComponentFactoryService {
         const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
         if (!dynamicComponentType) {
           throw new Error(
-            // tslint:disable-next-line:max-line-length
             `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
           );
         }
@@ -86,7 +85,6 @@ export class JssComponentFactoryService {
             componentType = dynamicComponentType;
           } else {
             throw new Error(
-              // tslint:disable-next-line:max-line-length
               `JssComponentFactoryService: Lazy load module for component "${lazyComponent.path}" missing DYNAMIC_COMPONENT provider. Missing JssModule.forChild()?`
             );
           }

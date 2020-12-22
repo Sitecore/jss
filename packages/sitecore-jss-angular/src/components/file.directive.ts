@@ -16,7 +16,6 @@ import { FileField } from './rendering-field';
 export class FileDirective implements OnChanges {
   private viewRef: EmbeddedViewRef<any>;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scFile') field: FileField;
 
   constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<any>) {}

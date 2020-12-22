@@ -15,10 +15,8 @@ import { RichTextField } from './rendering-field';
 export class RichTextDirective implements OnChanges {
   private viewRef: EmbeddedViewRef<any>;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scRichTextEditable') editable = true;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scRichText') field: RichTextField;
 
   constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<any>) {}

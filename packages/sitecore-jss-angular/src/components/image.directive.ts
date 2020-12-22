@@ -15,10 +15,8 @@ import { ImageField } from './rendering-field';
 export class ImageDirective implements OnChanges {
   private inlineRef: HTMLSpanElement | null = null;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scImage') field: ImageField | '';
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scImageEditable') editable = true;
 
   /**
@@ -28,13 +26,10 @@ export class ImageDirective implements OnChanges {
    * /-assets/website -> /-/jssmedia/website
    * /~assets/website -> /~/jssmedia/website
    */
-  // tslint:disable-next-line:no-input-rename
   @Input('scImageMediaUrlPrefix') mediaUrlPrefix?: RegExp;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scImageUrlParams') urlParams = {};
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scImageAttrs') attrs = {};
 
   constructor(

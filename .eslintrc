@@ -35,42 +35,40 @@
         "format": ["PascalCase"],
         "selector": "typeLike",
         "custom": {
-					"regex": "^I[A-Z]",
+          "regex": "^I[A-Z]",
           "match": false
         }
       }
     ],
     "@typescript-eslint/member-ordering": "error",
-    "@typescript-eslint/no-explicit-any": "error",
-		"@typescript-eslint/no-use-before-define": ["error", { "functions": false, "variables": false }],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      { "functions": false, "variables": false }
+    ],
     "@typescript-eslint/typedef": "error",
     "@typescript-eslint/type-annotation-spacing": "error",
     "@typescript-eslint/semi": "error",
     "@typescript-eslint/no-var-requires": "off",
     "no-useless-escape": "off",
-    "no-restricted-globals": "off",
-    "no-restricted-properties": "off",
     "spaced-comment": "error",
     "curly": ["error", "multi-line"],
     "eol-last": ["error", "always"],
     "guard-for-in": "error",
     "no-unused-labels": "error",
-    "max-len": "off",
     "no-caller": "error",
     "no-bitwise": "error",
     "no-multiple-empty-lines": "error",
     "no-new-wrappers": "error",
-    "no-debugger": "error",
-    "no-empty": "error",
     "no-eval": "error",
     "dot-notation": "error",
-    "no-fallthrough": "error",
     "no-trailing-spaces": "error",
     "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
     "brace-style": "error",
     "quotes": ["error", "single"],
     "radix": "error",
     "default-case": "error",
-    "eqeqeq": "error"
+    "eqeqeq": "error",
+    "jsx-quotes": ["error", "prefer-double"]
   }
 }

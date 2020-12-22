@@ -1,6 +1,11 @@
 {
   "root": true,
   "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "extends": [
     "airbnb-base",
     "plugin:react/recommended",
@@ -23,6 +28,7 @@
     "jest": true
   },
   "rules": {
+    "jsx-quotes": ["error", "prefer-double"],
     "react/prop-types": "off",
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
@@ -43,27 +49,21 @@
       }
     ],
     "func-names": "off",
+    "no-console": "off",
     "radix": ["error", "as-needed"],
     "prefer-destructuring": "off",
     "no-useless-escape": "off",
-    "no-restricted-globals": "off",
-    "no-restricted-properties": "off",
     "spaced-comment": "error",
     "curly": ["error", "multi-line"],
     "eol-last": ["error", "always"],
     "guard-for-in": "error",
     "no-unused-labels": "error",
-    "max-len": "off",
     "no-caller": "error",
     "no-bitwise": "error",
-    "no-console": ["error", { "allow": ["log", "warn", "error", "info"] }],
     "no-multiple-empty-lines": "error",
     "no-new-wrappers": "error",
-    "no-debugger": "error",
-    "no-empty": "error",
     "no-eval": "error",
     "dot-notation": "error",
-    "no-fallthrough": "error",
     "no-trailing-spaces": "error",
     "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
     "brace-style": "error",

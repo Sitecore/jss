@@ -15,13 +15,10 @@ import { TextField } from './rendering-field';
 export class TextDirective implements OnChanges {
   private viewRef: EmbeddedViewRef<any>;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scTextEditable') editable = true;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scTextEncode') encode = true;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scText') field: TextField;
 
   constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<any>) {}

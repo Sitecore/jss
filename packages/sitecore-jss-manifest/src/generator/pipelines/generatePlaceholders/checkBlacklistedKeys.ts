@@ -41,6 +41,5 @@ export default (args: GeneratePlaceholdersPipelineArgs) => {
     'If you understand the risks and want to use these placeholder names anyway, pass --allowConflictingPlaceholderNames'
   );
 
-  // tslint:disable-next-line:no-string-throw
   throw 'Aborting due to invalid placeholder name.';
 };

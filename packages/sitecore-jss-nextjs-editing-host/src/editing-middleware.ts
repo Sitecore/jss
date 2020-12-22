@@ -21,7 +21,7 @@ export class EditingMiddleware {
 
   /**
    * Returns the Express request handler for Experience Editor POST requests.
-   * @returns {Promise<void>} request handler
+   * @returns request handler
    */
   public getRequestHandler(): (req: Request, res: Response) => Promise<void> {
     return this.handleRequest;

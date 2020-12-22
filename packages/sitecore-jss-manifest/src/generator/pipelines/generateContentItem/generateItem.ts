@@ -16,7 +16,6 @@ export default (args: GenerateContentItemArgs) => {
   const template = findTemplate(item.template, args.components, args.templates);
 
   if (!template && item.template !== 'Folder') {
-    // tslint:disable-next-line:max-line-length
     console.warn(
       chalk.yellow(
         `Template ${item.template} used on ${item.name} was not defined in the manifest. If this is not a known Sitecore template or GUID the import will fail.`
@@ -27,7 +26,6 @@ export default (args: GenerateContentItemArgs) => {
   if (args.content.fields) {
     let renderingFields = args.content.fields;
     if (template) {
-      // tslint:disable-next-line:max-line-length
       const handleError = (fieldName: string) => {
         throw chalk.red(
           `Item '${item.name}' defined data for field '${fieldName}'. This field is not defined on '${template.name}'. It may be a typo, or the field may need to be added to the template/component definition.`

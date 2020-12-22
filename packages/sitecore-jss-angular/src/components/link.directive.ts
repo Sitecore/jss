@@ -14,13 +14,10 @@ import { LinkField } from './rendering-field';
 export class LinkDirective implements OnChanges {
   private inlineRef: HTMLSpanElement | null = null;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scLinkEditable') editable = true;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scLinkAttrs') attrs: any = {};
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scLink') field: LinkField;
 
   constructor(

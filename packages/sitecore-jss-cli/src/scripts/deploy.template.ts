@@ -9,7 +9,6 @@ import microManifest from '../micro-manifest';
 export default function builder(yargs: Argv) {
   return yargs.command(
     'template <name>',
-    // tslint:disable-next-line:max-line-length
     'Deploys a new template (or updates an existing template) to the Sitecore server when using Sitecore-first development. `jss deploy template --help` for options.',
     args,
     handler
@@ -34,7 +33,6 @@ export function args(yargs: Argv) {
       requiresArg: false,
       type: 'array',
       describe:
-        // tslint:disable-next-line:max-line-length
         'Creates template fields. Fields can be either a plain name, or name:fieldType. For example, --fields Foo Bar or --fields Foo "Bar Bas:Rich Text"',
     })
     .option('icon', {

@@ -8,7 +8,7 @@
     "lint": "eslint --fix ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
-    "coverage": "nyc npm test"
+    "coverage": "nyc --require ts-node/register npm test"
   },
   "engines": {
     "node": ">=8.1"

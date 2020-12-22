@@ -219,7 +219,6 @@ describe('<a *scLink />', () => {
   });
 });
 
-// tslint:disable-next-line:max-classes-per-file
 @Component({
   selector: 'test-link-children',
   template: `

@@ -89,7 +89,6 @@ const copyMedia = (mediaPaths: Array<{ src: string }>, outputPath: string) => {
         console.log(`copied media from: ${mediaSourcePath} to: ${mediaDestinationPath}`);
         return { source: mediaSourcePath, destination: mediaDestinationPath, success: true };
       }
-      // tslint:disable-next-line:no-string-throw
       throw `Source media file referred to in manifest data doesn't exist: ${mediaSourcePath}`;
     });
 };

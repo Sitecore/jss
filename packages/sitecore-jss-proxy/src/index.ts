@@ -9,8 +9,6 @@ import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
 import { buildQueryString, tryParseJson } from './util';
 
-// tslint:disable:max-line-length
-
 // For some reason, every other response returned by Sitecore contains the 'set-cookie' header with the SC_ANALYTICS_GLOBAL_COOKIE value as an empty string.
 // This effectively sets the cookie to empty on the client as well, so if a user were to close their browser
 // after one of these 'empty value' responses, they would not be tracked as a returning visitor after re-opening their browser.

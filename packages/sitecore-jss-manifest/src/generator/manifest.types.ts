@@ -152,7 +152,6 @@ export interface FieldDefinition {
   storage?: FieldStorage;
 }
 
-// tslint:disable:no-empty-interface
 /**
  * Defines a non-content parameter that can be set on a component.
  * Parameters are more developer-focused options than fields, such as configurable CSS classes.

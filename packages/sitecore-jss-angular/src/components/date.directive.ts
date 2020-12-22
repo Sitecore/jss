@@ -16,19 +16,14 @@ import { TextField } from './rendering-field';
 export class DateDirective implements OnChanges {
   private viewRef: EmbeddedViewRef<any>;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scDateFormat') format?: string;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scDateTimezone') timezone?: string;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scDateLocale') locale?: string;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scDateEditable') editable = true;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scDate') field: TextField;
 
   constructor(

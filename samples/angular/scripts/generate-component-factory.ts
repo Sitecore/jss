@@ -17,7 +17,6 @@ const chokidar = require('chokidar');
   This is used during `jss start` to pick up new or removed components at runtime.
 */
 
-// tslint:disable:no-console
 
 const componentFactoryPath = path.resolve('src/app/components/app-components.module.ts');
 const componentRootPath = 'src/app/components';
@@ -94,7 +93,6 @@ function generateComponentFactory() {
 
     if (isLazyLoaded) {
       console.debug(`Registering JSS component (lazy) ${componentName}`);
-      // tslint:disable-next-line:max-line-length
       lazyRegistrations.push(`{ path: '${componentName}', loadChildren: () => import('./${componentFolder}/${componentFolder}.module').then(m => m.${componentName}Module) },`);
     } else {
       console.debug(`Registering JSS component ${componentName}`);
@@ -109,7 +107,6 @@ function generateComponentFactory() {
 // Use app-components.shared.module.ts to modify the imports, etc of this module.
 // Note: code-generation is optional! See ./.gitignore for directions to remove it,
 // if you do not want it.
-// tslint:disable
 
 import { NgModule } from '@angular/core';
 import { JssModule } from '@sitecore-jss/sitecore-jss-angular';

@@ -167,7 +167,6 @@ describe('<a *scGenericLink />', () => {
   });
 });
 
-// tslint:disable-next-line:max-classes-per-file
 @Component({
   selector: 'test-router-link-children',
   template: `

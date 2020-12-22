@@ -1,4 +1,3 @@
-/* tslint:disable:no-unused-expression max-line-length */
 import {
   convertPropDataToLayoutServiceFormat,
   convertRouteToLayoutServiceFormat,

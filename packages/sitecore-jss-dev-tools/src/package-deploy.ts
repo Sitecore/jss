@@ -35,7 +35,6 @@ function applyCertPinning(req: request.Request, options: PackageDeployOptions) {
         !doFingerprintsMatch(options.acceptCertificate, fingerprint)
       ) {
         // Abort request, optionally emit an error event
-        // tslint:disable-next-line:max-line-length
         req.emit(
           'error',
           new Error(
@@ -115,13 +114,11 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
      * Send job status request
      */
     function sendJobStatusRequest() {
-      // tslint:disable-next-line:max-line-length
       const req = request.get(
         `${options.importServiceUrl}/status?appName=${options.appName}&jobName=${taskName}&after=${logOffset}`,
         requestBaseOptions,
         (error, response, body) => {
           if (error || response.statusCode < 200 || response.statusCode >= 300) {
-            // tslint:disable-next-line:max-line-length
             console.error(
               chalk.red(
                 'Unexpected response from import status service. The import task is probably still running; check the Sitecore logs for details.'
@@ -231,14 +228,12 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
  */
 export async function packageDeploy(options: PackageDeployOptions) {
   if (!options.secret) {
-    // tslint:disable-next-line:max-line-length
     throw new Error(
       'Deployment secret was not passed. A shared secret must be configured on both the Sitecore app config and the JS app config'
     );
   }
 
   if (options.secret.length < 32) {
-    // tslint:disable-next-line:max-line-length
     throw new Error(
       'Deployment secret was too short. Use a RANDOM (not words or phrases) secret at least 32 characters long.'
     );

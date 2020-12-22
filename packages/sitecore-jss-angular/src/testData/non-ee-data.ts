@@ -1,7 +1,5 @@
 // these rules enforce "correct" JSON format instead of normal object format
 
-/* tslint:disable:object-literal-key-quotes quotemark trailing-comma one-line max-line-length prettier */
-
 export const convertedDevData = {
   sitecore: {
     context: {

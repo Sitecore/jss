@@ -185,7 +185,6 @@ export function findTemplate(
     const template = templateList.find((templateDef: any) => templateDef.name === templateName);
 
     if (template && templateResult !== null) {
-      // tslint:disable-next-line:no-string-throw
       throw `Template ${templateName} was defined more than once with the same name.`;
     }
 
@@ -225,7 +224,6 @@ export function validateFieldDefinitions(
     const fieldIsValid =
       Array.isArray(template.fields) && template.fields.some((field) => field.name === fieldName);
     if (!fieldIsValid) {
-      // tslint:disable-next-line:no-string-throw max-line-length
       handleError(fieldName);
     }
     return fieldIsValid;

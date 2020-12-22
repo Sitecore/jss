@@ -169,7 +169,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     }
 
     if (!this.name && !this.renderings) {
-      // tslint:disable-next-line:max-line-length
       console.warn(
         'Placeholder name was not specified, and explicit renderings array was not passed. Placeholder requires either name and rendering, or renderings.'
       );

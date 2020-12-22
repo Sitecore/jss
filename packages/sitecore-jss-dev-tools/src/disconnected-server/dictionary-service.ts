@@ -69,7 +69,6 @@ export function createDisconnectedDictionaryService({
           console.error(
             `> [DICTIONARY] ERROR: Received request for dictionary in ${language} but the manifest data was in ${
               currentManifest.language
-            // tslint:disable-next-line:max-line-length
             }. To enable switching languages at runtime, please pass 'manifestLanguageChangeCallback: function(newLanguage) { return manifestInNewLanguage; }' in the service creation options.`
           );
           response.sendStatus(404);
