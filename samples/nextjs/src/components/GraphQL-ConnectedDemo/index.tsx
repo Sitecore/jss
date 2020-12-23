@@ -99,9 +99,9 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
 
 /**
  * Will be called during SSG
- * @param rendering {ComponentRendering}
- * @param layoutData {LayoutServiceData}
- * @param context {GetStaticPropsContext}
+ * @param {ComponentRendering} rendering
+ * @param {LayoutServiceData} layoutData
+ * @param {GetStaticPropsContext} context
  */
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
   if (process.env.JSS_MODE === JSS_MODE_DISCONNECTED) {
@@ -123,9 +123,9 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
 
 /**
  * Will be called during SSR
- * @param rendering {ComponentRendering}
- * @param layoutData {LayoutServiceData}
- * @param context {GetServerSidePropsContext}
+ * @param {ComponentRendering} rendering
+ * @param {LayoutServiceData} layoutData
+ * @param {GetServerSidePropsContext} context
  */
 export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
   if (process.env.JSS_MODE === JSS_MODE_DISCONNECTED) {
@@ -147,9 +147,9 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
 
 /**
  * Will be called during editing
- * @param rendering {ComponentRendering}
- * @param layoutData {LayoutServiceData}
- * @param context {NextPageContext}
+ * @param {ComponentRendering} rendering
+ * @param {LayoutServiceData} layoutData
+ * @param {NextPageContext} context
  */
 export const getInitialProps: GetInitialComponentProps = async (rendering, layoutData) => {
   const graphQLClient = GraphQLClientFactory();
