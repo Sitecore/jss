@@ -33,7 +33,7 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
       </p>
 
       <p>
-        <Link href={`${publicUrl}/styleguide`} locale="en">
+        <Link href={`${publicUrl}/en/styleguide`} locale={false}>
           <a>Show in English</a>
         </Link>
         <br />
