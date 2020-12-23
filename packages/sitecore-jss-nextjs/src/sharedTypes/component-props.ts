@@ -12,11 +12,9 @@ export type ComponentPropsCollection = {
  * Type of side effect function which could be invoked on component level (getStaticProps/getServerSideProps)
  */
 export type ComponentPropsFetchFunction<NextContext, FetchedProps = unknown> = {
-  (
-    rendering: ComponentRendering,
-    layoutData: LayoutServiceData | null,
-    context: NextContext
-  ): Promise<FetchedProps>;
+  (rendering: ComponentRendering, layoutData: LayoutServiceData, context: NextContext): Promise<
+    FetchedProps
+  >;
 };
 
 /**

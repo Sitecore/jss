@@ -4,6 +4,7 @@ import {
   Link,
   GetServerSideComponentProps,
   GetStaticComponentProps,
+  GetInitialComponentProps,
   useComponentProps,
   JSS_MODE_DISCONNECTED,
 } from '@sitecore-jss/sitecore-jss-nextjs';
@@ -98,9 +99,9 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
 
 /**
  * Will be called during SSG
- * @param rendering
- * @param layoutData
- * @param context
+ * @param {ComponentRendering} rendering
+ * @param {LayoutServiceData} layoutData
+ * @param {GetStaticPropsContext} context
  */
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
   if (process.env.JSS_MODE === JSS_MODE_DISCONNECTED) {
@@ -122,15 +123,35 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
 
 /**
  * Will be called during SSR
- * @param rendering
- * @param layoutData
- * @param context
+ * @param {ComponentRendering} rendering
+ * @param {LayoutServiceData} layoutData
+ * @param {GetServerSidePropsContext} context
  */
 export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
   if (process.env.JSS_MODE === JSS_MODE_DISCONNECTED) {
     return null;
   }
 
+  const graphQLClient = GraphQLClientFactory();
+
+  const result = await graphQLClient.query({
+    query: ConnectedDemoQueryDocument,
+    variables: {
+      datasource: rendering.dataSource,
+      contextItem: layoutData?.sitecore?.route?.itemId,
+    },
+  });
+
+  return result.data;
+};
+
+/**
+ * Will be called during editing
+ * @param {ComponentRendering} rendering
+ * @param {LayoutServiceData} layoutData
+ * @param {NextPageContext} context
+ */
+export const getInitialProps: GetInitialComponentProps = async (rendering, layoutData) => {
   const graphQLClient = GraphQLClientFactory();
 
   const result = await graphQLClient.query({
