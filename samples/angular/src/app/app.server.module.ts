@@ -18,9 +18,7 @@ import { JssTranslationServerLoaderService } from './i18n/jss-translation-server
     TranslateModule.forRoot({ // <-- *Important* to get translation values server-side
       loader: {
         provide: TranslateLoader,
-        useFactory: (ssrViewBag: any) => {
-          return new JssTranslationServerLoaderService(ssrViewBag);
-        },
+        useFactory: (ssrViewBag: any) => new JssTranslationServerLoaderService(ssrViewBag),
         deps: ['JSS_SERVER_VIEWBAG']
       }
     }),

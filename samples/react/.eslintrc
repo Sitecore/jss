@@ -34,9 +34,9 @@
     "document": true
   },
   "rules": {
+    "import/no-unresolved": "off",
     "import/no-duplicates": "off",
     "import/no-named-as-default": "off",
-    "max-len": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {
@@ -46,6 +46,7 @@
     ],
     "linebreak-style": "off",
     "react/jsx-filename-extension": 0,
+    "jsx-quotes": ["error", "prefer-double"],
     "import/prefer-default-export": "off",
     "react/forbid-prop-types": "off",
     "react/prop-types": 0,
@@ -54,6 +55,24 @@
     "react/no-array-index-key": "off",
     "no-use-before-define": 0,
     "global-require": 0,
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "no-useless-escape": "off",
+    "spaced-comment": "error",
+    "curly": ["error", "multi-line"],
+    "eol-last": ["error", "always"],
+    "guard-for-in": "error",
+    "no-unused-labels": "error",
+    "no-caller": "error",
+    "no-bitwise": "error",
+    "no-multiple-empty-lines": "error",
+    "no-new-wrappers": "error",
+    "no-eval": "error",
+    "dot-notation": "error",
+    "no-trailing-spaces": "error",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "brace-style": "error",
+    "quotes": ["error", "single"],
+    "default-case": "error",
+    "eqeqeq": "error"
   }
 }

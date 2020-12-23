@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-unused-expressions */
 import chai from 'chai';
 import chaiString from 'chai-string';
 import { mount } from 'enzyme';
@@ -58,7 +60,9 @@ describe('<Image />', () => {
     it('should render <img /> with needed img tags', () => {
       expect(rendered).to.have.length(1);
       expect(rendered.prop('src')).to.equal(props.media.src);
-      expect(rendered.prop('srcSet')).to.equal('/assets/img/test0.png?mw=100 100w, /assets/img/test0.png?mw=300 300w');
+      expect(rendered.prop('srcSet')).to.equal(
+        '/assets/img/test0.png?mw=100 100w, /assets/img/test0.png?mw=300 300w'
+      );
       expect(rendered.prop('sizes')).to.equal('(min-width: 960px) 300px, 100px');
     });
 
@@ -178,7 +182,7 @@ describe('<Image />', () => {
         id: 'some-id',
         style: { width: '100%' },
         className: 'the-dude-abides',
-        mediaUrlPrefix: /\/([-~]{1})assets\//i
+        mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
       const rendered = mount(<Image {...props} />);
 
@@ -204,7 +208,7 @@ describe('<Image />', () => {
           width: '100%',
         },
         className: 'the-dude-abides',
-        mediaUrlPrefix: /\/([-~]{1})assets\//i
+        mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
       const rendered = mount(<Image {...props} />);
 
@@ -216,12 +220,12 @@ describe('<Image />', () => {
           src: '/-assets/img/test0.png',
           width: 8,
           height: 10,
-        }
+        },
       });
 
       expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png');
     });
-    
+
     it('should transform url with responsive image object', () => {
       const props = {
         media: {
@@ -231,7 +235,7 @@ describe('<Image />', () => {
         sizes: '(min-width: 960px) 300px, 100px',
         id: 'some-id',
         className: 'the-dude-abides',
-        mediaUrlPrefix: /\/([-~]{1})assets\//i
+        mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
 
       const rendered = mount(<Image {...props} />);
@@ -244,7 +248,7 @@ describe('<Image />', () => {
           src: '/-assets/img/test0.png',
           width: 8,
           height: 10,
-        }
+        },
       });
 
       expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png');

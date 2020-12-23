@@ -8,6 +8,9 @@ export interface PackageGenerateOptions {
   manifestPath: string;
   manifestFileName: string;
 }
+/**
+ * @param {PackageGenerateOptions} options
+ */
 export function packageGenerate(options: PackageGenerateOptions) {
   // clear output folder
   fsExtra.emptyDirSync(options.outputPath);
@@ -20,7 +23,10 @@ export function packageGenerate(options: PackageGenerateOptions) {
   fsExtra.copySync(path.join('.', options.manifestPath), packageManifestPath);
 
   // generate manifest package
-  const updatePackage = path.join(options.outputPath, `${options.appName}.${datepath}.manifest.zip`);
+  const updatePackage = path.join(
+    options.outputPath,
+    `${options.appName}.${datepath}.manifest.zip`
+  );
 
   return new Promise((resolve) => {
     createPackage(packageManifestPath, updatePackage, resolve);

@@ -9,29 +9,69 @@ import { Manifest } from './manifest.types';
 
 // DEPRECATED: favor using typing JSDoc instead, e.g. @param {Manifest} manifest Manifest instance to add components to
 
-export function addComponent(manifest: Manifest, ...components: ManifestTypes.ComponentDefinition[]) {
+/**
+ * @param {Manifest} manifest
+ * @param {...any} components
+ */
+export function addComponent(
+  manifest: Manifest,
+  ...components: ManifestTypes.ComponentDefinition[]
+) {
   manifest.addComponent(...components);
 }
 
+/**
+ * @param {Manifest} manifest
+ * @param {...any} templates
+ */
 export function addTemplate(manifest: Manifest, ...templates: ManifestTypes.TemplateDefinition[]) {
   manifest.addTemplate(...templates);
 }
 
-export function addPlaceholder(manifest: Manifest, ...placeholders: ManifestTypes.PlaceholderDefinition[]) {
+/**
+ * @param {Manifest} manifest
+ * @param {...any} placeholders
+ */
+export function addPlaceholder(
+  manifest: Manifest,
+  ...placeholders: ManifestTypes.PlaceholderDefinition[]
+) {
   manifest.addPlaceholder(...placeholders);
 }
-export function addRouteType(manifest: Manifest, ...routeTypes: ManifestTypes.TemplateDefinition[]) {
+/**
+ * @param {Manifest} manifest
+ * @param {...any} routeTypes
+ */
+export function addRouteType(
+  manifest: Manifest,
+  ...routeTypes: ManifestTypes.TemplateDefinition[]
+) {
   manifest.addRouteType(...routeTypes);
 }
 
+/**
+ * @param {Manifest} manifest
+ * @param {...any} routes
+ */
 export function addRoute(manifest: Manifest, ...routes: ManifestTypes.RouteDefinition[]) {
   manifest.addRoute(...routes);
 }
 
+/**
+ * @param {Manifest} manifest
+ * @param {...any} contents
+ */
 export function addContent(manifest: Manifest, ...contents: ManifestTypes.ItemDefinition[]) {
   manifest.addContent(...contents);
 }
 
-export function addDictionary(manifest: Manifest, ...entries: Array<{ key: string, value: string }>) {
+/**
+ * @param {Manifest} manifest
+ * @param {...any} entries
+ */
+export function addDictionary(
+  manifest: Manifest,
+  ...entries: Array<{ key: string; value: string }>
+) {
   manifest.addDictionary(...entries);
 }

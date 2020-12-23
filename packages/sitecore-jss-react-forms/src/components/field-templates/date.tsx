@@ -27,6 +27,9 @@ const DateField: React.FunctionComponent<ValueFieldProps<DateInputViewModel>> = 
   );
 };
 
+/**
+ * @param {string} [value]
+ */
 function formatValue(value?: string) {
   // dates are serialized from the API as full date/times (i.e. 2019-01-11T00:00:00)
   // but the date input expects only the date. Since the format is predictably long,
@@ -38,6 +41,11 @@ function formatValue(value?: string) {
   return value.substring(0, 10);
 }
 
+/**
+ * @param {ValueFormField} field
+ * @param {string} fieldValue
+ * @param {FieldChangeCallback} callback
+ */
 function handleOnChange(field: ValueFormField, fieldValue: string, callback: FieldChangeCallback) {
   let valid = true;
   const errorMessages = [];

@@ -11,6 +11,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { VisitorIdentificationComponent } from './visitor-identification/visitor-identification.component';
 
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function jssRouteMatcher(url: UrlSegment[]): UrlMatchResult {
   // use the route builder to parse out language / server route
   const routeParser = new JssRouteBuilderService();

@@ -6,24 +6,6 @@ import { mergeFs } from '@sitecore-jss/sitecore-jss-dev-tools';
 // This file may be extended if you wish to store disconnected route data in some way other than the default,
 // or to preprocess the route data before it is sent to Sitecore to be ingested - for example to add fields to the route type.
 
-export default function(manifest) {
-  /*
-  optional: to add a custom route type with fields
-  manifest.addRouteType({
-    name: "My Special Route Type",
-    fields: [
-      { name: 'metaTitle', displayName: 'Meta Title', type: manifest.fieldTypes.singleLineText }
-    ]
-  });
-  then, set `result.template = "My Special Route Type"` in convertToRoutes() below
-  */
-  return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)
-    .then((result) => convertToRoutes({ data: result, language: manifest.language }))
-    .then((routeData) => {
-      addRoute(manifest, routeData);
-    });
-}
-
 const convertToRoutes = ({ data, language }) => {
   let result;
 
@@ -44,3 +26,21 @@ const convertToRoutes = ({ data, language }) => {
 
   return result;
 };
+
+export default function(manifest) {
+  /*
+  optional: to add a custom route type with fields
+  manifest.addRouteType({
+    name: "My Special Route Type",
+    fields: [
+      { name: 'metaTitle', displayName: 'Meta Title', type: manifest.fieldTypes.singleLineText }
+    ]
+  });
+  then, set `result.template = "My Special Route Type"` in convertToRoutes() below
+  */
+  return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)
+    .then((result) => convertToRoutes({ data: result, language: manifest.language }))
+    .then((routeData) => {
+      addRoute(manifest, routeData);
+    });
+}

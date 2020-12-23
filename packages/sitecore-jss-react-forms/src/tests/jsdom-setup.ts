@@ -1,28 +1,36 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md
 
 declare module 'style-attr';
-declare var global: any;
+declare let global: any;
 
 const { JSDOM } = require('jsdom');
 
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
 const jsDomWindow = jsdom.window;
 
+/**
+ * @param {any} src
+ * @param {any} target
+ */
 function copyProps(src: any, target: any) {
-	const props = Object.getOwnPropertyNames(src)
-		.filter(prop => typeof target[prop] === 'undefined')
-		.reduce((result, prop) => ({
-			...result,
-			[prop]: Object.getOwnPropertyDescriptor(src, prop),
-		}), {});
+  const props = Object.getOwnPropertyNames(src)
+    .filter((prop) => typeof target[prop] === 'undefined')
+    .reduce(
+      (result, prop) => ({
+        ...result,
+        [prop]: Object.getOwnPropertyDescriptor(src, prop),
+      }),
+      {}
+    );
 
-	Object.defineProperties(target, props);
+  Object.defineProperties(target, props);
 }
 
 global.window = jsDomWindow;
 global.document = jsDomWindow.document;
 global.navigator = {
-	userAgent: 'node.js',
+  userAgent: 'node.js',
 };
 
 global.HTMLElement = jsDomWindow.HTMLElement; // makes chai "happy" https://github.com/chaijs/chai/issues/1029

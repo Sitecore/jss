@@ -5,9 +5,12 @@ import SvgUri from 'react-native-svg-uri';
 import { mediaApi } from '@sitecore-jss/sitecore-jss';
 
 export interface ImageFieldValue {
-  src?: string | number;
   /** HTML attributes that will be appended to the rendered <img /> tag. */
-  [attributeName: string]: any;
+  [attributeName: string]: unknown;
+  src?: string | number;
+  width?: number;
+  height?: number;
+  style?: unknown;
 }
 
 export interface ImageField {
@@ -16,21 +19,19 @@ export interface ImageField {
 }
 
 export interface ImageProps {
+  /** HTML attributes that will be appended to the rendered <img /> tag. */
+
+  [attributeName: string]: unknown;
   /** The image field data. */
   media: ImageField | ImageFieldValue | null;
+  field?: ImageField | ImageFieldValue | null;
 
   /**
    * Parameters that will be attached to Sitecore media URLs
    */
-  imageUrlParams?:
-    | {
-        [paramName: string]: string;
-      }
-    | object
-    | null;
-
-  /** HTML attributes that will be appended to the rendered <img /> tag. */
-  [attributeName: string]: any;
+  imageUrlParams?: {
+    [paramName: string]: string;
+  } | null;
 }
 
 const getImageAttrs = (
@@ -41,23 +42,23 @@ const getImageAttrs = (
     style,
     ...otherAttrs
   }: {
-    src: string | number;
-    width: number | undefined;
-    height: number | undefined;
-    style: any;
-    otherAttrs: any[];
+    [attr: string]: unknown;
+    src?: string | number;
+    width?: number | undefined;
+    height?: number | undefined;
+    style?: unknown;
   },
-  imageUrlParams: any
+  imageUrlParams?: { [paramName: string]: string } | null
 ) => {
   if (!src) {
     return null;
   }
 
-  const newAttrs: any = { ...otherAttrs };
+  const newAttrs: { [key: string]: unknown } = { ...otherAttrs };
 
   // for network images, "width" and "height" are required as style properties, otherwise the image likely won't display.
   // for static images, "width" and "height" are not required, but if they are passed in then add them to the style prop.
-  const imgStyles: any = {};
+  const imgStyles: { [attr: string]: unknown } = {};
   // react-native doesn't seem to like `&&` assignment, so use if statements instead
   if (width) {
     imgStyles.width = typeof width !== 'number' ? Number(width) : width;
@@ -86,37 +87,37 @@ const getImageAttrs = (
 };
 
 export const isSvgImage = (source: ImageSourcePropType) => {
-	const isSvg = /\.svg($|\?|\&)/g;
-	const src = NativeImage.resolveAssetSource(source);
+  const isSvg = /\.svg($|\?|\&)/g;
+  const src = NativeImage.resolveAssetSource(source);
 
-	return src && isSvg.test(src.uri);
-}
+  return src && isSvg.test(src.uri);
+};
 
 export const Image: React.SFC<ImageProps> = ({ media, imageUrlParams, field, ...otherProps }) => {
-  let dynamicMedia: any = media;
+  let dynamicMedia = media;
 
   // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
   if (field && !media) {
     dynamicMedia = field;
   }
 
-  if (!dynamicMedia || (!dynamicMedia.value && !dynamicMedia.src)) {
+  if (!dynamicMedia || (!dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)) {
     return null;
   }
 
   // some wise-guy/gal might pass in a 'raw' image object value
-  const img = dynamicMedia.src ? dynamicMedia : dynamicMedia.value;
+  const img = (dynamicMedia as ImageFieldValue).src
+    ? dynamicMedia
+    : (dynamicMedia as ImageField).value;
   if (!img) {
     return null;
   }
 
-	const attrs = getImageAttrs({ ...img, ...otherProps }, imageUrlParams);
-	
-	if (attrs && isSvgImage(attrs.source))
-		return <SvgUri {...attrs} />;
+  const attrs = getImageAttrs({ ...(img as ImageFieldValue), ...otherProps }, imageUrlParams);
 
-  if (attrs)
-    return <NativeImage {...attrs} />;
+  if (attrs && isSvgImage(attrs.source as ImageSourcePropType)) return <SvgUri {...attrs} />;
+
+  if (attrs) return <NativeImage {...attrs} source={attrs.source as ImageSourcePropType} />;
 
   return null; // we can't handle the truth
 };
@@ -130,7 +131,7 @@ Image.propTypes = {
       value: PropTypes.object,
     }),
   ]),
-  imageUrlParams: PropTypes.object,
+  imageUrlParams: PropTypes.any,
 };
 
 Image.displayName = 'Image';

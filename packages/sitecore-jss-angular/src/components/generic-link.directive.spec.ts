@@ -28,7 +28,7 @@ describe('<a *scGenericLink />', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GenericLinkDirective, TestComponent],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -167,11 +167,12 @@ describe('<a *scGenericLink />', () => {
   });
 });
 
-// tslint:disable-next-line:max-classes-per-file
 @Component({
   selector: 'test-router-link-children',
   template: `
-    <a *scGenericLink="field; editable: editable; attrs: attrs; extras: extras" id="my-link"><span *ngIf="true">hello world</span></a>
+    <a *scGenericLink="field; editable: editable; attrs: attrs; extras: extras" id="my-link"
+      ><span *ngIf="true">hello world</span></a
+    >
   `,
 })
 class TestWithChildrenComponent {
@@ -189,7 +190,7 @@ describe('<a *scGenericLink>children</a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GenericLinkDirective, TestWithChildrenComponent],
-      imports: [ RouterTestingModule ]
+      imports: [RouterTestingModule],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);
@@ -232,7 +233,7 @@ describe('<a *scGenericLink></a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GenericLinkDirective, TestComponent],
-      imports: [ RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])]
+      imports: [RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
     });
 
     router = TestBed.get(Router);
@@ -265,7 +266,7 @@ describe('<a *scGenericLink></a>', () => {
       href: 'lorem',
       text: 'ipsum',
     };
-    const queryParams = { queryParams: { foo: 'bar' } }
+    const queryParams = { queryParams: { foo: 'bar' } };
     comp.field = field;
     comp.extras = queryParams;
     fixture.detectChanges();

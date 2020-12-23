@@ -10,12 +10,4 @@ import * as manifest from './manifest';
 import * as pkg from './package';
 import * as setup from './setup';
 
-export {
-  easterEgg,
-  elephant,
-  setup,
-  deploy,
-  pkg,
-  manifest,
-  clean
-};
+export { easterEgg, elephant, setup, deploy, pkg, manifest, clean };

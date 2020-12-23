@@ -1,15 +1,15 @@
-/* tslint:disable:no-unused-expression max-line-length */
 import {
   convertPropDataToLayoutServiceFormat,
   convertRouteToLayoutServiceFormat,
 } from './dataConversion';
+import { RouteData } from '@sitecore-jss/sitecore-jss';
 import { convertedDevRouteData, devRouteData } from '../testData/dataConversionTestData/dev-data';
 
 describe('data conversion', () => {
   describe('convertRouteToLayoutServiceFormat', () => {
     it('should assign "editable" keys to fields and nested component fields and rendering params', () => {
       const expected = convertedDevRouteData;
-      const actual = convertRouteToLayoutServiceFormat(devRouteData as any);
+      const actual = convertRouteToLayoutServiceFormat(devRouteData as unknown as RouteData);
 
       expect(actual).toMatchObject(expected);
     });
@@ -40,6 +40,7 @@ describe('data conversion', () => {
         const propData = {
           items: [
             {
+              name: '',
               fields: {
                 prop0: { value: 'string value' },
                 prop1: { value: true },
@@ -47,6 +48,7 @@ describe('data conversion', () => {
               },
             },
             {
+              name: '',
               fields: {
                 prop0: { value: 'string value' },
                 prop1: { value: true },
@@ -54,6 +56,7 @@ describe('data conversion', () => {
               },
             },
             {
+              name: '',
               fields: {
                 prop0: [
                   {
@@ -103,7 +106,7 @@ describe('data conversion', () => {
           ],
         };
 
-        const actual = convertPropDataToLayoutServiceFormat(propData as any);
+        const actual = convertPropDataToLayoutServiceFormat(propData);
         expect(actual).toMatchObject(expected);
       });
     });

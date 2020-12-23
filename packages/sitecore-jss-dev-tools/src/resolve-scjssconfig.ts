@@ -10,14 +10,17 @@ export interface JssConfiguration {
 }
 
 export interface ScJssConfig {
-  sitecore: JssConfiguration;
   [configName: string]: JssConfiguration;
+  sitecore: JssConfiguration;
 }
 
-export function resolveScJssConfig({ 
+/**
+ * @param {any} config
+ */
+export function resolveScJssConfig({
   configPath = './scjssconfig.json',
   configName = 'sitecore',
-  assert = true
+  assert = true,
 } = {}): Promise<ScJssConfig> {
   return new Promise((resolvePromise, rejectPromise) => {
     resolve(configPath, { basedir: process.cwd() }, (error, jssConfigJson) => {

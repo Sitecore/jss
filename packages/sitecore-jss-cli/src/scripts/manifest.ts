@@ -9,7 +9,6 @@ import resolvePackage from '../resolve-package';
 export const command = 'manifest';
 
 export const describe =
-  // tslint:disable-next-line:max-line-length
   'Generates a JSS manifest file which defines app assets to import into Sitecore. Nothing is deployed or added to a deployment package; this just collects assets. See `jss package`, which takes the manifest and turns it into a deployable package. `jss manifest --help` for options.';
 
 export const builder = {
@@ -28,7 +27,6 @@ export const builder = {
     requiresArgs: false,
     type: 'string',
     describe:
-      // tslint:disable-next-line:max-line-length
       'A JS module to require before processing the manifest. This may initialize a custom compiler (Babel, TypeScript), perform init tasks, etc.',
     default: './sitecore/definitions/config.js',
   },
@@ -63,7 +61,6 @@ export const builder = {
     requiresArgs: false,
     type: 'array',
     describe:
-      // tslint:disable-next-line:max-line-length
       'Sets the root placeholder name(s) for the app. If set, overrides root placeholders set in the package.json',
     alias: 'p',
   },
@@ -71,7 +68,6 @@ export const builder = {
     requiresArgs: false,
     type: 'boolean',
     describe:
-      // tslint:disable-next-line:max-line-length
       'Causes the JSS import to run as a wipe + recreate of any existing app items. Pass --unattendedWipe in addition to bypass interactive confirmation for CI scenarios.',
     alias: 'w',
     default: false,
@@ -102,6 +98,10 @@ export const builder = {
   },
 };
 
+/**
+ * @param {any} argv
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   const packageJson = await resolvePackage();
 
@@ -110,7 +110,6 @@ export async function handler(argv: any) {
     language = packageJson.config.language;
   }
   if (!language) {
-    // tslint:disable-next-line:no-string-throw
     throw 'Language was not defined as a parameter or in the package.json { config: { language: "en" } }';
   }
 
@@ -119,7 +118,6 @@ export async function handler(argv: any) {
     appName = packageJson.config.appName;
   }
   if (!appName) {
-    // tslint:disable-next-line:no-string-throw
     throw '--appName was not defined as a parameter or in the package.json { config: { appName: "myJssAppName" } }';
   }
 
@@ -133,7 +131,6 @@ export async function handler(argv: any) {
     rootPlaceholders = packageJson.config.rootPlaceholders;
   }
   if (!rootPlaceholders) {
-    // tslint:disable-next-line:no-string-throw
     throw '--rootPlaceholders was not defined as a parameter or in the package.json { config: { rootPlaceholders: ["ph-name"] } }';
   }
 

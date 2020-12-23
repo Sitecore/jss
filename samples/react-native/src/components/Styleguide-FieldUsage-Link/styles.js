@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-	field: {
-		marginBottom: 10
-	},
-	link: {
-		color: '#007bff',
-	}
-})
+  field: {
+    marginBottom: 10,
+  },
+  link: {
+    color: '#007bff',
+  },
+});

@@ -13,19 +13,31 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
     components: React.ReactNode[],
     data: (ComponentRendering | HtmlElementRendering)[],
     props: PlaceholderProps
-  ) => React.ComponentClass<any> | React.SFC<any>;
+  ) => React.ComponentClass<unknown> | React.SFC<unknown>;
+
+  /**
+   * Render props function that is called when the placeholder contains no content components.
+   * Can be used to wrap the Sitecore EE empty placeholder markup in something that's visually correct
+   */
+  renderEmpty?: (
+    components: React.ReactNode[],
+    data: (ComponentRendering | HtmlElementRendering)[],
+    props: PlaceholderProps
+  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
 
   /**
    * Render props function that is called for each non-system component added to the placeholder.
    * Mutually exclusive with `render`. System components added during Experience Editor are automatically rendered as-is.
    */
   renderEach?: (
-    components: React.ReactNode[],
-    data: (ComponentRendering | HtmlElementRendering)[],
-    props: PlaceholderProps
-  ) => React.ComponentClass<any> | React.SFC<any>;
+    component: React.ReactNode,
+    index: number
+  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
 }
 
+/**
+ * @param {HtmlElementRendering | ComponentRendering} rendering
+ */
 function isRawRendering(
   rendering: HtmlElementRendering | ComponentRendering
 ): rendering is HtmlElementRendering {
@@ -38,14 +50,17 @@ function isRawRendering(
 class PlaceholderComponent extends PlaceholderCommon {
   static propTypes = PlaceholderCommon.propTypes;
 
-  constructor(props: PlaceholderProps) {
+  constructor(props: PlaceholderComponentProps) {
     super(props);
   }
 
   render() {
-    let childProps: any = { ...this.props };
+    const props: PlaceholderComponentProps = this.props;
+    const childProps: PlaceholderComponentProps = { ...this.props };
 
     delete childProps.componentFactory;
+    delete childProps.render;
+    delete childProps.renderEach;
 
     if (this.state.error) {
       return <View>A rendering error occurred: {this.state.error.message}.</View>;
@@ -55,20 +70,20 @@ class PlaceholderComponent extends PlaceholderCommon {
 
     const placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
       renderingData,
-      this.props.name
+      props.name
     );
     const components = this.getComponentsForRenderingData(placeholderData);
 
     if (
-      this.props.renderEmpty &&
+      props.renderEmpty &&
       placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
         isRawRendering(rendering)
       )
     ) {
-      return this.props.renderEmpty(components, placeholderData, childProps);
-    } else if (this.props.render) {
-      return this.props.render(components, placeholderData, childProps);
-    } else if (this.props.renderEach) {
+      return components && props.renderEmpty(components, placeholderData, childProps);
+    } else if (props.render) {
+      return components && props.render(components, placeholderData, childProps);
+    } else if (props.renderEach) {
       return (
         components &&
         components.map((component, index) => {
@@ -76,7 +91,7 @@ class PlaceholderComponent extends PlaceholderCommon {
             return component;
           }
 
-          return this.props.renderEach(component, index);
+          return props.renderEach && props.renderEach(component, index);
         })
       );
     } else {

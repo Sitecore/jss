@@ -1,10 +1,10 @@
 import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
 
 export interface FileFieldValue {
+  [propName: string]: any;
   src?: string;
   title?: string;
   displayName?: string;
-  [propName: string]: any;
 }
 
 export interface FileField {

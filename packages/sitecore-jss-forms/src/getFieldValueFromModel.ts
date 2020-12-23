@@ -1,8 +1,11 @@
 import { FormField } from './FormField';
 import { instanceOfInputViewModel, instanceOfListViewModel } from './ViewModel';
 
-/** Retrieves the current value of a form field from the form model returned from the JSON API */
-export function getFieldValueFromModel(field: FormField<any>) {
+/** Retrieves the current value of a form field from the form model returned from the JSON API
+ * @param {FormField} field
+ * @returns {string | string[] | boolean} field value
+ */
+export function getFieldValueFromModel(field: FormField) {
   if (instanceOfListViewModel(field.model)) {
     // field state from API view-model items (list fields with possible multi-select)
     // we map this into an array of selected values

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
@@ -14,14 +15,15 @@ describe('withSitecoreContext', () => {
 
     const testComponentProps = {
       context: {
-        text: 'value'
+        text: 'value',
       },
-      setContext
+      setContext,
     };
 
     const TestComponent: React.FC<any> = (props: any) => (
       <div onClick={props.updateSitecoreContext}>
-        {props.sitecoreContext.text}{props.customProp}
+        {props.sitecoreContext.text}
+        {props.customProp}
       </div>
     );
 
@@ -59,67 +61,71 @@ describe('withSitecoreContext', () => {
 
       const testComponentProps = {
         context: {
-          text: 'value'
+          text: 'value',
         },
-        setContext
+        setContext,
       };
-  
+
       const TestComponent: React.FC<any> = (props: any) => {
         const reactContext = useSitecoreContext();
-  
+        const context = reactContext.sitecoreContext as { text: string };
+
         return (
           <div onClick={reactContext.updateSitecoreContext}>
-            {reactContext.sitecoreContext.text}{props.customProp}
+            {context.text}
+            {props.customProp}
           </div>
-        )
-      }
-  
-      let wrapper = mount(
+        );
+      };
+
+      const wrapper = mount(
         <SitecoreContextReactContext.Provider value={testComponentProps}>
           <TestComponent customProp="xxx" />
         </SitecoreContextReactContext.Provider>
       );
-  
+
       expect(wrapper).to.have.length(1);
-  
+
       expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
       wrapper.find('div').simulate('click');
-  
+
       expect(testComponentProps.setContext).not.to.be.called();
-    })
-  
+    });
+
     it('updatable', () => {
       const setContext = spy();
 
       const testComponentProps = {
         context: {
-          text: 'value'
+          text: 'value',
         },
-        setContext
+        setContext,
       };
-  
+
       const TestComponent: React.FC<any> = (props: any) => {
         const reactContext = useSitecoreContext({ updatable: true });
-  
+        const context = reactContext.sitecoreContext as { text: string };
+
         return (
           <div onClick={reactContext.updateSitecoreContext}>
-            {reactContext.sitecoreContext.text}{props.customProp}
+            {context.text}
+            {props.customProp}
           </div>
-        )
-      }
-  
-      let wrapper = mount(
+        );
+      };
+
+      const wrapper = mount(
         <SitecoreContextReactContext.Provider value={testComponentProps}>
           <TestComponent customProp="bbb" />
         </SitecoreContextReactContext.Provider>
       );
-  
+
       expect(wrapper).to.have.length(1);
-  
+
       expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'bbb');
       wrapper.find('div').simulate('click');
 
       expect(testComponentProps.setContext).to.be.called();
-    })
-  })
+    });
+  });
 });

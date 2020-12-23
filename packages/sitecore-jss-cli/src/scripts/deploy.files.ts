@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { deploy, verifySetup, resolveScJssConfig } from '@sitecore-jss/sitecore-jss-dev-tools';
 import fs from 'fs';
 import path from 'path';
@@ -7,7 +8,6 @@ import runPackageScript from '../run-package-script';
 export const command = 'files';
 
 export const describe =
-  // tslint:disable-next-line:max-line-length
   'Deploys the app\'s build artifact files to the Sitecore server using a direct file copy (no Sitecore items will be deployed). `jss deploy files --help` for options.';
 
 export const builder = {
@@ -21,15 +21,14 @@ export const builder = {
     requiresArg: false,
     type: 'string',
     describe:
-      // tslint:disable-next-line:max-line-length
       'Destination path to deploy to. Defaults to the \'instancePath\' set in scjssconfig.json, combined with the \'sitecoreDistPath\' setting from package.json.',
-	},
-	config: {
-		requiresArg: false,
-		type: 'string',
-		describe: 'Path to scjssconfig file.',
-		default: './scjssconfig.json'
-	},
+  },
+  config: {
+    requiresArg: false,
+    type: 'string',
+    describe: 'Path to scjssconfig file.',
+    default: './scjssconfig.json',
+  },
   exclude: {
     requiresArg: false,
     type: 'array',
@@ -47,7 +46,6 @@ export const builder = {
     requiresArg: false,
     type: 'string',
     describe:
-      // tslint:disable-next-line:max-line-length
       'Name of the npm script to run to perform a build before deploying. To skip running any script, use --skipBuild or pass the argument with a blank value.',
     default: 'build',
   },
@@ -60,6 +58,10 @@ export const builder = {
   },
 };
 
+/**
+ * @param {any} argv
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   verifySetup();
 

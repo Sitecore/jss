@@ -153,8 +153,8 @@ export const Placeholder: ThisTypedComponentOptionsWithRecordProps<
       // templated components to iterate and declaritively add <component /> elements to the template.
       // Developers are then able to use the ":is" attribute to render dynamic components in a template: https://vuejs.org/v2/api/#is
       const components = convertVNodesToDynamicComponents(vnodes);
-      const isEmpty = components.every(
-        (component) => (component.isxEditorComponent ? true : false)
+      const isEmpty = components.every((component) =>
+        component.isxEditorComponent ? true : false
       );
       return scopedSlots.default({ components, isEmpty });
     }

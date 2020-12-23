@@ -1,54 +1,53 @@
 // these rules enforce "correct" JSON format instead of normal object format
 
-/* tslint:disable:object-literal-key-quotes quotemark trailing-comma one-line max-line-length prettier */
-
 export const convertedDevData = {
   sitecore: {
     context: {
       pageEditing: false,
     },
     route: {
-      name: "home",
-      displayName: "Home",
+      name: 'home',
+      displayName: 'Home',
       placeholders: {
         main: [
           {
-            componentName: "Home",
+            componentName: 'Home',
             fields: {
               message: {
-                value: "JavaScript all the things!",
+                value: 'JavaScript all the things!',
               },
             },
-            uid: "2339622d-093b-4258-8334-95979e41efa6",
+            uid: '2339622d-093b-4258-8334-95979e41efa6',
             renderingParams: [],
             placeholders: {
-              "page-header": [
+              'page-header': [
                 {
-                  componentName: "Jumbotron",
+                  componentName: 'Jumbotron',
                   params: {
-                    shade: "dark",
-                    titleSize: "1",
+                    shade: 'dark',
+                    titleSize: '1',
                   },
                   fields: {
                     titleText: {
-                      value: "Your Favorite Source of Free Bootstrap Themes!",
+                      value: 'Your Favorite Source of Free Bootstrap Themes!',
                     },
                     body: {
-                      value: "<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>",
+                      value:
+                        '<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>',
                     },
                   },
-                  uid: "53c31a2a-75d5-43c6-a0b8-66b7c7859c30",
+                  uid: '53c31a2a-75d5-43c6-a0b8-66b7c7859c30',
                 },
               ],
-              "page-content": [
+              'page-content': [
                 {
-                  componentName: "DownloadCallout",
+                  componentName: 'DownloadCallout',
                   fields: {
                     linkText: {
-                      value: "Download",
+                      value: 'Download',
                     },
                   },
-                  uid: "6701ac71-845d-4de4-bf8e-1f4feddf8908",
+                  uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
                   params: [],
                 },
               ],
@@ -57,7 +56,7 @@ export const convertedDevData = {
         ],
       },
       fields: {
-        key: "This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;",
+        key: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
       },
     },
   },
@@ -69,57 +68,59 @@ export const convertedLayoutServiceData = {
       pageEditing: false,
     },
     route: {
-      name: "home",
-      displayName: "Home",
+      name: 'home',
+      displayName: 'Home',
       placeholders: {
         main: [
           {
-            componentName: "Home",
+            componentName: 'Home',
             fields: {
               message: {
-                value: "JavaScript all the things!",
-                editable: "JavaScript all the things!",
+                value: 'JavaScript all the things!',
+                editable: 'JavaScript all the things!',
               },
             },
-            uid: "2339622d-093b-4258-8334-95979e41efa6",
+            uid: '2339622d-093b-4258-8334-95979e41efa6',
             renderingParams: [],
             placeholders: {
-              "page-header": [
+              'page-header': [
                 {
-                  componentName: "Jumbotron",
+                  componentName: 'Jumbotron',
                   fields: {
                     titleText: {
-                      value: "Your Favorite Source of Free Bootstrap Themes!",
-                      editable: "Your Favorite Source of Free Bootstrap Themes!",
+                      value: 'Your Favorite Source of Free Bootstrap Themes!',
+                      editable: 'Your Favorite Source of Free Bootstrap Themes!',
                     },
                     body: {
-                      value: "<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>",
-                      editable: "<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>",
+                      value:
+                        '<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>',
+                      editable:
+                        '<p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>',
                     },
                   },
                   params: {
                     shade: {
-                      value: "dark",
-                      editable: "dark",
+                      value: 'dark',
+                      editable: 'dark',
                     },
                     titleSize: {
-                      value: "1",
-                      editable: "1",
+                      value: '1',
+                      editable: '1',
                     },
                   },
-                  uid: "53c31a2a-75d5-43c6-a0b8-66b7c7859c30",
+                  uid: '53c31a2a-75d5-43c6-a0b8-66b7c7859c30',
                 },
               ],
-              "page-content": [
+              'page-content': [
                 {
-                  componentName: "DownloadCallout",
+                  componentName: 'DownloadCallout',
                   fields: {
                     linkText: {
-                      value: "Download",
-                      editable: "Download",
+                      value: 'Download',
+                      editable: 'Download',
                     },
                   },
-                  uid: "6701ac71-845d-4de4-bf8e-1f4feddf8908",
+                  uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
                   params: [],
                 },
               ],
@@ -128,7 +129,7 @@ export const convertedLayoutServiceData = {
         ],
       },
       fields: {
-        key: "This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;",
+        key: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
       },
     },
   },

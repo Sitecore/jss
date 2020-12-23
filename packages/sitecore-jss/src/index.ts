@@ -3,9 +3,7 @@ import * as mediaApi from './mediaApi';
 
 export { dataApi, mediaApi };
 
-export {
-  LayoutServiceRequestOptions
-} from './dataApi';
+export { LayoutServiceRequestOptions } from './dataApi';
 
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
 
@@ -28,12 +26,9 @@ export {
   Item,
   PlaceholdersData,
   ComponentFields,
-  ComponentParams
+  ComponentParams,
 } from './dataModels';
 
-export {
-  getFieldValue,
-  getChildPlaceholder
-} from './layoutDataUtils';
+export { getFieldValue, getChildPlaceholder } from './layoutDataUtils';
 
 export { HttpJsonFetcher, HttpResponse } from './httpClientInterface';

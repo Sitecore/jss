@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
-    "lint": "tslint -p . -c tslint.json \"src/**/*.ts\"",
+    "lint": "eslint --fix ./src/**/*.ts",
     "test": "karma start",
     "test:watch": "karma start --no-single-run --browsers Chrome",
     "coverage": "npm test"
@@ -19,6 +19,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
+    "@angular-eslint/eslint-plugin": "^0.8.0-beta.6",
     "@angular/common": "~10.0.11",
     "@angular/compiler": "~10.0.11",
     "@angular/compiler-cli": "~10.0.11",
@@ -29,6 +30,7 @@
     "@types/jasmine": "^3.4.1",
     "@types/node": "^12.7.8",
     "codelyzer": "^4.5.0",
+    "eslint": "^7.15.0",
     "jasmine-core": "^3.5.0",
     "karma": "^5.1.0",
     "karma-chrome-launcher": "^3.1.0",

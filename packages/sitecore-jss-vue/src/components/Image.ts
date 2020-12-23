@@ -1,12 +1,11 @@
-/* eslint-disable jsx-a11y/alt-text */
 import { mediaApi } from '@sitecore-jss/sitecore-jss';
 import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
 import { generateHtmlTag } from '../utils';
 
 export interface ImageFieldValue {
+  [attributeName: string]: any;
   src?: string;
   /** HTML attributes that will be appended to the rendered <img /> tag. */
-  [attributeName: string]: any;
 }
 
 export interface ImageField {
@@ -88,8 +87,8 @@ export const Image: FunctionalComponentOptions<ImageProps> = {
   props: {
     media: { type: Object, required: true },
     editable: { type: Boolean, default: true },
-    imageParams: { type: Object },
-    mediaUrlPrefix: { type: RegExp },
+    imageParams: { type: Object, default: () => ({}) },
+    mediaUrlPrefix: { type: RegExp, default: undefined },
   },
   // Need to assign `any` return type because Vue type definitions are inaccurate.
   // The Vue type definitions set `render` to a return type of VNode and that's it.
@@ -109,7 +108,11 @@ export const Image: FunctionalComponentOptions<ImageProps> = {
         return getEditableWrapper(media.editable, createElement);
       }
 
-      const imgAttrs = getImageAttrs({ ...foundImg.attrs, ...contextAttrs }, imageParams, mediaUrlPrefix);
+      const imgAttrs = getImageAttrs(
+        { ...foundImg.attrs, ...contextAttrs },
+        imageParams,
+        mediaUrlPrefix
+      );
       if (!imgAttrs) {
         return getEditableWrapper(media.editable, createElement);
       }

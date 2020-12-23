@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable react/display-name */
+
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { shallow } from 'enzyme';
@@ -12,7 +15,7 @@ describe('<FileUpload />', () => {
       valueField: {
         id: 'value_field_id_xxx',
         name: 'value_field_name_xxx',
-        value: 'value_field_name_xxx'
+        value: 'value_field_name_xxx',
       },
       model: {
         itemId: 'model_item_id',
@@ -34,19 +37,19 @@ describe('<FileUpload />', () => {
         validationDataModels: [
           { itemId: 'xxx', message: 'xxx_message', name: 'xxx_name' },
           { itemId: 'yyy', message: 'yyy_message', name: 'yyy_name' },
-          { itemId: 'zzz', message: 'zzz_message', name: 'zzz_name' }
-        ]
+          { itemId: 'zzz', message: 'zzz_message', name: 'zzz_name' },
+        ],
       },
       indexField: {
         id: 'index_field_id_xxx',
         name: 'index_field_name_xxx',
-        value: 'index_field_name_xxx'
+        value: 'index_field_name_xxx',
       },
       fieldIdField: {
         id: 'field_id_field_id_xxx',
         name: 'field_id_field_name_xxx',
-        value: 'field_id_field_name_xxx'
-      }
+        value: 'field_id_field_name_xxx',
+      },
     },
     value: 'val',
     isValid: true,
@@ -54,7 +57,7 @@ describe('<FileUpload />', () => {
     fieldFactory: () => <div>xxx</div>,
     onChange: sinon.spy(),
     onButtonClick: sinon.spy(),
-    tracker: new FormTracker({ endpoint: 'xxx_endpoint' })
+    tracker: new FormTracker({ endpoint: 'xxx_endpoint' }),
   };
 
   it('should file input', () => {
@@ -76,17 +79,17 @@ describe('<FileUpload />', () => {
     expect(inst.getEnabledValidation('yyy')).to.deep.equal({
       itemId: 'yyy',
       message: 'yyy_message',
-      name: 'yyy_name'
+      name: 'yyy_name',
     });
-    expect(inst.getEnabledValidation('zzz')).to.deep.equal({ 
+    expect(inst.getEnabledValidation('zzz')).to.deep.equal({
       itemId: 'zzz',
       message: 'zzz_message',
-      name: 'zzz_name'
+      name: 'zzz_name',
     });
-    expect(inst.getEnabledValidation('xxx')).to.deep.equal({ 
+    expect(inst.getEnabledValidation('xxx')).to.deep.equal({
       itemId: 'xxx',
       message: 'xxx_message',
-      name: 'xxx_name'
+      name: 'xxx_name',
     });
     expect(inst.getEnabledValidation('ggg')).to.equal(undefined);
   });

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-unused-expressions */
 import { mount } from '@vue/test-utils';
 import { richTextField as eeRichTextData } from '../test/data/field-data-EE-on';

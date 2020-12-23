@@ -17,7 +17,6 @@ export const replaceConfigTokens = (val: string) => {
   // this would result in copying files to random places
   if (newVal.indexOf('{sitecoreInstancePath}') > -1 && !config.sitecore.instancePath) {
     throw new Error(
-      // tslint:disable-next-line:max-line-length
       `instancePath config variable was used but was undefined or empty. You likely need to run npm run setup or update your ${userConfigPath}`
     );
   }

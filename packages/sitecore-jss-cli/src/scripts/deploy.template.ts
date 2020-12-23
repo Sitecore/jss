@@ -1,17 +1,23 @@
+/* eslint-disable prettier/prettier */
 import chalk from 'chalk';
 import { Argv } from '../../node_modules/@types/yargs';
 import microManifest from '../micro-manifest';
 
+/**
+ * @param {Argv} yargs
+ */
 export default function builder(yargs: Argv) {
   return yargs.command(
     'template <name>',
-    // tslint:disable-next-line:max-line-length
     'Deploys a new template (or updates an existing template) to the Sitecore server when using Sitecore-first development. `jss deploy template --help` for options.',
     args,
     handler
   );
 }
 
+/**
+ * @param {Argv} yargs
+ */
 export function args(yargs: Argv) {
   return yargs
     .positional('name', {
@@ -27,7 +33,6 @@ export function args(yargs: Argv) {
       requiresArg: false,
       type: 'array',
       describe:
-        // tslint:disable-next-line:max-line-length
         'Creates template fields. Fields can be either a plain name, or name:fieldType. For example, --fields Foo Bar or --fields Foo "Bar Bas:Rich Text"',
     })
     .option('icon', {
@@ -39,13 +44,13 @@ export function args(yargs: Argv) {
       requiresArg: false,
       type: 'string',
       describe: 'The name of the app. Defaults to the package.json config value.',
-		})
-		.option('config', {
-			requiresArg: false,
-			type: 'string',
-			describe: 'Path to scjssconfig file.',
-			default: './scjssconfig.json'
-		})
+    })
+    .option('config', {
+      requiresArg: false,
+      type: 'string',
+      describe: 'Path to scjssconfig file.',
+      default: './scjssconfig.json',
+    })
     .option('deployUrl', {
       requiresArg: false,
       type: 'string',
@@ -63,13 +68,17 @@ export function args(yargs: Argv) {
       requiresArg: false,
       type: 'string',
       describe:
-        'Whitelists a specific SSL certificate thumbprint, regardless of normal SSL validation. Useful for self-signed certificates.'
+        'Whitelists a specific SSL certificate thumbprint, regardless of normal SSL validation. Useful for self-signed certificates.',
     });
 }
 
+/**
+ * @param {Argv} argv
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handler(argv: any) {
   // create micro-manifest to deploy from
-  const fields: Array<{ name: string, type: string }> = [];
+  const fields: Array<{ name: string; type: string }> = [];
 
   if (argv.fields && argv.fields.length > 0) {
     argv.fields.forEach((field: string) => {

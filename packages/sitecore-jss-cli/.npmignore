@@ -4,12 +4,11 @@ sitecore
 index.test.js
 .vscode
 .babelrc
-.eslintrc.json
+.eslintrc
 .npmignore
 .gitignore
 jsconfig.json
 tsconfig.json
-tslint.json
 npm-debug*
 !/types
 .nycrc

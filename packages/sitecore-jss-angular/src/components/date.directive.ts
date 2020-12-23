@@ -1,5 +1,13 @@
 import { DatePipe } from '@angular/common';
-import { Directive, EmbeddedViewRef, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  EmbeddedViewRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { TextField } from './rendering-field';
 
 @Directive({
@@ -8,29 +16,24 @@ import { TextField } from './rendering-field';
 export class DateDirective implements OnChanges {
   private viewRef: EmbeddedViewRef<any>;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scDateFormat') format?: string;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scDateTimezone') timezone?: string;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scDateLocale') locale?: string;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scDateEditable') editable = true;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scDate') field: TextField;
 
   constructor(
     private viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<any>,
     private datePipe: DatePipe
-  ) { }
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['field'] || changes['format']) {
+    if (changes.field || changes.format) {
       if (!this.viewRef) {
         this.viewContainer.clear();
         this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);

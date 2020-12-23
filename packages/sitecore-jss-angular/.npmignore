@@ -3,6 +3,7 @@ testData
 coverage
 sitecore
 index.test.js
+.eslintrc
 .vscode
 .npmignore
 .gitignore
@@ -10,7 +11,6 @@ jsconfig.json
 tsconfig.json
 ng-package.json
 karma.conf.js
-tslint.json
 npm-debug*
 /dist/package.json
 /dist/README.md

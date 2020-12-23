@@ -21,19 +21,20 @@ export interface ConfigOptions {
  * Editing host configuration for next.config.js as a Next.js "plugin"
  * See https://github.com/vercel/next-plugins
  * @param {ConfigOptions} [options] Configuration options
+ * @returns {ConfigOptions} config
  */
-export function config({
-  enabled = false,
-  distDir = '.next-editing',
-}: ConfigOptions = {}) {
-  return function plugin(nextConfig: any = {}) {
+export function config({ enabled = false, distDir = '.next-editing' }: ConfigOptions = {}) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return function plugin(nextConfig: any = {}): any {
     if (!enabled) {
       return nextConfig;
     }
 
     const primaryDistDir = nextConfig.distDir ?? NEXT_DEFAULT_DIST_DIR;
     if (distDir === primaryDistDir) {
-      throw new Error(`The editing 'distDir' (${distDir}) can not be the same as the primary 'distDir' (${primaryDistDir})`);
+      throw new Error(
+        `The editing 'distDir' (${distDir}) can not be the same as the primary 'distDir' (${primaryDistDir})`
+      );
     }
 
     console.info(`${chalk.cyan('info')}  - Applying editing host configuration`);
@@ -41,14 +42,13 @@ export function config({
     const publicUrl = getPublicUrl();
 
     return Object.assign({}, nextConfig, {
-
       // Set our public URL as the asset prefix, which is used by Next.js for the JavaScript and CSS files it loads
       // See https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
       assetPrefix: publicUrl,
-      
+
       // Use dedicated build directory (main app uses '.next')
       distDir,
-      
+
       // Set our public URL to be used by Next.js image optimization
       // See https://nextjs.org/docs/basic-features/image-optimization
       images: {
@@ -58,7 +58,7 @@ export function config({
 
       // Make our public URL available as an environment variable key
       env: {
-        publicUrl
+        publicUrl,
       },
     });
   };

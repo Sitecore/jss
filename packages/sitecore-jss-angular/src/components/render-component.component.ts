@@ -14,7 +14,10 @@ import {
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
-import { ComponentFactoryResult, JssComponentFactoryService } from '../jss-component-factory.service';
+import {
+  ComponentFactoryResult,
+  JssComponentFactoryService,
+} from '../jss-component-factory.service';
 import { PLACEHOLDER_MISSING_COMPONENT_COMPONENT } from './placeholder.token';
 import { RawComponent } from './raw.component';
 import { isRawRendering } from './rendering';
@@ -51,26 +54,33 @@ export class RenderComponentComponent implements OnChanges {
     private differs: KeyValueDiffers,
     private componentFactory: JssComponentFactoryService,
     @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>
-  ) { }
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['rendering']) {
+    if (changes.rendering) {
       this._render();
     }
   }
 
   private _setComponentInputs(componentInstance: any, inputs: { [key: string]: any }) {
-    Object.entries(inputs).forEach(([input, inputValue]) => componentInstance[input] = inputValue);
+    Object.entries(inputs).forEach(
+      ([input, inputValue]) => (componentInstance[input] = inputValue)
+    );
   }
 
-  private _subscribeComponentOutputs(componentInstance: any, outputs: { [k: string]: (eventType: any) => void }) {
+  private _subscribeComponentOutputs(
+    componentInstance: any,
+    outputs: { [k: string]: (eventType: any) => void }
+  ) {
     Object.keys(outputs)
-      .filter((output) => componentInstance[output] && componentInstance[output] instanceof Observable)
-      .forEach((output) => (componentInstance[output] as Observable<any>)
-        .pipe(
-        takeWhile(() => !this.destroyed)
+      .filter(
+        (output) => componentInstance[output] && componentInstance[output] instanceof Observable
       )
-      .subscribe(outputs[output]));
+      .forEach((output) =>
+        (componentInstance[output] as Observable<any>)
+          .pipe(takeWhile(() => !this.destroyed))
+          .subscribe(outputs[output])
+      );
   }
 
   private _render() {
@@ -81,14 +91,18 @@ export class RenderComponentComponent implements OnChanges {
     }
 
     const resolveComponent: Promise<ComponentFactoryResult> = isRawRendering(this.rendering)
-      ? Promise.resolve({ componentImplementation: RawComponent, componentDefinition: this.rendering })
+      ? Promise.resolve({
+          componentImplementation: RawComponent,
+          componentDefinition: this.rendering,
+        })
       : this.componentFactory.getComponent(this.rendering);
 
     resolveComponent.then((rendering) => {
       if (!rendering.componentImplementation) {
         const componentName = (rendering.componentDefinition as ComponentRendering).componentName;
         console.error(
-          `Attempted to render unknown component ${componentName}.`, `Ensure component is mapped, like:
+          `Attempted to render unknown component ${componentName}.`,
+          `Ensure component is mapped, like:
           JssModule.withComponents([
             { name: '${componentName}', type: ${componentName}Component }
           ])`
@@ -98,7 +112,8 @@ export class RenderComponentComponent implements OnChanges {
       }
 
       const componentFactory =
-        rendering.componentFactory || this.componentFactoryResolver.resolveComponentFactory(rendering.componentImplementation);
+        rendering.componentFactory ||
+        this.componentFactoryResolver.resolveComponentFactory(rendering.componentImplementation);
 
       const componentInstance = this.view.createComponent(componentFactory, 0).instance;
       componentInstance.rendering = rendering.componentDefinition;

@@ -1,4 +1,12 @@
-import { Directive, EmbeddedViewRef, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  EmbeddedViewRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { TextField } from './rendering-field';
 
 @Directive({
@@ -7,22 +15,16 @@ import { TextField } from './rendering-field';
 export class TextDirective implements OnChanges {
   private viewRef: EmbeddedViewRef<any>;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scTextEditable') editable = true;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scTextEncode') encode = true;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scText') field: TextField;
 
-  constructor(
-    private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<any>
-  ) { }
+  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<any>) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['field'] || changes['editable'] || changes['encode']) {
+    if (changes.field || changes.editable || changes.encode) {
       if (!this.viewRef) {
         this.viewContainer.clear();
         this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
@@ -46,7 +48,7 @@ export class TextDirective implements OnChanges {
     }
 
     const html = field.editable && editable ? field.editable : field.value;
-    const setDangerously = field.editable && editable || !this.encode;
+    const setDangerously = (field.editable && editable) || !this.encode;
 
     this.viewRef.rootNodes.forEach((node) => {
       if (setDangerously) {

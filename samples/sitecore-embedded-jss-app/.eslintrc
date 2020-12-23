@@ -37,6 +37,7 @@
     "document": true
   },
   "rules": {
+    "jsx-quotes": ["error", "prefer-double"],
     "import/no-duplicates": "off",
     "import/no-named-as-default": "off",
     "max-len": "off",

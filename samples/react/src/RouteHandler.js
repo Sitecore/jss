@@ -1,7 +1,11 @@
 import React from 'react';
 import i18n from 'i18next';
 import Helmet from 'react-helmet';
-import { isExperienceEditorActive, dataApi, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
+import {
+  isExperienceEditorActive,
+  dataApi,
+  withSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-react';
 import { dataFetcher } from './dataFetcher';
 import { getHostname } from './util';
 import config from './temp/config';
@@ -26,7 +30,7 @@ class RouteHandler extends React.Component {
     };
 
     const routeData = this.extractRouteData();
-    
+
     // route data from react-router - if route was resolved, it's not a 404
     if (props.route !== null) {
       this.state.notFound = false;
@@ -68,13 +72,13 @@ class RouteHandler extends React.Component {
 
     const { route, ...context } = this.props.sitecoreContext;
 
-    return  {
+    return {
       sitecore: {
         route,
-        context
-      }
-    }
-  }
+        context,
+      },
+    };
+  };
 
   /**
    * Loads route data from Sitecore Layout Service into state.routeData
@@ -101,8 +105,8 @@ class RouteHandler extends React.Component {
         this.setState({ notFound: true }, () => {
           const context = routeData && routeData.sitecore ? routeData.sitecore.context : null;
 
-          this.props.updateSitecoreContext(context)
-        })
+          this.props.updateSitecoreContext(context);
+        });
       }
     });
   }
@@ -190,4 +194,4 @@ function getRouteData(route, language) {
   });
 }
 
-export default withSitecoreContext({ updatable: true })(RouteHandler)
+export default withSitecoreContext({ updatable: true })(RouteHandler);

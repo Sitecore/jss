@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 export interface RichTextProps {
+  [htmlAttributes: string]: unknown;
   /** The rich text field data. */
   field?: {
     value?: string;
@@ -18,24 +19,25 @@ export interface RichTextProps {
    * @default true
    */
   editable?: boolean;
-  [htmlAttributes: string]: any;
 }
 
-export const RichText: React.SFC<RichTextProps> = forwardRef(({ field, tag, editable, ...otherProps }, ref) => {
-  if (!field || (!field.editable && !field.value)) {
-    return null;
-	}
+export const RichText: React.SFC<RichTextProps> = forwardRef(
+  ({ field, tag, editable, ...otherProps }, ref) => {
+    if (!field || (!field.editable && !field.value)) {
+      return null;
+    }
 
-  const htmlProps = {
-    dangerouslySetInnerHTML: {
-      __html: field.editable && editable ? field.editable : field.value,
-		},
-		ref,
-    ...otherProps,
-  };
+    const htmlProps = {
+      dangerouslySetInnerHTML: {
+        __html: field.editable && editable ? field.editable : field.value,
+      },
+      ref,
+      ...otherProps,
+    };
 
-  return React.createElement(tag || 'div', htmlProps);
-});
+    return React.createElement(tag || 'div', htmlProps);
+  }
+);
 
 export const RichTextPropTypes = {
   field: PropTypes.shape({
