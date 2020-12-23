@@ -10,14 +10,14 @@ import {
 export type RichTextProps = ReactRichTextProps & {
   /**
    * Selector which should be used in order to prefetch it and attach event listeners
-	 * @defaultvalue 'a[href^="/"]'
+   * @default 'a[href^="/"]'
    */
   internalLinksSelector?: string;
 };
 
 const prefetched: { [cacheKey: string]: boolean } = {};
 
-export const RichText = (props: RichTextProps) => {
+export const RichText = (props: RichTextProps): JSX.Element => {
   const { internalLinksSelector = 'a[href^="/"]', ...rest } = props;
   const hasText = props.field && props.field.value;
   const isEditing = props.editable && props.field && props.field.editable;
@@ -36,7 +36,7 @@ export const RichText = (props: RichTextProps) => {
     if (!ev.target) return;
 
     ev.preventDefault();
-     
+
     const pathname = (ev.target as HTMLAnchorElement).pathname;
 
     router.push(pathname, pathname, { locale: false });

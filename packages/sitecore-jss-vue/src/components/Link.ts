@@ -1,11 +1,11 @@
 import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
 
 export interface LinkFieldValue {
+  [attributeName: string]: any;
   href?: string;
   className?: string;
   title?: string;
   target?: string;
-  [attributeName: string]: any;
 }
 
 export interface LinkField {
@@ -109,7 +109,9 @@ export const Link: FunctionalComponentOptions<LinkProps> = {
     }
 
     const linkText =
-      showLinkTextWithChildrenPresent || !children || children.length === 0 ? (link.text || link.href) : null;
+      showLinkTextWithChildrenPresent || !children || children.length === 0
+        ? link.text || link.href
+        : null;
 
     const finalChildren = children ? [linkText, ...children] : linkText;
 

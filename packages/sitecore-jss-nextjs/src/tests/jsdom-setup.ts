@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md
 
 declare module 'style-attr';
+
+// eslint-disable-next-line no-var
 declare var global: any;
 
 const { JSDOM } = require('jsdom');
@@ -8,13 +11,20 @@ const { JSDOM } = require('jsdom');
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
 const jsDomWindow = jsdom.window;
 
+/**
+ * @param {any} src
+ * @param {any} target
+ */
 function copyProps(src: any, target: any) {
   const props = Object.getOwnPropertyNames(src)
-    .filter(prop => typeof target[prop] === 'undefined')
-    .reduce((result, prop) => ({
-      ...result,
-      [prop]: Object.getOwnPropertyDescriptor(src, prop),
-    }),     {});
+    .filter((prop) => typeof target[prop] === 'undefined')
+    .reduce(
+      (result, prop) => ({
+        ...result,
+        [prop]: Object.getOwnPropertyDescriptor(src, prop),
+      }),
+      {}
+    );
 
   Object.defineProperties(target, props);
 }

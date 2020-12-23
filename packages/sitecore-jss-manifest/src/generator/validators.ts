@@ -17,7 +17,11 @@ const placeholderSchema = joi.object().keys({
   displayName: joi.string(),
 });
 
-const validate = (object: any, schema: any, allowUnknown: any): {
+const validate = (
+  object: any,
+  schema: any,
+  allowUnknown: any
+): {
   valid: boolean;
   error?: joi.ValidationError;
 } => {
@@ -31,4 +35,5 @@ const validate = (object: any, schema: any, allowUnknown: any): {
 
 export const validateTemplate = (template: any) => validate(template, templateSchema, true);
 
-export const validatePlaceholder = (placeholder: any) => validate(placeholder, placeholderSchema, true);
+export const validatePlaceholder = (placeholder: any) =>
+  validate(placeholder, placeholderSchema, true);

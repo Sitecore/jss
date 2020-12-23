@@ -21,7 +21,7 @@ const VIComponent: React.FC<VIProps> = ({ sitecoreContext }) => {
   emittedVI = true;
 
   const script = document.createElement('script');
-  script.src = `/layouts/system/VisitorIdentification.js`;
+  script.src = '/layouts/system/VisitorIdentification.js';
   script.type = 'text/javascript';
 
   const meta = document.createElement('meta');

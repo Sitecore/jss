@@ -4,33 +4,41 @@ import NextLink from 'next/link';
 import {
   Link as ReactLink,
   LinkFieldValue,
+  LinkField,
   LinkProps as ReactLinkProps,
   LinkPropTypes,
 } from '@sitecore-jss/sitecore-jss-react';
 
 export type LinkProps = ReactLinkProps & {
-	/**
-	 * If `href` match with `internalLinkMatcher` regexp, then it's internal link and NextLink will be rendered
-	 * @defaultvalue /^\//g
-	 */
-	internalLinkMatcher?: RegExp;
+  /**
+   * If `href` match with `internalLinkMatcher` regexp, then it's internal link and NextLink will be rendered
+   * @default /^\//g
+   */
+  internalLinkMatcher?: RegExp;
 };
 
-export const Link = (props: LinkProps) => {
-  const { editable, internalLinkMatcher = /^\//g, showLinkTextWithChildrenPresent, ...htmlLinkProps } = props;
+export const Link = (props: LinkProps): JSX.Element => {
+  const {
+    editable,
+    internalLinkMatcher = /^\//g,
+    showLinkTextWithChildrenPresent,
+    ...htmlLinkProps
+  } = props;
 
-  const value = (props.field as LinkFieldValue).href ? props.field : props.field.value;
-  const hasValidHref = value && value.href;
+  const value = ((props.field as LinkFieldValue).href
+    ? props.field
+    : (props.field as LinkField).value) as LinkFieldValue;
+  const { href } = value;
   const isEditing = editable && (props.field as LinkFieldValue).editable;
 
-  if (hasValidHref && !isEditing) {
+  if (href && !isEditing) {
     const text =
       showLinkTextWithChildrenPresent || !props.children ? value.text || value.href : null;
 
     // determine if a link is a route or not.
-    if (internalLinkMatcher.test(value.href)) {
+    if (internalLinkMatcher.test(href)) {
       return (
-        <NextLink href={value.href} key="link" locale={false}>
+        <NextLink href={href} key="link" locale={false}>
           <a title={value.title} target={value.target} className={value.class} {...htmlLinkProps}>
             {text}
             {props.children}
@@ -50,6 +58,6 @@ Link.defaultProps = {
 Link.displayName = 'NextLink';
 
 Link.propTypes = {
-	internalLinkMatcher: PropTypes.instanceOf(RegExp),
-	...LinkPropTypes
+  internalLinkMatcher: PropTypes.instanceOf(RegExp),
+  ...LinkPropTypes,
 };

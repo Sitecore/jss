@@ -6,11 +6,16 @@ export interface ComponentFactoryProps {
   componentFactory?: ComponentFactory;
 }
 
-export function withComponentFactory<T extends ComponentFactoryProps>(Component: React.ComponentClass<T> | React.SFC<T>) {
+/**
+ * @param {React.ComponentClass<T> | React.SFC<T>} Component
+ */
+export function withComponentFactory<T extends ComponentFactoryProps>(
+  Component: React.ComponentClass<T> | React.SFC<T>
+) {
   return function WithComponentFactory(props: T) {
     return (
       <ComponentFactoryReactContext.Consumer>
-        {context => <Component {...props} componentFactory={props.componentFactory || context} />}
+        {(context) => <Component {...props} componentFactory={props.componentFactory || context} />}
       </ComponentFactoryReactContext.Consumer>
     );
   };

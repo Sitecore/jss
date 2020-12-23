@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
@@ -7,6 +8,9 @@ import { GitHubSource } from '../create/create.source.github';
 import { runPackageManagerCommand } from '../run-package-script';
 import spawn from '../spawn';
 
+/**
+ * @param {any} yargs
+ */
 export function builder(yargs: Argv) {
   return yargs.command(
     'create <name> <template>',
@@ -54,13 +58,16 @@ export function builder(yargs: Argv) {
         .option('proxy', {
           requiresArg: false,
           type: 'string',
-          describe:
-            'Specify a HTTP proxy when downloading templates.',
+          describe: 'Specify a HTTP proxy when downloading templates.',
         }),
     handler
   );
 }
 
+/**
+ * @param {any} argv
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handler(argv: any) {
   const newProjectPath = path.join(process.cwd(), argv.name);
   const createScriptPath = path.join(newProjectPath, 'jss-create.js');
@@ -88,14 +95,12 @@ async function handler(argv: any) {
   }
 
   nextStepsList.push(`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`);
-  nextStepsList.push(`* Check out the JSS documentation at https://jss.sitecore.net`);
+  nextStepsList.push('* Check out the JSS documentation at https://jss.sitecore.net');
 
   if (!fs.existsSync(createScriptPath)) {
     console.warn(
       chalk.yellow(
-        `Template ${
-          argv.template
-        } did not have a jss-create.js in its root to invoke. No template configuration will be performed.`
+        `Template ${argv.template} did not have a jss-create.js in its root to invoke. No template configuration will be performed.`
       )
     );
   } else {
@@ -109,6 +114,10 @@ async function handler(argv: any) {
   nextSteps(argv.name, nextStepsList);
 }
 
+/**
+ * @param {string} name
+ * @param {string} proposedPath
+ */
 function checkName(name: string, proposedPath: string) {
   if (!/^[a-z\-_.]+$/.test(name)) {
     console.error(
@@ -127,6 +136,9 @@ function checkName(name: string, proposedPath: string) {
   }
 }
 
+/**
+ * @param {string} projectFolder
+ */
 function installPackages(projectFolder: string) {
   console.log(chalk.cyan('Installing packages...'));
   runPackageManagerCommand(['install'], { cwd: projectFolder, encoding: 'utf8' });
@@ -159,6 +171,10 @@ function installPackages(projectFolder: string) {
   }
 }
 
+/**
+ * @param {string} name
+ * @param {string[]} nextStepsArray
+ */
 function nextSteps(name: string, nextStepsArray: string[]) {
   console.log(chalk.red('                 -/oyhdmNNNNmdhyo/-                '));
   console.log(chalk.red('             :sdMMMMMMMMMMMMMMMMMMMMds:            '));

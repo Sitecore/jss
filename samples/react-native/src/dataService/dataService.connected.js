@@ -12,6 +12,7 @@ const { fetchRouteData } = dataApi;
  * in sitecore-jss library for implementation details/notes.
  * @param {string} url The URL to request; may include query string
  * @param {any} data Optional data to POST with the request.
+ * @returns {AxiosPromise} route data
  */
 function routeDataFetcher(url, data) {
   return axios({
@@ -24,19 +25,17 @@ function routeDataFetcher(url, data) {
   });
 }
 
-const getFetchOptions = (language) => {
-  return {
-    layoutServiceConfig: { host: __SC_API_HOST__ },
-    querystringParams: { sc_lang: language, sc_apikey: __SC_API_KEY__ },
-    fetcher: routeDataFetcher,
-  };
-};
+const getFetchOptions = (language) => ({
+  layoutServiceConfig: { host: __SC_API_HOST__ },
+  querystringParams: { sc_lang: language, sc_apikey: __SC_API_KEY__ },
+  fetcher: routeDataFetcher,
+});
 
 const getRouteData = (route, { options, language } = {}) => {
   const fetchOptions = options || getFetchOptions(language);
 
-  return fetchRouteData(route, fetchOptions).then(
-    (data) => (data && data.sitecore ? data.sitecore.route : {})
+  return fetchRouteData(route, fetchOptions).then((data) =>
+    data && data.sitecore ? data.sitecore.route : {}
   );
 };
 

@@ -1,4 +1,12 @@
-import { Directive, EmbeddedViewRef, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  EmbeddedViewRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { RichTextField } from './rendering-field';
 
 @Directive({
@@ -7,19 +15,14 @@ import { RichTextField } from './rendering-field';
 export class RichTextDirective implements OnChanges {
   private viewRef: EmbeddedViewRef<any>;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scRichTextEditable') editable = true;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scRichText') field: RichTextField;
 
-  constructor(
-    private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<any>,
-  ) { }
+  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<any>) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['field'] || changes['editable']) {
+    if (changes.field || changes.editable) {
       if (!this.viewRef) {
         this.viewContainer.clear();
         this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
@@ -35,7 +38,7 @@ export class RichTextDirective implements OnChanges {
       return;
     }
 
-    const html = (field.editable && this.editable ? field.editable : field.value);
+    const html = field.editable && this.editable ? field.editable : field.value;
     this.viewRef.rootNodes.forEach((node) => {
       node.innerHTML = html;
     });

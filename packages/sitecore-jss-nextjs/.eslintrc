@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "plugin:react/recommended",
+    "../../.eslintrc"
+  ],
+  "plugins": ["react"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "globals": {
+    "React": "writable"
+  }
+}

@@ -13,7 +13,7 @@ const ListBox: React.FunctionComponent<ListFieldProps<ListBoxViewModel>> = (prop
     value,
     onChange,
     tracker,
-    errors
+    errors,
   } = props;
 
   let finalValue: string | string[] = value;
@@ -53,6 +53,11 @@ const ListBox: React.FunctionComponent<ListFieldProps<ListBoxViewModel>> = (prop
   );
 };
 
+/**
+ * @param {ValueFormField} field
+ * @param {HTMLOptionsCollection} options
+ * @param {FieldChangeCallback} callback
+ */
 function handleOnChange(
   field: ValueFormField,
   options: HTMLOptionsCollection,

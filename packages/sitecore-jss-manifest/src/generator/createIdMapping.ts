@@ -1,6 +1,9 @@
 import { ManifestInstance } from './manifest.types';
 import { traverseAllItems, traverseAllRenderings } from './traversal';
 
+/**
+ * @param {string} value
+ */
 function isGuid(value: string) {
   return /^(\{{0,1}([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}\}{0,1})$/.test(
     value
@@ -57,9 +60,7 @@ export const createIdMapping = (manifest: ManifestInstance) => {
     if (!usedIdMap.has(reference.id)) {
       if (isGuid(reference.id)) {
         console.warn(
-          `The referenced ID ${
-            reference.id
-          } was not defined in the manifest. Ensure that this item ID already exists in Sitecore before importing.`
+          `The referenced ID ${reference.id} was not defined in the manifest. Ensure that this item ID already exists in Sitecore before importing.`
         );
       } else {
         throw new Error(

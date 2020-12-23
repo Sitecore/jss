@@ -29,7 +29,11 @@ export { DateField } from './components/Date';
 export { Link, LinkField, LinkFieldValue, LinkProps, LinkPropTypes } from './components/Link';
 export { File, FileField } from './components/File';
 export { VisitorIdentification } from './components/VisitorIdentification';
-export { SitecoreContext, SitecoreContextState, SitecoreContextReactContext } from './components/SitecoreContext';
+export {
+  SitecoreContext,
+  SitecoreContextState,
+  SitecoreContextReactContext,
+} from './components/SitecoreContext';
 export { withSitecoreContext, useSitecoreContext } from './enhancers/withSitecoreContext';
 export { withExperienceEditorChromes } from './enhancers/withExperienceEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';

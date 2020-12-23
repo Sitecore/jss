@@ -15,6 +15,6 @@ crossSpawn.sync('git add .', {
 crossSpawn.sync('git commit -am "Save before eject"', {
   stdio: 'inherit',
 });
-crossSpawn.sync(`npm run eject`, {
+crossSpawn.sync('npm run eject', {
   stdio: 'inherit',
 });

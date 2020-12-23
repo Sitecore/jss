@@ -1,18 +1,24 @@
-
 import { createHash, createHmac } from 'crypto';
 import { createReadStream } from 'fs';
 
+/**
+ * @param {string} path
+ */
 export function digest(path: string): Promise<string> {
   return new Promise((resolve, reject) => {
     const hash = createHash('sha256');
 
     createReadStream(path)
       .pipe(hash.setEncoding('base64'))
-      .on('error', (err: any) => reject(err))
+      .on('error', (err: unknown) => reject(err))
       .on('finish', () => resolve(hash.read() as string));
   });
 }
 
+/**
+ * @param {string[]} factors
+ * @param {string} secret
+ */
 export function hmac(factors: string[], secret: string) {
   const mac = createHmac('sha256', secret);
   mac.setEncoding('base64');

@@ -6,18 +6,16 @@ import {
   RouteData,
 } from '@sitecore-jss/sitecore-jss';
 
-const isComponentRendering = (element: any): element is ComponentRendering => element.componentName;
+const isComponentRendering = (element: unknown) => (element as ComponentRendering).componentName;
 
 /**
  * Receives dev prop data and creates or assigns "value/editable" values where needed to match signature of LayoutService data.
+ * @param {Object | undefined} propData
+ * @returns {Object} prop data in layout service format
  */
 export const convertPropDataToLayoutServiceFormat = (
-  propData:
-    | {
-        [name: string]: Field | Item | Item[] | undefined;
-      }
-    | undefined
-): { [name: string]: Field } | {} => {
+  propData: { [name: string]: Field | Item | Item[] | undefined } | undefined
+): { [name: string]: Field } => {
   if (!propData) {
     return {};
   }
@@ -29,7 +27,7 @@ export const convertPropDataToLayoutServiceFormat = (
       return { ...result, [propName]: propValue };
     }
 
-    const newResult: { [name: string]: any } = { ...result };
+    const newResult: { [name: string]: unknown } = { ...result };
 
     // field value might be an array, in which case we need to iterate the array entries for more prop values
     if (Array.isArray(propValue)) {
@@ -46,8 +44,8 @@ export const convertPropDataToLayoutServiceFormat = (
     if (!('value' in propValue) && !('editable' in propValue)) {
       return {
         ...propValue,
-        fields: convertPropDataToLayoutServiceFormat(propValue.fields)
-      }
+        fields: convertPropDataToLayoutServiceFormat(propValue.fields),
+      };
     }
 
     // assume propValue _should_ always contain a 'value' key. if it doesn't then bail.
@@ -89,6 +87,8 @@ export const convertPropDataToLayoutServiceFormat = (
 /**
  * Receives dev route data and creates or assigns "value/editable" values where needed
  * for all fields and rendering props to match signature of LayoutService data.
+ * @param {RouteData} routeData
+ * @returns {Object} route data in layout service format
  */
 export const convertRouteToLayoutServiceFormat = (routeData: RouteData) => {
   const fields = convertPropDataToLayoutServiceFormat(routeData.fields);
@@ -98,30 +98,28 @@ export const convertRouteToLayoutServiceFormat = (routeData: RouteData) => {
       return {};
     }
 
-    return Object.keys(placeholders).reduce(
-      (result, placeholderName) => {
-        const placeholder = placeholders[placeholderName];
-        const elements = placeholder.map((element) => {
-          if (isComponentRendering(element)) {
-            // https://stackoverflow.com/a/40560953/9324
-            return {
-              ...element,
-              ...(element.placeholders && {
-                placeholders: transformPlaceholders(element.placeholders),
-              }),
-              ...(element.params && { params: element.params }),
-              ...(element.fields && {
-                fields: convertPropDataToLayoutServiceFormat(element.fields),
-              }),
-            };
-          }
-          return element;
-        });
-        result[placeholderName] = elements;
-        return result;
-      },
-      {} as PlaceholdersData
-    );
+    return Object.keys(placeholders).reduce((result, placeholderName) => {
+      const placeholder = placeholders[placeholderName];
+      const elements = placeholder.map((element) => {
+        if (isComponentRendering(element)) {
+          const componentRendering = element as ComponentRendering;
+          // https://stackoverflow.com/a/40560953/9324
+          return {
+            ...componentRendering,
+            ...(componentRendering.placeholders && {
+              placeholders: transformPlaceholders(componentRendering.placeholders),
+            }),
+            ...(componentRendering.params && { params: componentRendering.params }),
+            ...(componentRendering.fields && {
+              fields: convertPropDataToLayoutServiceFormat(componentRendering.fields),
+            }),
+          };
+        }
+        return element;
+      });
+      result[placeholderName] = elements;
+      return result;
+    }, {} as PlaceholdersData);
   };
 
   const transformedPlaceholders = transformPlaceholders(routeData.placeholders);

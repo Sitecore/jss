@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable-next-line spaced-comment
 /// <reference types="../global" />
 import chai from 'chai';
 import sinon from 'sinon';
@@ -14,7 +17,7 @@ chai.use(sinonChai);
 
 const EDIT_ROUTE = '_edit';
 
-const mockRequest = (body?: object) => {
+const mockRequest = (body?: any) => {
   return {
     method: 'POST',
     url: '/',
@@ -30,14 +33,13 @@ const mockResponse = () => {
 };
 
 describe('EditingMiddleware', () => {
-
   it('should call renderToHTML', async () => {
     const req = mockRequest(EE_BODY);
     const res = mockResponse();
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves('<html></html>');
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
@@ -47,7 +49,7 @@ describe('EditingMiddleware', () => {
     expect(nextApp.renderToHTML.args[0][0].url, 'request.url').to.equal(EDIT_ROUTE);
     expect(nextApp.renderToHTML.args[0][2], 'pathname').to.equal(EDIT_ROUTE);
   });
-  
+
   it('should use custom editRoute', async () => {
     const req = mockRequest(EE_BODY);
     const res = mockResponse();
@@ -55,7 +57,7 @@ describe('EditingMiddleware', () => {
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves('<html></html>');
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, customEditRoute);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, customEditRoute);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
@@ -70,13 +72,14 @@ describe('EditingMiddleware', () => {
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves('<html></html>');
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
-    expect((nextApp.renderToHTML.args[0][0] as EditingRequest).editingData, 'request.editingData').to.not.be.undefined;
+    expect((nextApp.renderToHTML.args[0][0] as EditingRequest).editingData, 'request.editingData')
+      .to.not.be.undefined;
   });
-  
+
   it('should return json with rendered html', async () => {
     const req = mockRequest(EE_BODY);
     const res = mockResponse();
@@ -84,7 +87,7 @@ describe('EditingMiddleware', () => {
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves(html);
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
@@ -99,7 +102,7 @@ describe('EditingMiddleware', () => {
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves('');
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
@@ -107,14 +110,13 @@ describe('EditingMiddleware', () => {
     expect(res.status).to.have.been.calledWith(500);
   });
 
-
   it('should respond with 500 if rendered html empty', async () => {
     const req = mockRequest(EE_BODY);
     const res = mockResponse();
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves('');
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
@@ -127,23 +129,23 @@ describe('EditingMiddleware', () => {
     const res = mockResponse();
     const html = '<html></html>';
     const processor = {
-      processHtml: sinon.stub()
+      processHtml: sinon.stub(),
     } as HtmlProcessor;
 
     const nextApp = sinon.createStubInstance(Server);
     nextApp.renderToHTML.resolves(html);
-    const middleware = new EditingMiddleware(nextApp as unknown as Server, EDIT_ROUTE, [ processor ]);
+    const middleware = new EditingMiddleware((nextApp as unknown) as Server, EDIT_ROUTE, [
+      processor,
+    ]);
     const handler = middleware.getRequestHandler();
 
     await handler(req, res);
 
     expect(processor.processHtml).to.have.been.calledWith(html);
   });
-
 });
 
 describe('extractEditingData', () => {
-
   it('should throw if body missing', () => {
     const req = mockRequest();
     expect(() => extractEditingData(req)).to.throw;
@@ -160,7 +162,7 @@ describe('extractEditingData', () => {
     const data = extractEditingData(req);
     expect(data.language).to.equal(EE_LANGUAGE);
   });
-  
+
   it('should return layout data', () => {
     const req = mockRequest(EE_BODY);
     const data = extractEditingData(req);
@@ -174,5 +176,4 @@ describe('extractEditingData', () => {
     const expected = JSON.parse(EE_DICTIONARY);
     expect(data.dictionary).to.eql(expected);
   });
-
 });

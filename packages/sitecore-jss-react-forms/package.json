@@ -1,11 +1,11 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-forms",
-  "version": "16.0.0-canary.8",
+  "version": "16.0.0-canary.9",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "del-cli dist types",
-    "lint": "tslint -p . -c ./tslint.json \"src/**/*.ts\"",
+    "lint": "eslint --fix ./src/**/*.tsx ./src/**/*.ts",
     "test": "mocha --require ts-node/register --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.tsx\"",
     "prepublishOnly": "npm run build"
   },
@@ -35,13 +35,14 @@
     "del-cli": "^3.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^7.15.0",
+    "eslint-plugin-react": "^7.21.5",
     "jsdom": "^16.2.2",
     "mocha": "^7.2.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "sinon": "^9.0.2",
     "ts-node": "^8.4.1",
-    "tslint-react": "^4.1.0",
     "typescript": "^3.6.3"
   },
   "peerDependencies": {
@@ -49,7 +50,7 @@
     "react-dom": "^16.10.2"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-forms": "^16.0.0-canary.8",
+    "@sitecore-jss/sitecore-jss-forms": "^16.0.0-canary.9",
     "prop-types": "^15.7.2"
   },
   "description": "",

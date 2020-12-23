@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
 
 export type CustomizeRenderFunction = (

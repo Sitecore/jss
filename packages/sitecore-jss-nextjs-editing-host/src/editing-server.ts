@@ -38,7 +38,7 @@ export interface EditingServerOptions {
   /**
    * URL path prefixes that should be ignored during relative to absolute link replacement.
    * @default ['-/media/', '~/media/', '-/jssmedia/', '~/jssmedia/', 'sitecore/shell/']
-   */  
+   */
   ignoredReplacementPaths?: string[];
 }
 
@@ -52,7 +52,13 @@ export function startEditingServer({
   editRoute = '/_edit',
   editPath = '*',
   enableCompression = true,
-  ignoredReplacementPaths =  ['-/media/', '~/media/', '-/jssmedia/', '~/jssmedia/', 'sitecore/shell/'],
+  ignoredReplacementPaths = [
+    '-/media/',
+    '~/media/',
+    '-/jssmedia/',
+    '~/jssmedia/',
+    'sitecore/shell/',
+  ],
 }: EditingServerOptions = {}): void {
   const dev = process.env.NODE_ENV !== 'production';
   const serverUrl = `http://${hostname}:${port}`;
@@ -63,8 +69,8 @@ export function startEditingServer({
     app.prepare().then(() => {
       const server = express();
       const handle = app.getRequestHandler();
-      const handleEdit = new EditingMiddleware(app, editRoute, [ 
-        new AbsolutifyHtmlProcessor(getPublicUrl(), ignoredReplacementPaths) 
+      const handleEdit = new EditingMiddleware(app, editRoute, [
+        new AbsolutifyHtmlProcessor(getPublicUrl(), ignoredReplacementPaths),
       ]).getRequestHandler();
 
       // Disable X-Powered-By header
@@ -72,7 +78,8 @@ export function startEditingServer({
 
       // Wire up the middleware for Experience Editor (assume only POST requests should be handled)
       // Note Next.js already includes compression with its handler, so we're only concerned with ours
-      const editHandlers: any[] = [ bodyParser.json({ limit: '2mb' }), handleEdit ];
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const editHandlers: any[] = [bodyParser.json({ limit: '2mb' }), handleEdit];
       if (enableCompression) {
         editHandlers.unshift(compression());
       }
@@ -83,7 +90,7 @@ export function startEditingServer({
         return handle(req, res);
       });
 
-      server.listen(port, hostname, (err?: any) => {
+      server.listen(port, hostname, (err?: unknown) => {
         if (err) {
           throw err;
         }

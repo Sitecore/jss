@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-unused-expressions */
 import { mount } from '@vue/test-utils';
 
@@ -41,10 +42,10 @@ describe('<Date />', () => {
   });
 
   it('should render formatted value with formatter', () => {
-    const formatter: FormatterFunction = () => 'rendered val'
-    const props = { 
+    const formatter: FormatterFunction = () => 'rendered val';
+    const props = {
       field: { value: 'value' },
-      formatter
+      formatter,
     };
 
     const rendered = mount(DateField, {
@@ -65,7 +66,7 @@ describe('<Date />', () => {
       context: { props },
     }).find('span');
     expect(rendered.element.innerHTML).toBe('rendered val null');
-  })
+  });
 
   it('should render other attributes with other props provided', () => {
     const field = { value: 'value' };

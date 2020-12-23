@@ -13,7 +13,7 @@ export interface TrackingRequestOptions {
   /**
    * An object of key:value pairs to be stringified and used as querystring parameters.
    */
-  querystringParams?: { [key: string]: any };
+  querystringParams?: { [key: string]: unknown };
 
   /** Type of tracking request action. Default: 'event' */
   action?: string;

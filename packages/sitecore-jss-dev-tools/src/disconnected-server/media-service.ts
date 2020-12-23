@@ -1,3 +1,4 @@
+import { Request, Response } from 'express';
 import fs from 'fs';
 import path from 'path';
 
@@ -10,8 +11,14 @@ export interface DisconnectedAssetMiddlewareOptions {
   staticRootPath: string;
 }
 
-export function createDisconnectedAssetMiddleware({ manifestPath, staticRootPath }: DisconnectedAssetMiddlewareOptions) {
-  return function disconnectedAssetMiddleware(request: any, response: any) {
+/**
+ * @param {DisconnectedAssetMiddlewareOptions} config
+ */
+export function createDisconnectedAssetMiddleware({
+  manifestPath,
+  staticRootPath,
+}: DisconnectedAssetMiddlewareOptions) {
+  return function disconnectedAssetMiddleware(request: Request, response: Response) {
     let localUrl = request.originalUrl;
 
     // strip query

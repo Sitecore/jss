@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 export interface RenderingField {
   value?: any;
   editable?: string;
@@ -18,8 +19,6 @@ export interface LinkField extends RenderingField {
   editableLastPart?: string;
 }
 
-// tslint:disable-next-line:no-empty-interface
-export interface RichTextField extends RenderingField { }
+export interface RichTextField extends RenderingField {}
 
-// tslint:disable-next-line:no-empty-interface
-export interface TextField extends RenderingField { }
+export interface TextField extends RenderingField {}

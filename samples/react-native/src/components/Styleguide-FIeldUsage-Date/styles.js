@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-	field: {
-		marginBottom: 8
-	}
-})
+  field: {
+    marginBottom: 8,
+  },
+});

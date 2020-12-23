@@ -3,9 +3,9 @@ import React from 'react';
 import { StaticRouter, matchPath } from 'react-router-dom';
 import { renderToStringWithData } from 'react-apollo';
 import Helmet from 'react-helmet';
-import axios from "axios";
-import http from "http";
-import https from "https";
+import axios from 'axios';
+import http from 'http';
+import https from 'https';
 import GraphQLClientFactory from '../src/lib/GraphQLClientFactory';
 import config from '../src/temp/config';
 import i18ninit from '../src/i18n';
@@ -74,7 +74,7 @@ export function renderView(callback, path, data, viewBag) {
         // is included in the SSR'ed markup instead of whatever the 'loading' state is.
         // Not using GraphQL? Use ReactDOMServer.renderToString() instead.
         renderToStringWithData(
-          <AppRoot 
+          <AppRoot
             path={path}
             Router={StaticRouter}
             graphQLClient={graphQLClient}

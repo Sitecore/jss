@@ -1,11 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ManifestInstance, RouteDefinition } from '@sitecore-jss/sitecore-jss-manifest';
 import chalk from 'chalk';
-import { CustomizeRenderFunction, DisconnectedLayoutServiceOptions } from './DisconnectedLayoutServiceOptions';
+import { Request, Response } from 'express';
+import {
+  CustomizeRenderFunction,
+  DisconnectedLayoutServiceOptions,
+} from './DisconnectedLayoutServiceOptions';
 
-/*
-  Implements a fake version of the Sitecore JSS Layout Service that is powered by a local manifest file
-*/
-
+/**
+ * Implements a fake version of the Sitecore JSS Layout Service that is powered by a local manifest file
+ * @param {string} language
+ */
 function createDefaultContext(language: string) {
   return {
     pageEditing: false,
@@ -17,6 +22,10 @@ function createDefaultContext(language: string) {
   };
 }
 
+/**
+ * @param {string} routePath
+ * @param {ManifestInstance} manifest
+ */
 function getRouteData(routePath: string, manifest: ManifestInstance) {
   const pathBits = routePath.split('/').filter((bit: string) => bit && bit.length > 0);
 
@@ -58,8 +67,10 @@ function getRouteData(routePath: string, manifest: ManifestInstance) {
   return currentRoute;
 }
 
+/**
+ * @param {string} dynamicKey
+ */
 function extractDynamicPlaceholderKeyDetails(dynamicKey: string) {
-  /* tslint:disable max-line-length */
   // attempts to match a dynamic placeholder key of the format (key)-{UID}-{index}, e.g. page-content-{BC8C7AB9-6D40-5393-ABDE-6D7DF27F2D3F}-0
   const dynamicKeyMatches = /^(.*)-(\{{0,1}([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}\}{0,1})-([0-9]+)$/.exec(
     dynamicKey
@@ -84,6 +95,9 @@ function extractDynamicPlaceholderKeyDetails(dynamicKey: string) {
   };
 }
 
+/**
+ * @param {string} placeholderKey
+ */
 function extractTopLevelPlaceholderDetails(placeholderKey: string) {
   let keySegment = placeholderKey;
 
@@ -106,6 +120,10 @@ function extractTopLevelPlaceholderDetails(placeholderKey: string) {
   return extractDynamicPlaceholderKeyDetails(keySegment);
 }
 
+/**
+ * @param {string} placeholderKey
+ * @param {any} resultObject
+ */
 function getOrCreatePlaceholderPath(placeholderKey: string, resultObject: any): any {
   const placeholderDetails = extractTopLevelPlaceholderDetails(placeholderKey);
 
@@ -163,6 +181,9 @@ function getOrCreatePlaceholderPath(placeholderKey: string, resultObject: any): 
   return placeholder;
 }
 
+/**
+ * @param {any} input
+ */
 export function remapFieldsArrayToFieldsObject(input: any) {
   // fields go from "name: foo, value: bar" to "foo: { value: bar, editable: bar }"
   return input.reduce((fieldReduceResult: any, current: any) => {
@@ -219,40 +240,60 @@ export function remapFieldsArrayToFieldsObject(input: any) {
   }, {});
 }
 
-function convertManifestLayoutDataToLayoutServiceFormat(manifestLayout: any, placeholders: string[], currentManifest: ManifestInstance, request: any, response: any, customizeHook?: CustomizeRenderFunction) {
+/**
+ * @param {any} manifestLayout
+ * @param {string[]} placeholders
+ * @param {ManifestInstance} currentManifest
+ * @param {any} request
+ * @param {any} response
+ * @param {CustomizeRenderFunction} [customizeHook]
+ */
+function convertManifestLayoutDataToLayoutServiceFormat(
+  manifestLayout: any,
+  placeholders: string[],
+  currentManifest: ManifestInstance,
+  request: any,
+  response: any,
+  customizeHook?: CustomizeRenderFunction
+) {
   const result: any = {};
 
   // we sort by placeholder key length to ensure we create the rendering tree in hierarchy order
-  manifestLayout
-    .forEach((rendering: any) => {
-      const placeholder = getOrCreatePlaceholderPath(rendering.placeholderKey, result);
+  manifestLayout.forEach((rendering: any) => {
+    const placeholder = getOrCreatePlaceholderPath(rendering.placeholderKey, result);
 
-      const transformedRendering: any = {
-        uid: rendering.uid,
-        // shared renderings defined as items instead of on the route will have 'template'; pure renderings will have 'renderingName'
-        componentName: rendering.renderingName ? rendering.renderingName : rendering.template,
-        dataSource: 'available-in-connected-mode',
-      };
+    const transformedRendering: any = {
+      uid: rendering.uid,
+      // shared renderings defined as items instead of on the route will have 'template'; pure renderings will have 'renderingName'
+      componentName: rendering.renderingName ? rendering.renderingName : rendering.template,
+      dataSource: 'available-in-connected-mode',
+    };
 
-      if (rendering.renderingParams) {
-        // rendering params go from "name: foo, value: bar" to "foo: bar"
-        transformedRendering.params = rendering.renderingParams.reduce((reduceResult: any, current: any) => {
+    if (rendering.renderingParams) {
+      // rendering params go from "name: foo, value: bar" to "foo: bar"
+      transformedRendering.params = rendering.renderingParams.reduce(
+        (reduceResult: any, current: any) => {
           // eslint-disable-next-line no-param-reassign
           reduceResult[current.name] = current.value.toString();
           return reduceResult;
-        }, {});
-      }
+        },
+        {}
+      );
+    }
 
-      if (rendering.dataSource && rendering.dataSource.fields) {
-        // fields go from "name: foo, value: bar" to "foo: { value: bar, editable: bar }"
-        transformedRendering.fields = remapFieldsArrayToFieldsObject(rendering.dataSource.fields);
-      }
+    if (rendering.dataSource && rendering.dataSource.fields) {
+      // fields go from "name: foo, value: bar" to "foo: { value: bar, editable: bar }"
+      transformedRendering.fields = remapFieldsArrayToFieldsObject(rendering.dataSource.fields);
+    }
 
-      const customizeResult = (customizeHook && customizeHook(transformedRendering, rendering, currentManifest, request, response)) || transformedRendering;
+    const customizeResult =
+      (customizeHook &&
+        customizeHook(transformedRendering, rendering, currentManifest, request, response)) ||
+      transformedRendering;
 
-      // adds the rendering object to its placeholder in the LS output
-      placeholder.push(customizeResult);
-    });
+    // adds the rendering object to its placeholder in the LS output
+    placeholder.push(customizeResult);
+  });
 
   // ensure empty placeholders are defined
   placeholders.forEach((key) => {
@@ -264,7 +305,22 @@ function convertManifestLayoutDataToLayoutServiceFormat(manifestLayout: any, pla
   return result;
 }
 
-function defaultCustomizeRoute(route: any, language: string, currentManifest: ManifestInstance, request: any, response: any, customizeRendering?: CustomizeRenderFunction) {
+/**
+ * @param {any} route
+ * @param {string} language
+ * @param {ManifestInstance} currentManifest
+ * @param {any} request
+ * @param {any} response
+ * @param {CustomizeRenderFunction} [customizeRendering]
+ */
+function defaultCustomizeRoute(
+  route: any,
+  language: string,
+  currentManifest: ManifestInstance,
+  request: any,
+  response: any,
+  customizeRendering?: CustomizeRenderFunction
+) {
   const transformedRoute = Object.assign(
     {
       databaseName: 'available-in-connected-mode',
@@ -300,6 +356,9 @@ function defaultCustomizeRoute(route: any, language: string, currentManifest: Ma
   return transformedRoute;
 }
 
+/**
+ * @param {DisconnectedLayoutServiceOptions} config
+ */
 export function createDisconnectedLayoutService({
   manifest,
   customizeContext,
@@ -312,8 +371,11 @@ export function createDisconnectedLayoutService({
   console.log(`🔌  Disconnected ${chalk.red('Layout Service')} initializing...⏳`);
 
   const service = {
-    middleware: async function disconnectedLayoutServiceMiddleware(request: any, response: any) {
-      const language = request.query.sc_lang ? request.query.sc_lang : 'en';
+    middleware: async function disconnectedLayoutServiceMiddleware(
+      request: Request,
+      response: Response
+    ) {
+      const language = (request.query.sc_lang ? request.query.sc_lang : 'en') as string;
       const routePath = request.query.item;
 
       // check to see if the language is different than what we have loaded, and if so change it
@@ -332,9 +394,7 @@ export function createDisconnectedLayoutService({
           }
         } else {
           console.error(
-            `> [LAYOUT] ERROR: Received request for layout in ${language} but the manifest data was in ${
-              currentManifest.language
-            }. To enable switching languages at runtime, please pass 'manifestLanguageChangeCallback: function(newLanguage) { return manifestInNewLanguage; }' in the service creation options.`
+            `> [LAYOUT] ERROR: Received request for layout in ${language} but the manifest data was in ${currentManifest.language}. To enable switching languages at runtime, please pass 'manifestLanguageChangeCallback: function(newLanguage) { return manifestInNewLanguage; }' in the service creation options.`
           );
           response.sendStatus(404);
           return;
@@ -349,11 +409,18 @@ export function createDisconnectedLayoutService({
       }
 
       // lookup route data
-      const rawRoute = getRouteData(routePath, currentManifest);
+      const rawRoute = getRouteData(routePath as string, currentManifest);
       let route;
 
       if (rawRoute) {
-        route = defaultCustomizeRoute(rawRoute, language, currentManifest, request, response, customizeRendering);
+        route = defaultCustomizeRoute(
+          rawRoute,
+          language,
+          currentManifest,
+          request,
+          response,
+          customizeRendering
+        );
         if (customizeRoute && typeof customizeRoute === 'function') {
           route = customizeRoute(route, rawRoute, currentManifest, request, response);
         }

@@ -1,4 +1,4 @@
-/* tslint:disable:no-unused-expression */
+/* eslint-disable no-unused-expressions */
 
 import { expect } from 'chai';
 import { isExperienceEditorActive, isServer } from './util';
@@ -6,8 +6,8 @@ import { isExperienceEditorActive, isServer } from './util';
 // must make TypeScript happy with `global` variable modification
 
 interface CustomWindow {
-  document: any;
-  [key: string]: any;
+  [key: string]: unknown;
+  document: unknown;
 }
 
 interface Global {

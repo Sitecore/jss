@@ -57,29 +57,6 @@ export class JssGraphQLService {
     return variableNames as { [key: string]: string };
   }
 
-    private addJssAmbientVariables<V = R>(query: DocumentNode, variables: V, rendering?: ComponentRendering) {
-    if (!variables) {
-      variables = {} as V;
-    }
-
-    const usedVariables = JssGraphQLService.extractVariableNames(query);
-
-    if (usedVariables.datasource && rendering && rendering.dataSource) {
-      variables['datasource'] = rendering.dataSource;
-    }
-
-    if (
-      usedVariables.contextItem &&
-      this.sitecoreContext.state.value.sitecore &&
-      this.sitecoreContext.state.value.sitecore.route &&
-      this.sitecoreContext.state.value.sitecore.route.itemId
-    ) {
-      variables['contextItem'] = this.sitecoreContext.state.value.sitecore.route.itemId;
-    }
-
-    return variables;
-  }
-
   /**
    * Executes a read query against the GraphQL endpoint
    */
@@ -130,5 +107,28 @@ export class JssGraphQLService {
     this.addJssAmbientVariables(options.query, options.variables, options.renderingContext);
 
     return this.apollo.subscribe<T, V>(options, extra);
+  }
+
+  private addJssAmbientVariables<V = R>(query: DocumentNode, variables: V, rendering?: ComponentRendering) {
+    if (!variables) {
+      variables = {} as V;
+    }
+
+    const usedVariables = JssGraphQLService.extractVariableNames(query);
+
+    if (usedVariables.datasource && rendering && rendering.dataSource) {
+      variables['datasource'] = rendering.dataSource;
+    }
+
+    if (
+      usedVariables.contextItem &&
+      this.sitecoreContext.state.value.sitecore &&
+      this.sitecoreContext.state.value.sitecore.route &&
+      this.sitecoreContext.state.value.sitecore.route.itemId
+    ) {
+      variables['contextItem'] = this.sitecoreContext.state.value.sitecore.route.itemId;
+    }
+
+    return variables;
   }
 }

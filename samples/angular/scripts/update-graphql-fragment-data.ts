@@ -54,9 +54,7 @@ fetch(jssConfig.graphQLEndpoint, {
 
     fs.writeFile(
       './src/graphql-fragment-types.ts',
-      `/* tslint:disable */
-export default ${JSON.stringify(filteredResult.data, null, 2)}
-`,
+      `export default ${JSON.stringify(filteredResult.data, null, 2)}`,
       (err) => {
         if (err) {
           console.error('Error writing GraphQLFragmentTypes file', err);

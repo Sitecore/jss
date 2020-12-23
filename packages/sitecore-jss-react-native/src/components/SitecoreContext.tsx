@@ -1,10 +1,10 @@
-import React, { Component, Children } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { ComponentFactory } from './sharedTypes';
 
 export interface SitecoreContextProps {
   componentFactory: ComponentFactory;
-  children: any;
+  children: unknown;
 }
 
 export const ComponentFactoryReactContext = React.createContext<ComponentFactory>(
@@ -21,7 +21,7 @@ export class SitecoreContext extends React.Component<SitecoreContextProps> {
 
   componentFactory: ComponentFactory;
 
-  constructor(props: SitecoreContextProps, context: any) {
+  constructor(props: SitecoreContextProps, context: unknown) {
     super(props, context);
     this.componentFactory = props.componentFactory;
   }

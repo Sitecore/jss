@@ -15,7 +15,9 @@ const defaultFormattedDate = formatDate(testIsoDateValue, testFormat, testLocale
 @Component({
   selector: 'test-date',
   template: `
-    <span *scDate="field; editable: editable; format: format; locale: locale; timezone: timezone;"></span>
+    <span
+      *scDate="field; editable: editable; format: format; locale: locale; timezone: timezone"
+    ></span>
   `,
 })
 class TestComponent {
@@ -34,7 +36,7 @@ describe('<span *scDate />', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [DateDirective, TestComponent],
-      providers: [ DatePipe ],
+      providers: [DatePipe],
     });
 
     fixture = TestBed.createComponent(TestComponent);

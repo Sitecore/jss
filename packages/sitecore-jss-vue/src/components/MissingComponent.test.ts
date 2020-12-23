@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { mount } from '@vue/test-utils';
 import { MissingComponent } from './MissingComponent';
 

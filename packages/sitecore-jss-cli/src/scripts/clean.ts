@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { clean } from '@sitecore-jss/sitecore-jss-dev-tools';
 import resolvePackage from '../resolve-package';
 
@@ -13,6 +14,10 @@ export const builder = {
   },
 };
 
+/**
+ * @param {any} argv
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   const packageJson = await resolvePackage();
 

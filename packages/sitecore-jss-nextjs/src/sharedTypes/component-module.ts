@@ -1,4 +1,8 @@
-import { GetInitialComponentProps, GetServerSideComponentProps, GetStaticComponentProps } from './component-props';
+import {
+  GetInitialComponentProps,
+  GetServerSideComponentProps,
+  GetStaticComponentProps,
+} from './component-props';
 
 type Module = {
   default: React.Component;

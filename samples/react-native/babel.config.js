@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable global-require */
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [

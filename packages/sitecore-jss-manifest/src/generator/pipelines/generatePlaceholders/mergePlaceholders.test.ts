@@ -4,9 +4,7 @@ import mergePlaceholders from './mergePlaceholders';
 describe('generatePlaceholders pipeline', () => {
   describe('mergePlaceholders processor', () => {
     it('should add placeholders that are not already in the collection', () => {
-      const root = [
-        'porg',
-      ];
+      const root = ['porg'];
 
       const existing = [
         {
@@ -24,7 +22,11 @@ describe('generatePlaceholders pipeline', () => {
       ];
       const additional = ['oak', 'maple'];
       const discovered = [...additional, ...existing.slice(0, 2).map((ph) => ph.name)];
-      const expected = [...existing, ...additional.map((name) => ({ name })), ...root.map((name) => ({ name }))];
+      const expected = [
+        ...existing,
+        ...additional.map((name) => ({ name })),
+        ...root.map((name) => ({ name })),
+      ];
 
       const args: any = {
         placeholders: existing,

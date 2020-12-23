@@ -6,6 +6,9 @@ import { traverseAllItems } from '../../traversal';
 // into the manifest. Only items with 'copy:true' are normally fully expanded.
 // If manifesting for disconnected mode, we expand everything to provide a complete datasource.
 
+/**
+ * @param {ManifestInstance} manifest
+ */
 function expandReferencedContent(manifest: ManifestInstance) {
   // because of transitive references we may need to make multiple expand passes
   let expandedItems = false;
@@ -27,7 +30,9 @@ function expandReferencedContent(manifest: ManifestInstance) {
     // in a duplicate ID definition. There are two possible cases here:
     // (a) an ID reference, in which case removing the ID will not affect the original referenced child ID
     // (b) an ID with copy reference, in which case the copy would legitimately always be a duplicate ID unless we unset it
-    traverseAllItems(refDeepClone.children, (item) => { delete item.id; });
+    traverseAllItems(refDeepClone.children, (item) => {
+      delete item.id;
+    });
 
     if (targetType === 'rendering') {
       expandedRef.dataSource = expandedRef.dataSource || {};

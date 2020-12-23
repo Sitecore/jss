@@ -7,8 +7,8 @@
     "bootstrap-react-dom": "cd ./packages/sitecore-jss-react/node_modules/react-dom && npm link && cd ../../../sitecore-jss-nextjs && npm link react-dom && cd ../sitecore-jss-nextjs-editing-host && npm link react-dom && cd ../../samples/nextjs && npm link react-dom && cd ../react && npm link react-dom",
     "build-packages": "lerna run build --ignore *-sample*",
     "build-apps": "lerna run build --scope *-sample*",
-    "lint-packages": "lerna run lint --scope @sitecore-jss/sitecore-jss-nextjs*",
-    "lint-apps": "lerna run lint --scope jss-sample-nextjs",
+    "lint-packages": "lerna run lint --ignore *-sample*",
+    "lint-apps": "lerna run lint --ignore @sitecore-jss/*",
     "test-packages": "lerna run test --ignore *-sample*",
     "test": "lerna run test",
     "coverage-packages": "lerna run coverage --ignore *-sample*"
@@ -23,20 +23,16 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "babel-eslint": "10.1.0",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^6.2.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-react-native": "^3.3.0",
-    "eslint-plugin-vue": "^4.7.1",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-jsdoc": "^30.7.9",
+    "eslint-plugin-prettier": "^3.3.0",
     "lerna": "^3.4.0",
     "metro": "^0.60.0",
     "nyc": "^14.1.1",
     "prettier": "^1.14.3",
-    "tslint": "^5.11.0",
     "typescript": "^3.9.6"
   }
 }

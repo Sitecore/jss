@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { ComponentRendering, PlaceholdersData } from '@sitecore-jss/sitecore-jss';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
@@ -79,6 +80,7 @@ describe('ComponentPropsService', () => {
   });
 
   // In real world: list of imported modules
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const modules: { [componentName: string]: any } = {
     namex11: {
       fn: fetchFn('x11Data'),
@@ -103,6 +105,7 @@ describe('ComponentPropsService', () => {
   };
 
   it('fetchServerSideComponentProps', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ssrModules: { [componentName: string]: any } = {
       namex11: {
         getServerSideProps: fetchFn('x11SSRData'),
@@ -144,6 +147,7 @@ describe('ComponentPropsService', () => {
   });
 
   it('fetchStaticComponentProps', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ssgModules: { [componentName: string]: any } = {
       namex11: {
         getStaticProps: fetchFn('x11StaticData'),
@@ -178,6 +182,7 @@ describe('ComponentPropsService', () => {
   });
 
   it('fetchInitialComponentProps', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ssgModules: { [componentName: string]: any } = {
       namex11: {
         getInitialProps: fetchFn('x11InitialPropsData'),

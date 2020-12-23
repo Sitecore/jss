@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-unused-expressions */
 
-import { CreateElement, RenderContext } from 'vue'
+import { CreateElement, RenderContext } from 'vue';
 
 import { Placeholder } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
@@ -116,14 +117,13 @@ describe('<Placeholder />', () => {
     { label: 'LayoutService data - EE on', data: lsDataEeOn },
   ];
 
-  testData.forEach(dataSet => {
+  testData.forEach((dataSet) => {
     describe(`with ${dataSet.label}`, () => {
       it('should render a placeholder with given key', () => {
         const phData: any = dataSet.data.sitecore.route.placeholders.main;
         const component = phData.find((c: any) => c.componentName);
         const phKey = 'page-content';
 
-        // tslint:disable-next-line:no-shadowed-variable
         const renderedComponent = mount(Placeholder, {
           propsData: {
             name: phKey,
@@ -164,7 +164,6 @@ describe('<Placeholder />', () => {
           },
         };
 
-        // tslint:disable-next-line:no-shadowed-variable
         const renderedComponent = mount(testComponent);
         expect(renderedComponent.html()).toMatchSnapshot();
       });
@@ -181,7 +180,6 @@ describe('<Placeholder />', () => {
           },
         };
 
-        // tslint:disable-next-line:no-shadowed-variable
         const renderedComponent = mount(testComponent);
         expect(renderedComponent.html()).toMatchSnapshot();
       });
@@ -200,7 +198,6 @@ describe('<Placeholder />', () => {
           },
         };
 
-        // tslint:disable-next-line:no-shadowed-variable
         const renderedComponent = mount(testComponent);
         expect(renderedComponent.html()).toMatchSnapshot();
       });
@@ -248,7 +245,6 @@ describe('<Placeholder />', () => {
         },
       };
 
-      // tslint:disable-next-line:no-shadowed-variable
       const renderedComponent = mount(testComponent);
       expect(renderedComponent.html()).toMatchSnapshot();
 
@@ -275,7 +271,6 @@ describe('<Placeholder />', () => {
         },
       };
 
-      // tslint:disable-next-line:no-shadowed-variable
       const renderedComponent = mount(testComponent);
       expect(renderedComponent.html()).toMatchSnapshot();
     });
@@ -287,7 +282,6 @@ describe('<Placeholder />', () => {
     const route = { placeholders: { main: [{ componentName: 'Home' }] } };
     const phKey = 'unknown-test';
 
-    // tslint:disable-next-line:no-shadowed-variable
     const renderedComponent = mount(Placeholder, {
       propsData: {
         name: phKey,
@@ -329,7 +323,6 @@ describe('<Placeholder />', () => {
       },
     };
 
-    // tslint:disable-next-line:no-shadowed-variable
     const renderedComponent = mount(testComponent);
     expect(renderedComponent.html()).toMatchSnapshot();
   });
@@ -362,7 +355,6 @@ describe('<Placeholder />', () => {
         },
       };
 
-      // tslint:disable-next-line:no-shadowed-variable
       const renderedComponent = mount(testComponent);
       expect(renderedComponent.html()).toMatchSnapshot();
     });
@@ -376,7 +368,6 @@ describe('<Placeholder />', () => {
         },
       };
 
-      // tslint:disable-next-line:no-shadowed-variable
       const renderedComponent = mount(testComponent);
       expect(renderedComponent.html()).toMatchSnapshot();
     });

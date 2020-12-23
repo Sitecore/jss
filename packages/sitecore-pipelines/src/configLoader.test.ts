@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { expect } from 'chai';
 import 'mocha';
 import * as sinon from 'sinon';
