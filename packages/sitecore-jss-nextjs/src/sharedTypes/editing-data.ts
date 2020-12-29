@@ -7,8 +7,8 @@ import { IncomingMessage } from 'http';
 export type EditingData = {
   path: string;
   language: string;
-  layoutData: LayoutServiceData | null;
-  dictionary: DictionaryPhrases | null;
+  layoutData: LayoutServiceData;
+  dictionary: DictionaryPhrases;
 };
 
 /**
