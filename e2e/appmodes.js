@@ -20,7 +20,7 @@ if (!verb || (verb !== 'connected' && verb !== 'disconnected')) {
 
 const config = [
   // Due to current inablitiy to set\change a port for the next.js app 
-  // this section has to be commented untill this is resolved
+  // this section has to be commented due to conflict with angular app on the same port untill this is resolved
   // {
   //   name: 'nextjs',
   //   port: 3000,
