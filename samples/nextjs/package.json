@@ -48,9 +48,9 @@
     "next": "^10.0.3",
     "next-localization": "^0.10.0",
     "nprogress": "~0.2.0",
-    "react": "^16.9.0",
+    "react": "^17.0.1",
     "react-apollo": "~3.1.1",
-    "react-dom": "^16.9.0"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.19.1",
@@ -64,8 +64,8 @@
     "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.11",
     "@types/node": "^14.6.4",
     "@types/nprogress": "^0.2.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
     "chalk": "~2.4.2",
