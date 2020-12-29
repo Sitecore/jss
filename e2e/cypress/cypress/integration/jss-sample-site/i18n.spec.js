@@ -16,6 +16,8 @@ describe('Language URL Routing', () => {
 
   it('Should Handle Danish in URL', () => {
     cy.visit(`/da-dk${PAGE}`);
+    // In case of disconnected mode following timeout is needed
+    cy.wait(500);
     cy.contains('Indholdet og layoutet');
   });
 });
@@ -23,6 +25,8 @@ describe('Language URL Routing', () => {
 describe('Danish Styleguide', () => {
   before(() => {
     cy.visit(`/da-dk${PAGE}`);
+    // In case of disconnected mode following timeout is needed
+    cy.wait(5000);
   });
 
   const selector = '[data-e2e-id="styleguide-multilingual"]';
@@ -47,6 +51,8 @@ describe('Danish Styleguide', () => {
 describe('Language Switch Link', () => {
   before(() => {
     cy.visit(`/da-dk${PAGE}`);
+    // In case of disconnected mode following timeout is needed
+    cy.wait(5000);
   });
 
   const selector = '[data-e2e-id="styleguide-multilingual"]';

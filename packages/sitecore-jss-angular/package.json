@@ -7,7 +7,8 @@
     "lint": "eslint --fix ./src/**/*.ts",
     "test": "karma start",
     "test:watch": "karma start --no-single-run --browsers Chrome",
-    "coverage": "npm test"
+    "coverage": "npm test",
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -57,13 +58,20 @@
   },
   "main": "dist/bundles/sitecore-jss-sitecore-jss-angular.umd.js",
   "module": "dist/esm5/sitecore-jss-sitecore-jss-angular.js",
+  "es2015_ivy_ngcc": "__ivy_ngcc__/dist/esm2015/sitecore-jss-sitecore-jss-angular.js",
   "es2015": "dist/esm2015/sitecore-jss-sitecore-jss-angular.js",
   "typings": "dist/sitecore-jss-sitecore-jss-angular.d.ts",
   "metadata": "dist/sitecore-jss-sitecore-jss-angular.metadata.json",
   "esm5": "dist/esm5/sitecore-jss-sitecore-jss-angular.js",
+  "esm2015_ivy_ngcc": "__ivy_ngcc__/dist/esm2015/sitecore-jss-sitecore-jss-angular.js",
   "esm2015": "dist/esm2015/sitecore-jss-sitecore-jss-angular.js",
   "fesm5": "dist/fesm5/sitecore-jss-sitecore-jss-angular.js",
   "fesm2015": "dist/fesm2015/sitecore-jss-sitecore-jss-angular.js",
   "sideEffects": false,
-  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+  "__processed_by_ivy_ngcc__": {
+    "es2015": "10.0.14",
+    "esm2015": "10.0.14",
+    "typings": "10.0.14"
+  }
 }
