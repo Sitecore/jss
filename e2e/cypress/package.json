@@ -6,11 +6,10 @@
   "scripts": {
     "edit": "cypress open",
     "test": "cypress run",
-    "test:integrated": "npm run test:integrated:vue && npm run test:integrated:react && npm run test:integrated:angular && npm run test:integrated:next",
+    "test:integrated": "npm run test:integrated:vue && npm run test:integrated:react && npm run test:integrated:angular && npm run test:integrated",
     "test:integrated:vue": "cypress run --config baseUrl=http://jssvueweb --env SSR=true,GRAPHQL_SSR=false,FRAMEWORK=vue",
     "test:integrated:react": "cypress run --config baseUrl=http://jssreactweb --env SSR=true,GRAPHQL_SSR=true,FRAMEWORK=react",
     "test:integrated:angular": "cypress run --config baseUrl=http://jssangularweb --env SSR=true,GRAPHQL_SSR=true,FRAMEWORK=angular",
-    "test:integrated:next": "cypress run --config baseUrl=http://localhost:3000 --env SSR=true,GRAPHQL_SSR=true,FRAMEWORK=nextjs",
     "test:headless:vue": "cypress run --config baseUrl=http://localhost:3000 --env SSR=true,GRAPHQL_SSR=false,FRAMEWORK=vue",
     "test:headless:react": "cypress run --config baseUrl=http://localhost:3000 --env SSR=true,GRAPHQL_SSR=true,FRAMEWORK=react",
     "test:headless:angular": "cypress run --config baseUrl=http://localhost:3000 --env SSR=true,GRAPHQL_SSR=true,FRAMEWORK=angular",
