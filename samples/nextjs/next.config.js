@@ -6,7 +6,7 @@ const withEditing = require('@sitecore-jss/sitecore-jss-nextjs-editing-host').co
   enabled: process.env.JSS_MODE === JSS_MODE_EDITING,
 });
 
-const disconnectedServerUrl = `http://localhost:${process.env.DISCONNECTED_SERVER_PORT || 3042}/`;
+const disconnectedServerUrl = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
 const disconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
 
 const nextConfig = {
