@@ -33,6 +33,7 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
       </p>
 
       <p>
+        // In case if href already includes locale: https://nextjs.org/docs/advanced-features/i18n-routing#transition-between-locales
         <Link href={`${publicUrl}/en/styleguide`} locale={false}>
           <a>Show in English</a>
         </Link>
