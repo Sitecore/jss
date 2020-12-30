@@ -7,14 +7,17 @@ import {
   RouteData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
+export type StyleguideSitecoreContextValue = LayoutServiceContext & {
+  route: RouteData;
+};
+
 /**
- * Sitecore Context which you can access using withSitecoreContext
+ * Sitecore Context which you can access using withSitecoreContext/useSitecoreContext
  * @example withSitecoreContext()(ContentBlock)
+ * @example const { sitecoreContext } = useSitecoreContext()
  */
 export type StyleguideSitecoreContext = {
-  sitecoreContext: LayoutServiceContext & {
-    route: RouteData;
-  };
+  sitecoreContext: StyleguideSitecoreContextValue;
 };
 
 /**
