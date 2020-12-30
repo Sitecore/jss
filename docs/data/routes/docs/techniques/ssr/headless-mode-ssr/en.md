@@ -33,6 +33,10 @@ All Sitecore marketing features are supported by this headless mode, including p
   The console should show `server listening on port 3000!`.
   To test, browse to `http://localhost:3000/` and you should see the same app rendering now in the headless configuration.
 
+> NOTE: New setting has been added to the Sitecore Web.config file - `<httpCookies sameSite="None" requireSSL="true" />`. According to this new setting all cookies (session and analytic) will be marked as `requireSSL="true"`, and they won't be accepted for sites which use the http protocol.
+
+> In order for visits to be tracked - add SSL to your development environment, or set `<httpCookies sameSite="None" requireSSL="false" />`
+
 ## Tips & Tricks
 
 ### Keep-Alive
