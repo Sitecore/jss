@@ -1,15 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ComponentFactory } from './sharedTypes';
 
-export interface SitecoreContextProps {
+export interface SitecoreContextProps<ContextType = any> {
   componentFactory: ComponentFactory;
-  context?: unknown;
+  context?: ContextType;
 }
 
-export interface SitecoreContextState {
-  setContext: (value: unknown) => void;
-  context: unknown;
+export interface SitecoreContextState<ValueType = any> {
+  setContext: (value: ValueType) => void;
+  context: ValueType;
 }
 
 export const SitecoreContextReactContext = React.createContext<SitecoreContextState>(
@@ -19,7 +20,10 @@ export const ComponentFactoryReactContext = React.createContext<ComponentFactory
   {} as ComponentFactory
 );
 
-export class SitecoreContext extends React.Component<SitecoreContextProps, SitecoreContextState> {
+export class SitecoreContext<ValueType = any> extends React.Component<
+  SitecoreContextProps<ValueType>,
+  SitecoreContextState<ValueType>
+> {
   static propTypes = {
     children: PropTypes.any.isRequired,
     componentFactory: PropTypes.func,
@@ -28,10 +32,10 @@ export class SitecoreContext extends React.Component<SitecoreContextProps, Sitec
 
   static displayName = 'SitecoreContext';
 
-  constructor(props: SitecoreContextProps) {
+  constructor(props: SitecoreContextProps<ValueType>) {
     super(props);
 
-    let context: unknown = {
+    let context: any = {
       pageEditing: false,
     };
 
@@ -49,7 +53,7 @@ export class SitecoreContext extends React.Component<SitecoreContextProps, Sitec
     };
   }
 
-  setContext = (value: unknown) => {
+  setContext = (value: ValueType) => {
     this.setState({
       context: value,
     });
