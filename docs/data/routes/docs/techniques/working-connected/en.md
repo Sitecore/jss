@@ -12,6 +12,3 @@ To create a new component in _connected_ mode:
 1. Create the component in the JSS app (this is JS-library-specific; e.g. for React, create a React component and register it with the `componentFactory.js`)
 1. Deploy the JSS app's build to Sitecore (_integrated mode_ is necessary here so that we can use Experience Editor to add the component to a route). `jss deploy files` will do this for any app.
 1. Login to Sitecore and open a route on the app with the _Experience Editor_. You should be able to add your new component to its allowed placeholder from the UI.
-> NOTE: New setting has been added to the Sitecore Web.config file - `<httpCookies sameSite="None" requireSSL="true" />`. According to this new setting all cookies (session and analytic) will be marked as `requireSSL="true"`, and they won't be accepted for sites which use the http protocol.
-
-> In order for visits to be tracked - add SSL to your development environment, or set `<httpCookies sameSite="None" requireSSL="false" />`

@@ -11,6 +11,11 @@ Before using JSS tracking [familiarize yourself with the Sitecore XP features](h
 
 The JSS tracker supports tracking Events, Goals, Outcomes, Campaigns, and Page/Route Views by default. It is designed to be extensible for advanced tracking needs.
 
+> _NOTE_: As of Sitecore 10.0.1, Sitecore sets the `Secure` flag on all cookies by default. This can impact JSS local development in *Connected* and *Headless* modes, as the proxied Sitecore cookies (including analytics cookies) will be rejected by the browser if your application is not running under HTTPS, and thus visits will not be tracked and content may not be personalized. To work around this, you can either:
+> * Enable HTTPS in your local environment by modifying the node server, using a local reverse proxy, or using a service such as ngrok.
+> * If you are running Sitecore in containers for development, you can make use of the Traefik reverse proxy that is provided in the `docker-compose` environment.
+> * Transform the Sitecore Web.config and set `requireSSL` to `false` in the `httpCookies` configuration. **This is not recommended for production.** `<httpCookies sameSite="None" requireSSL="false" />`
+
 ## Setup
 
 The JSS tracker comes installed but **disabled by default** when the [JSS server components](/docs/getting-started/jss-server-install) are installed. To enable the JSS tracker, patch the `Sitecore.JSS.TrackerServiceEnabled` setting to true in a configuration patch file such as:
