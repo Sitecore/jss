@@ -65,7 +65,7 @@ Experimental templates are experimental specialized JSS examples. They are examp
 * `sitecore-embedded-jss-app` This app shows how to embed a JSS application inside an existing Sitecore site as a rendering. [Read more here](/docs/techniques/mvc-integration/client-side-embedding).
 
 ### Special Templates
-* `node-headless-ssr-proxy` This app shows how to configure a Node server to act as a proxy between the browser and Sitecore. [Read more here]()
+* `node-headless-ssr-proxy` This app shows how to configure a Node server to act as a proxy between the browser and Sitecore. [Read more here](/docs/techniques/ssr/headless-mode-ssr)
 
 ### Deprecated Templates
 * `sitecore-javascript-renderings` This app shows how to render a JavaScript app as a rendering embedded within a traditional Sitecore MVC site. See [JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) for details. This template is flagged as deprecated as of Oct 2020 because these rendering don't scale well. They satisfy edge-case requirements, and should generally be avoided.
