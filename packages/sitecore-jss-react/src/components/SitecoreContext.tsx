@@ -8,9 +8,9 @@ export interface SitecoreContextProps<ContextType = any> {
   context?: ContextType;
 }
 
-export interface SitecoreContextState<ValueType = any> {
-  setContext: (value: ValueType) => void;
-  context: ValueType;
+export interface SitecoreContextState<ContextType = any> {
+  setContext: (value: ContextType) => void;
+  context: ContextType;
 }
 
 export const SitecoreContextReactContext = React.createContext<SitecoreContextState>(
@@ -20,9 +20,9 @@ export const ComponentFactoryReactContext = React.createContext<ComponentFactory
   {} as ComponentFactory
 );
 
-export class SitecoreContext<ValueType = any> extends React.Component<
-  SitecoreContextProps<ValueType>,
-  SitecoreContextState<ValueType>
+export class SitecoreContext<ContextType = any> extends React.Component<
+  SitecoreContextProps<ContextType>,
+  SitecoreContextState<ContextType>
 > {
   static propTypes = {
     children: PropTypes.any.isRequired,
@@ -32,7 +32,7 @@ export class SitecoreContext<ValueType = any> extends React.Component<
 
   static displayName = 'SitecoreContext';
 
-  constructor(props: SitecoreContextProps<ValueType>) {
+  constructor(props: SitecoreContextProps<ContextType>) {
     super(props);
 
     let context: any = {
@@ -53,7 +53,7 @@ export class SitecoreContext<ValueType = any> extends React.Component<
     };
   }
 
-  setContext = (value: ValueType) => {
+  setContext = (value: ContextType) => {
     this.setState({
       context: value,
     });
