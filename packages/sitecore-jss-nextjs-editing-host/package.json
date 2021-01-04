@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs-editing-host",
-  "version": "16.0.0-canary.13",
+  "version": "16.0.0-canary.14",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -26,7 +26,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-nextjs": "^16.0.0-canary.13",
+    "@sitecore-jss/sitecore-jss-nextjs": "^16.0.0-canary.14",
     "@types/body-parser": "^1.19.0",
     "@types/chai": "^4.2.2",
     "@types/chai-string": "^1.4.2",
