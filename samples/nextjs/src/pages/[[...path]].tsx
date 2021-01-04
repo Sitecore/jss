@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
 import { SitecoreContext, ComponentPropsContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideSitecoreContextValue } from 'lib/component-props';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
@@ -11,7 +12,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
     return <NotFound context={layoutData?.sitecore?.context} />;
   }
 
-  const context = {
+  const context: StyleguideSitecoreContextValue = {
     route: layoutData.sitecore.route,
     itemId: layoutData.sitecore.route?.itemId,
     ...layoutData.sitecore.context,
@@ -21,7 +22,10 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
   const PageLayout = () => (
     <ComponentPropsContext value={componentProps}>
-      <SitecoreContext componentFactory={componentFactory} context={context}>
+      <SitecoreContext<StyleguideSitecoreContextValue>
+        componentFactory={componentFactory}
+        context={context}
+      >
         <Layout route={routeData} />
       </SitecoreContext>
     </ComponentPropsContext>

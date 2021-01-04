@@ -67,12 +67,12 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
  * }
  * @returns {Object} { sitecoreContext, updateSitecoreContext }
  */
-export function useSitecoreContext(options?: WithSitecoreContextOptions) {
+export function useSitecoreContext<Context>(options?: WithSitecoreContextOptions) {
   const reactContext = React.useContext(SitecoreContextReactContext);
   const updatable = options?.updatable;
 
   return {
-    sitecoreContext: reactContext.context,
+    sitecoreContext: reactContext.context as Context,
     updateSitecoreContext: updatable ? reactContext.setContext : undefined,
   };
 }

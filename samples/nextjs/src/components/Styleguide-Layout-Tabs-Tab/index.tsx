@@ -1,7 +1,7 @@
-import { Text, RichText, withSitecoreContext, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentWithContextProps } from 'lib/component-props';
+import { Text, RichText, useSitecoreContext, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideComponentProps, StyleguideSitecoreContextValue } from 'lib/component-props';
 
-type StyleguideLayoutTabsTabProps = StyleguideComponentWithContextProps & {
+type StyleguideLayoutTabsTabProps = StyleguideComponentProps & {
   fields: {
     content: Field<string>;
     title: Field<string>;
@@ -13,19 +13,23 @@ type StyleguideLayoutTabsTabProps = StyleguideComponentWithContextProps & {
  * This component demonstrates conditionally altering rendering when in the Sitecore Experience Editor to improve
  * author experience.
  */
-const StyleguideLayoutTabsTab = (props: StyleguideLayoutTabsTabProps) => (
-  <div data-e2e-class="styleguide-layout-tabs-tab">
-    {/*
-      When we're editing the tabs we stack each tab vertically,
-      which means there's no regular tab titles rendered.
-      So we conditionally render the tab title here, when editing. */}
-    {props.sitecoreContext && props.sitecoreContext.pageEditing && (
-      <Text tag="h5" field={props.fields.title} />
-    )}
+const StyleguideLayoutTabsTab = (props: StyleguideLayoutTabsTabProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<StyleguideSitecoreContextValue>();
 
-    {/* React.Fragment tells React to not use any wrapping tag for the component */}
-    <RichText field={props.fields.content} />
-  </div>
-);
+  return (
+    <div data-e2e-class="styleguide-layout-tabs-tab">
+      {/*
+          When we're editing the tabs we stack each tab vertically,
+          which means there's no regular tab titles rendered.
+          So we conditionally render the tab title here, when editing. */}
+      {sitecoreContext && sitecoreContext.pageEditing && (
+        <Text tag="h5" field={props.fields.title} />
+      )}
 
-export default withSitecoreContext()(StyleguideLayoutTabsTab);
+      {/* React.Fragment tells React to not use any wrapping tag for the component */}
+      <RichText field={props.fields.content} />
+    </div>
+  );
+};
+
+export default StyleguideLayoutTabsTab;
