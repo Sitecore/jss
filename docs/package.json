@@ -4,7 +4,7 @@
   "description": "Doc site for Sitecore JavaScript Services",
   "engines": {
     "node": "10.17.0",
-	"npm": "6.11.3"
+    "npm": "6.11.3"
   },
   "config": {
     "appName": "JssDocs",
@@ -17,7 +17,7 @@
     "staticOutputPublicPath": "/",
     "routeDataDir": "./data/routes",
     "language": "en"
-  },  
+  },
   "scripts": {
     "jss": "jss",
     "start": "node -r babel-register ./build/start.js --env.content=disconnected",
@@ -56,7 +56,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@sitecore-jss/sitecore-jss-react": "^9.0.5",
-    "antd": "^3.7.2",
+    "antd": "^4.10.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.3.1",
     "compression": "^1.7.3",
