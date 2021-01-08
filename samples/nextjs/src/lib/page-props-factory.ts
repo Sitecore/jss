@@ -11,6 +11,7 @@ import { SitecorePageProps } from 'lib/page-props';
 import { componentModule } from 'temp/componentFactory';
 import { layoutService } from 'lib/layout-service';
 import { DictionaryService, dictionaryService } from 'lib/dictionary-service';
+import { getEditingData } from 'lib/editing-utils';
 import { config as packageConfig } from '../../package.json';
 
 /**
@@ -51,21 +52,35 @@ export class SitecorePagePropsFactory {
     return dictionaryService;
   }
 
-  /**
-   * Create SitecorePageProps in a SSG context (within getStaticProps function).
-   * If you're not using SSG, you can remove this.
-   * @param context {GetStaticPropsContext}
-   * @see SitecorePageProps
-   */
-  public async createForStatic(context: GetStaticPropsContext): Promise<SitecorePageProps> {
+  private async createBaseProps(
+    context: GetServerSidePropsContext | GetStaticPropsContext
+  ): Promise<SitecorePageProps> {
+    if (context.preview) {
+      // If we're in preview (editing) mode, use data already sent along with the editing request
+      const data = await getEditingData(context.previewData);
+      if (!data) {
+        throw new Error(
+          `Unable to get editing data for preview ${JSON.stringify(context.previewData)}`
+        );
+      }
+      return {
+        locale: data.language,
+        layoutData: data.layoutData,
+        dictionary: data.dictionary,
+        componentProps: {},
+        notFound: false,
+      };
+    }
+
     // Get normalized Sitecore item path
     const path = extractPath(context.params);
+
     // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
     const locale = context.locale ?? packageConfig.language;
 
     let notFound = false;
 
-    // Retrieve layoutData from Layout Service
+    // Fetch layoutData from Layout Service
     const layoutData = await this.layoutService
       .fetchLayoutData(path, locale)
       .catch((error: AxiosError<LayoutServiceData>) => {
@@ -79,26 +94,37 @@ export class SitecorePagePropsFactory {
         throw error;
       });
 
-    // Retrieve component props using side-effects defined on components level
-    let componentProps = {};
-    if (layoutData.sitecore.route) {
-      componentProps = await this.componentPropsService.fetchStaticComponentProps({
-        layoutData,
-        context,
-        componentModule,
-      });
-    }
-
-    // Retrieve dictionary data from Dictionary Service
+    // Fetch dictionary data from Dictionary Service
     const dictionary = await this.dictionaryService.fetchDictionaryData(locale);
 
     return {
       locale,
       layoutData,
       dictionary,
-      componentProps,
+      componentProps: {},
       notFound,
     };
+  }
+
+  /**
+   * Create SitecorePageProps in a SSG context (within getStaticProps function).
+   * If you're not using SSG, you can remove this.
+   * @param context {GetStaticPropsContext}
+   * @see SitecorePageProps
+   */
+  public async createForStatic(context: GetStaticPropsContext): Promise<SitecorePageProps> {
+    const props = await this.createBaseProps(context);
+
+    // Retrieve component props using side-effects defined on components level
+    if (props.layoutData.sitecore.route) {
+      props.componentProps = await this.componentPropsService.fetchStaticComponentProps({
+        layoutData: props.layoutData,
+        context,
+        componentModule,
+      });
+    }
+
+    return props;
   }
 
   /**
@@ -108,47 +134,18 @@ export class SitecorePagePropsFactory {
    * @see SitecorePageProps
    */
   public async createForServerSide(context: GetServerSidePropsContext): Promise<SitecorePageProps> {
-    // Get normalized Sitecore item path
-    const path = extractPath(context.params);
-    // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
-    const locale = context.locale ?? packageConfig.language;
-
-    let notFound = false;
-
-    // Retrieve layoutData from Layout Service
-    const layoutData = await this.layoutService
-      .fetchLayoutData(path, locale, context.req, context.res)
-      .catch((error: AxiosError<LayoutServiceData>) => {
-        if (error.response?.status === 404) {
-          // Let 404s (invalid path) through.
-          // layoutData.sitecore.route will be missing, but
-          // layoutData.sitecore.context will provide valuable information
-          notFound = true;
-          return error.response.data;
-        }
-        throw error;
-      });
+    const props = await this.createBaseProps(context);
 
     // Retrieve component props using side-effects defined on components level
-    let componentProps = {};
-    if (layoutData.sitecore.route) {
-      componentProps = await this.componentPropsService.fetchServerSideComponentProps({
-        layoutData,
+    if (props.layoutData.sitecore.route) {
+      props.componentProps = await this.componentPropsService.fetchServerSideComponentProps({
+        layoutData: props.layoutData,
         context,
         componentModule,
       });
     }
 
-    // Retrieve dictionary data from Dictionary Service
-    const dictionary = await this.dictionaryService.fetchDictionaryData(locale);
-
-    return {
-      locale,
-      layoutData,
-      dictionary,
-      componentProps,
-      notFound,
-    };
+    return props;
   }
 
   /**

@@ -1,15 +1,24 @@
 const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
-const { JSS_MODE_DISCONNECTED, JSS_MODE_EDITING } = require('@sitecore-jss/sitecore-jss-nextjs');
-
-const withEditing = require('@sitecore-jss/sitecore-jss-nextjs-editing-host').config({
-  enabled: process.env.JSS_MODE === JSS_MODE_EDITING,
-});
+const { JSS_MODE_DISCONNECTED } = require('@sitecore-jss/sitecore-jss-nextjs');
 
 const disconnectedServerUrl = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
-const disconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
+const isDisconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
+
+// A public URL (and uses below) is required for Sitecore Experience Editor support.
+// Note this will typically vary per environment.
+// This is set to http://localhost:3000 by default in the .env.
+const publicUrl = process.env.PUBLIC_URL;
 
 const nextConfig = {
+
+  // Set assetPrefix to our public URL
+  assetPrefix: publicUrl,
+
+  // Also make our public URL available as an environment variable key
+  env: {
+    publicUrl,
+  },
 
   i18n: {
     // These are all the locales you want to support in your application.
@@ -21,7 +30,7 @@ const nextConfig = {
   },
 
   async rewrites() {
-    if (disconnected) {
+    if (isDisconnected) {
       // When disconnected we proxy to the local faux layout service host, see scripts/disconnected-mode-server.js
       return [
         {
@@ -104,4 +113,4 @@ const applyGraphQLCodeGenerationLoaders = (config, options) => {
   return config;
 }
 
-module.exports = withEditing(nextConfig);
+module.exports = nextConfig;

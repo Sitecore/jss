@@ -1,6 +1,6 @@
 /**
  * Get the publicUrl.
- * By default, this will only be present for Editing Host builds (using the EDITING_HOST_PUBLIC_URL environment variable).
+ * This is used primarily to enable compatibility with the Sitecore Experience Editor.
  */
 export const getPublicUrl = (): string => {
   return process.env.publicUrl || '';

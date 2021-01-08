@@ -32,7 +32,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@sitecore-jss/sitecore-jss-nextjs": "^16.0.0-canary.14",
-    "@sitecore-jss/sitecore-jss-nextjs-editing-host": "^16.0.0-canary.14",
     "@sitecore-jss/sitecore-jss-tracking": "^16.0.0-canary.14",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
@@ -50,7 +49,8 @@
     "nprogress": "~0.2.0",
     "react": "^17.0.1",
     "react-apollo": "~3.1.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "sync-disk-cache": "^2.1.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.19.1",
@@ -100,8 +100,6 @@
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
     "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
-    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch",
-    "build:editing-host": "cross-env-shell JSS_MODE=editing \"npm-run-all --serial bootstrap next:build\"",
-    "start:editing-host": "cross-env-shell NODE_ENV=production JSS_MODE=editing ts-node --project tsconfig.scripts.json scripts/editing-server.ts"
+    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch"
   }
 }
