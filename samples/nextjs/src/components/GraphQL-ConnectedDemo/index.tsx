@@ -17,7 +17,6 @@ import {
 } from './query.graphql';
 import GraphQLClientFactory from 'lib/GraphQLClientFactory';
 import { StyleguideComponentProps } from 'lib/component-props';
-import { getPublicUrl } from 'lib/util';
 
 type RouteItem = AppRoute & Item;
 
@@ -30,9 +29,6 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
   const data = props.rendering.uid
     ? useComponentProps<GraphQLConnectedDemoData>(props.rendering.uid)
     : undefined;
-  // Prefix next/link paths with a publicUrl to disable Next.js prefetching in the Sitecore Experience Editor.
-  // If you're not supporting the Experience Editor, you can remove this.
-  const publicUrl = getPublicUrl();
 
   return (
     <div data-e2e-id="graphql-connected">
@@ -85,7 +81,7 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
 
               return (
                 <li key={routeItem.id}>
-                  <NextLink href={publicUrl + routeItem.url}>{routeItem.pageTitle?.value}</NextLink>
+                  <NextLink href={routeItem.url}>{routeItem.pageTitle?.value}</NextLink>
                   (editable title too! <Text field={routeItem.pageTitle?.jss} />)
                 </li>
               );

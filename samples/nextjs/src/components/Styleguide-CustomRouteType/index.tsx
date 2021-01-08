@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { useSitecoreContext, Text, RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
-import { getPublicUrl } from 'lib/util';
 
 type StyleguideCustomRouteTypeContext = StyleguideSitecoreContextValue & {
   route: {
@@ -24,10 +23,6 @@ const StyleguideCustomRouteType = (): JSX.Element => {
     },
   } = useSitecoreContext<StyleguideCustomRouteTypeContext>();
 
-  // Prefix next/link paths with a publicUrl to disable Next.js prefetching in the Sitecore Experience Editor.
-  // If you're not supporting the Experience Editor, you can remove this.
-  const publicUrl = getPublicUrl();
-
   return (
     <div data-e2e-id="styleguide-customroutetype">
       <Text tag="h3" field={fields.headline} />
@@ -40,7 +35,7 @@ const StyleguideCustomRouteType = (): JSX.Element => {
 
       <RichText field={fields.content} />
 
-      <Link href={`${publicUrl}/styleguide`}>
+      <Link href="/styleguide">
         <a>Return to the Styleguide</a>
       </Link>
     </div>

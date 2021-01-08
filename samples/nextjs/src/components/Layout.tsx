@@ -4,7 +4,7 @@ import { useI18n } from 'next-localization';
 import { getPublicUrl } from 'lib/util';
 import { Placeholder, RouteData, VisitorIdentification } from '@sitecore-jss/sitecore-jss-nextjs';
 
-// Prefix next/link paths and public assets with a publicUrl to enable compaitibility with Sitecore Experience Editor.
+// Prefix public assets with a public URL to enable compaitibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
 const publicUrl = getPublicUrl();
 
@@ -16,7 +16,7 @@ const Navigation = () => {
   return (
     <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
       <h5 className="my-0 mr-md-auto font-weight-normal">
-        <Link href={`${publicUrl}/`}>
+        <Link href="/">
           <a className="text-dark">
             <img src={`${publicUrl}/sc_logo.svg`} alt="Sitecore" />
           </a>
@@ -31,10 +31,10 @@ const Navigation = () => {
         >
           {t('Documentation')}
         </a>
-        <Link href={`${publicUrl}/styleguide`}>
+        <Link href="/styleguide">
           <a className="p-2 text-dark">{t('Styleguide')}</a>
         </Link>
-        <Link href={`${publicUrl}/graphql`}>
+        <Link href="/graphql">
           <a className="p-2 text-dark">{t('GraphQL')}</a>
         </Link>
       </nav>
