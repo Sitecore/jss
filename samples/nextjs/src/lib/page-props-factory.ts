@@ -1,9 +1,8 @@
 import { AxiosError } from 'axios';
 import { ParsedUrlQuery } from 'querystring';
-import { GetServerSidePropsContext, GetStaticPropsContext, NextPageContext } from 'next';
+import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import {
   ComponentPropsService,
-  EditingRequest,
   LayoutService,
   LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
@@ -146,35 +145,6 @@ export class SitecorePagePropsFactory {
     }
 
     return props;
-  }
-
-  /**
-   * Create SitecorePageProps in an editing context (within getInitialProps function).
-   * If you're not supporting Experience Editor, you can remove this.
-   * @param context {NextPageContext}
-   * @see SitecorePageProps
-   */
-  public async createForEditing(context: NextPageContext): Promise<SitecorePageProps> {
-    // Grab Experience Editor data which has been stashed on the request
-    const data = (context.req as EditingRequest).editingData;
-
-    // Retrieve component props using side-effects defined on components level
-    let componentProps = {};
-    if (data.layoutData.sitecore.route) {
-      componentProps = await this.componentPropsService.fetchInitialComponentProps({
-        layoutData: data.layoutData,
-        context,
-        componentModule,
-      });
-    }
-
-    return {
-      locale: data.language,
-      layoutData: data.layoutData,
-      dictionary: data.dictionary,
-      componentProps,
-      notFound: false,
-    };
   }
 }
 

@@ -4,7 +4,6 @@ import {
   Link,
   GetServerSideComponentProps,
   GetStaticComponentProps,
-  GetInitialComponentProps,
   useComponentProps,
   JSS_MODE_DISCONNECTED,
 } from '@sitecore-jss/sitecore-jss-nextjs';
@@ -128,26 +127,6 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
     return null;
   }
 
-  const graphQLClient = GraphQLClientFactory();
-
-  const result = await graphQLClient.query({
-    query: ConnectedDemoQueryDocument,
-    variables: {
-      datasource: rendering.dataSource,
-      contextItem: layoutData?.sitecore?.route?.itemId,
-    },
-  });
-
-  return result.data;
-};
-
-/**
- * Will be called during editing
- * @param {ComponentRendering} rendering
- * @param {LayoutServiceData} layoutData
- * @param {NextPageContext} context
- */
-export const getInitialProps: GetInitialComponentProps = async (rendering, layoutData) => {
   const graphQLClient = GraphQLClientFactory();
 
   const result = await graphQLClient.query({

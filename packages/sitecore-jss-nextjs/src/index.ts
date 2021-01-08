@@ -30,7 +30,6 @@ export {
   ComponentPropsCollection,
   GetStaticComponentProps,
   GetServerSideComponentProps,
-  GetInitialComponentProps,
 } from './sharedTypes/component-props';
 
 export { ComponentModule } from './sharedTypes/component-module';
