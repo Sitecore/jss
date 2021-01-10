@@ -3,6 +3,8 @@ import * as mediaApi from './mediaApi';
 
 export { dataApi, mediaApi };
 
+export { GraphQLClient } from './graphql-client';
+
 export { LayoutServiceRequestOptions } from './dataApi';
 
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';

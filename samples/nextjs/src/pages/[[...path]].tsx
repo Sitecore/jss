@@ -6,6 +6,7 @@ import { StyleguideSitecoreContextValue } from 'lib/component-props';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
+import { graphQLLayoutService } from 'lib/graphql-layout-service';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   if (notFound) {
@@ -36,14 +37,26 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
 // This function gets called at build and export time to determine
 // pages for SSG ("paths", as tokenized array).
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async (context) => {
   // Fallback, along with revalidate in getStaticProps (below),
   // enables Incremental Static Regeneration. This allows us to
   // leave certain (or all) paths empty if desired and static pages
   // will be generated on request.
   // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
   //
-  // Ultimately, this is where we'll also be able to request a "sitemap" from Sitecore.
+
+  if (process.env.BUILD_MODE === 'export' && context.locales) {
+    const rootItem = '/sitecore/content/jssnextweb/home';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+    const paths = await graphQLLayoutService.fetchSitemap(context.locales, rootItem);
+
+    return {
+      paths,
+      fallback: false,
+    };
+  }
+
   return {
     paths: [],
     fallback: 'blocking',

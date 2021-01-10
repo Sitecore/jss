@@ -45,6 +45,8 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
+    "graphql": "^15.4.0",
+    "graphql-request": "^3.4.0",
     "lodash.unescape": "^4.0.1",
     "url-parse": "^1.4.7"
   },

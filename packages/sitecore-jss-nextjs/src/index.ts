@@ -37,6 +37,8 @@ export { ComponentModule } from './sharedTypes/component-module';
 
 export { ComponentPropsService } from './services/component-props-service';
 
+export { GraqhQLLayoutService } from './services/graphql-layout-service';
+
 export {
   ComponentPropsReactContext,
   ComponentPropsContextProps,
