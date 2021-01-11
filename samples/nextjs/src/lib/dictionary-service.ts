@@ -4,7 +4,7 @@ import config from 'temp/config';
 const dictionaryService = new DictionaryService({
   apiHost: config.sitecoreApiHost,
   apiKey: config.sitecoreApiKey,
-  jssAppName: config.jssAppName,
+  siteName: config.jssAppName,
 });
 
 export { dictionaryService };

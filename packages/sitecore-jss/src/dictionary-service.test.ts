@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-expressions */
 import { expect, spy, use } from 'chai';
-import mcache from 'memory-cache';
 import spies from 'chai-spies';
 import { DictionaryService } from './dictionary-service';
 import axios from 'axios';
@@ -18,7 +17,6 @@ describe('DictionaryService', () => {
 
   afterEach(() => {
     mock.reset();
-    mcache.clear();
   });
 
   after(() => {
@@ -33,7 +31,7 @@ describe('DictionaryService', () => {
     const service = new DictionaryService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
-      jssAppName: 'supersite',
+      siteName: 'supersite',
     });
 
     return service.fetchDictionaryData('da-DK').then((phrases) => {
@@ -59,7 +57,7 @@ describe('DictionaryService', () => {
       const service = new DictionaryService({
         apiHost: 'http://sctest',
         apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
-        jssAppName: 'supersite',
+        siteName: 'supersite',
         cacheEnabled: true,
       });
 
@@ -98,9 +96,9 @@ describe('DictionaryService', () => {
       const service = new DictionaryService({
         apiHost: 'http://sctest',
         apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
-        jssAppName: 'supersite',
+        siteName: 'supersite',
         cacheEnabled: true,
-        cacheTimeout: 500,
+        cacheTimeout: 0.5,
       });
 
       const fetchedPhrases = await service.fetchDictionaryData('ua');
@@ -123,7 +121,7 @@ describe('DictionaryService', () => {
       const p = new Promise((resolve) => {
         setTimeout(
           () =>
-            service.fetchDictionaryData('da-DK').then((cachedPhrases) => {
+            service.fetchDictionaryData('ua').then((cachedPhrases) => {
               expect(cachedPhrases).to.deep.equal({
                 x: 'x11',
                 y: 'y22',
@@ -153,7 +151,7 @@ describe('DictionaryService', () => {
     const service = new DictionaryService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
-      jssAppName: 'supersite',
+      siteName: 'supersite',
       dataFetcher: fetcherSpy,
     });
 

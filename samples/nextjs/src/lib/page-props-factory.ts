@@ -3,6 +3,7 @@ import { ParsedUrlQuery } from 'querystring';
 import { GetServerSidePropsContext, GetStaticPropsContext, NextPageContext } from 'next';
 import {
   ComponentPropsService,
+  DictionaryService,
   EditingRequest,
   LayoutService,
   LayoutServiceData,
@@ -10,7 +11,7 @@ import {
 import { SitecorePageProps } from 'lib/page-props';
 import { componentModule } from 'temp/componentFactory';
 import { layoutService } from 'lib/layout-service';
-import { DictionaryService, dictionaryService } from 'lib/dictionary-service';
+import { dictionaryService } from 'lib/dictionary-service';
 import { config as packageConfig } from '../../package.json';
 
 /**

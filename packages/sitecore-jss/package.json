@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "lodash.unescape": "^4.0.1",
-    "memory-cache": "^0.2.0",
+    "node-cache": "^5.1.2",
     "url-parse": "^1.4.7"
   },
   "description": "",
