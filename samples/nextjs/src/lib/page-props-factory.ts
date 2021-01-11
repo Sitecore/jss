@@ -10,7 +10,7 @@ import { SitecorePageProps } from 'lib/page-props';
 import { componentModule } from 'temp/componentFactory';
 import { layoutService } from 'lib/layout-service';
 import { DictionaryService, dictionaryService } from 'lib/dictionary-service';
-import { getEditingData } from 'lib/editing-utils';
+import { getEditingData, EditingPreviewData } from 'lib/editing-utils';
 import { config as packageConfig } from '../../package.json';
 
 /**
@@ -28,6 +28,16 @@ const extractPath = function (params: ParsedUrlQuery | undefined): string {
   }
 
   return path;
+};
+
+/**
+ * Determines whether context is GetServerSidePropsContext (SSR) or GetStaticPropsContext (SSG)
+ * @param context {GetServerSidePropsContext | GetStaticPropsContext}
+ */
+const isServerSidePropsContext = function (
+  context: GetServerSidePropsContext | GetStaticPropsContext
+): context is GetServerSidePropsContext {
+  return (<GetServerSidePropsContext>context).req !== undefined;
 };
 
 export class SitecorePagePropsFactory {
@@ -51,24 +61,17 @@ export class SitecorePagePropsFactory {
     return dictionaryService;
   }
 
-  private async createBaseProps(
+  /**
+   * Create SitecorePageProps for given context (SSR / GetServerSidePropsContext or SSG / GetStaticPropsContext)
+   * @param context {GetServerSidePropsContext | GetStaticPropsContext}
+   * @see SitecorePageProps
+   */
+  public async create(
     context: GetServerSidePropsContext | GetStaticPropsContext
   ): Promise<SitecorePageProps> {
     if (context.preview) {
       // If we're in preview (editing) mode, use data already sent along with the editing request
-      const data = await getEditingData(context.previewData);
-      if (!data) {
-        throw new Error(
-          `Unable to get editing data for preview ${JSON.stringify(context.previewData)}`
-        );
-      }
-      return {
-        locale: data.language,
-        layoutData: data.layoutData,
-        dictionary: data.dictionary,
-        componentProps: {},
-        notFound: false,
-      };
+      return this.createForEditing(context.previewData);
     }
 
     // Get normalized Sitecore item path
@@ -96,55 +99,44 @@ export class SitecorePagePropsFactory {
     // Fetch dictionary data from Dictionary Service
     const dictionary = await this.dictionaryService.fetchDictionaryData(locale);
 
+    // Retrieve component props using side-effects defined on components level
+    let componentProps = {};
+    if (layoutData.sitecore.route) {
+      if (isServerSidePropsContext(context)) {
+        componentProps = await this.componentPropsService.fetchServerSideComponentProps({
+          layoutData: layoutData,
+          context,
+          componentModule,
+        });
+      } else {
+        componentProps = await this.componentPropsService.fetchStaticComponentProps({
+          layoutData: layoutData,
+          context,
+          componentModule,
+        });
+      }
+    }
     return {
       locale,
       layoutData,
       dictionary,
-      componentProps: {},
+      componentProps,
       notFound,
     };
   }
 
-  /**
-   * Create SitecorePageProps in a SSG context (within getStaticProps function).
-   * If you're not using SSG, you can remove this.
-   * @param context {GetStaticPropsContext}
-   * @see SitecorePageProps
-   */
-  public async createForStatic(context: GetStaticPropsContext): Promise<SitecorePageProps> {
-    const props = await this.createBaseProps(context);
-
-    // Retrieve component props using side-effects defined on components level
-    if (props.layoutData.sitecore.route) {
-      props.componentProps = await this.componentPropsService.fetchStaticComponentProps({
-        layoutData: props.layoutData,
-        context,
-        componentModule,
-      });
+  private async createForEditing(previewData: EditingPreviewData): Promise<SitecorePageProps> {
+    const data = await getEditingData(previewData);
+    if (!data) {
+      throw new Error(`Unable to get editing data for preview ${JSON.stringify(previewData)}`);
     }
-
-    return props;
-  }
-
-  /**
-   * Create SitecorePageProps in a SSR context (within getServerSideProps function).
-   * If you're not using SSR, you can remove this.
-   * @param context {GetServerSidePropsContext}
-   * @see SitecorePageProps
-   */
-  public async createForServerSide(context: GetServerSidePropsContext): Promise<SitecorePageProps> {
-    const props = await this.createBaseProps(context);
-
-    // Retrieve component props using side-effects defined on components level
-    if (props.layoutData.sitecore.route) {
-      props.componentProps = await this.componentPropsService.fetchServerSideComponentProps({
-        layoutData: props.layoutData,
-        context,
-        componentModule,
-      });
-    }
-
-    return props;
+    return {
+      locale: data.language,
+      layoutData: data.layoutData,
+      dictionary: data.dictionary,
+      componentProps: {},
+      notFound: false,
+    };
   }
 }
 
