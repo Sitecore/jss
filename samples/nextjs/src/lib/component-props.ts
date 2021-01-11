@@ -8,13 +8,11 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
- * Sitecore Context which you can access using withSitecoreContext
- * @example withSitecoreContext()(ContentBlock)
+ * Styleguide sitecore context value shape
  */
-export type StyleguideSitecoreContext = {
-  sitecoreContext: LayoutServiceContext & {
-    route: RouteData;
-  };
+export type StyleguideSitecoreContextValue = LayoutServiceContext & {
+  itemId?: string;
+  route: RouteData;
 };
 
 /**
@@ -38,7 +36,10 @@ export type StyleguideComponentProps = {
 
 /**
  * Styleguide component props with context
+ * You can access `sitecoreContext` by withSitecoreContext/useSitecoreContext
  * @example withSitecoreContext()(ContentBlock)
+ * @example const { sitecoreContext } = useSitecoreContext()
  */
-export type StyleguideComponentWithContextProps = StyleguideComponentProps &
-  StyleguideSitecoreContext;
+export type StyleguideComponentWithContextProps = StyleguideComponentProps & {
+  sitecoreContext: StyleguideSitecoreContextValue;
+};

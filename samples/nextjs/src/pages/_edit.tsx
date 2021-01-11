@@ -5,13 +5,14 @@ import { SitecoreContext, ComponentPropsContext } from '@sitecore-jss/sitecore-j
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
+import { StyleguideSitecoreContextValue } from 'lib/component-props';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   if (notFound) {
     return <NotFound context={layoutData?.sitecore?.context} />;
   }
 
-  const context = {
+  const context: StyleguideSitecoreContextValue = {
     route: layoutData.sitecore.route,
     itemId: layoutData.sitecore.route?.itemId,
     ...layoutData.sitecore.context,
@@ -19,7 +20,10 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
   const PageLayout = () => (
     <ComponentPropsContext value={componentProps}>
-      <SitecoreContext componentFactory={componentFactory} context={context}>
+      <SitecoreContext<StyleguideSitecoreContextValue>
+        componentFactory={componentFactory}
+        context={context}
+      >
         <Layout route={layoutData.sitecore.route} />
       </SitecoreContext>
     </ComponentPropsContext>
