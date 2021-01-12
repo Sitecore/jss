@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "lodash.unescape": "^4.0.1",
+    "node-cache": "^5.1.2",
     "url-parse": "^1.4.7"
   },
   "description": "",
