@@ -12,5 +12,5 @@ export function dataFetcher<ResponseType>(
   url: string,
   data?: unknown
 ): Promise<AxiosResponse<ResponseType>> {
-  return new AxiosDataFetcher().fetch(url, data);
+  return new AxiosDataFetcher().fetch<ResponseType>(url, data);
 }

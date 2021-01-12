@@ -3,7 +3,6 @@ import { ComponentRendering, PlaceholdersData } from '@sitecore-jss/sitecore-jss
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';
-import { NextPageContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { ComponentPropsService, ComponentPropsRequest } from './component-props-service';
 

@@ -55,9 +55,9 @@ export class AxiosDataFetcher {
    * Implements a data fetcher. @see HttpJsonFetcher<T> type for implementation details/notes.
    * @param {string} url The URL to request; may include query string
    * @param {any} [data] Optional data to POST with the request.
-   * @returns {Promise<AxiosResponse>} response
+   * @returns {Promise<AxiosResponse<T>>} response
    */
-  fetch(url: string, data?: unknown): Promise<AxiosResponse> {
+  fetch<T>(url: string, data?: unknown): Promise<AxiosResponse<T>> {
     return this.instance.request({
       url,
       method: data ? 'POST' : 'GET',
@@ -68,9 +68,9 @@ export class AxiosDataFetcher {
   /**
    * Perform a GET request
    * @param {string} url The URL to request; may include query string
-   * @returns {Promise<AxiosResponse>} response
+   * @returns {Promise<AxiosResponse<T>>} response
    */
-  get(url: string): Promise<AxiosResponse> {
+  get<T>(url: string): Promise<AxiosResponse<T>> {
     return this.instance.get(url);
   }
 

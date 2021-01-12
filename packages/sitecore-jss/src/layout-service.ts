@@ -66,7 +66,7 @@ export class LayoutService {
 
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
-      : this.getDefaultFetcher(req, res);
+      : this.getDefaultFetcher<LayoutServiceData>(req, res);
 
     return fetchRouteData(itemPath, { fetcher, ...fetchOptions });
   }
@@ -93,7 +93,7 @@ export class LayoutService {
 
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
-      : this.getDefaultFetcher(req, res);
+      : this.getDefaultFetcher<PlaceholderData>(req, res);
 
     return fetchPlaceholderData(placeholderName, itemPath, { fetcher, ...fetchOptions });
   }
@@ -125,7 +125,7 @@ export class LayoutService {
    * @param {ServerResponse} [res] Response instance
    * @returns default fetcher
    */
-  private getDefaultFetcher = (req?: IncomingMessage, res?: ServerResponse) => {
+  private getDefaultFetcher = <T>(req?: IncomingMessage, res?: ServerResponse) => {
     const config = {} as AxiosDataFetcherConfig;
     if (req && res) {
       config.onReq = this.setupReqHeaders(req);
@@ -134,7 +134,7 @@ export class LayoutService {
     const axiosFetcher = new AxiosDataFetcher(config);
 
     const fetcher = (url: string, data?: unknown) => {
-      return axiosFetcher.fetch(url, data);
+      return axiosFetcher.fetch<T>(url, data);
     };
 
     return fetcher;
