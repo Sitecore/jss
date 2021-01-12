@@ -4,7 +4,6 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
-import { IncomingMessage, ServerResponse } from 'http';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
 
 use(spies);
@@ -127,47 +126,14 @@ describe('AxiosDataFetcher', () => {
             ...config,
             data: { sitecore: { context: {}, route: { name: 'xxx' } } },
           },
-          {
-            'set-cookie': 'test-set-cookie-value',
-          },
         ];
       });
 
-      const req = {
-        connection: {
-          remoteAddress: '192.168.1.10',
-        },
-        headers: {
-          cookie: 'test-cookie-value',
-          referer: 'http://sctest',
-          'user-agent': 'test-user-agent-value',
-        },
-      } as IncomingMessage;
-
-      const setHeaderSpy: (name: string, value: number | string | string[]) => void = spy();
-
-      const res = {
-        setHeader: setHeaderSpy,
-      } as ServerResponse;
-
       const onReqSpy = spy((config: AxiosRequestConfig) => {
-        config.headers.common = {
-          ...config.headers.common,
-          'test-req-header': 'test-req-header-value',
-        };
-
-        expect(config.headers.common.cookie).to.equal('test-cookie-value');
-        expect(config.headers.common.referer).to.equal('http://sctest');
-        expect(config.headers.common['user-agent']).to.equal('test-user-agent-value');
-        expect(config.headers.common['X-Forwarded-For']).to.equal('192.168.1.10');
-        expect(config.headers.common['test-req-header']).to.equal('test-req-header-value');
-
         return config;
       });
 
       const onResSpy = spy((response: AxiosResponse) => {
-        res.setHeader('test-res-header', 'test-res-header-value');
-
         return response;
       });
 
@@ -183,13 +149,8 @@ describe('AxiosDataFetcher', () => {
 
       const fetcher = new AxiosDataFetcher(config);
 
-      return fetcher.fetch('/home', undefined, req, res).then((res: AxiosResponse) => {
+      return fetcher.fetch('/home', undefined).then((res: AxiosResponse) => {
         expect(res.status).to.equal(200);
-        expect(res.data.headers.cookie).to.equal('test-cookie-value');
-        expect(res.data.headers.referer).to.equal('http://sctest');
-        expect(res.data.headers['user-agent']).to.equal('test-user-agent-value');
-        expect(res.data.headers['X-Forwarded-For']).to.equal('192.168.1.10');
-        expect(res.data.headers['test-req-header']).to.equal('test-req-header-value');
 
         expect(res.data.url).to.equal('/home');
         expect(res.data.data).to.deep.equal({
@@ -198,8 +159,6 @@ describe('AxiosDataFetcher', () => {
             route: { name: 'xxx' },
           },
         });
-        expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
-
         expect(onReqSpy).to.be.called.once;
         expect(onResSpy).to.be.called.once;
       });

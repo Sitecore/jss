@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios';
-import { IncomingMessage, ServerResponse } from 'http';
 
 export type AxiosDataFetcherHandlers = {
   /**
@@ -32,7 +31,6 @@ export type AxiosDataFetcherConfig = AxiosRequestConfig & AxiosDataFetcherHandle
 
 export class AxiosDataFetcher {
   private instance: AxiosInstance;
-  private handlers: AxiosDataFetcherHandlers;
 
   /**
    * @param {AxiosDataFetcherConfig} dataFetcherConfig Axios data fetcher configuration.
@@ -44,41 +42,22 @@ export class AxiosDataFetcher {
     if (axiosConfig.withCredentials === undefined) {
       axiosConfig.withCredentials = true;
     }
-    this.handlers = { onReq, onRes, onReqError, onResError };
-
     this.instance = axios.create(axiosConfig);
+    if (onReq) {
+      this.instance.interceptors.request.use(onReq, onReqError);
+    }
+    if (onRes) {
+      this.instance.interceptors.response.use(onRes, onResError);
+    }
   }
 
   /**
    * Implements a data fetcher. @see HttpJsonFetcher<T> type for implementation details/notes.
    * @param {string} url The URL to request; may include query string
    * @param {any} [data] Optional data to POST with the request.
-   * @param {IncomingMessage} [req] Request instance
-   * @param {ServerResponse} [res] Response instance
    * @returns {Promise<AxiosResponse>} response
    */
-  fetch(
-    url: string,
-    data?: unknown,
-    req?: IncomingMessage,
-    res?: ServerResponse
-  ): Promise<AxiosResponse> {
-    this.instance.interceptors.request.use((reqConfig: AxiosRequestConfig) => {
-      if (req) {
-        reqConfig = this.setupReqHeaders(req, reqConfig);
-      }
-
-      return this.handlers.onReq ? this.handlers.onReq(reqConfig) : reqConfig;
-    }, this.handlers.onReqError);
-
-    this.instance.interceptors.response.use((layoutServiceRes: AxiosResponse) => {
-      if (res) {
-        layoutServiceRes = this.setupResHeaders(res, layoutServiceRes);
-      }
-
-      return this.handlers.onRes ? this.handlers.onRes(layoutServiceRes) : layoutServiceRes;
-    }, this.handlers.onResError);
-
+  fetch(url: string, data?: unknown): Promise<AxiosResponse> {
     return this.instance.request({
       url,
       method: data ? 'POST' : 'GET',
@@ -131,35 +110,5 @@ export class AxiosDataFetcher {
    */
   delete(url: string): Promise<AxiosResponse> {
     return this.instance.delete(url);
-  }
-
-  /**
-   * Setup request headers
-   * @param {IncomingMessage} req
-   * @param {AxiosRequestConfig} reqConfig
-   * @returns {AxiosRequestConfig} axios request config
-   */
-  private setupReqHeaders(req: IncomingMessage, reqConfig: AxiosRequestConfig) {
-    reqConfig.headers.common = {
-      ...reqConfig.headers.common,
-      ...(req.headers.cookie && { cookie: req.headers.cookie }),
-      ...(req.headers.referer && { referer: req.headers.referer }),
-      ...(req.headers['user-agent'] && { 'user-agent': req.headers['user-agent'] }),
-      ...(req.connection.remoteAddress && { 'X-Forwarded-For': req.connection.remoteAddress }),
-    };
-
-    return reqConfig;
-  }
-
-  /**
-   * Setup response headers based on response from layout service
-   * @param {ServerResponse} res
-   * @param {AxiosResponse} serverRes
-   * @returns {AxiosResponse} response
-   */
-  private setupResHeaders(res: ServerResponse, serverRes: AxiosResponse) {
-    serverRes.headers['set-cookie'] && res.setHeader('set-cookie', serverRes.headers['set-cookie']);
-
-    return serverRes;
   }
 }
