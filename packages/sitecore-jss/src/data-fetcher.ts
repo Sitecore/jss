@@ -31,12 +31,19 @@ export type AxiosDataFetcherHandlers = {
 export type AxiosDataFetcherConfig = AxiosRequestConfig & AxiosDataFetcherHandlers;
 
 export class AxiosDataFetcher {
-  instance: AxiosInstance;
-  handlers: AxiosDataFetcherHandlers;
+  private instance: AxiosInstance;
+  private handlers: AxiosDataFetcherHandlers;
 
+  /**
+   * @param {AxiosDataFetcherConfig} dataFetcherConfig Axios data fetcher configuration.
+   * Note `withCredentials` is set to `true` by default in order for Sitecore cookies to
+   * be included in CORS requests (which is necessary for analytics and such).
+   */
   constructor(dataFetcherConfig: AxiosDataFetcherConfig = {}) {
     const { onReq, onRes, onReqError, onResError, ...axiosConfig } = dataFetcherConfig;
-
+    if (axiosConfig.withCredentials === undefined) {
+      axiosConfig.withCredentials = true;
+    }
     this.handlers = { onReq, onRes, onReqError, onResError };
 
     this.instance = axios.create(axiosConfig);
@@ -76,10 +83,54 @@ export class AxiosDataFetcher {
       url,
       method: data ? 'POST' : 'GET',
       data,
-      // note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
-      // which is necessary for analytics and such
-      withCredentials: true,
     });
+  }
+
+  /**
+   * Perform a GET request
+   * @param {string} url The URL to request; may include query string
+   * @returns {Promise<AxiosResponse>} response
+   */
+  get(url: string): Promise<AxiosResponse> {
+    return this.instance.get(url);
+  }
+
+  /**
+   * Perform a HEAD request
+   * @param {string} url The URL to request; may include query string
+   * @returns {Promise<AxiosResponse>} response
+   */
+  head(url: string): Promise<AxiosResponse> {
+    return this.instance.head(url);
+  }
+
+  /**
+   * Perform a POST request
+   * @param {string} url The URL to request; may include query string
+   * @param {any} [data] Data to POST with the request.
+   * @returns {Promise<AxiosResponse>} response
+   */
+  post(url: string, data?: unknown): Promise<AxiosResponse> {
+    return this.instance.post(url, data);
+  }
+
+  /**
+   * Perform a PUT request
+   * @param {string} url The URL to request; may include query string
+   * @param {any} [data] Data to PUT with the request.
+   * @returns {Promise<AxiosResponse>} response
+   */
+  put(url: string, data?: unknown): Promise<AxiosResponse> {
+    return this.instance.put(url, data);
+  }
+
+  /**
+   * Perform a DELETE request
+   * @param {string} url The URL to request; may include query string
+   * @returns {Promise<AxiosResponse>} response
+   */
+  delete(url: string): Promise<AxiosResponse> {
+    return this.instance.delete(url);
   }
 
   /**
