@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { constantCase } from "constant-case";
+import { constantCase } from 'constant-case';
 import packageConfig from '../package.json';
 
 /* eslint-disable no-console */
