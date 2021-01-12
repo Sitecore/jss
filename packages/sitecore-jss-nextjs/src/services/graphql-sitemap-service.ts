@@ -1,7 +1,6 @@
 import { GraphQLClient } from '@sitecore-jss/sitecore-jss';
 
-export type GraphQLLayoutServiceConfig = {
-  siteName: string;
+export type GraphQLSitemapServiceConfig = {
   endpoint: string;
 };
 
@@ -12,8 +11,8 @@ type StaticPath = {
   locale: string;
 };
 
-export class GraqhQLLayoutService {
-  constructor(private config: GraphQLLayoutServiceConfig) {}
+export class GraphQLSitemapService {
+  constructor(private config: GraphQLSitemapServiceConfig) {}
 
   createClient(): GraphQLClient {
     const { endpoint } = this.config;
@@ -21,12 +20,22 @@ export class GraqhQLLayoutService {
     return new GraphQLClient(endpoint);
   }
 
-  /**
-   * Execute graphql request
-   * @param {string} query graphql query
-   */
-  request<T>(query: string): Promise<T> {
-    return this.createClient().request<T>(query);
+  async getRootItemId(rootItem: string): Promise<string | undefined> {
+    const query = `
+      item(path:"${rootItem}") {
+        id
+      }
+    `;
+
+    const data = await this.createClient()
+      .request<{ item: { id: string } }>(query)
+      .catch((error) => {
+        console.error('Error occured during fetching sitemap:', error.response);
+
+        return null;
+      });
+
+    return data?.item.id;
   }
 
   /**
@@ -65,6 +74,10 @@ export class GraqhQLLayoutService {
    * @param {string} rootItem root item path
    */
   async fetchSitemap(locales: string[], rootItem: string): Promise<StaticPath[]> {
+    const rootItemId = await this.getRootItemId(rootItem);
+
+    console.log('ROOT ITEM ID:', rootItemId);
+
     const getStaticPaths = async (locale: string): Promise<StaticPath[]> => {
       const query = this.getSitemapQuery(rootItem, locale);
 
@@ -76,13 +89,15 @@ export class GraqhQLLayoutService {
         };
       };
 
-      const data = await this.request<SearchResult>(query).catch((error) => {
-        // Let 404s (invalid path) through
-        if (error?.response?.status === 404) return null;
-        throw error;
-      });
+      const data = await this.createClient()
+        .request<SearchResult>(query)
+        .catch((error) => {
+          console.error('Error occured during fetching sitemap:', error.response);
 
-      const items = data ? data.search.results.items : [];
+          return null;
+        });
+
+      const items = data?.search.results.items ? data.search.results.items : [];
 
       const staticPaths = items.reduce((list: StaticPath[], item: { path: string }) => {
         // replace rootItem prefix by '', and replace first /

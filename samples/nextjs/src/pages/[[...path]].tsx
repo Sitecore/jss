@@ -6,7 +6,7 @@ import { StyleguideSitecoreContextValue } from 'lib/component-props';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
-import { graphQLLayoutService } from 'lib/graphql-layout-service';
+import { graphQLSitemapService } from 'lib/graphql-sitemap-service';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   if (notFound) {
@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
     const rootItem = '/sitecore/content/jssnextweb/home';
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
-    const paths = await graphQLLayoutService.fetchSitemap(context.locales, rootItem);
+    const paths = await graphQLSitemapService.fetchSitemap(context.locales, rootItem);
 
     return {
       paths,
