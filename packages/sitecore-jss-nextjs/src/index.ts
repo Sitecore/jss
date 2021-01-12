@@ -43,7 +43,8 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { EditingData, EditingRequest } from './sharedTypes/editing-data';
+export { EditingDataService, EditingDataServiceConfig } from './services/editing-data-service';
+export { EditingData, EditingPreviewData } from './sharedTypes/editing-data';
 
 export { Link } from './components/Link';
 export { RichText } from './components/RichText';
