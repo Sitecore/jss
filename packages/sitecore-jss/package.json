@@ -27,7 +27,6 @@
     "@types/chai-spies": "^1.0.3",
     "@types/chai-string": "^1.4.2",
     "@types/lodash.unescape": "^4.0.6",
-    "@types/memory-cache": "^0.2.1",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.11",
     "@types/url-parse": "1.4.3",

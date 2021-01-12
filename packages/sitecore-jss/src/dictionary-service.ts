@@ -52,6 +52,7 @@ export class DictionaryService {
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
     const {
       dataFetcher,
+      apiKey,
       cacheTimeout = this.STD_TTL,
       cacheEnabled = true,
     } = this.dictionaryServiceConfig;
@@ -68,7 +69,9 @@ export class DictionaryService {
       }
     }
 
-    const response = await fetchData<DictionaryServiceData>(dictionaryServiceUrl, fetcher);
+    const response = await fetchData<DictionaryServiceData>(dictionaryServiceUrl, fetcher, {
+      sc_apikey: apiKey,
+    });
 
     if (cacheEnabled) {
       this.dictionaryCache.set(dictionaryServiceUrl, response.phrases, cacheTimeout);
@@ -82,9 +85,9 @@ export class DictionaryService {
    * @param {string} language
    */
   private getUrl(language: string) {
-    const { apiHost, siteName, apiKey } = this.dictionaryServiceConfig;
+    const { apiHost, siteName } = this.dictionaryServiceConfig;
 
-    return `${apiHost}/sitecore/api/jss/dictionary/${siteName}/${language}?sc_apikey=${apiKey}`;
+    return `${apiHost}/sitecore/api/jss/dictionary/${siteName}/${language}`;
   }
 
   /**
