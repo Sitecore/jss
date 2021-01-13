@@ -22,7 +22,6 @@ export const getPublicUrl = (): string => {
 
 export const getEditingSecretToken = (): string => {
   const token = process.env.EDITING_SECRET_TOKEN;
-  // TBD: any minimum length / complexity requirements?
   if (!token || token.length === 0) {
     throw new Error('The EDITING_SECRET_TOKEN environment variable is missing or invalid.');
   }
