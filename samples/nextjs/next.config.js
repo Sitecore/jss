@@ -11,6 +11,9 @@ const disconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
 
 const nextConfig = {
 
+  // Allow specifying a distinct distDir when concurrently running app in a container
+  distDir: process.env.NEXTJS_DIST_DIR || ".next",
+
   i18n: {
     // These are all the locales you want to support in your application.
     // These should generally match (or at least be a subset of) those in Sitecore.
