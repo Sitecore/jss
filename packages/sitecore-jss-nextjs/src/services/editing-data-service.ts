@@ -1,8 +1,8 @@
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingData, EditingPreviewData } from '../sharedTypes/editing-data';
-import { getPublicUrl, getEditingSecretToken } from '../utils';
+import { getPublicUrl, getSitecoreSecurityToken } from '../utils';
 
-export const QUERY_PARAM_SECRET = 'secret';
+export const QUERY_PARAM_SECURITY_TOKEN = 'token';
 
 export interface EditingDataServiceConfig {
   /**
@@ -14,7 +14,7 @@ export interface EditingDataServiceConfig {
    */
   apiRoute?: string;
   /**
-   * An `AxiosDataFetcher` instance to use for API requests.
+   * The `AxiosDataFetcher` instance to use for API requests.
    * @default new AxiosDataFetcher()
    * @see AxiosDataFetcher
    */
@@ -81,7 +81,10 @@ export class EditingDataService {
     }
     const apiRoute = this.apiRoute?.replace('[key]', key);
     const url = new URL(apiRoute, publicUrl);
-    url.searchParams.append(QUERY_PARAM_SECRET, getEditingSecretToken());
+    url.searchParams.append(QUERY_PARAM_SECURITY_TOKEN, getSitecoreSecurityToken());
     return url.toString();
   }
 }
+
+/** EditingDataService singleton (with default values) */
+export const editingDataService = new EditingDataService();

@@ -3,7 +3,7 @@
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { QUERY_PARAM_SECRET } from '../services/editing-data-service';
+import { QUERY_PARAM_SECURITY_TOKEN } from '../services/editing-data-service';
 import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataCache } from './editing-data-cache';
 import { EditingDataMiddleware } from './editing-data-middleware';
@@ -54,20 +54,20 @@ const mockEditingData = {
 } as EditingData;
 
 describe('EditingDataMiddleware', () => {
-  const secret = 'secret1234';
+  const token = 'token1234';
 
   beforeEach(() => {
-    process.env.EDITING_SECRET_TOKEN = secret;
+    process.env.SITECORE_SECURITY_TOKEN = token;
   });
 
   after(() => {
-    delete process.env.EDITING_SECRET_TOKEN;
+    delete process.env.SITECORE_SECURITY_TOKEN;
   });
 
   it('should handle PUT request', async () => {
     const key = 'key1234';
     const query = { key } as Query;
-    query[QUERY_PARAM_SECRET] = secret;
+    query[QUERY_PARAM_SECURITY_TOKEN] = token;
     const cache = mockCache();
     const req = mockRequest('PUT', query, mockEditingData);
     const res = mockResponse();
@@ -77,17 +77,17 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.set).to.be.called.once;
-    expect(cache.set).to.be.called.with(key, mockEditingData);
-    expect(res.status).to.be.called.once;
-    expect(res.status).to.be.called.with(200);
-    expect(res.end).to.be.called.once;
+    expect(cache.set).to.have.been.called.once;
+    expect(cache.set).to.have.been.called.with.exactly(key, mockEditingData);
+    expect(res.status).to.have.been.called.once;
+    expect(res.status).to.have.been.called.with(200);
+    expect(res.end).to.have.been.called.once;
   });
 
   it('should handle GET request', async () => {
     const key = 'key1234';
     const query = { key } as Query;
-    query[QUERY_PARAM_SECRET] = secret;
+    query[QUERY_PARAM_SECURITY_TOKEN] = token;
     const cache = mockCache(mockEditingData);
     const req = mockRequest('GET', query);
     const res = mockResponse();
@@ -97,12 +97,12 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.get).to.be.called.once;
-    expect(cache.get).to.be.called.with(key);
-    expect(res.status).to.be.called.once;
-    expect(res.status).to.be.called.with(200);
-    expect(res.json).to.be.called.once;
-    expect(res.json).to.be.called.with(mockEditingData);
+    expect(cache.get).to.have.been.called.once;
+    expect(cache.get).to.have.been.called.with(key);
+    expect(res.status).to.have.been.called.once;
+    expect(res.status).to.have.been.called.with(200);
+    expect(res.json).to.have.been.called.once;
+    expect(res.json).to.have.been.called.with(mockEditingData);
   });
 
   it('should use dynamicRouteKey if set', async () => {
@@ -110,7 +110,7 @@ describe('EditingDataMiddleware', () => {
     const key = 'key1234';
     const query = {} as Query;
     query[dynamicRouteKey] = key;
-    query[QUERY_PARAM_SECRET] = secret;
+    query[QUERY_PARAM_SECURITY_TOKEN] = token;
     const cache = mockCache(mockEditingData);
     const req = mockRequest('GET', query);
     const res = mockResponse();
@@ -123,18 +123,18 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.get).to.be.called.once;
-    expect(cache.get).to.be.called.with(key);
-    expect(res.status).to.be.called.once;
-    expect(res.status).to.be.called.with(200);
-    expect(res.json).to.be.called.once;
-    expect(res.json).to.be.called.with(mockEditingData);
+    expect(cache.get).to.have.been.called.once;
+    expect(cache.get).to.have.been.called.with(key);
+    expect(res.status).to.have.been.called.once;
+    expect(res.status).to.have.been.called.with(200);
+    expect(res.json).to.have.been.called.once;
+    expect(res.json).to.have.been.called.with(mockEditingData);
   });
 
   it('should respond with 400 for invalid editing data', async () => {
     const key = 'key1234';
     const query = { key } as Query;
-    query[QUERY_PARAM_SECRET] = secret;
+    query[QUERY_PARAM_SECURITY_TOKEN] = token;
     const cache = mockCache();
     const req = mockRequest('PUT', query, { invalid: 'data' });
     const res = mockResponse();
@@ -144,13 +144,13 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.set).to.not.be.called;
-    expect(res.status).to.be.called.once;
-    expect(res.status).to.be.called.with(400);
-    expect(res.end).to.be.called.once;
+    expect(cache.set).to.not.have.been.called;
+    expect(res.status).to.have.been.called.once;
+    expect(res.status).to.have.been.called.with(400);
+    expect(res.end).to.have.been.called.once;
   });
 
-  it('should respond with 401 for missing secret', async () => {
+  it('should respond with 401 for missing token', async () => {
     const key = 'key1234';
     const query = { key } as Query;
     const cache = mockCache();
@@ -162,16 +162,16 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.get).to.not.be.called;
-    expect(res.status).to.be.called.once;
-    expect(res.status).to.be.called.with(401);
-    expect(res.end).to.be.called.once;
+    expect(cache.get).to.not.have.been.called;
+    expect(res.status).to.have.been.called.once;
+    expect(res.status).to.have.been.called.with(401);
+    expect(res.end).to.have.been.called.once;
   });
 
-  it('should respond with 401 for invalid secret', async () => {
+  it('should respond with 401 for invalid token', async () => {
     const key = 'key1234';
     const query = { key } as Query;
-    query[QUERY_PARAM_SECRET] = 'nope';
+    query[QUERY_PARAM_SECURITY_TOKEN] = 'nope';
     const cache = mockCache();
     const req = mockRequest('GET', query);
     const res = mockResponse();
@@ -181,16 +181,16 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.get).to.not.be.called;
-    expect(res.status).to.be.called.once;
-    expect(res.status).to.be.called.with(401);
-    expect(res.end).to.be.called.once;
+    expect(cache.get).to.not.have.been.called;
+    expect(res.status).to.have.been.called.once;
+    expect(res.status).to.have.been.called.with(401);
+    expect(res.end).to.have.been.called.once;
   });
 
   it('should respond with 405 for unsupported method', async () => {
     const key = 'key1234';
     const query = { key } as Query;
-    query[QUERY_PARAM_SECRET] = secret;
+    query[QUERY_PARAM_SECURITY_TOKEN] = token;
     const cache = mockCache();
     const req = mockRequest('POST', query);
     const res = mockResponse();
@@ -200,11 +200,11 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.get).to.not.be.called;
-    expect(cache.set).to.not.be.called;
-    expect(res.setHeader).to.be.called.with('Allow', ['GET', 'PUT']);
-    expect(res.status).to.be.called.once;
-    expect(res.status).to.be.called.with(405);
-    expect(res.end).to.be.called.once;
+    expect(cache.get).to.not.have.been.called;
+    expect(cache.set).to.not.have.been.called;
+    expect(res.setHeader).to.have.been.called.with.exactly('Allow', ['GET', 'PUT']);
+    expect(res.status).to.have.been.called.once;
+    expect(res.status).to.have.been.called.with(405);
+    expect(res.end).to.have.been.called.once;
   });
 });

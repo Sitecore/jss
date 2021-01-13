@@ -1,24 +1,36 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from '../sharedTypes/editing-data';
-import { EditingDataService, QUERY_PARAM_SECRET } from './editing-data-service';
+import { EditingDataService, QUERY_PARAM_SECURITY_TOKEN } from './editing-data-service';
 
 use(spies);
 
+const mockFetcher = (data?: any) => {
+  const fetcher = {} as AxiosDataFetcher;
+  fetcher.get = spy<any>(() => {
+    return Promise.resolve({ data });
+  });
+  fetcher.put = spy<any>(() => {
+    return Promise.resolve();
+  });
+  return fetcher;
+};
+
 describe('EditingDataService', () => {
   const publicUrl = 'http://test.com';
-  const secret = 'secret1234';
+  const token = 'token1234';
 
   beforeEach(() => {
     process.env.PUBLIC_URL = publicUrl;
-    process.env.EDITING_SECRET_TOKEN = secret;
+    process.env.SITECORE_SECURITY_TOKEN = token;
   });
 
   after(() => {
     delete process.env.PUBLIC_URL;
-    delete process.env.EDITING_SECRET_TOKEN;
+    delete process.env.SITECORE_SECURITY_TOKEN;
   });
 
   it('should throw for apiRoute missing [key]', () => {
@@ -33,22 +45,19 @@ describe('EditingDataService', () => {
         path: '/styleguide',
       } as EditingData;
       const key = '1234key';
-      const expectedUrl = `${publicUrl}/api/editing/data/${key}?${QUERY_PARAM_SECRET}=${secret}`;
+      const expectedUrl = `${publicUrl}/api/editing/data/${key}?${QUERY_PARAM_SECURITY_TOKEN}=${token}`;
 
-      const mockFetcher = new AxiosDataFetcher();
-      const putSpy = spy.on(mockFetcher, 'put', () => {
-        return Promise.resolve();
-      });
+      const fetcher = mockFetcher();
 
-      const service = new EditingDataService({ dataFetcher: mockFetcher });
+      const service = new EditingDataService({ dataFetcher: fetcher });
       spy.on(service, 'generateKey', () => {
         return key;
       });
 
       return service.setEditingData(data).then((previewData) => {
         expect(previewData.key).to.equal(key);
-        expect(putSpy).to.be.called.once;
-        expect(putSpy).to.be.called.with(expectedUrl, data);
+        expect(fetcher.put).to.have.been.called.once;
+        expect(fetcher.put).to.have.been.called.with.exactly(expectedUrl, data);
       });
     });
 
@@ -56,12 +65,9 @@ describe('EditingDataService', () => {
       const data = {
         layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
       } as EditingData;
-      const mockFetcher = new AxiosDataFetcher();
-      spy.on(mockFetcher, 'put', () => {
-        return Promise.resolve();
-      });
+      const fetcher = mockFetcher();
 
-      const service = new EditingDataService({ dataFetcher: mockFetcher });
+      const service = new EditingDataService({ dataFetcher: fetcher });
 
       const previewData1 = await service.setEditingData(data);
       const previewData2 = await service.setEditingData(data);
@@ -75,22 +81,19 @@ describe('EditingDataService', () => {
         path: '/styleguide',
       } as EditingData;
       const key = '1234key';
-      const expectedUrl = `${publicUrl}/api/editing/data/${key}?${QUERY_PARAM_SECRET}=${secret}`;
+      const expectedUrl = `${publicUrl}/api/editing/data/${key}?${QUERY_PARAM_SECURITY_TOKEN}=${token}`;
 
-      const mockFetcher = new AxiosDataFetcher();
-      const getSpy = spy.on(mockFetcher, 'get', () => {
-        return Promise.resolve({ data });
-      });
+      const fetcher = mockFetcher(data);
 
-      const service = new EditingDataService({ dataFetcher: mockFetcher });
+      const service = new EditingDataService({ dataFetcher: fetcher });
       spy.on(service, 'generateKey', () => {
         return key;
       });
 
       return service.getEditingData({ key }).then((editingData) => {
         expect(editingData).to.equal(data);
-        expect(getSpy).to.be.called.once;
-        expect(getSpy).to.be.called.with(expectedUrl);
+        expect(fetcher.get).to.have.been.called.once;
+        expect(fetcher.get).to.have.been.called.with(expectedUrl);
       });
     });
   });

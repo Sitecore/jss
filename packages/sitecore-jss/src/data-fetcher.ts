@@ -68,47 +68,52 @@ export class AxiosDataFetcher {
   /**
    * Perform a GET request
    * @param {string} url The URL to request; may include query string
+   * @param {AxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse<T>>} response
    */
-  get<T>(url: string): Promise<AxiosResponse<T>> {
-    return this.instance.get(url);
+  get<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+    return this.instance.get(url, config);
   }
 
   /**
    * Perform a HEAD request
    * @param {string} url The URL to request; may include query string
+   * @param {AxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse>} response
    */
-  head(url: string): Promise<AxiosResponse> {
-    return this.instance.head(url);
+  head(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+    return this.instance.head(url, config);
   }
 
   /**
    * Perform a POST request
    * @param {string} url The URL to request; may include query string
    * @param {any} [data] Data to POST with the request.
+   * @param {AxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse>} response
    */
-  post(url: string, data?: unknown): Promise<AxiosResponse> {
-    return this.instance.post(url, data);
+  post(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+    return this.instance.post(url, data, config);
   }
 
   /**
    * Perform a PUT request
    * @param {string} url The URL to request; may include query string
    * @param {any} [data] Data to PUT with the request.
+   * @param {AxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse>} response
    */
-  put(url: string, data?: unknown): Promise<AxiosResponse> {
-    return this.instance.put(url, data);
+  put(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+    return this.instance.put(url, data, config);
   }
 
   /**
    * Perform a DELETE request
    * @param {string} url The URL to request; may include query string
+   * @param {AxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse>} response
    */
-  delete(url: string): Promise<AxiosResponse> {
-    return this.instance.delete(url);
+  delete(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+    return this.instance.delete(url, config);
   }
 }

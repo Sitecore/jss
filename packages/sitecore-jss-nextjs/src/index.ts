@@ -43,13 +43,21 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { EditingData, EditingPreviewData } from './sharedTypes/editing-data';
-export { EditingDataService, EditingDataServiceConfig } from './services/editing-data-service';
+export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
+export { EditingDataCache } from './middleware/editing-data-cache';
+export {
+  EditingDataService,
+  EditingDataServiceConfig,
+  editingDataService,
+} from './services/editing-data-service';
 export {
   EditingDataMiddleware,
   EditingDataMiddlewareConfig,
 } from './middleware/editing-data-middleware';
-export { EditingDataCache, EditingDataDiskCache } from './middleware/editing-data-cache';
+export {
+  EditingRenderMiddleware,
+  EditingRenderMiddlewareConfig,
+} from './middleware/editing-render-middleware';
 
 export { Link } from './components/Link';
 export { RichText } from './components/RichText';
