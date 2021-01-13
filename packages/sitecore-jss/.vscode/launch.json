@@ -8,10 +8,9 @@
       "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
       "stopOnEntry": false,
       "args": [
-        "-r",
+        "-require",
         "ts-node/register",
-        "--timeout",
-        "999999",
+        "--no-timeout",
         "--colors",
         "./src/**/*.test.ts"
       ],

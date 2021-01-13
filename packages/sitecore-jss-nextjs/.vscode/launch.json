@@ -3,19 +3,19 @@
   "configurations": [
     {
       "name": "Run mocha",
-      "type": "node2",
+      "type": "node",
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
       "stopOnEntry": false,
       "args": [
-        "--compilers",
-        "js:babel-core/register",
         "--require",
-        "./src/tests/jsdom-setup.js",
-        "./src/tests/enzyme-setup.js",
-        "./src/**/*.test.js",
+        "ts-node/register",
+        "./src/tests/jsdom-setup.ts",
+        "./src/tests/enzyme-setup.ts",
         "--no-timeouts",
-        "./dist/test"
+        "--colors",
+        "./src/**/*.test.ts",
+        "./src/**/*.test.tsx"
       ],
       "cwd": "${workspaceRoot}",
       "runtimeExecutable": null

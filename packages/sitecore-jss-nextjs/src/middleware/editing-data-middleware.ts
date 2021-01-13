@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { EditingDataCache, EditingDataDiskCache } from './editing-data-cache';
+import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
 import { EditingData } from '../sharedTypes/editing-data';
 import { QUERY_PARAM_SECRET } from '../services/editing-data-service';
 import { getEditingSecretToken } from '../utils';
@@ -35,7 +35,7 @@ export class EditingDataMiddleware {
    */
   constructor(config?: EditingDataMiddlewareConfig) {
     this.queryParamKey = config?.dynamicRouteKey ?? 'key';
-    this.editingDataCache = config?.editingDataCache ?? new EditingDataDiskCache();
+    this.editingDataCache = config?.editingDataCache ?? editingDataDiskCache;
   }
 
   public getHandler(): (req: NextApiRequest, res: NextApiResponse) => Promise<void> {

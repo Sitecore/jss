@@ -43,3 +43,6 @@ export class EditingDataDiskCache implements EditingDataCache {
     return data as EditingData;
   }
 }
+
+/** EditingDataDiskCache singleton */
+export const editingDataDiskCache = new EditingDataDiskCache();
