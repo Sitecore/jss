@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "del-cli dist types",
-    "lint": "eslint --fix ./src/**/*.ts",
+    "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "generate": "npm run build && node ./dist/bin/manifest generate --files ./src/testData/**/*.sitecore.ts --compilers ts-node/register --appName testApp --outputPath ./sitecore/sitecore-import.json --language en",

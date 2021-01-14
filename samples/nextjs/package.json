@@ -86,7 +86,7 @@
   },
   "scripts": {
     "jss": "jss",
-    "lint": "eslint --fix ./src/**/*.tsx ./src/**/*.ts ./sitecore/definitions/**/*.ts ./scripts/**/*.ts ./data/**/*.yml",
+    "lint": "eslint ./src/**/*.tsx ./src/**/*.ts ./sitecore/definitions/**/*.ts ./scripts/**/*.ts ./data/**/*.yml",
     "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let",
     "build": "npm-run-all --serial bootstrap next:build",
     "graphql:fetch-introspection": "ts-node --project tsconfig.scripts.json ./scripts/fetch-graphql-introspection-data.ts",

@@ -6,7 +6,7 @@
     "build": "npm run clean && tsc",
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
-    "lint": "eslint --fix ./src/**/*.ts",
+    "lint": "eslint ./src/**/*.ts",
     "prepublishOnly": "npm run build",
     "jss": "node ./dist/bin/jss.js",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
