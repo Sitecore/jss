@@ -65,10 +65,8 @@ export class EditingDataService {
 
   protected generateKey(data: EditingData): string {
     // Need more than just the item GUID since requests are made "live" during editing in EE.
-    const suffix = performance
-      .now()
-      .toString()
-      .replace('.', '');
+    // eslint-disable-next-line prettier/prettier
+    const suffix = Math.random().toString(36).substring(2, 15);
     return `${data.layoutData.sitecore.route.itemId}-${suffix}`;
   }
 

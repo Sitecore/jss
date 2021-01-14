@@ -5,12 +5,13 @@ import {
   ComponentPropsService,
   LayoutService,
   LayoutServiceData,
+  EditingPreviewData,
+  editingDataService,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { componentModule } from 'temp/componentFactory';
 import { layoutService } from 'lib/layout-service';
 import { DictionaryService, dictionaryService } from 'lib/dictionary-service';
-import { getEditingData, EditingPreviewData } from 'lib/editing-utils';
 import { config as packageConfig } from '../../package.json';
 
 /**
@@ -126,7 +127,7 @@ export class SitecorePagePropsFactory {
   }
 
   private async createForEditing(previewData: EditingPreviewData): Promise<SitecorePageProps> {
-    const data = await getEditingData(previewData);
+    const data = await editingDataService.getEditingData(previewData);
     if (!data) {
       throw new Error(`Unable to get editing data for preview ${JSON.stringify(previewData)}`);
     }

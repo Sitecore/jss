@@ -15,7 +15,8 @@ export interface EditingRenderMiddlewareConfig {
   /**
    * The `EditingDataService` instance to use.
    * This would typically only be necessary if you've got a custom `EditingDataService` instance (e.g. using a custom API route).
-   * @default editingDataService (EditingDataService singleton)
+   * By default, this is `editingDataService` (an `EditingDataService` singleton).
+   * @default editingDataService
    * @see EditingDataService
    */
   editingDataService?: EditingDataService;
@@ -31,7 +32,7 @@ export interface EditingRenderMiddlewareConfig {
 }
 
 /**
- * Middlware / handler for use in the editing render Next.js API route (e.g. '/api/editing/render')
+ * Middleware / handler for use in the editing render Next.js API route (e.g. '/api/editing/render')
  * which is required for Sitecore Experience Editor support.
  */
 export class EditingRenderMiddleware {

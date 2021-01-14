@@ -39,7 +39,6 @@
     "apollo-link-batch-http": "~1.2.13",
     "apollo-link-http": "~1.5.16",
     "apollo-link-persisted-queries": "~0.2.2",
-    "axios": "~0.19.0",
     "bootstrap": "^4.3.1",
     "cross-fetch": "^3.0.6",
     "graphql": "~14.5.7",
@@ -49,8 +48,7 @@
     "nprogress": "~0.2.0",
     "react": "^17.0.1",
     "react-apollo": "~3.1.1",
-    "react-dom": "^17.0.1",
-    "sync-disk-cache": "^2.1.0"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.19.1",
@@ -68,6 +66,7 @@
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
+    "axios": "~0.19.0",
     "chalk": "~2.4.2",
     "chokidar": "~3.1.1",
     "cross-env": "~6.0.3",

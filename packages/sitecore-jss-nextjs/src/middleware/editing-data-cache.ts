@@ -1,5 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const Cache = require('sync-disk-cache');
+// eslint-disable-next-line spaced-comment
+/// <reference types="../../global" />
+import Cache from 'sync-disk-cache';
 import os from 'os';
 import { EditingData } from '../sharedTypes/editing-data';
 

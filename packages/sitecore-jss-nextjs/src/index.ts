@@ -44,20 +44,11 @@ export {
 } from './components/ComponentPropsContext';
 
 export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
-export { EditingDataCache } from './middleware/editing-data-cache';
 export {
   EditingDataService,
   EditingDataServiceConfig,
   editingDataService,
 } from './services/editing-data-service';
-export {
-  EditingDataMiddleware,
-  EditingDataMiddlewareConfig,
-} from './middleware/editing-data-middleware';
-export {
-  EditingRenderMiddleware,
-  EditingRenderMiddlewareConfig,
-} from './middleware/editing-render-middleware';
 
 export { Link } from './components/Link';
 export { RichText } from './components/RichText';

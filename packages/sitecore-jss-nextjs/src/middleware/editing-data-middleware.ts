@@ -14,7 +14,8 @@ export interface EditingDataMiddlewareConfig {
   /**
    * An instance of the `EditingDataCache` implementation to use.
    * Note for Vercel deployment, which uses Serverless Functions for API routes, a disk cache is required.
-   * @default editingDataDiskCache (EditingDataDiskCache singleton)
+   * By default, this is `editingDataDiskCache` (an `EditingDataDiskCache` singleton).
+   * @default editingDataDiskCache
    * @see EditingDataCache
    * @see EditingDataDiskCache
    */
@@ -22,9 +23,8 @@ export interface EditingDataMiddlewareConfig {
 }
 
 /**
- * Middlware / handler for use in the editing data Next.js API dynamic route (e.g. '/api/editing/data/[key]')
+ * Middleware / handler for use in the editing data Next.js API dynamic route (e.g. '/api/editing/data/[key]')
  * which is required for Sitecore Experience Editor support.
- * @see EditingDataService
  */
 export class EditingDataMiddleware {
   private queryParamKey: string;
