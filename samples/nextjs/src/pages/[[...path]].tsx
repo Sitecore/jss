@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
 import { SitecoreContext, ComponentPropsContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import config from 'temp/config';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
@@ -45,11 +46,9 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
   //
 
-  if (process.env.BUILD_MODE === 'export' && context.locales) {
-    const rootItem = '/sitecore/content/jssnextweb/home';
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-
-    const paths = await graphQLSitemapService.fetchSitemap(context.locales, rootItem);
+  if (process.env.BUILD_MODE === 'export') {
+    const ROOT_ITEM = `/sitecore/content/${config.jssAppName}/home`;
+    const paths = await graphQLSitemapService.fetchSitemap(context.locales || [], ROOT_ITEM);
 
     return {
       paths,

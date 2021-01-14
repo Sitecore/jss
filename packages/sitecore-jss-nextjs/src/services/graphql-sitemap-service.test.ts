@@ -8,40 +8,51 @@ describe('GraphQLSitemapService', () => {
     endpoint: 'http://jssnextweb/graphql',
   });
 
-  beforeEach(() => {
-    nock.cleanAll();
-  });
+  const mockRootItemIdRequest = () => {
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(200, {
+        data: {
+          item: {
+            id: '4FEFEBB5-49D7-4E8F-89D5-D40BC1F23BAD',
+          },
+        },
+      });
+  };
 
-  it('should fetch sitemap', async () => {
+  const mockPathsRequest = (results: { url: { path: string } }[]) => {
     nock('http://jssnextweb')
       .post('/graphql')
       .reply(200, {
         data: {
           search: {
-            results: {
-              totalCount: 1,
-              pageInfo: {
-                hasNextPage: true,
-                hasPreviousPage: true,
-              },
-              items: [
-                {
-                  path: '/sitecore/next/home',
-                },
-                {
-                  path: '/sitecore/next/home/x1',
-                },
-                {
-                  path: '/sitecore/next/home/y1/y2/y3/y4',
-                },
-                {
-                  path: '/sitecore/next/home/y1/y2',
-                },
-              ],
-            },
+            results,
           },
         },
       });
+  };
+
+  beforeEach(() => {
+    nock.cleanAll();
+  });
+
+  it('should fetch sitemap', async () => {
+    mockRootItemIdRequest();
+
+    mockPathsRequest([
+      {
+        url: { path: '/ua/' },
+      },
+      {
+        url: { path: '/ua/x1' },
+      },
+      {
+        url: { path: '/ua/y1/y2/y3/y4' },
+      },
+      {
+        url: { path: '/ua/y1/y2' },
+      },
+    ]);
 
     const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM);
 
@@ -74,59 +85,31 @@ describe('GraphQLSitemapService', () => {
   });
 
   it('should fetch sitemap using multiple locales', async () => {
-    nock('http://jssnextweb')
-      .post('/graphql')
-      .reply(200, {
-        data: {
-          search: {
-            results: {
-              totalCount: 1,
-              pageInfo: {
-                hasNextPage: true,
-                hasPreviousPage: true,
-              },
-              items: [
-                {
-                  path: '/sitecore/next/home/x1',
-                },
-                {
-                  path: '/sitecore/next/home/y1/y2/y3/y4',
-                },
-                {
-                  path: '/sitecore/next/home/y1/y2',
-                },
-              ],
-            },
-          },
-        },
-      });
+    mockRootItemIdRequest();
 
-    nock('http://jssnextweb')
-      .post('/graphql')
-      .reply(200, {
-        data: {
-          search: {
-            results: {
-              totalCount: 1,
-              pageInfo: {
-                hasNextPage: true,
-                hasPreviousPage: true,
-              },
-              items: [
-                {
-                  path: '/sitecore/next/home/da-DK/x1-da-DK',
-                },
-                {
-                  path: '/sitecore/next/home/da-DK/y1/y2/y3/y4-da-DK',
-                },
-                {
-                  path: '/sitecore/next/home/da-DK/y1/y2-da-DK',
-                },
-              ],
-            },
-          },
-        },
-      });
+    mockPathsRequest([
+      {
+        url: { path: '/ua/x1' },
+      },
+      {
+        url: { path: '/ua/y1/y2/y3/y4' },
+      },
+      {
+        url: { path: '/ua/y1/y2' },
+      },
+    ]);
+
+    mockPathsRequest([
+      {
+        url: { path: '/da-DK/x1-da-DK' },
+      },
+      {
+        url: { path: '/da-DK/y1/y2/y3/y4-da-DK' },
+      },
+      {
+        url: { path: '/da-DK/y1/y2-da-DK' },
+      },
+    ]);
 
     const sitemap = await graphQLLayoutService.fetchSitemap(['ua', 'da-DK'], ROOT_ITEM);
 
@@ -151,19 +134,19 @@ describe('GraphQLSitemapService', () => {
       },
       {
         params: {
-          path: ['da-DK', 'x1-da-DK'],
+          path: ['x1-da-DK'],
         },
         locale: 'da-DK',
       },
       {
         params: {
-          path: ['da-DK', 'y1', 'y2', 'y3', 'y4-da-DK'],
+          path: ['y1', 'y2', 'y3', 'y4-da-DK'],
         },
         locale: 'da-DK',
       },
       {
         params: {
-          path: ['da-DK', 'y1', 'y2-da-DK'],
+          path: ['y1', 'y2-da-DK'],
         },
         locale: 'da-DK',
       },
@@ -171,21 +154,9 @@ describe('GraphQLSitemapService', () => {
   });
 
   it('should fetch sitemap when items is empty', async () => {
-    nock('http://jssnextweb')
-      .post('/graphql')
-      .reply(200, {
-        data: {
-          search: {
-            results: {
-              totalCount: 1,
-              pageInfo: {
-                hasNextPage: true,
-                hasPreviousPage: true,
-              },
-            },
-          },
-        },
-      });
+    mockRootItemIdRequest();
+
+    mockPathsRequest([]);
 
     const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM);
 
@@ -193,22 +164,40 @@ describe('GraphQLSitemapService', () => {
   });
 
   it('should not fetch sitemap if locales are not provided', async () => {
+    mockRootItemIdRequest();
+
     const sitemap = await graphQLLayoutService.fetchSitemap([], ROOT_ITEM);
 
     expect(sitemap).to.deep.equal([]);
   });
 
-  it('should handle 404', async () => {
+  it('should not fetch sitemap if rootItemId is not provided', async () => {
     nock('http://jssnextweb')
       .post('/graphql')
-      .reply(404, 'whoops');
+      .reply(200, {
+        data: null,
+      });
+
+    const sitemap = await graphQLLayoutService.fetchSitemap([], ROOT_ITEM);
+
+    expect(sitemap).to.deep.equal([]);
+  });
+
+  it('should handle error when request root item id', async () => {
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(401, {
+        error: 'whoops',
+      });
 
     const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM);
 
     expect(sitemap).to.deep.equal([]);
   });
 
-  it('should handle custom error code', async () => {
+  it('should handle error when request paths', async () => {
+    mockRootItemIdRequest();
+
     nock('http://jssnextweb')
       .post('/graphql')
       .reply(401, 'whoops');
@@ -218,30 +207,44 @@ describe('GraphQLSitemapService', () => {
     expect(sitemap).to.deep.equal([]);
   });
 
-  it('getSitemapQuery', () => {
-    const query = graphQLLayoutService.getSitemapQuery('/sitecore/web/home', 'ua');
+  it('getRootItemIdQuery', () => {
+    const query = graphQLLayoutService.getRootItemIdQuery('/sitecore/jssnextweb/home');
 
-    expect(query).to.equal(`{
-			search(
-				rootItem: "/sitecore/web/home",
-				language: "ua",
-				latestVersion: true,
-				fieldsEqual: [
-					{name: "_templatename", value: "App Route"}
-				]
-			){
-				results{
-					totalCount
-					pageInfo {
-						hasNextPage
-						hasPreviousPage
-					}
-					items{
-						name
-						path
-					}
-				}
-			}
-		}`);
+    expect(query).to.equal(`query {
+      item(path:"/sitecore/jssnextweb/home") {
+        id
+      }
+    }`);
+  });
+
+  it('getSitemapQuery', () => {
+    const query = graphQLLayoutService.getSitemapQuery('111-222-333', 'ua');
+
+    expect(query).to.equal(`query {
+      search(
+        filter: {
+          AND:[
+            {
+              name:"_path",
+              value:"111-222-333"
+            },
+            {
+              name:"_language",
+              value:"ua"
+            },
+            {
+              name:"haslayout",
+              value :"true"
+            }
+          ]
+        }
+      ){
+        results {
+          url {
+            path
+          }
+        }
+      }
+    }`);
   });
 });

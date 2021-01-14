@@ -3,7 +3,7 @@ import * as mediaApi from './mediaApi';
 
 export { dataApi, mediaApi };
 
-export { GraphQLClient } from './graphql-client';
+export { GraphQLRequestClient } from './graphql-request-client';
 
 export { LayoutServiceRequestOptions } from './dataApi';
 

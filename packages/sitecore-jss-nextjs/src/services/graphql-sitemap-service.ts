@@ -1,4 +1,4 @@
-import { GraphQLClient } from '@sitecore-jss/sitecore-jss';
+import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export type GraphQLSitemapServiceConfig = {
   endpoint: string;
@@ -11,26 +11,47 @@ type StaticPath = {
   locale: string;
 };
 
+type SearchResult = {
+  search: {
+    results: { url: { path: string } }[];
+  };
+};
+
 export class GraphQLSitemapService {
   constructor(private config: GraphQLSitemapServiceConfig) {}
 
-  createClient(): GraphQLClient {
+  /**
+   * Returns new graphql client instance
+   */
+  createClient(): GraphQLRequestClient {
     const { endpoint } = this.config;
 
-    return new GraphQLClient(endpoint);
+    return new GraphQLRequestClient(endpoint);
   }
 
-  async getRootItemId(rootItem: string): Promise<string | undefined> {
-    const query = `
-      item(path:"${rootItem}") {
+  /**
+   * Returns query to request root item id
+   * @param {string} rootItemPath root item path
+   */
+  getRootItemIdQuery(rootItemPath: string): string {
+    return `query {
+      item(path:"${rootItemPath}") {
         id
       }
-    `;
+    }`;
+  }
+
+  /**
+   * Request root item id using path
+   * @param {string} rootItemPath root item path
+   */
+  async getRootItemId(rootItemPath: string): Promise<string | undefined> {
+    const query = this.getRootItemIdQuery(rootItemPath);
 
     const data = await this.createClient()
       .request<{ item: { id: string } }>(query)
       .catch((error) => {
-        console.error('Error occured during fetching sitemap:', error.response);
+        console.error('Error occured during fetching root item id:', error.response);
 
         return null;
       });
@@ -40,54 +61,57 @@ export class GraphQLSitemapService {
 
   /**
    * Graphql query in order to fetch sitemap
-   * @param {string} rootItem
+   * @param {string} rootItemId
    * @param {locale} locale
    */
-  getSitemapQuery(rootItem: string, locale: string): string {
-    return `{
-			search(
-				rootItem: "${rootItem}",
-				language: "${locale}",
-				latestVersion: true,
-				fieldsEqual: [
-					{name: "_templatename", value: "App Route"}
-				]
-			){
-				results{
-					totalCount
-					pageInfo {
-						hasNextPage
-						hasPreviousPage
-					}
-					items{
-						name
-						path
-					}
-				}
-			}
-		}`;
+  getSitemapQuery(rootItemId: string, locale: string): string {
+    return `query {
+      search(
+        filter: {
+          AND:[
+            {
+              name:"_path",
+              value:"${rootItemId.toLowerCase()}"
+            },
+            {
+              name:"_language",
+              value:"${locale}"
+            },
+            {
+              name:"haslayout",
+              value :"true"
+            }
+          ]
+        }
+      ){
+        results {
+          url {
+            path
+          }
+        }
+      }
+    }`;
   }
 
   /**
    * Fetch sitemap which could be used for generation of static pages
    * @param {string[]} locales locales which application supports
-   * @param {string} rootItem root item path
+   * @param {string} rootItemPath root item path
    */
-  async fetchSitemap(locales: string[], rootItem: string): Promise<StaticPath[]> {
-    const rootItemId = await this.getRootItemId(rootItem);
+  async fetchSitemap(locales: string[], rootItemPath: string): Promise<StaticPath[]> {
+    if (!locales.length) {
+      return [];
+    }
 
-    console.log('ROOT ITEM ID:', rootItemId);
+    const rootItemId = await this.getRootItemId(rootItemPath);
+
+    if (!rootItemId) {
+      console.error('Сan not fetch sitemap: root item id is not provided');
+      return [];
+    }
 
     const getStaticPaths = async (locale: string): Promise<StaticPath[]> => {
-      const query = this.getSitemapQuery(rootItem, locale);
-
-      type SearchResult = {
-        search: {
-          results: {
-            items: { path: string }[];
-          };
-        };
-      };
+      const query = this.getSitemapQuery(rootItemId, locale);
 
       const data = await this.createClient()
         .request<SearchResult>(query)
@@ -97,13 +121,13 @@ export class GraphQLSitemapService {
           return null;
         });
 
-      const items = data?.search.results.items ? data.search.results.items : [];
+      const items = data?.search.results ? data.search.results : [];
 
-      const staticPaths = items.reduce((list: StaticPath[], item: { path: string }) => {
-        // replace rootItem prefix by '', and replace first /
-        const path = item.path
-          .replace(rootItem, '')
-          .replace(/^\//, '')
+      const staticPaths = items.reduce((list: StaticPath[], item: { url: { path: string } }) => {
+        // replace locale, replace first and last /
+        const path = item.url.path
+          .replace(`/${locale}/`, '')
+          .replace(/^\/|\/$/g, '')
           .split('/');
 
         return list.concat({
