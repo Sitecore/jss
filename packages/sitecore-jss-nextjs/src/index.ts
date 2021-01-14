@@ -7,6 +7,8 @@ export {
   LayoutService,
   DictionaryPhrases,
   DictionaryServiceData,
+  DictionaryService,
+  DictionaryServiceConfig,
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,

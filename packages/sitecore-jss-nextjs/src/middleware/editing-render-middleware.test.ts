@@ -6,7 +6,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingDataService } from '../services/editing-data-service';
 import { QUERY_PARAM_SECURITY_TOKEN } from '../services/editing-data-service';
-import { EditingData, EditingPreviewData } from '../sharedTypes/editing-data';
+import { EditingPreviewData } from '../sharedTypes/editing-data';
 import { EE_PATH, EE_LANGUAGE, EE_LAYOUT, EE_DICTIONARY, EE_BODY } from '../testData/ee-data';
 import { EditingRenderMiddleware, extractEditingData } from './editing-render-middleware';
 
@@ -85,7 +85,6 @@ describe('EditingRenderMiddleware', () => {
     const query = {} as Query;
     query[QUERY_PARAM_SECURITY_TOKEN] = token;
     const previewData = { key: 'key1234' } as EditingPreviewData;
-    const expectedUrl = `${publicUrl}${EE_PATH}`;
 
     const fetcher = mockFetcher(html);
     const dataService = mockDataService(previewData);

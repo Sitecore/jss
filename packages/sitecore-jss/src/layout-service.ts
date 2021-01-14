@@ -11,8 +11,17 @@ export type DataFetcherResolver = <T>(
 ) => HttpJsonFetcher<T>;
 
 export type LayoutServiceInstanceConfig = {
+  /**
+   * Your Sitecore instance hostname that is the backend for JSS
+   */
   apiHost: string;
+  /**
+   * The Sitecore SSC API key your app uses
+   */
   apiKey: string;
+  /**
+   * The JSS application name
+   */
   siteName: string;
   /**
    * Enables/disables analytics tracking for the Layout Service invocation (default is true).
