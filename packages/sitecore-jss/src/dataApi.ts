@@ -41,13 +41,18 @@ function getQueryString(params: { [key: string]: string | number | boolean }): s
  * @param {HttpJsonFetcher} fetcher
  * @param {Object} params
  */
-function fetchData<T>(
+export function fetchData<T>(
   url: string,
   fetcher: HttpJsonFetcher<T>,
   params: { [key: string]: string | number | boolean } = {}
 ) {
   const qs = getQueryString(params);
-  const fetchUrl = url.indexOf('?') !== -1 ? `${url}&${qs}` : `${url}?${qs}`;
+
+  let fetchUrl = url;
+
+  if (Object.keys(params).length) {
+    fetchUrl = url.indexOf('?') !== -1 ? `${url}&${qs}` : `${url}?${qs}`;
+  }
 
   return fetcher(fetchUrl)
     .then(checkStatus)
