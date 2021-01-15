@@ -19,6 +19,6 @@ export const config = {
 };
 
 // Wire up the EditingDataMiddleware handler
-const handler = new EditingDataMiddleware({}).getHandler();
+const handler = new EditingDataMiddleware().getHandler();
 
 export default handler;

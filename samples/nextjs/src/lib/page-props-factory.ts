@@ -84,9 +84,14 @@ export class SitecorePagePropsFactory {
 
     let notFound = false;
 
-    // Fetch layoutData from Layout Service
+    // Fetch layoutData from Layout Service, passing on req/res for SSR
     const layoutData = await this.layoutService
-      .fetchLayoutData(path, locale)
+      .fetchLayoutData(
+        path,
+        locale,
+        isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).req : undefined,
+        isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).res : undefined
+      )
       .catch((error: AxiosError<LayoutServiceData>) => {
         if (error.response?.status === 404) {
           // Let 404s (invalid path) through.
