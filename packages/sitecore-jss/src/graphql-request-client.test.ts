@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import nock from 'nock';
-import { GraphQLRequestClient } from './graphql-client';
+import { GraphQLRequestClient } from './graphql-request-client';
 
 describe('GraphQLRequestClient', () => {
   const ENDPOINT = 'http://jssnextweb/graphql';
