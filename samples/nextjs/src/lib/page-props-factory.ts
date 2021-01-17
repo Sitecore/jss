@@ -5,8 +5,8 @@ import {
   ComponentPropsService,
   DictionaryService,
   LayoutService,
+  DictionaryPhrases,
   LayoutServiceData,
-  EditingPreviewData,
   editingDataService,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
@@ -83,43 +83,61 @@ export class SitecorePagePropsFactory {
   public async create(
     context: GetServerSidePropsContext | GetStaticPropsContext
   ): Promise<SitecorePageProps> {
+    let locale: string,
+      layoutData: LayoutServiceData,
+      dictionary: DictionaryPhrases,
+      componentProps = {},
+      notFound = false;
+
     if (context.preview) {
+      /**
+       * Preview mode
+       */
       // If we're in preview (editing) mode, use data already sent along with the editing request
-      return this.createForEditing(context.previewData);
+      const data = await editingDataService.getEditingData(context.previewData);
+      if (!data) {
+        throw new Error(
+          `Unable to get editing data for preview ${JSON.stringify(context.previewData)}`
+        );
+      }
+      locale = data.language;
+      layoutData = data.layoutData;
+      dictionary = data.dictionary;
+    } else {
+      /**
+       * Normal mode
+       */
+      // Get normalized Sitecore item path
+      const path = extractPath(context.params);
+
+      // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
+      locale = context.locale ?? packageConfig.language;
+
+      // Fetch layoutData from Layout Service, passing on req/res for SSR
+      layoutData = await this.layoutService
+        .fetchLayoutData(
+          path,
+          locale,
+          // eslint-disable-next-line prettier/prettier
+          isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).req : undefined,
+          isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).res : undefined
+        )
+        .catch((error: AxiosError<LayoutServiceData>) => {
+          if (error.response?.status === 404) {
+            // Let 404s (invalid path) through.
+            // layoutData.sitecore.route will be missing, but
+            // layoutData.sitecore.context will provide valuable information
+            notFound = true;
+            return error.response.data;
+          }
+          throw error;
+        });
+
+      // Fetch dictionary data from Dictionary Service
+      dictionary = await this.dictionaryService.fetchDictionaryData(locale);
     }
 
-    // Get normalized Sitecore item path
-    const path = extractPath(context.params);
-
-    // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
-    const locale = context.locale ?? packageConfig.language;
-
-    let notFound = false;
-
-    // Fetch layoutData from Layout Service, passing on req/res for SSR
-    const layoutData = await this.layoutService
-      .fetchLayoutData(
-        path,
-        locale,
-        isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).req : undefined,
-        isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).res : undefined
-      )
-      .catch((error: AxiosError<LayoutServiceData>) => {
-        if (error.response?.status === 404) {
-          // Let 404s (invalid path) through.
-          // layoutData.sitecore.route will be missing, but
-          // layoutData.sitecore.context will provide valuable information
-          notFound = true;
-          return error.response.data;
-        }
-        throw error;
-      });
-
-    // Fetch dictionary data from Dictionary Service
-    const dictionary = await this.dictionaryService.fetchDictionaryData(locale);
-
     // Retrieve component props using side-effects defined on components level
-    let componentProps = {};
     if (layoutData.sitecore.route) {
       if (isServerSidePropsContext(context)) {
         componentProps = await this.componentPropsService.fetchServerSideComponentProps({
@@ -141,24 +159,6 @@ export class SitecorePagePropsFactory {
       dictionary,
       componentProps,
       notFound,
-    };
-  }
-
-  /**
-   * Create SitecorePageProps using preview (editing) data
-   * @param {EditingPreviewData} previewData
-   */
-  private async createForEditing(previewData: EditingPreviewData): Promise<SitecorePageProps> {
-    const data = await editingDataService.getEditingData(previewData);
-    if (!data) {
-      throw new Error(`Unable to get editing data for preview ${JSON.stringify(previewData)}`);
-    }
-    return {
-      locale: data.language,
-      layoutData: data.layoutData,
-      dictionary: data.dictionary,
-      componentProps: {},
-      notFound: false,
     };
   }
 }
