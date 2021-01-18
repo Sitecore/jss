@@ -46,6 +46,8 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
+export { subscribeOnRebuildAppEvent } from './utils';
+
 export { EditingData, EditingRequest } from './sharedTypes/editing-data';
 
 export { Link } from './components/Link';
