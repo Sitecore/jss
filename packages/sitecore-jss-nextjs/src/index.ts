@@ -54,6 +54,8 @@ export {
   editingDataService,
 } from './services/editing-data-service';
 
+export { subscribeOnRebuildAppEvent } from './utils';
+
 export { Link } from './components/Link';
 export { RichText } from './components/RichText';
 
