@@ -28,7 +28,7 @@ export interface EditingRenderMiddlewareConfig {
    * @returns {string} The URL to render
    * @default `${serverUrl}${itemPath}`
    */
-  renderRouteResolver?: (serverUrl: string, itemPath: string) => string;
+  resolveRouteUrl?: (serverUrl: string, itemPath: string) => string;
 }
 
 /**
@@ -38,7 +38,7 @@ export interface EditingRenderMiddlewareConfig {
 export class EditingRenderMiddleware {
   private editingDataService: EditingDataService;
   private dataFetcher: AxiosDataFetcher;
-  private renderRouteResolver: (serverUrl: string, itemPath: string) => string;
+  private resolveRouteUrl: (serverUrl: string, itemPath: string) => string;
 
   /**
    * @param {EditingRenderMiddlewareConfig} [config] Editing render middleware config
@@ -46,7 +46,7 @@ export class EditingRenderMiddleware {
   constructor(config?: EditingRenderMiddlewareConfig) {
     this.editingDataService = config?.editingDataService ?? editingDataService;
     this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher();
-    this.renderRouteResolver = config?.renderRouteResolver ?? this.defaultRenderRouteResolver;
+    this.resolveRouteUrl = config?.resolveRouteUrl ?? this.defaultResolveRouteUrl;
   }
 
   /**
@@ -63,7 +63,7 @@ export class EditingRenderMiddleware {
     if (method !== 'POST') {
       res.setHeader('Allow', 'POST');
       return res.status(405).json({
-        html: `<html><body>Invalid request method '${method})'</body></html>`,
+        html: `<html><body>Invalid request method '${method}'</body></html>`,
       });
     }
 
@@ -93,7 +93,7 @@ export class EditingRenderMiddleware {
 
       // Make actual render request for page route, passing on preview cookies.
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
-      const requestUrl = this.renderRouteResolver(getPublicUrl(), editingData.path);
+      const requestUrl = this.resolveRouteUrl(getPublicUrl(), editingData.path);
       const pageRes = await this.dataFetcher.get<string>(`${requestUrl}?timestamp=${Date.now()}`, {
         headers: {
           Cookie: cookies.join(';'),
@@ -114,7 +114,7 @@ export class EditingRenderMiddleware {
     }
   };
 
-  private defaultRenderRouteResolver = (serverUrl: string, itemPath: string) => {
+  private defaultResolveRouteUrl = (serverUrl: string, itemPath: string) => {
     return `${serverUrl}${itemPath}`;
   };
 }

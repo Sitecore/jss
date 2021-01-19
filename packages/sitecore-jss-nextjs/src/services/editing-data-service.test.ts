@@ -2,11 +2,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
+import chaiAsPromised from 'chai-as-promised';
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataService, QUERY_PARAM_SECURITY_TOKEN } from './editing-data-service';
 
 use(spies);
+use(chaiAsPromised);
 
 const mockFetcher = (data?: any) => {
   const fetcher = {} as AxiosDataFetcher;
@@ -33,14 +35,17 @@ describe('EditingDataService', () => {
     delete process.env.SITECORE_SECURITY_TOKEN;
   });
 
-  it('should throw for apiRoute missing [key]', () => {
+  it('should throw for apiRoute missing [key]', async () => {
+    const data = {
+      layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
+    } as EditingData;
     const service = new EditingDataService({ apiRoute: '/api/editing/data/[nope]' });
-    expect(service.setEditingData({} as EditingData)).to.throw;
-    expect(service.getEditingData({ key: '' })).to.throw;
+    await expect(service.setEditingData(data)).to.be.rejected;
+    await expect(service.getEditingData({ key: '' })).to.be.rejected;
   });
 
   describe('setEditingData', () => {
-    it('should invoke PUT request', () => {
+    it('should invoke PUT request', async () => {
       const data = {
         path: '/styleguide',
       } as EditingData;

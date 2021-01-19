@@ -11,4 +11,10 @@ describe('EditingDataDiskCache', () => {
     const result = cache.get(key) as EditingData;
     expect(data).to.deep.equal(result);
   });
+
+  it('should return undefined on cache miss', () => {
+    const cache = new EditingDataDiskCache();
+    const result = cache.get('nope');
+    expect(result).to.equal(undefined);
+  });
 });

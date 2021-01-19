@@ -222,7 +222,7 @@ describe('EditingRenderMiddleware', () => {
 describe('extractEditingData', () => {
   it('should throw if body missing', () => {
     const req = mockRequest();
-    expect(() => extractEditingData(req)).to.throw;
+    expect(() => extractEditingData(req)).to.throw();
   });
 
   it('should return path', () => {
