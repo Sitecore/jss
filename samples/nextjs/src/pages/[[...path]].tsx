@@ -3,6 +3,7 @@ import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
 import { SitecoreContext, ComponentPropsContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
+import nextConfig from '../../next.config';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
@@ -48,7 +49,11 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 
   if (process.env.BUILD_MODE === 'export') {
     const ROOT_ITEM = `/sitecore/content/${config.jssAppName}/home`;
-    const paths = await graphQLSitemapService.fetchSitemap(context.locales || [], ROOT_ITEM);
+    const paths = await graphQLSitemapService.fetchSitemap(
+      context.locales || [],
+      ROOT_ITEM,
+      nextConfig.i18n.defaultLocale
+    );
 
     return {
       paths,

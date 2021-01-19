@@ -54,32 +54,28 @@ describe('GraphQLSitemapService', () => {
       },
     ]);
 
-    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM);
+    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM, 'ua');
 
     expect(sitemap).to.deep.equal([
       {
         params: {
           path: [''],
         },
-        locale: 'ua',
       },
       {
         params: {
           path: ['x1'],
         },
-        locale: 'ua',
       },
       {
         params: {
           path: ['y1', 'y2', 'y3', 'y4'],
         },
-        locale: 'ua',
       },
       {
         params: {
           path: ['y1', 'y2'],
         },
-        locale: 'ua',
       },
     ]);
   });
@@ -111,44 +107,38 @@ describe('GraphQLSitemapService', () => {
       },
     ]);
 
-    const sitemap = await graphQLLayoutService.fetchSitemap(['ua', 'da-DK'], ROOT_ITEM);
+    const sitemap = await graphQLLayoutService.fetchSitemap(['ua', 'da-DK'], ROOT_ITEM, 'ua');
 
     expect(sitemap).to.deep.equal([
       {
         params: {
           path: ['x1'],
         },
-        locale: 'ua',
       },
       {
         params: {
           path: ['y1', 'y2', 'y3', 'y4'],
         },
-        locale: 'ua',
       },
       {
         params: {
           path: ['y1', 'y2'],
         },
-        locale: 'ua',
       },
       {
         params: {
-          path: ['x1-da-DK'],
+          path: ['da-DK', 'x1-da-DK'],
         },
-        locale: 'da-DK',
       },
       {
         params: {
-          path: ['y1', 'y2', 'y3', 'y4-da-DK'],
+          path: ['da-DK', 'y1', 'y2', 'y3', 'y4-da-DK'],
         },
-        locale: 'da-DK',
       },
       {
         params: {
-          path: ['y1', 'y2-da-DK'],
+          path: ['da-DK', 'y1', 'y2-da-DK'],
         },
-        locale: 'da-DK',
       },
     ]);
   });
@@ -158,7 +148,7 @@ describe('GraphQLSitemapService', () => {
 
     mockPathsRequest([]);
 
-    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM);
+    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM, 'ua');
 
     expect(sitemap).to.deep.equal([]);
   });
@@ -166,7 +156,7 @@ describe('GraphQLSitemapService', () => {
   it('should not fetch sitemap if locales are not provided', async () => {
     mockRootItemIdRequest();
 
-    const sitemap = await graphQLLayoutService.fetchSitemap([], ROOT_ITEM);
+    const sitemap = await graphQLLayoutService.fetchSitemap([], ROOT_ITEM, 'ua');
 
     expect(sitemap).to.deep.equal([]);
   });
@@ -178,7 +168,7 @@ describe('GraphQLSitemapService', () => {
         data: null,
       });
 
-    const sitemap = await graphQLLayoutService.fetchSitemap([], ROOT_ITEM);
+    const sitemap = await graphQLLayoutService.fetchSitemap([], ROOT_ITEM, 'ua');
 
     expect(sitemap).to.deep.equal([]);
   });
@@ -190,7 +180,7 @@ describe('GraphQLSitemapService', () => {
         error: 'whoops',
       });
 
-    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM);
+    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM, 'ua');
 
     expect(sitemap).to.deep.equal([]);
   });
@@ -202,7 +192,7 @@ describe('GraphQLSitemapService', () => {
       .post('/graphql')
       .reply(401, 'whoops');
 
-    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM);
+    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM, 'ua');
 
     expect(sitemap).to.deep.equal([]);
   });

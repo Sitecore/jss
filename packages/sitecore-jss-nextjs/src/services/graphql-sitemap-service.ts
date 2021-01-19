@@ -8,7 +8,6 @@ type StaticPath = {
   params: {
     path: string[];
   };
-  locale: string;
 };
 
 type SearchResult = {
@@ -97,8 +96,13 @@ export class GraphQLSitemapService {
    * Fetch sitemap which could be used for generation of static pages
    * @param {string[]} locales locales which application supports
    * @param {string} rootItemPath root item path
+   * @param {string} defaultLocale
    */
-  async fetchSitemap(locales: string[], rootItemPath: string): Promise<StaticPath[]> {
+  async fetchSitemap(
+    locales: string[],
+    rootItemPath: string,
+    defaultLocale: string
+  ): Promise<StaticPath[]> {
     if (!locales.length) {
       return [];
     }
@@ -124,9 +128,11 @@ export class GraphQLSitemapService {
       const items = data?.search.results ? data.search.results : [];
 
       const staticPaths = items.reduce((list: StaticPath[], item: { url: { path: string } }) => {
-        // replace locale, replace first and last /
+        // replace first and last /
+        // sitemap should not contain url with defaultLocale, it should be replaced by ''
+        // transform to array of paths
         const path = item.url.path
-          .replace(`/${locale}/`, '')
+          .replace(`/${defaultLocale}/`, '')
           .replace(/^\/|\/$/g, '')
           .split('/');
 
@@ -134,7 +140,6 @@ export class GraphQLSitemapService {
           params: {
             path,
           },
-          locale,
         });
       }, []);
 
