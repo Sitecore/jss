@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
 import { EditingData, isEditingData } from '../sharedTypes/editing-data';
-import { QUERY_PARAM_SECURITY_TOKEN } from '../services/editing-data-service';
-import { getSitecoreSecurityToken } from '../utils';
+import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
+import { getJssEditingSecret } from '../utils';
 
 export interface EditingDataMiddlewareConfig {
   /**
@@ -48,12 +48,12 @@ export class EditingDataMiddleware {
 
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     const { method, query, body } = req;
-    const token = query[QUERY_PARAM_SECURITY_TOKEN];
+    const secret = query[QUERY_PARAM_EDITING_SECRET];
     const key = query[this.queryParamKey];
 
-    // Validate security token
-    if (token !== getSitecoreSecurityToken()) {
-      return res.status(401).end('Missing or invalid security token');
+    // Validate secret
+    if (secret !== getJssEditingSecret()) {
+      return res.status(401).end('Missing or invalid secret');
     }
 
     switch (method) {

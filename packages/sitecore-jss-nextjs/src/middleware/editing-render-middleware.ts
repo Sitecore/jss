@@ -2,8 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataService, editingDataService } from '../services/editing-data-service';
-import { QUERY_PARAM_SECURITY_TOKEN } from '../services/editing-data-service';
-import { getPublicUrl, getSitecoreSecurityToken } from '../utils';
+import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
+import { getPublicUrl, getJssEditingSecret } from '../utils';
 
 export interface EditingRenderMiddlewareConfig {
   /**
@@ -67,11 +67,11 @@ export class EditingRenderMiddleware {
       });
     }
 
-    // Validate security token
-    const token = query[QUERY_PARAM_SECURITY_TOKEN] ?? body?.SecurityToken;
-    if (token !== getSitecoreSecurityToken()) {
+    // Validate secret
+    const secret = query[QUERY_PARAM_EDITING_SECRET] ?? body?.JssEditingSecret;
+    if (secret !== getJssEditingSecret()) {
       return res.status(401).json({
-        html: '<html><body>Missing or invalid security token</body></html>',
+        html: '<html><body>Missing or invalid secret</body></html>',
       });
     }
 
