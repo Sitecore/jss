@@ -91,9 +91,9 @@ If you don't want analytics tracking for your JSS app, or for particular Layout 
 > * Enable HTTPS in your local environment by modifying the node server, using a local reverse proxy, or using a service such as ngrok.
 >     * If you are running Sitecore in containers for development, you can make use of the Traefik reverse proxy that is provided in the `docker-compose` environment.
 > * Transform the Sitecore Web.config and set:
->   * `requireSSL` to `false` and `sameSite` to `Unspecified` in the `httpCookies` configuration
->   * `cookieSameSite` to `Unspecified` in the `sessionState` configuration
->   * **This is not recommended for production.**
+>     * `requireSSL` to `false` and `sameSite` to `Unspecified` in the `httpCookies` configuration
+>     * `cookieSameSite` to `Unspecified` in the `sessionState` configuration
+>     * **This is not recommended for production.**
 
 ## Invoking the Layout Service from JSS
 
