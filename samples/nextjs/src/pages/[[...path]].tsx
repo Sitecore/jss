@@ -3,7 +3,6 @@ import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
 import { SitecoreContext, ComponentPropsContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
-import nextConfig from '../../next.config';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
@@ -45,15 +44,14 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   // leave certain (or all) paths empty if desired and static pages
   // will be generated on request.
   // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
-  //
 
-  if (process.env.BUILD_MODE === 'export') {
+  // use graphQLSitemapService.fetchExportSitemap(context.defaultLocale, ROOT_ITEM)
+  // in case if you want fetch sitemap for Export mode
+
+  // In development mode getStaticPaths runs on every request
+  if (process.env.NODE_ENV !== 'development') {
     const ROOT_ITEM = `/sitecore/content/${config.jssAppName}/home`;
-    const paths = await graphQLSitemapService.fetchSitemap(
-      context.locales || [],
-      ROOT_ITEM,
-      nextConfig.i18n.defaultLocale
-    );
+    const paths = await graphQLSitemapService.fetchSSGSitemap(context.locales || [], ROOT_ITEM);
 
     return {
       paths,

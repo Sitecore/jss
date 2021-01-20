@@ -36,205 +36,286 @@ describe('GraphQLSitemapService', () => {
     nock.cleanAll();
   });
 
-  it('should fetch sitemap', async () => {
-    mockRootItemIdRequest();
+  describe('SSG mode', () => {
+    it('should fetch sitemap', async () => {
+      mockRootItemIdRequest();
 
-    mockPathsRequest([
-      {
-        url: { path: '/ua/' },
-      },
-      {
-        url: { path: '/ua/x1' },
-      },
-      {
-        url: { path: '/ua/y1/y2/y3/y4' },
-      },
-      {
-        url: { path: '/ua/y1/y2' },
-      },
-    ]);
+      mockPathsRequest([
+        {
+          url: { path: '/' },
+        },
+        {
+          url: { path: '/x1' },
+        },
+        {
+          url: { path: '/y1/y2/y3/y4' },
+        },
+        {
+          url: { path: '/y1/y2' },
+        },
+      ]);
 
-    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM, 'ua');
+      const sitemap = await graphQLLayoutService.fetchSSGSitemap(['ua'], ROOT_ITEM);
 
-    expect(sitemap).to.deep.equal([
-      {
-        params: {
-          path: [''],
+      expect(sitemap).to.deep.equal([
+        {
+          params: {
+            path: [''],
+          },
+          locale: 'ua',
         },
-      },
-      {
-        params: {
-          path: ['x1'],
+        {
+          params: {
+            path: ['x1'],
+          },
+          locale: 'ua',
         },
-      },
-      {
-        params: {
-          path: ['y1', 'y2', 'y3', 'y4'],
+        {
+          params: {
+            path: ['y1', 'y2', 'y3', 'y4'],
+          },
+          locale: 'ua',
         },
-      },
-      {
-        params: {
-          path: ['y1', 'y2'],
+        {
+          params: {
+            path: ['y1', 'y2'],
+          },
+          locale: 'ua',
         },
-      },
-    ]);
+      ]);
+    });
+
+    it('should fetch sitemap using multiple locales', async () => {
+      mockRootItemIdRequest();
+
+      mockPathsRequest([
+        {
+          url: { path: '/' },
+        },
+        {
+          url: { path: '/x1' },
+        },
+        {
+          url: { path: '/y1/y2/y3/y4' },
+        },
+        {
+          url: { path: '/y1/y2' },
+        },
+      ]);
+
+      mockPathsRequest([
+        {
+          url: { path: '/' },
+        },
+        {
+          url: { path: '/x1-da-DK' },
+        },
+        {
+          url: { path: '/y1/y2/y3/y4-da-DK' },
+        },
+        {
+          url: { path: '/y1/y2-da-DK' },
+        },
+      ]);
+
+      const sitemap = await graphQLLayoutService.fetchSSGSitemap(['ua', 'da-DK'], ROOT_ITEM);
+
+      expect(sitemap).to.deep.equal([
+        {
+          params: {
+            path: [''],
+          },
+          locale: 'ua',
+        },
+        {
+          params: {
+            path: ['x1'],
+          },
+          locale: 'ua',
+        },
+        {
+          params: {
+            path: ['y1', 'y2', 'y3', 'y4'],
+          },
+          locale: 'ua',
+        },
+        {
+          params: {
+            path: ['y1', 'y2'],
+          },
+          locale: 'ua',
+        },
+        {
+          params: {
+            path: [''],
+          },
+          locale: 'da-DK',
+        },
+        {
+          params: {
+            path: ['x1-da-DK'],
+          },
+          locale: 'da-DK',
+        },
+        {
+          params: {
+            path: ['y1', 'y2', 'y3', 'y4-da-DK'],
+          },
+          locale: 'da-DK',
+        },
+        {
+          params: {
+            path: ['y1', 'y2-da-DK'],
+          },
+          locale: 'da-DK',
+        },
+      ]);
+    });
+
+    it('should fetch sitemap when items is empty', async () => {
+      mockRootItemIdRequest();
+
+      mockPathsRequest([]);
+
+      const sitemap = await graphQLLayoutService.fetchSSGSitemap(['ua'], ROOT_ITEM);
+
+      expect(sitemap).to.deep.equal([]);
+    });
+
+    it('should fetch sitemap if locales are not provided', async () => {
+      mockRootItemIdRequest();
+
+      const sitemap = await graphQLLayoutService.fetchSSGSitemap([], ROOT_ITEM);
+
+      expect(sitemap).to.deep.equal([]);
+    });
+
+    it('should not fetch sitemap if rootItemId is not provided', async () => {
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(200, {
+          data: null,
+        });
+
+      const sitemap = await graphQLLayoutService.fetchSSGSitemap([], ROOT_ITEM);
+
+      expect(sitemap).to.deep.equal([]);
+    });
+
+    it('should handle error when request root item id', async () => {
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(401, {
+          error: 'whoops',
+        });
+
+      const sitemap = await graphQLLayoutService.fetchSSGSitemap(['ua'], ROOT_ITEM);
+
+      expect(sitemap).to.deep.equal([]);
+    });
+
+    it('should handle error when request paths', async () => {
+      mockRootItemIdRequest();
+
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(401, 'whoops');
+
+      const sitemap = await graphQLLayoutService.fetchSSGSitemap(['ua'], ROOT_ITEM);
+
+      expect(sitemap).to.deep.equal([]);
+    });
   });
 
-  it('should fetch sitemap using multiple locales', async () => {
-    mockRootItemIdRequest();
+  describe('Export mode', () => {
+    it('should fetch sitemap', async () => {
+      mockRootItemIdRequest();
 
-    mockPathsRequest([
-      {
-        url: { path: '/ua/x1' },
-      },
-      {
-        url: { path: '/ua/y1/y2/y3/y4' },
-      },
-      {
-        url: { path: '/ua/y1/y2' },
-      },
-    ]);
-
-    mockPathsRequest([
-      {
-        url: { path: '/da-DK/x1-da-DK' },
-      },
-      {
-        url: { path: '/da-DK/y1/y2/y3/y4-da-DK' },
-      },
-      {
-        url: { path: '/da-DK/y1/y2-da-DK' },
-      },
-    ]);
-
-    const sitemap = await graphQLLayoutService.fetchSitemap(['ua', 'da-DK'], ROOT_ITEM, 'ua');
-
-    expect(sitemap).to.deep.equal([
-      {
-        params: {
-          path: ['x1'],
+      mockPathsRequest([
+        {
+          url: { path: '/' },
         },
-      },
-      {
-        params: {
-          path: ['y1', 'y2', 'y3', 'y4'],
+        {
+          url: { path: '/x1' },
         },
-      },
-      {
-        params: {
-          path: ['y1', 'y2'],
+        {
+          url: { path: '/y1/y2/y3/y4' },
         },
-      },
-      {
-        params: {
-          path: ['da-DK', 'x1-da-DK'],
+        {
+          url: { path: '/y1/y2' },
         },
-      },
-      {
-        params: {
-          path: ['da-DK', 'y1', 'y2', 'y3', 'y4-da-DK'],
+      ]);
+
+      const sitemap = await graphQLLayoutService.fetchExportSitemap('ua', ROOT_ITEM);
+
+      expect(sitemap).to.deep.equal([
+        {
+          params: {
+            path: [''],
+          },
         },
-      },
-      {
-        params: {
-          path: ['da-DK', 'y1', 'y2-da-DK'],
+        {
+          params: {
+            path: ['x1'],
+          },
         },
-      },
-    ]);
-  });
+        {
+          params: {
+            path: ['y1', 'y2', 'y3', 'y4'],
+          },
+        },
+        {
+          params: {
+            path: ['y1', 'y2'],
+          },
+        },
+      ]);
+    });
 
-  it('should fetch sitemap when items is empty', async () => {
-    mockRootItemIdRequest();
+    it('should fetch sitemap when items is empty', async () => {
+      mockRootItemIdRequest();
 
-    mockPathsRequest([]);
+      mockPathsRequest([]);
 
-    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM, 'ua');
+      const sitemap = await graphQLLayoutService.fetchExportSitemap('ua', ROOT_ITEM);
 
-    expect(sitemap).to.deep.equal([]);
-  });
+      expect(sitemap).to.deep.equal([]);
+    });
 
-  it('should not fetch sitemap if locales are not provided', async () => {
-    mockRootItemIdRequest();
+    it('should not fetch sitemap if rootItemId is not provided', async () => {
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(200, {
+          data: null,
+        });
 
-    const sitemap = await graphQLLayoutService.fetchSitemap([], ROOT_ITEM, 'ua');
+      const sitemap = await graphQLLayoutService.fetchSSGSitemap([], ROOT_ITEM);
 
-    expect(sitemap).to.deep.equal([]);
-  });
+      expect(sitemap).to.deep.equal([]);
+    });
 
-  it('should not fetch sitemap if rootItemId is not provided', async () => {
-    nock('http://jssnextweb')
-      .post('/graphql')
-      .reply(200, {
-        data: null,
-      });
+    it('should handle error when request root item id', async () => {
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(401, {
+          error: 'whoops',
+        });
 
-    const sitemap = await graphQLLayoutService.fetchSitemap([], ROOT_ITEM, 'ua');
+      const sitemap = await graphQLLayoutService.fetchSSGSitemap(['ua'], ROOT_ITEM);
 
-    expect(sitemap).to.deep.equal([]);
-  });
+      expect(sitemap).to.deep.equal([]);
+    });
 
-  it('should handle error when request root item id', async () => {
-    nock('http://jssnextweb')
-      .post('/graphql')
-      .reply(401, {
-        error: 'whoops',
-      });
+    it('should handle error when request paths', async () => {
+      mockRootItemIdRequest();
 
-    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM, 'ua');
+      nock('http://jssnextweb')
+        .post('/graphql')
+        .reply(401, 'whoops');
 
-    expect(sitemap).to.deep.equal([]);
-  });
+      const sitemap = await graphQLLayoutService.fetchSSGSitemap(['ua'], ROOT_ITEM);
 
-  it('should handle error when request paths', async () => {
-    mockRootItemIdRequest();
-
-    nock('http://jssnextweb')
-      .post('/graphql')
-      .reply(401, 'whoops');
-
-    const sitemap = await graphQLLayoutService.fetchSitemap(['ua'], ROOT_ITEM, 'ua');
-
-    expect(sitemap).to.deep.equal([]);
-  });
-
-  it('getRootItemIdQuery', () => {
-    const query = graphQLLayoutService.getRootItemIdQuery('/sitecore/jssnextweb/home');
-
-    expect(query).to.equal(`query {
-      item(path:"/sitecore/jssnextweb/home") {
-        id
-      }
-    }`);
-  });
-
-  it('getSitemapQuery', () => {
-    const query = graphQLLayoutService.getSitemapQuery('111-222-333', 'ua');
-
-    expect(query).to.equal(`query {
-      search(
-        filter: {
-          AND:[
-            {
-              name:"_path",
-              value:"111-222-333"
-            },
-            {
-              name:"_language",
-              value:"ua"
-            },
-            {
-              name:"haslayout",
-              value :"true"
-            }
-          ]
-        }
-      ){
-        results {
-          url {
-            path
-          }
-        }
-      }
-    }`);
-  });
+      expect(sitemap).to.deep.equal([]);
+    });
+  })
 });
