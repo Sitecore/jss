@@ -68,14 +68,17 @@ export class EditingDataService {
 
   protected generateKey(data: EditingData): string {
     // Need more than just the item GUID since requests are made "live" during editing in EE.
-    // eslint-disable-next-line prettier/prettier
-    const suffix = Math.random().toString(36).substring(2, 15);
+    // The suffix code will produce a random 10 character alpha-numeric (a-z 0-9) sequence, which is URI-safe.
+    // Example generated key: 52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x
+    const suffix = Math.random()
+      .toString(36)
+      .substring(2, 12);
     return `${data.layoutData.sitecore.route.itemId}-${suffix}`;
   }
 
   protected getUrl(key: string): string {
     // Example URL format:
-    //  http://localhost:3000/api/editing/data/1234key?token=1234token
+    //  http://localhost:3000/api/editing/data/52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x?token=1234token
     const publicUrl = getPublicUrl();
     const apiRoute = this.apiRoute?.replace('[key]', key);
     const url = new URL(apiRoute, publicUrl);
