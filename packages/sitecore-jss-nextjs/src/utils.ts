@@ -20,10 +20,10 @@ export const getPublicUrl = (): string => {
   return url.toString().replace(/\/$/, '');
 };
 
-export const getSitecoreSecurityToken = (): string => {
-  const token = process.env.SITECORE_SECURITY_TOKEN;
-  if (!token || token.length === 0) {
-    throw new Error('The SITECORE_SECURITY_TOKEN environment variable is missing or invalid.');
+export const getJssEditingSecret = (): string => {
+  const secret = process.env.JSS_EDITING_SECRET;
+  if (!secret || secret.length === 0) {
+    throw new Error('The JSS_EDITING_SECRET environment variable is missing or invalid.');
   }
-  return token;
+  return secret;
 };

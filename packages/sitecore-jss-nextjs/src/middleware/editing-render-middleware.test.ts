@@ -5,7 +5,7 @@ import spies from 'chai-spies';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingDataService } from '../services/editing-data-service';
-import { QUERY_PARAM_SECURITY_TOKEN } from '../services/editing-data-service';
+import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
 import { EditingPreviewData } from '../sharedTypes/editing-data';
 import { EE_PATH, EE_LANGUAGE, EE_LAYOUT, EE_DICTIONARY, EE_BODY } from '../testData/ee-data';
 import { EditingRenderMiddleware, extractEditingData } from './editing-render-middleware';
@@ -68,22 +68,22 @@ const mockDataService = (previewData?: EditingPreviewData) => {
 
 describe('EditingRenderMiddleware', () => {
   const publicUrl = 'http://test.com';
-  const token = 'token1234';
+  const secret = 'secret1234';
 
   beforeEach(() => {
     process.env.PUBLIC_URL = publicUrl;
-    process.env.SITECORE_SECURITY_TOKEN = token;
+    process.env.JSS_EDITING_SECRET = secret;
   });
 
   after(() => {
     delete process.env.PUBLIC_URL;
-    delete process.env.SITECORE_SECURITY_TOKEN;
+    delete process.env.JSS_EDITING_SECRET;
   });
 
   it('should handle request', async () => {
     const html = '<html><body>Something amazing</body></html>';
     const query = {} as Query;
-    query[QUERY_PARAM_SECURITY_TOKEN] = token;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
     const previewData = { key: 'key1234' } as EditingPreviewData;
 
     const fetcher = mockFetcher(html);
@@ -134,7 +134,7 @@ describe('EditingRenderMiddleware', () => {
     expect(res.json).to.have.been.called.once;
   });
 
-  it('should respond with 401 for missing token', async () => {
+  it('should respond with 401 for missing secret', async () => {
     const fetcher = mockFetcher();
     const dataService = mockDataService();
     const query = {} as Query;
@@ -154,11 +154,11 @@ describe('EditingRenderMiddleware', () => {
     expect(res.json).to.have.been.called.once;
   });
 
-  it('should respond with 401 for invalid token', async () => {
+  it('should respond with 401 for invalid secret', async () => {
     const fetcher = mockFetcher();
     const dataService = mockDataService();
     const query = {} as Query;
-    query[QUERY_PARAM_SECURITY_TOKEN] = 'nope';
+    query[QUERY_PARAM_EDITING_SECRET] = 'nope';
     const req = mockRequest(EE_BODY, query);
     const res = mockResponse();
 
@@ -175,13 +175,13 @@ describe('EditingRenderMiddleware', () => {
     expect(res.json).to.have.been.called.once;
   });
 
-  it('should use security token from body', async () => {
+  it('should use editing secret from body', async () => {
     const html = '<html><body>Something amazing</body></html>';
     const fetcher = mockFetcher(html);
     const dataService = mockDataService();
     const query = {} as Query;
-    const bodyWithToken = Object.assign({}, EE_BODY, { SecurityToken: token });
-    const req = mockRequest(bodyWithToken, query);
+    const bodyWithSecret = Object.assign({}, EE_BODY, { JssEditingSecret: secret });
+    const req = mockRequest(bodyWithSecret, query);
     const res = mockResponse();
 
     const middleware = new EditingRenderMiddleware({
@@ -201,7 +201,7 @@ describe('EditingRenderMiddleware', () => {
     const fetcher = mockFetcher('');
     const dataService = mockDataService();
     const query = {} as Query;
-    query[QUERY_PARAM_SECURITY_TOKEN] = token;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
     const req = mockRequest(EE_BODY, query);
     const res = mockResponse();
 

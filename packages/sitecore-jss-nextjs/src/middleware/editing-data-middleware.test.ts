@@ -3,7 +3,7 @@
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { QUERY_PARAM_SECURITY_TOKEN } from '../services/editing-data-service';
+import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
 import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataCache } from './editing-data-cache';
 import { EditingDataMiddleware } from './editing-data-middleware';
@@ -54,20 +54,20 @@ const mockEditingData = {
 } as EditingData;
 
 describe('EditingDataMiddleware', () => {
-  const token = 'token1234';
+  const secret = 'secret1234';
 
   beforeEach(() => {
-    process.env.SITECORE_SECURITY_TOKEN = token;
+    process.env.JSS_EDITING_SECRET = secret;
   });
 
   after(() => {
-    delete process.env.SITECORE_SECURITY_TOKEN;
+    delete process.env.JSS_EDITING_SECRET;
   });
 
   it('should handle PUT request', async () => {
     const key = 'key1234';
     const query = { key } as Query;
-    query[QUERY_PARAM_SECURITY_TOKEN] = token;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
     const cache = mockCache();
     const req = mockRequest('PUT', query, mockEditingData);
     const res = mockResponse();
@@ -87,7 +87,7 @@ describe('EditingDataMiddleware', () => {
   it('should handle GET request', async () => {
     const key = 'key1234';
     const query = { key } as Query;
-    query[QUERY_PARAM_SECURITY_TOKEN] = token;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
     const cache = mockCache(mockEditingData);
     const req = mockRequest('GET', query);
     const res = mockResponse();
@@ -110,7 +110,7 @@ describe('EditingDataMiddleware', () => {
     const key = 'key1234';
     const query = {} as Query;
     query[dynamicRouteKey] = key;
-    query[QUERY_PARAM_SECURITY_TOKEN] = token;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
     const cache = mockCache(mockEditingData);
     const req = mockRequest('GET', query);
     const res = mockResponse();
@@ -134,7 +134,7 @@ describe('EditingDataMiddleware', () => {
   it('should respond with 400 for invalid editing data', async () => {
     const key = 'key1234';
     const query = { key } as Query;
-    query[QUERY_PARAM_SECURITY_TOKEN] = token;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
     const cache = mockCache();
     const req = mockRequest('PUT', query, { invalid: 'data' });
     const res = mockResponse();
@@ -150,7 +150,7 @@ describe('EditingDataMiddleware', () => {
     expect(res.end).to.have.been.called.once;
   });
 
-  it('should respond with 401 for missing token', async () => {
+  it('should respond with 401 for missing secret', async () => {
     const key = 'key1234';
     const query = { key } as Query;
     const cache = mockCache();
@@ -168,10 +168,10 @@ describe('EditingDataMiddleware', () => {
     expect(res.end).to.have.been.called.once;
   });
 
-  it('should respond with 401 for invalid token', async () => {
+  it('should respond with 401 for invalid secret', async () => {
     const key = 'key1234';
     const query = { key } as Query;
-    query[QUERY_PARAM_SECURITY_TOKEN] = 'nope';
+    query[QUERY_PARAM_EDITING_SECRET] = 'nope';
     const cache = mockCache();
     const req = mockRequest('GET', query);
     const res = mockResponse();
@@ -190,7 +190,7 @@ describe('EditingDataMiddleware', () => {
   it('should respond with 405 for unsupported method', async () => {
     const key = 'key1234';
     const query = { key } as Query;
-    query[QUERY_PARAM_SECURITY_TOKEN] = token;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
     const cache = mockCache();
     const req = mockRequest('POST', query);
     const res = mockResponse();

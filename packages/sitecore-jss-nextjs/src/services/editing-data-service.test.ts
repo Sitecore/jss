@@ -5,7 +5,7 @@ import spies from 'chai-spies';
 import chaiAsPromised from 'chai-as-promised';
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from '../sharedTypes/editing-data';
-import { EditingDataService, QUERY_PARAM_SECURITY_TOKEN } from './editing-data-service';
+import { EditingDataService, QUERY_PARAM_EDITING_SECRET } from './editing-data-service';
 
 use(spies);
 use(chaiAsPromised);
@@ -23,16 +23,16 @@ const mockFetcher = (data?: any) => {
 
 describe('EditingDataService', () => {
   const publicUrl = 'http://test.com';
-  const token = 'token1234';
+  const secret = 'secret1234';
 
   beforeEach(() => {
     process.env.PUBLIC_URL = publicUrl;
-    process.env.SITECORE_SECURITY_TOKEN = token;
+    process.env.JSS_EDITING_SECRET = secret;
   });
 
   after(() => {
     delete process.env.PUBLIC_URL;
-    delete process.env.SITECORE_SECURITY_TOKEN;
+    delete process.env.JSS_EDITING_SECRET;
   });
 
   it('should throw for apiRoute missing [key]', () => {
@@ -45,7 +45,7 @@ describe('EditingDataService', () => {
         path: '/styleguide',
       } as EditingData;
       const key = '1234key';
-      const expectedUrl = `${publicUrl}/api/editing/data/${key}?${QUERY_PARAM_SECURITY_TOKEN}=${token}`;
+      const expectedUrl = `${publicUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}`;
 
       const fetcher = mockFetcher();
 
@@ -81,7 +81,7 @@ describe('EditingDataService', () => {
         path: '/styleguide',
       } as EditingData;
       const key = '1234key';
-      const expectedUrl = `${publicUrl}/api/editing/data/${key}?${QUERY_PARAM_SECURITY_TOKEN}=${token}`;
+      const expectedUrl = `${publicUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}`;
 
       const fetcher = mockFetcher(data);
 

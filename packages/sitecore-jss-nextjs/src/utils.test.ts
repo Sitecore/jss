@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
-import { expect, use, spy } from 'chai';
-import { getPublicUrl, getSitecoreSecurityToken } from './utils';
+import { expect } from 'chai';
+import { getPublicUrl, getJssEditingSecret } from './utils';
 
 describe('utils', () => {
   describe('getPublicUrl', () => {
@@ -32,20 +32,20 @@ describe('utils', () => {
       expect(() => getPublicUrl()).to.throw();
     });
   });
-  describe('getSitecoreSecurityToken', () => {
+  describe('getJssEditingSecret', () => {
     after(() => {
-      delete process.env.SITECORE_SECURITY_TOKEN;
+      delete process.env.JSS_EDITING_SECRET;
     });
 
     it('should throw if env variable missing', () => {
-      expect(() => getSitecoreSecurityToken()).to.throw();
+      expect(() => getJssEditingSecret()).to.throw();
     });
 
     it('should return env variable', () => {
-      const token = '1234abcd';
-      process.env.SITECORE_SECURITY_TOKEN = token;
-      const result = getSitecoreSecurityToken();
-      expect(result).to.equal(token);
+      const secret = '1234abcd';
+      process.env.JSS_EDITING_SECRET = secret;
+      const result = getJssEditingSecret();
+      expect(result).to.equal(secret);
     });
   });
 });
