@@ -35,13 +35,8 @@ describe('EditingDataService', () => {
     delete process.env.SITECORE_SECURITY_TOKEN;
   });
 
-  it('should throw for apiRoute missing [key]', async () => {
-    const data = {
-      layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
-    } as EditingData;
-    const service = new EditingDataService({ apiRoute: '/api/editing/data/[nope]' });
-    await expect(service.setEditingData(data)).to.be.rejected;
-    await expect(service.getEditingData({ key: '' })).to.be.rejected;
+  it('should throw for apiRoute missing [key]', () => {
+    expect(() => new EditingDataService({ apiRoute: '/api/editing/data/[nope]' })).to.throw();
   });
 
   describe('setEditingData', () => {

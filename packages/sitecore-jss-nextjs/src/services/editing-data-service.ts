@@ -33,6 +33,9 @@ export class EditingDataService {
    */
   constructor(config?: EditingDataServiceConfig) {
     this.apiRoute = config?.apiRoute ?? '/api/editing/data/[key]';
+    if (!this.apiRoute.includes('[key]')) {
+      throw new Error(`The specified apiRoute '${this.apiRoute}' is missing '[key]'.`);
+    }
     this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher();
   }
 
@@ -72,11 +75,8 @@ export class EditingDataService {
 
   protected getUrl(key: string): string {
     // Example URL format:
-    //  http://localhost:3000/api/editing/data/1234key?secret=1234secret
+    //  http://localhost:3000/api/editing/data/1234key?token=1234token
     const publicUrl = getPublicUrl();
-    if (!this.apiRoute.includes('[key]')) {
-      throw new Error(`The specified apiRoute '${this.apiRoute}' is missing '[key]'.`);
-    }
     const apiRoute = this.apiRoute?.replace('[key]', key);
     const url = new URL(apiRoute, publicUrl);
     url.searchParams.append(QUERY_PARAM_SECURITY_TOKEN, getSitecoreSecurityToken());
