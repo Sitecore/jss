@@ -15,9 +15,6 @@
 *.graphql.d.ts
 *.graphqls.d.ts
 
-# editing server
-/.next-editing/
-
 # misc
 .DS_Store
 

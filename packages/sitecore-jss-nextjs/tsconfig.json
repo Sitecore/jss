@@ -27,6 +27,7 @@
     "types",
     "typings",
     "dist",
+    "middleware.d.ts",
     "src/tests/*",
     "src/testData/*",
     "**/*.test.ts",

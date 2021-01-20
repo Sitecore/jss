@@ -4,7 +4,9 @@ export {
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   AxiosDataFetcher,
+  AxiosDataFetcherConfig,
   LayoutService,
+  LayoutServiceInstanceConfig,
   DictionaryPhrases,
   DictionaryServiceData,
   DictionaryService,
@@ -32,7 +34,6 @@ export {
   ComponentPropsCollection,
   GetStaticComponentProps,
   GetServerSideComponentProps,
-  GetInitialComponentProps,
 } from './sharedTypes/component-props';
 
 export { ComponentModule } from './sharedTypes/component-module';
@@ -46,7 +47,12 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { EditingData, EditingRequest } from './sharedTypes/editing-data';
+export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
+export {
+  EditingDataService,
+  EditingDataServiceConfig,
+  editingDataService,
+} from './services/editing-data-service';
 
 export { Link } from './components/Link';
 export { RichText } from './components/RichText';

@@ -23,7 +23,7 @@
     "start-ios": "node ./build/start.js --platform ios",
     "start-ios:connected": "scjss-verify-setup && node ./build/start.js --platform ios --appMode connected",
     "start-ios:connected-tunnel": "scjss-verify-setup && node ./build/start.js --platform ios --appMode connected-tunnel",
-    "lint": "eslint --fix ./src/**/*.js ./sitecore/definitions/**/*.js ./**/*.js"
+    "lint": "eslint ./src/**/*.js ./sitecore/definitions/**/*.js ./**/*.js"
   },
   "dependencies": {
     "@sitecore-jss/sitecore-jss-react-native": "^16.0.0-canary.18",

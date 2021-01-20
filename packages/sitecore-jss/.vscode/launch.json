@@ -3,16 +3,16 @@
   "configurations": [
     {
       "name": "Run mocha",
-      "type": "node2",
+      "type": "node",
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
       "stopOnEntry": false,
       "args": [
-        "--compilers",
-        "js:babel-core/register",
-        "./src/**/*.test.js",
-        "--no-timeouts",
-        "./dist/test"
+        "-require",
+        "ts-node/register",
+        "--no-timeout",
+        "--colors",
+        "./src/**/*.test.ts"
       ],
       "cwd": "${workspaceRoot}",
       "runtimeExecutable": null

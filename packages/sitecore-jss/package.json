@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "del-cli dist types",
-    "lint": "eslint --fix ./src/**/*.ts",
+    "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "coverage": "nyc --require ts-node/register npm test"
@@ -30,7 +30,6 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.11",
     "@types/url-parse": "1.4.3",
-    "axios": "^0.19.0",
     "axios-mock-adapter": "^1.17.0",
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
@@ -45,6 +44,7 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "lodash.unescape": "^4.0.1",
     "node-cache": "^5.1.2",
     "url-parse": "^1.4.7"
