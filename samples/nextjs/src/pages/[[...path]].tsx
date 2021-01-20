@@ -5,7 +5,7 @@ import Layout from 'components/Layout';
 import {
   SitecoreContext,
   ComponentPropsContext,
-  subscribeOnRebuildAppEvent,
+  handleExperienceEditorFastRefresh,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
 import { SitecorePageProps } from 'lib/page-props';
@@ -14,7 +14,8 @@ import { componentFactory } from 'temp/componentFactory';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
-    subscribeOnRebuildAppEvent();
+    // Since Experience Editor does not support Fast Refresh need to refresh EE chromes after Fast Refresh finished
+    handleExperienceEditorFastRefresh();
   }, []);
 
   if (notFound) {

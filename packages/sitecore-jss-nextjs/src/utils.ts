@@ -25,30 +25,30 @@ export const getPublicUrl = (): string => {
  * Since Experience Editor does not support Fast Refresh:
  * 1. Subscribe on events provided by webpack.
  * 2. Reset experience editor chromes when build is finished
- * @param {Function} onBuildEnd custom logic to be executed after build is finished
+ * @param {boolean} [forceReload] force page reload instead of reset chromes
+ * @default forceReload false
  */
-export const subscribeOnRebuildAppEvent = (onBuildEnd?: (payload: unknown) => void): void => {
+export const handleExperienceEditorFastRefresh = (forceReload = false): void => {
   if (isExperienceEditorActive()) {
     const eventSource = new window.EventSource(`${getPublicUrl()}/_next/webpack-hmr`);
 
     window.addEventListener('beforeunload', () => eventSource.close());
 
-    eventSource.onopen = () => console.log('[Experience Editor HMR Listener] Online');
+    eventSource.onopen = () => console.log('[Experience Editor Fast Refresh Listener] Online');
 
     eventSource.onmessage = (event) => {
       if (event.data.indexOf('{') === -1) return; // heartbeat
 
       const payload = JSON.parse(event.data);
 
-      console.debug(`[Experience Editor HMR Listener] Saw event: ${JSON.stringify(payload)}`);
+      console.debug(
+        `[Experience Editor Fast Refresh Listener] Saw event: ${JSON.stringify(payload)}`
+      );
 
       if (payload.action !== 'built') return;
 
-      if (onBuildEnd) {
-        return onBuildEnd(payload);
-      }
+      if (forceReload) return window.location.reload();
 
-      // Alternative is window.location.reload()
       setTimeout(() => {
         console.log(
           '[Experience Editor HMR Listener] Experience Editor does not support Fast Refresh, reloading chromes...'

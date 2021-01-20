@@ -46,7 +46,7 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { subscribeOnRebuildAppEvent } from './utils';
+export { handleExperienceEditorFastRefresh } from './utils';
 
 export { EditingData, EditingRequest } from './sharedTypes/editing-data';
 
