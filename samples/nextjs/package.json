@@ -11,7 +11,8 @@
     "sitecoreDistPath": "/dist/JssNextWeb",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphqlEndpointPath": "/api/jssnextweb",
-    "language": "en"
+    "language": "en",
+    "buildArtifactsPath": "./.next"
   },
   "engines": {
     "node": ">=8.1",
