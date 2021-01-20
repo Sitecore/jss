@@ -1,6 +1,6 @@
 // eslint-disable-next-line spaced-comment
 /// <reference types="../../global" />
-import Cache from 'sync-disk-cache';
+import Cache, { CacheInstance } from 'sync-disk-cache';
 import os from 'os';
 import { EditingData } from '../sharedTypes/editing-data';
 
@@ -17,8 +17,7 @@ export interface EditingDataCache {
  * @see EditingDataCache
  */
 export class EditingDataDiskCache implements EditingDataCache {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private cache: any;
+  private cache: CacheInstance;
 
   constructor() {
     // Use gzip compression and store using the OS temp directory (Vercel Serverless Functions have temp directory access)
