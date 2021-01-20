@@ -46,7 +46,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
 
   // use graphQLSitemapService.fetchExportSitemap(context.defaultLocale, ROOT_ITEM)
-  // in case if you want fetch sitemap for Export mode
+  // in case if you want to fetch sitemap for Export mode
 
   // In development mode getStaticPaths runs on every request
   if (process.env.NODE_ENV !== 'development') {
