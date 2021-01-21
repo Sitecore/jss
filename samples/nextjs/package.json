@@ -1,7 +1,7 @@
 {
   "name": "jss-sample-nextjs",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
-  "version": "16.0.0-canary.18",
+  "version": "16.0.0-canary.20",
   "private": true,
   "config": {
     "appName": "JssNextWeb",
@@ -31,16 +31,14 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-nextjs": "^16.0.0-canary.18",
-    "@sitecore-jss/sitecore-jss-nextjs-editing-host": "^16.0.0-canary.18",
-    "@sitecore-jss/sitecore-jss-tracking": "^16.0.0-canary.18",
+    "@sitecore-jss/sitecore-jss-nextjs": "^16.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-tracking": "^16.0.0-canary.20",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
     "apollo-link": "~1.2.13",
     "apollo-link-batch-http": "~1.2.13",
     "apollo-link-http": "~1.5.16",
     "apollo-link-persisted-queries": "~0.2.2",
-    "axios": "~0.19.0",
     "bootstrap": "^4.3.1",
     "cross-fetch": "^3.0.6",
     "graphql": "~14.5.7",
@@ -59,15 +57,16 @@
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-react-apollo": "^2.1.1",
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
-    "@sitecore-jss/sitecore-jss-cli": "^16.0.0-canary.18",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^16.0.0-canary.18",
-    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.18",
+    "@sitecore-jss/sitecore-jss-cli": "^16.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^16.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.20",
     "@types/node": "^14.6.4",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
+    "axios": "~0.19.0",
     "chalk": "~2.4.2",
     "chokidar": "~3.1.1",
     "constant-case": "^3.0.4",
@@ -87,7 +86,7 @@
   },
   "scripts": {
     "jss": "jss",
-    "lint": "eslint --fix ./src/**/*.tsx ./src/**/*.ts ./sitecore/definitions/**/*.ts ./scripts/**/*.ts ./data/**/*.yml",
+    "lint": "eslint ./src/**/*.tsx ./src/**/*.ts ./sitecore/definitions/**/*.ts ./scripts/**/*.ts ./data/**/*.yml",
     "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let",
     "build": "npm-run-all --serial bootstrap next:build",
     "graphql:fetch-introspection": "ts-node --project tsconfig.scripts.json ./scripts/fetch-graphql-introspection-data.ts",
@@ -101,8 +100,6 @@
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
     "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
-    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch",
-    "build:editing-host": "cross-env-shell JSS_MODE=editing \"npm-run-all --serial bootstrap next:build\"",
-    "start:editing-host": "cross-env-shell NODE_ENV=production JSS_MODE=editing ts-node --project tsconfig.scripts.json scripts/editing-server.ts"
+    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch"
   }
 }

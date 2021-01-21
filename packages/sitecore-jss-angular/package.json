@@ -1,10 +1,10 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular",
-  "version": "16.0.0-canary.18",
+  "version": "16.0.0-canary.20",
   "description": "",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
-    "lint": "eslint --fix ./src/**/*.ts",
+    "lint": "eslint ./src/**/*.ts",
     "test": "karma start",
     "test:watch": "karma start --no-single-run --browsers Chrome",
     "coverage": "npm test"
@@ -53,7 +53,7 @@
     "rxjs": "^6.5.3"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.18"
+    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.20"
   },
   "main": "dist/bundles/sitecore-jss-sitecore-jss-angular.umd.js",
   "module": "dist/esm5/sitecore-jss-sitecore-jss-angular.js",

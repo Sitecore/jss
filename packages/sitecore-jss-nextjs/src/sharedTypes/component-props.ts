@@ -1,4 +1,4 @@
-import { NextPageContext, GetServerSidePropsContext, GetStaticPropsContext } from 'next';
+import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { ComponentRendering, LayoutServiceData } from '@sitecore-jss/sitecore-jss';
 
 /**
@@ -26,8 +26,3 @@ export type GetServerSideComponentProps = ComponentPropsFetchFunction<GetServerS
  * Shape of getStaticProps function on component level
  */
 export type GetStaticComponentProps = ComponentPropsFetchFunction<GetStaticPropsContext>;
-
-/**
- * Shape of getInitialProps function on component level
- */
-export type GetInitialComponentProps = ComponentPropsFetchFunction<NextPageContext>;

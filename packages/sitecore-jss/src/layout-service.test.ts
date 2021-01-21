@@ -167,7 +167,7 @@ describe('LayoutService', () => {
 
   it('should fetch layout data using custom fetcher resolver', () => {
     const fetcherSpy = spy((url: string) => {
-      return new AxiosDataFetcher().fetch(url);
+      return new AxiosDataFetcher().fetch<any>(url);
     });
 
     mock.onGet().reply(() => {
@@ -251,7 +251,7 @@ describe('LayoutService', () => {
 
   it('should fetch placeholder data using custom fetcher resolver', () => {
     const fetcherSpy = spy((url: string) => {
-      return new AxiosDataFetcher().fetch(url);
+      return new AxiosDataFetcher().fetch<any>(url);
     });
 
     mock.onGet().reply(() => {

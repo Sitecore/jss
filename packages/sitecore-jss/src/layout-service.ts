@@ -1,7 +1,8 @@
-import { AxiosDataFetcher } from './data-fetcher';
+import { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
 import { LayoutServiceData, PlaceholderData } from './dataModels';
 import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './dataApi';
 import { HttpJsonFetcher } from './httpClientInterface';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
 
 export type DataFetcherResolver = <T>(
@@ -74,7 +75,7 @@ export class LayoutService {
 
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
-      : this.getDefaultFetcher(req, res);
+      : this.getDefaultFetcher<LayoutServiceData>(req, res);
 
     return fetchRouteData(itemPath, { fetcher, ...fetchOptions });
   }
@@ -101,7 +102,7 @@ export class LayoutService {
 
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
-      : this.getDefaultFetcher(req, res);
+      : this.getDefaultFetcher<PlaceholderData>(req, res);
 
     return fetchPlaceholderData(placeholderName, itemPath, { fetcher, ...fetchOptions });
   }
@@ -133,13 +134,49 @@ export class LayoutService {
    * @param {ServerResponse} [res] Response instance
    * @returns default fetcher
    */
-  private getDefaultFetcher = (req?: IncomingMessage, res?: ServerResponse) => {
-    const axiosFetcher = new AxiosDataFetcher();
+  private getDefaultFetcher = <T>(req?: IncomingMessage, res?: ServerResponse) => {
+    const config = {} as AxiosDataFetcherConfig;
+    if (req && res) {
+      config.onReq = this.setupReqHeaders(req);
+      config.onRes = this.setupResHeaders(res);
+    }
+    const axiosFetcher = new AxiosDataFetcher(config);
 
     const fetcher = (url: string, data?: unknown) => {
-      return axiosFetcher.fetch(url, data, req, res);
+      return axiosFetcher.fetch<T>(url, data);
     };
 
     return fetcher;
   };
+
+  /**
+   * Setup request headers
+   * @param {IncomingMessage} req
+   * @returns {AxiosRequestConfig} axios request config
+   */
+  private setupReqHeaders(req: IncomingMessage) {
+    return (reqConfig: AxiosRequestConfig) => {
+      reqConfig.headers.common = {
+        ...reqConfig.headers.common,
+        ...(req.headers.cookie && { cookie: req.headers.cookie }),
+        ...(req.headers.referer && { referer: req.headers.referer }),
+        ...(req.headers['user-agent'] && { 'user-agent': req.headers['user-agent'] }),
+        ...(req.connection.remoteAddress && { 'X-Forwarded-For': req.connection.remoteAddress }),
+      };
+      return reqConfig;
+    };
+  }
+
+  /**
+   * Setup response headers based on response from layout service
+   * @param {ServerResponse} res
+   * @returns {AxiosResponse} response
+   */
+  private setupResHeaders(res: ServerResponse) {
+    return (serverRes: AxiosResponse) => {
+      serverRes.headers['set-cookie'] &&
+        res.setHeader('set-cookie', serverRes.headers['set-cookie']);
+      return serverRes;
+    };
+  }
 }

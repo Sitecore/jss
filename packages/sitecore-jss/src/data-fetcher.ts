@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios';
-import { IncomingMessage, ServerResponse } from 'http';
 
 export type AxiosDataFetcherHandlers = {
   /**
@@ -31,84 +30,90 @@ export type AxiosDataFetcherHandlers = {
 export type AxiosDataFetcherConfig = AxiosRequestConfig & AxiosDataFetcherHandlers;
 
 export class AxiosDataFetcher {
-  instance: AxiosInstance;
-  handlers: AxiosDataFetcherHandlers;
+  private instance: AxiosInstance;
 
+  /**
+   * @param {AxiosDataFetcherConfig} dataFetcherConfig Axios data fetcher configuration.
+   * Note `withCredentials` is set to `true` by default in order for Sitecore cookies to
+   * be included in CORS requests (which is necessary for analytics and such).
+   */
   constructor(dataFetcherConfig: AxiosDataFetcherConfig = {}) {
     const { onReq, onRes, onReqError, onResError, ...axiosConfig } = dataFetcherConfig;
-
-    this.handlers = { onReq, onRes, onReqError, onResError };
-
+    if (axiosConfig.withCredentials === undefined) {
+      axiosConfig.withCredentials = true;
+    }
     this.instance = axios.create(axiosConfig);
+    if (onReq) {
+      this.instance.interceptors.request.use(onReq, onReqError);
+    }
+    if (onRes) {
+      this.instance.interceptors.response.use(onRes, onResError);
+    }
   }
 
   /**
    * Implements a data fetcher. @see HttpJsonFetcher<T> type for implementation details/notes.
    * @param {string} url The URL to request; may include query string
    * @param {any} [data] Optional data to POST with the request.
-   * @param {IncomingMessage} [req] Request instance
-   * @param {ServerResponse} [res] Response instance
-   * @returns {Promise<AxiosResponse>} response
+   * @returns {Promise<AxiosResponse<T>>} response
    */
-  fetch(
-    url: string,
-    data?: unknown,
-    req?: IncomingMessage,
-    res?: ServerResponse
-  ): Promise<AxiosResponse> {
-    this.instance.interceptors.request.use((reqConfig: AxiosRequestConfig) => {
-      if (req) {
-        reqConfig = this.setupReqHeaders(req, reqConfig);
-      }
-
-      return this.handlers.onReq ? this.handlers.onReq(reqConfig) : reqConfig;
-    }, this.handlers.onReqError);
-
-    this.instance.interceptors.response.use((layoutServiceRes: AxiosResponse) => {
-      if (res) {
-        layoutServiceRes = this.setupResHeaders(res, layoutServiceRes);
-      }
-
-      return this.handlers.onRes ? this.handlers.onRes(layoutServiceRes) : layoutServiceRes;
-    }, this.handlers.onResError);
-
+  fetch<T>(url: string, data?: unknown): Promise<AxiosResponse<T>> {
     return this.instance.request({
       url,
       method: data ? 'POST' : 'GET',
       data,
-      // note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
-      // which is necessary for analytics and such
-      withCredentials: true,
     });
   }
 
   /**
-   * Setup request headers
-   * @param {IncomingMessage} req
-   * @param {AxiosRequestConfig} reqConfig
-   * @returns {AxiosRequestConfig} axios request config
+   * Perform a GET request
+   * @param {string} url The URL to request; may include query string
+   * @param {AxiosRequestConfig} [config] Axios config
+   * @returns {Promise<AxiosResponse<T>>} response
    */
-  private setupReqHeaders(req: IncomingMessage, reqConfig: AxiosRequestConfig) {
-    reqConfig.headers.common = {
-      ...reqConfig.headers.common,
-      ...(req.headers.cookie && { cookie: req.headers.cookie }),
-      ...(req.headers.referer && { referer: req.headers.referer }),
-      ...(req.headers['user-agent'] && { 'user-agent': req.headers['user-agent'] }),
-      ...(req.connection.remoteAddress && { 'X-Forwarded-For': req.connection.remoteAddress }),
-    };
-
-    return reqConfig;
+  get<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+    return this.instance.get(url, config);
   }
 
   /**
-   * Setup response headers based on response from layout service
-   * @param {ServerResponse} res
-   * @param {AxiosResponse} serverRes
-   * @returns {AxiosResponse} response
+   * Perform a HEAD request
+   * @param {string} url The URL to request; may include query string
+   * @param {AxiosRequestConfig} [config] Axios config
+   * @returns {Promise<AxiosResponse>} response
    */
-  private setupResHeaders(res: ServerResponse, serverRes: AxiosResponse) {
-    serverRes.headers['set-cookie'] && res.setHeader('set-cookie', serverRes.headers['set-cookie']);
+  head(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+    return this.instance.head(url, config);
+  }
 
-    return serverRes;
+  /**
+   * Perform a POST request
+   * @param {string} url The URL to request; may include query string
+   * @param {any} [data] Data to POST with the request.
+   * @param {AxiosRequestConfig} [config] Axios config
+   * @returns {Promise<AxiosResponse>} response
+   */
+  post(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+    return this.instance.post(url, data, config);
+  }
+
+  /**
+   * Perform a PUT request
+   * @param {string} url The URL to request; may include query string
+   * @param {any} [data] Data to PUT with the request.
+   * @param {AxiosRequestConfig} [config] Axios config
+   * @returns {Promise<AxiosResponse>} response
+   */
+  put(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+    return this.instance.put(url, data, config);
+  }
+
+  /**
+   * Perform a DELETE request
+   * @param {string} url The URL to request; may include query string
+   * @param {AxiosRequestConfig} [config] Axios config
+   * @returns {Promise<AxiosResponse>} response
+   */
+  delete(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+    return this.instance.delete(url, config);
   }
 }

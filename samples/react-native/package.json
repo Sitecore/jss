@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-reactnative",
-  "version": "16.0.0-canary.18",
+  "version": "16.0.0-canary.20",
   "description": "A basic React Native app utilizing Sitecore JavaScript Services",
   "config": {
     "appName": "JssReactNative",
@@ -23,10 +23,10 @@
     "start-ios": "node ./build/start.js --platform ios",
     "start-ios:connected": "scjss-verify-setup && node ./build/start.js --platform ios --appMode connected",
     "start-ios:connected-tunnel": "scjss-verify-setup && node ./build/start.js --platform ios --appMode connected-tunnel",
-    "lint": "eslint --fix ./src/**/*.js ./sitecore/definitions/**/*.js ./**/*.js"
+    "lint": "eslint ./src/**/*.js ./sitecore/definitions/**/*.js ./**/*.js"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react-native": "^16.0.0-canary.18",
+    "@sitecore-jss/sitecore-jss-react-native": "^16.0.0-canary.20",
     "axios": "^0.18.1",
     "prop-types": "^15.6.0",
     "react": "16.13.1",
@@ -39,9 +39,9 @@
   },
   "private": true,
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^16.0.0-canary.18",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^16.0.0-canary.18",
-    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.18",
+    "@sitecore-jss/sitecore-jss-cli": "^16.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^16.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.20",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-plugin-inline-replace-variables": "^1.3.1",
