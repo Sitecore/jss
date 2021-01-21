@@ -52,6 +52,8 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
+export { handleExperienceEditorFastRefresh } from './utils';
+
 export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
 export {
   EditingDataService,
