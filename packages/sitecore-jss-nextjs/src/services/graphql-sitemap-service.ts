@@ -29,7 +29,9 @@ export class GraphQLSitemapService {
   constructor(private config: GraphQLSitemapServiceConfig) {}
 
   /**
-   * Fetch sitemap which could be used for generation of static pages using Export mode
+   * Fetch sitemap which could be used for generation of static pages during `next export`.
+   * The `locale` parameter will be used in the item query, but since i18n is not supported,
+   * the output paths will not include a `locale` property.
    * @param {string} locale locale which application supports
    * @param {string} rootItemPath root item path
    * @param {Function} [formatSearchQuery] override default search query

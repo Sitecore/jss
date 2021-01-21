@@ -42,13 +42,11 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   // Fallback, along with revalidate in getStaticProps (below),
   // enables Incremental Static Regeneration. This allows us to
   // leave certain (or all) paths empty if desired and static pages
-  // will be generated on request.
+  // will be generated on request (development mode in this example).
+  // Alternatively, the entire sitemap could be pre-rendered
+  // ahead of time (non-development mode in this example).
   // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
 
-  // use graphQLSitemapService.fetchExportSitemap(context.defaultLocale, ROOT_ITEM)
-  // in case if you want to fetch sitemap for Export mode
-
-  // In development mode getStaticPaths runs on every request
   if (process.env.NODE_ENV !== 'development') {
     const ROOT_ITEM = `/sitecore/content/${config.jssAppName}/home`;
     const paths = await graphQLSitemapService.fetchSSGSitemap(context.locales || [], ROOT_ITEM);
