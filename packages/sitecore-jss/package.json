@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "16.0.0-canary.21",
+  "version": "16.0.0-canary.22",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -45,9 +45,9 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "graphql": "^15.4.0",
     "graphql-request": "^3.4.0",
-    "axios": "^0.19.0",
     "lodash.unescape": "^4.0.1",
     "node-cache": "^5.1.2",
     "url-parse": "^1.4.7"
