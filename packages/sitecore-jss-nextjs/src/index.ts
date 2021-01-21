@@ -41,6 +41,11 @@ export { ComponentModule } from './sharedTypes/component-module';
 export { ComponentPropsService } from './services/component-props-service';
 
 export {
+  GraphQLSitemapService,
+  GraphQLSitemapServiceConfig,
+} from './services/graphql-sitemap-service';
+
+export {
   ComponentPropsReactContext,
   ComponentPropsContextProps,
   ComponentPropsContext,
