@@ -114,6 +114,16 @@ export default {
         displayName: 'Client Frameworks',
         children: [
           {
+            url: 'nextjs',
+            displayName: 'Next.js',
+            children: [
+              {
+                url: 'nextjs-static-export',
+                displayName: 'Next.js static export',
+              },
+            ],
+          },
+          {
             url: 'react',
             displayName: 'React',
             children: [
