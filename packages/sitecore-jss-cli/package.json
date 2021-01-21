@@ -1,12 +1,12 @@
 {
   "name": "@sitecore-jss/sitecore-jss-cli",
-  "version": "16.0.0-canary.17",
+  "version": "16.0.0-canary.20",
   "description": "Sitecore JSS command-line",
   "scripts": {
     "build": "npm run clean && tsc",
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
-    "lint": "eslint --fix ./src/**/*.ts",
+    "lint": "eslint ./src/**/*.ts",
     "prepublishOnly": "npm run build",
     "jss": "node ./dist/bin/jss.js",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
@@ -30,8 +30,8 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^16.0.0-canary.17",
-    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.17",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^16.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.20",
     "chalk": "^2.4.2",
     "cross-spawn": "^7.0.0",
     "fs-extra": "^8.1.0",

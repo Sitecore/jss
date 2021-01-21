@@ -1,11 +1,11 @@
 {
   "name": "@sitecore-jss/sitecore-jss-tracking",
-  "version": "16.0.0-canary.17",
+  "version": "16.0.0-canary.20",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "del-cli dist types",
-    "lint": "eslint --fix ./src/**/*.ts",
+    "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "coverage": "nyc --require ts-node/register npm test"
@@ -46,7 +46,7 @@
     "url-parse": "^1.4.7"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.17"
+    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.20"
   },
   "description": "",
   "types": "types/index.d.ts",

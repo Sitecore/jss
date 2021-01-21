@@ -36,7 +36,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
 // This function gets called at request time on server-side.
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const props = await sitecorePagePropsFactory.createForServerSide(context);
+  const props = await sitecorePagePropsFactory.create(context);
 
   return {
     props,

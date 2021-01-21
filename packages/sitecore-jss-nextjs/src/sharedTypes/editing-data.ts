@@ -1,5 +1,4 @@
 import { LayoutServiceData, DictionaryPhrases } from '@sitecore-jss/sitecore-jss';
-import { IncomingMessage } from 'http';
 
 /**
  * Data sent from Experience Editor
@@ -12,8 +11,20 @@ export type EditingData = {
 };
 
 /**
- * Request with payload data from Experience Editor POST
+ * @param {EditingData} data
  */
-export interface EditingRequest extends IncomingMessage {
-  editingData: EditingData;
+export function isEditingData(data: EditingData | unknown): data is EditingData {
+  return (
+    (data as EditingData).path !== undefined &&
+    (data as EditingData).language !== undefined &&
+    (data as EditingData).layoutData !== undefined &&
+    (data as EditingData).dictionary !== undefined
+  );
+}
+
+/**
+ * Data for Next.js Preview (Editing) mode
+ */
+export interface EditingPreviewData {
+  key: string;
 }

@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios';
 import NodeCache from 'node-cache';
 import { AxiosDataFetcher } from './data-fetcher';
 import { fetchData } from './dataApi';
@@ -97,8 +96,7 @@ export class DictionaryService {
   private getDefaultFetcher = () => {
     const axiosFetcher = new AxiosDataFetcher();
 
-    const fetcher = (url: string): Promise<AxiosResponse<DictionaryServiceData>> =>
-      axiosFetcher.fetch(url);
+    const fetcher = (url: string) => axiosFetcher.fetch<DictionaryServiceData>(url);
 
     return fetcher;
   };

@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useI18n } from 'next-localization';
 import StyleguideSpecimen from 'components/Styleguide-Specimen';
 import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
-import { getPublicUrl } from 'lib/util';
 
 type StyleguideMultilingualProps = StyleguideComponentWithContextProps &
   StyleguideSpecimenFields & {
@@ -18,9 +17,6 @@ type StyleguideMultilingualProps = StyleguideComponentWithContextProps &
  */
 const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element => {
   const { t, locale } = useI18n();
-  // Prefix next/link paths with a publicUrl to disable Next.js prefetching in the Sitecore Experience Editor.
-  // If you're not supporting the Experience Editor, you can remove this.
-  const publicUrl = getPublicUrl();
 
   return (
     <StyleguideSpecimen {...props} e2eId="styleguide-multilingual">
@@ -34,11 +30,11 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
 
       <p>
         {/* In case if href already includes locale: https://nextjs.org/docs/advanced-features/i18n-routing#transition-between-locales */}
-        <Link href={`${publicUrl}/en/styleguide`} locale={false}>
+        <Link href="/en/styleguide" locale={false}>
           <a>Show in English</a>
         </Link>
         <br />
-        <Link href={`${publicUrl}/styleguide`} locale="da-DK">
+        <Link href="/styleguide" locale="da-DK">
           <a>Show in Danish</a>
         </Link>
       </p>

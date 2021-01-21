@@ -1,6 +1,6 @@
 {
   "name": "jss-embedded-jss-app-sample",
-  "version": "16.0.0-canary.17",
+  "version": "16.0.0-canary.20",
   "description": "Demonstrates embedding a JSS application within a traditional Sitecore page",
   "config": {
     "appName": "EmbeddedWizard",
@@ -23,7 +23,7 @@
     "start:connected": "scjss-verify-setup && jss clean && node -r babel-register ./build/start.js --env.content=connected",
     "deploy:watch": "scjss-verify-setup && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.watch --env.outputPath=sitecore",
     "build": "jss clean && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.production",
-    "lint": "eslint --fix ./src/**/*.js ./sitecore/definitions/**/*.js ./build/**/*.js ./data/**/*.yml",
+    "lint": "eslint ./src/**/*.js ./sitecore/definitions/**/*.js ./build/**/*.js ./data/**/*.yml",
     "deploy-rendering": "scjss-deploy --sourcePath ./sitecore/rendering --destinationPath {sitecoreInstancePath}/layouts"
   },
   "private": true,
@@ -51,7 +51,7 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^16.0.0-canary.17",
+    "@sitecore-jss/sitecore-jss-react": "^16.0.0-canary.20",
     "axios": "~0.18.0",
     "babel-plugin-inline-import": "~2.0.6",
     "babel-polyfill": "~6.26.0",
@@ -62,9 +62,9 @@
     "react-stepzilla": "~4.7.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^16.0.0-canary.17",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^16.0.0-canary.17",
-    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.17",
+    "@sitecore-jss/sitecore-jss-cli": "^16.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^16.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.20",
     "babel-core": "~6.26.0",
     "babel-eslint": "~7.2.3",
     "babel-loader": "~7.1.2",

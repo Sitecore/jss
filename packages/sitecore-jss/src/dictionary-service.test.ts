@@ -2,6 +2,7 @@
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import { DictionaryService } from './dictionary-service';
+import { DictionaryServiceData } from './dataModels';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { AxiosDataFetcher } from './data-fetcher';
@@ -141,7 +142,7 @@ describe('DictionaryService', () => {
 
   it('should fetch dictionary data using custom data fetcher', () => {
     const fetcherSpy = spy((url: string) => {
-      return new AxiosDataFetcher().fetch(url);
+      return new AxiosDataFetcher().fetch<DictionaryServiceData>(url);
     });
 
     mock.onGet().reply((config) => {

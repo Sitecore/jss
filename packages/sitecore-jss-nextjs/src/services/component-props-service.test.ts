@@ -3,7 +3,6 @@ import { ComponentRendering, PlaceholdersData } from '@sitecore-jss/sitecore-jss
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';
-import { NextPageContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { ComponentPropsService, ComponentPropsRequest } from './component-props-service';
 
@@ -178,43 +177,6 @@ describe('ComponentPropsService', () => {
       x161: 'myCustomComponentStaticData',
       x23: 'myCustomComponentStaticData',
       x24: 'x24StaticData',
-    });
-  });
-
-  it('fetchInitialComponentProps', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ssgModules: { [componentName: string]: any } = {
-      namex11: {
-        getInitialProps: fetchFn('x11InitialPropsData'),
-      },
-      namex14: {
-        getInitialProps: fetchFn('x14InitialPropsData'),
-      },
-      MyCustomComponent: {
-        getInitialProps: fetchFn('myCustomComponentInitialPropsData'),
-      },
-      namex24: {
-        getInitialProps: fetchFn('x24InitialPropsData'),
-      },
-    };
-
-    const context = {} as NextPageContext;
-
-    const ssgComponentModule = (componentName: string) => ssgModules[componentName];
-
-    const result = await service.fetchInitialComponentProps({
-      componentModule: ssgComponentModule,
-      context,
-      layoutData,
-    });
-
-    expect(result).to.deep.equal({
-      x11: 'x11InitialPropsData',
-      x14: 'x14InitialPropsData',
-      x16: 'myCustomComponentInitialPropsData',
-      x161: 'myCustomComponentInitialPropsData',
-      x23: 'myCustomComponentInitialPropsData',
-      x24: 'x24InitialPropsData',
     });
   });
 
