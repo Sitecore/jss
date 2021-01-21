@@ -317,5 +317,5 @@ describe('GraphQLSitemapService', () => {
 
       expect(sitemap).to.deep.equal([]);
     });
-  })
+  });
 });
