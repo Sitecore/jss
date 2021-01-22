@@ -206,7 +206,7 @@ export class GraphQLSitemapService {
         return null;
       });
 
-    return data?.item.id;
+    return data?.item?.id;
   }
 
   /**
