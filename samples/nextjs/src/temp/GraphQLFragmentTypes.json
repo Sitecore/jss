@@ -27,9 +27,6 @@
             "name": "ImageField"
           },
           {
-            "name": "FileField"
-          },
-          {
             "name": "DateField"
           },
           {
@@ -40,18 +37,6 @@
           },
           {
             "name": "LookupField"
-          },
-          {
-            "name": "LayoutField"
-          }
-        ]
-      },
-      {
-        "kind": "INTERFACE",
-        "name": "InsertOptions",
-        "possibleTypes": [
-          {
-            "name": "ItemTemplate"
           }
         ]
       },
@@ -60,7 +45,7 @@
         "name": "Item",
         "possibleTypes": [
           {
-            "name": "UnknownItem"
+            "name": "UnknownTemplate"
           },
           {
             "name": "StyleguideTracking"
@@ -136,6 +121,9 @@
           },
           {
             "name": "C__StandardTemplate"
+          },
+          {
+            "name": "JssNextRoute"
           },
           {
             "name": "GraphQLIntegratedDemo"
