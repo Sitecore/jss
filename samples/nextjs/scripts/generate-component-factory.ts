@@ -127,5 +127,9 @@ function getComponentList(path: string): ComponentFile[] {
     }
   });
 
+  for (const folder of folders) {
+    components.push(...getComponentList(`${path}/${folder.name}`));
+  }
+
   return components;
 }
