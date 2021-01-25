@@ -13,7 +13,7 @@ import {
   AppRoute,
   Item,
   GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
-} from './query.graphql';
+} from './GraphQL-ConnectedDemo.graphql';
 import GraphQLClientFactory from 'lib/GraphQLClientFactory';
 import { StyleguideComponentProps } from 'lib/component-props';
 
