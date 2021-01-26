@@ -27,10 +27,10 @@ const StyleguideSpecimen = ({
 
     <p>
       <small>
-        Implementation: <code>/src/components/{rendering.componentName}/index.js</code>
+        Implementation: <code>/src/components/**/{rendering.componentName}.tsx</code>
         <br />
         Definition:{' '}
-        <code>/sitecore/definitions/components/{rendering.componentName}.sitecore.js</code>
+        <code>/sitecore/definitions/components/**/{rendering.componentName}.sitecore.js</code>
       </small>
     </p>
     <div className="border p-2">{children}</div>

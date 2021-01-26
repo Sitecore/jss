@@ -2,7 +2,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 import fs from 'fs';
 
 const query = fs.readFileSync(
-  'sitecore/definitions/components/GraphQL-IntegratedDemo.sitecore.graphql',
+  'sitecore/definitions/components/graphql/GraphQL-IntegratedDemo.sitecore.graphql',
   'utf8'
 );
 

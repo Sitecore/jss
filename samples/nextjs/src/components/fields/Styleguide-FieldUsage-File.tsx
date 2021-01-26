@@ -1,5 +1,5 @@
 import { File, FileField } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
 type StyleguideFieldUsageFileProps = StyleguideComponentProps &

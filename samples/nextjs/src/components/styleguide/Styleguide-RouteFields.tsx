@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Text, Field, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import StyleguideSpecimen from './Styleguide-Specimen';
 import {
   StyleguideComponentProps,
   StyleguideSitecoreContextValue,

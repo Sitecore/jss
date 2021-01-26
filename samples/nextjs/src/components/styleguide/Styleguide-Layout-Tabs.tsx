@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { withPlaceholder, withSitecoreContext, Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from 'components/Styleguide-Specimen';
+import StyleguideSpecimen from './Styleguide-Specimen';
 import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
 
 interface StyleguideLayoutTabsState {
