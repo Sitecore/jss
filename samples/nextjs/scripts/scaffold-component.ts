@@ -1,6 +1,14 @@
 /*
   Component Scaffolding Script
-  This is a script that enables scaffolding a new JSS component using `jss scaffold <componentname>`.
+  This is a script that enables scaffolding a new JSS component using `jss scaffold <ComponentName>`.
+  The default convention is that component names must start with a capital letter, and can contain
+  letters, number, underscores, or dashes.
+  
+  If the <ComponentName> parameter includes a path, it must be relative to the src/components folder.
+  For example, `jss scaffold search/SearchBox` will create a component called `SearchBox` in
+  `src/components/search/SearchBox.tsx`. Specifying a relative path is optional, and just providing
+  the name is ok.
+
   Edit this script if you wish to use your own conventions for component storage in your JSS app.
 */
 
@@ -9,38 +17,44 @@
 import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
-
-/*
-  SCAFFOLDING SCRIPT
-*/
-const componentName = process.argv[2];
-
-if (!componentName) {
-  throw 'Component name was not passed. Usage: jss scaffold <ComponentName>';
-}
-
-if (!/^[A-Z][A-Za-z0-9-]+$/.test(componentName)) {
-  throw 'Component name should start with an uppercase letter and contain only letters and numbers.';
-}
+import generateComponentSrc from './templates/component-src';
+import generateComponentManifest from './templates/component-manifest';
 
 const componentManifestDefinitionsPath = 'sitecore/definitions/components';
 const componentRootPath = 'src/components';
 
-let manifestOutputPath = null;
+// Matches component names that start with a capital letter, and contain only letters, number,
+// underscores, or dashes. Optionally, the component name can be preceded by a relative path
+const nameParamFormat = new RegExp(/^((?:[\w-]+\/)*)([A-Z][\w-]+)$/);
+const componentArg = process.argv[2];
 
-if (fs.existsSync(componentManifestDefinitionsPath)) {
-  manifestOutputPath = scaffoldManifest();
-} else {
-  console.log(
-    `Not scaffolding manifest because ${componentManifestDefinitionsPath} did not exist. This is normal for Sitecore-first workflow.`
-  );
+if (!componentArg) {
+  throw 'Component name was not passed. Usage: jss scaffold <ComponentName>';
 }
 
-const componentOutputPath = scaffoldComponent();
+const regExResult = nameParamFormat.exec(componentArg);
 
-console.log();
-console.log(chalk.green(`Component ${componentName} has been scaffolded.`));
-console.log(chalk.green('Next steps:'));
+if (regExResult === null) {
+  throw `Component name should start with an uppercase letter and contain only letters, numbers,
+dashes, or underscores. If specifying a path, it must be relative to src/components`;
+}
+
+const componentPath = regExResult[1];
+const componentName = regExResult[2];
+const componentOutputPath = scaffoldFile(componentRootPath, generateComponentSrc(componentName));
+
+let manifestOutputPath = null;
+if (fs.existsSync(componentManifestDefinitionsPath)) {
+  manifestOutputPath = scaffoldFile(componentManifestDefinitionsPath, generateComponentManifest(componentName));
+} else {
+  console.log(chalk.red(`Not scaffolding manifest because ${componentManifestDefinitionsPath}
+did not exist. This is normal for Sitecore-first workflow.`));
+}
+
+console.log(chalk.green(`
+Scaffolding of ${componentName} complete.
+Next steps:`));
+
 if (manifestOutputPath) {
   console.log(`* Define the component's data in ${chalk.green(manifestOutputPath)}`);
 } else {
@@ -50,7 +64,9 @@ if (manifestOutputPath) {
     )}, or create the rendering item and datasource template yourself.`
   );
 }
-console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
+if (componentOutputPath) {
+  console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
+}
 if (manifestOutputPath) {
   console.log(
     `* Add the component to a route layout (/data/routes) and test it with ${chalk.green(
@@ -66,80 +82,23 @@ if (manifestOutputPath) {
   console.log(`* Add the component to a route using Sitecore Experience Editor, and test it.`);
 }
 
-/*
-  TEMPLATING FUNCTIONS
-*/
-
-function scaffoldComponent() {
-  const exportVarName = componentName.replace(/[^\w]+/g, '');
-
-  const componentTemplate = `import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps } from 'lib/component-props';
-
-type ${exportVarName}Props = StyleguideComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-}
-
-const ${exportVarName} = (props: ${exportVarName}Props): JSX.Element => (
-  <div>
-    <p>${componentName} Component</p>
-    <Text field={props.fields.heading} />
-  </div>
-);
-
-export default ${exportVarName};
-`;
-
-  const outputDirectoryPath = path.join(componentRootPath, componentName);
-
-  if (fs.existsSync(outputDirectoryPath)) {
-    throw `Component path ${outputDirectoryPath} already existed. Not creating component.`;
-  }
-
-  fs.mkdirSync(outputDirectoryPath);
-
-  const outputFilePath = path.join(outputDirectoryPath, 'index.tsx');
-
-  fs.writeFileSync(outputFilePath, componentTemplate, 'utf8');
-
-  return outputFilePath;
-}
-
-function scaffoldManifest() {
-  const manifestTemplate = `// eslint-disable-next-line no-unused-vars
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
-
 /**
- * Adds the ${componentName} component to the disconnected manifest.
- * This function is invoked by convention (*.sitecore.ts) when 'jss manifest' is run.
- * @param {Manifest} manifest Manifest instance to add components to
+ * Creates a file relative to the specified path if the file doesn't exist. Creates directories as needed.
+ * @param rootPath - the root path
+ * @param fileContent - the file content
+ * @returns the new file's filepath
  */
-export default function (manifest: Manifest): void {
-  manifest.addComponent({
-    name: '${componentName}',
-    icon: SitecoreIcon.DocumentTag,
-    fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
-    /*
-    If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
-    register it here, or components added to that placeholder will not be returned by Sitecore:
-    placeholders: ['exposed-placeholder-name']
-    */
-  });
-}
-`;
+function scaffoldFile(rootPath: string, fileContent: string): string | null {
+  const outputDir =path.join(rootPath, componentPath);
+  const outputFile =path.join(outputDir, `${componentName}.tsx`);
 
-  const outputFilePath = path.join(
-    componentManifestDefinitionsPath,
-    `${componentName}.sitecore.ts`
-  );
-
-  if (fs.existsSync(outputFilePath)) {
-    throw `Manifest definition path ${outputFilePath} already exists. Not creating manifest definition.`;
+  if (fs.existsSync(outputFile)) {
+    console.log(chalk.red(`Skipping creating ${outputFile}; already exists.`));
+    return null;
   }
 
-  fs.writeFileSync(outputFilePath, manifestTemplate, 'utf8');
-
-  return outputFilePath;
+  fs.mkdirSync(outputDir, { recursive: true });
+  fs.writeFileSync(outputFile, fileContent, 'utf8');
+  console.log(chalk.green(`File ${outputFile} has been scaffolded.`));
+  return outputFile;
 }
