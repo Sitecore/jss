@@ -227,6 +227,89 @@ describe('<Placeholder />', () => {
     );
     expect(renderedComponent.html()).to.be.empty;
   });
+
+  it('should render error message on error', () => {
+    const componentFactory: ComponentFactory = (componentName: string) => {
+      const components = new Map<string, React.FC>();
+  
+      const Home: React.FC<any> = ({ rendering }) => (
+        <div className="home-mock">
+          <Placeholder name="main" rendering={rendering} />
+        </div>
+      );
+      Home.propTypes = {
+        placeholders: PropTypes.object,
+      };
+    
+      components.set('Home', Home);
+      components.set('ThrowError', () => { throw Error("an error occured") });
+      return components.get(componentName) || null;
+    };
+  
+    const route: any = {
+      placeholders: {
+        main: [
+          {
+            componentName: 'ThrowError',
+          },
+        ],
+      },
+    };
+    const phKey = 'main';
+
+    const renderedComponent = mount(
+      <Placeholder
+        name={phKey}
+        rendering={route}
+        componentFactory={componentFactory}
+      />
+    );
+    expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
+  });
+
+  it('should render custom errorComponent on error, if provided', () => {
+    const componentFactory: ComponentFactory = (componentName: string) => {
+      const components = new Map<string, React.FC>();
+  
+      const Home: React.FC<any> = ({ rendering }) => (
+        <div className="home-mock">
+          <Placeholder name="main" rendering={rendering} />
+        </div>
+      );
+      Home.propTypes = {
+        placeholders: PropTypes.object,
+      };
+
+      components.set('Home', Home);
+      components.set('ThrowError', () => { throw Error("an error occured") });
+      return components.get(componentName) || null;
+    };
+
+    const CustomError: React.FC<any> = () => (
+      <div className="custom-error">Custom Error</div>
+    );
+  
+    const route: any = {
+      placeholders: {
+        main: [
+          {
+            componentName: 'ThrowError',
+          },
+        ],
+      },
+    };
+    const phKey = 'main';
+
+    const renderedComponent = mount(
+      <Placeholder
+        name={phKey}
+        rendering={route}
+        componentFactory={componentFactory}
+        errorComponent={CustomError}
+      />
+    );
+    expect(renderedComponent.find('.custom-error').length).to.equal(1);
+  });
 });
 
 it('should render MissingComponent for unknown rendering', () => {
