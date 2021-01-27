@@ -8,21 +8,21 @@
 query ConnectedDemoQuery($datasource: String!, $contextItem: String!) {
   # Datasource query
   # $datasource should be set to the ID of the rendering's datasource item
-  datasource(value: $datasource) {
+  datasource: item(path: $datasource) {
     id
     name
     # Strongly-typed querying on known templates is possible!
     ...on GraphQLConnectedDemo {
       # Single-line text field
       sample1 {
-        # the 'jss' field is a JSON blob that represents the object that
+        # the 'value' field is a JSON blob that represents the object that
         # should be passed to JSS field rendering helpers (i.e. text, image, link)
-        jss
         value
+        rawValue
       }
       # General Link field
       sample2 {
-        jss
+        value
         # Structured querying of the field's values is possible
         text
         target
@@ -43,7 +43,7 @@ query ConnectedDemoQuery($datasource: String!, $contextItem: String!) {
     # Get the page title from the app route template
     ...on AppRoute {
       pageTitle {
-        value
+        rawValue
       }
     }
 
@@ -56,10 +56,12 @@ query ConnectedDemoQuery($datasource: String!, $contextItem: String!) {
       ...on AppRoute {
         pageTitle {
           value
-          jss
+          rawValue
         }
       }
-      url(options: { disableLanguageEmbedding: true })
+      url{
+        path
+      }
     }
   }
 }
