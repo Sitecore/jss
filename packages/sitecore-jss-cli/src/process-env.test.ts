@@ -105,10 +105,14 @@ describe('processEnv', () => {
     });
   });
 
-  it('should default to development environment', () => {
-    const files = [{ name: '.env.development', value: 'FOO=foo' }];
+  it('should not include environment files without NODE_ENV defined', () => {
+    const files = [
+        { name: '.env.development', value: 'FOO=foo' },
+        { name: '.env.development.local', value: 'BAR=bar' }
+    ];
     testTempEnv(files, () => {
-      expect(process.env.FOO).to.equal('foo');
+      expect(process.env.FOO).to.be.undefined;
+      expect(process.env.BAR).to.be.undefined;
     });
   });
 
