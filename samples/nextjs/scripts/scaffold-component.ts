@@ -45,15 +45,22 @@ const componentOutputPath = scaffoldFile(componentRootPath, generateComponentSrc
 
 let manifestOutputPath = null;
 if (fs.existsSync(componentManifestDefinitionsPath)) {
-  manifestOutputPath = scaffoldFile(componentManifestDefinitionsPath, generateComponentManifest(componentName));
+  manifestOutputPath = scaffoldFile(
+    componentManifestDefinitionsPath,
+    generateComponentManifest(componentName)
+  );
 } else {
-  console.log(chalk.red(`Not scaffolding manifest because ${componentManifestDefinitionsPath}
-did not exist. This is normal for Sitecore-first workflow.`));
+  console.log(
+    chalk.red(`Not scaffolding manifest because ${componentManifestDefinitionsPath}
+did not exist. This is normal for Sitecore-first workflow.`)
+  );
 }
 
-console.log(chalk.green(`
+console.log(
+  chalk.green(`
 Scaffolding of ${componentName} complete.
-Next steps:`));
+Next steps:`)
+);
 
 if (manifestOutputPath) {
   console.log(`* Define the component's data in ${chalk.green(manifestOutputPath)}`);
@@ -89,8 +96,8 @@ if (manifestOutputPath) {
  * @returns the new file's filepath
  */
 function scaffoldFile(rootPath: string, fileContent: string): string | null {
-  const outputDir =path.join(rootPath, componentPath);
-  const outputFile =path.join(outputDir, `${componentName}.tsx`);
+  const outputDir = path.join(rootPath, componentPath);
+  const outputFile = path.join(outputDir, `${componentName}.tsx`);
 
   if (fs.existsSync(outputFile)) {
     console.log(chalk.red(`Skipping creating ${outputFile}; already exists.`));

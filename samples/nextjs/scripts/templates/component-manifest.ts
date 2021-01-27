@@ -1,4 +1,3 @@
-
 /**
  * Generates manifest API boilerplate for a component under `sitecore/definitions/components`
  * @param componentName - the component name

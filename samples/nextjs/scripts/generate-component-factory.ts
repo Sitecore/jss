@@ -36,12 +36,12 @@ const fileFormat = new RegExp(/(.+)(?<!\.d)\.tsx?$/);
  * Describes a file that represents a component definition
  */
 interface ComponentFile {
-  path: string,
-  moduleName: string,
+  path: string;
+  moduleName: string;
   componentName: string;
 }
 
-const isWatch = process.argv.some(arg => arg === '--watch');
+const isWatch = process.argv.some((arg) => arg === '--watch');
 (isWatch ? watchComponentFactory : writeComponentFactory)();
 
 /**
@@ -88,17 +88,18 @@ function getComponentList(path: string): ComponentFile[] {
   const components: ComponentFile[] = [];
   const folders: fs.Dirent[] = [];
 
-  fs.readdirSync(path, { withFileTypes: true }).forEach(item => {
+  fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {
     if (item.isDirectory()) {
       folders.push(item);
     }
 
     if (fileFormat.test(item.name)) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const name = item.name.match(fileFormat)![1];
       components.push({
         path: `${path}/${name}`,
         componentName: name,
-        moduleName: name.replace(/[^\w]+/g, '')
+        moduleName: name.replace(/[^\w]+/g, ''),
       });
     }
   });
