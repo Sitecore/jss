@@ -180,7 +180,7 @@ describe('EditingRenderMiddleware', () => {
     const fetcher = mockFetcher(html);
     const dataService = mockDataService();
     const query = {} as Query;
-    const bodyWithSecret = Object.assign({}, EE_BODY, { JssEditingSecret: secret });
+    const bodyWithSecret = Object.assign({}, EE_BODY, { jssEditingSecret: secret });
     const req = mockRequest(bodyWithSecret, query);
     const res = mockResponse();
 

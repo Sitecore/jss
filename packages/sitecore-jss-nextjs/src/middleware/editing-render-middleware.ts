@@ -68,7 +68,7 @@ export class EditingRenderMiddleware {
     }
 
     // Validate secret
-    const secret = query[QUERY_PARAM_EDITING_SECRET] ?? body?.JssEditingSecret;
+    const secret = query[QUERY_PARAM_EDITING_SECRET] ?? body?.jssEditingSecret;
     if (secret !== getJssEditingSecret()) {
       return res.status(401).json({
         html: '<html><body>Missing or invalid secret</body></html>',
