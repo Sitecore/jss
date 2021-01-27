@@ -105,6 +105,13 @@ describe('processEnv', () => {
     });
   });
 
+  it('should default to development environment', () => {
+    const files = [{ name: '.env.development', value: 'FOO=foo' }];
+    testTempEnv(files, () => {
+      expect(process.env.FOO).to.equal('foo');
+    });
+  });
+
   it('should expand variable values', () => {
     const files = [
       {

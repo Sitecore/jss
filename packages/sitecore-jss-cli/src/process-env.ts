@@ -8,7 +8,7 @@ import dotenvExpand from 'dotenv-expand';
 export default function processEnv(dir: string) {
   // replicate Next.js handling/behavior
   // https://github.com/vercel/next.js/blob/v10.0.5/packages/next-env/index.ts#L80-L90
-  const mode = process.env.NODE_ENV;
+  const mode = process.env.NODE_ENV ?? 'development';
   const dotenvFiles = [
     `.env.${mode}.local`,
     // Don't include `.env.local` for `test` environment
