@@ -7,76 +7,66 @@ title: Data Generation for xProfile
 
 ## Interact with the app to generate data for xProfile
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/DataGen1.jpg" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>From the front-end on your local connected app (<a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a>), select the Personalize option from the drop-down menu in the upper left corner.</p>
-    </div>
-  </div>
-<p>
+1. From the front-end on your local connected app ([http://localhost:3000/](http://localhost:3000/)), select the "Personalize" item from the upper right corner drop-down menu.
 
-Note: if you see any errors when opening your connected app, it may be because the cookies from the Sitecore instance are interfering. If you are logged into Sitecore in the regular browser, then it's best to open the local app in an incognito instance.
+   ![Lighthouse Fitness menu to personalize the experience](/assets/img/DataGen1.png)
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/DataGen2.jpg" alt="Habitat Fitness"></p>
-    </div>
-    <div class="col-md-6"> 
-      <p>Select “Basketball.”</p>
-    </div>
-  </div>
-<p>
+   _NOTE_: if you see any errors when opening your connected app, it may be because the cookies from the Sitecore instance are interfering. If you are logged into Sitecore in the same browser, then it's best to open the local app in an incognito instance._
 
-<br/><br/>
+2. Select "Basketball".
 
-Move the Skill Level slider to “Expert.”
+   ![Sports screen selecting basketball](/assets/img/DataGen2.png)
 
-![Habitat Fitness](/assets/img/DataGen3.jpg)
+3. Move the Skill Level slider to "Expert" and click the "Continue" button.
 
-Enter whatever you’d like for Gender and Age Range on the next screen.
+   ![Sports screen selecting expert level](/assets/img/DataGen3.png)
 
-Enter a sample email in the final screen.
+4. In the "Demographics" screen, enter whatever you'd like and click the "Continue" button.
 
-_NOTE: This does not have to be a real email address, it only needs to be something you can remember so that you can locate it in the xProfile later on._
+   ![Demographics screen](/assets/img/DataGen4.png)
 
-Clicking into the next screen will provide you with an experience personalized to your stated interest in Basketball.
+5. In the "Personal" screen, enter a sample email and name and click the "Continue" button.
 
-<br/><br/>
+   ![Personal screen](/assets/img/DataGen5.png)
 
-Favorite a few of the events by clicking into the event and then clicking on the heart in the upper right corner. Be sure to favorite and then unfavorite at least one.
+   _NOTE: This does not have to be a real email address, it only needs to be something you can remember so that you can locate it in the Experience Profile later on._
 
-![Habitat Fitness](/assets/img/DataGen4.jpg)
+6. In the "Finish" screen, click the "Home" button. It will provide you with an experience personalized to your stated interest in basketball.
 
-_NOTE: These are Sitecore Goals being triggered behind the scenes._
+   ![Finish screen](/assets/img/DataGen6.png)
 
-Register for an event by clicking on the “Sign Up” button.
+7. Favorite a few of the events by clicking into the event and then clicking on the heart button in the upper right corner. Be sure to favorite and then unfavorite at least one.
 
-<br/><br/>
+   ![Favoriting an event](/assets/img/DataGen7.png)
 
-Once you have signed up, click on the bell to register for notifications.
+   _NOTE: These are Sitecore Goals being triggered behind the scenes._
 
-![Habitat Fitness](/assets/img/DataGen5.jpg)
+   _NOTE: The Google Maps will not work on the local application because the Google Maps API keys are not set._
 
-_NOTE: These are Sitecore Goals being triggered behind the scenes._
+8. Register for an event by clicking on the "Sign Up" button.
 
-Feel free to explore the app and trigger any additional notifications on other pages. Once you are done with your independent exploring proceed to the next step.
+9. Confirm the registration by clicking on the checkmark button.
 
-<br/><br/>
+   ![Confirming registration to an event](/assets/img/DataGen8.png)
 
-<p>
-  <div class="row">
-    <div class="col-md-6"> 
-      <p><img src="/assets/img/DataGen6.jpg" alt="Habitat Fitness"></p>    
-    </div>
-    <div class="col-md-6"> 
-      <p>Use the drop-down menu to “End Current Session.”</p>      
-      <p><em>NOTE: This sends all the data you have generated into xDB so that you can view said data in Sitecore. </em></p>      
-    </div>
-  </div>
-<p>
+10. Once you have signed up, click on the bell button to register for notifications.
+
+    ![Registering for event notifications](/assets/img/DataGen9.png)
+
+    _NOTE: These are Sitecore Goals being triggered behind the scenes._
+
+11. The browser will ask you to show notifications. Click the "Allow" button.
+
+    ![Browser prompt for allowing notifications](/assets/img/DataGen10.png)
+
+    _NOTE: The notifications will not work on the local application because the Firebase API keys are not set._
+
+12. Feel free to explore the app. Once you are done with your independent exploring, go back to the home page.
+
+13. Use the upper right drop-down menu and click on the "End Current Session" item.
+
+    ![Lighthouse Fitness menu to end the current session](/assets/img/DataGen11.png)
+
+    _NOTE: This sends all the data you have generated into xDB so that you can view said data in Sitecore._
 
 Next: [Launch Experience Profile](/connected-demo/explore-sitecore/launch-xprofile)
