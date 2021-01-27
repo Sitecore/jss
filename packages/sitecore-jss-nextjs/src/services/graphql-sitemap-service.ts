@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export type GraphQLSitemapServiceConfig = {
@@ -134,7 +135,9 @@ export class GraphQLSitemapService {
 
     if (!rootItemId) {
       console.error(
-        `Error occurred while fetching sitemap: root item id could not be found for provided rootItemPath '${rootItemPath}'`
+        chalk.red(
+          `Error occurred while fetching sitemap: root item id could not be found for provided rootItemPath '${rootItemPath}'`
+        )
       );
       return [];
     }
@@ -145,7 +148,10 @@ export class GraphQLSitemapService {
       const data = await this.createClient()
         .request<SearchResult>(query)
         .catch((error) => {
-          console.error('Error occurred while fetching sitemap:', error.response || error);
+          console.error(
+            chalk.red('Error occurred while fetching sitemap:'),
+            error.response || error
+          );
 
           return null;
         });
@@ -201,12 +207,15 @@ export class GraphQLSitemapService {
     const data = await this.createClient()
       .request<{ item: { id: string } }>(query)
       .catch((error) => {
-        console.error('Error occurred while fetching root item id:', error.response || error);
+        console.error(
+          chalk.red('Error occurred while fetching root item id:'),
+          error.response || error
+        );
 
         return null;
       });
 
-    return data?.item.id;
+    return data?.item?.id;
   }
 
   /**

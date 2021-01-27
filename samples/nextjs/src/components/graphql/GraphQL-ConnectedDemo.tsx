@@ -48,9 +48,9 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
           <br />
           name: {data.datasource.name}
           <br />
-          sample1: {data.datasource.sample1?.value}
+          sample1: {data.datasource.sample1?.rawValue}
           <br />
-          sample1 (editable): <Text field={data.datasource.sample1?.jss} />
+          sample1 (editable): <Text field={data.datasource.sample1?.value} />
           <br />
           sample2:
           <br />
@@ -59,7 +59,7 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
             <li>url: {data.datasource.sample2?.url}</li>
             <li>target: {data.datasource.sample2?.target}</li>
             <li>
-              editable: <Link field={data.datasource.sample2?.jss} />
+              editable: <Link field={data.datasource.sample2?.value} />
             </li>
             <li>field type: {data.datasource.sample2?.definition?.type}</li>
             <li>field is shared?: {data.datasource.sample2?.definition?.shared.toString()}</li>
@@ -71,7 +71,7 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
           <h4>Route Item (via Connected GraphQL)</h4>
           id: {data.contextItem.id}
           <br />
-          page title: {data.contextItem.pageTitle?.value}
+          page title: {data.contextItem.pageTitle?.rawValue}
           <br />
           children:
           <ul>
@@ -80,8 +80,8 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
 
               return (
                 <li key={routeItem.id}>
-                  <NextLink href={routeItem.url}>{routeItem.pageTitle?.value}</NextLink>
-                  (editable title too! <Text field={routeItem.pageTitle?.jss} />)
+                  <NextLink href={routeItem.url.path}>{routeItem.pageTitle?.rawValue}</NextLink>
+                  (editable title too! <Text field={routeItem.pageTitle?.value} />)
                 </li>
               );
             })}
