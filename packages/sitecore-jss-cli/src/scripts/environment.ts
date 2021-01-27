@@ -5,7 +5,7 @@
 
 export const command = 'environment';
 
-export const describe = 'Prints an environment variable value';
+export const describe = false;
 
 export const builder = {
   name: {
