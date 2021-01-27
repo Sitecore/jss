@@ -27,7 +27,7 @@ export interface PackageDeployOptions {
  * @param {ClientRequest} req
  * @param {PackageDeployOptions} options
  */
-function applyCertPinning(req: ClientRequest, options: PackageDeployOptions) {
+export function applyCertPinning(req: ClientRequest, options: PackageDeployOptions) {
   req.on('socket', (socket) => {
     socket.on('secureConnect', () => {
       const fingerprint = (socket as TLSSocket).getPeerCertificate().fingerprint;
@@ -53,7 +53,7 @@ function applyCertPinning(req: ClientRequest, options: PackageDeployOptions) {
 /**
  * @param {string} fp
  */
-function normalizeFingerprint(fp: string): string {
+export function normalizeFingerprint(fp: string): string {
   //
   // The fingerprint for a certificate is a 20-byte value.
   // Such values are typically expressed as strings, but
@@ -75,7 +75,7 @@ function normalizeFingerprint(fp: string): string {
  * @param {string} fp1
  * @param {string} fp2
  */
-function doFingerprintsMatch(fp1: string, fp2: string): boolean {
+export function doFingerprintsMatch(fp1: string, fp2: string): boolean {
   return normalizeFingerprint(fp1) === normalizeFingerprint(fp2);
 }
 /**
