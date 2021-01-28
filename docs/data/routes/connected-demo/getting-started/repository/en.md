@@ -6,37 +6,43 @@ title: Cloning repository
 
 # Cloning and setting up the demo source code
 
-## Installing the Habitat Fitness Demo App
+## Step 1: Clone or download the Lighthouse Fitness repo
 
-### Step 1: Clone or Download the Habitat Fitness Repo 
-You can find the `Habitat Fitness demo repository` here:
-[https://github.com/Sitecore/Sitecore.HabitatHome.Omni](https://github.com/Sitecore/Sitecore.HabitatHome.Omni). Use the `jss-trial` tag on the `master` branch to check out the same codebase that's been deployed to your trial instance.
+You can find the Lighthouse Fitness demo repository here: [https://github.com/Sitecore/Sitecore.Demo.Headless](https://github.com/Sitecore/Sitecore.Demo.Headless). Use the `jss-trial-10.0.1` tag to use the same codebase that's been deployed to your trial instance.
 
-You can either download and unzip the project to a location of your choosing, or you can open a terminal/command line to that location and clone it with the following command:
+### If you are not used to Git version control
 
-```text
-git clone -b jss-trial --single-branch https://github.com/Sitecore/Sitecore.HabitatHome.Omni.git
-```
+1. Download the source code of the `jss-trial-10.0.1` tag: [https://github.com/Sitecore/Sitecore.Demo.Headless/archive/jss-trial-10.0.1.zip](https://github.com/Sitecore/Sitecore.Demo.Headless/archive/jss-trial-10.0.1.zip)
+2. Unzip the file on your computer (e.g.: in `C:\projects\Sitecore.Demo.Headless-jss-trial-10.0.1\`).
 
-Since you'll be making code changes to the app later in this guide, now is a good time to create a new branch for your work. Run this command from the root of the repository you just cloned.
+### If you know how to use Git
 
-```text
-git checkout -b <new-branch-name>
-```
+1. Open a terminal/command line to a project folder (e.g.: `C:\projects\`).
+2. Clone the repository with the following command:
 
-### Step 2 (optional): Create .env file with Google Maps and Firebase API Keys
-There are parts of the application that depend on 3rd party services, so a Google API key and a Firebase API key are needed for these features to work. These features are not relevant to this guide, so you can skip the API key setup. Just be aware that you may encounter warnings about missing API keys, so this is ok and you can ignore the warnings.
+    ```text
+    git clone -b jss-trial-10.0.1 --single-branch https://github.com/Sitecore/Sitecore.Demo.Headless.git
+    ```
 
-However, if you wish to set up the API keys to see the app fully-functional, the `Connecting 3rd party API services` section of the repository 
-[README](https://github.com/Sitecore/Sitecore.HabitatHome.Omni/blob/master/fitness/app/README.md#connecting-3rd-party-api-services) has detailed instructions.
+3. Since you'll be making code changes to the app later in this guide, now is a good time to create a new branch for your work. Run these commands:
 
-### Step 3: Install the JSS CLI
-Note: If you've been working in disconnected mode, you probably already have the JSS CLI installed.
+    ```text
+    cd Sitecore.Demo.Headless
+    git checkout -b <new-branch-name>
+    ```
+
+## Step 2: Install the JSS CLI
+
+Note: If you've been working in disconnected mode on another project, you probably already have the JSS CLI installed.
+
 Open a terminal/console window and execute the following command to install the JSS CLI:
+
 ```text
 npm install -g @sitecore-jss/sitecore-jss-cli
 ```
-### Step 4:	Install Required NPM Modules
+
+## Step 3: Install required NPM modules
+
 Open a terminal/console window in the `<repo root>\fitness\app` folder where package.json resides, and run the following command:
 
 ```text
