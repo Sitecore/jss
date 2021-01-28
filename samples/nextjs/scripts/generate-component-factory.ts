@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import chokidar from 'chokidar';
-import generateComponentFactory from './templates/component-factory';
+import generateComponentFactory, { ComponentFile } from './templates/component-factory';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -32,15 +32,6 @@ const componentRootPath = 'src/components';
 // Matches TypeScript files that are not type definition files
 const fileFormat = new RegExp(/(.+)(?<!\.d)\.tsx?$/);
 
-/**
- * Describes a file that represents a component definition
- */
-interface ComponentFile {
-  path: string;
-  moduleName: string;
-  componentName: string;
-}
-
 const isWatch = process.argv.some((arg) => arg === '--watch');
 (isWatch ? watchComponentFactory : writeComponentFactory)();
 
@@ -68,16 +59,7 @@ function watchComponentFactory() {
  * Modify this function to use a different convention.
  */
 function writeComponentFactory() {
-  const imports: string[] = [];
-  const registrations: string[] = [];
-
-  for (const component of getComponentList(componentRootPath)) {
-    console.debug(`Registering JSS component ${component.componentName}`);
-    imports.push(`import * as ${component.moduleName} from '${component.path}';`);
-    registrations.push(`components.set('${component.componentName}', ${component.moduleName});`);
-  }
-
-  const fileContent = generateComponentFactory(imports, registrations);
+  const fileContent = generateComponentFactory(getComponentList(componentRootPath));
   console.log(`Writing component factory to ${componentFactoryPath}`);
   fs.writeFileSync(componentFactoryPath, fileContent, {
     encoding: 'utf8',
@@ -96,6 +78,7 @@ function getComponentList(path: string): ComponentFile[] {
     if (fileFormat.test(item.name)) {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const name = item.name.match(fileFormat)![1];
+      console.debug(`Registering JSS component ${name}`);
       components.push({
         path: `${path}/${name}`,
         componentName: name,
