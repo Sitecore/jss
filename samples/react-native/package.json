@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@sitecore-jss/sitecore-jss-react-native": "^16.0.0-canary.24",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "prop-types": "^15.6.0",
     "react": "16.13.1",
     "react-native": "^0.63.4",

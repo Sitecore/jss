@@ -6,8 +6,7 @@ import FormData from 'form-data';
 import axios, { AxiosRequestConfig, AxiosError } from 'axios';
 import { TLSSocket } from 'tls';
 import { digest, hmac } from './digest';
-import { ClientRequest } from 'http';
-import { IncomingMessage } from 'http';
+import { ClientRequest, IncomingMessage } from 'http';
 
 export interface PackageDeployOptions {
   packagePath: string;

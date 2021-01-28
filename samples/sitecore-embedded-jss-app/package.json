@@ -52,7 +52,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@sitecore-jss/sitecore-jss-react": "^16.0.0-canary.24",
-    "axios": "~0.18.0",
+    "axios": "^0.21.1",
     "babel-plugin-inline-import": "~2.0.6",
     "babel-polyfill": "~6.26.0",
     "isomorphic-fetch": "~3.0.0",
