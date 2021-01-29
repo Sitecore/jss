@@ -16,6 +16,7 @@ title: Release Notes
 * [PR #542](https://github.com/Sitecore/jss/pull/542) Added `.env` file support for the CLI
 
 ### Bug Fixes
+* [PR #541](https://github.com/Sitecore/jss/pull/541) [sitecore-jss-dev-tools][sitecore-jss-cli] Replace old and security vulnerable `request` and `axios` NPM packages with latest version of `axios` (>=0.21.1)
 * [PR #506](https://github.com/Sitecore/jss/pull/506) [React sample] `Cannot read property 'sitecore' of null`, when 404 and routeData is null
 
 ## Sitecore JSS 15.0.1
