@@ -1,23 +1,27 @@
 import fs from 'fs';
 import path from 'path';
 import chokidar from 'chokidar';
+import generateComponentFactory, { ComponentFile } from './templates/component-factory';
 
 /*
   COMPONENT FACTORY GENERATION
-  Generates the /src/temp/componentFactory.ts file which maps React components
-  to JSS components.
+  Generates the `/src/temp/componentFactory.ts` file, which maps JSS React components
+  to Sitecore renderings.
 
   The component factory is a mapping between a string name and a React component instance.
   When the Sitecore Layout service returns a layout definition, it returns named components.
   This mapping is used to construct the component hierarchy for the layout.
 
-  The default convention uses the parent folder name as the component name,
-  but it is customizable in generateComponentFactory().
+  Generating the componentFactory is optional, and it can be maintained manually if preferred.
 
-  NOTE: this script can run in two modes. The default mode, the component factory file is written once.
-  But if `--watch` is a process argument, the component factory source folder will be watched,
-  and the componentFactory.ts rewritten on added or deleted files.
-  This is used during `jss start` to pick up new or removed components at runtime.
+  The default convention uses the component's filename (without the extension) as the component
+  name. For example, the file `/components/ComponentName.ts` would map to component `ComponentName`.
+  This can be customized in writeComponentFactory().
+
+  This script supports two modes. In default mode, the component factory file is written once.
+  In watch mode, the component factory source folder is watched, and componentFactory.ts is
+  regenerated whenever files are added or deleted. Run in watch mode by passing a `--watch` argument
+  when calling the script.
 */
 
 /* eslint-disable no-console */
@@ -25,14 +29,17 @@ import chokidar from 'chokidar';
 const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
 const componentRootPath = 'src/components';
 
+// Matches TypeScript files that are not type definition files
+const fileFormat = new RegExp(/(.+)(?<!\.d)\.tsx?$/);
+
 const isWatch = process.argv.some((arg) => arg === '--watch');
+(isWatch ? watchComponentFactory : writeComponentFactory)();
 
-if (isWatch) {
-  watchComponentFactory();
-} else {
-  writeComponentFactory();
-}
-
+/**
+ * Watches component directory for changes. When files are added or deleted, the component factory
+ * file (componentFactory.ts) is regenerated. This is used during `jss start` to pick up new or
+ * removed components at runtime.
+ */
 function watchComponentFactory() {
   console.log(`Watching for changes to component factory sources in ${componentRootPath}...`);
 
@@ -42,58 +49,47 @@ function watchComponentFactory() {
     .on('unlink', writeComponentFactory);
 }
 
+/**
+ * Generates the component factory file and saves it to the filesystem.
+ * By convention, we expect to find React components under src/components/** (subfolders are
+ * searched recursively). The filename, with the extension stripped, is used for the component's
+ * string name (for mapping to Sitecore). The filename, with extension and non-word characters
+ * stripped, is used to identify the component's JavaScript module definition (for initializing
+ * new component instances in code).
+ * Modify this function to use a different convention.
+ */
 function writeComponentFactory() {
-  const componentFactory = generateComponentFactory();
-
+  const fileContent = generateComponentFactory(getComponentList(componentRootPath));
   console.log(`Writing component factory to ${componentFactoryPath}`);
-
-  fs.writeFileSync(componentFactoryPath, componentFactory, {
+  fs.writeFileSync(componentFactoryPath, fileContent, {
     encoding: 'utf8',
   });
 }
 
-function generateComponentFactory() {
-  // by convention, we expect to find React components
-  // * under /components/ComponentName
-  // * with an index.ts under the folder to define the component
-  // Generate componentModule specific to nextjs approach, in order to get access to component and exported functions.
-  // componentFactory exports only React component.
-  // If you'd like to use your own convention, encode it below.
-  // NOTE: generating the componentFactory is also totally optional,
-  // and it can be maintained manually if preferred.
+function getComponentList(path: string): ComponentFile[] {
+  const components: ComponentFile[] = [];
+  const folders: fs.Dirent[] = [];
 
-  const imports: string[] = [];
-  const registrations: string[] = [];
+  fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {
+    if (item.isDirectory()) {
+      folders.push(item);
+    }
 
-  fs.readdirSync(componentRootPath).forEach((componentFolder) => {
-    const componentFolderFullPath = path.join(componentRootPath, componentFolder);
-
-    if (
-      fs.existsSync(path.join(componentFolderFullPath, 'index.ts')) ||
-      fs.existsSync(path.join(componentFolderFullPath, 'index.tsx'))
-    ) {
-      const importVarName = componentFolder.replace(/[^\w]+/g, '');
-
-      console.debug(`Registering JSS component ${componentFolder}`);
-      imports.push(`import * as ${importVarName} from 'components/${componentFolder}';`);
-      registrations.push(`components.set('${componentFolder}', ${importVarName});`);
+    if (fileFormat.test(item.name)) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const name = item.name.match(fileFormat)![1];
+      console.debug(`Registering JSS component ${name}`);
+      components.push({
+        path: `${path}/${name}`,
+        componentName: name,
+        moduleName: name.replace(/[^\w]+/g, ''),
+      });
     }
   });
 
-  return `/* eslint-disable */
-// Do not edit this file, it is auto-generated at build time!
-// See scripts/generate-component-factory.ts to modify the generation of this file.
-${imports.join('\n')}
+  for (const folder of folders) {
+    components.push(...getComponentList(`${path}/${folder.name}`));
+  }
 
-const components = new Map();
-${registrations.join('\n')}
-
-export function componentModule(componentName: string) {
-  return components.get(componentName);
-};
-
-export function componentFactory(componentName: string) {
-  return components.get(componentName)?.default;
-};
-`;
+  return components;
 }

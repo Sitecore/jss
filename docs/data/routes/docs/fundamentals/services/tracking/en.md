@@ -7,7 +7,7 @@ title: JSS Tracking
 
 JSS ships with an analytics tracking API that allows pushing Sitecore analytics events to the xDB based on client-side behaviour in JSS apps.
 
-Before using JSS tracking [familiarize yourself with the Sitecore XP features](https://doc.sitecore.net/developers/xp/index.html).
+Before using JSS tracking [familiarize yourself with the Sitecore XP features](https://doc.sitecore.com/developers/100/xp/index.html).
 
 The JSS tracker supports tracking Events, Goals, Outcomes, Campaigns, and Page/Route Views by default. It is designed to be extensible for advanced tracking needs.
 
