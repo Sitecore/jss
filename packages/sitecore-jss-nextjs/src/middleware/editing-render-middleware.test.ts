@@ -67,16 +67,13 @@ const mockDataService = (previewData?: EditingPreviewData) => {
 };
 
 describe('EditingRenderMiddleware', () => {
-  const publicUrl = 'http://test.com';
   const secret = 'secret1234';
 
   beforeEach(() => {
-    process.env.PUBLIC_URL = publicUrl;
     process.env.JSS_EDITING_SECRET = secret;
   });
 
   after(() => {
-    delete process.env.PUBLIC_URL;
     delete process.env.JSS_EDITING_SECRET;
   });
 
@@ -195,6 +192,38 @@ describe('EditingRenderMiddleware', () => {
     expect(res.status).to.have.been.called.once;
     expect(res.status).to.have.been.called.with(200);
     expect(res.json).to.have.been.called.once;
+  });
+
+  it('should use custom resolvePageRoute', async () => {
+    const html = '<html><body>Something amazing</body></html>';
+    const fetcher = mockFetcher(html);
+    const dataService = mockDataService();
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const req = mockRequest(EE_BODY, query);
+    const res = mockResponse();
+
+    const expectedPageRoute = `/some/path${EE_PATH}`;
+    const resolvePageRoute = spy((itemPath: string) => {
+      return `/some/path${itemPath}`;
+    });
+
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+      resolvePageRoute: resolvePageRoute,
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(resolvePageRoute).to.have.been.called.once;
+    expect(resolvePageRoute).to.have.been.called.with(EE_PATH);
+    expect(fetcher.get).to.have.been.called.once.and.satisfies((args: any) => {
+      const spy = args.__spy;
+      const url = spy.calls[0][0] as string;
+      return url.startsWith(expectedPageRoute);
+    });
   });
 
   it('should respond with 500 if rendered html empty', async () => {

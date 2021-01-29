@@ -3,7 +3,7 @@ import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataService, editingDataService } from '../services/editing-data-service';
 import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
-import { getPublicUrl, getJssEditingSecret } from '../utils';
+import { getJssEditingSecret } from '../utils';
 
 export interface EditingRenderMiddlewareConfig {
   /**
@@ -21,14 +21,13 @@ export interface EditingRenderMiddlewareConfig {
    */
   editingDataService?: EditingDataService;
   /**
-   * Function used to determine route/page URL to render.
+   * Function used to determine page/route to render.
    * This may be necessary for certain custom Next.js routing configurations.
-   * @param {string} serverUrl The root server URL e.g. 'http://localhost:3000'
    * @param {string} itemPath The Sitecore relative item path e.g. '/styleguide'
-   * @returns {string} The URL to render
-   * @default `${serverUrl}${itemPath}`
+   * @returns {string} The route to render
+   * @default itemPath
    */
-  resolveRouteUrl?: (serverUrl: string, itemPath: string) => string;
+  resolvePageRoute?: (itemPath: string) => string;
 }
 
 /**
@@ -38,7 +37,7 @@ export interface EditingRenderMiddlewareConfig {
 export class EditingRenderMiddleware {
   private editingDataService: EditingDataService;
   private dataFetcher: AxiosDataFetcher;
-  private resolveRouteUrl: (serverUrl: string, itemPath: string) => string;
+  private resolvePageRoute: (itemPath: string) => string;
 
   /**
    * @param {EditingRenderMiddlewareConfig} [config] Editing render middleware config
@@ -46,7 +45,7 @@ export class EditingRenderMiddleware {
   constructor(config?: EditingRenderMiddlewareConfig) {
     this.editingDataService = config?.editingDataService ?? editingDataService;
     this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher();
-    this.resolveRouteUrl = config?.resolveRouteUrl ?? this.defaultResolveRouteUrl;
+    this.resolvePageRoute = config?.resolvePageRoute ?? this.defaultResolvePageRoute;
   }
 
   /**
@@ -93,7 +92,7 @@ export class EditingRenderMiddleware {
 
       // Make actual render request for page route, passing on preview cookies.
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
-      const requestUrl = this.resolveRouteUrl(getPublicUrl(), editingData.path);
+      const requestUrl = this.resolvePageRoute(editingData.path);
       const pageRes = await this.dataFetcher.get<string>(`${requestUrl}?timestamp=${Date.now()}`, {
         headers: {
           Cookie: cookies.join(';'),
@@ -114,8 +113,8 @@ export class EditingRenderMiddleware {
     }
   };
 
-  private defaultResolveRouteUrl = (serverUrl: string, itemPath: string) => {
-    return `${serverUrl}${itemPath}`;
+  private defaultResolvePageRoute = (itemPath: string) => {
+    return itemPath;
   };
 }
 
