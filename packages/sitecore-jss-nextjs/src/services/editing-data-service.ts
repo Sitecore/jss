@@ -1,6 +1,6 @@
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingData, EditingPreviewData } from '../sharedTypes/editing-data';
-import { getPublicUrl, getJssEditingSecret } from '../utils';
+import { getJssEditingSecret } from '../utils';
 
 export const QUERY_PARAM_EDITING_SECRET = 'secret';
 
@@ -78,12 +78,10 @@ export class EditingDataService {
 
   protected getUrl(key: string): string {
     // Example URL format:
-    //  http://localhost:3000/api/editing/data/52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x?secret=1234secret
-    const publicUrl = getPublicUrl();
+    //  /api/editing/data/52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x?secret=1234secret
     const apiRoute = this.apiRoute?.replace('[key]', key);
-    const url = new URL(apiRoute, publicUrl);
-    url.searchParams.append(QUERY_PARAM_EDITING_SECRET, getJssEditingSecret());
-    return url.toString();
+    const secret = getJssEditingSecret();
+    return `${apiRoute}?${QUERY_PARAM_EDITING_SECRET}=${encodeURIComponent(secret)}`;
   }
 }
 
