@@ -64,13 +64,13 @@ describe('ComponentPropsService', () => {
 
   const context = { locale: 'en' };
 
-  const fetchFn = (expectedData: unknown, err?: string) =>
+  const fetchFn = (expectedData: unknown, err?: string | { message: string }) =>
     spy(() => (err ? Promise.reject(err) : Promise.resolve(expectedData)));
 
   const req = (
     expectedData: unknown,
     componentUid?: string,
-    err?: string
+    err?: string | { message: string }
   ): ComponentPropsRequest<CustomContext> => ({
     fetch: fetchFn(expectedData, err),
     layoutData,
@@ -293,6 +293,54 @@ describe('ComponentPropsService', () => {
       const requests: ComponentPropsRequest<CustomContext>[] = [
         req(11, 'x1'),
         req(null, 'x2', 'You do not have access rights to load data for this component'),
+        req(33, 'x3'),
+      ];
+
+      const result = await service.execRequests(requests);
+
+      expect(result).to.deep.equal({
+        x1: 11,
+        x2: {
+          error:
+            'Error during preload data for component x2: You do not have access rights to load data for this component',
+        },
+        x3: 33,
+      });
+
+      expect(requests[0].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x1',
+          componentName: 'namex1',
+        },
+        layoutData,
+        context
+      );
+
+      expect(requests[1].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x2',
+          componentName: 'namex2',
+        },
+        layoutData,
+        context
+      );
+
+      expect(requests[2].fetch).to.be.called.with.exactly(
+        {
+          uid: 'x3',
+          componentName: 'namex3',
+        },
+        layoutData,
+        context
+      );
+    });
+
+    it('one of them rejected with full error info', async () => {
+      const requests: ComponentPropsRequest<CustomContext>[] = [
+        req(11, 'x1'),
+        req(null, 'x2', {
+          message: 'You do not have access rights to load data for this component',
+        }),
         req(33, 'x3'),
       ];
 
