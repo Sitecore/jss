@@ -6,12 +6,36 @@ export interface ValidationDataModel {
   name: string;
 }
 
+export interface ConditionsModel {
+  fieldId: string;
+  operatorId: string;
+  value: string;
+}
+
+export interface ActionsModel {
+  fieldId: string;
+  actionTypeId: string;
+  value: string;
+}
+
+export interface FieldConditionsModel {
+  matchTypeId: string;
+  conditions: ConditionsModel[];
+  actions: ActionsModel[];
+}
+
+export interface ConditionSettingsModel {
+  fieldKey: string;
+  fieldConditions: FieldConditionsModel[];
+}
+
 export interface ViewModel {
   itemId: string;
   name: string;
   templateId: string;
   fieldTypeItemId: string;
   validationDataModels: ValidationDataModel[];
+  conditionSettings: ConditionSettingsModel;
 }
 
 export interface TextViewModel extends ViewModel {
