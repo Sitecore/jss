@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-dev-tools",
-  "version": "16.0.0-canary.29",
+  "version": "16.0.0-canary.30",
   "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -29,9 +29,9 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.29",
-    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.29",
-    "@sitecore-jss/sitecore-jss-update-package": "^16.0.0-canary.29",
+    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.30",
+    "@sitecore-jss/sitecore-jss-manifest": "^16.0.0-canary.30",
+    "@sitecore-jss/sitecore-jss-update-package": "^16.0.0-canary.30",
     "axios": "^0.21.1",
     "chokidar": "^3.2.1",
     "del": "^5.1.0",
