@@ -32,9 +32,9 @@ export interface EditingRenderMiddlewareConfig {
   resolvePageUrl?: (serverUrl: string, itemPath: string) => string;
   /**
    * Function used to determine the root server URL. This is used for the route/page and subsequent data API requests.
-   * By default, the host header is used, unless the VERCEL_URL environment variable is present (for Vercel hosting).
+   * By default, the host header is used, with https protocol on Vercel (due to serverless function architecture) and http protocol elsewhere.
    * @param {NextApiRequest} req The current request.
-   * @default process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `http://${req.headers.host}`;
+   * @default `${process.env.VERCEL ? 'https' : 'http'}://${req.headers.host}`;
    * @see resolvePageUrl
    */
   resolveServerUrl?: (req: NextApiRequest) => string;
@@ -136,14 +136,27 @@ export class EditingRenderMiddleware {
     }
   };
 
+  /**
+   * Default page URL resolution.
+   * @param {string} serverUrl
+   * @param {string} itemPath
+   */
   private defaultResolvePageUrl = (serverUrl: string, itemPath: string) => {
     return `${serverUrl}${itemPath}`;
   };
 
+  /**
+   * Default server URL resolution.
+   * Note we use https protocol on Vercel due to serverless function architecture.
+   * In all other scenarios, including localhost (with or without a proxy e.g. ngrok)
+   * and within a nodejs container, http protocol should be used.
+   *
+   * For information about the VERCEL environment variable, see
+   * https://vercel.com/docs/environment-variables#system-environment-variables
+   * @param {NextApiRequest} req
+   */
   private defaultResolveServerUrl = (req: NextApiRequest) => {
-    return process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : `http://${req.headers.host}`;
+    return `${process.env.VERCEL ? 'https' : 'http'}://${req.headers.host}`;
   };
 }
 

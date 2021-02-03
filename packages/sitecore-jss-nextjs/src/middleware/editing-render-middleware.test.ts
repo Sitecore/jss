@@ -72,12 +72,12 @@ describe('EditingRenderMiddleware', () => {
 
   beforeEach(() => {
     process.env.JSS_EDITING_SECRET = secret;
-    delete process.env.VERCEL_URL;
+    delete process.env.VERCEL;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
-    delete process.env.VERCEL_URL;
+    delete process.env.VERCEL;
   });
 
   it('should handle request', async () => {
@@ -221,15 +221,15 @@ describe('EditingRenderMiddleware', () => {
     });
   });
 
-  it('should use VERCEL_URL with https for serverUrl', async () => {
+  it('should use https for serverUrl on Vercel', async () => {
     const html = '<html><body>Something amazing</body></html>';
     const fetcher = mockFetcher(html);
     const dataService = mockDataService();
     const query = {} as Query;
     query[QUERY_PARAM_EDITING_SECRET] = secret;
-    const req = mockRequest(EE_BODY, query);
+    const req = mockRequest(EE_BODY, query, undefined, 'vercel.com');
     const res = mockResponse();
-    process.env.VERCEL_URL = 'my-site-7q03y4pi5.vercel.app';
+    process.env.VERCEL = '1';
 
     const middleware = new EditingRenderMiddleware({
       dataFetcher: fetcher,
@@ -242,7 +242,7 @@ describe('EditingRenderMiddleware', () => {
     expect(fetcher.get).to.have.been.called.once.and.satisfies((args: any) => {
       const spy = args.__spy;
       const url = spy.calls[0][0] as string;
-      return url.startsWith('https://my-site-7q03y4pi5.vercel.app');
+      return url.startsWith('https://vercel.com');
     });
   });
 
