@@ -1,4 +1,5 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
+import chalk from 'chalk';
 import {
   LayoutServiceData,
   ComponentRendering,
@@ -179,9 +180,13 @@ export class ComponentPropsService {
           componentProps[uid] = result;
         })
         .catch((error) => {
-          console.log(`Error during preload data for component ${uid}:`, error);
+          const errLog = `Error during preload data for component ${uid}: ${error.message ||
+            error}`;
+
+          console.error(chalk.red(errLog));
+
           componentProps[uid] = {
-            error,
+            error: error.message || errLog,
           };
         });
     });
