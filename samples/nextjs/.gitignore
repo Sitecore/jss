@@ -7,7 +7,7 @@
 /coverage
 
 # next.js
-/.next/
+/.next*/
 /out/
 
 # graphql code generation
