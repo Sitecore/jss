@@ -78,7 +78,7 @@ describe('EditingRenderMiddleware', () => {
   });
 
   it('should handle request', async () => {
-    const html = '<html><body>Something amazing</body></html>';
+    const html = '<html phkey="test1"><body phkey="test2">Something amazing</body></html>';
     const query = {} as Query;
     query[QUERY_PARAM_EDITING_SECRET] = secret;
     const previewData = { key: 'key1234' } as EditingPreviewData;
@@ -108,7 +108,9 @@ describe('EditingRenderMiddleware', () => {
     expect(res.status).to.have.been.called.once;
     expect(res.status).to.have.been.called.with(200);
     expect(res.json).to.have.been.called.once;
-    expect(res.json).to.have.been.called.with({ html });
+    expect(res.json).to.have.been.called.with({
+      html: '<html key="test1"><body key="test2">Something amazing</body></html>',
+    });
   });
 
   it('should respond with 405 for unsupported method', async () => {
