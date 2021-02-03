@@ -99,13 +99,13 @@ export function finishWatchJobStatusTask({
   console.log();
   console.log('Import is complete.');
 
-  if (warnings.length > 0) {
+  if (warnings.length) {
     console.log();
     console.warn(chalk.yellow('IMPORT WARNING(S) OCCURRED!'));
     warnings.forEach((w) => console.error(chalk.yellow(w)));
   }
 
-  if (errors.length > 0) {
+  if (errors.length) {
     console.log();
     console.error(chalk.red('IMPORT ERROR(S) OCCURRED!'));
     errors.forEach((e) => console.error(chalk.red(e)));
