@@ -42,7 +42,8 @@ describe('EditingDataService', () => {
         path: '/styleguide',
       } as EditingData;
       const key = '1234key';
-      const expectedUrl = `/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}`;
+      const serverUrl = 'https://test.com';
+      const expectedUrl = `${serverUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}`;
 
       const fetcher = mockFetcher();
 
@@ -51,7 +52,7 @@ describe('EditingDataService', () => {
         return key;
       });
 
-      return service.setEditingData(data).then((previewData) => {
+      return service.setEditingData(data, serverUrl).then((previewData) => {
         expect(previewData.key).to.equal(key);
         expect(fetcher.put).to.have.been.called.once;
         expect(fetcher.put).to.have.been.called.with.exactly(expectedUrl, data);
@@ -63,11 +64,12 @@ describe('EditingDataService', () => {
         layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
       } as EditingData;
       const fetcher = mockFetcher();
+      const serverUrl = 'https://test.com';
 
       const service = new EditingDataService({ dataFetcher: fetcher });
 
-      const previewData1 = await service.setEditingData(data);
-      const previewData2 = await service.setEditingData(data);
+      const previewData1 = await service.setEditingData(data, serverUrl);
+      const previewData2 = await service.setEditingData(data, serverUrl);
       expect(previewData1.key).to.not.equal(previewData2.key);
     });
 
@@ -76,7 +78,8 @@ describe('EditingDataService', () => {
         layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
       } as EditingData;
       const key = '1234key';
-      const expectedUrl = `/api/some/path/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}`;
+      const serverUrl = 'https://test.com';
+      const expectedUrl = `${serverUrl}/api/some/path/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}`;
 
       const fetcher = mockFetcher();
 
@@ -88,7 +91,7 @@ describe('EditingDataService', () => {
         return key;
       });
 
-      return service.setEditingData(data).then(() => {
+      return service.setEditingData(data, serverUrl).then(() => {
         expect(fetcher.put).to.have.been.called.once;
         expect(fetcher.put).to.have.been.called.with.exactly(expectedUrl, data);
       });
@@ -101,7 +104,8 @@ describe('EditingDataService', () => {
         layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
       } as EditingData;
       const key = '1234key';
-      const expectedUrl = `/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${encodeURIComponent(
+      const serverUrl = 'https://test.com';
+      const expectedUrl = `${serverUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${encodeURIComponent(
         superSecret
       )}`;
 
@@ -112,7 +116,7 @@ describe('EditingDataService', () => {
         return key;
       });
 
-      return service.setEditingData(data).then(() => {
+      return service.setEditingData(data, serverUrl).then(() => {
         expect(fetcher.put).to.have.been.called.once;
         expect(fetcher.put).to.have.been.called.with.exactly(expectedUrl, data);
       });
@@ -125,7 +129,8 @@ describe('EditingDataService', () => {
         path: '/styleguide',
       } as EditingData;
       const key = '1234key';
-      const expectedUrl = `/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}`;
+      const serverUrl = 'https://test.com';
+      const expectedUrl = `${serverUrl}/api/editing/data/${key}?${QUERY_PARAM_EDITING_SECRET}=${secret}`;
 
       const fetcher = mockFetcher(data);
 
@@ -134,7 +139,7 @@ describe('EditingDataService', () => {
         return key;
       });
 
-      const editingData = await service.getEditingData({ key });
+      const editingData = await service.getEditingData({ key, serverUrl });
       expect(editingData).to.equal(data);
       expect(fetcher.get).to.have.been.called.once;
       expect(fetcher.get).to.have.been.called.with(expectedUrl);

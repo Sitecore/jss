@@ -42,26 +42,30 @@ export class EditingDataService {
   /**
    * Stores Experience Editor payload data for later retrieval by key
    * @param {EditingData} data Editing data
-   * @returns {Promise} The {@link EditingPreviewData} containing the generated key
+   * @param {string} serverUrl The server url to use for subsequent data API requests
+   * @returns {Promise} The {@link EditingPreviewData} containing the generated key and serverUrl to use for retrieval
    */
-  async setEditingData(data: EditingData): Promise<EditingPreviewData> {
+  async setEditingData(data: EditingData, serverUrl: string): Promise<EditingPreviewData> {
     const key = this.generateKey(data);
-    const url = this.getUrl(key);
+    const url = this.getUrl(serverUrl, key);
 
     return this.dataFetcher.put(url, data).then(() => {
-      return { key };
+      return {
+        key,
+        serverUrl,
+      };
     });
   }
 
   /**
    * Retrieves Experience Editor payload data by key
-   * @param {EditingPreviewData} previewData Editing preview data containing the key
+   * @param {EditingPreviewData} previewData Editing preview data containing the key and serverUrl to use for retrieval
    * @returns {Promise} The {@link EditingData}
    */
   async getEditingData(previewData: EditingPreviewData): Promise<EditingData | undefined> {
-    const url = this.getUrl(previewData.key);
+    const url = this.getUrl(previewData.serverUrl, previewData.key);
 
-    return this.dataFetcher.get<EditingData>(url).then((response) => {
+    return this.dataFetcher.get<EditingData>(url).then((response: { data: EditingData }) => {
       return response.data;
     });
   }
@@ -76,12 +80,13 @@ export class EditingDataService {
     return `${data.layoutData.sitecore.route.itemId}-${suffix}`;
   }
 
-  protected getUrl(key: string): string {
+  protected getUrl(serverUrl: string, key: string): string {
     // Example URL format:
-    //  /api/editing/data/52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x?secret=1234secret
+    //  http://localhost:3000/api/editing/data/52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x?secret=1234secret
     const apiRoute = this.apiRoute?.replace('[key]', key);
-    const secret = getJssEditingSecret();
-    return `${apiRoute}?${QUERY_PARAM_EDITING_SECRET}=${encodeURIComponent(secret)}`;
+    const url = new URL(apiRoute, serverUrl);
+    url.searchParams.append(QUERY_PARAM_EDITING_SECRET, getJssEditingSecret());
+    return url.toString();
   }
 }
 

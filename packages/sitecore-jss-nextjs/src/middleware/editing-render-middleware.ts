@@ -21,13 +21,23 @@ export interface EditingRenderMiddlewareConfig {
    */
   editingDataService?: EditingDataService;
   /**
-   * Function used to determine page/route to render.
+   * Function used to determine route/page URL to render.
    * This may be necessary for certain custom Next.js routing configurations.
+   * @param {string} serverUrl The root server URL e.g. 'http://localhost:3000'
    * @param {string} itemPath The Sitecore relative item path e.g. '/styleguide'
-   * @returns {string} The route to render
-   * @default itemPath
+   * @returns {string} The URL to render
+   * @default `${serverUrl}${itemPath}`
+   * @see resolveServerUrl
    */
-  resolvePageRoute?: (itemPath: string) => string;
+  resolvePageUrl?: (serverUrl: string, itemPath: string) => string;
+  /**
+   * Function used to determine the root server URL. This is used for the route/page and subsequent data API requests.
+   * By default, the host header is used, with https protocol on Vercel (due to serverless function architecture) and http protocol elsewhere.
+   * @param {NextApiRequest} req The current request.
+   * @default `${process.env.VERCEL ? 'https' : 'http'}://${req.headers.host}`;
+   * @see resolvePageUrl
+   */
+  resolveServerUrl?: (req: NextApiRequest) => string;
 }
 
 /**
@@ -37,7 +47,8 @@ export interface EditingRenderMiddlewareConfig {
 export class EditingRenderMiddleware {
   private editingDataService: EditingDataService;
   private dataFetcher: AxiosDataFetcher;
-  private resolvePageRoute: (itemPath: string) => string;
+  private resolvePageUrl: (serverUrl: string, itemPath: string) => string;
+  private resolveServerUrl: (req: NextApiRequest) => string;
 
   /**
    * @param {EditingRenderMiddlewareConfig} [config] Editing render middleware config
@@ -45,7 +56,8 @@ export class EditingRenderMiddleware {
   constructor(config?: EditingRenderMiddlewareConfig) {
     this.editingDataService = config?.editingDataService ?? editingDataService;
     this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher();
-    this.resolvePageRoute = config?.resolvePageRoute ?? this.defaultResolvePageRoute;
+    this.resolvePageUrl = config?.resolvePageUrl ?? this.defaultResolvePageUrl;
+    this.resolveServerUrl = config?.resolveServerUrl ?? this.defaultResolveServerUrl;
   }
 
   /**
@@ -78,11 +90,14 @@ export class EditingRenderMiddleware {
       // Extract data from EE payload
       const editingData = extractEditingData(req);
 
+      // Resolve server URL
+      const serverUrl = this.resolveServerUrl(req);
+
       // Stash for use later on (i.e. within getStatic/ServerSideProps).
       // This ultimately gets stored on disk (using our EditingDataDiskCache) for compatibility with Vercel Serverless Functions.
       // Note we can't set this directly in setPreviewData since it's stored as a cookie (2KB limit)
       // https://nextjs.org/docs/advanced-features/preview-mode#previewdata-size-limits
-      const previewData = await this.editingDataService.setEditingData(editingData);
+      const previewData = await this.editingDataService.setEditingData(editingData, serverUrl);
 
       // Enable Next.js Preview Mode, passing our preview data (i.e. editingData cache key)
       res.setPreviewData(previewData);
@@ -92,7 +107,7 @@ export class EditingRenderMiddleware {
 
       // Make actual render request for page route, passing on preview cookies.
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
-      const requestUrl = this.resolvePageRoute(editingData.path);
+      const requestUrl = this.resolvePageUrl(serverUrl, editingData.path);
       const pageRes = await this.dataFetcher.get<string>(`${requestUrl}?timestamp=${Date.now()}`, {
         headers: {
           Cookie: cookies.join(';'),
@@ -107,14 +122,41 @@ export class EditingRenderMiddleware {
       res.status(200).json({ html });
     } catch (error) {
       console.error(error);
+
+      if (error.response || error.request) {
+        // Axios error, which could mean the server or page URL isn't quite right, so provide a more helpful hint
+        console.info(
+          // eslint-disable-next-line quotes
+          "Hint: for non-standard server or Next.js route configurations, you may need to override the 'resolveServerUrl' or 'resolvePageUrl' available on the 'EditingRenderMiddleware' config."
+        );
+      }
       res.status(500).json({
         html: `<html><body>${error}</body></html>`,
       });
     }
   };
 
-  private defaultResolvePageRoute = (itemPath: string) => {
-    return itemPath;
+  /**
+   * Default page URL resolution.
+   * @param {string} serverUrl
+   * @param {string} itemPath
+   */
+  private defaultResolvePageUrl = (serverUrl: string, itemPath: string) => {
+    return `${serverUrl}${itemPath}`;
+  };
+
+  /**
+   * Default server URL resolution.
+   * Note we use https protocol on Vercel due to serverless function architecture.
+   * In all other scenarios, including localhost (with or without a proxy e.g. ngrok)
+   * and within a nodejs container, http protocol should be used.
+   *
+   * For information about the VERCEL environment variable, see
+   * https://vercel.com/docs/environment-variables#system-environment-variables
+   * @param {NextApiRequest} req
+   */
+  private defaultResolveServerUrl = (req: NextApiRequest) => {
+    return `${process.env.VERCEL ? 'https' : 'http'}://${req.headers.host}`;
   };
 }
 
