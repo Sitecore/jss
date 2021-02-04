@@ -113,10 +113,14 @@ export class EditingRenderMiddleware {
           Cookie: cookies.join(';'),
         },
       });
-      const html = pageRes.data;
+      let html = pageRes.data;
       if (!html || html.length === 0) {
         throw new Error(`Failed to render html for ${requestUrl}`);
       }
+
+      // replace phkey attribute with key attribute so that newly added renderings
+      // show correct placeholders, so save and refresh won't be needed after adding each rendering
+      html = html.replace(new RegExp('phkey', 'g'), 'key');
 
       // Return expected JSON result
       res.status(200).json({ html });
