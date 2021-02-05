@@ -35,7 +35,7 @@ These instructions you should apply in order to run `next export`:
 	  };
 	}
 	```
-	> The `fallback: true` mode of `getStaticPaths` is not supported when using next export.
+	> The `fallback: true` and `fallback: 'blocking'` modes of `getStaticPaths` are not supported when using next export.
 1. Remove usage of `<VisitorIdentification />` component in `src/Layout.tsx`, since Visitor Identification not available.
 1. Define `PUBLIC_URL` in `.env`.
 1. Add script `"export": "npm-run-all --serial bootstrap next:build next:export"` in package.json.
