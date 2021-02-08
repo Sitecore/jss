@@ -160,13 +160,11 @@ describe.only('createDisconnectedSitemapService', () => {
   });
 
   it('should generate sitemap with different manifest language', async () => {
-    const manifestLanguageChangeCallback = spy((language) =>
-      Promise.resolve(genManifest(language))
-    );
+    const getManifest = spy((language) => Promise.resolve(genManifest(language)));
 
     const service = createDisconnectedSitemapService({
       manifest: genManifest('da-DK'),
-      manifestLanguageChangeCallback,
+      getManifest,
     });
 
     const json = spy((sitemap: unknown) => sitemap);
@@ -185,7 +183,7 @@ describe.only('createDisconnectedSitemapService', () => {
 
     await service.middleware(request, response);
 
-    expect(manifestLanguageChangeCallback.calledWithExactly('en')).to.equal(true);
+    expect(getManifest.calledWithExactly('en')).to.equal(true);
 
     expect(status.calledOnce).to.equal(true);
     expect(status.calledWithExactly(200)).to.equal(true);
@@ -240,13 +238,13 @@ describe.only('createDisconnectedSitemapService', () => {
   });
 
   it('should throw 500 error when generate sitemap with different manifest language', async () => {
-    const manifestLanguageChangeCallback = spy((language) =>
+    const getManifest = spy((language) =>
       Promise.reject('Error happened... in language ' + language)
     );
 
     const service = createDisconnectedSitemapService({
       manifest: genManifest('da-DK'),
-      manifestLanguageChangeCallback,
+      getManifest,
     });
 
     const sendStatus = spy((code: number) => code);
@@ -268,7 +266,7 @@ describe.only('createDisconnectedSitemapService', () => {
 
     await service.middleware(request, response);
 
-    expect(manifestLanguageChangeCallback.calledWithExactly('en')).to.equal(true);
+    expect(getManifest.calledWithExactly('en')).to.equal(true);
     expect(sendStatus.calledWithExactly(500)).to.equal(true);
     expect(status.called).to.equal(false);
     expect(json.called).to.equal(false);
@@ -277,7 +275,7 @@ describe.only('createDisconnectedSitemapService', () => {
   it('should throw 404 error when generate sitemap with different manifest language', async () => {
     const service = createDisconnectedSitemapService({
       manifest: genManifest('da-DK'),
-      manifestLanguageChangeCallback: undefined,
+      getManifest: undefined,
     });
 
     const sendStatus = spy((code: number) => code);

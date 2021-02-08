@@ -1,17 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import chalk from 'chalk';
 import { Request, Response } from 'express';
-import { ItemDefinition } from '@sitecore-jss/sitecore-jss-manifest';
-import { DisconnectedLayoutServiceOptions } from './DisconnectedLayoutServiceOptions';
+import { ItemDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+
+export interface DisconnectedSitemapServiceOptions {
+  manifest: ManifestInstance;
+  getManifest?: (language: string) => Promise<ManifestInstance>;
+}
 
 /**
  * Creates a fake version of the Sitecore Sitemap Service that is powered by your disconnected manifest file
- * @param {DisconnectedLayoutServiceOptions} config
+ * @param {DisconnectedSitemapServiceOptions} config
  */
 export function createDisconnectedSitemapService({
   manifest,
-  manifestLanguageChangeCallback,
-}: DisconnectedLayoutServiceOptions) {
+  getManifest,
+}: DisconnectedSitemapServiceOptions) {
   console.log(`🔌  Disconnected ${chalk.red('Sitemap Service')} initializing...⏳`);
   return {
     middleware: async function disconnectedLayoutServiceMiddleware(
@@ -25,12 +29,9 @@ export function createDisconnectedSitemapService({
       // check to see if the language is different than what we have loaded, and if so change it
       // using the callback function if it is provided
       if (currentManifest.language.toUpperCase() !== language.toUpperCase()) {
-        if (
-          manifestLanguageChangeCallback &&
-          typeof manifestLanguageChangeCallback === 'function'
-        ) {
+        if (getManifest && typeof getManifest === 'function') {
           try {
-            currentManifest = await manifestLanguageChangeCallback(language);
+            currentManifest = await getManifest(language);
           } catch (e) {
             console.error(`> [SITEMAP] Error getting manifest in language '${language}'`, e);
             response.sendStatus(500);

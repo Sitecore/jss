@@ -153,7 +153,7 @@ export function createDefaultDisconnectedServer(options: DisconnectedServerOptio
       // creates a fake version of the Sitecore Sitemap Service that is powered by your disconnected manifest file
       const sitemapService = createDisconnectedSitemapService({
         manifest,
-        manifestLanguageChangeCallback: manifestManager.getManifest,
+        getManifest: manifestManager.getManifest,
       });
 
       // set up live reloading of the manifest when any manifest source file is changed
