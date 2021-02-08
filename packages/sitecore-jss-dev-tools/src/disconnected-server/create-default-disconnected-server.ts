@@ -9,6 +9,7 @@ import {
   CustomizeRouteFunction,
 } from './DisconnectedLayoutServiceOptions';
 import { createDisconnectedLayoutService } from './layout-service';
+import { createDisconnectedSitemapService } from './sitemap-service';
 
 export interface DisconnectedServerOptions {
   appName: string;
@@ -149,6 +150,12 @@ export function createDefaultDisconnectedServer(options: DisconnectedServerOptio
         manifestLanguageChangeCallback: manifestManager.getManifest,
       });
 
+      // creates a fake version of the Sitecore Sitemap Service that is powered by your disconnected manifest file
+      const sitemapService = createDisconnectedSitemapService({
+        manifest,
+        manifestLanguageChangeCallback: manifestManager.getManifest,
+      });
+
       // set up live reloading of the manifest when any manifest source file is changed
       manifestManager.setManifestUpdatedCallback((newManifest) => {
         layoutService.updateManifest(newManifest);
@@ -162,6 +169,7 @@ export function createDefaultDisconnectedServer(options: DisconnectedServerOptio
       app.use('/assets', Express.static(join(options.appRoot, 'assets')));
       app.use('/data/media', Express.static(join(options.appRoot, 'data/media')));
       app.use('/sitecore/api/layout/render', layoutService.middleware);
+      app.use('/sitecore/api/sitemap', sitemapService.middleware);
       app.use('/sitecore/api/jss/dictionary/:appName/:language', dictionaryService.middleware);
 
       if (options.afterMiddlewareRegistered) {
