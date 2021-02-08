@@ -29,6 +29,7 @@ export class SitecoreSitemapFactory {
    * @param {GetStaticPathsContext} context
    */
   async create(context?: GetStaticPathsContext): Promise<StaticPath[]> {
+    // If we are in Export/Disconnected Export mode
     if (process.env.EXPORT_MODE) {
       return process.env.JSS_MODE === 'disconnected'
         ? this._disconnectedSitemapService.fetchExportSitemap(packageConfig.language)
