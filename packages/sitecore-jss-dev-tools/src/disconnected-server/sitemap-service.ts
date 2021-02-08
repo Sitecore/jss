@@ -39,7 +39,7 @@ export function createDisconnectedSitemapService({
           }
         } else {
           console.error(
-            `> [SITEMAP] ERROR: Received request for sitemap in ${language} but the manifest data was in ${currentManifest.language}. To enable switching languages at runtime, please pass 'manifestLanguageChangeCallback: function(newLanguage) { return manifestInNewLanguage; }' in the service creation options.`
+            `> [SITEMAP] ERROR: Received request for sitemap in ${language} but the manifest data was in ${currentManifest.language}. To enable switching languages at runtime, please pass 'getManifest: function(newLanguage) { return manifestInNewLanguage; }' in the service creation options.`
           );
           response.sendStatus(404);
           return;
