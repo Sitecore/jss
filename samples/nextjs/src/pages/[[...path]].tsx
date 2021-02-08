@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import NotFound from 'components/NotFound';
 import Layout from 'components/Layout';
-import config from 'temp/config';
 import {
   SitecoreContext,
   ComponentPropsContext,
@@ -12,7 +11,7 @@ import { StyleguideSitecoreContextValue } from 'lib/component-props';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
-import { graphQLSitemapService } from 'lib/graphql-sitemap-service';
+import { sitemapFactory } from 'lib/sitemap-factory';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
@@ -58,12 +57,11 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
 
   if (process.env.NODE_ENV !== 'development') {
-    const ROOT_ITEM = `/sitecore/content/${config.jssAppName}/home`;
-    const paths = await graphQLSitemapService.fetchSSGSitemap(context.locales || [], ROOT_ITEM);
+    const paths = await sitemapFactory.create(context);
 
     return {
       paths,
-      fallback: 'blocking',
+      fallback: false,
     };
   }
 

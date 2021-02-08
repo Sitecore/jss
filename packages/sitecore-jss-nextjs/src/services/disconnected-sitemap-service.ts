@@ -1,5 +1,6 @@
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import chalk from 'chalk';
+import { StaticPath } from '../sharedTypes/sitemap';
 
 export type DisconnectedSitemapServiceConfig = {
   /**
@@ -12,12 +13,6 @@ export type DisconnectedSitemapServiceConfig = {
    * @see AxiosDataFetcher
    */
   dataFetcher?: AxiosDataFetcher;
-};
-
-type StaticPath = {
-  params: {
-    path: string[];
-  };
 };
 
 export class DisconnectedSitemapService {
