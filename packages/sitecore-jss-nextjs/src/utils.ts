@@ -29,34 +29,36 @@ export const getPublicUrl = (): string => {
  * @default forceReload false
  */
 export const handleExperienceEditorFastRefresh = (forceReload = false): void => {
-  if (isExperienceEditorActive()) {
-    const eventSource = new window.EventSource(`${getPublicUrl()}/_next/webpack-hmr`);
-
-    window.addEventListener('beforeunload', () => eventSource.close());
-
-    eventSource.onopen = () => console.log('[Experience Editor Fast Refresh Listener] Online');
-
-    eventSource.onmessage = (event) => {
-      if (event.data.indexOf('{') === -1) return; // heartbeat
-
-      const payload = JSON.parse(event.data);
-
-      console.debug(
-        `[Experience Editor Fast Refresh Listener] Saw event: ${JSON.stringify(payload)}`
-      );
-
-      if (payload.action !== 'built') return;
-
-      if (forceReload) return window.location.reload();
-
-      setTimeout(() => {
-        console.log(
-          '[Experience Editor HMR Listener] Experience Editor does not support Fast Refresh, reloading chromes...'
-        );
-        resetExperienceEditorChromes();
-      }, 500);
-    };
+  if (process.env.NODE_ENV !== 'development' || !isExperienceEditorActive()) {
+    // Only run if development mode and Experience Editor is active
+    return;
   }
+  const eventSource = new window.EventSource(`${getPublicUrl()}/_next/webpack-hmr`);
+
+  window.addEventListener('beforeunload', () => eventSource.close());
+
+  eventSource.onopen = () => console.log('[Experience Editor Fast Refresh Listener] Online');
+
+  eventSource.onmessage = (event) => {
+    if (event.data.indexOf('{') === -1) return; // heartbeat
+
+    const payload = JSON.parse(event.data);
+
+    console.debug(
+      `[Experience Editor Fast Refresh Listener] Saw event: ${JSON.stringify(payload)}`
+    );
+
+    if (payload.action !== 'built') return;
+
+    if (forceReload) return window.location.reload();
+
+    setTimeout(() => {
+      console.log(
+        '[Experience Editor HMR Listener] Experience Editor does not support Fast Refresh, reloading chromes...'
+      );
+      resetExperienceEditorChromes();
+    }, 500);
+  };
 };
 
 export const getJssEditingSecret = (): string => {
