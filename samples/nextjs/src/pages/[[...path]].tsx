@@ -57,6 +57,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
 
   if (process.env.NODE_ENV !== 'development') {
+    // Note: Next.js runs export in production mode
     const paths = await sitemapFactory.create(context);
 
     return {
