@@ -77,6 +77,80 @@ export function normalizeFingerprint(fp: string): string {
 export function doFingerprintsMatch(fp1: string, fp2: string): boolean {
   return normalizeFingerprint(fp1) === normalizeFingerprint(fp2);
 }
+
+/**
+ * @param {Object} params
+ * @param {string[]} params.warnings
+ * @param {string[]} params.errors
+ * @param {Function} params.resolve
+ * @param {Function} params.reject
+ */
+export function finishWatchJobStatusTask({
+  warnings,
+  errors,
+  resolve,
+  reject,
+}: {
+  warnings: string[];
+  errors: string[];
+  resolve: (value?: unknown) => void;
+  reject: () => void;
+}) {
+  console.log();
+  console.log('Import is complete.');
+
+  if (warnings.length) {
+    console.log();
+    console.warn(chalk.yellow('IMPORT WARNING(S) OCCURRED!'));
+    warnings.forEach((w) => console.error(chalk.yellow(w)));
+  }
+
+  if (errors.length) {
+    console.log();
+    console.error(chalk.red('IMPORT ERROR(S) OCCURRED!'));
+    errors.forEach((e) => console.error(chalk.red(e)));
+    reject();
+  } else {
+    resolve();
+  }
+}
+
+/**
+ * @param {Object} params
+ * @param {string} params.message
+ * @param {string} params.entryLevel
+ * @param {string[]} params.warnings
+ * @param {string[]} params.errors
+ */
+export function logJobStatus({
+  message,
+  entryLevel,
+  warnings,
+  errors,
+}: {
+  message: string;
+  entryLevel: string;
+  warnings: string[];
+  errors: string[];
+}) {
+  switch (entryLevel) {
+    case 'WARN':
+      console.warn(chalk.yellow(message));
+      warnings.push(message);
+      break;
+    case 'ERROR':
+      console.error(chalk.red(message));
+      errors.push(message);
+      break;
+    case 'DEBUG':
+      console.log(chalk.white(message));
+      break;
+    default:
+      console.log(chalk.green(message));
+      break;
+  }
+}
+
 /**
  * @param {PackageDeployOptions} options
  * @param {string} taskName
@@ -129,11 +203,9 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
           const body = response.data;
 
           try {
-            const logReplies: string[] = body;
+            const { state, messages }: { state: string; messages: string[] } = body;
 
-            let complete = false;
-
-            logReplies.forEach((entry) => {
+            messages.forEach((entry) => {
               logOffset++;
 
               const entryBits = /^(\[([A-Z]+)\] )?(.+)/.exec(entry);
@@ -148,54 +220,20 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
                 message = entry.substring(entryLevel.length + 3);
               }
 
-              if (entry.startsWith('Job ended:')) {
-                console.log();
-                console.log('Import is complete.');
-
-                if (warnings.length > 0) {
-                  console.log();
-                  console.warn(chalk.yellow('IMPORT WARNING(S) OCCURRED!'));
-                  warnings.forEach((w) => console.error(chalk.yellow(w)));
-                }
-
-                if (errors.length > 0) {
-                  console.log();
-                  console.error(chalk.red('IMPORT ERROR(S) OCCURRED!'));
-                  errors.forEach((e) => console.error(chalk.red(e)));
-                  reject();
-                } else {
-                  resolve();
-                }
-
-                complete = true;
-                return;
-              }
-
               if (message.startsWith('[JSS] - ')) {
                 message = message.substring(8);
               }
 
-              switch (entryLevel) {
-                case 'WARN':
-                  console.warn(chalk.yellow(message));
-                  warnings.push(message);
-                  break;
-                case 'ERROR':
-                  console.error(chalk.red(message));
-                  errors.push(message);
-                  break;
-                case 'DEBUG':
-                  console.log(chalk.white(message));
-                  break;
-                default:
-                  console.log(chalk.green(message));
-                  break;
-              }
+              logJobStatus({ message, entryLevel, warnings, errors });
             });
 
-            if (!complete) {
-              setTimeout(sendJobStatusRequest, 1000);
+            if (state === 'Finished') {
+              finishWatchJobStatusTask({ warnings, errors, resolve, reject });
+
+              return;
             }
+
+            setTimeout(sendJobStatusRequest, 1000);
           } catch (error) {
             console.error(
               chalk.red(`Unexpected error processing reply from import status service: ${error}`)

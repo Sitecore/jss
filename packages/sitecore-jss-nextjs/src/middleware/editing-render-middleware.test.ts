@@ -21,11 +21,12 @@ type Query = {
   [key: string]: string;
 };
 
-const mockRequest = (body?: any, query?: Query, method?: string) => {
+const mockRequest = (body?: any, query?: Query, method?: string, host?: string) => {
   return {
     body: body ?? {},
     method: method ?? 'POST',
     query: query ?? {},
+    headers: { host: host ?? 'localhost:3000' },
   } as NextApiRequest;
 };
 
@@ -71,14 +72,16 @@ describe('EditingRenderMiddleware', () => {
 
   beforeEach(() => {
     process.env.JSS_EDITING_SECRET = secret;
+    delete process.env.VERCEL;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
+    delete process.env.VERCEL;
   });
 
   it('should handle request', async () => {
-    const html = '<html><body>Something amazing</body></html>';
+    const html = '<html phkey="test1"><body phkey="test2">Something amazing</body></html>';
     const query = {} as Query;
     query[QUERY_PARAM_EDITING_SECRET] = secret;
     const previewData = { key: 'key1234' } as EditingPreviewData;
@@ -108,7 +111,9 @@ describe('EditingRenderMiddleware', () => {
     expect(res.status).to.have.been.called.once;
     expect(res.status).to.have.been.called.with(200);
     expect(res.json).to.have.been.called.once;
-    expect(res.json).to.have.been.called.with({ html });
+    expect(res.json).to.have.been.called.with({
+      html: '<html key="test1"><body key="test2">Something amazing</body></html>',
+    });
   });
 
   it('should respond with 405 for unsupported method', async () => {
@@ -194,7 +199,56 @@ describe('EditingRenderMiddleware', () => {
     expect(res.json).to.have.been.called.once;
   });
 
-  it('should use custom resolvePageRoute', async () => {
+  it('should use host header with http for serverUrl', async () => {
+    const html = '<html><body>Something amazing</body></html>';
+    const fetcher = mockFetcher(html);
+    const dataService = mockDataService();
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const req = mockRequest(EE_BODY, query, undefined, 'testhostheader.com');
+    const res = mockResponse();
+
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(fetcher.get).to.have.been.called.once.and.satisfies((args: any) => {
+      const spy = args.__spy;
+      const url = spy.calls[0][0] as string;
+      return url.startsWith('http://testhostheader.com');
+    });
+  });
+
+  it('should use https for serverUrl on Vercel', async () => {
+    const html = '<html><body>Something amazing</body></html>';
+    const fetcher = mockFetcher(html);
+    const dataService = mockDataService();
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const req = mockRequest(EE_BODY, query, undefined, 'vercel.com');
+    const res = mockResponse();
+    process.env.VERCEL = '1';
+
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(fetcher.get).to.have.been.called.once.and.satisfies((args: any) => {
+      const spy = args.__spy;
+      const url = spy.calls[0][0] as string;
+      return url.startsWith('https://vercel.com');
+    });
+  });
+
+  it('should use custom resolveServerUrl', async () => {
     const html = '<html><body>Something amazing</body></html>';
     const fetcher = mockFetcher(html);
     const dataService = mockDataService();
@@ -203,26 +257,59 @@ describe('EditingRenderMiddleware', () => {
     const req = mockRequest(EE_BODY, query);
     const res = mockResponse();
 
-    const expectedPageRoute = `/some/path${EE_PATH}`;
-    const resolvePageRoute = spy((itemPath: string) => {
-      return `/some/path${itemPath}`;
-    });
+    const serverUrl = 'https://test.com';
 
     const middleware = new EditingRenderMiddleware({
       dataFetcher: fetcher,
       editingDataService: dataService,
-      resolvePageRoute: resolvePageRoute,
+      resolveServerUrl: () => {
+        return serverUrl;
+      },
     });
     const handler = middleware.getHandler();
 
     await handler(req, res);
 
-    expect(resolvePageRoute).to.have.been.called.once;
-    expect(resolvePageRoute).to.have.been.called.with(EE_PATH);
     expect(fetcher.get).to.have.been.called.once.and.satisfies((args: any) => {
       const spy = args.__spy;
       const url = spy.calls[0][0] as string;
-      return url.startsWith(expectedPageRoute);
+      return url.startsWith(serverUrl);
+    });
+  });
+
+  it('should use custom resolvePageUrl', async () => {
+    const html = '<html><body>Something amazing</body></html>';
+    const fetcher = mockFetcher(html);
+    const dataService = mockDataService();
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const req = mockRequest(EE_BODY, query);
+    const res = mockResponse();
+
+    const serverUrl = 'https://test.com';
+    const expectedPageUrl = `${serverUrl}/some/path${EE_PATH}`;
+    const resolvePageUrl = spy((serverUrl: string, itemPath: string) => {
+      return `${serverUrl}/some/path${itemPath}`;
+    });
+
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+      resolvePageUrl: resolvePageUrl,
+      resolveServerUrl: () => {
+        return serverUrl;
+      },
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(resolvePageUrl).to.have.been.called.once;
+    expect(resolvePageUrl).to.have.been.called.with(EE_PATH);
+    expect(fetcher.get).to.have.been.called.once.and.satisfies((args: any) => {
+      const spy = args.__spy;
+      const url = spy.calls[0][0] as string;
+      return url.startsWith(expectedPageUrl);
     });
   });
 

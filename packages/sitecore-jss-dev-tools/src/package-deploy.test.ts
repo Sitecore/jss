@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect } from 'chai';
+import chalk from 'chalk';
 import { spy } from 'sinon';
 import { ClientRequest } from 'http';
 import nock from 'nock';
@@ -9,12 +10,132 @@ import {
   doFingerprintsMatch,
   normalizeFingerprint,
   applyCertPinning,
+  finishWatchJobStatusTask,
+  logJobStatus,
 } from './package-deploy';
 import { Socket } from 'net';
 
 describe('package-deploy', () => {
   beforeEach(() => {
     nock.cleanAll();
+  });
+
+  describe('finishWatchJobStatusTask', () => {
+    it('with warnings', (done) => {
+      const consoleWarnSpy = spy(console, 'warn');
+      const consoleErrSpy = spy(console, 'error');
+      const warnings = ['w1', 'w2'];
+      const errors: string[] = [];
+      new Promise((resolve, reject) =>
+        finishWatchJobStatusTask({ warnings, errors, resolve, reject })
+      ).then(() => {
+        expect(consoleWarnSpy.callCount).to.equal(1);
+        expect(consoleWarnSpy.getCall(0).args[0]).to.equal(
+          chalk.yellow('IMPORT WARNING(S) OCCURRED!')
+        );
+        expect(consoleErrSpy.callCount).to.equal(2);
+        expect(consoleErrSpy.getCall(0).args[0]).to.equal(chalk.yellow('w1'));
+        expect(consoleErrSpy.getCall(1).args[0]).to.equal(chalk.yellow('w2'));
+        consoleWarnSpy.restore();
+        consoleErrSpy.restore();
+        done();
+      });
+    });
+
+    it('with warnings and errors', (done) => {
+      const consoleWarnSpy = spy(console, 'warn');
+      const consoleErrSpy = spy(console, 'error');
+      const warnings = ['w1', 'w2'];
+      const errors = ['e1', 'e2'];
+      new Promise((resolve, reject) =>
+        finishWatchJobStatusTask({ warnings, errors, resolve, reject })
+      ).catch(() => {
+        expect(consoleWarnSpy.callCount).to.equal(1);
+        expect(consoleWarnSpy.getCall(0).args[0]).to.equal(
+          chalk.yellow('IMPORT WARNING(S) OCCURRED!')
+        );
+        expect(consoleErrSpy.callCount).to.equal(5);
+        expect(consoleErrSpy.getCall(0).args[0]).to.equal(chalk.yellow('w1'));
+        expect(consoleErrSpy.getCall(1).args[0]).to.equal(chalk.yellow('w2'));
+        expect(consoleErrSpy.getCall(2).args[0]).to.equal(chalk.red('IMPORT ERROR(S) OCCURRED!'));
+        expect(consoleErrSpy.getCall(3).args[0]).to.equal(chalk.red('e1'));
+        expect(consoleErrSpy.getCall(4).args[0]).to.equal(chalk.red('e2'));
+
+        consoleWarnSpy.restore();
+        consoleErrSpy.restore();
+        done();
+      });
+    });
+  });
+
+  describe('logJobStatus', () => {
+    it('debug', () => {
+      const consoleSpy = spy(console, 'log');
+      const errors: string[] = [];
+      const warnings: string[] = [];
+      const entryLevel = 'DEBUG';
+      const message = 'Hello, I am debug message';
+
+      logJobStatus({ message, entryLevel, warnings, errors });
+
+      expect(errors.length).to.equal(0);
+      expect(warnings.length).to.equal(0);
+      expect(consoleSpy.callCount).to.equal(1);
+      expect(consoleSpy.getCall(0).args[0]).to.equal(chalk.white('Hello, I am debug message'));
+
+      consoleSpy.restore();
+    });
+
+    it('warning', () => {
+      const consoleSpy = spy(console, 'warn');
+      const errors: string[] = [];
+      const warnings: string[] = [];
+      const entryLevel = 'WARN';
+      const message = 'Hello, I am warning message';
+
+      logJobStatus({ message, entryLevel, warnings, errors });
+
+      expect(errors.length).to.equal(0);
+      expect(warnings).to.deep.equal(['Hello, I am warning message']);
+      expect(consoleSpy.callCount).to.equal(1);
+      expect(consoleSpy.getCall(0).args[0]).to.equal(chalk.yellow('Hello, I am warning message'));
+
+      consoleSpy.restore();
+    });
+
+    it('error', () => {
+      const consoleSpy = spy(console, 'error');
+      const errors: string[] = [];
+      const warnings: string[] = [];
+      const entryLevel = 'ERROR';
+      const message = 'Hello, I am error message';
+
+      logJobStatus({ message, entryLevel, warnings, errors });
+
+      expect(warnings.length).to.equal(0);
+      expect(errors).to.deep.equal(['Hello, I am error message']);
+      expect(consoleSpy.callCount).to.equal(1);
+      expect(consoleSpy.getCall(0).args[0]).to.equal(chalk.red('Hello, I am error message'));
+
+      consoleSpy.restore();
+    });
+
+    it('default', () => {
+      const consoleSpy = spy(console, 'log');
+      const errors: string[] = [];
+      const warnings: string[] = [];
+      const entryLevel = '';
+      const message = 'Hello, I am default message';
+
+      logJobStatus({ message, entryLevel, warnings, errors });
+
+      expect(errors.length).to.equal(0);
+      expect(warnings.length).to.equal(0);
+      expect(consoleSpy.callCount).to.equal(1);
+      expect(consoleSpy.getCall(0).args[0]).to.equal(chalk.green('Hello, I am default message'));
+
+      consoleSpy.restore();
+    });
   });
 
   describe('extractProxy', () => {
