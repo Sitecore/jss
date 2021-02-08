@@ -55,10 +55,10 @@ export function createDisconnectedSitemapService({
       // Path is empty when we start from the root route
       const processRoutes = (routes: ItemDefinition[], path?: string[]) => {
         routes.forEach((route: ItemDefinition) => {
-          const renderings = (route as any).layout.renderings;
+          const renderings = route.layout?.renderings;
           const routePath = path ? path.concat(route.name) : [''];
 
-          if (renderings.length) {
+          if (renderings && renderings.length) {
             sitemap.push({
               params: {
                 path: routePath,

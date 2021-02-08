@@ -347,6 +347,9 @@ export interface ItemDefinition {
   id?: string;
   fields?: { [key: string]: ContentFieldValue };
   children?: Array<ItemDefinition | ItemReference>;
+  layout?: {
+    renderings: { [key: string]: unknown };
+  };
   path?: string;
   insertOptions?: string[];
 }
