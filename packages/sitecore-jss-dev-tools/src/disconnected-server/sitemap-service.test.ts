@@ -5,7 +5,7 @@ import { Request, Response } from 'express';
 import { ItemDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
 import { createDisconnectedSitemapService } from './sitemap-service';
 
-describe.only('createDisconnectedSitemapService', () => {
+describe('createDisconnectedSitemapService', () => {
   const item = ({
     name,
     children = [],
