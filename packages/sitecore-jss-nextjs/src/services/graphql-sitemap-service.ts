@@ -40,7 +40,7 @@ export class GraphQLSitemapService {
    * @default
    * Search query
    * search(
-   *    filter: {
+   *    where: {
    *      AND:[
    *        {
    *           name:"_path",
@@ -81,7 +81,7 @@ export class GraphQLSitemapService {
    * @default
    * Search query
    * search(
-   *    filter: {
+   *    where: {
    *      AND:[
    *        {
    *           name:"_path",
@@ -232,7 +232,7 @@ export class GraphQLSitemapService {
     const searchQuery = formatSearchQuery
       ? formatSearchQuery(rootItemId, locale)
       : `search(
-      filter: {
+      where: {
         AND:[
           {
             name:"_path",

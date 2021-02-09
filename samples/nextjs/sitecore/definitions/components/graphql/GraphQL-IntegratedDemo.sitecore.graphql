@@ -16,7 +16,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
     ...on GraphQLIntegratedDemo {
       # Single-line text field
       sample1 {
-        # the 'value' field is a JSON blob that represents the object that
+        # the 'jsonValue' field is a JSON blob that represents the object that
         # should be passed to JSS field rendering helpers (i.e. text, image, link)
         jsonValue
         value
