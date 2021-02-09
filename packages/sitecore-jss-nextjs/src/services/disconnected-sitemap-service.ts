@@ -1,51 +1,49 @@
-import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
-import chalk from 'chalk';
+import { ItemDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
 import { StaticPath } from '../sharedTypes/sitemap';
 
-export type DisconnectedSitemapServiceConfig = {
-  /**
-   * Your disconnected server endpoint
-   */
-  endpoint: string;
-  /**
-   * The `AxiosDataFetcher` instance to use for API requests.
-   * @default new AxiosDataFetcher()
-   * @see AxiosDataFetcher
-   */
-  dataFetcher?: AxiosDataFetcher;
-};
-
 export class DisconnectedSitemapService {
-  private dataFetcher: AxiosDataFetcher;
-
   /**
-   * Provides ability to fetch sitemap from disconnected sitemap service endpoint.
+   * Provides ability to generate sitemap using manifest.
    * Sitemap can be used for `next export`
-   * @param {DisconnectedSitemapServiceConfig} config disconnected sitemap service config
+   * You can use `sitecore/manifest/sitecore-import.json` as manifest
+   * @param {ManifestInstance} manifest manifest instance
    */
-  constructor(private config: DisconnectedSitemapServiceConfig) {
-    this.dataFetcher = config.dataFetcher || new AxiosDataFetcher();
-  }
+  constructor(private manifest: ManifestInstance) {}
 
   /**
-   * Fetch sitemap which could be used for generation of static pages during `next export` in disconnected mode.
+   * Generates sitemap which could be used for generation of static pages during `next export` in disconnected mode.
    * Since i18n is not supported, the output paths will not include a `locale` property.
-   * @param {string} language locale which application supports
    */
-  async fetchExportSitemap(language: string): Promise<StaticPath[]> {
-    const res = await this.dataFetcher
-      .get<StaticPath[]>(this.config.endpoint, {
-        params: { sc_lang: language },
-      })
-      .catch((error) => {
-        console.error(
-          chalk.red('[Disconnected] Error occurred while fetching sitemap:'),
-          error.response || error
-        );
+  fetchExportSitemap(): StaticPath[] {
+    const sitemap: {
+      params: {
+        path: string[];
+      };
+    }[] = [];
 
-        return null;
+    // Path is empty when we start from the root route
+    const processRoutes = (routes: ItemDefinition[], path?: string[]) => {
+      routes.forEach((route: ItemDefinition) => {
+        const renderings = route.layout?.renderings;
+        const routePath = path ? path.concat(route.name) : [''];
+
+        if (renderings && renderings.length) {
+          sitemap.push({
+            params: {
+              path: routePath,
+            },
+          });
+        }
+
+        if (route.children) {
+          // If we are in the root route, so next child should not contain paths in array
+          processRoutes(route.children as ItemDefinition[], path ? routePath : []);
+        }
       });
+    };
 
-    return res?.data || [];
+    processRoutes(this.manifest.items.routes);
+
+    return sitemap;
   }
 }

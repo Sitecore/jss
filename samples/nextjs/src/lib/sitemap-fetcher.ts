@@ -1,15 +1,16 @@
 import {
   GraphQLSitemapService,
-  DisconnectedSitemapService,
   StaticPath,
+  DisconnectedSitemapService,
+  ManifestInstance,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { GetStaticPathsContext } from 'next';
 import config from 'temp/config';
+import manifest from 'sitecore/manifest/sitecore-import.json';
 import { config as packageConfig } from '../../package.json';
 
-export class SitecoreSitemapFactory {
+export class SitecoreSitemapFetcher {
   private GRAPHQL_ROOT_ITEM_PATH = `/sitecore/content/${config.jssAppName}/home`;
-  private DISCONNECTED_SITEMAP_SERVICE_ENDPOINT = `${config.sitecoreApiHost}/sitecore/api/sitemap`;
 
   private _graphqlSitemapService: GraphQLSitemapService;
   private _disconnectedSitemapService: DisconnectedSitemapService;
@@ -19,20 +20,20 @@ export class SitecoreSitemapFactory {
       endpoint: config.graphqlEndpoint,
     });
 
-    this._disconnectedSitemapService = new DisconnectedSitemapService({
-      endpoint: this.DISCONNECTED_SITEMAP_SERVICE_ENDPOINT,
-    });
+    this._disconnectedSitemapService = new DisconnectedSitemapService(
+      (manifest as unknown) as ManifestInstance
+    );
   }
 
   /**
-   * Create SitecoreSitemap for given mode (Export / Disconnected Export / SSG)
+   * Generates SitecoreSitemap for given mode (Export / Disconnected Export / SSG)
    * @param {GetStaticPathsContext} context
    */
-  async create(context?: GetStaticPathsContext): Promise<StaticPath[]> {
+  async fetch(context?: GetStaticPathsContext): Promise<StaticPath[]> {
     // If we are in Export/Disconnected Export mode
     if (process.env.EXPORT_MODE) {
       return process.env.JSS_MODE === 'disconnected'
-        ? this._disconnectedSitemapService.fetchExportSitemap(packageConfig.language)
+        ? this._disconnectedSitemapService.fetchExportSitemap()
         : this._graphqlSitemapService.fetchExportSitemap(
             packageConfig.language,
             this.GRAPHQL_ROOT_ITEM_PATH
@@ -46,4 +47,4 @@ export class SitecoreSitemapFactory {
   }
 }
 
-export const sitemapFactory = new SitecoreSitemapFactory();
+export const sitemapFetcher = new SitecoreSitemapFetcher();

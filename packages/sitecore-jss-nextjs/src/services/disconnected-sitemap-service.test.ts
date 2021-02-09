@@ -1,95 +1,134 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { expect, use, spy } from 'chai';
-import spies from 'chai-spies';
+import { expect } from 'chai';
+import { ItemDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
 import { DisconnectedSitemapService } from './disconnected-sitemap-service';
-import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 
-use(spies);
-
-describe.only('DisconnectedSitemapService', () => {
-  const mockFetcher = (data?: any, error?: any) => {
-    const fetcher = {} as AxiosDataFetcher;
-
-    if (error) {
-      fetcher.get = spy<any>(() => {
-        return Promise.reject(error);
-      });
-
-      return fetcher;
-    }
-
-    fetcher.get = spy<any>(() => {
-      return Promise.resolve({ data });
-    });
-
-    return fetcher;
-  };
-
-  it('should fetch sitemap', async () => {
-    const fetcher = mockFetcher([
-      {
-        params: {
-          path: ['styleguide'],
-        },
+describe('DisconnectedSitemapService', () => {
+  const item = ({
+    name,
+    children,
+    renderings = [],
+  }: {
+    name: string;
+    children?: ItemDefinition[];
+    renderings: string[];
+  }) =>
+    (({
+      children,
+      name,
+      layout: {
+        renderings,
       },
-      {
-        params: {
-          path: ['graphql'],
-        },
+    } as unknown) as ItemDefinition);
+
+  const genManifest = (language: string) =>
+    ({
+      language,
+      items: {
+        routes: [
+          item({
+            name: 'x0',
+            renderings: ['r0'],
+            children: [
+              item({
+                name: 'x11',
+                renderings: ['r1'],
+              }),
+              item({
+                name: 'x12',
+                renderings: ['r1'],
+                children: [
+                  item({
+                    name: 'x41',
+                    renderings: ['r5'],
+                  }),
+                  item({
+                    name: 'x42',
+                    renderings: ['r1'],
+                  }),
+                ],
+              }),
+              item({
+                name: 'x13',
+                renderings: ['r2'],
+                children: [
+                  item({
+                    name: 'x21',
+                    renderings: ['r3'],
+                    children: [
+                      item({
+                        name: 'x31',
+                        renderings: ['r4'],
+                      }),
+                      item({
+                        name: 'x32',
+                        renderings: ['r5'],
+                      }),
+                      item({
+                        name: 'x33',
+                        renderings: [],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
       },
-    ]);
+    } as ManifestInstance);
 
-    const service = new DisconnectedSitemapService({
-      endpoint: 'http://test/sitemap',
-      dataFetcher: fetcher,
-    });
+  it('should generate sitemap', () => {
+    const manifest = genManifest('da-DK');
+    const service = new DisconnectedSitemapService(manifest);
 
-    const sitemap = await service.fetchExportSitemap('en');
+    const sitemap = service.fetchExportSitemap();
 
     expect(sitemap).to.deep.equal([
       {
         params: {
-          path: ['styleguide'],
+          path: [''],
         },
       },
       {
         params: {
-          path: ['graphql'],
+          path: ['x11'],
+        },
+      },
+      {
+        params: {
+          path: ['x12'],
+        },
+      },
+      {
+        params: {
+          path: ['x12', 'x41'],
+        },
+      },
+      {
+        params: {
+          path: ['x12', 'x42'],
+        },
+      },
+      {
+        params: {
+          path: ['x13'],
+        },
+      },
+      {
+        params: {
+          path: ['x13', 'x21'],
+        },
+      },
+      {
+        params: {
+          path: ['x13', 'x21', 'x31'],
+        },
+      },
+      {
+        params: {
+          path: ['x13', 'x21', 'x32'],
         },
       },
     ]);
-
-    expect(fetcher.get).to.have.been.called.once;
-    expect(fetcher.get).to.have.been.called.with.exactly('http://test/sitemap', {
-      params: { sc_lang: 'en' },
-    });
-  });
-
-  it('should handle error', async () => {
-    const fetcher = mockFetcher(
-      [
-        {
-          params: {
-            path: ['graphql'],
-          },
-        },
-      ],
-      'error happens'
-    );
-
-    const service = new DisconnectedSitemapService({
-      endpoint: 'http://test1/sitemap',
-      dataFetcher: fetcher,
-    });
-
-    const sitemap = await service.fetchExportSitemap('en');
-
-    expect(sitemap).deep.equal([]);
-
-    expect(fetcher.get).to.have.been.called.once;
-    expect(fetcher.get).to.have.been.called.with.exactly('http://test1/sitemap', {
-      params: { sc_lang: 'en' },
-    });
   });
 });
