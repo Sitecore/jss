@@ -28,20 +28,16 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
     ...layoutData.sitecore.context,
   };
 
-  const routeData = layoutData.sitecore.route;
-
-  const PageLayout = () => (
+  return (
     <ComponentPropsContext value={componentProps}>
       <SitecoreContext<StyleguideSitecoreContextValue>
         componentFactory={componentFactory}
         context={context}
       >
-        <Layout route={routeData} />
+        <Layout layoutData={layoutData} />
       </SitecoreContext>
     </ComponentPropsContext>
   );
-
-  return <PageLayout />;
 };
 
 // This function gets called at request time on server-side.

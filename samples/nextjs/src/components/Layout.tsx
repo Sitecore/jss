@@ -1,10 +1,17 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { useI18n } from 'next-localization';
 import { getPublicUrl } from 'lib/util';
-import { Placeholder, RouteData, VisitorIdentification } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Placeholder,
+  LayoutServiceData,
+  VisitorIdentification,
+  useSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideSitecoreContextValue } from 'lib/component-props';
 
-// Prefix public assets with a public URL to enable compaitibility with Sitecore Experience Editor.
+// Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
 const publicUrl = getPublicUrl();
 
@@ -43,10 +50,25 @@ const Navigation = () => {
 };
 
 type LayoutProps = {
-  route: RouteData;
+  layoutData: LayoutServiceData;
 };
 
-const Layout = ({ route }: LayoutProps): JSX.Element => {
+const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
+  const { updateSitecoreContext } = useSitecoreContext({ updatable: true });
+
+  // Update Sitecore Context if layoutData has changed (i.e. on client-side route change).
+  // Note the context object type here matches the initial value in [[...path]].tsx.
+  useEffect(() => {
+    const context: StyleguideSitecoreContextValue = {
+      route: layoutData.sitecore.route,
+      itemId: layoutData.sitecore.route.itemId,
+      ...layoutData.sitecore.context,
+    };
+    updateSitecoreContext && updateSitecoreContext(context);
+  }, [layoutData]);
+
+  const { route } = layoutData.sitecore;
+
   return (
     <>
       <Head>
