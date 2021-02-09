@@ -6,13 +6,16 @@
         "name": "ItemField",
         "possibleTypes": [
           {
-            "name": "ReferenceField"
+            "name": "RichTextField"
           },
           {
             "name": "NumberField"
           },
           {
             "name": "MultilistField"
+          },
+          {
+            "name": "LookupField"
           },
           {
             "name": "LinkField"
@@ -34,9 +37,6 @@
           },
           {
             "name": "NameValueListField"
-          },
-          {
-            "name": "LookupField"
           }
         ]
       },
@@ -45,7 +45,7 @@
         "name": "Item",
         "possibleTypes": [
           {
-            "name": "UnknownTemplate"
+            "name": "UnknownItem"
           },
           {
             "name": "StyleguideTracking"

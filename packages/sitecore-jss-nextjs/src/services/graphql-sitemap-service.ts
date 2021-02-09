@@ -51,7 +51,7 @@ export class GraphQLSitemapService {
    *          value:"${locale}"
    *        },
    *        {
-   *          name:"haslayout",
+   *          name:"_hasLayout",
    *          value :"true"
    *        }
    *      ]
@@ -92,7 +92,7 @@ export class GraphQLSitemapService {
    *          value:"${locale}"
    *        },
    *        {
-   *          name:"haslayout",
+   *          name:"_hasLayout",
    *          value :"true"
    *        }
    *      ]
@@ -243,7 +243,7 @@ export class GraphQLSitemapService {
             value:"${locale}"
           },
           {
-            name:"haslayout",
+            name:"_hasLayout",
             value :"true"
           }
         ]

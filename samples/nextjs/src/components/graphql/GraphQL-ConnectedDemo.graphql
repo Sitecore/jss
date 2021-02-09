@@ -48,7 +48,7 @@ query ConnectedDemoQuery($datasource: String!, $contextItem: String!) {
     }
 
     # List the children of the current route
-    children(requirePresentation: true) {
+    children(hasLayout: true) {
       id
       # typing fragments can be used anywhere!
       # so in this case, we're grabbing the 'pageTitle'
