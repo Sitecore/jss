@@ -16,14 +16,14 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
     ...on GraphQLIntegratedDemo {
       # Single-line text field
       sample1 {
-        # the 'value' field is a JSON blob that represents the object that
+        # the 'jsonValue' field is a JSON blob that represents the object that
         # should be passed to JSS field rendering helpers (i.e. text, image, link)
+        jsonValue
         value
-        rawValue
       }
       # General Link field
       sample2 {
-        value
+        jsonValue
         # Structured querying of the field's values is possible
         text
         target
@@ -45,20 +45,20 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
     # Get the page title from the app route template
     ...on AppRoute {
       pageTitle {
-        rawValue
+        value
       }
     }
 
     # List the children of the current route
-    children(requirePresentation: true) {
+    children(hasLayout: true) {
       id
       # typing fragments can be used anywhere!
       # so in this case, we're grabbing the 'pageTitle'
       # field on all child route items.
       ...on AppRoute {
         pageTitle {
+          jsonValue
           value
-          rawValue
         }
       }
       url{
