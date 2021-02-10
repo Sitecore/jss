@@ -22,6 +22,8 @@ These instructions you should apply in order to run `next export`:
 1. Define `PUBLIC_URL` in `.env`.
 1. Add scripts in `package.json`:
 	* `"next:export": "next export"`.
-	* For disconnected mode: `"export": "cross-env-shell JSS_MODE=disconnected PORT=3042 EXPORT_MODE=true \"npm-run-all --serial bootstrap next:build next:export\""`,
-	where `PORT` - it's port of your disconnected server
+	* For disconnected mode: 
+		* `"export": "cross-env-shell JSS_MODE=disconnected PORT=3042 EXPORT_MODE=true \"npm-run-all --serial bootstrap next:build next:export\""`,
+		where `PORT` - it's port of your disconnected server.
+		* Run `jss start:disconnected-proxy` before `jss export`. During the build stage nextjs will fetch required data (layout, dictionary, sitemap) from your disconnected server.
 	* For connected mode: `"export:connected": "cross-env-shell EXPORT_MODE=true \"npm-run-all --serial bootstrap next:build next:export\""`.
