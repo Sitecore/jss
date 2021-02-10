@@ -1,18 +1,12 @@
 import chalk from 'chalk';
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
+import { StaticPath } from '../sharedTypes/sitemap';
 
 export type GraphQLSitemapServiceConfig = {
   /**
    * Your Graphql endpoint
    */
   endpoint: string;
-};
-
-type StaticPath = {
-  params: {
-    path: string[];
-  };
-  locale?: string;
 };
 
 type SearchResult = {

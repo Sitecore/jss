@@ -28,6 +28,8 @@ export {
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss';
 
+export { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+
 export * from './constants';
 
 export {
@@ -40,10 +42,14 @@ export { ComponentModule } from './sharedTypes/component-module';
 
 export { ComponentPropsService } from './services/component-props-service';
 
+export { DisconnectedSitemapService } from './services/disconnected-sitemap-service';
+
 export {
   GraphQLSitemapService,
   GraphQLSitemapServiceConfig,
 } from './services/graphql-sitemap-service';
+
+export { StaticPath } from './sharedTypes/sitemap';
 
 export {
   ComponentPropsReactContext,

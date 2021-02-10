@@ -18,24 +18,12 @@ These instructions you should apply in order to run `next export`:
 	1. Delete i18n configuration in `next.config.js`.
 	1. Define language in `package.json` using `config.language` which will be used during export.
 1. Remove `rewrites` in `next.config.js`.
-1. Define `getStaticPaths` in `[[...path]].tsx` and use:
-	```js
-	import { GetStaticPaths } from 'next';
-	import { graphQLSitemapService } from 'lib/graphql-sitemap-service';
-	import config from 'temp/config';
-	import { config as packageConfig } from '../../package.json';
-
-	export const getStaticPaths: GetStaticPaths = async (context) => {
-	  const ROOT_ITEM = `/sitecore/content/${config.jssAppName}/home`;
-	  const paths = await graphQLSitemapService.fetchExportSitemap(packageConfig.language, ROOT_ITEM);
-
-	  return {
-    	paths,
-    	fallback: false,
-	  };
-	}
-	```
-	> The `fallback: true` and `fallback: 'blocking'` modes of `getStaticPaths` are not supported when using next export.
 1. Remove usage of `<VisitorIdentification />` component in `src/Layout.tsx`, since Visitor Identification not available.
 1. Define `PUBLIC_URL` in `.env`.
-1. Add script `"export": "npm-run-all --serial bootstrap next:build next:export"` in package.json.
+1. Add scripts in `package.json`:
+	* `"next:export": "next export"`.
+	* For disconnected mode: 
+		* `"export": "cross-env-shell JSS_MODE=disconnected PORT=3042 EXPORT_MODE=true \"npm-run-all --serial bootstrap next:build next:export\""`,
+		where `PORT` - it's port of your disconnected server.
+		* Run `jss start:disconnected-proxy` before `jss export`. During the build stage nextjs will fetch required data (layout, dictionary, sitemap) from your disconnected server.
+	* For connected mode: `"export:connected": "cross-env-shell EXPORT_MODE=true \"npm-run-all --serial bootstrap next:build next:export\""`.
