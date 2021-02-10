@@ -3,17 +3,17 @@ import NextLink from 'next/link';
 
 interface DataSource {
   sample1: {
-    value: {
+    jsonValue: {
       value: string;
     };
-    rawValue: string;
+    value: string;
   };
   sample2: {
     definition: {
       type: string;
       shared: boolean;
     };
-    value: {
+    jsonValue: {
       value: {
         href: string;
         linktype: string;
@@ -36,8 +36,8 @@ interface ContextItemChild {
     path: string;
   };
   pageTitle: {
-    rawValue: string;
-    value: {
+    value: string;
+    jsonValue: {
       value: string;
     };
   };
@@ -51,7 +51,7 @@ interface GraphQlIntegratedDemoProps {
         id: string;
         children: ContextItemChild[];
         pageTitle: {
-          rawValue: string;
+          value: string;
         };
       };
     };
@@ -80,9 +80,9 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
           <br />
           name: {datasource.name}
           <br />
-          sample1: {datasource.sample1.rawValue}
+          sample1: {datasource.sample1.value}
           <br />
-          sample1 (editable): <Text field={datasource.sample1.value} />
+          sample1 (editable): <Text field={datasource.sample1.jsonValue} />
           <br />
           sample2:
           <br />
@@ -91,7 +91,7 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
             <li>url: {datasource.sample2.url}</li>
             <li>target: {datasource.sample2.target}</li>
             <li>
-              editable: <Link field={datasource.sample2.value} />
+              editable: <Link field={datasource.sample2.jsonValue} />
             </li>
             <li>field type: {datasource.sample2.definition.type}</li>
             <li>field is shared?: {datasource.sample2.definition.shared.toString()}</li>
@@ -103,16 +103,16 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
           <h4>Route Item (via Integrated GraphQL)</h4>
           id: {contextItem.id}
           <br />
-          page title: {contextItem.pageTitle.rawValue}
+          page title: {contextItem.pageTitle.value}
           <br />
           children:
           <ul>
             {contextItem.children.map((child: ContextItemChild) => (
               <li key={child.id}>
                 <NextLink href={child.url.path}>
-                  <a>{child.pageTitle.rawValue}</a>
+                  <a>{child.pageTitle.value}</a>
                 </NextLink>
-                &nbsp; (editable title too! <Text field={child.pageTitle.value} />)
+                &nbsp; (editable title too! <Text field={child.pageTitle.jsonValue} />)
               </li>
             ))}
           </ul>

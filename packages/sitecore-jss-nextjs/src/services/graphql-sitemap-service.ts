@@ -34,7 +34,7 @@ export class GraphQLSitemapService {
    * @default
    * Search query
    * search(
-   *    filter: {
+   *    where: {
    *      AND:[
    *        {
    *           name:"_path",
@@ -45,7 +45,7 @@ export class GraphQLSitemapService {
    *          value:"${locale}"
    *        },
    *        {
-   *          name:"haslayout",
+   *          name:"_hasLayout",
    *          value :"true"
    *        }
    *      ]
@@ -75,7 +75,7 @@ export class GraphQLSitemapService {
    * @default
    * Search query
    * search(
-   *    filter: {
+   *    where: {
    *      AND:[
    *        {
    *           name:"_path",
@@ -86,7 +86,7 @@ export class GraphQLSitemapService {
    *          value:"${locale}"
    *        },
    *        {
-   *          name:"haslayout",
+   *          name:"_hasLayout",
    *          value :"true"
    *        }
    *      ]
@@ -226,7 +226,7 @@ export class GraphQLSitemapService {
     const searchQuery = formatSearchQuery
       ? formatSearchQuery(rootItemId, locale)
       : `search(
-      filter: {
+      where: {
         AND:[
           {
             name:"_path",
@@ -237,7 +237,7 @@ export class GraphQLSitemapService {
             value:"${locale}"
           },
           {
-            name:"haslayout",
+            name:"_hasLayout",
             value :"true"
           }
         ]
