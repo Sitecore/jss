@@ -9,9 +9,18 @@ export { LayoutServiceRequestOptions } from './dataApi';
 
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
 
-export { LayoutService, LayoutServiceInstanceConfig, DataFetcherResolver } from './layout-service';
+export {
+  LayoutService,
+  RestLayoutService,
+  RestLayoutServiceConfig,
+  DataFetcherResolver,
+} from './layout-service';
 
-export { DictionaryService, DictionaryServiceConfig } from './dictionary-service';
+export {
+  DictionaryService,
+  RestDictionaryService,
+  RestDictionaryServiceConfig,
+} from './dictionary-service';
 
 export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
 

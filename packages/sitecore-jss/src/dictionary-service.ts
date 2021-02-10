@@ -4,7 +4,15 @@ import { fetchData } from './dataApi';
 import { DictionaryPhrases, DictionaryServiceData } from './dataModels';
 import { HttpJsonFetcher } from './httpClientInterface';
 
-export type DictionaryServiceConfig = {
+export interface DictionaryService {
+  /**
+   * Fetch dictionary data for a language.
+   * @param {string} language
+   */
+  fetchDictionaryData(language: string): Promise<DictionaryPhrases>;
+}
+
+export type RestDictionaryServiceConfig = {
   /**
    * Your Sitecore instance hostname that is the backend for JSS
    */
@@ -34,18 +42,22 @@ export type DictionaryServiceConfig = {
   cacheTimeout?: number;
 };
 
-export class DictionaryService {
+/**
+ * Fetch dictionary data using the Sitecore Dictionary Service REST API.
+ * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
+ */
+export class RestDictionaryService implements DictionaryService {
   dictionaryCache: NodeCache;
   STD_TTL = 60;
 
-  constructor(private dictionaryServiceConfig: DictionaryServiceConfig) {
+  constructor(private dictionaryServiceConfig: RestDictionaryServiceConfig) {
     this.dictionaryCache = new NodeCache({
       stdTTL: dictionaryServiceConfig.cacheTimeout || this.STD_TTL,
     });
   }
 
   /**
-   * Fetch dictionary data
+   * Fetch dictionary data for a language.
    * @param {string} language
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
-import { DictionaryService } from './dictionary-service';
+import { RestDictionaryService } from './dictionary-service';
 import { DictionaryServiceData } from './dataModels';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
@@ -9,7 +9,7 @@ import { AxiosDataFetcher } from './data-fetcher';
 
 use(spies);
 
-describe('DictionaryService', () => {
+describe('RestDictionaryService', () => {
   let mock: MockAdapter;
 
   before(() => {
@@ -29,7 +29,7 @@ describe('DictionaryService', () => {
       return [200, { ...config, status: 200, statusText: 'ok', phrases: { x: 'x1', y: 'y2' } }];
     });
 
-    const service = new DictionaryService({
+    const service = new RestDictionaryService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -55,7 +55,7 @@ describe('DictionaryService', () => {
         return [200, { ...config, status: 200, statusText: 'ok', phrases: { x: 'x1', y: 'y2' } }];
       });
 
-      const service = new DictionaryService({
+      const service = new RestDictionaryService({
         apiHost: 'http://sctest',
         apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
         siteName: 'supersite',
@@ -94,7 +94,7 @@ describe('DictionaryService', () => {
         return [200, { ...config, status: 200, statusText: 'ok', phrases: { x: 'x1', y: 'y2' } }];
       });
 
-      const service = new DictionaryService({
+      const service = new RestDictionaryService({
         apiHost: 'http://sctest',
         apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
         siteName: 'supersite',
@@ -149,7 +149,7 @@ describe('DictionaryService', () => {
       return [200, { ...config, status: 200, statusText: 'ok', phrases: { x: 'q1', y: 'w2' } }];
     });
 
-    const service = new DictionaryService({
+    const service = new RestDictionaryService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',

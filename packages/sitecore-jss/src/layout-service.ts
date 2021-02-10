@@ -5,12 +5,29 @@ import { HttpJsonFetcher } from './httpClientInterface';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
 
+export interface LayoutService {
+  /**
+   * Fetch layout data for an item.
+   * @param {string} itemPath
+   * @param {string} [language]
+   * @param {IncomingMessage} [req] Request instance
+   * @param {ServerResponse} [res] Response instance
+   * @returns {Promise<LayoutServiceData>} layout data
+   */
+  fetchLayoutData(
+    itemPath: string,
+    language?: string,
+    req?: IncomingMessage,
+    res?: ServerResponse
+  ): Promise<LayoutServiceData>;
+}
+
 export type DataFetcherResolver = <T>(
   req?: IncomingMessage,
   res?: ServerResponse
 ) => HttpJsonFetcher<T>;
 
-export type LayoutServiceInstanceConfig = {
+export type RestLayoutServiceConfig = {
   /**
    * Your Sitecore instance hostname that is the backend for JSS
    */
@@ -54,11 +71,15 @@ interface FetchOptions {
   querystringParams: FetchParams;
 }
 
-export class LayoutService {
-  constructor(private serviceConfig: LayoutServiceInstanceConfig) {}
+/**
+ * Fetch layout data using the Sitecore Layout Service REST API.
+ * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
+ */
+export class RestLayoutService implements LayoutService {
+  constructor(private serviceConfig: RestLayoutServiceConfig) {}
 
   /**
-   * Fetch route data from LayoutService using @see dataApi.fetchRouteData
+   * Fetch layout data for an item.
    * @param {string} itemPath
    * @param {string} [language]
    * @param {IncomingMessage} [req] Request instance
@@ -81,7 +102,7 @@ export class LayoutService {
   }
 
   /**
-   * Fetch route data from LayoutService using @see dataApi.fetchPlaceholderData
+   * Fetch layout data for a particular placeholder.
    * Makes a request to Sitecore Layout Service for the specified placeholder in
    * a specific route item. Allows you to retrieve rendered data for individual placeholders instead of entire routes.
    * @param {string} placeholderName
@@ -108,7 +129,7 @@ export class LayoutService {
   }
 
   /**
-   * Provides fetch options in order to fetch route data
+   * Provides fetch options in order to fetch data
    * @param {string} [language] language will be applied to `sc_lang` param
    * @returns {FetchOptions} fetch options
    */
