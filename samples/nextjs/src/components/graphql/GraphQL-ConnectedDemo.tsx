@@ -35,10 +35,10 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
 
       <p>
         Connected GraphQL executes GraphQL queries directly against the Sitecore GraphQL endpoint.
-        You can review the query execution in the browser devtools network tab. Note that Apollo
-        Client maintains a query cache - so the same query will not execute twice (i.e. after route
-        changes) unless either the page is refreshed, or the <em>fetch policy</em> is set to not use
-        the cache. Consult the Apollo documentation for details.
+        This example runs the query server-side using component-level <code>getStaticProps</code>/
+        <code>getServerSideProps</code>, a feature of the Sitecore JSS Next.js SDK. These are
+        aggregated during the the Next.js page-level <code>getStaticProps</code>/
+        <code>getServerSideProps</code> execution.
       </p>
 
       {data && data.datasource && (
