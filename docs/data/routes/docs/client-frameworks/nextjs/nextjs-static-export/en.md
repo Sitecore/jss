@@ -18,7 +18,7 @@ These instructions you should apply in order to run `next export`:
 	1. Delete i18n configuration in `next.config.js`.
 	1. Define language in `package.json` using `config.language` which will be used during export.
 1. Remove `rewrites` in `next.config.js`.
-1. Remove usage of `<VisitorIdentification />` component in `src/Layout.tsx`, since Visitor Identification not available.
+1. Remove usage of `<VisitorIdentification />` component in `src/components/Layout.tsx`, since Visitor Identification not available.
 1. Define `PUBLIC_URL` in `.env`.
 1. Add scripts in `package.json`:
 	* `"next:export": "next export"`.
