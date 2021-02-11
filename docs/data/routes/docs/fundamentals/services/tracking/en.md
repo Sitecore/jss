@@ -11,6 +11,10 @@ Before using JSS tracking [familiarize yourself with the Sitecore XP features](h
 
 The JSS tracker supports tracking Events, Goals, Outcomes, Campaigns, and Page/Route Views by default. It is designed to be extensible for advanced tracking needs.
 
+> _NOTE_: There are some limitations on the usage of JSS tracking API:
+> * Because tracking data is submitted directly to a Sitecore service, you cannot use the JSS tracking API in [disconnected mode](/docs/fundamentals/application-modes).
+> * JSS tracking API is not working in [connected mode](/docs/fundamentals/application-modes) due to fact that the global and session cookies are not generated.
+
 > _NOTE_: As of Sitecore 10.0.1, Sitecore sets the `Secure` flag on all cookies by default. This can impact JSS local development in *Connected* and *Headless* modes, as the proxied Sitecore cookies (including analytics cookies) will be rejected by the browser if your application is not running under HTTPS, and thus visits will not be tracked and content may not be personalized. To work around this, you can either:
 > * Enable HTTPS in your local environment by modifying the node server, using a local reverse proxy, or using a service such as ngrok.
 >     * If you are running Sitecore in containers for development, you can make use of the Traefik reverse proxy that is provided in the `docker-compose` environment.
@@ -82,14 +86,6 @@ trackingApi
 ### Testing/Viewing Captured Data
 
 To see the data pushed by your tracking code, the easiest way is to use the [xProfile](https://doc.sitecore.net/sitecore_experience_platform/digital_marketing/experience_profile/experience_profile). Sitecore does not store or index the tracked data into xProfile until after the user session ends; thus it is essential to end your session to see the test data. The styleguide tracking example includes an example button that invokes the JSS tracker session abandon method that will cause an instant data flush. This can also be manually invoked on your Sitecore instance by visiting `/sitecore/api/jss/track/flush`.
-
-Because tracking data is submitted directly to a Sitecore service, you cannot use the JSS tracking API in [disconnected mode](/docs/fundamentals/application-modes). There are also limitations when in Connected Mode due to cookie data; see below.
-
-> Not seeing any data in xProfile after ending your session? There are several possible causes:
->
-> * Ensure you have an XP-enabled Sitecore license (XM cannot use tracking)
-> * Your analytics ID has been flagged as robot traffic and dropped. Check the value of the `SC_ANALYTICS_GLOBAL_COOKIE` cookie; if it ends with `|False`, your analytics ID is flagged as a robot. A common cause of this is using [connected mode](/docs/fundamentals/application-modes) with the tracker; unless a pre-existing analytics cookie is in your browser for the layout service host from _integrated mode_, the robot detection process will not operate in connected mode and you will be flagged a robot. Visit the app in integrated mode, clear your analytics cookie, refresh, and move your mouse to be redetected as a human visitor.
-> * Your analytics ID is not [identified](https://doc.sitecore.net/developers/xp/tracking-and-session/tracker/tracking-contacts/identification/index.html), and [indexing anonymous contacts](https://doc.sitecore.net/developers/xp/xconnect/xconnect-search-indexer/enable-anonymous-contact-indexing.html) is disabled, which will prevent your un-identified data from showing up in xProfile.
 
 ## Extension
 
