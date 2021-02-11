@@ -41,13 +41,22 @@ dashes, or underscores. If specifying a path, it must be relative to src/compone
 
 const componentPath = regExResult[1];
 const componentName = regExResult[2];
-const componentOutputPath = scaffoldFile(componentRootPath, generateComponentSrc(componentName));
+const filename = `${componentName}.tsx`;
+
+const componentOutputPath = scaffoldFile(
+  componentRootPath,
+  generateComponentSrc(componentName),
+  filename
+);
 
 let manifestOutputPath = null;
 if (fs.existsSync(componentManifestDefinitionsPath)) {
+  const filename = `${componentName}.sitecore.ts`;
+
   manifestOutputPath = scaffoldFile(
     componentManifestDefinitionsPath,
-    generateComponentManifest(componentName)
+    generateComponentManifest(componentName),
+    filename
   );
 } else {
   console.log(
@@ -91,13 +100,14 @@ if (manifestOutputPath) {
 
 /**
  * Creates a file relative to the specified path if the file doesn't exist. Creates directories as needed.
- * @param rootPath - the root path
- * @param fileContent - the file content
+ * @param {string} rootPath - the root path
+ * @param {string} fileContent - the file content
+ * @param {string} filename - the filename
  * @returns the new file's filepath
  */
-function scaffoldFile(rootPath: string, fileContent: string): string | null {
+function scaffoldFile(rootPath: string, fileContent: string, filename: string): string | null {
   const outputDir = path.join(rootPath, componentPath);
-  const outputFile = path.join(outputDir, `${componentName}.tsx`);
+  const outputFile = path.join(outputDir, filename);
 
   if (fs.existsSync(outputFile)) {
     console.log(chalk.red(`Skipping creating ${outputFile}; already exists.`));
