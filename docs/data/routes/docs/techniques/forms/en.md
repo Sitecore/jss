@@ -274,5 +274,6 @@ export const formFetcher = (formData, endpoint) => fetch(endpoint, {
 
 There are some limitations to be aware of with JSS' Sitecore Forms support.
 
-* Forms cannot be defined or rendered in disconnected (connected, integrated, headless are supported)
-* Conditional fields are not supported by the JSS forms example implementation; however conditional data is returned by the form API
+* Forms cannot be defined or rendered in disconnected (connected, integrated, headless are supported).
+* Conditional fields are not supported by the JSS forms example implementation; however conditional data is returned by the form API.
+* Forms does not support Sitecore Robot detection.
