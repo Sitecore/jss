@@ -1,4 +1,3 @@
-import { AxiosError } from 'axios';
 import { ParsedUrlQuery } from 'querystring';
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import {
@@ -75,7 +74,7 @@ export class SitecorePagePropsFactory {
     context: GetServerSidePropsContext | GetStaticPropsContext
   ): Promise<SitecorePageProps> {
     let locale: string,
-      layoutData: LayoutServiceData,
+      layoutData: LayoutServiceData | null,
       dictionary: DictionaryPhrases,
       componentProps = {},
       notFound = false;
@@ -114,16 +113,13 @@ export class SitecorePagePropsFactory {
           isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).res : undefined
         )
         .catch((error) => {
-          if (error.isAxiosError) {
-            // RestLayoutService uses Axios by default
-            const axiosError = error as AxiosError<LayoutServiceData>;
-            if (axiosError.response?.status === 404) {
-              // Let 404s (invalid path) through for RestLayoutService.
-              // layoutData.sitecore.route will be missing, but
-              // layoutData.sitecore.context will provide valuable information
-              notFound = true;
-              return axiosError.response?.data;
-            }
+          if (error.response?.status === 404) {
+            // Let 404s (invalid path) through, and set notFound.
+            // Our page routes will return this in getStatic/ServerSideProps,
+            // which will trigger our custom 404 page with proper 404 status code.
+            // You could perform additional logging here to track these if desired.
+            notFound = true;
+            return null;
           }
           throw error;
         });
@@ -133,7 +129,7 @@ export class SitecorePagePropsFactory {
     }
 
     // Retrieve component props using side-effects defined on components level
-    if (layoutData.sitecore.route) {
+    if (layoutData?.sitecore?.route) {
       if (isServerSidePropsContext(context)) {
         componentProps = await this.componentPropsService.fetchServerSideComponentProps({
           layoutData: layoutData,

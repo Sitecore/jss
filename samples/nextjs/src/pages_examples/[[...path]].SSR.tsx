@@ -18,8 +18,9 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
     handleExperienceEditorFastRefresh();
   }, []);
 
-  if (notFound) {
-    return <NotFound context={layoutData?.sitecore?.context} />;
+  if (notFound || !layoutData) {
+    // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
+    return <NotFound />;
   }
 
   const context: StyleguideSitecoreContextValue = {
@@ -46,6 +47,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return {
     props,
+    notFound: props.notFound, // Returns custom 404 page with a status code of 404
   };
 };
 
