@@ -3,7 +3,7 @@
 
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
-import { LayoutService } from './layout-service';
+import { RestLayoutService } from './layout-service';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { IncomingMessage, ServerResponse } from 'http';
@@ -12,7 +12,7 @@ import { LayoutServiceData, PlaceholderData } from './dataModels';
 
 use(spies);
 
-describe('LayoutService', () => {
+describe('RestLayoutService', () => {
   let mock: MockAdapter;
 
   before(() => {
@@ -32,7 +32,7 @@ describe('LayoutService', () => {
       return [200, { ...config, data: { sitecore: { context: {}, route: { name: 'xxx' } } } }];
     });
 
-    const service = new LayoutService({
+    const service = new RestLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -82,7 +82,7 @@ describe('LayoutService', () => {
       setHeader: setHeaderSpy,
     } as ServerResponse;
 
-    const service = new LayoutService({
+    const service = new RestLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -139,7 +139,7 @@ describe('LayoutService', () => {
       setHeader: setHeaderSpy,
     } as ServerResponse;
 
-    const service = new LayoutService({
+    const service = new RestLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -174,7 +174,7 @@ describe('LayoutService', () => {
       return [200, { sitecore: { context: {}, route: { name: 'xxx' } } }];
     });
 
-    const service = new LayoutService({
+    const service = new RestLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -230,7 +230,7 @@ describe('LayoutService', () => {
       setHeader: setHeaderSpy,
     } as ServerResponse;
 
-    const service = new LayoutService({
+    const service = new RestLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
@@ -265,7 +265,7 @@ describe('LayoutService', () => {
       ];
     });
 
-    const service = new LayoutService({
+    const service = new RestLayoutService({
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
