@@ -36,7 +36,9 @@ export class SitecoreSitemapFetcher {
 
       return manifest;
     } catch (error) {
-      throw Error("[Disconnected Export] sitecore-import.json doesn't exist. Generate it first");
+      throw Error(
+        "[Disconnected Export] Please make sure you've started the disconnected proxy `npm run start:disconnected-proxy`"
+      );
     }
   }
 
