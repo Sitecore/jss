@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Navigation from './Navigation';
 import { withRouter } from 'react-router';
 import SearchBox from './SearchBox';
 import { NavLink } from 'react-router-dom';
-import sidenav from '../sidenav';
 import Menu from 'antd/lib/menu';
 import 'antd/lib/menu/style/index.css';
 const SubMenu = Menu.SubMenu;
@@ -58,7 +57,7 @@ class SideNav extends React.Component {
     const searchbox = (this.props.useSearch == 'true') ? <SearchBox /> : '';
 
     return (
-      <div className="side-nav">                           
+      <div className="side-nav">
         {searchbox}
 
         <Menu
@@ -68,11 +67,11 @@ class SideNav extends React.Component {
           selectable={false}
           mode="inline"
         >
-          {sidenav[navkey].children.map((menuItem) => renderMenu(`/${sidenav[navkey].url}`, menuItem, history))}
+          {Navigation[navkey].children.map((menuItem) => renderMenu(`/${Navigation[navkey].url}`, menuItem, history))}
         </Menu>
 
         <div className="navbar-nav bd-navbar-nav flex-column">
-          {sidenav[navkey].links.map(linkItem => (
+          {Navigation[navkey].links.map(linkItem => (
             <NavLink to={"/"+linkItem.url} className={linkItem.className}>
               {linkItem.displayName}
             </NavLink>
