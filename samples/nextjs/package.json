@@ -8,7 +8,6 @@
     "rootPlaceholders": [
       "jss-main"
     ],
-    "sitecoreDistPath": "/dist/JssNextWeb",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphqlEndpointPath": "/sitecore/api/graph/edge",
     "language": "en"
