@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import {
   GraphQLSitemapService,
   StaticPath,
@@ -6,7 +7,6 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { GetStaticPathsContext } from 'next';
 import config from 'temp/config';
-import manifest from 'sitecore/manifest/sitecore-import.json';
 import { config as packageConfig } from '../../package.json';
 
 export class SitecoreSitemapFetcher {
@@ -21,8 +21,25 @@ export class SitecoreSitemapFetcher {
     });
 
     this._disconnectedSitemapService = new DisconnectedSitemapService(
-      (manifest as unknown) as ManifestInstance
+      (this.getManifest() as unknown) as ManifestInstance
     );
+  }
+
+  /**
+   * Get sitecore-import.json manifest
+   */
+  private getManifest() {
+    if (process.env.JSS_MODE !== 'disconnected') return null;
+
+    try {
+      const manifest = require('sitecore/manifest/sitecore-import.json');
+
+      return manifest;
+    } catch (error) {
+      throw Error(
+        "[Disconnected Export] Please make sure you've started the disconnected proxy `npm run start:disconnected-proxy`"
+      );
+    }
   }
 
   /**
