@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect, spy, use } from 'chai';
+import mcache from 'memory-cache';
 import spies from 'chai-spies';
 import { RestDictionaryService } from './dictionary-service';
 import { DictionaryServiceData } from './dataModels';
@@ -18,6 +19,7 @@ describe('RestDictionaryService', () => {
 
   afterEach(() => {
     mock.reset();
+    mcache.clear();
   });
 
   after(() => {

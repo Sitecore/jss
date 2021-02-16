@@ -1,4 +1,4 @@
-import NodeCache from 'node-cache';
+import mcache from 'memory-cache';
 import { AxiosDataFetcher } from './data-fetcher';
 import { fetchData } from './dataApi';
 import { DictionaryPhrases, DictionaryServiceData } from './dataModels';
@@ -47,14 +47,9 @@ export type RestDictionaryServiceConfig = {
  * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
  */
 export class RestDictionaryService implements DictionaryService {
-  dictionaryCache: NodeCache;
   STD_TTL = 60;
 
-  constructor(private dictionaryServiceConfig: RestDictionaryServiceConfig) {
-    this.dictionaryCache = new NodeCache({
-      stdTTL: dictionaryServiceConfig.cacheTimeout || this.STD_TTL,
-    });
-  }
+  constructor(private dictionaryServiceConfig: RestDictionaryServiceConfig) {}
 
   /**
    * Fetch dictionary data for a language.
@@ -73,7 +68,7 @@ export class RestDictionaryService implements DictionaryService {
     const dictionaryServiceUrl = this.getUrl(language);
 
     if (cacheEnabled) {
-      const cachedBody = this.dictionaryCache.get<DictionaryPhrases>(dictionaryServiceUrl);
+      const cachedBody = mcache.get(dictionaryServiceUrl) as DictionaryPhrases;
 
       if (cachedBody) {
         return cachedBody;
@@ -85,7 +80,7 @@ export class RestDictionaryService implements DictionaryService {
     });
 
     if (cacheEnabled) {
-      this.dictionaryCache.set(dictionaryServiceUrl, response.phrases, cacheTimeout);
+      mcache.put(dictionaryServiceUrl, response.phrases, cacheTimeout);
     }
 
     return response.phrases;
