@@ -7,7 +7,7 @@ placeholders:
   - componentName: ArticleContainer
     fields:
       sidenav:
-        value: jssConnected
+        value: connectedDemo
       useSearch:
         value: 'false'
     placeholders:
