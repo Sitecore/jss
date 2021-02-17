@@ -19,7 +19,7 @@ title: Release Notes
 * [PR #548](https://github.com/Sitecore/jss/pull/548) [sitecore-jss-dev-tools] `jss deploy` doesn't exit on success
 * [PR #541](https://github.com/Sitecore/jss/pull/541) [sitecore-jss-dev-tools][sitecore-jss-cli] Replace old and security vulnerable `request` and `axios` NPM packages with latest version of `axios` (>=0.21.1)
 * [PR #506](https://github.com/Sitecore/jss/pull/506) [React sample] `Cannot read property 'sitecore' of null`, when 404 and routeData is null
-* [PR #538](https://github.com/Sitecore/jss/pull/538) [sitecore-jss-react] Specifying a custom error component via the Placeholder's `errorComponent` prop caused an "Invalid prop" error.
+* [PR #575](https://github.com/Sitecore/jss/pull/575) [sitecore-jss-react] Specifying a custom error component via the Placeholder's `errorComponent` prop caused an "Invalid prop" error.
 
 ## Sitecore JSS 15.0.1
 
