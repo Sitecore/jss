@@ -70,6 +70,6 @@ The `componentProps` contain data fetched by `ComponentPropsService`. The `Compo
 
 If the Layout Service returns a `404` status for our page route, it will update the value of `notFound` to `true`, triggering our custom [NotFound](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/NotFound.tsx) page with the correct `404` status. 
 
-## Experience Editor (Preview)
+## Experience Editor (Next.js Preview Context)
 
 While working in the Experience Editor, the sample Next.js application is in [preview](https://nextjs.org/docs/advanced-features/preview-mode)  mode. The `SitecorePagePropsFactory` uses the `editingDataService`. The service uses `layoutData`,  `dictionary`, and `language` data sent with the editing request in `context.previewData`.
