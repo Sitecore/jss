@@ -14,7 +14,7 @@ You can serve your JSS Next.js application as static HTML files using any static
 > * Visitor identification. 
 > * The default image `loader` used by the `next/image` component.
 >
-> See the  Next.js  [Static HTML Export Caveats](https://nextjs.org/docs/advanced-features/static-html-export/) documentation for more information.
+> See the  Next.js  [Static HTML Export Caveats](https://nextjs.org/docs/advanced-features/static-html-export/#caveats) documentation for more information.
 
 To export your JSS Next.js application as static HTML files, you must: 
 
