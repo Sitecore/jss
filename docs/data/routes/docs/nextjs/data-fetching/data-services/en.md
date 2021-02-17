@@ -6,7 +6,7 @@ title: Data services used by Next.js with JSS
 # Data services used by Next.js with JSS
 The sample app contains `SitecorePagePropsFactory` in `src/lib/page-props-factory.ts`. This factory is responsible for fetching all needed data in order to generate `SitecorePageProps`, it exposes public method `create(context: GetServerSidePropsContext | GetStaticPropsContext)`. Read more about `context` argument [here](https://nextjs.org/docs/basic-features/data-fetching). Definition of `SitecorePageProps` you can look at [`src/lib/page-props.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/page-props.ts).
 
-In case if you need some data which needed by every page you can fetch it in `SitecorePagePropsFactory` and return it with other properties.
+In case if you need some data which needed by every page the ideal place is to fetch it in `SitecorePagePropsFactory` and return it with other properties.
 
 Currently, we are using standard REST-based dictionary and layout services. In the near future we'll also have GraphQL-based implementations available (for Sitecore Experience Edge).
 
