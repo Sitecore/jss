@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
-import NotFound from 'components/NotFound';
+import NotFound from 'src/NotFound';
 import {
   SitecoreContext,
   ComponentPropsContext,
   handleExperienceEditorFastRefresh,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import Layout from 'components/Layout';
+import Layout from 'src/Layout';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
