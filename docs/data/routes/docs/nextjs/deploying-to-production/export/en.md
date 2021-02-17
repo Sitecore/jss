@@ -18,8 +18,8 @@ You can serve your JSS Next.js application as static HTML files using any static
 
 To export your JSS Next.js application as static HTML files, you must: 
 
-1. [Prepare your application for static HTML export]().
-2. [Export the application]()
+1. Prepare your application for static HTML export.
+2. Export the application
 
 ## Prepare your application for static HTML export
 
