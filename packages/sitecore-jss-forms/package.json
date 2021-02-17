@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-forms",
-  "version": "16.0.0-canary.47",
+  "version": "16.0.0-canary.48",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -42,7 +42,7 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.47"
+    "@sitecore-jss/sitecore-jss": "^16.0.0-canary.48"
   },
   "description": "",
   "types": "types/index.d.ts",
