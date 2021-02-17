@@ -231,7 +231,7 @@ describe('<Placeholder />', () => {
   it('should render error message on error', () => {
     const componentFactory: ComponentFactory = (componentName: string) => {
       const components = new Map<string, React.FC>();
-  
+
       const Home: React.FC<any> = ({ rendering }) => (
         <div className="home-mock">
           <Placeholder name="main" rendering={rendering} />
@@ -240,12 +240,14 @@ describe('<Placeholder />', () => {
       Home.propTypes = {
         placeholders: PropTypes.object,
       };
-    
+
       components.set('Home', Home);
-      components.set('ThrowError', () => { throw Error("an error occured") });
+      components.set('ThrowError', () => {
+        throw Error('an error occured');
+      });
       return components.get(componentName) || null;
     };
-  
+
     const route: any = {
       placeholders: {
         main: [
@@ -258,11 +260,7 @@ describe('<Placeholder />', () => {
     const phKey = 'main';
 
     const renderedComponent = mount(
-      <Placeholder
-        name={phKey}
-        rendering={route}
-        componentFactory={componentFactory}
-      />
+      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
     );
     expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
   });
@@ -270,7 +268,7 @@ describe('<Placeholder />', () => {
   it('should render custom errorComponent on error, if provided', () => {
     const componentFactory: ComponentFactory = (componentName: string) => {
       const components = new Map<string, React.FC>();
-  
+
       const Home: React.FC<any> = ({ rendering }) => (
         <div className="home-mock">
           <Placeholder name="main" rendering={rendering} />
@@ -281,14 +279,14 @@ describe('<Placeholder />', () => {
       };
 
       components.set('Home', Home);
-      components.set('ThrowError', () => { throw Error("an error occured") });
+      components.set('ThrowError', () => {
+        throw Error('an error occured');
+      });
       return components.get(componentName) || null;
     };
 
-    const CustomError: React.FC<any> = () => (
-      <div className="custom-error">Custom Error</div>
-    );
-  
+    const CustomError: React.FC<any> = () => <div className="custom-error">Custom Error</div>;
+
     const route: any = {
       placeholders: {
         main: [
