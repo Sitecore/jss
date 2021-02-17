@@ -51,7 +51,7 @@ export interface PlaceholderProps {
    * A component that is rendered in place of the placeholder when an error occurs rendering
    * the placeholder
    */
-  errorComponent?: React.ComponentClass<ErrorComponentProps> | React.SFC<ErrorComponentProps>;
+  errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -73,7 +73,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     ]),
     errorComponent: PropTypes.oneOfType([
       PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.object as Requireable<React.SFC<unknown>>,
+      PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
   };
 
