@@ -152,3 +152,7 @@ To create the `MyProject` solution:
 
 8. When prompted, log into Sitecore via your browser, and accept the device authorization.
 9. Wait for the startup script to open browser tabs for the [rendered site](https://www.myproject.localhost/) and the [Sitecore Launchpad](https://cm.myproject.localhost/sitecore/).
+
+### Rebuild search indexes
+
+After running `.\up.ps1` for the first time, or if you ever run `\docker\clean.ps1`, you will need to [rebuild the search indexes](https://doc.sitecore.com/developers/101/platform-administration-and-architecture/en/rebuild-search-indexes.html).
