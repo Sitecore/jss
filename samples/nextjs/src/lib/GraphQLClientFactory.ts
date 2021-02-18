@@ -46,7 +46,7 @@ export default function GraphQLClientFactory(
   /* HTTP link selection: default to batched + APQ */
   const link = createPersistedQueryLink().concat(
     new BatchHttpLink({
-      uri: endpoint ?? config.graphqlEndpoint,
+      uri: endpoint ?? config.graphQLEndpoint,
       credentials: 'include',
       headers: {
         connection: 'keep-alive',

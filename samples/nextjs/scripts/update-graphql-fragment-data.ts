@@ -24,9 +24,9 @@ try {
   process.exit(1);
 }
 
-console.log(`Updating GraphQL fragment type data from ${jssConfig.graphqlEndpoint}...`);
+console.log(`Updating GraphQL fragment type data from ${jssConfig.graphQLEndpoint}...`);
 
-fetch(jssConfig.graphqlEndpoint, {
+fetch(jssConfig.graphQLEndpoint, {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
