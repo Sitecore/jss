@@ -5,7 +5,9 @@ title: Connect to the Experience Editor
 ---
 # Walkthrough: Connect your Next.js app to the Experience Editor
 
-A Next.js application utilizes the [JSS Http rendering engine](/docs/fundamentals/services/view-engine) feature for integration to the Sitecore Experience Editor. This article will guide you through the required configuration.
+A Next.js application utilizes the [JSS Http rendering engine](/docs/fundamentals/services/view-engine#http-rendering-engine) feature for integration to the Sitecore Experience Editor. This article will guide you through the required configuration.
+
+> Note the `dotnet new` template for Next.js includes pre-configured integration with the Experience Editor.
 
 ## Step 1: Sitecore configuration
 
@@ -51,7 +53,7 @@ You have 2 options for setting this on the server-side.
 
 **Option 1: Environment variable**
 
-Set the `SITECORE_JSS_EDITING_SECRET` environment variable. This could be preferred for container or hosted production environments (e.g. Vercel).
+Set the `SITECORE_JSS_EDITING_SECRET` environment variable. This could be preferred for container or hosted production environments.
 
 **Option 2: Sitecore setting**
 
@@ -108,4 +110,4 @@ handleExperienceEditorFastRefresh(true);
 
 Finally, make sure the Next.js application is running (by default, on `http://localhost:3000`). 
 
-Note you may use any of the start commands. Development mode with Fast Refresh will be particularly useful during active development.
+Note you may technically use any of the JSS and Next.js application modes, though more than likely you'll use JSS in connected mode with either Next.js development or production mode. Next.js development mode with Fast Refresh will be particularly useful during active development.
