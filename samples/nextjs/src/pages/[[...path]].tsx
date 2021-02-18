@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import NotFound from 'components/NotFound';
-import Layout from 'components/Layout';
+import NotFound from 'src/NotFound';
+import Layout from 'src/Layout';
 import {
   SitecoreContext,
   ComponentPropsContext,
