@@ -32,6 +32,7 @@ To create a solution from the Getting Started template, you must complete the fo
 - [Install the prerequisites](#install-the-prerequisites)
 - [Install the template](#install-the-template)
 - [Create the MyProject solution](#create-the-myproject-solution)
+- [Rebuild search indexes](#rebuild-search-indexes)
 
 ### Install the prerequisites
 
@@ -67,7 +68,7 @@ To install the template:
 
 ### Create the MyProject solution
 
-You can name you solution anything you like, but we name the solution `MyProject` in this example.
+You can name your solution anything you like, but we name the solution `MyProject` in this example.
 
 To create the `MyProject` solution:
 
@@ -113,9 +114,9 @@ To create the `MyProject` solution:
 
 6. You use the provided `init.ps1` script to prepare the following items for the Sitecore container environment:
 
-   * A valid/trusted wildcard certificate for `*.myproject.localhost`
-   * Hosts file entries for `myproject.localhost`
-   * Required environment variable values in `.env` for the Sitecore instance
+   * A valid/trusted wildcard certificate for `*.myproject.localhost`.
+   * Hosts file entries for `myproject.localhost`.
+   * Required environment variable values in `.env` for the Sitecore instance.
 
    > * Using non-Latin characters in the project/folder name can give unexpected results because of character limitations in Docker registry names and URLs.
    >
@@ -129,7 +130,7 @@ To create the `MyProject` solution:
    .\init.ps1 -InitEnv -LicenseXmlPath "<C:\path\to\license.xml>" -AdminPassword "<desired password>"
    ```
 
-   > You must use an elevated/Administrator Windows PowerShell 5.1 prompt for this command, PowerShell 7 is not supported at this time.
+   > You must use an elevated/Administrator Windows PowerShell 5.1 prompt for this command. PowerShell 7 is not supported at this time.
 
    Out of the box, this example does not include a reference to the `.env` file in the `.gitignore` file. This is so that developers can share initialized environment variables. If you check your `.env` file into source control, other developers can prepare a certificate and hosts file entries by simply running the `init.ps1` script.
 
