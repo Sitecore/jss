@@ -15,11 +15,17 @@ interface PackageJson {
 }
 
 /**
- * Escapes a string literal for use in RegEx
- * @param {string} literal
+ * Apply name replacement on a given string
+ * @param {string} value String to perform replacement on
+ * @param {string} replaceName Name value to replace
+ * @param {string} withName Name value to replace with
  */
-function escapeRegex(literal: string) {
-  return literal.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+export function applyNameReplacement(value: string, replaceName: string, withName: string) {
+  // Escapes a string literal for use in RegEx
+  const escapeLiteral = (literal: string) => {
+    return literal.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+  };
+  return value.replace(RegExp(escapeLiteral(replaceName), 'g'), withName);
 }
 
 /**
@@ -30,17 +36,17 @@ function escapeRegex(literal: string) {
 export function applyNameToPackageJson(pkg: PackageJson, name: string, replaceName?: string) {
   pkg.name = name; // root name will never match "replaceName", so always set directly
   pkg.config.appName = replaceName
-    ? pkg.config.appName.replace(RegExp(escapeRegex(replaceName), 'g'), name)
+    ? applyNameReplacement(pkg.config.appName, replaceName, name)
     : name;
 
   if (pkg.config.sitecoreDistPath) {
     pkg.config.sitecoreDistPath = replaceName
-      ? pkg.config.sitecoreDistPath.replace(RegExp(escapeRegex(replaceName), 'g'), name)
+      ? applyNameReplacement(pkg.config.sitecoreDistPath, replaceName, name)
       : `/dist/${name}`;
   }
   if (pkg.config.graphQLEndpointPath) {
     pkg.config.graphQLEndpointPath = replaceName
-      ? pkg.config.graphQLEndpointPath.replace(RegExp(escapeRegex(replaceName), 'g'), name)
+      ? applyNameReplacement(pkg.config.graphQLEndpointPath, replaceName, name)
       : `/api/${name}`;
   }
   return pkg;
@@ -66,7 +72,7 @@ export function applyHostNameToSitecoreConfig(configXml: string, hostName: strin
  */
 export function applyNameToSitecoreConfig(configXml: string, name: string, replaceName?: string) {
   if (replaceName) {
-    return configXml.replace(RegExp(escapeRegex(replaceName), 'g'), name);
+    return applyNameReplacement(configXml, replaceName, name);
   }
 
   // replace site name
@@ -121,9 +127,9 @@ export function applyNameToProject(
   hostName: string,
   replaceName?: string
 ) {
+  // Apply name to package.json file
   console.log(chalk.cyan(`Applying name ${name} to package.json...`));
 
-  // Apply name to package.json file
   const packagePath = path.join(projectFolder, 'package.json');
   let pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
   pkg = applyNameToPackageJson(pkg, name, replaceName);

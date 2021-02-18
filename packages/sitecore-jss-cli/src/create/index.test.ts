@@ -4,7 +4,44 @@ import {
   applyNameToPackageJson,
   applyHostNameToSitecoreConfig,
   applyNameToSitecoreConfig,
+  applyNameReplacement,
 } from './index';
+
+describe('applyNameReplacement', () => {
+  it('should replace name', () => {
+    const result = applyNameReplacement('this is a test.', 'test', 'passing test');
+    expect(result).to.equal('this is a passing test.');
+  });
+
+  it('should replace multiple names', () => {
+    const result = applyNameReplacement('this is a test. yay for testing.', 'test', 'passing test');
+    expect(result).to.equal('this is a passing test. yay for passing testing.');
+  });
+
+  it('should replace multiline', () => {
+    const result = applyNameReplacement(
+      `
+<testNode>
+    <a>this is a test</a>
+</testNode>
+      `,
+      'test',
+      'passingTest'
+    );
+    expect(result).to.equal(
+      `
+<passingTestNode>
+    <a>this is a passingTest</a>
+</passingTestNode>
+      `
+    );
+  });
+
+  it('should handle special RegEx characters in replaceName', () => {
+    const result = applyNameReplacement('this is a te$+.', 'te$+', 'passing test');
+    expect(result).to.equal('this is a passing test.');
+  });
+});
 
 describe('applyNameToPackageJson', () => {
   it('should apply name using defaults', () => {
