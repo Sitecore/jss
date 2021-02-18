@@ -33,6 +33,7 @@ To create a solution from the Getting Started template, you must complete the fo
 - [Install the template](#install-the-template)
 - [Create the MyProject solution](#create-the-myproject-solution)
 - [Rebuild search indexes](#rebuild-search-indexes)
+- [Add a language and import (Optional)](#add-a-language-and-import-optional)
 
 ### Install the prerequisites
 
@@ -156,3 +157,39 @@ To create the `MyProject` solution:
 ### Rebuild search indexes
 
 After running `.\up.ps1` for the first time, or if you ever run `\docker\clean.ps1`, you will need to [rebuild the search indexes](https://doc.sitecore.com/developers/101/platform-administration-and-architecture/en/rebuild-search-indexes.html).
+
+### Add a language and import it(Optional)
+
+To add a language to your JSS Next.js application, you must: 
+
+1. [Add the language to /sitecore/system](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/add-a-new-language-to-sitecore-settings.html). In this example, use `da-DK`.
+
+2. Deploy and publish the language:
+   ```bash
+      jss deploy items --language=da-DK --includeContent --includeDictionary
+      dotnet sitecore publish
+   ```
+   The language links in the sample application should work now. 
+   
+   
+
+To import the deployed language into your serialized items, you must: 
+1. Add a serialization configuration for languages to `InitItems`.
+
+   ```
+   {
+   	"name": "languages",
+   	"path": "/sitecore/system/Languages",
+   	"scope": "descendantsOnly",
+   	"rules": [
+   		{
+   			"path": "/en",
+   			"scope": "ignored"
+   		}
+   	]
+   }
+   ```
+
+   
+
+2. Run `dotnet sitecore ser pull`.
