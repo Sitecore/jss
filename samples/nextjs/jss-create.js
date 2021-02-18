@@ -15,7 +15,7 @@ const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/crea
 module.exports = function createJssProject(argv, nextSteps) {
   console.log(`Executing create script: ${__filename}...`);
 
-  applyNameToProject(__dirname, argv.name, argv.hostName);
+  applyNameToProject(__dirname, argv.name, argv.hostName, 'JssNextWeb');
 
   return nextSteps;
 };

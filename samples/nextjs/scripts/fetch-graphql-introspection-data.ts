@@ -21,9 +21,9 @@ try {
   process.exit(1);
 }
 
-console.log(`Fetch graphql introspection data from ${jssConfig.graphqlEndpoint}...`);
+console.log(`Fetch graphql introspection data from ${jssConfig.graphQLEndpoint}...`);
 
-fetch(jssConfig.graphqlEndpoint, {
+fetch(jssConfig.graphQLEndpoint, {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
