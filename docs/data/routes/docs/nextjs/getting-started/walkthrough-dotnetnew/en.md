@@ -15,7 +15,7 @@ The template includes:
 
  > The included `docker-compose.yml` is a stock XP0 environment from the Sitecore Container Support Package. All changes/additions for this solution are included in the `docker-compose.override.yml`.
 
-* Scripted invocation of `jss deploy` and `jss import` to initialize a Next.js application.
+* Scripted invocation of `jss create` and `jss deploy` to initialize a Next.js application.
 
 * Sitecore Content Serialization configuration.
 
