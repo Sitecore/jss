@@ -5,7 +5,7 @@ title: Walkthrough with `dotnet new`
 ---
 # Walkthrough: Using the .NET starter template for JSS Next.js projects
 
-Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Sitecore Containers](https://containers.doc.sitecore.com/), the [Sitecore Next.js SDK](https://jss.sitecore.com/), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html). 
+Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html), the [Sitecore Next.js SDK](https://jss.sitecore.com/), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html). 
 
 For simplicity, this solution does not implement Sitecore Helix conventions for solution architecture. As you begin building your Sitecore solution, you should review [Sitecore Helix](https://helix.sitecore.net/) and the [Sitecore Helix Examples](https://sitecore.github.io/Helix.Examples/) for guidance on implementing a modular solution architecture.
 
@@ -39,6 +39,10 @@ To create a solution from the Getting Started template, you must complete the fo
 
 Before you can install the template and create a solution, you must make sure that you have these software components installed on your workstation:
 
+* A valid Sitecore license file.
+
+* Windows PowerShell 5.1. PowerShell 7 is not supported at this time.
+
 * [NodeJs 14.x](https://nodejs.org/) (we recommend using the latest LTS release.)
 
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) (check your installed version with the `dotnet --version` command)
@@ -48,6 +52,8 @@ Before you can install the template and create a solution, you must make sure th
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/install/), with Windows Containers enabled
+
+  
 
 See the [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html) documentation for more information on system requirements.
 
@@ -70,6 +76,8 @@ To install the template:
 ### Create the MyProject solution
 
 You can name your solution anything you like, but we name the solution `MyProject` in this example.
+
+> * Using non-Latin characters in the project/folder name can give unexpected results because of character limitations in Docker registry names and URLs.
 
 To create the `MyProject` solution:
 
@@ -111,39 +119,50 @@ To create the `MyProject` solution:
    dotnet new sitecore.nextjs.gettingstarted -n MyProject 
    ```
 
-5. Go to the `MyProject` folder
+5. Go to the `MyProject` folder.
 
-6. You use the provided `init.ps1` script to prepare the following items for the Sitecore container environment:
+6. To prepare the the Sitecore container environment, use the provided `init.ps1` script:
 
-   * A valid/trusted wildcard certificate for `*.myproject.localhost`.
-   * Hosts file entries for `myproject.localhost`.
-   * Required environment variable values in `.env` for the Sitecore instance.
-
-   > * Using non-Latin characters in the project/folder name can give unexpected results because of character limitations in Docker registry names and URLs.
-   >
-   > * See the [Sitecore Containers documentation](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html) for more information on these preparation steps.
-
-   Running the `init.ps1` script with the `-InitEnv` switch populates the `.env` variables required by the Sitecore container environment. It leverages `mkcert` to generate certificates.
-
-   To prepare the Sitecore container environment:
-
-   ```powershell
+   ```
    .\init.ps1 -InitEnv -LicenseXmlPath "<C:\path\to\license.xml>" -AdminPassword "<desired password>"
    ```
 
-   > You must use an elevated/Administrator Windows PowerShell 5.1 prompt for this command. PowerShell 7 is not supported at this time.
+   The `.\init.ps1` script provides: 
 
-   Out of the box, this example does not include a reference to the `.env` file in the `.gitignore` file. This is so that developers can share initialized environment variables. If you check your `.env` file into source control, other developers can prepare a certificate and hosts file entries by simply running the `init.ps1` script.
+   * A valid privately signed wildcard certificate for `*.myproject.localhost`.
 
-   If your Sitecore solution and/or its data are sensitive, we recommend that you keep the `.env` file excluded from source control and provide other means of centrally configuring the information within.
+     > On local environments, Sitecore instances are installed using privately signed certificates. `.\init.ps1` generates certificates using  the `mkcert` utility. Node.js rejects these certificates because their root CAs are not known. 
+     >
+     > If this is your first time using `mkcert` with Node.js, you will need to manually set the  [NODE_EXTRA_CA_CERTS](https://nodejs.org/api/cli.html#cli_node_extra_ca_certs_file) environment variable to prevent HTTPS errors, such as:
+     >
+     > ```
+     > Error: unable to verify the first certificate
+     >  ...
+     >  type: 'system',
+     >   errno: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
+     >   code: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE'
+     > ```
+     >
+     > The `.\init.ps1` script will instruct you on how to set the `NODE_EXTRA_CA_CERTS` environment variable in your user or system environment variables: 
+     >
+     > ```
+     > To avoid HTTPS errors, set the NODE_EXTRA_CA_CERTS environment variable using the following commmand:
+     > setx NODE_EXTRA_CA_CERTS C:\Users\<username>\AppData\Local\mkcert\rootCA.pem
+     > 
+     > You will need to restart your terminal or VS Code for it to take effect.
+     > ```
 
-   > If this is your first time using `mkcert` with Node.js, you must set the `NODE_EXTRA_CA_CERTS` environment variable in your user or system environment variables. For example: 
-   >
-   > ```powershell
-   > setx NODE_EXTRA_CA_CERTS C:\<path to user>\AppData\Local\mkcert\rootCA.pem
-   > ```
-   >
-   > Restart your terminal or VS Code for the environment variable to take effect.
+   * Hosts file entries for `myproject.localhost`.
+
+   * Required environment variable values in `.env` for the Sitecore instance.
+
+     > Running the `init.ps1` script with the `-InitEnv` switch populates the `.env` variables required by the Sitecore container environment. 
+     >
+     > The sample application does not exclude the `.env` file from source control. This is so that developers can share initialized environment variables. 
+     >
+     > If you add your `.env` file into source control, other developers can prepare a certificate and hosts file entries by simply running the `init.ps1` script.
+     >
+     > If your Sitecore solution and/or its data are sensitive, we recommend that you exclude the `.env` file from source control and provide other means of centrally configuring the information within.
 
 7. Download the Sitecore Docker images, install and configure the containers and JSS application:
 
@@ -152,6 +171,7 @@ To create the `MyProject` solution:
    ```
 
 8. When prompted, log into Sitecore via your browser, and accept the device authorization.
+
 9. Wait for the startup script to open browser tabs for the [rendered site](https://www.myproject.localhost/) and the [Sitecore Launchpad](https://cm.myproject.localhost/sitecore/).
 
 ### Rebuild search indexes
@@ -170,7 +190,6 @@ To add a language to your JSS Next.js application, you must:
       dotnet sitecore publish
    ```
    The language links in the sample application should work now. 
-   
    
 
 To import the deployed language into your serialized items, you must: 
