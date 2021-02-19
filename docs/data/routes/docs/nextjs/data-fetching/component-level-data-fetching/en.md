@@ -5,7 +5,7 @@ title: Component-level data fetching
 ---
 # Component-level data fetching
 
-Next.js provides ability to pre-render pages at build time using [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation). Expected that you will fetch all required data in `getStaticProps`.
+Next.js provides ability to pre-render pages at build time using [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) or you can pre-render page on each request using [getServerSideProps](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering). Expected that you will fetch all required data in `getStaticProps/getServerSideProps`.
 We provide ability to do it using [SitecorePagePropsFactory](/docs/nextjs/data-fetching/data-services).
 
 So, we can pre-render pages with data fetched on the page level. What if we want to fetch component specific data on component level? Our sample provides a simple way to do it. `SitecorePagePropsFactory` is using `ComponentPropsService`.
@@ -36,15 +36,16 @@ import {
   GetServerSideComponentProps,
   GetStaticComponentProps,
   useComponentProps,
+  ComponentRendering,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps } from 'lib/component-props';
 
 type PostEntity = {
   title: string;
   body: string;
 };
 
-type ContentBlockProps = StyleguideComponentProps & {
+type ContentBlockProps = {
+  rendering: ComponentRendering;
   fields: {
     heading: Field<string>;
     content: Field<string>;
