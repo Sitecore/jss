@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: Data services used by Next.js with JSS
 ---
 
-# Data services used by Next.js with JSS
+# Data Services Used by Next.js with JSS
 
 JSS Next.js applications support both forms of pre-rendering provided by Next.js: 
 
