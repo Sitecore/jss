@@ -40,26 +40,18 @@ To create a solution from the Getting Started template, you must complete the fo
 Before you can install the template and create a solution, you must make sure that you have these software components installed on your workstation:
 
 * A valid Sitecore license file.
-
 * Windows PowerShell 5.1. PowerShell 7 is not supported at this time.
-
-* [NodeJs 14.x](https://nodejs.org/) (we recommend using the latest LTS release.)
-
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) (check your installed version with the `dotnet --version` command)
-
-* [.NET Framework 4.8 SDK ](https://dotnet.microsoft.com/download/dotnet-framework/net48) (see the [Microsoft procedure for checking .NET Framework versions](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed))
-
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-
-* [Docker for Windows](https://docs.docker.com/docker-for-windows/install/), with Windows Containers enabled
-
-  
+* [NodeJs 14.x](https://nodejs.org/) (we recommend using the latest LTS release).
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) (check your installed version with the `dotnet --version` command).
+* [.NET Framework 4.8 SDK ](https://dotnet.microsoft.com/download/dotnet-framework/net48) (see the [Microsoft procedure for checking .NET Framework versions](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)).
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* [Docker for Windows](https://docs.docker.com/docker-for-windows/install/), with Windows Containers enabled.
 
 See the [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html) documentation for more information on system requirements.
 
 ### Install the template
 
-You download and install the template in your file system. Afterward, you can create solutions based on the template.
+Before you can create a solution, you must download and install the .NET starter template in your file system. 
 
 To install the template:
 
@@ -129,7 +121,7 @@ To create the `MyProject` solution:
 
    The `.\init.ps1` script provides: 
 
-   * A valid privately signed wildcard certificate for `*.myproject.localhost`.
+   * A valid/trusted privately signed wildcard certificate for `*.myproject.localhost`.
 
      > On local environments, Sitecore instances are installed using privately signed certificates. `.\init.ps1` generates certificates using  the `mkcert` utility. Node.js rejects these certificates because their root CAs are not known. 
      >
