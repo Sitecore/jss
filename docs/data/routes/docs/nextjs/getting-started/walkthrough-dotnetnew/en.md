@@ -174,7 +174,7 @@ To add a language to your JSS Next.js application, you must:
    
 
 To import the deployed language into your serialized items, you must: 
-1. Add a serialization configuration for languages to `InitItems`.
+1. In the file `src/InitItems.module.json`, add a serialization configuration for languages. For example: 
 
    ```
    {
