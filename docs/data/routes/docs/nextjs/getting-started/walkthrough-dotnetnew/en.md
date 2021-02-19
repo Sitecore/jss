@@ -3,7 +3,7 @@ name: walkthrough-dotnetnew
 routeTemplate: ./data/component-templates/article.yml
 title: Walkthrough with `dotnet new`
 ---
-# Walkthrough: Using the .NET starter template for JSS Next.js projects
+# Walkthrough: Using the .NET Starter Template for JSS Next.js Projects
 
 Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html), the [Sitecore Next.js SDK](https://jss.sitecore.com/), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html). 
 
