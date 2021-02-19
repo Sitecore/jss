@@ -135,7 +135,7 @@ To create the `MyProject` solution:
 
    Out of the box, this example does not include a reference to the `.env` file in the `.gitignore` file. This is so that developers can share initialized environment variables. If you check your `.env` file into source control, other developers can prepare a certificate and hosts file entries by simply running the `init.ps1` script.
 
-   If your Sitecore solution and/or its data are sensitive, we recommend that you keep the `.env` file excluded from source control and provide another means of centrally configuring the information within.
+   If your Sitecore solution and/or its data are sensitive, we recommend that you keep the `.env` file excluded from source control and provide other means of centrally configuring the information within.
 
    > If this is your first time using `mkcert` with Node.js, you must set the `NODE_EXTRA_CA_CERTS` environment variable in your user or system environment variables. For example: 
    >
@@ -189,7 +189,5 @@ To import the deployed language into your serialized items, you must:
    	]
    }
    ```
-
-   
 
 2. Run `dotnet sitecore ser pull`.
