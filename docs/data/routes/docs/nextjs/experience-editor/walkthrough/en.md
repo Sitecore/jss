@@ -111,3 +111,15 @@ handleExperienceEditorFastRefresh(true);
 Finally, make sure the Next.js application is running (by default, on `http://localhost:3000`). 
 
 Note you may technically use any of the JSS and Next.js application modes, though more than likely you'll use JSS in connected mode with either Next.js development or production mode. Next.js development mode with Fast Refresh will be particularly useful during active development.
+
+You should now be able to use the Experience Editor in Sitecore to edit pages.
+
+## Troubleshooting
+
+When running Next.js in development mode, you may see a timeout upon first page edit due to dynamic compilation. However, this should resolve itself on subsequent requests.
+
+If you experience any other issues, please be sure to check the following:
+
+* Verify the JSS Editing Secret matches on both server and client-side
+* Check for any errors in the Next.js logs
+* Check for any errors in the Sitecore logs
