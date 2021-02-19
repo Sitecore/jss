@@ -17,7 +17,6 @@ In `next.config.js` we have defined `locales` and `defaultLocale`:
 * `locales` - These are all the locales you want to support in your application. These should generally match (or at least be a subset of) those in Sitecore.
 * `defaultLocale` - This is the locale that will be used when visiting a non-locale prefixed path e.g. `/styleguide`.
 
-
 ```js
 i18n: {
 	locales: ['en', 'da-DK'],
