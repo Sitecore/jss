@@ -3,7 +3,7 @@ name: walkthrough-jsscreate
 routeTemplate: ./data/component-templates/article.yml
 title: Walkthrough with `jss create`
 ---
-# Walkthrough: Using the JSS CLI to get started with JSS and Next.js 
+# Walkthrough: Using the JSS CLI to Get Started with JSS and Next.js 
 
 You can create a JSS Next.js application by using the JSS command-line tool (CLI). 
 
