@@ -6,6 +6,10 @@ title: Deployment options for your Next.js app
 <!-- omit in toc -->
 # Deployment options for your Next.js app
 
+> The JSS _Headless SSR Proxy_ is not necessary or compatible with Next.js-based JSS applications.
+
+> Production hosting / serving of Next.js-based JSS applications in "integrated mode" is not supported.
+
 <!-- omit in toc -->
 ## Deployment options
 - [Vercel](#vercel)
