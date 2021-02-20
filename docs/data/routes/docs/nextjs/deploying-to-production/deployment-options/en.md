@@ -22,7 +22,6 @@ Vercel, the creators of Next.js, offer a deployment and hosting solution which i
 Next.js can be deployed to any hosting provider that supports Node.js.
 
 * [Node.js Server deployment](https://nextjs.org/docs/deployment#nodejs-server) (_Next.js Documentation_)
-* [Node.js deployment to Azure with the Azure CLI](https://docs.microsoft.com/en-us/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01) (_Microsoft_)
 * [Discussion on Next.js and Docker](https://github.com/vercel/next.js/discussions/16995) (_Next.js GitHub_)
 
 ## Static HTML Export
