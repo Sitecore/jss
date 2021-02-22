@@ -19,7 +19,7 @@ The latest JSS SDK leverages many of Next.js' [features](https://nextjs.org/#fea
 ## Features
 
 - Support for Next.js static HTML export, incremental static site generation, server-side rendering, and hybrid rendering.
-- Dynamic Sitecore-based routing via Next.js pages and the Sitecore Layout Service.
+- Dynamic author-defined URLs via Next.js pages and the Sitecore Layout Service.
 - Dynamic component rendering based on author-defined page layouts.
 - Helper components for rendering various Sitecore field types.
 - Sitecore Experience Editor integration via Next.js Preview Mode.
@@ -28,7 +28,7 @@ The latest JSS SDK leverages many of Next.js' [features](https://nextjs.org/#fea
 - Internationalization support via Sitecore language versions and Next.js internationalized routing.
 - Component-level data fetching for Sitecore-driven components.
 - Sitecore analytics and personalization support (SSR-only).
-- Support for JSS “disconnected”/mock-Sitecore mode.
+- Support for JSS code-first workflow and mock Sitecore services.
 - A sample/starter TypeScript-enabled implementation template which demonstrates common use cases.
 - Containerized starter template for Windows-based developers.
 - Other great built-in Next.js features like component-level CSS, code splitting, fast refresh, and more.
