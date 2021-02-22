@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { NavigationStateContext } from './NavigationContext';
 
 import '../../assets/css/bootstrap.css';
 import '../../assets/css/styles.css';
@@ -16,11 +17,13 @@ import '../../assets/css/sidenav.css';
 import '../../assets/css/sectiongrid.css';
 
 const App = ({ routeData, route }) => (
-  <div id="app-wrap">
-    <Header />
-    <Placeholder name="jssdocs-main" rendering={routeData} route={route} />
-    <Footer />
-  </div>
+  <NavigationStateContext>
+    <div id="app-wrap">
+      <Header />
+      <Placeholder name="jssdocs-main" rendering={routeData} route={route} />
+      <Footer />
+    </div>
+  </NavigationStateContext>
 );
 
 App.propTypes = {
