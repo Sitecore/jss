@@ -5,6 +5,7 @@
 
 .side-nav .nav {
   font-size: 14px;
+  width: 100%;
 }
 
 .side-nav .nav ul {
@@ -48,6 +49,10 @@
   width: 15px;
   height: 15px;
   font-style: normal;
+}
+
+.collapsing .sub-menu-expand-icon {
+  display: none;
 }
 
 .sub-menu-expand-icon:before {
