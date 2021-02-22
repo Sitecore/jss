@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: What’s different about the Next.js SDK?
 ---
 # What’s different about the Next.js SDK?
-The Next.js SDK for Sitecore some key differences from other Sitecore JavaScript SDKs.
+The Next.js SDK for Sitecore has some key differences from other Sitecore JavaScript SDKs.
 
 ## Architecture and Deployment
 * Next.js provides built-in options for build time and runtime static site generation (SSG).
