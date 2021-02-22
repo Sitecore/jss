@@ -24,7 +24,7 @@ const MenuItem = ({url, menuItem, active}) => {
   return (
     <li className={`nav-item ${activeClass}`}>
       <NavLink to={url} className="nav-link text-truncate">
-        <span class="d-none d-sm-inline">{menuItem.displayName}</span>
+        <span class="d-sm-inline">{menuItem.displayName}</span>
       </NavLink>
     </li>
   );
@@ -36,7 +36,7 @@ const SubMenu = ({menuItem, children, open, onClick}) => {
   return (
     <li className="nav-item sub-menu">
       <a className={`nav-link text-truncate ${collapsed}`} href={`#${menuItem.url}`} onClick={onClick} data-toggle="collapse" data-target={`#${menuItem.url}`}>
-        <span class="d-none d-sm-inline">{menuItem.displayName}</span>
+        <span class="d-sm-inline">{menuItem.displayName}</span>
         <i className="sub-menu-expand-icon"></i>
       </a>
       <div className={`collapse ${show}`} id={menuItem.url} aria-expanded="false">
