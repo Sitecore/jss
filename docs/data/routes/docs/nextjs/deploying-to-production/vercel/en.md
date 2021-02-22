@@ -5,31 +5,33 @@ title: Deploying to Vercel
 ---
 # Walkthrough: Deploying to Vercel
 
-Using Vercel you can easily deploy sample app to production environment. Vercel is an all-in-one platform with Global CDN supporting static & Jamstack deployment.
-Vercel has first-class support for Next.js.
 
-Assuming that you have setupped Next.js sample which targets to Sitecore instance.
-Let's go throw steps in order to deploy Next.js sample app
+Vercel is an all-in-one platform with Global CDN supporting static & Jamstack deployment. Vercel has first-class support for Next.js.
 
-1. Execute steps provided in Next.js [Getting Started](https://nextjs.org/docs/deployment#getting-started).
-1. in `.env` setup:
+Using Vercel, you can easily deploy the sample app to production. 
+
+We assume you have set up the Next.js sample application to connect to a Sitecore instance for the following steps.
+
+To deploy the Next.js sample app to production: 
+1. Execute the steps provided in the Next.js  guide for [Getting Started](https://nextjs.org/docs/deployment#getting-started) with deployment.
+2. In the root directory of the application, in the `.env` file, add or modify:
 	* `PUBLIC_URL` - your Vercel deployment URL.
 	* `SITECORE_API_KEY` - your Sitecore API key is needed to build the app.
 	* `SITECORE_API_HOST` - your Sitecore API hostname.
-	* `JSS_EDITING_SECRET` - optional, your secret token, in case if you want to use Experience Editor with your Next.js Vercel deployment.
-1. Push changes to your Git provider.
+	* `JSS_EDITING_SECRET` - your secret token. The `JSS_EDITING_SECRET` is optional for deployments but necessary if you want to use the Experience Editor with your Next.js Vercel deployment. Read about [connecting your Next.js application to the Experience Editor](/docs/nextjs/experience-editor/walkthrough/en.md).
+3. Push the changes to your Git provider.
 
-## Publish:end webhook invocation
+## `publish:end` webhook invocation
 
-Using webhook you can automatically trigger static site generation, cache clearing, and other automated activities which support webhooks.
+Using the `publish:end` webhook, you can automatically trigger static site generation, cache clearing, and other automated activities with webhook support.
 
-In order to enable webhook you should do next steps: 
+To enable the `Publish:end` hook, you must: 
 
-1. Follow [article](https://vercel.com/docs/more/deploy-hooks#creating-a-deploy-hook) to create deploy hook in Vercel.
-1. Edit `/App_Config/Sitecore/JavaScriptServices/Sitecore.JavaScriptServices.AppServices.PublishingWebHook.config.example`:
-	* `url` - Required. The URL of the webhook which should be invoked.
-	* `method` - Optional. The HTTP method that should be used when invoking webhook. Default is POST, only other accepted option should be GET.
-	* `site` - Optional. The sites which should trigger the webhook, when published. If the site parameter is provided, the webhook will be invoked if the published item root is an ancestor, descendant, or equal to the configured site's root item.
+1. [Create a deploy hook](https://vercel.com/docs/more/deploy-hooks#creating-a-deploy-hook) in Vercel.
+1. On your Sitecore instance, edit `/App_Config/Sitecore/JavaScriptServices/Sitecore.JavaScriptServices.AppServices.PublishingWebHook.config.example`:
+	* `url` - Required. The URL of the hook to be invoked.
+	* `method` - Optional. The HTTP method for invoking webhook. Possible values are `POST` or `GET`. The default method is `POST`. 
+	* `site` - Optional. The sites which should trigger the webhook when published. If you provide the site parameter, the webhook will be invoked if the published item root is an ancestor, descendant, or equal to the configured site's root item. 
 1. Remove `.example` extension of `Sitecore.JavaScriptServices.AppServices.PublishingWebHook.config.example` file.
 1. Publish items.
-1. Check that new Vercel deployment is triggered.
+1. On Vercel, check that the end of the publishing process triggered a new deployment.
