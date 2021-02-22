@@ -9,17 +9,17 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
    * Can be used to wrap the Sitecore EE empty placeholder markup in something that's visually correct
    */
   renderEmpty?: (
-    components: React.ReactNode[]
-  ) => React.ComponentClass<any> | React.SFC<any> | React.ReactNode;
+    components: React.ReactElement[]
+  ) => React.ReactNode;
   /**
    * Render props function that enables control over the rendering of the components in the placeholder.
    * Useful for techniques like wrapping each child in a wrapper component.
    */
   render?: (
-    components: React.ReactNode[],
+    components: React.ReactElement[],
     data: (ComponentRendering | HtmlElementRendering)[],
     props: PlaceholderProps
-  ) => React.ComponentClass<any> | React.SFC<any> | React.ReactNode;
+  ) => React.ReactNode;
 
   /**
    * Render props function that is called for each non-system component added to the placeholder.
@@ -28,7 +28,7 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
   renderEach?: (
     component: React.ReactNode,
     index: number
-  ) => React.ComponentClass<any> | React.SFC<any> | React.ReactNode;
+  ) => React.ReactNode;
 }
 
 function isRawRendering(rendering: HtmlElementRendering | ComponentRendering): rendering is HtmlElementRendering {
