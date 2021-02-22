@@ -19,7 +19,7 @@ import GraphQLClientFactory from 'lib/GraphQLClientFactory';
 ...
 const graphQLClient = GraphQLClientFactory();
 ```
-3. Import needed GraphQL query. Ability to import queries provided by [graphql-let](https://github.com/piglovesyou/graphql-let) library.
+3. Import needed GraphQL query. [graphql-let](https://github.com/piglovesyou/graphql-let) provides ability to import queries.
 ```ts
 import { GraphQlConnectedDemo as GrapQLConnectedDemoDatasource } from './GraphQL-ConnectedDemo.graphql';
 ```
