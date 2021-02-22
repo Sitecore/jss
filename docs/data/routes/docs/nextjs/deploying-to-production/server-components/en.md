@@ -9,7 +9,9 @@ title: Installing Sitecore Headless Services
 - [Azure Webapps / PaaS](#azure-webapps--paas)
 - [Sitecore Containers](#sitecore-containers)
 
-In order to use the Next.js SDK, the Sitecore Headless Services module must be installed in the the Sitecore environment. Sitecore Headless Services provides APIs and configuration needed for the Next.js SDK, including the Layout Service, Sitecore GraphQL, the Dictionary Service, and the JSS Import Service.
+To use the Next.js SDK, you must install the Sitecore Headless Services module in the Sitecore environment. 
+
+The Sitecore Headless Services module provides APIs and configuration needed for the Next.js SDK, including the Layout Service, Sitecore GraphQL, the Dictionary Service, and the JSS Import Service.
 
 The method of installing Sitecore Headless Services depends on your deployment architecture.
 
