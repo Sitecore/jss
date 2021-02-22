@@ -7,6 +7,9 @@ title: Using Next.js i18n
 
 Next.js provides a way to use [Internationalized Routing](https://nextjs.org/docs/advanced-features/i18n-routing).
 The sample app is using [Sub-path Routing](https://nextjs.org/docs/advanced-features/i18n-routing#sub-path-routing).
+
+>  Domain routing requires custom implementation. 
+
 Let's dive into details on how the sample app enables `i18n`.
 
 > `jss export` doesn't support multilingual apps, in this case you should disable localization. Refer to [page](/docs/nextjs/deploying-to-production/export).
