@@ -38,13 +38,13 @@ export interface PlaceholderProps {
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
    */
-  missingComponentComponent?: React.ComponentClass<any> | React.SFC<any>;
+  missingComponentComponent?: React.ComponentType<any>;
 
   /**
    * A component that is rendered in place of the placeholder when an error occurs rendering
    * the placeholder
    */
-  errorComponent?: React.ComponentClass<any> | React.SFC<any>;
+  errorComponent?: React.ComponentType<any>;
 
   [key: string]: any;
 }
@@ -60,14 +60,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       PropTypes.object as Requireable<Item[]>
     ]).isRequired),
     params: PropTypes.objectOf(PropTypes.string.isRequired),
-    missingComponentComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<any>>,
-      PropTypes.object as Requireable<React.SFC<any>>
-    ]),
-    errorComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<any>>,
-      PropTypes.object as Requireable<React.SFC<any>>
-    ]),
+    missingComponentComponent: PropTypes.object as Requireable<React.ComponentType<any>>,
+    errorComponent: PropTypes.object as Requireable<React.ComponentType<any>>,
   };
 
   nodeRefs: any[];
@@ -132,16 +126,16 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         return this.createRawElement(rendering, commonProps);
       }
 
-      let component: React.ReactNode | null = this.getComponentForRendering(rendering);
-      if (!component) {
-        console.error(
-          `Placeholder ${name} contains unknown component ${
-          rendering.componentName
-          }. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
-        );
+      const componentForRendering = this.getComponentForRendering(rendering);
 
-        component = missingComponentComponent || MissingComponent;
+      if (!componentForRendering) {
+        console.error(
+          `Placeholder ${name} contains unknown component ${rendering.componentName}. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
+        );
       }
+
+      const component: React.ComponentType<any> =
+        componentForRendering || missingComponentComponent! || MissingComponent;
 
       const finalProps = {
         ...commonProps,
@@ -155,9 +149,9 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         rendering,
       };
 
-      return React.createElement(component as any, finalProps);
+      return React.createElement(component, finalProps);
     })
-      .filter((element: any) => element); // remove nulls
+    .filter(Boolean);
   }
 
   getComponentForRendering(renderingDefinition: { componentName: string }) {
