@@ -18,7 +18,7 @@ For this purpose, the `SitecorePagePropsFactory` uses the `ComponentPropsService
 The `ComponentPropsService ` accepts the following parameters:
 
 - `componentModule` - a function returning a Next.js component using `componentName`. You can find it in `temp/componentFactory`. If not present, generate it by running  `scripts/bootstrap.ts`.
-- `layoutDat`  - Layout Service data for your page.
+- `layoutData`  - Layout Service data for your page.
 - `context` - SSG or SSR Next.js context.
 
 The `ComponentPropsService` goes through the layout service data and looks at all the renderings. To find the components that require data fetching,  the service "spies" on the component using the `rendering.componentName` against the list of component registrations in  `componentFactory`. 
