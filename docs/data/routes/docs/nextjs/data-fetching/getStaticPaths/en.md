@@ -99,8 +99,7 @@ this._graphqlSitemapService.fetchSSGSitemap(
 	formatSearchQuery
 );
 ```
-
-In the previous code sample, `GraphQLSitemapService` executes the following steps:
+When you execute `fetchSSGSitemap`/`fetchExportSitemap` using the `GraphQLSitemapService`, the service executes the following steps:
 
 1. Fetch the `rootItemId` using the provided `rootItemPath`.
 2. Fetch items using `rootItemId` and the provided `locale`.
