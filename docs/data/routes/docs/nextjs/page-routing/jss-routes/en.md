@@ -30,3 +30,5 @@ When you configure i18n for your Next.js application:
 
 * The `context` object will also contain the Next.js route `locale`.
 * The `locale` is passed to the JSS Layout Service call as a `sc_lang` parameter.
+
+> See [here](/docs/nextjs/internationalization/using-i18n) for more information on using Next.js i18n with JSS.
