@@ -23,7 +23,7 @@ The `ComponentPropsService ` accepts the following parameters:
 
 The `ComponentPropsService` goes through the layout service data and looks at all the renderings. To find the components that require data fetching,  the service "spies" on the component using the `rendering.componentName` against the list of component registrations in  `componentFactory`. 
 
-If the component defines and exports the functions `getStaticProps` and `getServerSideProps`, the `ComponentPropsService` executes one of the functions as follows: 
+If the component defines and exports the functions `getStaticProps` or `getServerSideProps`, the `ComponentPropsService` executes one of the functions as follows: 
 
 - In SSR mode, it will call `getServerSideProps`.
 - In SSG mode, it will call `getStaticProps`. 
@@ -34,9 +34,12 @@ After executing all side-effects, it will store all the data in the format `{ [r
 
 Let's look at an example of a component with side-effects. 
 
-In  `src/components/ContentBlock.tsx`, we define the `getStaticProps` and `getServerSideProps` functions  to fetch the post we want to render. 
+In  `src/components/ContentBlock.tsx`, we define the `getStaticProps` or `getServerSideProps` functions  to fetch the post we want to render. 
 
 We access the data with the help of `useComponentProps` and the `rendering.uid`.
+
+> In the following example, we show an implementation of both `getStaticProps` and `getServerSideProps`, but you only need to define one of them, depending on the rendering mode you chose.
+
 
 ```tsx
 import {
