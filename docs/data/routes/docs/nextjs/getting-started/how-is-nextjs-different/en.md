@@ -32,4 +32,4 @@ The Next.js SDK for Sitecore some key differences from other Sitecore JavaScript
   * You do not need to configure a `sitecoreDistPath` in your `package.json`.
 * The `Link` and `RichText` field helpers support client-side routing out of the box.
 * If you add `.graphql` files to your solution, or make changes to your Sitecore data model (templates), you should [update GraphQL introspection](../../graphql/sample-app/en.md).
-* Next.js is configured to proxy Sitecore media requests, thus the Layout Service is configured to exclude server URLs.
+* We configured Next.js to proxy Sitecore media requests. Therefore, the Layout Service excludes server URLs.
