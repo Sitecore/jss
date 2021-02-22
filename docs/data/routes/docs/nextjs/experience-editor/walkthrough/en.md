@@ -85,7 +85,7 @@ JSS_EDITING_SECRET=MySuperSecret
 
 ### Next.js Fast Refresh support
 
-The Next.js Fast Refresh feature requires special handling when used within the Sitecore Experience Editor to preserve the edit "chromes."
+The Next.js Fast Refresh feature requires special handling when used within the Sitecore Experience Editor to preserve the edit "chromes" (additional markup and JavaScript injected by the Experience Editor for each rendering).
 
 >  See the [Next.js documentation](https://nextjs.org/docs/basic-features/fast-refresh) to learn more about Fast Refresh.
 
@@ -119,7 +119,7 @@ handleExperienceEditorFastRefresh(true);
 
 Finally, make sure the Next.js application is running (by default, on `http://localhost:3000`).
 
-Note you may technically use any of the JSS and Next.js application modes, though more than likely, you'll use JSS in connected mode with either Next.js development or production mode. Next.js development mode with Fast Refresh is beneficial during active development.
+Note you may technically use any of the JSS and Next.js application modes, though more than likely, you'll use JSS connected to a Sitecore instance with either Next.js development or production mode. Next.js development mode with Fast Refresh is beneficial during active development.
 
 You should now be able to use the Experience Editor in Sitecore to edit pages.
 
