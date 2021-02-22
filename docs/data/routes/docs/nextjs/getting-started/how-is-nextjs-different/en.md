@@ -7,16 +7,16 @@ title: What’s different about the Next.js SDK?
 The Next.js SDK for Sitecore some key differences from other Sitecore JavaScript SDKs.
 
 ## Architecture and Deployment
-* Next.js provides builtin options for build time and runtime static site generation (SSG).
+* Next.js provides built-in options for build time and runtime static site generation (SSG).
   * Out of the box, the Next.js SDK does not support Sitecore tracking or personalization with SSG.
 * The _Headless SSR Proxy_ is not required for [production deployment](../../deploying-to-production/deployment-options/en.md).
-  * Next.js has builtin pre-rendering.
-  * Next.js has [builtin rewrite / proxying support](https://nextjs.org/docs/api-reference/next.config.js/rewrites#rewriting-to-an-external-url) 
+  * Next.js has built-in pre-rendering.
+  * Next.js has [built-in rewrite / proxying support](https://nextjs.org/docs/api-reference/next.config.js/rewrites#rewriting-to-an-external-url) 
   * Sitecore tracking and analytics are supported through [header passing](../../tracking-and-analytics/overview/en.md) (SSR-only).
 * [Experience Editor integration](../../experience-editor/walkthrough/en.md) does not require a separate deployment, and only supports the [HTTP Rendering Engine](../../fundamentals/services/view-engine/en.md#http-rendering-engine).
   * There is no requirement to install node.js on your Sitecore Content Management role.
   * There is never a need to deploy your application to the Sitecore Content Management role.
-* By default the Next.js sample uses the new "Edge" Sitecore GraphQL schema, which mirrors the schema that will be available with Sitecore Experience Edge.
+* By default, the Next.js sample uses the new "Edge" Sitecore GraphQL schema, which mirrors the schema that will be available with Sitecore Experience Edge.
 
 ## Development
 * Overall, less boilerplate code than other Sitecore JavaScript SDKs.
