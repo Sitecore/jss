@@ -7,15 +7,15 @@ title: Using Next.js i18n
 
 Next.js provides a way to use [Internationalized Routing](https://nextjs.org/docs/advanced-features/i18n-routing).
 The sample app is using [Sub-path Routing](https://nextjs.org/docs/advanced-features/i18n-routing#sub-path-routing).
-Let's dive in details how sample app is configured to enable `i18n`.
+Let's dive into details on how the sample app enables `i18n`.
 
 > `jss export` doesn't support multilingual apps, in this case you should disable localization. Refer to [page](/docs/nextjs/deploying-to-production/export).
 
 ### Initialization
 
-In `next.config.js` we have defined `locales` and `defaultLocale`:
-* `locales` - These are all the locales you want to support in your application. These should generally match (or at least be a subset of) those in Sitecore.
-* `defaultLocale` - This is the locale that will be used when visiting a non-locale prefixed path e.g. `/styleguide`.
+The file `next.config.js` contains definitions for `locales` and `defaultLocale`:
+* `locales` are all the locales you want to support in your application and should generally match (at least be a subset of) those in Sitecore.
+* `defaultLocale` is the locale used when visiting a non-locale prefixed path, such as `/styleguide`.
 
 ```js
 i18n: {
@@ -24,15 +24,15 @@ i18n: {
 }
 ```
 
-In order to enable localization we are using [next-localization](https://github.com/StarpTech/next-localization) library.
+To enable localization, the sample app uses the [next-localization](https://github.com/StarpTech/next-localization) library.
 
-> NOTE: If your app is not multilingual, `next-localization` and references to it can be removed.
+> NOTE: If your app is not multilingual, you can remove `next-localization` and references to it.
 
-In `src/pages/_app.tsx` we should initialize it using `I18nProvider`:
+In `src/pages/_app.tsx`, the `App` initializes using `I18nProvider` with the properties:
 * `pageProps.locale` - provided by nextjs.
 * `dictionary` - fetched from dictionary service.
 
-Translations fetched in `src/lib/page-props-factory.ts` using `DictionaryService`.
+The `DictionaryService` fetches translations in `src/lib/page-props-factory.ts`.
 
 ```tsx
 function App({ Component, pageProps }: AppProps): JSX.Element {
@@ -48,12 +48,12 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
 
 Read more about [accessing locale information](https://nextjs.org/docs/advanced-features/i18n-routing#accessing-the-locale-information).
 
-In case if you have dynamic pages you should return `locale` field in [getStaticPaths](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation). Read more about it [here](https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-getstaticprops-pages).
-By default `SitecoreSitemapFetcher` handles this case.
+If you have dynamic pages, you should return the `locale` field in [`getStaticPaths`](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation). Read more about [Dynamic getStaticProps Pages](https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-getstaticprops-pages).
+By default, `SitecoreSitemapFetcher` handles this case.
 
 ### Translation
 
-In order to use translation you need to use `useI18n` hook:
+To use translation, you need to leverage the `useI18n` hook:
 * `t` - translation function.
 * `locale` - current language.
 
@@ -74,6 +74,6 @@ const MultilingualComponent = (): JSX.Element => {
 export default MultilingualComponent;
 ```
 
-In order to do transition between locales you can use `Link` or `useRouter`, read more about it [here](https://nextjs.org/docs/advanced-features/i18n-routing#transition-between-locales).
+To transition between locales, you can use `Link` or `useRouter`. Read more about it [here](https://nextjs.org/docs/advanced-features/i18n-routing#transition-between-locales).
 
-You can look at our example component [Styleguide-Multilingual](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/styleguide/Styleguide-Multilingual.tsx) which shows `next-localization` in use.
+Look at the component [Styleguide-Multilingual](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/styleguide/Styleguide-Multilingual.tsx) for an example of using `next-localization`.
