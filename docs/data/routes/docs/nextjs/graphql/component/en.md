@@ -3,12 +3,11 @@ name: component
 routeTemplate: ./data/component-templates/article.yml
 title: Using GraphQL in component SSR/SSG
 ---
-# Walkthrough: Using GraphQL in component SSR/SSG
+# Walkthrough: Using Component-Level GraphQL in SSR/SSG
 
-Next.js sample app provides you ability to use [component level data fetching](/docs/nextjs/data-fetching/component-level-data-fetching), read about it first.
-Consequently you can execute GraphQL queries on component level and use fetched data in component.
+The Next.js sample app provides support for [component-level data fetching](/docs/nextjs/data-fetching/component-level-data-fetching), which enables executing GraphQL queries at the component level.
 
-> NOTE: In case if you are working in [Disconnected](/docs/techniques/working-disconnected/disconnected-overview) mode you can't use GraphQL queries, because disconnected server doesn't support GraphQL.
+> NOTE: If you are following the `Code First` developer workflow, you can execute GeaphQL component-level queries only in `Connected Mode`. They are not supported in [`Disconnected Mode`](/docs/techniques/working-disconnected/disconnected-overview).
 
 Let's go through the steps to execute first GraphQL query in your component. We can use [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) example.
 
