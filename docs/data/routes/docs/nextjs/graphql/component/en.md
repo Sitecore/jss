@@ -3,12 +3,11 @@ name: component
 routeTemplate: ./data/component-templates/article.yml
 title: Using GraphQL in component SSR/SSG
 ---
-# Walkthrough: Using GraphQL in component SSR/SSG
+# Walkthrough: Using Component-Level GraphQL in SSR/SSG
 
-Next.js sample app provides you ability to use [component level data fetching](/docs/nextjs/data-fetching/component-level-data-fetching), read about it first.
-Consequently you can execute GraphQL queries on component level and use fetched data in component.
+The Next.js sample app provides support for [component-level data fetching](/docs/nextjs/data-fetching/component-level-data-fetching), which enables executing GraphQL queries at the component level.
 
-> NOTE: In case if you are working in [Disconnected](/docs/techniques/working-disconnected/disconnected-overview) mode you can't use GraphQL queries, because disconnected server doesn't support GraphQL.
+> NOTE: If you are following the `Code First` developer workflow, you can execute GeaphQL component-level queries only in `Connected Mode`. They are not supported in [`Disconnected Mode`](/docs/techniques/working-disconnected/disconnected-overview).
 
 Next.js sample app provides easy way how to manage both local and remote data with GraphQL, fetch, cache application data.
 For this purpose we are using [apollo-client](https://www.apollographql.com/docs/react/) library. Our `GraphQLClientFactory` is responsible for creation of [ApolloClient](https://www.apollographql.com/docs/react/api/core/ApolloClient) instance. 
@@ -27,7 +26,7 @@ You can use `${SITECORE_API_HOST}/sitecore/api/graph/edge/ui?sc_apikey=${SITECOR
 * Write and test new query.
 * Debug existing query.
 
-Let's go through the steps to execute first GraphQL query in your component. We can use [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) example.
+This walkthrough utilizes the sample apps's [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) component. Complete the following steps to demonstrate usage of component-level data fetching with GraphQL.
 
 1. Define `getStaticProps` or/and `getServerSideProps` in your component. Next steps you should perform inside these functions.
 2. Create new GraphQL client. `GraphQLClientFactory` is using [apollo-client](https://www.apollographql.com/docs/react) library.
