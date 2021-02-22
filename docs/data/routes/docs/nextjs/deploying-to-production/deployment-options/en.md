@@ -20,7 +20,7 @@ title: Deployment options for your Next.js app
 ## Deployment options
 
 ### Vercel
-Vercel, the creators of Next.js, offer a deployment and hosting solution which is optimized for Next.js. They support all Next.js features out of the box, including incremental static site (re-)generation, hybrid rendering, and internationalization. Your application can be deployed direct from source control and will be optimized via Vercel's edge network and serverless functions.
+Vercel, the creators of Next.js, offer a deployment and hosting solution which is optimized for Next.js. They support all Next.js features out of the box, including incremental static site (re-)generation, hybrid rendering, and internationalization. Your application can be deployed directly from source control and will be optimized via Vercel's edge network and serverless functions.
 
 * [Walkthrough: Deploying to Vercel](../vercel/en.md)
 * [Vercel deployment](https://nextjs.org/docs/deployment#vercel-recommended) (_Next.js Documentation_)
