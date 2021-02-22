@@ -9,7 +9,7 @@ The Next.js sample app provides support for [component-level data fetching](/doc
 
 > NOTE: If you are following the `Code First` developer workflow, you can execute GeaphQL component-level queries only in `Connected Mode`. They are not supported in [`Disconnected Mode`](/docs/techniques/working-disconnected/disconnected-overview).
 
-Let's go through the steps to execute first GraphQL query in your component. We can use [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) example.
+This walkthrough utilizes the sample apps's [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) component. Complete the following steps to demonstrate usage of component-level data fetching with GraphQL.
 
 1. Define `getStaticProps` or/and `getServerSideProps`. Next steps you should perform inside these functions.
 2. Create new GraphQL client. `GraphQLClientFactory` is using [apollo-client](https://www.apollographql.com/docs/react) library.
