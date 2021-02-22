@@ -65,6 +65,7 @@ const parseRouteData = (sourceRouteData, file) => {
   const converter = new showdown.Converter();
   converter.setOption('tables', true);
   converter.setOption('ghCompatibleHeaderId', true);
+  converter.setOption('disableForced4SpacesIndentedSublists', true);
   const htmlContent = converter.makeHtml(markdownContent);
 
   const name = parsedMatter.data.name;
