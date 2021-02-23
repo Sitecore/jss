@@ -5,7 +5,7 @@ title: Walkthrough: Creating a new component
 ---
 # Walkthrough: Creating a New Component
 
-This walkthrough demonstrates how to create a new component, based on the chosen develpment workflow: 
+This walkthrough demonstrates how to create a new component, based on the chosen development workflow: 
 
 * [Using the Sitecore-first development workflow](#using-the-sitecore-first-development-workflow).
 * [Using the code-first development workflow](#using-the-code-first-development-workflow).
@@ -15,16 +15,7 @@ This walkthrough demonstrates how to create a new component, based on the chosen
 This walkthrough describes how to:
 
 - [Create the JSON rendering in Sitecore](#create-a-json-rendering-in-sitecore)
-- [Create a model for the view](https://sitecore.paligoapp.com/usr/sitecore/tmp/516750-Walkthrough:_Creating_a_simple_rendering_with_a_data_source-html5/out/en/index-en.html#section-idm231953375222828)
-- [Create the view](https://sitecore.paligoapp.com/usr/sitecore/tmp/516750-Walkthrough:_Creating_a_simple_rendering_with_a_data_source-html5/out/en/index-en.html#section-idm231953375506701)
-- [Register the model-bound view](https://sitecore.paligoapp.com/usr/sitecore/tmp/516750-Walkthrough:_Creating_a_simple_rendering_with_a_data_source-html5/out/en/index-en.html#section-idm231953375956612)
-- [Fill in values in the Experience Editor](https://sitecore.paligoapp.com/usr/sitecore/tmp/516750-Walkthrough:_Creating_a_simple_rendering_with_a_data_source-html5/out/en/index-en.html#section-idm231953376439836)
-
-This process is done using the [model-bound view](https://sitecore.paligoapp.com/document/preview/516214#UUID-2d7890a1-b3c3-88a0-7215-5e2619858e13) view type.
-
->  This walkthrough assumes you are using the [Getting Started](/docs/nextjs/getting-started/walkthrough-dotnetnew) template with a project called `MyProject`.
-
-In this example, the rendering host displays a few different field types, including text, rich text, a link, a date, and an image.
+- Create the component in the Next.js app
 
 ### Create the JSON rendering in Sitecore
 
@@ -35,12 +26,8 @@ To create the JSON rendering in Sitecore:
 2. Create a new template section (the name is unimportant) and add the following fields:
 
    - `Title`: Single-line Text
-   - `BodyText`: Rich Text
-   - `FeaturedImage`: Image
-   - `PromoLink`: General Link
-   - `ExampleDate`: Date
-
-3. On the **Builder Options** tab, click **Standard Values** and in the **Title**, **BodyText**, **PromoLink**, and **ExampleDate** fields enter default values.
+   
+3. With the **Builder** tab open, in the **Builder Options** menu, click **Standard Values** and in the **Title** and **BodyText** fields enter default values.
 
 4. Create a JSON rendering called `DataSourceExample` in `/sitecore/layout/Renderings/Project/MyProject`. Enter the following values:
 
@@ -76,102 +63,13 @@ To create the JSON rendering in Sitecore:
              "BodyText": {
                  "value": "Default"
              },
-             "FeaturedImage": {
-                 "value": {}
-             },
              "Title": {
                  "value": "Default"
              },
-             "PromoLink": {
-                 "value": {
-                     "href": "/en/",
-                     "text": "",
-                     "anchor": "",
-                     "linktype": "internal",
-                     "class": "",
-                     "title": "",
-                     "querystring": "",
-                     "id": "{453C1C1A-7E24-4F2F-8069-84165C6130A3}"
-                 }
-             },
-             "ExampleDate": {
-                 "value": "2020-08-07T04:00:00Z"
-             }
          }
      }
          
      ```
-
-### Create a model for the view
-
-To create a model for the view:
-
-- In the `Models` folder of your rendering host, create a new class called `DataSourceExampleModel`:
-
-  ```c#
-  using Sitecore.LayoutService.Client.Response.Model.Fields;
-  
-  namespace MyProject.Models
-  {
-      public class DataSourceExampleModel
-      {
-          public TextField Title { get; set; }
-          public RichTextField BodyText { get; set; }
-          public ImageField FeaturedImage { get; set; }
-          public HyperLinkField PromoLink { get; set; }
-          public DateField ExampleDate { get; set; }
-      }
-  }
-  ```
-
-  > This class contains five properties that are automatically data bound due to their types inheriting from `IField`.
-
-### Create the view
-
-To create the view:
-
-- Create a new `DataSourceExample.cshtml` Razor view in your rendering host project under `Views\Shared\Components\SitecoreComponent`.
-
-  > This is the default search path for Model-bound views using the built-in Sitecore View Component. To simplify the registration of the view with the Rendering Engine, we recommend you name the view the same as the name of the Layout Service component (JSON rendering).
-
-  ```
-@model MyProject.Models.DataSourceExampleModel
-  
-  <h2>Simple Rendering Example</h2>
-  <h3 asp-for="Title"></h3>
-  <sc-text asp-for="BodyText"></sc-text>
-  <div>
-      <sc-img asp-for="FeaturedImage"/>
-  </div>
-  <p>
-      <a asp-for="PromoLink">My Link</a>
-  </p>
-  <p asp-for="ExampleDate" date-format="D"></p>
-  ```
-
-### Register the model-bound view
-
-To register the model-bound view:
-
-1. In your rendering host project's `Startup.cs` class, find your `AddSitecoreRenderingEngine` call in `ConfigureServices` method, and register your model-bound view:
-
-   ```
-   services.AddSitecoreRenderingEngine(options =>
-       {
-           //Register your components here
-           options
-               .AddModelBoundView<ContentBlockModel>("ContentBlock")
-               // Add our DataSourceExample model-bound view:
-               .AddModelBoundView<DataSourceExampleModel>("DataSourceExample")
-               .AddDefaultPartialView("_ComponentNotFound");
-       })
-   ```
-
-   > The extension method used here to register the model-bound view assumes the provided Layout Service component name matches the name of the Razor view file.
-
-2. If you are using the Getting Started template, the [dotnet watch process](https://docs.microsoft.com/en-us/aspnet/core/tutorials/dotnet-watch?view=aspnetcore-3.1) automatically compiles your changes, and you can refresh the Home page of your rendering host site to see your component output. The component header is now displayed, as well as your default content values.
-
-   > You must check your rendering host logs for any compilation errors.
 
 ### Fill in values in the Experience Editor
 
