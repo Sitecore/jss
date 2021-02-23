@@ -10,9 +10,9 @@ This page covers Sitecore-specific terms and concepts related to content authori
 ## Content Authors
 Sitecore users who manage content are called `Content Authors`. Sitecore provides special content authoring interfaces that enable these users to perform tasks like create pages, add components to pages, edit content displayed by the components, and define personalization rules for components.
 
-Review the following articles from Sitecore docs to understand how Content Authors work the components that developers build.
-- [Overview of the authoring interfaces](https://doc.sitecore.com/users/100/sitecore-experience-platform/en/the-editing-tools.html)
-- [Overview of how authors edit the page in Experience Editor](https://doc.sitecore.com/users/100/sitecore-experience-platform/en/edit-a-field-in-the-experience-editor.html) 
+Review the following Sitecore documentation articles to understand how Content Authors work with the components that developers build.
+- [Overview of the authoring interfaces](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/the-editing-tools.html)
+- [Overview of how authors edit the page in Experience Editor](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/edit-a-field-in-the-experience-editor.html) 
 
 ## Templates
 To make content management easier for Content Authors, Sitecore developers configure company-specific Information Architecture by creating `template` items. The concept of templates in Sitecore is analogous to classes in object-oriented programming. Templates, like classes, define a set of fields applicable to a specific type of object.
