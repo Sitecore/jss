@@ -77,7 +77,8 @@ To create the JSON rendering in Sitecore:
 
 In the Next.js-based application, you must now create a component matching the rendering you just created.
 
-1. In `\MyProject\src\rendering\components\`, create a new component with the same name as the rendering `DataSourceExample.tsx`.
+1. Create the file `\MyProject\src\rendering\components\DataSourceExample.tsx`.
+2. In the newly created file, define a component with the same name as the rendering:
 
    ```typescript
    import { Text, RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
