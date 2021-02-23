@@ -51,7 +51,7 @@ To create the JSON rendering in Sitecore:
 
    - In your rendering host, open the site home page.
 
-   - Type the following into a PowerShell terminal to get the rendering host logs: `docker-compose logs -f rendering`
+   - Type the following into a PowerShell terminal to get the rendering host logs: `docker-compose logs -f rendering`.
 
    - In the rendering host logs, view the debug output with the Layout Service response, including the component you just added:
 
@@ -81,7 +81,7 @@ In the Next.js-based application, you must now create a component matching the r
 
    ```typescript
    import { Text, RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-   
+
    type DataSourceExampleProps = {
        fields: {
        	Title: Field<string>;
