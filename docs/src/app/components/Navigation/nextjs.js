@@ -131,6 +131,10 @@ export default {
         {
           url: 'sample-app',
           displayName: 'Sitecore GraphQL in the sample app'
+        },
+        {
+          url: 'introspection',
+          displayName: 'Introspecting the GraphQL schema'
         }
       ]
     },
