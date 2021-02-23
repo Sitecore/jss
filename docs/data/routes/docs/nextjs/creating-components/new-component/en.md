@@ -1,7 +1,7 @@
 ---
 name: new-component
 routeTemplate: ./data/component-templates/article.yml
-title: Walkthrough: Creating a new component
+title: Creating a new component
 ---
 # Walkthrough: Creating a New Component
 
@@ -13,10 +13,10 @@ This walkthrough demonstrates how to create a new component based on the chosen 
 ## Using the Sitecore-first development workflow
 
 This walkthrough describes how to:
-
-- [Create the JSON rendering in Sitecore](#create-a-json-rendering-in-sitecore)
+<!-- no toc -->
+- [Create the JSON rendering in Sitecore](#create-the-json-rendering-in-sitecore)
 - [Create the component in the Next.js app](#create-the-component-in-the-nextjs-app)
-- [Edit in Experience Editor and publish](#edit-in-experience-editor-and-publish)
+- [Fill in values in the Experience Editor](#fill-in-values-in-the-experience-editor)
 
 > This walkthrough assumes you have set up your project using the [`dotnet new`](/docs/nextjs/getting-started/walkthrough-dotnetnew) template with a project called `MyProject`.
 
@@ -24,16 +24,18 @@ This walkthrough describes how to:
 
 To create the JSON rendering in Sitecore:
 
-1. In the Content Editor, create a new template called `DataSourceExample` under `/sitecore/templates/Project/myproject`.
+1. In the Content Editor, create a new template called `MyComponent` under `/sitecore/templates/Project/myproject`.
 
 2. Create a new template section (the name is unimportant) and add the following fields:
 
-   - `Title`: Single-line Text
-   - `BodyText`: Rich Text
+   - `heading`: Single-line Text
+   - `body`: Rich Text
    
-3. With the **Builder** tab open, in the **Builder Options** menu, click **Standard Values** and in the **Title** and **BodyText** fields enter default values.
+  > You can use the [Title standard field](https://doc.sitecore.com/developers/100/sitecore-experience-manager/en/the-template-field-template.html#UUID-10009387-6d92-725d-7fd1-cf479e91bbbf_UUID-31b3c8a3-5a9c-ed7d-bc68-483a20f9a2ec) on template fields to provide a user-friendly name.
 
-4. Create a JSON rendering called `DataSourceExample` in `/sitecore/layout/Renderings/Project/myproject`. Enter the following values:
+3. With the **Builder** tab open, in the **Builder Options** menu, click **Standard Values** and in the **heading** and **body** fields enter default values.
+
+4. Create a JSON rendering called `MyComponent` in `/sitecore/layout/Renderings/Project/myproject`. Enter the following values:
 
    - **Datasource Location**: ./
    - **Datasource Template**: Select `sitecore/Templates/Project/myproject/DataSourceExample`
@@ -42,7 +44,7 @@ To create the JSON rendering in Sitecore:
 
 6. Open `/sitecore/content/MyProject/Home` in the Experience Editor and add your new rendering, including creating a data source item for it.
 
-   > Your rendering host page outputs `Unknown component` or a similar message because you have not yet mapped a component to this JSON rendering in your rendering host.
+   > Your rendering host page outputs `JSS component is missing React implementation` or a similar message because you have not yet mapped a component to this JSON rendering in your rendering host.
 
 7. Publish all your item changes:
 
@@ -51,23 +53,24 @@ To create the JSON rendering in Sitecore:
 
 8. You can now test the output of your new rendering:
 
-   - In your rendering host, open the site home page.
+   - Find the `scjssconfig.json` from your Next.js application root, and copy the `apiKey` value within it.
 
-   - Type the following into a PowerShell terminal to get the rendering host logs: `docker-compose logs -f rendering`.
+   - View the Layout Service output for the site home page:
+    `https://cm.myproject.localhost/sitecore/api/layout/render/jss?item=/&sc_apikey=<YOUR API KEY HERE>&sc_site=myproject&sc_mode=normal`
 
-   - In the rendering host logs, view the debug output with the Layout Service response, including the component you just added:
+   - The output should include your new component.
 
      ```json
      {
          "uid": "ba5d4f2d-b6f1-428a-81e8-6b7c25844c08",
-         "componentName": "DataSourceExample",
+         "componentName": "MyComponent",
          "dataSource": "{A2A3F4C0-B13B-4651-B342-320E56FDC43A}",
          "params": {},
          "fields": {
-             "Title": {
+             "heading": {
                  "value": "Default"
              },
-             "BodyText": {
+             "body": {
                  "value": "Default"
              }
          }
@@ -79,29 +82,28 @@ To create the JSON rendering in Sitecore:
 
 In the Next.js-based application, you must now create a component matching the rendering you just created.
 
-1. Create the file `\MyProject\src\rendering\components\DataSourceExample.tsx`.
+1. Create the file `MyProject\src\rendering\src\components\MyComponent.tsx`.
 2. In the newly created file, define a component with the same name as the rendering:
 
    ```typescript
-   import { Text, RichText, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-
-   type DataSourceExampleProps = {
-       fields: {
-       	Title: Field<string>;
-       	BodyText: Field<string>;
-     	};
-   };
+   import { Text, Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
    
-   const DataSourceExample = ({ fields }: DataSourceExampleProps): JSX.Element => (
-     <>
-       <Text tag="h2" className="display-4" field={fields.Title} />
+   type MyComponentProps = {
+     fields: {
+       heading: Field<string>,
+       body: Field<string>  
+     };
+   }
    
-       <RichText className="contentDescription" field={fields.BodyText} />
-     </>
+   const MyComponent = (props: MyComponentProps): JSX.Element => (
+     <div>
+       <Text field={props.fields.heading} />
+       <RichText field={props.fields.body} />
+     </div>
    );
    
-   export default DataSourceExample;
-    
+   export default MyComponent;
+   
    ```
 
 ### Fill in values in the Experience Editor
@@ -111,7 +113,7 @@ To fill in the values:
 1. In the Experience Editor, open `/sitecore/content/MyProject/home`.
 2. Fill in values for all fields.
 3. Click **Save** and **Publish**.
-4. Refresh `https://myproject.localhost` and see the changes.
+4. Refresh `https://www.myproject.localhost` and see the changes.
 
 ## Using the code-first development workflow
 
@@ -119,25 +121,14 @@ This walkthrough demonstrates how to create a new component using the code-first
 
 > This walkthrough assumes you have set up your project using the [`dotnet new`](/docs/nextjs/getting-started/walkthrough-dotnetnew) template with a project called `MyProject` or [`jss create`](/docs/nextjs/getting-started/walkthrough-jsscreate).
 >
-> You need to be aware of the following paths: 
->
-> * the root of the **project**: 
->   * `dotnet new` : `<path to your solutions directory>\MyProject\`.
->   * `jss create`: `<path to your projects directory>/my-first-jss-app/`.
+> You need to be aware of the following path: 
 > * the root of the **Next.js-based application**: 
 >   * `dotnet new` : `<path to your solutions directory>\MyProject\src\rendering\`.
 >   * `jss create`: the same as the root of the project.
 
 To create a component in a Next.js-based JSS application:
 
-1. In a terminal, in the root directory of your project run: 
-
-   * For a `dotnet new` project: 
-
-     * In the root of the project: `docker-compose up -d`.
-     * In the Next.js application root: `jss start`.
-
-   * For either type of project, in the root of the Next.js-based application, run:
+1. In a terminal, in the root directory of your Next.js project run: 
 
      ```
      jss start
@@ -160,7 +151,7 @@ To create a component in a Next.js-based JSS application:
 3. In the application's root directory, in `sitecore/definitions/components/MyComponent.sitecore.ts`, define the component's data. For example: 
 
    ```typescript
-   import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+   import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
    
    export default function (manifest: Manifest): void {
      manifest.addComponent({
