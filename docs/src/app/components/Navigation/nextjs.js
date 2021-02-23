@@ -18,7 +18,7 @@ export default {
         },
         {
           url: 'headless-concepts',
-          displayName: 'Headless Concepts & Architecture',
+          displayName: 'Headless Concepts',
         }
       ]
     },
@@ -63,8 +63,8 @@ export default {
       displayName: 'Creating Components',
       children: [
         {
-          url: 'concepts',
-          displayName: 'Layout, components, component factory'
+          url: 'layout-concepts',
+          displayName: 'Layout & Component Concepts'
         },
         {
           url: 'placeholders',
