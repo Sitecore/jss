@@ -111,11 +111,6 @@ To fill in the values:
 3. Click **Save** and **Publish**.
 4. Refresh `https://myproject.localhost` and see the changes.
 
-> Be aware of the following when you use the solution:
->
-> * A publishing of the `Platform` project updates the running `cm` service.
-> * The running rendering service uses `dotnet watch` and re-compiles automatically for any changes you make. You can also run the `rendering` project directly from Visual Studio.
-
 ## Using the code-first development workflow
 
 This walkthrough demonstrates how to create a new component using the code-first development workflow for your project.
