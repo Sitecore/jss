@@ -8,7 +8,7 @@ title: Migration Guide
 ## Component structure
 The default component structure in the Next.js sample app is different from the React sample.
 
-The React sample used a directory for every component, and didn't provide a way to use directories to group related components. As a result, route names were included in component names to show grouping, which is not good practice because components should be reusable across different routes.
+The React sample used a directory for every component and didn't provide a way to use directories to group related components. As a result, route names were included in component names to show grouping. This is not a good practice because components should be reusable across different routes.
 
 The React sample used a structure like this:
 ```
@@ -24,7 +24,9 @@ The React sample used a structure like this:
       /index.tsx
 ```
 
-In the Next.js sample, components do not need a parent directory. They can live directly under `src/components`...
+In the Next.js sample, components do not need a parent directory. 
+
+Developers can place them directly in `src/components`...
 ```
 /src
   /components
@@ -32,7 +34,7 @@ In the Next.js sample, components do not need a parent directory. They can live 
     /AnotherComponent.tsx
 ```
 
-... or they can be categorized into folders for organization.
+... or organize them into folders.
 ```
 /src
   /components
