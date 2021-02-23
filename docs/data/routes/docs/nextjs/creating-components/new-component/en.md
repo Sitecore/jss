@@ -5,7 +5,7 @@ title: Walkthrough: Creating a new component
 ---
 # Walkthrough: Creating a New Component
 
-This walkthrough demonstrates how to create a new component, based on the chosen development workflow: 
+This walkthrough demonstrates how to create a new component based on the chosen development workflow: 
 
 * [Using the Sitecore-first development workflow](#using-the-sitecore-first-development-workflow).
 * [Using the code-first development workflow](#using-the-code-first-development-workflow).
@@ -38,7 +38,7 @@ To create the JSON rendering in Sitecore:
 
 6. Open `/sitecore/content/MyProject/Home` in the Experience Editor and add your new rendering, including creating a data source item for it.
 
-   > Your rendering host page outputs `Unknown component` or a similar message, because you have not yet mapped a component to this JSON rendering in your rendering host.
+   > Your rendering host page outputs `Unknown component` or a similar message because you have not yet mapped a component to this JSON rendering in your rendering host.
 
 7. Publish all your item changes:
 
@@ -75,14 +75,14 @@ To create the JSON rendering in Sitecore:
 
 To fill in the values:
 
-1. In the Experience Editor, open `/sitecore/content/MyProject/Home` .
+1. In the Experience Editor, open `/sitecore/content/MyProject/Home`.
 2. Fill in values for all fields.
 3. Click **Save** and **Publish**.
 4. Refresh the Home page and see the headers you populated.
 
 > Be aware of the following when you use the solution:
 >
-> * A publish of the `Platform` project updates the running `cm` service.
+> * A publishing of the `Platform` project updates the running `cm` service.
 > * The running rendering service uses `dotnet watch` and re-compiles automatically for any changes you make. You can also run the `rendering` project directly from Visual Studio.
 
 ## Using the code-first development workflow
@@ -107,7 +107,7 @@ To create a component in a Next.js-based JSS application:
    * For a `dotnet new` project: 
 
      * In the root of the project: `docker-compose up -d`.
-     * In the Next.js application root: `jss start`
+     * In the Next.js application root: `jss start`.
 
    * For either type of project, in the root of the Next.js-based application, run:
 
@@ -117,7 +117,7 @@ To create a component in a Next.js-based JSS application:
 
    > You can create new components while the application is running. The application will refresh when you make changes.
    >
-   > Regardless of how you set up the project, to see you live code changes, open: `http://localhost:3000/`.
+   > Regardless of how you set up the project, to see your live code changes, open: `http://localhost:3000/`.
 
 2. Open a new terminal tab/window. In your application's root directory, run: 
 
@@ -168,7 +168,7 @@ To create a component in a Next.js-based JSS application:
    
    ```
 
-5. Add the component to a route layout. In this example, we add the component to the root route to the default placeholder `jss-main`.
+5. Add the component to a route layout. In this example, we add the component to the root route to the default placeholder `jss-main.`
 
    * In `/data/routes/en.yml`. Add your component to the array of components under the `jss-main` placeholder:
 
@@ -185,7 +185,7 @@ To create a component in a Next.js-based JSS application:
          heading: Welcome to Sitecore JSS
    ```
 
-   - If your browser is open to `http:localhost:3000` from step 1, it will auto-refresh and you should see the new component at the top of the page!
+   - If your browser is open to `http://localhost:3000` from step 1, it will auto-refresh, and you should see the new component at the top of the page!
 
      
 
