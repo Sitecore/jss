@@ -78,7 +78,7 @@ The steps to configure an Azure server to accept a JSS app are mostly the same a
 
 ## Step 4: Deploy the app's files
 
-> This step is not necessary for the [Next.js SDK](../../nextjs/introduction/why-nextjs/en.md) or when using the [HTTP Rendering Engine](../../fundamentals/services/view-engine/en.md#http-rendering-engine).
+> This step is not necessary for the [Next.js SDK](../../nextjs/introduction/why-nextjs/en.md) or when using the [HTTP Rendering Engine](../../fundamentals/services/view-engine/en.md#http-rendering-engine) as these do not require execution of your JavaScript bundle on Sitecore platform roles.
 
 In production, deployment of the JSS app's build artifacts should be done via an automated build setup. For simplicity, we can use FTPS to deploy our build artifacts.
 
