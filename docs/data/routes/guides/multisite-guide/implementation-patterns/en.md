@@ -22,7 +22,9 @@ After deploying all the apps and switching to Sitecore-first workflow, there is 
 ### Microsites under the same domain
 Micro-sites can be separate JSS apps and stay under the same domain. In their site definitions, they need to have different virtual paths and different site names.
 
-You need to ensure that the sc_site parameter is always populated in calls to Layout Service to use this technique. 
+You need to ensure that the sc_site parameter is always populated in calls to Layout Service to use this technique.
+
+> Note: If you are using Sitecore on-prem, an alternative to processing the virtual path in JavaScript data fetching is to process it server-side, in a custom SiteResolver pipeline. [Example by Artsem Prashkovich](https://www.brimit.com/blog/how-to-resolve-a-virtual-directory-on-a-jss-sitecore-website)
 
 **Sharing templates**
 - Disconnected JSS only has a single-app view. But there is nothing stopping you from sharing templates and components from Sitecore side.
