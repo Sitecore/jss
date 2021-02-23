@@ -81,7 +81,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // - When a request comes in
     // - At most once every 5 seconds
     revalidate: 5, // In seconds
-    notFound: props.notFound, // Returns custom 404 page with a status code of 404
+    notFound: props.notFound, // Returns custom 404 page with a status code of 404 when true
   };
 };
 
