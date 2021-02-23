@@ -57,7 +57,9 @@ As of Sitecore 10.0.1, Sitecore sets the `Secure` flag on all cookies by default
 
 1. Enable HTTPS in your local environment by using a local reverse proxy, or using a service such as ngrok.
     * If you are running Sitecore in containers for development (recommended), you can make use of the Traefik reverse proxy that is provided in the `docker-compose` environment.
-    * **The `dotnet new` template for Next.js has this pre-configured.**
+        * **The `dotnet new` template for Next.js has this pre-configured.**
+    * If you are using ngrok, be sure the `Host` header is rewritten to your local hostname.
+        * `ngrok http -host-header=rewrite 3000`
 2. Transform the Sitecore Web.config and set:
     * `requireSSL` to `false` and `sameSite` to `Unspecified` in the `httpCookies` configuration
     * `cookieSameSite` to `Unspecified` in the `sessionState` configuration
