@@ -1,85 +1,114 @@
 import React from 'react';
 import Navigation from './Navigation';
-import { withRouter } from 'react-router';
 import SearchBox from './SearchBox';
-import { NavLink } from 'react-router-dom';
-import Menu from 'antd/lib/menu';
-import 'antd/lib/menu/style/index.css';
-const SubMenu = Menu.SubMenu;
+import { NavLink, useLocation } from 'react-router-dom';
+import { useNavigationState } from '../NavigationContext';
 
-// state management ftw
-const openMenuState = new Set();
+/*
+ * Bootstrap 4 sidebar menu adapted from:
+ * https://www.codeply.com/go/q0b6ILuRyx/bootstrap-4-vertical-sidebar-nav-with-submenu
+ */
 
-const renderMenu = (baseUrl, menuItem, history) => {
+const Menu = ({children}) => {
+  return (
+    <div class="collapse show d-md-flex pt-2 pl-0 min-vh-100">
+      <ul class="nav flex-column flex-nowrap overflow-hidden">
+        {children}
+      </ul>
+    </div>
+  );
+};
+
+const MenuItem = ({url, menuItem, active}) => {
+  const activeClass = active ? "active" : "";
+  return (
+    <li className={`nav-item ${activeClass}`}>
+      <NavLink to={url} className="nav-link text-truncate">
+        <span class="d-sm-inline">{menuItem.displayName}</span>
+      </NavLink>
+    </li>
+  );
+};
+
+const SubMenu = ({menuItem, children, open, onClick}) => {
+  const collapsed = open ? "" : "collapsed";
+  const show = open ? "show" : "";
+  return (
+    <li className="nav-item sub-menu">
+      <a className={`nav-link text-truncate ${collapsed}`} href={`#${menuItem.url}`} onClick={onClick} data-toggle="collapse" data-target={`#${menuItem.url}`}>
+        <span class="d-sm-inline">{menuItem.displayName}</span>
+        <i className="sub-menu-expand-icon"></i>
+      </a>
+      <div className={`collapse ${show}`} id={menuItem.url} aria-expanded="false">
+        <ul class="flex-column nav">
+          {children}
+        </ul>
+      </div>
+    </li>
+  );
+};
+
+const renderMenu = (baseUrl, menuItem, openMenuState, setOpenMenuState, selected) => {
   const url = `${baseUrl}/${menuItem.url}`;
+  const toggleMenu = (url) => {
+    if (openMenuState.has(url)) {
+      openMenuState.delete(url);
+    } else {
+      openMenuState.add(url);
+    }
+    setOpenMenuState(openMenuState);
+  }
+
   if (menuItem.children) {
     return (
-      <SubMenu key={menuItem.url} title={menuItem.displayName}>
-        {menuItem.children.map((child) => renderMenu(url, child, history))}
+      <SubMenu key={menuItem.url} menuItem={menuItem} open={openMenuState.has(menuItem.url)} onClick={() => toggleMenu(menuItem.url)}>
+        {menuItem.children.map((child) => renderMenu(url, child, openMenuState, setOpenMenuState, selected))}
       </SubMenu>
     );
   } else {
     return (
-      <Menu.Item key={menuItem.url}>
-        <NavLink to={url}>{menuItem.displayName}</NavLink>
-      </Menu.Item>
+      <MenuItem key={menuItem.url} url={url} menuItem={menuItem} active={menuItem.url == selected} />
     );
   }
 };
 
-class SideNav extends React.Component {
-  constructor(props) {
-    super(props);
-    if (openMenuState.size == 0) {
-      const { location } = this.props;
-      const openMenus = location.pathname
-        .split('/')
-        .slice(2) // remove starting empty string + docs
-        .reverse();
-      openMenus.forEach((x) => openMenuState.add(x));
-    }
-    if (openMenuState.size == 0) {
-      // add getting started by default
-      openMenuState.add('getting-started');
-    }
+const SideNav = ({ navkey, useSearch }) => {
+  const location = useLocation();
+  const selected = location.pathname.split('/').reverse()[0];
+  const searchbox = (useSearch == 'true') ? <SearchBox /> : '';
+  const  { navState, setNavState } = useNavigationState();
+
+  if (navState.size == 0) {
+    const openMenus = location.pathname
+      .split('/')
+      .slice(2) // remove starting empty string + docs
+      .reverse();
+    openMenus.forEach((x) => navState.add(x));
+    setNavState(navState);
+  }
+  if (navState.size == 0) {
+    // add getting started by default
+    navState.add('getting-started');
+    setNavState(navState);
   }
 
-  handleOpenChange = (openMenus) => {
-    openMenuState.clear();
-    openMenus.forEach((x) => openMenuState.add(x));
-  };
+  return (
+    <div className="side-nav">
+      {searchbox}
 
-  render() {
-    const { history, location } = this.props;
-    const openMenus = Array.from(openMenuState);
-    const selected = location.pathname.split('/').reverse()[0];
-    const navkey = this.props.navkey;
-    const searchbox = (this.props.useSearch == 'true') ? <SearchBox /> : '';
+      <Menu>
+        {Navigation[navkey].children.map((menuItem) => renderMenu(`/${Navigation[navkey].url}`, menuItem, navState, setNavState, selected))}
+      </Menu>
 
-    return (
-      <div className="side-nav">
-        {searchbox}
-
-        <Menu
-          defaultOpenKeys={openMenus}
-          defaultSelectedKeys={[selected]}
-          onOpenChange={this.handleOpenChange}
-          selectable={false}
-          mode="inline"
-        >
-          {Navigation[navkey].children.map((menuItem) => renderMenu(`/${Navigation[navkey].url}`, menuItem, history))}
-        </Menu>
-
-        <div className="navbar-nav bd-navbar-nav flex-column">
-          {Navigation[navkey].links.map(linkItem => (
-            <NavLink to={"/"+linkItem.url} className={linkItem.className}>
-              {linkItem.displayName}
-            </NavLink>
-          ))}
-        </div>
+      <div className="navbar-nav bd-navbar-nav flex-column">
+        {Navigation[navkey].links.map(linkItem => (
+          <NavLink to={"/"+linkItem.url} className={linkItem.className}>
+            {linkItem.displayName}
+          </NavLink>
+        ))}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default withRouter(SideNav);
+export default SideNav;

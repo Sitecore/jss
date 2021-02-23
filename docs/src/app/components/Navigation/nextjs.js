@@ -19,6 +19,10 @@ export default {
         {
           url: 'headless-concepts',
           displayName: 'Headless Concepts & Architecture',
+        },
+        {
+          url: 'content-authoring-concepts',
+          displayName: 'Content Authoring'
         }
       ]
     },
