@@ -18,7 +18,7 @@ Let's dive into details on how the sample app enables `i18n`.
 
 The file `next.config.js` contains definitions for `locales` and `defaultLocale`:
 * `locales` are all the locales you want to support in your application and should generally match (at least be a subset of) those in Sitecore.
-* `defaultLocale` is the locale used when visiting a non-locale prefixed path, such as `/styleguide`.
+* `defaultLocale` is the locale used when visiting a non-locale prefixed path, such as `/styleguide`. It's `config.language` from your `package.json` file.
 
 ```js
 i18n: {
@@ -27,11 +27,11 @@ i18n: {
 }
 ```
 
-To enable localization, the sample app uses the [next-localization](https://github.com/StarpTech/next-localization) library.
+Next.js does not provide anything for localization, only i18n routing. To enable localization, the sample app uses the [next-localization](https://github.com/StarpTech/next-localization) library.
 
 > NOTE: If your app is not multilingual, you can remove `next-localization` and references to it.
 
-In `src/pages/_app.tsx`, the `App` initializes using `I18nProvider` with the properties:
+In `src/pages/_app.tsx`, the `App` initializes using `I18nProvider` with properties populated in `src/lib/page-props-factory.ts`:
 * `pageProps.locale` - provided by nextjs.
 * `dictionary` - fetched from dictionary service.
 
@@ -77,6 +77,4 @@ const MultilingualComponent = (): JSX.Element => {
 export default MultilingualComponent;
 ```
 
-To transition between locales, you can use `Link` or `useRouter`. Read more about it [here](https://nextjs.org/docs/advanced-features/i18n-routing#transition-between-locales).
-
-Look at the component [Styleguide-Multilingual](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/styleguide/Styleguide-Multilingual.tsx) for an example of using `next-localization`.
+Look at the component [Styleguide-Multilingual](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/styleguide/Styleguide-Multilingual.tsx) for an example of using `next-localization` and Next.js `i18n routing`.
