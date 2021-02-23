@@ -33,9 +33,7 @@ Next.js does not provide anything for localization, only i18n routing. To enable
 
 In `src/pages/_app.tsx`, the `App` initializes using `I18nProvider` with properties populated in `src/lib/page-props-factory.ts`:
 * `pageProps.locale` - provided by nextjs.
-* `dictionary` - fetched from dictionary service.
-
-The `DictionaryService` fetches translations in `src/lib/page-props-factory.ts`.
+* `dictionary` - fetched from `DictionaryService`.
 
 ```tsx
 function App({ Component, pageProps }: AppProps): JSX.Element {
