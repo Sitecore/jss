@@ -12,10 +12,7 @@ The Next.js sample app provides support for [component-level data fetching](/doc
 Next.js sample app provides easy way how to manage both local and remote data with GraphQL, fetch, cache application data.
 For this purpose we are using [apollo-client](https://www.apollographql.com/docs/react/) library. Our `GraphQLClientFactory` is responsible for creation of [ApolloClient](https://www.apollographql.com/docs/react/api/core/ApolloClient) instance. 
 
-In the code we want to have strong types connected to GraphQL types which are defined in Sitecore GraphQL Edge endpoint. In order to achive it we are using [graphql-let](https://github.com/piglovesyou/graphql-let). Read [how graphql-let is working](https://github.com/piglovesyou/graphql-let#how-it-works).
-`graphq-let` is using `src/temp/GraphQLIntrospectionResult.json` schema in order to understand which types it should generate.
-
-The `jss graphql:update` command should be executed when Sitecore templates related to the site are altered. It will fetch fresh `introspection result` and `fragment data` from your defined GraphQL endpoint. As the result you will have generated `src/temp/GraphQLIntrospectionResult.json` and `src/temp/GraphQLFragmentTypes.json` files.
+In the code we want to have strong types connected to GraphQL types which are defined in Sitecore GraphQL Edge endpoint. In order to achive it we are using [GraphQL Introspection](/docs/nextjs/graphql/introspection/).
 
 `Introspection result` - information about what queries GraphQL schema supports. Read more [here](https://graphql.org/learn/introspection).
 
