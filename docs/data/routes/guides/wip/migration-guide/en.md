@@ -20,7 +20,7 @@ Your infrastructure will more than likely need to change depending on your selec
 With these concepts in mind, consider the following approach:
 
 **1. Configure JSS Application**
-Perform the [JSS Server Setup](/docs/getting-started/jss-server-install) and [App Deployment](/docs/getting-started/app-deployment) followed by creating the configuration file for your application. The configuration file varies based on your selected JavaScript Framework. Sitecore provides [example configurations](https://github.com/Sitecore/jss/tree/master/samples)], such as the [JssReactWeb.config](https://github.com/Sitecore/jss/blob/master/samples/react/sitecore/config/JssReactWeb.config).
+Perform the [JSS Server Setup](/docs/getting-started/jss-server-install) and [App Deployment](/docs/getting-started/app-deployment) followed by creating the configuration file for your application. The configuration file varies based on your selected JavaScript Framework. Sitecore provides [example configurations](https://github.com/Sitecore/jss/tree/master/samples), such as the [JssReactWeb.config](https://github.com/Sitecore/jss/blob/master/samples/react/sitecore/config/JssReactWeb.config).
 
 **2. Refactor Sitecore Templates**
 While data source templates might not need to be refactored, page templates will need to be updated. Page templates will need to inherit the `/sitecore/templates/Foundation/JavaScript Services/Route` template and have JSS layout and JSS renderings configured.
