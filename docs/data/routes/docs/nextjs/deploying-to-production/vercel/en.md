@@ -25,10 +25,10 @@ Using the `publish:end` webhook, you can automatically trigger static site gener
 To enable the `Publish:end` hook, you must: 
 
 1. [Create a deploy hook](https://vercel.com/docs/more/deploy-hooks#creating-a-deploy-hook) in Vercel.
-1. Create webhook config based on example `/App_Config/Sitecore/JavaScriptServices/Sitecore.JavaScriptServices.AppServices.PublishingWebHook.config.example`, and include it in your solution:
+2. Create webhook config based on example `/App_Config/Sitecore/JavaScriptServices/Sitecore.JavaScriptServices.AppServices.PublishingWebHook.config.example`, and include it in your solution:
 	* `url` - Required. The URL of the hook to be invoked.
 	* `method` - Optional. The HTTP method for invoking webhook. Possible values are `POST` or `GET`. The default method is `POST`. 
 	* `site` - Optional. The sites which should trigger the webhook when published. By default Sitecore will trigger webhook for every published item. If you provide the site parameter, the webhook will be invoked if the published item root is an ancestor, descendant, or equal to the configured site's root item.
-1. Deploy webhook config to your Sitecore instance.
-1. Publish items.
-1. On Vercel, check that the end of the publishing process triggered a new deployment.
+3. Deploy webhook config to your Sitecore instance.
+4. Publish items.
+5. On Vercel, check that the end of the publishing process triggered a new deployment.
