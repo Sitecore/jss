@@ -14,24 +14,25 @@ There are [migration instructions](/upgrade-guides/16.0) from JSS 15-based appli
 ### Breaking changes
 * [PR #485](https://github.com/Sitecore/jss/pull/485) [JSS CLI] Add --config key in order to specify path to scjssconfig.json file. `resolveScJssConfig` accepts object argument instead of direct arguments.
 * [PR #460](https://github.com/Sitecore/jss/pull/460) [sitecore-jss-react] Fix return type of `ComponentFactory` to allow a component definition instead of an instantiated component. `ComponentFactory` returns `ComponentType | null` instead of `Component`.
-* [PR #517](https://github.com/Sitecore/jss/pull/517) [packages/samples] Migrate TSLint to ESLint.
+* [PR #517](https://github.com/Sitecore/jss/pull/517) [packages/samples] Migrate TSLint to ESLint, since TSLint is deprecated.
 
 ### New Features & Improvements
-* [PR #526](https://github.com/Sitecore/jss/pull/526) [sitecore-jss] Added `DictionaryService`.
-* [PR #511](https://github.com/Sitecore/jss/pull/511) [sitecore-jss] Added `DataFetcher` and `LayoutService`.
-* [PR #530](https://github.com/Sitecore/jss/pull/530) [sitecore-jss] Added `GraphQLRequestClient`.
-* [PR #525](https://github.com/Sitecore/jss/pull/525) [sitecore-jss-react] SitecoreContext supports generic.
-* [PR #508](https://github.com/Sitecore/jss/pull/508) [sitecore-jss-react] add useSitecoreContext hook.
+* [Documentation](https://jss.sitecore.com/docs/nextjs/introduction/why-nextjs) Added support for Next.js framework.
+* [Commit](https://github.com/Sitecore/jss/commit/8f5966703d11c2ded3f86017942f31a6dbb5a0da) [sitecore-jss] Added `RestDictionaryService` (fetch dictionary data using the Sitecore Dictionary Service REST API), `RestLayoutService` (fetch layout data using the Sitecore Layout Service REST API).
+* [PR #511](https://github.com/Sitecore/jss/pull/511) [sitecore-jss] Added `AxiosDataFetcher` to provide default data fetcher implementation which can be used in the sample app.
+* [PR #530](https://github.com/Sitecore/jss/pull/530) [sitecore-jss] Added `GraphQLRequestClient` which provides ability to execute graphql query.
+* [PR #525](https://github.com/Sitecore/jss/pull/525) [sitecore-jss-react] SitecoreContext can support generic.
+* [PR #508](https://github.com/Sitecore/jss/pull/508) [sitecore-jss-react] Added useSitecoreContext hook.
 * [PR #542](https://github.com/Sitecore/jss/pull/542) Added `.env` file support for the CLI.
 
 ### Bug Fixes
-* [PR #548](https://github.com/Sitecore/jss/pull/548) [sitecore-jss-dev-tools] `jss deploy` doesn't exit on success
-* [PR #541](https://github.com/Sitecore/jss/pull/541) [sitecore-jss-dev-tools][sitecore-jss-cli] Replace old and security vulnerable `request` and `axios` NPM packages with latest version of `axios` (>=0.21.1)
-* [PR #506](https://github.com/Sitecore/jss/pull/506) [React sample] `Cannot read property 'sitecore' of null`, when 404 and routeData is null
+* [PR #548](https://github.com/Sitecore/jss/pull/548) [sitecore-jss-dev-tools] `jss deploy` doesn't exit on success.
+* [PR #541](https://github.com/Sitecore/jss/pull/541) [sitecore-jss-dev-tools][sitecore-jss-cli] Replace old and security vulnerable `request` and `axios` NPM packages with latest version of `axios` (>=0.21.1).
+* [PR #506](https://github.com/Sitecore/jss/pull/506) [React sample] `Cannot read property 'sitecore' of null`, when 404 and routeData is null.
 * [PR #575](https://github.com/Sitecore/jss/pull/575) [sitecore-jss-react] Specifying a custom error component via the Placeholder's `errorComponent` prop caused an "Invalid prop" error.
-* [PR #477](https://github.com/Sitecore/jss/pull/477) [sitecore-jss-proxy] Prevent passing 'qs' as 'undefined' in rewriteRequestPath
-* [PR #459](https://github.com/Sitecore/jss/pull/459) [sitecore-jss-react] Fix prop-types for `missingComponentComponent` to allow a functional component
-* [PR #521](https://github.com/Sitecore/jss/pull/521) [packages/samples] Upgrade react, react-dom
+* [PR #477](https://github.com/Sitecore/jss/pull/477) [sitecore-jss-proxy] Prevent passing 'qs' as 'undefined' in rewriteRequestPath.
+* [PR #459](https://github.com/Sitecore/jss/pull/459) [sitecore-jss-react] Fix prop-types for `missingComponentComponent` to allow a functional component.
+* [PR #521](https://github.com/Sitecore/jss/pull/521) [packages/samples] Upgrade react, react-dom.
 ## Sitecore JSS 15.0.1
 
 ### Bug Fixes
