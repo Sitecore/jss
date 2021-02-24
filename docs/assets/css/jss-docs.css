@@ -63,6 +63,9 @@ pre:after {
 .markdown-section ul {
   margin: 1.2em 0
 }
+.markdown-section ul > li > ul {
+  margin: 0
+}
 .markdown-section ol,
 .markdown-section p,
 .markdown-section ul {

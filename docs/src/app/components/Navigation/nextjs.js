@@ -17,18 +17,26 @@ export default {
           displayName: 'Why Next.js',
         },
         {
+          url: 'how-is-nextjs-different',
+          displayName: 'Differences from other JSS SDKs'
+        },
+        {
           url: 'headless-concepts',
-          displayName: 'Headless Concepts & Architecture',
-        }
-      ]
+          displayName: 'Headless Concepts',
+        },
+        {
+          url: 'content-authoring-concepts',
+          displayName: 'Content Authoring'
+        },
+      ],
     },
     {
-      url: 'getting-started',
-      displayName: 'Getting Started',
+      url: 'getting-started-nextjs',
+      displayName: 'Getting Started with Next.js',
       children: [
         {
-          url: 'options',
-          displayName: 'Options',
+          url: 'workflow-options',
+          displayName: 'Workflow Options',
         },
         {
           url: 'walkthrough-dotnetnew',
@@ -37,8 +45,8 @@ export default {
         {
           url: 'walkthrough-jsscreate',
           displayName: 'Walkthrough: with `jss create`',
-        }
-      ]
+        },
+      ],
     },
     {
       url: 'experience-editor',
@@ -46,39 +54,39 @@ export default {
       children: [
         {
           url: 'architecture',
-          displayName: 'Integration architecture and APIs'
+          displayName: 'Integration architecture and APIs',
         },
         {
           url: 'walkthrough',
-          displayName: 'Connect to the Experience Editor'
-        },
-        {
-          url: 'troubleshooting',
-          displayName: 'Troubleshooting'
-        }
-      ]
+          displayName: 'Connect to the Experience Editor',
+        },      
+      ],
     },
     {
       url: 'creating-components',
       displayName: 'Creating Components',
       children: [
         {
-          url: 'concepts',
-          displayName: 'Layout, components, component factory'
+          url: 'layout-concepts',
+          displayName: 'Layout & Component Concepts'
+        },
+        {
+          url: 'new-component',
+          displayName: 'Walkthrough: Creating a new component'
         },
         {
           url: 'placeholders',
-          displayName: 'Component nesting with Placeholder'
+          displayName: 'Component nesting with Placeholder',
         },
         {
           url: 'rendering-fields',
-          displayName: 'Rendering Fields'
+          displayName: 'Rendering Fields',
         },
         {
           url: 'sitecore-context',
-          displayName: 'Using Sitecore context'
-        }
-      ]
+          displayName: 'Using Sitecore context',
+        },
+      ],
     },
     {
       url: 'page-routing',
@@ -86,17 +94,17 @@ export default {
       children: [
         {
           url: 'jss-routes',
-          displayName: 'JSS routes with Next.js'
+          displayName: 'JSS routes with Next.js',
         },
         {
           url: 'switching-to-ssr',
-          displayName: 'Switching to SSR'
+          displayName: 'Switching to SSR',
         },
         {
           url: 'error-routes',
-          displayName: 'Error Routes'
-        }
-      ]
+          displayName: 'Error Routes',
+        },
+      ],
     },
     {
       url: 'data-fetching',
@@ -104,21 +112,21 @@ export default {
       children: [
         {
           url: 'data-services',
-          displayName: 'Data Services'
+          displayName: 'Data Services',
         },
         {
           url: 'getStaticPaths',
-          displayName: 'getStaticPaths & sitemap service'
+          displayName: 'getStaticPaths & sitemap service',
         },
         {
           url: 'customizing-static-paths',
-          displayName: 'Customizing static paths'
+          displayName: 'Customizing static paths',
         },
         {
           url: 'component-level-data-fetching',
-          displayName: 'Component-level data fetching'
-        }
-      ]
+          displayName: 'Component-level data fetching',
+        },
+      ],
     },
     {
       url: 'graphql',
@@ -126,7 +134,7 @@ export default {
       children: [
         {
           url: 'edge-schema-introduction',
-          displayName: 'Introduction to the Edge Schema'
+          displayName: 'Introduction to the Edge Schema',
         },
         {
           url: 'sample-app',
@@ -135,8 +143,8 @@ export default {
         {
           url: 'component',
           displayName: 'Using GraphQL in component SSR/SSG'
-        }
-      ]
+        },
+      ],
     },
     {
       url: 'internationalization',
@@ -144,17 +152,17 @@ export default {
       children: [
         {
           url: 'using-i18n',
-          displayName: 'Using i18n'
+          displayName: 'Using i18n',
         },
         {
           url: 'dictionary-service',
-          displayName: 'Dictionary service and client'
+          displayName: 'Dictionary service and client',
         },
         {
           url: 'walkthrough-language-switcher',
-          displayName: 'Creating a language switcher'
-        }
-      ]
+          displayName: 'Creating a language switcher',
+        },
+      ],
     },
     {
       url: 'tracking-and-analytics',
@@ -162,9 +170,13 @@ export default {
       children: [
         {
           url: 'overview',
-          displayName: 'Overview and architecture'
-        }
-      ]
+          displayName: 'Overview and architecture',
+        },
+        {
+          url: 'configuration',
+          displayName: 'Enabling tracking and analytics',
+        },
+      ],
     },
     {
       url: 'multitenancy',
@@ -172,9 +184,9 @@ export default {
       children: [
         {
           url: 'overview',
-          displayName: 'Multitenancy Overview'
-        }
-      ]
+          displayName: 'Multitenancy Overview',
+        },
+      ],
     },
     {
       url: 'deploying-to-production',
@@ -182,20 +194,20 @@ export default {
       children: [
         {
           url: 'deployment-options',
-          displayName: 'Deployment Options'
+          displayName: 'Deployment Options',
         },
         {
           url: 'vercel',
-          displayName: 'Deploying to Vercel'
+          displayName: 'Deploying to Vercel',
         },
         {
           url: 'export',
-          displayName: 'Using `next export'
+          displayName: 'Using `next export',
         },
         {
           url: 'server-components',
-          displayName: 'Installing Sitecore Headless Services'
-        }
+          displayName: 'Installing Sitecore Headless Services',
+        },
       ],
     },
     {
@@ -204,13 +216,13 @@ export default {
       children: [
         {
           url: 'code-first',
-          displayName: 'Using code-first'
+          displayName: 'Using code-first',
         },
         {
           url: 'storybook',
-          displayName: 'Using Storybook'
-        }
-      ]
+          displayName: 'Using Storybook',
+        },
+      ],
     },
     {
       url: 'other-frameworks',
@@ -218,14 +230,10 @@ export default {
       children: [
         {
           url: 'how-is-nextjs-different',
-          displayName: 'What’s different about the Next.js'
+          displayName: 'What’s different about the Next.js SDK',
         },
-        {
-          url: 'migration',
-          displayName: 'Migrate from JSS React to Next.js'
-        }
-      ]
-    }
+      ],
+    },
   ],
-  links: []
+  links: [],
 };
