@@ -30,7 +30,7 @@ const graphQLClient = GraphQLClientFactory();
 ```ts
 import { GraphQlConnectedDemo as GrapQLConnectedDemoDatasource } from './GraphQL-ConnectedDemo.graphql';
 ```
-3. To execute the query, use `graphQLClient.query`.
+4. To execute the query, use `graphQLClient.query` and return the resulting `data`.
 ```ts
 const result = await graphQLClient.query({
 	query: ConnectedDemoQueryDocument,
@@ -39,8 +39,9 @@ const result = await graphQLClient.query({
 		contextItem: layoutData?.sitecore?.route?.itemId,
 	},
 });
+
+return result.data;
 ```
-4. Return all needed data for your component `result.data`.
 5. In the `render` function access this data using `useComponentProps` hook.
 ```ts
 const data = props.rendering.uid
