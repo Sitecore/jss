@@ -49,7 +49,7 @@ The `Analytics.ForwardedRequestHttpHeader` Sitecore setting must be set to `X-Fo
 <setting name="Analytics.ForwardedRequestHttpHeader" set:value="X-Forwarded-For" />
 ```
 
-[Header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing) will send the original IP address of the client on the 'X-Forwarded-For' header. This setting tells Sitecore to read the forwarded header, making analytics track the correct original client IP address.
+[Header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing) will send the original IP address of the client on the `X-Forwarded-For` header. This setting tells Sitecore to read the forwarded header, making analytics track the correct original client IP address.
 
 > See [Sitecore Experience Manager documentation](https://doc.sitecore.com/developers/101/sitecore-experience-manager/en/set-up-sitecore-ip-geolocation.html) for more information about this setting.
 
