@@ -30,7 +30,7 @@ The `RestLayoutService` will track layout requests by default, so there is no ex
 
 ### Forwarded request header
 
-The `Analytics.ForwardedRequestHttpHeader` Sitecore setting must be set to "X-Forwarded-For".
+The `Analytics.ForwardedRequestHttpHeader` Sitecore setting must be set to `X-Forwarded-For`.
 
 ```xml
 <setting name="Analytics.ForwardedRequestHttpHeader" set:value="X-Forwarded-For" />
