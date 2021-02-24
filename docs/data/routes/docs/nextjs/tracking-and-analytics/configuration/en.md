@@ -22,7 +22,7 @@ Sitecore JSS layout service requests must:
 1. have tracking enabled (default), and
 2. perform [header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing) (default with the Next.js sample application)
 
-Both of these are taken care of by using the `RestLayoutService` included with the Next.js SDK (part of the `@sitecore-jss/sitecore-jss-nextjs` npm package). 
+Both of these are taken care of using the `RestLayoutService` included with the Next.js SDK (part of the `@sitecore-jss/sitecore-jss-nextjs` npm package). 
 
 The `RestLayoutService` will track layout requests by default, so there is no extra configuration required. However, this can be disabled with the optional `tracking` parameter, so ensure this hasn't been specifically set to `false`.
 
@@ -38,7 +38,7 @@ The `Analytics.ForwardedRequestHttpHeader` Sitecore setting must be set to "X-Fo
 
 > The default Sitecore configuration file included with the Next.js sample app already includes a configuration patch for this setting. You can find this file under `/sitecore/config`.
 
-[Header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing) will send the original IP address of the client on the 'X-Forwarded-For' header. This setting tells Sitecore to read the forwarded header, thus making analytics track the correct original client IP address.
+[Header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing) will send the original IP address of the client on the 'X-Forwarded-For' header. This setting tells Sitecore to read the forwarded header, making analytics track the correct original client IP address.
 
 ### Disable robot detection
 
@@ -49,14 +49,14 @@ During development, any analytics activity will be flagged as a robot. These set
 <setting name="Analytics.Robots.IgnoreRobots" set:value="false" />
 ```
 
-> The default Sitecore configuration file included with the Next.js sample app already includes a disabled configuration patch for these settings. You can find this file under `/sitecore/config`. Simply uncomment to enable.
+> The default Sitecore configuration file included with the Next.js sample app already includes a disabled configuration patch for these settings. You can find this file under `/sitecore/config`. Uncomment to enable.
 
 ## Secure cookies
 
 As of Sitecore 10.0.1, Sitecore sets the `Secure` flag on all cookies by default. This can impact JSS local development, as the proxied Sitecore cookies (including analytics cookies) will be rejected by the browser if your application is not running under HTTPS, and thus visits will not be tracked and content may not be personalized. To work around this, you can either:
 
-1. Enable HTTPS in your local environment by using a local reverse proxy, or using a service such as ngrok.
-    * If you are running Sitecore in containers for development (recommended), you can make use of the Traefik reverse proxy that is provided in the `docker-compose` environment.
+1. Enable HTTPS in your local environment by using a local reverse proxy or using a service such as ngrok.
+    * If you are running Sitecore in containers for development (recommended), you can use the Traefik reverse proxy provided in the `docker-compose` environment.
         * **The `dotnet new` template for Next.js has this pre-configured.**
     * If you are using ngrok, be sure the `Host` header is rewritten to your local hostname.
         * `ngrok http -host-header=rewrite 3000`
