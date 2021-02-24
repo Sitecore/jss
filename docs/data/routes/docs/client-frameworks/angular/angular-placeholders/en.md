@@ -63,7 +63,7 @@ But it still remains a question where the provider for `@Inject('JSS_SERVER_TO_S
 >
 > By default an Angular-CLI project will build one bundle for an application. But to support universal rendering Angular-CLI has to be configured to create an additional bundle. [Read more about Angular-CLI and universal rendering](https://github.com/angular/angular-cli/wiki/stories-universal-rendering). Lets call these two bundles the _universal bundle_ and the _client bundle_ respectively.
 >
-> Both the universal bundle and client bundle cannot run on their own, they need to be served. To be able to serve these bundles a server is needed. Sitecore JavaScript Services (JSS) comes with a JavaScript view engine for Node that can run our universal bundle. The JSS JavaScript view engine expects a Node bundle that exports a `renderView` function, and to deliver this a third bundle is created that we will name _server bundle_. The server bundle is not built using Angular-CLI but is instead a custom webpack project.
+> Both the universal bundle and client bundle cannot run on their own, they need to be served. To be able to serve these bundles a server is needed. JSS comes with a JavaScript view engine for Node that can run our universal bundle. The JSS JavaScript view engine expects a Node bundle that exports a `renderView` function, and to deliver this a third bundle is created that we will name _server bundle_. The server bundle is not built using Angular-CLI but is instead a custom webpack project.
 >
 > _Summary_: The BasicAppAngular application builds three bundles into the `dist` folder:
 >
@@ -71,7 +71,7 @@ But it still remains a question where the provider for `@Inject('JSS_SERVER_TO_S
 > * Universal bundle - located in `dist/server/`
 > * Server bundle - located at `dist/server.bundle.js`
 
-To understand where the data comes from find `server.bundle.ts`. The data is served from the Sitecore JavaScript Services JavaScript view engine via the `renderView` function which is located in the `server.bundle.ts`.
+To understand where the data comes from find `server.bundle.ts`. The data is served from JSS's view engine via the `renderView` function which is located in the `server.bundle.ts`.
 
 ```ts
 function renderView (callback, path, data, viewBag) {

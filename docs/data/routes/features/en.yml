@@ -47,7 +47,7 @@ placeholders:
             componentName: TileWithButton
             fields:
               title:
-                value: The power of Sitecore JavaScript Services
+                value: The power of Sitecore JavaScript SDK
               text:
                 value: |
                   Develop your JavaScript apps with powerful content management 

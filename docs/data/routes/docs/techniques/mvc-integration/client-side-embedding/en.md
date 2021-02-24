@@ -27,7 +27,7 @@ Characteristics of such apps include:
 
 # The Embedded Wizard Sample
 
-[The Embedded Wizard sample app](https://github.com/Sitecore/jss/tree/master/samples/sitecore-embedded-jss-app) was created based on community feedback about common use cases for Sitecore JavaScript Services. You may not wish to build your entire site using JSS -- rather just particular tools, wizards, calculators, etc. which have complicated UX and/or are primarily frontend-driven.
+[The Embedded Wizard sample app](https://github.com/Sitecore/jss/tree/master/samples/sitecore-embedded-jss-app) was created based on community feedback about common use cases for JSS. You may not wish to build your entire site using JSS -- rather just particular tools, wizards, calculators, etc. which have complicated UX and/or are primarily frontend-driven.
 
 ## Quick demo
 

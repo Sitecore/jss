@@ -1,7 +1,7 @@
 {
   "name": "sitecore-jss-docs",
   "version": "13.0.0",
-  "description": "Doc site for Sitecore JavaScript Services",
+  "description": "Doc site for Sitecore JavaScript SDK",
   "engines": {
     "node": "10.17.0",
     "npm": "6.11.3"
