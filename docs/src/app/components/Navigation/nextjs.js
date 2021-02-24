@@ -216,10 +216,6 @@ export default {
           url: 'how-is-nextjs-different',
           displayName: 'What’s different about the Next.js'
         },
-        {
-          url: 'migration',
-          displayName: 'Migrate from JSS React to Next.js'
-        }
       ]
     }
   ],
