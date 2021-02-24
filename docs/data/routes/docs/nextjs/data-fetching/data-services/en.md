@@ -50,7 +50,7 @@ To prepare the page `props`, the `SitecorePagePropsFactory` uses the [Layout Ser
 
 ### locale
 
-The factory retrieves the `context` locale as configured in the `i18n` entry of `next.config.js`. Otherwise, it uses the  `config.language` defined in `package.json`.
+The factory retrieves the `context` locale as configured in the `i18n` entry of `next.config.js`. Otherwise, it uses the `config.language` defined in `package.json`.
 
 ### layoutData
 
