@@ -28,6 +28,8 @@ The `RestLayoutService` will track layout requests by default, so there is no ex
 
 ## Sitecore configuration
 
+> The default Sitecore configuration file included with the Next.js sample app already includes disabled configuration patches for these settings. You can find this file under `/sitecore/config`. Uncomment to enable.
+
 ### Forwarded request header
 
 The `Analytics.ForwardedRequestHttpHeader` Sitecore setting must be set to `X-Forwarded-For`.
@@ -35,8 +37,6 @@ The `Analytics.ForwardedRequestHttpHeader` Sitecore setting must be set to `X-Fo
 ```xml
 <setting name="Analytics.ForwardedRequestHttpHeader" set:value="X-Forwarded-For" />
 ```
-
-> The default Sitecore configuration file included with the Next.js sample app already includes a configuration patch for this setting. You can find this file under `/sitecore/config`.
 
 [Header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing) will send the original IP address of the client on the 'X-Forwarded-For' header. This setting tells Sitecore to read the forwarded header, making analytics track the correct original client IP address.
 
@@ -48,8 +48,6 @@ During development, any analytics activity will be flagged as a robot. These set
 <setting name="Analytics.AutoDetectBots" set:value="false" />
 <setting name="Analytics.Robots.IgnoreRobots" set:value="false" />
 ```
-
-> The default Sitecore configuration file included with the Next.js sample app already includes a disabled configuration patch for these settings. You can find this file under `/sitecore/config`. Uncomment to enable.
 
 ## Secure cookies
 
