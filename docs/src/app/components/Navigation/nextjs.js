@@ -141,6 +141,10 @@ export default {
           displayName: 'Sitecore GraphQL in the sample app'
         },
         {
+          url: 'introspection',
+          displayName: 'Introspecting the GraphQL schema'
+        },
+        {
           url: 'component',
           displayName: 'Using GraphQL in component SSR/SSG'
         },
