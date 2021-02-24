@@ -13,8 +13,9 @@ There are [migration instructions](/upgrade-guides/16.0) from JSS 15-based appli
 
 ### Breaking changes
 * [PR #485](https://github.com/Sitecore/jss/pull/485) [JSS CLI] Add --config argument in order to specify the path to `scjssconfig.json` file. `resolveScJssConfig` now accepts arguments as an object instead of using individual arguments.
-* [PR #460](https://github.com/Sitecore/jss/pull/460) [sitecore-jss-react] Fix return type of `ComponentFactory` to allow a component definition instead of an instantiated component for the `missingComponentComponent` prop, resolving an error with custom "Missing Component" components not working.
-* [PR #538](https://github.com/Sitecore/jss/pull/538) [sitecore-jss-react] Fix return type of `ComponentFactory` to allow a component definition instead of an instantiated component for the `errorComponent` prop, resolving an error with custom "Error" components not working.
+* [PR #460](https://github.com/Sitecore/jss/pull/460) [sitecore-jss-react] Fix return type of `ComponentFactory` to allow a component definition instead of an instantiated component. `ComponentFactory` returns `ComponentType | null` instead of `Component`.
+* [PR #459](https://github.com/Sitecore/jss/pull/459) [sitecore-jss-react] Change propType of `missingComponentComponent` from `React.SFC` (deprecated) to `React.FC`.
+* [PR #538](https://github.com/Sitecore/jss/pull/538) [sitecore-jss-react] Change propType of `errorComponent` from `React.SFC` (deprecated) to `React.FC`.
 * [PR #517](https://github.com/Sitecore/jss/pull/517) [packages/samples] Migrate TSLint to ESLint, since TSLint is deprecated.
 
 ### New Features & Improvements
@@ -26,14 +27,17 @@ There are [migration instructions](/upgrade-guides/16.0) from JSS 15-based appli
 * [PR #508](https://github.com/Sitecore/jss/pull/508) [sitecore-jss-react] Add `useSitecoreContext` hook.
 * [PR #542](https://github.com/Sitecore/jss/pull/542) Add environment variable support via an `.env` file to the CLI.
 
+
 ### Bug Fixes
 * [PR #548](https://github.com/Sitecore/jss/pull/548) [sitecore-jss-dev-tools] `jss deploy` doesn't exit on success.
 * [PR #541](https://github.com/Sitecore/jss/pull/541) [sitecore-jss-dev-tools][sitecore-jss-cli] Replace old and security vulnerable `request` and `axios` NPM packages with latest version of `axios` (>=0.21.1).
 * [PR #506](https://github.com/Sitecore/jss/pull/506) [React sample] `Cannot read property 'sitecore' of null`, when 404 and routeData is null.
 * [PR #575](https://github.com/Sitecore/jss/pull/575) [sitecore-jss-react] Specifying a custom error component via the Placeholder's `errorComponent` prop caused an "Invalid prop" error.
-* [PR #477](https://github.com/Sitecore/jss/pull/477) [sitecore-jss-proxy] Prevent passing 'qs' as 'undefined' in rewriteRequestPath.
-* [PR #459](https://github.com/Sitecore/jss/pull/459) [sitecore-jss-react] Fix prop-types for `missingComponentComponent` to allow a functional component.
+* [PR #477](https://github.com/Sitecore/jss/pull/477) [sitecore-jss-proxy] Prevent passing 'qs' as 'undefined' in `rewriteRequestPath`.
+* [PR #459](https://github.com/Sitecore/jss/pull/459) [sitecore-jss-react] Fix propType of `missingComponentComponent`, resolving an issue with custom "Missing Component" components not working.
+* [PR #538](https://github.com/Sitecore/jss/pull/538) [sitecore-jss-react] Fix propType of `errorComponent`, resolving an issue with custom "Error" components not working.
 * [PR #521](https://github.com/Sitecore/jss/pull/521) [packages/samples] Upgrade react, react-dom.
+*
 ## Sitecore JSS 15.0.1
 
 ### Bug Fixes
