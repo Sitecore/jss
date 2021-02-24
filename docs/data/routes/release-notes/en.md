@@ -13,7 +13,8 @@ There are [migration instructions](/upgrade-guides/16.0) from JSS 15-based appli
 
 ### Breaking changes
 * [PR #485](https://github.com/Sitecore/jss/pull/485) [JSS CLI] Add --config argument in order to specify the path to `scjssconfig.json` file. `resolveScJssConfig` now accepts arguments as an object instead of using individual arguments.
-* [PR #460](https://github.com/Sitecore/jss/pull/460) [sitecore-jss-react] Fix return type of `ComponentFactory` to allow a component definition instead of an instantiated component. `ComponentFactory` returns `ComponentType | null` instead of `Component`.
+* [PR #460](https://github.com/Sitecore/jss/pull/460) [sitecore-jss-react] Fix return type of `ComponentFactory` to allow a component definition instead of an instantiated component for the `missingComponentComponent` prop, resolving an error with custom "Missing Component" components not working.
+* [PR #538](https://github.com/Sitecore/jss/pull/538) [sitecore-jss-react] Fix return type of `ComponentFactory` to allow a component definition instead of an instantiated component for the `errorComponent` prop, resolving an error with custom "Error" components not working.
 * [PR #517](https://github.com/Sitecore/jss/pull/517) [packages/samples] Migrate TSLint to ESLint, since TSLint is deprecated.
 
 ### New Features & Improvements
