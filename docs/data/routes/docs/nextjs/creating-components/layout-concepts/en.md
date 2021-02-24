@@ -24,12 +24,12 @@ You are free to define multiple root placeholders. To do so, add additional <Pla
 Sometimes, it may be necessary to render different root placeholders depending on the page type. Since React components can return different elements conditionally, this can be achieved easily by returning different <Placeholder> components based on the value of `props.layoutData.sitecore.route.templateName` or `props.layoutData.sitecore.route.templateId`.
 
 ## Component Factory
-In the context of a JSS app, every Sitecore rendering needs to have a corresponding JSS component implementation.
+In the context of a JSS app, every Sitecore rendering needs to have a matching JSS component implementation.
 
-The `component factory` is a mapping between Sitecore renderings and their JSS component implementations.
-Under the hood, the `componentFactory` is simply a JavaScript function that accepts the component name as a parameter and returns the associated React component.
+The Component Factory is a mapping between Sitecore renderings and their JSS component implementations.
+Under the hood, the `componentFactory` is simply a JavaScript function in the sample app that accepts the component name as a parameter and returns the associated React component.
 
-The following is a sample componentFactory file for an app with two components.
+The following is a sample `componentFactory` file for an app with two components.
 ```javascript
 import * as ContentBlock from 'src/components/ContentBlock';
 import * as AnotherComponent from 'src/components/AnotherComponent';
@@ -48,16 +48,16 @@ export function componentFactory(componentName: string) {
 ```
 
 ### Component Factory usage
-JSS expects to find the component factory in `src/temp/componentFactory.ts`. The function exported from this file is passed to the page wrapper ([`src/pages/[[...path]].tsx`](https://github.com/Sitecore/jss/blob/f91dea21caaf924b2cc043a56ac6cea9bd79c474/samples/nextjs/src/pages/%5B%5B...path%5D%5D.tsx#L36)) as a prop.
+JSS expects to find the `componentFactory` in `src/temp/componentFactory.ts`. The function exported from this file is passed to the page wrapper ([`src/pages/[[...path]].tsx`](https://github.com/Sitecore/jss/blob/f91dea21caaf924b2cc043a56ac6cea9bd79c474/samples/nextjs/src/pages/%5B%5B...path%5D%5D.tsx#L36)) as a prop.
 
-When JSS renders a page, it traverses through the layout data JSON fetched from Sitecore. When it comes across rendering names, it uses componentFactory to get the correct React component to instantiate.
+When JSS renders a page, it traverses through the layout data JSON fetched from Sitecore. When it comes across rendering names, it uses `componentFactory` to get the correct React component to instantiate.
 
 ### Component Factory generation
 By default, the `src/temp/componentFactory.ts` file is generated programmatically, at build-time, by inspecting the `src/components` directory.
 
-The logic for generating component factory is in [`scripts/generate-component-factory.ts`](https://github.com/Sitecore/jss/blob/dev/samples/nextjs/scripts/generate-component-factory.ts). By default, it recursively loops through `src/components` and all sub-directories, and processes all `.tsx` files, except for `.d.tsx` (type definition) files.
+The logic for generating the mapping in the Component Factory is in [`scripts/generate-component-factory.ts`](https://github.com/Sitecore/jss/blob/dev/samples/nextjs/scripts/generate-component-factory.ts). By default, it recursively loops through `src/components` and all sub-directories, and processes all `.tsx` files, except for `.d.tsx` (type definition) files.
 
-It does not matter whether components live directory under `src/components` or whether they're organized in folders. Both src structures will generate a component factory with two components, named `SomeComponent` and `AnotherComponent`.
+It does not matter whether components live directly under `src/components` or they're organized in folders. Given the example above, both `src` structures will generate a component factory with two components, named `SomeComponent` and `AnotherComponent`.
 
 Example 1 - components directory under `src/components`
 ```
