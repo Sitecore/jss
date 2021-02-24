@@ -7,24 +7,35 @@ title: Enabling tracking and analytics
 
 This topic will guide you through the steps required to enable full Sitecore tracking and analytics for your Next.js application.
 
-> Note this does not cover client-side tracking via the JSS tracking API, which is possible for *both SSG and SSR*. Please see the [JSS Tracking](/docs/fundamentals/services/tracking) page for details.
+> See [Sitecore Experience Platform documentation](https://doc.sitecore.com/developers/100/sitecore-experience-platform/en/web-tracking.html) for more information about tracking and analytics.
+
+Note this is different than *client-side tracking* via the JSS tracking API, which is possible for *both Static Generation (SSG) and Server-side Rendering (SSR)*. Please see the [JSS Tracking](/docs/fundamentals/services/tracking) page for details.
 
 ## Next.js application
 
-### SSR only
+### Server-side Rendering (SSR) only
 
 You must use a Next.js SSR page route. An example SSR route is included with the Next.js sample app. See [this page](/docs/nextjs/page-routing/switching-to-ssr) for details.
 
 ### Layout Service requests
 
-Sitecore JSS layout service requests must:
+[Sitecore Layout Service](/docs/fundamentals/services/layout-service) requests must:
 
-1. have tracking enabled (default), and
-2. perform [header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing) (default with the Next.js sample application)
+1. have tracking enabled (see [`tracking` parameter](/docs/fundamentals/services/layout-service#using-the-layout-service)), and
+2. perform [header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing)
 
-Both of these are taken care of using the `RestLayoutService` included with the Next.js SDK (part of the `@sitecore-jss/sitecore-jss-nextjs` npm package). 
+Both of these **are taken care of** using the `RestLayoutService` included with the Next.js SDK (part of the `@sitecore-jss/sitecore-jss-nextjs` npm package).
 
-The `RestLayoutService` will track layout requests by default, so there is no extra configuration required. However, this can be disabled with the optional `tracking` parameter, so ensure this hasn't been specifically set to `false`.
+> The Next.js sample app uses the `RestLayoutService` in the `SitecorePagePropsFactory`. See [`src/lib/page-props-factory.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/page-props-factory.ts) for details.
+
+The `RestLayoutService` will track layout requests and perform header passing by default, so there is no extra configuration required. However, tracking can be disabled with the optional `tracking` parameter, so ensure this hasn't been specifically set to `false`. For example:
+
+```javascript
+this.layoutService = new RestLayoutService({
+  ...
+  tracking: false, // <-- disables tracking!
+});
+```
 
 ## Sitecore configuration
 
@@ -40,6 +51,8 @@ The `Analytics.ForwardedRequestHttpHeader` Sitecore setting must be set to `X-Fo
 
 [Header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing) will send the original IP address of the client on the 'X-Forwarded-For' header. This setting tells Sitecore to read the forwarded header, making analytics track the correct original client IP address.
 
+> See [Sitecore Experience Manager documentation](https://doc.sitecore.com/developers/100/sitecore-experience-manager/en/set-up-sitecore-ip-geolocation.html) for more information about this setting.
+
 ### Disable robot detection
 
 During development, any analytics activity will be flagged as a robot. These settings will enable tracking of robot activity for ease of testing. These should be set in development **only**.
@@ -48,6 +61,8 @@ During development, any analytics activity will be flagged as a robot. These set
 <setting name="Analytics.AutoDetectBots" set:value="false" />
 <setting name="Analytics.Robots.IgnoreRobots" set:value="false" />
 ```
+
+> See [Sitecore Experience Platform documentation](https://doc.sitecore.com/developers/100/sitecore-experience-platform/en/robot-detection-overview.html) for more information about robot detection.
 
 ## Secure cookies
 
