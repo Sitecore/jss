@@ -7,7 +7,7 @@ title: Enabling tracking and analytics
 
 This topic will guide you through the steps required to enable full Sitecore tracking and analytics for your Next.js application.
 
-> See [Sitecore Experience Platform documentation](https://doc.sitecore.com/developers/100/sitecore-experience-platform/en/web-tracking.html) for more information about tracking and analytics.
+> See [Sitecore Experience Platform documentation](https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/web-tracking.html) for more information about tracking and analytics.
 
 Note this is different than *client-side tracking* via the JSS tracking API, which is possible for *both Static Generation (SSG) and Server-side Rendering (SSR)*. Please see the [JSS Tracking](/docs/fundamentals/services/tracking) page for details.
 
@@ -51,7 +51,7 @@ The `Analytics.ForwardedRequestHttpHeader` Sitecore setting must be set to `X-Fo
 
 [Header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing) will send the original IP address of the client on the 'X-Forwarded-For' header. This setting tells Sitecore to read the forwarded header, making analytics track the correct original client IP address.
 
-> See [Sitecore Experience Manager documentation](https://doc.sitecore.com/developers/100/sitecore-experience-manager/en/set-up-sitecore-ip-geolocation.html) for more information about this setting.
+> See [Sitecore Experience Manager documentation](https://doc.sitecore.com/developers/101/sitecore-experience-manager/en/set-up-sitecore-ip-geolocation.html) for more information about this setting.
 
 ### Disable robot detection
 
@@ -62,7 +62,7 @@ During development, any analytics activity will be flagged as a robot. These set
 <setting name="Analytics.Robots.IgnoreRobots" set:value="false" />
 ```
 
-> See [Sitecore Experience Platform documentation](https://doc.sitecore.com/developers/100/sitecore-experience-platform/en/robot-detection-overview.html) for more information about robot detection.
+> See [Sitecore Experience Platform documentation](https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/robot-detection-overview.html) for more information about robot detection.
 
 ## Secure cookies
 
