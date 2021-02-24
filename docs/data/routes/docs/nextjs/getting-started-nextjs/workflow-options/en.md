@@ -1,9 +1,9 @@
 ---
-name: options
+name: workflow-options
 routeTemplate: ./data/component-templates/article.yml
 title: Getting Started options overview
 ---
-#  Development Environment Options for JSS Next.js Projects
+#  Development Workflow Options for JSS Next.js Projects
 
 Sitecore offers two paths for setting up your development environment based on your role, workflow, and operating system. 
 
