@@ -17,11 +17,11 @@ The method of installing Sitecore Headless Services depends on your deployment a
 
 ## On-prem / Virtual Machine / IaaS
 Install using the Headless Services package zip.
-* [Procedure: Server components installation](../../../getting-started/jss-server-install/en.md#server-components-installation)
+* [Procedure: Server components installation](/docs/getting-started/jss-server-install#server-components-installation)
 
 ## Azure Webapps / PaaS
 Install using Headless Services WDP packages.
-* [Walkthrough: Deploying a JSS site to Azure](../../../techniques/azure-deployment/en.md)
+* [Walkthrough: Deploying a JSS site to Azure](/docs/techniques/azure-deployment)
 
 ## Sitecore Containers
 Layer the Sitecore Headless Services module onto your container images in your Dockerfiles.

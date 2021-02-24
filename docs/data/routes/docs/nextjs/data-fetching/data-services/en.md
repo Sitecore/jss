@@ -62,7 +62,7 @@ The `dictionary` prop contains `DictionaryPhrases` from the Sitecore Dictionary 
 
 ### componentProps
 
-The `componentProps` contain data fetched by `ComponentPropsService`. The `ComponentPropsService` executes `getStaticProps/getServerSideProp` in those components that implement these functions. See [Component-level data fetching](../component-level-data-fetching/en.md). 
+The `componentProps` contain data fetched by `ComponentPropsService`. The `ComponentPropsService` executes `getStaticProps/getServerSideProp` in those components that implement these functions. See [Component-level data fetching](/docs/nextjs/data-fetching/component-level-data-fetching). 
 
 `componentProps` is a key-value storage of the format `{ [renderingUID]: data }`. See this [example](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx).
 
