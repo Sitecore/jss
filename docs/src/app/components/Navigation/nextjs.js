@@ -27,8 +27,8 @@ export default {
         {
           url: 'content-authoring-concepts',
           displayName: 'Content Authoring'
-        }
-      ]
+        },
+      ],
     },
     {
       url: 'getting-started-nextjs',
@@ -45,8 +45,8 @@ export default {
         {
           url: 'walkthrough-jsscreate',
           displayName: 'Walkthrough: with `jss create`',
-        }
-      ]
+        },
+      ],
     },
     {
       url: 'experience-editor',
@@ -54,13 +54,13 @@ export default {
       children: [
         {
           url: 'architecture',
-          displayName: 'Integration architecture and APIs'
+          displayName: 'Integration architecture and APIs',
         },
         {
           url: 'walkthrough',
-          displayName: 'Connect to the Experience Editor'
-        }
-      ]
+          displayName: 'Connect to the Experience Editor',
+        },      
+      ],
     },
     {
       url: 'creating-components',
@@ -76,17 +76,17 @@ export default {
         },
         {
           url: 'placeholders',
-          displayName: 'Component nesting with Placeholder'
+          displayName: 'Component nesting with Placeholder',
         },
         {
           url: 'rendering-fields',
-          displayName: 'Rendering Fields'
+          displayName: 'Rendering Fields',
         },
         {
           url: 'sitecore-context',
-          displayName: 'Using Sitecore context'
-        }
-      ]
+          displayName: 'Using Sitecore context',
+        },
+      ],
     },
     {
       url: 'page-routing',
@@ -94,17 +94,17 @@ export default {
       children: [
         {
           url: 'jss-routes',
-          displayName: 'JSS routes with Next.js'
+          displayName: 'JSS routes with Next.js',
         },
         {
           url: 'switching-to-ssr',
-          displayName: 'Switching to SSR'
+          displayName: 'Switching to SSR',
         },
         {
           url: 'error-routes',
-          displayName: 'Error Routes'
-        }
-      ]
+          displayName: 'Error Routes',
+        },
+      ],
     },
     {
       url: 'data-fetching',
@@ -112,21 +112,21 @@ export default {
       children: [
         {
           url: 'data-services',
-          displayName: 'Data Services'
+          displayName: 'Data Services',
         },
         {
           url: 'getStaticPaths',
-          displayName: 'getStaticPaths & sitemap service'
+          displayName: 'getStaticPaths & sitemap service',
         },
         {
           url: 'customizing-static-paths',
-          displayName: 'Customizing static paths'
+          displayName: 'Customizing static paths',
         },
         {
           url: 'component-level-data-fetching',
-          displayName: 'Component-level data fetching'
-        }
-      ]
+          displayName: 'Component-level data fetching',
+        },
+      ],
     },
     {
       url: 'graphql',
@@ -134,13 +134,13 @@ export default {
       children: [
         {
           url: 'edge-schema-introduction',
-          displayName: 'Introduction to the Edge Schema'
+          displayName: 'Introduction to the Edge Schema',
         },
         {
           url: 'sample-app',
-          displayName: 'Sitecore GraphQL in the sample app'
-        }
-      ]
+          displayName: 'Sitecore GraphQL in the sample app',
+        },
+      ],
     },
     {
       url: 'internationalization',
@@ -148,17 +148,17 @@ export default {
       children: [
         {
           url: 'using-i18n',
-          displayName: 'Using i18n'
+          displayName: 'Using i18n',
         },
         {
           url: 'dictionary-service',
-          displayName: 'Dictionary service and client'
+          displayName: 'Dictionary service and client',
         },
         {
           url: 'walkthrough-language-switcher',
-          displayName: 'Creating a language switcher'
-        }
-      ]
+          displayName: 'Creating a language switcher',
+        },
+      ],
     },
     {
       url: 'tracking-and-analytics',
@@ -166,9 +166,13 @@ export default {
       children: [
         {
           url: 'overview',
-          displayName: 'Overview and architecture'
-        }
-      ]
+          displayName: 'Overview and architecture',
+        },
+        {
+          url: 'configuration',
+          displayName: 'Enabling tracking and analytics',
+        },
+      ],
     },
     {
       url: 'multitenancy',
@@ -176,9 +180,9 @@ export default {
       children: [
         {
           url: 'overview',
-          displayName: 'Multitenancy Overview'
-        }
-      ]
+          displayName: 'Multitenancy Overview',
+        },
+      ],
     },
     {
       url: 'deploying-to-production',
@@ -186,20 +190,20 @@ export default {
       children: [
         {
           url: 'deployment-options',
-          displayName: 'Deployment Options'
+          displayName: 'Deployment Options',
         },
         {
           url: 'vercel',
-          displayName: 'Deploying to Vercel'
+          displayName: 'Deploying to Vercel',
         },
         {
           url: 'export',
-          displayName: 'Using `next export'
+          displayName: 'Using `next export',
         },
         {
           url: 'server-components',
-          displayName: 'Installing Sitecore Headless Services'
-        }
+          displayName: 'Installing Sitecore Headless Services',
+        },
       ],
     },
     {
@@ -208,14 +212,24 @@ export default {
       children: [
         {
           url: 'code-first',
-          displayName: 'Using code-first'
+          displayName: 'Using code-first',
         },
         {
           url: 'storybook',
-          displayName: 'Using Storybook'
-        }
-      ]
-    }
+          displayName: 'Using Storybook',
+        },
+      ],
+    },
+    {
+      url: 'other-frameworks',
+      displayName: 'Next.js vs Other JSS libraries',
+      children: [
+        {
+          url: 'how-is-nextjs-different',
+          displayName: 'What’s different about the Next.js SDK',
+        },
+      ],
+    },
   ],
-  links: []
+  links: [],
 };

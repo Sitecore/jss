@@ -22,7 +22,7 @@ The JSS Next.js sample application includes usage examples for both data fetchin
 
 >  See the Next.js documentation on [Data Fetching](https://nextjs.org/docs/basic-features/data-fetching) for more information about Next.js data fetching functions, and the `context` argument.
 
-In the preceding examples, the implementations of `GetStaticProps`  and   `GetServerSideProps` leverage the `SitecorePagePropsFactory`. See the `SitecorePagePropsFactory` definition in [`src/lib/page-props-factory.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/page-props.ts).
+In the preceding examples, the implementations of `GetStaticProps`  and   `GetServerSideProps` leverage the `SitecorePagePropsFactory`. See the `SitecorePagePropsFactory` definition in [`src/lib/page-props-factory.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/page-props-factory.ts).
 
 The factory exposes the method  `create(context: GetServerSidePropsContext | GetStaticPropsContext)` that is responsible for fetching all data needed to render the page (the page `props`), depending on the `context` in which it is used. 
 
@@ -50,7 +50,7 @@ To prepare the page `props`, the `SitecorePagePropsFactory` uses the [Layout Ser
 
 ### locale
 
-The factory retrieves the `context` locale as configured in the `i18n` entry of `next.config.js`. Otherwise, it uses the  `config.language` defined in `package.json`.
+The factory retrieves the `context` locale as configured in the `i18n` entry of `next.config.js`. Otherwise, it uses the `config.language` defined in `package.json`.
 
 ### layoutData
 
