@@ -71,6 +71,10 @@ export default {
           displayName: 'Layout, components, component factory'
         },
         {
+          url: 'new-component',
+          displayName: 'Walkthrough: Creating a new component'
+        },
+        {
           url: 'placeholders',
           displayName: 'Component nesting with Placeholder'
         },
