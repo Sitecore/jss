@@ -3,7 +3,7 @@ name: configuration
 routeTemplate: ./data/component-templates/article.yml
 title: Enabling tracking and analytics
 ---
-# Walkthrough: Enabling tracking and analytics
+# Walkthrough: Enabling Tracking and Analytics
 
 This topic will guide you through the steps required to enable full Sitecore tracking and analytics for your Next.js application.
 
