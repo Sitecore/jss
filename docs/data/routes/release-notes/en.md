@@ -12,19 +12,19 @@ title: Release Notes
 There are [migration instructions](/upgrade-guides/16.0) from JSS 15-based applications.
 
 ### Breaking changes
-* [PR #485](https://github.com/Sitecore/jss/pull/485) [JSS CLI] Add --config argument in order to specify the path to `scjssconfig.json` file. `resolveScJssConfig` now accepts arguments as an object instead of using individual arguments.
+* [PR #485](https://github.com/Sitecore/jss/pull/485) [JSS CLI] Add --config argument to specify the path to `scjssconfig.json` file. `resolveScJssConfig` now accepts arguments as an object instead of using individual arguments.
 * [PR #460](https://github.com/Sitecore/jss/pull/460) [sitecore-jss-react] Fix return type of `ComponentFactory` to allow a component definition instead of an instantiated component. `ComponentFactory` returns `ComponentType | null` instead of `Component`.
 * [PR #459](https://github.com/Sitecore/jss/pull/459) [sitecore-jss-react] Change propType of `missingComponentComponent` from `React.SFC` (deprecated) to `React.FC`.
 * [PR #538](https://github.com/Sitecore/jss/pull/538) [sitecore-jss-react] Change propType of `errorComponent` from `React.SFC` (deprecated) to `React.FC`.
-* [PR #517](https://github.com/Sitecore/jss/pull/517) [packages/samples] Migrate TSLint to ESLint, since TSLint is deprecated.
+* [PR #517](https://github.com/Sitecore/jss/pull/517) [packages/samples] Migrate TSLint (deprecated) to ESLint.
 
 ### New Features & Improvements
 * [Documentation](https://jss.sitecore.com/docs/nextjs/introduction/why-nextjs) Add support for Next.js framework. 🎉🎉🎉
-* [Commit](https://github.com/Sitecore/jss/commit/8f5966703d11c2ded3f86017942f31a6dbb5a0da) [sitecore-jss] Add `RestDictionaryService` in order to fetch dictionary data using `RestLayoutService`, which is the Sitecore Dictionary Service REST API.
+* [Commit](https://github.com/Sitecore/jss/commit/8f5966703d11c2ded3f86017942f31a6dbb5a0da) [sitecore-jss] Add `RestDictionaryService` to fetch dictionary data using the Sitecore Dictionary Service REST API, and `RestLayoutService` to fetch layout data using the Sitecore Layout Service REST API.
 * [PR #511](https://github.com/Sitecore/jss/pull/511) [sitecore-jss] Add `AxiosDataFetcher` to provide a default data fetcher implementation which can be used in sample apps.
-* [PR #530](https://github.com/Sitecore/jss/pull/530) [sitecore-jss] Add `GraphQLRequestClient` to provide the ability to execute graphql queries.
-* [PR #525](https://github.com/Sitecore/jss/pull/525) [sitecore-jss-react] Enable `SitecoreContext` to support generics.
-* [PR #508](https://github.com/Sitecore/jss/pull/508) [sitecore-jss-react] Add `useSitecoreContext` hook.
+* [PR #530](https://github.com/Sitecore/jss/pull/530) [sitecore-jss] Add `GraphQLRequestClient` to provide the ability to execute GraphQL queries.
+* [PR #525](https://github.com/Sitecore/jss/pull/525) [sitecore-jss-react] Enable `SitecoreContext` to support TypeScript generics.
+* [PR #508](https://github.com/Sitecore/jss/pull/508) [sitecore-jss-react] Add the `useSitecoreContext` hook.
 * [PR #542](https://github.com/Sitecore/jss/pull/542) Add environment variable support via an `.env` file to the CLI.
 
 
