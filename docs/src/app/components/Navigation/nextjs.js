@@ -19,6 +19,10 @@ export default {
         {
           url: 'headless-concepts',
           displayName: 'Headless Concepts',
+        },
+        {
+          url: 'content-authoring-concepts',
+          displayName: 'Content Authoring'
         }
       ]
     },
@@ -65,6 +69,10 @@ export default {
         {
           url: 'layout-concepts',
           displayName: 'Layout & Component Concepts'
+        },
+        {
+          url: 'new-component',
+          displayName: 'Walkthrough: Creating a new component'
         },
         {
           url: 'placeholders',
@@ -216,10 +224,6 @@ export default {
           url: 'how-is-nextjs-different',
           displayName: 'What’s different about the Next.js'
         },
-        {
-          url: 'migration',
-          displayName: 'Migrate from JSS React to Next.js'
-        }
       ]
     }
   ],
