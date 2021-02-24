@@ -51,7 +51,7 @@ Although the build process is largely the same as "normal" React Native, we've c
 
 * We've added a custom `babel` preset that encapsulates other `babel` plugins that allow us to swap module dependencies at build-time based on the application mode in which you're developing. The basic sample currently uses `disconnected` and `connected` modes along with a new, native-specific, `disconnected-tunnel` mode. More info on that further on in this document.
 
-  * For more information about JSS application modes, please refer to the official Sitecore JSS documentation: https://jss.sitecore.net/#/application-modes?id=jss-application-modes
+  * Read more about [JSS application modes](/docs/fundamentals/application-modes)
 
 * One other customization to build invocation is the addition of the `--reset-cache` argument to the metro bundler `start` script. This argument instructs the bundler to ignore its dependency cache during the build process, which ensures that the `babel` customizations mentioned earlier are invoked and allows you to easily switch between application modes at build time.
 

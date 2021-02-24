@@ -4,7 +4,6 @@ routeTemplate: ./data/component-templates/article.yml
 title: Client-Side Embedding
 ---
 
-
 # Client-Side Embedding
 
 This is a technique to allow a JSS app to run within a traditional Sitecore rendering. Doing this allows embedding a JSS app within an existing Sitecore MVC site, as opposed to as its own standalone site. This technique essentially embeds the JSS app's markup and app wrapper tag within a Sitecore rendering.
@@ -67,7 +66,7 @@ Fastest option. This package contains the rendering items, Sublayout and modifie
 
 > Recommended if you are installing on a vanilla Sitecore instance. If you would like to learn how the item configuration is put together, use Option 2 below.
 
-1. Download the [Sample package](https://jss.sitecore.net/assets/downloads/EmbeddedWizard-items-0.1.zip).
+1. Download the [Sample package](https://jss.sitecore.com/assets/downloads/EmbeddedWizard-items-0.1.zip).
 1. Install it via Sitecore Installation Wizard.
 
     >  The package overwrites the existing Home item. Select **Merge/Clear** when prompted. Selecting **Overwrite** will delete the previously deployed app under `/Home`.
