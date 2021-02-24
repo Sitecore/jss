@@ -17,6 +17,10 @@ export default {
           displayName: 'Why Next.js',
         },
         {
+          url: 'how-is-nextjs-different',
+          displayName: 'Differences from other JSS SDKs'
+        },
+        {
           url: 'headless-concepts',
           displayName: 'Headless Concepts & Architecture',
         },
@@ -213,20 +217,6 @@ export default {
         {
           url: 'storybook',
           displayName: 'Using Storybook'
-        }
-      ]
-    },
-    {
-      url: 'other-frameworks',
-      displayName: 'Next.js vs Other JSS libraries',
-      children: [
-        {
-          url: 'how-is-nextjs-different',
-          displayName: 'What’s different about the Next.js'
-        },
-        {
-          url: 'migration',
-          displayName: 'Migrate from JSS React to Next.js'
         }
       ]
     }
