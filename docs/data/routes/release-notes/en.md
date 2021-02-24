@@ -12,18 +12,18 @@ title: Release Notes
 There are [migration instructions](/upgrade-guides/16.0) from JSS 15-based applications.
 
 ### Breaking changes
-* [PR #485](https://github.com/Sitecore/jss/pull/485) [JSS CLI] Add --config key in order to specify path to scjssconfig.json file. `resolveScJssConfig` accepts object argument instead of direct arguments.
+* [PR #485](https://github.com/Sitecore/jss/pull/485) [JSS CLI] Add --config argument in order to specify the path to `scjssconfig.json` file. `resolveScJssConfig` now accepts arguments as an object instead of using individual arguments.
 * [PR #460](https://github.com/Sitecore/jss/pull/460) [sitecore-jss-react] Fix return type of `ComponentFactory` to allow a component definition instead of an instantiated component. `ComponentFactory` returns `ComponentType | null` instead of `Component`.
 * [PR #517](https://github.com/Sitecore/jss/pull/517) [packages/samples] Migrate TSLint to ESLint, since TSLint is deprecated.
 
 ### New Features & Improvements
-* [Documentation](https://jss.sitecore.com/docs/nextjs/introduction/why-nextjs) Added support for Next.js framework.
-* [Commit](https://github.com/Sitecore/jss/commit/8f5966703d11c2ded3f86017942f31a6dbb5a0da) [sitecore-jss] Added `RestDictionaryService` (fetch dictionary data using the Sitecore Dictionary Service REST API), `RestLayoutService` (fetch layout data using the Sitecore Layout Service REST API).
-* [PR #511](https://github.com/Sitecore/jss/pull/511) [sitecore-jss] Added `AxiosDataFetcher` to provide default data fetcher implementation which can be used in the sample app.
-* [PR #530](https://github.com/Sitecore/jss/pull/530) [sitecore-jss] Added `GraphQLRequestClient` which provides ability to execute graphql query.
-* [PR #525](https://github.com/Sitecore/jss/pull/525) [sitecore-jss-react] SitecoreContext can support generic.
-* [PR #508](https://github.com/Sitecore/jss/pull/508) [sitecore-jss-react] Added useSitecoreContext hook.
-* [PR #542](https://github.com/Sitecore/jss/pull/542) Added `.env` file support for the CLI.
+* [Documentation](https://jss.sitecore.com/docs/nextjs/introduction/why-nextjs) Add support for Next.js framework. 🎉🎉🎉
+* [Commit](https://github.com/Sitecore/jss/commit/8f5966703d11c2ded3f86017942f31a6dbb5a0da) [sitecore-jss] Add `RestDictionaryService` in order to fetch dictionary data using `RestLayoutService`, which is the Sitecore Dictionary Service REST API.
+* [PR #511](https://github.com/Sitecore/jss/pull/511) [sitecore-jss] Add `AxiosDataFetcher` to provide a default data fetcher implementation which can be used in sample apps.
+* [PR #530](https://github.com/Sitecore/jss/pull/530) [sitecore-jss] Add `GraphQLRequestClient` to provide the ability to execute graphql queries.
+* [PR #525](https://github.com/Sitecore/jss/pull/525) [sitecore-jss-react] Enable `SitecoreContext` to support generics.
+* [PR #508](https://github.com/Sitecore/jss/pull/508) [sitecore-jss-react] Add `useSitecoreContext` hook.
+* [PR #542](https://github.com/Sitecore/jss/pull/542) Add environment variable support via an `.env` file to the CLI.
 
 ### Bug Fixes
 * [PR #548](https://github.com/Sitecore/jss/pull/548) [sitecore-jss-dev-tools] `jss deploy` doesn't exit on success.
