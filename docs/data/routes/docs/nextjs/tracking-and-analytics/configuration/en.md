@@ -53,7 +53,7 @@ During development, any analytics activity will be flagged as a robot. These set
 
 ## Secure cookies
 
-As of Sitecore 10.0.1, Sitecore sets the `Secure` flag on all cookies by default. This can impact JSS local development, as the proxied Sitecore cookies (including analytics cookies) will be rejected by the browser if your application is not running under HTTPS, and thus visits will not be tracked and content may not be personalized. To work around this, you can either:
+As of Sitecore 10.0.1, Sitecore sets the `Secure` flag on all cookies by default. This can impact JSS local development, as the proxied Sitecore cookies (including analytics cookies) will be rejected by the browser if your application is not running under HTTPS. Thus the application will not track visits, and it may not apply content personalization rules. To work around this, you can either:
 
 1. Enable HTTPS in your local environment by using a local reverse proxy or using a service such as ngrok.
     * If you are running Sitecore in containers for development (recommended), you can use the Traefik reverse proxy provided in the `docker-compose` environment.
