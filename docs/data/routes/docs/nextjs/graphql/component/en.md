@@ -7,18 +7,13 @@ title: Using GraphQL in component SSR/SSG
 
 The Next.js sample app provides support for [component-level data fetching](/docs/nextjs/data-fetching/component-level-data-fetching), which enables executing GraphQL queries at the component level.
 
-> NOTE: If you follow the `Code First` developer workflow, you can execute GraphQL component-level queries only in `Connected Mode`. They are not supported in [`Disconnected Mode`](/docs/techniques/working-disconnected/disconnected-overview).
+> NOTE: If you follow the Code First developer workflow, you can execute GraphQL component-level queries only in Connected Mode. They are not supported in [Disconnected Mode](/docs/techniques/working-disconnected/disconnected-overview).
 
-Next.js sample app provides an easy way to manage both local and remote data with GraphQL, fetch, cache application data.
-
-For this purpose we are using the [apollo-client](https://www.apollographql.com/docs/react/) library. Our `GraphQLClientFactory` is responsible for creation of [ApolloClient](https://www.apollographql.com/docs/react/api/core/ApolloClient) instance. 
+The Next.js sample app utilizes the [apollo-client](https://www.apollographql.com/docs/react/) library to failitate fetching, caching, and managing local and remote data with GraphQL. The `GraphQLClientFactory` is responsible for initializing a new [ApolloClient](https://www.apollographql.com/docs/react/api/core/ApolloClient) instance. 
 
 In the code, we want to have strong types connected to GraphQL types defined in the Sitecore GraphQL Edge endpoint. To achieve this we are using [GraphQL Introspection](/docs/nextjs/graphql/introspection/).
 
-You can use `${SITECORE_API_HOST}/sitecore/api/graph/edge/ui?sc_apikey=${SITECORE_API_KEY}` endpoint if you want to:
-* Find all supported graphql types. You can find all types you need to import in your component file. `graphql-let` provides the same types in corresponding `.graphq.d.ts` files.
-* Write and test new query.
-* Debug existing query.
+The sample app provides a GraphiQL interface for exploring the schema and testing queries. By deafult, the interface can accessed using `${SITECORE_API_HOST}/sitecore/api/graph/edge/ui?sc_apikey=${SITECORE_API_KEY}`. This interface is helpful if you need to determine what graphQL types can be used by your components. Note that `graphql-let` provides the same information about types in corresponding `.graphq.d.ts` files.
 
 This walkthrough utilizes the sample apps's [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) component. 
 
