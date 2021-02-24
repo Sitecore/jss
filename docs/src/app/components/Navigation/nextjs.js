@@ -31,12 +31,12 @@ export default {
       ]
     },
     {
-      url: 'getting-started',
-      displayName: 'Getting Started',
+      url: 'getting-started-nextjs',
+      displayName: 'Getting Started with Next.js',
       children: [
         {
-          url: 'options',
-          displayName: 'Options',
+          url: 'workflow-options',
+          displayName: 'Workflow Options',
         },
         {
           url: 'walkthrough-dotnetnew',
@@ -59,10 +59,6 @@ export default {
         {
           url: 'walkthrough',
           displayName: 'Connect to the Experience Editor'
-        },
-        {
-          url: 'troubleshooting',
-          displayName: 'Troubleshooting'
         }
       ]
     },
