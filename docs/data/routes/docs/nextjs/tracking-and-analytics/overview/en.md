@@ -11,15 +11,15 @@ Full Sitecore analytics and personalization functionality is possible with Next.
 
 > By default, the Next.js sample application uses a route optimized for SSG, but can be switched to SSR. See [here](/docs/nextjs/page-routing/switching-to-ssr) for steps.
 
-In order for Sitecore analytics and personalization to work with JSS, the appropriate HTTP headers must be present at the browser and Layout Service.
+For Sitecore analytics and personalization to work with JSS, the appropriate HTTP headers must be present at the browser and Layout Service.
 
 > You can learn more about about Sitecore analytics and personalization with JSS [here](/docs/fundamentals/personalization).
 
-With Next.js, this is accomplished by passing specific HTTP headers between the (browser-initiated) page request / response and the (server-side-initiated) Layout Service request / response. This process is referred to as *header passing* in this topic.
+With Next.js, this is accomplished by passing specific HTTP headers between the (browser-initiated) page request/response and the (server-side-initiated) Layout Service request/response. This process is referred to as *header passing* in this topic.
 
 ## Header Passing
 
-Here's how header passing works during a page request / response cycle. The flow is based on use of the SSR page route example `pages_examples\[[...path]].SSR.tsx` that comes with the Next.js sample application.
+Here's how header passing works during a page request/response cycle. The flow is based on using the SSR page route example `pages_examples\[[...path]].SSR.tsx` that comes with the Next.js sample application.
 
 <img src="/assets/img/nextjs-sitecore-analytics.svg" alt="Next.js Sitecore Analytics" />
 
