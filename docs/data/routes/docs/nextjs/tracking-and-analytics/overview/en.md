@@ -23,7 +23,7 @@ Here's how header passing works during a page request/response cycle. The flow i
 
 <img src="/assets/img/nextjs-sitecore-analytics.svg" alt="Next.js Sitecore Analytics" />
 
-The page request / response are sent through `getServerSideProps` on the Next.js SSR route and ultimately are passed along to the `RestLayoutService`.
+The page request/response is sent through `getServerSideProps` on the Next.js SSR route and ultimately is passed along to the `RestLayoutService`.
 
 The `RestLayoutService` (part of the `@sitecore-jss/sitecore-jss-nextjs` npm package) is responsible for making the Layout Service request to fetch layout data but also for coordinating the *header passing*. The following headers are involved in the transfer.
 
