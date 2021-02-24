@@ -68,9 +68,9 @@ Before exporting your application, you must:
 
    * When using content from Sitecore ("Connected Mode"): `"export:connected": "cross-env-shell EXPORT_MODE=true \"npm-run-all --serial bootstrap next:build next:export\""`.
 
-      Replace the `PORT` value with the port of your disconnected server.
+   * When using content from local files ("Disconnected Mode"): `"export": "cross-env-shell JSS_MODE=disconnected PORT=3042 EXPORT_MODE=true \"npm-run-all --serial bootstrap next:build next:export\""`.
 
-   * When using content from local filed ("Disconnected Mode"): `"export": "cross-env-shell JSS_MODE=disconnected PORT=3042 EXPORT_MODE=true \"npm-run-all --serial bootstrap next:build next:export\""`.
+      Replace the `PORT` value with the port of your disconnected server.
 
 7. For disconnected mode only, run `jss start:disconnected-proxy`. During the build stage, Next.js will fetch the required data (layout, dictionary, sitemap) from your disconnected server.
 
