@@ -17,22 +17,26 @@ export default {
           displayName: 'Why Next.js',
         },
         {
+          url: 'how-is-nextjs-different',
+          displayName: 'Differences from other JSS SDKs'
+        },
+        {
           url: 'headless-concepts',
           displayName: 'Headless Concepts',
         },
         {
           url: 'content-authoring-concepts',
           displayName: 'Content Authoring'
-        }
-      ]
+        },
+      ],
     },
     {
-      url: 'getting-started',
-      displayName: 'Getting Started',
+      url: 'getting-started-nextjs',
+      displayName: 'Getting Started with Next.js',
       children: [
         {
-          url: 'options',
-          displayName: 'Options',
+          url: 'workflow-options',
+          displayName: 'Workflow Options',
         },
         {
           url: 'walkthrough-dotnetnew',
@@ -55,11 +59,7 @@ export default {
         {
           url: 'walkthrough',
           displayName: 'Connect to the Experience Editor',
-        },
-        {
-          url: 'troubleshooting',
-          displayName: 'Troubleshooting',
-        },
+        },      
       ],
     },
     {
@@ -226,7 +226,7 @@ export default {
       children: [
         {
           url: 'how-is-nextjs-different',
-          displayName: 'What’s different about the Next.js',
+          displayName: 'What’s different about the Next.js SDK',
         },
       ],
     },
