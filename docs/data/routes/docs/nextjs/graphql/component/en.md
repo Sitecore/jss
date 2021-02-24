@@ -9,7 +9,7 @@ The Next.js sample app provides support for [component-level data fetching](/doc
 
 > NOTE: If you follow the Code First developer workflow, you can execute GraphQL component-level queries only in Connected Mode. They are not supported in [Disconnected Mode](/docs/techniques/working-disconnected/disconnected-overview).
 
-The Next.js sample app utilizes the [apollo-client](https://www.apollographql.com/docs/react/) library to failitate fetching, caching, and managing local and remote data with GraphQL. The `GraphQLClientFactory` is responsible for initializing a new [ApolloClient](https://www.apollographql.com/docs/react/api/core/ApolloClient) instance. 
+The Next.js sample app utilizes the [apollo-client](https://www.apollographql.com/docs/react/) library to facilitate fetching, caching, and managing local and remote data with GraphQL. The `GraphQLClientFactory` is responsible for initializing a new [ApolloClient](https://www.apollographql.com/docs/react/api/core/ApolloClient) instance. 
 
 In the code, we want to have strong types connected to GraphQL types defined in the Sitecore GraphQL Edge endpoint. To achieve this we are using [GraphQL Introspection](/docs/nextjs/graphql/introspection/).
 
