@@ -23,7 +23,7 @@ JSS is a set of npm packages:
 3. Simple starter apps for every supported framework. 
 
 ## Why JSS
-Without JSS, integrating a front-end framework with an authoring interface as flexible as Sitecore's would be a large undertaking, and some authoring features would likely need to be sacrificed. This is because front-end frameworks require developers to build the UI component hierarchies in code. This assumes a workflow where developers control the component composition. But if we want Content Authors to remain in control, and therefore we cannot know the component hierarchy at build-time, then building with front-end frameworks becomes a challenge. And this is the challenge that JSS solves.
+Without JSS, integrating a front-end framework with an authoring interface as flexible as Sitecore's would be a large undertaking, and some authoring features would likely need to be sacrificed. This is because front-end frameworks require developers to build the UI component hierarchies in code. This assumes a workflow where developers control the component composition. But if we want Content Authors to remain in control, and therefore we cannot know the component hierarchy at build-time, building with front-end frameworks becomes a challenge. And this is the challenge that JSS solves.
 
 With Sitecore and JSS, all the benefits of JavaScript frameworks, such as Next's image optimization and static site generation, can be utilized on top of Sitecore features. JSS enables workflows where your front-end and back-end teams can work in parallel
 
@@ -33,7 +33,7 @@ With Sitecore and JSS, all the benefits of JavaScript frameworks, such as Next's
 
 - JSS enables workflows where front-end and back-end teams can work in parallel.
 
--	JSS provides sample "starter kits", which serve as an onboarding tool and living documentation.
+-	JSS provides sample "starter kits," which serve as an onboarding tool and living documentation.
 
 - Abstractions for front-end developers that allow working with Sitecore declaratively.
 
@@ -48,8 +48,8 @@ The following video explains the conceptual difference between building "vanilla
 - What value do front-end frameworks add to client applications?
 - Why is a development kit needed to integrate front-end frameworks with Sitecore (Why is this so challenging?)
 - How does JSS solve this challenge?
-- An introduction to key JSS modules: `Placeholder` and `ComponentFactory`
-- An introduction to developer workflows: Disconnected vs. Connected
+- An introduction to key JSS modules: `Placeholder` and `ComponentFactory`.
+- An introduction to developer workflows: Disconnected vs. Connected.
 
 <p>
   <iframe width="672" height="378" src="https://www.youtube.com/embed/NzZz2U8XAxg" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -64,7 +64,7 @@ The following video explains the conceptual difference between building "vanilla
 > To learn more about Sitecore terminology and concepts, refer to the [Authoring Concepts](/docs/introduction/content-authoring-concepts).
 
 ## Who should use JSS
-Any company that has chosen Sitecore as their enterprise web platform, and wants to utilize the benefits of front-end JavaScript frameworks in their web app is perfectly suited for using JSS.
+Any company that has chosen Sitecore as their enterprise web platform and wants to utilize the benefits of front-end JavaScript frameworks in their web app is perfectly suited for using JSS.
 
 Remember that JSS is one of several Sitecore implementation options, so obviously, it's not the right approach for everyone. As a platform for enterprises, Sitecore is designed to be highly flexible and customizable, both in the front-end and in the authoring interface. It's best to consult with Sitecore's Customer Success department or a Sitecore partner to dig into specific business cases and figure out the best way to utilize Sitecore.
 
