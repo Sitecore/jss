@@ -34,14 +34,14 @@ export default {
       url: 'experience-editor',
       displayName: 'Experience Editor',
       children: [
-        {
-          url: 'architecture',
-          displayName: 'Integration architecture and APIs',
-        },
+        //{
+        //  url: 'architecture',
+        //  displayName: 'Integration architecture and APIs',
+        //},
         {
           url: 'walkthrough',
           displayName: 'Connect to the Experience Editor',
-        },      
+        },
       ],
     },
     {
@@ -56,6 +56,7 @@ export default {
           url: 'new-component',
           displayName: 'Walkthrough: Creating a new component'
         },
+        /*
         {
           url: 'placeholders',
           displayName: 'Component nesting with Placeholder',
@@ -68,6 +69,7 @@ export default {
           url: 'sitecore-context',
           displayName: 'Using Sitecore context',
         },
+        */
       ],
     },
     {
@@ -82,10 +84,10 @@ export default {
           url: 'switching-to-ssr',
           displayName: 'Switching to SSR',
         },
-        {
-          url: 'error-routes',
-          displayName: 'Error Routes',
-        },
+        //{
+        //  url: 'error-routes',
+        //  displayName: 'Error Routes',
+        //},
       ],
     },
     {
@@ -100,10 +102,10 @@ export default {
           url: 'getStaticPaths',
           displayName: 'getStaticPaths & sitemap service',
         },
-        {
-          url: 'customizing-static-paths',
-          displayName: 'Customizing static paths',
-        },
+        //{
+        //  url: 'customizing-static-paths',
+        //  displayName: 'Customizing static paths',
+        //},
         {
           url: 'component-level-data-fetching',
           displayName: 'Component-level data fetching',
@@ -114,14 +116,14 @@ export default {
       url: 'graphql',
       displayName: 'GraphQL',
       children: [
-        {
-          url: 'edge-schema-introduction',
-          displayName: 'Introduction to the Edge Schema',
-        },
-        {
-          url: 'sample-app',
-          displayName: 'Sitecore GraphQL in the sample app'
-        },
+        //{
+        //  url: 'edge-schema-introduction',
+        //  displayName: 'Introduction to the Edge Schema',
+        //},
+        //{
+        //  url: 'sample-app',
+        //  displayName: 'Sitecore GraphQL in the sample app',
+        //},
         {
           url: 'introspection',
           displayName: 'Introspecting the GraphQL schema'
@@ -140,14 +142,14 @@ export default {
           url: 'using-i18n',
           displayName: 'Using i18n',
         },
-        {
-          url: 'dictionary-service',
-          displayName: 'Dictionary service and client',
-        },
-        {
-          url: 'walkthrough-language-switcher',
-          displayName: 'Creating a language switcher',
-        },
+        //{
+        //  url: 'dictionary-service',
+        //  displayName: 'Dictionary service and client',
+        //},
+        //{
+        //  url: 'walkthrough-language-switcher',
+        //  displayName: 'Creating a language switcher',
+        //},
       ],
     },
     {
@@ -164,16 +166,10 @@ export default {
         },
       ],
     },
-    {
-      url: 'multitenancy',
-      displayName: 'Multitenancy',
-      children: [
-        {
-          url: 'overview',
-          displayName: 'Multitenancy Overview',
-        },
-      ],
-    },
+    //{
+    //  url: 'multitenancy',
+    //  displayName: 'Multitenancy',
+    //},
     {
       url: 'deploying-to-production',
       displayName: 'Deploying to Production',
@@ -193,30 +189,6 @@ export default {
         {
           url: 'server-components',
           displayName: 'Installing Sitecore Headless Services',
-        },
-      ],
-    },
-    {
-      url: 'development-workflows',
-      displayName: 'Development Workflows',
-      children: [
-        {
-          url: 'code-first',
-          displayName: 'Using code-first',
-        },
-        {
-          url: 'storybook',
-          displayName: 'Using Storybook',
-        },
-      ],
-    },
-    {
-      url: 'other-frameworks',
-      displayName: 'Next.js vs Other JSS libraries',
-      children: [
-        {
-          url: 'how-is-nextjs-different',
-          displayName: 'What’s different about the Next.js SDK',
         },
       ],
     },
