@@ -18,7 +18,7 @@ This walkthrough describes how to:
 - [Create the component in the Next.js app](#create-the-component-in-the-nextjs-app)
 - [Fill in values in the Experience Editor](#fill-in-values-in-the-experience-editor)
 
-> This walkthrough assumes you have set up your project using the [`dotnet new`](/docs/nextjs/getting-started/walkthrough-dotnetnew) template with a project called `MyProject`.
+> This walkthrough assumes you have set up your project using the [`dotnet new`](/docs/nextjs/getting-started-nextjs/walkthrough-dotnetnew) template with a project called `MyProject`.
 
 ### Create the JSON rendering in Sitecore
 
