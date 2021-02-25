@@ -1,3 +1,4 @@
+import sharedConcepts from './sharedConcepts'
 import nextjs from './nextjs';
 'use strict';
 
@@ -5,114 +6,34 @@ export default {
   url: 'docs',
   displayName: 'Docs',
   children: [
-    {
-      url: 'getting-started',
-      displayName: 'Getting Started',
-      children: [
-        {
-          url: 'quick-start',
-          displayName: '1. Quick Start',
-        },
-        {
-          url: 'first-component',
-          displayName: '2. Your First Component',
-        },
-        {
-          url: 'jss-server-install',
-          displayName: '3. JSS Server Setup',
-        },
-        {
-          url: 'app-deployment',
-          displayName: '4. App Deployment',
-        },
-      ],
-    },
-    {
-      url: 'fundamentals',
-      displayName: 'Fundamentals',
-      children: [
-        {
-          url: 'architecture',
-          displayName: 'Architecture',
-        },
-        {
-          url: 'understanding-layout',
-          displayName: 'Understanding layout',
-        },
-        {
-          url: 'personalization',
-          displayName: 'Personalization',
-        },
-        {
-          url: 'dev-workflows',
-          displayName: 'Developer workflows',
-          children: [
-            {
-              url: 'overview',
-              displayName: 'Overview',
-            },
-            {
-              url: 'code-first',
-              displayName: 'Code-first',
-            },
-            {
-              url: 'sitecore-first',
-              displayName: 'Sitecore-first',
-            },
-          ],
-        },
-        {
-          url: 'application-modes',
-          displayName: 'Application modes',
-        },
-        {
-          url: 'cli',
-          displayName: 'JSS CLI',
-        },
-        {
-          url: 'services',
-          displayName: 'Services and APIs',
-          children: [
-            {
-              url: 'app-configuration',
-              displayName: 'App Configuration',
-            },
-            {
-              url: 'app-import',
-              displayName: 'App Import',
-            },
-            {
-              url: 'layout-service',
-              displayName: 'Layout Service',
-            },
-            {
-              url: 'graphql',
-              displayName: 'GraphQL',
-            },
-            {
-              url: 'tracking',
-              displayName: 'Tracking',
-            },
-            {
-              url: 'forms-service',
-              displayName: 'Forms',
-            },
-            {
-              url: 'dictionary-service',
-              displayName: 'Dictionary Service',
-            },
-            {
-              url: 'view-engine',
-              displayName: 'View Engine / SSR',
-            },
-          ],
-        },
-      ],
-    },
+    sharedConcepts,
+    nextjs,
     {
       url: 'client-frameworks',
-      displayName: 'Client Frameworks',
+      displayName: 'React / Vue / Angular',
       children: [
+        {
+          url: 'getting-started',
+          displayName: 'Getting Started',
+          children: [
+            {
+              url: 'quick-start',
+              displayName: 'Quick Start',
+            },
+            {
+              url: 'first-component',
+              displayName: 'Your First Component',
+            },
+            {
+              url: 'jss-server-install',
+              displayName: 'JSS Server Setup',
+            },
+            {
+              url: 'app-deployment',
+              displayName: 'App Deployment',
+            },
+          ],
+        },
         {
           url: 'react',
           displayName: 'React',
@@ -196,6 +117,88 @@ export default {
               displayName: 'Placeholder Techniques'
             }
           ]
+        },
+      ],
+    },
+    {
+      url: 'fundamentals',
+      displayName: 'Fundamentals',
+      children: [
+        {
+          url: 'architecture',
+          displayName: 'Architecture',
+        },
+        {
+          url: 'understanding-layout',
+          displayName: 'Understanding layout',
+        },
+        {
+          url: 'personalization',
+          displayName: 'Personalization',
+        },
+        {
+          url: 'dev-workflows',
+          displayName: 'Developer workflows',
+          children: [
+            {
+              url: 'overview',
+              displayName: 'Overview',
+            },
+            {
+              url: 'code-first',
+              displayName: 'Code-first',
+            },
+            {
+              url: 'sitecore-first',
+              displayName: 'Sitecore-first',
+            },
+          ],
+        },
+        {
+          url: 'application-modes',
+          displayName: 'Application modes',
+        },
+        {
+          url: 'cli',
+          displayName: 'JSS CLI',
+        },
+        {
+          url: 'services',
+          displayName: 'Services and APIs',
+          children: [
+            {
+              url: 'app-configuration',
+              displayName: 'App Configuration',
+            },
+            {
+              url: 'app-import',
+              displayName: 'App Import',
+            },
+            {
+              url: 'layout-service',
+              displayName: 'Layout Service',
+            },
+            {
+              url: 'graphql',
+              displayName: 'GraphQL',
+            },
+            {
+              url: 'tracking',
+              displayName: 'Tracking',
+            },
+            {
+              url: 'forms-service',
+              displayName: 'Forms',
+            },
+            {
+              url: 'dictionary-service',
+              displayName: 'Dictionary Service',
+            },
+            {
+              url: 'view-engine',
+              displayName: 'View Engine / SSR',
+            },
+          ],
         },
       ],
     },
@@ -359,7 +362,6 @@ export default {
         },
       ],
     },
-    nextjs
   ],
   links: [
     {
@@ -376,6 +378,6 @@ export default {
       url: 'connected-demo/getting-started/prerequisites',
       displayName: 'Connected Demo',
       className: 'nav-link'
-    }
-  ]
+    },
+  ],
 };

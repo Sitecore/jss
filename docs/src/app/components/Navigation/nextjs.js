@@ -5,13 +5,9 @@ export default {
   displayName: 'Next.js',
   children: [
     {
-      url: 'introduction',
-      displayName: 'Introduction',
+      url: 'getting-started-nextjs',
+      displayName: 'Getting Started with Next.js',
       children: [
-        {
-          url: 'why-jss',
-          displayName: 'Why JSS',
-        },
         {
           url: 'why-nextjs',
           displayName: 'Why Next.js',
@@ -20,20 +16,6 @@ export default {
           url: 'how-is-nextjs-different',
           displayName: 'Differences from other JSS SDKs'
         },
-        {
-          url: 'headless-concepts',
-          displayName: 'Headless Concepts',
-        },
-        {
-          url: 'content-authoring-concepts',
-          displayName: 'Content Authoring'
-        },
-      ],
-    },
-    {
-      url: 'getting-started-nextjs',
-      displayName: 'Getting Started with Next.js',
-      children: [
         {
           url: 'workflow-options',
           displayName: 'Workflow Options',
