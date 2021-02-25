@@ -24,7 +24,7 @@ placeholders:
             componentName: TileHeadline
             fields:
               subtitle:
-                value: Integrate Headless JavaScript applications with Sitecore, a leading Digital Experience Platform for the enterprise
+                value: Integrate Headless JavaScript applications with Sitecore, a leading Digital Experience Platform for the enterprise.
         jssdocs-content:
           - id: home-tile-container
             componentName: TileContainer

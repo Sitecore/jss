@@ -18,7 +18,7 @@ placeholders:
               title:
                 value: Why Sitecore JSS?
               text:
-                value: Use the latest JavaScript frameworks combined with the power of an enterprise backend
+                value: Use the latest JavaScript frameworks combined with the power of an enterprise backend.
         jssdocs-content:
           - componentName: Article
             fields:

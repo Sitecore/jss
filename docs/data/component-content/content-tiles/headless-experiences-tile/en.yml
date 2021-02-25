@@ -7,7 +7,7 @@ fields:
   title:
     value: Create true personalized headless experiences
   text:
-    value: Use Sitecore to bring the leader in enterprise digital experience management to your Jamstack space
+    value: Use Sitecore to bring the leader in enterprise digital experience management to your Jamstack space.
   linkUrl:
     text: Learn more
     href: /docs/introduction/headless-concepts

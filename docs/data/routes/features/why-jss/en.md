@@ -65,7 +65,7 @@ title: Why JavaScript Services?
 <img src="/assets/img/Scaleable.svg" class="float-right pl-md-5 pr-md-5"/>
 <div class="section-content pl-md-5 pr-md-5">
 <h5 class="mb-md-4">Scalability</h5>
-<p>Use CDN’s, proxies and Node.js server to scale your applications</p>
+<p>Use CDN’s, proxies, and Node.js server to scale your applications.</p>
 </div>
 </div>
 
@@ -75,7 +75,7 @@ title: Why JavaScript Services?
 <img src="/assets/img/GraphQL.svg" class="float-left pl-md-5 pr-md-5"/>
 <div class="section-content pl-md-5 pr-md-5">
 <h5 class="mb-md-4">GraphQL</h5>
-<p>Use GraphQL to query Sitecore and retrieve the data you need in the most efficient way</p>
+<p>Use GraphQL to query Sitecore and retrieve the data you need in the most efficient way.</p>
 </div>
 </div>
 
@@ -85,6 +85,6 @@ title: Why JavaScript Services?
 <img src="/assets/img/ServerRendering.svg" class="float-right pl-md-5 pr-md-5"/>
 <div class="section-content pl-md-5 pr-md-5">
 <h5 class="mb-md-4">Server-side rendering</h5>
-<p>JSS supports headless server-side rendering using any service that supports hosting Node.js applications</p>
+<p>JSS supports headless server-side rendering using any service that supports hosting Node.js applications.</p>
 </div>
 </div>
