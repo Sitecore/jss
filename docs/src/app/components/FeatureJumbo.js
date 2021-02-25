@@ -44,7 +44,7 @@ const FeatureJumbo = ({ fields }) => (
               <Text field={fields.subtitle} tag="h3" className="subtitle mb-2" />
               <Text field={fields.title} tag="h1" className="title mb-3" />
               <RouteLinkedRichText field={fields.text} tag="p" className="copy mb-5 p-0" />
-              <Link to="/docs/getting-started/quick-start" className="btn btn-primary btn-lg">
+              <Link to="/docs/nextjs/getting-started-nextjs/workflow-options" className="btn btn-primary btn-lg">
                 Get Started
               </Link>
             </div>

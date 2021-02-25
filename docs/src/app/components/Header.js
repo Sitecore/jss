@@ -54,7 +54,7 @@ const Header = ({ fields }) => (
             <li className="nav-item active ml-lg-3 get-started-button">
               <Link
                 className="btn btn-secondary btn-sm float-left text-white"
-                to="/docs/getting-started/quick-start"
+                to="/docs/nextjs/getting-started-nextjs/workflow-options"
               >
                 Get Started
               </Link>

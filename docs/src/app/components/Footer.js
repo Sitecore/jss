@@ -19,7 +19,7 @@ const Footer = ({ fields }) => (
             to="/features"
             className="nav-link text-uppercase small text-white font-weight-bold"
           >
-            Features
+            Concepts
           </Link>
           <nav className="nav flex-column">
             <Link to="/features/why-jss" className="nav-link small text-white">
@@ -35,7 +35,7 @@ const Footer = ({ fields }) => (
             Documentation
           </Link>
           <nav className="nav flex-column">
-            <Link to="/docs/getting-started/quick-start" className="nav-link small text-white">
+            <Link to="/docs/nextjs/getting-started-nextjs/workflow-options" className="nav-link small text-white">
               Getting Started
             </Link>
             <Link to="/docs/fundamentals/architecture" className="nav-link small text-white">

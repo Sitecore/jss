@@ -88,7 +88,7 @@ const SideNav = ({ navkey, useSearch }) => {
   }
   if (navState.size == 0) {
     // add getting started by default
-    navState.add('getting-started');
+    navState.add('why-nextjs');
     setNavState(navState);
   }
 
