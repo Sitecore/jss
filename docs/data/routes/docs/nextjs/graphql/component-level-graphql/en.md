@@ -13,9 +13,9 @@ The Next.js sample app utilizes the [apollo-client](https://www.apollographql.co
 
 In the code, we want to have strong types connected to GraphQL types defined in the Sitecore GraphQL Edge endpoint. To achieve this we are using [GraphQL Introspection](/docs/nextjs/graphql/introspection/).
 
-The sample app provides a GraphiQL interface for exploring the schema and testing queries. By default, the interface can be accessed using `${SITECORE_API_HOST}/sitecore/api/graph/edge/ui?sc_apikey=${SITECORE_API_KEY}`. This interface is helpful if you need to determine what graphQL types can be used by your components. Note that `graphql-let` provides the same information about types in corresponding `.graphq.d.ts` files.
+The sample app provides a GraphiQL interface for exploring the schema and testing queries. By default, the interface can be accessed using `${SITECORE_API_HOST}/sitecore/api/graph/edge/ui?sc_apikey=${SITECORE_API_KEY}`. This interface is helpful if you need to determine what GraphQL types can be used by your components. Note that `graphql-let` provides the same information about types in corresponding `.graphq.d.ts` files.
 
-This walkthrough utilizes the sample apps's [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) component. 
+This walkthrough utilizes the sample app's [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) component. 
 
 To use component-level data fetching with GraphQL, complete the following steps:
 

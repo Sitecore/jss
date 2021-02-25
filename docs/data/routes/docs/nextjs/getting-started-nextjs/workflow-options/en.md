@@ -29,9 +29,9 @@ Follow the [Walkthrough: Creating a JSS Next.js starter application](/docs/nextj
 
 Next.js collects anonymous telemetry data about general usage. Participation in the program is optional.
 
-To opt out of the telemetry data collection, you must:
+To opt-out of the telemetry data collection, you must:
 
-1. Identify you JSS Next.js `.env` file, based on the development environment setup you chose.
+1. Identify your JSS Next.js `.env` file, based on the development environment setup you chose.
    * For full-stack, use `src/rendering/.env`.
    * For front-end, use the `.env` in the root directory of your project. 
 

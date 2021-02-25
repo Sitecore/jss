@@ -8,7 +8,7 @@ title: GraphQL
 
 GraphQL is a powerful and flexible query language that empowers developers by enabling them to request exactly the data they need in exactly the format they want.
 
-In this exercise you will build a GraphQL query to fetch data from the remote Sitecore intance and output a list of events for a given location.
+In this exercise, you will build a GraphQL query to fetch data from the remote Sitecore instance and output a list of events for a given location.
 
 ## Explore where the data lives in the Sitecore Content Editor
 
@@ -222,9 +222,9 @@ Execute the query and see that each node is pulling back a lot of useful informa
 
 Too much information, actually, and not in a format that an application can easily reference without iterating through an array every time it needs to retrieve one of these values.
 
-Clean this up by adding your own properties to the result object, and using the `field()` function to retrieve the field values you want.
+Clean this up by adding your properties to the result object, and using the `field()` function to retrieve the field values you want.
 
-Start by setting the items name to the event's `name` field. (for clarity, comment out the `fields` property)
+Start by setting the items' name to the event's `name` field. (for clarity, comment out the `fields` property)
 
 ```javascript
 {
