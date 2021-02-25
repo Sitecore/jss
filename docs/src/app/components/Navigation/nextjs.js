@@ -184,7 +184,7 @@ export default {
         },
         {
           url: 'export',
-          displayName: 'Using `next export',
+          displayName: 'Using `next export`',
         },
         {
           url: 'server-components',
