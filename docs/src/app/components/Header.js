@@ -28,7 +28,7 @@ const Header = ({ fields }) => (
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active ml-lg-3 mr-lg-3">
               <Link className="nav-link" to="/features">
-                Features
+                Features & Concepts
               </Link>
             </li>
             <li className="nav-item active ml-lg-3 mr-lg-3">

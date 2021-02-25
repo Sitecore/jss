@@ -4,9 +4,9 @@ routeTemplate: ./data/routes/features/en.yml
 title: Features
 ---
 
-## Extend your favorite framework with full power of the Sitecore Experience Cloud
+## Implement Sitecore Experience Platform apps using your favorite JavaScript framework
 
-JSS Language agnostic. Use Sitecore features in your apps. Give users more control over their apps, giving you more time to focus on technical tasks.
+JSS supports multiple front-end frameworks to provide flexibility for developers.
 
 ---
 

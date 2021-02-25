@@ -19,7 +19,7 @@ const Footer = ({ fields }) => (
             to="/features"
             className="nav-link text-uppercase small text-white font-weight-bold"
           >
-            Concepts
+            Features & Concepts
           </Link>
           <nav className="nav flex-column">
             <Link to="/features/why-jss" className="nav-link small text-white">
