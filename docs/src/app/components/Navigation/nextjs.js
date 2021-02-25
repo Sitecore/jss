@@ -129,8 +129,8 @@ export default {
           displayName: 'Introspecting the GraphQL schema'
         },
         {
-          url: 'component',
-          displayName: 'Using GraphQL in component SSR/SSG'
+          url: 'component-level-graphql',
+          displayName: 'Using component-level GraphQL'
         },
       ],
     },

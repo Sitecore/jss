@@ -22,11 +22,14 @@ const Footer = ({ fields }) => (
             Features & Concepts
           </Link>
           <nav className="nav flex-column">
+            <Link to="/features/why-sitecore" className="nav-link small text-white">
+              Why Sitecore?
+            </Link>
             <Link to="/features/why-jss" className="nav-link small text-white">
               Why JSS?
             </Link>
-            <Link to="/features/why-sitecore" className="nav-link small text-white">
-              Why Sitecore?
+            <Link to="/docs/nextjs/getting-started-nextjs/why-nextjs" className="nav-link small text-white">
+              Why Next.js?
             </Link>
           </nav>
         </div>
@@ -36,7 +39,10 @@ const Footer = ({ fields }) => (
           </Link>
           <nav className="nav flex-column">
             <Link to="/docs/nextjs/getting-started-nextjs/workflow-options" className="nav-link small text-white">
-              Getting Started
+              Started with Next.js
+            </Link>
+            <Link to="/docs/client-frameworks/getting-started/quick-start" className="nav-link small text-white">
+              Started with React, Angular, or Vue
             </Link>
             <Link to="/docs/fundamentals/architecture" className="nav-link small text-white">
               Fundamentals

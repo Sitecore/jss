@@ -19,9 +19,6 @@ placeholders:
                   Sitecore JavaScript SDK (JSS) is a set of npm packages for 
                   building full-fledged Sitecore solutions using modern JavaScript frameworks
                   and developer tools.
-              image:
-                src: /assets/img/home-jumbo.jpg
-                alt: Man staring at a computer
         jssdocs-tiles-headline:
           - id: tile-healine
             componentName: TileHeadline

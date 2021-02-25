@@ -1,7 +1,7 @@
 ---
-name: component
+name: component-level-graphql
 routeTemplate: ./data/component-templates/article.yml
-title: Using GraphQL in component SSR/SSG
+title: Using component-level GraphQL
 ---
 # Walkthrough: Using Component-Level GraphQL in SSR/SSG
 
