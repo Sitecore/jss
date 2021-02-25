@@ -7,10 +7,10 @@ fields:
   title:
     value: Create true personalized headless experiences
   text:
-    value: Use Sitecore JSS to deliver true individualized headless experiences at scale
+    value: Use Sitecore to bring the leader in enterprise digital experience management to your Jamstack space
   linkUrl:
     text: Learn more
-    href: /features
+    href: /docs/introduction/headless-concepts
   image:
     src: /assets/img/headless-experience-tile.jpg
     alt: Disconnection

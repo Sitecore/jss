@@ -7,7 +7,7 @@ fields:
   title:
     value: Support Modern JavaScript Frameworks
   text:
-    value: JSS provides client SDKs for <a href="/docs/client-frameworks/react/react-overview">React</a>, <a href="/docs/client-frameworks/vue/vue-overview">Vue</a>, <a href="/docs/client-frameworks/angular/angular-overview">Angular</a> and <a href="/docs/client-frameworks/react-native/react-native-overview">React Native</a>
+    value: JSS provides client SDKs for <a href="/docs/client-frameworks/react/react-overview">React</a>, <a href="/docs/client-frameworks/vue/vue-overview">Vue</a>, and <a href="/docs/client-frameworks/angular/angular-overview">Angular</a>
   linkUrl:
     text: Learn more
     href: /docs/client-frameworks/react/react-overview

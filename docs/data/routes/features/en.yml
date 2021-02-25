@@ -17,7 +17,7 @@ placeholders:
               csscolorclass:
                 value: bg-primary text-white
               title:
-                value: Features
+                value: Features & Concepts
               text:
                 value: Learn about Sitecore JavaScript SDK's features and concepts
         jssdocs-content:
