@@ -44,7 +44,7 @@ Characteristics of such apps include:
 1. Open `cmd` inside the directory with the sample app.
 1. Use `npm install` to install all required packages.
 1. Use `jss setup` to configure the path and URL to your Sitecore instance.
-    > This app is designed to run on the out-of-the-box Sitecore `website` site and sample page, so the default host name for your Sitecore instance will work here.
+    > This app is designed to run on the out-of-the-box Sitecore `website` site and sample page, so the default hostname for your Sitecore instance will work here.
 1. Use `jss deploy config` to deploy the included app configuration.
     > Alternatively, you can manually copy `embedded-wizard-app.config` file from `sitecore\config` to your Sitecore instance's `Website\App_Config\Include` folder.
     
