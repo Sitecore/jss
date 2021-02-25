@@ -10,7 +10,7 @@ Sitecore JSS supports developing React applications with Sitecore.
 
 ## Sample Application
 
-The [JSS CLI](/docs/getting-started/quick-start) can be used to quickly create an `create-react-app`-based JSS application:
+The [JSS CLI](/docs/client-frameworks/getting-started/quick-start) can be used to quickly create an `create-react-app`-based JSS application:
 
 ```sh
 jss create my-react-jss-app react

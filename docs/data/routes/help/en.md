@@ -191,4 +191,4 @@ This will usually show an error message. Start by reading it closely, as they ar
 
 #### API returns HTTP 400 - Bad Request
 
-If any of the JSS services return `HTTP 400` (Bad Request), this likely means that your API key is either missing or not configured correctly. Please refer to [this doc](/docs/getting-started/app-deployment) for more info.
+If any of the JSS services return `HTTP 400` (Bad Request), this likely means that your API key is either missing or not configured correctly. Please refer to [this doc](/docs/client-frameworks/getting-started/app-deployment) for more info.

@@ -10,7 +10,7 @@ During JSS development, you will be commonly using scripts provided by the _JSS 
 ## Frequently used scripts
 
 These are the main scripts you will be using frequently during JSS development.
-These were partially covered in [Quick start](/docs/getting-started/quick-start).
+These were partially covered in [Quick start](/docs/client-frameworks/getting-started/quick-start).
 
 ### `jss setup`
 

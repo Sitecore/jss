@@ -25,7 +25,7 @@ The installation process for all the necessary Android/iOS dependencies and tool
 
 1. Ensure you have completed the Prerequisites section and have confirmed you're able to run the `AwesomeProject` sample that the instructions direct you to create.
 
-1. At this point, you can follow steps 1 and 2 from the [JSS Quick Start guide](/docs/getting-started/quick-start), or the following abbreviated version:
+1. At this point, you can follow steps 1 and 2 from the [JSS Quick Start guide](/docs/client-frameworks/getting-started/quick-start), or the following abbreviated version:
 
 1. In a new folder, clone or download the basic sample app repo: https://github.com/Sitecore/jss/tree/master/samples/react-native
 

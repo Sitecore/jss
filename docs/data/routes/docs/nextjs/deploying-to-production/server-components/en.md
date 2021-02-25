@@ -17,7 +17,7 @@ The method of installing Sitecore Headless Services depends on your deployment a
 
 ## On-prem / Virtual Machine / IaaS
 Install using the Headless Services package zip.
-* [Procedure: Server components installation](/docs/getting-started/jss-server-install#server-components-installation)
+* [Procedure: Server components installation](/docs/client-frameworks/getting-started/jss-server-install#server-components-installation)
 
 ## Azure Webapps / PaaS
 Install using Headless Services WDP packages.

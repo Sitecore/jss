@@ -37,7 +37,7 @@ Characteristics of such apps include:
 ### Step 1. Build and deploy the app
 
 #### Pre-requisites
-1. Ensure you have already [installed the JSS server packages and configured it](/docs/getting-started/jss-server-install).
+1. Ensure you have already [installed the JSS server packages and configured it](/docs/client-frameworks/getting-started/jss-server-install).
 1. The [The Embedded Wizard sample app](https://github.com/Sitecore/jss/tree/master/samples/sitecore-embedded-jss-app) is downloaded locally in a directory.
 
 #### Directions

@@ -72,7 +72,7 @@ function createSsrMiddleware(adapter) {
     return adapter(parsedUrl.sitecoreRoute, 'en')
       .then((lsData) => renderViewToHtmlFromData(app.renderView, lsData, parsedUrl.sitecoreRoute))
       .then((content) => {
-        if (content.status) {
+        if (response.statusCode !== 301 && content.status) {
           response.statusCode = content.status;
         }
         response.send(content.html);
@@ -122,6 +122,10 @@ manifestManager.getManifest(config.language).then((manifest) => {
   server.use('/sitecore/api/layout/render', layoutService.middleware);
   server.use('/assets', assetMiddleware);
   server.use('/dist', staticFileMiddleware);
+  server.use('/docs/getting-started/:path', (req, res) => {
+    req.url = `/docs/client-frameworks/getting-started/${req.params.path}`;
+    res.redirect(req.url, 301);
+  })
   server.use('*', ssrMiddleware);
 
   server.listen(config.devServerPort, (err) => {

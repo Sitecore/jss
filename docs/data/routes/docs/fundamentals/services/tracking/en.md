@@ -25,7 +25,7 @@ The JSS tracker supports tracking Events, Goals, Outcomes, Campaigns, and Page/R
 
 ## Setup
 
-The JSS tracker comes installed but **disabled by default** when the [Headless server components](/docs/getting-started/jss-server-install) are installed. To enable the JSS tracker, patch the `Sitecore.JSS.TrackerServiceEnabled` setting to true in a configuration patch file such as:
+The JSS tracker comes installed but **disabled by default** when the [Headless server components](/docs/client-frameworks/getting-started/jss-server-install) are installed. To enable the JSS tracker, patch the `Sitecore.JSS.TrackerServiceEnabled` setting to true in a configuration patch file such as:
 
 ```xml
 <configuration>

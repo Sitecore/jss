@@ -14,7 +14,7 @@ With _connected_ GraphQL, a JSS app makes direct HTTP requests to a Sitecore Gra
 
 ## Usage
 
-Connected GraphQL is exactly like using any other GraphQL API from a JavaScript application. All JSS [sample applications](/docs/getting-started/quick-start) contain GraphQL usage examples with the [Apollo GraphQL Client](https://www.apollographql.com), but any GraphQL client - including plain `fetch` - will work.
+Connected GraphQL is exactly like using any other GraphQL API from a JavaScript application. All JSS [sample applications](/docs/client-frameworks/getting-started/quick-start) contain GraphQL usage examples with the [Apollo GraphQL Client](https://www.apollographql.com), but any GraphQL client - including plain `fetch` - will work.
 
 ## Troubleshooting
 
