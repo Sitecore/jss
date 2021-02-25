@@ -119,11 +119,11 @@ To fill in the values:
 
 This walkthrough demonstrates how to create a new component using the code-first development workflow for your project.
 
-> This walkthrough assumes you have set up your project using the [`dotnet new`](/docs/nextjs/getting-started/walkthrough-dotnetnew) template with a project called `MyProject` or [`jss create`](/docs/nextjs/getting-started/walkthrough-jsscreate).
+> This walkthrough assumes you have set up your project using the [Sitecore Containers](/docs/nextjs/getting-started-nextjs/walkthrough-dotnetnew) template with a project called `MyProject` or [`jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate).
 >
 > You need to be aware of the following path: 
 > * the root of the **Next.js-based application**: 
->   * `dotnet new` : `<path to your solutions directory>\MyProject\src\rendering\`.
+>   * Sitecore Containers: `<path to your solutions directory>\MyProject\src\rendering\`.
 >   * `jss create`: the same as the root of the project.
 
 To create a component in a Next.js-based JSS application:
