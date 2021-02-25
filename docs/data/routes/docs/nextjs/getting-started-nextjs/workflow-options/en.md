@@ -15,7 +15,7 @@ The resulting solution is optimized for a [Sitecore-first developer workflow](/d
 
 > This path requires a machine with the Windows operating system.
 
-To create a solution from the Getting Started template, follow the [Walkthrough: Using the .NET starter template for JSS Next.js projects](/docs/nextjs/getting-started/walkthrough-dotnetnew).
+To create a solution from the Getting Started template, follow the [Walkthrough: Using the Sitecore Container Starter Template for JSS Next.js Projects](/docs/nextjs/getting-started-nextjs/walkthrough-dotnetnew).
 
 ## Front-end development only
 
@@ -23,7 +23,7 @@ Get started with JSS front-end development on any operating system supported by 
 
 > With this path, you only get a JSS application based on Next.js for a [code-first developer workflow](/docs/fundamentals/dev-workflows/code-first). You will need to perform additional steps to connect to a Sitecore instance.
 
-Follow the [Walkthrough: Creating a JSS Next.js starter application](/docs/nextjs/getting-started/walkthrough-jsscreate) to set up the starter application for front-end development.
+Follow the [Walkthrough: Creating a JSS Next.js starter application](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate) to set up the starter application for front-end development.
 
 ## A note on [Next.js telemetry](https://nextjs.org/telemetry)
 

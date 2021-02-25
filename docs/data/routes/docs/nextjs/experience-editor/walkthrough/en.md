@@ -7,7 +7,7 @@ title: Connect to the Experience Editor
 
 A Next.js application utilizes the [JSS Http rendering engine](/docs/fundamentals/services/view-engine#http-rendering-engine) feature for integration to the Sitecore Experience Editor. This article will guide you through the required configuration.
 
-> The `dotnet new` template for Next.js includes pre-configured integration with the Experience Editor.
+> The Sitecore Containers template for Next.js includes pre-configured integration with the Experience Editor.
 
 ## Step 1: Sitecore configuration
 

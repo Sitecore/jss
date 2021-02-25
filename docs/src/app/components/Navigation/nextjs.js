@@ -22,11 +22,11 @@ export default {
         },
         {
           url: 'walkthrough-dotnetnew',
-          displayName: 'Walkthrough: with `dot net new`',
+          displayName: 'Walkthrough: with Sitecore Containers',
         },
         {
           url: 'walkthrough-jsscreate',
-          displayName: 'Walkthrough: with `jss create`',
+          displayName: 'Walkthrough: with \'jss create\'',
         },
       ],
     },
