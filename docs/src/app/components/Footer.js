@@ -39,10 +39,10 @@ const Footer = ({ fields }) => (
           </Link>
           <nav className="nav flex-column">
             <Link to="/docs/nextjs/getting-started-nextjs/workflow-options" className="nav-link small text-white">
-              Started with Next.js
+              Getting Started with Next.js
             </Link>
             <Link to="/docs/client-frameworks/getting-started/quick-start" className="nav-link small text-white">
-              Started with React, Angular, or Vue
+              Getting Started with React, Angular, or Vue
             </Link>
             <Link to="/docs/fundamentals/architecture" className="nav-link small text-white">
               Fundamentals
