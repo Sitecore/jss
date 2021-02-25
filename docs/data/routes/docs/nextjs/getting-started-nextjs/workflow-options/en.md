@@ -9,7 +9,7 @@ Sitecore offers two paths for setting up your development environment based on y
 
 ## Full-stack development
 
-Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Docker](https://www.docker.com/), [Sitecore Containers](https://containers.doc.sitecore.com/), the [Sitecore Next.js SDK](/), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html).
+Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Docker](https://www.docker.com/), [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html), the [Sitecore Next.js SDK](/), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html).
 
 The resulting solution is optimized for a [Sitecore-first developer workflow](/docs/fundamentals/dev-workflows/sitecore-first). 
 
