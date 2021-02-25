@@ -68,7 +68,7 @@ New-AzResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $Deployme
 
 ## Step 3: Configure the Sitecore server
 
-The steps to configure an Azure server to accept a JSS app are mostly the same as for on-premise. Consult the [app deployment](/docs/getting-started/app-deployment) documentation for details, and read on for the differences.
+The steps to configure an Azure server to accept a JSS app are mostly the same as for on-premise. Consult the [app deployment](/docs/client-frameworks/getting-started/app-deployment) documentation for details, and read on for the differences.
 
 1. When in Azure, the config deployment step must be performed manually (in production, it should be performed by an automated build step). For our purposes, we can use our FTPS client to deploy the JSS app's `/sitecore/config/*` files to the Azure website's `/site/wwwroot/app_config/include` directory.
 

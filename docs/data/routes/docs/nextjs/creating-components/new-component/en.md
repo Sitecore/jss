@@ -18,7 +18,7 @@ This walkthrough describes how to:
 - [Create the component in the Next.js app](#create-the-component-in-the-nextjs-app)
 - [Fill in values in the Experience Editor](#fill-in-values-in-the-experience-editor)
 
-> This walkthrough assumes you have set up your project using the [`dotnet new`](/docs/nextjs/getting-started/walkthrough-dotnetnew) template with a project called `MyProject`.
+> This walkthrough assumes you have set up your project using the [`dotnet new`](/docs/nextjs/getting-started-nextjs/walkthrough-dotnetnew) template with a project called `MyProject`.
 
 ### Create the JSON rendering in Sitecore
 
@@ -31,7 +31,7 @@ To create the JSON rendering in Sitecore:
    - `heading`: Single-line Text
    - `body`: Rich Text
    
-  > You can use the [Title standard field](https://doc.sitecore.com/developers/100/sitecore-experience-manager/en/the-template-field-template.html#UUID-10009387-6d92-725d-7fd1-cf479e91bbbf_UUID-31b3c8a3-5a9c-ed7d-bc68-483a20f9a2ec) on template fields to provide a user-friendly name.
+  > You can use the [Title standard field](https://doc.sitecore.com/developers/101/sitecore-experience-manager/en/the-template-field-template.html#UUID-d9185cce-8e53-df90-715e-e941e17cc79a_UUID-31b3c8a3-5a9c-ed7d-bc68-483a20f9a2ec_body) on template fields to provide a user-friendly name.
 
 3. With the **Builder** tab open, in the **Builder Options** menu, click **Standard Values** and in the **heading** and **body** fields enter default values.
 
@@ -119,11 +119,11 @@ To fill in the values:
 
 This walkthrough demonstrates how to create a new component using the code-first development workflow for your project.
 
-> This walkthrough assumes you have set up your project using the [`dotnet new`](/docs/nextjs/getting-started/walkthrough-dotnetnew) template with a project called `MyProject` or [`jss create`](/docs/nextjs/getting-started/walkthrough-jsscreate).
+> This walkthrough assumes you have set up your project using the [Sitecore Containers](/docs/nextjs/getting-started-nextjs/walkthrough-dotnetnew) template with a project called `MyProject` or [`jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate).
 >
 > You need to be aware of the following path: 
 > * the root of the **Next.js-based application**: 
->   * `dotnet new` : `<path to your solutions directory>\MyProject\src\rendering\`.
+>   * Sitecore Containers: `<path to your solutions directory>\MyProject\src\rendering\`.
 >   * `jss create`: the same as the root of the project.
 
 To create a component in a Next.js-based JSS application:

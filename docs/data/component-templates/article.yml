@@ -5,7 +5,7 @@ fields:
 placeholders:
   jssdocs-main:
   - componentName: ArticleContainer
-    fields:    
+    fields:
       sidenav:
         value: docs
       useSearch:

@@ -28,7 +28,7 @@ To enable the `Publish:end` hook, you must:
 2. Create webhook config based on example `/App_Config/Sitecore/JavaScriptServices/Sitecore.JavaScriptServices.AppServices.PublishingWebHook.config.example`, and include it in your solution:
 	* `url` - Required. The URL of the hook to be invoked.
 	* `method` - Optional. The HTTP method for invoking webhook. Possible values are `POST` or `GET`. The default method is `POST`. 
-	* `site` - Optional. The sites which should trigger the webhook when published. By default Sitecore will trigger webhook for every published item. If you provide the site parameter, the webhook will be invoked if the published item root is an ancestor, descendant, or equal to the configured site's root item.
+	* `site` - Optional. The sites which should trigger the webhook when published. By default, Sitecore will trigger the webhook for every published item. If you provide the site parameter, the webhook will be invoked if the published item root is an ancestor, descendant, or equal to the configured site's root item.
 3. Deploy webhook config to your Sitecore instance.
 4. Publish items.
 5. On Vercel, check that the end of the publishing process triggered a new deployment.

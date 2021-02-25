@@ -3,7 +3,7 @@ name: walkthrough-dotnetnew
 routeTemplate: ./data/component-templates/article.yml
 title: Walkthrough with `dotnet new`
 ---
-# Walkthrough: Using the .NET Starter Template for JSS Next.js Projects
+# Walkthrough: Using the Sitecore Container Starter Template for JSS Next.js Projects
 
 Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html), the [Sitecore Next.js SDK](https://jss.sitecore.com/), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html). 
 
@@ -29,11 +29,14 @@ Sitecore supports the template output as provided. Once changed or amended, the 
 
 To create a solution from the Getting Started template, you must complete the following procedures:
 
-- [Install the prerequisites](#install-the-prerequisites)
-- [Install the template](#install-the-template)
-- [Create the MyProject solution](#create-the-myproject-solution)
-- [Rebuild search indexes](#rebuild-search-indexes)
-- [Add a language and import (Optional)](#add-a-language-and-import-optional)
+- [Walkthrough: Using the Sitecore Container Starter Template for JSS Next.js Projects](#walkthrough-using-the-sitecore-container-starter-template-for-jss-nextjs-projects)
+  - [Support](#support)
+  - [Create a solution from the Getting Started template](#create-a-solution-from-the-getting-started-template)
+    - [Install the prerequisites](#install-the-prerequisites)
+    - [Install the template](#install-the-template)
+    - [Create the MyProject solution](#create-the-myproject-solution)
+    - [Rebuild search indexes](#rebuild-search-indexes)
+    - [Add a language and import it(Optional)](#add-a-language-and-import-itoptional)
 
 ### Install the prerequisites
 
@@ -123,7 +126,7 @@ To create the `MyProject` solution:
 
    * A valid/trusted privately signed wildcard certificate for `*.myproject.localhost`.
 
-     > On local environments, Sitecore instances are installed using privately signed certificates. `.\init.ps1` generates certificates using  the `mkcert` utility. Node.js rejects these certificates because their root CAs are not known. 
+     > On local environments, Sitecore instances are installed using privately signed certificates. `.\init.ps1` generates certificates using the `mkcert` utility. Node.js rejects these certificates because their root CAs are not known. 
      >
      > If this is your first time using `mkcert` with Node.js, you will need to manually set the  [NODE_EXTRA_CA_CERTS](https://nodejs.org/api/cli.html#cli_node_extra_ca_certs_file) environment variable to prevent HTTPS errors, such as:
      >

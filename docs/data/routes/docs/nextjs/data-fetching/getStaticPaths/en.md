@@ -67,7 +67,7 @@ query {
 
 
 
-It it not always desirable to pre-render all the pages. If you have many pages and you wish to customize the search query, use the `formatSearchQuery` argument. Map `language` and `rootItemId` on the new search query.
+It is not always desirable to pre-render all the pages. If you have many pages and you wish to customize the search query, use the `formatSearchQuery` argument. Map `language` and `rootItemId` on the new search query.
 
 The following example shows a query that retrieves only the first 10 items:
 

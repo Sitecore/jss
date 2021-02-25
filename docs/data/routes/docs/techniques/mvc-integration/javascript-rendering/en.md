@@ -26,7 +26,7 @@ When the rendering is being rendered, the Sitecore JavaScript render engine will
 
 ## Installation
 
-* Follow the steps for [JSS Server Install](/docs/getting-started/jss-server-install)
+* Follow the steps for [JSS Server Install](/docs/client-frameworks/getting-started/jss-server-install)
 
 ## Getting Started
 

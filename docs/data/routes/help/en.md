@@ -51,10 +51,11 @@ Sitecore offers different licensing bundles - some include JSS, and some require
 ### What UI libraries and frameworks are supported?
 
 Here are the UI libraries/frameworks supported by JSS:
-1. React 16.3+
-1. Angular 6+
-1. React Native (experimental support)
-1. Vue.js 2.5+
+1. Next.js 10.0+
+2. React 16.3+
+3. Angular 6+
+4. React Native (experimental support)
+5. Vue.js 2.5+
 
 #### Are you going to upgrade the supported libraries?
 Yes, upgrading the supported frameworks, as well as updating the npm dependencies is on the radar.
@@ -191,4 +192,4 @@ This will usually show an error message. Start by reading it closely, as they ar
 
 #### API returns HTTP 400 - Bad Request
 
-If any of the JSS services return `HTTP 400` (Bad Request), this likely means that your API key is either missing or not configured correctly. Please refer to [this doc](/docs/getting-started/app-deployment) for more info.
+If any of the JSS services return `HTTP 400` (Bad Request), this likely means that your API key is either missing or not configured correctly. Please refer to [this doc](/docs/client-frameworks/getting-started/app-deployment) for more info.

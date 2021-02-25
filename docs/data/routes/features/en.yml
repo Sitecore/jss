@@ -17,9 +17,9 @@ placeholders:
               csscolorclass:
                 value: bg-primary text-white
               title:
-                value: Features
+                value: Features & Concepts
               text:
-                value: Learn what Sitecore JSS offers and what power the Sitecore Experience Cloud adds
+                value: Learn about Sitecore JavaScript SDK's features and concepts
         jssdocs-content:
           - componentName: Article
             fields:
@@ -31,7 +31,7 @@ placeholders:
             componentName: TileWithButton
             fields:
               title:
-                value: The power of the Sitecore Experience Cloud
+                value: The power of the Sitecore Experience Platform
               text:
                 value: |
                   Make your JavaScript applications more manageable for end 
@@ -47,7 +47,7 @@ placeholders:
             componentName: TileWithButton
             fields:
               title:
-                value: The power of Sitecore JavaScript Services
+                value: The power of Sitecore JavaScript SDK
               text:
                 value: |
                   Develop your JavaScript apps with powerful content management 

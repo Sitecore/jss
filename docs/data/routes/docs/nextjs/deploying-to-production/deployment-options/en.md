@@ -14,13 +14,13 @@ title: Deployment options for your Next.js app
 
 ## Important Notes
 * Even if you use Static HTML / `next export`, you must run a Next.js instance which is accessible to your Content Management role in order to [use the Experience Editor](/docs/nextjs/experience-editor/walkthrough).
-* The _Headless SSR Proxy_ is neither needed for nor compatible with Next.js-based JSS applications.
+* The _Headless SSR Proxy_ is neither needed for, nor compatible with, Next.js-based JSS applications.
 * Production hosting of Next.js-based JSS applications in "integrated mode" is not supported.
 
 ## Deployment options
 
 ### Vercel
-Vercel, the creators of Next.js, offer a deployment and hosting solution which is optimized for Next.js. They support all Next.js features out of the box, including incremental static site (re-)generation, hybrid rendering, and internationalization. Your application can be deployed directly from source control and will be optimized via Vercel's edge network and serverless functions.
+The creators of Next.js, Vercel, offer deployment and hosting solutions optimized for Next.js. They support all Next.js features out of the box, including incremental static site (re-)generation, hybrid rendering, and internationalization. Your application can be deployed directly from source control and will be optimized via Vercel's edge network and serverless functions.
 
 * [Walkthrough: Deploying to Vercel](/docs/nextjs/deploying-to-production/vercel)
 * [Vercel deployment](https://nextjs.org/docs/deployment#vercel-recommended) (_Next.js Documentation_)
