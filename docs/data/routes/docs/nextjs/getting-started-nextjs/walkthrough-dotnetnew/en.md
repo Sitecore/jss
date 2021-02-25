@@ -126,7 +126,7 @@ To create the `MyProject` solution:
 
    * A valid/trusted privately signed wildcard certificate for `*.myproject.localhost`.
 
-     > On local environments, Sitecore instances are installed using privately signed certificates. `.\init.ps1` generates certificates using  the `mkcert` utility. Node.js rejects these certificates because their root CAs are not known. 
+     > On local environments, Sitecore instances are installed using privately signed certificates. `.\init.ps1` generates certificates using the `mkcert` utility. Node.js rejects these certificates because their root CAs are not known. 
      >
      > If this is your first time using `mkcert` with Node.js, you will need to manually set the  [NODE_EXTRA_CA_CERTS](https://nodejs.org/api/cli.html#cli_node_extra_ca_certs_file) environment variable to prevent HTTPS errors, such as:
      >

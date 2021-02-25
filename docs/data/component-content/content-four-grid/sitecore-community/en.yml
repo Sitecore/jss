@@ -7,7 +7,7 @@ fields:
   title:
     value: Sitecore Community
   text:
-    value: The official Sitecore Community where you can get in contact with thousands of Sitecore developers and users, ask questions or join the discussions.
+    value: The official Sitecore Community allows you to connect with thousands of Sitecore developers and users, ask questions or join the discussions.
   linkUrl:
     text: Visit Sitecore Community
     href: https://community.sitecore.net

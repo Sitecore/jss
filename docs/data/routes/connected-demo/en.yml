@@ -23,7 +23,7 @@ placeholders:
             title:
               value: JSS Connected Demo
             text:
-              value: Unlock the full potential of Sitecore with JSS in a live demo environment
+              value: Unlock the full potential of Sitecore with JSS in a live demo environment.
       jssdocs-content:
         - componentName: Article
           fields:

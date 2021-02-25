@@ -13,7 +13,7 @@ The latest JSS SDK leverages many of Next.js' [features](https://nextjs.org/#fea
 
 * Development and production runtime parity, including SSR during development.
 * Fewer confusing “modes” and deployment requirements.
-* No Headless SSR Proxy needed for production or for integration with Sitecore tracking.
+* No Headless SSR Proxy needed for production or integration with Sitecore tracking.
 * No need to deploy your application bundle to the Content Management instance for Experience Editor support.
 
 ## Features

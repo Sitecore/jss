@@ -33,6 +33,6 @@ When you configure i18n for your Next.js application:
 
 To transition between locales, you can use `Link` or `useRouter`. Read more about it [here](https://nextjs.org/docs/advanced-features/i18n-routing#transition-between-locales).
 
-You have ability to configure `<languageEmbedding>` in Sitecore. It need to be set to `asNeeded` or `always` in order for language prefix (sub-path route) to be returned from Sitecore internal links. Our `<Link />` component handles i18n route transitions for internal links coming from Sitecore.
+You can configure `<languageEmbedding>` in Sitecore. It needs to be set to `asNeeded` or `always` for the language prefix (sub-path route) to be returned from Sitecore internal links. Our `<Link />` component handles i18n route transitions for internal links coming from Sitecore.
 
 > See [here](/docs/nextjs/internationalization/using-i18n) for more information on using Next.js i18n with JSS.

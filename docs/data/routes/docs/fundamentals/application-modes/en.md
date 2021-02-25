@@ -55,7 +55,7 @@ In connected mode, a Sitecore instance is required. The Sitecore databases hold 
 
 #### How to use
 
-* Follow the directions in the Quick Start to [deploy the app to Sitecore](/docs/getting-started/app-deployment), (including [prerequisites](/docs/getting-started/jss-server-install) if it's the first JSS app on this Sitecore instance).
+* Follow the directions in the Quick Start to [deploy the app to Sitecore](/docs/client-frameworks/getting-started/app-deployment), (including [prerequisites](/docs/client-frameworks/getting-started/jss-server-install) if it's the first JSS app on this Sitecore instance).
 * Run `jss start:connected` to start the dev server.
 * `http://localhost:3000` (if it doesn't automatically open)
 
@@ -81,7 +81,7 @@ This mode allows your Sitecore users to manage content, presentation and other m
 
 #### How to use
 
-* Follow the directions in the Quick Start to [deploy the app to Sitecore](/docs/getting-started/app-deployment), (including [prerequisites](/docs/getting-started/jss-server-install) if it's the first JSS app on this Sitecore instance).
+* Follow the directions in the Quick Start to [deploy the app to Sitecore](/docs/client-frameworks/getting-started/app-deployment), (including [prerequisites](/docs/client-frameworks/getting-started/jss-server-install) if it's the first JSS app on this Sitecore instance).
 * `http://your-configured-app-hostname` (from `/sitecore/config/*.config`, search on `hostName`)
 
 ## Headless server-side rendering mode
@@ -112,13 +112,13 @@ API-only mode can be used with any platform that understands JSON data to consum
 
 ### How to use (Layout Service, Dictionary Service)
 
-* Follow the directions in the Quick Start to [install the Headless server components](/docs/getting-started/jss-server-install).
+* Follow the directions in the Quick Start to [install the Headless server components](/docs/client-frameworks/getting-started/jss-server-install).
 * Create a JSS app configuration (see `/sitecore/config` in any of the sample apps for a starting point) and deploy it to Sitecore's `/App_Config/Include`
 * Run a test Layout Service request to the app: `http://myapp.dev.local/sitecore/api/layout/render/jss?item=/&sc_apikey={YOUR_API_KEY}`
 
 ### How to use (GraphQL)
 
-* Follow the directions in the Quick Start to [install the Headless server components](/docs/getting-started/jss-server-install).
+* Follow the directions in the Quick Start to [install the Headless server components](/docs/client-frameworks/getting-started/jss-server-install).
 * Follow the instructions in the [GraphQL API documentation](/docs/techniques/graphql/graphql-overview) to define a GraphQL endpoint
 * Query away!
 

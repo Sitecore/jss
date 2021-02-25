@@ -5,12 +5,12 @@ fields:
   cssclass:
     value: default
   title:
-    value: Focus on development and empower your users
+    value: Focus on development and innovation
   text:
-    value: Use advanced content creation and marketing features to power your app.
+    value: JSS is flexible and extensible. It support different workflows and development styles.
   linkUrl:
     text: Learn more
-    href: /features/why-sitecore
+    href: /docs/introduction/why-jss
   image:
       src: /assets/img/focus-on-development-tile.jpg
       alt: Abstract arrows converging

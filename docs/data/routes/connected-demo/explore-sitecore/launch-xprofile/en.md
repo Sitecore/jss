@@ -20,7 +20,7 @@ The Latest Visit panel contains a link to the Visit Detail report, which display
 
    ![Lighthouse Fitness](/assets/img/xProfile2.jpg)
 
-In the overview tab you'll be able to see the events that you interacted with in the first stage, including any goals you triggered and those personalization events you interacted with.
+In the overview tab, you'll be able to see the events that you interacted with in the first stage, including any goals you triggered and those personalization events you interacted with.
 
 ![Lighthouse Fitness](/assets/img/xProfile3.jpg)
 
@@ -28,7 +28,7 @@ The Activity tab will divide activity by Goals, Outcomes, Campaigns, etc. You'll
 
 ![Lighthouse Fitness](/assets/img/xProfile4.jpg)
 
-The Profiling tab will show you the best pattern matches for your profile based on information you provided and activities you completed in the first step.
+The Profiling tab will show you the best pattern matches for your profile based on the information you provided and activities you completed in the first step.
 
 ![Lighthouse Fitness](/assets/img/xProfile5.jpg)
 

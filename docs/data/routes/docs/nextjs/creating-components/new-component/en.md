@@ -31,7 +31,7 @@ To create the JSON rendering in Sitecore:
    - `heading`: Single-line Text
    - `body`: Rich Text
    
-  > You can use the [Title standard field](https://doc.sitecore.com/developers/100/sitecore-experience-manager/en/the-template-field-template.html#UUID-10009387-6d92-725d-7fd1-cf479e91bbbf_UUID-31b3c8a3-5a9c-ed7d-bc68-483a20f9a2ec) on template fields to provide a user-friendly name.
+  > You can use the [Title standard field](https://doc.sitecore.com/developers/101/sitecore-experience-manager/en/the-template-field-template.html#UUID-d9185cce-8e53-df90-715e-e941e17cc79a_UUID-31b3c8a3-5a9c-ed7d-bc68-483a20f9a2ec_body) on template fields to provide a user-friendly name.
 
 3. With the **Builder** tab open, in the **Builder Options** menu, click **Standard Values** and in the **heading** and **body** fields enter default values.
 

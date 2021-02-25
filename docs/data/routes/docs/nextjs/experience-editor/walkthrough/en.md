@@ -109,7 +109,7 @@ export default MyPage;
 
 >  Note the Next.js sample application already includes this code in the default catch-all routes `[[...path]].tsx` and `[[...path]].SSR.tsx`.
 
-By default, only the edit chromes are refreshed (fine for most cases). However, you may also force an entire page reload instead, using the optional `forceReload` parameter.
+By default, only the edit chromes are refreshed (fine for most cases). However, you may also force an entire page to reload instead, using the optional `forceReload` parameter.
 
 ```typescript
 handleExperienceEditorFastRefresh(true);

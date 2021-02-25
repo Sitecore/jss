@@ -6,7 +6,7 @@ title: Your First Component
 
 # Building your first JSS component
 
-After [setting up a JSS app](/docs/getting-started/quick-start), we'll want to make the app actually do something other than display sample content. To do this, we need to make a _JSS component_.
+After [setting up a JSS app](/docs/client-frameworks/getting-started/quick-start), we'll want to make the app actually do something other than display sample content. To do this, we need to make a _JSS component_.
 
 > If you're unfamiliar with how Sitecore handles layout composition, [read this guide to layout](/docs/fundamentals/understanding-layout) before continuing.
 

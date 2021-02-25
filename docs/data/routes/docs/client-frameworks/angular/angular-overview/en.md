@@ -10,7 +10,7 @@ Sitecore JSS supports developing modern Angular applications with Sitecore.
 
 ## Sample Application
 
-The [JSS CLI](/docs/getting-started/quick-start) can be used to quickly create an `angular-cli`-based JSS application:
+The [JSS CLI](/docs/client-frameworks/getting-started/quick-start) can be used to quickly create an `angular-cli`-based JSS application:
 
 ```sh
 jss create my-angular-jss-app angular

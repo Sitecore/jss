@@ -7,7 +7,7 @@ fields:
   title:
     value: Sitecore Slack
   text:
-    value: Talk to other Sitecore enthusiasts, share ideas or get answers to your questions
+    value: Talk to other Sitecore enthusiasts, share ideas or get answers to your questions.
   linkUrl:
     text: Signup now!
     href: https://docs.google.com/forms/d/1bAVDgP5-FhFh8ohPchHtifq-rz7EBkuPojAzdEofJyo/viewform?edit_requested=true

@@ -9,7 +9,7 @@ You can create a JSS Next.js application by using the JSS command-line tool (CLI
 
 > When using this approach, you will need to perform additional steps to connect to a Sitecore instance.
 
-We recommend this approach for Sitecore developers who use the [code-first developer workflow](../../fundamentals/dev-workflows/code-first) or wish to evaluate the JSS developer experience without installing Sitecore.
+We recommend this approach for Sitecore developers who use the [code-first developer workflow](/docs/fundamentals/dev-workflows/code-first) or wish to evaluate the JSS developer experience without installing Sitecore.
 
 ## TL;DR
 
@@ -62,8 +62,8 @@ Sitecore requires Windows, but the instance can be on a virtual machine or a rem
 
 To connect your application to Sitecore, you must:
 
-1. [Setup JSS Server Components](../../getting-started/jss-server-install).
-2. [Deploy the application to a Sitecore environment](../../getting-started/app-deployment).
+1. [Setup JSS Server Components](/docs/getting-started/jss-server-install).
+2. [Deploy the application to a Sitecore environment](/docs/getting-started/app-deployment).
 
 
 
