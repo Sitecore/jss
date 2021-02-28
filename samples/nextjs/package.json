@@ -10,7 +10,6 @@
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
-    "serverSideRenderingEngine": true,
     "language": "en"
   },
   "engines": {

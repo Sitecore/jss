@@ -68,7 +68,7 @@ export async function handler(argv: any) {
 
   const packageJson = await resolvePackage();
 
-  if (packageJson.config.serverSideRenderingEngine) {
+  if (!packageJson.config.sitecoreDistPath) {
     console.error(
       chalk.red(
         'The current project does not support file deployment into the Sitecore instance. You should use an HTTP POST based integration for Experience Editor support. See SDK documentation for details.'
