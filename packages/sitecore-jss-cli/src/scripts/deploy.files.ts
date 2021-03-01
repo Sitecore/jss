@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { deploy, verifySetup, resolveScJssConfig } from '@sitecore-jss/sitecore-jss-dev-tools';
+import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 import resolvePackage from '../resolve-package';
@@ -65,6 +66,18 @@ export const builder = {
 export async function handler(argv: any) {
   verifySetup();
 
+  const packageJson = await resolvePackage();
+
+  if (!packageJson.config.sitecoreDistPath) {
+    console.error(
+      chalk.red(
+        'The current project does not support file deployment into the Sitecore instance. You should use an HTTP POST based integration for Experience Editor support. See SDK documentation for details.'
+      )
+    );
+
+    return;
+  }
+
   if (!argv.skipBuild && argv.buildTaskName && argv.buildTaskName.length > 0) {
     runPackageScript([argv.buildTaskName]);
   }
@@ -77,8 +90,6 @@ export async function handler(argv: any) {
   };
 
   if (!options.sourcePath || !options.destinationPath) {
-    const packageJson = await resolvePackage();
-
     if (!options.sourcePath) {
       options.sourcePath = packageJson.config.buildArtifactsPath;
       if (!options.sourcePath) {
@@ -89,9 +100,13 @@ export async function handler(argv: any) {
           // /dist = non-CRA convention
           options.sourcePath = path.resolve('dist');
         } else {
-          throw new Error(
-            'No source path specified, conventional build paths missing, and buildArtifactsPath config is not defined in package.json!'
+          console.error(
+            chalk.red(
+              'No source path specified, conventional build paths missing, and buildArtifactsPath config is not defined in package.json!'
+            )
           );
+
+          return;
         }
       }
     }
