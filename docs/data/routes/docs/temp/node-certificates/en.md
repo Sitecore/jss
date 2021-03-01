@@ -22,7 +22,8 @@ Error: unable to verify the first certificate
 ```
 
 ```
-Error occurred while trying to proxy request /sitecore/api/layout/render/jss?item=%2F&sc_apikey={A6AAE4C9-EEFF-4728-BDCB-80292FDB16EC} from localhost:3000 to <https://cm.localhost> (UNABLE_TO_VERIFY_LEAF_SIGNATURE)
+Error occurred while trying to proxy request /sitecore/api/layout/render/jss?item=%2F&sc_apikey={A6AAE4C9-EEFF-4728-BDCB-80292FDB16EC} 
+from localhost:3000 to <https://cm.localhost> (UNABLE_TO_VERIFY_LEAF_SIGNATURE)
 ```
 
 This article will guide you through the required configuration.
@@ -64,11 +65,13 @@ File structure example:
 
 ## Step 2: Add `NODE_EXTRA_CA_CERTS` to your environment variables
 
-**Option 1: In System Environment Variables**
+**Option 1: In local or system environment**
 
 ```powershell
 setx NODE_EXTRA_CA_CERTS <file>
 ```
+
+This will set it in the *local* environment. Use the optional `/m` parameter for *system*.
 
 You will need to restart your terminal or VS Code for it to take effect.
 
