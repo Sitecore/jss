@@ -19,11 +19,11 @@ The sample app will render the 404 Page in the following cases:
 
 The sample app provides custom [500 Page](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/_error.tsx).
 
-Next.js handles 500 errors both client-side and server-side. This page is rendered in case of all errors except of 404. 
+Next.js handles 500 errors, both client-side and server-side. This page is rendered in case of all errors except 404. 
 
-> NOTE: [500 Page](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/_error.tsx) is only used in production. In development mode you will get an error with the call stack.
+> NOTE: [500 Page](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/_error.tsx) is only used in production. In development mode, you will get an error with the call stack.
 
-If you want to handle specific status codes and render the built-in error page you can by importing the `Error` component:
+If you want to handle specific status codes and render the built-in error page, you can by importing the `Error` component:
 
 ```jsx
 import Error from 'src/pages/_error';
