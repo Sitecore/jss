@@ -1,9 +1,10 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { IncomingMessage, ServerResponse } from 'http';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
 import { LayoutServiceData, PlaceholderData } from './dataModels';
 import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './dataApi';
 import { HttpJsonFetcher } from './httpClientInterface';
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { IncomingMessage, ServerResponse } from 'http';
+import { GraphQLRequestClient } from './graphql-request-client';
 
 export interface LayoutService {
   /**
@@ -56,6 +57,17 @@ export type RestLayoutServiceConfig = {
    * @param {ServerResponse} [res] Response instance
    */
   dataFetcherResolver?: DataFetcherResolver;
+};
+
+export type GraphQLLayoutServiceConfig = {
+  /**
+   * Your Graphql endpoint
+   */
+  apiHost: string;
+  /**
+   * The JSS application name
+   */
+  siteName: string;
 };
 
 interface FetchParams {
@@ -199,5 +211,52 @@ export class RestLayoutService implements LayoutService {
         res.setHeader('set-cookie', serverRes.headers['set-cookie']);
       return serverRes;
     };
+  }
+}
+
+/**
+ * Fetch layout data using the Sitecore Layout Service GraphQL endpoint.
+ */
+export class GraphQLLayoutService implements LayoutService {
+  constructor(private serviceConfig: GraphQLLayoutServiceConfig) {}
+
+  /**
+   * Fetch layout data for an item.
+   * @param {string} itemPath
+   * @param {string} [language]
+   * @returns {Promise<LayoutServiceData>} layout service data
+   */
+  async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
+    const query = this.getLayoutQuery(itemPath, language);
+
+    const data = await this.createClient().request<{ layout: { rendered: LayoutServiceData } }>(
+      query
+    );
+
+    return data.layout.rendered;
+  }
+
+  /**
+   * Returns new graphql client instance
+   */
+  private createClient(): GraphQLRequestClient {
+    const { apiHost } = this.serviceConfig;
+
+    return new GraphQLRequestClient(apiHost);
+  }
+
+  /**
+   * Returns GraphQL Layout query
+   * @param {string} itemPath page route
+   * @param {string} [language] language
+   */
+  private getLayoutQuery(itemPath: string, language?: string) {
+    const languageVariable = language ? `, language:"${language}"` : '';
+
+    return `query {
+      layout(site:"${this.serviceConfig.siteName}", routePath:"${itemPath}"${languageVariable}) {
+        rendered
+      }
+    }`;
   }
 }
