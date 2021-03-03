@@ -75,7 +75,7 @@ Error examples
 
 > UnauthorizedError: invalid signature
 
-If you are working locally, make sure that you have [followed the steps](todo://add_link_to_new_page) for enabling self-signed certificates in Node. Check that you have the Node Extra Certificates path in your system variables.
+If you are working with a local Sitecore instance using a privately signed certificate, ensure you've [configured Sitecore CA certificates for Node.js](/docs/temp/node-certificates)"
 
 Note that the steps are different, depending on whether you're using a containerized or on-prem installation of Sitecore.
 
