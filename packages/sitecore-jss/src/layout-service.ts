@@ -215,7 +215,7 @@ export class RestLayoutService implements LayoutService {
 }
 
 /**
- * Fetch layout data using the Sitecore Layout Service GraphQL endpoint.
+ * Fetch layout data using the Sitecore GraphQL endpoint.
  */
 export class GraphQLLayoutService implements LayoutService {
   constructor(private serviceConfig: GraphQLLayoutServiceConfig) {}
