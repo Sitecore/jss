@@ -85,8 +85,8 @@ export default {
           displayName: 'Switching to SSR',
         },
         {
-         url: 'error-routes',
-         displayName: 'Error Routes',
+         url: 'error-pages',
+         displayName: 'Error Pages',
         },
       ],
     },
