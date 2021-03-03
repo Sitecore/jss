@@ -19,7 +19,7 @@ Note that JSS is tested using the Long Term Support (TLS) versions of Node. Thes
 
 Note that the Node/npm version used by your CI/Production environments may be different from what is used by your local environment. If a project is not pinned to a specific Node/npm version in `package.json`, it is common for deployment agents to build using either the newest version available or an environment-specific "default" version.
 
-If you need to switch the Node version on your local environment for testing, 3rd party packages like [n](https://github.com/tj/n) or [nvm]() can help with this task.
+If you need to switch the Node version on your local environment for testing, 3rd party packages like [n](https://github.com/tj/n) or [nvm](https://github.com/nvm-sh/nvm) can help with this task.
 
 System Pre-requisites
 Running Node LTS version (use node -v to check)
@@ -81,7 +81,7 @@ Note that the steps are different, depending on whether you're using a container
 
 ## Errors when generating GraphQL introspection data
 
-This task is performed if the GraphQL schema changes. It depends on the `scjssconfig.json` file being present and populated.
+In the case when GraphQL schema changes, GraphQL introspection data should be regenerated. In the sample app, this is done using the command `npm run graphql:update`, and the scripts that this calls depends on the `scjssconfig.json` file being present and populated.
 
 ## Errors deploying a JSS app locally
 
@@ -98,9 +98,9 @@ This occurs when the import role doesn't have the correct permissions. See the f
 
 - Verify that all environment variables defined in the [`.env` file](https://github.com/Sitecore/jss/blob/master/samples/nextjs/.env) file are provided. On local environments, a `.env.local` file should be for this purpose.
 
-- Check that Sitecore has an item for your API key in the `/sitecore/system/Settings/Services/API Keys` folder and that this item's fields are populated.
+- Check that your [API key is setup corerctly](/docs/client-frameworks/getting-started/app-deployment#step-2-api-key).
 
-- Verify that the "JSS Editing Secret" is set. The`JSS_EDITING_SECRET` [value used by your Next.js app](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/.env#L18) should match the [value used by your Sitecore instance](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/sitecore/config/JssNextWeb.config#L37).
+- Verify that the ["JSS Editing Secret" is set](/docs/nextjs/experience-editor/walkthrough#jss-editing-secret). And more specifically, the `JSS_EDITING_SECRET` [value used by your Next.js app](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/.env#L18) should match the [value used by your Sitecore instance](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/sitecore/config/JssNextWeb.config#L37).
 
 - Verify that that GraphQL endpoint is correct in [`package.json`](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/package.json#L12) and the Sitecore [app definition](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/sitecore/config/JssNextWeb.config#L72). Try opening the GraphiQL interface in a browser, using `<sitecore hostname + graphQL endpoint>/ui?sc_apikey=<api key>`, to make sure the endpoint is working
 
