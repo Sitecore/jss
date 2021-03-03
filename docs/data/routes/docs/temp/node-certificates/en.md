@@ -36,18 +36,18 @@ For Docker container-based Sitecore instances, the certificate file is already c
 mkcert -CAROOT
 ```
 
-The certificate is in PEM format, and is called *rootCA.pem* by default. So, your file path should look something like: *C:\Users\<username>\AppData\Local\mkcert\rootCA.pem*
+The certificate is in PEM format and is called *rootCA.pem* by default. So, your file path should look something like: *C:\Users\<username>\AppData\Local\mkcert\rootCA.pem*
 
 ## Step 1 (Sitecore on-prem instance): Create the certificate file
 
-For on-prem Sitecore instances installed with Sitecore Install Framework (SIF), the certificate must be exported from the Windows Certificate Store.
+For on-prem Sitecore instances installed with Sitecore Install Framework (SIF), you must export the certificate from the Windows Certificate Store.
 
-1. Open Windows Certificates manager for local computer (`certlm` from command line, or search for "Manage Computer Certificates")
-2. Under Trusted Root Certification > Certificates, find the SIF certificate "Sitecore Install Framework"
+1. Open Windows Certificates manager for the local computer (`certlm` from the command line, or search for "Manage Computer Certificates")
+2. Under Trusted Root Certification > Certificates, find the SIF certificate "Sitecore Install Framework."
 3. Right-click > All Tasks > Export...
-   1. Click Next, then choose "No, do not export the private key", then click Next
+   1. Click Next, then choose "No, do not export the private key," then click Next
    2. Choose "Base-64 encoded X.509 (.CER)", then click Next
-   3. Enter a file name (e.g. *SIFRoot.cer*) and location to store the .cer file, then click Next, then Finish
+   3. Enter a file name (for example, *SIFRoot.cer*) and location to store the .cer file, then click Next, then Finish
 
 ### Note: If you have both Sitecore containers and on-prem instances, you can combine the certificates into a single file.
 
@@ -87,4 +87,4 @@ $env:NODE_EXTRA_CA_CERTS="<file>"
 "start:connected": "cross-env-shell NODE_EXTRA_CA_CERTS=<file> ..."
 ```
 
-> Note adding it to a `.env` file (using `dotenv`) will not work as these are loaded too late for node to recognize.
+> Note adding it to a `.env` file (using `dotenv`) will not work as these are loaded too late for Node to recognize.
