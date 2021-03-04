@@ -62,9 +62,9 @@ query{
 
 If you do not see expected results, try the following steps:
 
-1. Populate Solr Schema (Sitecore Control Panel > “Populate Solr Managed Schema”)
+1. In the **Sitecore Control Panel**, use **Populate Solr Managed Schema** to populate the Solr Schema.
 
-2. Rebuild indexes (Sitecore Control Panel > “Indexing Manager”)
+2. In the **Sitecore Control Panel**, use **Indexing Manager** to rebuild indexes.
 
 ## Errors regarding SSL certificates
 
