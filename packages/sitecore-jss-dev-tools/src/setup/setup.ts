@@ -8,12 +8,20 @@ import { ScJssConfig, JssConfiguration } from '../resolve-scjssconfig';
 import { findAppNameInConfig } from './find-app-name';
 import { createSecretPatchContents, writeSecretPatchFile } from './secret-patch';
 
-// tslint:disable:max-line-length
-
 const userConfigFileName = 'scjssconfig.json';
 
 export const userConfigPath = path.resolve(process.cwd(), userConfigFileName);
 
+/**
+ * @param {string | undefined} initialData
+ * @param {boolean} allowInteraction
+ * @param {string} paramName
+ * @param {string} prompt
+ * @param {string} examplePrompt
+ * @param {RegExp} [validation]
+ * @param {string} [validationMessage]
+ * @param {boolean} skipValidationIfNonInteractive
+ */
 function getInteractiveData(
   initialData: string | undefined,
   allowInteraction: boolean,
@@ -22,21 +30,21 @@ function getInteractiveData(
   examplePrompt: string,
   validation?: RegExp,
   validationMessage?: string,
-  skipValidationIfNonInteractive: boolean = false
+  skipValidationIfNonInteractive = false
 ): string {
   if (!allowInteraction && !initialData && !skipValidationIfNonInteractive) {
     throw new Error(`Non interactive mode specified and ${paramName} not provided.`);
   }
 
   if (allowInteraction) {
-    const finalPrompt = initialData ? `${prompt} [${initialData}]: ` : `${prompt} ${examplePrompt}: `;
-    return rlSync.question(finalPrompt,
-      {
-        defaultInput: initialData,
-        limit: validation,
-        limitMessage: validationMessage,
-      }
-    );
+    const finalPrompt = initialData
+      ? `${prompt} [${initialData}]: `
+      : `${prompt} ${examplePrompt}: `;
+    return rlSync.question(finalPrompt, {
+      defaultInput: initialData,
+      limit: validation,
+      limitMessage: validationMessage,
+    });
   }
 
   const result = initialData as string;
@@ -52,8 +60,19 @@ function getInteractiveData(
   return result;
 }
 
-export function setup(interactive: boolean, outputFile?: string, initialData?: JssConfiguration, configName = 'sitecore') {
-  const getValidation = (regexp: RegExp) => initialData?.skipValidation ? undefined : regexp;
+/**
+ * @param {boolean} interactive
+ * @param {string} outputFile
+ * @param {JssConfiguration} [initialData]
+ * @param {string} [configName]
+ */
+export function setup(
+  interactive: boolean,
+  outputFile?: string,
+  initialData?: JssConfiguration,
+  configName = 'sitecore'
+) {
+  const getValidation = (regexp: RegExp) => (initialData?.skipValidation ? undefined : regexp);
 
   let config: ScJssConfig = {
     sitecore: {
@@ -71,14 +90,23 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
       const existingFile = fs.readFileSync(outputFile, 'utf8');
       const existingJson = JSON.parse(existingFile) as ScJssConfig;
 
-      console.log(chalk.green(`Found existing ${outputFile}. The existing config will become defaults in this setup session.`));
+      console.log(
+        chalk.green(
+          `Found existing ${outputFile}. The existing config will become defaults in this setup session.`
+        )
+      );
       config = existingJson;
     } catch (e) {
-      console.warn(chalk.yellow(`Found existing ${outputFile} but error reading it. Existing values will be ignored.`), e);
+      console.warn(
+        chalk.yellow(
+          `Found existing ${outputFile} but error reading it. Existing values will be ignored.`
+        ),
+        e
+      );
     }
   }
 
-  const existingConfigObject = config[configName] || {} as JssConfiguration;
+  const existingConfigObject = config[configName] || ({} as JssConfiguration);
 
   // merge existing values with any CLI arguments (which should override any preexisting values)
   if (initialData) {
@@ -117,13 +145,20 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
         }
       }
     } else {
-      console.warn(chalk.yellow('Non-interactive mode specified and no instancePath given. File/config deployment will not be available.'));
+      console.warn(
+        chalk.yellow(
+          'Non-interactive mode specified and no instancePath given. File/config deployment will not be available.'
+        )
+      );
     }
   };
 
   // if you are setting up for the first time, we don't need an instance path for a remote Sitecore instance
   if (interactive) {
-    if (!configObject.instancePath && rlSync.keyInYN('Is your Sitecore instance on this machine or accessible via network share?')) {
+    if (
+      !configObject.instancePath &&
+      rlSync.keyInYN('Is your Sitecore instance on this machine or accessible via network share?')
+    ) {
       getInstancePath(configObject.instancePath);
     } else if (configObject.instancePath) {
       getInstancePath(configObject.instancePath);
@@ -134,7 +169,6 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
   const defaultDeployUrl = '/sitecore/api/jss/import';
 
   if (!interactive && !configObject.layoutServiceHost) {
-    // tslint:disable-next-line:no-string-throw
     throw 'Non interactive mode specified and layoutServiceHost not provided.';
   }
 
@@ -186,16 +220,29 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
   );
 
   if (!configObject.deploySecret && interactive) {
-    configObject.deploySecret = Math.random().toString(36).substring(2, 15)
-     + Math.random().toString(36).substring(2, 15)
-     + Math.random().toString(36).substring(2, 15)
-     + Math.random().toString(36).substring(2, 15);
+    configObject.deploySecret =
+      Math.random()
+        .toString(36)
+        .substring(2, 15) +
+      Math.random()
+        .toString(36)
+        .substring(2, 15) +
+      Math.random()
+        .toString(36)
+        .substring(2, 15) +
+      Math.random()
+        .toString(36)
+        .substring(2, 15);
 
-    console.log(`Deployment secret has been generated. Ensure the JSS app config on the Sitecore end has the same secret set.`);
+    console.log(
+      'Deployment secret has been generated. Ensure the JSS app config on the Sitecore end has the same secret set.'
+    );
   }
 
   if (configObject.deploySecret) {
-    const appConfig = glob.sync('./sitecore/config/*.config').find((file) => !file.match(/deploysecret/));
+    const appConfig = glob
+      .sync('./sitecore/config/*.config')
+      .find((file) => !file.match(/deploysecret/));
     if (appConfig) {
       const appName = findAppNameInConfig(appConfig);
 
@@ -207,13 +254,27 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
         console.log('Ensure this configuration is deployed to Sitecore.');
       } else {
         console.log(chalk.yellow(`Unable to resolve JSS app name in ${appConfig}`));
-        console.log(chalk.yellow(`For deployment to succeed the app's 'deploySecret' must be set in a Sitecore config patch similar to:`));
+        console.log(
+          chalk.yellow(
+            // eslint-disable-next-line prettier/prettier
+            'For deployment to succeed the app\'s \'deploySecret\' must be set in a Sitecore config patch similar to:'
+          )
+        );
         console.log(createSecretPatchContents('YOUR-JSS-APP-NAME-HERE', configObject.deploySecret));
         console.log('');
       }
     } else {
-      console.log(chalk.yellow(`No JSS config patches were in ./sitecore/config to get the JSS app name from.`));
-      console.log(chalk.yellow(`For deployment to succeed the app's 'deploySecret' must be set in a Sitecore config patch similar to:`));
+      console.log(
+        chalk.yellow(
+          'No JSS config patches were in ./sitecore/config to get the JSS app name from.'
+        )
+      );
+      console.log(
+        chalk.yellow(
+          // eslint-disable-next-line prettier/prettier
+          'For deployment to succeed the app\'s \'deploySecret\' must be set in a Sitecore config patch similar to:'
+        )
+      );
       console.log(createSecretPatchContents('YOUR-JSS-APP-NAME-HERE', configObject.deploySecret));
       console.log('');
     }
@@ -229,15 +290,33 @@ export function setup(interactive: boolean, outputFile?: string, initialData?: J
   console.log(`JSS connection settings saved to ${chalk.green(outputFile)}`);
   console.log();
   console.log(chalk.green('NEXT STEPS'));
-  console.log(`* Ensure the ${chalk.green('hostName')} in /sitecore/config/*.config is configured as ${chalk.green(hostName)}, and in hosts file if needed.`);
+  console.log(
+    `* Ensure the ${chalk.green(
+      'hostName'
+    )} in /sitecore/config/*.config is configured as ${chalk.green(
+      hostName
+    )}, and in hosts file if needed.`
+  );
   if (configObject.instancePath) {
     console.log(`* Deploy your configuration (i.e. '${chalk.green('jss deploy config')}')`);
     console.log(`* Deploy your app (i.e. '${chalk.green('jss deploy app -c -d')}')`);
   } else {
     console.log(`* Deploy the app's items (i.e. ${chalk.green('jss deploy items -c -d')})`);
     console.log(`* Create a production build (i.e. ${chalk.green('jss build')})`);
-    console.log(`* Copy the build artifacts to the Sitecore instance in the ${chalk.green('sitecoreDistPath')} set in package.json.`);
-    console.warn(`${chalk.yellow('  > Note:')} ${chalk.red('jss deploy config')}, ${chalk.red('jss deploy files')}, and ${chalk.red('jss deploy app')} cannot be used with remote Sitecore.`);
+    console.log(
+      `* Copy the build artifacts to the Sitecore instance in the ${chalk.green(
+        'sitecoreDistPath'
+      )} set in package.json.`
+    );
+    console.warn(
+      `${chalk.yellow('  > Note:')} ${chalk.red('jss deploy config')}, ${chalk.red(
+        'jss deploy files'
+      )}, and ${chalk.red('jss deploy app')} cannot be used with remote Sitecore.`
+    );
   }
-  console.log(`* Test your app in integrated mode by visiting ${chalk.green(configObject.layoutServiceHost as string)}`);
+  console.log(
+    `* Test your app in integrated mode by visiting ${chalk.green(
+      configObject.layoutServiceHost as string
+    )}`
+  );
 }

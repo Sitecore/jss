@@ -42,6 +42,13 @@ const CheckboxList: React.FunctionComponent<ListFieldProps> = (props) => {
   );
 };
 
+/**
+ * @param {ValueFormField} field
+ * @param {string[]} originalFieldValue
+ * @param {string} changedElement
+ * @param {boolean} checked
+ * @param {FieldChangeCallback} callback
+ */
 function handleOnChange(
   field: ValueFormField,
   originalFieldValue: string[],

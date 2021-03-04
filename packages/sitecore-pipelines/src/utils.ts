@@ -10,11 +10,11 @@ export const resolveFiles = ({
   workingDirectory,
   allowEmptyGlobs = false,
 }: {
-  fileGlob: string,
-  extensions: string[],
-  recursive: boolean,
-  workingDirectory: string,
-  allowEmptyGlobs?: boolean
+  fileGlob: string;
+  extensions: string[];
+  recursive: boolean;
+  workingDirectory: string;
+  allowEmptyGlobs?: boolean;
 }) => {
   let files: string[] = [];
   let lookupPath = fileGlob;
@@ -88,9 +88,9 @@ export const importModules = ({
   workingDirectory = '',
   allowEmptyGlobs = false,
 }: {
-  fileGlobs: string[],
-  workingDirectory?: string,
-  allowEmptyGlobs?: boolean
+  fileGlobs: string[];
+  workingDirectory?: string;
+  allowEmptyGlobs?: boolean;
 }) => {
   const resolved = fileGlobs.reduce((initialResult: string[], fileGlob) => {
     let result = initialResult;

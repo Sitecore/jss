@@ -10,11 +10,15 @@ export const enhanceTemplates = (templates: any) => {
   return newTemplates;
 };
 
-// NOTE: this function does not attempt to do anything about field names
-// that might be duplicated in the template inheritance tree. That said, for
-// the purposes of extracting media field values, we don't need to be concerned
-// about duplicates or naming collisions. We simply need a field type and
-// a field value.
+/**
+ * NOTE: this function does not attempt to do anything about field names
+ * that might be duplicated in the template inheritance tree. That said, for
+ * the purposes of extracting media field values, we don't need to be concerned
+ * about duplicates or naming collisions. We simply need a field type and
+ * a field value.
+ * @param {any} template
+ * @param {any} templateCollection
+ */
 function getAllTemplateFields(template: any, templateCollection: any) {
   if (!template) {
     return null;
@@ -27,7 +31,7 @@ function getAllTemplateFields(template: any, templateCollection: any) {
   }
 
   const allFields: any[] = [];
-  
+
   // If the template has its own fields, add them to the `allFields` array.
   if (template.fields && Array.isArray(template.fields)) {
     allFields.push(...template.fields);
@@ -37,10 +41,14 @@ function getAllTemplateFields(template: any, templateCollection: any) {
   if (template.inherits && Array.isArray(template.inherits)) {
     template.inherits.forEach((inheritedTemplateName) => {
       const inheritedTemplate = templateCollection.find((t) => t.name === inheritedTemplateName);
-      if (!inheritedTemplate || !inheritedTemplate.fields || !Array.isArray(inheritedTemplate.fields)) {
+      if (
+        !inheritedTemplate ||
+        !inheritedTemplate.fields ||
+        !Array.isArray(inheritedTemplate.fields)
+      ) {
         return;
       }
-      
+
       const inheritedFields = getAllTemplateFields(inheritedTemplate, templateCollection);
       if (inheritedFields) {
         allFields.push(...inheritedFields);
@@ -51,10 +59,17 @@ function getAllTemplateFields(template: any, templateCollection: any) {
   return allFields;
 }
 
+/**
+ * @param {any} field
+ */
 function getMediaFieldValue(field: any) {
   return field.value;
 }
 
+/**
+ * @param {any} field
+ * @param {any} templates
+ */
 function getNestedFieldValue(field: any, templates: any) {
   // If there is only one item
   if (!Array.isArray(field.value)) {
@@ -68,6 +83,11 @@ function getNestedFieldValue(field: any, templates: any) {
   }, []);
 }
 
+/**
+ * @param {Object} param
+ * @param {any} param.field
+ * @param {any} param.templates
+ */
 function getFieldValues({ field, templates }: { field: any; templates: any }) {
   switch (field.type) {
     case 'Image':
@@ -83,6 +103,10 @@ function getFieldValues({ field, templates }: { field: any; templates: any }) {
   }
 }
 
+/**
+ * @param {any} item
+ * @param {any} templates
+ */
 export function buildMediaOutput(item: any, templates: any) {
   const template = templates.getTemplate(item.template);
   if (!template) {

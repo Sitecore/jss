@@ -5,6 +5,10 @@ export interface TunnelOptions extends INgrokOptions {
   quiet?: boolean;
 }
 
+/**
+ * @param {string} renderHostname
+ * @param {INgrokOptions} options
+ */
 export function startRenderHostTunnel(
   renderHostname: string,
   options: INgrokOptions = { port: 80, proto: 'http', quiet: false }
@@ -20,14 +24,12 @@ export function startRenderHostTunnel(
     ...options,
     host_header: 'rewrite',
     addr: rewriteHost,
-  }
+  };
 
-  return ngrok
-    .connect(finalOptions)
-    .then((url: string) => {
-      if (!options.quiet) {
-        console.log(`Tunnel started, forwarding '${url}' to '${rewriteHost}'`);
-      }
-      return url;
-    });
+  return ngrok.connect(finalOptions).then((url: string) => {
+    if (!options.quiet) {
+      console.log(`Tunnel started, forwarding '${url}' to '${rewriteHost}'`);
+    }
+    return url;
+  });
 }

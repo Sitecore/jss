@@ -12,7 +12,7 @@ export default function(manifest) {
     icon: SitecoreIcon.NumbersField,
     fields: [
       { name: 'sample1', type: CommonFieldTypes.Number },
-      { name: 'sample2', type: CommonFieldTypes.Number }
+      { name: 'sample2', type: CommonFieldTypes.Number },
     ],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component

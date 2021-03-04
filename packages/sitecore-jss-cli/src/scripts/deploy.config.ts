@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { deploy, verifySetup, resolveScJssConfig } from '@sitecore-jss/sitecore-jss-dev-tools';
 import path from 'path';
 import resolvePackage from '../resolve-package';
@@ -18,11 +19,20 @@ export const builder = {
     requiresArg: false,
     type: 'string',
     describe:
-      // tslint:disable-next-line:max-line-length
       'Destination path to deploy to. Defaults to the \'instancePath\' set in scjssconfig.json, combined with the \'sitecoreConfigPath\' setting from package.json.',
+  },
+  config: {
+    requiresArg: false,
+    type: 'string',
+    describe: 'Path to scjssconfig file.',
+    default: './scjssconfig.json',
   },
 };
 
+/**
+ * @param {any} argv
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   verifySetup();
 
@@ -34,7 +44,7 @@ export async function handler(argv: any) {
 
   if (!options.destinationPath) {
     const packageJson = await resolvePackage();
-    const scJssConfig = await resolveScJssConfig();
+    const scJssConfig = await resolveScJssConfig({ configPath: argv.config });
 
     options.destinationPath = path.join(
       scJssConfig.sitecore.instancePath as string,

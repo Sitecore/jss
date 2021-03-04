@@ -63,7 +63,7 @@ if (manifestOutputPath) {
       'jss deploy:watch'
     )} or ${chalk.green('jss deploy files')})`
   );
-  console.log(`* Add the component to a route using Sitecore Experience Editor, and test it.`);
+  console.log('* Add the component to a route using Sitecore Experience Editor, and test it.');
 }
 
 /*

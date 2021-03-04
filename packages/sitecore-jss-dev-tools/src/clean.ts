@@ -4,6 +4,9 @@ export interface CleanOptions {
   path: string;
 }
 
+/**
+ * @param {CleanOptions} options
+ */
 export function clean(options: CleanOptions) {
   if (!options.path) {
     throw new Error('please specify path via options.path argument');

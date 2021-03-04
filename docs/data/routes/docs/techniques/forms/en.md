@@ -17,7 +17,7 @@ This document assumes you are familiar with JSS fundamentals and have a React-ba
 
 ### Creating a Sitecore Form
 
-To use a form in JSS, the form must be created in Sitecore. The [Sitecore Forms documentation](https://doc.sitecore.com/users/91/sitecore-experience-platform/en/create-a-form.html) details how to create forms within Sitecore.
+To use a form in JSS, the form must be created in Sitecore. The [Sitecore Forms documentation](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/design-a-form.html) details how to create forms within Sitecore.
 
 For the sake of simplicity, consider starting off with a simple form with a text box and submit button. It's helpful to set the _submit actions_ on the submit button to _Save Data_ and _Redirect to Page_ - without Save Data the form data won't be stored, and without Redirect to Page the form will clear itself on submit but not provide other feedback. Note that in a JSS app, _Redirect to Page_ can easily be accomplished with client-side routing - it need not be an actual reload of the page.
 
@@ -25,7 +25,7 @@ For the sake of simplicity, consider starting off with a simple form with a text
 
 > JSS comes with a **React** example of consuming the forms API. It is possible to consume the forms schema data with other frameworks as well, but example components are not provided.
 
-In order to add a form to the JSS app we need a component to render the form. A form rendering component is a normal JSS component, but since disconnected mode is not supported for forms we'll create it Sitecore-first.
+To add a form to the JSS app we need a component to render the form. A form rendering component is a normal JSS component, but since disconnected mode is not supported for forms we'll create it Sitecore-first.
 
 * Create the component definitions in Sitecore using the JSS CLI: `jss deploy component Form --allowedPlaceholders jss-main`
     * Change the allowed placeholder to the placeholder name you want to allow the form to be added to.
@@ -79,7 +79,7 @@ export default function Form(props) {
 
 ### Use the sample JSS forms implementation
 
-Sitecore provides a sample implementation of rendering this form data into a usable React form for your reference and modification. The sample implementation provides a native React state-based implementation using controlled form components. It supports client and server side validation and multistep forms.
+Sitecore provides a sample implementation of rendering this form data into a usable React form for your reference and modification. The sample implementation provides a native React state-based implementation using controlled form components. It supports client and server-side validation and multistep forms.
 
 To use the example React forms implementation, modify your Form component to use the library's form components:
 
@@ -101,8 +101,8 @@ const JssForm = ({ fields, history }) => (
 export default withRouter(JssForm);
 ```
 
-> In case if you are using `headless` mode, set `sitecoreApiHost={''}`, so requests will be sent directly to your node server,
-> if you send requests directly to sitecore instance you will get error (only in headless mode).
+> If you are using `headless` mode, set `sitecoreApiHost={''}`, so requests will be sent directly to your node server.
+> If you send requests directly to Sitecore instance you will get an error (only in headless mode).
 
 #### Customizing sample forms markup
 
@@ -135,7 +135,7 @@ defaultFieldFactory.setComponent(FieldTypes.RadioButtonList, (props) => (
 
 ##### Add a wrapper to all form fields
 
-It's possible to wrap all form fields in a custom component to create wrapping markup, for example to control vertical rhythm. The wrappers will contain both the label and value of the field.
+It's possible to wrap all form fields in a custom component to create wrapping markup, for example, to control the vertical rhythm. The wrappers will contain both the label and value of the field.
 
 ```jsx
 // Sample wraps all fields in a div and prints a span with the field name unless the field is a Text field type
@@ -184,7 +184,7 @@ const LabelComponent = (props) => (
 
 ##### Customizing Error Handling
 
-You can customize the behaviour of the _form-wide_ error message display, i.e. for submit errors or to summarize validation errors.
+You can customize the behavior of the _form-wide_ error message display, i.e. for submit errors or to summarize validation errors.
 
 ```jsx
 // sample renders only form-level errors (field errors are ignored)
@@ -227,7 +227,7 @@ const FieldErrorComponent = (props) => (
 
 #### Customizing Form Fetcher
 
-You can customize the behaviour of the default FormFetcher. You can add custom error handler, in case if unhandled error was thrown.
+You can customize the behavior of the default FormFetcher. You can add a custom error handler if an unhandled error was thrown.
 
 ```js
 export const formFetcher = (formData, endpoint) => fetch(endpoint, {
@@ -274,5 +274,6 @@ export const formFetcher = (formData, endpoint) => fetch(endpoint, {
 
 There are some limitations to be aware of with JSS' Sitecore Forms support.
 
-* Forms cannot be defined or rendered in disconnected (connected, integrated, headless are supported)
-* Conditional fields are not supported by the JSS forms example implementation; however conditional data is returned by the form API
+* Forms cannot be defined or rendered in disconnected (connected, integrated, headless are supported).
+* Conditional fields are not supported by the JSS forms example implementation; however conditional data is returned by the form API.
+* Forms does not support Sitecore Robot detection.

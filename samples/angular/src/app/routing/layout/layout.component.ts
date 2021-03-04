@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JssState } from '../../JssState';
 import { ActivatedRoute } from '@angular/router';

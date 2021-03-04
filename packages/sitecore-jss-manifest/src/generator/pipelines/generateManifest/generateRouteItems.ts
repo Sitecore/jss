@@ -3,13 +3,13 @@ import {
   ComponentDefinition,
   GeneratePipelineArgs,
   GenerateRouteItemPipelineArgs,
-  RouteDefinition
+  RouteDefinition,
 } from '../../manifest.types';
 
 const generateRouteItems = async (
   routes: RouteDefinition[],
   components: ComponentDefinition[],
-  pipelines: { [key: string]: ExecutablePipeline },
+  pipelines: { [key: string]: ExecutablePipeline }
 ) => {
   const result: any[] = [];
   const pipeline = { ...pipelines.generateRouteItem };

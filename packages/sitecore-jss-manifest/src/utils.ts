@@ -10,7 +10,12 @@ export interface ResolveFilesArgs {
   workingDirectory: string;
 }
 // inspired by 'lookupFiles' method: https://github.com/mochajs/mocha/blob/master/lib/utils.js
-export const resolveFiles = ({ fileGlob, extensions, recursive, workingDirectory }: ResolveFilesArgs) => {
+export const resolveFiles = ({
+  fileGlob,
+  extensions,
+  recursive,
+  workingDirectory,
+}: ResolveFilesArgs) => {
   let files: string[] = [];
   let lookupPath = fileGlob;
   const re = new RegExp(`\\.(${extensions.join('|')})$`);
@@ -68,7 +73,13 @@ export const resolveFiles = ({ fileGlob, extensions, recursive, workingDirectory
   return files;
 };
 
-export const importModules = ({ fileGlobs = [], workingDirectory = '' }: { fileGlobs: string[], workingDirectory?: string }) => {
+export const importModules = ({
+  fileGlobs = [],
+  workingDirectory = '',
+}: {
+  fileGlobs: string[];
+  workingDirectory?: string;
+}) => {
   let resolved: string[] = [];
   fileGlobs.forEach((fileGlob) => {
     resolved = resolved.concat(
@@ -83,6 +94,8 @@ export const importModules = ({ fileGlobs = [], workingDirectory = '' }: { fileG
 
   // wrap import() in a function so we can control when the promise starts to resolve.
   // otherwise, promises start to resolve immediately upon creation.
-  const modules = resolved.map((file) => () => importFresh(nodePath.resolve(workingDirectory, file)));
+  const modules = resolved.map((file) => () =>
+    importFresh(nodePath.resolve(workingDirectory, file))
+  );
   return modules;
 };

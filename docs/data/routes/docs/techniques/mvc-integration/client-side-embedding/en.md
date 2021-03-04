@@ -4,7 +4,6 @@ routeTemplate: ./data/component-templates/article.yml
 title: Client-Side Embedding
 ---
 
-
 # Client-Side Embedding
 
 This is a technique to allow a JSS app to run within a traditional Sitecore rendering. Doing this allows embedding a JSS app within an existing Sitecore MVC site, as opposed to as its own standalone site. This technique essentially embeds the JSS app's markup and app wrapper tag within a Sitecore rendering.
@@ -27,7 +26,7 @@ Characteristics of such apps include:
 
 # The Embedded Wizard Sample
 
-[The Embedded Wizard sample app](https://github.com/Sitecore/jss/tree/master/samples/sitecore-embedded-jss-app) was created based on community feedback about common use cases for Sitecore JavaScript Services. You may not wish to build your entire site using JSS -- rather just particular tools, wizards, calculators, etc. which have complicated UX and/or are primarily frontend-driven.
+[The Embedded Wizard sample app](https://github.com/Sitecore/jss/tree/master/samples/sitecore-embedded-jss-app) was created based on community feedback about common use cases for JSS. You may not wish to build your entire site using JSS -- rather just particular tools, wizards, calculators, etc. which have complicated UX and/or are primarily frontend-driven.
 
 ## Quick demo
 
@@ -38,14 +37,14 @@ Characteristics of such apps include:
 ### Step 1. Build and deploy the app
 
 #### Pre-requisites
-1. Ensure you have already [installed the JSS server packages and configured it](/docs/getting-started/jss-server-install).
+1. Ensure you have already [installed the JSS server packages and configured it](/docs/client-frameworks/getting-started/jss-server-install).
 1. The [The Embedded Wizard sample app](https://github.com/Sitecore/jss/tree/master/samples/sitecore-embedded-jss-app) is downloaded locally in a directory.
 
 #### Directions
 1. Open `cmd` inside the directory with the sample app.
 1. Use `npm install` to install all required packages.
 1. Use `jss setup` to configure the path and URL to your Sitecore instance.
-    > This app is designed to run on the out-of-the-box Sitecore `website` site and sample page, so the default host name for your Sitecore instance will work here.
+    > This app is designed to run on the out-of-the-box Sitecore `website` site and sample page, so the default hostname for your Sitecore instance will work here.
 1. Use `jss deploy config` to deploy the included app configuration.
     > Alternatively, you can manually copy `embedded-wizard-app.config` file from `sitecore\config` to your Sitecore instance's `Website\App_Config\Include` folder.
     
@@ -67,7 +66,7 @@ Fastest option. This package contains the rendering items, Sublayout and modifie
 
 > Recommended if you are installing on a vanilla Sitecore instance. If you would like to learn how the item configuration is put together, use Option 2 below.
 
-1. Download the [Sample package](https://jss.sitecore.net/assets/downloads/EmbeddedWizard-items-0.1.zip).
+1. Download the [Sample package](https://jss.sitecore.com/assets/downloads/EmbeddedWizard-items-0.1.zip).
 1. Install it via Sitecore Installation Wizard.
 
     >  The package overwrites the existing Home item. Select **Merge/Clear** when prompted. Selecting **Overwrite** will delete the previously deployed app under `/Home`.

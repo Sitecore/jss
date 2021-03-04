@@ -1,7 +1,16 @@
 import { SpawnSyncOptionsWithStringEncoding } from 'child_process';
 import spawn from 'cross-spawn';
 
-export default function(command: string, args: string[], options?: SpawnSyncOptionsWithStringEncoding) {
+/**
+ * @param {string} command
+ * @param {string[]} args
+ * @param {SpawnSyncOptionsWithStringEncoding} options
+ */
+export default function(
+  command: string,
+  args: string[],
+  options?: SpawnSyncOptionsWithStringEncoding
+) {
   const result = spawn.sync(command, args, Object.assign({ stdio: 'inherit' }, options));
 
   if (result.signal) {

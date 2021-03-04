@@ -26,7 +26,7 @@ describe('<a *scRouterLink />', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [RouterLinkDirective, TestComponent],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -165,11 +165,12 @@ describe('<a *scRouterLink />', () => {
   });
 });
 
-// tslint:disable-next-line:max-classes-per-file
 @Component({
   selector: 'test-router-link-children',
   template: `
-    <a *scRouterLink="field; editable: editable; attrs: attrs" id="my-link"><span *ngIf="true">hello world</span></a>
+    <a *scRouterLink="field; editable: editable; attrs: attrs" id="my-link"
+      ><span *ngIf="true">hello world</span></a
+    >
   `,
 })
 class TestWithChildrenComponent {
@@ -186,7 +187,7 @@ describe('<a *scRouterLink>children</a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [RouterLinkDirective, TestWithChildrenComponent],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);

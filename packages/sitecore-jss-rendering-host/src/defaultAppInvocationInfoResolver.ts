@@ -14,9 +14,11 @@ import { AppInvocationInfoResolver } from './ssrMiddleware';
  * `serverBundleName` is the name of the JavaScript file (typically a bundle) that contains the function for rendering your app.
  *
  * @param {string} [baseAppPath='./dist'] The base path to your JSS app(s), defaults to `./dist`
+ * @returns {AppInvocationInfoResolver} resolver
  */
 export function getDefaultAppInvocationInfoResolver({
   appPathResolver = (requestJson: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     return path.resolve(baseAppPath, requestJson.id, serverBundleName);
   },
   baseAppPath = './dist',
@@ -41,7 +43,9 @@ export function getDefaultAppInvocationInfoResolver({
 
     return {
       renderFunction: (...args) => {
-        console.log(`[SSR] rendering app at ${modulePath} via render function named ${resolvedRenderFunctionName}`);
+        console.log(
+          `[SSR] rendering app at ${modulePath} via render function named ${resolvedRenderFunctionName}`
+        );
         return renderFunction(...args);
       },
       renderFunctionArgs,

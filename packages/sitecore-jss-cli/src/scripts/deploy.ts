@@ -1,3 +1,5 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 import { Argv } from '../../node_modules/@types/yargs';
 import * as app from './deploy.app';
 import component from './deploy.component';
@@ -7,6 +9,9 @@ import * as items from './deploy.items';
 import * as pkg from './deploy.package';
 import template from './deploy.template';
 
+/**
+ * @param {Argv} yargs
+ */
 export function builder(yargs: Argv) {
   return yargs
     .command({
@@ -27,6 +32,7 @@ export function builder(yargs: Argv) {
 
         return innerYargs;
       },
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       handler: () => {},
     })
     .demandCommand(2);

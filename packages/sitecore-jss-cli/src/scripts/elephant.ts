@@ -4,6 +4,9 @@ export const describe = false;
 
 export const builder = {};
 
+/**
+ * Elephant handler
+ */
 export function handler() {
   console.log(`   _.-- ,.--.
    .'   .'    /

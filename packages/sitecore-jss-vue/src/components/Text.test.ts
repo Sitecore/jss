@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-unused-expressions */
 import { mount } from '@vue/test-utils';
 

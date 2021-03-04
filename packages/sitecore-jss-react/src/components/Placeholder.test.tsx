@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable react/prop-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { expect } from 'chai';
@@ -10,12 +13,14 @@ import {
   convertedLayoutServiceData as nonEeLsData,
 } from '../testData/non-ee-data';
 import { convertedData as eeData } from '../testData/ee-data';
+import { MissingComponent, MissingComponentProps } from './MissingComponent';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
-  const components = new Map<string, any>();
+  const components = new Map<string, React.FC>();
 
   // pass otherProps to page-content to test property cascading through the Placeholder
-  const Home: React.SFC<any> = ({ rendering, render, renderEach, renderEmpty, ...otherProps }) => (
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const Home: React.FC<any> = ({ rendering, render, renderEach, renderEmpty, ...otherProps }) => (
     <div className="home-mock">
       <Placeholder name="page-header" rendering={rendering} />
       <Placeholder name="page-content" rendering={rendering} {...otherProps} />
@@ -27,7 +32,7 @@ const componentFactory: ComponentFactory = (componentName: string) => {
 
   components.set('Home', Home);
 
-  const DownloadCallout: React.SFC<any> = (props) => (
+  const DownloadCallout: React.FC<any> = (props) => (
     <div className="download-callout-mock">
       {props.fields.message ? props.fields.message.value : ''}
     </div>
@@ -41,7 +46,7 @@ const componentFactory: ComponentFactory = (componentName: string) => {
   components.set('DownloadCallout', DownloadCallout);
   components.set('Jumbotron', () => <div className="jumbotron-mock" />);
 
-  return components.get(componentName);
+  return components.get(componentName) || null;
 };
 
 describe('<Placeholder />', () => {
@@ -126,23 +131,21 @@ describe('<Placeholder />', () => {
 
           const renderedComponent = mount(
             <SitecoreContext componentFactory={componentFactory}>
-              <Placeholder
-                name={phKey}
-                rendering={component}
-                render={() => null}
-              />
+              <Placeholder name={phKey} rendering={component} render={() => null} />
             </SitecoreContext>
           );
 
-          const placeholder = renderedComponent.find(Placeholder)
+          const placeholder = renderedComponent.find(Placeholder);
           expect(placeholder.length).to.equal(1);
           expect(placeholder.children()).to.be.empty;
         });
-      })
+      });
 
       it('should render output based on the renderEmpty function in case of no renderings', () => {
-        let component: any = dataSet.data.sitecore.route;
-        const renderings = component.placeholders.main.filter(({ componentName }: any) => !componentName);
+        const component: any = dataSet.data.sitecore.route;
+        const renderings = component.placeholders.main.filter(
+          ({ componentName }: any) => !componentName
+        );
         const myComponent = {
           ...component,
           placeholders: {
@@ -172,8 +175,8 @@ describe('<Placeholder />', () => {
       it('should pass properties to nested components', () => {
         const component = dataSet.data.sitecore.route as any;
         const phKey = 'main';
-        const expectedMessage = (component.placeholders.main as any[]).find((c) => c.componentName).fields
-          .message;
+        const expectedMessage = (component.placeholders.main as any[]).find((c) => c.componentName)
+          .fields.message;
 
         const renderedComponent = mount(
           <SitecoreContext componentFactory={componentFactory}>
@@ -212,7 +215,7 @@ describe('<Placeholder />', () => {
       placeholders: {
         main: [
           {
-            componentName: 'Home'
+            componentName: 'Home',
           },
         ],
       },
@@ -224,6 +227,116 @@ describe('<Placeholder />', () => {
     );
     expect(renderedComponent.html()).to.be.empty;
   });
+
+  it('should render error message on error', () => {
+    const componentFactory: ComponentFactory = (componentName: string) => {
+      const components = new Map<string, React.FC>();
+
+      const Home: React.FC<any> = ({ rendering }) => (
+        <div className="home-mock">
+          <Placeholder name="main" rendering={rendering} />
+        </div>
+      );
+      Home.propTypes = {
+        placeholders: PropTypes.object,
+      };
+
+      components.set('Home', Home);
+      components.set('ThrowError', () => {
+        throw Error('an error occured');
+      });
+      return components.get(componentName) || null;
+    };
+
+    const route: any = {
+      placeholders: {
+        main: [
+          {
+            componentName: 'ThrowError',
+          },
+        ],
+      },
+    };
+    const phKey = 'main';
+
+    const renderedComponent = mount(
+      <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+    );
+    expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
+  });
+
+  it('should render custom errorComponent on error, if provided', () => {
+    const componentFactory: ComponentFactory = (componentName: string) => {
+      const components = new Map<string, React.FC>();
+
+      const Home: React.FC<any> = ({ rendering }) => (
+        <div className="home-mock">
+          <Placeholder name="main" rendering={rendering} />
+        </div>
+      );
+      Home.propTypes = {
+        placeholders: PropTypes.object,
+      };
+
+      components.set('Home', Home);
+      components.set('ThrowError', () => {
+        throw Error('an error occured');
+      });
+      return components.get(componentName) || null;
+    };
+
+    const CustomError: React.FC<any> = () => <div className="custom-error">Custom Error</div>;
+
+    const route: any = {
+      placeholders: {
+        main: [
+          {
+            componentName: 'ThrowError',
+          },
+        ],
+      },
+    };
+    const phKey = 'main';
+
+    const renderedComponent = mount(
+      <Placeholder
+        name={phKey}
+        rendering={route}
+        componentFactory={componentFactory}
+        errorComponent={CustomError}
+      />
+    );
+    expect(renderedComponent.find('.custom-error').length).to.equal(1);
+  });
+});
+
+it('should render MissingComponent for unknown rendering', () => {
+  const route: any = {
+    placeholders: {
+      main: [
+        {
+          componentName: 'Unknown',
+        },
+      ],
+    },
+  };
+  const phKey = 'main';
+
+  const CustomMissingComponent: React.FC<MissingComponentProps> = (props) => (
+    <div className="missing-component">
+      <MissingComponent {...props} />
+    </div>
+  );
+
+  const renderedComponent = mount(
+    <Placeholder
+      name={phKey}
+      rendering={route}
+      componentFactory={componentFactory}
+      missingComponentComponent={CustomMissingComponent}
+    />
+  );
+  expect(renderedComponent.find('.missing-component').length).to.equal(1);
 });
 
 after(() => {

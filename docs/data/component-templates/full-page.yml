@@ -16,7 +16,7 @@ placeholders:
             csscolorclass:
               value: default
             title:
-              value: Sitecore JavaScript Services
+              value: Sitecore JavaScript SDK
       jssdocs-content:
         - componentName: Article
           fields:

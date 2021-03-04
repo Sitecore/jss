@@ -27,6 +27,7 @@ export class ManifestManager {
   rootPath: string;
   watcher?: FSWatcher;
   watcherSourcePaths: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   manifestArgs: any;
 
   constructor({

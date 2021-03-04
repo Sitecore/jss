@@ -48,7 +48,7 @@ export interface Manifest {
   /**
    * Adds a translation dictionary entry to the manifest.
    */
-  addDictionary: (...entries: Array<{ key: string, value: string }>) => void;
+  addDictionary: (...entries: Array<{ key: string; value: string }>) => void;
   language: string;
 }
 
@@ -56,8 +56,8 @@ export interface ManifestInstance {
   appName: string;
   templates: TemplateDefinition[];
   items: {
-    routes: RouteDefinition[],
-    nonRoutes: ItemDefinition[],
+    routes: RouteDefinition[];
+    nonRoutes: ItemDefinition[];
   };
   placeholders: PlaceholderDefinition[];
   media?: any[];
@@ -152,13 +152,11 @@ export interface FieldDefinition {
   storage?: FieldStorage;
 }
 
-// tslint:disable:no-empty-interface
 /**
  * Defines a non-content parameter that can be set on a component.
  * Parameters are more developer-focused options than fields, such as configurable CSS classes.
  */
-export interface RenderingParameterDefinition extends FieldDefinition {
-}
+export type RenderingParameterDefinition = FieldDefinition;
 
 /**
  * Explicitly defines a placeholder name, and allows setting the display name.
@@ -332,7 +330,13 @@ export interface LinkFieldValue {
 }
 
 export interface ContentFieldValue {
-  value: string | number | boolean | ImageFieldValue | LinkFieldValue | Array<ItemDefinition | ItemReference>;
+  value:
+    | string
+    | number
+    | boolean
+    | ImageFieldValue
+    | LinkFieldValue
+    | Array<ItemDefinition | ItemReference>;
   editable?: string;
 }
 
@@ -341,8 +345,11 @@ export interface ItemDefinition {
   template: string;
   displayName?: string;
   id?: string;
-  fields?: {[key: string]: ContentFieldValue};
+  fields?: { [key: string]: ContentFieldValue };
   children?: Array<ItemDefinition | ItemReference>;
+  layout?: {
+    renderings: { [key: string]: unknown };
+  };
   path?: string;
   insertOptions?: string[];
 }
@@ -351,20 +358,24 @@ export interface ItemReference {
   id: string;
 }
 
+/**
+ * @param {ItemDefinition | ItemReference} obj
+ */
 export function isItemDefinition(obj: ItemDefinition | ItemReference): obj is ItemDefinition {
   return (obj as ItemDefinition).name !== undefined;
 }
 
 export interface RouteDefinition extends ItemDefinition {
-  placeholders?: {[key: string]: ComponentInstanceDefinition[]};
+  placeholders?: { [key: string]: ComponentInstanceDefinition[] };
 }
 
 export interface ComponentInstanceDefinition extends ItemDefinition {
   componentName: string;
-  placeholders?: {[key: string]: ComponentInstanceDefinition[]};
+  placeholders?: { [key: string]: ComponentInstanceDefinition[] };
 }
 
 export interface GeneratePipelineArgs {
+  [key: string]: any;
   debug: boolean;
   skipPlaceholderBlacklist: boolean;
   components: ComponentDefinition[];
@@ -377,8 +388,6 @@ export interface GeneratePipelineArgs {
   language: string;
   pipelines: { [key: string]: ExecutablePipeline };
   pipelineResult: ManifestInstance & { [key: string]: any };
-
-  [key: string]: any;
 }
 
 export interface GenerateContentItemArgs extends GeneratePipelineArgs {
@@ -397,24 +406,31 @@ export interface GeneratePlaceholdersPipelineArgs {
 }
 
 export interface GenerateRouteItemPipelineArgs {
+  [key: string]: any;
   route: RouteDefinition;
   components: ComponentDefinition[];
   pipelines: { [key: string]: ExecutablePipeline };
   item: any;
   dynamicPlaceholderKeyGenerator: (key: string, rendering: any, parentKey: string) => string;
-  datasourceNamer: ({ item, placeholder, rendering, index, }: {
-      item: any;
-      placeholder: any;
-      rendering: any;
-      index: number;
-    }) => string;
-  datasourceDisplayNamer: ({ rendering, index, }: {
-      item: any;
-      placeholder: any;
-      rendering: any;
-      index: number;
-    }) => string;
+  datasourceNamer: ({
+    item,
+    placeholder,
+    rendering,
+    index,
+  }: {
+    item: any;
+    placeholder: any;
+    rendering: any;
+    index: number;
+  }) => string;
+  datasourceDisplayNamer: ({
+    rendering,
+    index,
+  }: {
+    item: any;
+    placeholder: any;
+    rendering: any;
+    index: number;
+  }) => string;
   onRenderingProcessed?: (rendering: any) => void;
-
-  [key: string]: any;
 }

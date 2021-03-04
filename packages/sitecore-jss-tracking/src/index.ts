@@ -7,5 +7,5 @@ export {
   GoalInstance,
   OutcomeInstance,
   EventInstance,
-  PageViewInstance
+  PageViewInstance,
 } from './dataModels';

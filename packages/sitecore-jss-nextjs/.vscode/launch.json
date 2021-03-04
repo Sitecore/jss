@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run mocha",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+      "stopOnEntry": false,
+      "args": [
+        "--require",
+        "ts-node/register",
+        "./src/tests/jsdom-setup.ts",
+        "./src/tests/enzyme-setup.ts",
+        "--no-timeouts",
+        "--colors",
+        "./src/**/*.test.ts",
+        "./src/**/*.test.tsx"
+      ],
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": null
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { mount } from '@vue/test-utils';
 import URL from 'url-parse';
 
@@ -199,13 +200,15 @@ describe('<Image />', () => {
         imageParams: {
           h: '100',
           w: '150',
-        }
+        },
       };
 
       const rendered = mount(Image, { context: { props, attrs } }).find('img');
       const img = rendered.find('img');
 
-      expect(img.attributes().srcset).toBe('/-/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /-/jssmedia/img/test0.png?h=100&w=150&mw=300 150w');
+      expect(img.attributes().srcset).toBe(
+        '/-/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /-/jssmedia/img/test0.png?h=100&w=150&mw=300 150w'
+      );
     });
 
     it('should handle /~/media', () => {
@@ -225,7 +228,9 @@ describe('<Image />', () => {
       const rendered = mount(Image, { context: { props, attrs } }).find('img');
       const img = rendered.find('img');
 
-      expect(img.attributes().srcset).toBe('/~/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /~/jssmedia/img/test0.png?h=100&w=150&mw=300 150w');
+      expect(img.attributes().srcset).toBe(
+        '/~/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /~/jssmedia/img/test0.png?h=100&w=150&mw=300 150w'
+      );
     });
 
     it('should handle custom mediaUrlPrefix, /-assets', () => {
@@ -246,7 +251,9 @@ describe('<Image />', () => {
       const rendered = mount(Image, { context: { props, attrs } }).find('img');
       const img = rendered.find('img');
 
-      expect(img.attributes().srcset).toBe('/-/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /-/jssmedia/img/test0.png?h=100&w=150&mw=300 150w');
+      expect(img.attributes().srcset).toBe(
+        '/-/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /-/jssmedia/img/test0.png?h=100&w=150&mw=300 150w'
+      );
     });
 
     it('should handle custom mediaUrlPrefix, /~assets', () => {
@@ -267,7 +274,9 @@ describe('<Image />', () => {
       const rendered = mount(Image, { context: { props, attrs } }).find('img');
       const img = rendered.find('img');
 
-      expect(img.attributes().srcset).toBe('/~/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /~/jssmedia/img/test0.png?h=100&w=150&mw=300 150w');
+      expect(img.attributes().srcset).toBe(
+        '/~/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /~/jssmedia/img/test0.png?h=100&w=150&mw=300 150w'
+      );
     });
 
     it('should handle custom mediaUrlPrefix, invalid prefix', () => {
@@ -288,7 +297,9 @@ describe('<Image />', () => {
       const rendered = mount(Image, { context: { props, attrs } }).find('img');
       const img = rendered.find('img');
 
-      expect(img.attributes().srcset).toBe('/~invalid/img/test0.png?h=100&w=150&mw=100 150w, /~invalid/img/test0.png?h=100&w=150&mw=300 150w');
+      expect(img.attributes().srcset).toBe(
+        '/~invalid/img/test0.png?h=100&w=150&mw=100 150w, /~invalid/img/test0.png?h=100&w=150&mw=300 150w'
+      );
     });
   });
 

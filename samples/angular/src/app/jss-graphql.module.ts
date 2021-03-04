@@ -42,6 +42,16 @@ export class GraphQLModule {
     this.createApolloClient();
   }
 
+  onServer(cache: InMemoryCache) {
+    this.transferState.onSerialize(STATE_KEY, () => cache.extract());
+  }
+
+  onBrowser(cache: InMemoryCache) {
+    const state = this.transferState.get<any>(STATE_KEY, null);
+
+    cache.restore(state);
+  }
+
   private createApolloClient(): void {
     /*
       QUERY LINK SELECTION
@@ -73,7 +83,7 @@ export class GraphQLModule {
 
     this.apollo.create({
       link: automaticPersistHttp,
-      cache: cache,
+      cache,
       ssrMode: isPlatformServer(this.platformId),
       ssrForceFetchDelay: 100,
     });
@@ -85,17 +95,5 @@ export class GraphQLModule {
     } else {
       this.onServer(cache);
     }
-  }
-
-  onServer(cache: InMemoryCache) {
-    this.transferState.onSerialize(STATE_KEY, () => {
-      return cache.extract();
-    });
-  }
-
-  onBrowser(cache: InMemoryCache) {
-    const state = this.transferState.get<any>(STATE_KEY, null);
-
-    cache.restore(state);
   }
 }

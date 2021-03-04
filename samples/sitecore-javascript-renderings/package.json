@@ -1,6 +1,6 @@
 {
   "name": "jss-javascript-renderings-reactweb-sample",
-  "version": "15.0.1",
+  "version": "16.1.0-canary.2",
   "description": "A basic component library utilizing Sitecore JavaScript Services. Demonstrates how to use indidivual components as renderings in Sitecore instead of full-fledged applications.",
   "config": {
     "appName": "JssComponentsReactWeb",
@@ -13,7 +13,7 @@
     "start": "jss clean && node -r babel-register ./build/start.js --env.content=disconnected",
     "deploy:watch": "scjss-verify-setup && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.watch --env.outputPath=sitecore",
     "build": "jss clean && cross-env-shell node -r babel-register ./node_modules/webpack/bin/webpack --config ./build/webpack/webpack.clientandserver.js --color --progress --env.content=connected --env.publicPath=$npm_package_config_sitecoreDistPath --env.production",
-    "lint": "eslint --fix ./src/**/*.js ./build/**/*.js ./data/**/*.yml"
+    "lint": "eslint ./src/**/*.js ./build/**/*.js ./data/**/*.yml"
   },
   "engines": {
     "node": ">=8.1",
@@ -45,16 +45,16 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^15.0.1",
+    "@sitecore-jss/sitecore-jss-react": "^16.1.0-canary.2",
     "babel-polyfill": "~6.26.0",
     "prop-types": "~15.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^15.0.1",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^15.0.1",
-    "@sitecore-jss/sitecore-jss-manifest": "^15.0.1",
+    "@sitecore-jss/sitecore-jss-cli": "^16.1.0-canary.2",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^16.1.0-canary.2",
+    "@sitecore-jss/sitecore-jss-manifest": "^16.1.0-canary.2",
     "babel-core": "~6.26.0",
     "babel-eslint": "~7.2.3",
     "babel-loader": "~7.1.2",

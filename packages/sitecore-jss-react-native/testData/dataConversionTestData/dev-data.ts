@@ -1,5 +1,3 @@
-/* tslint:disable:quotemark*/
-
 export const devRouteData = {
   name: 'portfolio',
   displayName: 'Portfolio',

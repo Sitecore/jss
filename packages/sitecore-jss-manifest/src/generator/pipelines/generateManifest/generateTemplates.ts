@@ -7,7 +7,6 @@ export default (args: any) => {
   const templates = components.reduce((result: any, component: any) => {
     // throw if you defined a single ID for a component (which since it splits into a template + rendering, needs two explicit IDs set)
     if (component.id) {
-      // tslint:disable-next-line:no-string-throw max-line-length
       throw `The component ${component.name} defined an 'id'. Because a component becomes two separate items in Sitecore, it must have two separate IDs. Please specify unique 'templateId' and 'renderingId' properties instead.`;
     }
 
@@ -44,15 +43,17 @@ export default (args: any) => {
   const duplicateIds = checkUnique(finalTemplates, (template) => template.id);
 
   if (duplicateIds.length > 0) {
-    // tslint:disable-next-line:no-string-throw
-    throw `The manifest defined duplicate template IDs: ${duplicateIds.join(',')}. This is not allowed.`;
+    throw `The manifest defined duplicate template IDs: ${duplicateIds.join(
+      ','
+    )}. This is not allowed.`;
   }
 
   const duplicateNames = checkUnique(finalTemplates, (template) => template.name);
 
   if (duplicateNames.length > 0) {
-    // tslint:disable-next-line:no-string-throw
-    throw `The manifest defined duplicate template names: ${duplicateNames.join(',')}. This is not allowed.`;
+    throw `The manifest defined duplicate template names: ${duplicateNames.join(
+      ','
+    )}. This is not allowed.`;
   }
 
   return {

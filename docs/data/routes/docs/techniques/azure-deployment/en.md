@@ -10,15 +10,15 @@ title: Azure Deployment
 
 ## Step 1: Provision Sitecore and JSS
 
-Starting from Sitecore 9.1 release JSS server components can be provisioned alongside with Sitecore through the Azure Marketplace. You will need a JSS-enabled license file. For the purposes of simplicity, choose an XP Developer installation. In production, a more repeatable deployment methodology such as ARM templates and the Sitecore Azure Toolkit should be used, but the Marketplace installation is the simplest to get started with. Consult the Sitecore documentation for help with production Azure setup.
+Starting from Sitecore 9.1 release Headless server components can be provisioned alongside with Sitecore through the Azure Marketplace. You will need a JSS-enabled license file. For the purposes of simplicity, choose an XP Developer installation. In production, a more repeatable deployment methodology such as ARM templates and the Sitecore Azure Toolkit should be used, but the Marketplace installation is the simplest to get started with. Consult the Sitecore documentation for help with production Azure setup.
 
 > After provisioning, ensure to increase the `core` and `master` database sizes to at least S2 (50 DTU). Lower scaled databases will cause slow UI and may fail the package installation.
 
-## Step 2: Install the JSS server components (optional)
+## Step 2: Install the Headless server components (optional)
 
 In case you already have Sitecore instance in Azure you have to use ARM templates methodology.
-1. Download official released Sitecore JSS WDP package https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services/110/Sitecore_JavaScript_Services_1100.aspx
-1. Download ARM templates for the appropriate topology available on the GitHub https://github.com/Sitecore/Sitecore-Azure-Quickstart-Templates/tree/master/JSS
+1. Download [official released Sitecore JSS WDP packages] (https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services.aspx) for the appropriate JSS version and topology.
+1. Download [ARM templates available on the GitHub] (https://github.com/Sitecore/Sitecore-Azure-Quickstart-Templates) for the appropriate JSS version and topology.
 1.	After you download all wdp’s and ARM’s you should preserve all files to some publicly available storage like Azure storage.
 1. Prepare parameters.json file. Content of the file should be similar to the following:
 ```json
@@ -39,33 +39,27 @@ In case you already have Sitecore instance in Azure you have to use ARM template
 ```
 5. Provision JSS. Use following script to perform the provisioning:
 ```powershell
+
 param (
-    $DeploymentId = “deploymentId”,
-    $LicenseXmlPath = "<path to license>",
-    $Location = "West Europe",
+    $DeploymentId = "<deploymentId>",
     $ParametersPath = "<path to parameters file>",
-    $Cmdlets = "C:\Sitecore.Azure.Toolkit.2.0.0-r1041-170929\tools",
     $SubscriptionName = "<subscription name>",
-    $TemplateUri = "ARM template url"
+    $TemplateUri = "<ARM template url>"
 )
 
-if ((Test-Path "$Cmdlets\Sitecore.Cloud.Cmdlets.psm1") -eq $False) {
-    nuget install Sitecore.Azure.Toolkit.Cmdlets -Source http://nuget1dk1:8181/nuget/Cloud/ -x -Prerelease
-    $Cmdlets = "$PSScriptRoot\Sitecore.Azure.Toolkit.Cmdlets\Cmdlets"
-}
+Import-Module Az.Accounts
+Import-Module Az.Resources
 
-Import-Module "$Cmdlets\Sitecore.Cloud.Cmdlets.psm1" -Verbose
+Connect-AzAccount
+Set-AzContext -SubscriptionName "$SubscriptionName" 
 
-Login-AzureRmAccount
-Set-AzureRmContext -SubscriptionName "$SubscriptionName"
+$ModuleName = "JSS" 
 
-Start-SitecoreAzureDeployment `
-    -Name $DeploymentId `
-    -Location $Location `
-    -ArmTemplateUrl $TemplateUri `
-    -ArmParametersPath $ParametersPath `
-    -LicenseXmlPath $LicenseXmlPath `
-    -Verbose
+# Deployment Name that describes what is supposed to be deployed by this template 
+
+$DeploymentName = "$DeploymentId-$ModuleName" 
+
+New-AzResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $DeploymentId -TemplateUri $TemplateUri -TemplateParameterFile $ParametersPath -Mode Incremental -Verbose
 
 ```
 6. Configure Azure Node version: In Azure, the app services come with a very old Node.js version enabled by default. This will cause issues rendering your JSS apps. Configure the `WEBSITE_NODE_DEFAULT_VERSION` setting on your app service, [per this article](https://blogs.msdn.microsoft.com/azureossds/2016/04/20/nodejs-and-npm-versions-on-azure-app-services/). The same Node version should be used on Azure as is used during development, normally the latest LTS Node release. As of the writing of this documentation, that is 8.9.4. Starting from Sitecore 9.1 Azure Node version set during Sitecore provisioning. Default Azure Node version for Sitecore 9.1 is 8.11.1. Can be changed during the Sitecore provisioning.
@@ -74,7 +68,7 @@ Start-SitecoreAzureDeployment `
 
 ## Step 3: Configure the Sitecore server
 
-The steps to configure an Azure server to accept a JSS app are mostly the same as for on-premise. Consult the [app deployment](/docs/getting-started/app-deployment) documentation for details, and read on for the differences.
+The steps to configure an Azure server to accept a JSS app are mostly the same as for on-premise. Consult the [app deployment](/docs/client-frameworks/getting-started/app-deployment) documentation for details, and read on for the differences.
 
 1. When in Azure, the config deployment step must be performed manually (in production, it should be performed by an automated build step). For our purposes, we can use our FTPS client to deploy the JSS app's `/sitecore/config/*` files to the Azure website's `/site/wwwroot/app_config/include` directory.
 
@@ -83,6 +77,8 @@ The steps to configure an Azure server to accept a JSS app are mostly the same a
 1. When deploying the app to Azure, instead of `jss deploy app`, use `jss deploy items` with the same parameters. Because JSS deployment service does not deploy files, we must deploy the files separately to the App Service instance.
 
 ## Step 4: Deploy the app's files
+
+> This step is not necessary for the [Next.js SDK](/docs/nextjs//introduction/why-nextjs) or when using the [HTTP Rendering Engine](/docs/fundamentals/services/view-engine#http-rendering-engine) as these do not require execution of your JavaScript bundle on Sitecore platform roles.
 
 In production, deployment of the JSS app's build artifacts should be done via an automated build setup. For simplicity, we can use FTPS to deploy our build artifacts.
 

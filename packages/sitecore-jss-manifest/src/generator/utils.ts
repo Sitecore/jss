@@ -2,6 +2,9 @@ import { ComponentDefinition, ItemDefinition, TemplateDefinition } from './manif
 
 /**
  * Iterates the keys of the given object and constructs a new object with keys that satisfy the given filter function.
+ * @param {Object} obj
+ * @param {Function} filter
+ * @returns {Object} filtered object
  */
 export const filterObject = (obj: any, filter: (key: string, value: any) => boolean) =>
   Object.keys(obj).reduce((res, key) => {
@@ -14,13 +17,15 @@ export const filterObject = (obj: any, filter: (key: string, value: any) => bool
     return res;
   }, {});
 
-export const convertComponentDataToFields = ({ data, context: { item = {} as ItemDefinition } = {} }:
-  {
-    data: any,
-    context: {
-      item?: ItemDefinition,
-    }
-  }) => {
+export const convertComponentDataToFields = ({
+  data,
+  context: { item = {} as ItemDefinition } = {},
+}: {
+  data: any;
+  context: {
+    item?: ItemDefinition;
+  };
+}) => {
   if (!data) {
     return;
   }
@@ -46,13 +51,18 @@ export const convertComponentDataToFields = ({ data, context: { item = {} as Ite
   }, initialReduceValue);
 };
 
-const mapFieldValueItem = (item: ItemDefinition, fieldValueItem: ItemDefinition, index: number, fieldName?: string) => {
+const mapFieldValueItem = (
+  item: ItemDefinition,
+  fieldValueItem: ItemDefinition,
+  index: number,
+  fieldName?: string
+) => {
   // if a field references a shared item by ID, we don't want to auto-name/template it
   if (fieldValueItem.id && !fieldValueItem.name) {
     return fieldValueItem;
   }
 
-  const fieldItem: ItemDefinition & {[k: string]: any} = {
+  const fieldItem: ItemDefinition & { [k: string]: any } = {
     template: `${item.template}-${fieldName}-Item`,
     name: `${item.name}-item-${index}`,
   };
@@ -81,8 +91,8 @@ const mapFieldValueItem = (item: ItemDefinition, fieldValueItem: ItemDefinition,
 export interface FieldValue {
   fieldValue: any;
   context: {
-    fieldName?: string,
-    item: any
+    fieldName?: string;
+    item: any;
   };
 }
 
@@ -124,8 +134,12 @@ const processFieldValue = ({ fieldValue, context: { fieldName, item } }: FieldVa
   return null;
 };
 
-// checks if an array contains duplicate values using a selector function to get the value to check for uniqueness
-// returns array of duplicate keys - or empty array if no dupes
+/**
+ * checks if an array contains duplicate values using a selector function to get the value to check for uniqueness
+ * returns array of duplicate keys - or empty array if no dupes
+ * @param {any[]} input
+ * @param {Function} selector
+ */
 export function checkUnique(input: any[], selector: (element: any) => string) {
   const uniques = new Set();
   const duplicates: string[] = [];
@@ -147,20 +161,30 @@ export function checkUnique(input: any[], selector: (element: any) => string) {
   return duplicates;
 }
 
-/** Finds a template definition by name in one or more arrays of template/component definitions */
-export function findTemplate(templateName: string, ...templates: Array<Array<TemplateDefinition | ComponentDefinition>>)
-: TemplateDefinition | ComponentDefinition | null {
+/**
+ * Finds a template definition by name in one or more arrays of template/component definitions
+ * @param {string} templateName
+ * @param {...Array<Array<TemplateDefinition | ComponentDefinition>>} templates
+ * @returns {TemplateDefinition | ComponentDefinition | null} template
+ */
+export function findTemplate(
+  templateName: string,
+  ...templates: Array<Array<TemplateDefinition | ComponentDefinition>>
+): TemplateDefinition | ComponentDefinition | null {
   let templateResult: TemplateDefinition | ComponentDefinition | null = null;
 
-  if (!templates) { return null; }
+  if (!templates) {
+    return null;
+  }
 
   templates.forEach((templateList) => {
-    if (!templateList) { return; }
+    if (!templateList) {
+      return;
+    }
 
     const template = templateList.find((templateDef: any) => templateDef.name === templateName);
 
-    if (template && templateResult != null) {
-      // tslint:disable-next-line:no-string-throw
+    if (template && templateResult !== null) {
       throw `Template ${templateName} was defined more than once with the same name.`;
     }
 
@@ -172,31 +196,36 @@ export function findTemplate(templateName: string, ...templates: Array<Array<Tem
   return templateResult;
 }
 
-/** Validates that a set of field values are defined on their template definitions */
+/**
+ * Validates that a set of field values are defined on their template definitions
+ * @param {Object} fields
+ * @param {TemplateDefinition | ComponentDefinition} template
+ * @param {Function} handleError
+ * @param {...Array<Array<TemplateDefinition | ComponentDefinition>>} inheritedTemplates
+ * @returns {Object} validated fields
+ */
 export function validateFieldDefinitions(
   fields: { [key: string]: any },
   template: TemplateDefinition | ComponentDefinition,
   handleError: (fieldName: string) => void,
   ...inheritedTemplates: Array<Array<TemplateDefinition | ComponentDefinition>>
 ) {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   inheritedTemplates.forEach(() => {});
 
-  return filterObject(
-    fields,
-    (fieldName: string) => {
-      // we don't have a good way to look up all inherited fields here - so if the rendering inherits a template
-      // we disable field filtering so as to allow inherited fields to be defined.
-      if (template.inherits) {
-        // in future `inheritedTemplates` may be trawled to find inherited values and validate them too
-        return true;
-      }
-
-      const fieldIsValid = Array.isArray(template.fields) && template.fields.some((field) => field.name === fieldName);
-      if (!fieldIsValid) {
-        // tslint:disable-next-line:no-string-throw max-line-length
-        handleError(fieldName);
-      }
-      return fieldIsValid;
+  return filterObject(fields, (fieldName: string) => {
+    // we don't have a good way to look up all inherited fields here - so if the rendering inherits a template
+    // we disable field filtering so as to allow inherited fields to be defined.
+    if (template.inherits) {
+      // in future `inheritedTemplates` may be trawled to find inherited values and validate them too
+      return true;
     }
-  );
+
+    const fieldIsValid =
+      Array.isArray(template.fields) && template.fields.some((field) => field.name === fieldName);
+    if (!fieldIsValid) {
+      handleError(fieldName);
+    }
+    return fieldIsValid;
+  });
 }

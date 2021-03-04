@@ -7,7 +7,7 @@ export default async (args: GenerateContentItemArgs) => {
   const actualContent = (content as any) as ItemDefinition;
   if (actualContent.children && actualContent.children.length > 0) {
     const pipeline = { ...pipelines.generateContentItem };
-    const pipelineArgs: GenerateContentItemArgs  = {
+    const pipelineArgs: GenerateContentItemArgs = {
       ...pipeline.args,
       ...args,
     };

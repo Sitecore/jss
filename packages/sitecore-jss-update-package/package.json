@@ -1,12 +1,12 @@
 {
   "name": "@sitecore-jss/sitecore-jss-update-package",
-  "version": "15.0.1",
+  "version": "16.1.0-canary.2",
   "description": "Allows creation of Sitecore Update Packages in JavaScript (currently files only).",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "del-cli dist types",
-    "lint": "tslint -p . -c ../../tslint.json 'src/**/*.ts'",
+    "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "coverage": "nyc --require ts-node/register npm test"
@@ -32,6 +32,7 @@
     "@types/node": "^12.7.11",
     "chai": "^4.2.0",
     "del-cli": "^3.0.1",
+    "eslint": "^7.15.0",
     "fetch-mock": "^7.4.0",
     "mocha": "^8.1.3",
     "sinon": "^7.5.0",

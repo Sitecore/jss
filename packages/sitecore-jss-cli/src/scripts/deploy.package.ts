@@ -17,6 +17,9 @@ export const builder = {
   ...packageBuilder,
 };
 
+/**
+ * Deploy package handler
+ */
 export async function handler() {
   console.error('jss deploy package is no longer used. Use jss deploy app instead.');
   process.exit(1);

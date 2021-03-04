@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 export interface RichTextProps {
+  [htmlAttributes: string]: unknown;
   /** The rich text field data. */
   field?: {
     value?: string;
@@ -18,25 +19,27 @@ export interface RichTextProps {
    * @default true
    */
   editable?: boolean;
-  [htmlAttributes: string]: any;
 }
 
-export const RichText: React.SFC<RichTextProps> = ({ field, tag, editable, ...otherProps }) => {
-  if (!field || (!field.editable && !field.value)) {
-    return null;
+export const RichText: React.SFC<RichTextProps> = forwardRef(
+  ({ field, tag, editable, ...otherProps }, ref) => {
+    if (!field || (!field.editable && !field.value)) {
+      return null;
+    }
+
+    const htmlProps = {
+      dangerouslySetInnerHTML: {
+        __html: field.editable && editable ? field.editable : field.value,
+      },
+      ref,
+      ...otherProps,
+    };
+
+    return React.createElement(tag || 'div', htmlProps);
   }
+);
 
-  const htmlProps = {
-    dangerouslySetInnerHTML: {
-      __html: field.editable && editable ? field.editable : field.value,
-    },
-    ...otherProps,
-  };
-
-  return React.createElement(tag || 'div', htmlProps);
-};
-
-RichText.propTypes = {
+export const RichTextPropTypes = {
   field: PropTypes.shape({
     value: PropTypes.string,
     editable: PropTypes.string,
@@ -44,6 +47,8 @@ RichText.propTypes = {
   tag: PropTypes.string,
   editable: PropTypes.bool,
 };
+
+RichText.propTypes = RichTextPropTypes;
 
 RichText.defaultProps = {
   tag: 'div',

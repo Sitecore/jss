@@ -35,7 +35,8 @@ export default function i18nInit(language, dictionary) {
       // if we got dictionary passed, that means we're in a SSR context with a server-provided dictionary
       // so we do not want a backend, because we already know all possible keys
 
-      const appendResource = () => i18n.addResourceBundle(language, 'translation', dictionary, true, true);
+      const appendResource = () =>
+        i18n.addResourceBundle(language, 'translation', dictionary, true, true);
 
       if (!i18n.isInitialized) {
         i18n.init(options, (error) => {
@@ -43,7 +44,7 @@ export default function i18nInit(language, dictionary) {
 
           appendResource();
 
-          serverI18n = new VueI18n(i18n)
+          serverI18n = new VueI18n(i18n);
 
           resolve(serverI18n);
         });
@@ -51,7 +52,7 @@ export default function i18nInit(language, dictionary) {
         const resolveInstance = () => {
           appendResource();
           resolve(serverI18n);
-        }
+        };
 
         if (i18n.language === language) {
           return resolveInstance();

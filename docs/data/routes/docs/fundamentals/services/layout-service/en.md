@@ -87,6 +87,14 @@ The Layout Service executes within the Sitecore MVC rendering engine, and thus r
 
 If you don't want analytics tracking for your JSS app, or for particular Layout Service calls, set the `tracking` parameter to `false`.
 
+> _NOTE_: As of Sitecore 10.0.1, Sitecore sets the `Secure` flag on all cookies by default. This can impact JSS local development in *Connected* and *Headless* modes, as the proxied Sitecore cookies (including analytics cookies) will be rejected by the browser if your application is not running under HTTPS, and thus visits will not be tracked and content may not be personalized. To work around this, you can either:
+> * Enable HTTPS in your local environment by modifying the node server, using a local reverse proxy, or using a service such as ngrok.
+>     * If you are running Sitecore in containers for development, you can make use of the Traefik reverse proxy that is provided in the `docker-compose` environment.
+> * Transform the Sitecore Web.config and set:
+>     * `requireSSL` to `false` and `sameSite` to `Unspecified` in the `httpCookies` configuration
+>     * `cookieSameSite` to `Unspecified` in the `sessionState` configuration
+>     * **This is not recommended for production.**
+
 ## Invoking the Layout Service from JSS
 
 The Sitecore JSS SDK provides a simple API to make utilizing the Layout Service easier. Enter your configuration into the `fetchOptions` object and pass it into `dataApi.fetchRouteData()`. The `fetcher` option enables you to implement whichever data access method you wish. JSS ships with axios, which can be imported from `src\dataFetcher.js`.
