@@ -1,5 +1,5 @@
 ---
-name: nextjs-telemetry
+name: disable-nextjs-telemetry
 routeTemplate: ./data/component-templates/article.yml
 title: Disable Next.js telemetry
 ---
