@@ -37,7 +37,7 @@ To secure the additional Experience Editor API endpoints exposed by your Next.js
 
 > See the [separate guide](/docs/nextjs/experience-editor/walkthrough) for configuration details.
 
-You'll see this editing secret is automatically validated in the [`EditingRenderMiddleware`](#editingrendermiddleware) and [`EditingRenderMiddleware`](#editingdatamiddleware). A HTTP `401` status code is returned if validation fails.
+You'll see this editing secret is automatically validated in the [`EditingRenderMiddleware`](#editingrendermiddleware) and [`EditingDataMiddleware`](#editingdatamiddleware). A HTTP `401` status code is returned if validation fails.
 
 ### Next.js Preview Mode
 
@@ -83,7 +83,7 @@ This means that with the help of tunneling software like [Ngrok](https://ngrok.c
 
 The following lists the relevant APIs included with the JSS Next.js SDK and shown in the diagram above. 
 
-Note all except the `EditingDataService` are found found under the `/middleware` sub-module. For example:
+Note all except the `EditingDataService` are found in the `@sitecore-jss/sitecore-jss-nextjs` npm package under the `/middleware` sub-module. For example:
 
 ```javascript
 import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
@@ -117,4 +117,4 @@ The `EditingDataMiddleware` will:
 Interface which defines an editing data cache implementation.
 
 ### `EditingDataDiskCache`
-A disk-based editing data cache implementation (default `EditingDataCache` implementation). This is required for hosting on Vercel via [Serverless Functions](https://vercel.com/docs/serverless-functions/introduction).
+A disk-based `EditingDataCache` implementation (default). This is required for hosting on Vercel via [Serverless Functions](https://vercel.com/docs/serverless-functions/introduction).
