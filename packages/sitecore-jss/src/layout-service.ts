@@ -63,7 +63,7 @@ export type GraphQLLayoutServiceConfig = {
   /**
    * Your Graphql endpoint
    */
-  apiHost: string;
+  endpoint: string;
   /**
    * The JSS application name
    */
@@ -214,10 +214,11 @@ export class RestLayoutService implements LayoutService {
   }
 }
 
-/**
- * Fetch layout data using the Sitecore GraphQL endpoint.
- */
 export class GraphQLLayoutService implements LayoutService {
+  /**
+   * Fetch layout data using the Sitecore GraphQL endpoint.
+   * @param {GraphQLLayoutServiceConfig} serviceConfig
+   */
   constructor(private serviceConfig: GraphQLLayoutServiceConfig) {}
 
   /**
@@ -240,9 +241,9 @@ export class GraphQLLayoutService implements LayoutService {
    * Returns new graphql client instance
    */
   private createClient(): GraphQLRequestClient {
-    const { apiHost } = this.serviceConfig;
+    const { endpoint } = this.serviceConfig;
 
-    return new GraphQLRequestClient(apiHost);
+    return new GraphQLRequestClient(endpoint);
   }
 
   /**

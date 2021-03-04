@@ -324,7 +324,7 @@ describe('LayoutService', () => {
         });
 
       const service = new GraphQLLayoutService({
-        apiHost: 'http://sctest/graphql',
+        endpoint: 'http://sctest/graphql',
         siteName: 'supersite',
       });
 
@@ -372,7 +372,7 @@ describe('LayoutService', () => {
         });
 
       const service = new GraphQLLayoutService({
-        apiHost: 'http://sctest/graphql',
+        endpoint: 'http://sctest/graphql',
         siteName: 'supersite',
       });
 
@@ -400,7 +400,7 @@ describe('LayoutService', () => {
         });
 
       const service = new GraphQLLayoutService({
-        apiHost: 'http://sctest/graphql',
+        endpoint: 'http://sctest/graphql',
         siteName: 'supersite',
       });
 
