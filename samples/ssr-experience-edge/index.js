@@ -1,18 +1,13 @@
 const express = require('express');
 const compression = require('compression');
+const config = require('./config');
+
 
 const server = express();
 const port = process.env.PORT || 3000;
 
-/**
- * The JSS application name defaults to providing part of the bundle path as well as the dictionary service endpoint.
- * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
- */
-let appName = 'JssReactWeb' || process.env.SITECORE_JSS_APP_NAME;
 
-const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/server.bundle`;
-
-const renderView = require(bundlePath).renderView;
+const renderView = config.serverBundle.renderView;
 
 // enable gzip compression for appropriate file types
 server.use(compression());
@@ -29,11 +24,18 @@ server.use(
 );
 
 server.use((req, res) => {
-  const view = renderView((err, result) => {
-    console.log('ERROR:', err);
-    console.log('RESULT:', result);
-    res.status(200).send();
-  });
+  const view = renderView(
+    (err, result) => {
+      console.log('ERROR:', err);
+      console.log('RESULT:', result);
+      res.status(200).send(result.html);
+    },
+    '/',
+    { sitecore: { context: { language: 'en' }, route: {} } },
+    { dictionary: {
+      test: '1000'
+    } }
+  );
   console.log(view);
 });
 
