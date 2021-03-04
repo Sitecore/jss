@@ -28,6 +28,10 @@ export default {
           url: 'walkthrough-jsscreate',
           displayName: 'Walkthrough: with \'jss create\'',
         },
+        {
+          url: 'disable-nextjs-telemetry',
+          displayName: 'Disable Next.js telemetry'
+        }
       ],
     },
     {
