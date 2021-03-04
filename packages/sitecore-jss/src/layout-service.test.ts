@@ -301,21 +301,23 @@ describe('LayoutService', () => {
         .post('/graphql', (body) => {
           return (
             body.query.replace(/\n|\s/g, '') ===
-            'query{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){rendered}}'
+            'query{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}'
           );
         })
         .reply(200, {
           data: {
             layout: {
-              rendered: {
-                sitecore: {
-                  context: {
-                    pageEditing: false,
-                    site: { name: 'JssNextWeb' },
-                  },
-                  route: {
-                    name: 'styleguide',
-                    layoutId: 'xxx',
+              item: {
+                rendered: {
+                  sitecore: {
+                    context: {
+                      pageEditing: false,
+                      site: { name: 'JssNextWeb' },
+                    },
+                    route: {
+                      name: 'styleguide',
+                      layoutId: 'xxx',
+                    },
                   },
                 },
               },
@@ -349,21 +351,23 @@ describe('LayoutService', () => {
         .post('/graphql', (body) => {
           return (
             body.query.replace(/\n|\s/g, '') ===
-            'query{layout(site:"supersite",routePath:"/styleguide"){rendered}}'
+            'query{layout(site:"supersite",routePath:"/styleguide"){item{rendered}}}'
           );
         })
         .reply(200, {
           data: {
             layout: {
-              rendered: {
-                sitecore: {
-                  context: {
-                    pageEditing: false,
-                    site: { name: 'JssNextWeb' },
-                  },
-                  route: {
-                    name: 'styleguide',
-                    layoutId: 'xxx',
+              item: {
+                rendered: {
+                  sitecore: {
+                    context: {
+                      pageEditing: false,
+                      site: { name: 'JssNextWeb' },
+                    },
+                    route: {
+                      name: 'styleguide',
+                      layoutId: 'xxx',
+                    },
                   },
                 },
               },

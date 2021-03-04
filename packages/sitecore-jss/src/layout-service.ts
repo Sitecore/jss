@@ -230,11 +230,11 @@ export class GraphQLLayoutService implements LayoutService {
   async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
     const query = this.getLayoutQuery(itemPath, language);
 
-    const data = await this.createClient().request<{ layout: { rendered: LayoutServiceData } }>(
-      query
-    );
+    const data = await this.createClient().request<{
+      layout: { item: { rendered: LayoutServiceData } };
+    }>(query);
 
-    return data.layout.rendered;
+    return data.layout.item.rendered;
   }
 
   /**
@@ -256,7 +256,9 @@ export class GraphQLLayoutService implements LayoutService {
 
     return `query {
       layout(site:"${this.serviceConfig.siteName}", routePath:"${itemPath}"${languageVariable}) {
-        rendered
+        item {
+          rendered
+        }
       }
     }`;
   }
