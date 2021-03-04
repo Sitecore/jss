@@ -126,20 +126,12 @@ To create the `MyProject` solution:
 
      > On local environments, Sitecore instances are installed using privately signed certificates. `.\init.ps1` generates certificates using the `mkcert` utility. Node.js rejects these certificates because their root CAs are not known. 
      >
-     > If this is your first time using `mkcert` with Node.js, you will need to manually set the  [NODE_EXTRA_CA_CERTS](https://nodejs.org/api/cli.html#cli_node_extra_ca_certs_file) environment variable to prevent HTTPS errors, such as:
-     >
-     > ```
-     > Error: unable to verify the first certificate
-     >  ...
-     >  type: 'system',
-     >   errno: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
-     >   code: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE'
-     > ```
+     > If this is your first time using `mkcert` with Node.js, you will need to [manually set the  `NODE_EXTRA_CA_CERTS` environment variable](/docs/temp/node-certificates) to prevent HTTPS errors.
      >
      > The `.\init.ps1` script will instruct you on how to set the `NODE_EXTRA_CA_CERTS` environment variable in your user or system environment variables: 
      >
      > ```
-     > To avoid HTTPS errors, set the NODE_EXTRA_CA_CERTS environment variable using the following commmand:
+     > To avoid HTTPS errors, set the NODE_EXTRA_CA_CERTS environment variable using the following command:
      > setx NODE_EXTRA_CA_CERTS C:\Users\<username>\AppData\Local\mkcert\rootCA.pem
      > 
      > You will need to restart your terminal or VS Code for it to take effect.
