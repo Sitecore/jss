@@ -4,16 +4,15 @@ import {
   ComponentPropsService,
   DictionaryPhrases,
   DictionaryService,
-  RestDictionaryService,
   LayoutServiceData,
   LayoutService,
-  RestLayoutService,
   editingDataService,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
+import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
+import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { componentModule } from 'temp/componentFactory';
 import { config as packageConfig } from '../../package.json';
-import config from 'temp/config';
 
 /**
  * Extract normalized Sitecore item path from query
@@ -50,19 +49,8 @@ export class SitecorePagePropsFactory {
 
   constructor() {
     this.componentPropsService = new ComponentPropsService();
-
-    // Note we're using our standard REST-based dictionary and layout services here,
-    // but in the very near future we'll also have GraphQL-based counterparts available (for Sitecore Experience Edge).
-    this.dictionaryService = new RestDictionaryService({
-      apiHost: config.sitecoreApiHost,
-      apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
-    });
-    this.layoutService = new RestLayoutService({
-      apiHost: config.sitecoreApiHost,
-      apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
-    });
+    this.dictionaryService = dictionaryServiceFactory.create();
+    this.layoutService = layoutServiceFactory.create();
   }
 
   /**
@@ -109,7 +97,9 @@ export class SitecorePagePropsFactory {
           path,
           locale,
           // eslint-disable-next-line prettier/prettier
-          isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).req : undefined,
+          isServerSidePropsContext(context)
+            ? (context as GetServerSidePropsContext).req
+            : undefined,
           isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).res : undefined
         )
         .catch((error) => {
