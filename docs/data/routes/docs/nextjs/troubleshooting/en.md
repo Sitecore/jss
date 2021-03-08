@@ -17,11 +17,13 @@ title: Documentation
 
 You can prevent most errors by performing the following steps: 
 
-- Verify that all environment variables used by the app have values. The sample app searches for environment variables in the following files (if multiple files contain a definition of the same variable, the application will use the last value it finds).
+- Verify that all environment variables used by the app have values. The sample app searches for environment variables in the following order:
   1. `scjssconfig.json`.
   2. `.env`.
   3. `.env.local` (for local environments only).
 
+  If multiple files contain a definition of the same variable, the application will use the last value it finds.
+  
   Refer to the [sample `.env` file](https://github.com/Sitecore/jss/blob/master/samples/nextjs/.env) for variable names and descriptions. 
 
 - Check that you have correctly [set up the API key ](/docs/client-frameworks/getting-started/app-deployment#step-2-api-key).
