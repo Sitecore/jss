@@ -13,7 +13,7 @@ We recommend this approach for Sitecore developers who use the [code-first devel
 
 ## TL;DR
 
-To quickly scaffold a JSS Next.js application, run the following commands in a terminal:
+To quickly scaffold a JSS Next.js application with default configuration, run the following commands in a terminal:
 
 ```
 npm install -g @sitecore-jss/sitecore-jss-cli
@@ -39,10 +39,15 @@ To create a JSS application, you must:
 3. Run:
 
    ```
-    jss create my-first-jss-app nextjs
+    jss create my-first-jss-app nextjs [--fetchMode {REST/GraphQL}] [--renderMode {SSG/SSR}]
    ```
 
    The command will create the JSS Next.js application and install the required packages. 
+   
+   You can use the optional parameters to customize the application:
+
+   * `--fetchMode {REST/GraphQL}`: Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.
+   * `--renderMode {SSG/SSR}`: Specifies the Next.js pre-rendering mode of the main `[[...path]].tsx` route. Default is SSG. 
 
 ## Run your application
 
@@ -64,6 +69,7 @@ To connect your application to Sitecore, you must:
 
 1. [Setup JSS Server Components](/docs/client-frameworks/getting-started/jss-server-install).
 2. [Deploy the application to a Sitecore environment](/docs/client-frameworks/getting-started/app-deployment).
+3. [Connect to the Experience Editor](/docs/nextjs/experience-editor/walkthrough).
 
 
 

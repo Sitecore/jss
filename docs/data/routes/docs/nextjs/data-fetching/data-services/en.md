@@ -54,7 +54,7 @@ The factory retrieves the `context` locale as configured in the `i18n` entry of 
 
 ### layoutData
 
-The `layoutData` prop stores `LayoutServiceData` from the Sitecore Layout Service provided by a `RestLayoutService` instance. The `RestLayoutServices` fetches `LayoutServiceData` using the Sitecore Layout Service REST API using Axios as the default data fetcher. In SSR mode, it will set up the required request and response `headers` using the attributes `context.req` and `context.res` to provide the ability to use [Sitecore Tracking](/docs/fundamentals/services/tracking#jss-tracking).
+The `layoutData` prop stores `LayoutServiceData` from the Sitecore Layout Service provided by a `RestLayoutService` instance. The `RestLayoutServices` fetches `LayoutServiceData` using the Sitecore Layout Service REST API using Axios as the default data fetcher. In SSR mode, it will set up the required request and response `headers` using the attributes `context.req` and `context.res` to provide the ability to use [Sitecore Tracking & Analytics](/docs/nextjs/tracking-and-analytics/overview).
 
 ### dictionary
 

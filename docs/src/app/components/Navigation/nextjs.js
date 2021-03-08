@@ -82,7 +82,7 @@ export default {
         },
         {
           url: 'switching-to-ssr',
-          displayName: 'Switching to SSR',
+          displayName: 'Switching between SSG and SSR',
         },
         //{
         //  url: 'error-routes',
