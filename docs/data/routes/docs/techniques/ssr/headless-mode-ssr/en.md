@@ -28,7 +28,16 @@ All Sitecore marketing features are supported by this headless mode, including p
 
     > NOTE: It is possible to configure these settings using environment variables as well, if that is preferable. This is great for containers and some PaaS hosts.
 
-1. Open a command line in your `node-headless-ssr-proxy` folder, and run `npm install` then `npm start`.
+2. If proxying to a development Sitecore instance using a privately signed certificate, ensure you've [configured Sitecore CA certificates for Node.js](/docs/temp/node-certificates). Alternatively, you can disable SSL validation entirely by setting `secure` to `false` in the proxy options, e.g. in `/config.js`
+
+```
+  proxyOptions: {
+    // NEVER EVER do this in production. It will make your SSL completely insecure.
+    secure: false
+  }
+```
+
+3. Open a command line in your `node-headless-ssr-proxy` folder, and run `npm install` then `npm start`.
 
   The console should show `server listening on port 3000!`.
   To test, browse to `http://localhost:3000/` and you should see the same app rendering now in the headless configuration.
