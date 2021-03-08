@@ -77,7 +77,7 @@ The sample Next.js app's building and rendering depend on successfully fetching 
 
 The `GraphiQL` interface at `<sitecore hostname + graphQL endpoint>/ui?sc_apikey=<api key>` is a visual browser for GraphQL data. It is a great tool for diagnosing these types of issues.
 
-To support static generation functionality, the sample app exports a `getStaticPaths` function from the <a href="https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B...path%5D%5D.tsx">[[...path]] page</a>, which needs to provide the list of pages to pre-render to Next.js. To check whether `getStaticPaths` can get the list of pages, try running the query that `getStaticPaths` uses directly in GraphiQL.
+To support static generation functionality, the sample app exports a `getStaticPaths` function from the <a href="https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B%2E%2E%2Epath%5D%5D.tsx">[\[...path\]] page</a>, which needs to provide the list of pages to pre-render to Next.js. To check whether `getStaticPaths` can get the list of pages, try running the query that `getStaticPaths` uses directly in GraphiQL.
 
 ```graphql
 # YOUR_PATH should be the ID of your site root (home page) in lower-case, with dashes removed.
