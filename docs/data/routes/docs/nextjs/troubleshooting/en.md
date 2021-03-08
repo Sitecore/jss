@@ -15,20 +15,22 @@ title: Documentation
 
 ## General setup checklist
 
-- Verify that all environment variables used by the app are defined. The sample app searches for environment variables in the following files (if multiple files contain a definition of the same variable, the application will use the last value it finds).
-  1. `scjssconfig.json`
-  2. `.env`
-  3. `.env.local` (for local environments only)
+You can prevent most errors by performing the following steps: 
+
+- Verify that all environment variables used by the app have values. The sample app searches for environment variables in the following files (if multiple files contain a definition of the same variable, the application will use the last value it finds).
+  1. `scjssconfig.json`.
+  2. `.env`.
+  3. `.env.local` (for local environments only).
 
   Refer to the [sample `.env` file](https://github.com/Sitecore/jss/blob/master/samples/nextjs/.env) for variable names and descriptions. 
 
-- Check that your [API key is set up corerctly](/docs/client-frameworks/getting-started/app-deployment#step-2-api-key).
+- Check that you have correctly [set up the API key ](/docs/client-frameworks/getting-started/app-deployment#step-2-api-key).
 
-- Check that your project's site definition and app definition are correctly populated in your Sitecore configuration. Refer to the [sample app configuration](https://github.com/Sitecore/jss/blob/master/samples/nextjs/sitecore/config/JssNextWeb.config) for the list of properties that need to be populated.
+- Check that your project's site definition and app definition are correct in your Sitecore configuration. Refer to the [sample app configuration](https://github.com/Sitecore/jss/blob/master/samples/nextjs/sitecore/config/JssNextWeb.config) for the list of required properties.
 
-- Verify that the ["JSS Editing Secret" is set](/docs/nextjs/experience-editor/walkthrough#jss-editing-secret). And more specifically, the `JSS_EDITING_SECRET` [value used by your Next.js app](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/.env#L18) should match the [value used by your Sitecore instance](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/sitecore/config/JssNextWeb.config#L37).
+- Verify that you have [set the "JSS Editing Secret"](/docs/nextjs/experience-editor/walkthrough#jss-editing-secret). The `JSS_EDITING_SECRET` [value used by your Next.js app](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/.env#L18) must match the [value used by your Sitecore instance](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/sitecore/config/JssNextWeb.config#L37).
 
-- Verify that that GraphQL endpoint is correct in [`package.json`](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/package.json#L12) and the Sitecore [app definition](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/sitecore/config/JssNextWeb.config#L72). Try opening the GraphiQL interface in a browser, using values from your config (`<sitecore hostname + graphQL endpoint>/ui?sc_apikey=<api key>`) to make sure the endpoint is working.
+- Verify that the GraphQL endpoint is correct in [`package.json`](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/package.json#L12) and the Sitecore [app definition](https://github.com/Sitecore/jss/blob/cb32d3a21b87f488bd4bb5d311d556fd1f8354c4/samples/nextjs/sitecore/config/JssNextWeb.config#L72). Try opening the GraphiQL interface in a browser, using values from your config (`<sitecore hostname + graphQL endpoint>/ui?sc_apikey=<api key>`) to make sure the endpoint is working.
 
 ## Server-side JavaScript errors
 
@@ -37,27 +39,27 @@ If you encounter unexpected JavaScript errors during the `npm install` or `build
 node -v
 npm -v
 ```
-Note that we test JSS using the Long Term Support (TLS) versions of Node. These are typically one major version behind the latest official Node version.
+Note that we test JSS using the **Long Term Support (TLS) versions of Node**. These are typically one major version behind the latest official Node version.
 
-Note that the Node/npm version used by your CI/Production environments may be different from what is used by your local environment. If a project configuration does not require a specific Node/npm version in `package.json`, deployment agents commonly build using either the newest version available or an environment-specific "default" version.
+Note that the Node/npm version used by your CI/Production environments may differ from the version your local environment uses. When a project configuration does not require a specific Node/npm version in `package.json`, deployment agents commonly build using the most recent version available or an environment-specific "default" version.
 
 If you need to swap between multiple Node versions on your local environment for testing, 3rd party packages like [n](https://github.com/tj/n) or [nvm](https://github.com/nvm-sh/nvm) can help with this task.
 
-System Pre-requisites
-Running Node LTS version (use node -v to check)
-
 ## Errors regarding SSL certificates
 
-Error examples
+If you are working with a local Sitecore instance using a privately signed certificate, you might experience the following error: 
+
 > Error: unable to verify the first certificate
 >
 > Error: UNABLE_TO_VERIFY_LEAF_SIGNATURE
 
 > UnauthorizedError: invalid signature
 
-If you are working with a local Sitecore instance using a privately signed certificate, ensure you've [configured Sitecore CA certificates for Node.js](/docs/temp/node-certificates)"
+Ensure you've [configured Sitecore CA certificates for Node.js](/docs/temp/node-certificates).
 
 ## Errors deploying a JSS app locally
+
+If the import role doesn't have the correct permissions, you might experience the following error:
 
 ```
 IMPORT ERROR(S) OCCURRED!
@@ -66,12 +68,14 @@ Exception: Sitecore.Exceptions.AccessDeniedException
 Message: AddFromTemplate - Add access required
 ```
 
-You will see this type of error when the import role doesn't have the correct permissions. See the following Knowledge Base article for the solution: https://kb.sitecore.net/articles/650791.
+Refer to [Errors when importing JSS application on Azure](https://kb.sitecore.net/articles/650791) for the solution.
 
 ## Data-fetching issues
-Building and rendering the sample Next.js app depend on successfully fetching data using GraphQL. The most common cause of failed builds and apps not being able to render pages is an issue with this data-fetching process. The `GraphiQL` interface at `<sitecore hostname + graphQL endpoint>/ui?sc_apikey=<api key>` is a visual browser for GraphQL data. This is a great tool for diagnosing these types of issues.
+The sample Next.js app's building and rendering depend on successfully fetching data using GraphQL. The most common cause of failed builds and apps that cannot render pages is an issue with this data-fetching process. 
 
-To support SSG functionality, the sample app exports a `getStaticPaths` function from the <a href="https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B...path%5D%5D.tsx">[[...path]] page</a>, which needs to provide the list of pages to pre-render to Next.js. To check whether `getStaticPaths` is able to get the list of pages, try running the query that `getStaticPaths` uses directly in GraphiQL.
+The `GraphiQL` interface at `<sitecore hostname + graphQL endpoint>/ui?sc_apikey=<api key>` is a visual browser for GraphQL data. It is a great tool for diagnosing these types of issues.
+
+To support static generation functionality, the sample app exports a `getStaticPaths` function from the <a href="https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B...path%5D%5D.tsx">[[...path]] page</a>, which needs to provide the list of pages to pre-render to Next.js. To check whether `getStaticPaths` can get the list of pages, try running the query that `getStaticPaths` uses directly in GraphiQL.
 
 ```graphql
 # YOUR_PATH should be the ID of your site root (home page) in lower-case, with dashes removed.
@@ -119,7 +123,7 @@ If you do not see the expected results, try the following steps:
 
   ![](/assets/img/docs/nextjs/troubleshooting/graphiql-error1.png)
 
-  You will encounter this problem when the data in localStorage cannot be restored. For example, if you tried to open a URL with an embedded query and the query was invalid.
+  You will encounter this problem when the application can not restore the data in `localStorage`. For example, if you tried to open a URL with an embedded query and the query was invalid.
 
   To solve the problem, you must: 
 
@@ -144,16 +148,16 @@ To solve the issue, append `sc_mode=normal` to the URL query parameters.
 Uncaught TypeError: Cannot read property 'baseNode' of undefined
 ```
 
-A known issue in the Experience Editor, we expect to fix it in a future release. It does not impact the functionality, and you can safely ignore it.
+A known issue in the Experience Editor, we expect to fix it in a future release. It does not affect the functionality, and you can safely ignore it.
 
 Note that when running Next.js in development mode, Next.js will display runtime errors in an overlay.
 
-This issue will not occur when Next.js runs in production mode and will not impact Content Authors.
+This issue will not occur when Next.js runs in production mode and will not affect Content Authors.
 
 ### Error when trying to edit items in Sitecore
 After creating a new user in the Sitecore Editor Role, attempting to edit JSS app items in Sitecore could warn that the user does not have read access rights.
 
-The workaround is to manually set 'Workflow State Write' for the `System/Workflows/JSS development workflow' item, enabling the Published state, which is final, to be editable. It allows the user to create a new version of an item for editing using the "Lock and Edit" option.
+The workaround is to set 'Workflow State Write' for the `System/Workflows/JSS development workflow' item manually, enabling the Published state, which is final, to be editable. It allows the user to create a new version of an item for editing using the "Lock and Edit" option.
 
 ## Other
 These are less common issues that we have encountered.
