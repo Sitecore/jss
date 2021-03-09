@@ -20,51 +20,51 @@ module.exports = function createJssProject(argv, nextSteps) {
 
   applyNameToProject(__dirname, argv.name, argv.hostName, 'JssNextWeb');
 
-  if (!argv.fetchMode || !argv.renderMode) {
+  if (!argv.fetchWith || !argv.prerender) {
     nextSteps.push([
       `* Did you know you can customize the Next.js sample app using ${chalk.green('jss create')} parameters?`,
-      `*  ${chalk.green('--fetchMode {REST|GraphQL}')} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`,
-      `*  ${chalk.green('--renderMode {SSG|SSR}')} : Specifies the Next.js pre-rendering mode of the optional catch-all route. Default is SSG.`,
+      `*  ${chalk.green('--fetchWith {REST|GraphQL}')} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`,
+      `*  ${chalk.green('--prerender {SSG|SSR}')} : Specifies the Next.js pre-rendering form for the optional catch-all route. Default is SSG.`,
     ]);
   }
 
-  setFetchMode(argv.fetchMode);
-  setRenderMode(argv.renderMode);
+  setFetchWith(argv.fetchWith);
+  setPrerender(argv.prerender);
 
   return nextSteps;
 };
 
 /**
  * Sets how Sitecore data (layout, dictionary) is fetched.
- * @param {string} [fetchMode] {REST|GraphQL} Default is REST. 
+ * @param {string} [fetchWith] {REST|GraphQL} Default is REST. 
  */
-function setFetchMode(fetchMode) {
+function setFetchWith(fetchWith) {
   const defaultDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.ts');
   const graphqlDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.graphql.ts');
   const defaultLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.ts');
   const graphqlLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.graphql.ts');
-  const FetchMode = {
+  const FetchWith = {
     REST: 'rest',
     GRAPHQL: 'graphql',
   };
-  let mode = fetchMode ? fetchMode.toLowerCase() : FetchMode.REST;
+  let value = fetchWith ? fetchWith.toLowerCase() : FetchWith.REST;
 
-  if (mode !== FetchMode.REST && mode !== FetchMode.GRAPHQL) {
-    console.warn(chalk.yellow(`Unsupported fetchMode '${fetchMode}'. Using default 'REST'.`));
-    mode = FetchMode.REST;
+  if (value !== FetchWith.REST && value !== FetchWith.GRAPHQL) {
+    console.warn(chalk.yellow(`Unsupported fetchWith value '${fetchWith}'. Using default 'REST'.`));
+    value = FetchWith.REST;
   }
 
   console.log(
-    chalk.cyan(`Applying ${mode === FetchMode.REST ? 'REST' : 'GraphQL'} fetch mode...`)
+    chalk.cyan(`Applying ${value === FetchWith.REST ? 'REST' : 'GraphQL'} fetch...`)
   );
 
-  switch (mode) {
-    case FetchMode.REST:
+  switch (value) {
+    case FetchWith.REST:
       fs.unlinkSync(graphqlDsfFile);
       fs.unlinkSync(graphqlLsfFile);
       break;
 
-    case FetchMode.GRAPHQL:
+    case FetchWith.GRAPHQL:
       fs.unlinkSync(defaultDsfFile);
       fs.renameSync(graphqlDsfFile, defaultDsfFile);
       fs.unlinkSync(defaultLsfFile);
@@ -74,34 +74,34 @@ function setFetchMode(fetchMode) {
 }
 
 /**
- * Sets the Next.js pre-rendering mode of the optional catch-all route.
- * @param {string} [renderMode] {SSG|SSR} Default is SSG.
+ * Sets the Next.js pre-rendering form for the optional catch-all route.
+ * @param {string} [prerender] {SSG|SSR} Default is SSG.
  */
-function setRenderMode(renderMode) {
+function setPrerender(prerender) {
   const defaultRouteFile = path.join(__dirname, 'src/pages/[[...path]].tsx');
   const ssrRouteFile = path.join(__dirname, 'src/pages/[[...path]].SSR.tsx');
   const sitemapFile = path.join(__dirname, 'src/lib/sitemap-fetcher.ts');
-  const RenderMode = {
+  const Prerender = {
     SSG: 'ssg',
     SSR: 'ssr',
   };
-  let mode = renderMode ? renderMode.toLowerCase() : RenderMode.SSG;
+  let value = prerender ? prerender.toLowerCase() : Prerender.SSG;
 
-  if (mode !== RenderMode.SSG && mode !== RenderMode.SSR) {
-    console.warn(chalk.yellow(`Unsupported renderMode '${renderMode}'. Using default 'SSG'.`));
-    mode = RenderMode.SSG;
+  if (value !== Prerender.SSG && value !== Prerender.SSR) {
+    console.warn(chalk.yellow(`Unsupported prerender value '${prerender}'. Using default 'SSG'.`));
+    value = Prerender.SSG;
   }
 
   console.log(
-    chalk.cyan(`Applying ${mode.toUpperCase()} render mode...`)
+    chalk.cyan(`Applying ${value.toUpperCase()} prerender...`)
   );
 
-  switch (mode) {
-    case RenderMode.SSG:
+  switch (value) {
+    case Prerender.SSG:
       fs.unlinkSync(ssrRouteFile);
       break;
 
-    case RenderMode.SSR:
+    case Prerender.SSR:
       fs.unlinkSync(defaultRouteFile);
       fs.renameSync(ssrRouteFile, defaultRouteFile);
       fs.unlinkSync(sitemapFile);
