@@ -234,7 +234,7 @@ export class GraphQLLayoutService implements LayoutService {
       layout: { item: { rendered: LayoutServiceData } };
     }>(query);
 
-    return data.layout.item.rendered;
+    return data?.layout.item.rendered;
   }
 
   /**
