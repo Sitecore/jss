@@ -51,7 +51,7 @@ The Experience Editor integration uses this Next.js feature. In the diagram abov
 
 ### Understand Editing Data
 
-The Experience Editor `POST` request includes everything we need to render a given *Page Route* including layout, dictionary, and language data. Besides *unsaved* layout information, the request includes extra metadata necessary for rendering in the Experience Editor.
+The Experience Editor `POST` request includes everything we need to render a given *Page Route* including layout, dictionary, and language data. It also includes extra metadata necessary for rendering in the Experience Editor in addition to *unsaved* layout information.
 
 Here, we refer to the data sent from the Experience Editor as *editing data* or *EE Data*.
 
