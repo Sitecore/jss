@@ -1,3 +1,5 @@
+import * as routing from './utils/routingUtils';
+
 export const isServer = (): boolean => !(typeof window !== 'undefined' && window.document);
 
 export const isExperienceEditorActive = (): boolean => {
@@ -15,3 +17,5 @@ export const resetExperienceEditorChromes = (): void => {
     (window as any).Sitecore.PageModes.ChromeManager.resetChromes();
   }
 };
+
+export { routing };

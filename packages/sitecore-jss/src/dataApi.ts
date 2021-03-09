@@ -24,17 +24,7 @@ function checkStatus<T>(response: HttpResponse<T>) {
   throw error;
 }
 
-// note: encodeURIComponent is available via browser (window) or natively in node.js
-// if you use another js engine for server-side rendering you may not have native encodeURIComponent
-// and would then need to install a package for that functionality
-/**
- * @param {Object} params
- */
-function getQueryString(params: { [key: string]: string | number | boolean }): string {
-  return Object.keys(params)
-    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
-    .join('&');
-}
+
 
 /**
  * @param {string} url
