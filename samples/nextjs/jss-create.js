@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+const chalk = require('chalk');
 const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/create');
 
 /**
@@ -17,5 +20,91 @@ module.exports = function createJssProject(argv, nextSteps) {
 
   applyNameToProject(__dirname, argv.name, argv.hostName, 'JssNextWeb');
 
+  if (!argv.fetchWith || !argv.prerender) {
+    nextSteps.push([
+      `* Did you know you can customize the Next.js sample app using ${chalk.green('jss create')} parameters?`,
+      `*  ${chalk.green('--fetchWith {REST|GraphQL}')} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`,
+      `*  ${chalk.green('--prerender {SSG|SSR}')} : Specifies the Next.js pre-rendering form for the optional catch-all route. Default is SSG.`,
+    ]);
+  }
+
+  setFetchWith(argv.fetchWith);
+  setPrerender(argv.prerender);
+
   return nextSteps;
 };
+
+/**
+ * Sets how Sitecore data (layout, dictionary) is fetched.
+ * @param {string} [fetchWith] {REST|GraphQL} Default is REST. 
+ */
+function setFetchWith(fetchWith) {
+  const defaultDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.ts');
+  const graphqlDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.graphql.ts');
+  const defaultLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.ts');
+  const graphqlLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.graphql.ts');
+  const FetchWith = {
+    REST: 'rest',
+    GRAPHQL: 'graphql',
+  };
+  let value = fetchWith ? fetchWith.toLowerCase() : FetchWith.REST;
+
+  if (value !== FetchWith.REST && value !== FetchWith.GRAPHQL) {
+    console.warn(chalk.yellow(`Unsupported fetchWith value '${fetchWith}'. Using default 'REST'.`));
+    value = FetchWith.REST;
+  }
+
+  console.log(
+    chalk.cyan(`Applying ${value === FetchWith.REST ? 'REST' : 'GraphQL'} fetch...`)
+  );
+
+  switch (value) {
+    case FetchWith.REST:
+      fs.unlinkSync(graphqlDsfFile);
+      fs.unlinkSync(graphqlLsfFile);
+      break;
+
+    case FetchWith.GRAPHQL:
+      fs.unlinkSync(defaultDsfFile);
+      fs.renameSync(graphqlDsfFile, defaultDsfFile);
+      fs.unlinkSync(defaultLsfFile);
+      fs.renameSync(graphqlLsfFile, defaultLsfFile);
+      break;
+  }
+}
+
+/**
+ * Sets the Next.js pre-rendering form for the optional catch-all route.
+ * @param {string} [prerender] {SSG|SSR} Default is SSG.
+ */
+function setPrerender(prerender) {
+  const defaultRouteFile = path.join(__dirname, 'src/pages/[[...path]].tsx');
+  const ssrRouteFile = path.join(__dirname, 'src/pages/[[...path]].SSR.tsx');
+  const sitemapFile = path.join(__dirname, 'src/lib/sitemap-fetcher.ts');
+  const Prerender = {
+    SSG: 'ssg',
+    SSR: 'ssr',
+  };
+  let value = prerender ? prerender.toLowerCase() : Prerender.SSG;
+
+  if (value !== Prerender.SSG && value !== Prerender.SSR) {
+    console.warn(chalk.yellow(`Unsupported prerender value '${prerender}'. Using default 'SSG'.`));
+    value = Prerender.SSG;
+  }
+
+  console.log(
+    chalk.cyan(`Applying ${value.toUpperCase()} prerender...`)
+  );
+
+  switch (value) {
+    case Prerender.SSG:
+      fs.unlinkSync(ssrRouteFile);
+      break;
+
+    case Prerender.SSR:
+      fs.unlinkSync(defaultRouteFile);
+      fs.renameSync(ssrRouteFile, defaultRouteFile);
+      fs.unlinkSync(sitemapFile);
+      break;
+  }
+}
