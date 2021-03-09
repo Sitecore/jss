@@ -233,7 +233,6 @@ export class GraphQLLayoutService implements LayoutService {
    * Fetch layout data for an item.
    * @param {string} itemPath
    * @param {string} [language]
-   * @param {string} [searchQuery] custom search query
    * @returns {Promise<LayoutServiceData>} layout service data
    */
   async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
