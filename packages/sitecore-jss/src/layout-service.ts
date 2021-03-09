@@ -68,6 +68,14 @@ export type GraphQLLayoutServiceConfig = {
    * The JSS application name
    */
   siteName: string;
+  /**
+   * Override default search query
+   * @param {string} siteName
+   * @param {string} itemPath
+   * @param {string} [locale]
+   * @returns {string} custom search query
+   */
+  formatSearchQuery?: (siteName: string, itemPath: string, locale?: string) => string;
 };
 
 interface FetchParams {
@@ -225,10 +233,13 @@ export class GraphQLLayoutService implements LayoutService {
    * Fetch layout data for an item.
    * @param {string} itemPath
    * @param {string} [language]
+   * @param {string} [searchQuery] custom search query
    * @returns {Promise<LayoutServiceData>} layout service data
    */
   async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
-    const query = this.getLayoutQuery(itemPath, language);
+    const query = this.serviceConfig.formatSearchQuery
+      ? this.serviceConfig.formatSearchQuery(this.serviceConfig.siteName, itemPath, language)
+      : this.getLayoutQuery(itemPath, language);
 
     const data = await this.createClient().request<{
       layout: { item: { rendered: LayoutServiceData } };

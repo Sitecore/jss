@@ -396,6 +396,59 @@ describe('LayoutService', () => {
       });
     });
 
+    it('should fetch layout data using custom search query', async () => {
+      nock('http://sctest')
+        .post('/graphql', (body) => {
+          return (
+            body.query.replace(/\n|\s/g, '') ===
+            'query{layout111(site:"supersite",routePath:"/styleguide",language:"en"){item{rendered}}}'
+          );
+        })
+        .reply(200, {
+          data: {
+            layout: {
+              item: {
+                rendered: {
+                  sitecore: {
+                    context: {
+                      pageEditing: false,
+                      site: { name: 'JssNextWeb' },
+                    },
+                    route: {
+                      name: 'styleguide',
+                      layoutId: 'xxx',
+                    },
+                  },
+                },
+              },
+            },
+          },
+        });
+
+      const service = new GraphQLLayoutService({
+        endpoint: 'http://sctest/graphql',
+        siteName: 'supersite',
+        formatSearchQuery: (siteName, itemPath, locale) =>
+          `query{layout111(site:"${siteName}",routePath:"${itemPath}",language:"${locale ||
+            'en'}"){item{rendered}}}`,
+      });
+
+      const data = await service.fetchLayoutData('/styleguide');
+
+      expect(data).to.deep.equal({
+        sitecore: {
+          context: {
+            pageEditing: false,
+            site: { name: 'JssNextWeb' },
+          },
+          route: {
+            name: 'styleguide',
+            layoutId: 'xxx',
+          },
+        },
+      });
+    });
+
     it('should return error', async () => {
       nock('http://sctest')
         .post('/graphql')
