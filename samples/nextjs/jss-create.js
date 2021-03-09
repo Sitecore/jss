@@ -43,24 +43,28 @@ function setFetchMode(fetchMode) {
   const graphqlDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.graphql.ts');
   const defaultLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.ts');
   const graphqlLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.graphql.ts');
-  let mode = fetchMode ? fetchMode.toLowerCase() : 'rest';
+  const FetchMode = {
+    REST: 'rest',
+    GRAPHQL: 'graphql',
+  };
+  let mode = fetchMode ? fetchMode.toLowerCase() : FetchMode.REST;
 
-  if (mode !== 'rest' && mode !== 'graphql') {
+  if (mode !== FetchMode.REST && mode !== FetchMode.GRAPHQL) {
     console.warn(chalk.yellow(`Unsupported fetchMode '${fetchMode}'. Using default 'REST'.`));
-    mode = 'rest';
+    mode = FetchMode.REST;
   }
 
   console.log(
-    chalk.cyan(`Applying ${mode === 'rest' ? 'REST' : 'GraphQL'} fetch mode...`)
+    chalk.cyan(`Applying ${mode === FetchMode.REST ? 'REST' : 'GraphQL'} fetch mode...`)
   );
 
   switch (mode) {
-    case 'rest':
+    case FetchMode.REST:
       fs.unlinkSync(graphqlDsfFile);
       fs.unlinkSync(graphqlLsfFile);
       break;
 
-    case 'graphql':
+    case FetchMode.GRAPHQL:
       fs.unlinkSync(defaultDsfFile);
       fs.renameSync(graphqlDsfFile, defaultDsfFile);
       fs.unlinkSync(defaultLsfFile);
@@ -77,11 +81,15 @@ function setRenderMode(renderMode) {
   const defaultRouteFile = path.join(__dirname, 'src/pages/[[...path]].tsx');
   const ssrRouteFile = path.join(__dirname, 'src/pages/[[...path]].SSR.tsx');
   const sitemapFile = path.join(__dirname, 'src/lib/sitemap-fetcher.ts');
-  let mode = renderMode ? renderMode.toLowerCase() : 'ssg';
+  const RenderMode = {
+    SSG: 'ssg',
+    SSR: 'ssr',
+  };
+  let mode = renderMode ? renderMode.toLowerCase() : RenderMode.SSG;
 
-  if (mode !== 'ssg' && mode !== 'ssr') {
+  if (mode !== RenderMode.SSG && mode !== RenderMode.SSR) {
     console.warn(chalk.yellow(`Unsupported renderMode '${renderMode}'. Using default 'SSG'.`));
-    mode = 'ssg';
+    mode = RenderMode.SSG;
   }
 
   console.log(
@@ -89,11 +97,11 @@ function setRenderMode(renderMode) {
   );
 
   switch (mode) {
-    case 'ssg':
+    case RenderMode.SSG:
       fs.unlinkSync(ssrRouteFile);
       break;
 
-    case 'ssr':
+    case RenderMode.SSR:
       fs.unlinkSync(defaultRouteFile);
       fs.renameSync(ssrRouteFile, defaultRouteFile);
       fs.unlinkSync(sitemapFile);
