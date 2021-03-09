@@ -84,10 +84,10 @@ export default {
           url: 'switching-to-ssr',
           displayName: 'Switching to SSR',
         },
-        //{
-        //  url: 'error-routes',
-        //  displayName: 'Error Routes',
-        //},
+        {
+         url: 'error-pages',
+         displayName: 'Error Pages',
+        },
       ],
     },
     {
