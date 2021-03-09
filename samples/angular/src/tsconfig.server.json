@@ -15,14 +15,6 @@
     "main.server.ts",
     "../server.bundle.ts"
   ],
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts",
-    "**/*.sitecore.ts",
-    "./main.ts",
-    "./polyfills.ts",
-    "./environments/environment.prod.ts"
-  ],
   "angularCompilerOptions": {
     "entryModule": "app/app.server.module#AppServerModule"
   }
