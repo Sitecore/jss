@@ -59,7 +59,7 @@ The *[Page Props Factory] (https://github.com/Sitecore/jss/blob/master/samples/n
 
 ### Maintaining Editing Data between requests
 
-You may have noticed that the bottom half of the diagram is dedicated to what amounts to storage and retrieval of the editing data. **Why not just pass this along directly from the [Render API Route](#render-api-route) to the [Page Route](#page-route) as preview data**?
+You may have noticed that the bottom half of the diagram is dedicated to what amounts to storage and retrieval of editing data. **Why not just pass this along directly from the [Render API Route](#render-api-route) to the [Page Route](#page-route) as preview data**?
 
 The reason is twofold:
 1. Since Next.js stores preview data in a cookie, Next.js Preview Mode has a [size limitation of 2KB for preview data](https://nextjs.org/docs/advanced-features/preview-mode#previewdata-size-limits). Our editing data exceeds this limit. Thus we need another storage solution.
