@@ -34,10 +34,10 @@ export default {
       url: 'experience-editor',
       displayName: 'Experience Editor',
       children: [
-        //{
-        //  url: 'architecture',
-        //  displayName: 'Integration architecture and APIs',
-        //},
+        {
+          url: 'architecture',
+          displayName: 'Integration architecture and APIs',
+        },
         {
           url: 'walkthrough',
           displayName: 'Connect to the Experience Editor',
