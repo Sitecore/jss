@@ -1,7 +1,8 @@
 import * as dataApi from './dataApi';
 import * as mediaApi from './mediaApi';
+import * as util from './util';
 
-export { dataApi, mediaApi };
+export { dataApi, mediaApi, util };
 
 export { GraphQLRequestClient } from './graphql-request-client';
 
@@ -21,10 +22,14 @@ export {
 export {
   DictionaryService,
   RestDictionaryService,
-  RestDictionaryServiceConfig,
+  DictionaryServiceConfig,
 } from './dictionary-service';
 
-export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
+// Exporting individual functions from util for backwards compatibility with v16 and lower. Should move all samples to using 'util' alias in the future.
+const { isExperienceEditorActive, isServer, resetExperienceEditorChromes } = util;
+export { isExperienceEditorActive, isServer, resetExperienceEditorChromes };
+const { getFieldValue, getChildPlaceholder } = util.layoutData;
+export { getFieldValue, getChildPlaceholder };
 
 export {
   DictionaryPhrases,
@@ -43,7 +48,5 @@ export {
   ComponentFields,
   ComponentParams,
 } from './dataModels';
-
-export { getFieldValue, getChildPlaceholder } from './layoutDataUtils';
 
 export { HttpJsonFetcher, HttpResponse } from './httpClientInterface';

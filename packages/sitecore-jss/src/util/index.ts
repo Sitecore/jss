@@ -1,4 +1,5 @@
-import * as routing from './utils/routingUtils';
+import * as routing from './routingUtils';
+import * as layoutData from './layoutDataUtils';
 
 export const isServer = (): boolean => !(typeof window !== 'undefined' && window.document);
 
@@ -18,4 +19,4 @@ export const resetExperienceEditorChromes = (): void => {
   }
 };
 
-export { routing };
+export { routing, layoutData };

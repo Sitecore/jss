@@ -1,5 +1,6 @@
 import { LayoutServiceData, PlaceholderData } from './dataModels';
 import { HttpJsonFetcher, HttpResponse } from './httpClientInterface';
+import { getQueryString } from './util/routingUtils';
 
 class ResponseError extends Error {
   response: HttpResponse<unknown>;
@@ -23,8 +24,6 @@ function checkStatus<T>(response: HttpResponse<T>) {
   const error = new ResponseError(response.statusText, response);
   throw error;
 }
-
-
 
 /**
  * @param {string} url
