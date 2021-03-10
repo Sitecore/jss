@@ -26,14 +26,14 @@
     "jss": "jss",
     "start": "npm-run-all --serial bootstrap:disconnected --parallel start:angular start:proxy start:watch-components",
     "start:connected": "scjss-verify-setup && npm-run-all --serial bootstrap:connected start:angular start:watch-components",
-    "build": "npm-run-all --serial bootstrap:connected --serial build:client build:server --serial build:server-wrapper",
+    "build": "npm-run-all --serial bootstrap:connected --serial build:client build:server",
     "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component",
     "start:angular": "ng serve -o --base-href=/ --source-map=false",
     "start:proxy": "ts-node --project src/tsconfig.webpack-server.json scripts/disconnected-mode-proxy.ts",
     "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory.ts --watch",
     "build:client": "cross-env-shell ng build --prod --deploy-url $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
     "build:server": "cross-env-shell ng run JssAngularWeb:server:production --output-path=$npm_package_config_buildArtifactsPath/server --output-hashing=none --bundleDependencies true",
-    "build:server-wrapper": "cross-env-shell webpack --config webpack.server.config.js --progress --colors --output-path $npm_package_config_buildArtifactsPath",
+    "postbuild:server": "move-cli ./dist/server/main.js ./dist/server.bundle.js && del-cli ./dist/server",
     "bootstrap:connected": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
     "bootstrap:disconnected": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts --disconnected",
     "graphql:update": "ts-node --project src/tsconfig.webpack-server.json ./scripts/update-graphql-fragment-data.ts"
@@ -107,6 +107,7 @@
     "codelyzer": "~5.1.2",
     "cookie-parser": "~1.4.4",
     "cross-env": "~6.0.2",
+    "del-cli": "^3.0.1",
     "enhanced-resolve": "4.1.0",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "2.22.1",
@@ -123,12 +124,12 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "~1.4.2",
+    "move-cli": "^1.2.1",
     "npm-run-all": "~4.1.5",
     "protractor": "^7.0.0",
     "ts-loader": "~6.2.0",
     "ts-node": "~8.4.1",
     "typescript": "~3.9.7",
-    "webpack-cli": "~3.3.9",
     "yaml-lint": "^1.2.4"
   }
 }
