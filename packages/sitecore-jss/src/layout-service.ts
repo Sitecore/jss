@@ -69,13 +69,17 @@ export type GraphQLLayoutServiceConfig = {
    */
   siteName: string;
   /**
-   * Override default search query
+   * Override default layout query
    * @param {string} siteName
    * @param {string} itemPath
    * @param {string} [locale]
-   * @returns {string} custom search query
+   * @returns {string} custom layout query
+   *
+   * @default
+   * Layout query
+   * layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
    */
-  formatSearchQuery?: (siteName: string, itemPath: string, locale?: string) => string;
+  formatLayoutQuery?: (siteName: string, itemPath: string, locale?: string) => string;
 };
 
 interface FetchParams {
@@ -236,9 +240,7 @@ export class GraphQLLayoutService implements LayoutService {
    * @returns {Promise<LayoutServiceData>} layout service data
    */
   async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
-    const query = this.serviceConfig.formatSearchQuery
-      ? this.serviceConfig.formatSearchQuery(this.serviceConfig.siteName, itemPath, language)
-      : this.getLayoutQuery(itemPath, language);
+    const query = this.getLayoutQuery(itemPath, language);
 
     const data = await this.createClient().request<{
       layout: { item: { rendered: LayoutServiceData } };
@@ -264,8 +266,12 @@ export class GraphQLLayoutService implements LayoutService {
   private getLayoutQuery(itemPath: string, language?: string) {
     const languageVariable = language ? `, language:"${language}"` : '';
 
+    const layoutQuery = this.serviceConfig.formatLayoutQuery
+      ? this.serviceConfig.formatLayoutQuery(this.serviceConfig.siteName, itemPath, language)
+      : `layout(site:"${this.serviceConfig.siteName}", routePath:"${itemPath}"${languageVariable})`;
+
     return `query {
-      layout(site:"${this.serviceConfig.siteName}", routePath:"${itemPath}"${languageVariable}) {
+      ${layoutQuery}{
         item {
           rendered
         }

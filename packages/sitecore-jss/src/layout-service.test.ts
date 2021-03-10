@@ -396,12 +396,12 @@ describe('LayoutService', () => {
       });
     });
 
-    it('should fetch layout data using custom search query', async () => {
+    it('should fetch layout data using custom layout query', async () => {
       nock('http://sctest')
         .post('/graphql', (body) => {
           return (
             body.query.replace(/\n|\s/g, '') ===
-            'query{layout111(site:"supersite",routePath:"/styleguide",language:"en"){item{rendered}}}'
+            'query{layout111(site:"supersite",route:"/styleguide",language:"en"){item{rendered}}}'
           );
         })
         .reply(200, {
@@ -428,9 +428,8 @@ describe('LayoutService', () => {
       const service = new GraphQLLayoutService({
         endpoint: 'http://sctest/graphql',
         siteName: 'supersite',
-        formatSearchQuery: (siteName, itemPath, locale) =>
-          `query{layout111(site:"${siteName}",routePath:"${itemPath}",language:"${locale ||
-            'en'}"){item{rendered}}}`,
+        formatLayoutQuery: (siteName, itemPath, locale) =>
+          `layout111(site:"${siteName}",route:"${itemPath}",language:"${locale || 'en'}")`,
       });
 
       const data = await service.fetchLayoutData('/styleguide');
