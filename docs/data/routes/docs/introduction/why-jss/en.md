@@ -15,7 +15,13 @@ After components are assembled, Content Authors can apply Sitecore-specific feat
 ![Authoring example](/assets/img/authoring-example.png)
 
 ## What is JSS
-Initially, the only choice for implementing Sitecore was to use .NET. But in the past few years, JavaScript experienced a huge spike in popularity, and companies realized that [Jamstack](https://jamstack.org/) architecture is very beneficial. Sitecore recognizes the popularity of JavaScript frameworks and the benefits of building with Jamstack architecture. The primary goal of Sitecore JSS is to add first-class support for JavaScript as an implementation option for Sitecore-powered web apps.
+Initially, the only choice for implementing Sitecore was to use .NET. But in the past few years, JavaScript experienced a huge spike in popularity, and companies realized that [Jamstack](https://jamstack.org/) architecture is very beneficial. Sitecore recognizes the popularity of JavaScript frameworks and the benefits of building with Jamstack architecture. 
+
+<p>
+  <iframe width="672" height="378" src="https://www.youtube.com/embed/mBOPr4djFMg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+The primary goal of Sitecore JSS is to add first-class support for JavaScript as an implementation option for Sitecore-powered web apps.
 
 JSS is a set of npm packages:
 1. Core packages that abstract away the "Sitecore stuff" like talking to different Sitecore APIs,
