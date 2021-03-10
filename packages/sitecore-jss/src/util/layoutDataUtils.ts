@@ -1,4 +1,4 @@
-import { ComponentRendering, Field, HtmlElementRendering, Item } from '../dataModels';
+import { ComponentRendering, Field, HtmlElementRendering, Item } from '../data-models';
 
 type Fields = { [name: string]: Field | Item[] };
 

@@ -1,12 +1,12 @@
-import * as dataApi from './dataApi';
-import * as mediaApi from './mediaApi';
+import * as dataApi from './data-api';
+import * as mediaApi from './media-api';
 import * as util from './util';
 
 export { dataApi, mediaApi, util };
 
 export { GraphQLRequestClient } from './graphql-request-client';
 
-export { LayoutServiceRequestOptions } from './dataApi';
+export { LayoutServiceRequestOptions } from './data-api';
 
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
 
@@ -47,6 +47,6 @@ export {
   PlaceholdersData,
   ComponentFields,
   ComponentParams,
-} from './dataModels';
+} from './data-models';
 
-export { HttpJsonFetcher, HttpResponse } from './httpClientInterface';
+export { HttpJsonFetcher, HttpResponse } from './http-request-client';

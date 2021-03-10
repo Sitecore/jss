@@ -1,8 +1,9 @@
 import mcache from 'memory-cache';
 import { AxiosDataFetcher } from './data-fetcher';
-import { fetchData } from './dataApi';
-import { DictionaryPhrases, DictionaryServiceData } from './dataModels';
-import { HttpJsonFetcher } from './httpClientInterface';
+import { fetchData } from './data-api';
+import { DictionaryPhrases, DictionaryServiceData } from './data-models';
+import { HttpJsonFetcher } from './http-request-client';
+import { GraphQLRequestClient } from './graphql-request-client';
 
 export interface DictionaryService {
   /**

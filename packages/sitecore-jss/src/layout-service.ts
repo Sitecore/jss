@@ -1,10 +1,12 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
-import { LayoutServiceData, PlaceholderData } from './dataModels';
-import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './dataApi';
-import { HttpJsonFetcher } from './httpClientInterface';
+import { LayoutServiceData, PlaceholderData } from './data-models';
+import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './data-api';
+import { HttpJsonFetcher } from './http-request-client';
 import { GraphQLRequestClient } from './graphql-request-client';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { IncomingMessage, ServerResponse } from 'http';
 
 export interface LayoutService {
   /**
@@ -100,7 +102,7 @@ interface FetchOptions {
  * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
  */
 export class RestLayoutService implements LayoutService {
-  constructor(private serviceConfig: RestLayoutServiceConfig) {}
+  constructor(private serviceConfig: RestLayoutServiceConfig) { }
 
   /**
    * Fetch layout data for an item.
@@ -231,7 +233,7 @@ export class GraphQLLayoutService implements LayoutService {
    * Fetch layout data using the Sitecore GraphQL endpoint.
    * @param {GraphQLLayoutServiceConfig} serviceConfig
    */
-  constructor(private serviceConfig: GraphQLLayoutServiceConfig) {}
+  constructor(private serviceConfig: GraphQLLayoutServiceConfig) { }
 
   /**
    * Fetch layout data for an item.

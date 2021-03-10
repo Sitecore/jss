@@ -5,7 +5,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { expect } from 'chai';
 import { fetchPlaceholderData, fetchRouteData } from './dataApi';
-import { HttpJsonFetcher } from './httpClientInterface';
+import { HttpJsonFetcher } from './http-request-client';
 
 // note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
 // which is necessary for analytics and such
