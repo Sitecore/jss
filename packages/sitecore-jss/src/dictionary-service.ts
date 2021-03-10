@@ -12,19 +12,14 @@ export interface DictionaryService {
   fetchDictionaryData(language: string): Promise<DictionaryPhrases>;
 }
 
-export type RestDictionaryServiceConfig = {
+export type DictionaryServiceConfig = {
+
   /**
-   * Your Sitecore instance hostname that is the backend for JSS
+   * Gets the endpoint URL for the dictionary service for the specified language.
+   * @param language - The language of the current app context.
+   * @returns the endpoint URL for the dictionary service
    */
-  apiHost: string;
-  /**
-   * The Sitecore SSC API key your app uses
-   */
-  apiKey: string;
-  /**
-   * The JSS application name
-   */
-  siteName: string;
+  getUrl(language: string): string;
   /**
    * Custom data fetcher
    * @see HttpJsonFetcher<T>
@@ -49,7 +44,7 @@ export type RestDictionaryServiceConfig = {
 export class RestDictionaryService implements DictionaryService {
   STD_TTL = 60;
 
-  constructor(private dictionaryServiceConfig: RestDictionaryServiceConfig) {}
+  constructor(private dictionaryServiceConfig: DictionaryServiceConfig) { }
 
   /**
    * Fetch dictionary data for a language.
@@ -57,15 +52,15 @@ export class RestDictionaryService implements DictionaryService {
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
     const {
+      getUrl,
       dataFetcher,
-      apiKey,
       cacheTimeout = this.STD_TTL,
       cacheEnabled = true,
     } = this.dictionaryServiceConfig;
 
     const fetcher = dataFetcher || this.getDefaultFetcher();
 
-    const dictionaryServiceUrl = this.getUrl(language);
+    const dictionaryServiceUrl = getUrl(language);
 
     if (cacheEnabled) {
       const cachedBody = mcache.get(dictionaryServiceUrl) as DictionaryPhrases;
@@ -75,25 +70,13 @@ export class RestDictionaryService implements DictionaryService {
       }
     }
 
-    const response = await fetchData<DictionaryServiceData>(dictionaryServiceUrl, fetcher, {
-      sc_apikey: apiKey,
-    });
+    const response = await fetchData<DictionaryServiceData>(dictionaryServiceUrl, fetcher);
 
     if (cacheEnabled) {
       mcache.put(dictionaryServiceUrl, response.phrases, cacheTimeout);
     }
 
     return response.phrases;
-  }
-
-  /**
-   * Generate dictionary service url
-   * @param {string} language
-   */
-  private getUrl(language: string) {
-    const { apiHost, siteName } = this.dictionaryServiceConfig;
-
-    return `${apiHost}/sitecore/api/jss/dictionary/${siteName}/${language}`;
   }
 
   /**

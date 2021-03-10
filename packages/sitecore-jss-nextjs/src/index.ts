@@ -1,3 +1,7 @@
+export { handleExperienceEditorFastRefresh } from './utils';
+
+export { util } from '@sitecore-jss/sitecore-jss';
+
 export {
   dataApi,
   mediaApi,
@@ -14,7 +18,7 @@ export {
   DictionaryServiceData,
   DictionaryService,
   RestDictionaryService,
-  RestDictionaryServiceConfig,
+  DictionaryServiceConfig,
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,
@@ -61,8 +65,6 @@ export {
   ComponentPropsContext,
   useComponentProps,
 } from './components/ComponentPropsContext';
-
-export { handleExperienceEditorFastRefresh } from './utils';
 
 export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
 export {
