@@ -9,6 +9,10 @@ title: Why Next.js and JSS
 
 The latest JSS SDK leverages many of Next.js' [features](https://nextjs.org/#features), to simplify and enhance development workflow and experience. 
 
+<p>
+<iframe width="672" height="378" src="https://www.youtube.com/embed/CfoOKlKjzfA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
 ## Improvements over previous JSS SDKs
 
 * Development and production runtime parity, including SSR during development.
