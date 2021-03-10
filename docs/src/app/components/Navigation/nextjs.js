@@ -110,6 +110,10 @@ export default {
           url: 'component-level-data-fetching',
           displayName: 'Component-level data fetching',
         },
+        {
+          url: 'switching-fetch-method',
+          displayName: 'Switching between REST and GraphQL',
+        }
       ],
     },
     {

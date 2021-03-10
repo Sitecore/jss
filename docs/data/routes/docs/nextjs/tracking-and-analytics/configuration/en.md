@@ -21,7 +21,7 @@ You must use a Next.js SSR page route. You can choose the initial pre-rendering 
 jss create my-first-jss-app nextjs --prerender SSR
 ```
 
-You can also switch the `[[..path]].tsx` route from SSG to SSR. See [this page](/docs/nextjs/page-routing/switching-to-ssr) for details.
+You can also [switch the `[[..path]].tsx` route from SSG to SSR](/docs/nextjs/page-routing/switching-to-ssr).
 
 ### Layout Service requests
 

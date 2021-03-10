@@ -25,7 +25,7 @@ The JSS Next.js sample application includes usage examples for both data fetchin
 > You can choose the initial `[[..path]].tsx` pre-rendering form on create with the optional `prerender` parameter. SSG is used by default if you omit the parameter. For example, [with `jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate):
 >
 > ```
-> jss create my-first-jss-app nextjs [--prerender {SSG|SSR}]
+> jss create my-first-jss-app nextjs --prerender {SSG|SSR}
 > ```
 
 In the preceding examples, the implementations of `GetStaticProps`  and   `GetServerSideProps` leverage the `SitecorePagePropsFactory`. See the `SitecorePagePropsFactory` definition in [`src/lib/page-props-factory.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/page-props-factory.ts).
@@ -53,8 +53,10 @@ To prepare the page `props`, the `SitecorePagePropsFactory` uses the [Layout Ser
 > You can choose the initial dictionary and layout data fetch method on create with the optional `fetchWith` parameter. REST is used by default if you omit the parameter. For example, [with `jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate):
 >
 > ```
-> jss create my-first-jss-app nextjs [--fetchWith {REST|GraphQL}]
+> jss create my-first-jss-app nextjs --fetchWith {REST|GraphQL}
 > ```
+> 
+> You can also [switch the fetch method](/docs/nextjs/data-fetching/switching-fetch-method).
 
 > If you need additional data for every page, you should fetch it inside the `SitecorePagePropsFactory` and return it together with the other properties.
 
