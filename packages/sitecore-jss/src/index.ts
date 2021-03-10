@@ -8,7 +8,7 @@ export { GraphQLRequestClient } from './graphql-request-client';
 
 export { LayoutServiceRequestOptions } from './data-api';
 
-export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
+export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 
 export {
   LayoutService,

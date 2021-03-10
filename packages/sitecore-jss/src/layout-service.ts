@@ -1,6 +1,4 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { IncomingMessage, ServerResponse } from 'http';
-import { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
+import { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 import { LayoutServiceData, PlaceholderData } from './data-models';
 import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './data-api';
 import { HttpJsonFetcher } from './http-request-client';

@@ -1,5 +1,5 @@
 import mcache from 'memory-cache';
-import { AxiosDataFetcher } from './data-fetcher';
+import { AxiosDataFetcher } from './axios-fetcher';
 import { fetchData } from './data-api';
 import { DictionaryPhrases, DictionaryServiceData } from './data-models';
 import { HttpJsonFetcher } from './http-request-client';
