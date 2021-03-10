@@ -5,9 +5,7 @@ title: getStaticPaths and the Sitemap Service
 ---
 # getStaticPaths and the Sitemap Service
 
-
-
-Next.js provides the ability to generate pages with dynamic routes. 
+Next.js provides the ability to generate static pages with dynamic routes. 
 
 If a page has [dynamic routes](https://nextjs.org/docs/routing/dynamic-routes) and uses [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation), you can define a list of paths that you want pre-render to HTML at build time.
 

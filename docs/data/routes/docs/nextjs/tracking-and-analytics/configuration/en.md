@@ -9,17 +9,31 @@ This topic will guide you through the steps required to enable full Sitecore tra
 
 > See [Sitecore Experience Platform documentation](https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/web-tracking.html) for more information about tracking and analytics.
 
-Note this is different than *client-side tracking* via the JSS tracking API, which is possible for *both Static Site Generation (SSG) and Server-side Rendering (SSR)*. Please see the [JSS Tracking](/docs/fundamentals/services/tracking) page for details.
+> Note this is different than *client-side tracking* via the JSS tracking API, which is possible for *both Static Site Generation (SSG) and Server-side Rendering (SSR)*. Please see the [JSS Tracking](/docs/fundamentals/services/tracking) page for details.
 
 ## Next.js application
 
 ### SSR only
 
-You must use a Next.js SSR page route. An example SSR route is included with the Next.js sample app. See [this page](/docs/nextjs/page-routing/switching-to-ssr) for details.
+You must use a Next.js SSR page route. You can choose the initial pre-rendering form of `[[..path]].tsx` on create with the optional `prerender` parameter. SSG is used by default if you omit the parameter. For example, [with `jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate):
+
+```
+jss create my-first-jss-app nextjs --prerender SSR
+```
+
+You can also switch the `[[..path]].tsx` route from SSG to SSR. See [this page](/docs/nextjs/page-routing/switching-to-ssr) for details.
 
 ### Layout Service requests
 
-[Sitecore Layout Service](/docs/fundamentals/services/layout-service) requests must:
+You must use the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout-service). You can choose the initial fetch method on create with the optional `fetchWith` parameter. REST is used by default if you omit the parameter. For example, [with `jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate):
+
+```
+jss create my-first-jss-app nextjs --fetchWith REST
+```
+
+> Tracking and Analytics is currently not supported with the Sitecore GraphQL "Edge" schema.
+
+Sitecore Layout Service requests must:
 
 1. have tracking enabled (see [`tracking` parameter](/docs/fundamentals/services/layout-service#using-the-layout-service)), and
 2. perform [header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing)

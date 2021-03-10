@@ -39,7 +39,7 @@ To create a JSS application, you must:
 3. Run:
 
    ```
-    jss create my-first-jss-app nextjs [--fetchWith {REST/GraphQL}] [--prerender {SSG/SSR}]
+    jss create my-first-jss-app nextjs [--fetchWith {REST|GraphQL}] [--prerender {SSG|SSR}]
    ```
 
    The command will create the JSS Next.js application and install the required packages. 

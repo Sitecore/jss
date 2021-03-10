@@ -9,6 +9,7 @@ You can serve your JSS Next.js application as static HTML files using any static
 
 > Static HTML export does not support: 
 >
+> * Server-side Rendered (SSR) pages (using `getServerSideProps`).
 > * Internationalized routing.
 > * Request rewrites.
 > * Visitor identification. 

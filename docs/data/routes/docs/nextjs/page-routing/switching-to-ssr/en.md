@@ -7,13 +7,11 @@ title: Switching between SSG and SSR
 
 The Next.js sample application `[[..path]].tsx` route can be optimized for either Static Site Generation (SSG) or Server-Side Rendering (SSR).
 
-You can choose the initial pre-rendering form on `jss create` with the optional `--prerender` parameter:
+You can choose the initial pre-rendering form on create with the optional `prerender` parameter. SSG is used by default if you omit the parameter. For example, [with `jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate):
 
 ```
 jss create my-first-jss-app nextjs [--prerender {SSG|SSR}]
 ```
-
-**SSG is used by default** if you omit the parameter.
 
 However, you may wish to switch the pre-rendering form after creation or reference both for Next.js hybrid (both SSR & SSG) applications.
 

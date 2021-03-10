@@ -13,14 +13,20 @@ JSS Next.js applications support both forms of pre-rendering provided by Next.js
 
 Next.js uses different data fetching strategies for each pre-rendering form. 
 
+>  See the Next.js documentation on [Data Fetching](https://nextjs.org/docs/basic-features/data-fetching) for more information about Next.js data fetching functions, and the `context` argument.
+
 ## JSS Next.js data fetching
 
 The JSS Next.js sample application includes usage examples for both data fetching strategies available in Next.js, as follows: 
 
-* `src/pages/[[path]].tsx` implements `GetStaticPaths` and `GetStaticProps` (SSG).
-* `src/page_examples/[[path]].SSR.tsx` implements `GetServerSideProps` (SSR).
+* [`src/pages/[[..path]].tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B%2E%2E%2Epath%5D%5D.tsx) implements `GetStaticPaths` and `GetStaticProps` (SSG).
+* [`src/pages/[[..path]].SSR.tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B%2E%2E%2Epath%5D%5D.SSR.tsx) implements `GetServerSideProps` (SSR).
 
->  See the Next.js documentation on [Data Fetching](https://nextjs.org/docs/basic-features/data-fetching) for more information about Next.js data fetching functions, and the `context` argument.
+> You can choose the initial `[[..path]].tsx` pre-rendering form on create with the optional `prerender` parameter. SSG is used by default if you omit the parameter. For example, [with `jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate):
+>
+> ```
+> jss create my-first-jss-app nextjs [--prerender {SSG|SSR}]
+> ```
 
 In the preceding examples, the implementations of `GetStaticProps`  and   `GetServerSideProps` leverage the `SitecorePagePropsFactory`. See the `SitecorePagePropsFactory` definition in [`src/lib/page-props-factory.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/page-props-factory.ts).
 
@@ -42,11 +48,15 @@ export type SitecorePageProps = {
 
 ## Page `props`
 
-To prepare the page `props`, the `SitecorePagePropsFactory` uses the [Layout Service](/docs/fundamentals/services/layout-service).and the [Dictionary Service](/docs/fundamentals/services/dictionary-service). 
+To prepare the page `props`, the `SitecorePagePropsFactory` uses the [Layout Service API](/docs/fundamentals/services/layout-service) and the [Dictionary Service API](/docs/fundamentals/services/dictionary-service). You may use either the REST-based or GraphQL-based dictionary and layout services depending on requirements.
+
+> You can choose the initial dictionary and layout data fetch method on create with the optional `fetchWith` parameter. REST is used by default if you omit the parameter. For example, [with `jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate):
+>
+> ```
+> jss create my-first-jss-app nextjs [--fetchWith {REST|GraphQL}]
+> ```
 
 > If you need additional data for every page, you should fetch it inside the `SitecorePagePropsFactory` and return it together with the other properties.
-
-> We are currently using standard REST-based dictionary and layout services. For Sitecore Experience Edge, we will soon provide GraphQL-based implementations.
 
 ### locale
 
@@ -54,11 +64,13 @@ The factory retrieves the `context` locale as configured in the `i18n` entry of 
 
 ### layoutData
 
-The `layoutData` prop stores `LayoutServiceData` from the Sitecore Layout Service provided by a `RestLayoutService` instance. The `RestLayoutServices` fetches `LayoutServiceData` using the Sitecore Layout Service REST API using Axios as the default data fetcher. In SSR mode, it will set up the required request and response `headers` using the attributes `context.req` and `context.res` to provide the ability to use [Sitecore Tracking & Analytics](/docs/nextjs/tracking-and-analytics/overview).
+The `layoutData` prop stores `LayoutServiceData` from either the Sitecore Layout Service REST API (`RestLayoutService`) or the Sitecore GraphQL "Edge" schema (`GraphQLLayoutService`). See [Layout Service API reference](/docs/fundamentals/services/layout-service) for more information.
+
+In SSR context, it will send the `context.req` and `context.res` to provide the ability to use [Sitecore Tracking & Analytics](/docs/nextjs/tracking-and-analytics/overview).
 
 ### dictionary
 
-The `dictionary` prop contains `DictionaryPhrases` from the Sitecore Dictionary Service. A `RestDictionaryService` instance fetches dictionary data for the given language using the Sitecore Dictionary Service REST API. The `RestDictionaryService` uses Axios as the default data fetcher. By default, `caching` is enabled, and the `cacheTimeout` is 60 sec. You can disable/enable caching using the `cacheEnabled` property, and you can customize cache timeout using the `cacheTimeout` property.
+The `dictionary` prop contains `DictionaryPhrases` from either the Sitecore Dictionary Service REST API (`RestDictionaryService`) or the Sitecore GraphQL "Edge" schema (`GraphQLDictionaryService`). See [Dictionary Service API reference](/docs/fundamentals/services/dictionary-service) for more information.
 
 ### componentProps
 
@@ -72,4 +84,4 @@ If the Layout Service returns a `404` status for our page route, it will update 
 
 ## Experience Editor (Next.js Preview Context)
 
-While working in the Experience Editor, the sample Next.js application is in [preview](https://nextjs.org/docs/advanced-features/preview-mode)  mode. The `SitecorePagePropsFactory` uses the `editingDataService`. The service uses `layoutData`,  `dictionary`, and `language` data sent with the editing request in `context.previewData`.
+While working in the Experience Editor, the sample Next.js application is in [preview mode](https://nextjs.org/docs/advanced-features/preview-mode). In this case the `SitecorePagePropsFactory` uses the `editingDataService` to retrieve `layoutData`, `dictionary`, and `language` data sent with the editing request. See [Experience Editor Integration Architecture](/docs/nextjs/experience-editor/architecture) for more information.
