@@ -49,4 +49,4 @@ export {
   ComponentParams,
 } from './data-models';
 
-export { HttpJsonFetcher, HttpResponse } from './http-request-client';
+export { HttpJsonFetcher, HttpResponse } from './data-fetcher';

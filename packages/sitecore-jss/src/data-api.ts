@@ -1,5 +1,5 @@
 import { LayoutServiceData, PlaceholderData } from './data-models';
-import { HttpJsonFetcher, HttpResponse } from './http-request-client';
+import { HttpJsonFetcher, HttpResponse } from './data-fetcher';
 import { getQueryString } from './util/routing-utils';
 
 class ResponseError extends Error {
