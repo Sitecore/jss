@@ -1,9 +1,10 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { IncomingMessage, ServerResponse } from 'http';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
 import { LayoutServiceData, PlaceholderData } from './dataModels';
 import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './dataApi';
 import { HttpJsonFetcher } from './httpClientInterface';
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { IncomingMessage, ServerResponse } from 'http';
+import { GraphQLRequestClient } from './graphql-request-client';
 
 export interface LayoutService {
   /**
@@ -56,6 +57,29 @@ export type RestLayoutServiceConfig = {
    * @param {ServerResponse} [res] Response instance
    */
   dataFetcherResolver?: DataFetcherResolver;
+};
+
+export type GraphQLLayoutServiceConfig = {
+  /**
+   * Your Graphql endpoint
+   */
+  endpoint: string;
+  /**
+   * The JSS application name
+   */
+  siteName: string;
+  /**
+   * Override default layout query
+   * @param {string} siteName
+   * @param {string} itemPath
+   * @param {string} [locale]
+   * @returns {string} custom layout query
+   *
+   * @default
+   * Layout query
+   * layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
+   */
+  formatLayoutQuery?: (siteName: string, itemPath: string, locale?: string) => string;
 };
 
 interface FetchParams {
@@ -199,5 +223,59 @@ export class RestLayoutService implements LayoutService {
         res.setHeader('set-cookie', serverRes.headers['set-cookie']);
       return serverRes;
     };
+  }
+}
+
+export class GraphQLLayoutService implements LayoutService {
+  /**
+   * Fetch layout data using the Sitecore GraphQL endpoint.
+   * @param {GraphQLLayoutServiceConfig} serviceConfig
+   */
+  constructor(private serviceConfig: GraphQLLayoutServiceConfig) {}
+
+  /**
+   * Fetch layout data for an item.
+   * @param {string} itemPath
+   * @param {string} [language]
+   * @returns {Promise<LayoutServiceData>} layout service data
+   */
+  async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
+    const query = this.getLayoutQuery(itemPath, language);
+
+    const data = await this.createClient().request<{
+      layout: { item: { rendered: LayoutServiceData } };
+    }>(query);
+
+    return data?.layout.item.rendered;
+  }
+
+  /**
+   * Returns new graphql client instance
+   */
+  private createClient(): GraphQLRequestClient {
+    const { endpoint } = this.serviceConfig;
+
+    return new GraphQLRequestClient(endpoint);
+  }
+
+  /**
+   * Returns GraphQL Layout query
+   * @param {string} itemPath page route
+   * @param {string} [language] language
+   */
+  private getLayoutQuery(itemPath: string, language?: string) {
+    const languageVariable = language ? `, language:"${language}"` : '';
+
+    const layoutQuery = this.serviceConfig.formatLayoutQuery
+      ? this.serviceConfig.formatLayoutQuery(this.serviceConfig.siteName, itemPath, language)
+      : `layout(site:"${this.serviceConfig.siteName}", routePath:"${itemPath}"${languageVariable})`;
+
+    return `query {
+      ${layoutQuery}{
+        item {
+          rendered
+        }
+      }
+    }`;
   }
 }
