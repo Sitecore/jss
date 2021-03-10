@@ -3,7 +3,6 @@ import { AxiosDataFetcher } from './data-fetcher';
 import { fetchData } from './data-api';
 import { DictionaryPhrases, DictionaryServiceData } from './data-models';
 import { HttpJsonFetcher } from './http-request-client';
-import { GraphQLRequestClient } from './graphql-request-client';
 
 export interface DictionaryService {
   /**
@@ -14,7 +13,6 @@ export interface DictionaryService {
 }
 
 export type DictionaryServiceConfig = {
-
   /**
    * Gets the endpoint URL for the dictionary service for the specified language.
    * @param language - The language of the current app context.

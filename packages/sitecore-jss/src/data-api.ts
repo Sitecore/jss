@@ -1,6 +1,6 @@
 import { LayoutServiceData, PlaceholderData } from './data-models';
 import { HttpJsonFetcher, HttpResponse } from './http-request-client';
-import { getQueryString } from './util/routingUtils';
+import { getQueryString } from './util/routing-utils';
 
 class ResponseError extends Error {
   response: HttpResponse<unknown>;
