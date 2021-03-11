@@ -1,6 +1,5 @@
 import chalk from 'chalk';
-import { util } from '@sitecore-jss/sitecore-jss/';
-const { isExperienceEditorActive, resetExperienceEditorChromes } = util;
+import { isExperienceEditorActive, resetExperienceEditorChromes } from '@sitecore-jss/sitecore-jss';
 
 export const getPublicUrl = (): string => {
   let url = process.env.PUBLIC_URL;

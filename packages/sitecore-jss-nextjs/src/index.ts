@@ -1,7 +1,3 @@
-export { handleExperienceEditorFastRefresh } from './utils';
-
-export { util } from '@sitecore-jss/sitecore-jss';
-
 export {
   // generic data access
   HttpDataFetcher,
@@ -74,6 +70,8 @@ export {
   ComponentPropsContext,
   useComponentProps,
 } from './components/ComponentPropsContext';
+
+export { handleExperienceEditorFastRefresh } from './utils';
 
 export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
 export {
