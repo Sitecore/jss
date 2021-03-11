@@ -16,7 +16,6 @@ const getPlaceholderNames = (placeholders: { [k: string]: any } = {}, routeName:
     };
 
     if (!placeholder.renderings || !Array.isArray(placeholder.renderings)) {
-      // tslint:disable-next-line:no-string-throw max-line-length
       throw `Placeholder '${phName}' on route '${routeName}' contained non-array renderings data. Probably a route data authoring error. (YAML indentation?)`;
     }
 

@@ -9,12 +9,8 @@ export default (manifest: Manifest) => {
       { name: 'title', displayName: 'Title', type: CommonFieldTypes.SingleLineText },
       { name: 'relatedItems', displayName: 'Related Items', type: CommonFieldTypes.ContentList },
     ],
-    placeholders: [
-      { name: 'page-header' },
-    ],
-    params: [
-      { name: 'param0' },
-    ],
+    placeholders: [{ name: 'page-header' }],
+    params: [{ name: 'param0' }],
   });
 
   manifest.addComponent({

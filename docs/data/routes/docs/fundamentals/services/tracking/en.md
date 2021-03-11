@@ -5,11 +5,15 @@ title: JSS Tracking
 ---
 # JSS Tracking
 
-JSS ships with an analytics tracking API that allows pushing Sitecore analytics events to the xDB based on client-side behaviour in JSS apps.
+JSS ships with an analytics tracking API that allows pushing Sitecore analytics events to the xDB based on client-side behavior in JSS apps.
 
-Before using JSS tracking [familiarize yourself with the Sitecore XP features](https://doc.sitecore.com/developers/100/xp/index.html).
+Before using JSS tracking [familiarize yourself with the Sitecore XP features](https://doc.sitecore.com/developers/101/xp/index.html).
 
 The JSS tracker supports tracking Events, Goals, Outcomes, Campaigns, and Page/Route Views by default. It is designed to be extensible for advanced tracking needs.
+
+> _NOTE_: There are some limitations on the usage of JSS tracking API:
+> * Because tracking data is submitted directly to a Sitecore service, you cannot use the JSS tracking API in [disconnected mode](/docs/fundamentals/application-modes).
+> * JSS tracking API is not working in [connected mode](/docs/fundamentals/application-modes) due to fact that the global and session cookies are not generated.
 
 > _NOTE_: As of Sitecore 10.0.1, Sitecore sets the `Secure` flag on all cookies by default. This can impact JSS local development in *Connected* and *Headless* modes, as the proxied Sitecore cookies (including analytics cookies) will be rejected by the browser if your application is not running under HTTPS, and thus visits will not be tracked and content may not be personalized. To work around this, you can either:
 > * Enable HTTPS in your local environment by modifying the node server, using a local reverse proxy, or using a service such as ngrok.
@@ -21,7 +25,7 @@ The JSS tracker supports tracking Events, Goals, Outcomes, Campaigns, and Page/R
 
 ## Setup
 
-The JSS tracker comes installed but **disabled by default** when the [JSS server components](/docs/getting-started/jss-server-install) are installed. To enable the JSS tracker, patch the `Sitecore.JSS.TrackerServiceEnabled` setting to true in a configuration patch file such as:
+The JSS tracker comes installed but **disabled by default** when the [Headless server components](/docs/client-frameworks/getting-started/jss-server-install) are installed. To enable the JSS tracker, patch the `Sitecore.JSS.TrackerServiceEnabled` setting to true in a configuration patch file such as:
 
 ```xml
 <configuration>
@@ -33,9 +37,9 @@ The JSS tracker comes installed but **disabled by default** when the [JSS server
 </configuration>
 ```
 
-The JSS tracker utilizes [SSC API keys](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/api_keys_for_the_odata_item_service) just like other JSS services. The API keys are used to enable CORS support for the tracker. It is good practice to use one API key for each JSS app, and it can be shared for all JSS services the app uses.
+The JSS tracker utilizes [SSC API keys](https://doc.sitecore.com/developers/101/sitecore-experience-manager/en/api-keys-for-the-odata-item-service.html) just like other JSS services. The API keys are used to enable CORS support for the tracker. It is good practice to use one API key for each JSS app, and it can be shared for all JSS services the app uses.
 
-For testing purposes, you may wish to [enable indexing of anonymous contacts](https://doc.sitecore.net/developers/xp/xconnect/xconnect-search-indexer/enable-anonymous-contact-indexing.html) to more easily see the results of your testing. By default Sitecore does not index anonymous contact data, which means non-identified users will not have their data in the Experience Profile. JSS Tracker does not support identifying contacts out of the box (but it can be [extended to do so](https://doc.sitecore.com/developers/93/sitecore-experience-platform/en/identifying-contacts.html)). Indexing anonymous contacts is not generally advisable in production.
+For testing purposes, you may wish to [enable indexing of anonymous contacts](https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/enable-indexing-of-anonymous-contacts-in-the-xdb-index.html) to more easily see the results of your testing. By default, Sitecore does not index anonymous contact data, which means non-identified users will not have their data in the Experience Profile. JSS Tracker does not support identifying contacts out of the box (but it can be [extended to do so](https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/identifying-contacts.html)). Indexing anonymous contacts is not generally advisable in production.
 
 ## Usage
 
@@ -81,21 +85,13 @@ trackingApi
 
 ### Testing/Viewing Captured Data
 
-To see the data pushed by your tracking code, the easiest way is to use the [xProfile](https://doc.sitecore.net/sitecore_experience_platform/digital_marketing/experience_profile/experience_profile). Sitecore does not store or index the tracked data into xProfile until after the user session ends; thus it is essential to end your session to see the test data. The styleguide tracking example includes an example button that invokes the JSS tracker session abandon method that will cause an instant data flush. This can also be manually invoked on your Sitecore instance by visiting `/sitecore/api/jss/track/flush`.
-
-Because tracking data is submitted directly to a Sitecore service, you cannot use the JSS tracking API in [disconnected mode](/docs/fundamentals/application-modes). There are also limitations when in Connected Mode due to cookie data; see below.
-
-> Not seeing any data in xProfile after ending your session? There are several possible causes:
->
-> * Ensure you have an XP-enabled Sitecore license (XM cannot use tracking)
-> * Your analytics ID has been flagged as robot traffic and dropped. Check the value of the `SC_ANALYTICS_GLOBAL_COOKIE` cookie; if it ends with `|False`, your analytics ID is flagged as a robot. A common cause of this is using [connected mode](/docs/fundamentals/application-modes) with the tracker; unless a pre-existing analytics cookie is in your browser for the layout service host from _integrated mode_, the robot detection process will not operate in connected mode and you will be flagged a robot. Visit the app in integrated mode, clear your analytics cookie, refresh, and move your mouse to be redetected as a human visitor.
-> * Your analytics ID is not [identified](https://doc.sitecore.net/developers/xp/tracking-and-session/tracker/tracking-contacts/identification/index.html), and [indexing anonymous contacts](https://doc.sitecore.net/developers/xp/xconnect/xconnect-search-indexer/enable-anonymous-contact-indexing.html) is disabled, which will prevent your un-identified data from showing up in xProfile.
+To see the data pushed by your tracking code, the easiest way is to use the [xProfile](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/experience-profile.html). Sitecore does not store or index the tracked data into xProfile until after the user session ends; thus it is essential to end your session to see the test data. The styleguide tracking example includes an example button that invokes the JSS tracker session abandon method that will cause an instant data flush. This can also be manually invoked on your Sitecore instance by visiting `/sitecore/api/jss/track/flush`.
 
 ## Extension
 
 The JSS tracker is a tracking data conduit, and can be extended or modified as needed. The `trackEvent` pipeline, defined in `App_Config\Sitecore\JavaScriptServices\Sitecore.JavaScriptServices.Tracker.config`, is responsible for handling incoming tracking requests.
 
-New or replaced pipeline processors can be [patched](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/customizing_server_configuration/use_a_patch_file_to_customize_the_sitecore_configuration) into the config. Processors should derive from `Sitecore.JavaScriptServices.Tracker.Pipelines.TrackEvent<T>`, where `T` is a C# type to deserialize the incoming JSON to. The pipeline processor's `TrackEvent` method should:
+New or replaced pipeline processors can be [patched](https://doc.sitecore.com/developers/101/platform-administration-and-architecture/en/use-a-patch-file-to-customize-the-sitecore-configuration.html) into the config. Processors should derive from `Sitecore.JavaScriptServices.Tracker.Pipelines.TrackEvent<T>`, where `T` is a C# type to deserialize the incoming JSON to. The pipeline processor's `TrackEvent` method should:
 
 * Return if the incoming request was not something it can handle (i.e. continue pipeline)
 * Call `args.HasBeenTracked()` and abort the pipeline if it can handle the incoming request

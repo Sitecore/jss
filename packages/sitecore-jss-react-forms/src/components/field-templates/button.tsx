@@ -6,10 +6,7 @@ import { ButtonFormField } from '@sitecore-jss/sitecore-jss-forms';
 // it signals to the parent form which button invoked the submit action
 // (which is important for multi-step forms where multiple submits can occur i.e. back/forward)
 
-const Button: React.FunctionComponent<FieldProps<ButtonFormField>> = ({
-  field,
-  onButtonClick,
-}) => (
+const Button: React.FunctionComponent<FieldProps<ButtonFormField>> = ({ field, onButtonClick }) => (
   <Fragment>
     <button
       type="submit"

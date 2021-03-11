@@ -1,5 +1,4 @@
-/* tslint:disable:no-unused-expression */
-
+/* eslint-disable no-unused-expressions */
 import { HttpJsonFetcher } from '@sitecore-jss/sitecore-jss';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
@@ -8,12 +7,13 @@ import { trackEvent } from './trackingApi';
 
 // note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
 // which is necessary for analytics and such
-const axiosFetcher: HttpJsonFetcher<any> = (url, data) => axios({
-  url,
-  method: data ? 'POST' : 'GET',
-  data,
-  withCredentials: true,
-});
+const axiosFetcher: HttpJsonFetcher<void> = (url, data) =>
+  axios({
+    url,
+    method: data ? 'POST' : 'GET',
+    data,
+    withCredentials: true,
+  });
 
 describe('trackEvent', () => {
   let mock: MockAdapter;
@@ -38,20 +38,17 @@ describe('trackEvent', () => {
       return [200, { ...config }];
     });
 
-    return trackEvent([
-      { eventId: 'porgs' },
-    ],
-    {
+    return trackEvent([{ eventId: 'porgs' }], {
       host: 'https://www.myhost.net',
       test: true,
       fetcher: axiosFetcher,
-    })
-      .then((data) => {
-        // testData should contain the 'config' object from the mock request
-        const testData = data as any;
-        expect(testData.url).to.equal(expectedUrl);
-        expect(testData.withCredentials, 'with credentials is not true').to.be.true;
-      });
+    }).then((data) => {
+      // testData should contain the 'config' object from the mock request
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const testData = data as any;
+      expect(testData.url).to.equal(expectedUrl);
+      expect(testData.withCredentials, 'with credentials is not true').to.be.true;
+    });
   });
 
   it('should fetch with querystring', () => {
@@ -63,20 +60,17 @@ describe('trackEvent', () => {
       return [200, { ...config }];
     });
 
-    return trackEvent([
-      { campaignId: '123456' },
-    ],
-    {
+    return trackEvent([{ campaignId: '123456' }], {
       host: 'https://www.myhost.net',
       querystringParams: { sc_camp: 123456 },
       test: true,
       fetcher: axiosFetcher,
-    })
-      .then((data) => {
-        // testData should contain the 'config' object from the mock request
-        const testData = data as any;
-        expect(testData.url).to.equal(expectedUrl);
-        expect(testData.withCredentials, 'with credentials is not true').to.be.true;
-      });
+    }).then((data) => {
+      // testData should contain the 'config' object from the mock request
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const testData = data as any;
+      expect(testData.url).to.equal(expectedUrl);
+      expect(testData.withCredentials, 'with credentials is not true').to.be.true;
+    });
   });
 });

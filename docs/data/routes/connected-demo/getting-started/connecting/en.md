@@ -68,7 +68,7 @@ You can also use the header menu to view events that you've favorites and regist
 
 ## Summary
 
-So the cool thing about all this is that the app that you're browsing locally is being hydrated with data from a remote Sitecore instance. And this data is being dynamically personalized, and appended with extra promotional content based on rules that Sitecore content administrators have configured.
+So the cool thing about all this is that the app that you're browsing locally is being hydrated with data from a remote Sitecore instance. And this data is being dynamically personalized and appended with extra promotional content based on rules that Sitecore content administrators have configured.
 
 Use the menu in the left nav to continue exploring Connected Mode and learn more about how all this works.
 

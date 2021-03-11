@@ -2,6 +2,7 @@ import React, { ReactElement, FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
 
 export interface TextProps {
+  [htmlAttributes: string]: unknown;
   /** The text field data. */
   field?: {
     value?: string;
@@ -21,10 +22,15 @@ export interface TextProps {
    * If false, HTML-encoding of the field value is disabled and the value is rendered as-is.
    */
   encode?: boolean;
-  [htmlAttributes: string]: any;
 }
 
-export const Text: FunctionComponent<TextProps> = ({ field, tag, editable, encode, ...otherProps }) => {
+export const Text: FunctionComponent<TextProps> = ({
+  field,
+  tag,
+  editable,
+  encode,
+  ...otherProps
+}) => {
   if (!field || (!field.editable && !field.value)) {
     return null;
   }
@@ -53,7 +59,7 @@ export const Text: FunctionComponent<TextProps> = ({ field, tag, editable, encod
       output.push(str);
 
       if (!isLast) {
-        output.push(<br key={i}/>);
+        output.push(<br key={i} />);
       }
     });
   }
@@ -61,7 +67,10 @@ export const Text: FunctionComponent<TextProps> = ({ field, tag, editable, encod
   const setDangerously = (field.editable && editable) || !encode;
 
   let children = null;
-  const htmlProps: any = {
+  const htmlProps: {
+    [htmlAttributes: string]: unknown;
+    children?: React.ReactNode;
+  } = {
     ...otherProps,
   };
 

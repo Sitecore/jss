@@ -4,7 +4,7 @@ import { Text } from './Text';
 
 describe('<Text />', () => {
   test('should render nothing with missing field', () => {
-    const field: any = null;
+    const field = null;
     const rendered = renderer.create(<Text field={field} />);
     expect(rendered).toMatchSnapshot();
   });

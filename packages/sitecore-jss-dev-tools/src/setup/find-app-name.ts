@@ -1,5 +1,8 @@
 import fs from 'fs';
 
+/**
+ * @param {string} path
+ */
 export function findAppNameInConfig(path: string) {
   if (!fs.existsSync(path)) {
     return null;
@@ -9,6 +12,9 @@ export function findAppNameInConfig(path: string) {
   return findAppNameInContents(file);
 }
 
+/**
+ * @param {string} contents
+ */
 export function findAppNameInContents(contents: string) {
   const matches = /<app (.*)name="([^"]+)/gm.exec(contents);
 

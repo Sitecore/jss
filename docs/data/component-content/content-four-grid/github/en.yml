@@ -7,7 +7,7 @@ fields:
   title:
     value: GitHub
   text:
-    value: Do you have ideas for Sitecore JSS, want to do a pull request or file an issue? Go to the Sitecore JSS GitHub page
+    value: Do you have ideas for Sitecore JSS, want to do a pull request or file an issue? Go to the Sitecore JSS GitHub page.
   linkUrl:
     text: GitHub
     href: https://github.com/sitecore/jss

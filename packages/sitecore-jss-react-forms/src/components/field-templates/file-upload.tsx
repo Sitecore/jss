@@ -12,7 +12,7 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
     '1': 'Bytes',
     '1024': 'KB',
     '1048576': 'MB',
-    '1073741824': 'GB'
+    '1073741824': 'GB',
   };
 
   componentDidUpdate(prevProps: ValueFieldProps<FileInputViewModel>) {
@@ -22,14 +22,20 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
   }
 
   getEnabledValidation(itemId: string) {
-    return this.props.field.model.validationDataModels.find(validation => validation.itemId === itemId);
+    return this.props.field.model.validationDataModels.find(
+      (validation) => validation.itemId === itemId
+    );
   }
 
   getFileSizeUnitName(value: number): string {
     return this.SIZE_UNITS[value];
   }
 
-  onChangeField = (files: FileList | null, field: ValueFormField<FileInputViewModel>, cb: FieldChangeCallback) => {
+  onChangeField = (
+    files: FileList | null,
+    field: ValueFormField<FileInputViewModel>,
+    cb: FieldChangeCallback
+  ) => {
     const fileSizeValidator = this.getEnabledValidation(ValidationDataModels.FileSizeValidator);
     const fileCountValidator = this.getEnabledValidation(ValidationDataModels.FileCountValidator);
     const fileTypeValidator = this.getEnabledValidation(ValidationDataModels.FileTypeValidator);
@@ -39,24 +45,26 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
     let valid = true;
 
     if (files) {
-      Array(files.length).fill(null).forEach((_, idx) => {
-        const fileSize = files[idx].size / field.model.fileSizeUnit;
+      Array(files.length)
+        .fill(null)
+        .forEach((_, idx) => {
+          const fileSize = files[idx].size / field.model.fileSizeUnit;
 
-        if (valid && fileSizeValidator && (fileSize > field.model.maxFileSize)) {
-          const msg = fileSizeValidator.message
-            .replace('{0}', field.model.maxFileSize.toString())
-            .replace('{1}', this.getFileSizeUnitName(field.model.fileSizeUnit));
+          if (valid && fileSizeValidator && fileSize > field.model.maxFileSize) {
+            const msg = fileSizeValidator.message
+              .replace('{0}', field.model.maxFileSize.toString())
+              .replace('{1}', this.getFileSizeUnitName(field.model.fileSizeUnit));
 
-          errorMessages.push(msg);
-          valid = false;
-        }
+            errorMessages.push(msg);
+            valid = false;
+          }
 
-        list.push(files[idx]);
-      });
+          list.push(files[idx]);
+        });
     }
 
     if (fileTypeValidator) {
-      list.some(file => {
+      list.some((file) => {
         const ext = file.name.split('.').pop() || '';
 
         if (field.model.allowedContentTypes.indexOf(ext) !== -1) {
@@ -85,7 +93,7 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
     }
 
     cb(field.valueField.name, list, valid, errorMessages);
-  }
+  };
 
   render() {
     const { field, value, onChange, errors, tracker } = this.props;

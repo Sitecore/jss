@@ -27,6 +27,11 @@ const Telephone: React.FunctionComponent<ValueFieldProps<StringInputViewModel>> 
   );
 };
 
+/**
+ * @param {ValueFormField} field
+ * @param {string} fieldValue
+ * @param {FieldChangeCallback} callback
+ */
 function handleOnChange(field: ValueFormField, fieldValue: string, callback: FieldChangeCallback) {
   let valid = true;
   const errorMessages = [];

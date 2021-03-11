@@ -16,9 +16,11 @@
     "test:disconnected:vue": "cypress run --config baseUrl=http://localhost:3000 --env SSR=false,FRAMEWORK=vue,GRAPHQL=false",
     "test:disconnected:react": "cypress run --config baseUrl=http://localhost:3000 --env SSR=false,FRAMEWORK=react,GRAPHQL=false",
     "test:disconnected:angular": "cypress run --config baseUrl=http://localhost:3000 --env SSR=false,FRAMEWORK=angular,GRAPHQL=false",
+    "test:disconnected:next": "cypress run --config baseUrl=http://localhost:3000 --env SSR=false,FRAMEWORK=nextjs,GRAPHQL=false",
     "test:connected:vue": "cypress run --config baseUrl=http://localhost:3000 --env SSR=false,FRAMEWORK=vue",
     "test:connected:react": "cypress run --config baseUrl=http://localhost:3000 --env SSR=false,FRAMEWORK=react",
-    "test:connected:angular": "cypress run --config baseUrl=http://localhost:3000 --env SSR=false,FRAMEWORK=angular"
+    "test:connected:angular": "cypress run --config baseUrl=http://localhost:3000 --env SSR=false,FRAMEWORK=angular",
+    "test:connected:next": "cypress run --config baseUrl=http://localhost:3000 --env SSR=false,FRAMEWORK=nextjs"
   },
   "author": "Sitecore Corporation",
   "private": true,

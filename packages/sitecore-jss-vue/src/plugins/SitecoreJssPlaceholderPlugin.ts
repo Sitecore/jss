@@ -6,7 +6,12 @@ export interface SitecoreJssPlaceholderPluginOptions {
   componentFactory?: ComponentFactory;
 }
 
-// Vue plugins must export a function named 'install'
+/**
+ * Vue plugins must export a function named 'install'
+ *
+ * @param {typeof _Vue} Vue
+ * @param {SitecoreJssPlaceholderPluginOptions} options
+ */
 function install(Vue: typeof _Vue, options?: SitecoreJssPlaceholderPluginOptions) {
   // eslint-disable-next-line no-param-reassign
   Vue.prototype.$jss = {

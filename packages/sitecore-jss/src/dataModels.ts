@@ -1,9 +1,48 @@
 /**
+ * Phrases from the Sitecore Dictionary Service
+ */
+export interface DictionaryPhrases {
+  [k: string]: string;
+}
+
+/**
+ * A reply from the Sitecore Dictionary Service
+ */
+export interface DictionaryServiceData {
+  lang: string;
+  app: string;
+  phrases: DictionaryPhrases;
+}
+
+/**
  * A reply from the Sitecore Layout Service
  */
 export interface LayoutServiceData {
   sitecore: LayoutServiceContextData & {
-    route: RouteData
+    route: RouteData;
+  };
+}
+
+/**
+ * Layout Service page state enum
+ */
+export enum LayoutServicePageState {
+  Preview = 'preview',
+  Edit = 'edit',
+  Normal = 'normal',
+}
+
+/**
+ * Shape of context data from the Sitecore Layout Service
+ */
+export interface LayoutServiceContext {
+  [key: string]: unknown;
+  pageEditing?: boolean;
+  language?: string;
+  pageState?: LayoutServicePageState;
+  visitorIdentificationTimestamp?: number;
+  site?: {
+    name?: string;
   };
 }
 
@@ -11,17 +50,7 @@ export interface LayoutServiceData {
  * Context information from the Sitecore Layout Service
  */
 export interface LayoutServiceContextData {
-  context: {
-    pageEditing?: boolean;
-    language?: string;
-    pageState?: 'preview' | 'edit' | 'normal';
-    visitorIdentificationTimestamp?: number;
-    site?: {
-      name?: string;
-    };
-
-    [key: string]: any;
-  };
+  context: LayoutServiceContext;
 }
 
 /**
@@ -31,7 +60,7 @@ export interface RouteData {
   name: string;
   displayName?: string;
   fields?: {
-    [name: string]: Field
+    [name: string]: Field;
   };
   databaseName?: string;
   deviceId?: string;
@@ -50,7 +79,7 @@ export interface RouteData {
  */
 export type PlaceholdersData<TYPEDNAME extends string = string> = {
   [P in TYPEDNAME]: Array<ComponentRendering | HtmlElementRendering>;
-}
+};
 
 /**
  * Content field data passed to a component
@@ -86,18 +115,23 @@ export interface HtmlElementRendering {
   type?: string;
   contents: string | null;
   attributes: {
-    [name: string]: string | undefined,
+    [name: string]: string | undefined;
   };
 }
 
 /**
  * Field value data on a component
  */
-export type GenericFieldValue = string | boolean | number | { [key: string]: any } | Array<{ [key: string]: any }>;
+export type GenericFieldValue =
+  | string
+  | boolean
+  | number
+  | { [key: string]: unknown }
+  | Array<{ [key: string]: unknown }>;
 
 export interface Field<T = GenericFieldValue> {
-    value: T;
-    editable?: string;
+  value: T;
+  editable?: string;
 }
 
 /**

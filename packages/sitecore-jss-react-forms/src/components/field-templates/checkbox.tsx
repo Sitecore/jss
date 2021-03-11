@@ -26,8 +26,14 @@ const Checkbox: React.FunctionComponent<ValueFieldProps> = (props) => {
   );
 };
 
+/**
+ * @param {ValueFormField} field
+ * @param {boolean} fieldValue
+ * @param {FieldChangeCallback} callback
+ */
 function handleOnChange(field: ValueFormField, fieldValue: boolean, callback: FieldChangeCallback) {
   // (fieldName, fieldValue, isValid, validationErrors)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   callback(field.valueField.name, fieldValue as any, true, []);
 }
 

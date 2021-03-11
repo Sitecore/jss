@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { setup } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 export const command = 'setup';
@@ -50,6 +51,10 @@ export const builder = {
   },
 };
 
+/**
+ * @param {any} argv
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   setup(!argv.nonInteractive, argv.outputFile, argv);
 }

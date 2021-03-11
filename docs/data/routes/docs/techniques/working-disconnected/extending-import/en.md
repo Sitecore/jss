@@ -32,7 +32,7 @@ When `jss deploy items` is run, this manifest is bundled up into a JSS manifest 
 
 ## Step 2: Modify the import pipeline to do something with your data
 
-To make our custom path work, we need to extend the import pipeline to alter how templates are created by the import process. Specifically we need to target the `ProcessTemplates` processor in the `import` pipeline, derive from it, and alter its behaviour. Here's the code to do just that:
+To make our custom path work, we need to extend the import pipeline to alter how templates are created by the import process. Specifically, we need to target the `ProcessTemplates` processor in the `import` pipeline, derive from it, and alter its behavior. Here's the code to do just that:
 
 ```c#
 using System;

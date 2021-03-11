@@ -89,7 +89,6 @@ const copyMedia = (mediaPaths: Array<{ src: string }>, outputPath: string) => {
         console.log(`copied media from: ${mediaSourcePath} to: ${mediaDestinationPath}`);
         return { source: mediaSourcePath, destination: mediaDestinationPath, success: true };
       }
-      // tslint:disable-next-line:no-string-throw
       throw `Source media file referred to in manifest data doesn't exist: ${mediaSourcePath}`;
     });
 };
@@ -112,7 +111,7 @@ const writeOutput = async ({
     }
 
     // we remove the media prop as it's unused by the manifest after copying media
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { media, ...finalManifest } = manifest;
 
     await fs.writeJson(outputPath, finalManifest, { spaces: 2 });
@@ -164,10 +163,14 @@ export interface GenerateToFileOptions extends GenerateOptions {
   excludeMedia?: boolean;
 }
 
-// generates the JSON manifest and returns it as a variable
-// NOTE: media is not copied into the manifest when using this method,
-// and no files are written to disk. Use generateToFile() to make a manifest
-// that is designed to get packaged/imported.
+/**
+ * generates the JSON manifest and returns it as a variable
+ * NOTE: media is not copied into the manifest when using this method,
+ * and no files are written to disk. Use generateToFile() to make a manifest
+ * that is designed to get packaged/imported.
+ *
+ * @param {GenerateOptions} config
+ */
 export async function generateToVariable({
   requireArg,
   fileGlobs,
@@ -205,8 +208,12 @@ export async function generateToVariable({
   return manifestOutput;
 }
 
-// generates a JSON manifest and writes its contents to a directory. Media referenced in the manifest
-// is also copied to the directory.
+/**
+ * generates a JSON manifest and writes its contents to a directory. Media referenced in the manifest
+ * is also copied to the directory.
+ *
+ * @param {GenerateToFileOptions} config
+ */
 export async function generateToFile({
   outputPath = 'console',
   excludeMedia = false,

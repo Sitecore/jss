@@ -1,35 +1,43 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ComponentFactory } from './sharedTypes';
 
-export interface SitecoreContextProps {
+export interface SitecoreContextProps<ContextType = any> {
   componentFactory: ComponentFactory;
-  context?: any;
+  context?: ContextType;
 }
 
-export interface SitecoreContextState {
-  setContext: (value: any) => void;
-  context: any;
+export interface SitecoreContextState<ContextType = any> {
+  setContext: (value: ContextType) => void;
+  context: ContextType;
 }
 
-export const SitecoreContextReactContext = React.createContext<SitecoreContextState>({} as SitecoreContextState);
-export const ComponentFactoryReactContext = React.createContext<ComponentFactory>({} as ComponentFactory);
+export const SitecoreContextReactContext = React.createContext<SitecoreContextState>(
+  {} as SitecoreContextState
+);
+export const ComponentFactoryReactContext = React.createContext<ComponentFactory>(
+  {} as ComponentFactory
+);
 
-export class SitecoreContext extends React.Component<SitecoreContextProps, SitecoreContextState> {
+export class SitecoreContext<ContextType = any> extends React.Component<
+  SitecoreContextProps<ContextType>,
+  SitecoreContextState<ContextType>
+> {
   static propTypes = {
     children: PropTypes.any.isRequired,
     componentFactory: PropTypes.func,
-    context: PropTypes.any
+    context: PropTypes.any,
   };
 
   static displayName = 'SitecoreContext';
 
-  constructor(props: SitecoreContextProps) {
+  constructor(props: SitecoreContextProps<ContextType>) {
     super(props);
 
     let context: any = {
       pageEditing: false,
-    }
+    };
 
     if (props.context) {
       context = props.context;
@@ -41,15 +49,15 @@ export class SitecoreContext extends React.Component<SitecoreContextProps, Sitec
 
     this.state = {
       context,
-      setContext: this.setContext
+      setContext: this.setContext,
     };
   }
 
-  setContext = (value: any) => {
+  setContext = (value: ContextType) => {
     this.setState({
-      context: value
+      context: value,
     });
-  }
+  };
 
   render() {
     return (

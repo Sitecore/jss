@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 export interface FileFieldValue {
+  [propName: string]: unknown;
   src?: string;
   title?: string;
   displayName?: string;
-  [propName: string]: any;
 }
 
 export interface FileField {
@@ -13,10 +13,11 @@ export interface FileField {
 }
 
 export interface FileProps {
+  [attributeName: string]: unknown;
   /** The file field data. */
   field: FileFieldValue | FileField;
   /** HTML attributes that will be appended to the rendered <a /> tag. */
-  [attributeName: string]: any;
+  children?: React.ReactNode;
 }
 
 export const File: React.SFC<FileProps> = ({ field, children, ...otherProps }) => {
@@ -24,14 +25,16 @@ export const File: React.SFC<FileProps> = ({ field, children, ...otherProps }) =
     File fields cannot be managed via the EE. We never output "editable."
   */
 
-  const dynamicField: any = field;
+  const dynamicField: FileField | FileFieldValue = field;
 
-  if (!field || (!dynamicField.value && !dynamicField.src)) {
+  if (!field || (!dynamicField.value && !(dynamicField as FileFieldValue).src)) {
     return null;
   }
 
   // handle link directly on field for forgetful devs
-  const file = dynamicField.src ? field : dynamicField.value;
+  const file = ((dynamicField as FileFieldValue).src
+    ? field
+    : dynamicField.value) as FileFieldValue;
   if (!file) {
     return null;
   }
@@ -52,6 +55,7 @@ File.propTypes = {
       value: PropTypes.object,
     }),
   ]).isRequired,
+  children: PropTypes.node,
 };
 
 File.displayName = 'File';

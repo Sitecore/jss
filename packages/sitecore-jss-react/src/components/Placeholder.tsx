@@ -10,7 +10,7 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
    */
   renderEmpty?: (
     components: React.ReactNode[]
-  ) => React.ComponentClass<any> | React.SFC<any> | React.ReactNode;
+  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
   /**
    * Render props function that enables control over the rendering of the components in the placeholder.
    * Useful for techniques like wrapping each child in a wrapper component.
@@ -19,7 +19,7 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
     components: React.ReactNode[],
     data: (ComponentRendering | HtmlElementRendering)[],
     props: PlaceholderProps
-  ) => React.ComponentClass<any> | React.SFC<any> | React.ReactNode;
+  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
 
   /**
    * Render props function that is called for each non-system component added to the placeholder.
@@ -28,11 +28,19 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
   renderEach?: (
     component: React.ReactNode,
     index: number
-  ) => React.ComponentClass<any> | React.SFC<any> | React.ReactNode;
+  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
 }
 
-function isRawRendering(rendering: HtmlElementRendering | ComponentRendering): rendering is HtmlElementRendering {
-  return !(rendering as ComponentRendering).componentName && (rendering as HtmlElementRendering).name !== undefined;
+/**
+ * @param {HtmlElementRendering | ComponentRendering} rendering
+ */
+function isRawRendering(
+  rendering: HtmlElementRendering | ComponentRendering
+): rendering is HtmlElementRendering {
+  return (
+    !(rendering as ComponentRendering).componentName &&
+    (rendering as HtmlElementRendering).name !== undefined
+  );
 }
 
 class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> {
@@ -43,7 +51,7 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
   }
 
   render() {
-    let childProps: any = { ...this.props };
+    const childProps: PlaceholderComponentProps = { ...this.props };
 
     delete childProps.componentFactory;
 
@@ -61,10 +69,18 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
 
     const renderingData = childProps.rendering;
 
-    const placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(renderingData, this.props.name);
+    const placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
+      renderingData,
+      this.props.name
+    );
     const components = this.getComponentsForRenderingData(placeholderData);
 
-    if (this.props.renderEmpty && placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) => isRawRendering(rendering))) {
+    if (
+      this.props.renderEmpty &&
+      placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
+        isRawRendering(rendering)
+      )
+    ) {
       return this.props.renderEmpty(components);
     } else if (this.props.render) {
       return this.props.render(components, placeholderData, childProps);

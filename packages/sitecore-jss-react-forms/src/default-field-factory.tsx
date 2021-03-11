@@ -17,6 +17,9 @@ import Telephone from './components/field-templates/telephone';
 import { FieldTypes } from './FieldTypes';
 import FieldFactory from './field-factory';
 
+/**
+ * Create default field factory
+ */
 export function createDefaultFieldFactory() {
   const defaultFieldFactory = new FieldFactory();
 

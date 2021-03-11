@@ -3,37 +3,44 @@ import { Argv } from '../../node_modules/@types/yargs';
 import microManifest from '../micro-manifest';
 import { args as templateArgs } from './deploy.template';
 
+/**
+ * @param {Argv} yargs
+ */
 export default function builder(yargs: Argv) {
   return yargs.command(
     'component <name>',
-    // tslint:disable-next-line:max-line-length
     'Deploys a new component (or updates an existing component) to the Sitecore server when using Sitecore-first development. `jss deploy component --help` for options.',
     args,
     handler
   );
 }
 
+/**
+ * @param {Argv} yargs
+ */
 export function args(yargs: Argv) {
   return templateArgs(yargs)
     .option('allowedPlaceholders', {
       requiresArg: false,
       type: 'array',
       describe:
-        // tslint:disable-next-line:max-line-length
         'The placeholder name(s) to allow the rendering to be placed in. For example --allowedPlaceholders Foo or --allowedPlaceholders Foo Bar',
     })
     .option('exposesPlaceholders', {
       requiresArg: false,
       type: 'array',
       describe:
-        // tslint:disable-next-line:max-line-length
         'The names of any placeholders that are exposed on this component (to place other components in). This will cause placeholder settings items to be generated for them.',
     });
 }
 
+/**
+ * @param {any} argv
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function handler(argv: any) {
   // create micro-manifest to deploy from
-  const fields: Array<{ name: string, type: string }> = [];
+  const fields: Array<{ name: string; type: string }> = [];
 
   if (argv.fields && argv.fields.length > 0) {
     argv.fields.forEach((field: string) => {

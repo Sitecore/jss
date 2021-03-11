@@ -9,8 +9,6 @@ import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
 import { buildQueryString, tryParseJson } from './util';
 
-// tslint:disable:max-line-length
-
 // For some reason, every other response returned by Sitecore contains the 'set-cookie' header with the SC_ANALYTICS_GLOBAL_COOKIE value as an empty string.
 // This effectively sets the cookie to empty on the client as well, so if a user were to close their browser
 // after one of these 'empty value' responses, they would not be tracked as a returning visitor after re-opening their browser.
@@ -35,6 +33,13 @@ export const removeEmptyAnalyticsCookie = (proxyResponse: any) => {
 };
 
 // inspired by: http://stackoverflow.com/a/22487927/9324
+/**
+ * @param {IncomingMessage} proxyResponse
+ * @param {IncomingMessage} request
+ * @param {ServerResponse} serverResponse
+ * @param {AppRenderer} renderer
+ * @param {ProxyConfig} config
+ */
 async function renderAppToResponse(
   proxyResponse: IncomingMessage,
   request: IncomingMessage,
@@ -53,7 +58,7 @@ async function renderAppToResponse(
   proxyResponse.headers['content-type'] = 'text/html; charset=utf-8';
 
   // remove IIS server header for security
-  delete proxyResponse.headers['server'];
+  delete proxyResponse.headers.server;
 
   if (config.setHeaders) {
     config.setHeaders(request, serverResponse, proxyResponse);
@@ -88,10 +93,14 @@ async function renderAppToResponse(
     return true;
   };
 
-
-
+  /**
+   * Extract layout service data from proxy response
+   */
   async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
-    if (proxyResponse.statusCode === HttpStatus.OK || proxyResponse.statusCode === HttpStatus.NOT_FOUND) {
+    if (
+      proxyResponse.statusCode === HttpStatus.OK ||
+      proxyResponse.statusCode === HttpStatus.NOT_FOUND
+    ) {
       let responseString: Promise<string>;
 
       if (
@@ -123,7 +132,10 @@ async function renderAppToResponse(
     return Promise.resolve(null);
   }
 
-  // function replies with HTTP 500 when an error occurs
+  /**
+   * function replies with HTTP 500 when an error occurs
+   * @param {Error} error
+   */
   async function replyWithError(error: Error) {
     console.error(error);
 
@@ -141,6 +153,10 @@ async function renderAppToResponse(
   }
 
   // callback handles the result of server-side rendering
+  /**
+   * @param {Error | null} error
+   * @param {RenderResponse} result
+   */
   async function handleRenderingResult(error: Error | null, result: RenderResponse | null) {
     if (!error && !result) {
       return replyWithError(new Error('Render function did not return a result or an error!'));
@@ -184,7 +200,7 @@ async function renderAppToResponse(
         result.status = 302;
       }
 
-      proxyResponse.headers['location'] = result.redirect;
+      proxyResponse.headers.location = result.redirect;
     }
 
     const finalStatusCode = result.status || proxyResponse.statusCode || HttpStatus.OK;
@@ -201,6 +217,11 @@ async function renderAppToResponse(
     completeProxyResponse(content, finalStatusCode);
   }
 
+  /**
+   * @param {Buffer | null} content
+   * @param {number} statusCode
+   * @param {any} [headers]
+   */
   function completeProxyResponse(content: Buffer | null, statusCode: number, headers?: any) {
     if (!headers) {
       headers = proxyResponse.headers;
@@ -213,6 +234,9 @@ async function renderAppToResponse(
     originalEnd.call(serverResponse);
   }
 
+  /**
+   * @param {any} layoutServiceData
+   */
   async function createViewBag(layoutServiceData: any): Promise<any> {
     let viewBag = {
       statusCode: proxyResponse.statusCode,
@@ -258,6 +282,13 @@ async function renderAppToResponse(
   };
 }
 
+/**
+ * @param {IncomingMessage} proxyResponse
+ * @param {any} request
+ * @param {ServerResponse} serverResponse
+ * @param {AppRenderer} renderer
+ * @param {ProxyConfig} config
+ */
 function handleProxyResponse(
   proxyResponse: IncomingMessage,
   request: any,
@@ -290,6 +321,12 @@ function handleProxyResponse(
   return renderAppToResponse(proxyResponse, request, serverResponse, renderer, config);
 }
 
+/**
+ * @param {string} reqPath
+ * @param {any} req
+ * @param {ProxyConfig} config
+ * @param {RouteUrlParser} parseRouteUrl
+ */
 export function rewriteRequestPath(
   reqPath: string,
   req: any,
@@ -316,14 +353,17 @@ export function rewriteRequestPath(
 
   let finalReqPath = decodedReqPath;
   const qsIndex = finalReqPath.indexOf('?');
-  let qs;
+  let qs = '';
   if (qsIndex > -1) {
     qs = buildQueryString(req.query);
     finalReqPath = finalReqPath.slice(0, qsIndex);
   }
 
   if (config.qsParams) {
-    qs += `&${config.qsParams}`;
+    if (qs) {
+      qs += '&';
+    }
+    qs += `${config.qsParams}`;
   }
 
   let lang;
@@ -349,14 +389,14 @@ export function rewriteRequestPath(
       }
 
       if (config.debug) {
-        console.log(`DEBUG: parseRouteUrl() result`, routeParams);
+        console.log('DEBUG: parseRouteUrl() result', routeParams);
       }
     }
   }
 
   let path = `${config.layoutServiceRoute}?item=${encodeURIComponent(finalReqPath)}&sc_apikey=${
     config.apiKey
-    }`;
+  }`;
 
   if (lang) {
     path = `${path}&sc_lang=${lang}`;
@@ -369,7 +409,12 @@ export function rewriteRequestPath(
   return path;
 }
 
-function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean = false): boolean {
+/**
+ * @param {string} originalUrl
+ * @param {ProxyConfig} config
+ * @param {boolean} noDebug
+ */
+function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false): boolean {
   if (config.pathRewriteExcludePredicate && config.pathRewriteExcludeRoutes) {
     console.error(
       'ERROR: pathRewriteExcludePredicate and pathRewriteExcludeRoutes were both provided in config. Provide only one.'
@@ -423,9 +468,22 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug: boolean
   return false;
 }
 
-function handleProxyRequest(proxyReq: any, req: any, res: ServerResponse, config: ProxyConfig,
-  customOnProxyReq: ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void) | undefined) {
-      
+/**
+ * @param {any} proxyReq
+ * @param {any} req
+ * @param {ServerResponse} res
+ * @param {ProxyConfig} config
+ * @param {Function} customOnProxyReq
+ */
+function handleProxyRequest(
+  proxyReq: any,
+  req: any,
+  res: ServerResponse,
+  config: ProxyConfig,
+  customOnProxyReq:
+    | ((proxyReq: ClientRequest, req: IncomingMessage, res: ServerResponse) => void)
+    | undefined
+) {
   // if a HEAD request, we still need to issue a GET so we can return accurate headers
   // proxyReq defined as 'any' to allow us to mutate this
   if (proxyReq.method === 'HEAD' && !isUrlIgnored(req.originalUrl, config, true)) {
@@ -440,6 +498,11 @@ function handleProxyRequest(proxyReq: any, req: any, res: ServerResponse, config
   }
 }
 
+/**
+ * @param {AppRenderer} renderer
+ * @param {ProxyConfig} config
+ * @param {RouteUrlParser} parseRouteUrl
+ */
 function createOptions(
   renderer: AppRenderer,
   config: ProxyConfig,
@@ -468,11 +531,17 @@ function createOptions(
     ws: true,
     pathRewrite: (reqPath, req) => rewriteRequestPath(reqPath, req, config, parseRouteUrl),
     logLevel: config.debug ? 'debug' : 'info',
-    onProxyReq: (proxyReq, req, res) => handleProxyRequest(proxyReq, req, res, config, customOnProxyReq),
+    onProxyReq: (proxyReq, req, res) =>
+      handleProxyRequest(proxyReq, req, res, config, customOnProxyReq),
     onProxyRes: (proxyRes, req, res) => handleProxyResponse(proxyRes, req, res, renderer, config),
   };
 }
 
+/**
+ * @param {AppRenderer} renderer
+ * @param {ProxyConfig} config
+ * @param {RouteUrlParser} parseRouteUrl
+ */
 export default function scProxy(
   renderer: AppRenderer,
   config: ProxyConfig,

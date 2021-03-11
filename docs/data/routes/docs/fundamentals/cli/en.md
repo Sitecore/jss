@@ -10,7 +10,7 @@ During JSS development, you will be commonly using scripts provided by the _JSS 
 ## Frequently used scripts
 
 These are the main scripts you will be using frequently during JSS development.
-These were partially covered in [Quick start](/docs/getting-started/quick-start).
+These were partially covered in [Quick start](/docs/client-frameworks/getting-started/quick-start).
 
 ### `jss setup`
 
@@ -93,3 +93,25 @@ When using Sitecore-first/connected development methodology, this command scaffo
 > `jss deploy template` should never be used if code-first/disconnected development is in use as it does not update the disconnected manifest, only Sitecore items.
 
 > `jss deploy template` has options that enable modifying how the template is scaffolded, such as specifying template fields with `--fields` or setting a display name with `--displayName`. Run `jss deploy template --help` to see all the options with descriptions.
+
+## Env File Support
+The CLI supports loading environment variables from `.env` files. In particular, this can be used to populate environment variables such as `NODE_EXTRA_CA_CERTS` and `NODE_TLS_REJECT_UNAUTHORIZED` which you may have already configured in an `.env` file for communication with your Sitecore instance.
+
+Variables will be loaded from `.env` files with the following priority:
+
+* `.env.${NODE_ENV}.local`
+* `.env.local` (unless `NODE_ENV` is "test")
+* `.env.${NODE_ENV}`
+* `.env`
+
+The CLI will automatically expand variables (`$VAR`) inside of your `.env*` files. This allows you to reference other values. If you are attempting to use a `$` in a variable value, it needs to be escaped with a backslash (`\`).
+
+```
+PASSWORD=b
+
+# becomes 'adminb'
+EXPANDED=admin$PASSWORD
+
+# becomes 'admin$PASSWORD'
+ESCAPED=admin\$PASSWORD
+```

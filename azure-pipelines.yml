@@ -32,19 +32,63 @@ pool:
   # todo: we dgaf what specific version of Linux is installed, is there any way to wildcard the version?
   vmImage: 'Ubuntu-16.04'
 
+variables:
+  isDev: $[eq(variables['Build.SourceBranch'], 'refs/heads/dev')]
+
 steps:
 - script: |
     npm ci
   displayName: 'npm ci'
 - script: |
-    npm run bootstrap-packages:ci
+    npm run bootstrap:ci
   displayName: 'bootstrapping packages'
 - script: |
     npm run build-packages
   displayName: 'building packages'
+- script: |
+    npm run lint-packages
+  displayName: 'linting packages'
+- script: |
+    npm run lint-apps
+  displayName: 'linting apps'
 - script: |
     npm run test-packages
   displayName: 'running tests'
   env: {
     testEnv: 'ci'
   }
+  #
+  # LERNA VERSION 
+  # * Configure git with a commit user
+  # * Update git remote to include a Personal Access Token, so lerna can push
+  # * Explicitly check out the current branch since Pipelines will use disconnected HEAD by default
+  # * Increment pre-release version
+  #     * Force version update even if lerna doesn't detect changes
+  #     * Include [skip ci] in commit message to stop pipeline from triggering again when lerna pushes
+  # * Only run for 'dev' branch
+  #
+- script: |
+    git config user.email builds@sitecore.com
+    git config user.name "Automated Build"
+    git remote set-url origin https://$GITHUB_PAT_ENV@github.com/Sitecore/jss.git
+    git checkout $(Build.SourceBranchName)
+    $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes
+  displayName: 'pre-release version update'
+  condition: and(succeeded(), eq(variables.isDev, true))
+  env:
+    GITHUB_PAT_ENV: $(GITHUB-PAT)
+  #
+  # LERNA PUBLISH
+  # * Configure npm to use the provided access token, so lerna can publish
+  # * Do a lerna canary publish of the version we've already updated and pushed
+  # * Disable access verification (no-verify-access) as this doesn't seem to work behind Azure DevOps' npm proxy
+  #     * https://github.com/lerna/lerna/issues/1685
+  # * Only run for 'dev' branch
+  #
+- script: |
+    echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+    $(npm bin)/lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
+  displayName: 'pre-release canary publish'
+  condition: and(succeeded(), eq(variables.isDev, true))
+  env:
+    NPM_TOKEN: $(NPM-TOKEN)

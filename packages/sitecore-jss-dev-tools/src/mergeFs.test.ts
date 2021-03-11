@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { mergeFs } from './';
 
 describe('merge files', () => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   before(() => {});
 
   describe('merge route data', () => {
@@ -25,5 +26,6 @@ describe('merge files', () => {
     });
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   after(() => {});
 });

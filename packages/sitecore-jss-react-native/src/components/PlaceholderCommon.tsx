@@ -12,6 +12,7 @@ import {
 import { UnrenderableComponent } from './UnrenderableComponent';
 
 export interface PlaceholderProps {
+  [key: string]: unknown;
   /** Name of the placeholder to render. */
   name: string;
   /** Rendering data to be used when rendering the placeholder. */
@@ -40,21 +41,19 @@ export interface PlaceholderProps {
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
    */
-  missingComponentComponent?: React.ComponentClass<any> | React.SFC<any> | null;
+  missingComponentComponent?: React.ComponentClass<unknown> | React.SFC<unknown> | null;
 
   /**
    * A component that is rendered in place of the placeholder when an error occurs rendering
    * the placeholder
    */
-  errorComponent?: React.ComponentClass<any> | React.SFC<any> | null;
+  errorComponent?: React.ComponentClass<unknown> | React.SFC<unknown> | null;
 
   /**
    * A component that is rendered in place of any components that are in this placeholder,
    * but are not renderable by react-native (i.e. DOM elements)
    */
-  unrenderableComponentComponent?: React.ComponentClass<any> | React.SFC<any> | null;
-
-  [key: string]: any;
+  unrenderableComponentComponent?: React.ComponentClass<unknown> | React.SFC<unknown> | null;
 }
 
 export class PlaceholderCommon extends React.Component<PlaceholderProps> {
@@ -69,8 +68,14 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
     unrenderableComponentComponent: PropTypes.any,
   };
 
-  nodeRefs: any[];
+  nodeRefs: unknown[];
   state: Readonly<{ error?: Error }>;
+
+  constructor(props: PlaceholderProps) {
+    super(props);
+    this.nodeRefs = [];
+    this.state = {};
+  }
 
   static getPlaceholderDataFromRenderingData(
     rendering: ComponentRendering | RouteData,
@@ -95,12 +100,6 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
     return result;
   }
 
-  constructor(props: PlaceholderProps) {
-    super(props);
-    this.nodeRefs = [];
-    this.state = {};
-  }
-
   componentDidCatch(error: Error) {
     this.setState({ error });
   }
@@ -120,18 +119,19 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
     return (
       placeholderData &&
       placeholderData
-        .map((rendering: any, index: number) => {
-          const key = rendering.uid ? rendering.uid : `component-${index}`;
+        .map((rendering: ComponentRendering | HtmlElementRendering, index: number) => {
+          const componentRendering = rendering as ComponentRendering;
+          const htmlElementRendering = rendering as HtmlElementRendering;
+
+          const key = componentRendering.uid ? componentRendering.uid : `component-${index}`;
           const commonProps = { key };
 
           let component: React.ReactNode | null;
           // if the element is not a 'component rendering', we can't render it 'raw' like with react-dom
           // register a warning instead.
-          if (!rendering.componentName && rendering.name) {
+          if (!componentRendering.componentName && htmlElementRendering.name) {
             console.error(
-              `Placeholder ${name} contains a rendering that cannot be rendered in React Native '${
-                rendering.name
-              }'. This is likely the result of including Experience Editor output in rendering data
+              `Placeholder ${name} contains a rendering that cannot be rendered in React Native '${htmlElementRendering.name}'. This is likely the result of including Experience Editor output in rendering data
             or using non-JSON renderings in an item's presentation details / layout. React Native
             is not able to render DOM elements, your Sitecore renderings must map to React components
             defined in your componentFactory.js.`
@@ -140,12 +140,10 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
           }
 
           if (!component) {
-            component = this.getComponentForRendering(rendering);
+            component = this.getComponentForRendering(componentRendering);
             if (!component) {
               console.error(
-                `Placeholder ${name} contains unknown component ${
-                  rendering.componentName
-                }. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
+                `Placeholder ${name} contains unknown component ${componentRendering.componentName}. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
               );
 
               component = missingComponentComponent || MissingComponent;
@@ -155,18 +153,21 @@ export class PlaceholderCommon extends React.Component<PlaceholderProps> {
           const finalProps = {
             ...commonProps,
             ...placeholderProps,
-            ...((placeholderFields || rendering.fields) && {
-              fields: { ...placeholderFields, ...rendering.fields },
+            ...((placeholderFields || componentRendering.fields) && {
+              fields: { ...placeholderFields, ...componentRendering.fields },
             }),
-            ...((placeholderParams || rendering.params) && {
-              params: { ...placeholderParams, ...rendering.params },
+            ...((placeholderParams || componentRendering.params) && {
+              params: { ...placeholderParams, ...componentRendering.params },
             }),
             rendering,
           };
 
-          return React.createElement(component as any, finalProps);
+          return React.createElement<{ [attr: string]: unknown }>(
+            component as React.ComponentType,
+            finalProps
+          );
         })
-        .filter((element: any) => element)
+        .filter((element: React.ReactNode) => element)
     ); // remove nulls
   }
 

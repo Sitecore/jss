@@ -6,7 +6,9 @@ title: Documentation
 
 ## How to get started with JSS
 
-The [Quick start](/docs/getting-started/quick-start) is written just for you.
+New to JSS? Learn key concepts in the [introduction area](/docs/introduction/why-jss).
+
+Ready to get into code? The [Quick start](/docs/nextjs/getting-started-nextjs/walkthrough-dotnetnew) is written just for you.
 
 ## Questions?
 

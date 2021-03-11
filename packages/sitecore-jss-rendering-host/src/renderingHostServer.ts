@@ -41,6 +41,9 @@ export interface RenderingHostServerOptions {
   enableCompression?: boolean;
 }
 
+/**
+ * @param {any} config
+ */
 export function startRenderingHostServer({
   port = 0,
   hostname = 'localhost',
@@ -95,6 +98,11 @@ export function startRenderingHostServer({
   });
 }
 
+/**
+ * @param {Function | undefined} hook
+ * @param {...any} args
+ */
+// eslint-disable-next-line @typescript-eslint/ban-types
 function invokeHook(hook: Function | undefined, ...args: any[]) {
   if (hook && typeof hook === 'function') {
     hook(...args);

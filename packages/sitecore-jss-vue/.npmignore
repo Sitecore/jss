@@ -4,12 +4,11 @@ sitecore
 *.test.js
 .vscode
 .babelrc
-.eslintrc.js
+.eslintrc
 .npmignore
 .gitignore
 jsconfig.json
 tsconfig.json
-tslint.json
 npm-debug*
 *.log
 jest.config.js

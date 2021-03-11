@@ -1,5 +1,5 @@
 import { environment as env } from '../../environments/environment';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 export class JssRoute {
   language: string;

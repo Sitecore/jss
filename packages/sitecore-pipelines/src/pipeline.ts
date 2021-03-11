@@ -20,13 +20,7 @@ const enhanceProcessors = (processors: Processor[]) =>
     return processor;
   });
 
-const runProcessor = async ({
-    processor,
-    args,
-  }: {
-     processor: Processor,
-     args: any
-  }) => {
+const runProcessor = async ({ processor, args }: { processor: Processor; args: any }) => {
   if (args && args.debug) {
     console.log(`executing processor ${processor.name}`);
   }
@@ -62,15 +56,16 @@ const runProcessor = async ({
 };
 
 /**
- * @param args.processors the processors to run (optional but must be specified if pipeline is not specified)
- * @param args.pipelineArgs arguments to pass to the pipeline processors
+ * @param {Object} args
+ * @param {Processor[]} args.processors the processors to run (optional but must be specified if pipeline is not specified)
+ * @param {any} args.pipelineArgs arguments to pass to the pipeline processors
  */
 export const runProcessors = async ({
   processors,
   pipelineArgs = {},
 }: {
-  processors: Processor[],
-  pipelineArgs: any
+  processors: Processor[];
+  pipelineArgs: any;
 }) => {
   if (!processors || processors.length === 0) {
     throw new Error('no processors specified to run');
@@ -90,7 +85,7 @@ export const runProcessors = async ({
 };
 
 /**
- * @param pipeline the pipeline to run (optional but must be specified if processors is not specified)
+ * @param {ExecutablePipeline} pipeline the pipeline to run (optional but must be specified if processors is not specified)
  */
 export const run = async (pipeline: ExecutablePipeline) => {
   if (!pipeline || !pipeline.processors() || pipeline.processors().length === 0) {
@@ -117,7 +112,8 @@ export const run = async (pipeline: ExecutablePipeline) => {
 
 /**
  * Run a pipeline, loading specified compilers first
- *
+ * @param {any} compilers
+ * @returns {any} pipeline result
  */
 export const runWithCompilers = (compilers: any) => async (pipeline: any) => {
   await initCompilers(compilers);

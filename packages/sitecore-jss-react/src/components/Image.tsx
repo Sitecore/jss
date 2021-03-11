@@ -5,9 +5,9 @@ import ReactDOMServer from 'react-dom/server';
 import { convertAttributesToReactProps } from '../utils';
 
 export interface ImageFieldValue {
+  [attributeName: string]: unknown;
   src?: string;
   /** HTML attributes that will be appended to the rendered <img /> tag. */
-  [attributeName: string]: any;
 }
 
 export interface ImageField {
@@ -16,6 +16,7 @@ export interface ImageField {
 }
 
 export interface ImageSizeParameters {
+  [attr: string]: string | number | undefined;
   /** Fixed width of the image */
   w?: number;
   /** Fixed height of the image */
@@ -33,6 +34,7 @@ export interface ImageSizeParameters {
 }
 
 export interface ImageProps {
+  [attributeName: string]: unknown;
   /**
    * The image field data.
    * @deprecated use field property instead
@@ -56,7 +58,7 @@ export interface ImageProps {
     [paramName: string]: string | number;
   };
 
-  srcSet?: Array<ImageSizeParameters>;
+  srcSet?: ImageSizeParameters[];
 
   /**
    * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
@@ -68,10 +70,9 @@ export interface ImageProps {
   mediaUrlPrefix?: RegExp;
 
   /** HTML attributes that will be appended to the rendered <img /> tag. */
-  [attributeName: string]: any;
 }
 
-const getEditableWrapper = (editableMarkup: string, ...otherProps: any[]) => (
+const getEditableWrapper = (editableMarkup: string, ...otherProps: unknown[]) => (
   // create an inline wrapper and use dangerouslySetInnerHTML.
   // if we try to parse the EE value, the parser will strip invalid or disallowed attributes from html elements - and EE uses several
   <span
@@ -87,18 +88,18 @@ const getImageAttrs = (
     srcSet,
     ...otherAttrs
   }: {
-    src: string;
-    srcSet: any;
-    otherAttrs: any[];
+    [key: string]: unknown;
+    src?: string;
+    srcSet?: ImageSizeParameters[];
   },
-  imageParams: any,
+  imageParams?: { [paramName: string]: string | number },
   mediaUrlPrefix?: RegExp
 ) => {
   if (!src) {
     return null;
   }
 
-  const newAttrs: any = {
+  const newAttrs: { [attr: string]: unknown } = {
     ...otherAttrs,
   };
 
@@ -126,34 +127,45 @@ export const Image: React.SFC<ImageProps> = ({
     media = field;
   }
 
-  const dynamicMedia: any = media;
+  const dynamicMedia = media as ImageField | ImageFieldValue;
 
-  if (!media || (!dynamicMedia.editable && !dynamicMedia.value && !dynamicMedia.src)) {
+  if (
+    !media ||
+    (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
+  ) {
     return null;
   }
 
+  const imageField = dynamicMedia as ImageField;
+
   // we likely have an experience editor value, should be a string
-  if (editable && dynamicMedia.editable) {
-    const foundImg = mediaApi.findEditorImageTag(dynamicMedia.editable);
+  if (editable && imageField.editable) {
+    const foundImg = mediaApi.findEditorImageTag(imageField.editable);
     if (!foundImg) {
-      return getEditableWrapper(dynamicMedia.editable);
+      return getEditableWrapper(imageField.editable);
     }
 
     const foundImgProps = convertAttributesToReactProps(foundImg.attrs);
     // Note: otherProps may override values from foundImgProps, e.g. `style`, `className` prop
     // We do not attempt to merge.
-    const imgAttrs = getImageAttrs({ ...foundImgProps, ...otherProps } as any, imageParams, mediaUrlPrefix);
+    const imgAttrs = getImageAttrs(
+      { ...foundImgProps, ...otherProps },
+      imageParams,
+      mediaUrlPrefix
+    );
     if (!imgAttrs) {
-      return getEditableWrapper(dynamicMedia.editable);
+      return getEditableWrapper(imageField.editable);
     }
 
     const imgHtml = ReactDOMServer.renderToStaticMarkup(<img {...imgAttrs} />);
-    const editableMarkup = dynamicMedia.editable.replace(foundImg.imgTag, imgHtml);
+    const editableMarkup = imageField.editable.replace(foundImg.imgTag, imgHtml);
     return getEditableWrapper(editableMarkup);
   }
 
   // some wise-guy/gal is passing in a 'raw' image object value
-  const img = dynamicMedia.src ? media : dynamicMedia.value;
+  const img = (dynamicMedia as ImageFieldValue).src
+    ? media
+    : (dynamicMedia.value as ImageFieldValue);
   if (!img) {
     return null;
   }
@@ -176,12 +188,20 @@ Image.propTypes = {
       editable: PropTypes.string,
     }),
   ]),
+  field: PropTypes.oneOfType([
+    PropTypes.shape({
+      src: PropTypes.string,
+    }),
+    PropTypes.shape({
+      value: PropTypes.object,
+      editable: PropTypes.string,
+    }),
+  ]),
   editable: PropTypes.bool,
   mediaUrlPrefix: PropTypes.instanceOf(RegExp),
-  imageParams: PropTypes.objectOf(PropTypes.oneOfType([
-    PropTypes.number.isRequired,
-    PropTypes.string.isRequired
-  ]).isRequired)
+  imageParams: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]).isRequired
+  ),
 };
 
 Image.defaultProps = {

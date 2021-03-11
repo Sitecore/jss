@@ -35,7 +35,7 @@ export const ssrMiddleware: SSRMiddleware = ({
   appInvocationInfoResolver,
 }: SSRMiddlewareOptions) => {
   if (!appInvocationInfoResolver) {
-    throw new Error(`No AppInvocationInfo resolver was provided for SSR middleware`);
+    throw new Error('No AppInvocationInfo resolver was provided for SSR middleware');
   }
   return (req: IncomingMessage, res: ServerResponse) => {
     let callback: RenderCallback;
@@ -56,6 +56,9 @@ export const ssrMiddleware: SSRMiddleware = ({
 };
 
 // todo: add hook for modifying html / response before end
+/**
+ * @param {ServerResponse} res
+ */
 export function getDefaultAppRendererCallback(res: ServerResponse) {
   const callback: RenderCallback = (errorValue: Error, successValue?: any) => {
     if (errorValue) {
@@ -81,6 +84,9 @@ export function getDefaultAppRendererCallback(res: ServerResponse) {
   return callback;
 }
 
+/**
+ * @param {IncomingMessage} request
+ */
 export function readRequestBodyAsJson(request: IncomingMessage) {
   const dataWriter = { output: Buffer.from('') };
   request.on('data', onReadableStreamDataHandler(dataWriter));
@@ -95,6 +101,10 @@ export function readRequestBodyAsJson(request: IncomingMessage) {
   });
 }
 
+/**
+ * @param {ServerResponse} res
+ * @param {Error} errorValue
+ */
 export function respondWithError(res: ServerResponse, errorValue: Error) {
   console.error(errorValue);
   res.statusCode = 500;
@@ -106,6 +116,10 @@ export function respondWithError(res: ServerResponse, errorValue: Error) {
   );
 }
 
+/**
+ * @param {Object} dataWriter
+ * @param {Buffer} dataWriter.output
+ */
 export function onReadableStreamDataHandler(dataWriter: { output: Buffer }) {
   return (data: any) => {
     if (Buffer.isBuffer(data)) {
@@ -116,7 +130,11 @@ export function onReadableStreamDataHandler(dataWriter: { output: Buffer }) {
   };
 }
 
-export function extractJsonFromStreamData(data: Buffer, contentEncoding?: string): Promise<object> {
+/**
+ * @param {Buffer} data
+ * @param {string} [contentEncoding]
+ */
+export function extractJsonFromStreamData(data: Buffer, contentEncoding?: string): Promise<any> {
   let responseString: Promise<string>;
 
   if (
@@ -141,6 +159,9 @@ export function extractJsonFromStreamData(data: Buffer, contentEncoding?: string
   return responseString.then(tryParseJson);
 }
 
+/**
+ * @param {string} jsonString
+ */
 export function tryParseJson(jsonString: string) {
   try {
     const json = JSON.parse(jsonString);

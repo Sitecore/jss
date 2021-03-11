@@ -6,67 +6,83 @@ import { ComponentFactory } from '../components/sharedTypes';
 import { ComponentFactoryReactContext } from '../components/SitecoreContext';
 
 describe('withComponentFactory()', () => {
-	test('should pass factory to wrapped component from context', () => {
+  test('should pass factory to wrapped component from context', () => {
 		const components = new Map();
 
-		components.set('xxx', () => <Text>I'm component from factory</Text>)
+    components.set('xxx', () => <Text>I'm component from factory</Text>);
 
-		const componentFactory: ComponentFactory = componentName => components.get(componentName);
+    const componentFactory: ComponentFactory = (componentName) => components.get(componentName);
 
-		const TestComponent = (props: any) => {
-			const ComponentFromFactory = props.componentFactory('xxx');
+    type TestComponentProps = {
+      customProperty?: string;
+      componentFactory?: ComponentFactory | null;
+    }
 
-			return (
-				<View>
-					<Text>Hello world...</Text>
-					<Text>Custom property:{props.customProperty}</Text>
-					<ComponentFromFactory />
-				</View>
-			)
-		}
+    const TestComponent = (props: TestComponentProps) => {
+			if (!props.componentFactory) return null;
 
-		const TestComponentWithFactory = withComponentFactory(TestComponent)
+      const ComponentFromFactory = props.componentFactory('xxx') as React.ComponentType;
 
-		const c = renderer.create(
-			<ComponentFactoryReactContext.Provider value={componentFactory}>
-				<TestComponentWithFactory customProperty="yyy"/>
-			</ComponentFactoryReactContext.Provider>
-		)
+      return (
+        <View>
+          <Text>Hello world...</Text>
+          <Text>Custom property:{props.customProperty}</Text>
+          <ComponentFromFactory />
+        </View>
+      );
+    };
 
-		expect(c).toMatchSnapshot();
-	})
+    const TestComponentWithFactory = withComponentFactory<TestComponentProps>(TestComponent);
 
-	test('should pass factory to wrapped component from props', () => {
-		const propsFactoryComponents = new Map();
-		const contextFactoryComponents = new Map();
+    const c = renderer.create(
+      <ComponentFactoryReactContext.Provider value={componentFactory}>
+        <TestComponentWithFactory customProperty="yyy" />
+      </ComponentFactoryReactContext.Provider>
+    );
 
-		contextFactoryComponents.set('xxx', () => <Text>I'm component from context factory</Text>)
+    expect(c).toMatchSnapshot();
+  });
 
-		propsFactoryComponents.set('xxx', () => <Text>I'm component from props factory</Text>)
+  test('should pass factory to wrapped component from props', () => {
+    const propsFactoryComponents = new Map();
+    const contextFactoryComponents = new Map();
 
-		const propsComponentFactory: ComponentFactory = componentName => propsFactoryComponents.get(componentName);
-		const contextComponentFactory: ComponentFactory = componentName => contextFactoryComponents.get(componentName);
+    type TestComponentProps = {
+      customProperty?: string;
+      componentFactory?: ComponentFactory | null;
+    }
 
-		const TestComponent = (props: any) => {
-			const ComponentFromFactory = props.componentFactory('xxx');
+    contextFactoryComponents.set('xxx', () => <Text>I'm component from context factory</Text>);
 
-			return (
-				<View>
-					<Text>Hello world...</Text>
-					<Text>Custom property:{props.customProperty}</Text>
-					<ComponentFromFactory />
-				</View>
-			)
-		}
+    propsFactoryComponents.set('xxx', () => <Text>I'm component from props factory</Text>);
 
-		const TestComponentWithFactory = withComponentFactory(TestComponent)
+    const propsComponentFactory: ComponentFactory = (componentName) =>
+      propsFactoryComponents.get(componentName);
+    const contextComponentFactory: ComponentFactory = (componentName) =>
+      contextFactoryComponents.get(componentName);
 
-		const c = renderer.create(
-			<ComponentFactoryReactContext.Provider value={contextComponentFactory}>
-				<TestComponentWithFactory componentFactory={propsComponentFactory} customProperty="yyy" />
-			</ComponentFactoryReactContext.Provider>
-		)
+    const TestComponent = (props: TestComponentProps) => {
+      if (!props.componentFactory) return null;
+      
+      const ComponentFromFactory = props.componentFactory('xxx') as React.ComponentType;
 
-		expect(c).toMatchSnapshot();
-	})
-})
+      return (
+        <View>
+          <Text>Hello world...</Text>
+          <Text>Custom property:{props.customProperty}</Text>
+          <ComponentFromFactory />
+        </View>
+      );
+    };
+
+    const TestComponentWithFactory = withComponentFactory<TestComponentProps>(TestComponent);
+
+    const c = renderer.create(
+      <ComponentFactoryReactContext.Provider value={contextComponentFactory}>
+        <TestComponentWithFactory componentFactory={propsComponentFactory} customProperty="yyy" />
+      </ComponentFactoryReactContext.Provider>
+    );
+
+    expect(c).toMatchSnapshot();
+  });
+});

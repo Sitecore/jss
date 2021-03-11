@@ -26,6 +26,7 @@ export interface WithPlaceholderOptions {
 }
 
 declare module 'vue/types/options' {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface ComponentOptions<V extends Vue> {
     withPlaceholder?:
       | (() => {
@@ -39,6 +40,10 @@ declare module 'vue/types/options' {
   }
 }
 
+/**
+ * @param {Vue} vm
+ * @param {ComponentFactory} [componentFactory]
+ */
 export function providePlaceholders(vm: Vue, componentFactory?: ComponentFactory) {
   const instanceOptions = vm.$options;
   const propsData: any = instanceOptions.propsData;

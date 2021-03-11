@@ -2,11 +2,13 @@ import React, { ReactElement } from 'react';
 import PropTypes from 'prop-types';
 
 export interface LinkFieldValue {
+  [attributeName: string]: unknown;
   href?: string;
   className?: string;
+  class?: string;
   title?: string;
   target?: string;
-  [attributeName: string]: any;
+  text?: string;
 }
 
 export interface LinkField {
@@ -15,7 +17,10 @@ export interface LinkField {
   editableLastPart?: string;
 }
 
-export type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
+export type LinkProps = React.DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+> & {
   /** The link field data. */
   field: LinkField | LinkFieldValue;
   /**
@@ -32,18 +37,29 @@ export type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLA
   showLinkTextWithChildrenPresent?: boolean;
 };
 
-export const Link: React.SFC<LinkProps> = ({ field, editable, children, showLinkTextWithChildrenPresent, ...otherProps }) => {
-  const dynamicField: any = field;
+export const Link: React.SFC<LinkProps> = ({
+  field,
+  editable,
+  children,
+  showLinkTextWithChildrenPresent,
+  ...otherProps
+}) => {
+  const dynamicField: LinkField | LinkFieldValue = field;
 
-  if (!field || (!dynamicField.editableFirstPart && !dynamicField.value && !dynamicField.href)) {
+  if (
+    !field ||
+    (!dynamicField.editableFirstPart &&
+      !dynamicField.value &&
+      !(dynamicField as LinkFieldValue).href)
+  ) {
     return null;
   }
 
-  const resultTags: ReactElement<any>[] = [];
+  const resultTags: ReactElement<unknown>[] = [];
 
   // EXPERIENCE EDITOR RENDERING
   if (editable && dynamicField.editableFirstPart) {
-    let markup = dynamicField.editableFirstPart + dynamicField.editableLastPart;
+    const markup = (dynamicField.editableFirstPart as string) + dynamicField.editableLastPart;
 
     // in an ideal world, we'd pre-render React children here and inject them between editableFirstPart and editableLastPart.
     // However, we cannot combine arbitrary unparsed HTML (innerHTML) based components with actual vDOM components (the children)
@@ -69,12 +85,15 @@ export const Link: React.SFC<LinkProps> = ({ field, editable, children, showLink
   }
 
   // handle link directly on field for forgetful devs
-  const link = dynamicField.href ? field : dynamicField.value;
+  const link = (dynamicField as LinkFieldValue).href
+    ? (field as LinkFieldValue)
+    : (dynamicField as LinkField).value;
+
   if (!link) {
     return null;
   }
 
-  const anchorAttrs: any = {
+  const anchorAttrs: { [attr: string]: unknown } = {
     href: link.href,
     className: link.class,
     title: link.title,
@@ -86,14 +105,16 @@ export const Link: React.SFC<LinkProps> = ({ field, editable, children, showLink
     anchorAttrs.rel = 'noopener noreferrer';
   }
 
-  let linkText = showLinkTextWithChildrenPresent || !children ? (link.text || link.href) : null;
+  const linkText = showLinkTextWithChildrenPresent || !children ? link.text || link.href : null;
 
-  resultTags.push(React.createElement('a', { ...anchorAttrs, ...otherProps, key: 'link' }, linkText, children));
+  resultTags.push(
+    React.createElement('a', { ...anchorAttrs, ...otherProps, key: 'link' }, linkText, children)
+  );
 
   return <React.Fragment>{resultTags}</React.Fragment>;
 };
 
-Link.propTypes = {
+export const LinkPropTypes = {
   field: PropTypes.oneOfType([
     PropTypes.shape({
       href: PropTypes.string,
@@ -105,7 +126,11 @@ Link.propTypes = {
     }),
   ]).isRequired,
   editable: PropTypes.bool,
+  children: PropTypes.node,
+  showLinkTextWithChildrenPresent: PropTypes.bool,
 };
+
+Link.propTypes = LinkPropTypes;
 
 Link.defaultProps = {
   editable: true,

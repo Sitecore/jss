@@ -1,10 +1,12 @@
 import chalk from 'chalk';
 import fs from 'fs';
-import { Agent as HttpsAgent } from 'https';
+import https, { Agent as HttpsAgent } from 'https';
 import path from 'path';
-import request from 'request';
+import FormData from 'form-data';
+import axios, { AxiosRequestConfig, AxiosError } from 'axios';
 import { TLSSocket } from 'tls';
 import { digest, hmac } from './digest';
+import { ClientRequest, IncomingMessage } from 'http';
 
 export interface PackageDeployOptions {
   packagePath: string;
@@ -20,26 +22,40 @@ export interface PackageDeployOptions {
 // using a Windows trusted CA - so SSL connections to Sitecore will fail from Node.
 // If the options.acceptCertificate is passed, we disable normal SSL validation and use this function
 // to whitelist only a cert with the specific thumbprint - essentially certificate pinning.
-function applyCertPinning(req: request.Request, options: PackageDeployOptions) {
+/**
+ * @param {ClientRequest} req
+ * @param {PackageDeployOptions} options
+ */
+export function applyCertPinning(req: ClientRequest, options: PackageDeployOptions) {
   req.on('socket', (socket) => {
     socket.on('secureConnect', () => {
       const fingerprint = (socket as TLSSocket).getPeerCertificate().fingerprint;
 
       // Match the fingerprint with our saved fingerprint
-      if (options.acceptCertificate && (! doFingerprintsMatch(options.acceptCertificate, fingerprint))) {
+      if (
+        options.acceptCertificate &&
+        !doFingerprintsMatch(options.acceptCertificate, fingerprint)
+      ) {
         // Abort request, optionally emit an error event
-        // tslint:disable-next-line:max-line-length
-        req.emit('error', new Error(`Expected server SSL certificate to have thumbprint ${options.acceptCertificate} from acceptCertificate, but got ${fingerprint} from server. This may mean the certificate has changed, or that a malicious certificate is present.`));
+        req.emit(
+          'error',
+          new Error(
+            `Expected server SSL certificate to have thumbprint ${options.acceptCertificate} from acceptCertificate, but got ${fingerprint} from server. This may mean the certificate has changed, or that a malicious certificate is present.`
+          )
+        );
 
         return req.abort();
       }
     });
   });
 }
-function normalizeFingerprint(fp: string): string {
+/**
+ * @param {string} fp
+ */
+export function normalizeFingerprint(fp: string): string {
   //
   // The fingerprint for a certificate is a 20-byte value.
-  // Such values are typically expressed as strings, but 
+  // Such values are typically expressed as strings, but
   // there are many different formats that may be used.
   //
   // For example, the following values all represent
@@ -52,11 +68,93 @@ function normalizeFingerprint(fp: string): string {
   // Before two fingerprints can be properly compared,
   // they must be converted into the same format. This
   // function implements the logic for that conversion.
-  return fp.toLowerCase().replace(new RegExp(':', 'g'),'');
+  return fp.toLowerCase().replace(new RegExp(':', 'g'), '');
 }
-function doFingerprintsMatch(fp1:string, fp2:string): boolean {
+/**
+ * @param {string} fp1
+ * @param {string} fp2
+ */
+export function doFingerprintsMatch(fp1: string, fp2: string): boolean {
   return normalizeFingerprint(fp1) === normalizeFingerprint(fp2);
 }
+
+/**
+ * @param {Object} params
+ * @param {string[]} params.warnings
+ * @param {string[]} params.errors
+ * @param {Function} params.resolve
+ * @param {Function} params.reject
+ */
+export function finishWatchJobStatusTask({
+  warnings,
+  errors,
+  resolve,
+  reject,
+}: {
+  warnings: string[];
+  errors: string[];
+  resolve: (value?: unknown) => void;
+  reject: () => void;
+}) {
+  console.log();
+  console.log('Import is complete.');
+
+  if (warnings.length) {
+    console.log();
+    console.warn(chalk.yellow('IMPORT WARNING(S) OCCURRED!'));
+    warnings.forEach((w) => console.error(chalk.yellow(w)));
+  }
+
+  if (errors.length) {
+    console.log();
+    console.error(chalk.red('IMPORT ERROR(S) OCCURRED!'));
+    errors.forEach((e) => console.error(chalk.red(e)));
+    reject();
+  } else {
+    resolve();
+  }
+}
+
+/**
+ * @param {Object} params
+ * @param {string} params.message
+ * @param {string} params.entryLevel
+ * @param {string[]} params.warnings
+ * @param {string[]} params.errors
+ */
+export function logJobStatus({
+  message,
+  entryLevel,
+  warnings,
+  errors,
+}: {
+  message: string;
+  entryLevel: string;
+  warnings: string[];
+  errors: string[];
+}) {
+  switch (entryLevel) {
+    case 'WARN':
+      console.warn(chalk.yellow(message));
+      warnings.push(message);
+      break;
+    case 'ERROR':
+      console.error(chalk.red(message));
+      errors.push(message);
+      break;
+    case 'DEBUG':
+      console.log(chalk.white(message));
+      break;
+    default:
+      console.log(chalk.green(message));
+      break;
+  }
+}
+
+/**
+ * @param {PackageDeployOptions} options
+ * @param {string} taskName
+ */
 async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
   let logOffset = 0;
   const errors: string[] = [];
@@ -65,22 +163,26 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
   const factors = [options.appName, taskName, `${options.importServiceUrl}/status`];
   const mac = hmac(factors, options.secret);
 
-  const requestBaseOptions: request.CoreOptions = {
+  const isHttps = options.importServiceUrl.startsWith('https');
+
+  const requestBaseOptions = {
+    transport: isHttps ? getHttpsTransport(options) : undefined,
     headers: {
       'User-Agent': 'Sitecore/JSS-Import',
       'Cache-Control': 'no-cache',
       'X-JSS-Auth': mac,
     },
-    proxy: options.proxy,
-    // we turn off normal CA cert validation when we are whitelisting a single cert thumbprint
-    strictSSL: options.acceptCertificate ? false : true,
-    followRedirect: false,
+    proxy: extractProxy(options.proxy),
+    maxRedirects: 0,
+    httpsAgent: isHttps
+      ? new HttpsAgent({
+          // we turn off normal CA cert validation when we are whitelisting a single cert thumbprint
+          rejectUnauthorized: options.acceptCertificate ? false : true,
+          // needed to allow whitelisting a cert thumbprint if a connection is reused
+          maxCachedSessions: options.acceptCertificate ? 0 : undefined,
+        })
+      : undefined,
   };
-
-  // needed to allow whitelisting a cert thumbprint if a connection is reused
-  if (options.importServiceUrl.startsWith('https') && options.acceptCertificate) {
-    requestBaseOptions.agent = new HttpsAgent({ maxCachedSessions: 0 });
-  }
 
   if (options.debugSecurity) {
     console.log(`Deployment status security factors: ${factors}`);
@@ -88,117 +190,94 @@ async function watchJobStatus(options: PackageDeployOptions, taskName: string) {
   }
 
   return new Promise((resolve, reject) => {
+    /**
+     * Send job status request
+     */
     function sendJobStatusRequest() {
-      // tslint:disable-next-line:max-line-length
-      const req = request.get(`${options.importServiceUrl}/status?appName=${options.appName}&jobName=${taskName}&after=${logOffset}`, requestBaseOptions, (error, response, body) => {
-        if (error || response.statusCode < 200 || response.statusCode >= 300) {
-          // tslint:disable-next-line:max-line-length
-          console.error(chalk.red('Unexpected response from import status service. The import task is probably still running; check the Sitecore logs for details.'));
-          if (error) {
-            console.error(chalk.red(error));
-          }
-          if (response && response.statusMessage) {
-            console.error(chalk.red(response.statusMessage));
-          }
-          if (body) {
-            console.error(chalk.red(body));
-          }
-          reject();
-          return;
-        }
+      axios
+        .get(
+          `${options.importServiceUrl}/status?appName=${options.appName}&jobName=${taskName}&after=${logOffset}`,
+          requestBaseOptions
+        )
+        .then((response) => {
+          const body = response.data;
 
-        try {
-          const logReplies: string[] = JSON.parse(body);
+          try {
+            const { state, messages }: { state: string; messages: string[] } = body;
 
-          let complete = false;
+            messages.forEach((entry) => {
+              logOffset++;
 
-          logReplies.forEach((entry) => {
-            logOffset++;
+              const entryBits = /^(\[([A-Z]+)\] )?(.+)/.exec(entry);
 
-            const entryBits = /^(\[([A-Z]+)\] )?(.+)/.exec(entry);
+              let entryLevel = 'INFO';
+              let message = entry;
 
-            let entryLevel = 'INFO';
-            let message = entry;
-
-            if (entryBits && entryBits[2]) {
-              entryLevel = entryBits[2];
-              // 3 = '[] ' in say [INFO] My log message
-              // we're not using the capture group as the message might be multi-line
-              message = entry.substring(entryLevel.length + 3);
-            }
-
-            if (entry.startsWith('Job ended:')) {
-              console.log();
-              console.log('Import is complete.');
-
-              if (warnings.length > 0) {
-                console.log();
-                console.warn(chalk.yellow('IMPORT WARNING(S) OCCURRED!'));
-                warnings.forEach((w) => console.error(chalk.yellow(w)));
+              if (entryBits && entryBits[2]) {
+                entryLevel = entryBits[2];
+                // 3 = '[] ' in say [INFO] My log message
+                // we're not using the capture group as the message might be multi-line
+                message = entry.substring(entryLevel.length + 3);
               }
 
-              if (errors.length > 0) {
-                console.log();
-                console.error(chalk.red('IMPORT ERROR(S) OCCURRED!'));
-                errors.forEach((e) => console.error(chalk.red(e)));
-                reject();
-              } else {
-                resolve();
+              if (message.startsWith('[JSS] - ')) {
+                message = message.substring(8);
               }
 
-              complete = true;
+              logJobStatus({ message, entryLevel, warnings, errors });
+            });
+
+            if (state === 'Finished') {
+              finishWatchJobStatusTask({ warnings, errors, resolve, reject });
+
               return;
             }
 
-            if (message.startsWith('[JSS] - ')) {
-              message = message.substring(8);
-            }
-
-            switch (entryLevel) {
-              case 'WARN':
-                console.warn(chalk.yellow(message));
-                warnings.push(message);
-                break;
-              case 'ERROR':
-                console.error(chalk.red(message));
-                errors.push(message);
-                break;
-              case 'DEBUG':
-                console.log(chalk.white(message));
-                break;
-              default:
-                console.log(chalk.green(message));
-                break;
-            }
-          });
-
-          if (!complete) {
             setTimeout(sendJobStatusRequest, 1000);
+          } catch (error) {
+            console.error(
+              chalk.red(`Unexpected error processing reply from import status service: ${error}`)
+            );
+            console.error(chalk.red(`Response: ${body}`));
+            console.error(chalk.red('Consult the Sitecore logs for details.'));
+            reject(error);
           }
-        } catch (error) {
-          console.error(chalk.red(`Unexpected error processing reply from import status service: ${error}`));
-          console.error(chalk.red(`Response: ${body}`));
-          console.error(chalk.red('Consult the Sitecore logs for details.'));
-          reject(error);
-        }
-      });
+        })
+        .catch((error: AxiosError) => {
+          console.error(
+            chalk.red(
+              'Unexpected response from import status service. The import task is probably still running; check the Sitecore logs for details.'
+            )
+          );
+          if (error.response) {
+            console.error(chalk.red(`Status message: ${error.response.statusText}`));
+            console.error(chalk.red(`Status: ${error.response.status}`));
+          } else {
+            console.error(chalk.red(error.message));
+          }
 
-      applyCertPinning(req, options);
+          reject();
+        });
     }
 
     setTimeout(sendJobStatusRequest, 1000);
   });
 }
 
+/**
+ * @param {PackageDeployOptions} options
+ */
 export async function packageDeploy(options: PackageDeployOptions) {
   if (!options.secret) {
-    // tslint:disable-next-line:max-line-length
-    throw new Error('Deployment secret was not passed. A shared secret must be configured on both the Sitecore app config and the JS app config');
+    throw new Error(
+      'Deployment secret was not passed. A shared secret must be configured on both the Sitecore app config and the JS app config'
+    );
   }
 
   if (options.secret.length < 32) {
-    // tslint:disable-next-line:max-line-length
-    throw new Error('Deployment secret was too short. Use a RANDOM (not words or phrases) secret at least 32 characters long.');
+    throw new Error(
+      'Deployment secret was too short. Use a RANDOM (not words or phrases) secret at least 32 characters long.'
+    );
   }
 
   let packageFile = null;
@@ -221,50 +300,97 @@ export async function packageDeploy(options: PackageDeployOptions) {
     console.log(`Deployment HMAC: ${hmac(factors, options.secret)}`);
   }
 
-  const requestBaseOptions: request.CoreOptions = {
+  const formData = new FormData();
+
+  formData.append('path', fs.createReadStream(packageFile));
+  formData.append('appName', options.appName);
+
+  const isHttps = options.importServiceUrl.startsWith('https');
+
+  const requestBaseOptions = {
+    transport: isHttps ? getHttpsTransport(options) : undefined,
     headers: {
       'User-Agent': 'Sitecore/JSS-Import',
       'Cache-Control': 'no-cache',
       'X-JSS-Auth': hmac(factors, options.secret),
+      ...formData.getHeaders(),
     },
-    proxy: options.proxy,
-    // we turn off normal CA cert validation when we are whitelisting a single cert thumbprint
-    strictSSL: options.acceptCertificate ? false : true,
-    followRedirect: false,
-    formData: {
-      path: fs.createReadStream(packageFile),
-      appName: options.appName,
-    },
-  };
-
-  // needed to allow whitelisting a cert thumbprint if a connection is reused
-  if (options.importServiceUrl.startsWith('https') && options.acceptCertificate) {
-    requestBaseOptions.agent = new HttpsAgent({ maxCachedSessions: 0 });
-  }
+    proxy: extractProxy(options.proxy),
+    httpsAgent: isHttps
+      ? new HttpsAgent({
+          // we turn off normal CA cert validation when we are whitelisting a single cert thumbprint
+          rejectUnauthorized: options.acceptCertificate ? false : true,
+          // needed to allow whitelisting a cert thumbprint if a connection is reused
+          maxCachedSessions: options.acceptCertificate ? 0 : undefined,
+        })
+      : undefined,
+    maxRedirects: 0,
+  } as AxiosRequestConfig;
 
   console.log(`Sending package ${packageFile} to ${options.importServiceUrl}...`);
   return new Promise<string>((resolve, reject) => {
-    const req = request.post(options.importServiceUrl, requestBaseOptions, (error, response, body) => {
-      if (error || response.statusCode < 200 || response.statusCode >= 300) {
+    axios
+      .post(options.importServiceUrl, formData, requestBaseOptions)
+      .then((response) => {
+        const body = response.data;
+
+        console.log(chalk.green(`Sitecore has accepted import task ${body}`));
+        resolve(body);
+      })
+      .catch((error: AxiosError) => {
         console.error(chalk.red('Unexpected response from import service:'));
-        if (error) {
-          console.error(chalk.red(error));
+        if (error.response) {
+          console.error(chalk.red(`Status message: ${error.response.statusText}`));
+          console.error(chalk.red(`Status: ${error.response.status}`));
+        } else {
+          console.error(chalk.red(error.message));
         }
-        if (response && response.statusMessage) {
-          console.error(chalk.red(`Status message: ${response.statusMessage}`));
-        }
-        if (body) {
-          console.error(chalk.red(`Body: ${body}`));
-        }
+
         reject();
-        return;
-      }
+      });
+  }).then((taskName) => watchJobStatus(options, taskName));
+}
 
-      console.log(chalk.green(`Sitecore has accepted import task ${body}`));
-      resolve(body);
-    });
+/**
+ * Creates valid proxy object which fit to axios configuration
+ * @param {string} [proxy] proxy url
+ */
+export function extractProxy(proxy?: string) {
+  if (!proxy) return undefined;
 
-    applyCertPinning(req, options);
-  })
-  .then((taskName) => watchJobStatus(options, taskName));
+  try {
+    const proxyUrl = new URL(proxy);
+
+    return {
+      protocol: proxyUrl.protocol.slice(0, -1),
+      host: proxyUrl.hostname,
+      port: +proxyUrl.port,
+    };
+  } catch (error) {
+    console.error(chalk.red(`Invalid proxy url provided ${proxy}`));
+    process.exit(1);
+  }
+}
+
+/**
+ * Provides way to customize axios request adapter
+ * in order to execute certificate pinning before request sent:
+ * {@link https://github.com/axios/axios/issues/2808}
+ * @param {PackageDeployOptions} options
+ */
+export function getHttpsTransport(options: PackageDeployOptions) {
+  return {
+    ...https,
+    request: (reqOptions: https.RequestOptions, callback: (res: IncomingMessage) => void) => {
+      const req = https.request(
+        {
+          ...reqOptions,
+        },
+        callback
+      );
+      applyCertPinning(req, options);
+
+      return req;
+    },
+  };
 }

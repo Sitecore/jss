@@ -1,21 +1,23 @@
-import { Directive, ElementRef, Input, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  Renderer2,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
 
 @Directive({ selector: '[scGenericLink]' })
 export class GenericLinkDirective extends LinkDirective {
-
-  // tslint:disable-next-line:no-input-rename
   @Input('scGenericLinkEditable') editable = true;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scGenericLinkAttrs') attrs: any = {};
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scGenericLink') field: LinkField;
 
-  // tslint:disable-next-line:no-input-rename
   @Input('scGenericLinkExtras') extras?: NavigationExtras;
 
   constructor(
@@ -52,7 +54,7 @@ export class GenericLinkDirective extends LinkDirective {
   }
 
   private isAbsoluteUrl(url?: string) {
-    if (url == null) {
+    if (url === null) {
       return false;
     }
     if (typeof url !== 'string') {

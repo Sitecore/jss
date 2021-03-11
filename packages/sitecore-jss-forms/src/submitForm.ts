@@ -7,20 +7,33 @@ export interface FormSubmitOptions {
   fetcher?: FormFetcher;
 }
 
+/**
+ * @param {RequestInit} [options]
+ */
 export function createFetchBasedFormFetcher(options?: RequestInit): FormFetcher {
-  return (formData: JssFormData, endpoint: string) => fetch(endpoint, {
-    body: formData.toMultipartFormData(),
-    method: 'post',
-    // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
-    credentials: 'include',
-    // Browser set 'Content-Type' automatically with multipart/form-data; boundary
-    ...options,
-  })
-  .then((res) => res.json())
-  .then((res) => res as FormResult);
+  return (formData: JssFormData, endpoint: string) =>
+    fetch(endpoint, {
+      body: formData.toMultipartFormData(),
+      method: 'post',
+      // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
+      credentials: 'include',
+      // Browser set 'Content-Type' automatically with multipart/form-data; boundary
+      ...options,
+    })
+      .then((res) => res.json())
+      .then((res) => res as FormResult);
 }
 
-export function submitForm(formData: JssFormData, endpoint: string, options?: FormSubmitOptions): Promise<FormResult> {
+/**
+ * @param {JssFormData} formData
+ * @param {string} endpoint
+ * @param {FormSubmitOptions} [options]
+ */
+export function submitForm(
+  formData: JssFormData,
+  endpoint: string,
+  options?: FormSubmitOptions
+): Promise<FormResult> {
   options = options || {};
 
   if (!options.fetcher) {

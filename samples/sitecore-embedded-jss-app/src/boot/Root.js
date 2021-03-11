@@ -10,7 +10,10 @@ import App from '../app';
 class Root extends Component {
   render() {
     return (
-      <SitecoreContext componentFactory={componentFactory} context={this.props.initialState.sitecore.context}>
+      <SitecoreContext
+        componentFactory={componentFactory}
+        context={this.props.initialState.sitecore.context}
+      >
         <App route={this.props.initialState.sitecore.route} />
       </SitecoreContext>
     );

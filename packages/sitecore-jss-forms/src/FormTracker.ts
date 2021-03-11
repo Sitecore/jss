@@ -19,21 +19,26 @@ enum EventIds {
   FieldError = 'ea27aca5-432f-424a-b000-26ba5f8ae60a',
 }
 
-export type TrackerFetcher = (formData: TrackingEvent[], endpoint: string) => Promise<{}> | void;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type TrackerFetcher = (formData: TrackingEvent[], endpoint: string) => Promise<any> | void;
 
 export interface FormTrackerOptions {
   endpoint: string;
   fetcher?: TrackerFetcher;
 }
 
+/**
+ * @param {RequestInit} [options]
+ */
 export function createFetchBasedTrackerFetcher(options?: RequestInit): TrackerFetcher {
-  return (formData, endpoint) => fetch(endpoint, {
-    body: JSON.stringify(formData),
-    method: 'post',
-    // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
-    credentials: 'include',
-    ...options,
-  });
+  return (formData, endpoint) =>
+    fetch(endpoint, {
+      body: JSON.stringify(formData),
+      method: 'post',
+      // IMPORTANT: Sitecore forms relies on cookies for some state management, so credentials must be included.
+      credentials: 'include',
+      ...options,
+    });
 }
 
 export class FormTracker {
@@ -49,7 +54,12 @@ export class FormTracker {
     this._endpoint = options.endpoint;
   }
 
-  /** Should be called prior to pushing any events, and again whenever new form schema data is received */
+  /**
+   * Should be called prior to pushing any events, and again whenever new form schema data is received
+   * @param {string} formId
+   * @param {string} formSessionId
+   * @param {string} enableTracking
+   */
   setFormData(formId: string, formSessionId: string, enableTracking: boolean) {
     this._formId = formId;
     this._formSessionId = formSessionId;
@@ -74,11 +84,15 @@ export class FormTracker {
 
     const blurredAtTick = new Date().getTime();
 
-    let duration = trackableField.focusedAtTick ? Math.round((blurredAtTick - trackableField.focusedAtTick) / 1000) : 0;
+    let duration = trackableField.focusedAtTick
+      ? Math.round((blurredAtTick - trackableField.focusedAtTick) / 1000)
+      : 0;
 
     trackableField.focusedAtTick = undefined;
 
-    const fieldChanged = this._currentField && this._currentField.fieldIdField.value !== trackableField.fieldIdField.value;
+    const fieldChanged =
+      this._currentField &&
+      this._currentField.fieldIdField.value !== trackableField.fieldIdField.value;
     if (fieldChanged) {
       this._startTrackingField(field, value);
       duration = 0;
@@ -157,12 +171,12 @@ export class FormTracker {
     }
 
     return {
-        formId: this._formId,
-        sessionId: this._formSessionId,
-        eventId,
-        fieldId: field.fieldIdField.value,
-        duration,
-        fieldName: field.model.name,
+      formId: this._formId,
+      sessionId: this._formSessionId,
+      eventId,
+      fieldId: field.fieldIdField.value,
+      duration,
+      fieldName: field.model.name,
     };
   }
 

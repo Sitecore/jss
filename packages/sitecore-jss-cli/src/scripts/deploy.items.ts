@@ -1,4 +1,9 @@
-import { packageDeploy, verifySetup, resolveScJssConfig } from '@sitecore-jss/sitecore-jss-dev-tools';
+/* eslint-disable prettier/prettier */
+import {
+  packageDeploy,
+  verifySetup,
+  resolveScJssConfig,
+} from '@sitecore-jss/sitecore-jss-dev-tools';
 import resolvePackage from '../resolve-package';
 import { builder as packageBuilder, handler as packageHandler } from './package';
 
@@ -32,9 +37,14 @@ export const builder = {
     requiresArgs: false,
     type: 'boolean',
     describe:
-      // tslint:disable-next-line:max-line-length
       'If true, skips build, manifest, and packaging steps. This can be used to consume existing output from jss package (via the packageOutputPath parameter) without rebuilding it.',
     default: false,
+  },
+  config: {
+    requiresArg: false,
+    type: 'string',
+    describe: 'Path to scjssconfig file.',
+    default: './scjssconfig.json',
   },
   proxy: {
     requiresArgs: false,
@@ -44,11 +54,16 @@ export const builder = {
   acceptCertificate: {
     requiresArgs: false,
     type: 'string',
-    describe: 'Whitelists a specific SSL certificate thumbprint, regardless of normal SSL validation. Useful for self-signed certificates.',
+    describe:
+      'Whitelists a specific SSL certificate thumbprint, regardless of normal SSL validation. Useful for self-signed certificates.',
   },
   ...packageBuilder,
 };
 
+/**
+ * @param {any} argv
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function handler(argv: any) {
   verifySetup();
 
@@ -61,13 +76,12 @@ export async function handler(argv: any) {
     throw new Error('App Name was not defined as a parameter or in the package.json config');
   }
 
-  const jssConfig = await resolveScJssConfig();
+  const jssConfig = await resolveScJssConfig({ configPath: argv.config });
 
   if (!argv.deployUrl) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const legacyConfig = jssConfig.sitecore as any;
-    argv.deployUrl = legacyConfig.shipUrl
-      ? legacyConfig.shipUrl
-      : jssConfig.sitecore.deployUrl;
+    argv.deployUrl = legacyConfig.shipUrl ? legacyConfig.shipUrl : jssConfig.sitecore.deployUrl;
   }
   if (!argv.deployUrl) {
     throw new Error('deployUrl was not defined as a parameter or in the scjssconfig.json file');
@@ -75,7 +89,6 @@ export async function handler(argv: any) {
 
   if (/\/ship\/services\/package/.test(argv.deployUrl)) {
     throw new Error(
-      // tslint:disable-next-line:max-line-length
       'deployUrl appears to be a Sitecore.Ship endpoint. JSS no longer uses Ship. You will need to reconfigure your endpoint to the JSS deploy service and provide an app shared secret to deploy.'
     );
   }
@@ -87,7 +100,7 @@ export async function handler(argv: any) {
     throw new Error('deploySecret was not defined as a parameter or in the scjssconfig.json file');
   }
 
-  let continuation: Promise<any> = Promise.resolve();
+  let continuation: Promise<unknown> = Promise.resolve();
 
   if (!argv.skipPackage) {
     continuation = packageHandler(argv);

@@ -18,8 +18,8 @@ const staticImages = {
 const networkImages = {
   'test-image-1': {
     src: 'https://jssapp/-/media/myfile.ashx&w=180&h=360',
-    width: '180',
-    height: '360',
+    width: 180,
+    height: 360,
     alt: 'Logo',
   },
 };
@@ -86,16 +86,16 @@ describe('<Image />', () => {
         });
       });
     });
-	});
+  });
 
-	test('isSvgImage', () => {
-		const ut = (source: ImageSourcePropType, expected: boolean) =>
-			expect(isSvgImage(source)).toEqual(expected)
+  test('isSvgImage', () => {
+    const ut = (source: ImageSourcePropType, expected: boolean) =>
+      expect(isSvgImage(source)).toEqual(expected);
 
-		ut({ uri: './x.svg' }, true);
-		ut({ uri: './x.png' }, false);
-		ut({ uri: 'https://jssapp/-/media/myfile.svg&w=180' }, true);
-		ut({ uri: 'https://jssapp/-/media/myfile.svg?w=180' }, true);
-		ut({ uri: 'https://jssapp/-/media/myfile.png?w=180' }, false);
-	})
+    ut({ uri: './x.svg' }, true);
+    ut({ uri: './x.png' }, false);
+    ut({ uri: 'https://jssapp/-/media/myfile.svg&w=180' }, true);
+    ut({ uri: 'https://jssapp/-/media/myfile.svg?w=180' }, true);
+    ut({ uri: 'https://jssapp/-/media/myfile.png?w=180' }, false);
+  });
 });

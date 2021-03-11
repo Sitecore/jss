@@ -11,7 +11,7 @@ Upgrading a JSS 9.0 or later application to JSS 11.0 is relatively simple.
 ## JSS Server Upgrade (Sitecore)
 
 1. If you are upgrading Sitecore to Sitecore 9.1 from 9.0.x, do that first.
-1. Upgrade the JSS Server Components. Follow [the Server Install instructions](/docs/getting-started/jss-server-install); original installation and upgrading are the same steps.
+1. Upgrade the Headless Server Components. Follow [the Server Install instructions](/docs/client-frameworks/getting-started/jss-server-install); original installation and upgrading are the same steps.
 1. *If upgrading Sitecore to 9.1 only*, migrate your SSC API key. In 9.1, the API keys moved to the `master` database from the `core` database. The `Transfer` function can help you move the API key item between databases, or you can elect to create a new key and update the API key in the JSS config.
 
 ## JSS Application Upgrade (JS)
@@ -94,7 +94,7 @@ If you wish to track client-side analytics events, goals, outcomes, etc with you
 
 ### Update API key to explicitly whitelist GraphQL endpoints
 
-GraphQL in JSS 11.0 requires explicit GraphQL endpoint URL whitelisting on the SSC API key. This allows API keys to grant access to only a subset of GraphQL endpoints. See [the App Deployment guide](/docs/getting-started/app-deployment) API key section for details about how to whitelist GraphQL endpoints by URL.
+GraphQL in JSS 11.0 requires explicit GraphQL endpoint URL whitelisting on the SSC API key. This allows API keys to grant access to only a subset of GraphQL endpoints. See [the App Deployment guide](/docs/client-frameworks/getting-started/app-deployment) API key section for details about how to whitelist GraphQL endpoints by URL.
 
 Add the following configurations to your JSS app's GraphQL endpoint configuration (default: `$approot/sitecore/config/appname.config`) to enable full security when deployed to a content delivery environment:
 

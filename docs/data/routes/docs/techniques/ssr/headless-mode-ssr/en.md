@@ -22,13 +22,22 @@ All Sitecore marketing features are supported by this headless mode, including p
 
 1. Open `/config.js` file and,
     * Set `bundlePath` to the path to your built JSS app's `server.bundle.js`, i.e. `'./dist/myappname/server.bundle'`
-    * Set `apiHost` to your Sitecore instance host and the `apiKey` to your SSC API Key (see [server setup](/docs/getting-started/jss-server-install) if you don't have an API key yet)
+    * Set `apiHost` to your Sitecore instance host and the `apiKey` to your SSC API Key (see [server setup](/docs/client-frameworks/getting-started/jss-server-install) if you don't have an API key yet)
     * Set `apiKey` to your Sitecore SSC API key
     * Set the dictionary service path in `createViewBag()` to your app's dictionary service URL. If you are not using dictionaries, you can remove the whole `createViewBag()` function, which enables dictionary caching.
 
     > NOTE: It is possible to configure these settings using environment variables as well, if that is preferable. This is great for containers and some PaaS hosts.
 
-1. Open a command line in your `node-headless-ssr-proxy` folder, and run `npm install` then `npm start`.
+2. If proxying to a development Sitecore instance using a privately signed certificate, ensure you've [configured Sitecore CA certificates for Node.js](/docs/temp/node-certificates). Alternatively, you can disable SSL validation entirely by setting `secure` to `false` in the proxy options, e.g. in `/config.js`
+
+```
+  proxyOptions: {
+    // NEVER EVER do this in production. It will make your SSL completely insecure.
+    secure: false
+  }
+```
+
+3. Open a command line in your `node-headless-ssr-proxy` folder, and run `npm install` then `npm start`.
 
   The console should show `server listening on port 3000!`.
   To test, browse to `http://localhost:3000/` and you should see the same app rendering now in the headless configuration.

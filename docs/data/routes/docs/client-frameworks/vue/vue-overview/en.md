@@ -10,7 +10,7 @@ Sitecore JSS supports developing modern Vue applications with Sitecore.
 
 ## Sample Application
 
-The [JSS CLI](/docs/getting-started/quick-start) can be used to quickly create a `@vue/cli`-based JSS application:
+The [JSS CLI](/docs/client-frameworks/getting-started/quick-start) can be used to quickly create a `@vue/cli`-based JSS application:
 
 ```sh
 jss create my-vue-jss-app vue

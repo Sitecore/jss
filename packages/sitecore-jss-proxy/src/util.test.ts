@@ -9,6 +9,7 @@ describe('tryParseJson', () => {
   });
 
   it('should return false when the string is not json', () => {
+    // eslint-disable-next-line no-unused-expressions
     expect(tryParseJson('<html />')).to.be.null;
   });
 });

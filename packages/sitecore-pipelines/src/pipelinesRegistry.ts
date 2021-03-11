@@ -8,8 +8,8 @@ export interface PipelineRegistry {
   getPipelines: () => { [key: string]: Pipeline };
 }
 
-export const createPipelinesRegistry = (existingPipelines: {[k: string]: Pipeline} = {}) => {
-  const pipelines: {[k: string]: Pipeline} = { ...existingPipelines };
+export const createPipelinesRegistry = (existingPipelines: { [k: string]: Pipeline } = {}) => {
+  const pipelines: { [k: string]: Pipeline } = { ...existingPipelines };
 
   const addPipeline = (pipeline: Pipeline) => {
     const found = pipelines[pipeline.name];
@@ -17,9 +17,7 @@ export const createPipelinesRegistry = (existingPipelines: {[k: string]: Pipelin
       pipelines[pipeline.name] = { ...pipeline }; // weak attempt at immutability
     } else {
       console.warn(
-        `pipeline "${
-          pipeline.name
-        }" already exists. you may experience unexpected results when trying to reference the pipeline by name.`
+        `pipeline "${pipeline.name}" already exists. you may experience unexpected results when trying to reference the pipeline by name.`
       );
     }
   };
@@ -29,7 +27,7 @@ export const createPipelinesRegistry = (existingPipelines: {[k: string]: Pipelin
     if (!pipeName) {
       throw new Error(
         'no pipeline name specified for call to "updatePipeline", ' +
-        'you must specify either pipeline.name or pass in a name via the "pipelineName" argument.'
+          'you must specify either pipeline.name or pass in a name via the "pipelineName" argument.'
       );
     }
     const found = pipelines[pipeName];

@@ -17,15 +17,29 @@ export interface ComponentNameAndModule {
   loadChildren: () => Promise<any>;
 }
 
+/**
+ * @param {any} object
+ */
 export function instanceOfComponentNameAndType(object: any): object is ComponentNameAndType {
   return 'type' in object;
 }
 
+/**
+ * @param {any} object
+ */
 export function instanceOfComponentNameAndModule(object: any): object is ComponentNameAndModule {
   return 'module' in object;
 }
 
-export const PLACEHOLDER_COMPONENTS = new InjectionToken<ComponentNameAndType[]>('Sc.placeholder.components');
-export const PLACEHOLDER_LAZY_COMPONENTS = new InjectionToken<ComponentNameAndType[]>('Sc.placeholder.lazyComponents');
-export const PLACEHOLDER_MISSING_COMPONENT_COMPONENT = new InjectionToken<Type<any>>('Sc.placeholder.missingComponentComponent');
-export const DYNAMIC_COMPONENT = new InjectionToken<Type<any> | {[s: string]: any}> ('Sc.placeholder.dynamicComponent');
+export const PLACEHOLDER_COMPONENTS = new InjectionToken<ComponentNameAndType[]>(
+  'Sc.placeholder.components'
+);
+export const PLACEHOLDER_LAZY_COMPONENTS = new InjectionToken<ComponentNameAndType[]>(
+  'Sc.placeholder.lazyComponents'
+);
+export const PLACEHOLDER_MISSING_COMPONENT_COMPONENT = new InjectionToken<Type<any>>(
+  'Sc.placeholder.missingComponentComponent'
+);
+export const DYNAMIC_COMPONENT = new InjectionToken<Type<any> | { [s: string]: any }>(
+  'Sc.placeholder.dynamicComponent'
+);

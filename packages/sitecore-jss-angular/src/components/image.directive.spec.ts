@@ -1,4 +1,3 @@
-// tslint:disable:max-classes-per-file
 import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -21,14 +20,24 @@ class TestComponent {
 @Component({
   selector: 'test-image2',
   template: `
-    <img height="1" width="1" *scImage="field; editable: editable; urlParams: params; attrs: imageAttrs; mediaUrlPrefix: mediaUrlPrefix" />
+    <img
+      height="1"
+      width="1"
+      *scImage="
+        field;
+        editable: editable;
+        urlParams: params;
+        attrs: imageAttrs;
+        mediaUrlPrefix: mediaUrlPrefix
+      "
+    />
   `,
 })
 class AnotherTestComponent {
   @Input() field: any;
   @Input() editable = true;
   @Input() params: any = {};
-  @Input() imageAttrs: any = { };
+  @Input() imageAttrs: any = {};
   @Input() mediaUrlPrefix?: RegExp;
 }
 
@@ -80,7 +89,6 @@ describe('<img *scImage />', () => {
   });
 
   describe('with "value" property value', () => {
-
     it('should render <img /> component with "value" properties', () => {
       const media = {
         value: {
@@ -112,7 +120,6 @@ describe('<img *scImage />', () => {
   });
 
   describe('with "editable" property value', () => {
-
     it('should render wrapper containing experience editor value', () => {
       const media = {
         editable: eeImageData,
@@ -165,14 +172,14 @@ describe('<img *scImage />', () => {
     };
 
     beforeEach(() => {
-        fixture2 = TestBed.createComponent(AnotherTestComponent);
-        de = fixture2.debugElement;
-        comp2 = fixture2.componentInstance;
-        fixture2.detectChanges();
+      fixture2 = TestBed.createComponent(AnotherTestComponent);
+      de = fixture2.debugElement;
+      comp2 = fixture2.componentInstance;
+      fixture2.detectChanges();
 
-        comp2.params = imageParams;
-        comp2.imageAttrs = imageAttrs;
-        fixture2.detectChanges();
+      comp2.params = imageParams;
+      comp2.imageAttrs = imageAttrs;
+      fixture2.detectChanges();
     });
 
     it('should render img with addtional props', () => {
@@ -274,7 +281,9 @@ describe('<img *scImage />', () => {
         const img = de.nativeElement.getElementsByTagName('img')[0];
         const url = img.getAttribute('srcset');
 
-        expect(url).toBe(`${expectedPrefix}assets/img/test0.png?h=100&w=150&mw=100 150w, ${expectedPrefix}assets/img/test0.png?h=100&w=150&mw=300 150w`);
+        expect(url).toBe(
+          `${expectedPrefix}assets/img/test0.png?h=100&w=150&mw=100 150w, ${expectedPrefix}assets/img/test0.png?h=100&w=150&mw=300 150w`
+        );
       };
 
       comp2.imageAttrs = {
@@ -318,7 +327,6 @@ describe('<img *scImage />', () => {
   });
 
   describe('with "editable" property value but editing disabled', () => {
-
     it('should render <img /> component with "value" properties', () => {
       const media = {
         editable: eeImageData,

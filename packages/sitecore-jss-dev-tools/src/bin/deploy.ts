@@ -4,7 +4,7 @@ import path from 'path';
 import { deploy, DeployOptions } from '../deploy';
 import { replaceConfigTokens } from '../setup/jss-config';
 
-const options: any = {};
+const options = {} as DeployOptions;
 
 process.argv.forEach((value, index, map) => {
   switch (value) {

@@ -1,5 +1,3 @@
-// tslint:disable:max-line-length
-
 import {
   FormField,
   instanceOfButtonFormField,
@@ -15,13 +13,15 @@ import { FileInputViewModel, instanceOfInputViewModel } from './ViewModel';
 
 export interface SerializeFormOptions {
   submitButtonName?: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fieldValueParser?: (field: FormField<any>) => string | string[] | boolean;
 }
 
 /**
  * Serializes a Sitecore Form data into a format ready to POST to the server.
- * @param form The form schema data from the server
- * @param submitButtonName The name of the submit button that was clicked. Excludes other buttons from serialization. If not passed, all buttons are serialized.
+ * @param {SitecoreForm} form The form schema data from the server
+ * @param {SerializeFormOptions} [options]
+ * @returns {JssFormData} form data
  */
 export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions): JssFormData {
   if (!options) {
@@ -43,13 +43,23 @@ export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions
   return result;
 }
 
-function pushFields(result: JssFormData, fields: Array<FormField<any>>, options: SerializeFormOptions) {
+/**
+ * @param {JssFormData} result
+ * @param {Array<FormField<any>>} fields
+ * @param {SerializeFormOptions} options
+ */
+function pushFields(
+  result: JssFormData,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  fields: Array<FormField<any>>,
+  options: SerializeFormOptions
+) {
   fields.forEach((field) => {
     if (
       instanceOfButtonFormField(field) &&
       (!options.submitButtonName || field.buttonField.name === options.submitButtonName)
     ) {
-      pushField(result, field.buttonField, (field.model as any).title);
+      pushField(result, field.buttonField, field.model.title);
       pushField(result, field.navigationButtonsField);
       pushField(result, field.navigationStepField);
     } else if (instanceOfValueFormField(field)) {
@@ -78,11 +88,21 @@ function pushFields(result: JssFormData, fields: Array<FormField<any>>, options:
   });
 }
 
+/**
+ * @param {JssFormData} result
+ * @param {HtmlFormField} field
+ * @param {string} [overrideValue]
+ */
 function pushField(result: JssFormData, field: HtmlFormField, overrideValue?: string) {
   // the '' fallback prevents serializing 'null' as a string for empty field values ;)
   return pushFieldValue(result, field.name, overrideValue || field.value || '');
 }
 
+/**
+ * @param {JssFormData} result
+ * @param {string} fieldName
+ * @param {string} fieldValue
+ */
 function pushFieldValue(result: JssFormData, fieldName: string, fieldValue: string) {
   if (!fieldName) {
     throw new Error('Field had no name');
