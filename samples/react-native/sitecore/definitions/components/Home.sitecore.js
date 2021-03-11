@@ -9,7 +9,6 @@ export default (manifest) => {
       { name: 'styleguideLink', type: CommonFieldTypes.SingleLineText },
       { name: 'title', type: CommonFieldTypes.SingleLineText },
       { name: 'text', type: CommonFieldTypes.RichText },
-      { name: 'logoImage', type: CommonFieldTypes.Image },
     ],
   });
 };
