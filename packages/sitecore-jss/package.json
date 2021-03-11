@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "16.1.0-canary.4",
+  "version": "16.1.0-canary.5",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
