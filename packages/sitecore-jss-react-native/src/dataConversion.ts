@@ -40,8 +40,8 @@ export const convertPropDataToLayoutServiceFormat = (
       return newResult;
     }
 
-    // check if type is not a Field, so it's Item
-    if (!('value' in propValue) && !('editable' in propValue)) {
+    // check if value contains 'fields' -> it's Item
+    if (typeof propValue === 'object' && 'fields' in propValue) {
       return {
         ...propValue,
         fields: convertPropDataToLayoutServiceFormat(propValue.fields),
