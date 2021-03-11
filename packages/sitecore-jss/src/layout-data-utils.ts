@@ -1,4 +1,4 @@
-import { ComponentRendering, Field, HtmlElementRendering, Item } from '../data-models';
+import { ComponentRendering, Field, HtmlElementRendering, Item } from './data-models';
 
 type Fields = { [name: string]: Field | Item[] };
 
@@ -15,7 +15,6 @@ export function getFieldValue<T>(
   fieldName: string,
   defaultValue: T
 ): T;
-
 /**
  * @param {ComponentRendering | Fields} renderingOrFields
  * @param {string} fieldName

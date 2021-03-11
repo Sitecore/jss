@@ -1,4 +1,4 @@
-import * as routing from './routing-utils';
+import * as routing from './util/routing-utils';
 import * as layoutData from './layout-data-utils';
 
 export const isServer = (): boolean => !(typeof window !== 'undefined' && window.document);

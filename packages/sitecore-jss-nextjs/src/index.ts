@@ -3,34 +3,41 @@ export { handleExperienceEditorFastRefresh } from './utils';
 export { util } from '@sitecore-jss/sitecore-jss';
 
 export {
-  dataApi,
-  mediaApi,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
+  // generic data access
   HttpDataFetcher,
   HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
-  LayoutService,
-  GraphQLLayoutService,
-  GraphQLLayoutServiceConfig,
-  RestLayoutService,
-  RestLayoutServiceConfig,
+
+  // dictionary access
   DictionaryPhrases,
-  DictionaryServiceData,
   DictionaryService,
-  RestDictionaryService,
   DictionaryServiceConfig,
+  DictionaryServiceData,
+  GraphQLDictionaryService,
+  GraphQLDictionaryServiceConfig,
+  RestDictionaryService,
+  RestDictionaryServiceConfig,
+
+  // layout data access
+  LayoutService,
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,
   LayoutServiceContextData,
+  LayoutServiceRequestOptions,
+  GraphQLLayoutService,
+  GraphQLLayoutServiceConfig,
+  RestLayoutService,
+  RestLayoutServiceConfig,
+
+  isExperienceEditorActive,
+  resetExperienceEditorChromes,
   PlaceholdersData,
   RouteData,
   Field,
   Item,
   HtmlElementRendering,
-  LayoutServiceRequestOptions,
   getChildPlaceholder,
   getFieldValue,
   ComponentRendering,

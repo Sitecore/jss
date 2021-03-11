@@ -22,7 +22,7 @@ export {
 export {
   DictionaryService,
   RestDictionaryService,
-  DictionaryServiceConfig,
+  RestDictionaryServiceConfig,
 } from './dictionary-service';
 
 // Exporting individual functions from util for backwards compatibility with v16 and lower. Should move all samples to using 'util' alias in the future.
