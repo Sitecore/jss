@@ -1,8 +1,11 @@
-import { DictionaryService } from '@sitecore-jss/sitecore-jss-nextjs';
+import { DictionaryService, GraphQLDictionaryService } from '@sitecore-jss/sitecore-jss-nextjs';
+import config from 'temp/config';
 
 export class DictionaryServiceFactory {
   create(): DictionaryService {
-    throw new Error('GraphQLDictionaryService not implemented!');
+    return new GraphQLDictionaryService({
+      endpoint: config.graphQLEndpoint
+    });
   }
 }
 
