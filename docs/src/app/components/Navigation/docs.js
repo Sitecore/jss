@@ -200,6 +200,16 @@ export default {
             },
           ],
         },
+        {
+          url: 'troubleshooting',
+          displayName: 'Troubleshooting',
+          children: [
+            {
+              url: 'node-certificates',
+              displayName: 'Sitecore CA certificates for Node.js',
+            },
+          ],
+        },
       ],
     },
     {
