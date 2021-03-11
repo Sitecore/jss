@@ -1,7 +1,8 @@
 import * as dataApi from './data-api';
 import * as mediaApi from './media-api';
+import * as constants from './constants';
 
-export { dataApi, mediaApi };
+export { dataApi, mediaApi, constants };
 
 export { GraphQLRequestClient } from './graphql-request-client';
 
@@ -20,6 +21,8 @@ export {
 
 export {
   DictionaryService,
+  GraphQLDictionaryService,
+  GraphQLDictionaryServiceConfig,
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from './dictionary-service';
