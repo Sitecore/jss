@@ -21,7 +21,7 @@ export class GraphQLSitemapService {
    * Sitemap can be used for SSG/Export
    * @param {GraphQLSitemapServiceConfig} config graphql sitemap service config
    */
-  constructor(private config: GraphQLSitemapServiceConfig) {}
+  constructor(private config: GraphQLSitemapServiceConfig) { }
 
   /**
    * Fetch sitemap which could be used for generation of static pages during `next export`.
@@ -152,6 +152,7 @@ export class GraphQLSitemapService {
 
       const items = data?.search.results ? data.search.results : [];
 
+      // todo: convert to array.map
       const staticPaths = items.reduce((list: StaticPath[], item: { url: { path: string } }) => {
         // replace first and last /
         // transform to array of paths
