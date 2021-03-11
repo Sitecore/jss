@@ -21,11 +21,11 @@ module.exports = function createJssProject(argv, nextSteps) {
   applyNameToProject(__dirname, argv.name, argv.hostName, 'JssNextWeb');
 
   if (!argv.fetchWith || !argv.prerender) {
-    nextSteps.push([
+    nextSteps.push(
       `* Did you know you can customize the Next.js sample app using ${chalk.green('jss create')} parameters?`,
       `*  ${chalk.green('--fetchWith {REST|GraphQL}')} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`,
       `*  ${chalk.green('--prerender {SSG|SSR}')} : Specifies the Next.js pre-rendering form for the optional catch-all route. Default is SSG.`,
-    ]);
+    );
   }
 
   setFetchWith(argv.fetchWith);
