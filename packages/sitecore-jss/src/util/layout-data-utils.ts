@@ -15,6 +15,7 @@ export function getFieldValue<T>(
   fieldName: string,
   defaultValue: T
 ): T;
+
 /**
  * @param {ComponentRendering | Fields} renderingOrFields
  * @param {string} fieldName

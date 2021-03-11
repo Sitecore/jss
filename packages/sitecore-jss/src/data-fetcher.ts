@@ -16,7 +16,7 @@ export interface HttpResponse<T> {
  * - Parse response values as JSON and return them into <T>
  * - Send HTTP POST requests if `data` param is specified; GET is suggested but not required for data-less requests
  */
-export type HttpJsonFetcher<T> = (
+export type HttpDataFetcher<T> = (
   url: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: { [key: string]: any }

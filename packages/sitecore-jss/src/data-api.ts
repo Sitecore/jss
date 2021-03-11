@@ -1,5 +1,5 @@
 import { LayoutServiceData, PlaceholderData } from './data-models';
-import { HttpJsonFetcher, HttpResponse } from './data-fetcher';
+import { HttpDataFetcher, HttpResponse } from './data-fetcher';
 import { getQueryString } from './util/routing-utils';
 
 class ResponseError extends Error {
@@ -27,12 +27,12 @@ function checkStatus<T>(response: HttpResponse<T>) {
 
 /**
  * @param {string} url
- * @param {HttpJsonFetcher} fetcher
+ * @param {HttpDataFetcher} fetcher
  * @param {Object} params
  */
 export function fetchData<T>(
   url: string,
-  fetcher: HttpJsonFetcher<T>,
+  fetcher: HttpDataFetcher<T>,
   params: { [key: string]: string | number | boolean } = {}
 ) {
   const qs = getQueryString(params);
@@ -76,7 +76,7 @@ export interface BaseRequestOptions<T> {
   querystringParams?: { [key: string]: string | number | boolean };
 
   /** The fetcher that performs the HTTP request and returns a promise to JSON */
-  fetcher: HttpJsonFetcher<T>;
+  fetcher: HttpDataFetcher<T>;
 }
 
 export interface LayoutServiceRequestOptions<T> extends BaseRequestOptions<T> {

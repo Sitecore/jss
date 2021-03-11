@@ -7,6 +7,8 @@ export {
   mediaApi,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  HttpDataFetcher,
+  HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
   LayoutService,
