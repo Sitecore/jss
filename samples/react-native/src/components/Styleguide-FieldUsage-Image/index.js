@@ -22,13 +22,13 @@ const FieldsProps = PropTypes.shape({
   }),
   sample1: PropTypes.shape({
     value: PropTypes.shape({
-      src: PropTypes.number,
+      src: PropTypes.string,
       alt: PropTypes.string,
     }),
   }),
   sample2: PropTypes.shape({
     value: PropTypes.shape({
-      src: PropTypes.number,
+      src: PropTypes.string,
       alt: PropTypes.string,
     }),
   }),
