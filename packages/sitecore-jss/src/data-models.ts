@@ -8,6 +8,7 @@ export interface DictionaryPhrases {
 /**
  * A reply from the Sitecore Dictionary Service
  */
+// todo: move to the service where it's used
 export interface DictionaryServiceData {
   lang: string;
   app: string;

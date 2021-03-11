@@ -24,6 +24,10 @@ function checkStatus<T>(response: HttpResponse<T>) {
   throw error;
 }
 
+// TODO: getQueryString is duplicated in packages/sitecore-jss-tracking/src/trackingApi.ts, and
+// packages/sitecore-jss/src/dataApi.ts
+// Need to move to an exported util
+
 // note: encodeURIComponent is available via browser (window) or natively in node.js
 // if you use another js engine for server-side rendering you may not have native encodeURIComponent
 // and would then need to install a package for that functionality
