@@ -25,18 +25,3 @@ Get started with JSS front-end development on any operating system supported by 
 
 Follow the [Walkthrough: Creating a JSS Next.js starter application](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate) to set up the starter application for front-end development.
 
-## A note on [Next.js telemetry](https://nextjs.org/telemetry)
-
-Next.js collects anonymous telemetry data about general usage. Participation in the program is optional.
-
-To opt-out of the telemetry data collection, you must:
-
-1. Identify your JSS Next.js `.env` file, based on the development environment setup you chose.
-   * For full-stack, use `src/rendering/.env`.
-   * For front-end, use the `.env` in the root directory of your project. 
-
-2. In the JSS Next.js Application directory (application folder or `src/rendering` for full-stack development)  set the following variable in your `.env` file.
-
-   ```
-   NEXT_TELEMETRY_DISABLED=1
-   ```
