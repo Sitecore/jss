@@ -39,7 +39,6 @@ query DictionarySearch(
 }
 `;
 
-
 export interface GraphQLDictionaryServiceConfig extends CacheOptions {
   endpoint: string;
   rootItemId?: string;
@@ -52,16 +51,16 @@ export interface GraphQLDictionaryServiceConfig extends CacheOptions {
 type DictionaryQueryResult = {
   search: {
     pageInfo: {
-      endCursor: string,
-      hasNext: boolean
-    },
+      endCursor: string;
+      hasNext: boolean;
+    };
     dictionaryPhrases: {
       key: {
-        value: string
-      },
+        value: string;
+      };
       phrase: {
-        value: string
-      }
+        value: string;
+      };
     }[];
   };
 };
@@ -71,10 +70,9 @@ type DictionaryQueryResult = {
  * Uses graphql-request as the default data fetcher (@see GraphQLRequestClient).
  */
 export class GraphQLDictionaryService extends DictionaryServiceBase {
-
   /**
    * Creates an instance of graphQL dictionary service with the provided options.
-   * @param config (GraphQLDictionaryServiceConfig instance)
+   * @param options {GraphQLDictionaryService} instance
    */
   constructor(public options: GraphQLDictionaryServiceConfig) {
     super(options);
@@ -84,68 +82,65 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 
   /**
    * Fetches dictionary data for internalization.
-   * @param {string} locale locale which application supports
-   * @param {string} rootItemPath root item path
-   *
+   * @param language {string} the language to fetch
    * @default Search query
-      query DictionarySearch(
-          $rootItemId: String!,
-          $language: String!,
-          $dictionaryEntryTemplateId: String!,
-          $pageSize: Int = 10,
-          $after: String
-        ) {
-        search(
-          where: {
-            AND:[
-              { name: "_path",      value: $rootItemId },
-              { name: "_templates", value: $dictionaryEntryTemplateId },
-              { name: "_language",  value: $language }
-            ]
-          }
-          first: $pageSize
-          after: $after
-          orderBy: { name: "Title", direction: ASC }
-        ) {
-          total
-          pageInfo {
-            endCursor
-            hasNext
-          }
-          dictionaryPhrases: results {
-            key: field(name: "key") {
-              value
-            },
-            phrase: field(name: "phrase") {
-              value
-            }
-          }
-        }
-      }
+   * query DictionarySearch(
+   * $rootItemId: String!,
+   * $language: String!,
+   * $dictionaryEntryTemplateId: String!,
+   * $pageSize: Int = 10,
+   * $after: String
+   * ) {
+   * search(
+   * where: {
+   * AND:[
+   * { name: "_path",      value: $rootItemId },
+   * { name: "_templates", value: $dictionaryEntryTemplateId },
+   * { name: "_language",  value: $language }
+   * ]
+   * }
+   * first: $pageSize
+   * after: $after
+   * orderBy: { name: "Title", direction: ASC }
+   * ) {
+   * total
+   * pageInfo {
+   * endCursor
+   * hasNext
+   * }
+   * dictionaryPhrases: results {
+   * key: field(name: "key") {
+   * value
+   * },
+   * phrase: field(name: "phrase") {
+   * value
+   * }
+   * }
+   * }
+   * }
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
     const cacheKey = this.options.endpoint + language + this.options.rootItemId;
     const cachedValue = this.getCachedValue(cacheKey);
     if (cachedValue) {
       return cachedValue;
-    };
+    }
 
     const dataFetcher = new GraphQLRequestClient(this.options.endpoint);
     const results: DictionaryPhrases = {};
     let hasNext = true;
-    let after = "";
+    let after = '';
 
     while (hasNext) {
-      const fetchResponse = await dataFetcher
-        .request<DictionaryQueryResult>(query, {
-          rootItemId: this.options.rootItemId,
-          language,
-          dictionaryEntryTemplateId: SitecoreTemplateId.DictionaryEntry,
-          pageSize: this.options.pageSize,
-          after
-        });
+      const fetchResponse = await dataFetcher.request<DictionaryQueryResult>(query, {
+        rootItemId: this.options.rootItemId,
+        language,
+        dictionaryEntryTemplateId: SitecoreTemplateId.DictionaryEntry,
+        pageSize: this.options.pageSize,
+        after,
+      });
 
-      fetchResponse.search.dictionaryPhrases.forEach(dictionaryPhrase => {
+      fetchResponse.search.dictionaryPhrases.forEach((dictionaryPhrase) => {
         results[dictionaryPhrase.key.value] = dictionaryPhrase.phrase.value;
       });
 

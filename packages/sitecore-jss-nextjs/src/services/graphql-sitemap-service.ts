@@ -21,7 +21,7 @@ export class GraphQLSitemapService {
    * Sitemap can be used for SSG/Export
    * @param {GraphQLSitemapServiceConfig} config graphql sitemap service config
    */
-  constructor(private config: GraphQLSitemapServiceConfig) { }
+  constructor(private config: GraphQLSitemapServiceConfig) {}
 
   /**
    * Fetch sitemap which could be used for generation of static pages during `next export`.

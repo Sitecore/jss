@@ -1,7 +1,7 @@
 import mcache from 'memory-cache';
 
 const defaults = {
-  cacheTimeout: 60
+  cacheTimeout: 60,
 };
 
 /**
@@ -16,9 +16,9 @@ export interface DictionaryPhrases {
  */
 export interface CacheOptions {
   /**
-  * Enable/disable caching mechanism
-  * @default true
-  */
+   * Enable/disable caching mechanism
+   * @default true
+   */
   cacheEnabled?: boolean;
   /**
    * Cache timeout (sec)
@@ -47,21 +47,17 @@ export abstract class DictionaryServiceBase implements DictionaryService {
     }
   }
 
+  protected getCachedValue(key: string): DictionaryPhrases | null {
+    return this.options.cacheEnabled ? (mcache.get(key) as DictionaryPhrases) : null;
+  }
+
+  protected cacheValue(key: string, value: DictionaryPhrases): DictionaryPhrases {
+    return this.options.cacheEnabled ? mcache.put(key, value, this.options.cacheTimeout) : value;
+  }
+
   /**
    * Fetch dictionary data for a language.
    * @param {string} language
    */
   abstract fetchDictionaryData(language: string): Promise<DictionaryPhrases>;
-
-  protected getCachedValue(key: string): DictionaryPhrases | null {
-    return this.options.cacheEnabled
-      ? mcache.get(key) as DictionaryPhrases
-      : null;
-  }
-
-  protected cacheValue(key: string, value: DictionaryPhrases): DictionaryPhrases {
-    return this.options.cacheEnabled
-      ? mcache.put(key, value, this.options.cacheTimeout)
-      : value;
-  }
 }

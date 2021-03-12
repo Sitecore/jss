@@ -6,7 +6,7 @@ export class GraphQLRequestClient {
    * Provides ability to execute graphql query using given `endpoint`
    * @param {string} endpoint Your Graphql endpoint
    */
-  constructor(private endpoint: string) { }
+  constructor(private endpoint: string) {}
 
   /**
    * Execute graphql request

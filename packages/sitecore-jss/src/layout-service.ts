@@ -100,7 +100,7 @@ interface FetchOptions {
  * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
  */
 export class RestLayoutService implements LayoutService {
-  constructor(private serviceConfig: RestLayoutServiceConfig) { }
+  constructor(private serviceConfig: RestLayoutServiceConfig) {}
 
   /**
    * Fetch layout data for an item.
@@ -231,7 +231,7 @@ export class GraphQLLayoutService implements LayoutService {
    * Fetch layout data using the Sitecore GraphQL endpoint.
    * @param {GraphQLLayoutServiceConfig} serviceConfig
    */
-  constructor(private serviceConfig: GraphQLLayoutServiceConfig) { }
+  constructor(private serviceConfig: GraphQLLayoutServiceConfig) {}
 
   /**
    * Fetch layout data for an item.

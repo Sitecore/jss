@@ -4,7 +4,7 @@ import config from 'temp/config';
 export class DictionaryServiceFactory {
   create(): DictionaryService {
     return new GraphQLDictionaryService({
-      endpoint: config.graphQLEndpoint
+      endpoint: config.graphQLEndpoint,
     });
   }
 }

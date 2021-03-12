@@ -30,7 +30,7 @@ function extractPath(params: ParsedUrlQuery | undefined): string {
   }
 
   return path;
-};
+}
 
 /**
  * Determines whether context is GetServerSidePropsContext (SSR) or GetStaticPropsContext (SSG)

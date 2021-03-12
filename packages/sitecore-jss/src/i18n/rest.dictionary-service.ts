@@ -7,8 +7,8 @@ import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictio
  * A reply from the REST Sitecore Dictionary Service
  */
 type DictionaryServiceData = {
-  phrases: DictionaryPhrases
-}
+  phrases: DictionaryPhrases;
+};
 
 export type RestDictionaryServiceConfig = CacheOptions & {
   /**

@@ -4,7 +4,6 @@ export {
   HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
-
   // dictionary service
   DictionaryPhrases,
   DictionaryService,
@@ -12,7 +11,6 @@ export {
   GraphQLDictionaryServiceConfig,
   RestDictionaryService,
   RestDictionaryServiceConfig,
-
   // layout service
   LayoutService,
   LayoutServiceData,
@@ -24,7 +22,6 @@ export {
   GraphQLLayoutServiceConfig,
   RestLayoutService,
   RestLayoutServiceConfig,
-
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   PlaceholdersData,

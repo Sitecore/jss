@@ -43,5 +43,8 @@ export { HttpDataFetcher, HttpResponse } from './data-fetcher';
 
 // i18n
 export { DictionaryPhrases, DictionaryService } from './i18n/dictionary-service';
-export { GraphQLDictionaryService, GraphQLDictionaryServiceConfig } from './i18n/graphql.dictionary-service';
+export {
+  GraphQLDictionaryService,
+  GraphQLDictionaryServiceConfig,
+} from './i18n/graphql.dictionary-service';
 export { RestDictionaryService, RestDictionaryServiceConfig } from './i18n/rest.dictionary-service';
