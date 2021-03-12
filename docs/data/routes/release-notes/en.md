@@ -5,6 +5,25 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 16.1 for Sitecore 10
+
+### Breaking changes
+* [PR #624](https://github.com/Sitecore/jss/pull/624) [sitecore-jss-react-native] Removed `dataConversation`, since `editable` property not used in `disconnected` mode.
+
+### New Features & Improvements
+* [PR #624](https://github.com/Sitecore/jss/pull/624):
+	* [React-Native sample] Added shared `<Layout/>` component in order to have shared navigation panel.
+	* [React-Native sample] Sitecore logo in header is touchable and will navigate to Home page when click on it.
+	* [React-Native sample] Removed usage of `dataConversation`.
+
+### Bug Fixes
+
+* [PR #624](https://github.com/Sitecore/jss/pull/624):
+	* [sitecore-jss-react-native] [Image] Pass Object `style` type for `SvgUrI` instead of Array. 
+	* [sitecore-jss-react-native] [Date] Always render `<HtmlView/>` if `editable` is provided.
+	* [React-Native sample] Styleguide-FieldUsage-Date is not working in connected mode.
+	* [React-Native sample] Styleguide-FieldUsage-Image fix incorrect `src` prop type.
+
 ## Sitecore JSS 16.0 for Sitecore 10
 
 ### Upgrading
