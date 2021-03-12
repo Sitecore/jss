@@ -29,7 +29,7 @@
     "@sitecore-jss/sitecore-jss": "^16.1.0-canary.5",
     "prop-types": "^15.7.2",
     "react-native-htmlview": "^0.15.0",
-    "react-native-svg": "^9.13.2",
+    "react-native-svg": "^12.1.0",
     "react-native-svg-uri": "^1.2.3"
   },
   "peerDependencies": {
