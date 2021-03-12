@@ -11,6 +11,8 @@ export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
 
 export {
   LayoutService,
+  GraphQLLayoutService,
+  GraphQLLayoutServiceConfig,
   RestLayoutService,
   RestLayoutServiceConfig,
   DataFetcherResolver,
