@@ -26,9 +26,6 @@ export class GraphQLRequestClient {
       );
     };
 
-    const result = await client.request(query, variables).catch(onError);
-    return result;
+    return await client.request(query, variables).catch(onError);
   }
-
-
 }

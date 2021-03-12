@@ -43,7 +43,7 @@ query DictionarySearch(
 export interface GraphQLDictionaryServiceConfig extends CacheOptions {
   endpoint: string;
   rootItemId?: string;
-  pageSize: number;
+  pageSize?: number;
 }
 
 /**
@@ -124,7 +124,12 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       }
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
-    // todo: move in 'getDefaultFetcher'
+    const cacheKey = this.options.endpoint + language + this.options.rootItemId;
+    const cachedValue = this.getCachedValue(cacheKey);
+    if (cachedValue) {
+      return cachedValue;
+    };
+
     const dataFetcher = new GraphQLRequestClient(this.options.endpoint);
     const results: DictionaryPhrases = {};
     let hasNext = true;
@@ -148,6 +153,6 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       after = fetchResponse.search.pageInfo.endCursor;
     }
 
-    return results;
+    return this.cacheValue(cacheKey, results);
   }
 }

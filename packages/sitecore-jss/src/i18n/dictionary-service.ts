@@ -41,7 +41,10 @@ export interface DictionaryService {
 export abstract class DictionaryServiceBase implements DictionaryService {
   constructor(public options: CacheOptions) {
     this.options.cacheTimeout = this.options.cacheTimeout ?? defaults.cacheTimeout;
-    this.options.cacheEnabled = this.options.cacheEnabled === true;
+
+    if (this.options.cacheEnabled === undefined) {
+      this.options.cacheEnabled = true;
+    }
   }
 
   /**
