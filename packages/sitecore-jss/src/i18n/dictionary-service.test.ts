@@ -2,11 +2,11 @@
 import { expect, spy, use } from 'chai';
 import mcache from 'memory-cache';
 import spies from 'chai-spies';
-import { RestDictionaryService } from './dictionary-service';
-import { DictionaryServiceData } from './dataModels';
+import { RestDictionaryService } from './rest.dictionary-service';
+import { DictionaryServiceData } from './dictionary-service';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { AxiosDataFetcher } from './data-fetcher';
+import { AxiosDataFetcher } from '../axios-fetcher';
 
 use(spies);
 

@@ -19,19 +19,9 @@ export {
   DataFetcherResolver,
 } from './layout-service';
 
-export {
-  DictionaryService,
-  GraphQLDictionaryService,
-  GraphQLDictionaryServiceConfig,
-  RestDictionaryService,
-  RestDictionaryServiceConfig,
-} from './dictionary-service';
-
 export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
 
 export {
-  DictionaryPhrases,
-  DictionaryServiceData,
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,
@@ -50,3 +40,8 @@ export {
 export { getFieldValue, getChildPlaceholder } from './layout-data-utils';
 
 export { HttpDataFetcher, HttpResponse } from './data-fetcher';
+
+// i18n
+export { DictionaryPhrases, DictionaryService } from './i18n/dictionary-service';
+export { GraphQLDictionaryService, GraphQLDictionaryServiceConfig } from './i18n/graphql.dictionary-service';
+export { RestDictionaryService, RestDictionaryServiceConfig } from './i18n/rest.dictionary-service';

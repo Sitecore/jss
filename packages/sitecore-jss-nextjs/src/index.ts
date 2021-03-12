@@ -5,17 +5,15 @@ export {
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
 
-  // dictionary access
+  // dictionary service
   DictionaryPhrases,
   DictionaryService,
-  DictionaryServiceConfig,
-  DictionaryServiceData,
   GraphQLDictionaryService,
   GraphQLDictionaryServiceConfig,
   RestDictionaryService,
   RestDictionaryServiceConfig,
 
-  // layout data access
+  // layout service
   LayoutService,
   LayoutServiceData,
   LayoutServicePageState,

@@ -9,5 +9,5 @@ export enum SitecoreTemplateId {
 
 export enum SitecoreItemId {
   // /sitecore/content
-  Content = "0DE95AE441AB4D019EB067441B7C2450"
+  Content = "0de95ae441ab4d019eb067441b7c2450"
 }
