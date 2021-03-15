@@ -1,4 +1,23 @@
 {
+  "name": "sitecore-jss-docs",
+  "version": "16.0.0",
+  "description": "Doc site for Sitecore JavaScript SDK",
+  "engines": {
+    "node": "14.16.0",
+    "npm": "6.14.11"
+  },
+  "config": {
+    "appName": "JssDocs",
+    "rootPlaceholders": [
+      "jssdocs-main"
+    ],
+    "sitecoreDistPath": "/dist",
+    "sitecoreConfigPath": "/App_Config/Include/zzz",
+    "buildArtifactsPath": "./dist",
+    "staticOutputPublicPath": "/",
+    "routeDataDir": "./data/routes",
+    "language": "en"
+  },
   "scripts": {
     "reset": "lerna clean --yes && npm run bootstrap && npm run build-packages",
     "bootstrap": "lerna bootstrap && npm run bootstrap-react && npm run bootstrap-react-dom",
