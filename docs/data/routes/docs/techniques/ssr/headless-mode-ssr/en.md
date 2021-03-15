@@ -28,7 +28,7 @@ All Sitecore marketing features are supported by this headless mode, including p
 
     > NOTE: It is possible to configure these settings using environment variables as well, if that is preferable. This is great for containers and some PaaS hosts.
 
-2. If proxying to a development Sitecore instance using a privately signed certificate, ensure you've [configured Sitecore CA certificates for Node.js](/docs/temp/node-certificates). Alternatively, you can disable SSL validation entirely by setting `secure` to `false` in the proxy options, e.g. in `/config.js`
+2. If proxying to a development Sitecore instance using a privately signed certificate, ensure you've [configured Sitecore CA certificates for Node.js](/docs/fundamentals/troubleshooting/node-certificates). Alternatively, you can disable SSL validation entirely by setting `secure` to `false` in the proxy options, e.g. in `/config.js`
 
 ```
   proxyOptions: {

@@ -57,7 +57,7 @@ If you are working with a local Sitecore instance using a privately signed certi
 
 > UnauthorizedError: invalid signature
 
-Ensure you've [configured Sitecore CA certificates for Node.js](/docs/temp/node-certificates).
+Ensure you've [configured Sitecore CA certificates for Node.js](/docs/fundamentals/troubleshooting/node-certificates).
 
 ## Errors deploying a JSS app locally
 

@@ -60,7 +60,7 @@ It is possible to build a simple login/logout using the [SSC Authentication serv
 * The proxy system utilized by Headless mode is able to proxy requests to the SSC Auth services, and proxy the `.ASPXAUTH` cookie.
 * Because the requests are proxied, CORS headers should not be an issue.
 * For login functionality to work however, the `apiHost` in `config.js` of the sample headless server needs to be updated to SSL, e.g. `https://JssReactWeb`.
-* If proxying to a development Sitecore instance using a privately signed certificate, ensure you've [configured Sitecore CA certificates for Node.js](/docs/temp/node-certificates).
+* If proxying to a development Sitecore instance using a privately signed certificate, ensure you've [configured Sitecore CA certificates for Node.js](/docs/fundamentals/troubleshooting/node-certificates).
 * Alternatively, you can disable SSL validation entirely by setting `secure` to `false` in the proxy options, e.g. in `config.js`
 
 ```

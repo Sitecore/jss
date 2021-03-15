@@ -196,6 +196,10 @@ export default {
         },
       ],
     },
+    {
+      url: 'troubleshooting',
+      displayName: 'Troubleshooting',
+    },
   ],
   links: [],
 };
