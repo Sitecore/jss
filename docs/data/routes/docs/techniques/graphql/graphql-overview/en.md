@@ -516,7 +516,7 @@ Sitecore GraphQL comes with a standard schema provider that allows querying Site
 
 ## Strongly-typed Items
 
-GraphQL has the concept of types and iterfaces, and we leverage that by injecting the template definition into its schema. You can get template fields in a strongly typed manner by using _inline fragments_ which select fields from specific types. Here's an example of getting the default home item's fields like this:
+GraphQL has the concept of types and interfaces, and we leverage that by injecting the template definition into its schema. You can get template fields in a strongly typed manner by using _inline fragments_ which select fields from specific types. Here's an example of getting the default home item's fields like this:
 
 ```
 {
