@@ -6,6 +6,8 @@ export {
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
   LayoutService,
+  GraphQLLayoutService,
+  GraphQLLayoutServiceConfig,
   RestLayoutService,
   RestLayoutServiceConfig,
   DictionaryPhrases,
