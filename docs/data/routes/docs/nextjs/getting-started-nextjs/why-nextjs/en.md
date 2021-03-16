@@ -11,6 +11,11 @@ The latest JSS SDK leverages many of Next.js' [features](https://nextjs.org/#fea
 
 <p>
 <iframe width="672" height="378" src="https://www.youtube.com/embed/CfoOKlKjzfA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<small style="display:block">
+    <a href="https://www.youtube.com/playlist?list=PL1jJVFm_lGnwZup4L4BjITS2sKr4rpMfI" target="_blank">
+      View the entire Master Sitecore "Headless &amp; JSS" playlist on YouTube
+    </a>
+  </small>
 </p>
 
 ## Improvements over previous JSS SDKs
