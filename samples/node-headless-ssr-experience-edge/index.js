@@ -38,14 +38,12 @@ const getRouteParams = (reqRoute) => {
   let route;
 
   if (routeParams) {
-    if (routeParams.sitecoreRoute) {
-      route = routeParams.sitecoreRoute;
-    } else {
-      route = '/';
-    }
+    route = routeParams.sitecoreRoute || '/';
+
     if (!route.startsWith('/')) {
       route = `/${route}`;
     }
+
     lang = routeParams.lang;
   }
 
