@@ -22,7 +22,9 @@ title: Release Notes
 	* [sitecore-jss-react-native] [Image] Pass Object `style` type for `SvgUrI` instead of Array. 
 	* [sitecore-jss-react-native] [Date] Always render `<HtmlView/>` if `editable` is provided.
 	* [React-Native sample] Styleguide-FieldUsage-Date is not working in connected mode.
-	* [React-Native sample] Styleguide-FieldUsage-Image fix incorrect `src` prop type.
+	* [React-Native sample] Styleguide-FieldUsage-Image fix incorrect `src` prop type in disconnected mode.
+	* [React-Native sample] Styleguide-ComponentParams fix incorrect `params` prop types in connected mode.
+	* [React-Native sample] Fix connected tunnel mode for secure (https) Sitecore endpoints. 
 
 ## Sitecore JSS 16.0 for Sitecore 10
 
