@@ -1,7 +1,7 @@
 const appName = process.env.SITECORE_JSS_APP_NAME;
 
 const endpoint =
-  process.env.SITECORE_EXPERIENCE_EDGE_ENDPOINT || 'http://my.experience.edge/sitecore/api/graph/edge?sc_apikey=${config.sitecoreApiKey}';
+  process.env.SITECORE_EXPERIENCE_EDGE_ENDPOINT || 'http://my.experience.edge/sitecore/api/graph/edge?sc_apikey=${sitecoreApiKey}';
 
 const port = process.env.PORT || 3000;
 
