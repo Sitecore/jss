@@ -22,13 +22,15 @@ const FieldsProps = PropTypes.shape({
   }),
   sample1: PropTypes.shape({
     value: PropTypes.shape({
-      src: PropTypes.string,
+      // This will be a number in disconnected mode (see dataService.disconnected.js), string in connected
+      src: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
       alt: PropTypes.string,
     }),
   }),
   sample2: PropTypes.shape({
     value: PropTypes.shape({
-      src: PropTypes.string,
+      // This will be a number in disconnected mode (see dataService.disconnected.js), string in connected
+      src: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
       alt: PropTypes.string,
     }),
   }),
