@@ -6,4 +6,4 @@ $deployBlock = {
     & jss deploy app --skipPackage --skipBuild
 }
 
-Invoke-ForEachSampleApp $deployBlock -blacklist @('node-headless-ssr-proxy', 'react-native', 'sitecore-javascript-renderings')
+Invoke-ForEachSampleApp $deployBlock -blacklist @('node-headless-ssr-experience-edge', 'node-headless-ssr-proxy', 'react-native', 'sitecore-javascript-renderings')
