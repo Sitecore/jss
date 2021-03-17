@@ -209,8 +209,8 @@
 				},
 				"params": {
 					"cssClass": "firstParagraph",
-					"columns": 5,
-					"useCallToAction": true
+					"columns": "5",
+					"useCallToAction": "true"
 				}
 			},
 			{
