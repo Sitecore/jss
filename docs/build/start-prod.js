@@ -1,7 +1,7 @@
 import path from 'path';
 import express from 'express';
 import compression from 'compression';
-import forcedomain from 'forcedomain';
+import { forceDomain } from 'forcedomain';
 import enforce from 'express-sslify';
 import {
   createDisconnectedAssetMiddleware,
@@ -109,10 +109,10 @@ manifestManager.getManifest(config.language).then((manifest) => {
   if (process.env.HEROKU) {
     server.use(enforce.HTTPS({ trustProtoHeader: true }));
     server.use(
-      forcedomain({
+      forceDomain({
         hostname: 'jss.sitecore.com',
         protocol: 'https',
-        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.herokuapp\.com/i,
+        excludeRule: /[a-zA-Z0-9][a-zA-Z0-9-]+\.herokuapp\.com||localhost/i,
       })
     );
   }

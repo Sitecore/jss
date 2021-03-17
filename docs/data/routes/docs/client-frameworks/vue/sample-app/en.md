@@ -9,6 +9,7 @@ title: Vue Sample App
 JSS' Vue sample app is a practical sample that demonstrates many patterns of how to use JSS with Vue. It is designed to have just enough dependencies that Sitecore features can function (i.e. routing, translation), but also be as simple and approachable as possible. The sample is both a learning tool as well as a basis for writing production-ready applications; the sample content is designed to be easy to remove so you can replace it with production work.
 
 > The sample app was built using [`@vue/cli`](https://github.com/vuejs/vue-cli) as a starting point. However, the `sitecore-jss-vue` package has no dependencies on `@vue/cli`.
+
 ## Getting Started
 
 The Vue sample supports running in all [JSS application modes](/docs/fundamentals/application-modes). For example, to start the app in _disconnected mode_, run `jss start` to build the app and open a browser to view it.
