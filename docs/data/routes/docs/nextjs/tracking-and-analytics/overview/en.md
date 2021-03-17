@@ -5,7 +5,7 @@ title: Overview and architecture
 ---
 # Tracking & Analytics Overview and Architecture
 
-Full Sitecore analytics and personalization functionality is possible with Next.js on any SSR (Server-side Rendered) page route using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout-service).
+Sitecore analytics and personalization functionality is possible with Next.js only on SSR (Server-side Rendered) page routes using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout-service).
 
 > See [Sitecore Experience Platform documentation](https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/web-tracking.html) for more information about tracking and analytics.
 
