@@ -63,7 +63,7 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-native": "^3.2.1",
-    "ngrok": "^3.0.1",
+    "ngrok": "^3.4.1",
     "prettier": "^1.14.2"
   },
   "optionalDependencies": {
