@@ -44,9 +44,9 @@ The following environment variables can be set to configure the SSR sample inste
 
 ## Build & run
 
-1.  Run `npm install`
+1. Run `npm install`
 
-1.  Run `npm run start`
+1. Run `npm run start`
 
 You should be able to see the following message:
 `server listening on port 3000!`.
