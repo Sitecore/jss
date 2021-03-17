@@ -1,0 +1,52 @@
+# Note
+
+Sitecore JSS for SSR using Experience Edge is considered experimental.
+
+# node/express scaffolding for SSR using Sitecore Experience Edge
+
+This is a sample setup showing one of how you can configure rendering server on top of node.js and Express using Experience Edge. It performs only render of the sample app without proxying requests.
+
+## Pre-requisites
+
+1.  Your Delivery Edge instance needs to be configured with JSS.Server and the API Key provisioned.
+
+	> You can test Graphql queries using GraphiQL.
+
+1. Update `/src/components/GraphQL-ConnectedDemo/query.graphql` query and corresponding component to be compatible with Edge schema. See [example](../nextjs\src\components\graphql\GraphQL-ConnectedDemo.graphql).
+
+1. Update `/sitecore/definitions/components/GraphQL-IntegratedDemo.sitecore.graphql` query and corresponding component to be compatible with Edge schema. See [example](../nextjs/sitecore/definitions/components/graphql/GraphQL-IntegratedDemo.sitecore.graphql).
+
+1. Deploy updated items using `jss deploy items -c -d`.
+
+1. Build your JS app bundle with `jss build`.
+
+	> You can use JSS sample apps which support server side rendering (JSS integrated mode) to operate with this project.
+
+1. Deploy the build artifacts from your app (`/dist` or `/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the SSR sample root path. Most apps use `/dist/${jssAppName}`, for example `$sampleRoot/dist/${jssAppName}`.
+
+	> Another way to deploy the artifacts to the SSR sample is to change the `instancePath` in your app's `scjssconfig.json` to the SSR sample root path, and then use `jss deploy files` within the app to complete the deployment to the SSR sample.
+
+## Setup
+
+Open `config.js` and specify your application bundle and connection settings.
+
+### Environment Variables
+
+The following environment variables can be set to configure the SSR sample instead of modifying `config.js`, for environments where this is more desirable like containers:
+
+| Parameter                              | Description                                                                                                                                                      |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SITECORE_JSS_APP_NAME`                | The JSS app's name. Used when request layout data from Layout Service using graphql query and the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set. |
+| `SITECORE_JSS_SERVER_BUNDLE`           | Path to the JSS app's `server.bundle.js` file.        																																									                          |
+| `SITECORE_EXPERIENCE_EDGE_ENDPOINT`    | Sitecore Experience Edge endpoint.																																																				                        |
+| `SITECORE_PATH_REWRITE_EXCLUDE_ROUTES` | Optional. Pipe-separated list of absolute paths that should not be rendered through SSR. Defaults can be seen in [config.js](./config.js).                       |
+| `PORT` 																 | Optional. Port which will be used when start sample. Default can be seen in [config.js](./config.js).                                                            |
+
+## Build & run
+
+1.  Run `npm install`
+
+1.  Run `npm run start`
+
+You should be able to see the following message:
+`server listening on port 3000!`.

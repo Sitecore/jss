@@ -448,6 +448,38 @@ describe('LayoutService', () => {
       });
     });
 
+    it('should handle not found', async () => {
+      nock('http://sctest')
+        .post('/graphql', (body) => {
+          return (
+            body.query.replace(/\n|\s/g, '') ===
+            'query{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}'
+          );
+        })
+        .reply(200, {
+          data: {
+            layout: null,
+          },
+        });
+
+      const service = new GraphQLLayoutService({
+        endpoint: 'http://sctest/graphql',
+        siteName: 'supersite',
+      });
+
+      const data = await service.fetchLayoutData('/styleguide', 'da-DK');
+
+      expect(data).to.deep.equal({
+        sitecore: {
+          context: {
+            pageEditing: false,
+            language: 'da-DK',
+          },
+          route: null,
+        },
+      });
+    });
+
     it('should return error', async () => {
       nock('http://sctest')
         .post('/graphql')
