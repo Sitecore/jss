@@ -50,6 +50,16 @@ const getRouteParams = (reqRoute) => {
   return { route, lang };
 };
 
+/**
+ * Handle unexpected error
+ * @param {Response} res server response
+ * @param {*} err error
+ */
+const handleError = (res, err) => {
+  console.error(err);
+  res.status(500).send('Internal Server Error');
+};
+
 // enable gzip compression for appropriate file types
 server.use(compression());
 
@@ -80,29 +90,28 @@ server.use(async (req, res) => {
     const site =
       layoutData && layoutData.sitecore.context.site && layoutData.sitecore.context.site.name;
 
-    let dictionary = {};
+    const viewBag = { dictionary: {} };
 
     if (language && site) {
-      dictionary = await dictionaryService.fetchDictionaryData(language);
+      viewBag.dictionary = await dictionaryService.fetchDictionaryData(language);
     }
 
     renderView(
       (err, result) => {
         if (err) {
-          console.error(err);
-          res.status(500).send('Internal Server Error');
+          handleError(res, err);
 
           return;
         }
+
         res.status(200).send(result.html);
       },
       route,
       layoutData,
-      { dictionary }
+      viewBag
     );
   } catch (err) {
-    console.log(err);
-    res.status(500).send('Internal Server Error');
+    handleError(res, err);
   }
 });
 
