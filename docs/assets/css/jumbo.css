@@ -32,21 +32,7 @@
   font-size: 1.2rem;
 }
 
-.jumbo-container .outer-shape {
-  padding-top: 75px;
-  padding-bottom: 75px;
-}
-
-.jumbo-container.jumbo-container-short .outer-shape {
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
 @media (max-width: 767px) {
-  .jumbo-container.jumbo-container-short .outer-shape {
-    padding-top: 50px;
-    padding-bottom: 30px;
-  }
 
   .jumbo-container.jumbo-container-short .min-height {
     min-height: 50px;
@@ -54,11 +40,6 @@
 }
 
 /* image */
-
-.jumbo-container .shapes-wrapper {
-  position: relative;
-  z-index: 5;
-}
 
 .jumbo-image-container {
   content: "";

@@ -29,14 +29,12 @@ Sitecore supports the template output as provided. Once changed or amended, the 
 
 To create a solution from the Getting Started template, you must complete the following procedures:
 
-- [Walkthrough: Using the Sitecore Container Starter Template for JSS Next.js Projects](#walkthrough-using-the-sitecore-container-starter-template-for-jss-nextjs-projects)
-  - [Support](#support)
-  - [Create a solution from the Getting Started template](#create-a-solution-from-the-getting-started-template)
-    - [Install the prerequisites](#install-the-prerequisites)
-    - [Install the template](#install-the-template)
-    - [Create the MyProject solution](#create-the-myproject-solution)
-    - [Rebuild search indexes](#rebuild-search-indexes)
-    - [Add a language and import it(Optional)](#add-a-language-and-import-itoptional)
+* [Install the prerequisites](#install-the-prerequisites)
+
+- [Install the template](#install-the-template)
+- [Create the MyProject solution](#create-the-myproject-solution)
+- [Rebuild search indexes](#rebuild-search-indexes)
+- [Add a language and import it (Optional)](#add-a-language-and-import-it-optional)
 
 ### Install the prerequisites
 
@@ -128,20 +126,12 @@ To create the `MyProject` solution:
 
      > On local environments, Sitecore instances are installed using privately signed certificates. `.\init.ps1` generates certificates using the `mkcert` utility. Node.js rejects these certificates because their root CAs are not known. 
      >
-     > If this is your first time using `mkcert` with Node.js, you will need to manually set the  [NODE_EXTRA_CA_CERTS](https://nodejs.org/api/cli.html#cli_node_extra_ca_certs_file) environment variable to prevent HTTPS errors, such as:
-     >
-     > ```
-     > Error: unable to verify the first certificate
-     >  ...
-     >  type: 'system',
-     >   errno: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
-     >   code: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE'
-     > ```
+     > If this is your first time using `mkcert` with Node.js, you will need to [manually set the  `NODE_EXTRA_CA_CERTS` environment variable](/docs/fundamentals/troubleshooting/node-certificates) to prevent HTTPS errors.
      >
      > The `.\init.ps1` script will instruct you on how to set the `NODE_EXTRA_CA_CERTS` environment variable in your user or system environment variables: 
      >
      > ```
-     > To avoid HTTPS errors, set the NODE_EXTRA_CA_CERTS environment variable using the following commmand:
+     > To avoid HTTPS errors, set the NODE_EXTRA_CA_CERTS environment variable using the following command:
      > setx NODE_EXTRA_CA_CERTS C:\Users\<username>\AppData\Local\mkcert\rootCA.pem
      > 
      > You will need to restart your terminal or VS Code for it to take effect.
@@ -171,9 +161,9 @@ To create the `MyProject` solution:
 
 ### Rebuild search indexes
 
-After running `.\up.ps1` for the first time, or if you ever run `\docker\clean.ps1`, you will need to [rebuild the search indexes](https://doc.sitecore.com/developers/101/platform-administration-and-architecture/en/rebuild-search-indexes.html).
+After running `.\up.ps1` for the first time, or if you ever run `\docker\clean.ps1`, you need to [rebuild the search indexes](https://doc.sitecore.com/developers/101/platform-administration-and-architecture/en/rebuild-search-indexes.html).
 
-### Add a language and import it(Optional)
+### Add a language and import it (Optional)
 
 To add a language to your JSS Next.js application, you must: 
 

@@ -43,6 +43,7 @@ For example, the default configuration will be:
 </configuration>
 ```
 
+> Note: the rendering engine endpoint URL can also be [set dynamically via the `sc_httprenderengineurl` query string parameter](/docs/nextjs/experience-editor/architecture#using-the-sc_httprenderengineurl-parameter).
 
 
 ### JSS Editing Secret
