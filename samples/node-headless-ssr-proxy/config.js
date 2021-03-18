@@ -93,6 +93,8 @@ const config = {
     // This is a major security issue, so NEVER EVER set this to false
     // outside local development. Use a real CA-issued certificate.
 		secure: true,
+    // setting ws to false will prevent the layoutservice call data being saved to memory
+    ws: false,
 		headers: {
 			"accept-encoding": "gzip, deflate"
 		},
