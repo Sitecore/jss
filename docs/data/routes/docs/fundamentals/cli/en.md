@@ -12,6 +12,26 @@ During JSS development, you will be commonly using scripts provided by the _JSS 
 These are the main scripts you will be using frequently during JSS development.
 These were partially covered in [Quick start](/docs/client-frameworks/getting-started/quick-start).
 
+### `jss create`
+Creates a JSS application. You must provide an application name and a framework. 
+
+```
+jss create <your-app-name> <app-template-name>
+```
+
+|Parameter| Options | Description| Default |Template|
+|--- | --- | --- | --- | --- |
+|`fetchWith` | `REST` or `GraphQL` | Specifies how the applicaiton should fetch Sitecore data (layout, dictionary). | `REST` | nextjs |
+|`prerender` | `SSG` or `SSR` | Specifies the Next.js pre-rendering form for the primary `[[...path]].tsx` route. | `SSG` | nextjs |
+|`repository` | A repository: githubusername/reponame | Specifies which repository to use for creating the JSS app | `Sitecore/jss` | all |
+|`branch` | A branch name | Specifies which branch to use for creating the JSS app | `master` | all |
+|`source` | A local directory path | Specifies a local directory for custom JSS app templates | - | all |
+
+**Example**
+```
+jss create my-jss-app nextjs --prerender SSG --fetchWith GraphQL
+```
+
 ### `jss setup`
 
 Runs the interactive setup process where you will optionally provide info about connecting/deploying to a Sitecore instance. The input is saved to `scjssconfig.json` file in the app root.
