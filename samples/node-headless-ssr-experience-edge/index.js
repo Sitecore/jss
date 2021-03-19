@@ -18,9 +18,11 @@ const dictionaryService = new GraphQLDictionaryService({
 const { renderView, parseRouteUrl } = config.serverBundle;
 
 if (!renderView || !parseRouteUrl) {
-  throw Error(
-    'The serverBundle should contain `renderView` and `parseRouteUrl`, please check your server bundle.'
+  console.error(
+    'ERROR: The serverBundle should export `renderView` and `parseRouteUrl`, please check your server bundle.'
   );
+
+  return;
 }
 
 /**
