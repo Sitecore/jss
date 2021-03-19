@@ -10,7 +10,7 @@ This is a sample setup showing one of how you can configure rendering server on 
 
 1. Your Delivery Edge instance needs to be configured with JSS.Server and the API Key provisioned.
 
-	> You can test Graphql queries using GraphiQL.
+	### // TODO: document how to test GraphQL queries
 
 1. If necessary, update your app's GraphQL components to be compatible with Experience Edge schema. See examples in [Next.js sample app](../nextjs).
 
