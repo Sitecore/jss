@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { GraphQLModule } from '../jss-graphql.module';
 import { StyleguideSpecimenComponent } from './shared/styleguide-specimen/styleguide-specimen.component';
 import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 
@@ -19,7 +18,6 @@ import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
     CommonModule,
     TranslateModule,
     RouterModule,
-    GraphQLModule,
     JssModule,
     FormsModule,
   ],
@@ -27,7 +25,6 @@ import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
     CommonModule,
     TranslateModule,
     RouterModule,
-    GraphQLModule,
     FormsModule,
     StyleguideSpecimenComponent
   ],

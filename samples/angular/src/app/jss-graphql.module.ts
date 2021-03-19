@@ -1,13 +1,14 @@
 import { NgModule, PLATFORM_ID, Inject } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { ApolloModule, Apollo } from 'apollo-angular';
-import { HttpBatchLinkModule, HttpBatchLink } from 'apollo-angular-link-http-batch';
-import { createPersistedQueryLink } from 'apollo-angular-link-persisted';
-import { IntrospectionFragmentMatcher, InMemoryCache } from 'apollo-cache-inmemory';
-import { environment } from '../environments/environment';
-import { JssGraphQLService } from './jss-graphql.service';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { InMemoryCache } from '@apollo/client/core';
+import { Apollo } from 'apollo-angular';
+import { HttpBatchLink } from 'apollo-angular/http';
+import { createPersistedQueryLink } from 'apollo-angular/persisted-queries';
 import { isPlatformServer } from '@angular/common';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
+import { sha256 } from 'crypto-hash';
+import { environment } from '../environments/environment';
+import { JssGraphQLService } from './jss-graphql.service';
 
 /*
   INTROSPECTION DATA
@@ -25,8 +26,6 @@ const STATE_KEY = makeStateKey<any>('apollo.state');
 @NgModule({
   imports: [
     HttpClientModule, // provides HttpClient for HttpLink
-    ApolloModule,
-    HttpBatchLinkModule,
   ],
   providers: [
     JssGraphQLService
@@ -73,12 +72,16 @@ export class GraphQLModule {
     // ...and an automatic persisted query link, which reduces bandwidth by using query hashes to alias content
     // the APQ link is _chained_ behind another link that performs the actual HTTP calls, so you can choose
     // APQ + batched, or APQ + http links for example.
-    const automaticPersistHttp = createPersistedQueryLink().concat(batchHttp);
+    const automaticPersistHttp = createPersistedQueryLink({ sha256 }).concat(batchHttp);
+
+    const possibleTypes = {};
+
+    introspectionQueryResultData.__schema.types.forEach(supertype => {
+      possibleTypes[supertype.name] = supertype.possibleTypes.map(subtype => subtype.name);
+    });
 
     const cache = new InMemoryCache({
-      fragmentMatcher: new IntrospectionFragmentMatcher({
-        introspectionQueryResultData,
-      }),
+      possibleTypes
     });
 
     this.apollo.create({
