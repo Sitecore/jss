@@ -7,7 +7,7 @@ import { RichText } from '@sitecore-jss/sitecore-jss-react-native';
  * This is a single tab within the tabs sample component. These are added to the tabs placeholder.
  * @returns {JSX.Element} component
  */
-const StyleguideLayoutTabsTab = ({ fields, rendering }) => (
+const StyleguideLayoutTabsTab = ({ fields }) => (
   <View>
     <RichText field={fields.content} />
   </View>

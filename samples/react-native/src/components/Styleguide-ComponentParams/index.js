@@ -18,10 +18,13 @@ const StyleguideComponentParams = ({ fields, rendering, params }) => {
         The CSS class of this paragraph ({cssClass}) is set using a param
       </Text>
       <Text>
+        {/* Note that all params come in as string values, like this boolean-like param here: */}
         useCallToAction param: {useCallToAction}
         param type: {typeof useCallToAction}
       </Text>
-      {useCallToAction && <Text style={styles.callToAction}>the call to action is shown</Text>}
+      {useCallToAction === 'true' && (
+        <Text style={styles.callToAction}>the call to action is shown</Text>
+      )}
 
       <Text>columns param: {columns}</Text>
 
@@ -43,8 +46,8 @@ const FieldsProps = PropTypes.shape({
 
 const ParamsProps = PropTypes.shape({
   cssClass: PropTypes.string,
-  columns: PropTypes.number,
-  useCallToAction: PropTypes.bool,
+  columns: PropTypes.string,
+  useCallToAction: PropTypes.string,
 });
 
 StyleguideComponentParams.propTypes = {

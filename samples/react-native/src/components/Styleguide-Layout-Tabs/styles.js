@@ -23,6 +23,7 @@ export default StyleSheet.create({
     ...tabCommonStyles,
   },
   tabTitleActive: {
+    color: '#007bff',
     borderColor: '#dee2e6',
     borderBottomColor: '#fff',
     zIndex: 1,

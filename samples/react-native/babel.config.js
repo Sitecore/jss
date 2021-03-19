@@ -6,7 +6,6 @@ module.exports = {
     [
       require('babel-plugin-module-resolver'),
       {
-        cwd: 'babelrc',
         root: ['./'],
         alias: {
           'data-service': process.env.APP_DATA_SERVICE, // alias paths are independent of the 'root' setting

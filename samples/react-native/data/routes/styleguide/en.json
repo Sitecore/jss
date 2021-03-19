@@ -53,7 +53,7 @@
 					},
 					"sample1": {
 						"value": {
-							"src": "/data/media/img/sc_logo.svg",
+							"src": "/data/media/img/sc_logo.png",
 							"alt": "Sitecore Logo"
 						}
 					},
@@ -209,8 +209,8 @@
 				},
 				"params": {
 					"cssClass": "firstParagraph",
-					"columns": 5,
-					"useCallToAction": true
+					"columns": "5",
+					"useCallToAction": "true"
 				}
 			},
 			{

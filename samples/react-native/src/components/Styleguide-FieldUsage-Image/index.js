@@ -7,11 +7,9 @@ import StyleguideSpecimen from '../Styleguide-Specimen/Styleguide-Specimen';
 const StyleguideFieldUsageImage = ({ fields, rendering }) => (
   <StyleguideSpecimen fields={fields} rendering={rendering}>
     <Text>Plain image</Text>
-    <Image media={fields.sample1} />
+    <Image media={fields.sample1} height="51" width="204" />
     <Text>Advanced image</Text>
-    <Image media={fields.sample2} imageUrlParams={{ mw: 120, mh: 80 }} height="120" width="220" />
-    <Text>Srcset image</Text>
-    <Image media={fields.sample2} srcSet={[{ mw: 300 }, { mw: 100 }]} />
+    <Image media={fields.sample2} imageUrlParams={{ mw: 100, mh: 50 }} height="50" width="92" />
   </StyleguideSpecimen>
 );
 
@@ -22,13 +20,15 @@ const FieldsProps = PropTypes.shape({
   }),
   sample1: PropTypes.shape({
     value: PropTypes.shape({
-      src: PropTypes.number,
+      // This will be a number in disconnected mode (see dataService.disconnected.js), string in connected
+      src: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
       alt: PropTypes.string,
     }),
   }),
   sample2: PropTypes.shape({
     value: PropTypes.shape({
-      src: PropTypes.number,
+      // This will be a number in disconnected mode (see dataService.disconnected.js), string in connected
+      src: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
       alt: PropTypes.string,
     }),
   }),

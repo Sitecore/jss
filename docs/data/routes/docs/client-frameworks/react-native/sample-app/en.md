@@ -10,9 +10,9 @@ JSS React-Native sample app is a practical sample that demonstrates patterns of 
 ## Prerequisites
 
 The basic sample for React Native is based on a project created via the React Native CLI, e.g. `react-native init`
-Your first step will be to follow the instructions on this page: https://facebook.github.io/react-native/docs/getting-started.html
+Your first step will be to follow the instructions on this page: https://reactnative.dev/docs/environment-setup
 
-Choose the `Building Projects with Native Code` tab, then choose your Development OS and app Target OS. We have tested the basic sample app on the following configurations:
+Choose the `React Native CLI Quickstart` tab, then choose your Development OS and app Target OS. We have tested the basic sample app on the following configurations:
 
 * Windows / Android
   * In this configuration, testing was done using a physical device connected via USB to the development machine, not the Android emulator.

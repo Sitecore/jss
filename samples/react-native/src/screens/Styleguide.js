@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { Placeholder } from '@sitecore-jss/sitecore-jss-react-native';
 import Route from './Route';
+import Layout from '../Layout';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   contentContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'stretch',
+    justifyContent: 'space-between',
   },
 });
 
-const Styleguide = () => (
+const Styleguide = ({ navigation }) => (
   <Route
     path="/styleguide"
     render={({ data, refreshControl, switchLanguage }) => (
@@ -23,7 +23,7 @@ const Styleguide = () => (
         refreshControl={refreshControl}
         contentContainerStyle={styles.contentContainer}
       >
-        <Placeholder name="jss-main" rendering={data} switchLanguage={switchLanguage} />
+        <Layout rendering={data} switchLanguage={switchLanguage} navigation={navigation} />
       </ScrollView>
     )}
   />
