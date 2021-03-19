@@ -73,8 +73,8 @@ type DictionaryQueryResult = {
  */
 export class GraphQLDictionaryService extends DictionaryServiceBase {
   /**
-   * Creates an instance of graphQL dictionary service with the provided options.
-   * @param options {GraphQLDictionaryService} instance
+   * Creates an instance of graphQL dictionary service with the provided options
+   * @param {GraphQLDictionaryService} options instance
    */
   constructor(public options: GraphQLDictionaryServiceConfig) {
     super(options);
@@ -84,7 +84,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 
   /**
    * Fetches dictionary data for internalization.
-   * @param language {string} the language to fetch
+   * @param {string} language the language to fetch
    * @default Search query
    * query DictionarySearch(
    * $rootItemId: String!,
@@ -139,8 +139,8 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 
   /**
    * Gets dictionary phrases
-   * @param dataFetcher (GraphQLRequestClient)
-   * @param language (string)
+   * @param {GraphQLRequestClient} dataFetcher
+   * @param {string} language
    * @returns dictionary phrases
    */
   async getDictionaryPhrases(
@@ -202,9 +202,9 @@ type AppRootQueryResult = {
 
 /**
  * Gets ID of the JSS app root for the provided GraphQL endpoint.
- * @param dataFetcher {GraphQLRequestClient} the GraphQL data fetcher.
- * @param appName {string} the name of the JSS app.
- * @param language {string} the item language version.
+ * @param {GraphQLRequestClient} dataFetcher the GraphQL data fetcher.
+ * @param {string} appName the name of the JSS app.
+ * @param {string} language the item language version.
  * @returns the ID of the JSS app root item
  */
 async function getAppRoot(
