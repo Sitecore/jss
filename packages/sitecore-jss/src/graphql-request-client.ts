@@ -21,6 +21,7 @@ export class GraphQLRequestClient {
           Error occurred while fetching attempting to fetch graphQL data.
           Endpoint: ${this.endpoint}
           Query: ${query}
+          Variables: ${JSON.stringify(variables, null, 2)}
           Error: ${JSON.stringify(error, null, 2)}
         `)
       );
