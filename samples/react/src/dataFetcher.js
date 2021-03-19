@@ -2,7 +2,7 @@ import axios from 'axios';
 
 /**
  * Implements a data fetcher using Axios - replace with your favorite
- * SSR-capable HTTP or fetch library if you like. See HttpJsonFetcher<T> type
+ * SSR-capable HTTP or fetch library if you like. See HttpDataFetcher<T> type
  * in sitecore-jss library for implementation details/notes.
  * @param {string} url The URL to request; may include query string
  * @param {any} data Optional data to POST with the request.

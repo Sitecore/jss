@@ -6,7 +6,7 @@ import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictio
 /**
  * A reply from the REST Sitecore Dictionary Service
  */
-type DictionaryServiceData = {
+export type RestDictionaryServiceData = {
   phrases: DictionaryPhrases;
 };
 
@@ -27,7 +27,7 @@ export type RestDictionaryServiceConfig = CacheOptions & {
    * Custom data fetcher
    * @see HttpDataFetcher<T>
    */
-  dataFetcher?: HttpDataFetcher<DictionaryServiceData>;
+  dataFetcher?: HttpDataFetcher<RestDictionaryServiceData>;
 };
 
 /**
@@ -38,9 +38,9 @@ export class RestDictionaryService extends DictionaryServiceBase {
   /**
    * Provides default @see AxiosDataFetcher data fetcher
    */
-  get defaultFetcher(): HttpDataFetcher<DictionaryServiceData> {
+  get defaultFetcher(): HttpDataFetcher<RestDictionaryServiceData> {
     const dataFetcher = new AxiosDataFetcher();
-    return (url: string) => dataFetcher.fetch<DictionaryServiceData>(url);
+    return (url: string) => dataFetcher.fetch<RestDictionaryServiceData>(url);
   }
 
   constructor(public options: RestDictionaryServiceConfig) {
@@ -59,7 +59,7 @@ export class RestDictionaryService extends DictionaryServiceBase {
     }
 
     const fetcher = this.options.dataFetcher || this.defaultFetcher;
-    const response = await fetchData<DictionaryServiceData>(endpoint, fetcher, {
+    const response = await fetchData<RestDictionaryServiceData>(endpoint, fetcher, {
       sc_apikey: this.options.apiKey,
     });
 
