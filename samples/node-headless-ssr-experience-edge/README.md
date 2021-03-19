@@ -32,7 +32,8 @@ The following environment variables can be set to configure the SSR sample inste
 
 | Parameter                              | Description                                                                                                                                                      |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SITECORE_JSS_APP_NAME`                | The JSS app's name. Used when request layout data and dictionary using graphql query and the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set. |
+| `SITECORE_JSS_APP_NAME`                | The JSS app's name. Used when request layout data and dictionary using graphql query and the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set.      |
+| `SITECORE_API_KEY`                     | The Sitecore SSC API key your app. 																																																															|
 | `SITECORE_JSS_SERVER_BUNDLE`           | Path to the JSS app's `server.bundle.js` file.        																																									                          |
 | `SITECORE_EXPERIENCE_EDGE_ENDPOINT`    | Sitecore Experience Edge endpoint.																																																				                        |
 | `PORT` 																 | Optional. Port which will be used when start sample. Default can be seen in [config.js](./config.js).                                                            |

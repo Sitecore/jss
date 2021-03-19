@@ -25,6 +25,11 @@ const config = {
    */
   endpoint,
   /**
+   * apiKey: The Sitecore SSC API key your app uses.
+   * Required.
+   */
+  apiKey: process.env.SITECORE_API_KEY || serverBundle.apiKey || '{YOUR API KEY HERE}',
+  /**
    * The JSS application name defaults to providing part of the bundle path.
    * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
    */
