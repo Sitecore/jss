@@ -44,10 +44,7 @@ To create a JSS application, you must:
 
    The command will create the JSS Next.js application and install the required packages. 
    
-   You can use the optional parameters to customize the application:
-
-   * `--fetchWith {REST|GraphQL}`: Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.
-   * `--prerender {SSG|SSR}`: Specifies the Next.js pre-rendering form for the primary `[[...path]].tsx` route. Default is SSG.
+   > For more information on `jss create` see [the JSS CLI reference](/docs/fundamentals/cli).
 
 ## Run your application
 
@@ -70,6 +67,3 @@ To connect your application to Sitecore, you must:
 1. [Setup JSS Server Components](/docs/client-frameworks/getting-started/jss-server-install).
 2. [Deploy the application to a Sitecore environment](/docs/client-frameworks/getting-started/app-deployment).
 3. [Connect to the Experience Editor](/docs/nextjs/experience-editor/walkthrough).
-
-
-
