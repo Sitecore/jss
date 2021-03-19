@@ -24,21 +24,6 @@ if (!renderView || !parseRouteUrl) {
 }
 
 /**
- * If the request URL contains any of the excluded rewrite routes, we assume the response does not need to be server rendered.
- * @param {string} originalUrl requested url
- * @returns {boolean} is url ignored
- */
-const isUrlIgnored = (originalUrl) => {
-  let result;
-
-  result = config.pathRewriteExcludeRoutes.find((excludedRoute) => {
-    return excludedRoute.length > 0 && originalUrl.startsWith(excludedRoute);
-  });
-
-  return !!result;
-};
-
-/**
  * Parse requested url in order to detect current route and language
  * @param {string} reqRoute requested route
  */
@@ -63,7 +48,7 @@ const getRouteParams = (reqRoute) => {
 /**
  * Handle unexpected error
  * @param {Response} res server response
- * @param {*} err error
+ * @param {any} err error
  */
 const handleError = (res, err) => {
   console.error(err);
@@ -88,7 +73,7 @@ server.use(async (req, res) => {
   try {
     const { route, lang } = getRouteParams(req.originalUrl);
 
-    if (!route || isUrlIgnored(route)) {
+    if (!route) {
       res.sendStatus(404);
 
       return;
@@ -96,13 +81,12 @@ server.use(async (req, res) => {
 
     const layoutData = await layoutService.fetchLayoutData(route, lang);
 
+    // Take language provided by layout data in case if language is not provided in requested url
     const language = layoutData.sitecore.context.language;
-    const site =
-      layoutData && layoutData.sitecore.context.site && layoutData.sitecore.context.site.name;
 
     const viewBag = { dictionary: {} };
 
-    if (language && site) {
+    if (language) {
       viewBag.dictionary = await dictionaryService.fetchDictionaryData(language);
     }
 

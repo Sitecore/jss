@@ -33,20 +33,6 @@ const config = {
    * Port which will be used when start sample
    */
   port,
-  /**
-   * A list of absolute paths that are NOT app routes and should not attempt to render a route
-   * using SSR. Local static assets, Sitecore API paths, Sitecore asset paths, etc should be listed here.
-   */
-  pathRewriteExcludeRoutes: [
-    '/favicon.ico',
-    '/dist',
-    '/assets',
-    '/sitecore/api',
-    '/api',
-    '/-/jssmedia',
-    '/-/media',
-    '/layouts/system',
-  ].concat((process.env.SITECORE_PATH_REWRITE_EXCLUDE_ROUTES || '').split('|')),
 };
 
 module.exports = config;
