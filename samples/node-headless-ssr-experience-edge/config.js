@@ -1,7 +1,8 @@
-const appName = process.env.SITECORE_JSS_APP_NAME;
+let appName = process.env.SITECORE_JSS_APP_NAME;
 
 const endpoint =
-  process.env.SITECORE_EXPERIENCE_EDGE_ENDPOINT || 'http://my.experience.edge/sitecore/api/graph/edge?sc_apikey=${sitecoreApiKey}';
+  process.env.SITECORE_EXPERIENCE_EDGE_ENDPOINT ||
+  'http://my.experience.edge/sitecore/api/graph/edge?sc_apikey=${sitecoreApiKey}';
 
 const port = process.env.PORT || 3000;
 
@@ -11,6 +12,8 @@ const port = process.env.PORT || 3000;
 const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/server.bundle`;
 
 const serverBundle = require(bundlePath);
+
+appName = appName || serverBundle.appName;
 
 const config = {
   /**

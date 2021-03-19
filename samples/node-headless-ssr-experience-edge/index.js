@@ -10,9 +10,18 @@ const layoutService = new GraphQLLayoutService({
   siteName: config.appName,
 });
 
-const dictionaryService = new GraphQLDictionaryService({ endpoint: config.endpoint });
+const dictionaryService = new GraphQLDictionaryService({
+  endpoint: config.endpoint,
+  siteName: config.appName,
+});
 
 const { renderView, parseRouteUrl } = config.serverBundle;
+
+if (!renderView || !parseRouteUrl) {
+  throw Error(
+    'The serverBundle should contain `renderView` and `parseRouteUrl`, please check your server bundle.'
+  );
+}
 
 /**
  * If the request URL contains any of the excluded rewrite routes, we assume the response does not need to be server rendered.
@@ -30,6 +39,7 @@ const isUrlIgnored = (originalUrl) => {
 };
 
 /**
+ * Parse requested url in order to detect current route and language
  * @param {string} reqRoute requested route
  */
 const getRouteParams = (reqRoute) => {

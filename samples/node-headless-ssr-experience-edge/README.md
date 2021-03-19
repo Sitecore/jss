@@ -1,8 +1,8 @@
-# Note
+# node/express scaffolding for SSR using Sitecore Experience Edge
 
 Sitecore JSS for SSR using Experience Edge is considered experimental.
 
-# node/express scaffolding for SSR using Sitecore Experience Edge
+> This is a sample setup that is not officially supported by Sitecore.
 
 This is a sample setup showing one of how you can configure rendering server on top of node.js and Express using Experience Edge. It performs only render of the sample app, quering layout data and dictionary data without proxying requests.
 
@@ -12,11 +12,7 @@ This is a sample setup showing one of how you can configure rendering server on 
 
 	> You can test Graphql queries using GraphiQL.
 
-1. Update `/src/components/GraphQL-ConnectedDemo/query.graphql` query and corresponding component to be compatible with Edge schema. See [example](../nextjs\src\components\graphql\GraphQL-ConnectedDemo.graphql).
-
-1. Update `/sitecore/definitions/components/GraphQL-IntegratedDemo.sitecore.graphql` query and corresponding component to be compatible with Edge schema. See [example](../nextjs/sitecore/definitions/components/graphql/GraphQL-IntegratedDemo.sitecore.graphql).
-
-1. Deploy updated items using `jss deploy items -c -d`.
+1. If necessary, update your app's GraphQL components to be compatible with Experience Edge schema. See examples in [Next.js sample app](../nextjs).
 
 1. Build your JS app bundle with `jss build`.
 
@@ -36,7 +32,7 @@ The following environment variables can be set to configure the SSR sample inste
 
 | Parameter                              | Description                                                                                                                                                      |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SITECORE_JSS_APP_NAME`                | The JSS app's name. Used when request layout data from Layout Service using graphql query and the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set. |
+| `SITECORE_JSS_APP_NAME`                | The JSS app's name. Used when request layout data and dictionary using graphql query and the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set. |
 | `SITECORE_JSS_SERVER_BUNDLE`           | Path to the JSS app's `server.bundle.js` file.        																																									                          |
 | `SITECORE_EXPERIENCE_EDGE_ENDPOINT`    | Sitecore Experience Edge endpoint.																																																				                        |
 | `SITECORE_PATH_REWRITE_EXCLUDE_ROUTES` | Optional. Pipe-separated list of absolute paths that should not be rendered through SSR. Defaults can be seen in [config.js](./config.js).                       |
