@@ -26,6 +26,7 @@ export class GraphQLRequestClient {
       );
     };
 
+    // todo: we should also print the query if we are in debug mode (Anastasiya, March 2021)
     return await client.request(query, variables).catch(onError);
   }
 }

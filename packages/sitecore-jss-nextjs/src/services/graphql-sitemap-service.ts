@@ -152,7 +152,7 @@ export class GraphQLSitemapService {
 
       const items = data?.search.results ? data.search.results : [];
 
-      // todo: convert to array.map
+      // todo: convert to array.map (Anastasiya, March 2021)
       const staticPaths = items.reduce((list: StaticPath[], item: { url: { path: string } }) => {
         // replace first and last /
         // transform to array of paths

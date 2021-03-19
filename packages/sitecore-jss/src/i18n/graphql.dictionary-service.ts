@@ -2,6 +2,7 @@ import { GraphQLRequestClient } from '../graphql-request-client';
 import { SitecoreTemplateId, SitecoreItemId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
 
+// TODO: use graphql import instead of string (Anastasiya, March 2021)
 const query = `
 query DictionarySearch(
     $rootItemId: String!,
