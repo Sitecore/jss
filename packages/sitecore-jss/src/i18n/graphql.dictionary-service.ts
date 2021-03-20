@@ -1,5 +1,5 @@
 import { GraphQLRequestClient } from '../graphql-request-client';
-import { SitecoreTemplateId, SitecoreItemId } from '../constants';
+import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
 
 // TODO: use graphql import instead of string (Anastasiya, March 2021)
@@ -78,7 +78,6 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    */
   constructor(public options: GraphQLDictionaryServiceConfig) {
     super(options);
-    this.options.rootItemId = this.options.rootItemId ?? SitecoreItemId.Content;
     this.options.pageSize = this.options.pageSize ?? 10;
   }
 

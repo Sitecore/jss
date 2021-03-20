@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-expressions */
 import { expect, spy, use } from 'chai';
 import mcache from 'memory-cache';
 import spies from 'chai-spies';
-import { RestDictionaryService } from './rest.dictionary-service';
-import { DictionaryServiceData } from './rest.dictionary-service';
+import { RestDictionaryService, RestDictionaryServiceData } from './rest.dictionary-service';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { AxiosDataFetcher } from '../axios-fetcher';
@@ -144,7 +142,7 @@ describe('RestDictionaryService', () => {
 
   it('should fetch dictionary data using custom data fetcher', () => {
     const fetcherSpy = spy((url: string) => {
-      return new AxiosDataFetcher().fetch<DictionaryServiceData>(url);
+      return new AxiosDataFetcher().fetch<RestDictionaryServiceData>(url);
     });
 
     mock.onGet().reply((config) => {
