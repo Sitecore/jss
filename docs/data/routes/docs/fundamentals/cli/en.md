@@ -27,9 +27,13 @@ jss create <your-app-name> <app-template-name>
 |`branch` | A branch name | Specifies which branch to use for creating the JSS app | `master` | all |
 |`source` | A local directory path | Specifies a local directory for custom JSS app templates | - | all |
 
-**Example**
+**Examples**
 ```
+// Next.js-based application with Static Generation and fetching data using GraphQL
 jss create my-jss-app nextjs --prerender SSG --fetchWith GraphQL
+
+// Next.js-based application with Server-Side Rendering and fetching data using REST
+jss create my-jss-app nextjs --prerender SSR --fetchWith REST
 ```
 
 ### `jss setup`
