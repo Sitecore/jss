@@ -1,10 +1,4 @@
-let appName = process.env.SITECORE_JSS_APP_NAME;
-
-const endpoint =
-  process.env.SITECORE_EXPERIENCE_EDGE_ENDPOINT ||
-  'http://my.experience.edge/sitecore/api/graph/edge?sc_apikey=${sitecoreApiKey}';
-
-const port = process.env.PORT || 3000;
+const appName = process.env.SITECORE_JSS_APP_NAME;
 
 /**
  * The server.bundle.js file from your pre-built JSS app
@@ -12,8 +6,6 @@ const port = process.env.PORT || 3000;
 const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/server.bundle`;
 
 const serverBundle = require(bundlePath);
-
-appName = appName || serverBundle.appName;
 
 const config = {
   /**
@@ -23,7 +15,9 @@ const config = {
   /**
    * Your Experience Edge endpoint
    */
-  endpoint,
+  endpoint:
+    process.env.SITECORE_EXPERIENCE_EDGE_ENDPOINT ||
+    'http://my.experience.edge/sitecore/api/graph/edge',
   /**
    * apiKey: The Sitecore SSC API key your app uses.
    * Required.
@@ -33,11 +27,11 @@ const config = {
    * The JSS application name defaults to providing part of the bundle path.
    * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
    */
-  appName,
+  appName: appName || serverBundle.appName,
   /**
    * Port which will be used when start sample
    */
-  port,
+  port: process.env.PORT || 3000,
 };
 
 module.exports = config;
