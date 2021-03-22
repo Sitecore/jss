@@ -1,5 +1,5 @@
 import { NgModule, PLATFORM_ID, Inject } from '@angular/core';
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { InMemoryCache } from '@apollo/client/core';
 import { Apollo } from 'apollo-angular';
 import { HttpBatchLink } from 'apollo-angular/http';
@@ -18,7 +18,6 @@ import { JssGraphQLService } from './jss-graphql.service';
 */
 import introspectionQueryResultData from '../graphql-fragment-types';
 
-
 // SSR transfer state key to serialize + rehydrate apollo cache on client side
 // See https://www.apollographql.com/docs/angular/recipes/server-side-rendering.html
 const STATE_KEY = makeStateKey<any>('apollo.state');
@@ -27,16 +26,14 @@ const STATE_KEY = makeStateKey<any>('apollo.state');
   imports: [
     HttpClientModule, // provides HttpClient for HttpLink
   ],
-  providers: [
-    JssGraphQLService
-  ]
+  providers: [JssGraphQLService],
 })
 export class GraphQLModule {
   constructor(
     private readonly apollo: Apollo,
     private readonly httpLink: HttpBatchLink,
     private readonly transferState: TransferState,
-    @Inject(PLATFORM_ID) private readonly platformId: string,
+    @Inject(PLATFORM_ID) private readonly platformId: string
   ) {
     this.createApolloClient();
   }
@@ -67,7 +64,10 @@ export class GraphQLModule {
     // const link = createHttpLink({ uri: endpoint, withCredentials: 'include' });
 
     // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
-    const batchHttp = this.httpLink.create({ uri: environment.graphQLEndpoint, withCredentials: true });
+    const batchHttp = this.httpLink.create({
+      uri: environment.graphQLEndpoint,
+      withCredentials: true,
+    });
 
     // ...and an automatic persisted query link, which reduces bandwidth by using query hashes to alias content
     // the APQ link is _chained_ behind another link that performs the actual HTTP calls, so you can choose
@@ -76,12 +76,12 @@ export class GraphQLModule {
 
     const possibleTypes = {};
 
-    introspectionQueryResultData.__schema.types.forEach(supertype => {
-      possibleTypes[supertype.name] = supertype.possibleTypes.map(subtype => subtype.name);
+    introspectionQueryResultData.__schema.types.forEach((supertype) => {
+      possibleTypes[supertype.name] = supertype.possibleTypes.map((subtype) => subtype.name);
     });
 
     const cache = new InMemoryCache({
-      possibleTypes
+      possibleTypes,
     });
 
     this.apollo.create({
