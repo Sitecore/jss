@@ -21,7 +21,7 @@ jss create <your-app-name> <app-template-name>
 
 |Parameter| Options | Description| Default |Template|
 |--- | --- | --- | --- | --- |
-|`fetchWith` | `REST` or `GraphQL` | Specifies how the applicaiton should fetch Sitecore data (layout, dictionary). | `REST` | nextjs |
+|`fetchWith` | `REST` or `GraphQL` | Specifies how the applicaiton should fetch Sitecore layout and dictionary data. | `REST` | nextjs |
 |`prerender` | `SSG` or `SSR` | Specifies the Next.js pre-rendering form for the primary `[[...path]].tsx` route. | `SSG` | nextjs |
 |`repository` | A repository: githubusername/reponame | Specifies which repository to use for creating the JSS app | `Sitecore/jss` | all |
 |`branch` | A branch name | Specifies which branch to use for creating the JSS app | `master` | all |
