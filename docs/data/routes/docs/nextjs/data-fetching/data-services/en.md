@@ -17,7 +17,7 @@ Next.js uses different data fetching strategies for each pre-rendering form.
 
 ## JSS Next.js data fetching
 
-The JSS Next.js sample application includes usage examples for both data fetching strategies available in Next.js, as follows: 
+The Next.js-based JSS sample application includes usage examples for both data fetching strategies available in Next.js, as follows: 
 
 * [`src/pages/[[..path]].tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B%2E%2E%2Epath%5D%5D.tsx) implements `GetStaticPaths` and `GetStaticProps` (SSG).
 * [`src/pages/[[..path]].SSR.tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B%2E%2E%2Epath%5D%5D.SSR.tsx) implements `GetServerSideProps` (SSR).
