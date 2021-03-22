@@ -27,7 +27,8 @@
             "scripts": [],
             "allowedCommonJsDependencies": [
               "@sitecore-jss/sitecore-jss",
-              "zen-observable"
+              "zen-observable",
+              "js-sha256"
             ]
           },
           "configurations": {

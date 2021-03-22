@@ -6,7 +6,7 @@ import { HttpBatchLink } from 'apollo-angular/http';
 import { createPersistedQueryLink } from 'apollo-angular/persisted-queries';
 import { isPlatformServer } from '@angular/common';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
-import { sha256 } from 'crypto-hash';
+import { sha256 } from 'js-sha256';
 import { environment } from '../environments/environment';
 import { JssGraphQLService } from './jss-graphql.service';
 
