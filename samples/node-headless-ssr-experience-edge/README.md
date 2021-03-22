@@ -8,7 +8,7 @@ This is a sample setup showing one of how you can configure rendering server on 
 
 ## Pre-requisites
 
-1. Your Delivery Edge instance needs to be configured with JSS.Server and the API Key provisioned.
+1. Your instance needs to be configured with Headless Services Module and the API Key provisioned.
 
 	### // TODO: document how to test GraphQL queries
 
