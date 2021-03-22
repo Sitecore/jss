@@ -13,36 +13,32 @@ This topic will guide you through the steps required to enable full Sitecore tra
 
 ## Next.js application
 
-### SSR only
+### SSR & REST only
 
-You must use a Next.js SSR page route. You can choose the initial pre-rendering form of `[[..path]].tsx` on create with the optional `prerender` parameter. SSG is used by default if you omit the parameter. For example, [with `jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate):
+JSS supports tracking and analytics only for server-side rendered applications using the REST fetch method. You can not currently use Tracking and Analytics with the Sitecore GraphQL "Edge" schema.
 
-```
-jss create my-first-jss-app nextjs --prerender SSR
-```
+**Pre-requisites**
+- The application uses the SSR pre-rendering form. 
+- The application uses the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout-service). 
 
-You can also [switch the `[[..path]].tsx` route from SSG to SSR](/docs/nextjs/page-routing/switching-to-ssr).
+> You can choose the pre-rendering form and the fetch method when creating the project with the JSS CLI. For details, consult the [JSS CLI reference](/docs/fundamentals/cli). 
+
+> If your application currently uses SSG, you can [switch the `[[..path]].tsx` route from SSG to SSR](/docs/nextjs/page-routing/switching-to-ssr).
 
 ### Layout Service requests
 
-You must use the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout-service). You can choose the initial fetch method on create with the optional `fetchWith` parameter. REST is used by default if you omit the parameter. For example, [with `jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate):
-
-```
-jss create my-first-jss-app nextjs --fetchWith REST
-```
-
-> Tracking and Analytics is currently not supported with the Sitecore GraphQL "Edge" schema.
-
 Sitecore Layout Service requests must:
 
-1. have tracking enabled (see [`tracking` parameter](/docs/fundamentals/services/layout-service#using-the-layout-service)), and
-2. perform [header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing)
+1. Have tracking enabled (see [`tracking` parameter](/docs/fundamentals/services/layout-service#using-the-layout-service)).
+2. Perform [header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing).
 
 Both of these **are taken care of** using the `RestLayoutService` included with the Next.js SDK (part of the `@sitecore-jss/sitecore-jss-nextjs` npm package).
 
 > The Next.js sample app uses the `RestLayoutService` in the `SitecorePagePropsFactory`. See [`src/lib/page-props-factory.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/page-props-factory.ts) for details.
 
-The `RestLayoutService` will track layout requests and perform header passing by default, so there is no extra configuration required. However, tracking can be disabled with the optional `tracking` parameter, so ensure this hasn't been specifically set to `false`. For example:
+The `RestLayoutService` will track layout requests and perform header passing by default, so there is no extra configuration required. 
+
+Tracking can be disabled with the optional `tracking` parameter, so ensure this hasn't been specifically set to `false`. For example:
 
 ```javascript
 this.layoutService = new RestLayoutService({
