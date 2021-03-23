@@ -13,7 +13,7 @@ export interface DictionaryPhrases {
 }
 
 /**
- * Cache options for dictionary data services
+ * Cache options (used by @see DictionaryService)
  */
 export interface CacheOptions {
   /**
