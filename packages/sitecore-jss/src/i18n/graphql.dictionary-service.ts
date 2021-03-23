@@ -40,10 +40,30 @@ query DictionarySearch(
 }
 `;
 
+/**
+ * Configuration options for @see GraphQLDictionaryService instances
+ */
 export interface GraphQLDictionaryServiceConfig extends CacheOptions {
+  /**
+   * The URL of the graphQL endpoint.
+   */
   endpoint: string;
+
+  /**
+   * The GUID of the Sitecore item to use as the root for the dictionary service search.
+   * @default The GUID of the root item of the specified app.
+   */
   rootItemId?: string;
+
+  /**
+   * How many dictionary items to fetch in each GraphQL call. This is needed for pagination.
+   * @default 10
+   */
   pageSize?: number;
+
+  /**
+   * The name of the current JSS app.
+   */
   appName: string;
 }
 
