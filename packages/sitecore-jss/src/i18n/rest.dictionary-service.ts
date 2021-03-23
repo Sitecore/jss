@@ -53,7 +53,7 @@ export class RestDictionaryService extends DictionaryServiceBase {
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
     const endpoint = this.getUrl(language);
-    const cachedValue = this.getCachedValue(endpoint);
+    const cachedValue = this.getCacheValue(endpoint);
     if (cachedValue) {
       return cachedValue;
     }
@@ -63,7 +63,7 @@ export class RestDictionaryService extends DictionaryServiceBase {
       sc_apikey: this.options.apiKey,
     });
 
-    return this.cacheValue(endpoint, response.phrases);
+    return this.setCacheValue(endpoint, response.phrases);
   }
 
   /**

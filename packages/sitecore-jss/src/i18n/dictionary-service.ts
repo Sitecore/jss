@@ -48,11 +48,11 @@ export abstract class DictionaryServiceBase implements DictionaryService {
     }
   }
 
-  protected getCachedValue(key: string): DictionaryPhrases | null {
+  protected getCacheValue(key: string): DictionaryPhrases | null {
     return this.options.cacheEnabled ? (mcache.get(key) as DictionaryPhrases) : null;
   }
 
-  protected cacheValue(key: string, value: DictionaryPhrases): DictionaryPhrases {
+  protected setCacheValue(key: string, value: DictionaryPhrases): DictionaryPhrases {
     return this.options.cacheEnabled ? mcache.put(key, value, this.options.cacheTimeout) : value;
   }
 

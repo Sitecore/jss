@@ -122,7 +122,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
     const cacheKey = this.options.appName + language;
-    const cachedValue = this.getCachedValue(cacheKey);
+    const cachedValue = this.getCacheValue(cacheKey);
     if (cachedValue) {
       return cachedValue;
     }
@@ -133,7 +133,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     }
 
     const results = await this.getDictionaryPhrases(dataFetcher, language);
-    return this.cacheValue(cacheKey, results);
+    return this.setCacheValue(cacheKey, results);
   }
 
   /**
