@@ -1,8 +1,9 @@
 import mcache from 'memory-cache';
 
-const defaults = {
+const defaults = Object.freeze({
   cacheTimeout: 60,
-};
+  cacheEnabled: true,
+});
 
 /**
  * Phrases from the Sitecore Dictionary Service
@@ -43,7 +44,7 @@ export abstract class DictionaryServiceBase implements DictionaryService {
     this.options.cacheTimeout = this.options.cacheTimeout ?? defaults.cacheTimeout;
 
     if (this.options.cacheEnabled === undefined) {
-      this.options.cacheEnabled = true;
+      this.options.cacheEnabled = defaults.cacheEnabled;
     }
   }
 
