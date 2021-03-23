@@ -2,6 +2,10 @@ import { GraphQLRequestClient } from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
 
+const defaults = Object.freeze({
+  pageSize: 10,
+});
+
 // TODO: use graphql import instead of string (Anastasiya, March 2021)
 const query = `
 query DictionarySearch(
@@ -98,7 +102,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    */
   constructor(public options: GraphQLDictionaryServiceConfig) {
     super(options);
-    this.options.pageSize = this.options.pageSize ?? 10;
+    this.options.pageSize = this.options.pageSize ?? defaults.pageSize;
   }
 
   /**
