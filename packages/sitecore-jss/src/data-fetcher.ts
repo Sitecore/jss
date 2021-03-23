@@ -1,19 +1,19 @@
 export interface HttpResponse<T> {
-  /** HTTP status code, i.e. 200, 404 */
+  /** HTTP status code of the response (i.e. 200, 404) */
   status: number;
-  /** HTTP status text i.e. 'OK', 'Bad Request' */
+  /** HTTP status text of the response (i.e. 'OK', 'Bad Request') */
   statusText: string;
-  /** Parsed JSON response data from server */
+  /** Response content */
   data: T;
 }
 
 /**
- * Interface to a HTTP fetcher that you want to use.
- * This interface conforms to Axios' public API, but should be adaptable
- * to other HTTP libraries or fetch polyfills. This HTTP implementation must:
+ * Interface for functions that fetch data asynchronously (i.e. from an API endpoint).
+ * This interface conforms to Axios' public API, but is adaptable to other HTTP libraries and
+ * fetch polyfills.
+ * The interface implementation must:
  * - Support SSR
- * - Return non-HTTP 200 responses as status codes, not thrown exceptions (i.e. be a proper REST client)
- * - Parse response values as JSON and return them into <T>
+ * - Comply with the rules of REST by returning non-HTTP 200 status codes, not thrown exceptions (i.e. be a proper REST client)
  * - Send HTTP POST requests if `data` param is specified; GET is suggested but not required for data-less requests
  */
 export type HttpDataFetcher<T> = (
