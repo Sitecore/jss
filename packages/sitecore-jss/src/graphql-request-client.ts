@@ -25,6 +25,7 @@ export class GraphQLRequestClient {
           Error: ${JSON.stringify(error, null, 2)}
         `)
       );
+      throw error;
     };
 
     // todo: we should also print the query if we are in debug mode (Anastasiya, March 2021)
