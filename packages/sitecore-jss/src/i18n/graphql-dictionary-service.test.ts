@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { expect } from 'chai';
 import nock from 'nock';
-import { GraphQLDictionaryService } from './graphql.dictionary-service';
+import { GraphQLDictionaryService } from './graphql-dictionary-service';
 import appRootQueryResponse from './mockAppRootQueryResponse.json';
 import dictionaryQueryResponse from './mockDictionaryQueryResponse.json';
 

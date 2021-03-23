@@ -1,7 +1,7 @@
 import { expect, spy, use } from 'chai';
 import mcache from 'memory-cache';
 import spies from 'chai-spies';
-import { RestDictionaryService, RestDictionaryServiceData } from './rest.dictionary-service';
+import { RestDictionaryService, RestDictionaryServiceData } from './rest-dictionary-service';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { AxiosDataFetcher } from '../axios-fetcher';
