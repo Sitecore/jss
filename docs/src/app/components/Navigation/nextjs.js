@@ -28,16 +28,20 @@ export default {
           url: 'walkthrough-jsscreate',
           displayName: 'Walkthrough: with \'jss create\'',
         },
+        {
+          url: 'disable-nextjs-telemetry',
+          displayName: 'Disable Next.js telemetry'
+        }
       ],
     },
     {
       url: 'experience-editor',
       displayName: 'Experience Editor',
       children: [
-        //{
-        //  url: 'architecture',
-        //  displayName: 'Integration architecture and APIs',
-        //},
+        {
+          url: 'architecture',
+          displayName: 'Integration architecture and APIs',
+        },
         {
           url: 'walkthrough',
           displayName: 'Connect to the Experience Editor',
@@ -84,10 +88,10 @@ export default {
           url: 'switching-to-ssr',
           displayName: 'Switching to SSR',
         },
-        //{
-        //  url: 'error-routes',
-        //  displayName: 'Error Routes',
-        //},
+        {
+         url: 'error-pages',
+         displayName: 'Error Pages',
+        },
       ],
     },
     {
@@ -191,6 +195,10 @@ export default {
           displayName: 'Installing Sitecore Headless Services',
         },
       ],
+    },
+    {
+      url: 'troubleshooting',
+      displayName: 'Troubleshooting',
     },
   ],
   links: [],
