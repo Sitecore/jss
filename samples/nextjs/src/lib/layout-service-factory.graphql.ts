@@ -1,8 +1,13 @@
-import { LayoutService } from '@sitecore-jss/sitecore-jss-nextjs';
+import { LayoutService, GraphQLLayoutService } from '@sitecore-jss/sitecore-jss-nextjs';
+import config from 'temp/config';
 
 export class LayoutServiceFactory {
   create(): LayoutService {
-    throw new Error('GraphQLLayoutService not implemented!');
+    return new GraphQLLayoutService({
+      endpoint: config.graphQLEndpoint,
+      apiKey: config.sitecoreApiKey,
+      siteName: config.jssAppName,
+    });
   }
 }
 

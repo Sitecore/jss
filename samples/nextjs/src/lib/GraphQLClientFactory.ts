@@ -50,6 +50,9 @@ export default function GraphQLClientFactory(
       credentials: 'include',
       headers: {
         connection: 'keep-alive',
+        // Send the API key on the 'sc_apikey' header for authentication.
+        // This header is used for both Sitecore XM Edge schema and Sitecore Experience Edge.
+        sc_apikey: config.sitecoreApiKey,
       },
     })
   );
