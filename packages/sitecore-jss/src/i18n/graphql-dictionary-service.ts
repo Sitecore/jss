@@ -92,8 +92,8 @@ type DictionaryQueryResult = {
 };
 
 /**
- * Fetch dictionary data using the Sitecore Dictionary Service GraphQL API.
- * Uses graphql-request as the default data fetcher (@see GraphQLRequestClient).
+ * Fetch dictionary data using  Sitecore's GraphQL API.
+ * Uses graphql-request as the default library for fetching graphql data (@see GraphQLRequestClient).
  */
 export class GraphQLDictionaryService extends DictionaryServiceBase {
   /**
@@ -151,24 +151,24 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       return cachedValue;
     }
 
-    const dataFetcher = new GraphQLRequestClient(this.options.endpoint);
+    const client = new GraphQLRequestClient(this.options.endpoint);
     if (!this.options.rootItemId) {
-      this.options.rootItemId = await getAppRoot(dataFetcher, this.options.appName, language);
+      this.options.rootItemId = await getAppRoot(client, this.options.appName, language);
     }
 
-    const results = await this.getDictionaryPhrases(dataFetcher, language);
+    const results = await this.getDictionaryPhrases(client, language);
     this.setCacheValue(cacheKey, results);
     return results;
   }
 
   /**
    * Gets dictionary phrases
-   * @param {GraphQLRequestClient} dataFetcher
+   * @param {GraphQLRequestClient} client that fetches data from a GraphQL endpoint.
    * @param {string} language
    * @returns dictionary phrases
    */
   async getDictionaryPhrases(
-    dataFetcher: GraphQLRequestClient,
+    client: GraphQLRequestClient,
     language: string
   ): Promise<DictionaryPhrases> {
     const results: DictionaryPhrases = {};
@@ -176,7 +176,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     let after = '';
 
     while (hasNext) {
-      const fetchResponse = await dataFetcher.request<DictionaryQueryResult>(query, {
+      const fetchResponse = await client.request<DictionaryQueryResult>(query, {
         // `search` query only works with lowercase GUIDs
         rootItemId: this.options.rootItemId?.toLowerCase(),
         language,
@@ -226,17 +226,17 @@ type AppRootQueryResult = {
 
 /**
  * Gets ID of the JSS app root for the provided GraphQL endpoint.
- * @param {GraphQLRequestClient} dataFetcher the GraphQL data fetcher.
+ * @param {GraphQLRequestClient} client that fetches data from a GraphQL endpoint.
  * @param {string} appName the name of the JSS app.
  * @param {string} language the item language version.
- * @returns the ID of the JSS app root item
+ * @returns the ID of the JSS app root item.
  */
 async function getAppRoot(
-  dataFetcher: GraphQLRequestClient,
+  client: GraphQLRequestClient,
   appName: string,
   language: string
 ): Promise<string> {
-  const fetchResponse = await dataFetcher.request<AppRootQueryResult>(appRootQuery, {
+  const fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
     jssAppTemplateId: SitecoreTemplateId.JssApp,
     appName,
     language,
