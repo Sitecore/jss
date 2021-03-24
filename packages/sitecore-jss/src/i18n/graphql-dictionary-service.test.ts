@@ -2,12 +2,12 @@
 import { expect } from 'chai';
 import nock from 'nock';
 import { GraphQLDictionaryService } from './graphql-dictionary-service';
-import appRootQueryResponse from './mockAppRootQueryResponse.json';
+import siteRootQueryResponse from './mockSiteRootQueryResponse.json';
 import dictionaryQueryResponse from './mockDictionaryQueryResponse.json';
 
 describe('GraphQLDictionaryService', () => {
   const endpoint = 'http://site';
-  const appName = 'site-name';
+  const siteName = 'site-name';
 
   afterEach(() => {
     nock.cleanAll();
@@ -15,28 +15,28 @@ describe('GraphQLDictionaryService', () => {
 
   it('should fetch app root', async () => {
     nock(endpoint)
-      .post('/', /GetAppRoot/gi)
-      .reply(200, appRootQueryResponse);
+      .post('/', /GetSiteRoot/gi)
+      .reply(200, siteRootQueryResponse);
 
     nock(endpoint)
       .post('/', /DictionarySearch/gi)
       .reply(200, dictionaryQueryResponse);
 
-    const service = new GraphQLDictionaryService({ endpoint, appName, cacheEnabled: false });
+    const service = new GraphQLDictionaryService({ endpoint, siteName, cacheEnabled: false });
     await service.fetchDictionaryData('en');
     expect(service.options.rootItemId).to.equal('GUIDGUIDGUID');
   });
 
   it('should fetch dictionary phrases', async () => {
     nock(endpoint)
-      .post('/', /GetAppRoot/gi)
-      .reply(200, appRootQueryResponse);
+      .post('/', /GetSiteRoot/gi)
+      .reply(200, siteRootQueryResponse);
 
     nock(endpoint)
       .post('/', /DictionarySearch/gi)
       .reply(200, dictionaryQueryResponse);
 
-    const service = new GraphQLDictionaryService({ endpoint, appName, cacheEnabled: false });
+    const service = new GraphQLDictionaryService({ endpoint, siteName, cacheEnabled: false });
     const result = await service.fetchDictionaryData('en');
     expect(result.foo).to.equal('foo');
     expect(result.bar).to.equal('bar');
@@ -44,12 +44,12 @@ describe('GraphQLDictionaryService', () => {
 
   it('should throw error if no app root found', async () => {
     nock(endpoint)
-      .post('/', /GetAppRoot/gi)
+      .post('/', /GetSiteRoot/gi)
       .reply(200, {
         data: {
           layout: {
             homePage: {
-              appRoot: [],
+              rootItem: [],
             },
           },
         },
@@ -59,24 +59,24 @@ describe('GraphQLDictionaryService', () => {
       .post('/', /DictionarySearch/gi)
       .reply(200, dictionaryQueryResponse);
 
-    const service = new GraphQLDictionaryService({ endpoint, appName, cacheEnabled: false });
+    const service = new GraphQLDictionaryService({ endpoint, siteName, cacheEnabled: false });
     await service.fetchDictionaryData('en').catch((error) => {
-      expect(error.message).to.equal('Error fetching JSS app root item');
+      expect(error.message).to.equal('Error fetching Sitecore site root item');
     });
   });
 
   // TODO: there is a known issue with mcache
   it('should use cache', async () => {
     nock(endpoint)
-      .post('/', /GetAppRoot/gi)
-      .reply(200, appRootQueryResponse);
+      .post('/', /GetSiteRoot/gi)
+      .reply(200, siteRootQueryResponse);
 
     nock(endpoint)
       .post('/', /DictionarySearch/gi)
       .times(2)
       .reply(200, dictionaryQueryResponse);
 
-    const service = new GraphQLDictionaryService({ endpoint, appName });
+    const service = new GraphQLDictionaryService({ endpoint, siteName });
 
     // call fetch twice, and use nock to see if more than 1 request was actually made
     await service.fetchDictionaryData('en');
@@ -93,7 +93,7 @@ describe('GraphQLDictionaryService', () => {
 
     const service = new GraphQLDictionaryService({
       endpoint,
-      appName,
+      siteName,
       cacheEnabled: false,
       rootItemId: customRootId,
     });
@@ -104,8 +104,8 @@ describe('GraphQLDictionaryService', () => {
   it('should use a custom pageSize, if provided', async () => {
     const customPageSize = 2;
     nock(endpoint)
-      .post('/', /GetAppRoot/gi)
-      .reply(200, appRootQueryResponse);
+      .post('/', /GetSiteRoot/gi)
+      .reply(200, siteRootQueryResponse);
 
     nock(endpoint)
       .post('/', (body) => body.variables.pageSize === customPageSize)
@@ -113,7 +113,7 @@ describe('GraphQLDictionaryService', () => {
 
     const service = new GraphQLDictionaryService({
       endpoint,
-      appName,
+      siteName,
       cacheEnabled: false,
       pageSize: customPageSize,
     });
@@ -129,7 +129,7 @@ describe('GraphQLDictionaryService', () => {
 
     const service = new GraphQLDictionaryService({
       endpoint,
-      appName,
+      siteName,
       cacheEnabled: false,
       rootItemId: customRootId,
     });

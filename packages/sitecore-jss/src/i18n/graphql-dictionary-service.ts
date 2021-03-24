@@ -55,7 +55,7 @@ export interface GraphQLDictionaryServiceConfig extends CacheOptions {
 
   /**
    * The GUID of the Sitecore item to use as the root for the dictionary service search.
-   * @default The GUID of the root item of the specified app.
+   * @default The GUID of the root item of the specified Sitecore site.
    */
   rootItemId?: string;
 
@@ -66,9 +66,9 @@ export interface GraphQLDictionaryServiceConfig extends CacheOptions {
   pageSize?: number;
 
   /**
-   * The name of the current JSS app.
+   * The name of the current Sitecore site.
    */
-  appName: string;
+  siteName: string;
 }
 
 /**
@@ -145,7 +145,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    * }
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
-    const cacheKey = this.options.appName + language;
+    const cacheKey = this.options.siteName + language;
     const cachedValue = this.getCacheValue(cacheKey);
     if (cachedValue) {
       return cachedValue;
@@ -153,7 +153,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 
     const client = new GraphQLRequestClient(this.options.endpoint);
     if (!this.options.rootItemId) {
-      this.options.rootItemId = await getAppRoot(client, this.options.appName, language);
+      this.options.rootItemId = await getSiteRoot(client, this.options.siteName, language);
     }
 
     const results = await this.getDictionaryPhrases(client, language);
@@ -198,12 +198,12 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 }
 
 // TODO: Move to shared area and reuse for sitemap service (Anastasiya, March 2021)
-const appRootQuery = `
-query GetAppRoot($jssAppTemplateId: String!, $appName: String!, $language: String)
+const siteRootQuery = `
+query getSiteRoot($jssAppTemplateId: String!, $siteName: String!, $language: String)
 {
-  layout(site: $appName, routePath: "/", language: $language) {
+  layout(site: $siteName, routePath: "/", language: $language) {
     homePage: item {
-      appRoot: ancestors(includeTemplateIDs: [$jssAppTemplateId]) {
+      rootItem: ancestors(includeTemplateIDs: [$jssAppTemplateId]) {
         id
       }
     }
@@ -214,10 +214,10 @@ query GetAppRoot($jssAppTemplateId: String!, $appName: String!, $language: Strin
 /**
  * A reply from the GraphQL Sitecore Dictionary Service
  */
-type AppRootQueryResult = {
+type SiteRootQueryResult = {
   layout: {
     homePage: {
-      appRoot: {
+      rootItem: {
         id: string;
       }[];
     };
@@ -225,26 +225,26 @@ type AppRootQueryResult = {
 };
 
 /**
- * Gets ID of the JSS app root for the provided GraphQL endpoint.
+ * Gets the ID of the site root item from the Sitecore item tree.
  * @param {GraphQLRequestClient} client that fetches data from a GraphQL endpoint.
- * @param {string} appName the name of the JSS app.
+ * @param {string} siteName the name of the Sitecore site.
  * @param {string} language the item language version.
- * @returns the ID of the JSS app root item.
+ * @returns the root item ID of the Sitecore site.
  */
-async function getAppRoot(
+async function getSiteRoot(
   client: GraphQLRequestClient,
-  appName: string,
+  siteName: string,
   language: string
 ): Promise<string> {
-  const fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
+  const fetchResponse = await client.request<SiteRootQueryResult>(siteRootQuery, {
     jssAppTemplateId: SitecoreTemplateId.JssApp,
-    appName,
+    siteName,
     language,
   });
 
-  if (!fetchResponse?.layout?.homePage?.appRoot?.length) {
-    throw new Error('Error fetching JSS app root item');
+  if (!fetchResponse?.layout?.homePage?.rootItem?.length) {
+    throw new Error('Error fetching Sitecore site root item');
   }
 
-  return fetchResponse.layout.homePage.appRoot[0].id;
+  return fetchResponse.layout.homePage.rootItem[0].id;
 }
