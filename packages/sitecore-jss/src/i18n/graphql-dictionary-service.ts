@@ -157,7 +157,8 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     }
 
     const results = await this.getDictionaryPhrases(dataFetcher, language);
-    return this.setCacheValue(cacheKey, results);
+    this.setCacheValue(cacheKey, results);
+    return results;
   }
 
   /**
