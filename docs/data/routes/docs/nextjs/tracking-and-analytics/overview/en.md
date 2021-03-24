@@ -1,9 +1,9 @@
 ---
 name: overview
 routeTemplate: ./data/component-templates/article.yml
-title: Overview and architecture
+title: Overview
 ---
-# Tracking & Analytics Overview and Architecture
+# Tracking and Analytics Overview
 
 Sitecore analytics and personalization functionality is possible with Next.js only on SSR (Server-side Rendered) page routes using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout-service).
 
