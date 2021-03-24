@@ -1,6 +1,6 @@
 import mcache from 'memory-cache';
 
-const defaults = Object.freeze({
+const DEFAULTS = Object.freeze({
   cacheTimeout: 60,
   cacheEnabled: true,
 });
@@ -41,10 +41,10 @@ export interface DictionaryService {
 
 export abstract class DictionaryServiceBase implements DictionaryService {
   constructor(public options: CacheOptions) {
-    this.options.cacheTimeout = this.options.cacheTimeout ?? defaults.cacheTimeout;
+    this.options.cacheTimeout = this.options.cacheTimeout ?? DEFAULTS.cacheTimeout;
 
     if (this.options.cacheEnabled === undefined) {
-      this.options.cacheEnabled = defaults.cacheEnabled;
+      this.options.cacheEnabled = DEFAULTS.cacheEnabled;
     }
   }
 

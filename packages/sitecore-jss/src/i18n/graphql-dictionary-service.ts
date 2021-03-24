@@ -2,7 +2,7 @@ import { GraphQLRequestClient } from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
 
-const defaults = Object.freeze({
+const DEFAULTS = Object.freeze({
   pageSize: 10,
 });
 
@@ -102,7 +102,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    */
   constructor(public options: GraphQLDictionaryServiceConfig) {
     super(options);
-    this.options.pageSize = this.options.pageSize ?? defaults.pageSize;
+    this.options.pageSize = this.options.pageSize ?? DEFAULTS.pageSize;
   }
 
   /**
