@@ -1,7 +1,7 @@
 import React, { RefObject } from 'react';
 import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
-import { dataFetcher } from 'lib/data-fetcher-factory';
+import { dataFetcher } from 'lib/data-fetcher';
 import config from 'temp/config';
 import StyleguideSpecimen from './Styleguide-Specimen';
 import { TrackingRequestOptions } from '@sitecore-jss/sitecore-jss-tracking/types/trackingRequestOptions';
