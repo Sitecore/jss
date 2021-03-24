@@ -199,7 +199,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 
 // TODO: Move to shared area and reuse for sitemap service (Anastasiya, March 2021)
 const appRootQuery = `
-query GetAppRoot($jssAppTemplateId: String, $appName: String!, $language: String)
+query GetAppRoot($jssAppTemplateId: String!, $appName: String!, $language: String)
 {
   layout(site: $appName, routePath: "/", language: $language) {
     homePage: item {
