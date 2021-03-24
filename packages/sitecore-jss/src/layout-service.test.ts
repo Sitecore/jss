@@ -8,8 +8,8 @@ import { GraphQLLayoutService, RestLayoutService } from './layout-service';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { IncomingMessage, ServerResponse } from 'http';
-import { AxiosDataFetcher } from './data-fetcher';
-import { LayoutServiceData, PlaceholderData } from './dataModels';
+import { AxiosDataFetcher } from './axios-fetcher';
+import { LayoutServiceData, PlaceholderData } from './data-models';
 
 use(spies);
 
@@ -292,7 +292,7 @@ describe('LayoutService', () => {
   });
 
   describe('GraphQLLayoutService', () => {
-    beforeEach(() => {
+    afterEach(() => {
       nock.cleanAll();
     });
 

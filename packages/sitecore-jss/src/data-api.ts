@@ -1,5 +1,5 @@
-import { LayoutServiceData, PlaceholderData } from './dataModels';
-import { HttpJsonFetcher, HttpResponse } from './httpClientInterface';
+import { LayoutServiceData, PlaceholderData } from './data-models';
+import { HttpDataFetcher, HttpResponse } from './data-fetcher';
 
 class ResponseError extends Error {
   response: HttpResponse<unknown>;
@@ -24,6 +24,10 @@ function checkStatus<T>(response: HttpResponse<T>) {
   throw error;
 }
 
+// TODO: getQueryString is duplicated in packages/sitecore-jss-tracking/src/trackingApi.ts, and
+// packages/sitecore-jss/src/dataApi.ts
+// Need to move to an exported util (Anastasiya, March 2021)
+
 // note: encodeURIComponent is available via browser (window) or natively in node.js
 // if you use another js engine for server-side rendering you may not have native encodeURIComponent
 // and would then need to install a package for that functionality
@@ -38,12 +42,12 @@ function getQueryString(params: { [key: string]: string | number | boolean }): s
 
 /**
  * @param {string} url
- * @param {HttpJsonFetcher} fetcher
+ * @param {HttpDataFetcher} fetcher
  * @param {Object} params
  */
 export function fetchData<T>(
   url: string,
-  fetcher: HttpJsonFetcher<T>,
+  fetcher: HttpDataFetcher<T>,
   params: { [key: string]: string | number | boolean } = {}
 ) {
   const qs = getQueryString(params);
@@ -87,7 +91,7 @@ export interface BaseRequestOptions<T> {
   querystringParams?: { [key: string]: string | number | boolean };
 
   /** The fetcher that performs the HTTP request and returns a promise to JSON */
-  fetcher: HttpJsonFetcher<T>;
+  fetcher: HttpDataFetcher<T>;
 }
 
 export interface LayoutServiceRequestOptions<T> extends BaseRequestOptions<T> {
