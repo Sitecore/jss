@@ -168,6 +168,7 @@ describe('RestDictionaryService', () => {
         y: 'w2',
       });
 
+      // eslint-disable-next-line no-unused-expressions
       expect(fetcherSpy).to.be.called.once;
       expect(fetcherSpy).to.be.called.with(
         'http://sctest/sitecore/api/jss/dictionary/supersite/ua?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA'
