@@ -42,7 +42,9 @@ this.layoutService = new RestLayoutService({
   ...
   tracking: false, // <-- disables tracking!
 });
-```
+``` 
+
+> You might want to [Enable or disable web tracking based on visitor consent](https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/enable-or-disable-web-tracking-based-on-visitor-consent.html).
 
 ## Sitecore configuration
 
