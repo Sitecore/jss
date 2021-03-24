@@ -11,7 +11,7 @@ This topic will guide you through the steps required to enable full Sitecore tra
 
 > Note this is different than *client-side tracking* via the JSS tracking API, which is possible for *both Static Site Generation (SSG) and Server-side Rendering (SSR)*. Please see the [JSS Tracking](/docs/fundamentals/services/tracking) page for details.
 
-JSS supports tracking and analytics only for server-side rendered applications using the REST fetch method. You can not currently use Tracking and Analytics with the Sitecore GraphQL "Edge" schema.
+JSS supports tracking and analytics only for server-side rendered applications using the REST fetch method. You can not currently use tracking and analytics with the Sitecore GraphQL "Edge" schema.
 
 ## Pre-requisites
 
