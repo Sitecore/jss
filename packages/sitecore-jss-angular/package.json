@@ -56,7 +56,7 @@
     "@sitecore-jss/sitecore-jss": "^16.1.0-canary.9"
   },
   "main": "dist/bundles/sitecore-jss-sitecore-jss-angular.umd.js",
-  "module": "dist/esm2015/sitecore-jss-sitecore-jss-angular.js",
+  "module": "dist/fesm2015/sitecore-jss-sitecore-jss-angular.js",
   "es2015": "dist/esm2015/sitecore-jss-sitecore-jss-angular.js",
   "typings": "dist/sitecore-jss-sitecore-jss-angular.d.ts",
   "metadata": "dist/sitecore-jss-sitecore-jss-angular.metadata.json",

@@ -39,6 +39,7 @@
                   "maximumWarning": "6kb"
                 }
               ],
+              "baseHref": "/",
               "aot": true,
               "optimization": true,
               "outputHashing": "all",

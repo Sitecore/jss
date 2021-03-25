@@ -28,7 +28,7 @@
     "start:connected": "scjss-verify-setup && npm-run-all --serial bootstrap:connected start:angular start:watch-components",
     "build": "npm-run-all --serial bootstrap:connected --serial build:client build:server",
     "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component",
-    "start:angular": "ng serve -o --base-href=/ --source-map=false",
+    "start:angular": "ng serve -o",
     "start:proxy": "ts-node --project src/tsconfig.webpack-server.json scripts/disconnected-mode-proxy.ts",
     "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory.ts --watch",
     "build:client": "cross-env-shell ng build --prod --deploy-url $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
