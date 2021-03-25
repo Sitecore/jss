@@ -9,7 +9,7 @@ title: Release Notes
 
 ### Upgrading
 
-There are [migration instructions](/upgrade-guides/18.0) from JSS 18-based applications.
+There are [migration instructions](/upgrade-guides/18.0) from JSS 16-based applications.
 
 ### Breaking changes
 * [PR #635](https://github.com/Sitecore/jss/pull/635) [Angular sample] Upgrade angular to v11.
