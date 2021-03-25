@@ -19,16 +19,32 @@ Creates a JSS application. You must provide an application name and a framework.
 jss create <your-app-name> <app-template-name>
 ```
 
-|Parameter| Options | Description| Default |Template|
-|--- | --- | --- | --- | --- |
-|`fetchWith` | `REST` or `GraphQL` | Specifies how the applicaiton should fetch Sitecore layout and dictionary data. | `REST` | nextjs |
-|`prerender` | `SSG` or `SSR` | Specifies the Next.js pre-rendering form for the primary `[[...path]].tsx` route. | `SSG` | nextjs |
-|`repository` | A repository: githubusername/reponame | Specifies which repository to use for creating the JSS app | `Sitecore/jss` | all |
-|`branch` | A branch name | Specifies which branch to use for creating the JSS app | `master` | all |
-|`source` | A local directory path | Specifies a local directory for custom JSS app templates | - | all |
+**Required parameters**
+
+|Parameter |Description| Value type| 
+| --- | --- | --- | 
+|name| The name of the app to create.|`String`|
+|template| The template to create the app from; corresponds to folders in the [Official JSS repository](https://github.com/Sitecore/jss/tree/master/samples)|`String`|
+
+**Optional parameters**
+
+|Parameter| Description| Options | Default |Template|
+| --- | --- | --- | --- | --- |
+|`--version` | Show version number | - | `true` | all |
+|`--help` | Show help for the command | - | `true` | all |
+|`--hostName`, `-r` | Sets the host name of the Sitecore site if this app is deployed to Sitecore. | - | `$name.dev.local` | all |
+|`--repository`, `-r` | Configures the repository to use for creating the JSS app | A repository: githubusername/reponame | `Sitecore/jss` | all |
+|`--branch`, `-b` | Configures the branch of the repository to use for creating the JSS app |  A branch name | `master` | all |
+|`--source`, `-s` | Sources the app template from a local filesystem path, instead of a GitHub repository. Use for custom JSS app templates | A local directory path |  - |  all |
+|`--proxy`, `-p` |  Specifies a HTTP proxy when downloading templates. | A local directory path |  - |  all |
+|`--fetchWith` |  Specifies how the applicaiton should fetch Sitecore layout and dictionary data. |`REST` or `GraphQL` | `REST` | nextjs |
+|`--prerender` | Specifies the Next.js pre-rendering form for the primary `[[...path]].tsx` route. | `SSG` or `SSR` | `SSG` | nextjs |
 
 **Examples**
 ```
+// React-based app using a specific version of JSS
+jss create my-jss-app react --branch release/11.0.0
+
 // Next.js-based application with Static Generation and fetching data using GraphQL
 jss create my-jss-app nextjs --prerender SSG --fetchWith GraphQL
 
