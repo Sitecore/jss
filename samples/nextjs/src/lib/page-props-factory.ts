@@ -18,7 +18,7 @@ import { config as packageConfig } from '../../package.json';
  * Extract normalized Sitecore item path from query
  * @param {ParsedUrlQuery | undefined} params
  */
-const extractPath = function (params: ParsedUrlQuery | undefined): string {
+function extractPath(params: ParsedUrlQuery | undefined): string {
   if (params === undefined) {
     return '/';
   }
@@ -30,7 +30,7 @@ const extractPath = function (params: ParsedUrlQuery | undefined): string {
   }
 
   return path;
-};
+}
 
 /**
  * Determines whether context is GetServerSidePropsContext (SSR) or GetStaticPropsContext (SSG)

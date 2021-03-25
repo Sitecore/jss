@@ -1,15 +1,15 @@
 ---
 name: overview
 routeTemplate: ./data/component-templates/article.yml
-title: Overview and architecture
+title: Overview
 ---
-# Tracking & Analytics Overview and Architecture
+# Tracking and Analytics Overview
 
-Full Sitecore analytics and personalization functionality is possible with Next.js on any SSR (Server-side Rendered) page route.
+Sitecore analytics and personalization functionality is possible with Next.js only on SSR (Server-side Rendered) page routes using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout-service).
 
-> Note [client-side JSS tracking](/docs/fundamentals/services/tracking) is possible for *both SSG and SSR*.
+> See [Sitecore Experience Platform documentation](https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/web-tracking.html) for more information about tracking and analytics.
 
-> By default, the Next.js sample application uses a route optimized for SSG, but can be switched to SSR. See [here](/docs/nextjs/page-routing/switching-to-ssr) for steps.
+> Note this is different than *client-side tracking* via the JSS tracking API, which is possible for *both Static Site Generation (SSG) and Server-side Rendering (SSR)*. Please see the [JSS Tracking](/docs/fundamentals/services/tracking) page for details.
 
 For Sitecore analytics and personalization to work with JSS, the appropriate HTTP headers must be present at the browser and Layout Service.
 
@@ -19,7 +19,7 @@ With Next.js, this is accomplished by passing specific HTTP headers between the 
 
 ## Header Passing
 
-Here's how header passing works during a page request/response cycle. The flow is based on using the SSR page route example `pages_examples\[[...path]].SSR.tsx` that comes with the Next.js sample application.
+Here's how header passing works during a page request/response cycle. The flow is based on using the [SSR `[[..path]].tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B%2E%2E%2Epath%5D%5D.SSR.tsx) route example that comes with the Next.js sample application.
 
 <img src="/assets/img/nextjs-sitecore-analytics.svg" alt="Next.js Sitecore Analytics" />
 

@@ -1,4 +1,4 @@
-import { HttpJsonFetcher, HttpResponse, isServer } from '@sitecore-jss/sitecore-jss';
+import { HttpDataFetcher, HttpResponse, isServer } from '@sitecore-jss/sitecore-jss';
 import {
   CampaignInstance,
   EventInstance,
@@ -48,14 +48,14 @@ function getQueryString(params: { [key: string]: unknown }) {
  * which is necessary for analytics and such
  * @param {string} url
  * @param {any} data
- * @param {HttpJsonFetcher<T>} fetcher
+ * @param {HttpDataFetcher<T>} fetcher
  * @param {Object} params
  */
 function fetchData<T>(
   url: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any,
-  fetcher: HttpJsonFetcher<T>,
+  fetcher: HttpDataFetcher<T>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params: { [key: string]: any } = {}
 ) {

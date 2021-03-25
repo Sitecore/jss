@@ -4,7 +4,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
-import { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
+import { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 
 use(spies);
 

@@ -1,4 +1,4 @@
-import { HttpJsonFetcher } from '@sitecore-jss/sitecore-jss';
+import { HttpDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 export interface TrackingRequestOptions {
   /** Hostname of tracking service; e.g. http://my.site.core */
@@ -8,7 +8,7 @@ export interface TrackingRequestOptions {
   serviceUrl?: string;
 
   /** The fetcher that performs the HTTP request and returns a promise to JSON */
-  fetcher: HttpJsonFetcher<void>;
+  fetcher: HttpDataFetcher<void>;
 
   /**
    * An object of key:value pairs to be stringified and used as querystring parameters.

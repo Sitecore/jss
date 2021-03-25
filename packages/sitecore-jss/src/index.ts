@@ -1,13 +1,14 @@
-import * as dataApi from './dataApi';
-import * as mediaApi from './mediaApi';
+import * as dataApi from './data-api';
+import * as mediaApi from './media-api';
+import * as constants from './constants';
 
-export { dataApi, mediaApi };
+export { dataApi, mediaApi, constants };
 
 export { GraphQLRequestClient } from './graphql-request-client';
 
-export { LayoutServiceRequestOptions } from './dataApi';
+export { LayoutServiceRequestOptions } from './data-api';
 
-export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
+export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 
 export {
   LayoutService,
@@ -18,17 +19,9 @@ export {
   DataFetcherResolver,
 } from './layout-service';
 
-export {
-  DictionaryService,
-  RestDictionaryService,
-  RestDictionaryServiceConfig,
-} from './dictionary-service';
-
 export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
 
 export {
-  DictionaryPhrases,
-  DictionaryServiceData,
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,
@@ -42,8 +35,16 @@ export {
   PlaceholdersData,
   ComponentFields,
   ComponentParams,
-} from './dataModels';
+} from './data-models';
 
-export { getFieldValue, getChildPlaceholder } from './layoutDataUtils';
+export { getFieldValue, getChildPlaceholder } from './layout-data-utils';
 
-export { HttpJsonFetcher, HttpResponse } from './httpClientInterface';
+export { HttpDataFetcher, HttpResponse } from './data-fetcher';
+
+// i18n
+export { DictionaryPhrases, DictionaryService } from './i18n/dictionary-service';
+export {
+  GraphQLDictionaryService,
+  GraphQLDictionaryServiceConfig,
+} from './i18n/graphql-dictionary-service';
+export { RestDictionaryService, RestDictionaryServiceConfig } from './i18n/rest-dictionary-service';

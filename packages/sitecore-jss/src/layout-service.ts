@@ -1,10 +1,10 @@
+import { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
+import { LayoutServiceData, PlaceholderData } from './data-models';
+import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './data-api';
+import { GraphQLRequestClient } from './graphql-request-client';
+import { HttpDataFetcher } from './data-fetcher';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
-import { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
-import { LayoutServiceData, PlaceholderData } from './dataModels';
-import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './dataApi';
-import { HttpJsonFetcher } from './httpClientInterface';
-import { GraphQLRequestClient } from './graphql-request-client';
 
 export interface LayoutService {
   /**
@@ -26,7 +26,7 @@ export interface LayoutService {
 export type DataFetcherResolver = <T>(
   req?: IncomingMessage,
   res?: ServerResponse
-) => HttpJsonFetcher<T>;
+) => HttpDataFetcher<T>;
 
 export type RestLayoutServiceConfig = {
   /**
@@ -51,7 +51,7 @@ export type RestLayoutServiceConfig = {
   /**
    * Data fetcher resolver in order to provide custom data fetcher
    * @see DataFetcherResolver
-   * @see HttpJsonFetcher<T>
+   * @see HttpDataFetcher<T>
    * @see AxiosDataFetcher used by default
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance

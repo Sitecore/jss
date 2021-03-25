@@ -12,7 +12,7 @@ The Next.js SDK for Sitecore has some key differences from other Sitecore JavaSc
 * The _Headless SSR Proxy_ is not required for [production deployment](/docs/nextjs/deploying-to-production/deployment-options).
   * Next.js has built-in pre-rendering.
   * Next.js has [built-in rewrite / proxying support](https://nextjs.org/docs/api-reference/next.config.js/rewrites#rewriting-to-an-external-url) 
-  * Sitecore tracking and analytics are supported through [header passing](/docs/nextjs/tracking-and-analytics/overview) (SSR-only).
+  * Sitecore tracking and analytics are supported through [header passing](/docs/nextjs/tracking-and-analytics/overview) (SSR with Sitecore Layout Service REST API only).
 * [Experience Editor integration](/docs/nextjs/experience-editor/walkthrough) does not require a separate deployment, and only supports the [HTTP Rendering Engine](/docs/fundamentals/services/view-engine#http-rendering-engine).
   * There is no requirement to install node.js on your Sitecore Content Management role.
   * There is never a need to deploy your application to the Sitecore Content Management role.
