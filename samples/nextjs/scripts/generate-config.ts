@@ -47,7 +47,8 @@ const config = {};\n`;
   });
   // Set computed values
   Object.keys(computedConfig).forEach((prop) => {
-    configText += `config.${prop} = ${computedConfig[prop]};\n`;
+    // eslint-disable-next-line prettier/prettier
+    configText += `config.${prop} = process.env.${constantCase(prop)} || ${computedConfig[prop]};\n`;
   });
   configText += `module.exports = config;`;
 
