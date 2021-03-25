@@ -5,6 +5,15 @@ title: Release Notes
 ---
 # Release Notes
 
+## Sitecore JSS 18.0 for Sitecore 10.1
+
+### Upgrading
+
+There are [migration instructions](/upgrade-guides/18.0) from JSS 18-based applications.
+
+### Breaking changes
+* [PR #635](https://github.com/Sitecore/jss/pull/635) [Angular sample] Upgrade angular to v11.
+
 ## Sitecore JSS 16.1 for Sitecore 10
 
 ### Breaking changes
