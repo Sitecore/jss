@@ -16,7 +16,7 @@ cd my-first-jss-app
 jss start
 ```
 
-> Using the JSS CLI, you can create application for various versions of JSS and therefore ensure that your new JSS application is compatible with your licensed Sitecore XP version. To find out which version of JSS is compatible with your version of Sitecore XP, consult the [compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788). 
+> Using the JSS CLI, you can create applications for any versions of JSS and therefore ensure that your new JSS application is compatible with your licensed Sitecore XP version. To find out which version of JSS is compatible with your version of Sitecore XP, consult the [compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788). 
 > 
 > To create an application using a previous version of JSS, see an example in the [JSS CLI reference](/docs/fundamentals/cli).
 
