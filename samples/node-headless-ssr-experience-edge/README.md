@@ -12,7 +12,17 @@ This is a sample setup showing one of how you can configure rendering server on 
 
 	### // TODO: document how to test GraphQL queries
 
-1. If necessary, update your app's GraphQL components to be compatible with Experience Edge schema. See examples in [Next.js sample app](../nextjs).
+1. If necessary, update your app's GraphQL components to be compatible with Experience Edge schema. See examples in [Next.js sample app](../nextjs). Provide `sc_apikey` header for authentication, this header is used for both Sitecore XM Edge schema and Sitecore Experience Edge. Add it using `BatchHttpLink` in [GraphQLClientFactory](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/GraphQLClientFactory.ts):
+	```
+	new BatchHttpLink({
+		uri: endpoint ?? config.graphQLEndpoint,
+		credentials: 'include',
+		headers: {
+			connection: 'keep-alive',
+			sc_apikey: config.sitecoreApiKey,
+		},
+	})
+	```
 
 1. Build your JS app bundle with `jss build`.
 
@@ -33,7 +43,7 @@ The following environment variables can be set to configure the SSR sample inste
 | Parameter                              | Description                                                                                                                                                      |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `SITECORE_JSS_APP_NAME`                | The JSS app's name. Used when request layout data and dictionary using graphql query and the default value of `SITECORE_JSS_SERVER_BUNDLE` if it's not set.      |
-| `SITECORE_API_KEY`                     | The Sitecore SSC API key your app. 																																																															|
+| `SITECORE_API_KEY`                     | The API key provisioned on Sitecore Experience Edge. 																																																						|
 | `SITECORE_JSS_SERVER_BUNDLE`           | Path to the JSS app's `server.bundle.js` file.        																																									                          |
 | `SITECORE_EXPERIENCE_EDGE_ENDPOINT`    | Sitecore Experience Edge endpoint.																																																				                        |
 | `PORT` 																 | Optional. Port which will be used when start sample. Default can be seen in [config.js](./config.js).                                                            |
