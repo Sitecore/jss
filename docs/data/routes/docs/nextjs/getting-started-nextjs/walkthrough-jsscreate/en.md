@@ -22,6 +22,10 @@ cd my-first-jss-app
 jss start
 ```
 
+> To ensure that your new JSS application is compatible with your licensed Sitecore XP version, consult the [compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788). 
+> 
+> To create an application using a previous version of JSS, see an example in the [JSS CLI reference](/docs/fundamentals/cli).
+
 ##  Create your application
 
 To create a JSS application, you must: 
@@ -45,6 +49,12 @@ To create a JSS application, you must:
    The command will create the JSS Next.js application and install the required packages. 
    
    > For more information on `jss create` see [the JSS CLI reference](/docs/fundamentals/cli).
+    
+
+   
+   > To ensure that your new JSS application is compatible with your licensed Sitecore XP version, consult the [compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788).  
+   > 
+   > To create an application using a previous version of JSS, see an example in the [JSS CLI reference](/docs/fundamentals/cli).
 
 ## Run your application
 
