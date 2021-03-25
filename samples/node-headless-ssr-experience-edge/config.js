@@ -19,7 +19,7 @@ const config = {
     process.env.SITECORE_EXPERIENCE_EDGE_ENDPOINT ||
     'http://my.experience.edge/sitecore/api/graph/edge',
   /**
-   * apiKey: The Sitecore SSC API key your app uses.
+   * The API key provisioned on Sitecore Experience Edge.
    * Required.
    */
   apiKey: process.env.SITECORE_API_KEY || serverBundle.apiKey || '{YOUR API KEY HERE}',
