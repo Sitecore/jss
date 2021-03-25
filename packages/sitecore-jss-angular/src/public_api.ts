@@ -36,7 +36,7 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-  HttpJsonFetcher,
+  HttpDataFetcher,
   HttpResponse,
   isServer,
 } from '@sitecore-jss/sitecore-jss';

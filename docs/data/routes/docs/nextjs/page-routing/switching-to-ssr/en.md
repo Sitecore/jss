@@ -1,17 +1,30 @@
 ---
 name: switching-to-ssr
 routeTemplate: ./data/component-templates/article.yml
-title: Switching to SSR
+title: Switching between SSG and SSR
 ---
-# Walkthrough: Switching to Server-Side Rendering (SSR)
+# Walkthrough: Switching between Static Site Generation (SSG) and Server-Side Rendering (SSR)
 
-By default, the Next.js sample application uses a route optimized for Static Site Generation (SSG). However, we have also provided a working SSR route you can use: [`\pages_examples\[[..path]].SSR.tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages_examples/%5B%5B%2E%2E%2Epath%5D%5D.SSR.tsx).
+The Next.js sample application `[[..path]].tsx` route can be optimized for either Static Site Generation (SSG) or Server-Side Rendering (SSR).
 
-This file may be used as a starter for SSR routes in Next.js hybrid (both SSR & SSG) applications or may be used to switch the Next.js sample application to full SSR.
+You can choose the initial pre-rendering form on create with the optional `prerender` parameter. SSG is used by default if you omit the parameter. For example, [with `jss create`](/docs/nextjs/getting-started-nextjs/walkthrough-jsscreate):
 
-> See [Next.js documentation](https://nextjs.org/docs/basic-features/pages#two-forms-of-pre-rendering) to learn more about SSG, SSR, and hybrid modes of pre-rendering.
+```
+jss create my-first-jss-app nextjs --prerender {SSG|SSR}
+```
 
-To switch the Next.js sample application to full SSR:
+However, you may wish to switch the pre-rendering form after creation or reference both for Next.js hybrid (both SSR & SSG) applications.
 
-1. Rename the `\pages\[[..path]].tsx` to `[[..path]].SSG.tsx` and move to `\pages_examples\`
-2. Rename the `\pages_examples\[[..path]].SSR.tsx` to `\pages_examples\[[..path]].tsx` and move to `\pages\`
+> See [Next.js documentation](https://nextjs.org/docs/basic-features/pages#two-forms-of-pre-rendering) to learn more about SSG, SSR, and hybrid forms of pre-rendering.
+
+To switch the Next.js sample application from SSG to SSR:
+
+1. Move or delete `\pages\[[..path]].tsx`
+2. Download [`[[..path]].SSR.tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B%2E%2E%2Epath%5D%5D.SSR.tsx) to `\pages\` and rename as `[[..path]].tsx`
+3. Delete `\lib\sitemap-fetcher.ts` (optional)
+
+To switch the Next.js sample application from SSR to SSG:
+
+1. Move or delete `\pages\[[..path]].tsx`
+2. Download [`[[..path]].tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B%2E%2E%2Epath%5D%5D.tsx) to `\pages\`
+3. Download [`sitemap-fetcher.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/sitemap-fetcher.ts) to `\lib\`

@@ -1,0 +1,29 @@
+{
+  "data": {
+    "search": {
+      "total": 5,
+      "pageInfo": {
+        "endCursor": "NQ==",
+        "hasNext": false
+      },
+      "dictionaryPhrases": [
+        {
+          "key": {
+            "value": "foo"
+          },
+          "phrase": {
+            "value": "foo"
+          }
+        },
+        {
+          "key": {
+            "value": "bar"
+          },
+          "phrase": {
+            "value": "bar"
+          }
+        }
+      ]
+    }
+  }
+}

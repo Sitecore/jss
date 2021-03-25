@@ -4,7 +4,7 @@
 import chai = require('chai');
 import chaiString = require('chai-string');
 import URL = require('url-parse');
-import { findEditorImageTag, getSrcSet, updateImageUrl, getRequiredParams } from './mediaApi';
+import { findEditorImageTag, getSrcSet, updateImageUrl, getRequiredParams } from './media-api';
 
 // chai.should();
 const expect = chai.use(chaiString).expect;

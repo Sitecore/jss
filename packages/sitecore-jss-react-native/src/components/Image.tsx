@@ -10,7 +10,7 @@ export interface ImageFieldValue {
   src?: string | number;
   width?: number;
   height?: number;
-  style?: unknown;
+  style?: { [key: string]: unknown };
 }
 
 export interface ImageField {
@@ -46,7 +46,7 @@ const getImageAttrs = (
     src?: string | number;
     width?: number | undefined;
     height?: number | undefined;
-    style?: unknown;
+    style?: { [key: string]: unknown };
   },
   imageUrlParams?: { [paramName: string]: string } | null
 ) => {
@@ -67,9 +67,6 @@ const getImageAttrs = (
     imgStyles.height = typeof height !== 'number' ? Number(height) : height;
   }
 
-  // react native styles/StyleSheets can be merged by passing them as an array to the native Image component
-  newAttrs.style = style ? [imgStyles, style] : imgStyles;
-
   // in react-native, you need to "import" static assets via `require` statements
   // when the packager builds your app, it (presumably) statically analyzes your code, extracts
   // the assets that are `require`d into an array/map, then assigns them a numerical value.
@@ -81,6 +78,17 @@ const getImageAttrs = (
     const uri = mediaApi.updateImageUrl(src, imageUrlParams);
     // for network images, the "source" prop is an object with at least "uri" value, e.g. { uri: 'http://aviato.com/myimg.jpg' }
     newAttrs.source = { uri };
+  }
+
+  if (isSvgImage(newAttrs.source as ImageSourcePropType)) {
+    // svg image accepts object
+    newAttrs.style = {
+      ...(style || {}),
+      ...imgStyles,
+    };
+  } else {
+    // react native styles/StyleSheets can be merged by passing them as an array to the native Image component
+    newAttrs.style = style ? [imgStyles, style] : imgStyles;
   }
 
   return newAttrs;

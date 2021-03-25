@@ -9,33 +9,42 @@ This topic will guide you through the steps required to enable full Sitecore tra
 
 > See [Sitecore Experience Platform documentation](https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/web-tracking.html) for more information about tracking and analytics.
 
-Note this is different than *client-side tracking* via the JSS tracking API, which is possible for *both Static Site Generation (SSG) and Server-side Rendering (SSR)*. Please see the [JSS Tracking](/docs/fundamentals/services/tracking) page for details.
+> Note this is different than *client-side tracking* via the JSS tracking API, which is possible for *both Static Site Generation (SSG) and Server-side Rendering (SSR)*. Please see the [JSS Tracking](/docs/fundamentals/services/tracking) page for details.
 
-## Next.js application
+JSS supports tracking and analytics only for server-side rendered applications using the REST fetch method. You can not currently use tracking and analytics with the Sitecore GraphQL "Edge" schema.
 
-### SSR only
+## Pre-requisites
 
-You must use a Next.js SSR page route. An example SSR route is included with the Next.js sample app. See [this page](/docs/nextjs/page-routing/switching-to-ssr) for details.
+- The application uses the SSR pre-rendering form. 
+- The application uses the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout-service). 
 
-### Layout Service requests
+> You can choose the pre-rendering form and the fetch method when creating the project with the JSS CLI. For details, consult the [JSS CLI reference](/docs/fundamentals/cli).
 
-[Sitecore Layout Service](/docs/fundamentals/services/layout-service) requests must:
+> If your application currently uses SSG, you can [switch the `[[..path]].tsx` route from SSG to SSR](/docs/nextjs/page-routing/switching-to-ssr).
 
-1. have tracking enabled (see [`tracking` parameter](/docs/fundamentals/services/layout-service#using-the-layout-service)), and
-2. perform [header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing)
+## Layout Service requests
+
+Sitecore Layout Service requests must:
+
+1. Have tracking enabled (see [`tracking` parameter](/docs/fundamentals/services/layout-service#using-the-layout-service)).
+2. Perform [header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing).
 
 Both of these **are taken care of** using the `RestLayoutService` included with the Next.js SDK (part of the `@sitecore-jss/sitecore-jss-nextjs` npm package).
 
 > The Next.js sample app uses the `RestLayoutService` in the `SitecorePagePropsFactory`. See [`src/lib/page-props-factory.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/page-props-factory.ts) for details.
 
-The `RestLayoutService` will track layout requests and perform header passing by default, so there is no extra configuration required. However, tracking can be disabled with the optional `tracking` parameter, so ensure this hasn't been specifically set to `false`. For example:
+The `RestLayoutService` will track layout requests and perform header passing by default, so there is no extra configuration required. 
+
+Tracking can be disabled with the optional `tracking` parameter, so ensure this hasn't been specifically set to `false`. For example:
 
 ```javascript
 this.layoutService = new RestLayoutService({
   ...
   tracking: false, // <-- disables tracking!
 });
-```
+``` 
+
+> You might want to [Enable or disable web tracking based on visitor consent](https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/enable-or-disable-web-tracking-based-on-visitor-consent.html).
 
 ## Sitecore configuration
 

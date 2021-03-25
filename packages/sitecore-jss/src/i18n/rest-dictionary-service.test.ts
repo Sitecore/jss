@@ -1,12 +1,10 @@
-/* eslint-disable no-unused-expressions */
 import { expect, spy, use } from 'chai';
 import mcache from 'memory-cache';
 import spies from 'chai-spies';
-import { RestDictionaryService } from './dictionary-service';
-import { DictionaryServiceData } from './dataModels';
+import { RestDictionaryService, RestDictionaryServiceData } from './rest-dictionary-service';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { AxiosDataFetcher } from './data-fetcher';
+import { AxiosDataFetcher } from '../axios-fetcher';
 
 use(spies);
 
@@ -144,7 +142,7 @@ describe('RestDictionaryService', () => {
 
   it('should fetch dictionary data using custom data fetcher', () => {
     const fetcherSpy = spy((url: string) => {
-      return new AxiosDataFetcher().fetch<DictionaryServiceData>(url);
+      return new AxiosDataFetcher().fetch<RestDictionaryServiceData>(url);
     });
 
     mock.onGet().reply((config) => {
@@ -170,6 +168,7 @@ describe('RestDictionaryService', () => {
         y: 'w2',
       });
 
+      // eslint-disable-next-line no-unused-expressions
       expect(fetcherSpy).to.be.called.once;
       expect(fetcherSpy).to.be.called.with(
         'http://sctest/sitecore/api/jss/dictionary/supersite/ua?sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA'

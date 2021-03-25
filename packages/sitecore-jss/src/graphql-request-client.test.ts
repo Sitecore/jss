@@ -17,9 +17,7 @@ describe('GraphQLRequestClient', () => {
       });
   };
 
-  beforeEach(() => {
-    nock.cleanAll();
-  });
+  afterEach(nock.cleanAll);
 
   it('should execute graphql request', async () => {
     mockGraphQLRequest();

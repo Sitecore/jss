@@ -86,7 +86,7 @@ export default {
         },
         {
           url: 'switching-to-ssr',
-          displayName: 'Switching to SSR',
+          displayName: 'Switching between SSG and SSR',
         },
         {
          url: 'error-pages',
@@ -114,6 +114,10 @@ export default {
           url: 'component-level-data-fetching',
           displayName: 'Component-level data fetching',
         },
+        {
+          url: 'switching-fetch-method',
+          displayName: 'Switching between REST and GraphQL',
+        }
       ],
     },
     {
