@@ -9,6 +9,8 @@ Sitecore provides a Getting Started template for Sitecore developers that want t
 
 For simplicity, this solution does not implement Sitecore Helix conventions for solution architecture. As you begin building your Sitecore solution, you should review [Sitecore Helix](https://helix.sitecore.net/) and the [Sitecore Helix Examples](https://sitecore.github.io/Helix.Examples/) for guidance on implementing a modular solution architecture.
 
+> This template configures a development environment for Sitecore XP 10.1 and JSS 16.0. To find out which version of JSS to use with your licensed Sitecore XP version, consult [the compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788).
+
 The template includes: 
 
 * A `docker-compose` environment for a Sitecore XP0 topology with a Next.js rendering host.
