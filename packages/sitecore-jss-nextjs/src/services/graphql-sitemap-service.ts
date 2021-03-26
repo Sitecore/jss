@@ -54,13 +54,23 @@ export interface GraphQLSitemapServiceConfig {
    * Your Graphql endpoint
    */
   endpoint: string;
-};
+
+  /**
+   * How many dictionary items to fetch in each GraphQL call. This is needed for pagination.
+   * @default 10
+   */
+  pageSize?: number;
+}
 
 /**
  * A reply from the GraphQL endpoint for the 'SitePageQuery' query
  */
 type SitePageQueryResult = {
   search: {
+    pageInfo: {
+      endCursor: string;
+      hasNext: boolean;
+    };
     results: {
       url: {
         path: string;
@@ -78,7 +88,9 @@ export class GraphQLSitemapService {
    * Creates an instance of graphQL sitemap service with the provided options
    * @param {GraphQLSitemapServiceConfig} options instance
    */
-  constructor(private config: GraphQLSitemapServiceConfig) {}
+  constructor(public options: GraphQLSitemapServiceConfig) {
+    this.options.pageSize = this.options.pageSize ?? DEFAULTS.pageSize;
+  }
 
   /**
    * Fetch sitemap which could be used for generation of static pages during `next export`.
@@ -159,31 +171,46 @@ export class GraphQLSitemapService {
     }
     const client = new GraphQLRequestClient(this.options.endpoint);
     const rootItemId = await this.getRootItemId(client, rootItemPath);
-    const getStaticPaths = async (language: string): Promise<StaticPath[]> => {
-      const data = await client.request<SitePageQueryResult>(query, {
-        rootItemId,
-        language,
-        pageSize: this.options.pageSize,
-      });
-
-      const items = data?.search.results ? data.search.results : [];
-
-      // transform to array of paths
-      const staticPaths = items.reduce((list: StaticPath[], item: { url: { path: string } }) => {
-        // replace first and last /
-        const path = item.url.path.replace(/^\/|\/$/g, '').split('/');
-
-        return list.concat(formatStaticPath(path, language));
-      }, []);
-
-      return staticPaths;
-    };
 
     // Fetch paths using all locales
-    const paths = await Promise.all(languages.map(getStaticPaths));
+    const paths = await Promise.all(
+      languages.map((language) => this.fetch(client, language, rootItemId, formatStaticPath))
+    );
 
     // merge promises result
     return ([] as StaticPath[]).concat(...paths);
+  }
+
+  private async fetch(
+    client: GraphQLRequestClient,
+    language: string,
+    rootItemId: string,
+    formatStaticPath: (path: string[], language: string) => StaticPath
+  ): Promise<StaticPath[]> {
+    const results: StaticPath[] = [];
+    let hasNext = true;
+    let after = '';
+
+    while (hasNext) {
+      const fetchResponse = await client.request<SitePageQueryResult>(query, {
+        rootItemId,
+        language,
+        pageSize: this.options.pageSize,
+        after,
+      });
+
+      // transform to array of paths
+      fetchResponse?.search.results.forEach((item: { url: { path: string } }) => {
+        // replace first and last /
+        const path = item.url.path.replace(/^\/|\/$/g, '').split('/');
+        results.concat(formatStaticPath(path, language));
+      }, []);
+
+      hasNext = fetchResponse.search.pageInfo.hasNext;
+      after = fetchResponse.search.pageInfo.endCursor;
+    }
+
+    return results;
   }
 
   /**
@@ -204,10 +231,7 @@ export class GraphQLSitemapService {
    * @param {GraphQLRequestClient} client that fetches data from a GraphQL endpoint.
    * @param {string} rootItemPath root item path
    */
-  private async getRootItemId(
-    client: GraphQLRequestClient,
-    rootItemPath: string
-  ): Promise<string | undefined> {
+  private async getRootItemId(client: GraphQLRequestClient, rootItemPath: string): Promise<string> {
     const query = this.getRootItemIdQuery(rootItemPath);
     const data = await client.request<{ item: { id: string } }>(query);
     const rootItemId = data?.item?.id;
