@@ -31,26 +31,19 @@ export class GraphQLSitemapService {
    * @param {string} rootItemPath root item path
    * @param {Function} [formatSearchQuery] override default search query
    *
-   * @default
-   * Search query
-   * search(
-   *    where: {
-   *      AND:[
-   *        {
-   *           name:"_path",
-   *          value:"${rootItemId.toLowerCase()}"
-   *        },
-   *        {
-   *          name:"_language",
-   *          value:"${locale}"
-   *        },
-   *        {
-   *          name:"_hasLayout",
-   *          value :"true"
-   *        }
-   *      ]
-   *    }
-   *  )
+   * @default query:
+   * query SitePagesQuery($pageSize: Int = 10, $after: String)
+   * {
+   *   search(
+   *     where: {
+   *       AND:[
+   *         { name:"_path", value:"${rootItemId.toLowerCase()}" },
+   *         { name:"_language", value:"${locale}" },
+   *         { name:"_hasLayout", value :"true" }
+   *       ]
+   *     }
+   *   )
+   * }
    */
   async fetchExportSitemap(
     locale: string,
@@ -77,18 +70,9 @@ export class GraphQLSitemapService {
    * search(
    *    where: {
    *      AND:[
-   *        {
-   *           name:"_path",
-   *          value:"${rootItemId.toLowerCase()}"
-   *        },
-   *        {
-   *          name:"_language",
-   *          value:"${locale}"
-   *        },
-   *        {
-   *          name:"_hasLayout",
-   *          value :"true"
-   *        }
+   *        { name:"_path", value:"${rootItemId.toLowerCase()}" },
+   *        { name:"_language", value:"${locale}" },
+   *        { name:"_hasLayout", value :"true" }
    *      ]
    *    }
    *  )
