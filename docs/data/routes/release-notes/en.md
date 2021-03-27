@@ -14,12 +14,14 @@ There are [migration instructions](/upgrade-guides/18.0) from JSS 16-based appli
 ### Breaking changes
 * [PR #635](https://github.com/Sitecore/jss/pull/635) [Angular sample] Upgrade angular to v11.
 * [PR #624](https://github.com/Sitecore/jss/pull/624) [sitecore-jss-react-native] Removed `dataConversation`, since `editable` property not used in `disconnected` mode.
+* [PR #638](https://github.com/Sitecore/jss/pull/638) [samples/nextjs] Changed how a custom query can be used in GraphQLSitemapService. Previous way: pass a `formatSearchQuery` function to `fetchExportSitemap` or `fetchSSGSitemap`. New way: extend the `GraphQLSitemapService` class and override the `fetchSitemap` method.
 
 ### New Features & Improvements
 * [PR #624](https://github.com/Sitecore/jss/pull/624):
 	* [React-Native sample] Added shared `<Layout/>` component in order to have shared navigation panel.
 	* [React-Native sample] Sitecore logo in header is touchable and will navigate to Home page when click on it.
 	* [React-Native sample] Removed usage of `dataConversation`.
+* [PR #638](https://github.com/Sitecore/jss/pull/638) [samples/nextjs] The sitemap fetcher in `getStaticPaths` now uses pagination to fetch all pages, and the default `pageSize` value can be customized.
 
 ### Bug Fixes
 
@@ -30,6 +32,7 @@ There are [migration instructions](/upgrade-guides/18.0) from JSS 16-based appli
 	* [React-Native sample] Styleguide-FieldUsage-Image fix incorrect `src` prop type in disconnected mode, fixed 'Plain image' example in connected mode, removed unsupported 'Srcset image' adaptive example.
 	* [React-Native sample] Styleguide-ComponentParams fix incorrect `params` prop types in connected mode.
 	* [React-Native sample] Fix connected tunnel mode for secure (https) Sitecore endpoints.
+* [PR #638](https://github.com/Sitecore/jss/pull/638) [sitecore-jss-nextjs] [samples/nextjs] Fix issue with `getStaticPaths`only pre-rendering the first 10 pages.
 
 ## Sitecore JSS 16.0 for Sitecore 10.1
 
