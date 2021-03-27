@@ -1,0 +1,33 @@
+{
+  "data": {
+    "search": {
+      "total": 6,
+      "pageInfo": {
+        "endCursor": "Ng==",
+        "hasNext": false
+      },
+      "results": [
+        {
+          "url": {
+            "path": "/"
+          }
+        },
+        {
+          "url": {
+            "path": "/x1"
+          }
+        },
+        {
+          "url": {
+            "path": "/y1/y2/y3/y4"
+          }
+        },
+        {
+          "url": {
+            "path": "/y1/y2"
+          }
+        }
+      ]
+    }
+  }
+}

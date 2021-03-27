@@ -18,7 +18,7 @@ export class GraphQLRequestClient {
     const onError = (error: unknown) => {
       console.error(
         chalk.red(`
-          Error occurred while fetching attempting to fetch graphQL data.
+          Error occurred while attempting to fetch graphQL data.
           Endpoint: ${this.endpoint}
           Query: ${query}
           Variables: ${JSON.stringify(variables, null, 2)}
