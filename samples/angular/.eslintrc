@@ -37,6 +37,18 @@
             "style": "camelCase"
           }
         ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "format": ["PascalCase"],
+            "selector": "typeLike",
+            "custom": {
+              "regex": "^I[A-Z]",
+              "match": false
+            }
+          }
+        ],
+        "prefer-arrow/prefer-arrow-functions": "off",
         "@typescript-eslint/consistent-type-definitions": "error",
         "@typescript-eslint/dot-notation": "off",
         "@typescript-eslint/explicit-member-accessibility": [
@@ -63,19 +75,5 @@
       ],
       "rules": {}
     }
-  ],
-  "rules": {
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        "format": ["PascalCase"],
-        "selector": "typeLike",
-        "custom": {
-					"regex": "^I[A-Z]",
-          "match": false
-        }
-      }
-    ],
-    "prefer-arrow/prefer-arrow-functions": "off"
-  }
+  ]
 }

@@ -1,13 +1,14 @@
 import { NgModule, PLATFORM_ID, Inject } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ApolloModule, Apollo } from 'apollo-angular';
-import { HttpBatchLinkModule, HttpBatchLink } from 'apollo-angular-link-http-batch';
-import { createPersistedQueryLink } from 'apollo-angular-link-persisted';
-import { IntrospectionFragmentMatcher, InMemoryCache } from 'apollo-cache-inmemory';
-import { environment } from '../environments/environment';
-import { JssGraphQLService } from './jss-graphql.service';
+import { InMemoryCache } from '@apollo/client/core';
+import { Apollo } from 'apollo-angular';
+import { HttpBatchLink } from 'apollo-angular/http';
+import { createPersistedQueryLink } from 'apollo-angular/persisted-queries';
 import { isPlatformServer } from '@angular/common';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
+import { sha256 } from 'js-sha256';
+import { environment } from '../environments/environment';
+import { JssGraphQLService } from './jss-graphql.service';
 
 /*
   INTROSPECTION DATA
@@ -17,7 +18,6 @@ import { TransferState, makeStateKey } from '@angular/platform-browser';
 */
 import introspectionQueryResultData from '../graphql-fragment-types';
 
-
 // SSR transfer state key to serialize + rehydrate apollo cache on client side
 // See https://www.apollographql.com/docs/angular/recipes/server-side-rendering.html
 const STATE_KEY = makeStateKey<any>('apollo.state');
@@ -25,19 +25,15 @@ const STATE_KEY = makeStateKey<any>('apollo.state');
 @NgModule({
   imports: [
     HttpClientModule, // provides HttpClient for HttpLink
-    ApolloModule,
-    HttpBatchLinkModule,
   ],
-  providers: [
-    JssGraphQLService
-  ]
+  providers: [JssGraphQLService],
 })
 export class GraphQLModule {
   constructor(
     private readonly apollo: Apollo,
     private readonly httpLink: HttpBatchLink,
     private readonly transferState: TransferState,
-    @Inject(PLATFORM_ID) private readonly platformId: string,
+    @Inject(PLATFORM_ID) private readonly platformId: string
   ) {
     this.createApolloClient();
   }
@@ -68,17 +64,24 @@ export class GraphQLModule {
     // const link = createHttpLink({ uri: endpoint, withCredentials: 'include' });
 
     // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
-    const batchHttp = this.httpLink.create({ uri: environment.graphQLEndpoint, withCredentials: true });
+    const batchHttp = this.httpLink.create({
+      uri: environment.graphQLEndpoint,
+      withCredentials: true,
+    });
 
     // ...and an automatic persisted query link, which reduces bandwidth by using query hashes to alias content
     // the APQ link is _chained_ behind another link that performs the actual HTTP calls, so you can choose
     // APQ + batched, or APQ + http links for example.
-    const automaticPersistHttp = createPersistedQueryLink().concat(batchHttp);
+    const automaticPersistHttp = createPersistedQueryLink({ sha256 }).concat(batchHttp);
+
+    const possibleTypes = {};
+
+    introspectionQueryResultData.__schema.types.forEach((supertype) => {
+      possibleTypes[supertype.name] = supertype.possibleTypes.map((subtype) => subtype.name);
+    });
 
     const cache = new InMemoryCache({
-      fragmentMatcher: new IntrospectionFragmentMatcher({
-        introspectionQueryResultData,
-      }),
+      possibleTypes,
     });
 
     this.apollo.create({
