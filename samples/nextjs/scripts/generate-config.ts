@@ -43,10 +43,11 @@ const config = {};\n`;
   Object.keys(config).forEach((prop) => {
     configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]}",\n`;
   });
-  // Set computed values
+  // Set computed values, allowing override with environment variables
   Object.keys(computedConfig).forEach((prop) => {
-    // eslint-disable-next-line prettier/prettier
-    configText += `config.${prop} = process.env.${constantCase(prop)} || ${computedConfig[prop]};\n`;
+    configText += `config.${prop} = process.env.${constantCase(prop)} || ${
+      computedConfig[prop]
+    };\n`;
   });
   configText += `module.exports = config;`;
 
