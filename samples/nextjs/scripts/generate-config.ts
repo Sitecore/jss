@@ -24,10 +24,8 @@ export function generateConfig(configOverrides?: { [key: string]: string }): voi
   const scjssConfig = transformScJssConfig();
   const packageJson = transformPackageConfig();
 
-  // Object.assign merges the objects in order, so the
-  // scjssconfig.json overrides the default config,
-  // package.json overrides the calculated config,
-  // and finally config passed in the configOverrides param wins.
+  // Object.assign merges the objects in order, so config overrides are performed as:
+  // default config <-- scjssconfig.json <-- package.json <-- configOverrides
   // Optional: add any other dynamic config source (e.g. environment-specific config files).
   const config = Object.assign(defaultConfig, scjssConfig, packageJson, configOverrides);
 

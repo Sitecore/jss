@@ -3,6 +3,8 @@ import nock from 'nock';
 import { GraphQLRequestClient } from './graphql-request-client';
 
 describe('GraphQLRequestClient', () => {
+  const endpoint = 'http://jssnextweb/graphql';
+
   afterEach(nock.cleanAll);
 
   it('should execute graphql request', async () => {
@@ -14,7 +16,7 @@ describe('GraphQLRequestClient', () => {
         },
       });
 
-    const graphQLClient = new GraphQLRequestClient('http://jssnextweb/graphql');
+    const graphQLClient = new GraphQLRequestClient(endpoint);
     const data = await graphQLClient.request('test');
 
     expect(data).to.deep.equal({ result: 'Hello world...' });
@@ -34,7 +36,7 @@ describe('GraphQLRequestClient', () => {
         },
       });
 
-    const graphQLClient = new GraphQLRequestClient('http://jssnextweb/graphql', apiKey);
+    const graphQLClient = new GraphQLRequestClient(endpoint, apiKey);
     await graphQLClient.request('test');
   });
 });
