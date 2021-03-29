@@ -1,5 +1,4 @@
 import { expect, spy, use } from 'chai';
-import mcache from 'memory-cache';
 import spies from 'chai-spies';
 import { RestDictionaryService, RestDictionaryServiceData } from './rest-dictionary-service';
 import axios from 'axios';
@@ -17,7 +16,6 @@ describe('RestDictionaryService', () => {
 
   afterEach(() => {
     mock.reset();
-    mcache.clear();
   });
 
   after(() => {
@@ -33,6 +31,7 @@ describe('RestDictionaryService', () => {
       apiHost: 'http://sctest',
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
+      cacheEnabled: false,
     });
 
     return service.fetchDictionaryData('da-DK').then((phrases) => {
@@ -60,6 +59,7 @@ describe('RestDictionaryService', () => {
         apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
         siteName: 'supersite',
         cacheEnabled: true,
+        cacheTimeout: 1,
       });
 
       const fetchedPhrases = await service.fetchDictionaryData('da-DK');
@@ -154,6 +154,7 @@ describe('RestDictionaryService', () => {
       apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
       siteName: 'supersite',
       dataFetcher: fetcherSpy,
+      cacheEnabled: false,
     });
 
     return service.fetchDictionaryData('ua').then((phrases) => {
