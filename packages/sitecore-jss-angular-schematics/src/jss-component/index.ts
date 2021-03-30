@@ -20,13 +20,14 @@ import {
   Tree,
   url,
 } from '@angular-devkit/schematics';
-import { getWorkspace } from '@schematics/angular/utility/config';
+import { getWorkspace } from '@schematics/angular/utility/workspace';
+import { ProjectType } from '@schematics/angular/utility/workspace-models';
 import { parseName } from '@schematics/angular/utility/parse-name';
 import { validateHtmlSelector, validateName } from '@schematics/angular/utility/validation';
 import chalk from 'chalk';
 import { Schema as ComponentOptions } from './schema';
 
-function buildSelector(options: ComponentOptions, projectPrefix: string) {
+function buildSelector(options: ComponentOptions, projectPrefix?: string) {
   let selector = strings.dasherize(options.name);
   if (options.prefix) {
     selector = `${options.prefix}-${selector}`;
@@ -38,16 +39,17 @@ function buildSelector(options: ComponentOptions, projectPrefix: string) {
 }
 
 export default function(options: ComponentOptions) {
-  return (host: Tree) => {
-    const workspace = getWorkspace(host);
+  return async (host: Tree) => {
+    const workspace = await getWorkspace(host);
     if (!options.project) {
       throw new SchematicsException('Option (project) is required.');
     }
-    const project = workspace.projects[options.project];
+    const project = workspace.projects.get(options.project);
 
     if (options.path === undefined) {
-      const projectDirName = project.projectType === 'application' ? 'app' : 'lib';
-      options.path = `/${project.root}/src/${projectDirName}`;
+      const projectDirName =
+        project?.extensions.projectType === ProjectType.Application ? 'app' : 'lib';
+      options.path = `/${project?.root}/src/${projectDirName}`;
     }
 
     // this is not an options option due to schematics issues with multiple template roots
@@ -62,7 +64,7 @@ export default function(options: ComponentOptions) {
     const parsedPath = parseName(options.path, options.name);
     options.name = parsedPath.name;
     options.path = parsedPath.path;
-    options.selector = options.selector || buildSelector(options, project.prefix);
+    options.selector = options.selector || buildSelector(options, project?.prefix);
 
     validateName(options.name);
     validateHtmlSelector(options.selector);
@@ -92,7 +94,7 @@ export default function(options: ComponentOptions) {
       options.lazyload ? noop() : filter((path) => !path.endsWith('.module.ts')),
       template({
         ...strings,
-        'if-flat': (s: string) => options.flat ? '' : s,
+        'if-flat': (s: string) => (options.flat ? '' : s),
         ...options,
       }),
       move(parsedPath.path),
@@ -104,7 +106,11 @@ export default function(options: ComponentOptions) {
     console.log(chalk.green(`Component ${options.name} is scaffolding.`));
     console.log(chalk.green('Next steps:'));
     if (!options.noManifest) {
-      console.log(`* Define the component's data in ${chalk.green(`${manifestPath}/${options.name}.sitecore.ts`)}`);
+      console.log(
+        `* Define the component's data in ${chalk.green(
+          `${manifestPath}/${options.name}.sitecore.ts`
+        )}`
+      );
     } else {
       console.log(
         `* Scaffold the component in Sitecore using '${chalk.green(
@@ -112,16 +118,22 @@ export default function(options: ComponentOptions) {
         )}, or create the rendering item and datasource template yourself.`
       );
     }
-    console.log(`* Implement the Angular component in ${chalk.green(`${parsedPath.path}/${parsedPath.name}`)}`);
+    console.log(
+      `* Implement the Angular component in ${chalk.green(`${parsedPath.path}/${parsedPath.name}`)}`
+    );
     if (!options.noManifest) {
-      console.log(`* Add the component to a route layout (/data/routes) and test it with ${chalk.green('jss start')}`);
+      console.log(
+        `* Add the component to a route layout (/data/routes) and test it with ${chalk.green(
+          'jss start'
+        )}`
+      );
     } else {
       console.log(
         `* Deploy your app with the new component to Sitecore (${chalk.green(
           'jss deploy:watch'
         )} or ${chalk.green('jss deploy files')})`
       );
-      console.log(`* Add the component to a route using Sitecore Experience Editor, and test it.`);
+      console.log('* Add the component to a route using Sitecore Experience Editor, and test it.');
     }
 
     console.log();

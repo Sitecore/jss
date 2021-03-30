@@ -4,9 +4,10 @@ import chalk from 'chalk';
 export class GraphQLRequestClient {
   /**
    * Provides ability to execute graphql query using given `endpoint`
-   * @param {string} endpoint Your Graphql endpoint
+   * @param {string} endpoint The Graphql endpoint
+   * @param {string} [apiKey] The API key to use for authentication. This will be added as an 'sc_apikey' header.
    */
-  constructor(private endpoint: string) {}
+  constructor(private endpoint: string, private apiKey?: string) {}
 
   /**
    * Execute graphql request
@@ -14,11 +15,14 @@ export class GraphQLRequestClient {
    * @param {Object} variables graphql variables
    */
   async request<T>(query: string, variables?: { [key: string]: unknown }): Promise<T> {
-    const client = new GraphQLClient(this.endpoint);
+    const client = new GraphQLClient(
+      this.endpoint,
+      this.apiKey ? { headers: { sc_apikey: this.apiKey } } : undefined
+    );
     const onError = (error: unknown) => {
       console.error(
         chalk.red(`
-          Error occurred while fetching attempting to fetch graphQL data.
+          Error occurred while attempting to fetch graphQL data.
           Endpoint: ${this.endpoint}
           Query: ${query}
           Variables: ${JSON.stringify(variables, null, 2)}

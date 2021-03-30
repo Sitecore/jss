@@ -7,6 +7,10 @@ export type GraphQLSitemapServiceConfig = {
    * Your Graphql endpoint
    */
   endpoint: string;
+  /**
+   * The API key to use for authentication.
+   */
+  apiKey: string;
 };
 
 type SearchResult = {
@@ -175,9 +179,9 @@ export class GraphQLSitemapService {
    * Returns new graphql client instance
    */
   private createClient(): GraphQLRequestClient {
-    const { endpoint } = this.config;
+    const { endpoint, apiKey } = this.config;
 
-    return new GraphQLRequestClient(endpoint);
+    return new GraphQLRequestClient(endpoint, apiKey);
   }
 
   /**

@@ -69,6 +69,10 @@ export type GraphQLLayoutServiceConfig = {
    */
   siteName: string;
   /**
+   * The API key to use for authentication
+   */
+  apiKey: string;
+  /**
    * Override default layout query
    * @param {string} siteName
    * @param {string} itemPath
@@ -258,9 +262,9 @@ export class GraphQLLayoutService implements LayoutService {
    * Returns new graphql client instance
    */
   private createClient(): GraphQLRequestClient {
-    const { endpoint } = this.serviceConfig;
+    const { endpoint, apiKey } = this.serviceConfig;
 
-    return new GraphQLRequestClient(endpoint);
+    return new GraphQLRequestClient(endpoint, apiKey);
   }
 
   /**

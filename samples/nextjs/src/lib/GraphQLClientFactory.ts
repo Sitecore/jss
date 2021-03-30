@@ -50,6 +50,9 @@ export default function GraphQLClientFactory(
       credentials: 'include',
       headers: {
         connection: 'keep-alive',
+        // Send the API key on the 'sc_apikey' header for authentication.
+        // This header is used for both Headless Services GraphQL endpoint and Sitecore Experience Edge.
+        sc_apikey: config.sitecoreApiKey,
       },
     })
   );

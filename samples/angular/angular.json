@@ -27,7 +27,8 @@
             "scripts": [],
             "allowedCommonJsDependencies": [
               "@sitecore-jss/sitecore-jss",
-              "zen-observable"
+              "zen-observable",
+              "js-sha256"
             ]
           },
           "configurations": {
@@ -38,11 +39,11 @@
                   "maximumWarning": "6kb"
                 }
               ],
+              "baseHref": "/",
               "aot": true,
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,

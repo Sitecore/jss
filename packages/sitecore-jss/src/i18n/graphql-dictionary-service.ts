@@ -69,6 +69,11 @@ export interface GraphQLDictionaryServiceConfig extends CacheOptions {
    * The name of the current Sitecore site.
    */
   siteName: string;
+
+  /**
+   * The API key to use for authentication.
+   */
+  apiKey: string;
 }
 
 /**
@@ -151,7 +156,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       return cachedValue;
     }
 
-    const client = new GraphQLRequestClient(this.options.endpoint);
+    const client = new GraphQLRequestClient(this.options.endpoint, this.options.apiKey);
     if (!this.options.rootItemId) {
       this.options.rootItemId = await getSiteRoot(client, this.options.siteName, language);
     }
@@ -199,7 +204,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 
 // TODO: Move to shared area and reuse for sitemap service (Anastasiya, March 2021)
 const siteRootQuery = `
-query getSiteRoot($jssAppTemplateId: String!, $siteName: String!, $language: String)
+query getSiteRoot($jssAppTemplateId: String!, $siteName: String!, $language: String!)
 {
   layout(site: $siteName, routePath: "/", language: $language) {
     homePage: item {
