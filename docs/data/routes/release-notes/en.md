@@ -5,9 +5,14 @@ title: Release Notes
 ---
 # Release Notes
 
-## Sitecore JSS 16.1 for Sitecore 10
+## Sitecore JSS 18.0 for Sitecore 10.1
+
+### Upgrading
+
+There are [migration instructions](/upgrade-guides/18.0) from JSS 16-based applications.
 
 ### Breaking changes
+* [PR #635](https://github.com/Sitecore/jss/pull/635) [Angular sample] Upgrade angular to v11.
 * [PR #624](https://github.com/Sitecore/jss/pull/624) [sitecore-jss-react-native] Removed `dataConversation`, since `editable` property not used in `disconnected` mode.
 
 ### New Features & Improvements
@@ -26,7 +31,7 @@ title: Release Notes
 	* [React-Native sample] Styleguide-ComponentParams fix incorrect `params` prop types in connected mode.
 	* [React-Native sample] Fix connected tunnel mode for secure (https) Sitecore endpoints.
 
-## Sitecore JSS 16.0 for Sitecore 10
+## Sitecore JSS 16.0 for Sitecore 10.1
 
 ### Upgrading
 

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 import { DocumentNode } from 'graphql';
 import { JssGraphQLService } from '../../jss-graphql.service';
-import { ApolloQueryResult } from 'apollo-client';
+import { ApolloQueryResult } from '@apollo/client/core';
 import { Observable } from 'rxjs';
 
 // We can directly import .graphql files by specifying a Webpack loader in the require statement.

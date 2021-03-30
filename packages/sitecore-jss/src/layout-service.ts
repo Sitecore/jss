@@ -69,6 +69,10 @@ export type GraphQLLayoutServiceConfig = {
    */
   siteName: string;
   /**
+   * The API key to use for authentication
+   */
+  apiKey: string;
+  /**
    * Override default layout query
    * @param {string} siteName
    * @param {string} itemPath
@@ -246,16 +250,21 @@ export class GraphQLLayoutService implements LayoutService {
       layout: { item: { rendered: LayoutServiceData } };
     }>(query);
 
-    return data?.layout.item.rendered;
+    // If `rendered` is empty -> not found
+    return (
+      data?.layout?.item.rendered || {
+        sitecore: { context: { pageEditing: false, language }, route: null },
+      }
+    );
   }
 
   /**
    * Returns new graphql client instance
    */
   private createClient(): GraphQLRequestClient {
-    const { endpoint } = this.serviceConfig;
+    const { endpoint, apiKey } = this.serviceConfig;
 
-    return new GraphQLRequestClient(endpoint);
+    return new GraphQLRequestClient(endpoint, apiKey);
   }
 
   /**

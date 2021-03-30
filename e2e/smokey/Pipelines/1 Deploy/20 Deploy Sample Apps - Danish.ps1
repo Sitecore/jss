@@ -6,4 +6,4 @@ $deployBlock = {
     & jss deploy items -c -d --language da-DK
 }
 
-Invoke-ForEachSampleApp $deployBlock -blacklist @('node-headless-ssr-proxy', 'react-native', 'sitecore-javascript-renderings', 'sitecore-embedded-jss-app')
+Invoke-ForEachSampleApp $deployBlock -blacklist @('node-headless-ssr-experience-edge', 'node-headless-ssr-proxy', 'react-native', 'sitecore-javascript-renderings', 'sitecore-embedded-jss-app')

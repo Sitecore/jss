@@ -292,12 +292,18 @@ describe('LayoutService', () => {
   });
 
   describe('GraphQLLayoutService', () => {
+    const apiKey = '0FBFF61E-267A-43E3-9252-B77E71CEE4BA';
+
     afterEach(() => {
       nock.cleanAll();
     });
 
     it('should fetch layout data', async () => {
-      nock('http://sctest')
+      nock('http://sctest', {
+        reqheaders: {
+          sc_apikey: apiKey,
+        },
+      })
         .post('/graphql', (body) => {
           return (
             body.query.replace(/\n|\s/g, '') ===
@@ -327,6 +333,7 @@ describe('LayoutService', () => {
 
       const service = new GraphQLLayoutService({
         endpoint: 'http://sctest/graphql',
+        apiKey: apiKey,
         siteName: 'supersite',
       });
 
@@ -347,7 +354,11 @@ describe('LayoutService', () => {
     });
 
     it('should fetch layout data if locale is not provided', async () => {
-      nock('http://sctest')
+      nock('http://sctest', {
+        reqheaders: {
+          sc_apikey: apiKey,
+        },
+      })
         .post('/graphql', (body) => {
           return (
             body.query.replace(/\n|\s/g, '') ===
@@ -377,6 +388,7 @@ describe('LayoutService', () => {
 
       const service = new GraphQLLayoutService({
         endpoint: 'http://sctest/graphql',
+        apiKey: apiKey,
         siteName: 'supersite',
       });
 
@@ -397,7 +409,11 @@ describe('LayoutService', () => {
     });
 
     it('should fetch layout data using custom layout query', async () => {
-      nock('http://sctest')
+      nock('http://sctest', {
+        reqheaders: {
+          sc_apikey: apiKey,
+        },
+      })
         .post('/graphql', (body) => {
           return (
             body.query.replace(/\n|\s/g, '') ===
@@ -427,6 +443,7 @@ describe('LayoutService', () => {
 
       const service = new GraphQLLayoutService({
         endpoint: 'http://sctest/graphql',
+        apiKey: apiKey,
         siteName: 'supersite',
         formatLayoutQuery: (siteName, itemPath, locale) =>
           `layout111(site:"${siteName}",route:"${itemPath}",language:"${locale || 'en'}")`,
@@ -448,8 +465,45 @@ describe('LayoutService', () => {
       });
     });
 
-    it('should return error', async () => {
+    it('should handle not found', async () => {
       nock('http://sctest')
+        .post('/graphql', (body) => {
+          return (
+            body.query.replace(/\n|\s/g, '') ===
+            'query{layout(site:"supersite",routePath:"/styleguide",language:"da-DK"){item{rendered}}}'
+          );
+        })
+        .reply(200, {
+          data: {
+            layout: null,
+          },
+        });
+
+      const service = new GraphQLLayoutService({
+        endpoint: 'http://sctest/graphql',
+        siteName: 'supersite',
+        apiKey: apiKey,
+      });
+
+      const data = await service.fetchLayoutData('/styleguide', 'da-DK');
+
+      expect(data).to.deep.equal({
+        sitecore: {
+          context: {
+            pageEditing: false,
+            language: 'da-DK',
+          },
+          route: null,
+        },
+      });
+    });
+
+    it('should return error', async () => {
+      nock('http://sctest', {
+        reqheaders: {
+          sc_apikey: apiKey,
+        },
+      })
         .post('/graphql')
         .reply(401, {
           error: 'whoops',
@@ -457,6 +511,7 @@ describe('LayoutService', () => {
 
       const service = new GraphQLLayoutService({
         endpoint: 'http://sctest/graphql',
+        apiKey: apiKey,
         siteName: 'supersite',
       });
 

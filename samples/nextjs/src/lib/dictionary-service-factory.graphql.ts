@@ -5,6 +5,7 @@ export class DictionaryServiceFactory {
   create(): DictionaryService {
     return new GraphQLDictionaryService({
       endpoint: config.graphQLEndpoint,
+      apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
     });
   }
