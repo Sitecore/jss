@@ -202,7 +202,18 @@ describe('LayoutService', () => {
 
     it('should catch 404 when request layout data', () => {
       mock.onGet().reply(() => {
-        return [404, { data: null }];
+        return [
+          404,
+          {
+            sitecore: {
+              context: {
+                pageEditing: false,
+                language: 'en',
+              },
+              route: null,
+            },
+          },
+        ];
       });
 
       const service = new RestLayoutService({

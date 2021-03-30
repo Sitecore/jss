@@ -128,9 +128,7 @@ export class RestLayoutService implements LayoutService {
 
     return fetchRouteData(itemPath, { fetcher, ...fetchOptions }).catch((error) => {
       if (error.response?.status === 404) {
-        return {
-          sitecore: { context: { pageEditing: false, language }, route: null },
-        };
+        return error.response.data;
       }
 
       throw error;
