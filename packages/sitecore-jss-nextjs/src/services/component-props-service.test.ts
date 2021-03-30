@@ -197,52 +197,64 @@ describe('ComponentPropsService', () => {
     });
   });
 
-  it('collectRequests', () => {
-    const requests = service.collectRequests({
-      context,
-      layoutData,
-      placeholders,
-      fetchFunctionFactory,
+  describe('collectRequests', () => {
+    it('default', () => {
+      const requests = service.collectRequests({
+        context,
+        layoutData,
+        placeholders,
+        fetchFunctionFactory,
+      });
+
+      expect(requests).to.deep.equal([
+        {
+          fetch: modules.namex11.fn,
+          rendering: { uid: 'x11', componentName: 'namex11' },
+          layoutData,
+          context,
+        },
+        {
+          fetch: modules.namex14.fn,
+          rendering: { uid: 'x14', componentName: 'namex14' },
+          layoutData,
+          context,
+        },
+        {
+          fetch: modules.MyCustomComponent.fn,
+          rendering: { uid: 'x16', componentName: 'MyCustomComponent' },
+          layoutData,
+          context,
+        },
+        {
+          fetch: modules.MyCustomComponent.fn,
+          rendering: { uid: 'x161', componentName: 'MyCustomComponent' },
+          layoutData,
+          context,
+        },
+        {
+          fetch: modules.MyCustomComponent.fn,
+          rendering: { uid: 'x23', componentName: 'MyCustomComponent' },
+          layoutData,
+          context,
+        },
+        {
+          fetch: modules.namex24.fn,
+          rendering: { uid: 'x24', componentName: 'namex24' },
+          layoutData,
+          context,
+        },
+      ]);
     });
 
-    expect(requests).to.deep.equal([
-      {
-        fetch: modules.namex11.fn,
-        rendering: { uid: 'x11', componentName: 'namex11' },
-        layoutData,
+    it('placeholders are not provided', () => {
+      const requests = service.collectRequests({
         context,
-      },
-      {
-        fetch: modules.namex14.fn,
-        rendering: { uid: 'x14', componentName: 'namex14' },
         layoutData,
-        context,
-      },
-      {
-        fetch: modules.MyCustomComponent.fn,
-        rendering: { uid: 'x16', componentName: 'MyCustomComponent' },
-        layoutData,
-        context,
-      },
-      {
-        fetch: modules.MyCustomComponent.fn,
-        rendering: { uid: 'x161', componentName: 'MyCustomComponent' },
-        layoutData,
-        context,
-      },
-      {
-        fetch: modules.MyCustomComponent.fn,
-        rendering: { uid: 'x23', componentName: 'MyCustomComponent' },
-        layoutData,
-        context,
-      },
-      {
-        fetch: modules.namex24.fn,
-        rendering: { uid: 'x24', componentName: 'namex24' },
-        layoutData,
-        context,
-      },
-    ]);
+        fetchFunctionFactory,
+      });
+
+      expect(requests).to.deep.equal([]);
+    });
   });
 
   describe('execRequests', () => {
