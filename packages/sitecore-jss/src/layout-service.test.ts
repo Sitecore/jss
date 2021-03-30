@@ -482,6 +482,7 @@ describe('LayoutService', () => {
       const service = new GraphQLLayoutService({
         endpoint: 'http://sctest/graphql',
         siteName: 'supersite',
+        apiKey: apiKey,
       });
 
       const data = await service.fetchLayoutData('/styleguide', 'da-DK');
