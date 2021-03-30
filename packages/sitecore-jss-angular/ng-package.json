@@ -7,7 +7,7 @@
       "@sitecore-jss/sitecore-jss": "@sitecore-jss/sitecore-jss"
     }
   },
-  "whitelistedNonPeerDependencies": [
+  "allowedNonPeerDependencies": [
     "sitecore-jss"
   ]
 }

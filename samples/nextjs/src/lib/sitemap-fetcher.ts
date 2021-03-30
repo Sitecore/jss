@@ -18,6 +18,7 @@ export class SitecoreSitemapFetcher {
   constructor() {
     this._graphqlSitemapService = new GraphQLSitemapService({
       endpoint: config.graphQLEndpoint,
+      apiKey: config.sitecoreApiKey,
     });
 
     this._disconnectedSitemapService = new DisconnectedSitemapService(

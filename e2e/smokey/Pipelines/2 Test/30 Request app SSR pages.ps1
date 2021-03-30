@@ -26,6 +26,7 @@ $buildBlock = {
 }
 
 Invoke-ForEachSampleApp $buildBlock -blacklist @(
+    "node-headless-ssr-experience-edge",
     "node-headless-ssr-proxy",
     "sitecore-embedded-jss-app", # does not come with a home item we can request as it's embedded
     "react-native", # mobile app has no home page

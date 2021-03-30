@@ -29,4 +29,4 @@ $buildBlock = {
     & jss setup --nonInteractive --instancePath $global:SitecorePath --deployUrl "$hostName/sitecore/api/jss/import" --layoutServiceHost $hostName --apiKey $global:ApiKey --deploySecret "SmokeyGenerated-$secret"
 }
 
-Invoke-ForEachSampleApp $buildBlock -blacklist @("node-headless-ssr-proxy", "react-native")
+Invoke-ForEachSampleApp $buildBlock -blacklist @("node-headless-ssr-experience-edge", "node-headless-ssr-proxy", "react-native")

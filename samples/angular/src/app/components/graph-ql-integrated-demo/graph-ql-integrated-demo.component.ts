@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
-import { ApolloQueryResult } from 'apollo-client';
+import { ApolloQueryResult } from '@apollo/client/core';
 
 @Component({
   selector: 'app-graph-ql-integrated-demo',
