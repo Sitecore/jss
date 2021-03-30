@@ -1,4 +1,4 @@
-import mcache from 'memory-cache';
+import { Cache, CacheClass } from 'memory-cache';
 
 const DEFAULTS = Object.freeze({
   cacheTimeout: 60,
@@ -40,8 +40,12 @@ export interface DictionaryService {
 }
 
 export abstract class DictionaryServiceBase implements DictionaryService {
+  private cache: CacheClass<string, DictionaryPhrases>;
+
   constructor(public options: CacheOptions) {
-    this.options.cacheTimeout = this.options.cacheTimeout ?? DEFAULTS.cacheTimeout;
+    this.cache = new Cache();
+
+    this.options.cacheTimeout = (this.options.cacheTimeout ?? DEFAULTS.cacheTimeout) * 1000;
 
     if (this.options.cacheEnabled === undefined) {
       this.options.cacheEnabled = DEFAULTS.cacheEnabled;
@@ -49,11 +53,13 @@ export abstract class DictionaryServiceBase implements DictionaryService {
   }
 
   protected getCacheValue(key: string): DictionaryPhrases | null {
-    return this.options.cacheEnabled ? (mcache.get(key) as DictionaryPhrases) : null;
+    return this.options.cacheEnabled ? this.cache.get(key) : null;
   }
 
   protected setCacheValue(key: string, value: DictionaryPhrases): DictionaryPhrases {
-    return this.options.cacheEnabled ? mcache.put(key, value, this.options.cacheTimeout) : value;
+    return this.options.cacheEnabled
+      ? this.cache.put(key, value, this.options.cacheTimeout)
+      : value;
   }
 
   /**

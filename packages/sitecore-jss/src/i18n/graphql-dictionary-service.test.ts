@@ -105,7 +105,6 @@ describe('GraphQLDictionaryService', () => {
     });
   });
 
-  // TODO: there is a known issue with mcache
   it('should use cache', async () => {
     nock(endpoint, {
       reqheaders: {
@@ -121,16 +120,21 @@ describe('GraphQLDictionaryService', () => {
       },
     })
       .post('/', /DictionarySearch/gi)
-      .times(2)
       .reply(200, dictionaryQueryResponse);
 
-    const service = new GraphQLDictionaryService({ endpoint, apiKey, siteName });
+    const service = new GraphQLDictionaryService({
+      endpoint,
+      apiKey,
+      siteName,
+      cacheEnabled: true,
+      cacheTimeout: 2,
+    });
 
-    // call fetch twice, and use nock to see if more than 1 request was actually made
-    await service.fetchDictionaryData('en');
-    await service.fetchDictionaryData('en');
-    // eslint-disable-next-line no-unused-expressions
-    expect(nock.isDone()).to.be.false;
+    const result1 = await service.fetchDictionaryData('en');
+    expect(result1).to.have.all.keys('foo', 'bar');
+
+    const result2 = await service.fetchDictionaryData('en');
+    expect(result2).to.have.all.keys('foo', 'bar');
   });
 
   it('should use a custom rootItemId, if provided', async () => {
