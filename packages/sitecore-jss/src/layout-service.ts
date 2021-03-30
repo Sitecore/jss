@@ -122,7 +122,15 @@ export class RestLayoutService implements LayoutService {
       ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
       : this.getDefaultFetcher<LayoutServiceData>(req, res);
 
-    return fetchRouteData(itemPath, { fetcher, ...fetchOptions });
+    return fetchRouteData(itemPath, { fetcher, ...fetchOptions }).catch((error) => {
+      if (error.response?.status === 404) {
+        return {
+          sitecore: { context: { pageEditing: false, language }, route: null },
+        };
+      }
+
+      throw error;
+    });
   }
 
   /**
