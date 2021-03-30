@@ -92,7 +92,7 @@ export class ComponentPropsService {
   ): Promise<ComponentPropsCollection> {
     // Array of side effect functions
     const requests = this.collectRequests({
-      placeholders: layoutData.sitecore.route.placeholders,
+      placeholders: layoutData.sitecore.route?.placeholders,
       fetchFunctionFactory,
       layoutData,
       context,
@@ -105,7 +105,7 @@ export class ComponentPropsService {
    * Go through layout service data, check all renderings using displayName, which should make some side effects.
    * Write result in requests variable
    * @param {Object} params params
-   * @param {PlaceholdersData} params.placeholders
+   * @param {PlaceholdersData} [params.placeholders]
    * @param {FetchFunctionFactory<NextContext>} params.fetchFunctionFactory
    * @param {LayoutServiceData} params.layoutData
    * @param {NextContext} params.context
@@ -113,13 +113,13 @@ export class ComponentPropsService {
    * @returns {ComponentPropsRequest<NextContext>[]} array of requests
    */
   collectRequests<NextContext>(params: {
-    placeholders: PlaceholdersData;
+    placeholders?: PlaceholdersData;
     fetchFunctionFactory: FetchFunctionFactory<NextContext>;
     layoutData: LayoutServiceData;
     context: NextContext;
     requests?: ComponentPropsRequest<NextContext>[];
   }): ComponentPropsRequest<NextContext>[] {
-    const { placeholders, fetchFunctionFactory, layoutData, context } = params;
+    const { placeholders = {}, fetchFunctionFactory, layoutData, context } = params;
 
     // Will be called on first round
     if (!params.requests) {
