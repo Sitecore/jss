@@ -5,4 +5,4 @@ $processBlock = {
     & jss deploy config 
 }
 
-Invoke-ForEachSampleApp $processBlock -blacklist @('node-headless-ssr-proxy', 'react-native', 'sitecore-javascript-renderings')
+Invoke-ForEachSampleApp $processBlock -blacklist @('node-headless-ssr-experience-edge', 'node-headless-ssr-proxy', 'react-native', 'sitecore-javascript-renderings')

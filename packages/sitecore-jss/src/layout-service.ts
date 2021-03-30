@@ -250,7 +250,12 @@ export class GraphQLLayoutService implements LayoutService {
       layout: { item: { rendered: LayoutServiceData } };
     }>(query);
 
-    return data?.layout.item.rendered;
+    // If `rendered` is empty -> not found
+    return (
+      data?.layout?.item.rendered || {
+        sitecore: { context: { pageEditing: false, language }, route: null },
+      }
+    );
   }
 
   /**

@@ -7,4 +7,4 @@ $buildBlock = {
 
 Write-Host "Manifesting all JSS sample apps..."
 # Note: React native does not have a build script
-Invoke-ForEachSampleApp $buildBlock -blacklist @("node-headless-ssr-proxy", "react-native", "sitecore-javascript-renderings")
+Invoke-ForEachSampleApp $buildBlock -blacklist @("node-headless-ssr-experience-edge", "node-headless-ssr-proxy", "react-native", "sitecore-javascript-renderings")
