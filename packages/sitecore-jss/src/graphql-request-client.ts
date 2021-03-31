@@ -1,14 +1,22 @@
-import { GraphQLClient } from 'graphql-request';
-import chalk from 'chalk';
+import { GraphQLClient, ClientError } from 'graphql-request';
 import { DocumentNode } from 'graphql';
+import { debugHttp as debug } from './debug';
 
 export class GraphQLRequestClient {
+  private client: GraphQLClient;
+  private headers: Record<string, string> = {};
+
   /**
    * Provides ability to execute graphql query using given `endpoint`
    * @param {string} endpoint The Graphql endpoint
    * @param {string} [apiKey] The API key to use for authentication. This will be added as an 'sc_apikey' header.
    */
-  constructor(private endpoint: string, private apiKey?: string) {}
+  constructor(private endpoint: string, apiKey?: string) {
+    if (apiKey) {
+      this.headers.sc_apikey = apiKey;
+    }
+    this.client = new GraphQLClient(endpoint, { headers: this.headers });
+  }
 
   /**
    * Execute graphql request
@@ -19,24 +27,20 @@ export class GraphQLRequestClient {
     query: string | DocumentNode,
     variables?: { [key: string]: unknown }
   ): Promise<T> {
-    const client = new GraphQLClient(
-      this.endpoint,
-      this.apiKey ? { headers: { sc_apikey: this.apiKey } } : undefined
-    );
-    const onError = (error: unknown) => {
-      console.error(
-        chalk.red(`
-          Error occurred while attempting to fetch graphQL data.
-          Endpoint: ${this.endpoint}
-          Query: ${query}
-          Variables: ${JSON.stringify(variables, null, 2)}
-          Error: ${JSON.stringify(error, null, 2)}
-        `)
-      );
-      throw error;
-    };
-
-    // todo: we should also print the query if we are in debug mode (Anastasiya, March 2021)
-    return await client.request(query, variables).catch(onError);
+    return new Promise((resolve, reject) => {
+      // Note we don't have access to raw request/response with graphql-request
+      // (or nice hooks like we have with Axios), but we should log whatever we have.
+      debug('request', { url: this.endpoint, headers: this.headers, query, variables });
+      this.client
+        .request(query, variables)
+        .then((data: T) => {
+          debug('response', data);
+          resolve(data);
+        })
+        .catch((error: ClientError) => {
+          debug('error', error);
+          return reject(error);
+        });
+    });
   }
 }

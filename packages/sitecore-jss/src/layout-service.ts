@@ -5,6 +5,7 @@ import { GraphQLRequestClient } from './graphql-request-client';
 import { HttpDataFetcher } from './data-fetcher';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
+import { debugLayout as debug } from './debug';
 
 export interface LayoutService {
   /**
@@ -122,6 +123,7 @@ export class RestLayoutService implements LayoutService {
   ): Promise<LayoutServiceData> {
     const fetchOptions = this.getFetchOptions(language);
 
+    debug('fetching layout data for %s %s %s', itemPath, language, this.serviceConfig.siteName);
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
       : this.getDefaultFetcher<LayoutServiceData>(req, res);
@@ -167,6 +169,13 @@ export class RestLayoutService implements LayoutService {
   ): Promise<PlaceholderData> {
     const fetchOptions = this.getFetchOptions(language);
 
+    debug(
+      'fetching placeholder data for %s %s %s %s',
+      placeholderName,
+      itemPath,
+      language,
+      this.serviceConfig.siteName
+    );
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
       : this.getDefaultFetcher<PlaceholderData>(req, res);
@@ -223,6 +232,7 @@ export class RestLayoutService implements LayoutService {
    */
   private setupReqHeaders(req: IncomingMessage) {
     return (reqConfig: AxiosRequestConfig) => {
+      debug('performing request header passing');
       reqConfig.headers.common = {
         ...reqConfig.headers.common,
         ...(req.headers.cookie && { cookie: req.headers.cookie }),
@@ -241,6 +251,7 @@ export class RestLayoutService implements LayoutService {
    */
   private setupResHeaders(res: ServerResponse) {
     return (serverRes: AxiosResponse) => {
+      debug('performing response header passing');
       serverRes.headers['set-cookie'] &&
         res.setHeader('set-cookie', serverRes.headers['set-cookie']);
       return serverRes;
@@ -264,6 +275,7 @@ export class GraphQLLayoutService implements LayoutService {
   async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
     const query = this.getLayoutQuery(itemPath, language);
 
+    debug('fetching layout data for %s %s %s', itemPath, language, this.serviceConfig.siteName);
     const data = await this.createClient().request<{
       layout: { item: { rendered: LayoutServiceData } };
     }>(query);
