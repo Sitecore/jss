@@ -49,6 +49,7 @@
     "@graphql-codegen/typescript": "^1.21.1",
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
+    "@graphql-typed-document-node/core": "^3.1.0",
     "@sitecore-jss/sitecore-jss-cli": "^16.1.0-canary.13",
     "@sitecore-jss/sitecore-jss-dev-tools": "^16.1.0-canary.13",
     "@sitecore-jss/sitecore-jss-manifest": "^16.1.0-canary.13",
