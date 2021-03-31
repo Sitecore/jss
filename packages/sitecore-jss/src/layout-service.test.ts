@@ -235,7 +235,7 @@ describe('LayoutService', () => {
       });
     });
 
-    it('should throw error when request layout data', () => {
+    it('should allow non 404 errors through', () => {
       mock.onGet().reply(() => {
         return [401, { message: 'whoops' }];
       });

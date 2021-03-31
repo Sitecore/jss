@@ -101,6 +101,7 @@ export class SitecorePagePropsFactory {
       );
 
       if (!layoutData.sitecore.route) {
+        // A missing route value signifies an invalid path, so set notFound.
         // Our page routes will return this in getStatic/ServerSideProps,
         // which will trigger our custom 404 page with proper 404 status code.
         // You could perform additional logging here to track these if desired.

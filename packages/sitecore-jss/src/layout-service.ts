@@ -128,6 +128,18 @@ export class RestLayoutService implements LayoutService {
 
     return fetchRouteData(itemPath, { fetcher, ...fetchOptions }).catch((error) => {
       if (error.response?.status === 404) {
+        // Aligned with response of GraphQL Layout Service in case if layout is not found.
+        // When 404 Rest Layout Service returns
+        // {
+        //   sitecore: {
+        //     context: {
+        //			   pageEditing: false,
+        //				 language
+        //		 },
+        //		 route: null
+        //	 },
+        // }
+        //
         return error.response.data;
       }
 
