@@ -1,7 +1,7 @@
 ---
 name: walkthrough-dotnetnew
 routeTemplate: ./data/component-templates/article.yml
-title: Walkthrough with `dotnet new`
+title: Walkthrough with 'dotnet new'
 ---
 # Walkthrough: Using the Sitecore Container Starter Template for JSS Next.js Projects
 
@@ -111,6 +111,12 @@ To create the `MyProject` solution:
    ```powershell
    dotnet new sitecore.nextjs.gettingstarted -n MyProject 
    ```
+
+  > You can customize the parameters passed into the `jss create` command by this template via the `--JSSCreateParams` parameter, e.g.
+  > ```
+  > dotnet new sitecore.nextjs.gettingstarted -n MyProject --JSSCreateParams "--fetchWith GraphQL --prerender SSR"
+  > ```
+  > For more information on `jss create` parameters see [the JSS CLI reference](/docs/fundamentals/cli).
 
 5. Go to the `MyProject` folder.
 
