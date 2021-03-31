@@ -1,5 +1,6 @@
 import { GraphQLClient } from 'graphql-request';
 import chalk from 'chalk';
+import { DocumentNode } from 'graphql';
 
 export class GraphQLRequestClient {
   /**
@@ -14,7 +15,10 @@ export class GraphQLRequestClient {
    * @param {string} query graphql query
    * @param {Object} variables graphql variables
    */
-  async request<T>(query: string, variables?: { [key: string]: unknown }): Promise<T> {
+  async request<T>(
+    query: string | DocumentNode,
+    variables?: { [key: string]: unknown }
+  ): Promise<T> {
     const client = new GraphQLClient(
       this.endpoint,
       this.apiKey ? { headers: { sc_apikey: this.apiKey } } : undefined

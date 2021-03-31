@@ -6,6 +6,7 @@ import {
   GetStaticComponentProps,
   useComponentProps,
   JSS_MODE_DISCONNECTED,
+  GraphQLRequestClient,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
 import {
@@ -14,8 +15,8 @@ import {
   Item,
   GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
 } from './GraphQL-ConnectedDemo.graphql';
-import GraphQLClientFactory from 'lib/GraphQLClientFactory';
 import { StyleguideComponentProps } from 'lib/component-props';
+import config from 'temp/config';
 
 type RouteItem = AppRoute & Item;
 
@@ -103,17 +104,14 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
     return null;
   }
 
-  const graphQLClient = GraphQLClientFactory();
+  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, config.sitecoreApiKey);
 
-  const result = await graphQLClient.query({
-    query: ConnectedDemoQueryDocument,
-    variables: {
-      datasource: rendering.dataSource,
-      contextItem: layoutData?.sitecore?.route?.itemId,
-    },
+  const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
+    datasource: rendering.dataSource,
+    contextItem: layoutData?.sitecore?.route?.itemId,
   });
 
-  return result.data;
+  return result;
 };
 
 /**
@@ -127,17 +125,14 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
     return null;
   }
 
-  const graphQLClient = GraphQLClientFactory();
+  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, config.sitecoreApiKey);
 
-  const result = await graphQLClient.query({
-    query: ConnectedDemoQueryDocument,
-    variables: {
-      datasource: rendering.dataSource,
-      contextItem: layoutData?.sitecore?.route?.itemId,
-    },
+  const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
+    datasource: rendering.dataSource,
+    contextItem: layoutData?.sitecore?.route?.itemId,
   });
 
-  return result.data;
+  return result;
 };
 
 export default GraphQLConnectedDemo;
