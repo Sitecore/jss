@@ -3,7 +3,7 @@
  */
 export interface LayoutServiceData {
   sitecore: LayoutServiceContextData & {
-    route: RouteData;
+    route: RouteData | null;
   };
 }
 

@@ -92,25 +92,21 @@ export class SitecorePagePropsFactory {
       locale = context.locale ?? packageConfig.language;
 
       // Fetch layout data, passing on req/res for SSR
-      layoutData = await this.layoutService
-        .fetchLayoutData(
-          path,
-          locale,
-          // eslint-disable-next-line prettier/prettier
-          isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).req : undefined,
-          isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).res : undefined
-        )
-        .catch((error) => {
-          if (error.response?.status === 404) {
-            // Let 404s (invalid path) through, and set notFound.
-            // Our page routes will return this in getStatic/ServerSideProps,
-            // which will trigger our custom 404 page with proper 404 status code.
-            // You could perform additional logging here to track these if desired.
-            notFound = true;
-            return null;
-          }
-          throw error;
-        });
+      layoutData = await this.layoutService.fetchLayoutData(
+        path,
+        locale,
+        // eslint-disable-next-line prettier/prettier
+        isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).req : undefined,
+        isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).res : undefined
+      );
+
+      if (!layoutData.sitecore.route) {
+        // A missing route value signifies an invalid path, so set notFound.
+        // Our page routes will return this in getStatic/ServerSideProps,
+        // which will trigger our custom 404 page with proper 404 status code.
+        // You could perform additional logging here to track these if desired.
+        notFound = true;
+      }
 
       // Fetch dictionary data
       dictionary = await this.dictionaryService.fetchDictionaryData(locale);

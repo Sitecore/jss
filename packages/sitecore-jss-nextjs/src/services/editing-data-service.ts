@@ -77,7 +77,7 @@ export class EditingDataService {
     const suffix = Math.random()
       .toString(36)
       .substring(2, 12);
-    return `${data.layoutData.sitecore.route.itemId}-${suffix}`;
+    return `${data.layoutData.sitecore.route?.itemId}-${suffix}`;
   }
 
   protected getUrl(serverUrl: string, key: string): string {

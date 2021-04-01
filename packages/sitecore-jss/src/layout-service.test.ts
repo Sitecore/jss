@@ -29,7 +29,7 @@ describe('LayoutService', () => {
       mock.restore();
     });
 
-    it('should fetch route data', () => {
+    it('should fetch layout data', () => {
       mock.onGet().reply((config) => {
         return [200, { ...config, data: { sitecore: { context: {}, route: { name: 'xxx' } } } }];
       });
@@ -198,6 +198,58 @@ describe('LayoutService', () => {
             'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
           );
         });
+    });
+
+    it('should catch 404 when request layout data', () => {
+      mock.onGet().reply(() => {
+        return [
+          404,
+          {
+            sitecore: {
+              context: {
+                pageEditing: false,
+                language: 'en',
+              },
+              route: null,
+            },
+          },
+        ];
+      });
+
+      const service = new RestLayoutService({
+        apiHost: 'http://sctest',
+        apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+        siteName: 'supersite',
+      });
+
+      return service.fetchLayoutData('/styleguide', 'en').then((layoutServiceData: any) => {
+        expect(layoutServiceData).to.deep.equal({
+          sitecore: {
+            context: {
+              pageEditing: false,
+              language: 'en',
+            },
+            route: null,
+          },
+        });
+      });
+    });
+
+    it('should allow non 404 errors through', () => {
+      mock.onGet().reply(() => {
+        return [401, { message: 'whoops' }];
+      });
+
+      const service = new RestLayoutService({
+        apiHost: 'http://sctest',
+        apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+        siteName: 'supersite',
+      });
+
+      return service.fetchLayoutData('/styleguide', 'en').catch((error) => {
+        expect(error.response.status).to.equal(401);
+        expect(error.response.data.message).to.equal('whoops');
+      });
     });
 
     it('should fetch placeholder data', () => {
