@@ -7,6 +7,7 @@ export {
   // dictionary service
   DictionaryPhrases,
   DictionaryService,
+  GraphQLRequestClient,
   GraphQLDictionaryService,
   GraphQLDictionaryServiceConfig,
   RestDictionaryService,
