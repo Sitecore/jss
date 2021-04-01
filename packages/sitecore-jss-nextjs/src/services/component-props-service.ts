@@ -85,14 +85,14 @@ export class ComponentPropsService {
    * @param {NextContext} context next context
    * @returns {Promise<ComponentPropsCollection>} component props
    */
-  async fetchComponentProps<NextContext>(
+  private async fetchComponentProps<NextContext>(
     fetchFunctionFactory: FetchFunctionFactory<NextContext>,
     layoutData: LayoutServiceData,
     context: NextContext
   ): Promise<ComponentPropsCollection> {
     // Array of side effect functions
     const requests = this.collectRequests({
-      placeholders: layoutData.sitecore.route.placeholders,
+      placeholders: layoutData.sitecore.route?.placeholders,
       fetchFunctionFactory,
       layoutData,
       context,
@@ -105,21 +105,21 @@ export class ComponentPropsService {
    * Go through layout service data, check all renderings using displayName, which should make some side effects.
    * Write result in requests variable
    * @param {Object} params params
-   * @param {PlaceholdersData} params.placeholders
+   * @param {PlaceholdersData} [params.placeholders]
    * @param {FetchFunctionFactory<NextContext>} params.fetchFunctionFactory
    * @param {LayoutServiceData} params.layoutData
    * @param {NextContext} params.context
    * @param {ComponentPropsRequest<NextContext>[]} params.requests
    * @returns {ComponentPropsRequest<NextContext>[]} array of requests
    */
-  collectRequests<NextContext>(params: {
-    placeholders: PlaceholdersData;
+  private collectRequests<NextContext>(params: {
+    placeholders?: PlaceholdersData;
     fetchFunctionFactory: FetchFunctionFactory<NextContext>;
     layoutData: LayoutServiceData;
     context: NextContext;
     requests?: ComponentPropsRequest<NextContext>[];
   }): ComponentPropsRequest<NextContext>[] {
-    const { placeholders, fetchFunctionFactory, layoutData, context } = params;
+    const { placeholders = {}, fetchFunctionFactory, layoutData, context } = params;
 
     // Will be called on first round
     if (!params.requests) {
@@ -158,7 +158,7 @@ export class ComponentPropsService {
    * @param {ComponentPropsRequest<NextContext>[]} requests requests
    * @returns {Promise<ComponentPropsCollection>} requests result
    */
-  async execRequests<NextContext>(
+  private async execRequests<NextContext>(
     requests: ComponentPropsRequest<NextContext>[]
   ): Promise<ComponentPropsCollection> {
     const componentProps: ComponentPropsCollection = {};
@@ -211,7 +211,7 @@ export class ComponentPropsService {
    * @param {PlaceholdersData} placeholders placeholders
    * @returns {ComponentRendering[]} renderings
    */
-  flatRenderings(placeholders: PlaceholdersData): ComponentRendering[] {
+  private flatRenderings(placeholders: PlaceholdersData): ComponentRendering[] {
     const allComponentRenderings: ComponentRendering[] = [];
     const placeholdersArr = Object.values(placeholders);
 
