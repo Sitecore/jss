@@ -1,4 +1,5 @@
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
+import { debugSitemap as debug } from '../debug';
 
 export type StaticPath = {
   params: {
@@ -203,6 +204,7 @@ export class GraphQLSitemapService {
     // Fetch paths using all locales
     const paths = await Promise.all(
       languages.map((language) => {
+        debug('fetching sitemap data for %s', language);
         return this.fetch(client, language, rootItemId, formatStaticPath);
       })
     );
@@ -269,6 +271,7 @@ export class GraphQLSitemapService {
     client: GraphQLRequestClient,
     rootItemPath: string
   ): Promise<string | undefined> {
+    debug('fetching root item id for %s', rootItemPath);
     const query = this.getRootItemIdQuery(rootItemPath);
     const data = await client.request<{ item: { id: string } | null }>(query);
     return data.item?.id;

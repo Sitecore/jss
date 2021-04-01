@@ -4,6 +4,7 @@ import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataService, editingDataService } from '../services/editing-data-service';
 import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
 import { getJssEditingSecret } from '../utils';
+import { debugExperienceEditor as debug } from '../debug';
 
 export interface EditingRenderMiddlewareConfig {
   /**
@@ -69,9 +70,12 @@ export class EditingRenderMiddleware {
   }
 
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-    const { method, query, body } = req;
+    const { method, query, body, headers } = req;
+
+    debug('invoked editing render middleware: %o', { method, query, headers, body });
 
     if (method !== 'POST') {
+      debug('invalid method - sent %s expected POST', method);
       res.setHeader('Allow', 'POST');
       return res.status(405).json({
         html: `<html><body>Invalid request method '${method}'</body></html>`,
@@ -81,6 +85,7 @@ export class EditingRenderMiddleware {
     // Validate secret
     const secret = query[QUERY_PARAM_EDITING_SECRET] ?? body?.jssEditingSecret;
     if (secret !== getJssEditingSecret()) {
+      debug('invalid editing secret - sent "%s" expected "%s"', secret, getJssEditingSecret());
       return res.status(401).json({
         html: '<html><body>Missing or invalid secret</body></html>',
       });
@@ -96,7 +101,7 @@ export class EditingRenderMiddleware {
       // Stash for use later on (i.e. within getStatic/ServerSideProps).
       // This ultimately gets stored on disk (using our EditingDataDiskCache) for compatibility with Vercel Serverless Functions.
       // Note we can't set this directly in setPreviewData since it's stored as a cookie (2KB limit)
-      // https://nextjs.org/docs/advanced-features/preview-mode#previewdata-size-limits
+      // https://nextjs.org/docs/advanced-features/preview-mode#previewdata-size-limits)
       const previewData = await this.editingDataService.setEditingData(editingData, serverUrl);
 
       // Enable Next.js Preview Mode, passing our preview data (i.e. editingData cache key)
@@ -108,6 +113,7 @@ export class EditingRenderMiddleware {
       // Make actual render request for page route, passing on preview cookies.
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
       const requestUrl = this.resolvePageUrl(serverUrl, editingData.path);
+      debug('fetching page route for %s', editingData.path);
       const pageRes = await this.dataFetcher.get<string>(`${requestUrl}?timestamp=${Date.now()}`, {
         headers: {
           Cookie: cookies.join(';'),
@@ -121,6 +127,8 @@ export class EditingRenderMiddleware {
       // replace phkey attribute with key attribute so that newly added renderings
       // show correct placeholders, so save and refresh won't be needed after adding each rendering
       html = html.replace(new RegExp('phkey', 'g'), 'key');
+
+      debug('rendered html: %s', html);
 
       // Return expected JSON result
       res.status(200).json({ html });
