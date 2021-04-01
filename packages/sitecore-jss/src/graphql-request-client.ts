@@ -12,7 +12,7 @@ export class GraphQLRequestClient {
 
   /**
    * Execute graphql request
-   * @param {string} query graphql query
+   * @param {string | DocumentNode} query graphql query
    * @param {Object} variables graphql variables
    */
   async request<T>(
