@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 import { debugHttp as debug } from './debug';
 
 export type AxiosDataFetcherHandlers = {
@@ -30,6 +30,14 @@ export type AxiosDataFetcherHandlers = {
 
 export type AxiosDataFetcherConfig = AxiosRequestConfig & AxiosDataFetcherHandlers;
 
+/**
+ * Determines whether error is AxiosError
+ * @param {unknown} error
+ */
+const isAxiosError = (error: unknown): error is AxiosError => {
+  return (error as AxiosError).isAxiosError !== undefined;
+};
+
 export class AxiosDataFetcher {
   private instance: AxiosInstance;
 
@@ -52,11 +60,11 @@ export class AxiosDataFetcher {
     if (debug.enabled) {
       this.instance.interceptors.request.use(
         (config: AxiosRequestConfig) => {
-          debug('request', config);
+          debug('request: %o', config);
           return config;
         },
         (error: unknown) => {
-          debug('request error', error);
+          debug('request error: %o', isAxiosError(error) ? (error as AxiosError).toJSON() : error);
           return Promise.reject(error);
         }
       );
@@ -73,11 +81,11 @@ export class AxiosDataFetcher {
           // Note we're removing redundant properties (already part of request log above) to trim down log entry
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { request, config, ...rest } = response;
-          debug('response', rest);
+          debug('response: %o', rest);
           return response;
         },
         (error: unknown) => {
-          debug('response error', error);
+          debug('response error: %o', isAxiosError(error) ? (error as AxiosError).toJSON() : error);
           return Promise.reject(error);
         }
       );

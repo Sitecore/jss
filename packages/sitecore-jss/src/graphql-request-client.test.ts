@@ -15,12 +15,16 @@ describe('GraphQLRequestClient', () => {
 
   before(() => {
     debugNamespaces = debug.disable();
+    debug.enable(debugHttp.namespace);
+  });
+
+  beforeEach(() => {
+    spy.on(debugHttp, 'log', () => true);
   });
 
   afterEach(() => {
     nock.cleanAll();
-    debug.disable();
-    spy.restore(debugHttp, 'log');
+    spy.restore(debugHttp);
   });
 
   after(() => {
@@ -69,12 +73,10 @@ describe('GraphQLRequestClient', () => {
         },
       });
 
-    debug.enable(debugHttp.namespace);
-    const logSpy = spy.on(debugHttp, 'log');
     const graphQLClient = new GraphQLRequestClient(endpoint);
     await graphQLClient.request('test');
 
-    expect(logSpy, 'request and response log').to.be.called.twice;
+    expect(debugHttp.log, 'request and response log').to.be.called.twice;
   });
 
   it('should debug log request and response error', () => {
@@ -82,11 +84,9 @@ describe('GraphQLRequestClient', () => {
       .post('/graphql')
       .reply(400);
 
-    debug.enable(debugHttp.namespace);
-    const logSpy = spy.on(debugHttp, 'log');
     const graphQLClient = new GraphQLRequestClient(endpoint);
     return graphQLClient.request('test').catch(() => {
-      expect(logSpy, 'request and response error log').to.be.called.twice;
+      expect(debugHttp.log, 'request and response error log').to.be.called.twice;
     });
   });
 });

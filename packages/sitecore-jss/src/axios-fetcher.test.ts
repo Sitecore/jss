@@ -17,12 +17,16 @@ describe('AxiosDataFetcher', () => {
   before(() => {
     mock = new MockAdapter(axios);
     debugNamespaces = debug.disable();
+    debug.enable(debugHttp.namespace);
+  });
+
+  beforeEach(() => {
+    spy.on(debugHttp, 'log', () => true);
   });
 
   afterEach(() => {
     mock.reset();
-    debug.disable();
-    spy.restore(debugHttp, 'log');
+    spy.restore(debugHttp);
   });
 
   after(() => {
@@ -171,19 +175,16 @@ describe('AxiosDataFetcher', () => {
       });
     });
 
-    it('should debug log request and response', () => {
+    it('should debug log request and response', async () => {
       mock.onGet().reply((config) => {
         // append axios config as response data
         return [200, { ...config }];
       });
 
-      debug.enable(debugHttp.namespace);
-      const logSpy = spy.on(debugHttp, 'log');
       const fetcher = new AxiosDataFetcher();
 
-      return fetcher.fetch('/home').then(() => {
-        expect(logSpy, 'request and response log').to.be.called.twice;
-      });
+      await fetcher.fetch('/home');
+      expect(debugHttp.log, 'request and response log').to.be.called.twice;
     });
 
     it('should debug log request and response error', () => {
@@ -192,12 +193,10 @@ describe('AxiosDataFetcher', () => {
         return [400, { ...config }];
       });
 
-      debug.enable(debugHttp.namespace);
-      const logSpy = spy.on(debugHttp, 'log');
       const fetcher = new AxiosDataFetcher();
 
       return fetcher.fetch('/home').catch(() => {
-        expect(logSpy, 'request and response error log').to.be.called.twice;
+        expect(debugHttp.log, 'request and response error log').to.be.called.twice;
       });
     });
   });
