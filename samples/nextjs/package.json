@@ -1,7 +1,7 @@
 {
   "name": "jss-sample-nextjs",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
-  "version": "16.1.0-canary.13",
+  "version": "16.1.0-canary.14",
   "private": true,
   "config": {
     "appName": "JssNextWeb",
@@ -30,8 +30,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-nextjs": "^16.1.0-canary.13",
-    "@sitecore-jss/sitecore-jss-tracking": "^16.1.0-canary.13",
+    "@sitecore-jss/sitecore-jss-nextjs": "^16.1.0-canary.14",
+    "@sitecore-jss/sitecore-jss-tracking": "^16.1.0-canary.14",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
     "apollo-link": "~1.2.13",
@@ -56,9 +56,9 @@
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-react-apollo": "^2.1.1",
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
-    "@sitecore-jss/sitecore-jss-cli": "^16.1.0-canary.13",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^16.1.0-canary.13",
-    "@sitecore-jss/sitecore-jss-manifest": "^16.1.0-canary.13",
+    "@sitecore-jss/sitecore-jss-cli": "^16.1.0-canary.14",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^16.1.0-canary.14",
+    "@sitecore-jss/sitecore-jss-manifest": "^16.1.0-canary.14",
     "@types/node": "^14.6.4",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.0",
