@@ -5,22 +5,29 @@ import MockAdapter from 'axios-mock-adapter';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
+import debug from 'debug';
+import { debugHttp } from './debug';
 
 use(spies);
 
 describe('AxiosDataFetcher', () => {
   let mock: MockAdapter;
+  let debugNamespaces: string;
 
   before(() => {
     mock = new MockAdapter(axios);
+    debugNamespaces = debug.disable();
   });
 
   afterEach(() => {
     mock.reset();
+    debug.disable();
+    spy.restore(debugHttp, 'log');
   });
 
   after(() => {
     mock.restore();
+    debug.enable(debugNamespaces);
   });
 
   describe('fetch', () => {
@@ -40,7 +47,7 @@ describe('AxiosDataFetcher', () => {
       });
     });
 
-    it('should execute GET request withouth data', () => {
+    it('should execute GET request without data', () => {
       mock.onGet().reply((config) => {
         // append axios config as response data
         return [200, { ...config }];
@@ -161,6 +168,36 @@ describe('AxiosDataFetcher', () => {
         });
         expect(onReqSpy).to.be.called.once;
         expect(onResSpy).to.be.called.once;
+      });
+    });
+
+    it('should debug log request and response', () => {
+      mock.onGet().reply((config) => {
+        // append axios config as response data
+        return [200, { ...config }];
+      });
+
+      debug.enable(debugHttp.namespace);
+      const logSpy = spy.on(debugHttp, 'log');
+      const fetcher = new AxiosDataFetcher();
+
+      return fetcher.fetch('/home').then(() => {
+        expect(logSpy, 'request and response log').to.be.called.twice;
+      });
+    });
+
+    it('should debug log request and response error', () => {
+      mock.onPost().reply((config) => {
+        // append axios config as response data
+        return [400, { ...config }];
+      });
+
+      debug.enable(debugHttp.namespace);
+      const logSpy = spy.on(debugHttp, 'log');
+      const fetcher = new AxiosDataFetcher();
+
+      return fetcher.fetch('/home').catch(() => {
+        expect(logSpy, 'request and response error log').to.be.called.twice;
       });
     });
   });
