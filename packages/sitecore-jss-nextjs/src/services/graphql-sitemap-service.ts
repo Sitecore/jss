@@ -66,8 +66,17 @@ export interface GraphQLSitemapServiceConfig {
  */
 type SitePageQueryResult = {
   search: {
+    /**
+     * Data needed to paginate the results
+     */
     pageInfo: {
+      /**
+       * string token that can be used to fetch the next page of results
+       */
       endCursor: string;
+      /**
+       * a value that indicates whether more pages of results are available
+       */
       hasNext: boolean;
     };
     results: {
@@ -112,7 +121,7 @@ export class GraphQLSitemapService {
 
   /**
    * Fetch sitemap which could be used for generation of static pages using SSG mode
-   * @param {string[]} locales which application supports
+   * @param {string[]} locales locales which application supports
    * @param {string} rootItemPath root item path
    * @throws {RangeError} if a valid root item ID cannot be determined from the specified root item path.
    * @throws {RangeError} if the specified locale is not valid.
@@ -251,9 +260,9 @@ export class GraphQLSitemapService {
    * @param {GraphQLRequestClient} client that fetches data from a GraphQL endpoint.
    * @param {string} rootItemPath root item path
    */
-  private async getRootItemId(client: GraphQLRequestClient, rootItemPath: string): Promise<string> {
+  private async getRootItemId(client: GraphQLRequestClient, rootItemPath: string): Promise<string | undefined> {
     const query = this.getRootItemIdQuery(rootItemPath);
-    const data = await client.request<{ item: { id: string } }>(query);
-    return data?.item?.id;
+    const data = await client.request<{ item: { id: string } | null }>(query);
+    return data.item?.id;
   }
 }
