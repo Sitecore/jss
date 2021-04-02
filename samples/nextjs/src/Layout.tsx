@@ -5,7 +5,6 @@ import { useI18n } from 'next-localization';
 import { getPublicUrl } from 'lib/util';
 import {
   Placeholder,
-  LayoutServiceData,
   VisitorIdentification,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
@@ -50,31 +49,24 @@ const Navigation = () => {
 };
 
 type LayoutProps = {
-  layoutData: LayoutServiceData;
+  context: StyleguideSitecoreContextValue;
 };
 
-const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
+const Layout = ({ context }: LayoutProps): JSX.Element => {
   const { updateSitecoreContext } = useSitecoreContext({ updatable: true });
 
   // Update Sitecore Context if layoutData has changed (i.e. on client-side route change).
   // Note the context object type here matches the initial value in [[...path]].tsx.
   useEffect(() => {
-    const context: StyleguideSitecoreContextValue = {
-      route: layoutData.sitecore.route,
-      itemId: layoutData.sitecore.route.itemId,
-      ...layoutData.sitecore.context,
-    };
     updateSitecoreContext && updateSitecoreContext(context);
-  }, [layoutData]);
+  }, [context]);
 
-  const { route } = layoutData.sitecore;
+  const { route } = context;
 
   return (
     <>
       <Head>
-        <title>
-          {(route.fields && route.fields.pageTitle && route.fields.pageTitle.value) || 'Page'}
-        </title>
+        <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
