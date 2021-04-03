@@ -55,6 +55,11 @@ export interface GraphQLSitemapServiceConfig {
   endpoint: string;
 
   /**
+   * The API key to use for authentication.
+   */
+  apiKey: string;
+
+  /**
    * How many dictionary items to fetch in each GraphQL call. This is needed for pagination.
    * @default 10
    */
@@ -188,7 +193,7 @@ export class GraphQLSitemapService {
       throw new RangeError('The root item path must be a non-empty string');
     }
 
-    const client = new GraphQLRequestClient(this.options.endpoint);
+    const client = new GraphQLRequestClient(this.options.endpoint, this.options.apiKey);
     const rootItemId = await this.getRootItemId(client, rootItemPath);
 
     if (!rootItemId) {
@@ -260,7 +265,10 @@ export class GraphQLSitemapService {
    * @param {GraphQLRequestClient} client that fetches data from a GraphQL endpoint.
    * @param {string} rootItemPath root item path
    */
-  private async getRootItemId(client: GraphQLRequestClient, rootItemPath: string): Promise<string | undefined> {
+  private async getRootItemId(
+    client: GraphQLRequestClient,
+    rootItemPath: string
+  ): Promise<string | undefined> {
     const query = this.getRootItemIdQuery(rootItemPath);
     const data = await client.request<{ item: { id: string } | null }>(query);
     return data.item?.id;

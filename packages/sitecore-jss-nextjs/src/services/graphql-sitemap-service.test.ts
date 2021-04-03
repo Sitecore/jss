@@ -7,6 +7,7 @@ import sitemapQueryResult from '../testData/sitemapQueryResult.json';
 describe('GraphQLSitemapService', () => {
   const rootItemPath = '/sitecore/next/home';
   const endpoint = 'http://site';
+  const apiKey = 'some-api-key';
 
   afterEach(() => {
     nock.cleanAll();
@@ -15,7 +16,7 @@ describe('GraphQLSitemapService', () => {
   const mockRootItemIdRequest = (results?: { data: { item: { id: string } | undefined } }) => {
     nock(endpoint, {
       reqheaders: {
-        sc_apikey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+        sc_apikey: apiKey,
       },
     })
       .post('/', /RootItemQuery/gi)
@@ -36,7 +37,7 @@ describe('GraphQLSitemapService', () => {
   const mockPathsRequest = (results?: { url: { path: string } }[]) => {
     nock(endpoint, {
       reqheaders: {
-        sc_apikey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+        sc_apikey: apiKey,
       },
     })
       .post('/', /SitePageQuery/gi)
@@ -92,7 +93,7 @@ describe('GraphQLSitemapService', () => {
       mockRootItemIdRequest();
       mockPathsRequest();
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
       expect(sitemap).to.deep.equal(expectedSSGSitemap);
 
@@ -162,7 +163,7 @@ describe('GraphQLSitemapService', () => {
           },
         });
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       const sitemap = await service.fetchSSGSitemap([lang1, lang2], rootItemPath);
 
       expect(sitemap).to.deep.equal([
@@ -220,7 +221,7 @@ describe('GraphQLSitemapService', () => {
     });
 
     it('should throw error if valid language is not provided', async () => {
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       await service.fetchSSGSitemap([], rootItemPath).catch((error: RangeError) => {
         expect(error.message).to.equal('The list of languages cannot be empty');
       });
@@ -235,7 +236,7 @@ describe('GraphQLSitemapService', () => {
         .post('/', (body) => body.variables.pageSize === customPageSize)
         .reply(200, sitemapQueryResult);
 
-      const service = new GraphQLSitemapService({ endpoint, pageSize: customPageSize });
+      const service = new GraphQLSitemapService({ endpoint, apiKey, pageSize: customPageSize });
       const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
 
       expect(sitemap).to.deep.equal(expectedSSGSitemap);
@@ -248,7 +249,7 @@ describe('GraphQLSitemapService', () => {
         .post('/', (body) => body.variables.pageSize === 10)
         .reply(200, sitemapQueryResult);
 
-      const service = new GraphQLSitemapService({ endpoint, pageSize: undefined });
+      const service = new GraphQLSitemapService({ endpoint, apiKey, pageSize: undefined });
       const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
 
       expect(sitemap).to.deep.equal(expectedSSGSitemap);
@@ -259,7 +260,7 @@ describe('GraphQLSitemapService', () => {
       mockRootItemIdRequest();
       mockPathsRequest([]);
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
       expect(sitemap).to.deep.equal([]);
       return expect(nock.isDone()).to.be.true;
@@ -271,7 +272,7 @@ describe('GraphQLSitemapService', () => {
         .post('/', /SitePageQuery/gi)
         .reply(500, 'Error 😥');
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       await service.fetchSSGSitemap(['ua'], rootItemPath).catch((error: RangeError) => {
         expect(error.message).to.contain('SitePageQuery');
         expect(error.message).to.contain('Error 😥');
@@ -284,7 +285,7 @@ describe('GraphQLSitemapService', () => {
         .post('/', /RootItemQuery/gi)
         .reply(500, 'Error 😥');
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       await service.fetchSSGSitemap(['ua'], rootItemPath).catch((error: RangeError) => {
         expect(error.message).to.contain('RootItemQuery');
         expect(error.message).to.contain('Error 😥');
@@ -296,7 +297,7 @@ describe('GraphQLSitemapService', () => {
       mockRootItemIdRequest();
       mockPathsRequest();
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       await service.fetchSSGSitemap(['en'], '').catch((error: RangeError) => {
         expect(error.message).to.equal('The root item path must be a non-empty string');
       });
@@ -307,7 +308,7 @@ describe('GraphQLSitemapService', () => {
     it('should throw error if a valid rootItemId is not found based on the specified rootItemPath', async () => {
       mockRootItemIdRequest({ data: { item: undefined } });
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       await service.fetchSSGSitemap(['ua'], rootItemPath).catch((error) => {
         expect(error.message).to.equal(
           `The item path ${rootItemPath} did not return a valid item ID`
@@ -346,7 +347,7 @@ describe('GraphQLSitemapService', () => {
       mockRootItemIdRequest();
       mockPathsRequest();
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       const sitemap = await service.fetchExportSitemap('ua', rootItemPath);
 
       expect(sitemap).to.deep.equal(expectedExportSitemap);
@@ -357,7 +358,7 @@ describe('GraphQLSitemapService', () => {
       mockRootItemIdRequest();
       mockPathsRequest([]);
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       const sitemap = await service.fetchExportSitemap('ua', rootItemPath);
 
       expect(sitemap).to.deep.equal([]);
@@ -370,7 +371,7 @@ describe('GraphQLSitemapService', () => {
         .post('/', /SitePageQuery/gi)
         .reply(500, 'Error 😥');
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       await service.fetchExportSitemap('ua', rootItemPath).catch((error: RangeError) => {
         expect(error.message).to.contain('SitePageQuery');
         expect(error.message).to.contain('Error 😥');
@@ -383,7 +384,7 @@ describe('GraphQLSitemapService', () => {
         .post('/', /RootItemQuery/gi)
         .reply(500, 'Error 😥');
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       await service.fetchExportSitemap('ua', rootItemPath).catch((error: RangeError) => {
         expect(error.message).to.contain('RootItemQuery');
         expect(error.message).to.contain('Error 😥');
@@ -395,7 +396,7 @@ describe('GraphQLSitemapService', () => {
       mockRootItemIdRequest();
       mockPathsRequest();
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       await service.fetchExportSitemap('', rootItemPath).catch((error: RangeError) => {
         expect(error.message).to.equal('The language value must be a non-empty string');
       });
@@ -407,7 +408,7 @@ describe('GraphQLSitemapService', () => {
       mockRootItemIdRequest();
       mockPathsRequest();
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       await service.fetchExportSitemap('en', '').catch((error: RangeError) => {
         expect(error.message).to.equal('The root item path must be a non-empty string');
       });
@@ -418,7 +419,7 @@ describe('GraphQLSitemapService', () => {
     it('should throw error if a valid rootItemId is not found based on the specified rootItemPath', async () => {
       mockRootItemIdRequest({ data: { item: undefined } });
 
-      const service = new GraphQLSitemapService({ endpoint });
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
       await service.fetchExportSitemap('ua', rootItemPath).catch((error) => {
         expect(error.message).to.equal(
           `The item path ${rootItemPath} did not return a valid item ID`
