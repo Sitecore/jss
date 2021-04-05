@@ -6,12 +6,23 @@ title: Documentation
 
 # Troubleshooting
 
+- [Debug logging](#debug-logging)
 - [General setup checklist](#general-setup-checklist)
 - [Server-side JavaScript errors](#server-side-javascript-errors)
 - [Errors regarding SSL certificates](#errors-regarding-ssl-certificates)
 - [Errors deploying a JSS app locally](#errors-deploying-a-jss-app-locally)
 - [Data-fetching issues](#data-fetching-issues)
 - [Errors in GraphiQL](#errors-in-graphiql)
+
+## Debug logging
+
+You can enable debug logging of the Sitecore JSS SDKs by setting the `DEBUG` environment variable. In your `.env` (or `.env.local` for local environments), add the following line:
+
+```
+DEBUG=sitecore-jss:*
+```
+
+This will output _all_ debug logs. However, you may wish to be more selective. Refer to [Debug logging](/docs/fundamentals/troubleshooting/debug-logging) for additional details.
 
 ## General setup checklist
 
