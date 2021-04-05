@@ -1,133 +1,170 @@
 import { expect } from 'chai';
 import nock from 'nock';
 import { GraphQLSitemapService } from './graphql-sitemap-service';
+import rootItemQueryResult from '../testData/rootItemQueryResult.json';
+import sitemapQueryResult from '../testData/sitemapQueryResult.json';
 
 describe('GraphQLSitemapService', () => {
-  const ROOT_ITEM = '/sitecore/next/home';
-  const graphQLSitemapService = new GraphQLSitemapService({
-    endpoint: 'http://jssnextweb/graphql',
-    apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
-  });
+  const rootItemPath = '/sitecore/next/home';
+  const endpoint = 'http://site';
+  const apiKey = 'some-api-key';
 
-  const mockRootItemIdRequest = () => {
-    nock('http://jssnextweb', {
-      reqheaders: {
-        sc_apikey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
-      },
-    })
-      .post('/graphql')
-      .reply(200, {
-        data: {
-          item: {
-            id: '4FEFEBB5-49D7-4E8F-89D5-D40BC1F23BAD',
-          },
-        },
-      });
-  };
-
-  const mockPathsRequest = (results: { url: { path: string } }[]) => {
-    nock('http://jssnextweb', {
-      reqheaders: {
-        sc_apikey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
-      },
-    })
-      .post('/graphql')
-      .reply(200, {
-        data: {
-          search: {
-            results,
-          },
-        },
-      });
-  };
-
-  beforeEach(() => {
+  afterEach(() => {
     nock.cleanAll();
   });
 
-  describe('SSG mode', () => {
-    it('should fetch sitemap', async () => {
+  const mockRootItemIdRequest = (results?: { data: { item: { id: string } | undefined } }) => {
+    nock(endpoint, {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/', /RootItemQuery/gi)
+      .reply(
+        200,
+        results === undefined
+          ? rootItemQueryResult
+          : {
+              data: {
+                search: {
+                  results,
+                },
+              },
+            }
+      );
+  };
+
+  const mockPathsRequest = (results?: { url: { path: string } }[]) => {
+    nock(endpoint, {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/', /SitePageQuery/gi)
+      .reply(
+        200,
+        results === undefined
+          ? sitemapQueryResult
+          : {
+              data: {
+                search: {
+                  total: results.length,
+                  pageInfo: {
+                    hasNext: false,
+                  },
+                  results,
+                },
+              },
+            }
+      );
+  };
+
+  const expectedSSGSitemap = [
+    {
+      params: {
+        path: [''],
+      },
+      locale: 'ua',
+    },
+    {
+      params: {
+        path: ['x1'],
+      },
+      locale: 'ua',
+    },
+    {
+      params: {
+        path: ['y1', 'y2', 'y3', 'y4'],
+      },
+      locale: 'ua',
+    },
+    {
+      params: {
+        path: ['y1', 'y2'],
+      },
+      locale: 'ua',
+    },
+  ];
+
+  describe('Fetch sitemap in SSG mode', () => {
+    // language param tests
+
+    it('should work when 1 language is requested', async () => {
       mockRootItemIdRequest();
+      mockPathsRequest();
 
-      mockPathsRequest([
-        {
-          url: { path: '/' },
-        },
-        {
-          url: { path: '/x1' },
-        },
-        {
-          url: { path: '/y1/y2/y3/y4' },
-        },
-        {
-          url: { path: '/y1/y2' },
-        },
-      ]);
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
+      expect(sitemap).to.deep.equal(expectedSSGSitemap);
 
-      const sitemap = await graphQLSitemapService.fetchSSGSitemap(['ua'], ROOT_ITEM);
-
-      expect(sitemap).to.deep.equal([
-        {
-          params: {
-            path: [''],
-          },
-          locale: 'ua',
-        },
-        {
-          params: {
-            path: ['x1'],
-          },
-          locale: 'ua',
-        },
-        {
-          params: {
-            path: ['y1', 'y2', 'y3', 'y4'],
-          },
-          locale: 'ua',
-        },
-        {
-          params: {
-            path: ['y1', 'y2'],
-          },
-          locale: 'ua',
-        },
-      ]);
+      return expect(nock.isDone()).to.be.true;
     });
 
-    it('should fetch sitemap using multiple locales', async () => {
+    it('should work when multiple languages are requested', async () => {
+      const lang1 = 'ua';
+      const lang2 = 'da-DK';
+
       mockRootItemIdRequest();
+      nock(endpoint)
+        .post('/', (body) => {
+          return body.variables.language === lang1;
+        })
+        .reply(200, {
+          data: {
+            search: {
+              total: 4,
+              pageInfo: {
+                hasNext: false,
+              },
+              results: [
+                {
+                  url: { path: '/' },
+                },
+                {
+                  url: { path: '/x1' },
+                },
+                {
+                  url: { path: '/y1/y2/y3/y4' },
+                },
+                {
+                  url: { path: '/y1/y2' },
+                },
+              ],
+            },
+          },
+        });
 
-      mockPathsRequest([
-        {
-          url: { path: '/' },
-        },
-        {
-          url: { path: '/x1' },
-        },
-        {
-          url: { path: '/y1/y2/y3/y4' },
-        },
-        {
-          url: { path: '/y1/y2' },
-        },
-      ]);
+      nock(endpoint)
+        .post('/', (body) => {
+          return body.variables.language === lang2;
+        })
+        .reply(200, {
+          data: {
+            search: {
+              total: 4,
+              pageInfo: {
+                hasNext: false,
+              },
+              results: [
+                {
+                  url: { path: '/' },
+                },
+                {
+                  url: { path: '/x1-da-DK' },
+                },
+                {
+                  url: { path: '/y1/y2/y3/y4-da-DK' },
+                },
+                {
+                  url: { path: '/y1/y2-da-DK' },
+                },
+              ],
+            },
+          },
+        });
 
-      mockPathsRequest([
-        {
-          url: { path: '/' },
-        },
-        {
-          url: { path: '/x1-da-DK' },
-        },
-        {
-          url: { path: '/y1/y2/y3/y4-da-DK' },
-        },
-        {
-          url: { path: '/y1/y2-da-DK' },
-        },
-      ]);
-
-      const sitemap = await graphQLSitemapService.fetchSSGSitemap(['ua', 'da-DK'], ROOT_ITEM);
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      const sitemap = await service.fetchSSGSitemap([lang1, lang2], rootItemPath);
 
       expect(sitemap).to.deep.equal([
         {
@@ -179,152 +216,217 @@ describe('GraphQLSitemapService', () => {
           locale: 'da-DK',
         },
       ]);
+
+      return expect(nock.isDone()).to.be.true;
     });
 
-    it('should fetch sitemap when items is empty', async () => {
-      mockRootItemIdRequest();
+    it('should throw error if valid language is not provided', async () => {
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      await service.fetchSSGSitemap([], rootItemPath).catch((error: RangeError) => {
+        expect(error.message).to.equal('The list of languages cannot be empty');
+      });
+    });
 
+    // pageSize param test
+
+    it('should use a custom pageSize, if provided', async () => {
+      const customPageSize = 20;
+      mockRootItemIdRequest();
+      nock(endpoint)
+        .post('/', (body) => body.variables.pageSize === customPageSize)
+        .reply(200, sitemapQueryResult);
+
+      const service = new GraphQLSitemapService({ endpoint, apiKey, pageSize: customPageSize });
+      const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
+
+      expect(sitemap).to.deep.equal(expectedSSGSitemap);
+      return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should use default value if pageSize is not specified', async () => {
+      mockRootItemIdRequest();
+      nock(endpoint)
+        .post('/', (body) => body.variables.pageSize === 10)
+        .reply(200, sitemapQueryResult);
+
+      const service = new GraphQLSitemapService({ endpoint, apiKey, pageSize: undefined });
+      const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
+
+      expect(sitemap).to.deep.equal(expectedSSGSitemap);
+      return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should work if endpoint returns 0 pages', async () => {
+      mockRootItemIdRequest();
       mockPathsRequest([]);
 
-      const sitemap = await graphQLSitemapService.fetchSSGSitemap(['ua'], ROOT_ITEM);
-
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
       expect(sitemap).to.deep.equal([]);
+      return expect(nock.isDone()).to.be.true;
     });
 
-    it('should fetch sitemap if locales are not provided', async () => {
+    it('should throw error if SitePageQuery fails', async () => {
       mockRootItemIdRequest();
+      nock(endpoint)
+        .post('/', /SitePageQuery/gi)
+        .reply(500, 'Error 😥');
 
-      const sitemap = await graphQLSitemapService.fetchSSGSitemap([], ROOT_ITEM);
-
-      expect(sitemap).to.deep.equal([]);
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      await service.fetchSSGSitemap(['ua'], rootItemPath).catch((error: RangeError) => {
+        expect(error.message).to.contain('SitePageQuery');
+        expect(error.message).to.contain('Error 😥');
+      });
+      return expect(nock.isDone()).to.be.true;
     });
 
-    it('should not fetch sitemap if rootItemId is not provided', async () => {
-      nock('http://jssnextweb')
-        .post('/graphql')
-        .reply(200, {
-          data: null,
-        });
+    it('should throw error if RootItemQuery fails', async () => {
+      nock(endpoint)
+        .post('/', /RootItemQuery/gi)
+        .reply(500, 'Error 😥');
 
-      const sitemap = await graphQLSitemapService.fetchSSGSitemap([], ROOT_ITEM);
-
-      expect(sitemap).to.deep.equal([]);
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      await service.fetchSSGSitemap(['ua'], rootItemPath).catch((error: RangeError) => {
+        expect(error.message).to.contain('RootItemQuery');
+        expect(error.message).to.contain('Error 😥');
+      });
+      return expect(nock.isDone()).to.be.true;
     });
 
-    it('should handle error when request root item id', async () => {
-      nock('http://jssnextweb')
-        .post('/graphql')
-        .reply(401, {
-          error: 'whoops',
-        });
-
-      const sitemap = await graphQLSitemapService.fetchSSGSitemap(['ua'], ROOT_ITEM);
-
-      expect(sitemap).to.deep.equal([]);
-    });
-
-    it('should handle error when request paths', async () => {
+    it('should throw error if rootItemPath is not provided', async () => {
       mockRootItemIdRequest();
+      mockPathsRequest();
 
-      nock('http://jssnextweb')
-        .post('/graphql')
-        .reply(401, 'whoops');
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      await service.fetchSSGSitemap(['en'], '').catch((error: RangeError) => {
+        expect(error.message).to.equal('The root item path must be a non-empty string');
+      });
 
-      const sitemap = await graphQLSitemapService.fetchSSGSitemap(['ua'], ROOT_ITEM);
+      return expect(nock.isDone()).to.be.false;
+    });
 
-      expect(sitemap).to.deep.equal([]);
+    it('should throw error if a valid rootItemId is not found based on the specified rootItemPath', async () => {
+      mockRootItemIdRequest({ data: { item: undefined } });
+
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      await service.fetchSSGSitemap(['ua'], rootItemPath).catch((error) => {
+        expect(error.message).to.equal(
+          `The item path ${rootItemPath} did not return a valid item ID`
+        );
+      });
+
+      return expect(nock.isDone()).to.be.true;
     });
   });
 
-  describe('Export mode', () => {
+  const expectedExportSitemap = [
+    {
+      params: {
+        path: [''],
+      },
+    },
+    {
+      params: {
+        path: ['x1'],
+      },
+    },
+    {
+      params: {
+        path: ['y1', 'y2', 'y3', 'y4'],
+      },
+    },
+    {
+      params: {
+        path: ['y1', 'y2'],
+      },
+    },
+  ];
+
+  describe('Fetch sitemap in export mode', () => {
     it('should fetch sitemap', async () => {
       mockRootItemIdRequest();
+      mockPathsRequest();
 
-      mockPathsRequest([
-        {
-          url: { path: '/' },
-        },
-        {
-          url: { path: '/x1' },
-        },
-        {
-          url: { path: '/y1/y2/y3/y4' },
-        },
-        {
-          url: { path: '/y1/y2' },
-        },
-      ]);
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      const sitemap = await service.fetchExportSitemap('ua', rootItemPath);
 
-      const sitemap = await graphQLSitemapService.fetchExportSitemap('ua', ROOT_ITEM);
-
-      expect(sitemap).to.deep.equal([
-        {
-          params: {
-            path: [''],
-          },
-        },
-        {
-          params: {
-            path: ['x1'],
-          },
-        },
-        {
-          params: {
-            path: ['y1', 'y2', 'y3', 'y4'],
-          },
-        },
-        {
-          params: {
-            path: ['y1', 'y2'],
-          },
-        },
-      ]);
+      expect(sitemap).to.deep.equal(expectedExportSitemap);
+      return expect(nock.isDone()).to.be.true;
     });
 
-    it('should fetch sitemap when items is empty', async () => {
+    it('should work if endpoint returns 0 pages', async () => {
       mockRootItemIdRequest();
-
       mockPathsRequest([]);
 
-      const sitemap = await graphQLSitemapService.fetchExportSitemap('ua', ROOT_ITEM);
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      const sitemap = await service.fetchExportSitemap('ua', rootItemPath);
 
       expect(sitemap).to.deep.equal([]);
+      return expect(nock.isDone()).to.be.true;
     });
 
-    it('should not fetch sitemap if rootItemId is not provided', async () => {
-      nock('http://jssnextweb')
-        .post('/graphql')
-        .reply(200, {
-          data: null,
-        });
-
-      const sitemap = await graphQLSitemapService.fetchSSGSitemap([], ROOT_ITEM);
-
-      expect(sitemap).to.deep.equal([]);
-    });
-
-    it('should handle error when request root item id', async () => {
-      nock('http://jssnextweb')
-        .post('/graphql')
-        .reply(401, {
-          error: 'whoops',
-        });
-
-      const sitemap = await graphQLSitemapService.fetchSSGSitemap(['ua'], ROOT_ITEM);
-
-      expect(sitemap).to.deep.equal([]);
-    });
-
-    it('should handle error when request paths', async () => {
+    it('should throw error if SitePageQuery fails', async () => {
       mockRootItemIdRequest();
+      nock(endpoint)
+        .post('/', /SitePageQuery/gi)
+        .reply(500, 'Error 😥');
 
-      nock('http://jssnextweb')
-        .post('/graphql')
-        .reply(401, 'whoops');
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      await service.fetchExportSitemap('ua', rootItemPath).catch((error: RangeError) => {
+        expect(error.message).to.contain('SitePageQuery');
+        expect(error.message).to.contain('Error 😥');
+      });
+      return expect(nock.isDone()).to.be.true;
+    });
 
-      const sitemap = await graphQLSitemapService.fetchSSGSitemap(['ua'], ROOT_ITEM);
+    it('should throw error if RootItemQuery fails', async () => {
+      nock(endpoint)
+        .post('/', /RootItemQuery/gi)
+        .reply(500, 'Error 😥');
 
-      expect(sitemap).to.deep.equal([]);
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      await service.fetchExportSitemap('ua', rootItemPath).catch((error: RangeError) => {
+        expect(error.message).to.contain('RootItemQuery');
+        expect(error.message).to.contain('Error 😥');
+      });
+      return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should throw error if language is not provided', async () => {
+      mockRootItemIdRequest();
+      mockPathsRequest();
+
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      await service.fetchExportSitemap('', rootItemPath).catch((error: RangeError) => {
+        expect(error.message).to.equal('The language value must be a non-empty string');
+      });
+
+      return expect(nock.isDone()).to.be.false;
+    });
+
+    it('should throw error if rootItemPath is not provided', async () => {
+      mockRootItemIdRequest();
+      mockPathsRequest();
+
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      await service.fetchExportSitemap('en', '').catch((error: RangeError) => {
+        expect(error.message).to.equal('The root item path must be a non-empty string');
+      });
+
+      return expect(nock.isDone()).to.be.false;
+    });
+
+    it('should throw error if a valid rootItemId is not found based on the specified rootItemPath', async () => {
+      mockRootItemIdRequest({ data: { item: undefined } });
+
+      const service = new GraphQLSitemapService({ endpoint, apiKey });
+      await service.fetchExportSitemap('ua', rootItemPath).catch((error) => {
+        expect(error.message).to.equal(
+          `The item path ${rootItemPath} did not return a valid item ID`
+        );
+      });
+
+      return expect(nock.isDone()).to.be.true;
     });
   });
 });

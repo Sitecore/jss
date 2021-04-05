@@ -58,7 +58,7 @@ export {
   GraphQLSitemapServiceConfig,
 } from './services/graphql-sitemap-service';
 
-export { StaticPath } from './sharedTypes/sitemap';
+export { StaticPath } from './services/graphql-sitemap-service';
 
 export {
   ComponentPropsReactContext,

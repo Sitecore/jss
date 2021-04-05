@@ -77,7 +77,7 @@ export interface GraphQLDictionaryServiceConfig extends CacheOptions {
 }
 
 /**
- * A reply from the GraphQL Sitecore Dictionary Service
+ * A reply from the GraphQL endpoint for the 'DictionarySearch' query
  */
 type DictionaryQueryResult = {
   search: {
@@ -98,7 +98,7 @@ type DictionaryQueryResult = {
 
 /**
  * Fetch dictionary data using  Sitecore's GraphQL API.
- * Uses graphql-request as the default library for fetching graphql data (@see GraphQLRequestClient).
+ * Note: Uses graphql-request as the default library for fetching graphql data (@see GraphQLRequestClient).
  */
 export class GraphQLDictionaryService extends DictionaryServiceBase {
   /**
