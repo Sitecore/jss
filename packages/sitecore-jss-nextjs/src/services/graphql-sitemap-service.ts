@@ -211,7 +211,7 @@ export class GraphQLSitemapService {
     return ([] as StaticPath[]).concat(...paths);
   }
 
-  private async fetch(
+  protected async fetch(
     client: GraphQLRequestClient,
     language: string,
     rootItemId: string,
