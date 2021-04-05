@@ -229,7 +229,8 @@ export class GraphQLSitemapService {
 
     while (hasNext) {
       const fetchResponse = await client.request<SitePageQueryResult>(query, {
-        rootItemId,
+        // `search` query only works with lowercase GUIDs
+        rootItemId: rootItemId.toLowerCase(),
         language,
         pageSize: this.options.pageSize,
         after,
