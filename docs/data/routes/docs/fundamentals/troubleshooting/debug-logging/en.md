@@ -19,16 +19,16 @@ To output all debug logs available, set the `DEBUG` environment variable to `sit
 DEBUG=sitecore-jss:*
 ```
 
-Or be selective and show for example only HTTP logs.
+Or be selective and show for example only layout service logs.
 
 ```
-DEBUG=sitecore-jss:http
+DEBUG=sitecore-jss:layout
 ```
 
-Or show all _but_ HTTP logs (`-` prefix will exclude).
+Or show all _but_ layout service logs (`-` prefix will exclude).
 
 ```
-DEBUG=sitecore-jss:*,-sitecore-jss:http
+DEBUG=sitecore-jss:*,-sitecore-jss:layout
 ```
 
 > To learn more about the `DEBUG` syntax, see [debug](https://www.npmjs.com/package/debug#wildcards).
@@ -39,7 +39,7 @@ The following lists all namespaces available, along with the applicable Sitecore
 
 | Namespace | Package(s) / Sample(s) | Description |
 | --- | --- | --- |
-| `sitecore-jss:http` | `sitecore-jss`, `nextjs`, `node-headless-ssr-experience-edge` | Low-level HTTP request and response logging for default fetch wrappers (`GraphQLRequestClient` and `AxiosDataFetcher`). |
+| `sitecore-jss:http` | `sitecore-jss`, `nextjs` | HTTP request and response logging for default fetch wrappers (`GraphQLRequestClient` and `AxiosDataFetcher`). |
 | `sitecore-jss:dictionary` | `sitecore-jss`, `nextjs`, `node-headless-ssr-experience-edge` | Trace logging for dictionary service implementations (`GraphQLDictionaryService` and `RestDictionaryService`). |
 | `sitecore-jss:layout` | `sitecore-jss`, `nextjs`, `node-headless-ssr-experience-edge` | Trace logging for layout service implementations (`GraphQLLayoutService` and `RestLayoutService`). |
 | `sitecore-jss:experience-editor` | `sitecore-jss-nextjs`, `nextjs` | Trace logging for Next.js Experience Editor integration middleware. |
