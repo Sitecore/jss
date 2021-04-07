@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse, AxiosError } from 'axios';
-import { debugHttp as debug } from './debug';
+import debug from './debug';
 
 export type AxiosDataFetcherHandlers = {
   /**
@@ -57,14 +57,17 @@ export class AxiosDataFetcher {
     // however, request interceptors are REVERSED (https://github.com/axios/axios/issues/1663).
     // Hence, we're adding our request debug logging first (since we want that performed after any onReq)
     // and our response debug logging second (since we want that performed after any onRes).
-    if (debug.enabled) {
+    if (debug.http.enabled) {
       this.instance.interceptors.request.use(
         (config: AxiosRequestConfig) => {
-          debug('request: %o', config);
+          debug.http('request: %o', config);
           return config;
         },
         (error: unknown) => {
-          debug('request error: %o', isAxiosError(error) ? (error as AxiosError).toJSON() : error);
+          debug.http(
+            'request error: %o',
+            isAxiosError(error) ? (error as AxiosError).toJSON() : error
+          );
           return Promise.reject(error);
         }
       );
@@ -75,17 +78,20 @@ export class AxiosDataFetcher {
     if (onRes) {
       this.instance.interceptors.response.use(onRes, onResError);
     }
-    if (debug.enabled) {
+    if (debug.http.enabled) {
       this.instance.interceptors.response.use(
         (response: AxiosResponse) => {
           // Note we're removing redundant properties (already part of request log above) to trim down log entry
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { request, config, ...rest } = response;
-          debug('response: %o', rest);
+          debug.http('response: %o', rest);
           return response;
         },
         (error: unknown) => {
-          debug('response error: %o', isAxiosError(error) ? (error as AxiosError).toJSON() : error);
+          debug.http(
+            'response error: %o',
+            isAxiosError(error) ? (error as AxiosError).toJSON() : error
+          );
           return Promise.reject(error);
         }
       );

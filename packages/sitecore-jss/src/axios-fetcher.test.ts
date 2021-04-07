@@ -5,8 +5,8 @@ import MockAdapter from 'axios-mock-adapter';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
-import debug from 'debug';
-import { debugHttp } from './debug';
+import debugApi from 'debug';
+import debug from './debug';
 
 use(spies);
 
@@ -16,22 +16,22 @@ describe('AxiosDataFetcher', () => {
 
   before(() => {
     mock = new MockAdapter(axios);
-    debugNamespaces = debug.disable();
-    debug.enable(debugHttp.namespace);
+    debugNamespaces = debugApi.disable();
+    debugApi.enable(debug.http.namespace);
   });
 
   beforeEach(() => {
-    spy.on(debugHttp, 'log', () => true);
+    spy.on(debug.http, 'log', () => true);
   });
 
   afterEach(() => {
     mock.reset();
-    spy.restore(debugHttp);
+    spy.restore(debug.http);
   });
 
   after(() => {
     mock.restore();
-    debug.enable(debugNamespaces);
+    debugApi.enable(debugNamespaces);
   });
 
   describe('fetch', () => {
@@ -184,7 +184,7 @@ describe('AxiosDataFetcher', () => {
       const fetcher = new AxiosDataFetcher();
 
       await fetcher.fetch('/home');
-      expect(debugHttp.log, 'request and response log').to.be.called.twice;
+      expect(debug.http.log, 'request and response log').to.be.called.twice;
     });
 
     it('should debug log request and response error', () => {
@@ -196,7 +196,7 @@ describe('AxiosDataFetcher', () => {
       const fetcher = new AxiosDataFetcher();
 
       return fetcher.fetch('/home').catch(() => {
-        expect(debugHttp.log, 'request and response error log').to.be.called.twice;
+        expect(debug.http.log, 'request and response error log').to.be.called.twice;
       });
     });
   });

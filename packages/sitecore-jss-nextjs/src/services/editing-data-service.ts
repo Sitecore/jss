@@ -1,7 +1,6 @@
-import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditingData, EditingPreviewData } from '../sharedTypes/editing-data';
 import { getJssEditingSecret } from '../utils';
-import { debugExperienceEditor as debug } from '../debug';
 
 export const QUERY_PARAM_EDITING_SECRET = 'secret';
 
@@ -55,7 +54,7 @@ export class EditingDataService {
       serverUrl,
     } as EditingPreviewData;
 
-    debug('storing editing data for %o: %o', previewData, data);
+    debug.experienceEditor('storing editing data for %o: %o', previewData, data);
     return this.dataFetcher.put(url, data).then(() => {
       return previewData;
     });
@@ -69,7 +68,7 @@ export class EditingDataService {
   async getEditingData(previewData: EditingPreviewData): Promise<EditingData | undefined> {
     const url = this.getUrl(previewData.serverUrl, previewData.key);
 
-    debug('fetching editing data for %o', previewData);
+    debug.experienceEditor('fetching editing data for %o', previewData);
     return this.dataFetcher.get<EditingData>(url).then((response: { data: EditingData }) => {
       return response.data;
     });

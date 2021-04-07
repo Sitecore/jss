@@ -11,7 +11,7 @@ The Sitecore JSS npm packages utilize the [debug](https://www.npmjs.com/package/
 
 All Sitecore JSS logs are organized under the root namespace `sitecore-jss`. Logging is turned off by default and can be conditionally turned on by using the `DEBUG` environment variable.
 
-> Note: The debug logs currently only include server-side code, so there is no benefit to [enabling debug logging in the browser](https://www.npmjs.com/package/debug#browser-support).
+> Note: The debug logs only include server-side code, so there is no benefit to [enabling debug logging in the browser](https://www.npmjs.com/package/debug#browser-support).
 
 To output all debug logs available, set the `DEBUG` environment variable to `sitecore-jss:*` (`*` is used as a wildcard).
 

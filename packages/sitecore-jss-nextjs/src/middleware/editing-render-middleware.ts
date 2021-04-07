@@ -1,10 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataService, editingDataService } from '../services/editing-data-service';
 import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
 import { getJssEditingSecret } from '../utils';
-import { debugExperienceEditor as debug } from '../debug';
 
 export interface EditingRenderMiddlewareConfig {
   /**
@@ -72,10 +71,15 @@ export class EditingRenderMiddleware {
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     const { method, query, body, headers } = req;
 
-    debug('invoked editing render middleware: %o', { method, query, headers, body });
+    debug.experienceEditor('invoked editing render middleware: %o', {
+      method,
+      query,
+      headers,
+      body,
+    });
 
     if (method !== 'POST') {
-      debug('invalid method - sent %s expected POST', method);
+      debug.experienceEditor('invalid method - sent %s expected POST', method);
       res.setHeader('Allow', 'POST');
       return res.status(405).json({
         html: `<html><body>Invalid request method '${method}'</body></html>`,
@@ -85,7 +89,11 @@ export class EditingRenderMiddleware {
     // Validate secret
     const secret = query[QUERY_PARAM_EDITING_SECRET] ?? body?.jssEditingSecret;
     if (secret !== getJssEditingSecret()) {
-      debug('invalid editing secret - sent "%s" expected "%s"', secret, getJssEditingSecret());
+      debug.experienceEditor(
+        'invalid editing secret - sent "%s" expected "%s"',
+        secret,
+        getJssEditingSecret()
+      );
       return res.status(401).json({
         html: '<html><body>Missing or invalid secret</body></html>',
       });
@@ -113,7 +121,7 @@ export class EditingRenderMiddleware {
       // Make actual render request for page route, passing on preview cookies.
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
       const requestUrl = this.resolvePageUrl(serverUrl, editingData.path);
-      debug('fetching page route for %s', editingData.path);
+      debug.experienceEditor('fetching page route for %s', editingData.path);
       const pageRes = await this.dataFetcher.get<string>(`${requestUrl}?timestamp=${Date.now()}`, {
         headers: {
           Cookie: cookies.join(';'),
@@ -128,7 +136,7 @@ export class EditingRenderMiddleware {
       // show correct placeholders, so save and refresh won't be needed after adding each rendering
       html = html.replace(new RegExp('phkey', 'g'), 'key');
 
-      debug('rendered html: %s', html);
+      debug.experienceEditor('rendered html: %s', html);
 
       // Return expected JSON result
       res.status(200).json({ html });

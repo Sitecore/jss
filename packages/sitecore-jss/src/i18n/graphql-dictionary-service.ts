@@ -1,7 +1,7 @@
 import { GraphQLRequestClient } from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
-import { debugDictionary as debug } from '../debug';
+import debug from '../debug';
 
 const DEFAULTS = Object.freeze({
   pageSize: 10,
@@ -154,17 +154,17 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     const cacheKey = this.options.siteName + language;
     const cachedValue = this.getCacheValue(cacheKey);
     if (cachedValue) {
-      debug('using cached dictionary data for %s %s', language, this.options.siteName);
+      debug.dictionary('using cached dictionary data for %s %s', language, this.options.siteName);
       return cachedValue;
     }
 
     const client = new GraphQLRequestClient(this.options.endpoint, this.options.apiKey);
     if (!this.options.rootItemId) {
-      debug('fetching site root for %s %s', language, this.options.siteName);
+      debug.dictionary('fetching site root for %s %s', language, this.options.siteName);
       this.options.rootItemId = await getSiteRoot(client, this.options.siteName, language);
     }
 
-    debug('fetching dictionary data for %s %s', language, this.options.siteName);
+    debug.dictionary('fetching dictionary data for %s %s', language, this.options.siteName);
     const results = await this.getDictionaryPhrases(client, language);
     this.setCacheValue(cacheKey, results);
     return results;

@@ -1,5 +1,15 @@
 import debug from 'debug';
 
-export const debugHttp = debug('sitecore-jss:http');
-export const debugLayout = debug('sitecore-jss:layout');
-export const debugDictionary = debug('sitecore-jss:dictionary');
+const rootNamespace = 'sitecore-jss';
+
+/**
+ * Default Sitecore JSS 'debug' module debuggers. Uses namespace prefix 'sitecore-jss:'.
+ * See {@link https://www.npmjs.com/package/debug} for details.
+ */
+export default Object.freeze({
+  http: debug(`${rootNamespace}:http`),
+  layout: debug(`${rootNamespace}:layout`),
+  dictionary: debug(`${rootNamespace}:dictionary`),
+  experienceEditor: debug(`${rootNamespace}:experience-editor`),
+  sitemap: debug(`${rootNamespace}:sitemap`),
+});

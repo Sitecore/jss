@@ -2,7 +2,7 @@ import { AxiosDataFetcher } from '../axios-fetcher';
 import { fetchData } from '../data-api';
 import { HttpDataFetcher } from '../data-fetcher';
 import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
-import { debugDictionary as debug } from '../debug';
+import debug from '../debug';
 
 /**
  * A reply from the REST Sitecore Dictionary Service
@@ -56,11 +56,11 @@ export class RestDictionaryService extends DictionaryServiceBase {
     const endpoint = this.getUrl(language);
     const cachedValue = this.getCacheValue(endpoint);
     if (cachedValue) {
-      debug('using cached dictionary data for %s %s', language, this.options.siteName);
+      debug.dictionary('using cached dictionary data for %s %s', language, this.options.siteName);
       return cachedValue;
     }
 
-    debug('fetching dictionary data for %s %s', language, this.options.siteName);
+    debug.dictionary('fetching dictionary data for %s %s', language, this.options.siteName);
     const fetcher = this.options.dataFetcher || this.defaultFetcher;
     const response = await fetchData<RestDictionaryServiceData>(endpoint, fetcher, {
       sc_apikey: this.options.apiKey,

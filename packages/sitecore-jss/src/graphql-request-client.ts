@@ -1,6 +1,6 @@
 import { GraphQLClient, ClientError } from 'graphql-request';
 import { DocumentNode } from 'graphql';
-import { debugHttp as debug } from './debug';
+import debug from './debug';
 
 export class GraphQLRequestClient {
   private client: GraphQLClient;
@@ -30,15 +30,20 @@ export class GraphQLRequestClient {
     return new Promise((resolve, reject) => {
       // Note we don't have access to raw request/response with graphql-request
       // (or nice hooks like we have with Axios), but we should log whatever we have.
-      debug('request: %o', { url: this.endpoint, headers: this.headers, query, variables });
+      debug.http('request: %o', {
+        url: this.endpoint,
+        headers: this.headers,
+        query,
+        variables,
+      });
       this.client
         .request(query, variables)
         .then((data: T) => {
-          debug('response: %o', data);
+          debug.http('response: %o', data);
           resolve(data);
         })
         .catch((error: ClientError) => {
-          debug('response error: %o', error.response);
+          debug.http('response error: %o', error.response);
           return reject(error);
         });
     });

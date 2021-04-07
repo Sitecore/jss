@@ -4,8 +4,8 @@ import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
 import { GraphQLRequestClient } from './graphql-request-client';
-import debug from 'debug';
-import { debugHttp } from './debug';
+import debugApi from 'debug';
+import debug from './debug';
 
 use(spies);
 
@@ -14,21 +14,21 @@ describe('GraphQLRequestClient', () => {
   let debugNamespaces: string;
 
   before(() => {
-    debugNamespaces = debug.disable();
-    debug.enable(debugHttp.namespace);
+    debugNamespaces = debugApi.disable();
+    debugApi.enable(debug.http.namespace);
   });
 
   beforeEach(() => {
-    spy.on(debugHttp, 'log', () => true);
+    spy.on(debug.http, 'log', () => true);
   });
 
   afterEach(() => {
     nock.cleanAll();
-    spy.restore(debugHttp);
+    spy.restore(debug.http);
   });
 
   after(() => {
-    debug.enable(debugNamespaces);
+    debugApi.enable(debugNamespaces);
   });
 
   it('should execute graphql request', async () => {
@@ -76,7 +76,7 @@ describe('GraphQLRequestClient', () => {
     const graphQLClient = new GraphQLRequestClient(endpoint);
     await graphQLClient.request('test');
 
-    expect(debugHttp.log, 'request and response log').to.be.called.twice;
+    expect(debug.http.log, 'request and response log').to.be.called.twice;
   });
 
   it('should debug log request and response error', () => {
@@ -86,7 +86,7 @@ describe('GraphQLRequestClient', () => {
 
     const graphQLClient = new GraphQLRequestClient(endpoint);
     return graphQLClient.request('test').catch(() => {
-      expect(debugHttp.log, 'request and response error log').to.be.called.twice;
+      expect(debug.http.log, 'request and response error log').to.be.called.twice;
     });
   });
 });
