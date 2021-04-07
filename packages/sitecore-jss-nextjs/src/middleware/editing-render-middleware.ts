@@ -55,7 +55,8 @@ export class EditingRenderMiddleware {
    */
   constructor(config?: EditingRenderMiddlewareConfig) {
     this.editingDataService = config?.editingDataService ?? editingDataService;
-    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.experienceEditor });
+    this.dataFetcher =
+      config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.experienceEditor });
     this.resolvePageUrl = config?.resolvePageUrl ?? this.defaultResolvePageUrl;
     this.resolveServerUrl = config?.resolveServerUrl ?? this.defaultResolveServerUrl;
   }
