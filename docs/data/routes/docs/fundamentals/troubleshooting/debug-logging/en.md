@@ -5,11 +5,13 @@ title: Debug Logging
 ---
 # Debug Logging in JSS
 
-The Sitecore JSS SDKs utilize the [debug](https://www.npmjs.com/package/debug) module for debug logging.
+The Sitecore JSS npm packages utilize the [debug](https://www.npmjs.com/package/debug) module for debug logging.
 
 > `debug` is like an augmented version of `console.log`, but unlike `console.log`, you don't have to comment out debug logs in production code. The flipside being that you can easily enable debug logs in production when necessary using _environment variables_.
 
 All Sitecore JSS logs are organized under the root namespace `sitecore-jss`. Logging is turned off by default and can be conditionally turned on by using the `DEBUG` environment variable.
+
+> Note: The debug logs currently only include server-side code, so there is no benefit to [enabling debug logging in the browser](https://www.npmjs.com/package/debug#browser-support).
 
 To output all debug logs available, set the `DEBUG` environment variable to `sitecore-jss:*` (`*` is used as a wildcard).
 
@@ -17,7 +19,7 @@ To output all debug logs available, set the `DEBUG` environment variable to `sit
 DEBUG=sitecore-jss:*
 ```
 
-Or be selective and show only HTTP logs.
+Or be selective and show for example only HTTP logs.
 
 ```
 DEBUG=sitecore-jss:http

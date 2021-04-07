@@ -16,7 +16,7 @@ title: Documentation
 
 ## Debug logging
 
-You can enable debug logging of the Sitecore JSS SDKs by setting the `DEBUG` environment variable. In your `.env` (or `.env.local` for local environments), add the following line:
+You can enable debug logging of the Sitecore JSS npm packages by setting the `DEBUG` environment variable. In your `.env` (or `.env.local` for local environments), add the following line:
 
 ```
 DEBUG=sitecore-jss:*
