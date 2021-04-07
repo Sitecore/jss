@@ -6,8 +6,6 @@ To redirect pages based on redirect links provided by Content Authors:
 2. [Use the redirect template for new and existing pages.](#use-the-redirect-template-with-new-and-existing-pages)
 3. [Customize the `node-headless-ssr-proxy` sample to handle redirects.](#customize-the-node-headless-ssr-proxy-sample-to-handle-redirects)
 
-> This walkthrough assumes you have followed the ["Headless SSR via `sitecore-jss-proxy`" documentation](/docs/techniques/ssr/headless-mode-ssr) to set up the headless server-side rendering of your application.
-
 ## Create a page template with a redirect field
 
 In your Sitecore instance:
@@ -21,6 +19,8 @@ In your Sitecore instance:
 2. To apply the template to existing items, [edit or change the template that an item is based on](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/edit-or-change-the-template-that-an-item-is-based-on.html).
 
 ## Customize the `node-headless-ssr-proxy` sample to handle redirects
+
+> This walkthrough assumes you have followed the ["Headless SSR via `sitecore-jss-proxy`" documentation](/docs/techniques/ssr/headless-mode-ssr) to set up the headless server-side rendering of your application.
 
 1. In the  `/.env` file, define environment variables: 
 
@@ -132,4 +132,3 @@ In your Sitecore instance:
      });
    });
    ```
-
