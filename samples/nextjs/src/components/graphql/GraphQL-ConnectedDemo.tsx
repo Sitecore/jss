@@ -104,7 +104,9 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
     return null;
   }
 
-  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, config.sitecoreApiKey);
+  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
+    apiKey: config.sitecoreApiKey,
+  });
 
   const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
     datasource: rendering.dataSource,
@@ -125,7 +127,9 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
     return null;
   }
 
-  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, config.sitecoreApiKey);
+  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
+    apiKey: config.sitecoreApiKey,
+  });
 
   const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
     datasource: rendering.dataSource,

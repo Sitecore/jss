@@ -4,9 +4,9 @@ import * as constants from './constants';
 
 export { dataApi, mediaApi, constants };
 
-export { default as debug } from './debug';
+export { default as debug, Debugger } from './debug';
 
-export { GraphQLRequestClient } from './graphql-request-client';
+export { GraphQLRequestClient, GraphQLRequestClientConfig } from './graphql-request-client';
 
 export { LayoutServiceRequestOptions } from './data-api';
 

@@ -36,7 +36,8 @@ export class EditingDataService {
     if (!this.apiRoute.includes('[key]')) {
       throw new Error(`The specified apiRoute '${this.apiRoute}' is missing '[key]'.`);
     }
-    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher();
+    this.dataFetcher =
+      config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.experienceEditor });
   }
 
   /**

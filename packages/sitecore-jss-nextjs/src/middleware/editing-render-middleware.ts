@@ -55,7 +55,7 @@ export class EditingRenderMiddleware {
    */
   constructor(config?: EditingRenderMiddlewareConfig) {
     this.editingDataService = config?.editingDataService ?? editingDataService;
-    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher();
+    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.experienceEditor });
     this.resolvePageUrl = config?.resolvePageUrl ?? this.defaultResolvePageUrl;
     this.resolveServerUrl = config?.resolveServerUrl ?? this.defaultResolveServerUrl;
   }
@@ -71,7 +71,7 @@ export class EditingRenderMiddleware {
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     const { method, query, body, headers } = req;
 
-    debug.experienceEditor('invoked editing render middleware: %o', {
+    debug.experienceEditor('editing render middleware start: %o', {
       method,
       query,
       headers,
@@ -136,10 +136,11 @@ export class EditingRenderMiddleware {
       // show correct placeholders, so save and refresh won't be needed after adding each rendering
       html = html.replace(new RegExp('phkey', 'g'), 'key');
 
-      debug.experienceEditor('rendered html: %s', html);
+      const body = { html };
 
       // Return expected JSON result
-      res.status(200).json({ html });
+      debug.experienceEditor('editing render middleware end: %o', { status: 200, body });
+      res.status(200).json(body);
     } catch (error) {
       console.error(error);
 

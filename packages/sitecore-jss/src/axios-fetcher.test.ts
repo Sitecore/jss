@@ -17,16 +17,18 @@ describe('AxiosDataFetcher', () => {
   before(() => {
     mock = new MockAdapter(axios);
     debugNamespaces = debugApi.disable();
-    debugApi.enable(debug.http.namespace);
+    debugApi.enable(`${debug.http.namespace},${debug.layout.namespace}`);
   });
 
   beforeEach(() => {
     spy.on(debug.http, 'log', () => true);
+    spy.on(debug.layout, 'log', () => true);
   });
 
   afterEach(() => {
     mock.reset();
     spy.restore(debug.http);
+    spy.restore(debug.layout);
   });
 
   after(() => {
@@ -198,6 +200,18 @@ describe('AxiosDataFetcher', () => {
       return fetcher.fetch('/home').catch(() => {
         expect(debug.http.log, 'request and response error log').to.be.called.twice;
       });
+    });
+
+    it('should use debugger override', async () => {
+      mock.onGet().reply((config) => {
+        // append axios config as response data
+        return [200, { ...config }];
+      });
+
+      const fetcher = new AxiosDataFetcher({ debugger: debug.layout });
+
+      await fetcher.fetch('/home');
+      expect(debug.layout.log, 'request and response log').to.be.called.twice;
     });
   });
 

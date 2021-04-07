@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse, AxiosError } from 'axios';
-import debug from './debug';
+import debuggers, { Debugger } from './debug';
 
-export type AxiosDataFetcherHandlers = {
+export type AxiosDataFetcherOptions = {
   /**
    * Callback which executed before request is sent. You can modify axios config.
    * {@link https://github.com/axios/axios#interceptors}
@@ -26,9 +26,13 @@ export type AxiosDataFetcherHandlers = {
    * @param {unknown} error
    */
   onResError?: (error: unknown) => unknown;
+  /**
+   * Override debugger for logging. Uses 'sitecore-jss:http' by default.
+   */
+  debugger?: Debugger;
 };
 
-export type AxiosDataFetcherConfig = AxiosRequestConfig & AxiosDataFetcherHandlers;
+export type AxiosDataFetcherConfig = AxiosRequestConfig & AxiosDataFetcherOptions;
 
 /**
  * Determines whether error is AxiosError
@@ -53,21 +57,20 @@ export class AxiosDataFetcher {
     }
     this.instance = axios.create(axiosConfig);
 
+    const debug = dataFetcherConfig.debugger || debuggers.http;
+
     // Note Axios response interceptors are applied in registered order;
     // however, request interceptors are REVERSED (https://github.com/axios/axios/issues/1663).
     // Hence, we're adding our request debug logging first (since we want that performed after any onReq)
     // and our response debug logging second (since we want that performed after any onRes).
-    if (debug.http.enabled) {
+    if (debug.enabled) {
       this.instance.interceptors.request.use(
         (config: AxiosRequestConfig) => {
-          debug.http('request: %o', config);
+          debug('request: %o', config);
           return config;
         },
         (error: unknown) => {
-          debug.http(
-            'request error: %o',
-            isAxiosError(error) ? (error as AxiosError).toJSON() : error
-          );
+          debug('request error: %o', isAxiosError(error) ? (error as AxiosError).toJSON() : error);
           return Promise.reject(error);
         }
       );
@@ -78,20 +81,17 @@ export class AxiosDataFetcher {
     if (onRes) {
       this.instance.interceptors.response.use(onRes, onResError);
     }
-    if (debug.http.enabled) {
+    if (debug.enabled) {
       this.instance.interceptors.response.use(
         (response: AxiosResponse) => {
           // Note we're removing redundant properties (already part of request log above) to trim down log entry
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { request, config, ...rest } = response;
-          debug.http('response: %o', rest);
+          debug('response: %o', rest);
           return response;
         },
         (error: unknown) => {
-          debug.http(
-            'response error: %o',
-            isAxiosError(error) ? (error as AxiosError).toJSON() : error
-          );
+          debug('response error: %o', isAxiosError(error) ? (error as AxiosError).toJSON() : error);
           return Promise.reject(error);
         }
       );

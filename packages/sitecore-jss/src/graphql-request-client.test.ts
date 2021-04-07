@@ -15,16 +15,18 @@ describe('GraphQLRequestClient', () => {
 
   before(() => {
     debugNamespaces = debugApi.disable();
-    debugApi.enable(debug.http.namespace);
+    debugApi.enable(`${debug.http.namespace},${debug.layout.namespace}`);
   });
 
   beforeEach(() => {
     spy.on(debug.http, 'log', () => true);
+    spy.on(debug.layout, 'log', () => true);
   });
 
   afterEach(() => {
     nock.cleanAll();
     spy.restore(debug.http);
+    spy.restore(debug.layout);
   });
 
   after(() => {
@@ -60,7 +62,7 @@ describe('GraphQLRequestClient', () => {
         },
       });
 
-    const graphQLClient = new GraphQLRequestClient(endpoint, apiKey);
+    const graphQLClient = new GraphQLRequestClient(endpoint, { apiKey });
     await graphQLClient.request('test');
   });
 
@@ -88,5 +90,20 @@ describe('GraphQLRequestClient', () => {
     return graphQLClient.request('test').catch(() => {
       expect(debug.http.log, 'request and response error log').to.be.called.twice;
     });
+  });
+
+  it('should use debugger override', async () => {
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(200, {
+        data: {
+          result: 'Hello world...',
+        },
+      });
+
+    const graphQLClient = new GraphQLRequestClient(endpoint, { debugger: debug.layout });
+    await graphQLClient.request('test');
+
+    expect(debug.layout.log, 'request and response log').to.be.called.twice;
   });
 });

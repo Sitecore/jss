@@ -216,7 +216,9 @@ export class RestLayoutService implements LayoutService {
    * @returns default fetcher
    */
   private getDefaultFetcher = <T>(req?: IncomingMessage, res?: ServerResponse) => {
-    const config = {} as AxiosDataFetcherConfig;
+    const config = {
+      debugger: debug.layout,
+    } as AxiosDataFetcherConfig;
     if (req && res) {
       config.onReq = this.setupReqHeaders(req);
       config.onRes = this.setupResHeaders(res);
@@ -304,7 +306,7 @@ export class GraphQLLayoutService implements LayoutService {
   private createClient(): GraphQLRequestClient {
     const { endpoint, apiKey } = this.serviceConfig;
 
-    return new GraphQLRequestClient(endpoint, apiKey);
+    return new GraphQLRequestClient(endpoint, { apiKey, debugger: debug.layout });
   }
 
   /**

@@ -158,7 +158,10 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       return cachedValue;
     }
 
-    const client = new GraphQLRequestClient(this.options.endpoint, this.options.apiKey);
+    const client = new GraphQLRequestClient(this.options.endpoint, {
+      apiKey: this.options.apiKey,
+      debugger: debug.dictionary,
+    });
     if (!this.options.rootItemId) {
       debug.dictionary('fetching site root for %s %s', language, this.options.siteName);
       this.options.rootItemId = await getSiteRoot(client, this.options.siteName, language);

@@ -193,7 +193,10 @@ export class GraphQLSitemapService {
       throw new RangeError('The root item path must be a non-empty string');
     }
 
-    const client = new GraphQLRequestClient(this.options.endpoint, this.options.apiKey);
+    const client = new GraphQLRequestClient(this.options.endpoint, {
+      apiKey: this.options.apiKey,
+      debugger: debug.sitemap,
+    });
     const rootItemId = await this.getRootItemId(client, rootItemPath);
 
     if (!rootItemId) {
