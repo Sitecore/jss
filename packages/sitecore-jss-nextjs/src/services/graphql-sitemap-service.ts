@@ -1,4 +1,4 @@
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
+import { GraphQLRequestClient, debug } from '@sitecore-jss/sitecore-jss';
 
 export type StaticPath = {
   params: {
@@ -193,7 +193,10 @@ export class GraphQLSitemapService {
       throw new RangeError('The root item path must be a non-empty string');
     }
 
-    const client = new GraphQLRequestClient(this.options.endpoint, this.options.apiKey);
+    const client = new GraphQLRequestClient(this.options.endpoint, {
+      apiKey: this.options.apiKey,
+      debugger: debug.sitemap,
+    });
     const rootItemId = await this.getRootItemId(client, rootItemPath);
 
     if (!rootItemId) {
@@ -203,6 +206,7 @@ export class GraphQLSitemapService {
     // Fetch paths using all locales
     const paths = await Promise.all(
       languages.map((language) => {
+        debug.sitemap('fetching sitemap data for %s', language);
         return this.fetch(client, language, rootItemId, formatStaticPath);
       })
     );
@@ -227,7 +231,8 @@ export class GraphQLSitemapService {
 
     while (hasNext) {
       const fetchResponse = await client.request<SitePageQueryResult>(query, {
-        rootItemId,
+        // `search` query only works with lowercase GUIDs
+        rootItemId: rootItemId.toLowerCase(),
         language,
         pageSize: this.options.pageSize,
         after,
@@ -269,6 +274,7 @@ export class GraphQLSitemapService {
     client: GraphQLRequestClient,
     rootItemPath: string
   ): Promise<string | undefined> {
+    debug.sitemap('fetching root item id for %s', rootItemPath);
     const query = this.getRootItemIdQuery(rootItemPath);
     const data = await client.request<{ item: { id: string } | null }>(query);
     return data.item?.id;

@@ -5,22 +5,35 @@ import MockAdapter from 'axios-mock-adapter';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
+import debugApi from 'debug';
+import debug from './debug';
 
 use(spies);
 
 describe('AxiosDataFetcher', () => {
   let mock: MockAdapter;
+  let debugNamespaces: string;
 
   before(() => {
     mock = new MockAdapter(axios);
+    debugNamespaces = debugApi.disable();
+    debugApi.enable(`${debug.http.namespace},${debug.layout.namespace}`);
+  });
+
+  beforeEach(() => {
+    spy.on(debug.http, 'log', () => true);
+    spy.on(debug.layout, 'log', () => true);
   });
 
   afterEach(() => {
     mock.reset();
+    spy.restore(debug.http);
+    spy.restore(debug.layout);
   });
 
   after(() => {
     mock.restore();
+    debugApi.enable(debugNamespaces);
   });
 
   describe('fetch', () => {
@@ -40,7 +53,7 @@ describe('AxiosDataFetcher', () => {
       });
     });
 
-    it('should execute GET request withouth data', () => {
+    it('should execute GET request without data', () => {
       mock.onGet().reply((config) => {
         // append axios config as response data
         return [200, { ...config }];
@@ -162,6 +175,43 @@ describe('AxiosDataFetcher', () => {
         expect(onReqSpy).to.be.called.once;
         expect(onResSpy).to.be.called.once;
       });
+    });
+
+    it('should debug log request and response', async () => {
+      mock.onGet().reply((config) => {
+        // append axios config as response data
+        return [200, { ...config }];
+      });
+
+      const fetcher = new AxiosDataFetcher();
+
+      await fetcher.fetch('/home');
+      expect(debug.http.log, 'request and response log').to.be.called.twice;
+    });
+
+    it('should debug log request and response error', () => {
+      mock.onPost().reply((config) => {
+        // append axios config as response data
+        return [400, { ...config }];
+      });
+
+      const fetcher = new AxiosDataFetcher();
+
+      return fetcher.fetch('/home').catch(() => {
+        expect(debug.http.log, 'request and response error log').to.be.called.twice;
+      });
+    });
+
+    it('should use debugger override', async () => {
+      mock.onGet().reply((config) => {
+        // append axios config as response data
+        return [200, { ...config }];
+      });
+
+      const fetcher = new AxiosDataFetcher({ debugger: debug.layout });
+
+      await fetcher.fetch('/home');
+      expect(debug.layout.log, 'request and response log').to.be.called.twice;
     });
   });
 

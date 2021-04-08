@@ -208,6 +208,10 @@ export default {
               url: 'node-certificates',
               displayName: 'Sitecore CA certificates for Node.js',
             },
+            {
+              url: 'debug-logging',
+              displayName: 'Debug logging',
+            },
           ],
         },
       ],
