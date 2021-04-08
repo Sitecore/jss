@@ -30,7 +30,7 @@ interface DataSource {
   id: string;
 }
 
-interface ContextItemChild {
+interface Item {
   id: string;
   url: {
     path: string;
@@ -43,13 +43,17 @@ interface ContextItemChild {
   };
 }
 
+interface ItemSearchResults {
+  results: Item[];
+}
+
 interface GraphQlIntegratedDemoProps {
   fields: {
     data: {
       datasource: DataSource;
       contextItem: {
         id: string;
-        children: ContextItemChild[];
+        children: ItemSearchResults;
         pageTitle: {
           value: string;
         };
@@ -107,7 +111,7 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
           <br />
           children:
           <ul>
-            {contextItem.children.map((child: ContextItemChild) => (
+            {contextItem.children.results.map((child: Item) => (
               <li key={child.id}>
                 <NextLink href={child.url.path}>
                   <a>{child.pageTitle.value}</a>

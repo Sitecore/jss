@@ -76,7 +76,7 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
           <br />
           children:
           <ul>
-            {data.contextItem.children.map((child) => {
+            {data.contextItem.children.results.map((child) => {
               const routeItem = child as RouteItem;
 
               return (
