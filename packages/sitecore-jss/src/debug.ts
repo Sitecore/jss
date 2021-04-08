@@ -12,6 +12,6 @@ export default Object.freeze({
   http: debug(`${rootNamespace}:http`),
   layout: debug(`${rootNamespace}:layout`),
   dictionary: debug(`${rootNamespace}:dictionary`),
-  experienceEditor: debug(`${rootNamespace}:experience-editor`),
+  experienceEditor: debug(`${rootNamespace}:editing`),
   sitemap: debug(`${rootNamespace}:sitemap`),
 });

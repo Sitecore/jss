@@ -42,7 +42,7 @@ The following lists all namespaces available, along with the applicable Sitecore
 | `sitecore-jss:http` | `sitecore-jss`, `nextjs` | HTTP request and response logging for default fetch wrappers (`GraphQLRequestClient` and `AxiosDataFetcher`). |
 | `sitecore-jss:dictionary` | `sitecore-jss`, `nextjs`, `node-headless-ssr-experience-edge` | Trace logging for dictionary service implementations (`GraphQLDictionaryService` and `RestDictionaryService`). |
 | `sitecore-jss:layout` | `sitecore-jss`, `nextjs`, `node-headless-ssr-experience-edge` | Trace logging for layout service implementations (`GraphQLLayoutService` and `RestLayoutService`). |
-| `sitecore-jss:experience-editor` | `sitecore-jss-nextjs`, `nextjs` | Trace logging for Next.js Experience Editor integration middleware. |
+| `sitecore-jss:editing` | `sitecore-jss-nextjs`, `nextjs` | Trace logging for Next.js Experience Editor integration middleware. |
 | `sitecore-jss:sitemap` | `sitecore-jss-nextjs`, `nextjs` | Trace logging for Next.js GraphQL sitemap service (`GraphQLSitemapService`). |
 
 ## Advanced options
