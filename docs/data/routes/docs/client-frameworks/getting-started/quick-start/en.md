@@ -16,6 +16,10 @@ cd my-first-jss-app
 jss start
 ```
 
+> Using the JSS CLI, you can create applications for any versions of JSS and therefore ensure that your new JSS application is compatible with your licensed Sitecore XP version. To find out which version of JSS is compatible with your version of Sitecore XP, consult the [compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788). 
+> 
+> To create an application using a previous version of JSS, see an example in the [JSS CLI reference](/docs/fundamentals/cli).
+
 ## Step 1: Prerequisites
 
 To develop a JSS app, you will need:
@@ -71,6 +75,10 @@ Experimental templates are experimental specialized JSS examples. They are examp
 * `sitecore-javascript-renderings` This app shows how to render a JavaScript app as a rendering embedded within a traditional Sitecore MVC site. See [JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) for details. This template is flagged as deprecated as of Oct 2020 because these rendering don't scale well. They satisfy edge-case requirements, and should generally be avoided.
 
 ## Step 4: Create application using selected template
+
+> Your version of Sitecore XP might not support the features in the current version of JSS. To find out which version of JSS is compatible with your Sitecore XP version, consult the [compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788). 
+> 
+> To create an application using a previous version of JSS, see an example in the [JSS CLI reference](/docs/fundamentals/cli).
 
 Once you have selected a template, it's time to create your application.
 

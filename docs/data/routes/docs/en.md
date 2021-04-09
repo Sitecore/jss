@@ -10,6 +10,10 @@ New to JSS? Learn key concepts in the [introduction area](/docs/introduction/why
 
 Ready to get into code? The [Quick start](/docs/nextjs/getting-started-nextjs/walkthrough-dotnetnew) is written just for you.
 
+> To ensure that your new JSS application is compatible with your licensed Sitecore XP version, consult the [compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788). 
+> 
+> To create an application using a previous version of JSS, see an example in the [JSS CLI reference](/docs/fundamentals/cli).
+
 ## Questions?
 
 See the [Help, FAQ, and Known Issues](/help). Not there? [Ask on Sitecore StackExchange](https://sitecore.stackexchange.com/questions/tagged/jss).
