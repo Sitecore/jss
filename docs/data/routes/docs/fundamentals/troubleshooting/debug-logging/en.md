@@ -52,8 +52,10 @@ When running through Node.js, you can set a few additional environment variables
 | Name | Purpose |
 | --- | --- |
 | `DEBUG` |	Enables/disables specific debugging namespaces. |
+| `DEBUG_HIDE_DATE` | Hide date from debug output (non-TTY). Default is `false`. |
 | `DEBUG_COLORS` |	Whether or not to use colors in the debug output. Default is `true`. |
 | `DEBUG_DEPTH` |	Object inspection depth. Default is `2`. |
+| `DEBUG_MULTILINE` |	Pretty-print inspected objects on multiple lines. Default is `false` (single line). |
 | `DEBUG_SHOW_HIDDEN` |	Shows hidden properties on inspected objects. Default is `false`. |
 
 > To learn more about the `DEBUG_` environment variables, see [debug](https://www.npmjs.com/package/debug#environment-variables).
