@@ -179,9 +179,9 @@ These are less common issues that we have encountered.
 
 If the GraphQL schema changes, you must regenerate GraphQL introspection data. 
 
-In the sample app, you regenerate introspection data using the command `npm run graphql:update`.
+In the sample app, you regenerate introspection data using the command `jss graphql:update`.
 
-> The scripts that this calls depends on the `scjssconfig.json` file being present and populated.
+> The script that this calls depends on the `scjssconfig.json` file being present and populated.
 
 ### Vercel unable to show data from a local Sitecore environment
 If you are using [ngrok](https://ngrok.com/) to expose your local Sitecore endpoint to Vercel, verify that you are using the `host-header` flag.
