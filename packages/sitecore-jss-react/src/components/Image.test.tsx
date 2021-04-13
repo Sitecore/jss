@@ -4,7 +4,6 @@ import chai from 'chai';
 import chaiString from 'chai-string';
 import { mount } from 'enzyme';
 import React from 'react';
-import URL from 'url-parse';
 import { imageField as eeImageData } from '../testData/ee-data';
 import { Image } from './Image';
 
@@ -141,11 +140,11 @@ describe('<Image />', () => {
     });
 
     it('should update image url', () => {
-      const url = (URL as any)(img.getAttribute('src') as string, true);
+      const url = new URL(img.getAttribute('src') as string, 'http://test.com');
       expect(url.pathname).to.contain('/-/jssmedia/');
-      expect(url.query.h).to.equal(props.imageParams.h);
-      expect(url.query.w).to.equal(props.imageParams.w);
-      expect(url.query.hash).to.be.undefined;
+      expect(url.searchParams.get('h')).to.equal(props.imageParams.h);
+      expect(url.searchParams.get('w')).to.equal(props.imageParams.w);
+      expect(url.hash).to.be.empty;
     });
 
     it('should render <img /> with style and className props', () => {
