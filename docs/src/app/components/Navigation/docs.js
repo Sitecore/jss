@@ -301,6 +301,16 @@ export default {
           ],
         },
         {
+          url: 'redirection',
+          displayName: 'Redirection',
+          children: [
+            {
+              url: 'author-controlled-redirection-headless-ssr',
+              displayName: 'Author-controlled Redirects in Headless SSR',
+            }
+          ]
+        },
+        {
           url: 'content-translation',
           displayName: 'Translation',
         },
