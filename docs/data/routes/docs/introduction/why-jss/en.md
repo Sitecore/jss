@@ -8,7 +8,7 @@ title: What is JSS and Why
 ## A bit of context on Sitecore
 Sitecore is a platform for managing online content, experiences, and marketing workflows. Sitecore JavaScript SDK (JSS) is a set of npm packages that enable implementing Sitecore apps using modern JavaScript frameworks.
 
-Companies chose Sitecore because it is highly customizable through development. Yet, the power to make decisions about content remains with the Content Authors. For example, though developers can create a custom set of shopping cart UI components, it is up to the Content Author to arrange them on pages and populate content. In Sitecore, Content Authors build pages in a WYSIWYG editor.
+Companies choose Sitecore because it is highly customizable through development. Yet, the power to make decisions about content remains with the Content Authors. For example, though developers can create a custom set of shopping cart UI components, it is up to the Content Author to arrange them on pages and populate content. In Sitecore, Content Authors build pages in a WYSIWYG editor.
 ![Editing pages animation](/assets/img/editing-pages.gif)
 
 After they assemble components, Content Authors can apply Sitecore-specific features, such as personalization, to individual components and preview the variations. The following illustration shows some examples of how Content Authors may configure components.
