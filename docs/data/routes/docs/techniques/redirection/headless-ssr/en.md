@@ -29,12 +29,10 @@ To customize your `node-headless-ssr-proxy` application:
 1. In the  `/.env` file, define environment variables: 
 
    ```
-   SITECORE_JSS_APP_NAME="JssReactWeb"
-   SITECORE_API_HOST="https://cm.jss16.localhost"
-   SITECORE_HOSTNAME="https://react.jss16.localhost"
-   SITECORE_API_KEY="{5379B475-A885-4B62-9A51-EE79E5434650}"
-   SITECORE_GRAPHQL_ENDPOINT="https://cm.jss16.localhost/api/jssreactweb?sc_apikey={5379B475-A885-4B62-9A51-EE79E5434650}"
-   DEFAULT_LANGUAGE="en"
+   # ... other variables
+   SITECORE_HOSTNAME="<YOUR_JSS_APP_HOSTNAME>"
+   SITECORE_GRAPHQL_ENDPOINT="https://<YOUR_CM_HOSTNAME>/api/<YOUR_JSS_APP_NAME>?sc_apikey={<YOUR_API_KEY>}"
+   DEFAULT_LANGUAGE="<YOUR_DEFAULT_LANGUAGE>"
    ```
 
 2. Install the `dotenv` npm package to load the environment variables into the Node `process.env`:
