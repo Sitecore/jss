@@ -10,7 +10,7 @@ To redirect pages based on redirect links provided by Content Authors:
 
 ## Create a page template with a redirect field
 
-In your Sitecore instance:
+On your Sitecore instance:
 
 1. [Create a data template]((https://doc.sitecore.com/developers/101/sitecore-experience-manager/en/create-a-data-template.html)) called **Redirect Route** that inherits from the `App Route` template.
 2. Under the **Builder** tab, [add a field to the data template](https://doc.sitecore.com/developers/101/sitecore-experience-manager/en/add-a-field-to-a-data-template.html) of type **General Link** field named **Destination** and **Save**. 
