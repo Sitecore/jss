@@ -6,6 +6,8 @@ To redirect pages based on redirect links provided by Content Authors:
 2. [Use the redirect template for new and existing pages.](#use-the-redirect-template-with-new-and-existing-pages)
 3. [Customize the `node-headless-ssr-proxy` sample to handle redirects.](#customize-the-node-headless-ssr-proxy-sample-to-handle-redirects)
 
+> This walkthrough is useful only for applications created with the React/Vue/Angular SDKs. `sitecore-jss-proxy` is not intended for use with applications built using our Next.js SDK. 
+
 ## Create a page template with a redirect field
 
 In your Sitecore instance:
