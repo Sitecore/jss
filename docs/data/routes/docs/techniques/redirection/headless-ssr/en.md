@@ -50,7 +50,7 @@ To customize your `node-headless-ssr-proxy` application:
       ```javascript
       const graphQLEndpoint = process.env.SITECORE_GRAPHQL_ENDPOINT || serverBundle.graphQLEndpoint || `${apiHost}/api/${appName}`;
       
-      const defaultLanguage = process.env.DEFAULT_LANGUAGE || serverBundle.defaultLanguage || 'en';
+      const defaultLanguage = process.env.DEFAULT_LANGUAGE || serverBundle.defaultLanguage || 'en'; // replace 'en' with your fallback language
       
       const hostname = process.env.SITECORE_HOSTNAME || serverBundle.hostname || apiHost;
       ```
