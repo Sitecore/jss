@@ -22,7 +22,9 @@ On your Sitecore instance:
 
 ## Customize the `node-headless-ssr-proxy` sample to handle redirects
 
-> This walkthrough assumes you have followed the ["Headless SSR via `sitecore-jss-proxy`" documentation](/docs/techniques/ssr/headless-mode-ssr) to set up the headless server-side rendering of your application.
+> This walkthrough assumes you have followed the ["Headless SSR via `sitecore-jss-proxy`" documentation](/docs/techniques/ssr/headless-mode-ssr) to set up the headless server-side rendering of your application. You should implement the following steps in the directory you created during the setup.
+
+To customize your `node-headless-ssr-proxy` application: 
 
 1. In the  `/.env` file, define environment variables: 
 
