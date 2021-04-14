@@ -55,17 +55,13 @@ To customize your `node-headless-ssr-proxy` application:
       const hostname = process.env.SITECORE_HOSTNAME || serverBundle.hostname || apiHost;
       ```
 
-   3. For the `config` module, define a new member function `getRedirects`. This example uses a GraphQL query: 
+   3. In the `config` module: 
+      1. Define your query. We use a GraphQL query for this example.
 
       ```javascript
-      getRedirects: () => {
-          return fetch(graphQLEndpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              query: `
+      const query = `
               query {
-                search(fieldsEqual: [{ name: "_templatename", value: "Redirect Route" }]) {
+                search(fieldsEqual: [{ name: "_templatename", value: "Redirect Route" }]) { 
                   results {
                     items {
                       item {
@@ -81,30 +77,49 @@ To customize your `node-headless-ssr-proxy` application:
                 }
               }
             `
-            })
-          }).then(response => response.json())
-            .then(response => {
-              // Layout Service returns paths with language included. But end-user may not have
-              // language in the URL if site is in the default language. We can account for this using regular expression matching.
-              const re = new RegExp(`^(?:${hostname})(?:\/${defaultLanguage})?(\/.+)$`);
-              function getNormalizedPath(url) {
-                return re.test(url) ? url.match(re)[1] : url;
-              }
+       ```
       
-              return response.data.search.results.items.reduce((redirects, searchResult) => {
-                const source = searchResult.item?.url;
-                const destination = searchResult.item?.field?.url;
-      
-                if (source && destination) {
-                  redirects[getNormalizedPath(source)] = getNormalizedPath(destination);
-                }
-      
-                console.log(JSON.stringify(redirects, null, 4));
-                return redirects;
-              }, {});
-            });
-        }
+      When defining your search query, you must provide the name of your new template - for this example, "Redirect Route" - to effectively search the content tree for instances of items using your new template.
+
       ```
+        search(fieldsEqual: [{ name: "_templatename", value: "Redirect Route" }]) {...}
+      ```
+
+      > The example query above searches the entire content tree. You can improve the query by limiting its scope to the current site by specifying the search root item.
+
+      2. Implement a new member function `getRedirects` and pass the query to the body of the request: 
+
+      ```javascript    
+          getRedirects: () => {
+              return fetch(graphQLEndpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  query // your query
+                })
+              }).then(response => response.json())
+                .then(response => {
+                  // Layout Service returns paths with language included. But end-user may not have
+                  // language in the URL if site is in the default language. We can account for this using regular expression matching.
+                  const re = new RegExp(`^(?:${hostname})(?:\/${defaultLanguage})?(\/.+)$`);
+                  function getNormalizedPath(url) {
+                    return re.test(url) ? url.match(re)[1] : url;
+                  }
+          
+                  return response.data.search.results.items.reduce((redirects, searchResult) => {
+                    const source = searchResult.item?.url;
+                    const destination = searchResult.item?.field?.url;
+          
+                    if (source && destination) {
+                      redirects[getNormalizedPath(source)] = getNormalizedPath(destination);
+                    }
+          
+                    console.log(JSON.stringify(redirects, null, 4));
+                    return redirects;
+                  }, {});
+                });
+            }
+        ```
 
 4. In `/index.js`, leverage the new `getRedirects` method: 
 
@@ -112,8 +127,7 @@ To customize your `node-headless-ssr-proxy` application:
    let redirectPromise;
    
    server.use('*', (req, res, next) => {
-     if (redirectPromise === undefined) {
-       // cache list of redirects in memory
+     if (redirectPromise === undefined) { 
        redirectPromise = config.getRedirects();
      }
    
@@ -130,3 +144,17 @@ To customize your `node-headless-ssr-proxy` application:
      });
    });
    ```
+
+   Note the following block in the previous code sample: 
+  
+    ```javascript
+     if (redirectPromise === undefined) { 
+         redirectPromise = config.getRedirects();
+       }
+    ```   
+
+  It caches the redirect results of the GraphQL query in memory so that the query is executed only once. 
+  
+  If Content Authors make changes and you need to fetch new values, you must restart the headless ssr proxy. 
+  
+  > You can improve this example by adding cache invalidation logic.
