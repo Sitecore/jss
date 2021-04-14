@@ -35,11 +35,7 @@ To customize your `node-headless-ssr-proxy` application:
    DEFAULT_LANGUAGE="<YOUR_DEFAULT_LANGUAGE>"
    ```
 
-2. Install the `dotenv` npm package to load the environment variables into the Node `process.env`:
-
-   ```
-   npm install --save-dev dotenv
-   ```
+2. In this example, we are using the `dotenv` npm package to load the environment variables into the Node `process.env`. Install the `dotenv` npm package with the command `npm install --save-dev dotenv`.
 
 3. In `/config.js`:
 
