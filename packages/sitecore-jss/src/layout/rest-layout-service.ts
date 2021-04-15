@@ -1,28 +1,11 @@
-import { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
-import { LayoutServiceData, PlaceholderData } from './data-models';
-import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './data-api';
-import { GraphQLRequestClient } from './graphql-request-client';
-import { HttpDataFetcher } from './data-fetcher';
+import { LayoutService } from './layout-service';
+import { AxiosDataFetcher, AxiosDataFetcherConfig } from '../axios-fetcher';
+import { LayoutServiceData, PlaceholderData } from './models';
+import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from '../data-api';
+import { HttpDataFetcher } from '../data-fetcher';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
-import debug from './debug';
-
-export interface LayoutService {
-  /**
-   * Fetch layout data for an item.
-   * @param {string} itemPath
-   * @param {string} [language]
-   * @param {IncomingMessage} [req] Request instance
-   * @param {ServerResponse} [res] Response instance
-   * @returns {Promise<LayoutServiceData>} layout data
-   */
-  fetchLayoutData(
-    itemPath: string,
-    language?: string,
-    req?: IncomingMessage,
-    res?: ServerResponse
-  ): Promise<LayoutServiceData>;
-}
+import debug from '../debug';
 
 export type DataFetcherResolver = <T>(
   req?: IncomingMessage,
@@ -58,33 +41,6 @@ export type RestLayoutServiceConfig = {
    * @param {ServerResponse} [res] Response instance
    */
   dataFetcherResolver?: DataFetcherResolver;
-};
-
-export type GraphQLLayoutServiceConfig = {
-  /**
-   * Your Graphql endpoint
-   */
-  endpoint: string;
-  /**
-   * The JSS application name
-   */
-  siteName: string;
-  /**
-   * The API key to use for authentication
-   */
-  apiKey: string;
-  /**
-   * Override default layout query
-   * @param {string} siteName
-   * @param {string} itemPath
-   * @param {string} [locale]
-   * @returns {string} custom layout query
-   *
-   * @default
-   * Layout query
-   * layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
-   */
-  formatLayoutQuery?: (siteName: string, itemPath: string, locale?: string) => string;
 };
 
 interface FetchParams {
@@ -263,70 +219,5 @@ export class RestLayoutService implements LayoutService {
         res.setHeader('set-cookie', serverRes.headers['set-cookie']);
       return serverRes;
     };
-  }
-}
-
-export class GraphQLLayoutService implements LayoutService {
-  /**
-   * Fetch layout data using the Sitecore GraphQL endpoint.
-   * @param {GraphQLLayoutServiceConfig} serviceConfig
-   */
-  constructor(private serviceConfig: GraphQLLayoutServiceConfig) {}
-
-  /**
-   * Fetch layout data for an item.
-   * @param {string} itemPath
-   * @param {string} [language]
-   * @returns {Promise<LayoutServiceData>} layout service data
-   */
-  async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
-    const query = this.getLayoutQuery(itemPath, language);
-
-    debug.layout(
-      'fetching layout data for %s %s %s',
-      itemPath,
-      language,
-      this.serviceConfig.siteName
-    );
-    const data = await this.createClient().request<{
-      layout: { item: { rendered: LayoutServiceData } };
-    }>(query);
-
-    // If `rendered` is empty -> not found
-    return (
-      data?.layout?.item.rendered || {
-        sitecore: { context: { pageEditing: false, language }, route: null },
-      }
-    );
-  }
-
-  /**
-   * Returns new graphql client instance
-   */
-  private createClient(): GraphQLRequestClient {
-    const { endpoint, apiKey } = this.serviceConfig;
-
-    return new GraphQLRequestClient(endpoint, { apiKey, debugger: debug.layout });
-  }
-
-  /**
-   * Returns GraphQL Layout query
-   * @param {string} itemPath page route
-   * @param {string} [language] language
-   */
-  private getLayoutQuery(itemPath: string, language?: string) {
-    const languageVariable = language ? `, language:"${language}"` : '';
-
-    const layoutQuery = this.serviceConfig.formatLayoutQuery
-      ? this.serviceConfig.formatLayoutQuery(this.serviceConfig.siteName, itemPath, language)
-      : `layout(site:"${this.serviceConfig.siteName}", routePath:"${itemPath}"${languageVariable})`;
-
-    return `query {
-      ${layoutQuery}{
-        item {
-          rendered
-        }
-      }
-    }`;
   }
 }

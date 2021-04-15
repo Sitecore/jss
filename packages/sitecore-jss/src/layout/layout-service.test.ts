@@ -4,12 +4,13 @@
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
-import { GraphQLLayoutService, RestLayoutService } from './layout-service';
+import { IncomingMessage, ServerResponse } from 'http';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { IncomingMessage, ServerResponse } from 'http';
-import { AxiosDataFetcher } from './axios-fetcher';
-import { LayoutServiceData, PlaceholderData } from './data-models';
+import { AxiosDataFetcher } from '../axios-fetcher';
+import { RestLayoutService } from './rest-layout-service';
+import { GraphQLLayoutService } from './graphql-layout-service';
+import { LayoutServiceData, PlaceholderData } from './models';
 
 use(spies);
 

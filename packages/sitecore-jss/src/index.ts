@@ -12,14 +12,13 @@ export { LayoutServiceRequestOptions } from './data-api';
 
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 
+export { LayoutService } from './layout/layout-service';
 export {
-  LayoutService,
-  GraphQLLayoutService,
-  GraphQLLayoutServiceConfig,
   RestLayoutService,
   RestLayoutServiceConfig,
   DataFetcherResolver,
-} from './layout-service';
+} from './layout/rest-layout-service';
+export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
 
 export { isExperienceEditorActive, isServer, resetExperienceEditorChromes, urlUtil } from './util';
 
@@ -37,9 +36,9 @@ export {
   PlaceholdersData,
   ComponentFields,
   ComponentParams,
-} from './data-models';
+} from './layout/models';
 
-export { getFieldValue, getChildPlaceholder } from './layout-data-utils';
+export { getFieldValue, getChildPlaceholder } from './layout/utils';
 
 export { HttpDataFetcher, HttpResponse } from './data-fetcher';
 
