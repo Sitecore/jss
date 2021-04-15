@@ -21,7 +21,7 @@ export {
   DataFetcherResolver,
 } from './layout-service';
 
-export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
+export { isExperienceEditorActive, isServer, resetExperienceEditorChromes, urlUtil } from './util';
 
 export {
   LayoutServiceData,

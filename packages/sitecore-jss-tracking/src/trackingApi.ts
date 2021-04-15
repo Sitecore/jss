@@ -1,4 +1,4 @@
-import { HttpDataFetcher, HttpResponse, isServer } from '@sitecore-jss/sitecore-jss';
+import { HttpDataFetcher, HttpResponse, isServer, urlUtil } from '@sitecore-jss/sitecore-jss';
 import {
   CampaignInstance,
   EventInstance,
@@ -32,18 +32,6 @@ function checkStatus(response: HttpResponse<unknown>) {
 }
 
 /**
- * note: encodeURIComponent is available via browser (window) or natively in node.js
- * if you use another js engine for server-side rendering you may not have native encodeURIComponent
- * and would then need to install a package for that functionality
- * @param {Object} params
- */
-function getQueryString(params: { [key: string]: unknown }) {
-  return Object.keys(params)
-    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k] as string)}`)
-    .join('&');
-}
-
-/**
  * Note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
  * which is necessary for analytics and such
  * @param {string} url
@@ -53,16 +41,11 @@ function getQueryString(params: { [key: string]: unknown }) {
  */
 function fetchData<T>(
   url: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any,
+  data: unknown,
   fetcher: HttpDataFetcher<T>,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  params: { [key: string]: any } = {}
+  params: { [key: string]: string | number | boolean } = {}
 ) {
-  const qs = getQueryString(params);
-  const fetchUrl = url.indexOf('?') !== -1 ? `${url}&${qs}` : `${url}?${qs}`;
-
-  return fetcher(fetchUrl, data)
+  return fetcher(urlUtil.resolve(url, params), data)
     .then(checkStatus)
     .then((response) => {
       // axios auto-parses JSON responses, don't need to JSON.parse

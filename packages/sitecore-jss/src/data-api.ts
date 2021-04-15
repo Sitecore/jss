@@ -1,5 +1,6 @@
-import { LayoutServiceData, PlaceholderData } from './data-models';
+import { LayoutServiceData, PlaceholderData } from './layout/models';
 import { HttpDataFetcher, HttpResponse } from './data-fetcher';
+import { urlUtil } from 'jss/util';
 
 class ResponseError extends Error {
   response: HttpResponse<unknown>;
@@ -24,22 +25,6 @@ function checkStatus<T>(response: HttpResponse<T>) {
   throw error;
 }
 
-// TODO: getQueryString is duplicated in packages/sitecore-jss-tracking/src/trackingApi.ts, and
-// packages/sitecore-jss/src/dataApi.ts
-// Need to move to an exported util (Anastasiya, March 2021)
-
-// note: encodeURIComponent is available via browser (window) or natively in node.js
-// if you use another js engine for server-side rendering you may not have native encodeURIComponent
-// and would then need to install a package for that functionality
-/**
- * @param {Object} params
- */
-function getQueryString(params: { [key: string]: string | number | boolean }): string {
-  return Object.keys(params)
-    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
-    .join('&');
-}
-
 /**
  * @param {string} url
  * @param {HttpDataFetcher} fetcher
@@ -50,15 +35,7 @@ export function fetchData<T>(
   fetcher: HttpDataFetcher<T>,
   params: { [key: string]: string | number | boolean } = {}
 ) {
-  const qs = getQueryString(params);
-
-  let fetchUrl = url;
-
-  if (Object.keys(params).length) {
-    fetchUrl = url.indexOf('?') !== -1 ? `${url}&${qs}` : `${url}?${qs}`;
-  }
-
-  return fetcher(fetchUrl)
+  return fetcher(urlUtil.resolve(url, params))
     .then(checkStatus)
     .then((response) => {
       // axios auto-parses JSON responses, don't need to JSON.parse
