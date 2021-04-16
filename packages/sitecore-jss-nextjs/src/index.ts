@@ -95,9 +95,13 @@ export {
   VisitorIdentification,
   SitecoreContext,
   SitecoreContextState,
+  SitecoreContextProps,
   SitecoreContextReactContext,
   withSitecoreContext,
   useSitecoreContext,
   withExperienceEditorChromes,
   withPlaceholder,
+  withComponentFactory,
+  useComponentFactory,
+  usePersonalization,
 } from '@sitecore-jss/sitecore-jss-react';

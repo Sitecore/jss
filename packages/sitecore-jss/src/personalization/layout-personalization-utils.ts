@@ -1,0 +1,119 @@
+import {
+  PersonalizedComponentRendering,
+  isComponentRendering,
+  isPersonalizedComponentRendering,
+  ComponentRendering,
+  PlaceholdersData,
+  PersonalizationData
+} from '../layout/models';
+
+export class LayoutPersonalizationUtils {
+
+  buildPersonalizedFragment(uid: string, personalizedFragments: { [key: string]: ComponentRendering | null | undefined; }, personalization: PersonalizationData): ComponentRendering | null {
+    var personalizedFragment =  personalizedFragments[uid];
+    if (personalizedFragment === null) {
+      return null;
+    } else if (personalizedFragment === undefined) {
+      return getDefaultPersonalization(personalization);
+    }
+
+    function getDefaultPersonalization(personalization: PersonalizationData) {
+      if (personalization.hiddenByDefault) {
+        return null;
+      } else {
+        return personalization.defaultComponent as ComponentRendering;
+      }
+    }
+
+    function replacePersonalizedRenderings(context: ComponentRendering): boolean {
+      if (context.placeholders) {
+        for (const key in context.placeholders) {
+          if (context.placeholders.hasOwnProperty(key)) {
+            const placeholder = context.placeholders[key];
+            var hiddenComponents: any[] = [];
+            for (let i = 0; i < placeholder.length; i++) {
+              var component = placeholder[i];
+              if (requirePersonalization(component)) {
+                var personalizedFragment = personalizedFragments[component.uid];
+                if (personalizedFragment === null) {
+                  hiddenComponents.push(component);
+                } else if (personalizedFragment) {
+                  var wasReplaced = replacePersonalizedRenderings(personalizedFragment);
+                  if (!wasReplaced) {
+                    return false;
+                  }
+                  placeholder[i] = personalizedFragment;
+                } else {
+                  return false;
+                }
+              }
+            }
+            if (hiddenComponents.length) {
+              context.placeholders[key] = placeholder.filter(function(item: any) {
+                return hiddenComponents.indexOf(item) == -1;
+              });
+            }
+          }
+        }
+      }
+      return true;
+    }
+
+    if (replacePersonalizedRenderings(personalizedFragment)) {
+      return personalizedFragment;
+    } else {
+      return getDefaultPersonalization(personalization);
+    }
+  }
+
+  getPersonalizedComponents(item: any): PersonalizedComponentRendering[] {
+    const result:PersonalizedComponentRendering[] = [];
+    if (isPersonalizedComponentRendering(item)) {
+      result.push(item);
+    } else if (item.placeholders) {
+      for (const key in item.placeholders) {
+        if (item.placeholders.hasOwnProperty(key)) {
+          const placeholder = item.placeholders[key];
+          for (const component of placeholder) {
+            const components = this.getPersonalizedComponents(component);
+            for (const component of components) {
+              result.push(component);
+            }
+          }
+        }
+      }
+    }
+    return result;
+  };
+
+  replacePersonalizedComponentsWithLoaderComponents(placeholders: PlaceholdersData | undefined, loaderComponentName: string) {
+    if (placeholders) {
+      for (const key in placeholders) {
+        const placeholder = placeholders[key];
+        placeholder.forEach((component, index) =>
+          {
+            if(isComponentRendering(component)) {
+              if (component.personalization) {
+                const personalizedComponent: PersonalizedComponentRendering = {
+                  componentName: loaderComponentName,
+                  uid: component.uid as string,
+                  personalization: {
+                    hiddenByDefault: component.personalization.hiddenByDefault,
+                    defaultComponent: component
+                  }
+                };
+                placeholder[index] = personalizedComponent;
+              } else {
+                this.replacePersonalizedComponentsWithLoaderComponents(component.placeholders, loaderComponentName);
+              }
+            }
+          }
+        );
+      }
+    }
+  }
+}
+
+export function requirePersonalization(component: any): component is { uid: string } {
+  return component && Object.keys(component).length === 1 && 'uid' in component;
+}

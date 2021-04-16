@@ -32,7 +32,10 @@ export {
   SitecoreContext,
   SitecoreContextState,
   SitecoreContextReactContext,
+  SitecoreContextProps,
 } from './components/SitecoreContext';
 export { withSitecoreContext, useSitecoreContext } from './enhancers/withSitecoreContext';
 export { withExperienceEditorChromes } from './enhancers/withExperienceEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
+export { withComponentFactory, useComponentFactory } from './enhancers/withComponentFactory';
+export { usePersonalization } from './enhancers/usePersonalization';

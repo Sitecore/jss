@@ -30,6 +30,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@sitecore-jss/sitecore-jss": "^16.1.0-canary.39",
     "@sitecore-jss/sitecore-jss-nextjs": "^16.1.0-canary.39",
     "@sitecore-jss/sitecore-jss-tracking": "^16.1.0-canary.39",
     "bootstrap": "^4.3.1",
