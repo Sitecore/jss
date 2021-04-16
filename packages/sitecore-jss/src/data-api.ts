@@ -1,6 +1,6 @@
 import { LayoutServiceData, PlaceholderData } from './layout/models';
 import { HttpDataFetcher, HttpResponse } from './data-fetcher';
-import { urlUtil } from 'jss/util';
+import { urlUtil } from './util';
 
 class ResponseError extends Error {
   response: HttpResponse<unknown>;
