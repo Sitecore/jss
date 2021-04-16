@@ -1,3 +1,5 @@
+import querystring from 'querystring';
+
 export const isServer = (): boolean => !(typeof window !== 'undefined' && window.document);
 
 export const isExperienceEditorActive = (): boolean => {
@@ -22,9 +24,9 @@ export const resetExperienceEditorChromes = (): void => {
  * and would then need to install a package for that functionality
  * @param {Object} params
  */
-function getQueryString(params: { [key: string]: string | number | boolean }) {
+function getQueryString(params: querystring.ParsedUrlQueryInput) {
   return Object.keys(params)
-    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k] as string)}`)
+    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(String(params[k]))}`)
     .join('&');
 }
 
@@ -36,27 +38,23 @@ function getQueryString(params: { [key: string]: string | number | boolean }) {
  * @returns a URL string
  * @throws {RangeError} if the provided url is an empty string
  */
-function resolve(
-  urlBase: string,
-  params: { [key: string]: string | number | boolean } = {}
-): string {
+function resolve(urlBase: string, params: querystring.ParsedUrlQueryInput = {}): string {
   if (!urlBase) {
     throw new RangeError('url must be a non-empty string');
   }
 
-  // This is a better way to work with URLs since it will handle different user
-  // input edge cases. This works in all browser except IE11. Need to check on our
-  // support requirements.
-  /*
-  const url = new URL(urlBase);
-  for (const key in params) {
-    if ({}.hasOwnProperty.call(params, key)) {
-      url.searchParams.append(key, String(params[key]));
+  // This is a better way to work with URLs since it handles different user input
+  // edge cases. This works in Node and all browser except IE11.
+  // TODO: Verify our browser support requirements.
+  if (isServer()) {
+    const url = new URL(urlBase);
+    for (const key in params) {
+      if ({}.hasOwnProperty.call(params, key)) {
+        url.searchParams.append(key, String(params[key]));
+      }
     }
+    return url.toString();
   }
-
-  return url.toString();
-  */
 
   const qs = getQueryString(params);
   return urlBase.indexOf('?') !== -1 ? `${urlBase}&${qs}` : `${urlBase}?${qs}`;

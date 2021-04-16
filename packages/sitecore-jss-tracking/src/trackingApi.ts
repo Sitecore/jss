@@ -7,6 +7,7 @@ import {
   PageViewInstance,
 } from './dataModels';
 import { TrackingRequestOptions } from './trackingRequestOptions';
+import querystring from 'querystring';
 
 class ResponseError extends Error {
   response: HttpResponse<unknown>;
@@ -41,9 +42,11 @@ function checkStatus(response: HttpResponse<unknown>) {
  */
 function fetchData<T>(
   url: string,
-  data: unknown,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: any,
   fetcher: HttpDataFetcher<T>,
-  params: { [key: string]: string | number | boolean } = {}
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: querystring.ParsedUrlQueryInput = {}
 ) {
   return fetcher(urlUtil.resolve(url, params), data)
     .then(checkStatus)
