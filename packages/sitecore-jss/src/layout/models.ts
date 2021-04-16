@@ -63,7 +63,7 @@ export interface RouteData {
  * Note: HtmlElementRendering is used by Sitecore Experience Editor
  */
 export type PlaceholdersData<TYPEDNAME extends string = string> = {
-  [P in TYPEDNAME]: Array<ComponentRendering | HtmlElementRendering>;
+  [P in TYPEDNAME]: Array<PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering>;
 };
 
 /**
@@ -90,6 +90,26 @@ export interface ComponentRendering {
   placeholders?: PlaceholdersData;
   fields?: ComponentFields;
   params?: ComponentParams;
+  personalization?: PersonalizationData;
+}
+
+export function isComponentRendering(object: any): object is ComponentRendering {
+  return 'componentName' in object;
+}
+
+export function isPersonalizedComponentRendering(object: any): object is PersonalizedComponentRendering {
+  return 'personalization' in object;
+}
+
+export interface PersonalizedComponentRendering {
+  componentName: string;
+  uid: string;
+  personalization: PersonalizationData;
+}
+
+export interface PersonalizationData {
+  defaultComponent?: ComponentRendering;
+  hiddenByDefault: boolean;
 }
 
 /**

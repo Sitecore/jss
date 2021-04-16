@@ -12,6 +12,7 @@ import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { componentModule } from 'temp/componentFactory';
 import { config as packageConfig } from '../../package.json';
+import { LayoutPersonalizationUtils } from '@sitecore-jss/sitecore-jss';
 
 /**
  * Extract normalized Sitecore item path from query
@@ -44,10 +45,12 @@ const isServerSidePropsContext = function (
 export class SitecorePagePropsFactory {
   private componentPropsService: ComponentPropsService;
   private dictionaryService: DictionaryService;
+  private layoutPersonalizationUtils: LayoutPersonalizationUtils
 
   constructor() {
     this.componentPropsService = new ComponentPropsService();
     this.dictionaryService = dictionaryServiceFactory.create();
+    this.layoutPersonalizationUtils = new LayoutPersonalizationUtils();
   }
 
   /**
@@ -129,6 +132,12 @@ export class SitecorePagePropsFactory {
         });
       }
     }
+
+    this.layoutPersonalizationUtils.replacePersonalizedComponentsWithLoaderComponents(
+      layoutData.sitecore.route?.placeholders,
+      'PersonalizationLoadingComponent'
+    );
+
     return {
       locale,
       layoutData,

@@ -9,6 +9,8 @@ import {
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
+import { PersonalizationService, RestPersonalizationDecisionsService, GraphQLLayoutFragmentService } from '@sitecore-jss/sitecore-jss';
+import config from 'temp/config'
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -52,13 +54,27 @@ type LayoutProps = {
   context: StyleguideSitecoreContextValue;
 };
 
+export const personalizationService = new PersonalizationService(
+  new RestPersonalizationDecisionsService({
+    apiHost: config.sitecoreApiHost,
+    apiKey: config.sitecoreApiKey,
+    siteName: config.jssAppName,
+    tracking: true
+  }),
+  new GraphQLLayoutFragmentService({
+    endpoint: config.graphQLEndpoint,
+    apiKey: config.sitecoreApiKey,
+    siteName: config.jssAppName,
+  })
+);
+
 const Layout = ({ context }: LayoutProps): JSX.Element => {
   const { updateSitecoreContext } = useSitecoreContext({ updatable: true });
 
   // Update Sitecore Context if layoutData has changed (i.e. on client-side route change).
   // Note the context object type here matches the initial value in [[...path]].tsx.
   useEffect(() => {
-    updateSitecoreContext && updateSitecoreContext(context);
+   updateSitecoreContext && updateSitecoreContext(context);
   }, [context]);
 
   const { route } = context;
