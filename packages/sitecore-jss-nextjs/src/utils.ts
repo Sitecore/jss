@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import { isExperienceEditorActive, resetExperienceEditorChromes } from '@sitecore-jss/sitecore-jss';
+import { NextRouter } from 'next/router';
 
 /**
  * Get the publicUrl.
@@ -77,3 +78,26 @@ export const getJssEditingSecret = (): string => {
   }
   return secret;
 };
+
+/**
+ * Pages that are statically optimized will be hydrated without their route parameters provided.
+ * After hydration, Next.js will trigger an update to your application to provide the route parameters in the query object.
+ * Details could be found on Caveats section for dynamic routes in Next.js doc
+ * @param {NextRouter} router to get route information
+ */
+export function areQueryParamsReady(router: NextRouter): boolean {
+  if (!router) {
+    return false;
+  }
+  // If path exists, then the minimum query length is 2, where 2 = 1 (path) + 1 (other parameter).
+  // Otherwise, the min query length is 1 (other parameter).
+  const minQueryLength = router.query.path !== undefined ? 2 : 1;
+
+  const index = router.asPath.indexOf('?');
+
+  return (
+    index < 0 ||
+    router.asPath.length === index + 1 ||
+    Object.keys(router.query).length >= minQueryLength
+  );
+}

@@ -42,6 +42,29 @@ export {
 
 export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
 
+export { LayoutPersonalizationUtils } from './personalization/layout-personalization-utils';
+
+export { LayoutPersonalizationService } from './personalization/layout-personalization-service';
+
+export {
+  SitecorePersonalizationContext,
+  SitecorePersonalizationContextState,
+} from './personalization/layout-personalization-context';
+
+export {
+  LayoutFragmentData,
+  LayoutFragmentService,
+  GraphQLLayoutFragmentService,
+  GraphQLLayoutFragmentServiceConfig,
+} from './personalization/layout-fragment-service';
+export {
+  DecisionsContext,
+  PersonalizationDecisionData,
+  RenderingPersonalizationDecision,
+  PersonalizationDecisionsService,
+  PersonalizationDecisionsServiceConfig,
+} from './personalization/personalization-decisions-service';
+
 // TODO: these are deprecated and we should stop exporting them
 import { fetchRouteData, fetchPlaceholderData } from './layout/rest-layout-service';
 const dataApi = { fetchRouteData, fetchPlaceholderData };

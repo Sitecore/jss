@@ -308,37 +308,33 @@ describe('<Placeholder />', () => {
     );
     expect(renderedComponent.find('.custom-error').length).to.equal(1);
   });
-});
 
-it('should render MissingComponent for unknown rendering', () => {
-  const route: any = {
-    placeholders: {
-      main: [
-        {
-          componentName: 'Unknown',
-        },
-      ],
-    },
-  };
-  const phKey = 'main';
+  it('should render MissingComponent for unknown rendering', () => {
+    const route: any = {
+      placeholders: {
+        main: [
+          {
+            componentName: 'Unknown',
+          },
+        ],
+      },
+    };
+    const phKey = 'main';
 
-  const CustomMissingComponent: React.FC<MissingComponentProps> = (props) => (
-    <div className="missing-component">
-      <MissingComponent {...props} />
-    </div>
-  );
+    const CustomMissingComponent: React.FC<MissingComponentProps> = (props) => (
+      <div className="missing-component">
+        <MissingComponent {...props} />
+      </div>
+    );
 
-  const renderedComponent = mount(
-    <Placeholder
-      name={phKey}
-      rendering={route}
-      componentFactory={componentFactory}
-      missingComponentComponent={CustomMissingComponent}
-    />
-  );
-  expect(renderedComponent.find('.missing-component').length).to.equal(1);
-});
-
-after(() => {
-  (global as any).window.close();
+    const renderedComponent = mount(
+      <Placeholder
+        name={phKey}
+        rendering={route}
+        componentFactory={componentFactory}
+        missingComponentComponent={CustomMissingComponent}
+      />
+    );
+    expect(renderedComponent.find('.missing-component').length).to.equal(1);
+  });
 });

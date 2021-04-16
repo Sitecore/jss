@@ -92,6 +92,44 @@ export interface ComponentRendering {
 }
 
 /**
+ * Verifies the component is of @see {ComponentRendering}
+ * @param {ComponentRendering | HtmlElementRendering} component
+ * @returns {ComponentRendering} type predicate
+ */
+export function isComponentRendering(
+  component: ComponentRendering | HtmlElementRendering
+): component is ComponentRendering {
+  return 'componentName' in component;
+}
+
+/**
+ * Verifies the component is of @see {PersonalizableComponentRendering}
+ * @param {ComponentRendering | HtmlElementRendering} component
+ * @returns {PersonalizableComponentRendering} type predicate
+ */
+export function isPersonalizableComponentRendering(
+  component: ComponentRendering | HtmlElementRendering
+): component is PersonalizableComponentRendering {
+  return 'personalization' in component;
+}
+
+/**
+ * Definition of a personalizable component instance
+ */
+export interface PersonalizableComponentRendering extends ComponentRendering {
+  uid: string;
+  personalization: PersonalizationData;
+}
+
+/**
+ * Context used for personalization
+ */
+export interface PersonalizationData {
+  hiddenByDefault: boolean;
+  defaultComponent: ComponentRendering | null;
+}
+
+/**
  * HTML content used to support Sitecore Experience Editor
  */
 export interface HtmlElementRendering {

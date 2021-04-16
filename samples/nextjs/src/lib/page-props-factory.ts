@@ -6,10 +6,12 @@ import {
   DictionaryService,
   LayoutServiceData,
   editingDataService,
+  EditingDataService,
+  LayoutPersonalizationUtils,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
-import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
-import { layoutServiceFactory } from 'lib/layout-service-factory';
+import { dictionaryServiceFactory, DictionaryServiceFactory } from 'lib/dictionary-service-factory';
+import { layoutServiceFactory, LayoutServiceFactory } from 'lib/layout-service-factory';
 import { componentModule } from 'temp/componentFactory';
 import { config as packageConfig } from '../../package.json';
 
@@ -42,11 +44,15 @@ const isServerSidePropsContext = function (
 };
 
 export class SitecorePagePropsFactory {
-  private componentPropsService: ComponentPropsService;
   private dictionaryService: DictionaryService;
 
-  constructor() {
-    this.componentPropsService = new ComponentPropsService();
+  constructor(
+    private componentPropsService: ComponentPropsService,
+    dictionaryServiceFactory: DictionaryServiceFactory,
+    private layoutPersonalizationUtils: LayoutPersonalizationUtils,
+    private layoutServiceFactory: LayoutServiceFactory,
+    private editingDataService: EditingDataService
+  ) {
     this.dictionaryService = dictionaryServiceFactory.create();
   }
 
@@ -71,7 +77,7 @@ export class SitecorePagePropsFactory {
        * Preview mode
        */
       // If we're in preview (editing) mode, use data already sent along with the editing request
-      const data = await editingDataService.getEditingData(context.previewData);
+      const data = await this.editingDataService.getEditingData(context.previewData);
       if (!data) {
         throw new Error(
           `Unable to get editing data for preview ${JSON.stringify(context.previewData)}`
@@ -93,7 +99,7 @@ export class SitecorePagePropsFactory {
 
       // Fetch layout data, passing on req/res for SSR
       const isSsrContext = isServerSidePropsContext(context);
-      const layoutService = layoutServiceFactory.create(isSsrContext);
+      const layoutService = this.layoutServiceFactory.create(isSsrContext);
 
       layoutData = await layoutService.fetchLayoutData(
         path,
@@ -131,7 +137,13 @@ export class SitecorePagePropsFactory {
           componentModule,
         });
       }
+
+      this.layoutPersonalizationUtils.replacePersonalizableComponentsWithLoaderComponents(
+        layoutData.sitecore.route?.placeholders,
+        'PersonalizationLoadingComponent'
+      );
     }
+
     return {
       locale,
       layoutData,
@@ -144,4 +156,10 @@ export class SitecorePagePropsFactory {
   }
 }
 
-export const sitecorePagePropsFactory = new SitecorePagePropsFactory();
+export const sitecorePagePropsFactory = new SitecorePagePropsFactory(
+  new ComponentPropsService(),
+  dictionaryServiceFactory,
+  new LayoutPersonalizationUtils(),
+  layoutServiceFactory,
+  editingDataService
+);

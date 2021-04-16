@@ -4,6 +4,8 @@
   "javascript.validate.enable": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
   "editor.detectIndentation": false,
+  "mochaExplorer.files": ["src/**/*.test.ts", "src/**/*.test.tsx"],
+  "mochaExplorer.require": ["ts-node/register", "./src/tests/shim.ts", "./src/tests/jsdom-setup.ts", "./src/tests/enzyme-setup.ts"],
   "vsicons.presets.angular": false
   // "editor.formatOnSave": true
 }

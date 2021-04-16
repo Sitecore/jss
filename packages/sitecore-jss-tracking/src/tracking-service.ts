@@ -8,6 +8,7 @@ import {
   RouteData,
   isServer,
   debug,
+  extractQueryStringParams,
 } from '@sitecore-jss/sitecore-jss';
 
 import { PageViewData } from './dataModels';
@@ -119,8 +120,22 @@ export class TrackingService {
       language: route?.itemLanguage,
       layoutDeviceId: route?.deviceId,
     };
+    let queryParams: { [key: string]: string } = {};
+    if (context?.site?.name) {
+      queryParams.sc_site = context?.site?.name;
+    }
 
-    return this.trackPage(event, this.getCurrentPageParams(context?.site?.name));
+    if (this.trackingApiOptions.currentPageParamsToTrack) {
+      queryParams = {
+        ...extractQueryStringParams(
+          window.location.search,
+          this.trackingApiOptions.currentPageParamsToTrack
+        ),
+        ...queryParams,
+      };
+    }
+
+    return this.trackPage(event, queryParams);
   }
 
   /**
@@ -138,30 +153,6 @@ export class TrackingService {
     }
 
     return this.track(pageView, querystringParams);
-  }
-
-  private getCurrentPageParams(siteName?: string): { [key: string]: string } {
-    const result: { [key: string]: string } = {};
-
-    if (siteName) {
-      result.sc_site = siteName;
-    }
-
-    window.location.search
-      .substring(1)
-      .split('&')
-      .forEach((param) => {
-        const lowerParam = param.toLowerCase();
-
-        this.trackingApiOptions.currentPageParamsToTrack?.forEach((name) => {
-          if (lowerParam.startsWith(name.toLowerCase() + '=')) {
-            result[name] = decodeURIComponent(param.substring(name.length + 1));
-            return;
-          }
-        });
-      });
-
-    return result;
   }
 
   private track(

@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.2.3",
+    "@types/chai-as-promised": "^7.1.4",
     "@types/chai-spies": "^1.0.3",
     "@types/chai-string": "^1.4.2",
     "@types/debug": "^4.1.5",
@@ -35,9 +36,11 @@
     "@types/memory-cache": "^0.2.1",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.11",
+    "@types/sinon": "^7.5.0",
     "@types/url-parse": "1.4.3",
     "axios-mock-adapter": "^1.17.0",
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "chai-spies": "^1.0.0",
     "chai-string": "^1.5.0",
     "del-cli": "^3.0.1",
@@ -51,6 +54,7 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
+    "abort-controller": "^3.0.0",
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "debug": "^4.3.1",

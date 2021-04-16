@@ -1,6 +1,8 @@
 import { GraphQLClient as Client, ClientError } from 'graphql-request';
+import { RequestInit } from 'graphql-request/dist/types.dom';
 import { DocumentNode } from 'graphql';
 import debuggers, { Debugger } from './debug';
+import AbortController from 'abort-controller';
 
 /**
  * An interface for GraphQL clients for Sitecore APIs
@@ -26,6 +28,10 @@ export type GraphQLRequestClientConfig = {
    * Override debugger for logging. Uses 'sitecore-jss:http' by default.
    */
   debugger?: Debugger;
+  /**
+   * The request timeout in milliseconds.
+   */
+  timeout?: number;
 };
 
 /**
@@ -33,9 +39,9 @@ export type GraphQLRequestClientConfig = {
  * https://github.com/prisma-labs/graphql-request
  */
 export class GraphQLRequestClient implements GraphQLClient {
-  private client: Client;
   private headers: Record<string, string> = {};
   private debug: Debugger;
+  private timeout?: number;
 
   /**
    * Provides ability to execute graphql query using given `endpoint`
@@ -46,7 +52,7 @@ export class GraphQLRequestClient implements GraphQLClient {
     if (clientConfig.apiKey) {
       this.headers.sc_apikey = clientConfig.apiKey;
     }
-    this.client = new Client(endpoint, { headers: this.headers });
+    this.timeout = clientConfig.timeout;
     this.debug = clientConfig.debugger || debuggers.http;
   }
 
@@ -59,6 +65,18 @@ export class GraphQLRequestClient implements GraphQLClient {
     query: string | DocumentNode,
     variables?: { [key: string]: unknown }
   ): Promise<T> {
+    const options: RequestInit = {
+      headers: this.headers,
+    };
+
+    if (this.timeout) {
+      const abortController = new AbortController();
+      options.signal = abortController.signal;
+      setTimeout(() => abortController.abort(), this.timeout);
+    }
+
+    const client = new Client(this.endpoint, options);
+
     return new Promise((resolve, reject) => {
       // Note we don't have access to raw request/response with graphql-request
       // (or nice hooks like we have with Axios), but we should log whatever we have.
@@ -69,7 +87,7 @@ export class GraphQLRequestClient implements GraphQLClient {
         variables,
       });
 
-      this.client
+      client
         .request(query, variables)
         .then((data: T) => {
           this.debug('response: %o', data);

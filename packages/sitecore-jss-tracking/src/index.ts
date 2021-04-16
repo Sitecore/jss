@@ -12,3 +12,4 @@ export {
 } from './dataModels';
 
 export { TrackingService, TrackingServiceConfig } from './tracking-service';
+export { DummyTrackingService } from './dummy-tracking-service';

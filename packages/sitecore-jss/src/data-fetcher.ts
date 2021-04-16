@@ -56,13 +56,15 @@ function checkStatus<T>(response: HttpResponse<T>) {
  * @param {string} url
  * @param {HttpDataFetcher} fetcher
  * @param {Object} params
+ * @param {Object} data to POST with the request
  */
 export function fetchData<T>(
   url: string,
   fetcher: HttpDataFetcher<T>,
-  params: querystring.ParsedUrlQueryInput = {}
+  params: querystring.ParsedUrlQueryInput = {},
+  data?: { [key: string]: unknown }
 ) {
-  return fetcher(resolveUrl(url, params))
+  return fetcher(resolveUrl(url, params), data)
     .then(checkStatus)
     .then((response) => {
       // axios auto-parses JSON responses, don't need to JSON.parse

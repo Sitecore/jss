@@ -144,7 +144,7 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.set).to.not.have.been.called;
+    expect(cache.set).to.not.have.been.called();
     expect(res.status).to.have.been.called.once;
     expect(res.status).to.have.been.called.with(400);
     expect(res.end).to.have.been.called.once;
@@ -162,7 +162,7 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.get).to.not.have.been.called;
+    expect(cache.get).to.not.have.been.called();
     expect(res.status).to.have.been.called.once;
     expect(res.status).to.have.been.called.with(401);
     expect(res.end).to.have.been.called.once;
@@ -181,7 +181,7 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.get).to.not.have.been.called;
+    expect(cache.get).to.not.have.been.called();
     expect(res.status).to.have.been.called.once;
     expect(res.status).to.have.been.called.with(401);
     expect(res.end).to.have.been.called.once;
@@ -200,8 +200,8 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.get).to.not.have.been.called;
-    expect(cache.set).to.not.have.been.called;
+    expect(cache.get).to.not.have.been.called();
+    expect(cache.set).to.not.have.been.called();
     expect(res.setHeader).to.have.been.called.with.exactly('Allow', ['GET', 'PUT']);
     expect(res.status).to.have.been.called.once;
     expect(res.status).to.have.been.called.with(405);
