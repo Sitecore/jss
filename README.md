@@ -8,7 +8,7 @@ This repository contains the following sample applications:
 
 1. [Next.js](/samples/nextjs)
 
-   The Next.js-based sample application demonstrates common use cases. It was built using [create-next-app](https://nextjs.org/docs/api-reference/create-next-app) as a starting point. 
+   The Next.js-based sample application demonstrates common use cases. 
 
    Features: 
    - Written in TypeScript.
