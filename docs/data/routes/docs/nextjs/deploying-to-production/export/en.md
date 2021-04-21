@@ -27,13 +27,9 @@ To export your JSS Next.js application as static HTML files, you must:
 
 Before exporting your application, you must: 
 
-1. Remove internationalization configuration:
-   * In `next.config.js`, delete the `i18n` configuration.
-   * In `package.json`, delete any language configuration under `config.language`.
+1. In `next.config.js`, remove `rewrites` and `i18n`.
 
-2. In `next.config.js`, remove `rewrites`.
-
-3. In `JssNextWeb.config`:
+2. In `JssNextWeb.config`:
 
    *  Include the Sitecore server URL as part of the media requests: 
 
@@ -59,11 +55,11 @@ Before exporting your application, you must:
 
    * Run `jss deploy config`.
 
-4. Remove usage of `<VisitorIdentification />` component in `src/components/Layout.tsx`.
+3. Remove usage of `<VisitorIdentification />` component in `src/components/Layout.tsx`.
 
-5. In `.env`, define the `PUBLIC_URL` variable.
+4. In `.env`, define the `PUBLIC_URL` variable.
 
-6. In `package.json`, add the following scripts: 
+5. In `package.json`, add the following scripts: 
 
    * `"next:export": "next export"`.
 
@@ -73,7 +69,7 @@ Before exporting your application, you must:
 
       Replace the `PORT` value with the port of your disconnected server.
 
-7. For disconnected mode only, run `jss start:disconnected-proxy`. During the build stage, Next.js will fetch the required data (layout, dictionary, sitemap) from your disconnected server.
+6. For disconnected mode only, run `jss start:disconnected-proxy`. During the build stage, Next.js will fetch the required data (layout, dictionary, sitemap) from your disconnected server.
 
 ## Export the application
 
