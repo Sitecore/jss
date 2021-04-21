@@ -1,6 +1,8 @@
 import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 import debuggers, { Debugger } from './debug';
 
+export { AxiosRequestConfig, AxiosResponse };
+
 export type AxiosDataFetcherOptions = {
   /**
    * Callback which executed before request is sent. You can modify axios config.

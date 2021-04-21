@@ -1,4 +1,4 @@
-import { HttpDataFetcher, HttpResponse, isServer, urlUtil } from '@sitecore-jss/sitecore-jss';
+import { HttpDataFetcher, HttpResponse, isServer, resolveUrl } from '@sitecore-jss/sitecore-jss';
 import {
   CampaignInstance,
   EventInstance,
@@ -48,7 +48,7 @@ function fetchData<T>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params: querystring.ParsedUrlQueryInput = {}
 ) {
-  return fetcher(urlUtil.resolve(url, params), data)
+  return fetcher(resolveUrl(url, params), data)
     .then(checkStatus)
     .then((response) => {
       // axios auto-parses JSON responses, don't need to JSON.parse

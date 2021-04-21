@@ -1,13 +1,13 @@
 import { GraphQLRequestClient } from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
+import { getAppRoot } from '../utils/app-root-resolver';
 import debug from '../debug';
 
 const DEFAULTS = Object.freeze({
   pageSize: 10,
 });
 
-// TODO: use graphql import instead of string (Anastasiya, March 2021)
 const query = `
 query DictionarySearch(
     $rootItemId: String!,
@@ -164,7 +164,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     });
     if (!this.options.rootItemId) {
       debug.dictionary('fetching site root for %s %s', language, this.options.siteName);
-      this.options.rootItemId = await getSiteRoot(client, this.options.siteName, language);
+      this.options.rootItemId = await getAppRoot(client, this.options.siteName, language);
     }
 
     debug.dictionary('fetching dictionary data for %s %s', language, this.options.siteName);
@@ -207,56 +207,4 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 
     return results;
   }
-}
-
-// TODO: Move to shared area and reuse for sitemap service (Anastasiya, March 2021)
-const siteRootQuery = `
-query getSiteRoot($jssAppTemplateId: String!, $siteName: String!, $language: String!)
-{
-  layout(site: $siteName, routePath: "/", language: $language) {
-    homePage: item {
-      rootItem: ancestors(includeTemplateIDs: [$jssAppTemplateId]) {
-        id
-      }
-    }
-  }
-}
-`;
-
-/**
- * A reply from the GraphQL Sitecore Dictionary Service
- */
-type SiteRootQueryResult = {
-  layout: {
-    homePage: {
-      rootItem: {
-        id: string;
-      }[];
-    };
-  };
-};
-
-/**
- * Gets the ID of the site root item from the Sitecore item tree.
- * @param {GraphQLRequestClient} client that fetches data from a GraphQL endpoint.
- * @param {string} siteName the name of the Sitecore site.
- * @param {string} language the item language version.
- * @returns the root item ID of the Sitecore site.
- */
-async function getSiteRoot(
-  client: GraphQLRequestClient,
-  siteName: string,
-  language: string
-): Promise<string> {
-  const fetchResponse = await client.request<SiteRootQueryResult>(siteRootQuery, {
-    jssAppTemplateId: SitecoreTemplateId.JssApp,
-    siteName,
-    language,
-  });
-
-  if (!fetchResponse?.layout?.homePage?.rootItem?.length) {
-    throw new Error('Error fetching Sitecore site root item');
-  }
-
-  return fetchResponse.layout.homePage.rootItem[0].id;
 }

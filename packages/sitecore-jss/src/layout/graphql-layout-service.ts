@@ -1,5 +1,4 @@
-import { LayoutService } from './layout-service';
-import { LayoutServiceData } from './models';
+import { LayoutServiceBase, models } from './layout-service';
 import { GraphQLRequestClient } from '../graphql-request-client';
 import debug from '../debug';
 
@@ -30,12 +29,14 @@ export type GraphQLLayoutServiceConfig = {
   formatLayoutQuery?: (siteName: string, itemPath: string, locale?: string) => string;
 };
 
-export class GraphQLLayoutService implements LayoutService {
+export class GraphQLLayoutService extends LayoutServiceBase {
   /**
    * Fetch layout data using the Sitecore GraphQL endpoint.
    * @param {GraphQLLayoutServiceConfig} serviceConfig
    */
-  constructor(private serviceConfig: GraphQLLayoutServiceConfig) {}
+  constructor(private serviceConfig: GraphQLLayoutServiceConfig) {
+    super();
+  }
 
   /**
    * Fetch layout data for an item.
@@ -43,7 +44,7 @@ export class GraphQLLayoutService implements LayoutService {
    * @param {string} [language]
    * @returns {Promise<LayoutServiceData>} layout service data
    */
-  async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
+  async fetchLayoutData(itemPath: string, language?: string): Promise<models.LayoutServiceData> {
     const query = this.getLayoutQuery(itemPath, language);
 
     debug.layout(
@@ -53,7 +54,7 @@ export class GraphQLLayoutService implements LayoutService {
       this.serviceConfig.siteName
     );
     const data = await this.createClient().request<{
-      layout: { item: { rendered: LayoutServiceData } };
+      layout: { item: { rendered: models.LayoutServiceData } };
     }>(query);
 
     // If `rendered` is empty -> not found

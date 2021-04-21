@@ -1,5 +1,7 @@
-import { LayoutServiceData } from './models';
+import * as models from './models';
 import { IncomingMessage, ServerResponse } from 'http';
+
+export { IncomingMessage, ServerResponse, models };
 
 export interface LayoutService {
   /**
@@ -15,5 +17,14 @@ export interface LayoutService {
     language?: string,
     req?: IncomingMessage,
     res?: ServerResponse
-  ): Promise<LayoutServiceData>;
+  ): Promise<models.LayoutServiceData>;
+}
+
+export abstract class LayoutServiceBase implements LayoutService {
+  abstract fetchLayoutData(
+    itemPath: string,
+    language?: string,
+    req?: IncomingMessage,
+    res?: ServerResponse
+  ): Promise<models.LayoutServiceData>;
 }

@@ -1,22 +1,5 @@
+import isServer from './is-server';
 import querystring from 'querystring';
-
-export const isServer = (): boolean => !(typeof window !== 'undefined' && window.document);
-
-export const isExperienceEditorActive = (): boolean => {
-  if (isServer()) {
-    return false;
-  }
-  // eslint-disable-next-line
-  const sc = (window as any).Sitecore;
-  return Boolean(sc && sc.PageModes && sc.PageModes.ChromeManager);
-};
-
-export const resetExperienceEditorChromes = (): void => {
-  if (isExperienceEditorActive()) {
-    // eslint-disable-next-line
-    (window as any).Sitecore.PageModes.ChromeManager.resetChromes();
-  }
-};
 
 /**
  * note: encodeURIComponent is available via browser (window) or natively in node.js
@@ -38,7 +21,7 @@ function getQueryString(params: querystring.ParsedUrlQueryInput) {
  * @returns a URL string
  * @throws {RangeError} if the provided url is an empty string
  */
-function resolve(urlBase: string, params: querystring.ParsedUrlQueryInput = {}): string {
+function resolveUrl(urlBase: string, params: querystring.ParsedUrlQueryInput = {}): string {
   if (!urlBase) {
     throw new RangeError('url must be a non-empty string');
   }
@@ -53,13 +36,15 @@ function resolve(urlBase: string, params: querystring.ParsedUrlQueryInput = {}):
         url.searchParams.append(key, String(params[key]));
       }
     }
-    return url.toString();
+    const result = url.toString();
+    console.log(`result is ${result}`);
+    return result;
   }
 
   const qs = getQueryString(params);
-  return urlBase.indexOf('?') !== -1 ? `${urlBase}&${qs}` : `${urlBase}?${qs}`;
+  const result = urlBase.indexOf('?') !== -1 ? `${urlBase}&${qs}` : `${urlBase}?${qs}`;
+  console.log(`result is ${result}`);
+  return result;
 }
 
-export const urlUtil = {
-  resolve,
-};
+export default resolveUrl;

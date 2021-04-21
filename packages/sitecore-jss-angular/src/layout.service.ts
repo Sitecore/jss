@@ -9,6 +9,7 @@ import { from as fromPromise, Observable, throwError as observableThrow } from '
 import { catchError } from 'rxjs/operators';
 import { LayoutServiceError } from './layout-service-error';
 
+// TODO: these are deprecated and we should switch to using new methods
 const { fetchRouteData, fetchPlaceholderData } = dataApi;
 
 @Injectable()
