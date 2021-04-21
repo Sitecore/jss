@@ -1,10 +1,6 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { LayoutServiceBase, IncomingMessage, ServerResponse, models } from './layout-service';
-import {
-  AxiosDataFetcher,
-  AxiosDataFetcherConfig,
-  AxiosRequestConfig,
-  AxiosResponse,
-} from '../axios-fetcher';
+import { AxiosDataFetcher, AxiosDataFetcherConfig } from '../axios-fetcher';
 import { HttpDataFetcher, fetchData } from '../data-fetcher';
 import debug from '../debug';
 
