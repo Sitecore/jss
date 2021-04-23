@@ -1,18 +1,16 @@
 import * as mediaApi from './media-api';
 import * as constants from './constants';
-import isServer from './utils/is-server';
-import resolveUrl from './utils/resolve-url';
+export * from './utils';
+export * from './context';
 
 // TODO: these are deprecated and we should stop exporting them
 import { fetchRouteData, fetchPlaceholderData } from './layout/rest-layout-service';
 const dataApi = { fetchRouteData, fetchPlaceholderData };
 export { dataApi };
 
-export { mediaApi, constants, isServer, resolveUrl };
+export { mediaApi, constants };
 
 export { default as debug, Debugger } from './debug';
-
-export { isExperienceEditorActive, resetExperienceEditorChromes } from './experience-editor';
 
 // generic API access abstractions
 export { HttpDataFetcher, HttpResponse } from './data-fetcher';
@@ -21,8 +19,6 @@ export { HttpDataFetcher, HttpResponse } from './data-fetcher';
 export { GraphQLRequestClient, GraphQLRequestClientConfig } from './graphql-request-client';
 
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
-
-export { getAppRoot } from './utils/app-root-resolver';
 
 // i18n
 export { DictionaryPhrases, DictionaryService } from './i18n/dictionary-service';

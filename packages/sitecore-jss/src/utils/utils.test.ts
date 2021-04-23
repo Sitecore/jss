@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { isExperienceEditorActive } from './experience-editor';
-import isServer from './utils/is-server';
+import { isExperienceEditorActive, isServer } from '.';
 
 // must make TypeScript happy with `global` variable modification
 
