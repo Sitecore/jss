@@ -1,17 +1,16 @@
 import { GraphQLRequestClient } from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 
-const appRootQuery = `
-query getSiteRoot($jssAppTemplateId: String!, $siteName: String!, $language: String!)
-{
-  layout(site: $siteName, routePath: "/", language: $language) {
-    homePage: item {
-      rootItem: ancestors(includeTemplateIDs: [$jssAppTemplateId]) {
-        id
+const appRootQuery = /* GraphQL */ `
+  query getSiteRoot($jssAppTemplateId: String!, $siteName: String!, $language: String!) {
+    layout(site: $siteName, routePath: "/", language: $language) {
+      homePage: item {
+        rootItem: ancestors(includeTemplateIDs: [$jssAppTemplateId]) {
+          id
+        }
       }
     }
   }
-}
 `;
 
 /**

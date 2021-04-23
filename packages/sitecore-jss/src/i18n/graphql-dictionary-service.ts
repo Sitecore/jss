@@ -8,41 +8,41 @@ const DEFAULTS = Object.freeze({
   pageSize: 10,
 });
 
-const query = `
-query DictionarySearch(
-    $rootItemId: String!,
-    $language: String!,
-    $dictionaryEntryTemplateId: String!,
-    $pageSize: Int = 10,
+const query = /* GraphQL */ `
+  query DictionarySearch(
+    $rootItemId: String!
+    $language: String!
+    $dictionaryEntryTemplateId: String!
+    $pageSize: Int = 10
     $after: String
   ) {
-  search(
-    where: {
-      AND:[
-        { name: "_path",      value: $rootItemId },
-        { name: "_templates", value: $dictionaryEntryTemplateId },
-        { name: "_language",  value: $language }
-      ]
-    }
-    first: $pageSize
-    after: $after
-    orderBy: { name: "Title", direction: ASC }
-  ) {
-    total
-    pageInfo {
-      endCursor
-      hasNext
-    }
-    dictionaryPhrases: results {
-      key: field(name: "key") {
-        value
-      },
-      phrase: field(name: "phrase") {
-        value
+    search(
+      where: {
+        AND: [
+          { name: "_path", value: $rootItemId }
+          { name: "_templates", value: $dictionaryEntryTemplateId }
+          { name: "_language", value: $language }
+        ]
+      }
+      first: $pageSize
+      after: $after
+      orderBy: { name: "Title", direction: ASC }
+    ) {
+      total
+      pageInfo {
+        endCursor
+        hasNext
+      }
+      dictionaryPhrases: results {
+        key: field(name: "key") {
+          value
+        }
+        phrase: field(name: "phrase") {
+          value
+        }
       }
     }
   }
-}
 `;
 
 /**
