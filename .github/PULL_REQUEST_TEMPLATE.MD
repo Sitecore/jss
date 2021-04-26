@@ -1,13 +1,11 @@
 <!--- Provide a general summary of your changes in the Title above -->
 
-## Description
+## Description / Motivation
 <!--- Describe your changes in detail -->
-
-## Motivation
 <!--- Why is this change required? What problem does it solve? -->
 <!--- If it fixes an open issue, please link to the issue here. -->
 
-## How Has This Been Tested?
+## Testing Details
 <!--- Please describe in detail how you tested your changes. -->
 <!--- Include details of your testing environment, and the tests you ran to -->
 <!--- see how your change affects other areas of the code, etc. -->
