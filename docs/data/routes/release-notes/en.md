@@ -26,6 +26,7 @@ There are [migration instructions](/upgrade-guides/18.0) from JSS 16-based appli
 
 ### Bug Fixes
 
+* [PR #659](https://github.com/Sitecore/jss/pull/659) [sitecore-jss-nextjs] Links inside RichText control cause page to be loaded twice
 * [PR #624](https://github.com/Sitecore/jss/pull/624):
 	* [sitecore-jss-react-native] [Image] Pass Object `style` type for `SvgUrI` instead of Array. 
 	* [sitecore-jss-react-native] [Date] Always render `<HtmlView/>` if `editable` is provided.
