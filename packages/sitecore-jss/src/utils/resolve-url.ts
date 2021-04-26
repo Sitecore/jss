@@ -28,6 +28,7 @@ function resolveUrl(urlBase: string, params: querystring.ParsedUrlQueryInput = {
 
   // This is a better way to work with URLs since it handles different user input
   // edge cases. This works in Node and all browser except IE11.
+  // https://developer.mozilla.org/en-US/docs/Web/API/URL
   // TODO: Verify our browser support requirements.
   if (isServer()) {
     const url = new URL(urlBase);
