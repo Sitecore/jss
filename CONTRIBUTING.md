@@ -4,8 +4,8 @@ Want to contribute to Sitecore JavaScript Services? There are a few things you n
 
 ## Pre-requisites:
 
-- `node.js` (8.11.3 or later)
-- `npm` (5.x or later) installed (cmd `node -v` to test).
+- `node.js` ([Active LTS](https://nodejs.org/en/about/releases/) version) installed (cmd `node -v` to test).
+- `npm` (6.x or later) installed (cmd `npm -v` to test).
 
 ## Setting up
 
@@ -43,7 +43,7 @@ If you need to make code changes to the documentation site, follow these steps:
 - Clone the forked repo to your local machine.
 - From a terminal in the repo root: `cd docs`
 - Create a feature branch from `master` for your changes. e.g. `git checkout -b my-feature-branch`
-  > Note: although `master` is the default branch for the JSS repo, documentation changes that pertain to the current release of JSS should be branched from `master`. The `master` branch contains the published / active documentation content. Changes related to the next release should be added to the `dev` branch.
+  > Note: although `dev` is the default branch for the JSS repo, documentation changes that pertain to the current release of JSS should be branched from `master`. The `master` branch contains the published / active documentation content. Changes related to the next release should be added to the `dev` branch.
 - `npm install`
 - `jss start` (to preview your changes locally)
 - Make your changes
