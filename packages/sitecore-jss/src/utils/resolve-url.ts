@@ -37,13 +37,11 @@ function resolveUrl(urlBase: string, params: querystring.ParsedUrlQueryInput = {
       }
     }
     const result = url.toString();
-    console.log(`result is ${result}`);
     return result;
   }
 
   const qs = getQueryString(params);
   const result = urlBase.indexOf('?') !== -1 ? `${urlBase}&${qs}` : `${urlBase}?${qs}`;
-  console.log(`result is ${result}`);
   return result;
 }
 
