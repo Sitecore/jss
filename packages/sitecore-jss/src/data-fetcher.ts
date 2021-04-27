@@ -60,7 +60,7 @@ function checkStatus<T>(response: HttpResponse<T>) {
 export function fetchData<T>(
   url: string,
   fetcher: HttpDataFetcher<T>,
-  params: { [key: string]: string | number | boolean } = {}
+  params: querystring.ParsedUrlQueryInput = {}
 ) {
   return fetcher(resolveUrl(url, params))
     .then(checkStatus)
