@@ -49,6 +49,7 @@ export class GraphQLRequestClient {
         query,
         variables,
       });
+
       this.client
         .request(query, variables)
         .then((data: T) => {

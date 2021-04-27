@@ -1,5 +1,5 @@
 import debug from 'debug';
-import { isServer } from './util';
+import isServer from './utils/is-server';
 
 const rootNamespace = 'sitecore-jss';
 

@@ -1,4 +1,4 @@
-export const isServer = (): boolean => !(typeof window !== 'undefined' && window.document);
+import { isServer } from '.';
 
 export const isExperienceEditorActive = (): boolean => {
   if (isServer()) {

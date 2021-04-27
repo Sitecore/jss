@@ -1,28 +1,41 @@
-import * as dataApi from './data-api';
 import * as mediaApi from './media-api';
 import * as constants from './constants';
+export {
+  isServer,
+  resolveUrl,
+  isExperienceEditorActive,
+  resetExperienceEditorChromes,
+  getAppRootId,
+} from './utils';
 
-export { dataApi, mediaApi, constants };
+// TODO: these are deprecated and we should stop exporting them
+import { fetchRouteData, fetchPlaceholderData } from './layout/rest-layout-service';
+const dataApi = { fetchRouteData, fetchPlaceholderData };
+export { dataApi };
+
+export { mediaApi, constants };
 
 export { default as debug, Debugger } from './debug';
 
-export { GraphQLRequestClient, GraphQLRequestClientConfig } from './graphql-request-client';
+// generic API access abstractions
+export { HttpDataFetcher, HttpResponse } from './data-fetcher';
 
-export { LayoutServiceRequestOptions } from './data-api';
+// API access implementations
+export { GraphQLRequestClient, GraphQLRequestClientConfig } from './graphql-request-client';
 
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 
+// i18n
+export { DictionaryPhrases, DictionaryService } from './i18n/dictionary-service';
+
 export {
-  LayoutService,
-  GraphQLLayoutService,
-  GraphQLLayoutServiceConfig,
-  RestLayoutService,
-  RestLayoutServiceConfig,
-  DataFetcherResolver,
-} from './layout-service';
+  GraphQLDictionaryService,
+  GraphQLDictionaryServiceConfig,
+} from './i18n/graphql-dictionary-service';
 
-export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
+export { RestDictionaryService, RestDictionaryServiceConfig } from './i18n/rest-dictionary-service';
 
+// layout
 export {
   LayoutServiceData,
   LayoutServicePageState,
@@ -37,16 +50,17 @@ export {
   PlaceholdersData,
   ComponentFields,
   ComponentParams,
-} from './data-models';
+} from './layout/models';
 
-export { getFieldValue, getChildPlaceholder } from './layout-data-utils';
+export { getFieldValue, getChildPlaceholder } from './layout/utils';
 
-export { HttpDataFetcher, HttpResponse } from './data-fetcher';
+export { LayoutService } from './layout/layout-service';
 
-// i18n
-export { DictionaryPhrases, DictionaryService } from './i18n/dictionary-service';
 export {
-  GraphQLDictionaryService,
-  GraphQLDictionaryServiceConfig,
-} from './i18n/graphql-dictionary-service';
-export { RestDictionaryService, RestDictionaryServiceConfig } from './i18n/rest-dictionary-service';
+  RestLayoutService,
+  RestLayoutServiceConfig,
+  DataFetcherResolver,
+  LayoutServiceRequestOptions,
+} from './layout/rest-layout-service';
+
+export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';

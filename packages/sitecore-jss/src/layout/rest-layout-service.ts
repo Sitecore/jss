@@ -1,33 +1,117 @@
-import { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
-import { LayoutServiceData, PlaceholderData } from './data-models';
-import { fetchPlaceholderData, fetchRouteData, LayoutServiceConfig } from './data-api';
-import { GraphQLRequestClient } from './graphql-request-client';
-import { HttpDataFetcher } from './data-fetcher';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { IncomingMessage, ServerResponse } from 'http';
-import debug from './debug';
+import { LayoutServiceBase, IncomingMessage, ServerResponse, models } from './layout-service';
+import { AxiosDataFetcher, AxiosDataFetcherConfig } from '../axios-fetcher';
+import { HttpDataFetcher, fetchData } from '../data-fetcher';
+import debug from '../debug';
 
-export interface LayoutService {
-  /**
-   * Fetch layout data for an item.
-   * @param {string} itemPath
-   * @param {string} [language]
-   * @param {IncomingMessage} [req] Request instance
-   * @param {ServerResponse} [res] Response instance
-   * @returns {Promise<LayoutServiceData>} layout data
-   */
-  fetchLayoutData(
-    itemPath: string,
-    language?: string,
-    req?: IncomingMessage,
-    res?: ServerResponse
-  ): Promise<LayoutServiceData>;
+/**
+ * Resolves layout service url
+ * @param {LayoutServiceConfig} [options] layout service options
+ * @param {string} apiType which layout service API to call ('render' or 'placeholder')
+ * @returns the layout service url
+ */
+export function resolveLayoutServiceUrl(
+  options: LayoutServiceConfig = {},
+  apiType: 'render' | 'placeholder'
+): string {
+  const { host = '', configurationName = 'jss', serviceUrl } = options;
+
+  if (serviceUrl) {
+    return serviceUrl;
+  }
+
+  return `${host}/sitecore/api/layout/${apiType}/${configurationName}`;
 }
 
-export type DataFetcherResolver = <T>(
-  req?: IncomingMessage,
-  res?: ServerResponse
-) => HttpDataFetcher<T>;
+/**
+ * Makes a request to Sitecore Layout Service for the specified route item path.
+ * @deprecated Will be removed in a future release. Please use LayoutService.fetchLayoutData instead,
+ * @see {LayoutService} - fetchLayoutData
+ * @param {string} itemPath
+ * @param {LayoutServiceRequestOptions<LayoutServiceData>} options
+ * @returns {Promise<LayoutServiceData>} layout data
+ */
+export function fetchRouteData(
+  itemPath: string,
+  options: LayoutServiceRequestOptions<models.LayoutServiceData>
+): Promise<models.LayoutServiceData> {
+  const { querystringParams, layoutServiceConfig } = options;
+
+  const fetchUrl = resolveLayoutServiceUrl(layoutServiceConfig, 'render');
+
+  return fetchData(fetchUrl, options.fetcher, { item: itemPath, ...querystringParams });
+}
+
+/**
+ * Makes a request to Sitecore Layout Service for the specified placeholder in
+ * a specific route item. Allows you to retrieve rendered data for individual placeholders instead of entire routes.
+ * @deprecated Will be removed in a future release. Please use LayoutService.fetchPlaceholderData instead,
+ * @see {LayoutService} - fetchPlaceholderData
+ * @param {string} placeholderName
+ * @param {string} itemPath
+ * @param {LayoutServiceRequestOptions<PlaceholderData>} options
+ * @returns {Promise<PlaceholderData>} placeholder data
+ */
+export function fetchPlaceholderData(
+  placeholderName: string,
+  itemPath: string,
+  options: LayoutServiceRequestOptions<models.PlaceholderData>
+): Promise<models.PlaceholderData> {
+  const { querystringParams, layoutServiceConfig } = options;
+
+  const fetchUrl = resolveLayoutServiceUrl(layoutServiceConfig, 'placeholder');
+
+  return fetchData(fetchUrl, options.fetcher, {
+    placeholderName,
+    item: itemPath,
+    ...querystringParams,
+  });
+}
+
+export interface LayoutServiceConfig {
+  /**
+   * Host name of the Sitecore instance serving Layout Service requests.
+   */
+  host?: string;
+
+  /**
+   * Layout Service "named" configuration
+   */
+  configurationName?: string;
+
+  /**
+   * This value overrides the default layout service URL.
+   * Note: `host` and `configurationName` options are ignored if `layoutServiceUrl` is set.
+   */
+  serviceUrl?: string;
+}
+
+export interface LayoutServiceRequestOptions<T> {
+  /**
+   * Configuration options for Layout Service requests.
+   */
+  layoutServiceConfig?: LayoutServiceConfig;
+  /**
+   * An object of key:value pairs to be stringified and used as querystring parameters.
+   */
+  querystringParams?: { [key: string]: string | number | boolean };
+
+  /** The fetcher that performs the HTTP request and returns a promise to JSON */
+  fetcher: HttpDataFetcher<T>;
+}
+
+interface FetchParams {
+  [param: string]: string | number | boolean;
+  sc_apikey: string;
+  sc_site: string;
+  sc_lang: string;
+  tracking: boolean;
+}
+
+interface FetchOptions {
+  layoutServiceConfig: LayoutServiceConfig;
+  querystringParams: FetchParams;
+}
 
 export type RestLayoutServiceConfig = {
   /**
@@ -50,62 +134,29 @@ export type RestLayoutServiceConfig = {
    */
   tracking?: boolean;
   /**
-   * Data fetcher resolver in order to provide custom data fetcher
-   * @see DataFetcherResolver
-   * @see HttpDataFetcher<T>
-   * @see AxiosDataFetcher used by default
-   * @param {IncomingMessage} [req] Request instance
-   * @param {ServerResponse} [res] Response instance
+   * Function that handles fetching API data
    */
   dataFetcherResolver?: DataFetcherResolver;
 };
 
-export type GraphQLLayoutServiceConfig = {
-  /**
-   * Your Graphql endpoint
-   */
-  endpoint: string;
-  /**
-   * The JSS application name
-   */
-  siteName: string;
-  /**
-   * The API key to use for authentication
-   */
-  apiKey: string;
-  /**
-   * Override default layout query
-   * @param {string} siteName
-   * @param {string} itemPath
-   * @param {string} [locale]
-   * @returns {string} custom layout query
-   *
-   * @default
-   * Layout query
-   * layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
-   */
-  formatLayoutQuery?: (siteName: string, itemPath: string, locale?: string) => string;
-};
-
-interface FetchParams {
-  [param: string]: string | number | boolean;
-  sc_apikey: string;
-  sc_site: string;
-  sc_lang: string;
-  tracking: boolean;
-}
-
-interface FetchOptions {
-  layoutServiceConfig: LayoutServiceConfig;
-  querystringParams: FetchParams;
-}
+/**
+ * Data fetcher resolver in order to provide custom data fetcher
+ * @param {IncomingMessage} [req] Request instance
+ * @param {ServerResponse} [res] Response instance
+ */
+export type DataFetcherResolver = <T>(
+  req?: IncomingMessage,
+  res?: ServerResponse
+) => HttpDataFetcher<T>;
 
 /**
  * Fetch layout data using the Sitecore Layout Service REST API.
  * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
  */
-export class RestLayoutService implements LayoutService {
-  constructor(private serviceConfig: RestLayoutServiceConfig) {}
+export class RestLayoutService extends LayoutServiceBase {
+  constructor(private serviceConfig: RestLayoutServiceConfig) {
+    super();
+  }
 
   /**
    * Fetch layout data for an item.
@@ -120,7 +171,7 @@ export class RestLayoutService implements LayoutService {
     language?: string,
     req?: IncomingMessage,
     res?: ServerResponse
-  ): Promise<LayoutServiceData> {
+  ): Promise<models.LayoutServiceData> {
     const fetchOptions = this.getFetchOptions(language);
 
     debug.layout(
@@ -130,8 +181,8 @@ export class RestLayoutService implements LayoutService {
       this.serviceConfig.siteName
     );
     const fetcher = this.serviceConfig.dataFetcherResolver
-      ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
-      : this.getDefaultFetcher<LayoutServiceData>(req, res);
+      ? this.serviceConfig.dataFetcherResolver<models.LayoutServiceData>(req, res)
+      : this.getDefaultFetcher<models.LayoutServiceData>(req, res);
 
     return fetchRouteData(itemPath, { fetcher, ...fetchOptions }).catch((error) => {
       if (error.response?.status === 404) {
@@ -171,7 +222,7 @@ export class RestLayoutService implements LayoutService {
     language?: string,
     req?: IncomingMessage,
     res?: ServerResponse
-  ): Promise<PlaceholderData> {
+  ): Promise<models.PlaceholderData> {
     const fetchOptions = this.getFetchOptions(language);
 
     debug.layout(
@@ -182,8 +233,8 @@ export class RestLayoutService implements LayoutService {
       this.serviceConfig.siteName
     );
     const fetcher = this.serviceConfig.dataFetcherResolver
-      ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
-      : this.getDefaultFetcher<PlaceholderData>(req, res);
+      ? this.serviceConfig.dataFetcherResolver<models.PlaceholderData>(req, res)
+      : this.getDefaultFetcher<models.PlaceholderData>(req, res);
 
     return fetchPlaceholderData(placeholderName, itemPath, { fetcher, ...fetchOptions });
   }
@@ -263,70 +314,5 @@ export class RestLayoutService implements LayoutService {
         res.setHeader('set-cookie', serverRes.headers['set-cookie']);
       return serverRes;
     };
-  }
-}
-
-export class GraphQLLayoutService implements LayoutService {
-  /**
-   * Fetch layout data using the Sitecore GraphQL endpoint.
-   * @param {GraphQLLayoutServiceConfig} serviceConfig
-   */
-  constructor(private serviceConfig: GraphQLLayoutServiceConfig) {}
-
-  /**
-   * Fetch layout data for an item.
-   * @param {string} itemPath
-   * @param {string} [language]
-   * @returns {Promise<LayoutServiceData>} layout service data
-   */
-  async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
-    const query = this.getLayoutQuery(itemPath, language);
-
-    debug.layout(
-      'fetching layout data for %s %s %s',
-      itemPath,
-      language,
-      this.serviceConfig.siteName
-    );
-    const data = await this.createClient().request<{
-      layout: { item: { rendered: LayoutServiceData } };
-    }>(query);
-
-    // If `rendered` is empty -> not found
-    return (
-      data?.layout?.item.rendered || {
-        sitecore: { context: { pageEditing: false, language }, route: null },
-      }
-    );
-  }
-
-  /**
-   * Returns new graphql client instance
-   */
-  private createClient(): GraphQLRequestClient {
-    const { endpoint, apiKey } = this.serviceConfig;
-
-    return new GraphQLRequestClient(endpoint, { apiKey, debugger: debug.layout });
-  }
-
-  /**
-   * Returns GraphQL Layout query
-   * @param {string} itemPath page route
-   * @param {string} [language] language
-   */
-  private getLayoutQuery(itemPath: string, language?: string) {
-    const languageVariable = language ? `, language:"${language}"` : '';
-
-    const layoutQuery = this.serviceConfig.formatLayoutQuery
-      ? this.serviceConfig.formatLayoutQuery(this.serviceConfig.siteName, itemPath, language)
-      : `layout(site:"${this.serviceConfig.siteName}", routePath:"${itemPath}"${languageVariable})`;
-
-    return `query {
-      ${layoutQuery}{
-        item {
-          rendered
-        }
-      }
-    }`;
   }
 }

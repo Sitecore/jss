@@ -30,7 +30,7 @@ describe('trackEvent', () => {
   });
 
   it('should fetch with host', () => {
-    const expectedUrl = 'https://www.myhost.net/sitecore/api/jss/track/event?';
+    const expectedUrl = 'https://www.myhost.net/sitecore/api/jss/track/event';
 
     // configure 'POST' requests to return config options
     mock.onPost().reply((config) => {
