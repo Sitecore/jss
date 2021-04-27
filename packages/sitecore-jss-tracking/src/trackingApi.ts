@@ -42,7 +42,8 @@ function checkStatus<T>(response: HttpResponse<T>) {
  */
 function fetchData<T>(
   url: string,
-  data: unknown,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: any,
   fetcher: HttpDataFetcher<T>,
   params: querystring.ParsedUrlQueryInput = {}
 ) {

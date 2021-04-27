@@ -1,6 +1,6 @@
 import { resolveAppRoot } from './resolve-app-root';
 import { GraphQLRequestClient } from '../graphql-request-client';
-import siteRootQueryResponse from '../../testData/mockSiteRootQueryResponse.json';
+import siteRootQueryResponse from '../testData/mockSiteRootQueryResponse.json';
 import { expect } from 'chai';
 import nock from 'nock';
 

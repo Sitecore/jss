@@ -2,8 +2,8 @@
 import { expect } from 'chai';
 import nock from 'nock';
 import { GraphQLDictionaryService } from './graphql-dictionary-service';
-import siteRootQueryResponse from '../../testData/mockSiteRootQueryResponse.json';
-import dictionaryQueryResponse from '../../testData/mockDictionaryQueryResponse.json';
+import siteRootQueryResponse from '../testData/mockSiteRootQueryResponse.json';
+import dictionaryQueryResponse from '../testData/mockDictionaryQueryResponse.json';
 
 describe('GraphQLDictionaryService', () => {
   const endpoint = 'http://site';
