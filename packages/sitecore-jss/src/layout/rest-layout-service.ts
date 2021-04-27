@@ -7,17 +7,20 @@ import debug from '../debug';
 /**
  * Resolves layout service url
  * @param {LayoutServiceConfig} [options] layout service options
- * @param {string} verb to do
+ * @param {string} apiType which layout service API to call ('render' or 'placeholder')
  * @returns the layout service url
  */
-export function resolveLayoutServiceUrl(options: LayoutServiceConfig = {}, verb: string): string {
+export function resolveLayoutServiceUrl(
+  options: LayoutServiceConfig = {},
+  apiType: 'render' | 'placeholder'
+): string {
   const { host = '', configurationName = 'jss', serviceUrl } = options;
 
   if (serviceUrl) {
     return serviceUrl;
   }
 
-  return `${host}/sitecore/api/layout/${verb}/${configurationName}`;
+  return `${host}/sitecore/api/layout/${apiType}/${configurationName}`;
 }
 
 /**
