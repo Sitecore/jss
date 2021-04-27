@@ -1,7 +1,7 @@
 import { GraphQLRequestClient } from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
-import { resolveAppRoot } from '../context';
+import { getAppRootId } from '../utils';
 import debug from '../debug';
 
 const DEFAULTS = Object.freeze({
@@ -164,7 +164,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     });
     if (!this.options.rootItemId) {
       debug.dictionary('fetching site root for %s %s', language, this.options.siteName);
-      this.options.rootItemId = await resolveAppRoot(client, this.options.siteName, language);
+      this.options.rootItemId = await getAppRootId(client, this.options.siteName, language);
     }
 
     debug.dictionary('fetching dictionary data for %s %s', language, this.options.siteName);

@@ -34,7 +34,7 @@ type AppRootQueryResult = {
  * @returns the root item ID of the JSS App in Sitecore.
  * @throws Error if the app root was not found for the specified site and language.
  */
-export async function resolveAppRoot(
+export async function getAppRootId(
   client: GraphQLRequestClient,
   siteName: string,
   language: string

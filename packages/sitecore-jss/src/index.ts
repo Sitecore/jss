@@ -1,11 +1,11 @@
 import * as mediaApi from './media-api';
 import * as constants from './constants';
-export { resolveAppRoot } from './context';
 export {
   isServer,
   resolveUrl,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  getAppRootId,
 } from './utils';
 
 // TODO: these are deprecated and we should stop exporting them
