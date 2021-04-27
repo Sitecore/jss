@@ -1,4 +1,5 @@
 import resolveUrl from './utils/resolve-url';
+import querystring from 'querystring';
 
 /**
  * Response data for an HTTP request sent to an API
@@ -24,8 +25,7 @@ export interface HttpResponse<T> {
  */
 export type HttpDataFetcher<T> = (
   url: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data?: { [key: string]: any }
+  data?: { [key: string]: unknown }
 ) => Promise<HttpResponse<T>>;
 
 class ResponseError extends Error {
@@ -41,6 +41,7 @@ class ResponseError extends Error {
 
 /**
  * @param {HttpResponse<T>} response
+ * @throws {ResponseError} if response code is not ok
  */
 function checkStatus<T>(response: HttpResponse<T>) {
   if (response.status >= 200 && response.status < 300) {

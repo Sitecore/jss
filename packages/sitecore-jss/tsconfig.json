@@ -31,6 +31,6 @@
     "types",
     "dist",
     "src/**/*.test.ts",
-    "testData"
+    "src/testData/*",
   ]
 }

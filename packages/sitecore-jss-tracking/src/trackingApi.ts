@@ -23,7 +23,7 @@ class ResponseError extends Error {
 /**
  * @param {HttpResponse<unknown>} response
  */
-function checkStatus(response: HttpResponse<unknown>) {
+function checkStatus<T>(response: HttpResponse<T>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -42,10 +42,8 @@ function checkStatus(response: HttpResponse<unknown>) {
  */
 function fetchData<T>(
   url: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any,
+  data: unknown,
   fetcher: HttpDataFetcher<T>,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params: querystring.ParsedUrlQueryInput = {}
 ) {
   return fetcher(resolveUrl(url, params), data)

@@ -1,7 +1,12 @@
 import * as mediaApi from './media-api';
 import * as constants from './constants';
-export * from './utils';
-export * from './context';
+export { resolveAppRoot } from './context';
+export {
+  isServer,
+  resolveUrl,
+  isExperienceEditorActive,
+  resetExperienceEditorChromes,
+} from './utils';
 
 // TODO: these are deprecated and we should stop exporting them
 import { fetchRouteData, fetchPlaceholderData } from './layout/rest-layout-service';
