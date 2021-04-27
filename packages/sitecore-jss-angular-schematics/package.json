@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular-schematics",
-  "version": "16.1.0-canary.25",
+  "version": "16.1.0-canary.26",
   "description": "Scaffolding schematics for Sitecore JSS Angular apps",
   "scripts": {
     "build": "tsc -p tsconfig.json",
