@@ -96,7 +96,6 @@ describe('utils', () => {
   });
 
   describe('getAppRootId', () => {
-
     const endpoint = 'http://site';
     const apiKey = '0FBFF61E-267A-43E3-9252-B77E71CEE4BA';
 
