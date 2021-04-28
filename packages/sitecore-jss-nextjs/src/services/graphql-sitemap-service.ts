@@ -14,11 +14,13 @@ const DEFAULTS = Object.freeze({
   pageSize: 10,
 });
 
+// Event hough _hasLayout should always be "true" in this query, using a variable is necessary for compatibility with Edge
 const query = /* GraphQL */ `
   query SitePageQuery(
     $rootItemId: String!
     $language: String!
     $pageSize: Int = 10
+    $hasLayout: String = "true"
     $after: String
   ) {
     search(
@@ -26,7 +28,7 @@ const query = /* GraphQL */ `
         AND: [
           { name: "_path", value: $rootItemId }
           { name: "_language", value: $language }
-          { name: "_hasLayout", value: "true" }
+          { name: "_hasLayout", value: $hasLayout }
         ]
       }
       first: $pageSize
