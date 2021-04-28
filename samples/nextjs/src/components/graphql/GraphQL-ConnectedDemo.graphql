@@ -49,20 +49,18 @@ query ConnectedDemoQuery($datasource: String!, $contextItem: String!) {
 
     # List the children of the current route
     children(hasLayout: true) {
-      results {
-        id
-        # typing fragments can be used anywhere!
-        # so in this case, we're grabbing the 'pageTitle'
-        # field on all child route items.
-        ...on AppRoute {
-          pageTitle {
-            jsonValue
-            value
-          }
+      id
+      # typing fragments can be used anywhere!
+      # so in this case, we're grabbing the 'pageTitle'
+      # field on all child route items.
+      ...on AppRoute {
+        pageTitle {
+          jsonValue
+          value
         }
-        url{
-          path
-        }
+      }
+      url{
+        path
       }
     }
   }
