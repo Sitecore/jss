@@ -1294,49 +1294,6 @@
       },
       {
         "kind": "OBJECT",
-        "name": "PageInfo",
-        "description": null,
-        "fields": [
-          {
-            "name": "endCursor",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "hasNext",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
         "name": "ItemTemplate",
         "description": null,
         "fields": [
@@ -1693,10 +1650,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -1706,9 +1663,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -2203,69 +2164,6 @@
             "ofType": null
           }
         ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "ItemSearchResults",
-        "description": null,
-        "fields": [
-          {
-            "name": "pageInfo",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "results",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INTERFACE",
-                  "name": "Item",
-                  "ofType": null
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "total",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
       },
       {
         "kind": "OBJECT",
@@ -3676,6 +3574,112 @@
       },
       {
         "kind": "OBJECT",
+        "name": "PageInfo",
+        "description": null,
+        "fields": [
+          {
+            "name": "endCursor",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hasNext",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ItemSearchResults",
+        "description": null,
+        "fields": [
+          {
+            "name": "pageInfo",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PageInfo",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "results",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "total",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
         "name": "LayoutData",
         "description": null,
         "fields": [
@@ -3787,10 +3791,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -3800,9 +3804,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -4208,10 +4216,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -4221,9 +4229,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -4658,10 +4670,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -4671,9 +4683,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -5108,10 +5124,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -5121,9 +5137,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -5541,10 +5561,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -5554,9 +5574,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -5991,10 +6015,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -6004,9 +6028,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -6453,10 +6481,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -6466,9 +6494,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -6898,10 +6930,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -6911,9 +6943,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -7348,10 +7384,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -7361,9 +7397,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -7798,10 +7838,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -7811,9 +7851,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -8231,10 +8275,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -8244,9 +8288,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -8705,10 +8753,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -8718,9 +8766,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -9179,10 +9231,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -9192,9 +9244,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -9641,10 +9697,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -9654,9 +9710,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -10139,10 +10199,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -10152,9 +10212,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -10613,10 +10677,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -10626,9 +10690,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -11087,10 +11155,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -11100,9 +11168,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -11549,10 +11621,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -11562,9 +11634,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -12023,10 +12099,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -12036,9 +12112,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -12485,10 +12565,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -12498,9 +12578,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -12983,10 +13067,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -12996,9 +13080,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -13433,10 +13521,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -13446,9 +13534,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -13883,10 +13975,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -13896,9 +13988,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -14316,10 +14412,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -14329,9 +14425,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -14773,10 +14873,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -14786,9 +14886,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -15223,10 +15327,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -15236,9 +15340,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -15644,10 +15752,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -15657,9 +15765,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -16065,10 +16177,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -16078,9 +16190,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -16534,10 +16650,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -16547,9 +16663,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -17301,10 +17421,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -17314,9 +17434,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -18104,10 +18228,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -18117,9 +18241,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -18566,10 +18694,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -18579,9 +18707,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -19011,10 +19143,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -19024,9 +19156,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -19468,10 +19604,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -19481,9 +19617,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -19930,10 +20070,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -19943,9 +20083,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -20375,10 +20519,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -20388,9 +20532,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -20813,10 +20961,10 @@
               },
               {
                 "name": "after",
-                "description": "Cursor value. Use with first for pagination.",
+                "description": "Skips children until after the given child ID. Use with first for pagination.",
                 "type": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 },
                 "defaultValue": "null"
@@ -20826,9 +20974,13 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ItemSearchResults",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
               }
             },
             "isDeprecated": false,
@@ -22022,18 +22174,6 @@
           },
           {
             "name": "CONTAINS",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "NEQ",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "NCONTAINS",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
