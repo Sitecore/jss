@@ -1,4 +1,5 @@
-import { LayoutServiceBase, models } from './layout-service';
+import { LayoutServiceBase } from './layout-service';
+import { LayoutServiceData } from './models';
 import { GraphQLRequestClient } from '../graphql-request-client';
 import debug from '../debug';
 
@@ -44,7 +45,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
    * @param {string} [language]
    * @returns {Promise<LayoutServiceData>} layout service data
    */
-  async fetchLayoutData(itemPath: string, language?: string): Promise<models.LayoutServiceData> {
+  async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
     const query = this.getLayoutQuery(itemPath, language);
 
     debug.layout(
@@ -54,7 +55,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
       this.serviceConfig.siteName
     );
     const data = await this.createClient().request<{
-      layout: { item: { rendered: models.LayoutServiceData } };
+      layout: { item: { rendered: LayoutServiceData } };
     }>(query);
 
     // If `rendered` is empty -> not found

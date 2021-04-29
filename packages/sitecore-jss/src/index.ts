@@ -18,7 +18,7 @@ export { mediaApi, constants };
 export { default as debug, Debugger } from './debug';
 
 // generic API access abstractions
-export { HttpDataFetcher, HttpResponse } from './data-fetcher';
+export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
 
 // API access implementations
 export { GraphQLRequestClient, GraphQLRequestClientConfig } from './graphql-request-client';
@@ -26,14 +26,15 @@ export { GraphQLRequestClient, GraphQLRequestClientConfig } from './graphql-requ
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 
 // i18n
-export { DictionaryPhrases, DictionaryService } from './i18n/dictionary-service';
-
 export {
+  DictionaryPhrases,
+  DictionaryService,
   GraphQLDictionaryService,
   GraphQLDictionaryServiceConfig,
-} from './i18n/graphql-dictionary-service';
-
-export { RestDictionaryService, RestDictionaryServiceConfig } from './i18n/rest-dictionary-service';
+  RestDictionaryService,
+  RestDictionaryServiceData,
+  RestDictionaryServiceConfig,
+} from './i18n';
 
 // layout
 export {
@@ -60,6 +61,7 @@ export {
   RestLayoutService,
   RestLayoutServiceConfig,
   DataFetcherResolver,
+  LayoutServiceConfig,
   LayoutServiceRequestOptions,
 } from './layout/rest-layout-service';
 
