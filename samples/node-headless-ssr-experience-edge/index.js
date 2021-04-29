@@ -83,16 +83,12 @@ server.use(async (req, res) => {
       return;
     }
 
-    const layoutData = await layoutService.fetchLayoutData(route, lang);
-
-    // Take language provided by layout data in case if language is not provided in requested url
-    const language = lang || layoutData.sitecore.context.language;
+    // Language is required. In case it's not specified in the requested URL, fallback to the default language from the app configuration.
+    const layoutData = await layoutService.fetchLayoutData(route, lang || config.defaultLanguage);
 
     const viewBag = { dictionary: {} };
 
-    if (language) {
-      viewBag.dictionary = await dictionaryService.fetchDictionaryData(language);
-    }
+    viewBag.dictionary = await dictionaryService.fetchDictionaryData(layoutData.sitecore.context.language);
 
     renderView(
       (err, result) => {
