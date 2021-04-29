@@ -1,8 +1,6 @@
 import * as models from './models';
 import { IncomingMessage, ServerResponse } from 'http';
 
-export { IncomingMessage, ServerResponse, models };
-
 export interface LayoutService {
   /**
    * Fetch layout data for an item.

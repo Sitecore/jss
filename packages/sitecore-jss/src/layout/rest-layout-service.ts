@@ -1,5 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { LayoutServiceBase, IncomingMessage, ServerResponse, models } from './layout-service';
+import { IncomingMessage, ServerResponse } from 'http';
+import { LayoutServiceBase } from './layout-service';
+import { PlaceholderData, LayoutServiceData } from './models';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from '../axios-fetcher';
 import { HttpDataFetcher, fetchData } from '../data-fetcher';
 import debug from '../debug';
@@ -33,8 +35,8 @@ export function resolveLayoutServiceUrl(
  */
 export function fetchRouteData(
   itemPath: string,
-  options: LayoutServiceRequestOptions<models.LayoutServiceData>
-): Promise<models.LayoutServiceData> {
+  options: LayoutServiceRequestOptions<LayoutServiceData>
+): Promise<LayoutServiceData> {
   const { querystringParams, layoutServiceConfig } = options;
 
   const fetchUrl = resolveLayoutServiceUrl(layoutServiceConfig, 'render');
@@ -55,8 +57,8 @@ export function fetchRouteData(
 export function fetchPlaceholderData(
   placeholderName: string,
   itemPath: string,
-  options: LayoutServiceRequestOptions<models.PlaceholderData>
-): Promise<models.PlaceholderData> {
+  options: LayoutServiceRequestOptions<PlaceholderData>
+): Promise<PlaceholderData> {
   const { querystringParams, layoutServiceConfig } = options;
 
   const fetchUrl = resolveLayoutServiceUrl(layoutServiceConfig, 'placeholder');
@@ -171,7 +173,7 @@ export class RestLayoutService extends LayoutServiceBase {
     language?: string,
     req?: IncomingMessage,
     res?: ServerResponse
-  ): Promise<models.LayoutServiceData> {
+  ): Promise<LayoutServiceData> {
     const fetchOptions = this.getFetchOptions(language);
 
     debug.layout(
@@ -181,8 +183,8 @@ export class RestLayoutService extends LayoutServiceBase {
       this.serviceConfig.siteName
     );
     const fetcher = this.serviceConfig.dataFetcherResolver
-      ? this.serviceConfig.dataFetcherResolver<models.LayoutServiceData>(req, res)
-      : this.getDefaultFetcher<models.LayoutServiceData>(req, res);
+      ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
+      : this.getDefaultFetcher<LayoutServiceData>(req, res);
 
     return fetchRouteData(itemPath, { fetcher, ...fetchOptions }).catch((error) => {
       if (error.response?.status === 404) {
@@ -222,7 +224,7 @@ export class RestLayoutService extends LayoutServiceBase {
     language?: string,
     req?: IncomingMessage,
     res?: ServerResponse
-  ): Promise<models.PlaceholderData> {
+  ): Promise<PlaceholderData> {
     const fetchOptions = this.getFetchOptions(language);
 
     debug.layout(
@@ -233,8 +235,8 @@ export class RestLayoutService extends LayoutServiceBase {
       this.serviceConfig.siteName
     );
     const fetcher = this.serviceConfig.dataFetcherResolver
-      ? this.serviceConfig.dataFetcherResolver<models.PlaceholderData>(req, res)
-      : this.getDefaultFetcher<models.PlaceholderData>(req, res);
+      ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
+      : this.getDefaultFetcher<PlaceholderData>(req, res);
 
     return fetchPlaceholderData(placeholderName, itemPath, { fetcher, ...fetchOptions });
   }
