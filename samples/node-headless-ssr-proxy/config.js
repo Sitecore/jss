@@ -93,9 +93,6 @@ const config = {
     // This is a major security issue, so NEVER EVER set this to false
     // outside local development. Use a real CA-issued certificate.
 		secure: true,
-		headers: {
-			"accept-encoding": "gzip, deflate"
-		},
 		xfwd: true
 	},
 	/**
