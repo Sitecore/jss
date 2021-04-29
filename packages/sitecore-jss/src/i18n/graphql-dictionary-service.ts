@@ -19,7 +19,7 @@ const query = /* GraphQL */ `
     search(
       where: {
         AND: [
-          { name: "_path", value: $rootItemId }
+          { name: "_path", value: $rootItemId, operator: CONTAINS }
           { name: "_templates", value: $dictionaryEntryTemplateId }
           { name: "_language", value: $language }
         ]
