@@ -26,14 +26,15 @@ export { GraphQLRequestClient, GraphQLRequestClientConfig } from './graphql-requ
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 
 // i18n
-export { DictionaryPhrases, DictionaryService } from './i18n/dictionary-service';
-
 export {
+  DictionaryPhrases,
+  DictionaryService,
   GraphQLDictionaryService,
   GraphQLDictionaryServiceConfig,
-} from './i18n/graphql-dictionary-service';
-
-export { RestDictionaryService, RestDictionaryServiceConfig } from './i18n/rest-dictionary-service';
+  RestDictionaryService,
+  RestDictionaryServiceData,
+  RestDictionaryServiceConfig,
+} from './i18n';
 
 // layout
 export {
