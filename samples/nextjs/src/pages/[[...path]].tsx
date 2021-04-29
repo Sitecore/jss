@@ -12,8 +12,15 @@ import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
+import { trackingService } from 'lib/tracking-factory';
+import { areQueryParamsReady } from 'lib/util';
 
-const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
+const SitecorePage = ({
+  notFound,
+  layoutData,
+  componentProps,
+  isPreview,
+}: SitecorePageProps): JSX.Element => {
   useEffect(() => {
     // Since Experience Editor does not support Fast Refresh need to refresh EE chromes after Fast Refresh finished
     handleExperienceEditorFastRefresh();
@@ -22,6 +29,15 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
   if (notFound || !layoutData?.sitecore?.route) {
     // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
     return <NotFound />;
+  }
+
+  // Do not trigger client tracking when pages are requested by Sitecore XP instance:
+  // - no need to track in Edit and Preview modes
+  // - in Explore mode all requests will be tracked by Sitecore XP out of the box
+  if (!isPreview && areQueryParamsReady()) {
+    trackingService
+      .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
+      .catch((error) => console.error('Tracking failed: ' + error.message));
   }
 
   const context: StyleguideSitecoreContextValue = {

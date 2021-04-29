@@ -9,6 +9,7 @@ trigger:
     - master
     - dev
     - release/*
+    - feature/personalization-and-tracking
   paths:
     include:
     - /
@@ -24,6 +25,7 @@ pr:
     - master
     - dev
     - release/*
+    - feature/personalization-and-tracking
   paths:
     include:
     - /

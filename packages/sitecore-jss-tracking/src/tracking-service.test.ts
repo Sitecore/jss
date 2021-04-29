@@ -1,0 +1,276 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { HttpDataFetcher, RouteData } from '@sitecore-jss/sitecore-jss';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import { expect } from 'chai';
+import { TrackingService } from './tracking-service';
+import { describe } from 'mocha';
+
+// note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
+// which is necessary for analytics and such
+const axiosFetcher: HttpDataFetcher<void> = (url, data) =>
+  axios({
+    url,
+    method: data ? 'POST' : 'GET',
+    data,
+    withCredentials: true,
+  });
+
+describe('TrackingService', () => {
+  let mock: MockAdapter;
+  const wind = (global as any).window;
+
+  before(() => {
+    mock = new MockAdapter(axios);
+  });
+
+  beforeEach(() => {
+    (global as any).window = {
+      location: { pathname: '/page', search: '' },
+    };
+  });
+
+  afterEach(() => {
+    mock.reset();
+  });
+
+  after(() => {
+    mock.restore();
+
+    if (wind) {
+      (global as any).window = wind;
+    } else {
+      delete (global as any).window;
+    }
+  });
+
+  describe('trackCurrentPage', () => {
+    const theories = [
+      ['', 'https://www.myhost.net/sitecore/api/track/pageview?sc_site=MySite'],
+      ['?', 'https://www.myhost.net/sitecore/api/track/pageview?sc_site=MySite'],
+      [
+        '?sc_camp=1111&some=value&sc_trk=5555',
+        'https://www.myhost.net/sitecore/api/track/pageview?sc_site=MySite&sc_camp=1111&sc_trk=5555',
+      ],
+    ];
+
+    theories.forEach(([queryString, expectedUrl]) => {
+      it(`should track page with query string \'${queryString}\'`, () => {
+        // arrange
+        mock.onPost().reply(() => [200, {}]);
+
+        window.location.search = queryString;
+        window.location.pathname = '/page';
+
+        const service = new TrackingService({
+          host: 'https://www.myhost.net',
+          test: true,
+          fetcher: axiosFetcher,
+        });
+
+        const context = { site: { name: 'MySite' } };
+        const routeData = createRouteData('itemId', 'deviceId', 'ja-JP');
+
+        // act
+        return service.trackCurrentPage(context, routeData).then(() => {
+          // assert
+          expect(mock.history.post).to.have.length(1);
+
+          const post = mock.history.post[0];
+          expect(post.url).to.equal(expectedUrl);
+          expect(post.withCredentials, 'with credentials is not true').to.be.true;
+
+          const body = JSON.parse(post.data);
+          expect(body.url).to.equal('/page' + queryString);
+          expect(body.itemId).to.equal('itemId');
+          expect(body.layoutDeviceId).to.equal('deviceId');
+          expect(body.language).to.equal('ja-JP');
+        });
+      });
+    });
+
+    it('should skip optional itemId param', () => {
+      // arrange
+      mock.onPost().reply(() => [200, {}]);
+
+      window.location.pathname = '/page';
+
+      const service = new TrackingService({
+        host: 'https://www.myhost.net',
+        test: true,
+        fetcher: axiosFetcher,
+      });
+
+      // act
+      return service.trackCurrentPage({}, createRouteData(undefined)).then(() => {
+        // assert
+        expect(mock.history.post).to.have.length(1);
+
+        const post = mock.history.post[0];
+        const body = JSON.parse(post.data);
+        expect(body.url).to.equal('/page');
+        expect(post.data).not.to.contain('itemId');
+      });
+    });
+
+    it('should skip optional layoutDeviceId param', () => {
+      // arrange
+      mock.onPost().reply(() => [200, {}]);
+
+      window.location.pathname = '/page';
+
+      const service = new TrackingService({
+        host: 'https://www.myhost.net',
+        test: true,
+        fetcher: axiosFetcher,
+      });
+
+      // act
+      return service.trackCurrentPage({}, createRouteData('myItemId', undefined)).then(() => {
+        // assert
+        expect(mock.history.post).to.have.length(1);
+
+        const post = mock.history.post[0];
+        const body = JSON.parse(post.data);
+        expect(body.url).to.equal('/page');
+        expect(body.itemId).to.equal('myItemId');
+        expect(post.data).not.to.contain('layoutDeviceId');
+      });
+    });
+
+    it('should skip optional itemLanguage param', () => {
+      // arrange
+      mock.onPost().reply(() => [200, {}]);
+
+      window.location.pathname = '/page';
+
+      const service = new TrackingService({
+        host: 'https://www.myhost.net',
+        test: true,
+        fetcher: axiosFetcher,
+      });
+
+      const routeData = createRouteData('myItemId', undefined, undefined);
+
+      // act
+      return service.trackCurrentPage({}, routeData).then(() => {
+        // assert
+        expect(mock.history.post).to.have.length(1);
+
+        const post = mock.history.post[0];
+        const body = JSON.parse(post.data);
+        expect(body.url).to.equal('/page');
+        expect(body.itemId).to.equal('myItemId');
+        expect(post.data).not.to.contain('language');
+      });
+    });
+
+    it('should take site name from layout even if it passed in querystringParams', () => {
+      // arrange
+      mock.onPost().reply(() => [200, {}]);
+
+      window.location.pathname = '/page';
+
+      const service = new TrackingService({
+        host: 'https://www.myhost.net',
+        test: true,
+        fetcher: axiosFetcher,
+        querystringParams: {
+          sc_site: 'defaultSite',
+        },
+      });
+
+      const context = { site: { name: 'MySite' } };
+
+      // act
+      return service.trackCurrentPage(context, createRouteData('itemId')).then(() => {
+        // assert
+        expect(mock.history.post).to.have.length(1);
+
+        expect(mock.history.post[0].url).to.equal(
+          'https://www.myhost.net/sitecore/api/track/pageview?sc_site=MySite'
+        );
+      });
+    });
+
+    it('should trasfer the specified querystring params of the current request', () => {
+      // arrange
+      mock.onPost().reply(() => [200, {}]);
+
+      window.location.search = '?sc_camp=1111&par1=my value1&par2=my%20value2&sc_trk=5555';
+
+      const service = new TrackingService({
+        host: 'https://www.myhost.net',
+        test: true,
+        fetcher: axiosFetcher,
+        currentPageParamsToTrack: ['par1', 'par2'],
+      });
+
+      // act
+      return service.trackCurrentPage({}, createRouteData('itemId')).then(() => {
+        // assert
+        expect(mock.history.post).to.have.length(1);
+
+        expect(mock.history.post[0].url).to.equal(
+          'https://www.myhost.net/sitecore/api/track/pageview?par1=my%20value1&par2=my%20value2'
+        );
+      });
+    });
+
+    it('should add static query parameters from options', () => {
+      // arrange
+      mock.onPost().reply(() => [200, {}]);
+
+      window.location.search = '?sc_camp=1111';
+
+      const service = new TrackingService({
+        host: 'https://www.myhost.net',
+        test: true,
+        fetcher: axiosFetcher,
+        querystringParams: { extra: 'myvalue' },
+      });
+
+      // act
+      return service.trackCurrentPage({}, createRouteData('itemId')).then(() => {
+        // assert
+        expect(mock.history.post).to.have.length(1);
+
+        expect(mock.history.post[0].url).to.equal(
+          'https://www.myhost.net/sitecore/api/track/pageview?extra=myvalue&sc_camp=1111'
+        );
+      });
+    });
+
+    it('should use serviceUrl and action passed in options', () => {
+      // arrange
+      mock.onPost().reply(() => [200, {}]);
+
+      const service = new TrackingService({
+        host: 'https://www.myhost.net',
+        test: true,
+        fetcher: axiosFetcher,
+        serviceUrl: '/my/path',
+        action: 'myaction',
+      });
+
+      // act
+      return service.trackCurrentPage({}, createRouteData('itemId')).then(() => {
+        // assert
+        expect(mock.history.post).to.have.length(1);
+
+        expect(mock.history.post[0].url).to.equal('https://www.myhost.net/my/path/myaction');
+      });
+    });
+
+    const createRouteData = (itemId?: string, deviceId?: string, language?: string): RouteData => {
+      return {
+        name: '',
+        itemId: itemId,
+        itemLanguage: language,
+        deviceId: deviceId,
+        placeholders: {},
+      };
+    };
+  });
+});

@@ -9,3 +9,5 @@ export {
   EventInstance,
   PageViewInstance,
 } from './dataModels';
+
+export { TrackingService } from './tracking-service';
