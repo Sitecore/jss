@@ -2,11 +2,12 @@ import { LayoutService, RestLayoutService } from '@sitecore-jss/sitecore-jss-nex
 import config from 'temp/config';
 
 export class LayoutServiceFactory {
-  create(): LayoutService {
+  create(tracking: boolean): LayoutService {
     return new RestLayoutService({
       apiHost: config.sitecoreApiHost,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
+      tracking: tracking,
     });
   }
 }

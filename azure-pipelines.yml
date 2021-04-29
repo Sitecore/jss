@@ -8,6 +8,7 @@ trigger:
     include:
     - master
     - dev
+    - feature/personalization-and-tracking
   paths:
     include:
     - /
@@ -22,6 +23,7 @@ pr:
     include:
     - master
     - dev
+    - feature/personalization-and-tracking
   paths:
     include:
     - /
