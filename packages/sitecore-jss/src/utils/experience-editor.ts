@@ -1,4 +1,4 @@
-import { isServer } from '.';
+import isServer from './is-server';
 
 export const isExperienceEditorActive = (): boolean => {
   if (isServer()) {
