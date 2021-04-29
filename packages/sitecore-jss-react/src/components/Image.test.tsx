@@ -181,6 +181,7 @@ describe('<Image />', () => {
         id: 'some-id',
         style: { width: '100%' },
         className: 'the-dude-abides',
+        imageParams: {},
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
       const rendered = mount(<Image {...props} />);
@@ -207,6 +208,7 @@ describe('<Image />', () => {
           width: '100%',
         },
         className: 'the-dude-abides',
+        imageParams: {},
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
       const rendered = mount(<Image {...props} />);
@@ -239,7 +241,10 @@ describe('<Image />', () => {
 
       const rendered = mount(<Image {...props} />);
 
-      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png');
+      expect(rendered.find('img').prop('src')).to.equal('/~assets/img/test0.png');
+      expect(rendered.find('img').prop('srcSet')).to.equal(
+        '/~/jssmedia/img/test0.png?mw=100 100w, /~/jssmedia/img/test0.png?mw=300 300w'
+      );
 
       rendered.setProps({
         ...props,
@@ -248,9 +253,13 @@ describe('<Image />', () => {
           width: 8,
           height: 10,
         },
+        imageParams: {},
       });
 
       expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png');
+      expect(rendered.find('img').prop('srcSet')).to.equal(
+        '/-/jssmedia/img/test0.png?mw=100 100w, /-/jssmedia/img/test0.png?mw=300 300w'
+      );
     });
   });
 

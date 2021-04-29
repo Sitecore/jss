@@ -49,10 +49,11 @@ export const getRequiredParams = (qs: { [key: string]: string | undefined }) => 
 };
 
 /**
- * Receives a Sitecore media URL and replaces `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
- * Can use `mediaUrlPrefix` in order to use custom checker.
- * This replacement allows the JSS media handler to be used for JSS app assets.
- * Also, any provided `params` are used as the querystring parameters for the media URL.
+ * Prepares a Sitecore media URL with `params` for use by the JSS media handler.
+ * This is done by replacing `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
+ * Provided `params` are used as the querystring parameters for the media URL.
+ * Can use `mediaUrlPrefix` in order to use a custom prefix.
+ * If no `params` are sent, the original media URL is returned.
  * @param {string} url
  * @param {Object} [params]
  * @param {RegExp} [mediaUrlPrefix=mediaUrlPrefixRegex]
@@ -63,6 +64,10 @@ export const updateImageUrl = (
   params?: { [key: string]: string | number | undefined } | null,
   mediaUrlPrefix: RegExp = mediaUrlPrefixRegex
 ) => {
+  if (!params) {
+    // if params aren't supplied, no need to run it through JSS media handler
+    return url;
+  }
   // polyfill node `global` in browser to workaround https://github.com/unshiftio/url-parse/issues/150
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if (typeof window !== 'undefined' && !(window as any).global) {
@@ -71,20 +76,15 @@ export const updateImageUrl = (
   }
   const parsed = URL(url, {}, true);
 
-  const query = { ...(params || parsed.query) };
+  const requiredParams = getRequiredParams(parsed.query);
 
-  // In case if imageParams provided
-  if (params) {
-    const requiredParams = getRequiredParams(parsed.query);
+  Object.entries(requiredParams).forEach(([key, param]) => {
+    if (param) {
+      params[key] = param;
+    }
+  });
 
-    Object.entries(requiredParams).forEach(([key, param]) => {
-      if (param) {
-        query[key] = param;
-      }
-    });
-  }
-
-  parsed.set('query', query);
+  parsed.set('query', params);
 
   const match = mediaUrlPrefix.exec(parsed.pathname);
   if (match && match.length > 1) {

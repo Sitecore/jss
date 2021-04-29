@@ -64,26 +64,57 @@ describe('getRequiredParams', () => {
 });
 
 describe('updateImageUrl', () => {
-  it('should override parameters with those provided', () => {
+  it('should return original if no params', () => {
     const original =
-      'http://sitecore/-/media/lorem.png?h=1&w=2&mh=3&mw=4hash=CC5043DC03C6C27F40EDB08CF84AB8670C05D63D';
+      'http://sitecore/-/media/lorem/ipsum.jpg?h=1&w=2&hash=CC5043DC03C6C27F40EDB08CF84AB8670C05D63D';
+    const updated = updateImageUrl(original);
+    expect(updated).to.equal(original);
+  });
+
+  it('should override parameters with those provided', () => {
+    const original = 'http://sitecore/-/media/lorem.png?mh=3&mw=4';
     const updated = updateImageUrl(original, { mh: '5', mw: '6' });
     const url = URL(updated, true);
     expect(url.query.mh).to.equal('5');
     expect(url.query.mw).to.equal('6');
-    expect(url.query.hash).to.be.undefined; // eslint-disable-line no-unused-expressions
+  });
+
+  it('should remove non-required query parameters not provided', () => {
+    const original =
+      'http://sitecore/-/media/lorem.png?h=1&w=2&mh=3&mw=4&hash=CC5043DC03C6C27F40EDB08CF84AB8670C05D63D';
+    const updated = updateImageUrl(original, { mh: '5', mw: '6' });
+    const url = URL(updated, true);
+    expect(url.query.mh).to.equal('5');
+    expect(url.query.mw).to.equal('6');
+    expect(url.query.h).to.be.undefined;
+    expect(url.query.w).to.be.undefined;
+    expect(url.query.hash).to.be.undefined;
+  });
+
+  it('should preserve required query parameters', () => {
+    const original =
+      'http://sitecore/-/media/lorem.png?rev=100&db=master&la=en&vs=200&ts=foo&mh=3&mw=4';
+    const updated = updateImageUrl(original, { mh: '5', mw: '6' });
+    const url = URL(updated, true);
+    expect(url.query.mh).to.equal('5');
+    expect(url.query.mw).to.equal('6');
+    expect(url.query.rev).to.equal('100');
+    expect(url.query.db).to.equal('master');
+    expect(url.query.la).to.equal('en');
+    expect(url.query.vs).to.equal('200');
+    expect(url.query.ts).to.equal('foo');
   });
 
   it('should replace /-/media/ with /-/jssmedia/', () => {
     const original = 'http://sitecore/-/media/lorem/ipsum.jpg';
-    const updated = updateImageUrl(original);
+    const updated = updateImageUrl(original, {});
     const url = URL(updated);
     expect(url.pathname).to.startsWith('/-/jssmedia/');
   });
 
   it('should replace /~/media/ with /~/jssmedia/', () => {
     const original = 'http://sitecore/~/media/lorem/ipsum.jpg';
-    const updated = updateImageUrl(original);
+    const updated = updateImageUrl(original, {});
     const url = URL(updated);
     expect(url.pathname).to.startsWith('/~/jssmedia/');
   });
@@ -92,7 +123,7 @@ describe('updateImageUrl', () => {
     it('should replace /-assets/ with /-/jssmedia', () => {
       const original = 'http://sitecore/-assets/lorem/ipsum.jpg';
       const mediaUrlPrefix = /\/([-~]{1})assets\//i;
-      const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
+      const updated = updateImageUrl(original, {}, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/-/jssmedia/');
     });
@@ -100,7 +131,7 @@ describe('updateImageUrl', () => {
     it('should replace /~assets/ with /~/jssmedia', () => {
       const original = 'http://sitecore/~assets/lorem/ipsum.jpg';
       const mediaUrlPrefix = /\/([-~]{1})assets\//i;
-      const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
+      const updated = updateImageUrl(original, {}, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/~/jssmedia/');
     });
@@ -108,7 +139,7 @@ describe('updateImageUrl', () => {
     it('should replace /-/assets/ with /-/jssmedia/', () => {
       const original = 'http://sitecore/-/assets/lorem/ipsum.jpg';
       const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
-      const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
+      const updated = updateImageUrl(original, {}, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/-/jssmedia/');
     });
@@ -116,7 +147,7 @@ describe('updateImageUrl', () => {
     it('should replace /~/assets/ with /~/jssmedia/', () => {
       const original = 'http://sitecore/~/assets/lorem/ipsum.jpg';
       const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
-      const updated = updateImageUrl(original, undefined, mediaUrlPrefix);
+      const updated = updateImageUrl(original, {}, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/~/jssmedia/');
     });
