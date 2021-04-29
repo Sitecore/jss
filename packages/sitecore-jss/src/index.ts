@@ -18,7 +18,7 @@ export { mediaApi, constants };
 export { default as debug, Debugger } from './debug';
 
 // generic API access abstractions
-export { HttpDataFetcher, HttpResponse } from './data-fetcher';
+export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
 
 // API access implementations
 export { GraphQLRequestClient, GraphQLRequestClientConfig } from './graphql-request-client';
@@ -61,6 +61,7 @@ export {
   RestLayoutService,
   RestLayoutServiceConfig,
   DataFetcherResolver,
+  LayoutServiceConfig,
   LayoutServiceRequestOptions,
 } from './layout/rest-layout-service';
 
