@@ -1,6 +1,6 @@
 {
  "name": "node-headless-ssr-experience-edge-sample",
- "version": "16.1.0-canary.29",
+ "version": "16.1.0-canary.30",
  "description": "Node server-side-rendering sample for running JSS apps under Node hosting using Experience Edge",
  "main": "index.js",
  "scripts": {
@@ -25,7 +25,7 @@
  "homepage": "https://jss.sitecore.net",
  "license": "Apache-2.0",
  "dependencies": {
-  "@sitecore-jss/sitecore-jss": "^16.1.0-canary.29",
+  "@sitecore-jss/sitecore-jss": "^16.1.0-canary.30",
   "compression": "^1.7.4",
   "express": "^4.17.1"
  },
