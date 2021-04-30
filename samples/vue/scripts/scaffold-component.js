@@ -66,6 +66,15 @@ if (manifestOutputPath) {
   TEMPLATING FUNCTIONS
 */
 
+/**
+ * Force to use `crlf` line endings, we are using `crlf` across the project.
+ * Replace: `lf` (\n), `cr` (\r)
+ * @param {string} content
+ */
+function editLineEndings(content) {
+  return content.replace(/\r|\n/gm, '\r\n');
+}
+
 function scaffoldComponent() {
   const componentTemplate = `<template>
   <div>
@@ -99,7 +108,7 @@ export default {
     throw `Component path ${outputFilePath} already exists. Not creating component.`;
   }
 
-  fs.writeFileSync(outputFilePath, componentTemplate, 'utf8');
+  fs.writeFileSync(outputFilePath, editLineEndings(componentTemplate), 'utf8');
 
   return outputFilePath;
 }
@@ -136,7 +145,7 @@ export default function(manifest) {
     throw `Manifest definition path ${outputFilePath} already exists. Not creating manifest definition.`;
   }
 
-  fs.writeFileSync(outputFilePath, manifestTemplate, 'utf8');
+  fs.writeFileSync(outputFilePath, editLineEndings(manifestTemplate), 'utf8');
 
   return outputFilePath;
 }
