@@ -71,7 +71,8 @@ if (manifestOutputPath) {
 */
 
 /**
- * Force to use `crlf` line endings
+ * Force to use `crlf` line endings.
+ * Replace: `lf` (\n), `cr` (\r)
  * @param {string} content
  */
 function editLineEndings(content) {
