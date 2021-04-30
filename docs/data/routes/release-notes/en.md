@@ -36,6 +36,7 @@ There are [migration instructions](/upgrade-guides/18.0) from JSS 16-based appli
 	* [React-Native sample] Styleguide-ComponentParams fix incorrect `params` prop types in connected mode.
 	* [React-Native sample] Fix connected tunnel mode for secure (https) Sitecore endpoints.
 * [PR #638](https://github.com/Sitecore/jss/pull/638) [sitecore-jss-nextjs] [samples/nextjs] Fix issue with `getStaticPaths`only pre-rendering the first 10 pages.
+* [PR #677](https://github.com/Sitecore/jss/pull/677) [sitecore-jss-forms] Fix issue where pre-filled (default) form data isn't removed for multi-valued fields when user de-selects values.
 * [PR #681](https://github.com/Sitecore/jss/pull/681) [sitecore-jss] [mediaApi] `updateImageUrl` now *only* switches to JSS media handler prefix if `imageParams` are sent. Otherwise, the original media URL is returned. Fixes hash errors ("ERROR MediaRequestProtection: An invalid/missing hash value was encountered.") from appearing in Sitecore logs.
 
 ## Sitecore JSS 16.0 for Sitecore 10.1
