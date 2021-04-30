@@ -11,7 +11,7 @@ type ${componentName}Props = StyleguideComponentProps & {
   fields: {
     heading: Field<string>;
   };
-}
+};
 
 const ${componentName} = (props: ${componentName}Props): JSX.Element => (
   <div>
