@@ -70,6 +70,14 @@ if (manifestOutputPath) {
   TEMPLATING FUNCTIONS
 */
 
+/**
+ * Force to use `crlf` line endings
+ * @param {string} content
+ */
+function editLineEndings(content) {
+  return content.replace(/\r|\n/gm, '\r\n');
+}
+
 function scaffoldComponent() {
   const exportVarName = componentName.replace(/[^\w]+/g, '');
 
@@ -96,7 +104,7 @@ export default ${exportVarName};
 
   const outputFilePath = path.join(outputDirectoryPath, 'index.js');
 
-  fs.writeFileSync(outputFilePath, componentTemplate, 'utf8');
+  fs.writeFileSync(outputFilePath, editLineEndings(componentTemplate), 'utf8');
 
   return outputFilePath;
 }
@@ -133,7 +141,7 @@ export default function (manifest) {
     throw `Manifest definition path ${outputFilePath} already exists. Not creating manifest definition.`;
   }
 
-  fs.writeFileSync(outputFilePath, manifestTemplate, 'utf8');
+  fs.writeFileSync(outputFilePath, editLineEndings(manifestTemplate), 'utf8');
 
   return outputFilePath;
 }
