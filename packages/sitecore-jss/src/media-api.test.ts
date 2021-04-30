@@ -107,14 +107,14 @@ describe('updateImageUrl', () => {
 
   it('should replace /-/media/ with /-/jssmedia/', () => {
     const original = 'http://sitecore/-/media/lorem/ipsum.jpg';
-    const updated = updateImageUrl(original, {});
+    const updated = updateImageUrl(original, { foo: 'bar' });
     const url = URL(updated);
     expect(url.pathname).to.startsWith('/-/jssmedia/');
   });
 
   it('should replace /~/media/ with /~/jssmedia/', () => {
     const original = 'http://sitecore/~/media/lorem/ipsum.jpg';
-    const updated = updateImageUrl(original, {});
+    const updated = updateImageUrl(original, { foo: 'bar' });
     const url = URL(updated);
     expect(url.pathname).to.startsWith('/~/jssmedia/');
   });
@@ -123,7 +123,7 @@ describe('updateImageUrl', () => {
     it('should replace /-assets/ with /-/jssmedia', () => {
       const original = 'http://sitecore/-assets/lorem/ipsum.jpg';
       const mediaUrlPrefix = /\/([-~]{1})assets\//i;
-      const updated = updateImageUrl(original, {}, mediaUrlPrefix);
+      const updated = updateImageUrl(original, { foo: 'bar' }, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/-/jssmedia/');
     });
@@ -131,7 +131,7 @@ describe('updateImageUrl', () => {
     it('should replace /~assets/ with /~/jssmedia', () => {
       const original = 'http://sitecore/~assets/lorem/ipsum.jpg';
       const mediaUrlPrefix = /\/([-~]{1})assets\//i;
-      const updated = updateImageUrl(original, {}, mediaUrlPrefix);
+      const updated = updateImageUrl(original, { foo: 'bar' }, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/~/jssmedia/');
     });
@@ -139,7 +139,7 @@ describe('updateImageUrl', () => {
     it('should replace /-/assets/ with /-/jssmedia/', () => {
       const original = 'http://sitecore/-/assets/lorem/ipsum.jpg';
       const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
-      const updated = updateImageUrl(original, {}, mediaUrlPrefix);
+      const updated = updateImageUrl(original, { foo: 'bar' }, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/-/jssmedia/');
     });
@@ -147,7 +147,7 @@ describe('updateImageUrl', () => {
     it('should replace /~/assets/ with /~/jssmedia/', () => {
       const original = 'http://sitecore/~/assets/lorem/ipsum.jpg';
       const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
-      const updated = updateImageUrl(original, {}, mediaUrlPrefix);
+      const updated = updateImageUrl(original, { foo: 'bar' }, mediaUrlPrefix);
       const url = URL(updated);
       expect(url.pathname).to.startsWith('/~/jssmedia/');
     });

@@ -64,7 +64,7 @@ export const updateImageUrl = (
   params?: { [key: string]: string | number | undefined } | null,
   mediaUrlPrefix: RegExp = mediaUrlPrefixRegex
 ) => {
-  if (!params) {
+  if (!params || Object.keys(params).length === 0) {
     // if params aren't supplied, no need to run it through JSS media handler
     return url;
   }
