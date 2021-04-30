@@ -99,7 +99,7 @@ if (manifestOutputPath) {
 }
 
 /**
- * Force to use `crlf` line endings.
+ * Force to use `crlf` line endings, we are using `crlf` across the project.
  * Replace: `lf` (\n), `cr` (\r)
  * @param {string} content
  */
