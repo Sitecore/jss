@@ -78,13 +78,14 @@ export const updateImageUrl = (
 
   const requiredParams = getRequiredParams(parsed.query);
 
+  const query = { ...params };
   Object.entries(requiredParams).forEach(([key, param]) => {
     if (param) {
-      params[key] = param;
+      query[key] = param;
     }
   });
 
-  parsed.set('query', params);
+  parsed.set('query', query);
 
   const match = mediaUrlPrefix.exec(parsed.pathname);
   if (match && match.length > 1) {
