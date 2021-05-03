@@ -13,8 +13,16 @@ export class JssFormData {
 
   /** Sets a key/value, removing any existing value(s) set for that key. */
   public set(key: string, value: string) {
-    this.data = this.data.filter((entry) => entry.key !== key);
+    this.remove(key);
     this.append(key, value);
+  }
+
+  /**
+   * Removes any values for a given key from the form data.
+   * @param {string} key
+   */
+  public remove(key: string) {
+    this.data = this.data.filter((entry) => entry.key !== key);
   }
 
   /** Merges form data from a client-side state store (i.e. the user-specified values), overwriting any existing values for the keys */
@@ -27,13 +35,18 @@ export class JssFormData {
       // we want to _set_ the first one to override anything existing,
       // but _append_ anything after that to avoid overwriting our own values
       if (Array.isArray(value)) {
-        value.forEach((v, index) => {
-          if (index === 0) {
-            this.set(key, v);
-          } else {
-            this.append(key, v);
-          }
-        });
+        if (value.length === 0) {
+          // if empty array, ensure any pre-filled values are cleared (i.e. user de-selected these)
+          this.remove(key);
+        } else {
+          value.forEach((v, index) => {
+            if (index === 0) {
+              this.set(key, v);
+            } else {
+              this.append(key, v);
+            }
+          });
+        }
       } else {
         this.set(key, value.toString());
       }
