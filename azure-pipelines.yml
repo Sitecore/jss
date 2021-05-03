@@ -37,7 +37,7 @@ variables:
 
 steps:
 - script: |
-    npm run bootstrap:ci
+    npx lerna bootstrap --ci
   displayName: 'bootstrapping packages'
 - script: |
     npm run build-packages
