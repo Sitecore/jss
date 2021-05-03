@@ -36,6 +36,7 @@ The following environment variables can be set to configure the SSR sample inste
 | `SITECORE_API_KEY`                     | The API key provisioned on Sitecore Experience Edge. 																																																						|
 | `SITECORE_JSS_SERVER_BUNDLE`           | Path to the JSS app's `server.bundle.js` file.        																																									                          |
 | `SITECORE_EXPERIENCE_EDGE_ENDPOINT`    | Sitecore Experience Edge endpoint.																																																				                        |
+| `DEFAULT_LANGUAGE` | The JSS app's default language. Used to determine language context in case language is not specified in request URL.|
 | `PORT` 																 | Optional. Port which will be used when start sample. Default can be seen in [config.js](./config.js).                                                            |
 
 ## Build & run
