@@ -37,9 +37,6 @@ variables:
 
 steps:
 - script: |
-    npm ci
-  displayName: 'npm ci'
-- script: |
     npm run bootstrap:ci
   displayName: 'bootstrapping packages'
 - script: |
