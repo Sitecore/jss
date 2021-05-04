@@ -24,10 +24,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
       # Runs a single command using the runners shell
       # the command should loop through each package and shrinkwrap the package-lock.json file if it exits
       # this is so JSS developer don't need to remember to shrinkwrap manual after updating dependencies.
       - name: shrinkwrap packages
-        working-directory: ./jss/packages
+        working-directory: ./packages
         run: for i in ./**/; do echo $i; cd $i; npm shrinkwrap; cd ..; done;
