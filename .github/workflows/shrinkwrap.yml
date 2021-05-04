@@ -1,10 +1,10 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
+# runs npm shrinkwrap on packages on PRs to dev
+# TODO: only run when a dependency changes in a package instead of every PR
+name: auto-shrinkwrapper
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the dev branch
+  # Triggers the workflow on PR to dev branch
   pull_request:
     branches:
       - dev
@@ -30,3 +30,15 @@ jobs:
       - name: shrinkwrap packages
         working-directory: ./packages
         run: for i in ./**/; do echo $i; cd $i; npm shrinkwrap; cd ..; done;
+        
+      
+      # This job should add the shrinkwrap files and commit them
+      - name: commit changes
+        # documentation for this action here: https://github.com/marketplace/actions/add-commit
+        uses: EndBug/add-and-commit@v7.2.0
+        with:
+          # default author message
+          default_author: github_actions
+          # default message
+          message: 'ran npm shrinkwrap for each pacakge'
+          cwd: './'
