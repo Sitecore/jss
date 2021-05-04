@@ -1,17 +1,14 @@
 # runs npm shrinkwrap on packages on PRs to dev
 # TODO: only run when a dependency changes in a package instead of every PR
 name: auto-shrinkwrapper
-
 # Controls when the action will run. 
 on:
   # Triggers the workflow on PR to dev branch
   pull_request:
     branches:
       - dev
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "shrinkwrap"
@@ -19,7 +16,6 @@ jobs:
     name: shrinkwrap pacakges
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -29,9 +25,8 @@ jobs:
       # this is so JSS developer don't need to remember to shrinkwrap manual after updating dependencies.
       - name: shrinkwrap packages
         working-directory: ./packages
-        run: for i in ./**/; do echo $i; cd $i; npm shrinkwrap; cd ..; done;
-        
-      
+        run: for i in ./**/; do echo running npm shrinkwrap in $i; cd $i; npm shrinkwrap; cd ..; done;
+      # end shrinkwrap job
       # This job should add the shrinkwrap files and commit them
       - name: commit changes
         # documentation for this action here: https://github.com/marketplace/actions/add-commit
@@ -40,5 +35,5 @@ jobs:
           # default author message
           default_author: github_actions
           # default message
-          message: 'ran npm shrinkwrap for each pacakge'
+          message: 'ran npm shrinkwrap for each package'
           cwd: './'
