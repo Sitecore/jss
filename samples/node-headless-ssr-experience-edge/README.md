@@ -12,7 +12,7 @@ This is a sample setup showing one of how you can configure rendering server on 
 
 	### // TODO: document how to test GraphQL queries
 
-1. If necessary, update your app's GraphQL components to be compatible with Experience Edge schema. See examples in [Next.js sample app](../nextjs). Provide `sc_apikey` header for authentication, this header is used for both Sitecore XM Edge schema and Sitecore Experience Edge. See[GraphQLClientFactory](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/GraphQLClientFactory.ts) in Next.js sample app.
+1. If necessary, update your app's GraphQL components to be compatible with Experience Edge schema. See examples in [Next.js sample app](../nextjs). Provide `sc_apikey` header for authentication, this header is used for both Sitecore XM Edge schema and Sitecore Experience Edge. See [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) in Next.js sample app.
 
 1. Build your JS app bundle with `jss build`.
 
