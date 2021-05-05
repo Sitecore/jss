@@ -1,12 +1,13 @@
 # runs npm shrinkwrap on packages on PRs to dev
-# TODO: only run when a dependency changes in a package instead of every PR
 name: auto-shrinkwrapper
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on PR to dev branch
-  pull_request:
+  # Triggers the workflow on push, because npm shrinkwrap requires node_modules folder to lock dependencies.
+  push:
+  # leave out release and master branches for now - I really don't want to break anything!
     branches:
-      - dev
+      - '!master'
+      - '!release/**'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -21,11 +22,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       # Runs a single command using the runners shell
-      # the command should loop through each package and shrinkwrap the package-lock.json file if it exits
-      # this is so JSS developer don't need to remember to shrinkwrap manual after updating dependencies.
+      # the command should loop through each package and shrinkwrap the package-lock.json file if there were changes to package.json (depencency changes)
+      # this is so JSS developers don't need to remember to shrinkwrap manually after updating dependencies.
       - name: shrinkwrap packages
         working-directory: ./packages
-        run: for i in ./**/; do echo running npm shrinkwrap in $i; cd $i; npm shrinkwrap; cd ..; done;
+        run: for i in ./**; do cd $i; if ! git diff --quiet package.json; then rm -fv npm-shrinkwrap; npm shrinkwrap; fi; cd ..; done;
       # end shrinkwrap job
       # This job should add the shrinkwrap files and commit them
       - name: commit changes
