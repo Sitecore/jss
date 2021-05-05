@@ -6,6 +6,8 @@ on:
   push:
   # leave out release and master branches for now - I really don't want to break anything!
     branches:
+      - 'feature/**'
+      - 'bug/**'
       - '!master'
       - '!release/**'
   # Allows you to run this workflow manually from the Actions tab
