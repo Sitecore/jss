@@ -1,6 +1,6 @@
 {
   "name": "jss-embedded-jss-app-sample",
-  "version": "16.1.0-canary.36",
+  "version": "16.1.0-canary.37",
   "description": "Demonstrates embedding a JSS application within a traditional Sitecore page",
   "config": {
     "appName": "EmbeddedWizard",
@@ -51,7 +51,7 @@
   "homepage": "https://jss.sitecore.net",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^16.1.0-canary.36",
+    "@sitecore-jss/sitecore-jss-react": "^16.1.0-canary.37",
     "axios": "^0.21.1",
     "babel-plugin-inline-import": "~2.0.6",
     "babel-polyfill": "~6.26.0",
@@ -62,9 +62,9 @@
     "react-stepzilla": "~4.7.0"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^16.1.0-canary.36",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^16.1.0-canary.36",
-    "@sitecore-jss/sitecore-jss-manifest": "^16.1.0-canary.36",
+    "@sitecore-jss/sitecore-jss-cli": "^16.1.0-canary.37",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^16.1.0-canary.37",
+    "@sitecore-jss/sitecore-jss-manifest": "^16.1.0-canary.37",
     "babel-core": "~6.26.0",
     "babel-eslint": "~7.2.3",
     "babel-loader": "~7.1.2",
