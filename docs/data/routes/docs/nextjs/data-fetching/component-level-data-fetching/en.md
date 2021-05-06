@@ -30,7 +30,7 @@ If the component defines and exports the functions `getStaticProps` or `getServe
 
 After executing all side-effects, it will store all the data in the format `{ [rendering.uid]: data }`.
 
-## An example with a ContenBlock component
+## An example with a ContentBlock component
 
 Let's look at an example of a component with side-effects. 
 
