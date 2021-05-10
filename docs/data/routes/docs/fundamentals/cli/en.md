@@ -37,7 +37,7 @@ jss create <your-app-name> <app-template-name>
 |`--branch`, `-b` | Configures the branch of the repository to use for creating the JSS app |  A branch name | `master` | all |
 |`--source`, `-s` | Sources the app template from a local filesystem path, instead of a GitHub repository. Use for custom JSS app templates | A local directory path |  - |  all |
 |`--proxy`, `-p` |  Specifies a HTTP proxy when downloading templates. | A local directory path |  - |  all |
-|`--fetchWith` |  Specifies how the applicaiton should fetch Sitecore layout and dictionary data. |`REST` or `GraphQL` | `REST` | nextjs |
+|`--fetchWith` |  Specifies how the applicaiton should fetch Sitecore layout and dictionary data. | `GraphQL` or `REST` | `GraphQL` | nextjs |
 |`--prerender` | Specifies the Next.js pre-rendering form for the primary `[[...path]].tsx` route. | `SSG` or `SSR` | `SSG` | nextjs |
 
 **Examples**

@@ -44,7 +44,7 @@ export type SitecorePageProps = {
 
 ## Page `props`
 
-To prepare the page `props`, the `SitecorePagePropsFactory` uses the [Layout Service API](/docs/fundamentals/services/layout-service) and the [Dictionary Service API](/docs/fundamentals/services/dictionary-service). You may use either the REST-based or GraphQL-based dictionary and layout services depending on requirements.
+To prepare the page `props`, the `SitecorePagePropsFactory` uses the [Layout Service API](/docs/fundamentals/services/layout-service) and the [Dictionary Service API](/docs/fundamentals/services/dictionary-service). You may use either the GraphQL-based or REST-based dictionary and layout services depending on requirements.
 
 > You can choose the initial dictionary and layout data fetch method during the application creation step with the optional `fetchWith` parameter. Consult the [JSS CLI reference](/docs/fundamentals/cli) for details about `jss create`.
 
@@ -58,13 +58,13 @@ The factory retrieves the `context` locale as configured in the `i18n` entry of 
 
 ### layoutData
 
-The `layoutData` prop stores `LayoutServiceData` from either the Sitecore Layout Service REST API (`RestLayoutService`) or the Sitecore GraphQL "Edge" schema (`GraphQLLayoutService`). See [Layout Service API reference](/docs/fundamentals/services/layout-service) for more information.
+The `layoutData` prop stores `LayoutServiceData` from either the Sitecore GraphQL Edge schema (`GraphQLLayoutService`) or the Sitecore Layout Service REST API (`RestLayoutService`). See [Layout Service API reference](/docs/fundamentals/services/layout-service) for more information.
 
 In SSR context, it will send the `context.req` and `context.res` to provide the ability to use [Sitecore Tracking & Analytics](/docs/nextjs/tracking-and-analytics/overview).
 
 ### dictionary
 
-The `dictionary` prop contains `DictionaryPhrases` from either the Sitecore Dictionary Service REST API (`RestDictionaryService`) or the Sitecore GraphQL "Edge" schema (`GraphQLDictionaryService`). See [Dictionary Service API reference](/docs/fundamentals/services/dictionary-service) for more information.
+The `dictionary` prop contains `DictionaryPhrases` from either the Sitecore Dictionary Service REST API (`RestDictionaryService`) or the Sitecore GraphQL Edge schema (`GraphQLDictionaryService`). See [Dictionary Service API reference](/docs/fundamentals/services/dictionary-service) for more information.
 
 ### componentProps
 

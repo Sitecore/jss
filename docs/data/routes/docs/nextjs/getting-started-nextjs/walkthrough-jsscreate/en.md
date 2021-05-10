@@ -17,7 +17,7 @@ To quickly scaffold a JSS Next.js application with default configuration, run th
 
 ```
 npm install -g @sitecore-jss/sitecore-jss-cli
-jss create my-first-jss-app nextjs
+jss create my-first-jss-app nextjs --fetchWith REST
 cd my-first-jss-app
 jss start
 ```
@@ -43,13 +43,12 @@ To create a JSS application, you must:
 3. Run:
 
    ```
-    jss create my-first-jss-app nextjs [--fetchWith {REST|GraphQL}] [--prerender {SSG|SSR}]
+    jss create my-first-jss-app nextjs --fetchWith REST [--prerender {SSG|SSR}]
    ```
 
    The command will create the JSS Next.js application and install the required packages. 
    
-   > For more information on `jss create` see [the JSS CLI reference](/docs/fundamentals/cli).
-    
+   > For more information on `jss create` see [the JSS CLI reference](/docs/fundamentals/cli). `--fetchWith REST` is required to run the application in [disconnected developer mode](/docs/fundamentals/application-modes#disconnected-developer-mode). You will be able to [switch to GraphQL](/docs/nextjs/data-fetching/switching-fetch-method) if desired when you [connect to Sitecore](#connect-to-sitecore).
 
    
    > To ensure that your new JSS application is compatible with your licensed Sitecore XP version, consult the [compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788).  
