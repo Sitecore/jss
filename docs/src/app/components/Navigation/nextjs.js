@@ -116,7 +116,7 @@ export default {
         },
         {
           url: 'switching-fetch-method',
-          displayName: 'Switching between GraphQL and REST',
+          displayName: 'Switching between REST and GraphQL',
         }
       ],
     },

@@ -23,7 +23,7 @@ module.exports = function createJssProject(argv, nextSteps) {
   if (!argv.fetchWith || !argv.prerender) {
     nextSteps.push(
       `* Did you know you can customize the Next.js sample app using ${chalk.green('jss create')} parameters?`,
-      `*  ${chalk.green('--fetchWith {GraphQL|REST}')} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is GraphQL.`,
+      `*  ${chalk.green('--fetchWith {REST|GraphQL}')} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`,
       `*  ${chalk.green('--prerender {SSG|SSR}')} : Specifies the Next.js pre-rendering form for the optional catch-all route. Default is SSG.`,
     );
   }
@@ -36,7 +36,7 @@ module.exports = function createJssProject(argv, nextSteps) {
 
 /**
  * Sets how Sitecore data (layout, dictionary) is fetched.
- * @param {string} [fetchWith] {GraphQL|REST} Default is GraphQL. 
+ * @param {string} [fetchWith] {REST|GraphQL} Default is REST. 
  */
 function setFetchWith(fetchWith) {
   const defaultDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.ts');
@@ -47,28 +47,28 @@ function setFetchWith(fetchWith) {
     GRAPHQL: 'graphql',
     REST: 'rest',
   };
-  let value = fetchWith ? fetchWith.toLowerCase() : FetchWith.GRAPHQL;
+  let value = fetchWith ? fetchWith.toLowerCase() : FetchWith.REST;
 
   if (value !== FetchWith.REST && value !== FetchWith.GRAPHQL) {
-    console.warn(chalk.yellow(`Unsupported fetchWith value '${fetchWith}'. Using default 'GraphQL'.`));
-    value = FetchWith.GRAPHQL;
+    console.warn(chalk.yellow(`Unsupported fetchWith value '${fetchWith}'. Using default 'REST'.`));
+    value = FetchWith.REST;
   }
 
-  console.log(
-    chalk.cyan(`Applying ${value === FetchWith.GRAPHQL ? 'GraphQL' : 'REST'} fetch...`)
+  console.log( 
+    chalk.cyan(`Applying ${value === FetchWith.REST ? 'REST' : 'GraphQL'} fetch...`)
   );
 
   switch (value) {
-    case FetchWith.GRAPHQL:
-      fs.unlinkSync(restDsfFile);
-      fs.unlinkSync(restLsfFile);
-      break;
-
     case FetchWith.REST:
       fs.unlinkSync(defaultDsfFile);
       fs.renameSync(restDsfFile, defaultDsfFile);
       fs.unlinkSync(defaultLsfFile);
       fs.renameSync(restLsfFile, defaultLsfFile);
+      break;
+
+    case FetchWith.GRAPHQL:
+      fs.unlinkSync(restDsfFile);
+      fs.unlinkSync(restLsfFile);
       break;
   }
 }
