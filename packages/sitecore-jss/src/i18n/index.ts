@@ -1,27 +1,10 @@
-import {
-  DictionaryPhrases,
-  CacheOptions,
-  DictionaryService,
-  DictionaryServiceBase,
-} from './dictionary-service';
-import {
+export { DictionaryPhrases, DictionaryService, DictionaryServiceBase } from './dictionary-service';
+export {
   GraphQLDictionaryServiceConfig,
   GraphQLDictionaryService,
 } from './graphql-dictionary-service';
-import {
+export {
   RestDictionaryServiceData,
   RestDictionaryServiceConfig,
   RestDictionaryService,
 } from './rest-dictionary-service';
-
-export {
-  DictionaryPhrases,
-  CacheOptions,
-  DictionaryService,
-  DictionaryServiceBase,
-  GraphQLDictionaryServiceConfig,
-  GraphQLDictionaryService,
-  RestDictionaryServiceData,
-  RestDictionaryServiceConfig,
-  RestDictionaryService,
-};

@@ -121,6 +121,7 @@ describe('GraphQLDictionaryService', () => {
       siteName,
       rootItemId,
       cacheEnabled: false,
+      pageSize: undefined,
     });
     const result = await service.fetchDictionaryData('en');
     expect(result).to.have.all.keys('foo', 'bar');

@@ -1,40 +1,15 @@
 import * as mediaApi from './media-api';
 import * as constants from './constants';
-export {
-  isServer,
-  resolveUrl,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
-  getAppRootId,
-} from './utils';
-
-// TODO: these are deprecated and we should stop exporting them
-import { fetchRouteData, fetchPlaceholderData } from './layout/rest-layout-service';
-const dataApi = { fetchRouteData, fetchPlaceholderData };
-export { dataApi };
 
 export { mediaApi, constants };
-
+export * from './utils';
+export * from './graphql';
 export { default as debug, Debugger } from './debug';
-
-// generic API access abstractions
 export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
-
-// API access implementations
-export { GraphQLRequestClient, GraphQLRequestClientConfig } from './graphql-request-client';
-
-export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
-
-// i18n
-export {
-  DictionaryPhrases,
-  DictionaryService,
-  GraphQLDictionaryService,
-  GraphQLDictionaryServiceConfig,
-  RestDictionaryService,
-  RestDictionaryServiceData,
-  RestDictionaryServiceConfig,
-} from './i18n';
+export * from './graphql-request-client';
+export * from './axios-fetcher';
+export * from './cache-client';
+export * from './i18n';
 
 // layout
 export {
@@ -66,3 +41,8 @@ export {
 } from './layout/rest-layout-service';
 
 export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
+
+// TODO: these are deprecated and we should stop exporting them
+import { fetchRouteData, fetchPlaceholderData } from './layout/rest-layout-service';
+const dataApi = { fetchRouteData, fetchPlaceholderData };
+export { dataApi };
