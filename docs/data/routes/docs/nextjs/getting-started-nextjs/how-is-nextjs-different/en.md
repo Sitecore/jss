@@ -8,7 +8,7 @@ The Next.js SDK for Sitecore has some key differences from other Sitecore JavaSc
 
 ## Architecture and Deployment
 * Next.js provides built-in options for build time and runtime static site generation (SSG).
-  * Out of the box, the Next.js SDK does not support Sitecore tracking or personalization with SSG.
+  * Out of the box, the Next.js SDK does not support Sitecore tracking or personalization with SSG or Sitecore GraphQL Edge.
 * The _Headless SSR Proxy_ is not required for [production deployment](/docs/nextjs/deploying-to-production/deployment-options).
   * Next.js has built-in pre-rendering.
   * Next.js has [built-in rewrite / proxying support](https://nextjs.org/docs/api-reference/next.config.js/rewrites#rewriting-to-an-external-url) 

@@ -27,7 +27,7 @@ The latest JSS SDK leverages many of Next.js' [features](https://nextjs.org/#fea
 - Next.js client-side routing support for Sitecore link and rich text fields.
 - Internationalization support via Sitecore language versions and Next.js internationalized routing.
 - Component-level data fetching for Sitecore-driven components.
-- Sitecore analytics and personalization support (SSR-only).
+- Sitecore analytics and personalization support (SSR with Sitecore Layout Service REST API only).
 - Support for JSS code-first workflow and mock Sitecore services.
 - A sample/starter TypeScript-enabled implementation template which demonstrates common use cases.
 - Containerized starter template for Windows-based developers.
