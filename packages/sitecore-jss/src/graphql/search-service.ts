@@ -86,7 +86,7 @@ export class SearchQueryService<T> {
    * 2. Executes search query with pagination
    * 3. Aggregates pagination results into a single result-set.
    * @template T The type of objects being requested.
-   * @param {SearchQueryVariables} query the search query.
+   * @param {string | DocumentNode} query the search query.
    * @param {SearchQueryVariables} args search query arguments.
    * @returns {T[]} array of result objects.
    * @throws {RangeError} if a valid root item ID is not provided.
