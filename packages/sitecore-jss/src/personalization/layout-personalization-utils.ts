@@ -10,7 +10,7 @@ import {
 export class LayoutPersonalizationUtils {
 
   buildPersonalizedFragment(uid: string, personalizedFragments: { [key: string]: ComponentRendering | null | undefined; }, personalization: PersonalizationData): ComponentRendering | null {
-    var personalizedFragment =  personalizedFragments[uid];
+    var personalizedFragment = personalizedFragments[uid];
     if (personalizedFragment === null) {
       return null;
     } else if (personalizedFragment === undefined) {
@@ -49,7 +49,7 @@ export class LayoutPersonalizationUtils {
               }
             }
             if (hiddenComponents.length) {
-              context.placeholders[key] = placeholder.filter(function(item: any) {
+              context.placeholders[key] = placeholder.filter(function (item: any) {
                 return hiddenComponents.indexOf(item) == -1;
               });
             }
@@ -67,7 +67,7 @@ export class LayoutPersonalizationUtils {
   }
 
   getPersonalizedComponents(item: any): PersonalizedComponentRendering[] {
-    const result:PersonalizedComponentRendering[] = [];
+    const result: PersonalizedComponentRendering[] = [];
     if (isPersonalizedComponentRendering(item)) {
       result.push(item);
     } else if (item.placeholders) {
@@ -86,13 +86,13 @@ export class LayoutPersonalizationUtils {
     return result;
   };
 
-  replacePersonalizedComponentsWithLoaderComponents(placeholders: PlaceholdersData | undefined, loaderComponentName: string) {
+  replacePersonalizedComponentsWithLoaderComponents(placeholders: PlaceholdersData, loaderComponentName: string) {
     if (placeholders) {
       for (const key in placeholders) {
         const placeholder = placeholders[key];
-        placeholder.forEach((component, index) =>
-          {
-            if(isComponentRendering(component)) {
+        if (Array.isArray(placeholder)) {
+          placeholder.forEach((component, index) => {
+            if (isComponentRendering(component)) {
               if (component.personalization) {
                 const personalizedComponent: PersonalizedComponentRendering = {
                   componentName: loaderComponentName,
@@ -103,12 +103,12 @@ export class LayoutPersonalizationUtils {
                   }
                 };
                 placeholder[index] = personalizedComponent;
-              } else {
+              } else if (component.placeholders) {
                 this.replacePersonalizedComponentsWithLoaderComponents(component.placeholders, loaderComponentName);
               }
             }
-          }
-        );
+          });
+        }
       }
     }
   }
