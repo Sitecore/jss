@@ -27,9 +27,13 @@ export type DataFetcherResolver = <T>() => HttpDataFetcher<T>;
 
 export type RestPersonalizationDecisionsServiceConfig = {
   /**
-   * Your Sitecore instance hostname that is the backend for JSS
+   * Hostname of decisions service; e.g. http://my.site.core; Default: '', same host as a page
    */
-  apiHost: string;
+  host?: string;
+  /**
+   * Relative path from host to decisions service. Default: /sitecore/api/layout/personalization/decision
+   */
+  route?: string;
   /**
    * The Sitecore SSC API key your app uses
    */
@@ -108,7 +112,15 @@ function fetchData<T>(
 }
 
 export class RestPersonalizationDecisionsService implements PersonalizationDecisionsService {
-  constructor(private serviceConfig: RestPersonalizationDecisionsServiceConfig) {}
+  private serviceConfig: RestPersonalizationDecisionsServiceConfig;
+
+  constructor(serviceConfig: RestPersonalizationDecisionsServiceConfig) {
+    this.serviceConfig = {
+      host: '',
+      route: '/sitecore/api/layout/personalization/decision',
+      ...serviceConfig
+    }
+  }
 
    getPersonalizationDecisions(
     routePath: string,
@@ -120,7 +132,7 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
       ? this.serviceConfig.dataFetcherResolver<PersonalizationDecisionData>()
       : this.getDefaultFetcher<PersonalizationDecisionData>();
 
-    return fetchData<PersonalizationDecisionData>(this.serviceConfig.apiHost + 'sitecore/api/layout/personalization/decision', {
+    return fetchData<PersonalizationDecisionData>(`${this.serviceConfig.host}${this.serviceConfig.route}`, {
       routePath: routePath,
       language: language,
       renderingIds: renderingIds

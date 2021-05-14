@@ -42,7 +42,7 @@ export {
 
 export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
 export { LayoutPersonalizationUtils } from './personalization/layout-personalization-utils';
-export { PersonalizationService, PersonalizationResult, PersonalizationLoadResult } from './personalization/layout-personalization-service';
+export { LayoutPersonalizationService, PersonalizationResult, PersonalizationLoadResult } from './personalization/layout-personalization-service';
 
 export {
   LayoutFragmentData,

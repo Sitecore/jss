@@ -25,7 +25,7 @@ export interface PersonalizationLoadResult {
   personalizedFragments?: { [key: string]: ComponentRendering | null }
 }
 
-export class PersonalizationService {
+export class LayoutPersonalizationService {
 
   layoutPersonalizationUtils = new LayoutPersonalizationUtils();
   personalizationResult: Promise<{ [key: string]: ComponentRendering | null }> | null = null;
