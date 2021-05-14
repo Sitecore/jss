@@ -21,14 +21,10 @@ To switch the Next.js sample application from SSG to SSR:
 
 1. Move or delete `\pages\[[..path]].tsx`
 2. Download [`[[..path]].SSR.tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B%2E%2E%2Epath%5D%5D.SSR.tsx) to `\pages\` and rename as `[[..path]].tsx`
-3. Move or delete `\NotFound.tsx`
-4. Download [`NotFound.SSR.tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/NotFound.SSR.tsx) to `\` and rename as `NotFound.tsx`
-5. Delete `\lib\sitemap-fetcher.ts` (optional)
+3. Delete `\lib\sitemap-fetcher.ts` (optional)
 
 To switch the Next.js sample application from SSR to SSG:
 
 1. Move or delete `\pages\[[..path]].tsx`
 2. Download [`[[..path]].tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/pages/%5B%5B%2E%2E%2Epath%5D%5D.tsx) to `\pages\`
-3. Move or delete `\NotFound.tsx`
-4. Download [`NotFound.tsx`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/NotFound.tsx) to `\`
-5. Download [`sitemap-fetcher.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/sitemap-fetcher.ts) to `\lib\`
+3. Download [`sitemap-fetcher.ts`](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/lib/sitemap-fetcher.ts) to `\lib\`

@@ -1,21 +1,11 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpDataFetcher, RouteData } from '@sitecore-jss/sitecore-jss';
+import {} from 'mocha';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { expect } from 'chai';
-import { TrackingService } from './tracking-service';
-import { describe } from 'mocha';
-
-// note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
-// which is necessary for analytics and such
-const axiosFetcher: HttpDataFetcher<void> = (url, data) =>
-  axios({
-    url,
-    method: data ? 'POST' : 'GET',
-    data,
-    withCredentials: true,
-  });
+import { RouteData } from '@sitecore-jss/sitecore-jss';
+import { TrackingService, setTestAdapter } from './tracking-service';
 
 describe('TrackingService', () => {
   let mock: MockAdapter;
@@ -23,6 +13,7 @@ describe('TrackingService', () => {
 
   before(() => {
     mock = new MockAdapter(axios);
+    setTestAdapter(mock.adapter());
   });
 
   beforeEach(() => {
@@ -36,6 +27,7 @@ describe('TrackingService', () => {
   });
 
   after(() => {
+    setTestAdapter(null);
     mock.restore();
 
     if (wind) {
@@ -46,16 +38,14 @@ describe('TrackingService', () => {
   });
 
   describe('trackCurrentPage', () => {
-    const theories = [
-      ['', 'https://www.myhost.net/sitecore/api/track/pageview?sc_site=MySite'],
-      ['?', 'https://www.myhost.net/sitecore/api/track/pageview?sc_site=MySite'],
+    [
+      ['', '/sitecore/api/track/pageview?sc_apikey=MyKey&sc_site=MySite'],
+      ['?', '/sitecore/api/track/pageview?sc_apikey=MyKey&sc_site=MySite'],
       [
         '?sc_camp=1111&some=value&sc_trk=5555',
-        'https://www.myhost.net/sitecore/api/track/pageview?sc_site=MySite&sc_camp=1111&sc_trk=5555',
+        '/sitecore/api/track/pageview?sc_apikey=MyKey&sc_site=MySite&sc_camp=1111&sc_trk=5555',
       ],
-    ];
-
-    theories.forEach(([queryString, expectedUrl]) => {
+    ].forEach(([queryString, expectedUrl]) => {
       it(`should track page with query string \'${queryString}\'`, () => {
         // arrange
         mock.onPost().reply(() => [200, {}]);
@@ -64,16 +54,14 @@ describe('TrackingService', () => {
         window.location.pathname = '/page';
 
         const service = new TrackingService({
-          host: 'https://www.myhost.net',
-          test: true,
-          fetcher: axiosFetcher,
+          apiKey: 'MyKey',
+          siteName: 'MySite',
         });
 
-        const context = { site: { name: 'MySite' } };
         const routeData = createRouteData('itemId', 'deviceId', 'ja-JP');
 
         // act
-        return service.trackCurrentPage(context, routeData).then(() => {
+        return service.trackCurrentPage({}, routeData).then(() => {
           // assert
           expect(mock.history.post).to.have.length(1);
 
@@ -90,17 +78,31 @@ describe('TrackingService', () => {
       });
     });
 
+    it('should skip optional apiKey param', () => {
+      // arrange
+      mock.onPost().reply(() => [200, {}]);
+
+      window.location.pathname = '/page';
+
+      const service = new TrackingService({});
+
+      // act
+      return service.trackCurrentPage({}, createRouteData(undefined)).then(() => {
+        // assert
+        expect(mock.history.post).to.have.length(1);
+
+        const body = JSON.parse(mock.history.post[0].data);
+        expect(body.url).to.equal('/page');
+      });
+    });
+
     it('should skip optional itemId param', () => {
       // arrange
       mock.onPost().reply(() => [200, {}]);
 
       window.location.pathname = '/page';
 
-      const service = new TrackingService({
-        host: 'https://www.myhost.net',
-        test: true,
-        fetcher: axiosFetcher,
-      });
+      const service = new TrackingService({ host: 'https://www.myhost.net' });
 
       // act
       return service.trackCurrentPage({}, createRouteData(undefined)).then(() => {
@@ -120,11 +122,7 @@ describe('TrackingService', () => {
 
       window.location.pathname = '/page';
 
-      const service = new TrackingService({
-        host: 'https://www.myhost.net',
-        test: true,
-        fetcher: axiosFetcher,
-      });
+      const service = new TrackingService({ host: 'https://www.myhost.net' });
 
       // act
       return service.trackCurrentPage({}, createRouteData('myItemId', undefined)).then(() => {
@@ -145,11 +143,7 @@ describe('TrackingService', () => {
 
       window.location.pathname = '/page';
 
-      const service = new TrackingService({
-        host: 'https://www.myhost.net',
-        test: true,
-        fetcher: axiosFetcher,
-      });
+      const service = new TrackingService({ host: 'https://www.myhost.net' });
 
       const routeData = createRouteData('myItemId', undefined, undefined);
 
@@ -166,7 +160,7 @@ describe('TrackingService', () => {
       });
     });
 
-    it('should take site name from layout even if it passed in querystringParams', () => {
+    it('should take site name from layout even if it passed to constructor', () => {
       // arrange
       mock.onPost().reply(() => [200, {}]);
 
@@ -174,11 +168,7 @@ describe('TrackingService', () => {
 
       const service = new TrackingService({
         host: 'https://www.myhost.net',
-        test: true,
-        fetcher: axiosFetcher,
-        querystringParams: {
-          sc_site: 'defaultSite',
-        },
+        siteName: 'defaultSite',
       });
 
       const context = { site: { name: 'MySite' } };
@@ -202,8 +192,6 @@ describe('TrackingService', () => {
 
       const service = new TrackingService({
         host: 'https://www.myhost.net',
-        test: true,
-        fetcher: axiosFetcher,
         currentPageParamsToTrack: ['par1', 'par2'],
       });
 
@@ -218,40 +206,13 @@ describe('TrackingService', () => {
       });
     });
 
-    it('should add static query parameters from options', () => {
-      // arrange
-      mock.onPost().reply(() => [200, {}]);
-
-      window.location.search = '?sc_camp=1111';
-
-      const service = new TrackingService({
-        host: 'https://www.myhost.net',
-        test: true,
-        fetcher: axiosFetcher,
-        querystringParams: { extra: 'myvalue' },
-      });
-
-      // act
-      return service.trackCurrentPage({}, createRouteData('itemId')).then(() => {
-        // assert
-        expect(mock.history.post).to.have.length(1);
-
-        expect(mock.history.post[0].url).to.equal(
-          'https://www.myhost.net/sitecore/api/track/pageview?extra=myvalue&sc_camp=1111'
-        );
-      });
-    });
-
-    it('should use serviceUrl and action passed in options', () => {
+    it('should use host and serviceUrl passed in options', () => {
       // arrange
       mock.onPost().reply(() => [200, {}]);
 
       const service = new TrackingService({
         host: 'https://www.myhost.net',
-        test: true,
-        fetcher: axiosFetcher,
         serviceUrl: '/my/path',
-        action: 'myaction',
       });
 
       // act
@@ -259,7 +220,7 @@ describe('TrackingService', () => {
         // assert
         expect(mock.history.post).to.have.length(1);
 
-        expect(mock.history.post[0].url).to.equal('https://www.myhost.net/my/path/myaction');
+        expect(mock.history.post[0].url).to.equal('https://www.myhost.net/my/path/pageview');
       });
     });
 
