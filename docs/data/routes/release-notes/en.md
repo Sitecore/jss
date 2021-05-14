@@ -22,10 +22,12 @@ There are [migration instructions](/upgrade-guides/18.0) from JSS 16-based appli
 	* [React-Native sample] Sitecore logo in header is touchable and will navigate to Home page when click on it.
 	* [React-Native sample] Removed usage of `dataConversation`.
 * [PR #638](https://github.com/Sitecore/jss/pull/638) [samples/nextjs] The sitemap fetcher in `getStaticPaths` now uses pagination to fetch all pages, and the default `pageSize` value can be customized.
-* [PR #645](https://github.com/Sitecore/jss/pull/645) Debug logging for SDKs (focused on Next.js) using the [debug](https://www.npmjs.com/package/debug) module.
+* [PR #645](https://github.com/Sitecore/jss/pull/645) [Debug logging](/docs/fundamentals/troubleshooting/debug-logging) for SDKs (focused on Next.js) using the [debug](https://www.npmjs.com/package/debug) module.
 
 ### Bug Fixes
 
+* [PR #680](https://github.com/Sitecore/jss/pull/680) [node-headless-ssr-proxy + Angular sample] Error in console when refresh /graphql page
+* [PR #659](https://github.com/Sitecore/jss/pull/659) [sitecore-jss-nextjs] Links inside RichText control cause page to be loaded twice
 * [PR #624](https://github.com/Sitecore/jss/pull/624):
 	* [sitecore-jss-react-native] [Image] Pass Object `style` type for `SvgUrI` instead of Array. 
 	* [sitecore-jss-react-native] [Date] Always render `<HtmlView/>` if `editable` is provided.
@@ -34,6 +36,8 @@ There are [migration instructions](/upgrade-guides/18.0) from JSS 16-based appli
 	* [React-Native sample] Styleguide-ComponentParams fix incorrect `params` prop types in connected mode.
 	* [React-Native sample] Fix connected tunnel mode for secure (https) Sitecore endpoints.
 * [PR #638](https://github.com/Sitecore/jss/pull/638) [sitecore-jss-nextjs] [samples/nextjs] Fix issue with `getStaticPaths`only pre-rendering the first 10 pages.
+* [PR #677](https://github.com/Sitecore/jss/pull/677) [sitecore-jss-forms] Fix issue where pre-filled (default) form data isn't removed for multi-valued fields when user de-selects values.
+* [PR #681](https://github.com/Sitecore/jss/pull/681) [sitecore-jss] [mediaApi] `updateImageUrl` now *only* switches to JSS media handler prefix if `imageParams` are sent. Otherwise, the original media URL is returned. Fixes hash errors ("ERROR MediaRequestProtection: An invalid/missing hash value was encountered.") from appearing in Sitecore logs.
 
 ## Sitecore JSS 16.0 for Sitecore 10.1
 

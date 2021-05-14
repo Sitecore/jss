@@ -38,11 +38,10 @@ export const setUpDefaultAgents = (httpAgent, httpsAgent) => {
   https.globalAgent = httpsAgent;
 };
 
-/** Export the API key. This will be used by default in Headless mode, removing the need to manually configure the API key on the proxy. */
+// Export app configuration; this will be used when this app runs in Headless mode (ie node-headless-ssr-experience-edge or node-headless-ssr-proxy)
 export const apiKey = config.sitecoreApiKey;
-
-/** Export the app name. This will be used by default in Headless mode, removing the need to manually configure the app name on the proxy. */
 export const appName = config.jssAppName;
+export const defaultLanguage = config.defaultLanguage;
 
 /**
  * Main entry point to the application when run via Server-Side Rendering,

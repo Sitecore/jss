@@ -1,4 +1,6 @@
 export {
+  dataApi,
+  mediaApi,
   // generic data access
   HttpDataFetcher,
   HttpResponse,

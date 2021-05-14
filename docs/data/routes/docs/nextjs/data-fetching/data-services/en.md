@@ -58,13 +58,13 @@ The factory retrieves the `context` locale as configured in the `i18n` entry of 
 
 ### layoutData
 
-The `layoutData` prop stores `LayoutServiceData` from either the Sitecore Layout Service REST API (`RestLayoutService`) or the Sitecore GraphQL "Edge" schema (`GraphQLLayoutService`). See [Layout Service API reference](/docs/fundamentals/services/layout-service) for more information.
+The `layoutData` prop stores `LayoutServiceData` from either the Sitecore Layout Service REST API (`RestLayoutService`) or the Sitecore GraphQL Edge schema (`GraphQLLayoutService`). See [Layout Service API reference](/docs/fundamentals/services/layout-service) for more information.
 
 In SSR context, it will send the `context.req` and `context.res` to provide the ability to use [Sitecore Tracking & Analytics](/docs/nextjs/tracking-and-analytics/overview).
 
 ### dictionary
 
-The `dictionary` prop contains `DictionaryPhrases` from either the Sitecore Dictionary Service REST API (`RestDictionaryService`) or the Sitecore GraphQL "Edge" schema (`GraphQLDictionaryService`). See [Dictionary Service API reference](/docs/fundamentals/services/dictionary-service) for more information.
+The `dictionary` prop contains `DictionaryPhrases` from either the Sitecore Dictionary Service REST API (`RestDictionaryService`) or the Sitecore GraphQL Edge schema (`GraphQLDictionaryService`). See [Dictionary Service API reference](/docs/fundamentals/services/dictionary-service) for more information.
 
 ### componentProps
 

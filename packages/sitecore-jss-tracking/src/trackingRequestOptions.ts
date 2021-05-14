@@ -1,3 +1,4 @@
+import querystring from 'querystring';
 import { HttpDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 export interface TrackingRequestOptions {
@@ -13,7 +14,7 @@ export interface TrackingRequestOptions {
   /**
    * An object of key:value pairs to be stringified and used as querystring parameters.
    */
-  querystringParams?: { [key: string]: unknown };
+  querystringParams?: querystring.ParsedUrlQueryInput;
 
   /** Type of tracking request action. Default: 'event' */
   action?: string;

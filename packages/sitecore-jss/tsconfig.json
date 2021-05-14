@@ -30,8 +30,7 @@
     "node_modules",
     "types",
     "dist",
-    "src/customTypes",
     "src/**/*.test.ts",
-    "src/testData/*.ts"
+    "src/testData/*",
   ]
 }

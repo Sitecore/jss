@@ -30,7 +30,7 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     if (hasText && !isEditing) {
       initializeLinks();
     }
-  });
+  }, []);
 
   const routeHandler = (ev: MouseEvent) => {
     if (!ev.target) return;
@@ -56,7 +56,6 @@ export const RichText = (props: RichTextProps): JSX.Element => {
         prefetched[link.pathname] = true;
       }
 
-      link.removeEventListener('click', routeHandler, false);
       link.addEventListener('click', routeHandler, false);
     });
   };

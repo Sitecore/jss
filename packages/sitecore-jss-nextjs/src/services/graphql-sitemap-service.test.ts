@@ -3,6 +3,7 @@ import nock from 'nock';
 import { GraphQLSitemapService } from './graphql-sitemap-service';
 import rootItemQueryResult from '../testData/rootItemQueryResult.json';
 import sitemapQueryResult from '../testData/sitemapQueryResult.json';
+import sitemapServiceResult from '../testData/sitemapServiceResult';
 
 describe('GraphQLSitemapService', () => {
   const rootItemPath = '/sitecore/next/home';
@@ -59,33 +60,6 @@ describe('GraphQLSitemapService', () => {
       );
   };
 
-  const expectedSSGSitemap = [
-    {
-      params: {
-        path: [''],
-      },
-      locale: 'ua',
-    },
-    {
-      params: {
-        path: ['x1'],
-      },
-      locale: 'ua',
-    },
-    {
-      params: {
-        path: ['y1', 'y2', 'y3', 'y4'],
-      },
-      locale: 'ua',
-    },
-    {
-      params: {
-        path: ['y1', 'y2'],
-      },
-      locale: 'ua',
-    },
-  ];
-
   describe('Fetch sitemap in SSG mode', () => {
     // language param tests
 
@@ -95,7 +69,7 @@ describe('GraphQLSitemapService', () => {
 
       const service = new GraphQLSitemapService({ endpoint, apiKey });
       const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
-      expect(sitemap).to.deep.equal(expectedSSGSitemap);
+      expect(sitemap).to.deep.equal(sitemapServiceResult);
 
       return expect(nock.isDone()).to.be.true;
     });
@@ -239,7 +213,7 @@ describe('GraphQLSitemapService', () => {
       const service = new GraphQLSitemapService({ endpoint, apiKey, pageSize: customPageSize });
       const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
 
-      expect(sitemap).to.deep.equal(expectedSSGSitemap);
+      expect(sitemap).to.deep.equal(sitemapServiceResult);
       return expect(nock.isDone()).to.be.true;
     });
 
@@ -252,7 +226,7 @@ describe('GraphQLSitemapService', () => {
       const service = new GraphQLSitemapService({ endpoint, apiKey, pageSize: undefined });
       const sitemap = await service.fetchSSGSitemap(['ua'], rootItemPath);
 
-      expect(sitemap).to.deep.equal(expectedSSGSitemap);
+      expect(sitemap).to.deep.equal(sitemapServiceResult);
       return expect(nock.isDone()).to.be.true;
     });
 

@@ -40,12 +40,12 @@ module.exports = function createJssProject(argv, nextSteps) {
  */
 function setFetchWith(fetchWith) {
   const defaultDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.ts');
-  const graphqlDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.graphql.ts');
+  const restDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.rest.ts');
   const defaultLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.ts');
-  const graphqlLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.graphql.ts');
+  const restLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.rest.ts');
   const FetchWith = {
-    REST: 'rest',
     GRAPHQL: 'graphql',
+    REST: 'rest',
   };
   let value = fetchWith ? fetchWith.toLowerCase() : FetchWith.REST;
 
@@ -54,21 +54,21 @@ function setFetchWith(fetchWith) {
     value = FetchWith.REST;
   }
 
-  console.log(
+  console.log( 
     chalk.cyan(`Applying ${value === FetchWith.REST ? 'REST' : 'GraphQL'} fetch...`)
   );
 
   switch (value) {
     case FetchWith.REST:
-      fs.unlinkSync(graphqlDsfFile);
-      fs.unlinkSync(graphqlLsfFile);
+      fs.unlinkSync(defaultDsfFile);
+      fs.renameSync(restDsfFile, defaultDsfFile);
+      fs.unlinkSync(defaultLsfFile);
+      fs.renameSync(restLsfFile, defaultLsfFile);
       break;
 
     case FetchWith.GRAPHQL:
-      fs.unlinkSync(defaultDsfFile);
-      fs.renameSync(graphqlDsfFile, defaultDsfFile);
-      fs.unlinkSync(defaultLsfFile);
-      fs.renameSync(graphqlLsfFile, defaultLsfFile);
+      fs.unlinkSync(restDsfFile);
+      fs.unlinkSync(restLsfFile);
       break;
   }
 }

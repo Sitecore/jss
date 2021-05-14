@@ -11,7 +11,7 @@ This topic will guide you through the steps required to enable full Sitecore tra
 
 > Note this is different than *client-side tracking* via the JSS tracking API, which is possible for *both Static Site Generation (SSG) and Server-side Rendering (SSR)*. Please see the [JSS Tracking](/docs/fundamentals/services/tracking) page for details.
 
-JSS supports tracking and analytics only for server-side rendered applications using the REST fetch method. You can not currently use tracking and analytics with the Sitecore GraphQL "Edge" schema.
+JSS supports tracking and analytics only for server-side rendered applications using the REST fetch method. You can not currently use tracking and analytics with the Sitecore GraphQL Edge schema.
 
 ## Pre-requisites
 
@@ -20,7 +20,9 @@ JSS supports tracking and analytics only for server-side rendered applications u
 
 > You can choose the pre-rendering form and the fetch method when creating the project with the JSS CLI. For details, consult the [JSS CLI reference](/docs/fundamentals/cli).
 
-> If your application currently uses SSG, you can [switch the `[[..path]].tsx` route from SSG to SSR](/docs/nextjs/page-routing/switching-to-ssr).
+> If your application currently uses SSG, you can [switch to SSR](/docs/nextjs/page-routing/switching-to-ssr).
+
+> If your application currently uses the Sitecore GraphQL Edge schema, you can [switch to the Sitecore Layout Service REST API](/docs/nextjs/data-fetching/switching-fetch-method).
 
 ## Layout Service requests
 

@@ -1,48 +1,48 @@
 import { GraphQLRequestClient } from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
+import { getAppRootId } from '../utils';
 import debug from '../debug';
 
 const DEFAULTS = Object.freeze({
   pageSize: 10,
 });
 
-// TODO: use graphql import instead of string (Anastasiya, March 2021)
-const query = `
-query DictionarySearch(
-    $rootItemId: String!,
-    $language: String!,
-    $dictionaryEntryTemplateId: String!,
-    $pageSize: Int = 10,
+const query = /* GraphQL */ `
+  query DictionarySearch(
+    $rootItemId: String!
+    $language: String!
+    $dictionaryEntryTemplateId: String!
+    $pageSize: Int = 10
     $after: String
   ) {
-  search(
-    where: {
-      AND:[
-        { name: "_path",      value: $rootItemId },
-        { name: "_templates", value: $dictionaryEntryTemplateId },
-        { name: "_language",  value: $language }
-      ]
-    }
-    first: $pageSize
-    after: $after
-    orderBy: { name: "Title", direction: ASC }
-  ) {
-    total
-    pageInfo {
-      endCursor
-      hasNext
-    }
-    dictionaryPhrases: results {
-      key: field(name: "key") {
-        value
-      },
-      phrase: field(name: "phrase") {
-        value
+    search(
+      where: {
+        AND: [
+          { name: "_path", value: $rootItemId, operator: CONTAINS }
+          { name: "_templates", value: $dictionaryEntryTemplateId }
+          { name: "_language", value: $language }
+        ]
+      }
+      first: $pageSize
+      after: $after
+      orderBy: { name: "Title", direction: ASC }
+    ) {
+      total
+      pageInfo {
+        endCursor
+        hasNext
+      }
+      dictionaryPhrases: results {
+        key: field(name: "key") {
+          value
+        }
+        phrase: field(name: "phrase") {
+          value
+        }
       }
     }
   }
-}
 `;
 
 /**
@@ -164,7 +164,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     });
     if (!this.options.rootItemId) {
       debug.dictionary('fetching site root for %s %s', language, this.options.siteName);
-      this.options.rootItemId = await getSiteRoot(client, this.options.siteName, language);
+      this.options.rootItemId = await getAppRootId(client, this.options.siteName, language);
     }
 
     debug.dictionary('fetching dictionary data for %s %s', language, this.options.siteName);
@@ -207,56 +207,4 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 
     return results;
   }
-}
-
-// TODO: Move to shared area and reuse for sitemap service (Anastasiya, March 2021)
-const siteRootQuery = `
-query getSiteRoot($jssAppTemplateId: String!, $siteName: String!, $language: String!)
-{
-  layout(site: $siteName, routePath: "/", language: $language) {
-    homePage: item {
-      rootItem: ancestors(includeTemplateIDs: [$jssAppTemplateId]) {
-        id
-      }
-    }
-  }
-}
-`;
-
-/**
- * A reply from the GraphQL Sitecore Dictionary Service
- */
-type SiteRootQueryResult = {
-  layout: {
-    homePage: {
-      rootItem: {
-        id: string;
-      }[];
-    };
-  };
-};
-
-/**
- * Gets the ID of the site root item from the Sitecore item tree.
- * @param {GraphQLRequestClient} client that fetches data from a GraphQL endpoint.
- * @param {string} siteName the name of the Sitecore site.
- * @param {string} language the item language version.
- * @returns the root item ID of the Sitecore site.
- */
-async function getSiteRoot(
-  client: GraphQLRequestClient,
-  siteName: string,
-  language: string
-): Promise<string> {
-  const fetchResponse = await client.request<SiteRootQueryResult>(siteRootQuery, {
-    jssAppTemplateId: SitecoreTemplateId.JssApp,
-    siteName,
-    language,
-  });
-
-  if (!fetchResponse?.layout?.homePage?.rootItem?.length) {
-    throw new Error('Error fetching Sitecore site root item');
-  }
-
-  return fetchResponse.layout.homePage.rootItem[0].id;
 }

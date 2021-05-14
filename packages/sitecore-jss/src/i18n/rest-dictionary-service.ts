@@ -1,6 +1,5 @@
 import { AxiosDataFetcher } from '../axios-fetcher';
-import { fetchData } from '../data-api';
-import { HttpDataFetcher } from '../data-fetcher';
+import { HttpDataFetcher, fetchData } from '../data-fetcher';
 import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
 import debug from '../debug';
 

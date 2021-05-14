@@ -1,10 +1,10 @@
-import { DictionaryService, GraphQLDictionaryService } from '@sitecore-jss/sitecore-jss-nextjs';
+import { DictionaryService, RestDictionaryService } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 
 export class DictionaryServiceFactory {
   create(): DictionaryService {
-    return new GraphQLDictionaryService({
-      endpoint: config.graphQLEndpoint,
+    return new RestDictionaryService({
+      apiHost: config.sitecoreApiHost,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
     });
