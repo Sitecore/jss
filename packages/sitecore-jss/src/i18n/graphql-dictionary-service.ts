@@ -22,7 +22,7 @@ const query = /* GraphQL */ `
         AND: [
           { name: "_path", value: $rootItemId, operator: CONTAINS }
           { name: "_language", value: $language }
-          { name: "_templates", value: $templates }
+          { name: "_templates", value: $templates, operator: CONTAINS }
         ]
       }
       first: $pageSize
