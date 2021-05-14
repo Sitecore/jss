@@ -3,8 +3,8 @@ import { HttpDataFetcher, HttpResponse } from './../data-fetcher';
 import { IncomingMessage, ServerResponse } from 'http';
 
 export interface RenderingPersonalizationDecision {
-  variantKey? : string;
-  errorMessage? : string;
+  variantKey?: string;
+  errorMessage?: string;
 }
 
 export interface PersonalizationDecisionData {
@@ -43,6 +43,10 @@ export type RestPersonalizationDecisionsServiceConfig = {
    */
   siteName: string;
   /**
+   * Query string parameters of the current page to pass with request to decision service
+   */
+  currentPageParamsToTrack?: string[];
+  /**
    * Enables/disables analytics tracking for the Layout Service invocation (default is true).
    * More than likely, this would be set to false for SSG/hybrid implementations, and the
    * JSS tracker would instead be used on the client-side: {@link https://jss.sitecore.com/docs/fundamentals/services/tracking}
@@ -66,7 +70,7 @@ export type RestPersonalizationDecisionsServiceConfig = {
  * and would then need to install a package for that functionality
  * @param {Object} params
  */
- function getQueryString(params: { [key: string]: unknown }) {
+function getQueryString(params: { [key: string]: unknown }) {
   return Object.keys(params)
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k] as string)}`)
     .join('&');
@@ -83,7 +87,7 @@ class ResponseError extends Error {
   }
 }
 
- function checkStatus<T>(response: HttpResponse<T>) {
+function checkStatus<T>(response: HttpResponse<T>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -118,11 +122,12 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
     this.serviceConfig = {
       host: '',
       route: '/sitecore/api/layout/personalization/decision',
-      ...serviceConfig
-    }
+      currentPageParamsToTrack: ['sc_camp', 'sc_trk'],
+      ...serviceConfig,
+    };
   }
 
-   getPersonalizationDecisions(
+  getPersonalizationDecisions(
     routePath: string,
     language: string,
     renderingIds: string[]
@@ -137,6 +142,7 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
       language: language,
       renderingIds: renderingIds
     }, fetcher, {
+      ...this.getCurrentPageParamsToTrack(),
       sc_apikey: this.serviceConfig.apiKey,
       sc_site: this.serviceConfig.siteName,
       tracking: this.serviceConfig.tracking ?? true,
@@ -152,4 +158,18 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
 
     return fetcher;
   };
+
+  private getCurrentPageParamsToTrack = () => {
+    const queryStringParams: { [key: string]: string } = {};
+
+    window.location.search.substring(1).split('&').forEach((param) => {
+      this.serviceConfig.currentPageParamsToTrack?.forEach((name) => {
+        if (param.toLowerCase().startsWith(name.toLowerCase().concat('='))) {
+          queryStringParams[name] = decodeURIComponent(param.toLowerCase().substring(name.length + 1));
+        }
+      });
+    });
+
+    return queryStringParams;
+  }
 }
