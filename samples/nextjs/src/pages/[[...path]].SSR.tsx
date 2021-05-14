@@ -11,8 +11,14 @@ import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
+import { trackingService } from 'lib/tracking-service-factory';
 
-const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
+const SitecorePage = ({
+  notFound,
+  layoutData,
+  componentProps,
+  isPreview,
+}: SitecorePageProps): JSX.Element => {
   useEffect(() => {
     // Since Experience Editor does not support Fast Refresh need to refresh EE chromes after Fast Refresh finished
     handleExperienceEditorFastRefresh();
@@ -22,6 +28,19 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
     // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
     return <NotFound />;
   }
+
+  useEffect(() => {
+    // Do not trigger client tracking when pages are requested by Sitecore XP instance:
+    // - no need to track in Edit and Preview modes
+    // - in Explore mode all requests will be tracked by Sitecore XP out of the box
+    if (isPreview || !layoutData?.sitecore?.route || layoutData.sitecore.tracked) {
+      return;
+    }
+
+    trackingService
+      .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
+      .catch((error) => console.error('Tracking failed: ' + error.message));
+  }, [isPreview, layoutData]);
 
   const context: StyleguideSitecoreContextValue = {
     route: layoutData.sitecore.route,
@@ -45,13 +64,30 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const props = await sitecorePagePropsFactory.create(context);
 
+  if (!props.notFound) {
+    return {
+      props,
+    };
+  }
+
+  if (props.layoutData?.sitecore.tracked) {
+    const headerName = 'set-cookie';
+    const cookie = 'skip_404_tracking=1; path=/';
+
+    const cookies = context.res.getHeader(headerName) as string[];
+
+    if (cookies) {
+      cookies.push(cookie);
+    } else {
+      context.res.setHeader(headerName, [cookie]);
+    }
+  }
+
   // Returns custom 404 page with a status code of 404 when notFound: true
   // Note we can't simply return props.notFound due to an issue in Next.js (https://github.com/vercel/next.js/issues/22472)
-  const notFound = props.notFound ? { notFound: true } : {};
-
   return {
     props,
-    ...notFound,
+    notFound: true,
   };
 };
 

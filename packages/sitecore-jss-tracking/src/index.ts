@@ -8,6 +8,7 @@ export {
   OutcomeInstance,
   EventInstance,
   PageViewInstance,
+  PageViewData,
 } from './dataModels';
 
-export { TrackingService } from './tracking-service';
+export { TrackingService, TrackingServiceConfig } from './tracking-service';

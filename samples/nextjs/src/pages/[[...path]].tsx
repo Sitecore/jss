@@ -12,8 +12,7 @@ import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
-import { trackingService } from 'lib/tracking-factory';
-import { areQueryParamsReady } from 'lib/util';
+import { trackingService } from 'lib/tracking-service-factory';
 
 const SitecorePage = ({
   notFound,
@@ -31,14 +30,16 @@ const SitecorePage = ({
     return <NotFound />;
   }
 
-  // Do not trigger client tracking when pages are requested by Sitecore XP instance:
-  // - no need to track in Edit and Preview modes
-  // - in Explore mode all requests will be tracked by Sitecore XP out of the box
-  if (!isPreview && areQueryParamsReady()) {
+  useEffect(() => {
+    // Do not trigger client tracking when pages are requested by Sitecore XP instance:
+    // - no need to track in Edit and Preview modes
+    // - in Explore mode all requests will be tracked by Sitecore XP out of the box
+    if (isPreview || !layoutData?.sitecore?.route) return;
+
     trackingService
       .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
       .catch((error) => console.error('Tracking failed: ' + error.message));
-  }
+  }, [isPreview, layoutData]);
 
   const context: StyleguideSitecoreContextValue = {
     route: layoutData.sitecore.route,

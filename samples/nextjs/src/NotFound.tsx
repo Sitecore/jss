@@ -1,16 +1,20 @@
 import Head from 'next/head';
-import { trackingService } from 'lib/tracking-factory';
-import { areQueryParamsReady } from 'lib/util';
+import { useEffect } from 'react';
+import { trackingService } from 'lib/tracking-service-factory';
 
 /**
  * Rendered in case if we have 404 error
  */
 const NotFound = (): JSX.Element => {
-  if (typeof window !== 'undefined' && areQueryParamsReady()) {
-    trackingService
-      .trackPage({ url: location.pathname + location.search }, { sc_trk: 'Page not found' })
-      .catch((error) => console.error('Tracking failed: ' + error.message));
-  }
+  useEffect(() => {
+    if (document.cookie.split(';').some((item) => item.trim().startsWith('skip_404_tracking='))) {
+      document.cookie = 'skip_404_tracking=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    } else {
+      trackingService
+        .trackPage({ url: location.pathname + location.search }, { sc_trk: 'Page not found' })
+        .catch((error) => console.error('Tracking failed: ' + error.message));
+    }
+  }, []);
 
   return (
     <>

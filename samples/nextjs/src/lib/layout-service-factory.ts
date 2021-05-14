@@ -2,12 +2,15 @@ import { LayoutService, GraphQLLayoutService } from '@sitecore-jss/sitecore-jss-
 import config from 'temp/config';
 
 export class LayoutServiceFactory {
-  create(tracking: boolean): LayoutService {
+  create(isSsr: boolean | undefined): LayoutService {
+    // to avoid build and lint errors/warnings
+    if (isSsr) {
+    }
+
     return new GraphQLLayoutService({
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
-      tracking: tracking,
     });
   }
 }

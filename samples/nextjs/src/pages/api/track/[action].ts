@@ -6,7 +6,6 @@ export default createProxyMiddleware({
   target: jssConfig.sitecoreApiHost,
   changeOrigin: true,
   pathRewrite: { '^/api': '/sitecore/api' },
-  headers: { sc_apikey: jssConfig.sitecoreApiKey },
   xfwd: true,
 });
 
