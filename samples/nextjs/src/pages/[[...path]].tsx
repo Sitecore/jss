@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
-import { personalizationService } from 'src/Layout';
 import {
   SitecoreContext,
   ComponentPropsContext,
@@ -14,6 +13,7 @@ import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 import { useRouter } from 'next/router'
+import { layoutPersonalizationService } from 'lib/layout-personalization-service-factory';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
@@ -35,7 +35,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
   const router = useRouter();
   if (process.browser // Load personalization client side only
     && Object.keys(router.query).length <= 1) { // Do not load personalization twice for pages witgh query, see Caveats for dynamic routes in Next.js doc
-      personalizationService.loadPersonalization(context, context.route).then(p => {
+      layoutPersonalizationService.loadPersonalization(context, context.route).then(p => {
         if (p.hasPersonalizationComponents) {
           // TODO call trackign API track page view
         }

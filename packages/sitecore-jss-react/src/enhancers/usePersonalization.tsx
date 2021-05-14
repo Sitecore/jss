@@ -1,22 +1,22 @@
-import { PersonalizationService } from '@sitecore-jss/sitecore-jss';
+import { LayoutPersonalizationService } from '@sitecore-jss/sitecore-jss';
 import { useEffect, useState, createElement } from 'react';
 import { MissingComponent } from '../components/MissingComponent';
 import { useComponentFactory } from './withComponentFactory';
 
-export function usePersonalization(props: { uid: string, personalizationService: PersonalizationService, missingComponentComponent?: React.ComponentClass<unknown> | React.FC<unknown> }) {
+export function usePersonalization(props: { uid: string, layoutPersonalizationService: LayoutPersonalizationService, missingComponentComponent?: React.ComponentClass<unknown> | React.FC<unknown> }) {
   // add state just for forceUpdate emulating, we need to re-render the component after personalization loading
   const [ state, setState] = useState(0);
   const componentFactory = useComponentFactory();
 
-  const personalizedComponentLayout = props.personalizationService.getPersonalizedComponent(props.uid);
-  const isLoading = props.personalizationService.isLoading();
+  const personalizedComponentLayout = props.layoutPersonalizationService.getPersonalizedComponent(props.uid);
+  const isLoading = props.layoutPersonalizationService.isLoading();
 
   useEffect(() => {
     if (!isLoading) {
       return;
     }
     var isUnMounted = false;
-    props.personalizationService.loadPersonalizedComponent(props.uid).then(() => {
+    props.layoutPersonalizationService.loadPersonalizedComponent(props.uid).then(() => {
       // emulate forceUpdate, do not set state if component already unmounted
       if (!isUnMounted) {
         setState(state + 1)
