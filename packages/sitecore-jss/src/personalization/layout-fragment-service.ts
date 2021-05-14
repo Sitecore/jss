@@ -29,6 +29,10 @@ export type GraphQLLayoutFragmentServiceConfig = {
    */
   apiKey: string;
   /**
+   * The request timeout
+   */
+   timeout?: number;
+  /**
    * Override default layout query
    * @param {string} siteName
    * @param {string} routePath
@@ -71,9 +75,9 @@ export class GraphQLLayoutFragmentService implements LayoutFragmentService {
   }
 
   private createClient(): GraphQLRequestClient {
-    const { endpoint, apiKey } = this.serviceConfig;
+    const { endpoint, apiKey, timeout } = this.serviceConfig;
 
-    return new GraphQLRequestClient(endpoint, { apiKey, debugger: debug.layout });
+    return new GraphQLRequestClient(endpoint, { apiKey, debugger: debug.layout, timeout });
   }
 
   private getLayoutFragmentQuery(routePath: string, language: string, renderingId: string, ruleId: string) {

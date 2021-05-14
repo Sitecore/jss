@@ -11,12 +11,17 @@ export type GraphQLRequestClientConfig = {
    * Override debugger for logging. Uses 'sitecore-jss:http' by default.
    */
   debugger?: Debugger;
+  /**
+   * The request timeout
+   */
+   timeout?: number;
 };
 
 export class GraphQLRequestClient {
   private client: GraphQLClient;
   private headers: Record<string, string> = {};
   private debug: Debugger;
+  private timeout?: number;
 
   /**
    * Provides ability to execute graphql query using given `endpoint`
@@ -29,6 +34,7 @@ export class GraphQLRequestClient {
     }
     this.client = new GraphQLClient(endpoint, { headers: this.headers });
     this.debug = clientConfig.debugger || debuggers.http;
+    this.timeout = clientConfig.timeout;
   }
 
   /**
@@ -49,6 +55,10 @@ export class GraphQLRequestClient {
         query,
         variables,
       });
+
+      if (this.timeout) {
+        setTimeout(() => reject('Network timed out'), this.timeout);
+      }
 
       this.client
         .request(query, variables)

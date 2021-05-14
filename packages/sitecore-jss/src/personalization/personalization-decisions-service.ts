@@ -23,7 +23,7 @@ export interface PersonalizationDecisionsService {
   ): Promise<PersonalizationDecisionData>;
 }
 
-export type DataFetcherResolver = <T>() => HttpDataFetcher<T>;
+export type DataFetcherResolver = <T>(config: { timeout?: number }) => HttpDataFetcher<T>;
 
 export type RestPersonalizationDecisionsServiceConfig = {
   /**
@@ -53,6 +53,10 @@ export type RestPersonalizationDecisionsServiceConfig = {
    * @default true
    */
   tracking?: boolean;
+  /**
+   * The request timeout
+   */
+  timeout?: number;
   /**
    * Data fetcher resolver in order to provide custom data fetcher
    * @see DataFetcherResolver
@@ -134,7 +138,7 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
   ): Promise<PersonalizationDecisionData> {
 
     const fetcher = this.serviceConfig.dataFetcherResolver
-      ? this.serviceConfig.dataFetcherResolver<PersonalizationDecisionData>()
+      ? this.serviceConfig.dataFetcherResolver<PersonalizationDecisionData>({ timeout: this.serviceConfig.timeout })
       : this.getDefaultFetcher<PersonalizationDecisionData>();
 
     return fetchData<PersonalizationDecisionData>(`${this.serviceConfig.host}${this.serviceConfig.route}`, {
@@ -150,7 +154,7 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
   }
 
   private getDefaultFetcher = <T>() => {
-    const axiosFetcher = new AxiosDataFetcher();
+    const axiosFetcher = new AxiosDataFetcher({ timeout: this.serviceConfig.timeout });
 
     const fetcher = (url: string, data?: unknown) => {
       return axiosFetcher.fetch<T>(url, data);

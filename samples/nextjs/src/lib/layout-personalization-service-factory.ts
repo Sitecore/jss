@@ -7,7 +7,7 @@ export class LayoutPersonalizationServiceFactory {
       new RestPersonalizationDecisionsService({
         apiKey: config.sitecoreApiKey,
         siteName: config.jssAppName,
-        tracking: true
+        tracking: true,
       }),
       new GraphQLLayoutFragmentService({
         endpoint: config.graphQLEndpoint,
