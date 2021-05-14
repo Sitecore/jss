@@ -1,6 +1,6 @@
 import { LayoutServiceBase } from './layout-service';
 import { LayoutServiceData } from './models';
-import { GraphQLRequestClient } from '../graphql-request-client';
+import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import debug from '../debug';
 
 export type GraphQLLayoutServiceConfig = {
@@ -31,12 +31,15 @@ export type GraphQLLayoutServiceConfig = {
 };
 
 export class GraphQLLayoutService extends LayoutServiceBase {
+  private graphQLClient: GraphQLClient;
+
   /**
    * Fetch layout data using the Sitecore GraphQL endpoint.
    * @param {GraphQLLayoutServiceConfig} serviceConfig
    */
-  constructor(private serviceConfig: GraphQLLayoutServiceConfig) {
+  constructor(public serviceConfig: GraphQLLayoutServiceConfig) {
     super();
+    this.graphQLClient = this.getGraphQLClient();
   }
 
   /**
@@ -54,7 +57,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
       language,
       this.serviceConfig.siteName
     );
-    const data = await this.createClient().request<{
+    const data = await this.graphQLClient.request<{
       layout: { item: { rendered: LayoutServiceData } };
     }>(query);
 
@@ -67,12 +70,16 @@ export class GraphQLLayoutService extends LayoutServiceBase {
   }
 
   /**
-   * Returns new graphql client instance
+   * Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
+   * library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
+   * want to use something else.
+   * @returns {GraphQLClient} implementation
    */
-  private createClient(): GraphQLRequestClient {
-    const { endpoint, apiKey } = this.serviceConfig;
-
-    return new GraphQLRequestClient(endpoint, { apiKey, debugger: debug.layout });
+  protected getGraphQLClient(): GraphQLClient {
+    return new GraphQLRequestClient(this.serviceConfig.endpoint, {
+      apiKey: this.serviceConfig.apiKey,
+      debugger: debug.dictionary,
+    });
   }
 
   /**
