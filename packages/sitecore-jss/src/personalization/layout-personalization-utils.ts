@@ -4,7 +4,8 @@ import {
   isPersonalizedComponentRendering,
   ComponentRendering,
   PlaceholdersData,
-  PersonalizationData
+  PersonalizationData,
+  hasPersonalization
 } from '../layout/models';
 
 export class LayoutPersonalizationUtils {
@@ -92,20 +93,18 @@ export class LayoutPersonalizationUtils {
         const placeholder = placeholders[key];
         if (Array.isArray(placeholder)) {
           placeholder.forEach((component, index) => {
-            if (isComponentRendering(component)) {
-              if (component.personalization) {
-                const personalizedComponent: PersonalizedComponentRendering = {
-                  componentName: loaderComponentName,
-                  uid: component.uid as string,
-                  personalization: {
-                    hiddenByDefault: component.personalization.hiddenByDefault,
-                    defaultComponent: component
-                  }
-                };
-                placeholder[index] = personalizedComponent;
-              } else if (component.placeholders) {
-                this.replacePersonalizedComponentsWithLoaderComponents(component.placeholders, loaderComponentName);
-              }
+            if (hasPersonalization(component) && component.personalization) {
+              const personalizedComponent: PersonalizedComponentRendering = {
+                componentName: loaderComponentName,
+                uid: component.uid as string,
+                personalization: {
+                  hiddenByDefault: component.personalization.hiddenByDefault,
+                  defaultComponent: component
+                }
+              };
+              placeholder[index] = personalizedComponent;
+            } else if (isComponentRendering(component) && component.placeholders) {
+              this.replacePersonalizedComponentsWithLoaderComponents(component.placeholders, loaderComponentName);
             }
           });
         }

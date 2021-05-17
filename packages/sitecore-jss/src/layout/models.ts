@@ -93,6 +93,10 @@ export interface ComponentRendering {
   personalization?: PersonalizationData;
 }
 
+export function hasPersonalization(object: any): object is ComponentRendering {
+  return 'personalization' in object;
+}
+
 export function isComponentRendering(object: any): object is ComponentRendering {
   return 'componentName' in object;
 }
