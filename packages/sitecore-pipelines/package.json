@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-pipelines",
-  "version": "16.1.0-canary.41",
+  "version": "16.1.0-canary.42",
   "description": "Sitecore Pipelines in JavaScript.",
   "main": "dist/index.js",
   "scripts": {

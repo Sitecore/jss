@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-proxy",
-  "version": "16.1.0-canary.41",
+  "version": "16.1.0-canary.42",
   "description": "Proxy middleware for express.js server.",
   "main": "dist/index.js",
   "scripts": {
