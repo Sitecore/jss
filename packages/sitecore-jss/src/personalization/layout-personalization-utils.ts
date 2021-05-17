@@ -4,26 +4,17 @@ import {
   isPersonalizedComponentRendering,
   ComponentRendering,
   PlaceholdersData,
-  PersonalizationData,
   hasPersonalization
 } from '../layout/models';
 
 export class LayoutPersonalizationUtils {
 
-  buildPersonalizedFragment(uid: string, personalizedFragments: { [key: string]: ComponentRendering | null | undefined; }, personalization: PersonalizationData): ComponentRendering | null {
+  buildPersonalizedFragment(uid: string, personalizedFragments: { [key: string]: ComponentRendering | null | undefined; }, defaultComponent: ComponentRendering | null): ComponentRendering | null {
     var personalizedFragment = personalizedFragments[uid];
     if (personalizedFragment === null) {
       return null;
     } else if (personalizedFragment === undefined) {
-      return getDefaultPersonalization(personalization);
-    }
-
-    function getDefaultPersonalization(personalization: PersonalizationData) {
-      if (personalization.hiddenByDefault) {
-        return null;
-      } else {
-        return personalization.defaultComponent as ComponentRendering;
-      }
+      return defaultComponent;
     }
 
     function replacePersonalizedRenderings(context: ComponentRendering): boolean {
@@ -63,7 +54,7 @@ export class LayoutPersonalizationUtils {
     if (replacePersonalizedRenderings(personalizedFragment)) {
       return personalizedFragment;
     } else {
-      return getDefaultPersonalization(personalization);
+      return defaultComponent;
     }
   }
 
@@ -99,7 +90,7 @@ export class LayoutPersonalizationUtils {
                 uid: component.uid as string,
                 personalization: {
                   hiddenByDefault: component.personalization.hiddenByDefault,
-                  defaultComponent: component
+                  defaultComponent: component.personalization.hiddenByDefault ? null : component
                 }
               };
               placeholder[index] = personalizedComponent;

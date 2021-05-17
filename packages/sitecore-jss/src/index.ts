@@ -66,8 +66,14 @@ export {
 } from './layout/rest-layout-service';
 
 export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
+
 export { LayoutPersonalizationUtils } from './personalization/layout-personalization-utils';
-export { LayoutPersonalizationService, PersonalizationResult, PersonalizationLoadResult } from './personalization/layout-personalization-service';
+
+export {
+  LayoutPersonalizationService,
+  PersonalizationResult,
+  PersonalizationLoadResult
+} from './personalization/layout-personalization-service';
 
 export {
   LayoutFragmentData,
