@@ -87,7 +87,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
    * @param {string} itemPath page route
    * @param {string} [language] language
    */
-  private getLayoutQuery(itemPath: string, language?: string) {
+  protected getLayoutQuery(itemPath: string, language?: string) {
     const languageVariable = language ? `, language:"${language}"` : '';
 
     const layoutQuery = this.serviceConfig.formatLayoutQuery

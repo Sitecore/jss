@@ -73,7 +73,7 @@ export class RestDictionaryService extends DictionaryServiceBase {
    * Generate dictionary service url
    * @param {string} language
    */
-  private getUrl(language: string) {
+  protected getUrl(language: string) {
     return `${this.options.apiHost}/sitecore/api/jss/dictionary/${this.options.siteName}/${language}`;
   }
 }
