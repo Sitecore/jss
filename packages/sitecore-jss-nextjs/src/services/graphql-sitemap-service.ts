@@ -3,8 +3,8 @@ import {
   GraphQLRequestClient,
   debug,
   getAppRootId,
-  PageListService,
   SearchServiceConfig,
+  SearchQueryService,
 } from '@sitecore-jss/sitecore-jss';
 
 /** @private */
@@ -13,6 +13,45 @@ export const queryError =
 
 /** @private */
 export const languageError = 'The list of languages cannot be empty';
+
+// Even though _hasLayout should always be "true" in this query, using a variable is necessary for compatibility with Edge
+const query = /* GraphQL */ `
+  query SitemapQuery(
+    $rootItemId: String!
+    $language: String!
+    $pageSize: Int = 10
+    $hasLayout: String = "true"
+    $after: String
+  ) {
+    search(
+      where: {
+        AND: [
+          { name: "_path", value: $rootItemId, operator: CONTAINS }
+          { name: "_language", value: $language }
+          { name: "_hasLayout", value: $hasLayout }
+        ]
+      }
+      first: $pageSize
+      after: $after
+    ) {
+      total
+      pageInfo {
+        endCursor
+        hasNext
+      }
+      results {
+        url {
+          path
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * The schema of data returned in response to a page list query request
+ */
+export type PageListQueryResult = { url: { path: string } };
 
 /**
  * Object model of a site page item.
@@ -42,10 +81,11 @@ export interface GraphQLSitemapServiceConfig extends SearchServiceConfig {
 /**
  * Service that fetches the list of site pages using Sitecore's GraphQL API.
  * This list is used for SSG and Export functionality.
+ * @mixes SearchQueryService<PageListQueryResult>
  */
 export class GraphQLSitemapService {
   private graphQLClient: GraphQLClient;
-  private pageListService: PageListService;
+  private searchService: SearchQueryService<PageListQueryResult>;
 
   /**
    * Creates an instance of graphQL sitemap service with the provided options
@@ -53,7 +93,7 @@ export class GraphQLSitemapService {
    */
   constructor(public options: GraphQLSitemapServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
-    this.pageListService = new PageListService(this.graphQLClient);
+    this.searchService = new SearchQueryService<PageListQueryResult>(this.graphQLClient);
   }
 
   /**
@@ -119,8 +159,8 @@ export class GraphQLSitemapService {
     const paths = await Promise.all(
       languages.map((language) => {
         debug.sitemap('fetching sitemap data for %s', language);
-        return this.pageListService
-          .fetchPageList({
+        return this.searchService
+          .fetch(query, {
             rootItemId,
             language,
             pageSize: this.options.pageSize,
@@ -133,7 +173,7 @@ export class GraphQLSitemapService {
       })
     );
 
-    // merge promises result
+    // merge promises results into single result
     return ([] as StaticPath[]).concat(...paths);
   }
 

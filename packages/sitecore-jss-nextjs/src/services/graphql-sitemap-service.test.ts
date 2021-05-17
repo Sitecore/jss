@@ -77,7 +77,7 @@ describe('GraphQLSitemapService', () => {
 
   const mockPathsRequest = (results?: { url: { path: string } }[]) => {
     nock(endpoint)
-      .post('/', /PageListQuery/gi)
+      .post('/', /SitemapQuery/gi)
       .reply(
         200,
         results === undefined
@@ -319,15 +319,15 @@ describe('GraphQLSitemapService', () => {
       expect(sitemap).to.deep.equal(sitemapServiceResult);
     });
 
-    it('should throw error if PageListQuery fails', async () => {
+    it('should throw error if SitemapQuery fails', async () => {
       mockRootItemIdRequest();
       nock(endpoint)
-        .post('/', /PageListQuery/gi)
+        .post('/', /SitemapQuery/gi)
         .reply(500, 'Error 😥');
 
       const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
       await service.fetchSSGSitemap(['ua']).catch((error: RangeError) => {
-        expect(error.message).to.contain('PageListQuery');
+        expect(error.message).to.contain('SitemapQuery');
         expect(error.message).to.contain('Error 😥');
       });
       return expect(nock.isDone()).to.be.true;
@@ -393,15 +393,15 @@ describe('GraphQLSitemapService', () => {
       return expect(nock.isDone()).to.be.true;
     });
 
-    it('should throw error if PageListQuery fails', async () => {
+    it('should throw error if SitemapQuery fails', async () => {
       mockRootItemIdRequest();
       nock(endpoint)
-        .post('/', /PageListQuery/gi)
+        .post('/', /SitemapQuery/gi)
         .reply(500, 'Error 😥');
 
       const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
       await service.fetchExportSitemap('ua').catch((error: RangeError) => {
-        expect(error.message).to.contain('PageListQuery');
+        expect(error.message).to.contain('SitemapQuery');
         expect(error.message).to.contain('Error 😥');
       });
       return expect(nock.isDone()).to.be.true;
