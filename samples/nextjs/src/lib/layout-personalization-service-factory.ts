@@ -1,5 +1,9 @@
 import config from 'temp/config';
-import { LayoutPersonalizationService, RestPersonalizationDecisionsService, GraphQLLayoutFragmentService } from '@sitecore-jss/sitecore-jss';
+import {
+  LayoutPersonalizationService,
+  RestPersonalizationDecisionsService,
+  GraphQLLayoutFragmentService,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 export class LayoutPersonalizationServiceFactory {
   create(): LayoutPersonalizationService {

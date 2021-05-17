@@ -1,5 +1,4 @@
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
-import { usePersonalization } from '@sitecore-jss/sitecore-jss-nextjs';
+import { usePersonalization, ComponentRendering } from '@sitecore-jss/sitecore-jss-nextjs';
 import { layoutPersonalizationService } from 'lib/layout-personalization-service-factory';
 
 const PersonalizationLoadingComponent = (props: { rendering: ComponentRendering; }) => {
