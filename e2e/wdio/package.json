@@ -1,0 +1,27 @@
+{
+  "name": "wdio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio wdio.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/cli": "^7.5.2",
+    "ngrok": "^4.0.1"
+  },
+  "devDependencies": {
+    "@wdio/dot-reporter": "^7.5.2",
+    "@wdio/jasmine-framework": "^7.5.2",
+    "@wdio/local-runner": "^7.5.2",
+    "@wdio/spec-reporter": "^7.5.2",
+    "@wdio/sync": "^7.5.2",
+    "chromedriver": "^90.0.0",
+    "expect-webdriverio": "^2.0.1",
+    "wdio-chromedriver-service": "^7.0.0",
+    "dotenv": "^9.0.2"
+  }
+}
