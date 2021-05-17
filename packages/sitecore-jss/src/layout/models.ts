@@ -112,8 +112,8 @@ export interface PersonalizedComponentRendering {
 }
 
 export interface PersonalizationData {
-  defaultComponent?: ComponentRendering;
   hiddenByDefault: boolean;
+  defaultComponent: ComponentRendering | null
 }
 
 /**

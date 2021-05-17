@@ -22,10 +22,5 @@ export function withComponentFactory<T extends ComponentFactoryProps>(
 }
 
 export function useComponentFactory() {
-  const componentFactory = React.useContext(ComponentFactoryReactContext);
-  if (!componentFactory || typeof componentFactory !== 'function') {
-    console.error(`No componentFactory available to use`);
-    return null;
-  }
-  return componentFactory;
+  return React.useContext(ComponentFactoryReactContext);
 }

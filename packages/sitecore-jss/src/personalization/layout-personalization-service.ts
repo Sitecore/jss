@@ -124,7 +124,7 @@ export class LayoutPersonalizationService {
 
     var result : { [key: string]: ComponentRendering | null } = {};
     personalizedRenderings.forEach(pr => {
-      result[pr.uid] = this.layoutPersonalizationUtils.buildPersonalizedFragment(pr.uid, personalizedFragments, pr.personalization);
+      result[pr.uid] = this.layoutPersonalizationUtils.buildPersonalizedFragment(pr.uid, personalizedFragments, pr.personalization.defaultComponent);
     });
     return result;
   }
