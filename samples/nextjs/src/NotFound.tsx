@@ -12,7 +12,7 @@ const NotFound = (): JSX.Element => {
     } else {
       trackingService
         .trackPage({ url: location.pathname + location.search }, { sc_trk: 'Page not found' })
-        .catch((error) => console.error('Tracking failed: ' + error.message));
+        .catch((error: any) => console.error('Tracking failed: ' + error.message));
     }
   }, []);
 

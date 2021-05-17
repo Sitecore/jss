@@ -224,14 +224,65 @@ describe('TrackingService', () => {
       });
     });
 
-    const createRouteData = (itemId?: string, deviceId?: string, language?: string): RouteData => {
-      return {
-        name: '',
-        itemId: itemId,
-        itemLanguage: language,
-        deviceId: deviceId,
-        placeholders: {},
-      };
-    };
+    it('should use custom fetcher passed in options', () => {
+      // arrange
+      mock.onPost().reply(() => [200, {}]);
+
+      const service = new TrackingService({
+        fetcher: (url, data) =>
+          axios({
+            url: '/myfetcher' + url,
+            method: data ? 'POST' : 'GET',
+            data,
+            withCredentials: true,
+          }),
+      });
+
+      // act
+      return service.trackCurrentPage({}, createRouteData('myItemId')).then(() => {
+        // assert
+        expect(mock.history.post).to.have.length(1);
+
+        const post = mock.history.post[0];
+        expect(post.url).to.equal('/myfetcher/sitecore/api/track/pageview');
+        expect(JSON.parse(post.data).itemId).to.equal('myItemId');
+      });
+    });
   });
+
+  describe('trackPage', () => {
+    it('should track page', () => {
+      // arrange
+      mock.onPost().reply(() => [200, {}]);
+
+      const service = new TrackingService({
+        apiKey: 'MyKey',
+        siteName: 'MySite',
+      });
+
+      // act
+      return service.trackPage({ url: '/page?a=1' }, { extraParam: 'extra' }).then(() => {
+        // assert
+        expect(mock.history.post).to.have.length(1);
+
+        const post = mock.history.post[0];
+        expect(post.url).to.equal(
+          '/sitecore/api/track/pageview?sc_apikey=MyKey&sc_site=MySite&extraParam=extra'
+        );
+
+        expect(post.withCredentials, 'with credentials is not true').to.be.true;
+        expect(post.data).to.equal('{"url":"/page?a=1"}');
+      });
+    });
+  });
+
+  const createRouteData = (itemId?: string, deviceId?: string, language?: string): RouteData => {
+    return {
+      name: '',
+      itemId: itemId,
+      itemLanguage: language,
+      deviceId: deviceId,
+      placeholders: {},
+    };
+  };
 });
