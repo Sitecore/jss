@@ -39,7 +39,7 @@ const SitecorePage = ({
 
     trackingService
       .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
-      .catch((error) => console.error('Tracking failed: ' + error.message));
+      .catch((error: any) => console.error('Tracking failed: ' + error.message));
   }, [isPreview, layoutData]);
 
   const context: StyleguideSitecoreContextValue = {
