@@ -1,4 +1,5 @@
 import { GraphQLClient } from '../graphql-request-client';
+import { DocumentNode } from 'graphql';
 
 /**
  * Schema of data returned in response to a "search" query request
@@ -92,7 +93,7 @@ export class SearchQueryService<T> {
    * @throws {RangeError} if a valid root item ID is not provided.
    * @throws {RangeError} if the provided language(s) is(are) not valid.
    */
-  async fetch(query: string, args: SearchQueryVariables): Promise<T[]> {
+  async fetch(query: string | DocumentNode, args: SearchQueryVariables): Promise<T[]> {
     if (!args.rootItemId) {
       throw new RangeError('"rootItemId" and "language" must be non-empty strings');
     }
