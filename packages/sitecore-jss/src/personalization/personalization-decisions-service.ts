@@ -23,7 +23,12 @@ export interface PersonalizationDecisionsService {
   ): Promise<PersonalizationDecisionData>;
 }
 
-export type DataFetcherResolver = <T>(config: { timeout?: number }) => HttpDataFetcher<T>;
+export type DataFetcherResolver = <T>(config: {
+  /**
+   * The request timeout in milliseconds
+   */
+  timeout?: number;
+}) => HttpDataFetcher<T>;
 
 export type RestPersonalizationDecisionsServiceConfig = {
   /**
@@ -54,7 +59,7 @@ export type RestPersonalizationDecisionsServiceConfig = {
    */
   tracking?: boolean;
   /**
-   * The request timeout
+   * The request timeout in milliseconds
    */
   timeout?: number;
   /**

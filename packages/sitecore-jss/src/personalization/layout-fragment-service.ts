@@ -29,7 +29,7 @@ export type GraphQLLayoutFragmentServiceConfig = {
    */
   apiKey: string;
   /**
-   * The request timeout
+   * The request timeout in milliseconds
    */
    timeout?: number;
   /**

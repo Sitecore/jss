@@ -12,7 +12,7 @@ export type GraphQLRequestClientConfig = {
    */
   debugger?: Debugger;
   /**
-   * The request timeout
+   * The request timeout in milliseconds.
    */
    timeout?: number;
 };
@@ -57,7 +57,7 @@ export class GraphQLRequestClient {
       });
 
       if (this.timeout) {
-        setTimeout(() => reject('Network timed out'), this.timeout);
+        setTimeout(() => reject(`timeout of ${this.timeout}ms exceeded`), this.timeout);
       }
 
       this.client
