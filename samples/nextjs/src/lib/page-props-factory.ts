@@ -7,13 +7,13 @@ import {
   LayoutServiceData,
   LayoutService,
   editingDataService,
+  LayoutPersonalizationUtils,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { componentModule } from 'temp/componentFactory';
 import { config as packageConfig } from '../../package.json';
-import { LayoutPersonalizationUtils } from '@sitecore-jss/sitecore-jss';
 
 /**
  * Extract normalized Sitecore item path from query
@@ -130,12 +130,12 @@ export class SitecorePagePropsFactory {
           componentModule,
         });
       }
-    }
 
-    this.layoutPersonalizationUtils.replacePersonalizedComponentsWithLoaderComponents(
-      layoutData.sitecore.route?.placeholders,
-      'PersonalizationLoadingComponent'
-    );
+      this.layoutPersonalizationUtils.replacePersonalizedComponentsWithLoaderComponents(
+        layoutData.sitecore.route?.placeholders,
+        'PersonalizationLoadingComponent'
+      );
+    }
 
     return {
       locale,

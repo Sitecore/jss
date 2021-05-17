@@ -18,6 +18,19 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  LayoutPersonalizationService,
+  PersonalizationResult,
+  PersonalizationLoadResult,
+  LayoutPersonalizationUtils,
+  LayoutFragmentData,
+  LayoutFragmentService,
+  GraphQLLayoutFragmentService,
+  GraphQLLayoutFragmentServiceConfig,
+  PersonalizationDecisionData,
+  RenderingPersonalizationDecision,
+  PersonalizationDecisionsService,
+  RestPersonalizationDecisionsServiceConfig,
+  RestPersonalizationDecisionsService,
 } from '@sitecore-jss/sitecore-jss';
 export { ComponentFactory } from './components/sharedTypes';
 export { Placeholder } from './components/Placeholder';
