@@ -18,7 +18,7 @@ Here's a high-level overview of the routing process.
 In the diagram above, you can see how the Next.js route is applied to Sitecore JSS.
 
 * The `[[...path]].tsx` Next.js route will catch any path and pass this information along to `getStaticProps` or `getServerSideProps` on the `context` object (as a tokenized array).
-* The *Page Props Factory* uses the path information to construct a normalized Sitecore item path. It then makes a request to the [Sitecore Layout Service REST API or Sitecore GraphQL "Edge" schema](/docs/nextjs/data-fetching/data-services#page-props) to fetch layout data for the item.
+* The *Page Props Factory* uses the path information to construct a normalized Sitecore item path. It then makes a request to the [Sitecore Layout Service REST API or Sitecore GraphQL Edge schema](/docs/nextjs/data-fetching/data-services#page-props) to fetch layout data for the item.
 
 ## i18n Routing
 
