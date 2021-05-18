@@ -40,6 +40,11 @@ export type RestPersonalizationDecisionsServiceConfig = {
    */
   route?: string;
   /**
+   * This value overrides the default service URL.
+   * Note: `host` and `route` options are ignored if `serviceUrl` is set.
+   */
+  serviceUrl?: string;
+  /**
    * The Sitecore SSC API key your app uses
    */
   apiKey: string;
@@ -145,8 +150,7 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<PersonalizationDecisionData>({ timeout: this.serviceConfig.timeout })
       : this.getDefaultFetcher<PersonalizationDecisionData>();
-
-    return fetchData<PersonalizationDecisionData>(`${this.serviceConfig.host}${this.serviceConfig.route}`, {
+    return fetchData<PersonalizationDecisionData>(this.serviceConfig.serviceUrl ?? `${this.serviceConfig.host}${this.serviceConfig.route}`, {
       routePath: routePath,
       language: language,
       renderingIds: renderingIds
