@@ -10,7 +10,7 @@
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
-    "decisionsEndpointPath": "/sitecore/api/layout/personalization/decision",
+    "personalizationDecisionsEndpointPath": "/sitecore/api/layout/personalization/decision",
     "language": "en"
   },
   "engines": {
