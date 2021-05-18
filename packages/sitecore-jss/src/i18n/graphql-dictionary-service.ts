@@ -34,10 +34,10 @@ const query = /* GraphQL */ `
         hasNext
       }
       results {
-        key: field(name: "key") {
+        key: field(name: "Key") {
           value
         }
-        phrase: field(name: "phrase") {
+        phrase: field(name: "Phrase") {
           value
         }
       }
