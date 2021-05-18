@@ -82,5 +82,6 @@ function transformPackageConfig() {
     jssAppName: packageConfig.config.appName,
     trackingEndpoint: packageConfig.config.trackingEndpointPath,
     graphQLEndpointPath: packageConfig.config.graphQLEndpointPath,
+    personalizationDecisionsEndpoint: packageConfig.config.personalizationDecisionsEndpointPath,
   };
 }

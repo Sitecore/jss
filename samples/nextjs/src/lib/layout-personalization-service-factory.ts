@@ -9,6 +9,7 @@ export class LayoutPersonalizationServiceFactory {
   create(): LayoutPersonalizationService {
     return new LayoutPersonalizationService(
       new RestPersonalizationDecisionsService({
+        serviceUrl: config.personalizationDecisionsEndpoint,
         apiKey: config.sitecoreApiKey,
         siteName: config.jssAppName,
         tracking: true,

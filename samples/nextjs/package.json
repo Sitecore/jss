@@ -11,6 +11,7 @@
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
     "trackingEndpointPath": "/api/track",
+    "personalizationDecisionsEndpointPath": "/sitecore/api/layout/personalization/decision",
     "language": "en"
   },
   "engines": {
