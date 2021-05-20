@@ -22,6 +22,7 @@ module.exports = class Page {
   async switchToNestedIframe() {
     await browser.switchToFrame(await $('#jqueryModalDialogsFrame'));
     await browser.switchToFrame(await $('#scContentIframeId0'));
+    await browser.pause(1000);
   }
 
   getXpathByID(id) {
