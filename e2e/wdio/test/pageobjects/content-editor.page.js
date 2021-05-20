@@ -66,7 +66,12 @@ class ContentEditorPage extends Page {
     await browser.click({ element: 'span=Publish' });
     await browser.click({ element: 'td=Publish site', index: 1 });
     await this.switchToNestedIframe();
-    await browser.click({ element: this.getElementById('SelectAllLanguages') });
+    await browser.displayed({ element: this.getElementById('SelectAllLanguages') });
+    console.log('SELECT ALL LANGUAGES IS CURRENTLY CHECKED - ');
+    console.log(await (await $(this.getElementById('SelectAllLanguages'))).getAttribute('checked'));
+    if (!(await (await $(this.getElementById('SelectAllLanguages'))).getAttribute('checked'))) {
+      await browser.click({ element: this.getElementById('SelectAllLanguages') });
+    }
     await browser.click({ element: this.getElementById('NextButton') });
     await browser.waitUntil(
       async function() {
