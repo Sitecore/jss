@@ -12,6 +12,7 @@ describe('Setup new environment', function() {
     await Base.UserManagerPage.enableAdministratorPermissionForUser('JssImport');
     await Base.ControlPanelPage.populateSchemaAndIndexingManager();
     await Base.WorkboxPage.publishContentItems();
-    console.log(await Base.ContentEditorPage.createApiKey());
+    // console.log(await Base.ContentEditorPage.createApiKey());
+    // console.log(await Base.ContentEditorPage.getApiKey('API Key'));
   });
 });

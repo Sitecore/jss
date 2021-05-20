@@ -141,8 +141,12 @@ exports.config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ['spec', 'dot'],
-
+  reporters: ['spec', 'dot', 'teamcity'],
+  reporterOptions: {
+    captureStandardOutput: false, // optional
+    flowId: true, // optional
+    message: '[title]', // optional
+  },
   //
   // Options to be passed to Jasmine.
   jasmineOpts: {
