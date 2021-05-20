@@ -20,8 +20,10 @@
     "@wdio/spec-reporter": "^7.5.2",
     "@wdio/sync": "^7.5.2",
     "chromedriver": "^90.0.0",
+    "dotenv": "^9.0.2",
+    "eslint": "^7.26.0",
+    "eslint-plugin-wdio": "^7.4.2",
     "expect-webdriverio": "^2.0.1",
-    "wdio-chromedriver-service": "^7.0.0",
-    "dotenv": "^9.0.2"
+    "wdio-chromedriver-service": "^7.0.0"
   }
 }
