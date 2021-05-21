@@ -25,7 +25,7 @@ describe('Experience Editor Tests', function() {
     browser.url('http://localhost:3000');
   }
 
-  xit('Should display sample content', async function() {
+  it('Should display sample content', async function() {
     let header;
     let body;
     await Base.ContentEditorPage.openExperienceEditor(process.env.APPNAME);
@@ -68,18 +68,20 @@ describe('Experience Editor Tests', function() {
     await browser.typeWithKeys(newEdit);
     await Base.ExperienceEditorPage.switchToFrameToolBar();
     await Base.ExperienceEditorPage.saveChanges();
+    let actualEE = await Base.ExperienceEditorPage.getWelcometoSCFieldText();
     assert(
-      newEdit === (await Base.ExperienceEditorPage.getWelcometoSCFieldText()),
-      `EE field that was saved should equal ${newEdit}`
+      newEdit === actualEE,
+      `EE field that was saved should equal ${newEdit} but the actual is ${actualEE}`
     );
     await Base.ContentEditorPage.publishSite(process.env.APPNAME);
     visitLocalHost();
     await browser.refreshUntilDisplayed({ element: `h2=${newEdit}` });
     await browser.displayed({ element: `h2=${newEdit}`, options: { timeout: 20000 } });
     let actualTxtFromStartedApp = await $(`h2=${newEdit}`);
+    let actual = await actualTxtFromStartedApp.getText();
     assert(
-      newEdit === (await actualTxtFromStartedApp.getText()),
-      `EE field that was saved should equal ${newEdit} when starting app in localhost:3000`
+      newEdit === actual,
+      `EE field that was saved should equal ${newEdit} when starting app in localhost:3000 but the actual is ${actual}`
     );
   });
 
@@ -88,18 +90,20 @@ describe('Experience Editor Tests', function() {
     await Base.ContentEditorPage.openExperienceEditor(process.env.APPNAME);
     await Base.ExperienceEditorPage.richTextEditor(newEdit);
     await browser.displayed({ element: await $('[scfieldtype="rich text"]') });
+    let actualEE = await (await $('[scfieldtype="rich text"]')).getText();
     assert(
-      newEdit === (await (await $('[scfieldtype="rich text"]')).getText()),
-      `EE field that was saved should equal ${newEdit}`
+      newEdit === actualEE,
+      `EE field that was saved should equal "${newEdit}" but the actual is "${actualEE}"`
     );
     await Base.ContentEditorPage.publishSite(process.env.APPNAME);
     visitLocalHost();
     await browser.refreshUntilDisplayed({ element: `div=${newEdit}` });
     await browser.displayed({ element: `div=${newEdit}`, options: { timeout: 20000 } });
     let actualTxtFromStartedApp = await $(`div=${newEdit}`);
+    let actual = await actualTxtFromStartedApp.getText();
     assert(
-      newEdit === (await actualTxtFromStartedApp.getText()),
-      `RichTextEditor field that was saved should equal ${newEdit} when starting app in localhost:3000`
+      newEdit === actual,
+      `RichTextEditor field that was saved should equal ${newEdit} when starting app in localhost:3000 but the actual is ${actual}`
     );
   });
 
@@ -132,7 +136,7 @@ describe('Experience Editor Tests', function() {
     } catch (e) {}
     assert(
       '' === (await Base.ExperienceEditorPage.getEmptyPlaceholderTxt()),
-      'EE field that was saved should equal empty'
+      `EE field that was saved should equal empty but the actual is ${await Base.ExperienceEditorPage.getEmptyPlaceholderTxt()}`
     );
     await browser.closeWindow();
     const windowHandles = await browser.getWindowHandles();
