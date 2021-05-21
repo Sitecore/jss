@@ -33,12 +33,13 @@ const SitecorePage = ({
     // Do not trigger client tracking when pages are requested by Sitecore XP instance:
     // - no need to track in Edit and Preview modes
     // - in Explore mode all requests will be tracked by Sitecore XP out of the box
-    if (isPreview || !layoutData?.sitecore?.route || layoutData.sitecore.tracked) {
-      return;
-    }
+    if (isPreview) return;
+
+    if (layoutData.sitecore.tracked) return;
 
     trackingService
       .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .catch((error: any) => console.error('Tracking failed: ' + error.message));
   }, [isPreview, layoutData]);
 
@@ -71,16 +72,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   if (props.layoutData?.sitecore.tracked) {
-    const headerName = 'set-cookie';
-    const cookie = 'skip_404_tracking=1; path=/';
-
-    const cookies = context.res.getHeader(headerName) as string[];
-
-    if (cookies) {
-      cookies.push(cookie);
-    } else {
-      context.res.setHeader(headerName, [cookie]);
-    }
+    trackingService.signalSkipNextPage(context.res);
   }
 
   // Returns custom 404 page with a status code of 404 when notFound: true

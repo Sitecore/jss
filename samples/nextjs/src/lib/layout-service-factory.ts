@@ -3,7 +3,8 @@ import config from 'temp/config';
 
 export class LayoutServiceFactory {
   create(isSsr: boolean | undefined): LayoutService {
-    // to avoid build and lint errors/warnings
+    // This paremeter is used for REST service. We have to keep signatures the same.
+    // Dummy call to avoid build and lint errors/warnings for unused parameter
     if (isSsr) {
     }
 
