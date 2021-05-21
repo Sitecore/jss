@@ -1,7 +1,8 @@
+import debug from 'debug';
 import { AxiosAdapter } from 'axios';
+import { ServerResponse } from 'http';
 
 import {
-  HttpResponse,
   HttpDataFetcher,
   AxiosDataFetcher,
   LayoutServiceContext,
@@ -10,6 +11,8 @@ import {
 } from '@sitecore-jss/sitecore-jss';
 
 import { PageViewData } from './dataModels';
+
+const debugLog = debug('sitecore-jss:tracking');
 
 let testAdapter: AxiosAdapter | null = null;
 
@@ -21,23 +24,9 @@ export function setTestAdapter(adapter: AxiosAdapter | null): void {
   testAdapter = adapter;
 }
 
-class ResponseError extends Error {
-  response: HttpResponse<unknown>;
-
-  constructor(message: string, response: HttpResponse<unknown>) {
-    super(message);
-
-    Object.setPrototypeOf(this, ResponseError.prototype);
-    this.response = response;
-  }
-}
-
 export interface TrackingServiceConfig {
-  /** Hostname of tracking service; e.g. http://my.site.core */
-  host?: string;
-
-  /** Relative path from host to tracking service. Default: /sitecore/api/jss/track */
-  serviceUrl?: string;
+  /** Absolute or retative URL of tracking service */
+  endpoint?: string;
 
   /** The fetcher that performs the HTTP request and returns a promise to JSON */
   fetcher?: HttpDataFetcher<void>;
@@ -53,6 +42,8 @@ export interface TrackingServiceConfig {
 }
 
 export class TrackingService {
+  private cookieName = 'skip_page_tracking';
+
   private trackingApiOptions: TrackingServiceConfig;
   private fetcher: HttpDataFetcher<void>;
 
@@ -65,7 +56,11 @@ export class TrackingService {
     if (this.trackingApiOptions.fetcher) {
       this.fetcher = this.trackingApiOptions.fetcher;
     } else {
-      const config = testAdapter ? { adapter: testAdapter } : {};
+      const config = {
+        debugger: debugLog,
+        ...(testAdapter && { adapter: testAdapter }),
+      };
+
       const axiosFetcher = new AxiosDataFetcher(config);
       this.fetcher = (url: string, data?: unknown) => axiosFetcher.fetch<void>(url, data);
     }
@@ -77,17 +72,36 @@ export class TrackingService {
       .join('&');
   }
 
+  public signalSkipNextPage(res: ServerResponse): void {
+    debugLog('sending signal to skip next page: %0', res);
+
+    const headerName = 'set-cookie';
+    const cookie = `${this.cookieName}=1; path=/`;
+
+    const cookies = res.getHeader(headerName) as string[];
+
+    if (cookies) {
+      cookies.push(cookie);
+    } else {
+      res.setHeader(headerName, [cookie]);
+    }
+  }
+
   /**
    * Tracks current page request
    * @param {LayoutServiceContext} context Layout service context
    * @param {RouteData} route Layout service route data
    * @returns {Promise<void>} void
    */
-  public trackCurrentPage(context: LayoutServiceContext, route: RouteData): Promise<void> {
-    if (!testAdapter && isServer()) {
-      // do nothing for SSR, only track events when a browser requests it
+  public trackCurrentPage(
+    context?: LayoutServiceContext | null,
+    route?: RouteData | null
+  ): Promise<void> {
+    if (this.shouldSkipPageTracking()) {
       return Promise.resolve();
     }
+
+    debugLog('tracking current page: %O %O', context, route);
 
     const event = {
       url: window.location.pathname + window.location.search,
@@ -96,13 +110,19 @@ export class TrackingService {
       layoutDeviceId: route?.deviceId,
     };
 
-    return this.trackPage(event, this.getCurrentPageParams(context.site?.name));
+    return this.trackPage(event, this.getCurrentPageParams(context?.site?.name));
   }
 
   public trackPage(
     event: PageViewData,
     querystringParams?: { [key: string]: unknown }
   ): Promise<void> {
+    if (this.shouldSkipPageTracking()) {
+      return Promise.resolve();
+    }
+
+    debugLog('tracking page: %O %O', event, querystringParams);
+
     return this.fetchData(event, querystringParams);
   }
 
@@ -142,7 +162,7 @@ export class TrackingService {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     params: { [key: string]: any } = {}
   ): Promise<void> {
-    if (!testAdapter && isServer()) {
+    if (isServer()) {
       // do nothing for SSR, only track events when a browser requests it
       return Promise.resolve();
     }
@@ -153,24 +173,27 @@ export class TrackingService {
       ...params,
     };
 
-    let url = this.resolveTrackingUrl();
+    let qs = TrackingService.getQueryString(params);
+    qs = qs.length > 0 ? '?' + qs : '';
 
-    const qs = TrackingService.getQueryString(params);
-    if (qs) {
-      const separator = url.indexOf('?') !== -1 ? '&' : '?';
-      url = url + separator + qs;
-    }
+    const { endpoint = '/sitecore/api/track' } = this.trackingApiOptions;
 
-    return this.fetcher(url, data).then((response) => {
-      if (response.status < 200 || response.status >= 300) {
-        throw new ResponseError(response.statusText, response);
-      }
-    });
+    return this.fetcher(`${endpoint}/pageview${qs}`, data).then();
   }
 
-  private resolveTrackingUrl() {
-    const { host = '', serviceUrl = '/sitecore/api/track' } = this.trackingApiOptions;
+  private shouldSkipPageTracking() {
+    if (isServer()) {
+      // do nothing for SSR, only track events when a browser requests it
+      return true;
+    }
 
-    return `${host}${serviceUrl}/pageview`;
+    const cookie = window.document.cookie;
+
+    if (cookie.split(';').some((item) => item.trim().startsWith(`${this.cookieName}=`))) {
+      window.document.cookie = `${this.cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      return true;
+    }
+
+    return false;
   }
 }

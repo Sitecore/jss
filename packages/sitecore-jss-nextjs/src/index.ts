@@ -38,6 +38,7 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  isServer,
 } from '@sitecore-jss/sitecore-jss';
 
 export { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';

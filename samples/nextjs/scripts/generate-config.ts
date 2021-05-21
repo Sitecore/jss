@@ -80,6 +80,7 @@ function transformPackageConfig() {
 
   return {
     jssAppName: packageConfig.config.appName,
+    trackingEndpoint: packageConfig.config.trackingEndpointPath,
     graphQLEndpointPath: packageConfig.config.graphQLEndpointPath,
   };
 }

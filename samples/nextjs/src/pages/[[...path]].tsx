@@ -34,10 +34,11 @@ const SitecorePage = ({
     // Do not trigger client tracking when pages are requested by Sitecore XP instance:
     // - no need to track in Edit and Preview modes
     // - in Explore mode all requests will be tracked by Sitecore XP out of the box
-    if (isPreview || !layoutData?.sitecore?.route) return;
+    if (isPreview) return;
 
     trackingService
       .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .catch((error: any) => console.error('Tracking failed: ' + error.message));
   }, [isPreview, layoutData]);
 
