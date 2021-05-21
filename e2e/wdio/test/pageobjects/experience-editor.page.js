@@ -48,6 +48,7 @@ class ExperienceEditorPage extends Page {
 
   async addComponent() {
     await browser.click({ element: '[sc-placeholder-id="jss_main"]' });
+    await browser.pause(1000);
     await browser.click({ element: 'span=Add here' });
 
     await browser.pause(2000);
