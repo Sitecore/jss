@@ -25,7 +25,7 @@ describe('Experience Editor Tests', function() {
     browser.url('http://localhost:3000');
   }
 
-  it('Should display sample content', async function() {
+  xit('Should display sample content', async function() {
     let header;
     let body;
     await Base.ContentEditorPage.openExperienceEditor(process.env.APPNAME);
