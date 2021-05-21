@@ -85,7 +85,7 @@ export class ComponentPropsService {
    * @param {NextContext} context next context
    * @returns {Promise<ComponentPropsCollection>} component props
    */
-  private async fetchComponentProps<NextContext>(
+  protected async fetchComponentProps<NextContext>(
     fetchFunctionFactory: FetchFunctionFactory<NextContext>,
     layoutData: LayoutServiceData,
     context: NextContext
@@ -112,7 +112,7 @@ export class ComponentPropsService {
    * @param {ComponentPropsRequest<NextContext>[]} params.requests
    * @returns {ComponentPropsRequest<NextContext>[]} array of requests
    */
-  private collectRequests<NextContext>(params: {
+  protected collectRequests<NextContext>(params: {
     placeholders?: PlaceholdersData;
     fetchFunctionFactory: FetchFunctionFactory<NextContext>;
     layoutData: LayoutServiceData;
@@ -158,7 +158,7 @@ export class ComponentPropsService {
    * @param {ComponentPropsRequest<NextContext>[]} requests requests
    * @returns {Promise<ComponentPropsCollection>} requests result
    */
-  private async execRequests<NextContext>(
+  protected async execRequests<NextContext>(
     requests: ComponentPropsRequest<NextContext>[]
   ): Promise<ComponentPropsCollection> {
     const componentProps: ComponentPropsCollection = {};
@@ -211,7 +211,7 @@ export class ComponentPropsService {
    * @param {PlaceholdersData} placeholders placeholders
    * @returns {ComponentRendering[]} renderings
    */
-  private flatRenderings(placeholders: PlaceholdersData): ComponentRendering[] {
+  protected flatRenderings(placeholders: PlaceholdersData): ComponentRendering[] {
     const allComponentRenderings: ComponentRendering[] = [];
     const placeholdersArr = Object.values(placeholders);
 

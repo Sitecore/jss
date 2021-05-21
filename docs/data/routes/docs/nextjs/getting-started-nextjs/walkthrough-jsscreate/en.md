@@ -38,7 +38,7 @@ To create a JSS application, you must:
    npm install -g @sitecore-jss/sitecore-jss-cli
    ```
 
-   > To verify the successful installation of the JSS CLI and to see the list of commands availably globally, run `jss --help`.
+   > To verify the successful installation of the JSS CLI and to see the list of commands availability globally, run `jss --help`.
 
 3. Run:
 

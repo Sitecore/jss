@@ -1,18 +1,19 @@
-import { GraphQLRequestClient } from '../graphql-request-client';
+import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
-import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
-import { getAppRootId } from '../utils';
+import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
+import { CacheOptions } from '../cache-client';
+import { getAppRootId, SearchServiceConfig, SearchQueryService } from '../graphql';
 import debug from '../debug';
 
-const DEFAULTS = Object.freeze({
-  pageSize: 10,
-});
+/** @private */
+export const queryError =
+  'Valid value for rootItemId not provided and failed to auto-resolve app root item.';
 
 const query = /* GraphQL */ `
   query DictionarySearch(
     $rootItemId: String!
     $language: String!
-    $dictionaryEntryTemplateId: String!
+    $templates: String!
     $pageSize: Int = 10
     $after: String
   ) {
@@ -20,24 +21,23 @@ const query = /* GraphQL */ `
       where: {
         AND: [
           { name: "_path", value: $rootItemId, operator: CONTAINS }
-          { name: "_templates", value: $dictionaryEntryTemplateId }
           { name: "_language", value: $language }
+          { name: "_templates", value: $templates, operator: CONTAINS }
         ]
       }
       first: $pageSize
       after: $after
-      orderBy: { name: "Title", direction: ASC }
     ) {
       total
       pageInfo {
         endCursor
         hasNext
       }
-      dictionaryPhrases: results {
-        key: field(name: "key") {
+      results {
+        key: field(name: "Key") {
           value
         }
-        phrase: field(name: "phrase") {
+        phrase: field(name: "Phrase") {
           value
         }
       }
@@ -48,107 +48,57 @@ const query = /* GraphQL */ `
 /**
  * Configuration options for @see GraphQLDictionaryService instances
  */
-export interface GraphQLDictionaryServiceConfig extends CacheOptions {
+export interface GraphQLDictionaryServiceConfig extends SearchServiceConfig, CacheOptions {
   /**
    * The URL of the graphQL endpoint.
    */
   endpoint: string;
 
   /**
-   * The GUID of the Sitecore item to use as the root for the dictionary service search.
-   * @default The GUID of the root item of the specified Sitecore site.
-   */
-  rootItemId?: string;
-
-  /**
-   * How many dictionary items to fetch in each GraphQL call. This is needed for pagination.
-   * @default 10
-   */
-  pageSize?: number;
-
-  /**
-   * The name of the current Sitecore site.
-   */
-  siteName: string;
-
-  /**
    * The API key to use for authentication.
    */
   apiKey: string;
+
+  /**
+   * Optional. The template ID to use when searching for dictionary entries.
+   * @default '6d1cd89719364a3aa511289a94c2a7b1' (/sitecore/templates/System/Dictionary/Dictionary entry)
+   */
+  dictionaryEntryTemplateId?: string;
 }
 
 /**
- * A reply from the GraphQL endpoint for the 'DictionarySearch' query
+ * The schema of data returned in response to a dictionary query request.
  */
-type DictionaryQueryResult = {
-  search: {
-    pageInfo: {
-      endCursor: string;
-      hasNext: boolean;
-    };
-    dictionaryPhrases: {
-      key: {
-        value: string;
-      };
-      phrase: {
-        value: string;
-      };
-    }[];
-  };
+export type DictionaryQueryResult = {
+  key: { value: string };
+  phrase: { value: string };
 };
 
 /**
- * Fetch dictionary data using  Sitecore's GraphQL API.
- * Note: Uses graphql-request as the default library for fetching graphql data (@see GraphQLRequestClient).
+ * Service that fetch dictionary data using Sitecore's GraphQL API.
+ * @augments DictionaryServiceBase
+ * @mixes SearchQueryService<DictionaryQueryResult>
  */
 export class GraphQLDictionaryService extends DictionaryServiceBase {
+  private graphQLClient: GraphQLClient;
+  private searchService: SearchQueryService<DictionaryQueryResult>;
+
   /**
    * Creates an instance of graphQL dictionary service with the provided options
    * @param {GraphQLDictionaryService} options instance
    */
   constructor(public options: GraphQLDictionaryServiceConfig) {
     super(options);
-    this.options.pageSize = this.options.pageSize ?? DEFAULTS.pageSize;
+    this.graphQLClient = this.getGraphQLClient();
+    this.searchService = new SearchQueryService<DictionaryQueryResult>(this.graphQLClient);
   }
 
   /**
    * Fetches dictionary data for internalization.
    * @param {string} language the language to fetch
-   * @default Search query
-   * query DictionarySearch(
-   * $rootItemId: String!,
-   * $language: String!,
-   * $dictionaryEntryTemplateId: String!,
-   * $pageSize: Int = 10,
-   * $after: String
-   * ) {
-   * search(
-   * where: {
-   * AND:[
-   * { name: "_path",      value: $rootItemId },
-   * { name: "_templates", value: $dictionaryEntryTemplateId },
-   * { name: "_language",  value: $language }
-   * ]
-   * }
-   * first: $pageSize
-   * after: $after
-   * orderBy: { name: "Title", direction: ASC }
-   * ) {
-   * total
-   * pageInfo {
-   * endCursor
-   * hasNext
-   * }
-   * dictionaryPhrases: results {
-   * key: field(name: "key") {
-   * value
-   * },
-   * phrase: field(name: "phrase") {
-   * value
-   * }
-   * }
-   * }
-   * }
+   * @default query (@see query)
+   * @returns dictionary phrases
+   * @throws {Error} if the app root was not found for the specified site and language.
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
     const cacheKey = this.options.siteName + language;
@@ -158,53 +108,42 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       return cachedValue;
     }
 
-    const client = new GraphQLRequestClient(this.options.endpoint, {
-      apiKey: this.options.apiKey,
-      debugger: debug.dictionary,
-    });
-    if (!this.options.rootItemId) {
-      debug.dictionary('fetching site root for %s %s', language, this.options.siteName);
-      this.options.rootItemId = await getAppRootId(client, this.options.siteName, language);
+    // If the caller does not specify a root item ID, then we try to figure it out
+    const rootItemId =
+      this.options.rootItemId ||
+      (await getAppRootId(this.graphQLClient, this.options.siteName, language));
+
+    if (!rootItemId) {
+      throw new Error(queryError);
     }
 
     debug.dictionary('fetching dictionary data for %s %s', language, this.options.siteName);
-    const results = await this.getDictionaryPhrases(client, language);
-    this.setCacheValue(cacheKey, results);
-    return results;
+    const phrases: DictionaryPhrases = {};
+    await this.searchService
+      .fetch(query, {
+        rootItemId,
+        language,
+        templates: this.options.dictionaryEntryTemplateId || SitecoreTemplateId.DictionaryEntry,
+        pageSize: this.options.pageSize,
+      })
+      .then((results) => {
+        results.forEach((item) => (phrases[item.key.value] = item.phrase.value));
+      });
+
+    this.setCacheValue(cacheKey, phrases);
+    return phrases;
   }
 
   /**
-   * Gets dictionary phrases
-   * @param {GraphQLRequestClient} client that fetches data from a GraphQL endpoint.
-   * @param {string} language
-   * @returns dictionary phrases
+   * Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
+   * library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
+   * want to use something else.
+   * @returns {GraphQLClient} implementation
    */
-  async getDictionaryPhrases(
-    client: GraphQLRequestClient,
-    language: string
-  ): Promise<DictionaryPhrases> {
-    const results: DictionaryPhrases = {};
-    let hasNext = true;
-    let after = '';
-
-    while (hasNext) {
-      const fetchResponse = await client.request<DictionaryQueryResult>(query, {
-        // `search` query only works with lowercase GUIDs
-        rootItemId: this.options.rootItemId?.toLowerCase(),
-        language,
-        dictionaryEntryTemplateId: SitecoreTemplateId.DictionaryEntry,
-        pageSize: this.options.pageSize,
-        after,
-      });
-
-      fetchResponse.search.dictionaryPhrases.forEach((dictionaryPhrase) => {
-        results[dictionaryPhrase.key.value] = dictionaryPhrase.phrase.value;
-      });
-
-      hasNext = fetchResponse.search.pageInfo.hasNext;
-      after = fetchResponse.search.pageInfo.endCursor;
-    }
-
-    return results;
+  protected getGraphQLClient(): GraphQLClient {
+    return new GraphQLRequestClient(this.options.endpoint, {
+      apiKey: this.options.apiKey,
+      debugger: debug.dictionary,
+    });
   }
 }

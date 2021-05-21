@@ -3708,13 +3708,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -3753,13 +3753,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -3884,13 +3884,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -4129,13 +4129,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -4174,13 +4174,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -4317,13 +4317,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -4579,13 +4579,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -4624,13 +4624,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -4767,13 +4767,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -5029,13 +5029,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -5074,13 +5074,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -5205,13 +5205,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -5462,13 +5462,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -5507,13 +5507,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -5650,13 +5650,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -5912,13 +5912,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -5957,13 +5957,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -6100,13 +6100,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -6374,13 +6374,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -6419,13 +6419,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -6562,13 +6562,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -6819,13 +6819,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -6864,13 +6864,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -7007,13 +7007,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -7269,13 +7269,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -7314,13 +7314,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -7457,13 +7457,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -7719,13 +7719,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -7764,13 +7764,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -7895,13 +7895,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -8152,13 +8152,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -8197,13 +8197,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -8340,13 +8340,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -8626,13 +8626,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -8671,13 +8671,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -8814,13 +8814,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -9100,13 +9100,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -9145,13 +9145,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -9288,13 +9288,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -9562,13 +9562,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -9607,13 +9607,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -9774,13 +9774,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -10060,13 +10060,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -10105,13 +10105,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -10248,13 +10248,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -10534,13 +10534,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -10579,13 +10579,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -10722,13 +10722,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -11008,13 +11008,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -11053,13 +11053,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -11208,13 +11208,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -11470,13 +11470,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -11515,13 +11515,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -11682,13 +11682,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -11944,13 +11944,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -11989,13 +11989,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -12144,13 +12144,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -12406,13 +12406,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -12451,13 +12451,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -12594,13 +12594,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -12880,13 +12880,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -12949,13 +12949,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -13092,13 +13092,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -13354,13 +13354,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -13399,13 +13399,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -13542,13 +13542,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -13804,13 +13804,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -13849,13 +13849,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -13980,13 +13980,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -14237,13 +14237,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -14282,13 +14282,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -14437,13 +14437,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -14694,13 +14694,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -14739,13 +14739,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -14882,13 +14882,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -15144,13 +15144,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -15189,13 +15189,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -15320,13 +15320,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -15565,13 +15565,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -15610,13 +15610,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -15741,13 +15741,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -15986,13 +15986,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -16031,13 +16031,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -16174,13 +16174,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -16431,13 +16431,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -16500,13 +16500,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -16775,13 +16775,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -17198,13 +17198,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -17267,13 +17267,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -17566,13 +17566,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -18013,13 +18013,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -18070,13 +18070,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -18201,13 +18201,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -18487,13 +18487,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -18532,13 +18532,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -18663,13 +18663,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -18932,13 +18932,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -18977,13 +18977,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -19108,13 +19108,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -19377,13 +19377,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -19434,13 +19434,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -19577,13 +19577,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -19851,13 +19851,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -19896,13 +19896,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -20039,13 +20039,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -20296,13 +20296,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -20341,13 +20341,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -20472,13 +20472,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -20734,13 +20734,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -20779,13 +20779,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -20910,13 +20910,13 @@
             "args": [
               {
                 "name": "hasLayout",
-                "description": "If set only items with existing presentation are returned",
+                "description": "If set to true only items with existing presentation are returned",
                 "type": {
                   "kind": "SCALAR",
                   "name": "Boolean",
                   "ofType": null
                 },
-                "defaultValue": "false"
+                "defaultValue": "null"
               },
               {
                 "name": "includeTemplateIDs",
@@ -21804,9 +21804,13 @@
                 "name": "language",
                 "description": "The item language to request (defaults to the default language)",
                 "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
                 },
                 "defaultValue": "null"
               }

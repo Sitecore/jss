@@ -5,11 +5,11 @@
 # within the context of the IntegratedDemoQuery _operation_. This makes it
 # very efficient at gathering data from multiple sources.
 
-query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
+query IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language: String!) {
   # Datasource query
   # $datasource will always be set to the ID of the rendering's datasource item
   # (as long as the GraphQLData helper is used)
-  datasource: item(path: $datasource) {
+  datasource: item(path: $datasource, language: $language) {
     id
     name
     # Strongly-typed querying on known templates is possible!
@@ -40,7 +40,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
   # Context/route item query
   # $contextItem will always be set to the ID of the current context item (the route item)
   # (as long as the GraphQLData helper is used)
-  contextItem: item(path: $contextItem) {
+  contextItem: item(path: $contextItem, language: $language) {
     id
     # Get the page title from the app route template
     ...on AppRoute {

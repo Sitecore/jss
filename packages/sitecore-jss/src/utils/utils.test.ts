@@ -1,9 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { isExperienceEditorActive, isServer, resolveUrl, getAppRootId } from '.';
-import { GraphQLRequestClient } from '../graphql-request-client';
-import siteRootQueryResponse from '../testData/mockSiteRootQueryResponse.json';
-import nock from 'nock';
+import { isExperienceEditorActive, isServer, resolveUrl } from '.';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
@@ -91,58 +88,6 @@ describe('utils', () => {
       it(test, () => {
         const result = resolveUrl(url, params);
         expect(result).to.equal(expected);
-      });
-    });
-  });
-
-  describe('getAppRootId', () => {
-    const endpoint = 'http://site';
-    const apiKey = '0FBFF61E-267A-43E3-9252-B77E71CEE4BA';
-
-    afterEach(() => {
-      nock.cleanAll();
-    });
-
-    it('should fetch app root', async () => {
-      nock(endpoint, {
-        reqheaders: {
-          sc_apikey: apiKey,
-        },
-      })
-        .post('/', /GetSiteRoot/gi)
-        .reply(200, siteRootQueryResponse);
-
-      const client = new GraphQLRequestClient(endpoint, {
-        apiKey,
-      });
-
-      const result = await getAppRootId(client, 'siteName', 'language');
-      expect(result).to.equal('GUIDGUIDGUID');
-    });
-
-    it('should throw error if no app root found', async () => {
-      nock(endpoint, {
-        reqheaders: {
-          sc_apikey: apiKey,
-        },
-      })
-        .post('/', /GetSiteRoot/gi)
-        .reply(200, {
-          data: {
-            layout: {
-              homePage: {
-                rootItem: [],
-              },
-            },
-          },
-        });
-
-      const client = new GraphQLRequestClient(endpoint, {
-        apiKey,
-      });
-
-      await getAppRootId(client, 'siteName', 'language').catch((error) => {
-        expect(error.message).to.equal('Error fetching Sitecore site root item');
       });
     });
   });

@@ -111,6 +111,7 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
   const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
     datasource: rendering.dataSource,
     contextItem: layoutData?.sitecore?.route?.itemId,
+    language: layoutData?.sitecore?.context?.language,
   });
 
   return result;
@@ -134,6 +135,7 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
   const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
     datasource: rendering.dataSource,
     contextItem: layoutData?.sitecore?.route?.itemId,
+    language: layoutData?.sitecore?.context?.language,
   });
 
   return result;

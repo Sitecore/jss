@@ -1,6 +1,7 @@
 import { AxiosDataFetcher } from '../axios-fetcher';
 import { HttpDataFetcher, fetchData } from '../data-fetcher';
-import { DictionaryPhrases, DictionaryServiceBase, CacheOptions } from './dictionary-service';
+import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
+import { CacheOptions } from '../cache-client';
 import debug from '../debug';
 
 /**
@@ -72,7 +73,7 @@ export class RestDictionaryService extends DictionaryServiceBase {
    * Generate dictionary service url
    * @param {string} language
    */
-  private getUrl(language: string) {
+  protected getUrl(language: string) {
     return `${this.options.apiHost}/sitecore/api/jss/dictionary/${this.options.siteName}/${language}`;
   }
 }
