@@ -3,6 +3,8 @@
   "editor.tabSize": 2,
   "javascript.validate.enable": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+  "mochaExplorer.files": "src/**/*.ts",
+  "mochaExplorer.require": ["ts-node/register"],
   "editor.detectIndentation": false,
   "vsicons.presets.angular": false
 }
