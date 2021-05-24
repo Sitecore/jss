@@ -70,7 +70,7 @@ describe('Experience Editor Tests', function() {
     await Base.ExperienceEditorPage.saveChanges();
     let actualEE = await Base.ExperienceEditorPage.getWelcometoSCFieldText();
     assert(
-      newEdit === actualEE,
+      newEdit === actualEE.trim(),
       `EE field that was saved should equal ${newEdit} but the actual is ${actualEE}`
     );
     await Base.ContentEditorPage.publishSite(process.env.APPNAME);
@@ -80,7 +80,7 @@ describe('Experience Editor Tests', function() {
     let actualTxtFromStartedApp = await $(`h2=${newEdit}`);
     let actual = await actualTxtFromStartedApp.getText();
     assert(
-      newEdit === actual,
+      newEdit === actual.trim(),
       `EE field that was saved should equal ${newEdit} when starting app in localhost:3000 but the actual is ${actual}`
     );
   });
@@ -92,7 +92,7 @@ describe('Experience Editor Tests', function() {
     await browser.displayed({ element: await $('[scfieldtype="rich text"]') });
     let actualEE = await (await $('[scfieldtype="rich text"]')).getText();
     assert(
-      newEdit === actualEE,
+      newEdit === actualEE.trim(),
       `EE field that was saved should equal "${newEdit}" but the actual is "${actualEE}"`
     );
     await Base.ContentEditorPage.publishSite(process.env.APPNAME);
@@ -102,7 +102,7 @@ describe('Experience Editor Tests', function() {
     let actualTxtFromStartedApp = await $(`div=${newEdit}`);
     let actual = await actualTxtFromStartedApp.getText();
     assert(
-      newEdit === actual,
+      newEdit === actual.trim(),
       `RichTextEditor field that was saved should equal ${newEdit} when starting app in localhost:3000 but the actual is ${actual}`
     );
   });
@@ -150,6 +150,7 @@ describe('Experience Editor Tests', function() {
     await Base.ExperienceEditorPage.addComponent();
     await Base.ExperienceEditorPage.switchToFrameToolBar();
     await Base.ExperienceEditorPage.saveChanges();
+    await browser.displayed({ element: Base.ExperienceEditorPage.getSingleLineTextLocator() });
     assert(
       await Base.ExperienceEditorPage.getWelcometoSCFieldText(),
       'EE component added that was saved should equal be non empty'
