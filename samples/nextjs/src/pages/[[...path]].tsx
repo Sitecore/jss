@@ -31,35 +31,35 @@ const SitecorePage = ({
     return <NotFound />;
   }
 
-  useEffect(() => {
-    // Do not trigger client tracking when pages are requested by Sitecore XP instance:
-    // - no need to track in Edit and Preview modes
-    // - in Explore mode all requests will be tracked by Sitecore XP out of the box
-    if (isPreview) return;
-
-    trackingService
-      .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .catch((error: any) => console.error('Tracking failed: ' + error.message));
-  }, [isPreview, layoutData]);
-
   const context: StyleguideSitecoreContextValue = {
     route: layoutData.sitecore.route,
     itemId: layoutData.sitecore.route?.itemId,
     ...layoutData.sitecore.context,
   };
 
-  // Start loading personalization before render occures, perosnalization loading components rely in service state
-  // Do not load personalization twice for pages witgh query, see Caveats for dynamic routes in Next.js doc
+  // Start loading personalization before render occurs, personalization loading components rely in service state
+  // Do not load personalization twice for pages with query, see Caveats for dynamic routes in Next.js doc
   useMemo(() => {
-    if (process.browser) { // Load personalization client side only
-      return layoutPersonalizationService.loadPersonalization(context, context.route).then(p => {
-        if (!p.hasPersonalizationComponents) {
-          // TODO call trackign API track page view
+    const disconnectedMode =
+      layoutData.sitecore.route && layoutData.sitecore.route.layoutId === 'available-in-connected-mode';
+    if(!disconnectedMode) {
+      // Load personalization client side only
+      if (process.browser) {
+        // Do not trigger client tracking when pages are requested by Sitecore XP instance:
+        // - no need to track in Edit and Preview modes
+        // - in Explore mode all requests will be tracked by Sitecore XP out of the box
+        if(!isPreview) {
+          layoutPersonalizationService.loadPersonalization(context, context.route).then(p => {
+            if (!p.hasPersonalizationComponents) {
+              trackingService
+                .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
+                .catch((error) => console.error('Tracking failed: ' + error));
+            }
+          });
         }
-      });
+      }
     }
-  }, [layoutData]);
+  }, [isPreview, layoutData]);
 
   return (
     <ComponentPropsContext value={componentProps}>
