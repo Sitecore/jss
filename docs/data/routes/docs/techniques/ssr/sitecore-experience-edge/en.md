@@ -10,7 +10,7 @@ You can configure server-side rendering (SSR) for your JSS application using a S
 
 Sitecore provides a [sample for server-side rendering using a Sitecore Experience Edge endpoint](https://github.com/Sitecore/jss/tree/dev/samples/node-headless-ssr-experience-edge), Node.js, and Express. It renders your JSS application, querying layout and dictionary data, without proxying the requests.
 
-> The sample for SSR using a Sitecore Experience Edge endpoint is experimental and not officially supported by Sitecore.
+> The sample for SSR using a Sitecore Experience Edge endpoint is _experimental_ and not officially supported by Sitecore.
 
 ## Pre-requisites
 
