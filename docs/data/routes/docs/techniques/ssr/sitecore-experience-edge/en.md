@@ -26,7 +26,7 @@ To use this technique you need:
 
    - Supports the Experience Edge GraphQL schema. 
 
-   > You will need to update your application's GraphQL components and queries to be compatible with the Experience Edge schema. See the [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) component and [the associated GraphQL query](https://github.com/Sitecore/jss/blob/dev/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.graphql) in the Next.js sample application.
+   > JSS applications, except those based on Next.js, still use  the legacy/non-Edge GraphQL schema. You will need to update your application's GraphQL components and queries to be compatible with the Experience Edge schema. See the [GraphQL-ConnectedDemo](https://github.com/Sitecore/jss/blob/master/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.tsx) component and [the associated GraphQL query](https://github.com/Sitecore/jss/blob/dev/samples/nextjs/src/components/graphql/GraphQL-ConnectedDemo.graphql) in the Next.js sample application.
 
    - Provides the `SITECORE_API_KEY`. The `GraphQLRequestClient` uses the API key to set the `sc_apikey` header for authentication on both the Sitecore XM Edge schema and Sitecore Experience Edge.
 
