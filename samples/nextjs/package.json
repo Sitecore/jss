@@ -54,6 +54,9 @@
     "@sitecore-jss/sitecore-jss-cli": "^16.1.0-canary.44",
     "@sitecore-jss/sitecore-jss-dev-tools": "^16.1.0-canary.44",
     "@sitecore-jss/sitecore-jss-manifest": "^16.1.0-canary.44",
+    "@types/chai": "^4.2.3",
+    "@types/chai-spies": "^1.0.3",
+    "@types/mocha": "^5.2.7",
     "@types/node": "^14.6.4",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.0",
@@ -61,7 +64,8 @@
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
     "axios": "^0.21.1",
-    "http-proxy-middleware": "^1.2.0",
+    "chai": "^4.2.0",
+    "chai-spies": "^1.0.0",
     "chalk": "~2.4.2",
     "chokidar": "~3.1.1",
     "constant-case": "^3.0.4",
@@ -71,11 +75,15 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-yaml": "^0.2.0",
+    "graphql-import-node": "0.0.4",
     "graphql-let": "^0.16.2",
+    "http-proxy-middleware": "^1.2.0",
+    "mocha": "^8.1.3",
     "npm-run-all": "~4.1.5",
     "prettier": "^2.1.2",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.2.4",
     "yaml-loader": "^0.6.0"
   },
   "scripts": {
@@ -92,6 +100,7 @@
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
     "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
-    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch"
+    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch",
+    "test": "graphql-let && cross-env TS_NODE_PROJECT='./tsconfig.scripts.json' mocha --require ts-node/register --require tsconfig-paths/register --require graphql-import-node/register --require scripts/bootstrap.ts \"./src/**/*.test.ts\""
   }
 }

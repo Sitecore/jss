@@ -1,0 +1,8 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "mochaExplorer.files": "src/**/*.test.ts",
+  "mochaExplorer.require": ["ts-node/register", "tsconfig-paths/register", "graphql-import-node/register"],
+  "mochaExplorer.env": {
+    "TS_NODE_PROJECT": "./tsconfig.scripts.json"
+  }
+}
