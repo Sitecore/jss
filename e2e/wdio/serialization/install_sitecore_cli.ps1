@@ -4,12 +4,11 @@ dotnet tool install Sitecore.CLI
 
 Write-Host "Installing Sitecore CLI..." -ForegroundColor Green
 dotnet tool restore
-dotnet sitecore plugin add -n Sitecore.DevEx.Extensibility.Serialization
-dotnet sitecore plugin add -n Sitecore.DevEx.Extensibility.Publishing
+dotnet sitecore plugin add -n Sitecore.DevEx.Extensibility.Serialization --version 3.0.0
+dotnet sitecore plugin add -n Sitecore.DevEx.Extensibility.Publishing --version 3.0.0
 
 
 dotnet sitecore login --cm https://cm.jssdev.localhost/ --auth https://id.jssdev.localhost/ --allow-write true --client-id "SitecoreCLIServer" --client-secret "testsecret" --client-credentials true
 
 dotnet sitecore ser pull
-
-dotnet sitecore ser push
+#dotnet sitecore ser push

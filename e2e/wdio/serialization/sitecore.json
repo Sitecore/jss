@@ -1,7 +1,7 @@
 {
   "$schema": "./.sitecore/schemas/RootConfigurationFile.schema.json",
   "modules": [
-    "src/**/*.module.json"
+    "nextjs/*.module.json"
   ],
   "plugins": [
     "Sitecore.DevEx.Extensibility.Publishing@3.0.0",

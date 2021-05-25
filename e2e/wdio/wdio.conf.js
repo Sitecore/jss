@@ -1,5 +1,8 @@
 require('dotenv').config();
 const commands = require('./test/helpers/commands');
+const fs = require('fs');
+const path = require('path');
+const fsExtra = require('fs-extra');
 
 exports.config = {
   //
@@ -70,9 +73,9 @@ exports.config = {
       // it is possible to configure which logTypes to include/exclude.
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
       // excludeDriverLogs: ['bugreport', 'server'],
-      'goog:chromeOptions': {
-        args: ['--headless'],
-      },
+      // 'goog:chromeOptions': {
+      //   args: ['--headless'],
+      // },
     },
   ],
   //
@@ -177,8 +180,16 @@ exports.config = {
    * @param {Object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    */
-  // onPrepare: function (config, capabilities) {
-  // },
+  onPrepare: async function(config, capabilities) {
+    const screenshotsDir = path.join(__dirname, 'results/screenshots/');
+    const resultsDir = path.join(__dirname, 'results');
+    fsExtra.emptyDirSync(resultsDir);
+    if (!fs.existsSync(screenshotsDir)) {
+      fs.mkdirSync(screenshotsDir);
+    } else {
+      fsExtra.emptyDirSync(screenshotsDir);
+    }
+  },
   /**
    * Gets executed before a worker process is spawned and can be used to initialise specific service
    * for that worker as well as modify runtime environments in an async fashion.
@@ -245,9 +256,25 @@ exports.config = {
   // },
   /**
    * Function to be executed after a test (in Mocha/Jasmine).
+   * @param test
+   * @param context
+   * @param root0
+   * @param root0.error
+   * @param root0.result
+   * @param root0.duration
+   * @param root0.passed
+   * @param root0.retries
    */
-  // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-  // },
+  afterTest: function(test, context, { error, result, duration, passed, retries }) {
+    const resultsDir = `./results/screenshots/${test.fullName.split('*')[0]}`;
+    if (error) {
+      if (!fs.existsSync(resultsDir)) {
+        fs.mkdirSync(resultsDir);
+      }
+      const attachmentPath = `${resultsDir}/${test.description}.png`;
+      browser.saveScreenshot(attachmentPath);
+    }
+  },
 
   /**
    * Hook that gets executed after the suite has ended

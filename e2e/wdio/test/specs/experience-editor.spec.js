@@ -4,7 +4,7 @@ require('dotenv').config();
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
 
-describe('Experience Editor Tests', function() {
+describe('Experience Editor Tests*', function() {
   beforeAll(async function() {
     await Base.LoginPage.login();
     ogHandle = browser.getWindowHandle();
