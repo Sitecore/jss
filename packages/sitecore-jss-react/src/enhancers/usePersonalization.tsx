@@ -16,7 +16,7 @@ export interface UsePersonalizationResult {
 
 /**
  * This hook encapsulates awaiting for personalized component and its creation.
- * @param {UsePersonalizationOptions} hook options
+ * @param {UsePersonalizationOptions} options
  */
 export function usePersonalization(options: UsePersonalizationOptions): UsePersonalizationResult {
   // forceUpdate emulating, we need to re-render the component after personalization loading
