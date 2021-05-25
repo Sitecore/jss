@@ -47,6 +47,7 @@ Before you can install the template and create a solution, you must make sure th
 * [.NET Framework 4.8 SDK ](https://dotnet.microsoft.com/download/dotnet-framework/net48) (see the [Microsoft procedure for checking .NET Framework versions](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)).
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/install/), with Windows Containers enabled.
+* If you have not already done so, set the `ExecutionPolicy` to allow these scripts to run using the command `Set-ExecutionPolicy Unrestricted`
 
 See the [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html) documentation for more information on system requirements.
 
