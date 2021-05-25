@@ -45,7 +45,7 @@ const isServerSidePropsContext = function (
 export class SitecorePagePropsFactory {
   private componentPropsService: ComponentPropsService;
   private dictionaryService: DictionaryService;
-  private layoutPersonalizationUtils: LayoutPersonalizationUtils
+  private layoutPersonalizationUtils: LayoutPersonalizationUtils;
 
   constructor() {
     this.componentPropsService = new ComponentPropsService();

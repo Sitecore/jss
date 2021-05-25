@@ -58,7 +58,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
   // Update Sitecore Context if layoutData has changed (i.e. on client-side route change).
   // Note the context object type here matches the initial value in [[...path]].tsx.
   useEffect(() => {
-   updateSitecoreContext && updateSitecoreContext(context);
+    updateSitecoreContext && updateSitecoreContext(context);
   }, [context]);
 
   const { route } = context;

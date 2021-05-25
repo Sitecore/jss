@@ -50,7 +50,7 @@ export {
   PersonalizationDecisionsService,
   RestPersonalizationDecisionsServiceConfig,
   RestPersonalizationDecisionsService,
-  LayoutPersonalizationUtils
+  LayoutPersonalizationUtils,
 } from '@sitecore-jss/sitecore-jss';
 
 export { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';

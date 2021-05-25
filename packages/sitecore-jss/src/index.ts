@@ -47,21 +47,21 @@ export { LayoutPersonalizationUtils } from './personalization/layout-personaliza
 export {
   LayoutPersonalizationService,
   PersonalizationResult,
-  PersonalizationLoadResult
+  PersonalizationLoadResult,
 } from './personalization/layout-personalization-service';
 
 export {
   LayoutFragmentData,
   LayoutFragmentService,
   GraphQLLayoutFragmentService,
-  GraphQLLayoutFragmentServiceConfig
+  GraphQLLayoutFragmentServiceConfig,
 } from './personalization/layout-fragment-service';
 export {
   PersonalizationDecisionData,
   RenderingPersonalizationDecision,
   PersonalizationDecisionsService,
   RestPersonalizationDecisionsServiceConfig,
-  RestPersonalizationDecisionsService
+  RestPersonalizationDecisionsService,
 } from './personalization/personalization-decisions-service';
 
 // TODO: these are deprecated and we should stop exporting them

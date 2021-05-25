@@ -2,7 +2,7 @@ import { GraphQLClient as Client, ClientError } from 'graphql-request';
 import { RequestInit } from 'graphql-request/dist/types.dom';
 import { DocumentNode } from 'graphql';
 import debuggers, { Debugger } from './debug';
-import AbortController from "abort-controller";
+import AbortController from 'abort-controller';
 
 /**
  * An interface for GraphQL clients for Sitecore APIs
@@ -66,7 +66,7 @@ export class GraphQLRequestClient implements GraphQLClient {
     variables?: { [key: string]: unknown }
   ): Promise<T> {
     const options: RequestInit = {
-      headers: this.headers
+      headers: this.headers,
     };
 
     if (this.timeout) {

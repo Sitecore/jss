@@ -63,7 +63,9 @@ export interface RouteData {
  * Note: HtmlElementRendering is used by Sitecore Experience Editor
  */
 export type PlaceholdersData<TYPEDNAME extends string = string> = {
-  [P in TYPEDNAME]: Array<PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering>;
+  [P in TYPEDNAME]: Array<
+    PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering
+  >;
 };
 
 /**
@@ -93,27 +95,48 @@ export interface ComponentRendering {
   personalization?: PersonalizationData;
 }
 
-export function hasPersonalization(object: any): object is ComponentRendering {
-  return 'personalization' in object;
+/**
+ * @param {PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering} component
+ */
+export function hasPersonalization(
+  component: PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering
+): component is ComponentRendering {
+  return 'personalization' in component;
 }
 
-export function isComponentRendering(object: any): object is ComponentRendering {
-  return 'componentName' in object;
+/**
+ * @param {PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering} component
+ */
+export function isComponentRendering(
+  component: PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering
+): component is ComponentRendering {
+  return 'componentName' in component;
 }
 
-export function isPersonalizedComponentRendering(object: any): object is PersonalizedComponentRendering {
-  return 'personalization' in object;
+/**
+ * @param {PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering} component
+ */
+export function isPersonalizedComponentRendering(
+  component: PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering
+): component is PersonalizedComponentRendering {
+  return 'personalization' in component;
 }
 
+/**
+ * Definition of a personalized component instance
+ */
 export interface PersonalizedComponentRendering {
   componentName: string;
   uid: string;
   personalization: PersonalizationData;
 }
 
+/**
+ * Content used for personalization
+ */
 export interface PersonalizationData {
   hiddenByDefault: boolean;
-  defaultComponent: ComponentRendering | null
+  defaultComponent: ComponentRendering | null;
 }
 
 /**

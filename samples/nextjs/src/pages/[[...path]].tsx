@@ -41,15 +41,16 @@ const SitecorePage = ({
   // Do not load personalization twice for pages with query, see Caveats for dynamic routes in Next.js doc
   useMemo(() => {
     const disconnectedMode =
-      layoutData.sitecore.route && layoutData.sitecore.route.layoutId === 'available-in-connected-mode';
-    if(!disconnectedMode) {
+      layoutData.sitecore.route &&
+      layoutData.sitecore.route.layoutId === 'available-in-connected-mode';
+    if (!disconnectedMode) {
       // Load personalization client side only
       if (process.browser) {
         // Do not trigger client tracking when pages are requested by Sitecore XP instance:
         // - no need to track in Edit and Preview modes
         // - in Explore mode all requests will be tracked by Sitecore XP out of the box
-        if(!isPreview) {
-          layoutPersonalizationService.loadPersonalization(context, context.route).then(p => {
+        if (!isPreview) {
+          layoutPersonalizationService.loadPersonalization(context, context.route).then((p) => {
             if (!p.hasPersonalizationComponents) {
               trackingService
                 .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)

@@ -3,52 +3,72 @@ import { useEffect, createElement, useReducer } from 'react';
 import { MissingComponent } from '../components/MissingComponent';
 import { useComponentFactory } from './withComponentFactory';
 
-export function usePersonalization(props: { uid: string, layoutPersonalizationService: LayoutPersonalizationService, missingComponentComponent?: React.ComponentClass<unknown> | React.FC<unknown> }) {
+export interface UsePersonalizationOptions {
+  uid: string;
+  layoutPersonalizationService: LayoutPersonalizationService;
+  missingComponentComponent?: React.ComponentClass<unknown> | React.FC<unknown>;
+}
+
+export interface UsePersonalizationResult {
+  isLoading: boolean;
+  personalizedComponent: React.ReactElement | null;
+}
+
+/**
+ * This hook encapsulates awaiting for personalized component and its creation.
+ * @param {UsePersonalizationOptions} hook options
+ */
+export function usePersonalization(options: UsePersonalizationOptions): UsePersonalizationResult {
   // forceUpdate emulating, we need to re-render the component after personalization loading
-  const [, forceUpdate] = useReducer(x => x + 1, 0);
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
   const componentFactory = useComponentFactory();
 
-  const personalizedComponentLayout = props.layoutPersonalizationService.getPersonalizedComponent(props.uid);
-  const isLoading = props.layoutPersonalizationService.isLoading();
+  const personalizedComponentLayout = options.layoutPersonalizationService.getPersonalizedComponent(
+    options.uid
+  );
+  const isLoading = options.layoutPersonalizationService.isLoading();
 
   useEffect(() => {
     if (!isLoading) {
       return;
     }
-    var isUnMounted = false;
-    props.layoutPersonalizationService.loadPersonalizedComponent(props.uid).then(() => {
+    let isUnMounted = false;
+    options.layoutPersonalizationService.loadPersonalizedComponent(options.uid).then(() => {
       // emulate forceUpdate, do not set state if component already unmounted
       if (!isUnMounted) {
         forceUpdate();
       }
     });
-    return () => { isUnMounted = true; };
+    return () => {
+      isUnMounted = true;
+    };
   });
 
-  var personalizedComponent: React.ReactElement | null = null;
+  let personalizedComponent: React.ReactElement | null = null;
   if (personalizedComponentLayout) {
     if (componentFactory) {
       let component = componentFactory(personalizedComponentLayout.componentName);
       if (!component) {
-        component = props.missingComponentComponent ?? MissingComponent;
+        component = options.missingComponentComponent ?? MissingComponent;
         console.error(
           `Unknown component ${personalizedComponentLayout.componentName}. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
         );
       }
       personalizedComponent = createElement<{ [attr: string]: unknown }>(
-        component as React.ComponentType, {
+        component as React.ComponentType,
+        {
           fields: personalizedComponentLayout.fields,
           params: personalizedComponentLayout.params,
-          rendering: personalizedComponentLayout
+          rendering: personalizedComponentLayout,
         }
-      )
+      );
     } else {
-      console.error(`Unable to resolve componentFactory.`);
+      console.error('Unable to resolve componentFactory.');
     }
   }
 
   return {
     personalizedComponent: personalizedComponent,
-    isLoading: isLoading
+    isLoading: isLoading,
   };
 }

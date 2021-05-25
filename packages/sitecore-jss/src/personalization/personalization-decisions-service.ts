@@ -101,6 +101,10 @@ class ResponseError extends Error {
   }
 }
 
+/**
+ * @param {HttpResponse<T>} response
+ * @throws {ResponseError} if response code is not ok
+ */
 function checkStatus<T>(response: HttpResponse<T>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -110,13 +114,18 @@ function checkStatus<T>(response: HttpResponse<T>) {
   throw error;
 }
 
+/**
+ * @param {string} url
+ * @param {HttpDataFetcher} fetcher
+ * @param {Object} params
+ * @param {Object} data to POST with the request
+ */
 function fetchData<T>(
   url: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any,
   fetcher: HttpDataFetcher<T>,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  params: { [key: string]: any } = {}
+  params: { [key: string]: unknown } = {},
+  data?: { [key: string]: unknown }
 ) {
   const qs = getQueryString(params);
   const fetchUrl = url.indexOf('?') !== -1 ? `${url}&${qs}` : `${url}?${qs}`;
@@ -146,20 +155,26 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
     language: string,
     renderingIds: string[]
   ): Promise<PersonalizationDecisionData> {
-
     const fetcher = this.serviceConfig.dataFetcherResolver
-      ? this.serviceConfig.dataFetcherResolver<PersonalizationDecisionData>({ timeout: this.serviceConfig.timeout })
+      ? this.serviceConfig.dataFetcherResolver<PersonalizationDecisionData>({
+          timeout: this.serviceConfig.timeout,
+        })
       : this.getDefaultFetcher<PersonalizationDecisionData>();
-    return fetchData<PersonalizationDecisionData>(this.serviceConfig.serviceUrl ?? `${this.serviceConfig.host}${this.serviceConfig.route}`, {
-      routePath: routePath,
-      language: language,
-      renderingIds: renderingIds
-    }, fetcher, {
-      ...this.getCurrentPageParamsToTrack(),
-      sc_apikey: this.serviceConfig.apiKey,
-      sc_site: this.serviceConfig.siteName,
-      tracking: this.serviceConfig.tracking ?? true,
-    });
+    return fetchData<PersonalizationDecisionData>(
+      this.serviceConfig.serviceUrl ?? `${this.serviceConfig.host}${this.serviceConfig.route}`,
+      fetcher,
+      {
+        ...this.getCurrentPageParamsToTrack(),
+        sc_apikey: this.serviceConfig.apiKey,
+        sc_site: this.serviceConfig.siteName,
+        tracking: this.serviceConfig.tracking ?? true,
+      },
+      {
+        routePath: routePath,
+        language: language,
+        renderingIds: renderingIds,
+      }
+    );
   }
 
   private getDefaultFetcher = <T>() => {
@@ -175,14 +190,19 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
   private getCurrentPageParamsToTrack = () => {
     const queryStringParams: { [key: string]: string } = {};
 
-    window.location.search.substring(1).split('&').forEach((param) => {
-      this.serviceConfig.currentPageParamsToTrack?.forEach((name) => {
-        if (param.toLowerCase().startsWith(name.toLowerCase().concat('='))) {
-          queryStringParams[name] = decodeURIComponent(param.toLowerCase().substring(name.length + 1));
-        }
+    window.location.search
+      .substring(1)
+      .split('&')
+      .forEach((param) => {
+        this.serviceConfig.currentPageParamsToTrack?.forEach((name) => {
+          if (param.toLowerCase().startsWith(name.toLowerCase().concat('='))) {
+            queryStringParams[name] = decodeURIComponent(
+              param.toLowerCase().substring(name.length + 1)
+            );
+          }
+        });
       });
-    });
 
     return queryStringParams;
-  }
+  };
 }
