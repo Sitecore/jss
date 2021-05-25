@@ -48,7 +48,7 @@ To use the SSR rendering with Sitecore Experience Edge:
 
 5. In `jss-edge/config.js`, set the values for:
 
-   - `appName` to the value set for you JSS application in `package.json`.
+   - `appName` to the value set for your JSS application in `config.appName` in the `package.json` file.
    - `bundlePath` to the path where you copied the built JSS app's `server.bundle.js`. For example: `'./dist/<JSS app name>/server.bundle'`. 
    - `endpoint` to your Experience Edge endpoint.
    - `apiKey` to  the API key provisioned on Sitecore Experience Edge.
