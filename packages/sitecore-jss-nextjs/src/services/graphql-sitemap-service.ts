@@ -15,7 +15,7 @@ export const queryError =
 export const languageError = 'The list of languages cannot be empty';
 
 // Even though _hasLayout should always be "true" in this query, using a variable is necessary for compatibility with Edge
-const query = /* GraphQL */ `
+const defaultQuery = /* GraphQL */ `
   query SitemapQuery(
     $rootItemId: String!
     $language: String!
@@ -88,6 +88,13 @@ export class GraphQLSitemapService {
   private searchService: SearchQueryService<PageListQueryResult>;
 
   /**
+   * Gets the default query used for fetching the list of site pages
+   */
+  protected get query(): string {
+    return defaultQuery;
+  }
+
+  /**
    * Creates an instance of graphQL sitemap service with the provided options
    * @param {GraphQLSitemapServiceConfig} options instance
    */
@@ -138,7 +145,7 @@ export class GraphQLSitemapService {
    * @throws {RangeError} if the list of languages is empty.
    * @throws {Error} if the app root was not found for the specified site and language.
    */
-  async fetchSitemap(
+  protected async fetchSitemap(
     languages: string[],
     formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
@@ -160,7 +167,7 @@ export class GraphQLSitemapService {
       languages.map((language) => {
         debug.sitemap('fetching sitemap data for %s', language);
         return this.searchService
-          .fetch(query, {
+          .fetch(this.query, {
             rootItemId,
             language,
             pageSize: this.options.pageSize,
@@ -188,5 +195,13 @@ export class GraphQLSitemapService {
       apiKey: this.options.apiKey,
       debugger: debug.sitemap,
     });
+  }
+
+  /**
+   * Gets a service that can perform GraphQL "search" queries to fetch @see PageListQueryResult
+   * @returns {SearchQueryService<PageListQueryResult>} the search query service
+   */
+  protected getSearchService(): SearchQueryService<PageListQueryResult> {
+    return new SearchQueryService<PageListQueryResult>(this.graphQLClient);
   }
 }
