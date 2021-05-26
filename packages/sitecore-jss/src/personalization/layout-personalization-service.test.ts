@@ -1,5 +1,8 @@
+/* eslint-disable no-unused-expressions */
+
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
+import chaiAsPromised from 'chai-as-promised';
 import { PersonalizationDecisionsService } from './personalization-decisions-service';
 import { createStubInstance, stub, SinonStubbedInstance, SinonStub } from 'sinon';
 import { LayoutFragmentService } from './layout-fragment-service';
@@ -8,6 +11,7 @@ import { LayoutPersonalizationUtils } from './layout-personalization-utils';
 import { ComponentRendering } from '../layout/models';
 
 use(spies);
+use(chaiAsPromised);
 
 describe('LayoutPersonalizationService', () => {
   let layoutPersonalizationService: LayoutPersonalizationService;
@@ -48,6 +52,152 @@ describe('LayoutPersonalizationService', () => {
 
   afterEach(() => {
     spy.restore(console);
+  });
+
+  describe('loadPersonalization', () => {
+    it('should clear state before loading', async () => {
+      const routeData = { name: 'testroute', placeholders: { 'jss-main': [] } };
+      layoutPersonalizationUtils.getPersonalizedComponents
+        .withArgs(routeData.placeholders)
+        .returns([]);
+      layoutPersonalizationService.personalizationResult = Promise.resolve({});
+      layoutPersonalizationService.personalizedComponents = {};
+
+      await layoutPersonalizationService.loadPersonalization(context, routeData);
+
+      expect(layoutPersonalizationService.personalizationResult).to.be.null;
+      expect(layoutPersonalizationService.personalizedComponents).to.be.null;
+    });
+
+    it('should return hasPersonalizationComponents false if no personalized components', async () => {
+      const routeData = { name: 'testroute', placeholders: { 'jss-main': [] } };
+      layoutPersonalizationUtils.getPersonalizedComponents
+        .withArgs(routeData.placeholders)
+        .returns([]);
+
+      const result = await layoutPersonalizationService.loadPersonalization(context, routeData);
+
+      expect(result.hasPersonalizationComponents).to.be.false;
+    });
+
+    it('should return error if personalize fails', () => {
+      const routeData = { name: 'testroute', placeholders: { 'jss-main': [] } };
+      const personalizedRendering = [
+        {
+          componentName: 'cn1',
+          uid: 'uid1',
+          personalization: { hiddenByDefault: false, defaultComponent: null },
+        },
+      ];
+      layoutPersonalizationUtils.getPersonalizedComponents
+        .withArgs(routeData.placeholders)
+        .returns(personalizedRendering);
+      const personalizeStub = stub();
+      personalizeStub
+        .withArgs(context, personalizedRendering)
+        .returns(Promise.reject('test error'));
+      layoutPersonalizationService.personalize = personalizeStub;
+
+      expect(
+        layoutPersonalizationService.loadPersonalization(context, routeData)
+      ).to.be.rejectedWith('test error');
+    });
+
+    it('should set state and return result', async () => {
+      const routeData = { name: 'testroute', placeholders: { 'jss-main': [] } };
+      const personalizedRendering = [
+        {
+          componentName: 'cn1',
+          uid: 'uid1',
+          personalization: { hiddenByDefault: false, defaultComponent: null },
+        },
+      ];
+      layoutPersonalizationUtils.getPersonalizedComponents
+        .withArgs(routeData.placeholders)
+        .returns(personalizedRendering);
+      const personalizeStub = stub();
+      const personalizeComponents = { uid1: { componentName: 'cm1' } };
+      const personalizeResult = Promise.resolve(personalizeComponents);
+      personalizeStub.withArgs(context, personalizedRendering).returns(personalizeResult);
+      layoutPersonalizationService.personalize = personalizeStub;
+
+      const result = await layoutPersonalizationService.loadPersonalization(context, routeData);
+
+      expect(result.personalizedFragments).to.be.deep.equal(personalizeComponents);
+      expect(result.hasPersonalizationComponents).to.be.true;
+      expect(layoutPersonalizationService.personalizedComponents).to.be.deep.equal(
+        personalizeComponents
+      );
+    });
+  });
+
+  describe('loadPersonalizedComponent', () => {
+    it('should return error if personalizationResult is not defined', () => {
+      expect(layoutPersonalizationService.loadPersonalizedComponent('test')).to.be.rejectedWith(
+        'loadPersonalization should be called before getting personalized component'
+      );
+    });
+
+    it('should return error if personalizationResult is rejected', () => {
+      layoutPersonalizationService.personalizationResult = Promise.reject('testError');
+      expect(layoutPersonalizationService.loadPersonalizedComponent('test')).to.be.rejectedWith(
+        'testError'
+      );
+    });
+
+    it('should return component from personalizationResult', async () => {
+      layoutPersonalizationService.personalizationResult = Promise.resolve({
+        test1: { componentName: 'cn1' },
+      });
+
+      const result = await layoutPersonalizationService.loadPersonalizedComponent('test1');
+
+      expect(result).to.be.deep.equal({ componentName: 'cn1' });
+    });
+
+    it('should return null if component not found in personalizationResult', async () => {
+      layoutPersonalizationService.personalizationResult = Promise.resolve({
+        test1: { componentName: 'cn1' },
+      });
+
+      const result = await layoutPersonalizationService.loadPersonalizedComponent('test2');
+
+      expect(result).to.be.null;
+    });
+  });
+
+  describe('isLoading', () => {
+    it('should return false if personalizedComponents is not defined', () => {
+      const result = layoutPersonalizationService.isLoading();
+
+      expect(result).is.true;
+    });
+
+    it('should return true if personalizedComponents is defined', () => {
+      layoutPersonalizationService.personalizedComponents = {
+        test2: { componentName: 'cn2' },
+      };
+      const result = layoutPersonalizationService.isLoading();
+
+      expect(result).is.false;
+    });
+  });
+
+  describe('getPersonalizedComponent', () => {
+    it('should return null if personalizedComponents is not defined', () => {
+      const result = layoutPersonalizationService.getPersonalizedComponent('test');
+
+      expect(result).is.null;
+    });
+
+    it('should return null if component for specified uid not defined', () => {
+      layoutPersonalizationService.personalizedComponents = {
+        test2: { componentName: 'cn2' },
+      };
+      const result = layoutPersonalizationService.getPersonalizedComponent('test');
+
+      expect(result).is.null;
+    });
   });
 
   describe('personalize', () => {

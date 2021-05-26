@@ -58,7 +58,7 @@ export class LayoutPersonalizationService {
   }
 
   getPersonalizedComponent(componentUid: string): ComponentRendering | null {
-    return this.personalizedComponents && this.personalizedComponents[componentUid];
+    return this.personalizedComponents && (this.personalizedComponents[componentUid] ?? null);
   }
 
   isLoading() {
@@ -74,7 +74,7 @@ export class LayoutPersonalizationService {
       return new Promise<ComponentRendering | null>((resolve, reject) => {
         this.personalizationResult
           ?.then((pr) => {
-            resolve(pr[componentUid]);
+            resolve(pr[componentUid] ?? null);
           })
           .catch((error) => {
             reject(error);
