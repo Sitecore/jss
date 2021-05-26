@@ -26,6 +26,7 @@
     "eslint-plugin-wdio": "^7.4.2",
     "expect-webdriverio": "^2.0.1",
     "wdio-chromedriver-service": "^7.0.0",
+    "wdio-rerun-service": "^1.6.1",
     "wdio-teamcity-reporter": "^2.3.0"
   }
 }

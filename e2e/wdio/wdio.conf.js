@@ -3,6 +3,7 @@ const commands = require('./test/helpers/commands');
 const fs = require('fs');
 const path = require('path');
 const fsExtra = require('fs-extra');
+const RerunService = require('wdio-rerun-service');
 
 exports.config = {
   //
@@ -125,7 +126,15 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ['chromedriver'],
+  services: [
+    'chromedriver',
+    [
+      RerunService,
+      {
+        // Re-run service options here...
+      },
+    ],
+  ],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -136,7 +145,7 @@ exports.config = {
   framework: 'jasmine',
   //
   // The number of times to retry the entire specfile when it fails as a whole
-  // specFileRetries: 1,
+  specFileRetries: 1,
   //
   // Delay in seconds between the spec file retry attempts
   // specFileRetriesDelay: 0,
