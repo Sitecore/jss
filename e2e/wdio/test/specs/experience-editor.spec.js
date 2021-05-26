@@ -67,6 +67,7 @@ describe('Experience Editor Tests*', function() {
 
   it('Should be able to inline edit', async function() {
     const newEdit = `Hello Welcome to JSS ${Base.Base.randomStr()}`;
+    console.log('New value of edit - ' + newEdit);
     await Base.ContentEditorPage.openExperienceEditor(process.env.APPNAME);
     await Base.ExperienceEditorPage.welcomeToSCField();
     await browser.clearField();
@@ -92,6 +93,7 @@ describe('Experience Editor Tests*', function() {
 
   it('Should be able to edit via rich text editor', async function() {
     const newEdit = `Hello Welcome to JSS ${Base.Base.randomStr()}`;
+    console.log('New value of edit - ' + newEdit);
     await Base.ContentEditorPage.openExperienceEditor(process.env.APPNAME);
     await Base.ExperienceEditorPage.richTextEditor(newEdit);
     await browser.displayed({ element: await $('[scfieldtype="rich text"]') });
