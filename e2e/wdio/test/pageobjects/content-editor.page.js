@@ -19,7 +19,7 @@ class ContentEditorPage extends Page {
     const windowHandles = await browser.getWindowHandles();
     const popupWindow = windowHandles.filter((handle) => handle !== ogWindowHandle)[0];
     await browser.switchToWindow(popupWindow);
-    browser.pause(1000);
+    browser.pause(3000);
     return ogWindowHandle;
   }
 
