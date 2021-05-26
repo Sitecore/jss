@@ -67,7 +67,7 @@ describe('Experience Editor Tests*', function() {
 
   it('Should be able to inline edit', async function() {
     const newEdit = `Hello Welcome to JSS ${Base.Base.randomStr()}`;
-    console.log('New value of edit - ' + newEdit);
+    console.log(`New value of edit - "${newEdit}"`);
     await Base.ContentEditorPage.openExperienceEditor(process.env.APPNAME);
     await Base.ExperienceEditorPage.welcomeToSCField();
     await browser.clearField();
@@ -93,7 +93,7 @@ describe('Experience Editor Tests*', function() {
 
   it('Should be able to edit via rich text editor', async function() {
     const newEdit = `Hello Welcome to JSS ${Base.Base.randomStr()}`;
-    console.log('New value of edit - ' + newEdit);
+    console.log(`New value of edit - "${newEdit}"`);
     await Base.ContentEditorPage.openExperienceEditor(process.env.APPNAME);
     await Base.ExperienceEditorPage.richTextEditor(newEdit);
     await browser.displayed({ element: await $('[scfieldtype="rich text"]') });
@@ -104,9 +104,14 @@ describe('Experience Editor Tests*', function() {
     );
     await Base.ContentEditorPage.publishSite(process.env.APPNAME);
     visitLocalHost();
-    await browser.refreshUntilDisplayed({ element: `div=${newEdit}` });
-    await browser.displayed({ element: `div=${newEdit}`, options: { timeout: 20000 } });
-    let actualTxtFromStartedApp = await $(`div=${newEdit}`);
+    await browser.refreshUntilDisplayed({
+      element: '//div[contains(@class, "contentDescription")]',
+    });
+    await browser.displayed({
+      element: '//div[contains(@class, "contentDescription")]',
+      options: { timeout: 20000 },
+    });
+    let actualTxtFromStartedApp = await $('//div[contains(@class, "contentDescription")]');
     let actual = await actualTxtFromStartedApp.getText();
     assert(
       newEdit === actual.trim(),
