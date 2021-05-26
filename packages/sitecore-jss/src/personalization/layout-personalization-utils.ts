@@ -68,13 +68,15 @@ export class LayoutPersonalizationUtils {
   getPersonalizedComponents(placeholders: PlaceholdersData): PersonalizedComponentRendering[] {
     const result: PersonalizedComponentRendering[] = [];
     for (const [, placeholder] of Object.entries(placeholders)) {
-      for (const component of placeholder) {
-        if (isPersonalizedComponentRendering(component)) {
-          result.push(component);
-        } else if (isComponentRendering(component) && component.placeholders) {
-          const components = this.getPersonalizedComponents(component.placeholders);
-          for (const component of components) {
+      if(Array.isArray(placeholder)){
+        for (const component of placeholder) {
+          if (isPersonalizedComponentRendering(component)) {
             result.push(component);
+          } else if (isComponentRendering(component) && component.placeholders) {
+            const components = this.getPersonalizedComponents(component.placeholders);
+            for (const component of components) {
+              result.push(component);
+            }
           }
         }
       }
