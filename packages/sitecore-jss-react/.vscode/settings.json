@@ -7,5 +7,4 @@
   "mochaExplorer.require": ["ts-node/register", "./src/tests/shim.ts", "./src/tests/jsdom-setup.ts", "./src/tests/enzyme-setup.ts"],
   "editor.detectIndentation": false,
   "vsicons.presets.angular": false
-  // "editor.formatOnSave": true
 }

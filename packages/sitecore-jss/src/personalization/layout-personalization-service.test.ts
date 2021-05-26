@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
@@ -47,7 +48,7 @@ describe('LayoutPersonalizationService', () => {
       personalizationDecisionsService,
       layoutFragmentService
     );
-    layoutPersonalizationService.layoutPersonalizationUtils = layoutPersonalizationUtils;
+    (<any>layoutPersonalizationService).layoutPersonalizationUtils = layoutPersonalizationUtils;
   });
 
   afterEach(() => {
@@ -60,13 +61,13 @@ describe('LayoutPersonalizationService', () => {
       layoutPersonalizationUtils.getPersonalizedComponents
         .withArgs(routeData.placeholders)
         .returns([]);
-      layoutPersonalizationService.personalizationResult = Promise.resolve({});
-      layoutPersonalizationService.personalizedComponents = {};
+      (<any>layoutPersonalizationService).personalizationResult = Promise.resolve({});
+      (<any>layoutPersonalizationService).personalizedComponents = {};
 
       await layoutPersonalizationService.loadPersonalization(context, routeData);
 
-      expect(layoutPersonalizationService.personalizationResult).to.be.null;
-      expect(layoutPersonalizationService.personalizedComponents).to.be.null;
+      expect((<any>layoutPersonalizationService).personalizationResult).to.be.null;
+      expect((<any>layoutPersonalizationService).personalizedComponents).to.be.null;
     });
 
     it('should return hasPersonalizationComponents false if no personalized components', async () => {
@@ -125,7 +126,7 @@ describe('LayoutPersonalizationService', () => {
 
       expect(result.personalizedFragments).to.be.deep.equal(personalizeComponents);
       expect(result.hasPersonalizationComponents).to.be.true;
-      expect(layoutPersonalizationService.personalizedComponents).to.be.deep.equal(
+      expect((<any>layoutPersonalizationService).personalizedComponents).to.be.deep.equal(
         personalizeComponents
       );
     });
@@ -139,14 +140,14 @@ describe('LayoutPersonalizationService', () => {
     });
 
     it('should return error if personalizationResult is rejected', () => {
-      layoutPersonalizationService.personalizationResult = Promise.reject('testError');
+      (<any>layoutPersonalizationService).personalizationResult = Promise.reject('testError');
       expect(layoutPersonalizationService.loadPersonalizedComponent('test')).to.be.rejectedWith(
         'testError'
       );
     });
 
     it('should return component from personalizationResult', async () => {
-      layoutPersonalizationService.personalizationResult = Promise.resolve({
+      (<any>layoutPersonalizationService).personalizationResult = Promise.resolve({
         test1: { componentName: 'cn1' },
       });
 
@@ -156,7 +157,7 @@ describe('LayoutPersonalizationService', () => {
     });
 
     it('should return null if component not found in personalizationResult', async () => {
-      layoutPersonalizationService.personalizationResult = Promise.resolve({
+      (<any>layoutPersonalizationService).personalizationResult = Promise.resolve({
         test1: { componentName: 'cn1' },
       });
 
@@ -174,7 +175,7 @@ describe('LayoutPersonalizationService', () => {
     });
 
     it('should return true if personalizedComponents is defined', () => {
-      layoutPersonalizationService.personalizedComponents = {
+      (<any>layoutPersonalizationService).personalizedComponents = {
         test2: { componentName: 'cn2' },
       };
       const result = layoutPersonalizationService.isLoading();
@@ -191,7 +192,7 @@ describe('LayoutPersonalizationService', () => {
     });
 
     it('should return null if component for specified uid not defined', () => {
-      layoutPersonalizationService.personalizedComponents = {
+      (<any>layoutPersonalizationService).personalizedComponents = {
         test2: { componentName: 'cn2' },
       };
       const result = layoutPersonalizationService.getPersonalizedComponent('test');
