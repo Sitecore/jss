@@ -72,6 +72,9 @@ class ContentEditorPage extends Page {
     if (!(await (await $(this.getElementById('SelectAllLanguages'))).getAttribute('checked'))) {
       await browser.click({ element: this.getElementById('SelectAllLanguages') });
     }
+    if (!(await (await $(this.getElementById('SmartPublish'))).getAttribute('checked'))) {
+      await browser.click({ element: this.getElementById('SmartPublish') });
+    }
     await browser.click({ element: this.getElementById('NextButton') });
     await browser.waitUntil(
       async function() {

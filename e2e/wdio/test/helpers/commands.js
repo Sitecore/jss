@@ -68,6 +68,7 @@ module.exports = {
         break;
       } catch (e) {
         browser.refresh();
+        await browser.pause(2000);
       }
     }
   },
