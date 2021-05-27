@@ -42,25 +42,27 @@ const SitecorePage = ({
     const disconnectedMode =
       layoutData.sitecore.route &&
       layoutData.sitecore.route.layoutId === 'available-in-connected-mode';
-    if (!disconnectedMode) {
-      // Load personalization client side only
-      if (process.browser) {
-        // Do not trigger client tracking when pages are requested by Sitecore XP instance:
-        // - no need to track in Edit and Preview modes
-        // - in Explore mode all requests will be tracked by Sitecore XP out of the box
-        if (!isPreview) {
-          layoutPersonalizationService.loadPersonalization(context, context.route).then((p) => {
-            if (!p.hasPersonalizationComponents) {
-              if (!layoutData.sitecore.tracked) {
-                trackingService
-                  .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
-                  .catch((error) => console.error('Tracking failed: ' + error));
-              }
-            }
-          });
-        }
-      }
+    if (disconnectedMode) {
+      return;
     }
+    // Load personalization client side only
+    if (!process.browser) {
+      return;
+    }
+    // Do not trigger client tracking when pages are requested by Sitecore XP instance:
+    // - no need to track in Edit and Preview modes
+    // - in Explore mode all requests will be tracked by Sitecore XP out of the box
+    if (isPreview) {
+      return;
+    }
+
+    layoutPersonalizationService.loadPersonalization(context, context.route).then((p) => {
+      if (!p.hasPersonalizationComponents && !layoutData.sitecore.tracked) {
+        trackingService
+          .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
+          .catch((error) => console.error('Tracking failed: ' + error));
+      }
+    });
   }, [isPreview, layoutData]);
 
   return (

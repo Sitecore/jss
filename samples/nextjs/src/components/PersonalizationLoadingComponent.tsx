@@ -9,11 +9,7 @@ const PersonalizationLoadingComponent = (props: {
     layoutPersonalizationService,
   });
 
-  if (isLoading) {
-    return <div>Loading</div>;
-  } else {
-    return personalizedComponent;
-  }
+  return isLoading ? <div>Loading</div> : personalizedComponent;
 };
 
 export default PersonalizationLoadingComponent;

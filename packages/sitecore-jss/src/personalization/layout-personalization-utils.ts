@@ -21,62 +21,21 @@ export class LayoutPersonalizationUtils {
       return defaultComponent;
     }
 
-    /**
-     * @param {ComponentRendering} context
-     */
-    function replacePersonalizedRenderings(context: ComponentRendering): boolean {
-      if (context.placeholders) {
-        for (const [key, placeholder] of Object.entries(context.placeholders)) {
-          const hiddenComponents: PersonalizedComponentRendering[] = [];
-          for (let i = 0; i < placeholder.length; i++) {
-            const component = placeholder[i];
-            if (requirePersonalization(component)) {
-              const personalizedFragment = personalizedFragments[component.uid];
-              if (personalizedFragment === null) {
-                hiddenComponents.push(component);
-              } else if (personalizedFragment) {
-                const wasReplaced = replacePersonalizedRenderings(personalizedFragment);
-                if (!wasReplaced) {
-                  return false;
-                }
-                placeholder[i] = personalizedFragment;
-              } else {
-                return false;
-              }
-            }
-          }
-          if (hiddenComponents.length) {
-            context.placeholders[key] = placeholder.filter((component) => {
-              return (
-                !isPersonalizedComponentRendering(component) ||
-                hiddenComponents.indexOf(component) === -1
-              );
-            });
-          }
-        }
-      }
-      return true;
-    }
-
-    if (replacePersonalizedRenderings(personalizedFragment)) {
-      return personalizedFragment;
-    } else {
-      return defaultComponent;
-    }
+    return this.replaceNestedPersonalizedRenderings(personalizedFragment, personalizedFragments)
+      ? personalizedFragment
+      : defaultComponent;
   }
 
   getPersonalizedComponents(placeholders: PlaceholdersData): PersonalizedComponentRendering[] {
     const result: PersonalizedComponentRendering[] = [];
     for (const [, placeholder] of Object.entries(placeholders)) {
-      if(Array.isArray(placeholder)){
+      if (Array.isArray(placeholder)) {
         for (const component of placeholder) {
           if (isPersonalizedComponentRendering(component)) {
             result.push(component);
           } else if (isComponentRendering(component) && component.placeholders) {
             const components = this.getPersonalizedComponents(component.placeholders);
-            for (const component of components) {
-              result.push(component);
-            }
+            result.push(...components);
           }
         }
       }
@@ -113,13 +72,62 @@ export class LayoutPersonalizationUtils {
       }
     }
   }
-}
 
-/**
- * @param {PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering} component
- */
-export function requirePersonalization(
-  component: PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering
-): component is PersonalizedComponentRendering {
-  return component && Object.keys(component).length === 1 && 'uid' in component;
+  /**
+   * @param {ComponentRendering} context
+   * @param {object} personalizedFragments
+   */
+  private replaceNestedPersonalizedRenderings(
+    context: ComponentRendering,
+    personalizedFragments: { [key: string]: ComponentRendering | null | undefined }
+  ): boolean {
+    if (!context.placeholders) {
+      return true;
+    }
+
+    for (const [key, placeholder] of Object.entries(context.placeholders)) {
+      const hiddenComponents: PersonalizedComponentRendering[] = [];
+
+      for (let i = 0; i < placeholder.length; i++) {
+        const component = placeholder[i];
+        if (!this.requirePersonalization(component)) {
+          continue;
+        }
+
+        const personalizedFragment = personalizedFragments[component.uid];
+        if (personalizedFragment === null) {
+          hiddenComponents.push(component);
+        } else if (personalizedFragment) {
+          const wasReplaced = this.replaceNestedPersonalizedRenderings(
+            personalizedFragment,
+            personalizedFragments
+          );
+          if (!wasReplaced) {
+            return false;
+          }
+          placeholder[i] = personalizedFragment;
+        } else {
+          return false;
+        }
+      }
+
+      if (hiddenComponents.length) {
+        context.placeholders[key] = placeholder.filter(
+          (component) =>
+            !isPersonalizedComponentRendering(component) ||
+            hiddenComponents.indexOf(component) === -1
+        );
+      }
+    }
+    return true;
+  }
+
+  /**
+   * @param {PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering} component
+   */
+  private requirePersonalization(
+    component: PersonalizedComponentRendering | ComponentRendering | HtmlElementRendering
+  ): component is PersonalizedComponentRendering {
+    return component && Object.keys(component).length === 1 && 'uid' in component;
+  }
 }

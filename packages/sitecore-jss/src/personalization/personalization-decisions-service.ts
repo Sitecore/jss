@@ -1,5 +1,5 @@
 import { AxiosDataFetcher } from './../axios-fetcher';
-import { HttpDataFetcher, HttpResponse } from './../data-fetcher';
+import { fetchData, HttpDataFetcher } from './../data-fetcher';
 import { IncomingMessage, ServerResponse } from 'http';
 
 export interface RenderingPersonalizationDecision {
@@ -78,66 +78,6 @@ export type RestPersonalizationDecisionsServiceConfig = {
   dataFetcherResolver?: DataFetcherResolver;
 };
 
-/**
- * note: encodeURIComponent is available via browser (window) or natively in node.js
- * if you use another js engine for server-side rendering you may not have native encodeURIComponent
- * and would then need to install a package for that functionality
- * @param {Object} params
- */
-function getQueryString(params: { [key: string]: unknown }) {
-  return Object.keys(params)
-    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k] as string)}`)
-    .join('&');
-}
-
-class ResponseError extends Error {
-  response: HttpResponse<unknown>;
-
-  constructor(message: string, response: HttpResponse<unknown>) {
-    super(message);
-
-    Object.setPrototypeOf(this, ResponseError.prototype);
-    this.response = response;
-  }
-}
-
-/**
- * @param {HttpResponse<T>} response
- * @throws {ResponseError} if response code is not ok
- */
-function checkStatus<T>(response: HttpResponse<T>) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
-
-  const error = new ResponseError(response.statusText, response);
-  throw error;
-}
-
-/**
- * @param {string} url
- * @param {HttpDataFetcher} fetcher
- * @param {Object} params
- * @param {Object} data to POST with the request
- */
-function fetchData<T>(
-  url: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fetcher: HttpDataFetcher<T>,
-  params: { [key: string]: unknown } = {},
-  data?: { [key: string]: unknown }
-) {
-  const qs = getQueryString(params);
-  const fetchUrl = url.indexOf('?') !== -1 ? `${url}&${qs}` : `${url}?${qs}`;
-
-  return fetcher(fetchUrl, data)
-    .then(checkStatus)
-    .then((response) => {
-      // axios auto-parses JSON responses, don't need to JSON.parse
-      return response.data as T;
-    });
-}
-
 export class RestPersonalizationDecisionsService implements PersonalizationDecisionsService {
   private serviceConfig: RestPersonalizationDecisionsServiceConfig;
 
@@ -160,20 +100,22 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
           timeout: this.serviceConfig.timeout,
         })
       : this.getDefaultFetcher<PersonalizationDecisionData>();
+    const queryParams = {
+      ...this.getCurrentPageParamsToTrack(),
+      sc_apikey: this.serviceConfig.apiKey,
+      sc_site: this.serviceConfig.siteName,
+      tracking: this.serviceConfig.tracking ?? true,
+    };
+    const requestBody = {
+      routePath: routePath,
+      language: language,
+      renderingIds: renderingIds,
+    };
     return fetchData<PersonalizationDecisionData>(
       this.serviceConfig.serviceUrl ?? `${this.serviceConfig.host}${this.serviceConfig.route}`,
       fetcher,
-      {
-        ...this.getCurrentPageParamsToTrack(),
-        sc_apikey: this.serviceConfig.apiKey,
-        sc_site: this.serviceConfig.siteName,
-        tracking: this.serviceConfig.tracking ?? true,
-      },
-      {
-        routePath: routePath,
-        language: language,
-        renderingIds: renderingIds,
-      }
+      queryParams,
+      requestBody
     );
   }
 
