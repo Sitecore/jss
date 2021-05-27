@@ -63,13 +63,14 @@ Note that these templates are examples of project starting points, and are not r
 
 ### Experimental Templates
 
-Experimental templates are experimental specialized JSS examples. They are examples of how to do advanced tasks, but may not be stable or thoroughly documented.
+Experimental templates are specialized JSS examples, showing how to do advanced tasks, but may not be stable, thoroughly documented, or supported.
 
 * `react-native` The React Native Styleguide template
 * `sitecore-embedded-jss-app` This app shows how to embed a JSS application inside an existing Sitecore site as a rendering. [Read more here](/docs/techniques/mvc-integration/client-side-embedding).
 
 ### Special Templates
 * `node-headless-ssr-proxy` This app shows how to configure a Node server to act as a proxy between the browser and Sitecore. [Read more here](/docs/techniques/ssr/headless-mode-ssr).
+* `node-headless-ssr-experience-edge` This app shows how to configure SSR for your JSS application using a Sitecore Experience Edge endpoint.
 
 ### Deprecated Templates
 * `sitecore-javascript-renderings` This app shows how to render a JavaScript app as a rendering embedded within a traditional Sitecore MVC site. See [JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) for details. This template is flagged as deprecated as of Oct 2020 because these rendering don't scale well. They satisfy edge-case requirements, and should generally be avoided.

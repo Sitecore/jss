@@ -295,6 +295,10 @@ export default {
               displayName: 'via Headless Mode',
             },
             {
+              url: 'ssr-experience-edge',
+              displayName: 'using Experience Edge',
+            },
+            {
               url: 'server-rendering-viewbag',
               displayName: 'Adding Data for SSR',
             },
