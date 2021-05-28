@@ -1,6 +1,7 @@
 import { ComponentRendering, LayoutPersonalizationService } from '@sitecore-jss/sitecore-jss';
 import { useEffect, createElement, useReducer } from 'react';
 import { MissingComponent } from '../components/MissingComponent';
+import { ComponentFactory } from '../components/sharedTypes';
 import { useComponentFactory } from './withComponentFactory';
 
 export interface UsePersonalizationOptions {
@@ -21,6 +22,7 @@ export interface UsePersonalizationResult {
 export function usePersonalization(options: UsePersonalizationOptions): UsePersonalizationResult {
   // forceUpdate emulating, we need to re-render the component after personalization loading
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
+  const componentFactory = useComponentFactory();
 
   const personalizedComponentLayout = options.layoutPersonalizationService.getPersonalizedComponent(
     options.uid
@@ -47,7 +49,7 @@ export function usePersonalization(options: UsePersonalizationOptions): UsePerso
 
   return {
     personalizedComponent: personalizedComponentLayout
-      ? createPersonalizedComponent(personalizedComponentLayout, options)
+      ? createPersonalizedComponent(personalizedComponentLayout, options, componentFactory)
       : null,
     isLoading: isLoading,
   };
@@ -56,12 +58,13 @@ export function usePersonalization(options: UsePersonalizationOptions): UsePerso
 /**
  * @param {ComponentRendering} personalizedComponentLayout
  * @param {UsePersonalizationOptions} options
+ * @param {ComponentFactory} componentFactory
  */
 function createPersonalizedComponent(
   personalizedComponentLayout: ComponentRendering,
-  options: UsePersonalizationOptions
+  options: UsePersonalizationOptions,
+  componentFactory: ComponentFactory
 ): React.ReactElement | null {
-  const componentFactory = useComponentFactory();
   let personalizedComponent: React.ReactElement | null = null;
 
   if (componentFactory) {
