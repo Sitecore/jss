@@ -55,12 +55,18 @@ steps:
   displayName: 'linting apps'
 - script: |
     npm run test-packages
-  displayName: 'running tests'
+  displayName: 'running tests on packages'
+  env: {
+    testEnv: 'ci'
+  }
+- script: |
+    npm run test-apps
+  displayName: 'running tests on apps'
   env: {
     testEnv: 'ci'
   }
   #
-  # LERNA VERSION 
+  # LERNA VERSION
   # * Configure git with a commit user
   # * Update git remote to include a Personal Access Token, so lerna can push
   # * Explicitly check out the current branch since Pipelines will use disconnected HEAD by default
