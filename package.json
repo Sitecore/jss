@@ -10,6 +10,7 @@
     "lint-packages": "lerna run lint --ignore *-sample*",
     "lint-apps": "lerna run lint --ignore @sitecore-jss/*",
     "test-packages": "lerna run test --ignore *-sample*",
+    "test-apps": "lerna run test --ignore @sitecore-jss/*",
     "test": "lerna run test",
     "coverage-packages": "lerna run coverage --ignore *-sample*"
   },
