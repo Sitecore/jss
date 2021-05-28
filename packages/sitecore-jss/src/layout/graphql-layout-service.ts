@@ -78,7 +78,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
   protected getGraphQLClient(): GraphQLClient {
     return new GraphQLRequestClient(this.serviceConfig.endpoint, {
       apiKey: this.serviceConfig.apiKey,
-      debugger: debug.dictionary,
+      debugger: debug.layout,
     });
   }
 
