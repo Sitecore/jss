@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { ComponentRendering, PlaceholdersData } from '../layout/models';
+import { ComponentRendering, HtmlElementRendering, PlaceholdersData } from '../layout/models';
 import { LayoutPersonalizationUtils } from './layout-personalization-utils';
 
 describe('LayoutPersonalizationUtils', () => {
   let layoutPersonalizationUtils: LayoutPersonalizationUtils;
   /* eslint-disable  @typescript-eslint/no-explicit-any */
-  let mockPlaceholdersJson: any;
   let mockPlaceholdersData: PlaceholdersData;
   const personalizationComponentName = 'PersonalizationLoadingComponent';
 
@@ -15,68 +14,15 @@ describe('LayoutPersonalizationUtils', () => {
   });
 
   describe('replacePersonalizedComponentsWithLoaderComponents', () => {
-    it('should skip replacing if placeholder <key> does not exist', () => {
-      mockPlaceholdersJson = {
-        uid: '538e4831-f157-50bb-ac74-277fcac9fddb',
-        componentName: 'Styleguide-Layout-Tabs',
-        personalization: {
-          hiddenByDefault: false,
-        },
-      };
-
-      layoutPersonalizationUtils.replacePersonalizedComponentsWithLoaderComponents(
-        mockPlaceholdersJson,
-        personalizationComponentName
-      );
-      const result: ComponentRendering = mockPlaceholdersJson;
-      expect(result.componentName).not.to.equal(personalizationComponentName);
-      expect(result.componentName).to.equal('Styleguide-Layout-Tabs');
-    });
-
-    it('should skip replacing if component is not ComponentRendering', () => {
-      mockPlaceholdersJson = {
-        'jss-main': [
-          {
-            uid: 'e02ddb9b-a062-5e50-924a-1940d7e053ce',
-            dataSource: '{C4BA1BA0-2D7A-5BDB-9C33-6891174EF4F6}',
-            placeholders: {
-              'jss-styleguide-section': [
-                {
-                  uid: '538e4831-f157-50bb-ac74-277fcac9fddb',
-                  componentName: 'Styleguide-Layout-Tabs',
-                  personalization: {
-                    hiddenByDefault: false,
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      };
-
-      layoutPersonalizationUtils.replacePersonalizedComponentsWithLoaderComponents(
-        mockPlaceholdersJson,
-        personalizationComponentName
-      );
-      const result: ComponentRendering[] = mockPlaceholdersJson['jss-main'];
-      expect(result[0].componentName).to.be.undefined;
-      const resultJssStyleguideSection: ComponentRendering[] = result[0].placeholders?.[
-        'jss-styleguide-section'
-      ] as ComponentRendering[];
-      expect(resultJssStyleguideSection[0].componentName).not.to.equal(
-        personalizationComponentName
-      );
-      expect(resultJssStyleguideSection[0].componentName).to.equal('Styleguide-Layout-Tabs');
-    });
-
-    it('should change JSON structure and componentName if <personalization> section exists', () => {
-      mockPlaceholdersJson = {
+    it('should set defaultComponent to each placeholder where hasPersonalization is true', () => {
+      mockPlaceholdersData = {
         'jss-main': [
           {
             uid: 'e02ddb9b-a062-5e50-924a-1940d7e053ce',
             componentName: 'ContentBlock',
             personalization: {
               hiddenByDefault: false,
+              defaultComponent: null, //
             },
           },
           {
@@ -89,6 +35,7 @@ describe('LayoutPersonalizationUtils', () => {
                   componentName: 'Styleguide-Layout-Tabs',
                   personalization: {
                     hiddenByDefault: false,
+                    defaultComponent: null, //
                   },
                 },
               ],
@@ -97,27 +44,39 @@ describe('LayoutPersonalizationUtils', () => {
         ],
       };
       layoutPersonalizationUtils.replacePersonalizedComponentsWithLoaderComponents(
-        mockPlaceholdersJson,
+        mockPlaceholdersData,
         personalizationComponentName
       );
-      const resultJssMain: ComponentRendering[] = mockPlaceholdersJson['jss-main'];
-      expect(resultJssMain[0].componentName).to.equal(personalizationComponentName);
-      expect(resultJssMain[0].personalization?.defaultComponent?.componentName).to.equal(
+
+      const resultJssMain: ComponentRendering = mockPlaceholdersData[
+        'jss-main'
+      ][0] as ComponentRendering;
+      expect(resultJssMain.componentName).to.equal(personalizationComponentName);
+      expect(resultJssMain.personalization?.defaultComponent?.componentName).to.equal(
         'ContentBlock'
       );
-      expect(resultJssMain[0].personalization?.hiddenByDefault).to.be.false;
-      const resultJssStyleguideSection: ComponentRendering[] = resultJssMain[1].placeholders?.[
-        'jss-styleguide-section'
-      ] as ComponentRendering[];
-      expect(resultJssStyleguideSection[0].componentName).to.equal(personalizationComponentName);
+      expect(resultJssMain.personalization?.hiddenByDefault).to.be.false;
+
+      const resultJssStyleguideSection: ComponentRendering = mockPlaceholdersData[
+        'jss-main'
+      ][1] as ComponentRendering;
+      expect(resultJssStyleguideSection.componentName).to.equal('Styleguide-Layout');
+      expect(resultJssStyleguideSection.personalization?.defaultComponent).is.undefined;
+      expect(resultJssStyleguideSection.personalization?.hiddenByDefault).is.undefined;
+
+      const resultJssStyleguideLayoutTabsSection: ComponentRendering = resultJssStyleguideSection
+        .placeholders?.['jss-styleguide-section'][0] as ComponentRendering;
+      expect(resultJssStyleguideLayoutTabsSection.componentName).to.equal(
+        personalizationComponentName
+      );
       expect(
-        resultJssStyleguideSection[0].personalization?.defaultComponent?.componentName
+        resultJssStyleguideLayoutTabsSection.personalization?.defaultComponent?.componentName
       ).to.equal('Styleguide-Layout-Tabs');
-      expect(resultJssStyleguideSection[0].personalization?.hiddenByDefault).to.be.false;
+      expect(resultJssStyleguideLayoutTabsSection.personalization?.hiddenByDefault).to.be.false;
     });
 
-    it('should skip replacing if <personalization> section does not exist', () => {
-      mockPlaceholdersJson = {
+    it('should skip replacing to each placeholder where hasPersonalization is false', () => {
+      mockPlaceholdersData = {
         'jss-main': [
           {
             uid: 'e02ddb9b-a062-5e50-924a-1940d7e053ce',
@@ -135,56 +94,108 @@ describe('LayoutPersonalizationUtils', () => {
       };
 
       layoutPersonalizationUtils.replacePersonalizedComponentsWithLoaderComponents(
-        mockPlaceholdersJson,
+        mockPlaceholdersData,
         personalizationComponentName
       );
-      const result: ComponentRendering[] = mockPlaceholdersJson['jss-main'];
-      expect(result[0].componentName).not.to.be.equal(personalizationComponentName);
-      expect(result[0].componentName).to.be.equal('ContentBlock');
-      expect(result[0].personalization).to.be.undefined;
+
+      const resultContentBlock: ComponentRendering = mockPlaceholdersData[
+        'jss-main'
+      ][0] as ComponentRendering;
+      expect(resultContentBlock.componentName).to.equal('ContentBlock');
+      expect(resultContentBlock.personalization?.defaultComponent).is.undefined;
     });
 
-    it('should return defaultComponent as null if <hiddenByDefault> is true', () => {
-      mockPlaceholdersJson = {
+    it('should set componentName as personalizationComponentName to each placeholder where isComponentRendering is true', () => {
+      mockPlaceholdersData = {
         'jss-main': [
           {
+            componentName: 'Styleguide-Layout',
             uid: 'e02ddb9b-a062-5e50-924a-1940d7e053ce',
-            componentName: 'ContentBlock',
-            personalization: {
-              hiddenByDefault: true,
+            dataSource: '{C4BA1BA0-2D7A-5BDB-9C33-6891174EF4F6}',
+            placeholders: {
+              'jss-styleguide-section': [
+                {
+                  uid: '538e4831-f157-50bb-ac74-277fcac9fddb',
+                  componentName: 'Styleguide-Layout-Tabs',
+                  personalization: {
+                    hiddenByDefault: false,
+                    defaultComponent: null,
+                  },
+                },
+              ],
             },
           },
         ],
       };
 
       layoutPersonalizationUtils.replacePersonalizedComponentsWithLoaderComponents(
-        mockPlaceholdersJson,
+        mockPlaceholdersData,
         personalizationComponentName
       );
-      const result: ComponentRendering[] = mockPlaceholdersJson['jss-main'];
-      expect(result[0].componentName).to.be.equal(personalizationComponentName);
-      expect(result[0].personalization?.hiddenByDefault).to.be.true;
-      expect(result[0].personalization?.defaultComponent).to.be.null;
+
+      const resultJssMain: ComponentRendering = mockPlaceholdersData[
+        'jss-main'
+      ][0] as ComponentRendering;
+      expect(resultJssMain.componentName).to.not.equal(personalizationComponentName);
+      const nestedPlaceholderData = resultJssMain.placeholders as PlaceholdersData;
+      expect(
+        (nestedPlaceholderData?.['jss-styleguide-section'][0] as ComponentRendering).componentName
+      ).to.equal(personalizationComponentName);
+    });
+
+    it('should skip replacing the componentName to each placeholder where isComponentRendering is false', () => {
+      mockPlaceholdersData = {
+        'jss-main': [
+          {
+            name: 'HtmlElementRenderingName',
+            contents: 'HtmlElementRenderingContents',
+            attributes: {},
+          },
+        ],
+      };
+
+      layoutPersonalizationUtils.replacePersonalizedComponentsWithLoaderComponents(
+        mockPlaceholdersData,
+        personalizationComponentName
+      );
+
+      const resultJssMain: ComponentRendering = mockPlaceholdersData[
+        'jss-main'
+      ][0] as ComponentRendering;
+      expect(resultJssMain.componentName).is.undefined;
+      const resultJssMainHtml: HtmlElementRendering = mockPlaceholdersData[
+        'jss-main'
+      ][0] as HtmlElementRendering;
+      expect(resultJssMainHtml.name).to.be.equal('HtmlElementRenderingName');
+    });
+
+    it('should return defaultComponent as null if <hiddenByDefault> is true', () => {
+      mockPlaceholdersData = {
+        'jss-main': [
+          {
+            uid: 'e02ddb9b-a062-5e50-924a-1940d7e053ce',
+            componentName: 'ContentBlock',
+            personalization: {
+              hiddenByDefault: true,
+              defaultComponent: null,
+            },
+          },
+        ],
+      };
+
+      layoutPersonalizationUtils.replacePersonalizedComponentsWithLoaderComponents(
+        mockPlaceholdersData,
+        personalizationComponentName
+      );
+
+      const result: ComponentRendering = mockPlaceholdersData['jss-main'][0] as ComponentRendering;
+      expect(result.componentName).to.be.equal(personalizationComponentName);
+      expect(result.personalization?.hiddenByDefault).to.be.true;
+      expect(result.personalization?.defaultComponent).to.be.null;
     });
   });
 
   describe('getPersonalizedComponents', () => {
-    it('should return empty collection if placeholder <key> does not exist', () => {
-      mockPlaceholdersJson = {
-        uid: '538e4831-f157-50bb-ac74-277fcac9fddb',
-        componentName: 'PersonalizationLoadingComponent',
-        personalization: {
-          hiddenByDefault: true,
-          defaultComponent: null,
-        },
-      };
-
-      const personalizedComponents = layoutPersonalizationUtils.getPersonalizedComponents(
-        mockPlaceholdersJson
-      );
-      expect(personalizedComponents.length).to.equal(0);
-    });
-
     it('should return collection contains components only with section <personalization>', () => {
       mockPlaceholdersData = {
         'jss-main': [
@@ -213,7 +224,7 @@ describe('LayoutPersonalizationUtils', () => {
       expect(personalizedComponents[0].componentName).to.equal(personalizationComponentName);
     });
 
-    it('should return collection contains nested components only with section <componentName> if section <personalization> does not exist in root component', () => {
+    it('should return collection contains nested components only with section <componentName> where isPersonalizedComponentRendering for root component is false', () => {
       mockPlaceholdersData = {
         'jss-main': [
           {
@@ -256,13 +267,31 @@ describe('LayoutPersonalizationUtils', () => {
         personalizationComponentName.concat('2')
       );
     });
+
+    it('should return empty collection if for each element isPersonalizedComponentRendering is false', () => {
+      mockPlaceholdersData = {
+        'jss-main': [
+          {
+            name: 'HtmlElementRenderingName',
+            contents: 'HtmlElementRenderingContents',
+            attributes: {},
+          },
+        ],
+      };
+
+      const personalizedComponents = layoutPersonalizationUtils.getPersonalizedComponents(
+        mockPlaceholdersData
+      );
+
+      expect(personalizedComponents.length).to.equal(0);
+    });
   });
 
   describe('buildPersonalizedFragment', () => {
     let mockPersonalizedFragments: { [key: string]: ComponentRendering | null | undefined };
     let defaultComponent: ComponentRendering;
 
-    it('should return null if personalizedFragment nested ComponentRendering is null', () => {
+    it('should return null if nested ComponentRendering is null', () => {
       mockPersonalizedFragments = {
         'e02ddb9b-a062-5e50-924a-1940d7e053ce': null,
       };
@@ -276,7 +305,7 @@ describe('LayoutPersonalizationUtils', () => {
       expect(builtPersonalizedFragnment).to.be.null;
     });
 
-    it('should return default component if personalizedFragment nested ComponentRendering is undefined', () => {
+    it('should return default component if nested ComponentRendering is undefined', () => {
       mockPersonalizedFragments = {
         'e02ddb9b-a062-5e50-924a-1940d7e053ce': undefined,
       };
@@ -365,7 +394,7 @@ describe('LayoutPersonalizationUtils', () => {
       expect(builtPersonalizedFragnment).to.deep.equal(personalizedFragment);
     });
 
-    it('should return defaultComponent if searched by key personalizedFragment in nested placeholder is null', () => {
+    it('should return defaultComponent if personalizedFragment searched by key in nested placeholder is null', () => {
       mockPersonalizedFragments = {
         'e02ddb9b-a062-5e50-924a-1940d7e053ce': {
           componentName: 'Styleguide-Layout',

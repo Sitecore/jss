@@ -29,14 +29,12 @@ export class LayoutPersonalizationUtils {
   getPersonalizedComponents(placeholders: PlaceholdersData): PersonalizedComponentRendering[] {
     const result: PersonalizedComponentRendering[] = [];
     for (const [, placeholder] of Object.entries(placeholders)) {
-      if (Array.isArray(placeholder)) {
-        for (const component of placeholder) {
-          if (isPersonalizedComponentRendering(component)) {
-            result.push(component);
-          } else if (isComponentRendering(component) && component.placeholders) {
-            const components = this.getPersonalizedComponents(component.placeholders);
-            result.push(...components);
-          }
+      for (const component of placeholder) {
+        if (isPersonalizedComponentRendering(component)) {
+          result.push(component);
+        } else if (isComponentRendering(component) && component.placeholders) {
+          const components = this.getPersonalizedComponents(component.placeholders);
+          result.push(...components);
         }
       }
     }
@@ -49,26 +47,24 @@ export class LayoutPersonalizationUtils {
   ) {
     if (placeholders) {
       for (const [, placeholder] of Object.entries(placeholders)) {
-        if (Array.isArray(placeholder)) {
-          placeholder.forEach((component, index) => {
-            if (hasPersonalization(component) && component.personalization) {
-              const personalizedComponent: PersonalizedComponentRendering = {
-                componentName: loaderComponentName,
-                uid: component.uid as string,
-                personalization: {
-                  hiddenByDefault: component.personalization.hiddenByDefault,
-                  defaultComponent: component.personalization.hiddenByDefault ? null : component,
-                },
-              };
-              placeholder[index] = personalizedComponent;
-            } else if (isComponentRendering(component) && component.placeholders) {
-              this.replacePersonalizedComponentsWithLoaderComponents(
-                component.placeholders,
-                loaderComponentName
-              );
-            }
-          });
-        }
+        placeholder.forEach((component, index) => {
+          if (hasPersonalization(component) && component.personalization) {
+            const personalizedComponent: PersonalizedComponentRendering = {
+              componentName: loaderComponentName,
+              uid: component.uid as string,
+              personalization: {
+                hiddenByDefault: component.personalization.hiddenByDefault,
+                defaultComponent: component.personalization.hiddenByDefault ? null : component,
+              },
+            };
+            placeholder[index] = personalizedComponent;
+          } else if (isComponentRendering(component) && component.placeholders) {
+            this.replacePersonalizedComponentsWithLoaderComponents(
+              component.placeholders,
+              loaderComponentName
+            );
+          }
+        });
       }
     }
   }
