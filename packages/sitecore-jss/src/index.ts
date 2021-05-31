@@ -57,6 +57,7 @@ export {
   GraphQLLayoutFragmentServiceConfig,
 } from './personalization/layout-fragment-service';
 export {
+  DecisionsContext,
   PersonalizationDecisionData,
   RenderingPersonalizationDecision,
   PersonalizationDecisionsService,

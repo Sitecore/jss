@@ -100,9 +100,11 @@ export class LayoutPersonalizationService {
     let personalizedFragments: { [key: string]: ComponentRendering | null | undefined } = {};
     try {
       const personalizationDecisionsResult = await this.personalizationDecisionsService.getPersonalizationDecisions(
-        context.itemPath as string,
-        context.language as string,
-        personalizedRenderingIds
+        {
+          routePath: context.itemPath as string,
+          language: context.language as string,
+          renderingIds: personalizedRenderingIds,
+        }
       );
       personalizedFragments = await this.resolveFragments(personalizationDecisionsResult, context);
     } catch (error) {

@@ -1,10 +1,15 @@
 import { AxiosDataFetcher } from './../axios-fetcher';
 import { fetchData, HttpDataFetcher } from './../data-fetcher';
-import { IncomingMessage, ServerResponse } from 'http';
 
 export interface RenderingPersonalizationDecision {
   variantKey?: string;
   errorMessage?: string;
+}
+
+export interface DecisionsContext {
+  routePath: string;
+  language: string;
+  renderingIds: string[];
 }
 
 export interface PersonalizationDecisionData {
@@ -14,13 +19,7 @@ export interface PersonalizationDecisionData {
 }
 
 export interface PersonalizationDecisionsService {
-  getPersonalizationDecisions(
-    routePath: string,
-    language: string,
-    renderingIds: string[],
-    req?: IncomingMessage,
-    res?: ServerResponse
-  ): Promise<PersonalizationDecisionData>;
+  getPersonalizationDecisions(context: DecisionsContext): Promise<PersonalizationDecisionData>;
 }
 
 export type DataFetcherResolver = <T>(config: {
@@ -90,11 +89,7 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
     };
   }
 
-  getPersonalizationDecisions(
-    routePath: string,
-    language: string,
-    renderingIds: string[]
-  ): Promise<PersonalizationDecisionData> {
+  getPersonalizationDecisions(context: DecisionsContext): Promise<PersonalizationDecisionData> {
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<PersonalizationDecisionData>({
           timeout: this.serviceConfig.timeout,
@@ -107,9 +102,11 @@ export class RestPersonalizationDecisionsService implements PersonalizationDecis
       tracking: this.serviceConfig.tracking ?? true,
     };
     const requestBody = {
-      routePath: routePath,
-      language: language,
-      renderingIds: renderingIds,
+      routePath: context.routePath,
+      language: context.language,
+      renderingIds: context.renderingIds,
+      referrer: window.document.referrer,
+      url: window.location.pathname + window.location.search,
     };
     return fetchData<PersonalizationDecisionData>(
       this.serviceConfig.serviceUrl ?? `${this.serviceConfig.host}${this.serviceConfig.route}`,
