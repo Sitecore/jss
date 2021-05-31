@@ -12,7 +12,7 @@ describe('<Text />', () => {
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
     const rendered = mount(Text);
-    expect(rendered.isEmpty()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
   });
 
@@ -22,8 +22,8 @@ describe('<Text />', () => {
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
-    const rendered = mount(Text, { context: { props } });
-    expect(rendered.isEmpty()).toBe(true);
+    const rendered = mount(Text, { props });
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
   });
 
@@ -34,7 +34,7 @@ describe('<Text />', () => {
         editable: 'editable',
       },
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.editable);
   });
@@ -47,7 +47,7 @@ describe('<Text />', () => {
       },
       editable: false,
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
@@ -59,7 +59,7 @@ describe('<Text />', () => {
       },
       editable: false,
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.html().indexOf('&lt; &gt;')).toBeGreaterThan(-1);
   });
@@ -70,7 +70,7 @@ describe('<Text />', () => {
         value: 'value',
       },
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
@@ -82,7 +82,7 @@ describe('<Text />', () => {
       },
       encode: false,
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
@@ -93,7 +93,7 @@ describe('<Text />', () => {
         editable: eeTextData,
       },
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.html().indexOf('<input')).toBeGreaterThan(-1);
     expect(rendered.html().indexOf('<span class="scChromeData">')).toBeGreaterThan(-1);
@@ -106,7 +106,7 @@ describe('<Text />', () => {
       },
       tag: 'h1',
     };
-    const rendered = mount(Text, { context: { props } }).find('h1');
+    const rendered = mount(Text, { props }).find('h1');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
@@ -122,7 +122,7 @@ describe('<Text />', () => {
       class: 'cssClass',
       id: 'lorem',
     };
-    const rendered = mount(Text, { context: { props, attrs } }).find('h1');
+    const rendered = mount(Text, { props, attrs }).find('h1');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.tagName).toBe(props.tag.toUpperCase());
     expect(rendered.attributes()).toMatchObject(attrs);

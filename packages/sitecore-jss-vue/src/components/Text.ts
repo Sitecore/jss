@@ -1,4 +1,4 @@
-import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
+import { h, defineComponent } from 'vue';
 
 export interface TextProps {
   /** The text field data. */
@@ -22,7 +22,7 @@ export interface TextProps {
   encode?: boolean;
 }
 
-export const Text: FunctionalComponentOptions<TextProps> = {
+export const Text = defineComponent({
   functional: true,
   props: {
     field: { type: Object, required: true },
@@ -34,8 +34,8 @@ export const Text: FunctionalComponentOptions<TextProps> = {
   // Need to assign `any` return type because Vue type definitions are inaccurate.
   // The Vue type definitions set `render` to a return type of VNode and that's it.
   // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
-  render(createElement: CreateElement, context: RenderContext): any {
-    const { field, tag, editable, encode } = context.props;
+  render(): any {
+    const { field, tag, editable, encode } = this.$props;
     if (!field || (!field.editable && !field.value)) {
       return null;
     }
@@ -49,15 +49,15 @@ export const Text: FunctionalComponentOptions<TextProps> = {
     // in functional components, context.data should be passed along to the
     // `createElement` function in order to retain attributes and events
     // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
-    const data = { ...context.data };
+    const data: any = { ...this.$data };
 
     let children = null;
     if (setDangerously) {
-      data.domProps = { ...context.data.domProps, innerHTML: output };
+      data.innerHTML = output;
     } else {
       children = output;
     }
 
-    return createElement(tag || 'span', data, children);
+    return h(tag || 'span', data, children);
   },
-};
+});

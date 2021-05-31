@@ -1,5 +1,8 @@
 <template>
-  <not-found v-if="notFound" :context="appState.sitecoreContext" />
+  <not-found
+    v-if="notFound && !loading && !languageIsChanging"
+    :context="appState.sitecoreContext"
+  />
   <route-loading v-else-if="loading" />
   <layout v-else :route="appState.routeData" />
 </template>
@@ -68,6 +71,9 @@ export default {
     this.updateLanguage();
   },
   inject: {
+    languageIsChanging: {
+      type: Boolean,
+    },
     changeAppLanguage: {
       type: Function,
     },
@@ -77,7 +83,9 @@ export default {
      * Loads route data from Sitecore Layout Service into appState.routeData
      */
     updateRouteData() {
-      let sitecoreRoutePath = this.route.params.sitecoreRoute || '/';
+      let sitecoreRoutePath = this.route.params.sitecoreRoute
+        ? this.route.params.sitecoreRoute.join('/')
+        : '/';
       if (!sitecoreRoutePath.startsWith('/')) {
         sitecoreRoutePath = `/${sitecoreRoutePath}`;
       }

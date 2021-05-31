@@ -23,6 +23,10 @@ export default {
       type: Object,
       default: () => ({}),
     },
+		rendering: {
+      type: Object,
+      default: () => ({}),
+    },
   },
 };
 </script>

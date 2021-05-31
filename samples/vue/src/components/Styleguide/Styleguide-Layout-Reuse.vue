@@ -37,21 +37,23 @@
       and place it within a column div so that we can select it correctly.
     -->
     <sc-placeholder :rendering="rendering" name="jss-reuse-example">
-      <div class="row" slot-scope="{ components, isEmpty }">
-        <template v-if="!isEmpty">
-          <template v-for="(component, index) in components">
-            <div v-if="!component.isxEditorComponent" :key="index" class="col-sm">
-              <component :is="component" />
-            </div>
-            <component v-else :is="component" :key="index" />
+      <template v-slot="{ components, isEmpty }">
+        <div class="row">
+          <template v-if="!isEmpty">
+            <template v-for="(component, index) in components">
+              <div v-if="!component.isxEditorComponent" v-bind:key="index" class="col-sm">
+                <component :is="component" />
+              </div>
+              <component v-bind:key="index + 1" v-else :is="component" />
+            </template>
           </template>
-        </template>
-        <template v-else>
-          <div class="col-sm">
-            <component v-for="(component, index) in components" :is="component" :key="index" />
-          </div>
-        </template>
-      </div>
+          <template v-else>
+            <div class="col-sm">
+              <component v-for="(component, index) in components" :is="component" :key="index" />
+            </div>
+          </template>
+        </div>
+      </template>
     </sc-placeholder>
   </styleguide-specimen>
 </template>

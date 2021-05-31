@@ -1,11 +1,11 @@
-import { CreateElement, FunctionalComponentOptions, PropOptions, RenderContext } from 'vue';
+import { defineComponent, h } from 'vue';
 
 export interface FieldShape {
   value?: string;
   editable?: string;
 }
 
-export type FormatterFunction = (date: Date | null, createElement: CreateElement) => any;
+export type FormatterFunction = (date: Date | null) => any;
 
 export interface DateProps {
   /** The date field data. */
@@ -28,9 +28,8 @@ export interface DateProps {
   formatter?: FormatterFunction;
 }
 
-export const DateField: FunctionalComponentOptions<DateProps> = {
+export const DateField = defineComponent({
   name: 'ScDateField',
-  functional: true,
   props: {
     field: {
       type: Object,
@@ -38,6 +37,7 @@ export const DateField: FunctionalComponentOptions<DateProps> = {
     },
     tag: {
       type: String,
+      default: 'span',
     },
     editable: {
       type: Boolean,
@@ -48,15 +48,14 @@ export const DateField: FunctionalComponentOptions<DateProps> = {
     formatter: {
       type: Function,
       default: undefined,
-    } as PropOptions<any>,
+    },
   },
 
   // Need to assign `any` return type because Vue type definitions are inaccurate.
   // The Vue type definitions set `render` to a return type of VNode and that's it.
   // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
-  render(createElement: CreateElement, context: RenderContext): any {
-    const { field, editable, formatter, tag } = context.props;
-
+  render(): any {
+    const { field, editable, formatter, tag } = this.$props;
     if (!field || (!field.editable && !field.value)) {
       return null;
     }
@@ -64,22 +63,22 @@ export const DateField: FunctionalComponentOptions<DateProps> = {
     // In functional components, context.data should be passed along to the
     // `createElement` function in order to retain attributes and events
     // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
-    const data = { ...context.data };
+    const data: { [key: string]: unknown } = { ...this.$data };
 
     let children;
     if (field.editable && editable) {
-      data.domProps = { ...data.domProps, innerHTML: field.editable };
-    } else if (context.data.scopedSlots && context.data.scopedSlots.default) {
+      data.innerHTML = field.editable;
+    } else if (this.$slots && this.$slots.default) {
       // if default slot is defined, pass it the date value and use the output as the return value for the `render` function.
       // note: the output of the scoped slot _should_ be a VNode or VNode array.
-      const output = context.data.scopedSlots.default(field.value ? new Date(field.value) : null);
+      const output = this.$slots.default({ date: field.value ? new Date(field.value) : null });
       return output;
     } else if (formatter) {
-      children = formatter(field.value ? new Date(field.value) : null, createElement);
+      children = formatter(field.value ? new Date(field.value) : null);
     } else {
       children = field.value;
     }
 
-    return createElement(tag || 'span', data, children);
+    return h(tag || 'span', data, children);
   },
-};
+});

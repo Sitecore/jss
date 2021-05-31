@@ -1,5 +1,5 @@
 import { mediaApi } from '@sitecore-jss/sitecore-jss';
-import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
+import { h, defineComponent } from 'vue';
 import { generateHtmlTag } from '../utils';
 
 export interface ImageFieldValue {
@@ -41,12 +41,12 @@ export interface ImageProps {
   };
 }
 
-const getEditableWrapper = (editableMarkup: string, createElement: CreateElement) =>
+const getEditableWrapper = (editableMarkup: string) =>
   // create an inline wrapper and use dangerouslySetInnerHTML.
   // if we try to parse the EE value, the parser may strip invalid or disallowed attributes from html elements - and EE uses several
-  createElement('span', {
+  h('span', {
     class: 'sc-image-wrapper',
-    domProps: { innerHTML: editableMarkup },
+    innerHTML: editableMarkup,
   });
 
 const getImageAttrs = (
@@ -82,8 +82,8 @@ const getImageAttrs = (
 
 // custom comment to enable eslint vue plugin for Vue components as objects: https://github.com/vuejs/eslint-plugin-vue#attention
 // @vue/component
-export const Image: FunctionalComponentOptions<ImageProps> = {
-  functional: true,
+export const Image = defineComponent({
+  inheritAttrs: false,
   props: {
     media: { type: Object, required: true },
     editable: { type: Boolean, default: true },
@@ -93,9 +93,9 @@ export const Image: FunctionalComponentOptions<ImageProps> = {
   // Need to assign `any` return type because Vue type definitions are inaccurate.
   // The Vue type definitions set `render` to a return type of VNode and that's it.
   // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
-  render(createElement: CreateElement, context: RenderContext): any {
-    const { media, editable, imageParams, mediaUrlPrefix } = context.props;
-    const contextAttrs = context.data.attrs;
+  render() {
+    const { media, editable, imageParams, mediaUrlPrefix } = this.$props;
+    const contextAttrs = this.$attrs;
 
     if (!media || (!media.editable && !media.value && !media.src)) {
       return null;
@@ -105,7 +105,7 @@ export const Image: FunctionalComponentOptions<ImageProps> = {
     if (editable && media.editable) {
       const foundImg = mediaApi.findEditorImageTag(media.editable);
       if (!foundImg) {
-        return getEditableWrapper(media.editable, createElement);
+        return getEditableWrapper(media.editable);
       }
 
       const imgAttrs = getImageAttrs(
@@ -114,12 +114,12 @@ export const Image: FunctionalComponentOptions<ImageProps> = {
         mediaUrlPrefix
       );
       if (!imgAttrs) {
-        return getEditableWrapper(media.editable, createElement);
+        return getEditableWrapper(media.editable);
       }
 
       const imgHtml = generateHtmlTag('img', imgAttrs);
       const editableMarkup = media.editable.replace(foundImg.imgTag, imgHtml);
-      return getEditableWrapper(editableMarkup, createElement);
+      return getEditableWrapper(editableMarkup);
     }
 
     // some wise-guy/gal is passing in a 'raw' image object value
@@ -133,10 +133,10 @@ export const Image: FunctionalComponentOptions<ImageProps> = {
       // in functional components, context.data should be passed along to the
       // `createElement` function in order to retain attributes and events
       // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
-      const data = { ...context.data, attrs };
-      return createElement('img', data);
+      const data = { ...this.$data, ...attrs };
+      return h('img', data);
     }
 
     return null; // we can't handle the truth
   },
-};
+});

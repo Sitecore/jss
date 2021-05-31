@@ -1,4 +1,4 @@
-import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
+import { defineComponent, h } from 'vue';
 
 export interface LinkFieldValue {
   [attributeName: string]: any;
@@ -32,8 +32,7 @@ export interface LinkProps {
   showLinkTextWithChildrenPresent?: boolean;
 }
 
-export const Link: FunctionalComponentOptions<LinkProps> = {
-  functional: true,
+export const Link = defineComponent({
   props: {
     field: {
       type: Object,
@@ -51,11 +50,9 @@ export const Link: FunctionalComponentOptions<LinkProps> = {
   // Need to assign `any` return type because Vue type definitions are inaccurate.
   // The Vue type definitions set `render` to a return type of VNode and that's it.
   // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
-  render(createElement: CreateElement, context: RenderContext): any {
-    const {
-      children,
-      props: { field, editable, showLinkTextWithChildrenPresent },
-    } = context;
+  render(): any {
+    const { field, editable, showLinkTextWithChildrenPresent } = this.$props;
+    const children = this.$slots.default;
 
     const dynamicField: any = field;
 
@@ -79,24 +76,17 @@ export const Link: FunctionalComponentOptions<LinkProps> = {
       // `createElement` function in order to retain attributes and events
       // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
       const elementData = {
-        ...context.data,
+        ...this.$data,
         class: 'sc-link-wrapper',
-        domProps: { innerHTML: markup },
+        innerHTML: markup,
       };
 
-      const xEditorElement = createElement('span', elementData);
+      const xEditorElement = h('span', elementData);
 
       if (children) {
-        const childElements = createElement(
-          'span',
-          { class: 'sc-link-editable-children-wrapper' },
-          children
-        );
+        const childElements = h('span', { class: 'sc-link-editable-children-wrapper' }, children());
 
-        return createElement('span', { class: 'sc-link-editable-wrapper' }, [
-          xEditorElement,
-          childElements,
-        ]);
+        return h('span', { class: 'sc-link-editable-wrapper' }, [xEditorElement, childElements]);
       }
 
       return xEditorElement;
@@ -113,16 +103,19 @@ export const Link: FunctionalComponentOptions<LinkProps> = {
         ? link.text || link.href
         : null;
 
-    const finalChildren = children ? [linkText, ...children] : linkText;
+    const finalChildren = children ? [linkText, ...children()] : linkText;
 
     // in functional components, context.data should be passed along to the
-    // `createElement` function in order to retain attributes and events
+    // `h` function in order to retain attributes and events
     // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
     const data = {
-      ...context.data,
+      ...this.$data,
       class: link.class,
-      attrs: { ...context.data.attrs, href: link.href, title: link.title, target: link.target },
+      ...this.$attrs,
+      href: link.href,
+      title: link.title,
+      target: link.target,
     };
-    return createElement('a', data, finalChildren);
+    return h('a', data, finalChildren);
   },
-};
+});

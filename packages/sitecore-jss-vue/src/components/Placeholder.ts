@@ -1,6 +1,4 @@
-import Vue, { CreateElement, PropOptions } from 'vue';
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options';
-
+import { defineComponent, h, ref, onErrorCaptured, inject, getCurrentInstance } from 'vue';
 import {
   convertVNodesToDynamicComponents,
   getPlaceholderDataFromRenderingData,
@@ -41,13 +39,7 @@ export { PlaceholderProps };
 // Other plugin properties besides `$jss` were also "missing",
 // e.g. $router, $apollo
 
-export const Placeholder: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  any,
-  any,
-  any,
-  PlaceholderProps
-> = {
+export const Placeholder = defineComponent({
   name: 'Placeholder',
 
   inheritAttrs: false,
@@ -56,97 +48,85 @@ export const Placeholder: ThisTypedComponentOptionsWithRecordProps<
     name: {
       type: String,
       required: true,
-    },
+    } as any,
     rendering: {
       type: Object,
       required: true,
-    },
+    } as any,
     componentFactory: {
       // Hopefully this PR will negate having to cast the formatter prop
       // to PropOptions<any>: https://github.com/vuejs/vue/pull/6856
       type: Function,
       default: undefined,
-    } as PropOptions<any>,
+    } as any,
     fields: {
       type: Object,
       default: undefined,
-    },
+    } as any,
     params: {
       type: Object,
       default: undefined,
-    },
+    } as any,
     missingComponentComponent: {
       type: Object,
       default: undefined,
-    } as PropOptions<any>,
+    } as any,
     errorComponent: {
       type: Object,
       default: undefined,
-    } as PropOptions<any>,
+    } as any,
   },
+  setup(props, context) {
+    const instance = getCurrentInstance();
+    const injectedComponentFactory = inject('injectedComponentFactory', null);
+    const error = ref<Error>();
 
-  // provide / inject does not work with functional components
-  // in other words, SitecoreContext and Placeholder cannot be functional
-  inject: {
-    injectedComponentFactory: {
-      type: Function,
-      default: undefined,
-    } as PropOptions<any>,
-  },
+    onErrorCaptured((err: unknown) => {
+      error.value = err as Error;
+    });
 
-  data() {
-    return {
-      error: null as Error | null,
-    };
-  },
-
-  methods: {
-    resolveComponentFactory(): ComponentFactory | undefined {
+    const resolveComponentFactory = (): ComponentFactory | undefined => {
       // componentFactory precedence:
       // 1. get from props if defined
       // 2. get from `inject` (via provide/inject) if defined
       // 3. get from Vue instance `$jss` property (via plugin or other global attachment) if defined
       return (
-        this.$props.componentFactory ||
-        this.injectedComponentFactory ||
-        (this.$jss && this.$jss.componentFactory) ||
+        props.componentFactory ||
+        injectedComponentFactory ||
+        (instance &&
+          instance.appContext.config.globalProperties.$jss &&
+          instance.appContext.config.globalProperties.$jss.componentFactory) ||
         undefined
       );
-    },
-  },
+    };
 
-  render(createElement: CreateElement): any {
     const childProps: PlaceholderProps = {
-      ...this.$props,
-      ...this.$attrs,
+      ...props,
+      ...context.attrs,
     } as PlaceholderProps;
     delete childProps.componentFactory;
 
-    if (this.error) {
-      if (this.$props.errorComponent) {
-        return createElement(this.$props.errorComponent, {
-          props: { error: this.error },
-        });
+    if (error.value) {
+      if (props.errorComponent) {
+        return () =>
+          h(props.errorComponent, {
+            props: { error: error.value },
+          });
       }
 
-      return createElement('div', { class: 'sc-jss-placeholder-error' }, this.error.toString());
+      return () => h('div', { class: 'sc-jss-placeholder-error' }, error.value.toString());
     }
 
-    const placeholderData = getPlaceholderDataFromRenderingData(this.rendering, this.name);
+    const placeholderData = getPlaceholderDataFromRenderingData(props.rendering as any, props.name);
 
-    const componentFactory = this.resolveComponentFactory();
+    const componentFactory = resolveComponentFactory();
 
-    const vnodes = getVNodesForRenderingData(
-      placeholderData,
-      childProps,
-      createElement,
-      componentFactory
-    );
+    const vnodes = getVNodesForRenderingData(placeholderData, childProps, componentFactory);
 
     // The use of scoped slots are conceptually similar to render props in React.
     // In the case of the placeholder component, we pass component definitions to the default slot
     // and let the slot determine how to render the Placeholder.
-    const scopedSlots = this.$scopedSlots;
+    const scopedSlots = context.slots;
     if (scopedSlots.default) {
       // Scoped slots in templated components are not capable of directly rendering Vue VNodes.
       // Therefore, we "convert" the vnodes to simple functional components that render the vnode but allow
@@ -156,12 +136,9 @@ export const Placeholder: ThisTypedComponentOptionsWithRecordProps<
       const isEmpty = components.every((component) =>
         component.isxEditorComponent ? true : false
       );
-      return scopedSlots.default({ components, isEmpty });
+      return () => scopedSlots.default({ components, isEmpty });
     }
     // Otherwise, if no default scoped slot is defined, assume "normal" rendering of the VNodes that were created from rendering data.
-    return vnodes && vnodes.length > 0 ? createElement('div', {}, vnodes) : null;
+    return () => (vnodes && vnodes.length > 0 ? h('div', {}, vnodes) : null);
   },
-  errorCaptured(error) {
-    this.error = error;
-  },
-};
+});

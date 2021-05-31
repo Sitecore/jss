@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import { DefaultComputed } from 'vue/types/options';
+import { ComponentPublicInstance } from 'vue';
 import {
   getDynamicComponentsFromRenderingData,
   getPlaceholderDataFromRenderingData,
@@ -25,28 +24,16 @@ export interface WithPlaceholderOptions {
   componentFactory?: ComponentFactory;
 }
 
-declare module 'vue/types/options' {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  interface ComponentOptions<V extends Vue> {
-    withPlaceholder?:
-      | (() => {
-          placeholders: WithPlaceholderSpec;
-          options?: WithPlaceholderOptions;
-        })
-      | {
-          placeholders: WithPlaceholderSpec;
-          options?: WithPlaceholderOptions;
-        };
-  }
-}
-
 /**
  * @param {Vue} vm
  * @param {ComponentFactory} [componentFactory]
  */
-export function providePlaceholders(vm: Vue, componentFactory?: ComponentFactory) {
+export function providePlaceholders(
+  vm: ComponentPublicInstance,
+  componentFactory?: ComponentFactory
+) {
   const instanceOptions = vm.$options;
-  const propsData: any = instanceOptions.propsData;
+  const propsData: any = vm.$props;
   if (
     typeof instanceOptions.withPlaceholder === 'undefined' ||
     typeof propsData === 'undefined' ||
@@ -70,8 +57,8 @@ export function providePlaceholders(vm: Vue, componentFactory?: ComponentFactory
 
   const definitelyArrayPlaceholders = !Array.isArray(placeholders) ? [placeholders] : placeholders;
 
-  const computedProps: DefaultComputed = definitelyArrayPlaceholders.reduce(
-    (result: DefaultComputed, placeholderDefinition: any) => {
+  const computedProps: { [key: string]: any } = definitelyArrayPlaceholders.reduce(
+    (result: { [key: string]: any }, placeholderDefinition: any) => {
       const placeholderName = placeholderDefinition.placeholder
         ? placeholderDefinition.placeholder
         : placeholderDefinition;
@@ -82,12 +69,12 @@ export function providePlaceholders(vm: Vue, componentFactory?: ComponentFactory
       const placeholderData = getPlaceholderDataFromRenderingData(renderingData, placeholderName);
       if (placeholderData) {
         // eslint-disable-next-line no-param-reassign
-        result[computedPropName] = {
-          get() {
+        result = {
+          ...result,
+          [computedPropName]: () => {
             return getDynamicComponentsFromRenderingData(
               placeholderData,
               { ...propsData, ...vm.$attrs },
-              vm.$createElement,
               (options && options.componentFactory) || componentFactory
             );
           },

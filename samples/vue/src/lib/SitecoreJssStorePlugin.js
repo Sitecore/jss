@@ -23,15 +23,9 @@ const store = {
 
 // Vue plugins must export a function named 'install'
 function install(Vue) {
-  // "standard" convention for Vue plugins to ensure they are only installed once.
-  if (install.installed) {
-    return;
-  }
-  install.installed = true;
-
-  Vue.prototype.$jss = {
+  Vue.config.globalProperties.$jss = {
     // there may be other JSS plugins installed, merge existing properties
-    ...Vue.prototype.$jss,
+    ...(Vue.config.globalProperties.$jss || {}),
     store,
     sitecoreContext() {
       // this is intended only as a convenience function for easier access to the current context.

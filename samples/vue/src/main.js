@@ -35,5 +35,5 @@ i18ninit(initLanguage).then((i18n) => {
   const initialState = __JSS_STATE__ || null;
 
   const { app } = createApp(initialState, i18n);
-  app.$mount(rootElement);
+  app.mount(rootElement);
 });

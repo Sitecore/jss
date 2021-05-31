@@ -14,12 +14,16 @@
         Instead, we show the tab header inline with the tab contents (see Styleguide-Layout-Tabs-Tab).
       -->
       <template v-if="!isEditing">
-        <li v-for="(tab, index) in tabsPlaceholder" :key="`tab${index}`" class="nav-item">
+        <li
+          v-for="(tab, index) in $options.computed.tabsPlaceholder()"
+          :key="`tab${index}`"
+          class="nav-item"
+        >
           <button
-            :class="`nav-link ${index === activeTabIndex ? 'active' : null}`"
+            :class="`nav-link ${index === activeTabIndex ? 'active' : ''}`"
             v-on:click="activeTabIndex = index"
           >
-            <sc-text :field="tab.props.fields.title" />
+            <sc-text :field="tab.$props.fields.title" />
           </button>
         </li>
       </template>
@@ -31,7 +35,11 @@
           to simplify editing.
           Note: additional props passed to the `<component />` here will not be forwarded to the actual Tab component.
         -->
-        <component v-for="(tab, index) in tabsPlaceholder" :is="tab" :key="`tab${index}`" />
+        <component
+          v-for="(tab, index) in $options.computed.tabsPlaceholder()"
+          :is="tab"
+          :key="`tab${index}`"
+        />
       </template>
       <template v-else>
         <!--
@@ -88,7 +96,10 @@ export default {
       return this.$jss.sitecoreContext().pageEditing;
     },
     activeTab() {
-      return this.tabsPlaceholder && this.tabsPlaceholder[this.activeTabIndex];
+      const tab =
+        this.$options.computed.tabsPlaceholder &&
+        this.$options.computed.tabsPlaceholder()[this.activeTabIndex];
+      return tab;
     },
   },
 };

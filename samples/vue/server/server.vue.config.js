@@ -7,6 +7,14 @@ const vueConfig = {
   // Configure webpack "simple object" options via `configureWebpack`.
   // If you need to modify existing rules or plugin options, use the `chainWebpack` method as it will be easier.
   configureWebpack: (config) => {
+    // Helps to resolve mjs files from graphql package
+    // https://github.com/graphql/graphql-js/issues/1272#issuecomment-371067400
+    config.resolve = {
+      ...config.resolve,
+      mainFields: ['main', 'module'],
+    };
+
+    // config.resolve.extensions = [...config.resolve.extensions, '.mjs']
     config.entry = path.resolve(__dirname, 'server.js');
     config.target = 'node';
     config.output.filename = 'server.bundle.js';

@@ -1,4 +1,4 @@
-import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
+import { h, defineComponent } from 'vue';
 
 export interface MissingComponentProps {
   rendering?: {
@@ -6,21 +6,22 @@ export interface MissingComponentProps {
   };
 }
 
-export const MissingComponent: FunctionalComponentOptions<MissingComponentProps> = {
+export const MissingComponent = defineComponent({
   functional: true,
   props: {
     rendering: {
       type: Object,
+      default: undefined,
     },
   },
-  render(createElement: CreateElement, context: RenderContext) {
-    const { rendering } = context.props;
+  render() {
+    const { rendering } = this.$props;
     const componentName =
       rendering && rendering.componentName ? rendering.componentName : 'Unnamed Component';
 
-    console.log(`Component props for unimplemented '${componentName}' component`, context.props);
+    console.log(`Component props for unimplemented '${componentName}' component`, this.$props);
 
-    return createElement(
+    return h(
       'div',
       {
         style: {
@@ -32,12 +33,12 @@ export const MissingComponent: FunctionalComponentOptions<MissingComponentProps>
         },
       },
       [
-        createElement('h2', componentName),
-        createElement(
+        h('h2', componentName),
+        h(
           'p',
           'JSS component is missing Vue implementation. See the developer console for more information.'
         ),
       ]
     );
   },
-};
+});

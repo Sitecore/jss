@@ -6,7 +6,7 @@ import {
   Item,
   RouteData,
 } from '@sitecore-jss/sitecore-jss';
-import { Component, CreateElement, VNode } from 'vue';
+import { Component, h, VNode } from 'vue';
 import { MissingComponent } from './MissingComponent';
 import { ComponentFactory } from './sharedTypes';
 
@@ -88,7 +88,6 @@ export const getPlaceholderDataFromRenderingData = (
 export function getVNodesForRenderingData(
   placeholderData: Array<ComponentRendering | HtmlElementRendering>,
   placeholderProps: PlaceholderProps,
-  createVueElement: CreateElement,
   componentFactory?: ComponentFactory
 ) {
   const {
@@ -105,10 +104,10 @@ export function getVNodesForRenderingData(
 
       // if the element is not a 'component rendering', render it 'raw'
       if (!rendering.componentName && rendering.name) {
-        return createRawElement(rendering, createVueElement);
+        return createRawElement(rendering);
       }
 
-      let component = getComponentForRendering(rendering, componentFactory);
+      let component: any = getComponentForRendering(rendering, componentFactory);
       if (!component) {
         console.error(
           `Placeholder ${placeholderName} contains unknown component ${rendering.componentName}. Ensure that a Vue component exists for it, and that it is mapped in your component factory.`
@@ -125,7 +124,7 @@ export function getVNodesForRenderingData(
         finalProps.params = { ...placeholderParams, ...rendering.params };
       }
 
-      return createVueElement(component, { props: finalProps, key });
+      return h(component, { ...finalProps, key });
     })
     .filter((element) => element) as VNode[]; // remove nulls;
 }
@@ -142,11 +141,10 @@ export function getVNodesForRenderingData(
 export function getDynamicComponentsFromRenderingData(
   placeholderData: Array<ComponentRendering | HtmlElementRendering>,
   placeholderProps: PlaceholderProps,
-  createVueElement: CreateElement,
   componentFactory?: ComponentFactory
 ) {
   return convertVNodesToDynamicComponents(
-    getVNodesForRenderingData(placeholderData, placeholderProps, createVueElement, componentFactory)
+    getVNodesForRenderingData(placeholderData, placeholderProps, componentFactory)
   );
 }
 
@@ -160,18 +158,15 @@ export function getDynamicComponentsFromRenderingData(
 export function convertVNodesToDynamicComponents(vnodes: VNode[]) {
   return vnodes.map((vnode) => {
     const component = {
-      functional: true,
-      props: vnode.data && vnode.data.props,
+      $props: vnode.props,
+      inheritAttrs: false,
+
       render() {
         return vnode;
       },
     } as JssDynamicComponent;
-    if (
-      vnode.tag === 'code' &&
-      vnode.data &&
-      vnode.data.attrs &&
-      vnode.data.attrs.type === 'text/sitecore'
-    ) {
+
+    if (vnode.type === 'code' && vnode.props.type === 'text/sitecore') {
       component.isxEditorComponent = true;
     }
     return component;
@@ -182,7 +177,7 @@ export function convertVNodesToDynamicComponents(vnodes: VNode[]) {
  * @param {any} elem
  * @param {CreateElement} createVueElement
  */
-function createRawElement(elem: any, createVueElement: CreateElement) {
+function createRawElement(elem: any) {
   if (!elem.name) {
     console.error(
       '"elem.name" is undefined in "createRawElement". ' +
@@ -191,13 +186,7 @@ function createRawElement(elem: any, createVueElement: CreateElement) {
     return null;
   }
 
-  const attrs = elem.attributes;
-
-  const domProps = {
-    innerHTML: elem.contents,
-  };
-
-  const component = createVueElement(elem.name, { attrs, domProps });
+  const component = h(elem.name, { ...elem.attributes, innerHTML: elem.contents });
 
   return component;
 }

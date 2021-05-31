@@ -20,7 +20,7 @@
     </p>
 
     <!-- $i18n is attached to the Vue instance by the i18n plugin -->
-    <p>The current language is: {{ $i18n.i18next.language }}</p>
+    <p>The current language is: {{ $i18n.locale }}</p>
   </styleguide-specimen>
 </template>
 

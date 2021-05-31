@@ -29,7 +29,9 @@
           IMPORTANT: the scoped slot is ignored when in Experience Editor mode to support inline editing.
         -->
         <sc-date :field="fields.dateTime">
-          <em slot-scope="date">{{ date ? date.toLocaleDateString() : null }}</em>
+          <template v-slot="{ date }">
+            <em>{{ date ? date.toLocaleDateString() : null }}</em>
+          </template>
         </sc-date>
       </li>
     </ul>

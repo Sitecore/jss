@@ -1,9 +1,6 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter as createVueRouter, createWebHistory, createMemoryHistory } from 'vue-router';
 
 import RouteHandler from './RouteHandler.vue';
-
-Vue.use(Router);
 
 // support languages in the URL prefix
 // e.g. /da-DK/path, or /en/path, or /path
@@ -13,10 +10,10 @@ export const routePatterns = [
   '/:sitecoreRoute*',
 ];
 
-export function createRouter() {
+export function createRouter(isSSR) {
   // create an instance of vue-router and configure routes to use the RouteHandler component
-  const router = new Router({
-    mode: 'history',
+  return createVueRouter({
+    history: isSSR ? createMemoryHistory() : createWebHistory(),
     routes: routePatterns.map((routePattern) => {
       return {
         path: routePattern,
@@ -27,5 +24,4 @@ export function createRouter() {
       };
     }),
   });
-  return router;
 }
