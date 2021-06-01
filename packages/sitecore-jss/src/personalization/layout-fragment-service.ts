@@ -36,7 +36,9 @@ export type GraphQLLayoutFragmentServiceConfig = {
    * Override default layout query
    * @param {string} siteName
    * @param {string} routePath
-   * @param {string} [locale]
+   * @param {string} language
+   * @param {string} renderingId
+   * @param {string} variantKey
    * @returns {string} custom layout query
    */
   formatLayoutFragmentQuery?: (
@@ -44,7 +46,7 @@ export type GraphQLLayoutFragmentServiceConfig = {
     routePath: string,
     language: string,
     renderingId: string,
-    ruleId: string
+    variantKey: string
   ) => string;
 };
 
@@ -60,16 +62,16 @@ export class GraphQLLayoutFragmentService implements LayoutFragmentService {
    * @param {string} routePath
    * @param {string} [language]
    * @param {string} [renderingId]
-   * @param {string} [ruleId]
+   * @param {string} [variantKey]
    * @returns {Promise<LayoutFragmentData>} layout fragment data
    */
   async fetchLayoutFragmentData(
     routePath: string,
     language: string,
     renderingId: string,
-    ruleId: string
+    variantKey: string
   ): Promise<LayoutFragmentData> {
-    const query = this.getLayoutFragmentQuery(routePath, language, renderingId, ruleId);
+    const query = this.getLayoutFragmentQuery(routePath, language, renderingId, variantKey);
 
     const data = await this.createClient().request<{
       layoutFragment: LayoutFragmentData;
@@ -88,7 +90,7 @@ export class GraphQLLayoutFragmentService implements LayoutFragmentService {
     routePath: string,
     language: string,
     renderingId: string,
-    ruleId: string
+    variantKey: string
   ) {
     const layoutQuery = this.serviceConfig.formatLayoutFragmentQuery
       ? this.serviceConfig.formatLayoutFragmentQuery(
@@ -96,9 +98,9 @@ export class GraphQLLayoutFragmentService implements LayoutFragmentService {
           routePath,
           language,
           renderingId,
-          ruleId
+          variantKey
         )
-      : `layoutFragment(site:"${this.serviceConfig.siteName}", routePath:"${routePath}", language:"${language}", renderingId:"${renderingId}", ruleId:"${ruleId}")`;
+      : `layoutFragment(site:"${this.serviceConfig.siteName}", routePath:"${routePath}", language:"${language}", renderingId:"${renderingId}", variantKey:"${variantKey}")`;
 
     return `query {
       ${layoutQuery}{
