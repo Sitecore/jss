@@ -54,7 +54,7 @@ When working disconnected from Sitecore, you determine the binding of components
 
 See also [understanding layout](/docs/fundamentals/understanding-layout).
 
-#### The Structure of a Route File
+#### The structure of a route file
 
 Very advanced capabilities are available in route files (see the reference material for the full APIs), but they can also be quite simple to define. Here's a sample route data file, written in YAML, that defines data for an `about` route:
 
@@ -124,7 +124,7 @@ Here's an equivalent in JSON:
 }
 ```
 
-### Component Content
+### Component content
 
 Component content is a way to share components between routes. A typical scenario for using component content might be sketching out a JSS site with only _lorem ipsum_ text and FPO (for placement only) images and therefore not wanting to maintain many copies of the same component. Or that there are pieces of content shared across multiple routes.
 
@@ -241,7 +241,7 @@ export default (manifest) => {
 };
 ```
 
-### Placeholder Definitions
+### Placeholder definitions
 
 Defining placeholders explicitly in the manifest is optional. Any placeholder name referred to by a route will be automatically known by the manifest. However, explicitly registering a placeholder allows you to set a display name for it so that content editors can see something friendlier than `appname-content-leftside-upsidedown-2`.
 
@@ -257,7 +257,7 @@ export default (manifest) => {
 };
 ```
 
-## Generating a Manifest
+## Generating a manifest
 
 Once defined, you must generate the manifest to create the complete manifest definition (normally emitted to `/sitecore/manifest` in your app). You can make a manifest standalone with the `jss manifest` CLI command. However, unless you're debugging the manifest contents, it's more common that JSS generates the manifest: 
   - during the startup of the disconnected dev server (`jss start`) or,
