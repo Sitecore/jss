@@ -11,12 +11,13 @@ import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
-import { trackingService } from 'lib/tracking-service-factory';
+import { trackingService } from 'lib/tracking-service';
 
 const SitecorePage = ({
   notFound,
   layoutData,
   componentProps,
+  tracked,
   isPreview,
 }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
@@ -35,13 +36,12 @@ const SitecorePage = ({
     // - in Explore mode all requests will be tracked by Sitecore XP out of the box
     if (isPreview) return;
 
-    if (layoutData.sitecore.tracked) return;
+    if (tracked) return;
 
     trackingService
       .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .catch((error: any) => console.error('Tracking failed: ' + error.message));
-  }, [isPreview, layoutData]);
+      .catch((error: unknown) => console.error('Tracking failed: ' + error));
+  }, [isPreview, tracked, layoutData]);
 
   const context: StyleguideSitecoreContextValue = {
     route: layoutData.sitecore.route,
@@ -66,12 +66,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const props = await sitecorePagePropsFactory.create(context);
 
   if (!props.notFound) {
-    return {
-      props,
-    };
+    return { props };
   }
 
-  if (props.layoutData?.sitecore.tracked) {
+  if (props.tracked) {
     trackingService.signalSkipNextPage(context.res);
   }
 

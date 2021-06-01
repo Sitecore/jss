@@ -3,6 +3,11 @@ import { IncomingMessage, ServerResponse } from 'http';
 
 export interface LayoutService {
   /**
+   * Indicates whether Layout service tracks page views
+   */
+  readonly tracking: boolean;
+
+  /**
    * Fetch layout data for an item.
    * @param {string} itemPath
    * @param {string} [language]
@@ -19,6 +24,8 @@ export interface LayoutService {
 }
 
 export abstract class LayoutServiceBase implements LayoutService {
+  abstract readonly tracking: boolean;
+
   abstract fetchLayoutData(
     itemPath: string,
     language?: string,

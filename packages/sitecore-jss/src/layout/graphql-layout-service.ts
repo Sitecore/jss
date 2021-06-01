@@ -31,6 +31,8 @@ export type GraphQLLayoutServiceConfig = {
 };
 
 export class GraphQLLayoutService extends LayoutServiceBase {
+  readonly tracking: boolean;
+
   private graphQLClient: GraphQLClient;
 
   /**
@@ -40,6 +42,7 @@ export class GraphQLLayoutService extends LayoutServiceBase {
   constructor(public serviceConfig: GraphQLLayoutServiceConfig) {
     super();
     this.graphQLClient = this.getGraphQLClient();
+    this.tracking = false;
   }
 
   /**

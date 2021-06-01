@@ -1,4 +1,3 @@
-import debug from 'debug';
 import { AxiosAdapter } from 'axios';
 import { ServerResponse } from 'http';
 
@@ -8,11 +7,10 @@ import {
   LayoutServiceContext,
   RouteData,
   isServer,
+  debug,
 } from '@sitecore-jss/sitecore-jss';
 
 import { PageViewData } from './dataModels';
-
-const debugLog = debug('sitecore-jss:tracking');
 
 let testAdapter: AxiosAdapter | null = null;
 
@@ -24,8 +22,11 @@ export function setTestAdapter(adapter: AxiosAdapter | null): void {
   testAdapter = adapter;
 }
 
+/**
+ * Tracking service configuration
+ */
 export interface TrackingServiceConfig {
-  /** Absolute or retative URL of tracking service */
+  /** Absolute or relative URL of tracking service */
   endpoint?: string;
 
   /** The fetcher that performs the HTTP request and returns a promise to JSON */
@@ -34,18 +35,21 @@ export interface TrackingServiceConfig {
   /** The Sitecore SSC API key your app uses */
   apiKey?: string;
 
-  /** Default site name to track requests for */
-  siteName?: string;
+  /** Site name to track requests for */
+  siteName: string;
 
   /** Query string parameters of the current page to pass with tracking request */
   currentPageParamsToTrack?: string[];
 }
 
+/**
+ * Tracking service
+ */
 export class TrackingService {
-  private cookieName = 'skip_page_tracking';
+  private readonly skipCookieName = 'skip_page_tracking';
 
-  private trackingApiOptions: TrackingServiceConfig;
-  private fetcher: HttpDataFetcher<void>;
+  private readonly trackingApiOptions: TrackingServiceConfig;
+  private readonly fetcher: HttpDataFetcher<void>;
 
   constructor(options: TrackingServiceConfig) {
     this.trackingApiOptions = {
@@ -57,7 +61,7 @@ export class TrackingService {
       this.fetcher = this.trackingApiOptions.fetcher;
     } else {
       const config = {
-        debugger: debugLog,
+        debugger: debug.tracking,
         ...(testAdapter && { adapter: testAdapter }),
       };
 
@@ -72,11 +76,16 @@ export class TrackingService {
       .join('&');
   }
 
+  /**
+   * Signals to skip tracking of the next page view
+   * @param {ServerResponse} res response
+   * @returns {void} void
+   */
   public signalSkipNextPage(res: ServerResponse): void {
-    debugLog('sending signal to skip next page: %0', res);
+    debug.tracking('sending signal to skip next page: %0', res);
 
     const headerName = 'set-cookie';
-    const cookie = `${this.cookieName}=1; path=/`;
+    const cookie = `${this.skipCookieName}=1; path=/`;
 
     const cookies = res.getHeader(headerName) as string[];
 
@@ -101,7 +110,7 @@ export class TrackingService {
       return Promise.resolve();
     }
 
-    debugLog('tracking current page: %O %O', context, route);
+    debug.tracking('tracking current page: %O %O', context, route);
 
     const event = {
       url: window.location.pathname + window.location.search,
@@ -113,17 +122,21 @@ export class TrackingService {
     return this.trackPage(event, this.getCurrentPageParams(context?.site?.name));
   }
 
+  /**
+   * Tracks page view
+   * @param {PageViewData} pageView page view
+   * @param {Object} querystringParams additional query string parameters
+   * @returns {Promise<void>} void
+   */
   public trackPage(
-    event: PageViewData,
+    pageView: PageViewData,
     querystringParams?: { [key: string]: unknown }
   ): Promise<void> {
     if (this.shouldSkipPageTracking()) {
       return Promise.resolve();
     }
 
-    debugLog('tracking page: %O %O', event, querystringParams);
-
-    return this.fetchData(event, querystringParams);
+    return this.track(pageView, querystringParams);
   }
 
   private getCurrentPageParams(siteName?: string): { [key: string]: string } {
@@ -150,30 +163,25 @@ export class TrackingService {
     return result;
   }
 
-  /**
-   * Note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
-   * which is necessary for analytics and such
-   * @param {any} data
-   * @param {Object} params
-   */
-  private fetchData(
+  private track(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: any,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    params: { [key: string]: any } = {}
+    querystringParams: { [key: string]: unknown } = {}
   ): Promise<void> {
     if (isServer()) {
       // do nothing for SSR, only track events when a browser requests it
       return Promise.resolve();
     }
 
-    params = {
+    debug.tracking('tracking: %O %O', data, querystringParams);
+
+    querystringParams = {
       ...(this.trackingApiOptions.apiKey && { sc_apikey: this.trackingApiOptions.apiKey }),
       ...(this.trackingApiOptions.siteName && { sc_site: this.trackingApiOptions.siteName }),
-      ...params,
+      ...querystringParams,
     };
 
-    let qs = TrackingService.getQueryString(params);
+    let qs = TrackingService.getQueryString(querystringParams);
     qs = qs.length > 0 ? '?' + qs : '';
 
     const { endpoint = '/sitecore/api/track' } = this.trackingApiOptions;
@@ -189,8 +197,8 @@ export class TrackingService {
 
     const cookie = window.document.cookie;
 
-    if (cookie.split(';').some((item) => item.trim().startsWith(`${this.cookieName}=`))) {
-      window.document.cookie = `${this.cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    if (cookie.split(';').some((item) => item.trim().startsWith(`${this.skipCookieName}=`))) {
+      window.document.cookie = `${this.skipCookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
       return true;
     }
 

@@ -28,8 +28,8 @@ describe('RestLayoutService', () => {
   });
 
   it('should fetch layout data', () => {
-    mock.onGet().reply(() => {
-      return [200, { sitecore: { context: {}, route: { name: 'xxx' } } }];
+    mock.onGet().reply((config) => {
+      return [200, { ...config, data: { sitecore: { context: {}, route: { name: 'xxx' } } } }];
     });
 
     const service = new RestLayoutService({
@@ -39,27 +39,26 @@ describe('RestLayoutService', () => {
     });
 
     return service.fetchLayoutData('/styleguide', 'en').then((layoutServiceData: any) => {
-      expect(mock.history.get).to.have.length(1);
-
-      expect(mock.history.get[0].url).to.equal(
+      expect(layoutServiceData.url).to.equal(
         'http://sctest/sitecore/api/layout/render/jss?item=%2Fstyleguide&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=en&tracking=true'
       );
-
-      expect(layoutServiceData).to.deep.equal({
+      expect(layoutServiceData.data).to.deep.equal({
         sitecore: {
           context: {},
           route: { name: 'xxx' },
-          tracked: true,
         },
       });
     });
   });
 
   it('should fetch layout data and invoke callbacks', () => {
-    mock.onGet().reply(() => {
+    mock.onGet().reply((config) => {
       return [
         200,
-        { sitecore: { context: {}, route: { name: 'xxx' } } },
+        {
+          ...config,
+          data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+        },
         {
           'set-cookie': 'test-set-cookie-value',
         },
@@ -91,23 +90,18 @@ describe('RestLayoutService', () => {
     });
 
     return service.fetchLayoutData('/home', 'da-DK', req, res).then((layoutServiceData: any) => {
-      expect(mock.history.get).to.have.length(1);
-      const request = mock.history.get[0];
+      expect(layoutServiceData.headers.cookie).to.equal('test-cookie-value');
+      expect(layoutServiceData.headers.referer).to.equal('http://sctest');
+      expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
+      expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
 
-      expect(request.headers.cookie).to.equal('test-cookie-value');
-      expect(request.headers.referer).to.equal('http://sctest');
-      expect(request.headers['user-agent']).to.equal('test-user-agent-value');
-      expect(request.headers['X-Forwarded-For']).to.equal('192.168.1.10');
-
-      expect(request.url).to.equal(
+      expect(layoutServiceData.url).to.equal(
         'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
       );
-
-      expect(layoutServiceData).to.deep.equal({
+      expect(layoutServiceData.data).to.deep.equal({
         sitecore: {
           context: {},
           route: { name: 'xxx' },
-          tracked: false,
         },
       });
       expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
@@ -115,10 +109,13 @@ describe('RestLayoutService', () => {
   });
 
   it('should fetch layout data', () => {
-    mock.onGet().reply(() => {
+    mock.onGet().reply((config) => {
       return [
         200,
-        { sitecore: { context: {}, route: { name: 'xxx' } } },
+        {
+          ...config,
+          data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+        },
         {
           'set-cookie': 'test-set-cookie-value',
         },
@@ -150,22 +147,18 @@ describe('RestLayoutService', () => {
     });
 
     return service.fetchLayoutData('/home', 'da-DK', req, res).then((layoutServiceData: any) => {
-      expect(mock.history.get).to.have.length(1);
-      const request = mock.history.get[0];
+      expect(layoutServiceData.headers.cookie).to.equal('test-cookie-value');
+      expect(layoutServiceData.headers.referer).to.equal('http://sctest');
+      expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
+      expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
 
-      expect(request.headers.cookie).to.equal('test-cookie-value');
-      expect(request.headers.referer).to.equal('http://sctest');
-      expect(request.headers['user-agent']).to.equal('test-user-agent-value');
-      expect(request.headers['X-Forwarded-For']).to.equal('192.168.1.10');
-
-      expect(request.url).to.equal(
+      expect(layoutServiceData.url).to.equal(
         'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
       );
-      expect(layoutServiceData).to.deep.equal({
+      expect(layoutServiceData.data).to.deep.equal({
         sitecore: {
           context: {},
           route: { name: 'xxx' },
-          tracked: false,
         },
       });
       expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
@@ -230,7 +223,6 @@ describe('RestLayoutService', () => {
           sitecore: {
             context: {},
             route: { name: 'xxx' },
-            tracked: true,
           },
         });
 
@@ -271,7 +263,6 @@ describe('RestLayoutService', () => {
             language: 'en',
           },
           route: null,
-          tracked: true,
         },
       });
     });
@@ -385,27 +376,19 @@ describe('RestLayoutService', () => {
   });
 
   [
-    [undefined, true],
-    [true, true],
     [false, false],
-  ].forEach(([tracking, tracked]) => {
-    it(`should return trakced property (${tracked}) depending on tracking (${tracking}) option`, () => {
-      mock.onGet().reply(() => {
-        return [200, { sitecore: { context: {}, route: { name: 'xxx' } } }];
-      });
-
+    [true, true],
+    [undefined, true],
+  ].forEach(([inTracking, outTracking]) => {
+    it(`should indicate tracking based on config.tracking property: '${inTracking}'`, () => {
       const service = new RestLayoutService({
         apiHost: 'http://sctest',
         apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
         siteName: 'supersite',
-        tracking: tracking,
+        tracking: inTracking,
       });
 
-      return service
-        .fetchLayoutData('/styleguide', 'en')
-        .then((layoutServiceData: LayoutServiceData) => {
-          expect(layoutServiceData.sitecore.tracked).to.equal(tracked);
-        });
+      expect(service.tracking).to.equal(outTracking);
     });
   });
 });

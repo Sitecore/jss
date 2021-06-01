@@ -12,7 +12,7 @@ import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
-import { trackingService } from 'lib/tracking-service-factory';
+import { trackingService } from 'lib/tracking-service';
 
 const SitecorePage = ({
   notFound,
@@ -38,8 +38,7 @@ const SitecorePage = ({
 
     trackingService
       .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .catch((error: any) => console.error('Tracking failed: ' + error.message));
+      .catch((error: unknown) => console.error('Tracking failed: ' + error));
   }, [isPreview, layoutData]);
 
   const context: StyleguideSitecoreContextValue = {
