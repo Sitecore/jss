@@ -13,5 +13,6 @@ export type SitecorePageProps = {
   dictionary: DictionaryPhrases;
   componentProps: ComponentPropsCollection;
   notFound: boolean;
+  tracked: boolean;
   isPreview: boolean;
 };

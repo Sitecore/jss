@@ -7,6 +7,7 @@ export class LayoutServiceFactory {
       apiHost: config.sitecoreApiHost,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
+      // Layout service should track requests only in SSR mode as SSG requests happen at build time
       tracking: isSsr,
     });
   }

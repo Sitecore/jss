@@ -35,8 +35,6 @@ export interface PageViewInstance {
 }
 
 export interface PageViewData {
-  [key: string]: unknown;
-
   /** URL of page to track - should be absolute route path but can accept any value */
   url: string;
 

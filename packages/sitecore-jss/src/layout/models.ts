@@ -4,7 +4,6 @@
 export interface LayoutServiceData {
   sitecore: LayoutServiceContextData & {
     route: RouteData | null;
-    tracked?: boolean;
   };
 }
 

@@ -234,4 +234,14 @@ describe('GraphQLLayoutService', () => {
       expect(error.response.error).to.equal('whoops');
     });
   });
+
+  it('should indicate no tracking', () => {
+    const service = new GraphQLLayoutService({
+      endpoint: 'http://sctest/graphql',
+      siteName: 'supersite',
+      apiKey: apiKey,
+    });
+
+    expect(service.tracking).to.equal(false);
+  });
 });

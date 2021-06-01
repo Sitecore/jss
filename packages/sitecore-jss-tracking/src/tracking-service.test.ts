@@ -50,7 +50,7 @@ describe('TrackingService', () => {
         '/sitecore/api/track/pageview?sc_apikey=MyKey&sc_site=MySite&sc_camp=1111&sc_trk=5555',
       ],
     ].forEach(([queryString, expectedUrl]) => {
-      it(`should track page with query string \'${queryString}\'`, () => {
+      it(`should track page with query string '${queryString}'`, () => {
         // arrange
         mock.onPost().reply(() => [200, {}]);
 
@@ -88,7 +88,7 @@ describe('TrackingService', () => {
 
       window.location.pathname = '/page';
 
-      const service = new TrackingService({});
+      const service = new TrackingService({ siteName: 'site' });
 
       // act
       return service.trackCurrentPage().then(() => {
@@ -110,7 +110,7 @@ describe('TrackingService', () => {
 
       window.location.pathname = '/page';
 
-      const service = new TrackingService({});
+      const service = new TrackingService({ siteName: 'site' });
 
       // act
       return service.trackCurrentPage({}, createRouteData(undefined)).then(() => {
@@ -128,7 +128,10 @@ describe('TrackingService', () => {
 
       window.location.pathname = '/page';
 
-      const service = new TrackingService({ endpoint: 'https://www.myhost.net' });
+      const service = new TrackingService({
+        endpoint: 'https://www.myhost.net',
+        siteName: 'site',
+      });
 
       // act
       return service.trackCurrentPage({}, createRouteData(undefined)).then(() => {
@@ -148,7 +151,10 @@ describe('TrackingService', () => {
 
       window.location.pathname = '/page';
 
-      const service = new TrackingService({ endpoint: 'https://www.myhost.net' });
+      const service = new TrackingService({
+        endpoint: 'https://www.myhost.net',
+        siteName: 'site',
+      });
 
       // act
       return service.trackCurrentPage({}, createRouteData('myItemId', undefined)).then(() => {
@@ -169,7 +175,10 @@ describe('TrackingService', () => {
 
       window.location.pathname = '/page';
 
-      const service = new TrackingService({ endpoint: 'https://www.myhost.net' });
+      const service = new TrackingService({
+        endpoint: 'https://www.myhost.net',
+        siteName: 'site',
+      });
 
       const routeData = createRouteData('myItemId', undefined, undefined);
 
@@ -210,7 +219,7 @@ describe('TrackingService', () => {
       });
     });
 
-    it('should trasfer the specified querystring params of the current request', () => {
+    it('should transfer the specified querystring params of the current request', () => {
       // arrange
       mock.onPost().reply(() => [200, {}]);
 
@@ -218,6 +227,7 @@ describe('TrackingService', () => {
 
       const service = new TrackingService({
         endpoint: 'https://www.myhost.net/path',
+        siteName: 'site',
         currentPageParamsToTrack: ['par1', 'par2'],
       });
 
@@ -227,7 +237,7 @@ describe('TrackingService', () => {
         expect(mock.history.post).to.have.length(1);
 
         expect(mock.history.post[0].url).to.equal(
-          'https://www.myhost.net/path/pageview?par1=my%20value1&par2=my%20value2'
+          'https://www.myhost.net/path/pageview?sc_site=site&par1=my%20value1&par2=my%20value2'
         );
       });
     });
@@ -238,6 +248,7 @@ describe('TrackingService', () => {
 
       const service = new TrackingService({
         endpoint: 'https://www.myhost.net/my/path',
+        siteName: 'site',
       });
 
       // act
@@ -245,7 +256,9 @@ describe('TrackingService', () => {
         // assert
         expect(mock.history.post).to.have.length(1);
 
-        expect(mock.history.post[0].url).to.equal('https://www.myhost.net/my/path/pageview');
+        expect(mock.history.post[0].url).to.equal(
+          'https://www.myhost.net/my/path/pageview?sc_site=site'
+        );
       });
     });
 
@@ -254,9 +267,10 @@ describe('TrackingService', () => {
       mock.onPost().reply(() => [200, {}]);
 
       const service = new TrackingService({
+        siteName: 'site',
         fetcher: (url, data) =>
           axios({
-            url: '/myfetcher' + url,
+            url: '/fetcher' + url,
             method: data ? 'POST' : 'GET',
             data,
             withCredentials: true,
@@ -269,7 +283,7 @@ describe('TrackingService', () => {
         expect(mock.history.post).to.have.length(1);
 
         const post = mock.history.post[0];
-        expect(post.url).to.equal('/myfetcher/sitecore/api/track/pageview');
+        expect(post.url).to.equal('/fetcher/sitecore/api/track/pageview?sc_site=site');
         expect(JSON.parse(post.data).itemId).to.equal('myItemId');
       });
     });
@@ -280,9 +294,7 @@ describe('TrackingService', () => {
 
       mock.onPost().reply(() => [200, {}]);
 
-      const service = new TrackingService({
-        fetcher: (url) => axios({ url: url, method: 'POST' }),
-      });
+      const service = new TrackingService({ siteName: 'site' });
 
       // act
       return service.trackCurrentPage({}, createRouteData()).then(() => {
@@ -292,18 +304,23 @@ describe('TrackingService', () => {
     });
 
     [404, 500].forEach((statusCode: number) => {
-      it(`should throw error if responce status code is ${statusCode}`, () => {
+      it(`should throw error if response status code is ${statusCode}`, () => {
         // arrange
         mock.onPost().reply(() => [statusCode, { message: 'ups' }]);
 
-        const service = new TrackingService({});
+        const service = new TrackingService({ siteName: 'site' });
 
         // act
-        return service.trackCurrentPage({}, createRouteData()).catch((error: any) => {
-          // assert
-          expect(mock.history.post).to.have.length(1);
-          expect(error.response.status).to.equal(statusCode);
-        });
+        return service
+          .trackCurrentPage({}, createRouteData())
+          .then(() => {
+            throw 'should not throw here';
+          })
+          .catch((error: any) => {
+            // assert
+            expect(mock.history.post).to.have.length(1);
+            expect(error.response.status).to.equal(statusCode);
+          });
       });
     });
 
@@ -313,16 +330,14 @@ describe('TrackingService', () => {
       'zzz; skip_page_tracking=1; zzz',
       'aaa=1;skip_page_tracking=1;zzz=2',
     ].forEach((cookie: string) => {
-      it(`should skip tracking if signal cookie exists: '${cookie}'`, () => {
+      it(`should skip tracking if signal cookie exists: '${cookie}' and remove the cookie`, () => {
         // arrange
         mock.onPost().reply(() => [200, {}]);
 
         window.location.pathname = '/page';
         window.document.cookie = cookie;
 
-        const service = new TrackingService({
-          fetcher: (url) => axios({ url: url, method: 'POST' }),
-        });
+        const service = new TrackingService({ siteName: 'site' });
 
         // act
         return service.trackCurrentPage().then(() => {
@@ -367,7 +382,7 @@ describe('TrackingService', () => {
 
       mock.onPost().reply(() => [200, {}]);
 
-      const service = new TrackingService({});
+      const service = new TrackingService({ siteName: 'site' });
 
       // act
       return service.trackPage({ url: '/page?a=1' }).then(() => {
@@ -383,12 +398,10 @@ describe('TrackingService', () => {
       window.location.pathname = '/page';
       window.document.cookie = 'skip_page_tracking=1;';
 
-      const service = new TrackingService({
-        fetcher: (url) => axios({ url: url, method: 'POST' }),
-      });
+      const service = new TrackingService({ siteName: 'site' });
 
       // act
-      return service.trackCurrentPage().then(() => {
+      return service.trackPage({ url: '/page?a=1' }).then(() => {
         // assert
         expect(mock.history.post).to.be.empty;
         expect(window.document.cookie).to.contain(
@@ -423,7 +436,7 @@ describe('TrackingService', () => {
           },
         } as ServerResponse;
 
-        const service = new TrackingService({});
+        const service = new TrackingService({ siteName: 'site' });
 
         // act
         service.signalSkipNextPage(responseMock);
@@ -449,7 +462,7 @@ describe('TrackingService', () => {
           },
         } as ServerResponse;
 
-        const service = new TrackingService({});
+        const service = new TrackingService({ siteName: 'site' });
 
         // act
         service.signalSkipNextPage(responseMock);

@@ -63,6 +63,7 @@ export class SitecorePagePropsFactory {
       dictionary: DictionaryPhrases,
       componentProps = {},
       notFound = false,
+      tracked = false,
       isPreview = false;
 
     if (context.preview) {
@@ -101,6 +102,8 @@ export class SitecorePagePropsFactory {
         isSsrContext ? (context as GetServerSidePropsContext).res : undefined
       );
 
+      tracked = layoutService.tracking;
+
       if (!layoutData.sitecore.route) {
         // A missing route value signifies an invalid path, so set notFound.
         // Our page routes will return this in getStatic/ServerSideProps,
@@ -135,6 +138,7 @@ export class SitecorePagePropsFactory {
       dictionary,
       componentProps,
       notFound,
+      tracked,
       isPreview,
     };
   }

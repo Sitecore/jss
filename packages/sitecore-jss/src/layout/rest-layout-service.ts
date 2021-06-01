@@ -156,8 +156,12 @@ export type DataFetcherResolver = <T>(
  * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
  */
 export class RestLayoutService extends LayoutServiceBase {
+  readonly tracking: boolean;
+
   constructor(private serviceConfig: RestLayoutServiceConfig) {
     super();
+
+    this.tracking = this.serviceConfig.tracking !== false;
   }
 
   /**
@@ -186,31 +190,25 @@ export class RestLayoutService extends LayoutServiceBase {
       ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
       : this.getDefaultFetcher<LayoutServiceData>(req, res);
 
-    return fetchRouteData(itemPath, { fetcher, ...fetchOptions })
-      .then((data: LayoutServiceData) => {
-        data.sitecore.tracked = this.serviceConfig.tracking !== false;
-        return data;
-      })
-      .catch((error) => {
-        if (error.response?.status === 404) {
-          // Aligned with response of GraphQL Layout Service in case if layout is not found.
-          // When 404 Rest Layout Service returns
-          // {
-          //   sitecore: {
-          //     context: {
-          //			   pageEditing: false,
-          //				 language
-          //		 },
-          //		 route: null
-          //	 },
-          // }
-          //
-          error.response.data.sitecore.tracked = this.serviceConfig.tracking !== false;
-          return error.response.data;
-        }
+    return fetchRouteData(itemPath, { fetcher, ...fetchOptions }).catch((error) => {
+      if (error.response?.status === 404) {
+        // Aligned with response of GraphQL Layout Service in case if layout is not found.
+        // When 404 Rest Layout Service returns
+        // {
+        //   sitecore: {
+        //     context: {
+        //			   pageEditing: false,
+        //				 language
+        //		 },
+        //		 route: null
+        //	 },
+        // }
+        //
+        return error.response.data;
+      }
 
-        throw error;
-      });
+      throw error;
+    });
   }
 
   /**
