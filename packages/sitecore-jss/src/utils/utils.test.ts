@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
-import { expect } from 'chai';
-import { isEditorActive, isServer, resolveUrl } from '.';
+import { expect, spy } from 'chai';
+import { isEditorActive, resetEditorChromes, isServer, resolveUrl } from '.';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
@@ -32,6 +32,10 @@ describe('utils', () => {
   });
 
   describe('isEditorActive', () => {
+    it('should return false when invoked on server', () => {
+      expect(isEditorActive()).to.be.false;
+    });
+
     it('should return true when EE is active', () => {
       global.window = {
         document: {},
@@ -57,6 +61,47 @@ describe('utils', () => {
         Sitecore: null,
       };
       expect(isEditorActive()).to.be.false;
+    });
+
+    after(() => {
+      global.window = undefined;
+    });
+  });
+
+  describe('resetEditorChromes', () => {
+    it('should not throw when invoked on server', () => {
+      expect(resetEditorChromes()).to.not.throw;
+    });
+
+    it('should resetChromes on ChromeManager when EE is active', () => {
+      const resetChromes = spy();
+      global.window = {
+        document: {},
+        location: { search: '' },
+        Sitecore: { PageModes: { ChromeManager: { resetChromes } } },
+      };
+      resetEditorChromes();
+      expect(resetChromes).to.have.been.called.once;
+    });
+
+    it('should perform reload when Horizon is active', () => {
+      const reload = spy();
+      global.window = {
+        document: {},
+        location: { search: '?sc_horizon=editor', reload },
+        Sitecore: null,
+      };
+      resetEditorChromes();
+      expect(reload).to.have.been.called.once;
+    });
+
+    it('should not throw when EE and Horizon are not active', () => {
+      global.window = {
+        document: {},
+        location: { search: '' },
+        Sitecore: null,
+      };
+      expect(resetEditorChromes()).to.not.throw;
     });
 
     after(() => {
