@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { isExperienceEditorActive, isServer, resolveUrl } from '.';
+import { isEditorActive, isServer, resolveUrl } from '.';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
@@ -31,18 +31,32 @@ describe('utils', () => {
     });
   });
 
-  describe('isExperienceEditorActive', () => {
+  describe('isEditorActive', () => {
     it('should return true when EE is active', () => {
       global.window = {
         document: {},
+        location: { search: '' },
         Sitecore: { PageModes: { ChromeManager: {} } },
       };
-      expect(isExperienceEditorActive()).to.be.true;
+      expect(isEditorActive()).to.be.true;
     });
 
-    it('should return false when EE is not active', () => {
-      global.window = { document: {}, Sitecore: null };
-      expect(isExperienceEditorActive()).to.be.false;
+    it('should return true when Horizon is active', () => {
+      global.window = {
+        document: {},
+        location: { search: '?sc_horizon=editor' },
+        Sitecore: null,
+      };
+      expect(isEditorActive()).to.be.true;
+    });
+
+    it('should return false when EE and Horizon are not active', () => {
+      global.window = {
+        document: {},
+        location: { search: '' },
+        Sitecore: null,
+      };
+      expect(isEditorActive()).to.be.false;
     });
 
     after(() => {

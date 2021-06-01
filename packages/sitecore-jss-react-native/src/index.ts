@@ -1,6 +1,8 @@
 export {
   dataApi,
   mediaApi,
+  isEditorActive,
+  resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   LayoutServiceData,

@@ -3,7 +3,7 @@ import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/r
 import { JssContextService } from '../jss-context.service';
 import { JssState } from '../JssState';
 import { Observable } from 'rxjs';
-import { isExperienceEditorActive } from '@sitecore-jss/sitecore-jss-angular';
+import { isEditorActive } from '@sitecore-jss/sitecore-jss-angular';
 
 @Injectable()
 export class JssRouteResolver implements Resolve<JssState> {
@@ -13,7 +13,7 @@ export class JssRouteResolver implements Resolve<JssState> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<JssState> {
     // in experience editor, we need to reload to avoid confusing the editor ribbon
-    if (isExperienceEditorActive() && window) {
+    if (isEditorActive() && window) {
       const currentLocation = window.location.pathname + window.location.search + window.location.hash;
       if (currentLocation !== state.url) {
         window.location.assign(state.url);
