@@ -3,6 +3,6 @@ import config from 'temp/config';
 
 export const trackingService = new TrackingService({
   endpoint: config.trackingEndpoint,
-  apiKey: config.sitecoreApiKey,
+  apiKey: config.sitecoreServicesApiKey,
   siteName: config.jssAppName,
 });

@@ -8,7 +8,7 @@ import {
 export const layoutPersonalizationService = new LayoutPersonalizationService(
   new RestPersonalizationDecisionsService({
     serviceUrl: config.personalizationDecisionsEndpoint,
-    apiKey: config.sitecoreApiKey,
+    apiKey: config.sitecoreServicesApiKey,
     siteName: config.jssAppName,
     tracking: true,
   }),
