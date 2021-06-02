@@ -20,7 +20,7 @@ Initially, the only choice for implementing Sitecore was to use .NET. But in the
 JSS is a set of npm packages:
 1. Core packages that abstract away the "Sitecore stuff" like talking to different Sitecore APIs,
 2. Framework-specific packages with components that render data managed by the core packages, and
-3. Simple starter apps for every supported framework. 
+3. Simple app samples for every supported framework. 
 
 ## Why JSS
 Without JSS, integrating a front-end framework with an authoring interface as flexible as Sitecore's would be a large undertaking, and some authoring features would likely need to be sacrificed. This is because front-end frameworks require developers to build the UI component hierarchies in code. This assumes a workflow where developers control the component composition. But if we want Content Authors to remain in control, and therefore we cannot know the component hierarchy at build-time, building with front-end frameworks becomes a challenge. And this is the challenge that JSS solves.
@@ -33,7 +33,7 @@ With Sitecore and JSS, all the benefits of JavaScript frameworks, such as Next's
 
 - JSS enables workflows where front-end and back-end teams can work in parallel.
 
--	JSS provides sample "starter kits," which serve as an onboarding tool and living documentation.
+-	JSS provides sample apps that serve as an onboarding tool and living documentation.
 
 - Abstractions for front-end developers that allow working with Sitecore declaratively.
 

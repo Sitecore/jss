@@ -29,7 +29,7 @@ The latest JSS SDK leverages many of Next.js' [features](https://nextjs.org/#fea
 - Component-level data fetching for Sitecore-driven components.
 - Sitecore analytics and personalization support (SSR with Sitecore Layout Service REST API only).
 - Support for JSS code-first workflow and mock Sitecore services.
-- A sample/starter TypeScript-enabled implementation template which demonstrates common use cases.
-- Containerized starter template for Windows-based developers.
+- A TypeScript-enabled app sample demonstrating common use cases.
+- Containerized template for Windows-based developers.
 - Other great built-in Next.js features like component-level CSS, code splitting, fast refresh, and more.
 - [Vercel](https://vercel.com/) deployment compatible.
