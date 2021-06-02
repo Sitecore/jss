@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
@@ -43,11 +43,69 @@ function isRawRendering(
   );
 }
 
+const isHorizonEditing = (): boolean => {
+  // Horizon canvas state is injected. Example:
+  // <script id="hrz-canvas-state" type="application/json">
+  // {
+  //   "type": "State",
+  //   "data": {
+  //     "itemId": "45be1451-fa83-5f80-9f0d-d7457b480b58",
+  //     "siteName": "JssNextWeb",
+  //     "language": "en",
+  //     "deviceId": "fe5d7fdf-89c0-4d99-9aa3-b5fbd009c9f3",
+  //     "pageMode": "EDIT"
+  //   }
+  // }
+  // </script>
+  if (typeof window === 'undefined') return false;
+
+  const stateEl = window.document.querySelector('#hrz-canvas-state');
+  if (!stateEl || stateEl.innerHTML === '') {
+    return false;
+  }
+  const state = JSON.parse(stateEl.innerHTML);
+  return state.data?.pageMode === 'EDIT';
+};
+
 class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> {
   static propTypes = PlaceholderCommon.propTypes;
+  placeholderRef: React.RefObject<HTMLDivElement>;
+  emptyPlaceholderTags: Element[] | null;
+  phKeys: string[] | undefined | null;
 
   constructor(props: PlaceholderComponentProps) {
     super(props);
+
+    this.placeholderRef = createRef();
+    this.emptyPlaceholderTags = null;
+    this.phKeys = null;
+  }
+
+  componentDidMount() {
+    if (isHorizonEditing()) {
+      this.resetHorizonEmptyPlaceholders();
+    }
+  }
+
+  resetHorizonEmptyPlaceholders() {
+    if (this.emptyPlaceholderTags && this.phKeys) {
+      this.emptyPlaceholderTags.forEach((emptyPhTag, i) => {
+        const emptyPlaceholder = this.placeholderRef.current?.querySelector(
+          `:scope > code[kind="open"][class="scpm"][chrometype="placeholder"][key="${this.phKeys?.[i]}"]`
+        );
+
+        emptyPlaceholder && emptyPlaceholder.insertAdjacentElement('afterend', emptyPhTag);
+      });
+    }
+  }
+
+  collectHorizonEmptyPlaceholders() {
+    this.emptyPlaceholderTags = Array.prototype.slice.call(
+      window.document.querySelectorAll('[class*="empty-placeholder"]')
+    );
+    this.phKeys = this.emptyPlaceholderTags.map(
+      (el) => el.previousElementSibling?.getAttribute('key') || ''
+    );
   }
 
   render() {
@@ -73,15 +131,23 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
       renderingData,
       this.props.name
     );
+
+    const isEmptyPlaceholder = placeholderData.every(
+      (rendering: ComponentRendering | HtmlElementRendering) => isRawRendering(rendering)
+    );
+
     const components = this.getComponentsForRenderingData(placeholderData);
 
-    if (
-      this.props.renderEmpty &&
-      placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
-        isRawRendering(rendering)
-      )
-    ) {
-      return this.props.renderEmpty(components);
+    if (isEmptyPlaceholder) {
+      if (typeof window !== 'undefined' && isHorizonEditing() && !this.placeholderRef.current) {
+        this.collectHorizonEmptyPlaceholders();
+      }
+
+      return (
+        <div ref={this.placeholderRef}>
+          {this.props.renderEmpty ? this.props.renderEmpty(components) : components}
+        </div>
+      );
     } else if (this.props.render) {
       return this.props.render(components, placeholderData, childProps);
     } else if (this.props.renderEach) {

@@ -225,7 +225,7 @@ describe('<Placeholder />', () => {
     const renderedComponent = mount(
       <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
     );
-    expect(renderedComponent.html()).to.be.empty;
+    expect(renderedComponent.html()).to.equal('<div></div>');
   });
 
   it('should render error message on error', () => {
