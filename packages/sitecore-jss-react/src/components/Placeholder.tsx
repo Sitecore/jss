@@ -87,10 +87,16 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     }
   }
 
+  /**
+   * Insert empty placeholders in correct places.
+   * They were removed by React after first render,
+   * since LayoutData doesn't contain `empty placeholder` tag
+   */
   resetHorizonEmptyPlaceholders() {
     if (this.emptyPlaceholderTags && this.phKeys) {
       this.emptyPlaceholderTags.forEach((emptyPhTag, i) => {
         const emptyPlaceholder = this.placeholderRef.current?.querySelector(
+          // We are going throw all saved keys and trying to find `Placeholder open tag` related to current placeholder
           `:scope > code[kind="open"][class="scpm"][chrometype="placeholder"][key="${this.phKeys?.[i]}"]`
         );
 
@@ -100,10 +106,13 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
   }
 
   collectHorizonEmptyPlaceholders() {
+    // Grab all empty placeholders on the page, cause we can't search children and use `placeholderRef` before mount
     this.emptyPlaceholderTags = Array.prototype.slice.call(
       window.document.querySelectorAll('[class*="empty-placeholder"]')
     );
     this.phKeys = this.emptyPlaceholderTags.map(
+      // `Placeholder open tag` contains `key` attribute which we can store
+      // to identify position where we need to insert empty placeholder
       (el) => el.previousElementSibling?.getAttribute('key') || ''
     );
   }
