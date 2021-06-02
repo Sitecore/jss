@@ -1,6 +1,9 @@
 import isServer from './is-server';
 
-class ExperienceEditor {
+/**
+ * Static utility class for Sitecore Experience Editor
+ */
+export class ExperienceEditor {
   static isActive(): boolean {
     // eslint-disable-next-line
     const sc = window && (window as any).Sitecore;
@@ -12,7 +15,10 @@ class ExperienceEditor {
   }
 }
 
-class HorizonEditor {
+/**
+ * Static utility class for Sitecore Horizon Editor
+ */
+export class HorizonEditor {
   static isActive(): boolean {
     // Horizon will add "sc_horizon=editor" query string parameter for the editor and "sc_horizon=simulator" for the preview
     return window && window.location.search.indexOf('sc_horizon=editor') > -1;
