@@ -1,8 +1,11 @@
 import React, { createRef } from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
-import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
-
+import {
+  ComponentRendering,
+  HtmlElementRendering,
+  HorizonEditor,
+} from '@sitecore-jss/sitecore-jss';
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
    * Render props function that is called when the placeholder contains no content components.
@@ -43,30 +46,6 @@ function isRawRendering(
   );
 }
 
-const isHorizonEditing = (): boolean => {
-  // Horizon canvas state is injected. Example:
-  // <script id="hrz-canvas-state" type="application/json">
-  // {
-  //   "type": "State",
-  //   "data": {
-  //     "itemId": "45be1451-fa83-5f80-9f0d-d7457b480b58",
-  //     "siteName": "JssNextWeb",
-  //     "language": "en",
-  //     "deviceId": "fe5d7fdf-89c0-4d99-9aa3-b5fbd009c9f3",
-  //     "pageMode": "EDIT"
-  //   }
-  // }
-  // </script>
-  if (typeof window === 'undefined') return false;
-
-  const stateEl = window.document.querySelector('#hrz-canvas-state');
-  if (!stateEl || stateEl.innerHTML === '') {
-    return false;
-  }
-  const state = JSON.parse(stateEl.innerHTML);
-  return state.data?.pageMode === 'EDIT';
-};
-
 class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> {
   static propTypes = PlaceholderCommon.propTypes;
   placeholderRef: React.RefObject<HTMLDivElement>;
@@ -81,7 +60,7 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
   }
 
   componentDidMount() {
-    if (isHorizonEditing()) {
+    if (HorizonEditor.isActive()) {
       this.resetHorizonEmptyPlaceholders();
     }
   }
@@ -152,7 +131,11 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     const components = this.getComponentsForRenderingData(placeholderData);
 
     if (isEmptyPlaceholder) {
-      if (typeof window !== 'undefined' && isHorizonEditing() && !this.placeholderRef.current) {
+      if (
+        typeof window !== 'undefined' &&
+        HorizonEditor.isActive() &&
+        !this.placeholderRef.current
+      ) {
         this.collectHorizonEmptyPlaceholders();
       }
 
