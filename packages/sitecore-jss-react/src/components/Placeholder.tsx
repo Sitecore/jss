@@ -97,12 +97,12 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     }
 
     this.horizonEmptyPlaceholders.forEach((ph) => {
-      const emptyPlaceholder = this.placeholderRef.current?.querySelector(
+      const placeholderOpenTag = this.placeholderRef.current?.querySelector(
         // We are going throw all saved keys and trying to find `Placeholder open tag` related to current placeholder
         `:scope > code[kind="open"][class="scpm"][chrometype="placeholder"][key="${ph.key}"]`
       );
 
-      emptyPlaceholder && emptyPlaceholder.insertAdjacentElement('afterend', ph.element);
+      placeholderOpenTag && placeholderOpenTag.insertAdjacentElement('afterend', ph.element);
     });
   }
 
