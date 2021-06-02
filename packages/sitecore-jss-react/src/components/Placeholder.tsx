@@ -70,15 +70,14 @@ const isHorizonEditing = (): boolean => {
 class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> {
   static propTypes = PlaceholderCommon.propTypes;
   placeholderRef: React.RefObject<HTMLDivElement>;
-  emptyPlaceholderTags: Element[] | null;
-  phKeys: string[] | undefined | null;
+
+  horizonEmptyPlaceholders: { key: string; element: Element }[] | null;
 
   constructor(props: PlaceholderComponentProps) {
     super(props);
 
     this.placeholderRef = createRef();
-    this.emptyPlaceholderTags = null;
-    this.phKeys = null;
+    this.horizonEmptyPlaceholders = null;
   }
 
   componentDidMount() {
@@ -93,27 +92,32 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
    * since LayoutData doesn't contain `empty placeholder` tag
    */
   resetHorizonEmptyPlaceholders() {
-    if (this.emptyPlaceholderTags && this.phKeys) {
-      this.emptyPlaceholderTags.forEach((emptyPhTag, i) => {
-        const emptyPlaceholder = this.placeholderRef.current?.querySelector(
-          // We are going throw all saved keys and trying to find `Placeholder open tag` related to current placeholder
-          `:scope > code[kind="open"][class="scpm"][chrometype="placeholder"][key="${this.phKeys?.[i]}"]`
-        );
-
-        emptyPlaceholder && emptyPlaceholder.insertAdjacentElement('afterend', emptyPhTag);
-      });
+    if (!this.horizonEmptyPlaceholders) {
+      return;
     }
+
+    this.horizonEmptyPlaceholders.forEach((ph) => {
+      const emptyPlaceholder = this.placeholderRef.current?.querySelector(
+        // We are going throw all saved keys and trying to find `Placeholder open tag` related to current placeholder
+        `:scope > code[kind="open"][class="scpm"][chrometype="placeholder"][key="${ph.key}"]`
+      );
+
+      emptyPlaceholder && emptyPlaceholder.insertAdjacentElement('afterend', ph.element);
+    });
   }
 
   collectHorizonEmptyPlaceholders() {
     // Grab all empty placeholders on the page, cause we can't search children and use `placeholderRef` before mount
-    this.emptyPlaceholderTags = Array.prototype.slice.call(
+    const emptyPlaceholders = Array.prototype.slice.call(
       window.document.querySelectorAll('[class*="empty-placeholder"]')
     );
-    this.phKeys = this.emptyPlaceholderTags.map(
+    this.horizonEmptyPlaceholders = emptyPlaceholders.map(
       // `Placeholder open tag` contains `key` attribute which we can store
       // to identify position where we need to insert empty placeholder
-      (el) => el.previousElementSibling?.getAttribute('key') || ''
+      (el) => ({
+        key: el.previousElementSibling?.getAttribute('key') || '',
+        element: el,
+      })
     );
   }
 
