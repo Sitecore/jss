@@ -12,7 +12,7 @@ export class JssRouteResolver implements Resolve<JssState> {
   ) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<JssState> {
-    // in experience editor, we need to reload to avoid confusing the editor ribbon
+    // in Sitecore editor, we need to reload to avoid confusing the editor
     if (isEditorActive() && window) {
       const currentLocation = window.location.pathname + window.location.search + window.location.hash;
       if (currentLocation !== state.url) {

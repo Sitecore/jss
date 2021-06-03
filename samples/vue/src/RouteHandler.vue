@@ -119,7 +119,7 @@ export default {
       if (newRoute.hash !== '' && newRoute.path === oldRoute.path) {
         return;
       }
-      // if in experience editor - force reload instead of route data update
+      // if in Sitecore editor - force reload instead of route data update
       // avoids confusing Sitecore's editing JS
       if (isEditorActive()) {
         window.location.assign(newRoute.path);

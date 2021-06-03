@@ -5,13 +5,19 @@ import isServer from './is-server';
  */
 export class ExperienceEditor {
   static isActive(): boolean {
+    if (isServer()) {
+      return false;
+    }
     // eslint-disable-next-line
-    const sc = window && (window as any).Sitecore;
+    const sc = (window as any).Sitecore;
     return Boolean(sc && sc.PageModes && sc.PageModes.ChromeManager);
   }
   static resetChromes(): void {
+    if (isServer()) {
+      return;
+    }
     // eslint-disable-next-line
-    window && (window as any).Sitecore.PageModes.ChromeManager.resetChromes();
+    (window as any).Sitecore.PageModes.ChromeManager.resetChromes();
   }
 }
 
@@ -20,12 +26,18 @@ export class ExperienceEditor {
  */
 export class HorizonEditor {
   static isActive(): boolean {
+    if (isServer()) {
+      return false;
+    }
     // Horizon will add "sc_horizon=editor" query string parameter for the editor and "sc_horizon=simulator" for the preview
-    return window && window.location.search.indexOf('sc_horizon=editor') > -1;
+    return window.location.search.indexOf('sc_horizon=editor') > -1;
   }
   static resetChromes(): void {
+    if (isServer()) {
+      return;
+    }
     // No way to reset chromes in Horizon, simply reload the canvas (iframe) instead
-    window && window.location.reload();
+    window.location.reload();
   }
 }
 
@@ -34,9 +46,6 @@ export class HorizonEditor {
  * @returns true if executing within a Sitecore editor
  */
 export const isEditorActive = (): boolean => {
-  if (isServer()) {
-    return false;
-  }
   return ExperienceEditor.isActive() || HorizonEditor.isActive();
 };
 
@@ -44,9 +53,6 @@ export const isEditorActive = (): boolean => {
  * Resets Sitecore editor "chromes"
  */
 export const resetEditorChromes = (): void => {
-  if (isServer()) {
-    return;
-  }
   if (ExperienceEditor.isActive()) {
     ExperienceEditor.resetChromes();
   } else if (HorizonEditor.isActive()) {
