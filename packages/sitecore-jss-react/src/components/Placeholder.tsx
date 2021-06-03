@@ -131,7 +131,11 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     const components = this.getComponentsForRenderingData(placeholderData);
 
     if (isEmptyPlaceholder) {
-      if (HorizonEditor.isActive() && !this.placeholderRef.current) {
+      if (
+        typeof window !== 'undefined' &&
+        HorizonEditor.isActive() &&
+        !this.placeholderRef.current
+      ) {
         this.collectHorizonEmptyPlaceholders();
       }
 
