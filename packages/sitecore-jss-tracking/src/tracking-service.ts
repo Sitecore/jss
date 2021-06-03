@@ -114,6 +114,7 @@ export class TrackingService {
 
     const event = {
       url: window.location.pathname + window.location.search,
+      referrer: window.document.referrer,
       itemId: route?.itemId,
       language: route?.itemLanguage,
       layoutDeviceId: route?.deviceId,
