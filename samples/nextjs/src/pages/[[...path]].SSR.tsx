@@ -31,12 +31,12 @@ const SitecorePage = ({
   }
 
   useEffect(() => {
-    // Do not trigger client tracking when pages are requested by Sitecore XP instance:
-    // - no need to track in Edit and Preview modes
-    // - in Explore mode all requests will be tracked by Sitecore XP out of the box
-    if (isPreview) return;
-
-    if (tracked) return;
+    // Do not trigger client tracking when
+    // - the page is requested by Sitecore XP instance
+    //   * no need to track in Edit and Preview modes
+    //   * in Explore mode all requests will be tracked by Sitecore XP out of the box
+    // - the page is already tracked by Layout service
+    if (isPreview || tracked) return;
 
     trackingService
       .trackCurrentPage(layoutData.sitecore.context, layoutData.sitecore.route)
