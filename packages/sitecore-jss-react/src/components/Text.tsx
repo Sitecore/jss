@@ -5,7 +5,7 @@ export interface TextProps {
   [htmlAttributes: string]: unknown;
   /** The text field data. */
   field?: {
-    value?: string;
+    value?: string | number;
     editable?: string;
   };
   /**
@@ -43,7 +43,7 @@ export const Text: FunctionComponent<TextProps> = ({
 
   const value = (field.editable && editable ? field.editable : field.value) || '';
 
-  let output: (ReactElement | string)[] = [value];
+  let output: (ReactElement | string | number)[] = [value];
 
   // when value isn't formatted, we should format line breaks
   if (!field.editable && value) {
@@ -90,10 +90,16 @@ export const Text: FunctionComponent<TextProps> = ({
 };
 
 Text.propTypes = {
-  field: PropTypes.shape({
-    value: PropTypes.string,
-    editable: PropTypes.string,
-  }),
+  field: PropTypes.oneOfType([
+    PropTypes.shape({
+      value: PropTypes.string,
+      editable: PropTypes.string,
+    }),
+    PropTypes.shape({
+      value: PropTypes.number,
+      editable: PropTypes.string,
+    }),
+  ]),
   tag: PropTypes.string,
   editable: PropTypes.bool,
   encode: PropTypes.bool,

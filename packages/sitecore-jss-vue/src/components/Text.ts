@@ -3,7 +3,7 @@ import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
 export interface TextProps {
   /** The text field data. */
   field: {
-    value?: string;
+    value?: string | number;
     editable?: string;
   };
   /**

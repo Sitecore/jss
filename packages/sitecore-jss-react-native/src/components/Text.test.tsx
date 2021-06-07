@@ -29,6 +29,17 @@ describe('<Text />', () => {
     expect(rendered).toMatchSnapshot();
   });
 
+  test('should render number value', () => {
+    const props = {
+      field: {
+        value: 1.23,
+      },
+    };
+    const rendered = renderer.create(<Text {...props} />);
+
+    expect(rendered).toMatchSnapshot();
+  });
+
   test('should render value if editable is undefined', () => {
     const props = {
       field: {

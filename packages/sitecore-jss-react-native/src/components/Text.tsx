@@ -6,7 +6,7 @@ export interface TextProps {
   [nativeTextProps: string]: unknown;
   /** The text field data. */
   field: {
-    value?: string;
+    value?: string | number;
     editable?: string;
   } | null;
 }

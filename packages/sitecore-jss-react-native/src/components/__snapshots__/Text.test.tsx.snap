@@ -10,6 +10,12 @@ exports[`<Text /> should render nothing with missing editable and value 1`] = `n
 
 exports[`<Text /> should render nothing with missing field 1`] = `null`;
 
+exports[`<Text /> should render number value 1`] = `
+<Text>
+  1.23
+</Text>
+`;
+
 exports[`<Text /> should render other attributes with other props provided 1`] = `
 <Text
   selectable={true}

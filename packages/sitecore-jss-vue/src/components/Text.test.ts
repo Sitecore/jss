@@ -75,6 +75,17 @@ describe('<Text />', () => {
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
 
+  it('should render number value', () => {
+    const props = {
+      field: {
+        value: 1.23,
+      },
+    };
+    const rendered = mount(Text, { context: { props } }).find('span');
+    expect(rendered.exists()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(props.field.value.toString());
+  });
+
   it('should render embedded html as-is when encoding is disabled', () => {
     const props = {
       field: {

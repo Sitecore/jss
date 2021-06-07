@@ -57,6 +57,15 @@ describe('<Text />', () => {
     expect(rendered.html()).to.contain('value');
   });
 
+  it('should render number value', () => {
+    const field = {
+      value: 1.23,
+    };
+    const rendered = mount(<Text tag="span" field={field} />).find('span');
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.contain('1.23');
+  });
+
   it('should render value with just a value that contains line breaks', () => {
     const field = {
       value: 'xxx\n\naa\nbbb\ndd',
