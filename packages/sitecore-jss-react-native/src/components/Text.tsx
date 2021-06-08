@@ -12,7 +12,7 @@ export interface TextProps {
 }
 
 export const Text: React.SFC<TextProps> = ({ field, ...otherProps }) => {
-  if (!field || (!field.editable && !field.value)) {
+  if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
     return null;
   }
 

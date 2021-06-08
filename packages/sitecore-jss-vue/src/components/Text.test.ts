@@ -27,6 +27,21 @@ describe('<Text />', () => {
     errorSpy.mockRestore();
   });
 
+  it('should render nothing with empty value', () => {
+    const props = {
+      field: {
+        value: '',
+      },
+    };
+    // Need to mock console.error as Vue will log an error for the null "field" prop
+    // that is marked as an Object.
+    const errorSpy = jest.spyOn(console, 'error');
+    errorSpy.mockImplementation(() => {});
+    const rendered = mount(Text, { context: { props } });
+    expect(rendered.isEmpty()).toBe(true);
+    errorSpy.mockRestore();
+  });
+
   it('should render editable with editable value', () => {
     const props = {
       field: {
@@ -79,6 +94,17 @@ describe('<Text />', () => {
     const props = {
       field: {
         value: 1.23,
+      },
+    };
+    const rendered = mount(Text, { context: { props } }).find('span');
+    expect(rendered.exists()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(props.field.value.toString());
+  });
+
+  it('should render zero number value', () => {
+    const props = {
+      field: {
+        value: 0,
       },
     };
     const rendered = mount(Text, { context: { props } }).find('span');

@@ -6,6 +6,8 @@ exports[`<Text /> should render editable value if present 1`] = `
 </Text>
 `;
 
+exports[`<Text /> should render nothing with empty value 1`] = `null`;
+
 exports[`<Text /> should render nothing with missing editable and value 1`] = `null`;
 
 exports[`<Text /> should render nothing with missing field 1`] = `null`;
@@ -32,5 +34,11 @@ exports[`<Text /> should render other attributes with other props provided 1`] =
 exports[`<Text /> should render value if editable is undefined 1`] = `
 <Text>
   this value should be rendered
+</Text>
+`;
+
+exports[`<Text /> should render zero number value 1`] = `
+<Text>
+  0
 </Text>
 `;

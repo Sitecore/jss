@@ -17,6 +17,16 @@ describe('<Text />', () => {
     expect(rendered).toMatchSnapshot();
   });
 
+  it('should render nothing with empty value', () => {
+    const props = {
+      field: {
+        value: '',
+      },
+    };
+    const rendered = renderer.create(<Text {...props} />);
+    expect(rendered).toMatchSnapshot();
+  });
+
   test('should render editable value if present', () => {
     const props = {
       field: {
@@ -33,6 +43,17 @@ describe('<Text />', () => {
     const props = {
       field: {
         value: 1.23,
+      },
+    };
+    const rendered = renderer.create(<Text {...props} />);
+
+    expect(rendered).toMatchSnapshot();
+  });
+
+  test('should render zero number value', () => {
+    const props = {
+      field: {
+        value: 0,
       },
     };
     const rendered = renderer.create(<Text {...props} />);

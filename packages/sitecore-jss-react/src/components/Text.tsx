@@ -31,7 +31,7 @@ export const Text: FunctionComponent<TextProps> = ({
   encode,
   ...otherProps
 }) => {
-  if (!field || (!field.editable && !field.value)) {
+  if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
     return null;
   }
 
@@ -43,11 +43,14 @@ export const Text: FunctionComponent<TextProps> = ({
 
   const isEditable = field.editable && editable;
 
-  let output: string | number | (ReactElement | string)[] =
-    (isEditable ? field.editable : field.value) || '';
+  let output: string | number | (ReactElement | string)[] = isEditable
+    ? field.editable || ''
+    : field.value === undefined
+    ? ''
+    : field.value;
 
-  // when value isn't formatted, we should format line breaks
-  if (!field.editable && output) {
+  // when string value isn't formatted, we should format line breaks
+  if (!field.editable && typeof output === 'string') {
     const splitted = String(output).split('\n');
 
     if (splitted.length) {
@@ -93,16 +96,10 @@ export const Text: FunctionComponent<TextProps> = ({
 };
 
 Text.propTypes = {
-  field: PropTypes.oneOfType([
-    PropTypes.shape({
-      value: PropTypes.string,
-      editable: PropTypes.string,
-    }),
-    PropTypes.shape({
-      value: PropTypes.number,
-      editable: PropTypes.string,
-    }),
-  ]),
+  field: PropTypes.shape({
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    editable: PropTypes.string,
+  }),
   tag: PropTypes.string,
   editable: PropTypes.bool,
   encode: PropTypes.bool,
