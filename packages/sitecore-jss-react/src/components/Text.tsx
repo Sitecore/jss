@@ -41,30 +41,33 @@ export const Text: FunctionComponent<TextProps> = ({
     editable = false;
   }
 
-  const value = (field.editable && editable ? field.editable : field.value) || '';
+  const isEditable = field.editable && editable;
 
-  let output: (ReactElement | string | number)[] = [value];
+  let output: string | number | (ReactElement | string)[] =
+    (isEditable ? field.editable : field.value) || '';
 
   // when value isn't formatted, we should format line breaks
-  if (!field.editable && value) {
-    const splitted = String(value).split('\n');
+  if (!field.editable && output) {
+    const splitted = String(output).split('\n');
 
     if (splitted.length) {
-      output = [];
+      const formatted: (ReactElement | string)[] = [];
+
+      splitted.forEach((str, i) => {
+        const isLast = i === splitted.length - 1;
+
+        formatted.push(str);
+
+        if (!isLast) {
+          formatted.push(<br key={i} />);
+        }
+      });
+
+      output = formatted;
     }
-
-    splitted.forEach((str, i) => {
-      const isLast = i === splitted.length - 1;
-
-      output.push(str);
-
-      if (!isLast) {
-        output.push(<br key={i} />);
-      }
-    });
   }
 
-  const setDangerously = (field.editable && editable) || !encode;
+  const setDangerously = isEditable || !encode;
 
   let children = null;
   const htmlProps: {

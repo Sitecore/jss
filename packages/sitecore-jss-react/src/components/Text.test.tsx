@@ -57,6 +57,15 @@ describe('<Text />', () => {
     expect(rendered.html()).to.contain('value');
   });
 
+  it('should render value without tag', () => {
+    const field = {
+      value: 'value',
+    };
+    const rendered = mount(<Text field={field} />);
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.contain('value');
+  });
+
   it('should render number value', () => {
     const field = {
       value: 1.23,
