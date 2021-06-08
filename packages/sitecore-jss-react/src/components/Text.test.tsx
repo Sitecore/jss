@@ -105,6 +105,15 @@ describe('<Text />', () => {
     expect(rendered.html()).to.equal('-1.23');
   });
 
+  it('should render value without tag', () => {
+    const field = {
+      value: 'value',
+    };
+    const rendered = mount(<Text field={field} />);
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.contain('value');
+  });
+
   it('should render value with just a value that contains line breaks', () => {
     const field = {
       value: 'xxx\n\naa\nbbb\ndd',

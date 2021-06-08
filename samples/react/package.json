@@ -1,7 +1,7 @@
 {
   "name": "jss-sample-react",
   "description": "Application utilizing Sitecore JavaScript Services and React (create-react-app).",
-  "version": "16.1.0-canary.47",
+  "version": "16.1.0-canary.48",
   "private": true,
   "config": {
     "appName": "JssReactWeb",
@@ -32,8 +32,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^16.1.0-canary.47",
-    "@sitecore-jss/sitecore-jss-tracking": "^16.1.0-canary.47",
+    "@sitecore-jss/sitecore-jss-react": "^16.1.0-canary.48",
+    "@sitecore-jss/sitecore-jss-tracking": "^16.1.0-canary.48",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
     "apollo-link": "~1.2.13",
@@ -60,10 +60,10 @@
   "devDependencies": {
     "@babel/preset-env": "^7.10.4",
     "@babel/register": "~7.6.2",
-    "@sitecore-jss/sitecore-jss-cli": "^16.1.0-canary.47",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^16.1.0-canary.47",
-    "@sitecore-jss/sitecore-jss-manifest": "^16.1.0-canary.47",
-    "@sitecore-jss/sitecore-jss-rendering-host": "^16.1.0-canary.47",
+    "@sitecore-jss/sitecore-jss-cli": "^16.1.0-canary.48",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^16.1.0-canary.48",
+    "@sitecore-jss/sitecore-jss-manifest": "^16.1.0-canary.48",
+    "@sitecore-jss/sitecore-jss-rendering-host": "^16.1.0-canary.48",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "~9.0.2",
     "chalk": "~2.4.2",
