@@ -165,6 +165,41 @@ describe('RestLayoutService', () => {
     });
   });
 
+  it('should fetch layout data using custom configuration name', () => {
+    mock.onGet().reply((config) => {
+      return [
+        200,
+        {
+          ...config,
+          data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+        },
+        {
+          'set-cookie': 'test-set-cookie-value',
+        },
+      ];
+    });
+
+    const service = new RestLayoutService({
+      apiHost: 'http://sctest',
+      apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+      siteName: 'supersite',
+      configurationName: 'listen',
+      tracking: false,
+    });
+
+    return service.fetchLayoutData('/home', 'da-DK').then((layoutServiceData: any) => {
+      expect(layoutServiceData.url).to.equal(
+        'http://sctest/sitecore/api/layout/render/listen?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
+      );
+      expect(layoutServiceData.data).to.deep.equal({
+        sitecore: {
+          context: {},
+          route: { name: 'xxx' },
+        },
+      });
+    });
+  });
+
   it('should fetch layout data using custom fetcher resolver', () => {
     const fetcherSpy = spy((url: string) => {
       return new AxiosDataFetcher().fetch<any>(url);
