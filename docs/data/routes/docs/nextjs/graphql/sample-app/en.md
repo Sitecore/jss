@@ -7,11 +7,14 @@ title: Sitecore GraphQL in the sample app
 
 ## Disconnected mode
 
-If you created app using `jss create my-app nextjs --fetchWith GraphQL` your services will use Sitecore GraphQL endpoint. Sitecore GraphQL does not come with a disconnected mock service, so it can only operate with a Next.js app in Connected mode. The disconnected server emulates the REST services only.
+If you created the app using `jss create my-app nextjs --fetchWith GraphQL`, your services will use the Sitecore GraphQL endpoint. 
 
-If disconnected mode is required, you need to depend on `JSS_MODE` environment variable, and your service factories should return REST service.
+Sitecore GraphQL does not come with a disconnected mock service, so it can only operate with a Next.js app in Connected mode. The disconnected server emulates the REST services only.
 
-You need to apply changes to your factories:
+Therefore, your service factories must return a REST service if you need to work in disconnected mode.
+
+To return a REST service for disconnected development from your service factories, leverage the `JSS_MODE` environment variable, as follows:
+
 1. Edit `src/lib/layout-service-factory.ts`:
 
 ```js
@@ -73,6 +76,10 @@ export class DictionaryServiceFactory {
     });
   }
 }
+
+export const dictionaryServiceFactory = new DictionaryServiceFactory();
+```
+
 
 export const dictionaryServiceFactory = new DictionaryServiceFactory();
 ```
