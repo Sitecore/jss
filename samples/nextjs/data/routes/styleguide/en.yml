@@ -58,7 +58,7 @@ placeholders:
             fields:
               heading: Number
               description: "<small>Number tells Sitecore to use a number entry for editing.</small>"
-              sample: "1.21"
+              sample: 1.21
           - componentName: Styleguide-FieldUsage-Checkbox
             fields:
               heading: Checkbox
@@ -165,7 +165,7 @@ placeholders:
                     <strong>Note:</strong> For field types with complex data, custom <code>FieldSerializer</code>s may need to be implemented on the Sitecore side.
                   </small>
                 </p>
-              customIntField: "31337"
+              customIntField: 31337
       - componentName: Styleguide-Section
         fields:
           heading: Layout Patterns

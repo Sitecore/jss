@@ -5,7 +5,7 @@ export interface TextProps {
   [htmlAttributes: string]: unknown;
   /** The text field data. */
   field?: {
-    value?: string;
+    value?: string | number;
     editable?: string;
   };
   /**
@@ -31,7 +31,7 @@ export const Text: FunctionComponent<TextProps> = ({
   encode,
   ...otherProps
 }) => {
-  if (!field || (!field.editable && !field.value)) {
+  if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
     return null;
   }
 
@@ -43,11 +43,14 @@ export const Text: FunctionComponent<TextProps> = ({
 
   const isEditable = field.editable && editable;
 
-  let output: string | (ReactElement | string)[] =
-    (isEditable ? field.editable : field.value) || '';
+  let output: string | number | (ReactElement | string)[] = isEditable
+    ? field.editable || ''
+    : field.value === undefined
+    ? ''
+    : field.value;
 
-  // when value isn't formatted, we should format line breaks
-  if (!field.editable && output) {
+  // when string value isn't formatted, we should format line breaks
+  if (!field.editable && typeof output === 'string') {
     const splitted = String(output).split('\n');
 
     if (splitted.length) {
@@ -94,7 +97,7 @@ export const Text: FunctionComponent<TextProps> = ({
 
 Text.propTypes = {
   field: PropTypes.shape({
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     editable: PropTypes.string,
   }),
   tag: PropTypes.string,
