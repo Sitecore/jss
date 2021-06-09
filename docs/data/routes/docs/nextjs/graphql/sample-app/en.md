@@ -79,7 +79,3 @@ export class DictionaryServiceFactory {
 
 export const dictionaryServiceFactory = new DictionaryServiceFactory();
 ```
-
-
-export const dictionaryServiceFactory = new DictionaryServiceFactory();
-```
