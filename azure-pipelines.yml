@@ -33,7 +33,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  isDev: $[eq(variables['Build.SourceBranch'], 'refs/heads/dev')]
+  isDev: $[or(eq(variables['Build.SourceBranch'], 'refs/heads/dev'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'))]
 
 steps:
 - script: |
