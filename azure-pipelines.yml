@@ -73,7 +73,7 @@ steps:
     git config user.email builds@sitecore.com
     git config user.name "Automated Build"
     git remote set-url origin https://$GITHUB_PAT_ENV@github.com/Sitecore/jss.git
-    git checkout $(replace(variables['Build.SourceBranch'], 'refs/heads/', ''))
+    git checkout $[replace(variables['Build.SourceBranch'], 'refs/heads/', '')]
     $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes
   displayName: 'pre-release version update'
   condition: and(succeeded(), eq(variables.isDev, true))
