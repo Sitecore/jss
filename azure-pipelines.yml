@@ -35,7 +35,11 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  isDev: $[or(eq(variables['Build.SourceBranch'], 'refs/heads/dev'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'))]
+  shouldPublish: $[or(eq(variables['Build.SourceBranch'], 'refs/heads/dev'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'))]
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/') }}:
+    branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
+    branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
 
 steps:
 - script: |
@@ -73,10 +77,10 @@ steps:
     git config user.email builds@sitecore.com
     git config user.name "Automated Build"
     git remote set-url origin https://$GITHUB_PAT_ENV@github.com/Sitecore/jss.git
-    git checkout $[replace(variables['Build.SourceBranch'], 'refs/heads/', '')]
+    git checkout $(branchName)
     $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes
   displayName: 'pre-release version update'
-  condition: and(succeeded(), eq(variables.isDev, true))
+  condition: and(succeeded(), eq(variables.shouldPublish, true))
   env:
     GITHUB_PAT_ENV: $(GITHUB-PAT)
   #
@@ -91,6 +95,6 @@ steps:
     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
     $(npm bin)/lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
   displayName: 'pre-release canary publish'
-  condition: and(succeeded(), eq(variables.isDev, true))
+  condition: and(succeeded(), eq(variables.shouldPublish, true))
   env:
     NPM_TOKEN: $(NPM-TOKEN)
