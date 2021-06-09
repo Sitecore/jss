@@ -23,6 +23,7 @@ pr:
     include:
     - master
     - dev
+    - release/*
   paths:
     include:
     - /
