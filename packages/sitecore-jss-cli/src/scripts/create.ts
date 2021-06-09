@@ -95,7 +95,7 @@ async function handler(argv: any) {
   }
 
   nextStepsList.push(`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`);
-  nextStepsList.push('* Check out the JSS documentation at https://jss.sitecore.net');
+  nextStepsList.push('* Check out the JSS documentation at https://jss.sitecore.com');
 
   if (!fs.existsSync(createScriptPath)) {
     console.warn(
