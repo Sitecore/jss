@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-manifest",
-  "version": "16.1.0-canary.52",
+  "version": "16.1.0-canary.53",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -25,8 +25,8 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.1.0-canary.52",
-    "@sitecore-jss/sitecore-pipelines": "^16.1.0-canary.52",
+    "@sitecore-jss/sitecore-jss": "^16.1.0-canary.53",
+    "@sitecore-jss/sitecore-pipelines": "^16.1.0-canary.53",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.4",
     "import-fresh": "^3.1.0",
