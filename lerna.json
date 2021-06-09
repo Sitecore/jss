@@ -4,5 +4,5 @@
     "packages/*",
     "samples/*"
   ],
-  "version": "16.1.0-canary.49"
+  "version": "9999.0.0"
 }
