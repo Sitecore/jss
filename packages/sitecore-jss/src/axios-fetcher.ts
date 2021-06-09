@@ -62,7 +62,7 @@ export class AxiosDataFetcher {
     // Note Axios response interceptors are applied in registered order;
     // however, request interceptors are REVERSED (https://github.com/axios/axios/issues/1663).
     // Hence, we're adding our request debug logging first (since we want that performed after any onReq)
-    // and our response debug logging second (since we want that performed after any onRes)
+    // and our response debug logging second (since we want that performed after any onRes)...
     if (debug.enabled) {
       this.instance.interceptors.request.use(
         (config: AxiosRequestConfig) => {
