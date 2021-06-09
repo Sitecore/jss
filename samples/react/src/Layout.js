@@ -30,7 +30,7 @@ let Navigation = ({ t, i18n }) => (
     <nav className="my-2 my-md-0 mr-md-3">
       <a
         className="p-2 text-dark"
-        href="https://jss.sitecore.net"
+        href="https://jss.sitecore.com"
         target="_blank"
         rel="noopener noreferrer"
       >

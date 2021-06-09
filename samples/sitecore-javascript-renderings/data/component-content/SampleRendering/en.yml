@@ -1,5 +1,5 @@
 # NOTE: This is not the same format as a JSS app would use.
-# Consult the JS rendering docs for details: https://jss.sitecore.net/docs/techniques/mvc-integration/javascript-rendering
+# Consult the JS rendering docs for details: https://jss.sitecore.com/docs/techniques/mvc-integration/javascript-rendering
 rendering:
   componentName: SampleRendering
 dataSource:
