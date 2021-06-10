@@ -3,7 +3,7 @@ import { h, defineComponent } from 'vue';
 export interface TextProps {
   /** The text field data. */
   field: {
-    value?: string;
+    value?: string | number;
     editable?: string;
   };
   /**
@@ -36,7 +36,7 @@ export const Text = defineComponent({
   // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
   render(): any {
     const { field, tag, editable, encode } = this.$props;
-    if (!field || (!field.editable && !field.value)) {
+    if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
       return null;
     }
 

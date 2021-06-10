@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { expect } from 'chai';
@@ -9,14 +10,25 @@ import { textField as eeTextData } from '../testData/ee-data';
 describe('<Text />', () => {
   it('should render nothing with missing field', () => {
     const field: any = null;
-    const rendered = mount(<Text field={field} />).find('span');
-    expect(rendered).to.have.length(0);
+    const rendered = mount(<Text field={field} />);
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.be.null;
+  });
+
+  it('should render nothing with empty value', () => {
+    const field = {
+      value: '',
+    };
+    const rendered = mount(<Text field={field} />);
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.be.null;
   });
 
   it('should render nothing with missing editable and value', () => {
     const field = {};
-    const rendered = mount(<Text field={field} />).find('span');
-    expect(rendered).to.have.length(0);
+    const rendered = mount(<Text field={field} />);
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.be.null;
   });
 
   it('should render editable with editable value', () => {
@@ -53,6 +65,51 @@ describe('<Text />', () => {
       value: 'value',
     };
     const rendered = mount(<Text tag="span" field={field} />).find('span');
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.contain('value');
+  });
+
+  it('should render value without tag', () => {
+    const field = {
+      value: 'value',
+    };
+    const rendered = mount(<Text field={field} />);
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.equal('value');
+  });
+
+  it('should render number value', () => {
+    const field = {
+      value: 1.23,
+    };
+    const rendered = mount(<Text field={field} />);
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.equal('1.23');
+  });
+
+  it('should render zero number value', () => {
+    const field = {
+      value: 0,
+    };
+    const rendered = mount(<Text field={field} />);
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.equal('0');
+  });
+
+  it('should render negative number value', () => {
+    const field = {
+      value: -1.23,
+    };
+    const rendered = mount(<Text field={field} />);
+    expect(rendered).to.have.length(1);
+    expect(rendered.html()).to.equal('-1.23');
+  });
+
+  it('should render value without tag', () => {
+    const field = {
+      value: 'value',
+    };
+    const rendered = mount(<Text field={field} />);
     expect(rendered).to.have.length(1);
     expect(rendered.html()).to.contain('value');
   });

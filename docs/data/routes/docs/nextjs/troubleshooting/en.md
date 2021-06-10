@@ -52,7 +52,7 @@ If you encounter unexpected JavaScript errors during the `npm install` or `build
 node -v
 npm -v
 ```
-Note that we test JSS using the **Long Term Support (TLS) versions of Node**. These are typically one major version behind the latest official Node version.
+Note that we test JSS using the **Long Term Support (LTS) versions of Node**. These are typically one major version behind the latest official Node version.
 
 Note that the Node/npm version used by your CI/Production environments may differ from the version your local environment uses. When a project configuration does not require a specific Node/npm version in `package.json`, deployment agents commonly build using the most recent version available or an environment-specific "default" version.
 
