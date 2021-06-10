@@ -85,7 +85,7 @@ export function renderView(callback, path, data, viewBag) {
           return renderToString(app, ctx).then((renderedApp) => {
             // We add the GraphQL state to the SSR state so that we can avoid refetching queries after client load
             // Not using GraphQL? Get rid of this.
-            state.APOLLO_STATE = getStates({ state: graphQLProvider });
+            state.APOLLO_STATE = getStates({ state: graphQLProvider }).state;
             return {
               renderedApp,
               app,
@@ -179,7 +179,10 @@ function initializei18n(state) {
   return i18ninit(state.sitecore.context.language, state.viewBag.dictionary);
 }
 
-// 1. Look at vue-meta, build failed
+// 2. Graphql fetch data on client after fetch on server (APOLLO_STATE is empty);
+// 3. Edit docs
+// 4. Edit code comments.
+
 // 2. Graphql fetch data on client after fetch on server (APOLLO_STATE is empty);
 // 3. Edit docs
 // 4. Edit code comments.

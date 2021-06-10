@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { getCurrentInstance, defineComponent } from 'vue';
+import { getCurrentInstance, defineComponent, watch } from 'vue';
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
 import { useQuery } from "@vue/apollo-composable/dist/useQuery";
 
@@ -98,6 +98,20 @@ export default defineComponent({
       loading,
       error,
     }
-  }
+  },
+  // Workaround for issue https://github.com/vuejs/vue-apollo/issues/1100
+  // Prefetch is not working using Composition API
+  async serverPrefetch() {
+    return new Promise((resolve, reject) => {
+      watch(
+        () => this.loading,
+        () => resolve({}),
+      );
+      watch(
+        () => this.error,
+        () => reject(),
+      );
+    });
+  },
 });
 </script>

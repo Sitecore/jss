@@ -19,6 +19,17 @@ const vueConfig = {
     config.target = 'node';
     config.output.filename = 'server.bundle.js';
     config.output.libraryTarget = 'this'; // libraryTarget: 'this' is required for use with Sitecore JavaScriptViewEngine
+
+    // vue-meta is exported in ESM format, we have to process it by webpack
+    // https://github.com/nuxt/vue-meta/issues/684
+    config.module.rules.unshift({
+      test: /\.js$/,
+      include: [path.resolve(__dirname, '../node_modules/vue-meta')],
+      use: {
+        loader: 'babel-loader',
+      },
+    });
+
     config.module.rules.push({
       test: /\.html$/,
       exclude: /node_modules/,
