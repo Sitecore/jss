@@ -15,7 +15,7 @@ export interface WithDatasourceCheckProps {
 export interface WithDatasourceCheckOptions {
   /**
    * A component that is rendered when a datasource is missing during editing.
-   * If unspecified, a default component with message are displayed.
+   * If unspecified, a default component with message is displayed.
    */
   editingErrorComponent?: React.ComponentClass<unknown> | React.FC<unknown>;
 }
@@ -25,7 +25,7 @@ export interface WithDatasourceCheckOptions {
  * @param {WithDatasourceCheckOptions} [options]
  * @returns
  *  The wrapped component, if a datasource is present.
- *  An empty component (in normal mode) or an error component (in editing mode), if a datasource is not present.
+ *  A null component (in normal mode) or an error component (in editing mode), if a datasource is not present.
  */
 export function withDatasourceCheck(options?: WithDatasourceCheckOptions) {
   return function withDatasourceCheckHoc<P extends WithDatasourceCheckProps>(
