@@ -7,11 +7,11 @@
 <template>
   <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-layout-reuse">
     <!--
-      This placeholder is using a _scoped slot_ to enable customizing the markup for each component within.
+      This placeholder is using a _slot_ to enable customizing the markup for each component within.
       In this case, it's placing each component in its own column of a flexbox layout - giving an n-up columnar layout.
       The component itself does not need to know it's living in a columnar layout.
 
-      The default scoped slot receives an array of Vue component definitions. These are dynamic components instantiated by
+      The default _slot_ receives an array of Vue component definitions. These are dynamic components instantiated by
       the Placeholder component from the layout service data for the placeholder.
       Note: in Experience Editor (EE), the array of components will contain EE specific components/elements, e.g. <code /> elements.
       You can conditionally handle those by using the `component.isxEditorComponent` property,

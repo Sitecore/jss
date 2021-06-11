@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     routeData() {
-      // this.$jss is defined on the Vue instance by the SitecoreJssPlugin and provides
+      // this.$jss is defined on the App instance by the SitecoreJssPlugin and provides
       // reactive access to the root level route data provided in layout service data.
       return this.$jss.routeData();
     },

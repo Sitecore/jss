@@ -10,15 +10,8 @@
       manage GraphQL queries.
     </p>
     <p>
-      <strong>NOTE:</strong> when using the <code>vue-apollo</code> library prefetch option,
-      GraphQL queries are executed <em>prior</em> to app rendering, so queries do not have access to
-      the component instance, i.e. <code>this</code>.
-      Unfortunately, that means no "easy" access to rendering data for the component.
-      You do have access to the full SSR layout service data via the <code>state</code> object that JSS passes in to
-      the query during SSR, but you'll need to resolve any data from that object manually. Also important to
-      note that this is not a limitation of Sitecore JSS but rather the <code>vue-apollo</code> library. Ideally,
-      that library would implement a <code>renderToStringWithData</code> method similar to <code>react-apollo</code>
-      that would allow queries to execute with instantiated components.
+      <strong>NOTE:</strong> when using the <code>useQuery</code> prefetch option,
+      GraphQL queries are executed <em>prior</em> to app rendering.
     </p>
     <p>
       Expected behavior for this component:
@@ -101,6 +94,7 @@ export default defineComponent({
   },
   // Workaround for issue https://github.com/vuejs/vue-apollo/issues/1100
   // Prefetch is not working using Composition API
+  // Currently @vue/apollo doesn't support Option (Classic) API
   async serverPrefetch() {
     return new Promise((resolve, reject) => {
       watch(

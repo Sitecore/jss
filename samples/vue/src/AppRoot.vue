@@ -23,10 +23,10 @@ export default {
   },
   methods: {
     changeAppLanguage(language) {
-      // Changing languages is an async action, therefore the `languageIsChanging` property can be used
-      // to show a loading/switching screen when language is being changed.
       const i18n = this.$i18n;
       if (i18n.locale !== language) {
+        // Changing languages is an async action, therefore the `languageIsChanging` property can be used
+        // to show a loading/switching screen when language is being changed.
         this.languageIsChanging = true;
 
         fetchDictionary(language).then((phrases) => {

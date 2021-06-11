@@ -6,7 +6,7 @@
   <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-sitecore-context">
     <p>The current Sitecore Context is...</p>
     <!--
-      this.$jss is defined on the Vue instance by the SitecoreJssPlugin and provides
+      this.$jss is defined on the App instance by the SitecoreJssPlugin and provides
       reactive access to the `sitecoreContext` provided in layout service data.
     -->
     <pre :style="{ maxHeight: '400px', overflow: 'scroll' }">

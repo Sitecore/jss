@@ -29,7 +29,7 @@ export default {
 
     // To take advantage of Vue's reactive data for tracking app state changes, we need
     // to reference the same `state` object that the $jss store references in order for mutations to be observed.
-    // $jss is attached to the Vue instance via `SitecoreJssPlugin`.
+    // $jss is attached to the App instance via `SitecoreJssPlugin`.
     const appState = this.$jss.store.state;
 
     // if the app state has routeData, we don't need to load it and don't need a loading screen

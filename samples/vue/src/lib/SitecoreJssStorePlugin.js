@@ -22,10 +22,10 @@ const store = {
 };
 
 // Vue plugins must export a function named 'install'
-function install(Vue) {
-  Vue.config.globalProperties.$jss = {
+function install(App) {
+  App.config.globalProperties.$jss = {
     // there may be other JSS plugins installed, merge existing properties
-    ...(Vue.config.globalProperties.$jss || {}),
+    ...(App.config.globalProperties.$jss || {}),
     store,
     sitecoreContext() {
       // this is intended only as a convenience function for easier access to the current context.
