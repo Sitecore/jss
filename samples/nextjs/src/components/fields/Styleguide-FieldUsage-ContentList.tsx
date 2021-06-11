@@ -1,4 +1,4 @@
-import { Field, Text, Item } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Text, Item, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
@@ -52,4 +52,4 @@ const StyleguideFieldUsageContentList = (
   );
 };
 
-export default StyleguideFieldUsageContentList;
+export default withDatasourceCheck()(StyleguideFieldUsageContentList);

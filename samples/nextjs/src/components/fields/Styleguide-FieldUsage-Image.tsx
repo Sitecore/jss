@@ -1,4 +1,4 @@
-import { Image, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Image, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
@@ -54,4 +54,4 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
   </StyleguideSpecimen>
 );
 
-export default StyleguideFieldUsageImage;
+export default withDatasourceCheck()(StyleguideFieldUsageImage);

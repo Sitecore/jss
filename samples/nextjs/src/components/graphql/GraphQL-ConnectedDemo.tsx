@@ -7,6 +7,7 @@ import {
   useComponentProps,
   JSS_MODE_DISCONNECTED,
   GraphQLRequestClient,
+  withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
 import {
@@ -141,4 +142,4 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
   return result;
 };
 
-export default GraphQLConnectedDemo;
+export default withDatasourceCheck()(GraphQLConnectedDemo);
