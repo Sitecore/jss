@@ -100,4 +100,5 @@ export {
   useSitecoreContext,
   withExperienceEditorChromes,
   withPlaceholder,
+  withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-react';

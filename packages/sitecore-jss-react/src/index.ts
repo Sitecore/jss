@@ -36,3 +36,4 @@ export {
 export { withSitecoreContext, useSitecoreContext } from './enhancers/withSitecoreContext';
 export { withExperienceEditorChromes } from './enhancers/withExperienceEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
+export { withDatasourceCheck } from './enhancers/withDatasourceCheck';
