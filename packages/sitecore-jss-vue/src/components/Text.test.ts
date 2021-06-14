@@ -37,8 +37,8 @@ describe('<Text />', () => {
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
-    const rendered = mount(Text, { context: { props } });
-    expect(rendered.isEmpty()).toBe(true);
+    const rendered = mount(Text, { props });
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
   });
 
@@ -96,7 +96,7 @@ describe('<Text />', () => {
         value: 1.23,
       },
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value.toString());
   });
@@ -107,7 +107,7 @@ describe('<Text />', () => {
         value: 0,
       },
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value.toString());
   });

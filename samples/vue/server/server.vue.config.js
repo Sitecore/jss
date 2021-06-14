@@ -27,6 +27,9 @@ const vueConfig = {
       include: [path.resolve(__dirname, '../node_modules/vue-meta')],
       use: {
         loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
       },
     });
 

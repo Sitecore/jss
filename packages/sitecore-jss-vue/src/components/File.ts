@@ -25,11 +25,7 @@ export const File = defineComponent({
       required: true,
     },
   },
-
-  // Need to assign `any` return type because Vue type definitions are inaccurate.
-  // The Vue type definitions set `render` to a return type of VNode and that's it.
-  // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
-  render(): any {
+  render() {
     const { field } = this.$props;
 
     /*
@@ -50,9 +46,9 @@ export const File = defineComponent({
     }
 
     const linkText = file.title || file.displayName;
-    // in functional components, context.data should be passed along to the
+    // this.$data should be passed along to the
     // `createElement` function in order to retain attributes and events
-    // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
+    // https://v3.vuejs.org/guide/render-function.html#render-functions
     const data = { ...this.$data, ...this.$attrs, href: file.src };
     return h('a', data, linkText);
   },

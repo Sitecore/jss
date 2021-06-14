@@ -68,17 +68,16 @@ export function providePlaceholders(
 
       const placeholderData = getPlaceholderDataFromRenderingData(renderingData, placeholderName);
       if (placeholderData) {
-        // eslint-disable-next-line no-param-reassign
-        result = {
-          ...result,
-          [computedPropName]: () => {
+        Object.defineProperty(result, computedPropName, {
+          get: function() {
             return getDynamicComponentsFromRenderingData(
               placeholderData,
               { ...propsData, ...vm.$attrs },
               (options && options.componentFactory) || componentFactory
             );
           },
-        };
+          enumerable: true,
+        });
       }
       return result;
     },

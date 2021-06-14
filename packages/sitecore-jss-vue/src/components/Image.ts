@@ -80,8 +80,6 @@ const getImageAttrs = (
   return newAttrs;
 };
 
-// custom comment to enable eslint vue plugin for Vue components as objects: https://github.com/vuejs/eslint-plugin-vue#attention
-// @vue/component
 export const Image = defineComponent({
   inheritAttrs: false,
   props: {
@@ -90,9 +88,6 @@ export const Image = defineComponent({
     imageParams: { type: Object, default: () => ({}) },
     mediaUrlPrefix: { type: RegExp, default: undefined },
   },
-  // Need to assign `any` return type because Vue type definitions are inaccurate.
-  // The Vue type definitions set `render` to a return type of VNode and that's it.
-  // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
   render() {
     const { media, editable, imageParams, mediaUrlPrefix } = this.$props;
     const contextAttrs = this.$attrs;
@@ -130,9 +125,9 @@ export const Image = defineComponent({
 
     const attrs = getImageAttrs({ ...img, ...contextAttrs }, imageParams, mediaUrlPrefix);
     if (attrs) {
-      // in functional components, context.data should be passed along to the
+      // this.$data should be passed along to the
       // `createElement` function in order to retain attributes and events
-      // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
+      // https://v3.vuejs.org/guide/render-function.html#render-functions
       const data = { ...this.$data, ...attrs };
       return h('img', data);
     }

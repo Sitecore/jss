@@ -15,7 +15,7 @@
       -->
       <template v-if="!isEditing">
         <li
-          v-for="(tab, index) in $options.computed.tabsPlaceholder()"
+          v-for="(tab, index) in $options.computed.tabsPlaceholder"
           :key="`tab${index}`"
           class="nav-item"
         >
@@ -36,7 +36,7 @@
           Note: additional props passed to the `<component />` here will not be forwarded to the actual Tab component.
         -->
         <component
-          v-for="(tab, index) in $options.computed.tabsPlaceholder()"
+          v-for="(tab, index) in $options.computed.tabsPlaceholder"
           :is="tab"
           :key="`tab${index}`"
         />
@@ -98,7 +98,7 @@ export default {
     activeTab() {
       const tab =
         this.$options.computed.tabsPlaceholder &&
-        this.$options.computed.tabsPlaceholder()[this.activeTabIndex];
+        this.$options.computed.tabsPlaceholder[this.activeTabIndex];
       return tab;
     },
   },

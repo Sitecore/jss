@@ -81,7 +81,6 @@ export const getPlaceholderDataFromRenderingData = (
  * @see convertVNodesToDynamicComponents or @see getDynamicComponentsFromRenderingData for options.
  * @param {Array<ComponentRendering | HtmlElementRendering>} placeholderData
  * @param {PlaceholderProps} placeholderProps
- * @param {CreateElement} createVueElement
  * @param {ComponentFactory} [componentFactory]
  * @returns {VNode[]} vnodes
  */
@@ -134,7 +133,6 @@ export function getVNodesForRenderingData(
  * to return "renderable" components, i.e. components that can be rendered in a Vue template, a.k.a. dynamic components.
  * @param {Array<ComponentRendering | HtmlElementRendering>} placeholderData
  * @param {PlaceholderProps} placeholderProps
- * @param {CreateElement} createVueElement
  * @param {ComponentFactory} componentFactory
  * @returns {JssDynamicComponent[]} dynamic components
  */
@@ -149,7 +147,7 @@ export function getDynamicComponentsFromRenderingData(
 }
 
 /**
- * Converts VNodes to simple functional components that render the vnode.
+ * Converts VNodes to components that render the vnode.
  * Also evaluates VNodes to determine if they are Experience Editor components/elements and if so,
  * adds an identifying property to the component.
  * @param {VNode[]} vnodes
@@ -175,7 +173,6 @@ export function convertVNodesToDynamicComponents(vnodes: VNode[]) {
 
 /**
  * @param {any} elem
- * @param {CreateElement} createVueElement
  */
 function createRawElement(elem: any) {
   if (!elem.name) {

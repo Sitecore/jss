@@ -9,18 +9,18 @@ export interface SitecoreJssPlaceholderPluginOptions {
 /**
  * Vue plugins must export a function named 'install'
  *
- * @param {typeof _Vue} Vue
+ * @param {App} app
  * @param {SitecoreJssPlaceholderPluginOptions} options
  */
-function install(Vue, options?: SitecoreJssPlaceholderPluginOptions) {
+function install(app, options?: SitecoreJssPlaceholderPluginOptions) {
   // eslint-disable-next-line no-param-reassign
-  Vue.config.globalProperties.$jss = {
+  app.config.globalProperties.$jss = {
     // there may be other JSS plugins installed
-    ...Vue.config.globalProperties.$jss,
+    ...app.config.globalProperties.$jss,
     componentFactory: options && options.componentFactory,
   };
 
-  Vue.mixin({
+  app.mixin({
     beforeCreate() {
       providePlaceholders(this, options && options.componentFactory);
     },

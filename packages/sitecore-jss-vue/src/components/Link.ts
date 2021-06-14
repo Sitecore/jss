@@ -47,10 +47,7 @@ export const Link = defineComponent({
       default: false,
     },
   },
-  // Need to assign `any` return type because Vue type definitions are inaccurate.
-  // The Vue type definitions set `render` to a return type of VNode and that's it.
-  // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
-  render(): any {
+  render() {
     const { field, editable, showLinkTextWithChildrenPresent } = this.$props;
     const children = this.$slots.default;
 
@@ -72,9 +69,9 @@ export const Link = defineComponent({
 
       markup += dynamicField.editableLastPart;
 
-      // in functional components, context.data should be passed along to the
+      // this.$data should be passed along to the
       // `createElement` function in order to retain attributes and events
-      // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
+      // https://v3.vuejs.org/guide/render-function.html#render-functions
       const elementData = {
         ...this.$data,
         class: 'sc-link-wrapper',
@@ -105,9 +102,9 @@ export const Link = defineComponent({
 
     const finalChildren = children ? [linkText, ...children()] : linkText;
 
-    // in functional components, context.data should be passed along to the
-    // `h` function in order to retain attributes and events
-    // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
+    // this.$data should be passed along to the
+    // `createElement` function in order to retain attributes and events
+    // https://v3.vuejs.org/guide/render-function.html#render-functions
     const data = {
       ...this.$data,
       class: link.class,

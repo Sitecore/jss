@@ -32,9 +32,9 @@ The library provides helper components to help output Sitecore field values.
 
 > The helper components that are exposed from `sitecore-jss-vue` are all stateless functional components with the exception of `Placeholder`, which is a typical stateful component.
 
-> In accordance with Vue's [recommendations for functional components](https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components), any non-prop attributes passed to the component will be rendered as html attributes on the enclosing tag. Events that are passed will be propagated as well.
+> In accordance with Vue's [attribute inheritance](https://v3.vuejs.org/guide/component-attrs.html#attribute-inheritance), any non-prop attributes passed to the component will be rendered as html attributes on the enclosing tag. Events that are passed will be propagated as well.
 
-> It is also important to note that _none_ of the helper components exposed from `sitecore-jss-vue` are registered globally, e.g. via `Vue.component()`. This is intentional so as not to pollute the global component space and also to align with the tree-shaking capabilities of bundling tools like Webpack or Rollup. Therefore you will need to locally require/import any of the helper components you wish to use in your own components.
+> It is also important to note that _none_ of the helper components exposed from `sitecore-jss-vue` are registered globally, e.g. via `app.component()`. This is intentional so as not to pollute the global component space and also to align with the tree-shaking capabilities of bundling tools like Webpack or Rollup. Therefore you will need to locally require/import any of the helper components you wish to use in your own components.
 
 Below is a list of all supported field helper components, and how they are used (where `field` is data coming from a placeholder component):
 

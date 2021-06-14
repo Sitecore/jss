@@ -118,14 +118,16 @@ export function renderView(callback, path, data, viewBag) {
             isJSON: true,
           })}`
         );
-        // render vue-meta data
-        html = assertReplace(
-          html,
-          '<html>',
-          `<html data-vue-meta-server-rendered ${meta.teleports.htmlAttrs || ''}>`
-        );
-        html = assertReplace(html, '<head>', `<head>${meta.teleports.head || ''}`);
-        html = assertReplace(html, '<body>', `<body ${meta.teleports.bodyAttrs || ''}>`);
+        if (meta.teleports) {
+          // render vue-meta data
+          html = assertReplace(
+            html,
+            '<html>',
+            `<html data-vue-meta-server-rendered ${meta.teleports.htmlAttrs || ''}>`
+          );
+          html = assertReplace(html, '<head>', `<head>${meta.teleports.head || ''}`);
+          html = assertReplace(html, '<body>', `<body ${meta.teleports.bodyAttrs || ''}>`);
+        }
 
         callback(null, {
           html,
@@ -158,8 +160,14 @@ export function parseRouteUrl(url) {
   // note: createRouter() creates a router with mode set to 'history'. This is for client-side rendering.
   // vue-router will automatically switch to 'abstract' mode when not running in browser (i.e. server-side rendering).
   const router = createRouter(true);
-  const match = router.resolve(url).params;
-  return match && match.params ? match.params : null;
+  const match = router.resolve(url);
+
+  if (!match || !match.params) return null;
+
+  // vue-router provides array instead of string
+  match.params.sitecoreRoute = match.params.sitecoreRoute ? match.params.sitecoreRoute.join('/') : undefined
+
+  return match.params;
 }
 
 function parseServerData(data, viewBag) {
