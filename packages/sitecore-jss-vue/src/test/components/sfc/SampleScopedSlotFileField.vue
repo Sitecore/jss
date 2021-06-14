@@ -1,11 +1,11 @@
 <template>
   <div class="file-mock-sfc">
     <sc-file :field="fields.file">
-			<template v-slot="file">
-				<button v-on:click="doIt(file.src)">
-					<span>{{ file.title || file.displayName }}</span>
-				</button>
-			</template>
+      <template v-slot="file">
+        <button v-on:click="doIt(file.src)">
+          <span>{{ file.title || file.displayName }}</span>
+        </button>
+      </template>
     </sc-file>
   </div>
 </template>
@@ -32,7 +32,4 @@ export default defineComponent({
 });
 </script>
 
-<style>
-</style>
-
-
+<style></style>

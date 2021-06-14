@@ -14,7 +14,6 @@ const vueConfig = {
       mainFields: ['main', 'module'],
     };
 
-    // config.resolve.extensions = [...config.resolve.extensions, '.mjs']
     config.entry = path.resolve(__dirname, 'server.js');
     config.target = 'node';
     config.output.filename = 'server.bundle.js';

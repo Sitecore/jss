@@ -65,21 +65,7 @@ export function renderView(callback, path, data, viewBag) {
 
         // since there could potentially be asynchronous route hooks or components,
         // we will be returning a Promise so that we can wait until everything is ready before rendering.
-        return new Promise((resolve, reject) => {
-          router
-            .isReady()
-            .then(() => {
-              var matchedComponents = router.currentRoute.value.matched.flatMap((record) =>
-                Object.values(record.components)
-              );
-              // no matched routes, reject
-              if (!matchedComponents.length) {
-                reject(new Error(`No matched components found by router for route '${path}'`));
-              }
-              resolve(matchedComponents);
-            })
-            .catch(reject);
-        }).then(() => {
+        return router.isReady().then(() => {
           // `renderToString` expects an actual `App` instance
           // `renderToString` returns a promise
           return renderToString(app, ctx).then((renderedApp) => {
@@ -165,7 +151,9 @@ export function parseRouteUrl(url) {
   if (!match || !match.params) return null;
 
   // vue-router provides array instead of string
-  match.params.sitecoreRoute = match.params.sitecoreRoute ? match.params.sitecoreRoute.join('/') : undefined
+  match.params.sitecoreRoute = match.params.sitecoreRoute
+    ? match.params.sitecoreRoute.join('/')
+    : undefined;
 
   return match.params;
 }
@@ -182,6 +170,7 @@ function parseServerData(data, viewBag) {
 
 function initializei18n(state) {
   // don't init i18n for not found routes
+  console.log('STATE........',state  );
   if (!state || !state.sitecore || !state.sitecore.context) return Promise.resolve();
 
   return i18ninit(state.sitecore.context.language, state.viewBag.dictionary);

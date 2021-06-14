@@ -1,7 +1,12 @@
 <template>
   <div class="home-mock-sfc">
     <placeholder name="page-header" :rendering="rendering" />
-    <placeholder name="page-content" :rendering="rendering" :arbitrary="arbitrary" v-bind="{ fields, params }" />
+    <placeholder
+      name="page-content"
+      :rendering="rendering"
+      :arbitrary="arbitrary"
+      v-bind="{ fields, params }"
+    />
   </div>
 </template>
 
@@ -27,7 +32,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
-
-
+<style></style>

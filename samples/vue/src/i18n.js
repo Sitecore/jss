@@ -34,7 +34,9 @@ export default function i18nInit(language, dictionary) {
     if (dictionary) {
       const i18n = createI18n({
         fallbackLocale: false,
-        messages: dictionary,
+        messages: {
+          [language]: dictionary,
+        },
         locale: language,
       });
 

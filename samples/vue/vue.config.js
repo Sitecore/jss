@@ -55,6 +55,7 @@ vueConfig.configureWebpack = (config) => {
     config.resolve.extensions.splice(indexOfMjs, 1);
   }
 
+  // We should import same Vue instance, even if we are using symlink with sitecore-jss-vue
   config.resolve.alias.vue = path.resolve(__dirname, 'node_modules/vue');
 
   config.module.rules.push({

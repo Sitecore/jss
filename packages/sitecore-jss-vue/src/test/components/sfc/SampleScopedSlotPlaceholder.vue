@@ -1,16 +1,16 @@
 <template>
   <div class="placeholder-scoped-slot-mock-sfc">
     <sc-placeholder :name="name" :rendering="rendering" :componentFactory="componentFactory">
-			<template v-slot="{components, isEmpty}">
-				<ul>
-					<template v-for="(component, index) in components" >
-						<li v-if="!component.isxEditorComponent" :key="index">
-							<component :is="component" />
-						</li>
-						<component v-else :is="component" :key="index + 1"/>
-					</template>
-				</ul>
-			</template>
+      <template v-slot="{ components, isEmpty }">
+        <ul>
+          <template v-for="(component, index) in components">
+            <li v-if="!component.isxEditorComponent" :key="index">
+              <component :is="component" />
+            </li>
+            <component v-else :is="component" :key="index + 1" />
+          </template>
+        </ul>
+      </template>
     </sc-placeholder>
   </div>
 </template>
@@ -32,7 +32,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
-
-
+<style></style>
