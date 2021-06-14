@@ -49,6 +49,20 @@ describe('withDatasourceCheck', () => {
     expect(wrapper.html()).to.be.null;
   });
 
+	it('should return null if rendering missing in normal mode', () => {
+    const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
+    const props = {} as any;
+
+    const wrapper = mount(
+      <SitecoreContextReactContext.Provider value={mockContext(false)}>
+        <TestComponentWithDatasourceCheck {...props} />
+      </SitecoreContextReactContext.Provider>
+    );
+
+    expect(wrapper).to.have.length(1);
+    expect(wrapper.html()).to.be.null;
+  });
+
   it('should return default error component if datasource missing in editing mode', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const props = {

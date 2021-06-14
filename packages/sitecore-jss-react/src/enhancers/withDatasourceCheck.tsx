@@ -28,10 +28,10 @@ export interface WithDatasourceCheckOptions {
  *  A null component (in normal mode) or an error component (in editing mode), if a datasource is not present.
  */
 export function withDatasourceCheck(options?: WithDatasourceCheckOptions) {
-  return function withDatasourceCheckHoc<P extends WithDatasourceCheckProps>(
-    Component: React.ComponentType<P>
+  return function withDatasourceCheckHoc<ComponentProps extends WithDatasourceCheckProps>(
+    Component: React.ComponentType<ComponentProps>
   ) {
-    return function WithDatasourceCheck(props: P) {
+    return function WithDatasourceCheck(props: ComponentProps) {
       const { sitecoreContext } = useSitecoreContext<{ pageEditing: boolean }>();
       const EditingError = options?.editingErrorComponent ?? DefaultEditingError;
 
