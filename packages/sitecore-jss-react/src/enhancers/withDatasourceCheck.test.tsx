@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
@@ -49,7 +50,7 @@ describe('withDatasourceCheck', () => {
     expect(wrapper.html()).to.be.null;
   });
 
-	it('should return null if rendering missing in normal mode', () => {
+  it('should return null if rendering missing in normal mode', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const props = {} as any;
 
