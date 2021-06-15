@@ -89,7 +89,7 @@ const nextConfig = {
   webpack: (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);
 
-    config.resolve.symlinks = false
+    // config.resolve.symlinks = false
 
     return config;
   },
