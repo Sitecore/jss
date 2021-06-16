@@ -35,8 +35,6 @@ export const Text: FunctionComponent<TextProps> = ({
     return null;
   }
 
-  console.log('LOG VALUES FOR <TEXT/> component:', field);
-
   // can't use editable value if we want to output unencoded
   if (!encode) {
     // eslint-disable-next-line no-param-reassign
