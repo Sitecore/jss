@@ -10,6 +10,8 @@ JSS supports headless server-side rendering using any service that supports host
 
 All Sitecore marketing features are supported by this headless mode, including personalization, tracking, multivariate testing, etc.
 
+ > NodeJS is a third-party technology that you must configure according to your specific use-case scenarios for Headless mode.
+
 ## How to use
 
 1. Clone [the JSS samples repository](https://github.com/sitecore/jss) and copy the `samples/node-headless-ssr-proxy` folder to your disk, for example: `c:\jss-headless`.
