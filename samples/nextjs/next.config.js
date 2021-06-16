@@ -7,6 +7,7 @@ const isDisconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
 
 // A public URL (and uses below) is required for Sitecore Experience Editor support.
 // This is set to http://localhost:3000 by default. See .env for more details.
+// VERCEL_URL is provided in case if we are in Preview deployment
 const publicUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.PUBLIC_URL;
 
 const nextConfig = {
