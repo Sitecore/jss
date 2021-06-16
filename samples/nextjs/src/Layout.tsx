@@ -2,11 +2,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useI18n } from 'next-localization';
-import { getPublicUrl } from 'lib/util';
 import {
   Placeholder,
   VisitorIdentification,
   useSitecoreContext,
+  getPublicUrl,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
 
