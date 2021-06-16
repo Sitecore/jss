@@ -1,15 +1,11 @@
 const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
-const { JSS_MODE_DISCONNECTED } = require('@sitecore-jss/sitecore-jss-nextjs');
+const { JSS_MODE_DISCONNECTED, getPublicUrl } = require('@sitecore-jss/sitecore-jss-nextjs');
 
 const disconnectedServerUrl = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
 const isDisconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
 
-// A public URL (and uses below) is required for Sitecore Experience Editor support.
-// This is set to http://localhost:3000 by default. See .env for more details.
-// VERCEL_URL is provided by Vercel in case if we are in Preview deployment (deployment based on the custom branch),
-// preview deployment has unique url, we don't know exact url.
-const publicUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.PUBLIC_URL;
+const publicUrl = getPublicUrl();
 
 const nextConfig = {
 
