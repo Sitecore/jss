@@ -6,6 +6,7 @@ describe('utils', () => {
   describe('getPublicUrl', () => {
     after(() => {
       delete process.env.PUBLIC_URL;
+      delete process.env.VERCEL_URL;
     });
 
     it('should fallback to localhost:3000 if not defined', () => {
@@ -31,6 +32,12 @@ describe('utils', () => {
       process.env.PUBLIC_URL = 'nope';
       expect(() => getPublicUrl()).to.throw();
     });
+
+    it('should use VERCEL_URL', () => {
+      process.env.VERCEL_URL = 'jss.uniqueid.vercel.com';
+      const result = getPublicUrl();
+      expect(result).to.equal('https://jss.uniqueid.vercel.com');
+    })
   });
   describe('getJssEditingSecret', () => {
     after(() => {

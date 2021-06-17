@@ -48,6 +48,17 @@ describe('<span *scText />', () => {
     expect(rendered).toBe('');
   });
 
+  it('should render nothing with empty value', () => {
+    const field = {
+      value: '',
+    };
+
+    comp.field = field;
+    fixture.detectChanges();
+    const rendered = de.nativeElement.innerHTML;
+    expect(rendered).toBe('');
+  });
+
   it('should render editable with editable value', () => {
     const field = {
       value: 'value',
@@ -95,6 +106,28 @@ describe('<span *scText />', () => {
 
     const rendered = de.nativeElement.innerHTML;
     expect(rendered).toBe('value');
+  });
+
+  it('should render number value', () => {
+    const field = {
+      value: 1.23,
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.nativeElement.innerHTML;
+    expect(rendered).toBe('1.23');
+  });
+
+  it('should render zero number value', () => {
+    const field = {
+      value: 0,
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.nativeElement.innerHTML;
+    expect(rendered).toBe('0');
   });
 
   it('should render embedded html as-is when encoding is disabled', () => {

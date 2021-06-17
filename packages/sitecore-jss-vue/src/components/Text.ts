@@ -3,7 +3,7 @@ import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
 export interface TextProps {
   /** The text field data. */
   field: {
-    value?: string;
+    value?: string | number;
     editable?: string;
   };
   /**
@@ -36,7 +36,7 @@ export const Text: FunctionalComponentOptions<TextProps> = {
   // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
   render(createElement: CreateElement, context: RenderContext): any {
     const { field, tag, editable, encode } = context.props;
-    if (!field || (!field.editable && !field.value)) {
+    if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
       return null;
     }
 

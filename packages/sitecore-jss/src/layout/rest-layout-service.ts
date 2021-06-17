@@ -139,6 +139,11 @@ export type RestLayoutServiceConfig = {
    * Function that handles fetching API data
    */
   dataFetcherResolver?: DataFetcherResolver;
+
+  /**
+   * Layout Service "named" configuration
+   */
+  configurationName?: string;
 };
 
 /**
@@ -193,11 +198,11 @@ export class RestLayoutService extends LayoutServiceBase {
         // {
         //   sitecore: {
         //     context: {
-        //			   pageEditing: false,
-        //				 language
-        //		 },
-        //		 route: null
-        //	 },
+        //       pageEditing: false,
+        //       language
+        //     },
+        //     route: null
+        //   },
         // }
         //
         return error.response.data;
@@ -257,6 +262,7 @@ export class RestLayoutService extends LayoutServiceBase {
     return {
       layoutServiceConfig: {
         host: this.serviceConfig.apiHost,
+        configurationName: this.serviceConfig.configurationName,
       },
       querystringParams: { ...params },
     };
