@@ -49,7 +49,7 @@ The JSS CLI is used to create applications, which can be created from a several 
 
 > Which framework you use for JSS is a matter of opinion. JSS provides equal support to React, Vue, and Angular. If you're a newcomer to modern frontend development and don't have your own opinion yet, React or Vue are the easiest to get started with.
 
-### App Starter Templates
+### App Samples
 
 These are the main templates that should be used when you're getting started with JSS. They were designed as examples of JSS application starting points, and they contain StyleGuides that demonstrate how to work with JSS components using your chosen JS framework.
 
