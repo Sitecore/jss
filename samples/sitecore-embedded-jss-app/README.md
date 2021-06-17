@@ -2,7 +2,7 @@
 
 Demonstrates embedding a JSS React application within a non-JSS Sitecore site. Useful for sites where a full JS application is not desired, but smaller applications are still needed within a larger whole.
 
-Consult the primary JSS documentation at https://jss.sitecore.net for the latest documentation on JSS.
+Consult the primary JSS documentation at https://jss.sitecore.com for the latest documentation on JSS.
 
 # Setup
 
