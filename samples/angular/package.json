@@ -41,7 +41,7 @@
   "private": true,
   "author": {
     "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "url": "https://jss.sitecore.com"
   },
   "repository": {
     "type": "git",
@@ -50,7 +50,7 @@
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
-  "homepage": "https://jss.sitecore.net",
+  "homepage": "https://jss.sitecore.com",
   "license": "Apache-2.0",
   "dependencies": {
     "@angular/animations": "~11.2.6",

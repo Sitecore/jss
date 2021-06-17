@@ -67,7 +67,7 @@ Connected mode essentially means that all route data and network images for your
 
 `start-ios:connected`
 
-For more information on Connected mode, please refer to the official Sitecore JSS documentation: https://jss.sitecore.net/#/application-modes?id=connected-developer-mode
+For more information on Connected mode, please refer to the official Sitecore JSS documentation: https://jss.sitecore.com/#/application-modes?id=connected-developer-mode
 
 ### Connected Tunnel Mode
 

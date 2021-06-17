@@ -10,7 +10,7 @@ You can use this as a starting point to unlock deployment of your JSS apps to an
 
 ## Pre-requisites
 
-1.  Your Sitecore instance needs to be configured with JSS.Server and the API Key provisioned. Read more [here](https://jss.sitecore.net/docs/getting-started/jss-server-install) how to set it up.
+1.  Your Sitecore instance needs to be configured with JSS.Server and the API Key provisioned. Read more [here](https://jss.sitecore.com/docs/getting-started/jss-server-install) how to set it up.
 
     > LayoutService API should be returning output if you make the following request to your Sitecore instance. `http://sitecore-host/sitecore/api/layout/render/jss?item=/&sc_apikey={YOUR_API_KEY}`
 
