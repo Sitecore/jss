@@ -20,7 +20,7 @@ The installation process for all the necessary Android/iOS dependencies and tool
 
 1. Ensure you have completed the Prerequisites section and have confirmed you're able to run the `AwesomeProject` sample that the instructions direct you to create.
 
-1. At this point, you can follow steps 1 and 2 from the JSS Quick Start guide: https://jss.sitecore.net/docs/getting-started/quick-start, or the following abbreviated version:
+1. At this point, you can follow steps 1 and 2 from the JSS Quick Start guide: https://jss.sitecore.com/docs/getting-started/quick-start, or the following abbreviated version:
 
 1. In a new folder, clone or download the basic sample app repo: https://github.com/Sitecore/jss/tree/master/samples/react-native
 
@@ -46,13 +46,13 @@ Although the build process is largely the same as "normal" React Native, we've c
 
 - We've added a custom `babel` preset that encapsulates other `babel` plugins that allow us to swap module dependencies at build-time based on the application mode in which you're developing. The basic sample currently uses `disconnected` and `connected` modes along with a new, native-specific, `disconnected-tunnel` mode. More info on that further on in this document.
 
-  - For more information about JSS application modes, please refer to the official Sitecore JSS documentation: https://jss.sitecore.net/#/application-modes?id=jss-application-modes
+  - For more information about JSS application modes, please refer to the official Sitecore JSS documentation: https://jss.sitecore.com/#/application-modes?id=jss-application-modes
 
 - One other customization to build invocation is the addition of the `--reset-cache` argument to the metro bundler `start` script. This argument instructs the bundler to ignore its dependency cache during the build process, which ensures that the `babel` customizations mentioned earlier are invoked and allows you to easily switch between application modes at build time.
 
 # Deployment to Sitecore
 
-All of the standard Sitecore JSS manifest generation and deployment processes are available for this project. You can follow the official guides for [setting up the Sitecore server](https://jss.sitecore.net/docs/getting-started/jss-server-install) and subsequently [deploying your app](https://jss.sitecore.net/docs/getting-started/app-deployment). Once setup and deployment are complete, you will be able to run your JSS app in `connected` or `connected-tunnel` modes.
+All of the standard Sitecore JSS manifest generation and deployment processes are available for this project. You can follow the official guides for [setting up the Sitecore server](https://jss.sitecore.com/docs/getting-started/jss-server-install) and subsequently [deploying your app](https://jss.sitecore.com/docs/getting-started/app-deployment). Once setup and deployment are complete, you will be able to run your JSS app in `connected` or `connected-tunnel` modes.
 
 # Connecting to Sitecore
 
@@ -66,7 +66,7 @@ Connected mode essentially means that all route data and network images for your
 
 `start-ios:connected`
 
-For more information on Connected mode, please refer to the official Sitecore JSS documentation: https://jss.sitecore.net/#/application-modes?id=connected-developer-mode
+For more information on Connected mode, please refer to the official Sitecore JSS documentation: https://jss.sitecore.com/#/application-modes?id=connected-developer-mode
 
 ## Connected Tunnel Mode
 

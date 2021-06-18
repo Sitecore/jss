@@ -49,7 +49,7 @@ The JSS CLI is used to create applications, which can be created from a several 
 
 > Which framework you use for JSS is a matter of opinion. JSS provides equal support to React, Vue, and Angular. If you're a newcomer to modern frontend development and don't have your own opinion yet, React or Vue are the easiest to get started with.
 
-### App Starter Templates
+### App Samples
 
 These are the main templates that should be used when you're getting started with JSS. They were designed as examples of JSS application starting points, and they contain StyleGuides that demonstrate how to work with JSS components using your chosen JS framework.
 
@@ -71,6 +71,8 @@ Experimental templates are specialized JSS examples, showing how to do advanced 
 ### Special Templates
 * `node-headless-ssr-proxy` This app shows how to configure a Node server to act as a proxy between the browser and Sitecore. [Read more here](/docs/techniques/ssr/headless-mode-ssr).
 * `node-headless-ssr-experience-edge` This app shows how to configure SSR for your JSS application using a Sitecore Experience Edge endpoint.
+
+> NodeJS is a third-party technology that you must configure according to your specific use-case scenarios for Headless mode.
 
 ### Deprecated Templates
 * `sitecore-javascript-renderings` This app shows how to render a JavaScript app as a rendering embedded within a traditional Sitecore MVC site. See [JavaScript Renderings](/docs/techniques/mvc-integration/javascript-rendering) for details. This template is flagged as deprecated as of Oct 2020 because these rendering don't scale well. They satisfy edge-case requirements, and should generally be avoided.
