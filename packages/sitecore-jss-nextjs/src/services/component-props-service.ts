@@ -26,7 +26,7 @@ export type ComponentPropsRequest<NextContext> = {
 
 type FetchFunctionFactory<NextContext> = (
   componentName: string
-) => ComponentPropsFetchFunction<NextContext> | undefined;
+) => Promise<ComponentPropsFetchFunction<NextContext> | undefined>;
 
 export class ComponentPropsService {
   /**
@@ -40,8 +40,8 @@ export class ComponentPropsService {
   ): Promise<ComponentPropsCollection> {
     const { componentModule, layoutData, context } = params;
 
-    const fetchFunctionFactory = (componentName: string) => {
-      const module = componentModule(componentName);
+    const fetchFunctionFactory = async (componentName: string) => {
+      const module = await componentModule(componentName);
 
       return module?.getServerSideProps;
     };
@@ -64,8 +64,8 @@ export class ComponentPropsService {
   ): Promise<ComponentPropsCollection> {
     const { componentModule, layoutData, context } = params;
 
-    const fetchFunctionFactory = (componentName: string) => {
-      const module = componentModule(componentName);
+    const fetchFunctionFactory = async (componentName: string) => {
+      const module = await componentModule(componentName);
 
       return module?.getStaticProps;
     };
@@ -91,7 +91,7 @@ export class ComponentPropsService {
     context: NextContext
   ): Promise<ComponentPropsCollection> {
     // Array of side effect functions
-    const requests = this.collectRequests({
+    const requests = await this.collectRequests({
       placeholders: layoutData.sitecore.route?.placeholders,
       fetchFunctionFactory,
       layoutData,
@@ -112,13 +112,13 @@ export class ComponentPropsService {
    * @param {ComponentPropsRequest<NextContext>[]} params.requests
    * @returns {ComponentPropsRequest<NextContext>[]} array of requests
    */
-  protected collectRequests<NextContext>(params: {
+  protected async collectRequests<NextContext>(params: {
     placeholders?: PlaceholdersData;
     fetchFunctionFactory: FetchFunctionFactory<NextContext>;
     layoutData: LayoutServiceData;
     context: NextContext;
     requests?: ComponentPropsRequest<NextContext>[];
-  }): ComponentPropsRequest<NextContext>[] {
+  }): Promise<ComponentPropsRequest<NextContext>[]> {
     const { placeholders = {}, fetchFunctionFactory, layoutData, context } = params;
 
     // Will be called on first round
@@ -128,8 +128,8 @@ export class ComponentPropsService {
 
     const renderings = this.flatRenderings(placeholders);
 
-    renderings.map((r) => {
-      const fetchFunc = fetchFunctionFactory(r.componentName);
+    const actions = renderings.map(async (r) => {
+      const fetchFunc = await fetchFunctionFactory(r.componentName);
 
       if (fetchFunc) {
         params.requests &&
@@ -143,12 +143,14 @@ export class ComponentPropsService {
 
       // If placeholders exist in current rendering
       if (r.placeholders) {
-        this.collectRequests({
+        await this.collectRequests({
           ...params,
           placeholders: r.placeholders,
         });
       }
     });
+
+    await Promise.all(actions);
 
     return params.requests;
   }
