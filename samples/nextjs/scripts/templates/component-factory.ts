@@ -60,7 +60,7 @@ ${components
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports
 // componentFactory uses 'dynamic(...)' because primary usage of it to render 'React Component' (default export).
 // See https://nextjs.org/docs/advanced-features/dynamic-import
-// At the finish you will have single preloaded script for each lazy loading module.
+// At the end you will have single preloaded script for each lazy loading module.
 
 export function componentModule(componentName: string) {
   const component = components.get(componentName);
