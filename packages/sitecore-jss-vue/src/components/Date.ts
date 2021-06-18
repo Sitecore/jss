@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, PropType } from 'vue';
 
 export interface FieldShape {
   value?: string;
@@ -8,43 +8,44 @@ export interface FieldShape {
 export type FormatterFunction = (date: Date | null) => any;
 
 export interface DateProps {
-  /** The date field data. */
-  field: FieldShape;
-  /**
-   * The HTML element that will wrap the contents of the field.
-   */
-  tag?: string;
-  /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `field.editable` has a value, then `field.editable`
-   * will be processed and rendered as component output.
-   * If false, `field.editable` value will be ignored and not rendered.
-   */
-  editable?: boolean;
-  /**
-   * A function that receives the date field value as a parsed JavaScript Date object.
-   * The return value will be rendered as child/children of the wrapping element of the component.
-   */
   formatter?: FormatterFunction;
 }
 
 export const DateField = defineComponent({
   name: 'ScDateField',
   props: {
+    /** The date field data. */
     field: {
-      type: Object,
+      type: Object as PropType<FieldShape>,
+      default() {
+        // Workaround to return explicit type instead of any
+        return {} as FieldShape;
+      },
       required: true,
     },
+    /**
+     * The HTML element that will wrap the contents of the field.
+     */
     tag: {
       type: String,
       default: 'span',
     },
+    /**
+     * Can be used to explicitly disable inline editing.
+     * If true and `field.editable` has a value, then `field.editable`
+     * will be processed and rendered as component output.
+     * If false, `field.editable` value will be ignored and not rendered.
+     */
     editable: {
       type: Boolean,
       default: true,
     },
+    /**
+     * A function that receives the date field value as a parsed JavaScript Date object.
+     * The return value will be rendered as child/children of the wrapping element of the component.
+     */
     formatter: {
-      type: Function,
+      type: Function as PropType<FormatterFunction>,
       default: undefined,
     },
   },

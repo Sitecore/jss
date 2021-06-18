@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, PropType } from 'vue';
 
 export interface FileFieldValue {
   [propName: string]: any;
@@ -11,17 +11,16 @@ export interface FileField {
   value: FileFieldValue;
 }
 
-export interface FileProps {
-  /** The file field data. */
-  field: FileFieldValue | FileField;
-}
-
 export const File = defineComponent({
   name: 'ScFileField',
   inheritAttrs: false,
   props: {
+    /** The file field data. */
     field: {
-      type: Object,
+      type: Object as PropType<FileFieldValue | FileField>,
+      default() {
+        return {} as FileFieldValue | FileField;
+      },
       required: true,
     },
   },

@@ -1,4 +1,13 @@
-import { defineComponent, h, ref, onErrorCaptured, inject, getCurrentInstance } from 'vue';
+import {
+  defineComponent,
+  h,
+  ref,
+  onErrorCaptured,
+  inject,
+  getCurrentInstance,
+  DefineComponent,
+} from 'vue';
+import { ComponentRendering, RouteData, Field, Item } from '@sitecore-jss/sitecore-jss';
 import {
   convertVNodesToDynamicComponents,
   getPlaceholderDataFromRenderingData,
@@ -14,39 +23,46 @@ export const Placeholder = defineComponent({
 
   inheritAttrs: false,
 
+  /**
+   * @type {PlaceholderProps} see PlaceholderCommon.js
+   */
   props: {
     name: {
       type: String,
       required: true,
     },
     rendering: {
-      type: Object,
+      type: Object as () => ComponentRendering | RouteData,
       required: true,
     },
     componentFactory: {
-      type: Function,
+      type: Object as () => ComponentFactory,
       default: undefined,
     },
     fields: {
-      type: Object,
+      type: Object as () => {
+        [name: string]: Field | Item[];
+      },
       default: undefined,
     },
     params: {
-      type: Object,
+      type: Object as () => {
+        [name: string]: string;
+      },
       default: undefined,
     },
     missingComponentComponent: {
-      type: Object,
+      type: Object as () => DefineComponent,
       default: undefined,
     },
     errorComponent: {
-      type: Object,
+      type: Object as () => DefineComponent,
       default: undefined,
     },
   },
   setup(props, context) {
     const instance = getCurrentInstance();
-    const injectedComponentFactory = inject('injectedComponentFactory', null);
+    const injectedComponentFactory = inject<ComponentFactory>('injectedComponentFactory', null);
     const error = ref<Error>();
 
     onErrorCaptured((err: unknown) => {

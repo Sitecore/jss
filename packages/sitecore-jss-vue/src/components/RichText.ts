@@ -1,28 +1,31 @@
-import { h, defineComponent } from 'vue';
-
-export interface RichTextProps {
-  /** The rich text field data. */
-  field: {
-    value?: string;
-    editable?: string;
-  };
-  /**
-   * The HTML element that will wrap the contents of the field.
-   */
-  tag?: string;
-  /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `field.editable` has a value, then `field.editable` will
-   * be processed and rendered as component output.
-   * If false, `field.editable` value will be ignored and not rendered.
-   */
-  editable?: boolean;
-}
+import { h, defineComponent, PropType } from 'vue';
 
 export const RichText = defineComponent({
   props: {
-    field: { type: Object, required: true },
+    /** The rich text field data. */
+    field: {
+      type: Object as PropType<{
+        value?: string;
+        editable?: string;
+      }>,
+      default() {
+        return {} as {
+          value?: string;
+          editable?: string;
+        };
+      },
+      required: true,
+    },
+    /**
+     * The HTML element that will wrap the contents of the field.
+     */
     tag: { type: String, default: 'div' },
+    /**
+     * Can be used to explicitly disable inline editing.
+     * If true and `field.editable` has a value, then `field.editable` will
+     * be processed and rendered as component output.
+     * If false, `field.editable` value will be ignored and not rendered.
+     */
     editable: { type: Boolean, default: true },
   },
   render() {

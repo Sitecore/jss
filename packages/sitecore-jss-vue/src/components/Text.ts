@@ -1,32 +1,34 @@
-import { h, defineComponent } from 'vue';
-
-export interface TextProps {
-  /** The text field data. */
-  field: {
-    value?: string | number;
-    editable?: string;
-  };
-  /**
-   * The HTML element that will wrap the contents of the field.
-   */
-  tag?: string;
-  /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `field.editable` has a value, then `field.editable` will
-   * be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
-   */
-  editable?: boolean;
-  /**
-   * If false, HTML-encoding of the field value is disabled and the value is rendered as-is.
-   */
-  encode?: boolean;
-}
+import { h, defineComponent, PropType } from 'vue';
 
 export const Text = defineComponent({
   props: {
-    field: { type: Object, required: true },
+    /** The text field data. */
+    field: {
+      type: Object as PropType<{
+        value?: string | number;
+        editable?: string;
+      }>,
+      default() {
+        return {} as {
+          value?: string | number;
+          editable?: string;
+        };
+      },
+      required: true,
+    },
+    /**
+     * The HTML element that will wrap the contents of the field.
+     */
     tag: { type: String, default: 'span' },
+    /**
+     * Can be used to explicitly disable inline editing.
+     * If true and `field.editable` has a value, then `field.editable` will
+     * be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
+     */
     editable: { type: Boolean, default: true },
+    /**
+     * If false, HTML-encoding of the field value is disabled and the value is rendered as-is.
+     */
     encode: { type: Boolean, default: true },
   },
   render() {

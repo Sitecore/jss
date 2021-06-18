@@ -1,17 +1,16 @@
-import { h, defineComponent } from 'vue';
-
-export interface MissingComponentProps {
-  rendering?: {
-    componentName?: string;
-  };
-}
+import { h, defineComponent, PropType } from 'vue';
 
 export const MissingComponent = defineComponent({
-  functional: true,
   props: {
     rendering: {
-      type: Object,
-      default: undefined,
+      type: Object as PropType<{
+        componentName?: string;
+      }>,
+      default() {
+        return undefined as {
+          componentName?: string;
+        };
+      },
     },
   },
   render() {

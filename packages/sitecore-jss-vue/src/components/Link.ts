@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, PropType } from 'vue';
 
 export interface LinkFieldValue {
   [attributeName: string]: any;
@@ -14,34 +14,30 @@ export interface LinkField {
   editableLastPart?: string;
 }
 
-export interface LinkProps {
-  /** The link field data. */
-  field: LinkField | LinkFieldValue;
-  /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `field.editable` has a value,
-   * then `field.editable` will be processed and rendered as
-   * component output. If false, `field.editable` value will be ignored and not rendered.
-   */
-  editable?: boolean;
-
-  /**
-   * Displays a link text ('description' in Sitecore) even when children exist
-   * NOTE: when in Sitecore Experience Editor, this setting is ignored due to technical limitations, and the description is always rendered.
-   */
-  showLinkTextWithChildrenPresent?: boolean;
-}
-
 export const Link = defineComponent({
   props: {
+    /** The link field data. */
     field: {
-      type: Object,
+      type: Object as PropType<LinkField | LinkFieldValue>,
+      default() {
+        return {} as LinkField | LinkFieldValue;
+      },
       required: true,
     },
+    /**
+     * Can be used to explicitly disable inline editing.
+     * If true and `field.editable` has a value,
+     * then `field.editable` will be processed and rendered as
+     * component output. If false, `field.editable` value will be ignored and not rendered.
+     */
     editable: {
       type: Boolean,
       default: true,
     },
+    /**
+     * Displays a link text ('description' in Sitecore) even when children exist
+     * NOTE: when in Sitecore Experience Editor, this setting is ignored due to technical limitations, and the description is always rendered.
+     */
     showLinkTextWithChildrenPresent: {
       type: Boolean,
       default: false,

@@ -6,7 +6,7 @@ import {
   Item,
   RouteData,
 } from '@sitecore-jss/sitecore-jss';
-import { Component, h, VNode } from 'vue';
+import { Component, h, VNode, DefineComponent } from 'vue';
 import { MissingComponent } from './MissingComponent';
 import { ComponentFactory } from './sharedTypes';
 
@@ -40,13 +40,13 @@ export interface PlaceholderProps {
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
    */
-  missingComponentComponent?: Component;
+  missingComponentComponent?: DefineComponent;
 
   /**
    * A component that is rendered in place of the placeholder when an error occurs rendering
    * the placeholder
    */
-  errorComponent?: Component;
+  errorComponent?: DefineComponent;
 }
 
 export type JssDynamicComponent = Component & { isxEditorComponent?: boolean };

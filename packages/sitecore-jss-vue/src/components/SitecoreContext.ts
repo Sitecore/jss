@@ -1,4 +1,4 @@
-import { defineComponent, provide } from 'vue';
+import { defineComponent, provide, PropType } from 'vue';
 import { ComponentFactory } from './sharedTypes';
 
 export interface SitecoreContextProps {
@@ -8,7 +8,7 @@ export interface SitecoreContextProps {
 export const SitecoreContext = defineComponent({
   props: {
     componentFactory: {
-      type: Function,
+      type: Function as PropType<ComponentFactory>,
       default: undefined,
     },
   },

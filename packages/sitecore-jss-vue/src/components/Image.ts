@@ -1,5 +1,5 @@
 import { mediaApi } from '@sitecore-jss/sitecore-jss';
-import { h, defineComponent } from 'vue';
+import { h, defineComponent, PropType } from 'vue';
 import { generateHtmlTag } from '../utils';
 
 export interface ImageFieldValue {
@@ -11,34 +11,6 @@ export interface ImageFieldValue {
 export interface ImageField {
   value?: ImageFieldValue;
   editable?: string;
-}
-
-export interface ImageProps {
-  /** The image field data. */
-  media: ImageField | ImageFieldValue;
-
-  /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `media.editable` has a value, then `media.editable` will be processed
-   * and rendered as component output. If false, `media.editable` value will be ignored and not rendered.
-   */
-  editable?: boolean;
-
-  /**
-   * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
-   * @example
-   * /\/([-~]{1})assets\//i
-   * /-assets/website -> /-/jssmedia/website
-   * /~assets/website -> /~/jssmedia/website
-   */
-  mediaUrlPrefix?: RegExp;
-
-  /**
-   * Parameters that will be attached to Sitecore media URLs
-   */
-  imageParams?: {
-    [paramName: string]: string;
-  };
 }
 
 const getEditableWrapper = (editableMarkup: string) =>
@@ -83,16 +55,43 @@ const getImageAttrs = (
 export const Image = defineComponent({
   inheritAttrs: false,
   props: {
-    media: { type: Object, required: true },
+    /** The image field data. */
+    media: {
+      type: Object as PropType<ImageField | ImageFieldValue>,
+      default() {
+        return {} as ImageField | ImageFieldValue;
+      },
+      required: true,
+    },
+    /**
+     * Can be used to explicitly disable inline editing.
+     * If true and `media.editable` has a value, then `media.editable` will be processed
+     * and rendered as component output. If false, `media.editable` value will be ignored and not rendered.
+     */
     editable: { type: Boolean, default: true },
-    imageParams: { type: Object, default: () => ({}) },
+    /**
+     * Parameters that will be attached to Sitecore media URLs
+     */
+    imageParams: {
+      type: Object as PropType<{
+        [paramName: string]: string;
+      }>,
+      default: () => ({}),
+    },
+    /**
+     * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
+     * @example
+     * /\/([-~]{1})assets\//i
+     * /-assets/website -> /-/jssmedia/website
+     * /~assets/website -> /~/jssmedia/website
+     */
     mediaUrlPrefix: { type: RegExp, default: undefined },
   },
   render() {
     const { media, editable, imageParams, mediaUrlPrefix } = this.$props;
     const contextAttrs = this.$attrs;
 
-    if (!media || (!media.editable && !media.value && !media.src)) {
+    if (!media || (!media.editable && !media.value && !(media as ImageFieldValue).src)) {
       return null;
     }
 
@@ -118,7 +117,7 @@ export const Image = defineComponent({
     }
 
     // some wise-guy/gal is passing in a 'raw' image object value
-    const img = media.src ? media : media.value;
+    const img = (media as ImageFieldValue).src ? media : media.value;
     if (!img) {
       return null;
     }
