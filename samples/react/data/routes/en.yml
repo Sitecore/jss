@@ -29,7 +29,7 @@ placeholders:
         content: |
           <p>Thanks for using JSS!! Here are some resources to get you started:</p>
 
-          <h3><a href="https://jss.sitecore.net" rel="noopener noreferrer">Documentation</a></h3>
+          <h3><a href="https://jss.sitecore.com" rel="noopener noreferrer">Documentation</a></h3>
           <p>The official JSS documentation can help you with any JSS task from getting started to advanced techniques.</p>
 
           <h3><a href="/styleguide">Styleguide</a></h3>

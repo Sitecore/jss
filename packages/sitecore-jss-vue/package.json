@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-vue",
-  "version": "19.0.0-canary.1",
+  "version": "19.0.0-canary.3",
   "description": "A library for building Sitecore JSS apps using Vue.js",
   "main": "dist/index.js",
   "scripts": {
@@ -16,10 +16,10 @@
   },
   "author": {
     "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "url": "https://jss.sitecore.com"
   },
   "license": "Apache-2.0",
-  "homepage": "https://jss.sitecore.net",
+  "homepage": "https://jss.sitecore.com",
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
@@ -42,7 +42,7 @@
     "vue": "^v3.1.0-beta.6"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.1",
+    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.3",
     "@vue/compiler-sfc": "^3.0.11"
   },
   "types": "./types/index.d.ts",

@@ -2,11 +2,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useI18n } from 'next-localization';
-import { getPublicUrl } from 'lib/util';
 import {
   Placeholder,
   VisitorIdentification,
   useSitecoreContext,
+  getPublicUrl,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
 
@@ -31,7 +31,7 @@ const Navigation = () => {
       <nav className="my-2 my-md-0 mr-md-3">
         <a
           className="p-2 text-dark"
-          href="https://jss.sitecore.net"
+          href="https://jss.sitecore.com"
           target="_blank"
           rel="noopener noreferrer"
         >
