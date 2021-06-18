@@ -7,7 +7,7 @@ export interface ComponentFile {
   componentName: string;
 }
 
-const isLazyLoadedComponent = (componentPath: string) => componentPath.includes('.module');
+const isLazyLoadingModule = (componentPath: string) => componentPath.includes('.module');
 
 const removeModuleNameEnding = (moduleName: string) => moduleName.replace(/\.?module$/i, '');
 
@@ -25,7 +25,7 @@ import dynamic from 'next/dynamic'
 
 ${components
   .map((component) => {
-    if (isLazyLoadedComponent(component.path)) {
+    if (isLazyLoadingModule(component.path)) {
       const moduleName = removeModuleNameEnding(component.moduleName);
       return `const ${moduleName} = {
   module: () => import('${component.path}'),
@@ -42,11 +42,11 @@ ${components
   .map(
     (component) =>
       `components.set('${
-        isLazyLoadedComponent(component.path)
+        isLazyLoadingModule(component.path)
           ? removeModuleNameEnding(component.componentName)
           : component.componentName
       }', ${
-        isLazyLoadedComponent(component.path)
+        isLazyLoadingModule(component.path)
           ? removeModuleNameEnding(component.moduleName)
           : component.moduleName
       });`
