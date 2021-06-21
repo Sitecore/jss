@@ -37,6 +37,5 @@ To enable the `Publish:end` hook, you must:
 
 <p>
   Watch the following video to see the deployment process and get some tips.
-  <iframe width="672" height="378" src="https://youtu.be/s_F5hoNsvOo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="672" height="378" src="https://www.youtube.com/embed/s_F5hoNsvOo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
-
