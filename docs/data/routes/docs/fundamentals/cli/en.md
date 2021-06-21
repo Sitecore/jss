@@ -5,6 +5,29 @@ title: JSS CLI
 ---
 # JSS CLI
 
+## Env File Support
+
+The CLI supports loading environment variables from `.env` files. In particular, this can be used to populate environment variables such as `NODE_EXTRA_CA_CERTS` and `NODE_TLS_REJECT_UNAUTHORIZED` which you may have already configured in an `.env` file for communication with your Sitecore instance.
+
+Variables will be loaded from `.env` files with the following priority:
+
+* `.env.${NODE_ENV}.local`
+* `.env.local` (unless `NODE_ENV` is "test")
+* `.env.${NODE_ENV}`
+* `.env`
+
+The CLI will automatically expand variables (`$VAR`) inside of your `.env*` files. This allows you to reference other values. If you are attempting to use a `$` in a variable value, it needs to be escaped with a backslash (`\`).
+
+```
+PASSWORD=b
+
+# becomes 'adminb'
+EXPANDED=admin$PASSWORD
+
+# becomes 'admin$PASSWORD'
+ESCAPED=admin\$PASSWORD
+```
+
 ## JSS commands
 
 During JSS development, you will be commonly using scripts provided by the _JSS CLI_ (command line interface). These scripts can be run from within a JSS application at your command line of choice (bash, PowerShell, cmd, etc).
@@ -15,15 +38,23 @@ Some commands have application specific arguments. Run `jss --help` and `jss <co
 
 ### Quick links
 
-- [`jss build`](#jss-build)
-- [`jss clean`](#jss-clean)
-- [`jss create`](#jss-create)
-- [`jss deploy app`](#jss-deploy-app)
-- [`jss deploy component`](#jss-deploy-component)
-- [`jss deploy config`](#jss-deploy-config)
-- [`jss deploy app`](#jss-deploy-app)
-- [`jss build`](#jss-build)
-- [`jss build`](#jss-build)
+* [`jss build`](#jss-build)
+* [`jss clean`](#jss-clean)
+* [`jss create`](#jss-create)
+* [`jss deploy app`](#jss-deploy-app)
+* [`jss deploy component`](#jss-deploy-component)
+* [`jss deploy config`](#jss-deploy-config)
+* [`jss deploy files`](#jss-deploy-files)
+* [`jss deploy items`](#jss-deploy-items)
+* [`jss deploy package`](#jss-deploy-package)
+* [`jss deploy template`](#jss-deploy-template)
+* [`jss deploy`](#jss-deploy)
+* [`jss environment`](#jss-environment)
+* [`jss manifest`](#jss-manifest)
+* [`jss package`](#jss-package)
+* [`jss setup`](#jss-setup)
+* [`jss start`](#jss-start)
+* [`jss start:connected`](#jss-startconnected)
 
 ### `jss build`
 
@@ -49,8 +80,8 @@ jss create <your-app-name> <app-template-name>
 
 |Parameter |Description| Value type|
 | --- | --- | --- |
-|name| The name of the app to create.|`String`|
-|template| The template to create the app from; corresponds to folders in the [Official JSS repository](https://github.com/Sitecore/jss/tree/master/samples)|`String`|
+|`name`| The name of the app to create.|`String`|
+|`template`| The template to create the app from; corresponds to folders in the [Official JSS repository](https://github.com/Sitecore/jss/tree/master/samples)|`String`|
 
 #### Optional parameters
 
@@ -109,7 +140,6 @@ Copies the Sitecore `.config` file from `/sitecore/config` to your Sitecore inst
 |`source`|The source path of the config patches to deploy.<br />**Default:** `./sitecore/config`|`String`|
 |`destination`|Destination path to deploy to. Defaults to the `instancePath` set in scjssconfig.json, combined with the `sitecoreConfigPath` setting from `package.json`.|`String`|
 |`config`|Path to `scjssconfig` file.<br />**Default:** `./scjssconfig.json`|`String`|
-
 
 ### `jss deploy files`
 
@@ -210,7 +240,7 @@ Runs the app's manifest generation process, which will generate the *app manifes
 
 ### `jss package`
 
-Creates a Sitecore update package that includes both the app manifest and the production build artifacts. 
+Creates a Sitecore update package that includes both the app manifest and the production build artifacts.
 
 |Parameter |Description| Value type |
 | --- | --- | --- |
@@ -228,9 +258,9 @@ Runs the interactive setup process where you will optionally provide info about 
 |Parameter|Description|Value Type|
 |---|---|---|
 |`instancePath`|'Path to the Sitecore "Website" folder (e.g. c:\\dev\\sitecore\\Website)|`String`|
-|`deployUrl`|Sitecore host used to deploy the app (e.g. http://sitecore9/sitecore/api/jss/import)|`String`|
-|`layoutServiceHost`|Sitecore host used to download Layout Service data (e.g. http://sitecore9)|`String`|
-|`apiKey`|Sitecore API Key (GUID of item under /sitecore/system/Settings/Services/API Keys/ in master db, or core db for Sitecore 9.0).|`String`|
+|`deployUrl`|Sitecore host used to deploy the app (e.g. <http://sitecore9/sitecore/api/jss/import>)|`String`|
+|`layoutServiceHost`|Sitecore host used to download Layout Service data (e.g. <http://sitecore9>)|`String`|
+|`apiKey`|Sitecore API Key (GUID of item under `/sitecore/system/Settings/Services/API Keys/` in the `master` database, or `core` database for Sitecore 9.0).|`String`|
 |`deploySecret`|Deployment secret (32+ random chars).|`String`|
 |`nonInteractive`|Disallows interactive prompts (all other arguments must be passed in this mode).|`Boolean`|
 |`outputFile`|The file path to output the config to.<br />**Default:** `./scjssconfig.json`|`String`|
@@ -245,27 +275,3 @@ Starts the application in _disconnected mode_. Sitecore is not required, or used
 ### `jss start:connected`
 
 Starts the application in _connected mode_, where it connects to Sitecore to retrieve the layout data and content but still runs locally.
-
-
-## Env File Support
-
-The CLI supports loading environment variables from `.env` files. In particular, this can be used to populate environment variables such as `NODE_EXTRA_CA_CERTS` and `NODE_TLS_REJECT_UNAUTHORIZED` which you may have already configured in an `.env` file for communication with your Sitecore instance.
-
-Variables will be loaded from `.env` files with the following priority:
-
-* `.env.${NODE_ENV}.local`
-* `.env.local` (unless `NODE_ENV` is "test")
-* `.env.${NODE_ENV}`
-* `.env`
-
-The CLI will automatically expand variables (`$VAR`) inside of your `.env*` files. This allows you to reference other values. If you are attempting to use a `$` in a variable value, it needs to be escaped with a backslash (`\`).
-
-```
-PASSWORD=b
-
-# becomes 'adminb'
-EXPANDED=admin$PASSWORD
-
-# becomes 'admin$PASSWORD'
-ESCAPED=admin\$PASSWORD
-```
