@@ -34,7 +34,7 @@ During JSS development, you will commonly use scripts provided by the _JSS CLI_ 
 
 These scripts can be run from within a JSS application at your command line of choice (bash, PowerShell, cmd, and so on). 
 
-Some JSS commands run globally, for example: `jss create`. Other commands are meant to run in the root directory of your JSS application. Such commands might have application specific arguments. In the root directory of your JSS app, run `jss --help` and `jss <command> --help` for application specific arguments.
+> Some JSS commands run globally, for example: `jss create`. Other commands are meant to run in the root directory of your JSS application. Such commands might have application specific arguments. In the root directory of your JSS app, run `jss --help` and `jss <command> --help` for application specific arguments.
 
 ### Quick links
 
