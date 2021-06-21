@@ -30,11 +30,11 @@ ESCAPED=admin\$PASSWORD
 
 ## JSS commands
 
-During JSS development, you will commonly use scripts provided by the _JSS CLI_ (command-line interface). These scripts can be run from within a JSS application at your command line of choice (bash, PowerShell, cmd, and so on).
+During JSS development, you will commonly use scripts provided by the _JSS CLI_ (command-line interface). All scripts you need to run during development are defined either via the `jss` CLI command (use `--help` for options) or package scripts in `package.json`.
 
-All scripts you need to run during development are defined either via the `jss` CLI command (use `--help` for options) or package scripts in `package.json`.
+These scripts can be run from within a JSS application at your command line of choice (bash, PowerShell, cmd, and so on). 
 
-Some commands have application specific arguments. Run `jss --help` and `jss <command> --help` for application specific arguments.
+Some JSS commands run globally, for example: `jss create`. Other commands are meant to run in the root directory of your JSS application. Such commands might have application specific arguments. In the root directory of your JSS app, run `jss --help` and `jss <command> --help` for application specific arguments.
 
 ### Quick links
 
