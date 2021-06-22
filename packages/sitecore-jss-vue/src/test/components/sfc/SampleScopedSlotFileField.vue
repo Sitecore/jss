@@ -1,20 +1,22 @@
 <template>
   <div class="file-mock-sfc">
     <sc-file :field="fields.file">
-      <button slot-scope="file" v-on:click="doIt(file.src)">
-        <span>{{ file.title || file.displayName }}</span>
-      </button>
+      <template v-slot="file">
+        <button v-on:click="doIt(file.src)">
+          <span>{{ file.title || file.displayName }}</span>
+        </button>
+      </template>
     </sc-file>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { File } from '../../../components/File';
 
 // If VSCode shows "Default export of the module has or is using private name 'VueConstructor'.",
 // you can ignore it. The test and component should still compile and run.
-export default Vue.extend({
+export default defineComponent({
   props: {
     fields: { type: Object, default: () => ({}) },
     onDoIt: { type: Function },
@@ -30,7 +32,4 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-</style>
-
-
+<style></style>

@@ -11,7 +11,7 @@ describe('<RichText />', () => {
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
     const rendered = mount(RichText);
-    expect(rendered.isEmpty()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
   });
 
@@ -23,8 +23,8 @@ describe('<RichText />', () => {
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
-    const rendered = mount(RichText, { context: { props } });
-    expect(rendered.isEmpty()).toBe(true);
+    const rendered = mount(RichText, { props });
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
   });
 
@@ -35,7 +35,7 @@ describe('<RichText />', () => {
         editable: 'editable',
       },
     };
-    const rendered = mount(RichText, { context: { props } }).find('div');
+    const rendered = mount(RichText, { props }).find('div');
     expect(rendered.element.innerHTML).toBe(props.field.editable);
   });
 
@@ -47,7 +47,7 @@ describe('<RichText />', () => {
       },
       editable: false,
     };
-    const rendered = mount(RichText, { context: { props } }).find('div');
+    const rendered = mount(RichText, { props }).find('div');
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
 
@@ -57,7 +57,7 @@ describe('<RichText />', () => {
         value: 'value',
       },
     };
-    const rendered = mount(RichText, { context: { props } }).find('div');
+    const rendered = mount(RichText, { props }).find('div');
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
 
@@ -67,7 +67,7 @@ describe('<RichText />', () => {
         value: '<input type="text">some crazy stuff<script code="whaaaat">uh oh</script>',
       },
     };
-    const rendered = mount(RichText, { context: { props } }).find('div');
+    const rendered = mount(RichText, { props }).find('div');
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
 
@@ -77,7 +77,7 @@ describe('<RichText />', () => {
         editable: eeRichTextData,
       },
     };
-    const rendered = mount(RichText, { context: { props } }).find('div');
+    const rendered = mount(RichText, { props }).find('div');
     expect(rendered.html().indexOf('<input')).toBeGreaterThan(-1);
     expect(rendered.html().indexOf('<span class="scChromeData">')).toBeGreaterThan(-1);
   });
@@ -89,7 +89,7 @@ describe('<RichText />', () => {
       },
       tag: 'p',
     };
-    const rendered = mount(RichText, { context: { props } }).find('p');
+    const rendered = mount(RichText, { props }).find('p');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
@@ -105,7 +105,7 @@ describe('<RichText />', () => {
       class: 'cssClass',
       id: 'lorem',
     };
-    const rendered = mount(RichText, { context: { props, attrs } }).find('h1');
+    const rendered = mount(RichText, { props, attrs }).find('h1');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.tagName).toBe(props.tag.toUpperCase());
     expect(rendered.attributes()).toMatchObject(attrs);

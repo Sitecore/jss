@@ -7,11 +7,11 @@
 <template>
   <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-layout-reuse">
     <!--
-      This placeholder is using a _scoped slot_ to enable customizing the markup for each component within.
+      This placeholder is using a _slot_ to enable customizing the markup for each component within.
       In this case, it's placing each component in its own column of a flexbox layout - giving an n-up columnar layout.
       The component itself does not need to know it's living in a columnar layout.
 
-      The default scoped slot receives an array of Vue component definitions. These are dynamic components instantiated by
+      The default _slot_ receives an array of Vue component definitions. These are dynamic components instantiated by
       the Placeholder component from the layout service data for the placeholder.
       Note: in Experience Editor (EE), the array of components will contain EE specific components/elements, e.g. <code /> elements.
       You can conditionally handle those by using the `component.isxEditorComponent` property,
@@ -37,21 +37,23 @@
       and place it within a column div so that we can select it correctly.
     -->
     <sc-placeholder :rendering="rendering" name="jss-reuse-example">
-      <div class="row" slot-scope="{ components, isEmpty }">
-        <template v-if="!isEmpty">
-          <template v-for="(component, index) in components">
-            <div v-if="!component.isxEditorComponent" :key="index" class="col-sm">
-              <component :is="component" />
-            </div>
-            <component v-else :is="component" :key="index" />
+      <template v-slot="{ components, isEmpty }">
+        <div class="row">
+          <template v-if="!isEmpty">
+            <template v-for="(component, index) in components">
+              <div v-if="!component.isxEditorComponent" v-bind:key="index" class="col-sm">
+                <component :is="component" />
+              </div>
+              <component v-bind:key="index + 1" v-else :is="component" />
+            </template>
           </template>
-        </template>
-        <template v-else>
-          <div class="col-sm">
-            <component v-for="(component, index) in components" :is="component" :key="index" />
-          </div>
-        </template>
-      </div>
+          <template v-else>
+            <div class="col-sm">
+              <component v-for="(component, index) in components" :is="component" :key="index" />
+            </div>
+          </template>
+        </div>
+      </template>
     </sc-placeholder>
   </styleguide-specimen>
 </template>

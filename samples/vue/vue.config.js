@@ -1,4 +1,5 @@
 let vueConfig = {};
+const path = require("path");
 
 if (process.env.BUILD_TARGET_ENV === 'server') {
   const serverConfig = require('./server/server.vue.config');
@@ -53,6 +54,9 @@ vueConfig.configureWebpack = (config) => {
   if (indexOfMjs > -1) {
     config.resolve.extensions.splice(indexOfMjs, 1);
   }
+
+  // We should import same Vue instance, even if we are using symlink with sitecore-jss-vue
+  config.resolve.alias.vue = path.resolve(__dirname, 'node_modules/vue');
 
   config.module.rules.push({
     test: /\.(graphql|gql)$/,

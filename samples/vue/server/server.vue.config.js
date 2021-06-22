@@ -7,10 +7,31 @@ const vueConfig = {
   // Configure webpack "simple object" options via `configureWebpack`.
   // If you need to modify existing rules or plugin options, use the `chainWebpack` method as it will be easier.
   configureWebpack: (config) => {
+    // Helps to resolve mjs files from graphql package
+    // https://github.com/graphql/graphql-js/issues/1272#issuecomment-371067400
+    config.resolve = {
+      ...config.resolve,
+      mainFields: ['main', 'module'],
+    };
+
     config.entry = path.resolve(__dirname, 'server.js');
     config.target = 'node';
     config.output.filename = 'server.bundle.js';
     config.output.libraryTarget = 'this'; // libraryTarget: 'this' is required for use with Sitecore JavaScriptViewEngine
+
+    // vue-meta is exported in ESM format, we have to process it by webpack
+    // https://github.com/nuxt/vue-meta/issues/684
+    config.module.rules.unshift({
+      test: /\.js$/,
+      include: [path.resolve(__dirname, '../node_modules/vue-meta')],
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
+      },
+    });
+
     config.module.rules.push({
       test: /\.html$/,
       exclude: /node_modules/,

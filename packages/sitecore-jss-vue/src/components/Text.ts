@@ -1,41 +1,38 @@
-import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
+import { h, defineComponent, PropType } from 'vue';
 
-export interface TextProps {
-  /** The text field data. */
-  field: {
-    value?: string | number;
-    editable?: string;
-  };
-  /**
-   * The HTML element that will wrap the contents of the field.
-   */
-  tag?: string;
-  /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `field.editable` has a value, then `field.editable` will
-   * be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
-   */
-  editable?: boolean;
-  /**
-   * If false, HTML-encoding of the field value is disabled and the value is rendered as-is.
-   */
-  encode?: boolean;
-}
-
-export const Text: FunctionalComponentOptions<TextProps> = {
-  functional: true,
+export const Text = defineComponent({
   props: {
-    field: { type: Object, required: true },
+    /** The text field data. */
+    field: {
+      type: Object as PropType<{
+        value?: string | number;
+        editable?: string;
+      }>,
+      default() {
+        return {} as {
+          value?: string | number;
+          editable?: string;
+        };
+      },
+      required: true,
+    },
+    /**
+     * The HTML element that will wrap the contents of the field.
+     */
     tag: { type: String, default: 'span' },
+    /**
+     * Can be used to explicitly disable inline editing.
+     * If true and `field.editable` has a value, then `field.editable` will
+     * be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
+     */
     editable: { type: Boolean, default: true },
+    /**
+     * If false, HTML-encoding of the field value is disabled and the value is rendered as-is.
+     */
     encode: { type: Boolean, default: true },
   },
-
-  // Need to assign `any` return type because Vue type definitions are inaccurate.
-  // The Vue type definitions set `render` to a return type of VNode and that's it.
-  // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
-  render(createElement: CreateElement, context: RenderContext): any {
-    const { field, tag, editable, encode } = context.props;
+  render() {
+    const { field, tag, editable, encode } = this.$props;
     if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
       return null;
     }
@@ -46,18 +43,18 @@ export const Text: FunctionalComponentOptions<TextProps> = {
     const output = field.editable && isEditable ? field.editable : field.value;
     const setDangerously = (field.editable && isEditable) || !encode;
 
-    // in functional components, context.data should be passed along to the
+    // this.$data should be passed along to the
     // `createElement` function in order to retain attributes and events
-    // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
-    const data = { ...context.data };
+    // https://v3.vuejs.org/guide/render-function.html#render-functions
+    const data: any = { ...this.$data };
 
     let children = null;
     if (setDangerously) {
-      data.domProps = { ...context.data.domProps, innerHTML: output };
+      data.innerHTML = output;
     } else {
       children = output;
     }
 
-    return createElement(tag || 'span', data, children);
+    return h(tag || 'span', data, children);
   },
-};
+});
