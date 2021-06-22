@@ -17,6 +17,7 @@ import { lsDataEeOff } from '../test/data/LS-data-EE-off';
 import { lsDataEeOn } from '../test/data/LS-data-EE-on';
 
 import { mount } from '@vue/test-utils';
+import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss';
 
 // import { config } from '@vue/test-utils'
 // config.logModifiedComponents = false;
@@ -29,7 +30,7 @@ const testComponents: any = {
   // pass otherProps to page-content to test property cascading through the Placeholder
   Home: defineComponent({
     props: {
-      rendering: { type: Object, default: () => ({}) },
+      rendering: { type: Object as () => ComponentRendering | RouteData, default: () => ({}) },
       fields: { type: Object, default: () => ({}) },
       params: { type: Object, default: () => ({}) },
     },
@@ -143,7 +144,7 @@ describe('<Placeholder />', () => {
               () => [
                 h(Placeholder, {
                   name: phKey,
-                  rendering: component,
+                  rendering: component as any,
                   componentFactory,
                 }),
               ]
@@ -162,7 +163,7 @@ describe('<Placeholder />', () => {
         const testComponent = {
           render() {
             return h(SitecoreContext, { componentFactory }, () => [
-              h(Placeholder, { name: phKey, rendering: component }),
+              h(Placeholder, { name: phKey, rendering: component as any }),
             ]);
           },
         };
@@ -225,7 +226,7 @@ describe('<Placeholder />', () => {
         render() {
           return h(Placeholder, {
             name: 'main',
-            rendering: route,
+            rendering: route as any,
             componentFactory,
           });
         },
@@ -250,7 +251,7 @@ describe('<Placeholder />', () => {
         render() {
           return h(Placeholder, {
             name: 'main',
-            rendering: route,
+            rendering: route as any,
             componentFactory,
             missingComponentComponent: missingComponent,
           });
@@ -271,7 +272,7 @@ describe('<Placeholder />', () => {
     const renderedComponent = mount(Placeholder, {
       props: {
         name: phKey,
-        rendering: route,
+        rendering: route as any,
         componentFactory,
       },
     });

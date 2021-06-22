@@ -1,12 +1,4 @@
-import {
-  defineComponent,
-  h,
-  ref,
-  onErrorCaptured,
-  inject,
-  getCurrentInstance,
-  DefineComponent,
-} from 'vue';
+import { defineComponent, h, ref, onErrorCaptured, inject, getCurrentInstance } from 'vue';
 import { ComponentRendering, RouteData, Field, Item } from '@sitecore-jss/sitecore-jss';
 import {
   convertVNodesToDynamicComponents,
@@ -52,11 +44,11 @@ export const Placeholder = defineComponent({
       default: undefined,
     },
     missingComponentComponent: {
-      type: Object as () => DefineComponent,
+      type: Object,
       default: undefined,
     },
     errorComponent: {
-      type: Object as () => DefineComponent,
+      type: Object,
       default: undefined,
     },
   },
