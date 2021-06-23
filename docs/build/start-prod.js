@@ -34,10 +34,10 @@ function layoutServiceMiddlewareAsDataAdapter(fakeLayoutServiceMiddleware) {
 
     return new Promise((resolve, reject) => {
       const fakeResponse = {
-        sendStatus: function(statusCode) {
+        sendStatus: function (statusCode) {
           resolve({ statusCode });
         },
-        json: function(result) {
+        json: function (result) {
           resolve(result);
         },
       };
@@ -124,6 +124,10 @@ manifestManager.getManifest(config.language).then((manifest) => {
   server.use('/dist', staticFileMiddleware);
   server.use('/docs/getting-started/:path', (req, res) => {
     req.url = `/docs/client-frameworks/getting-started/${req.params.path}`;
+    res.redirect(req.url, 301);
+  })
+  server.use('/docs/nextjs/data-fetching/getStaticPaths', (req, res) => {
+    req.url = `/docs/nextjs/page-routing/getStaticPaths`;
     res.redirect(req.url, 301);
   })
   server.use('*', ssrMiddleware);
