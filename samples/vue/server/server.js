@@ -170,7 +170,6 @@ function parseServerData(data, viewBag) {
 
 function initializei18n(state) {
   // don't init i18n for not found routes
-  console.log('STATE........',state  );
   if (!state || !state.sitecore || !state.sitecore.context) return Promise.resolve();
 
   return i18ninit(state.sitecore.context.language, state.viewBag.dictionary);
