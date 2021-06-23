@@ -5,8 +5,6 @@
     "bootstrap:ci": "lerna bootstrap --ci",
     "bootstrap-react": "cd ./packages/sitecore-jss-react/node_modules/react && npm link && cd ../../../sitecore-jss-nextjs && npm link react && cd ../../samples/nextjs && npm link react && cd ../react && npm link react",
     "bootstrap-react-dom": "cd ./packages/sitecore-jss-react/node_modules/react-dom && npm link && cd ../../../sitecore-jss-nextjs && npm link react-dom && cd ../../samples/nextjs && npm link react-dom && cd ../react && npm link react-dom",
-    "vercel:bootstrap-react": "cd ./samples/nextjs/node_modules/react && npm link && cd ../../../react && npm link react && cd ../../packages/sitecore-jss-nextjs && npm link react && cd ../sitecore-jss-react && npm link react",
-    "vercel:bootstrap-react-dom": "cd ./samples/nextjs/node_modules/react-dom && npm link && cd ../../../react && npm link react-dom && cd ../../packages/sitecore-jss-nextjs && npm link react-dom && cd ../sitecore-jss-react && npm link react-dom",
     "build-packages": "lerna run build --ignore *-sample*",
     "build-apps": "lerna run build --scope *-sample*",
     "lint-packages": "lerna run lint --ignore *-sample*",
