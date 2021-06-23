@@ -13,7 +13,7 @@ The sample app provides a custom [404 Page](https://github.com/Sitecore/jss/blob
 
 The sample app will render the 404 Page in the following cases:
 * When [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) or [getServerSideProps](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering) return `notFound: true`. By default, the `notFound` property provided by [SitecorePagePropsFactory](/docs/nextjs/data-fetching/data-services) is set to `false`, and it should be programmatically set to `true` when the Layout Service responds with a `404` status code.
-* When using [Static Export](/docs/nextjs/deploying-to-production/export), and requesting a route that is missing from the list of routes provided by [getStaticPaths](/docs/nextjs/data-fetching/getStaticPaths). This can happen if [`fallback: false`](https://nextjs.org/docs/basic-features/data-fetching#fallback-false) is used in the export.
+* When using [Static Export](/docs/nextjs/deploying-to-production/export), and requesting a route that is missing from the list of routes provided by [getStaticPaths](/docs/nextjs/page-routing/getStaticPaths). This can happen if [`fallback: false`](https://nextjs.org/docs/basic-features/data-fetching#fallback-false) is used in the export.
 
 ## 500 Page
 
