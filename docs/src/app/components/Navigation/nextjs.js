@@ -85,12 +85,16 @@ export default {
           displayName: 'JSS routes with Next.js',
         },
         {
+          url: 'getStaticPaths',
+          displayName: 'Handling dynamic routes',
+        },
+        {
           url: 'switching-to-ssr',
           displayName: 'Switching between SSG and SSR',
         },
         {
-         url: 'error-pages',
-         displayName: 'Error Pages',
+          url: 'error-pages',
+          displayName: 'Error Pages',
         },
       ],
     },
@@ -102,10 +106,7 @@ export default {
           url: 'data-services',
           displayName: 'Data Services',
         },
-        {
-          url: 'getStaticPaths',
-          displayName: 'getStaticPaths & sitemap service',
-        },
+
         //{
         //  url: 'customizing-static-paths',
         //  displayName: 'Customizing static paths',
