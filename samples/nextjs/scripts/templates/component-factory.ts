@@ -7,9 +7,9 @@ export interface ComponentFile {
   componentName: string;
 }
 
-const isLazyLoadingModule = (componentPath: string) => componentPath.includes('.module');
+const isLazyLoadingModule = (componentPath: string) => componentPath.includes('.dynamic');
 
-const removeModuleNameEnding = (moduleName: string) => moduleName.replace(/\.?module$/i, '');
+const removeModuleNameEnding = (moduleName: string) => moduleName.replace(/\.?dynamic$/i, '');
 
 /**
  * Generates the contents of the component factory file using a predefined string template.
