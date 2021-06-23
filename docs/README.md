@@ -15,7 +15,7 @@ Use `jss start` to run a local development server. It will start by default on `
 The JSS docs are a JSS site, with a markdown-to-routes parser added. This means the documentation is authored in Markdown, and served via SSR'ed JSS in production using disconnected mode.
 
 * `/data/routes/docs` -> the main documentation content area
-* `src/app/sidenav.js` -> registers the structure of the docs navigation
+* `src/app/Navigation` -> registers the structure of the docs navigation
 
 ## Limitations/Known Issues
 
