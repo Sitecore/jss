@@ -1,5 +1,5 @@
-const withTM = require('next-transpile-modules')(['react'], {
-  resolveSymlinks: true,
+const withTM = require('next-transpile-modules')(['@sitecore-jss/sitecore-jss-nextjs'], {
+  resolveSymlinks: false,
 });
 const path = require('path');
 const jssConfig = require('./src/temp/config');
