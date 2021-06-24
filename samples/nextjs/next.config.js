@@ -1,5 +1,5 @@
 const withTM = require('next-transpile-modules')(['react'], {
-  resolveSymlinks: false,
+  resolveSymlinks: true,
 });
 const path = require('path');
 const jssConfig = require('./src/temp/config');
