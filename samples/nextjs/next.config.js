@@ -1,3 +1,6 @@
+const withTM = require('next-transpile-modules')(['@sitecore-jss/sitecore-jss-nextjs'], {
+  resolveSymlinks: false,
+});
 const path = require('path');
 const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
@@ -8,10 +11,9 @@ const isDisconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
 const publicUrl = getPublicUrl();
 
 const nextConfig = {
-
   // Set assetPrefix to our public URL
   assetPrefix: publicUrl,
-  
+
   // Allow specifying a distinct distDir when concurrently running app in a container
   distDir: process.env.NEXTJS_DIST_DIR || '.next',
 
@@ -83,37 +85,40 @@ const nextConfig = {
       ];
     }
   },
-  
+
   webpack: (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);
 
-    config.resolve.alias.react = path.resolve(__dirname, 'node_modules/react');
-    config.resolve.alias['react-dom'] = path.resolve(__dirname, 'node_modules/react-dom');
+    if (options.isServer) {
+      config.externals = ['react', ...config.externals];
+    }
+
+    config.resolve.alias['react'] = path.resolve(__dirname, '.', 'node_modules', 'react');
 
     return config;
   },
-}
+};
 
 const applyGraphQLCodeGenerationLoaders = (config, options) => {
   config.module.rules.push({
     test: /\.graphql$/,
     exclude: /node_modules/,
     use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader' }],
-  })
+  });
 
   config.module.rules.push({
     test: /\.graphqls$/,
     exclude: /node_modules/,
     use: ['graphql-let/schema/loader'],
-  })
+  });
 
   config.module.rules.push({
     test: /\.ya?ml$/,
     type: 'json',
     use: 'yaml-loader',
-  })
+  });
 
   return config;
-}
+};
 
-module.exports = nextConfig;
+module.exports = withTM(nextConfig);
