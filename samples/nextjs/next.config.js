@@ -1,4 +1,4 @@
-const withTM = require('next-transpile-modules')(['@sitecore-jss/sitecore-jss-nextjs'], {
+const withTM = require('next-transpile-modules')(['react'], {
   resolveSymlinks: false,
 });
 const path = require('path');
