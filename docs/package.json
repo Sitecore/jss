@@ -71,7 +71,8 @@
     "react-helmet": "^5.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "showdown": "^1.8.6"
+    "showdown": "^1.8.6",
+    "typedoc-default-themes": "file:assets/typedoc-default-themes-0.12.10.tgz"
   },
   "devDependencies": {
     "@sitecore-jss/sitecore-jss-cli": "^9.0.6",
@@ -106,6 +107,7 @@
     "progress-bar-webpack-plugin": "^1.10.0",
     "replace-ext": "^1.0.0",
     "style-loader": "^0.20.2",
+    "typedoc": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
