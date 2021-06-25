@@ -17,7 +17,8 @@ If you chose to use static generation when creating your Next.js application, th
 
 The function leverages a `SitemapFetcher` instance that gathers the list of pages as follows:  
 
-* In `development` mode, the `sitemapFetcher`, through an instance of `DisconnectedSitemapService`, generates the list of pages using the Manifest package. You will not have pre-rendered pages because `getStaticPaths` runs on [every request](https://nextjs.org/docs/basic-features/data-fetching#runs-on-every-request-in-development-1).
+* In `development` mode, the `sitemapFetcher`, through an instance of `DisconnectedSitemapService`, generates the list of pages using a `ManifestInstance`. The sample application uses `sitecore/manifest/sitecore-import.json`. You can generate by running `jss manifest` or `jss start:disconnected-proxy`. `DisconnectedSitemapService` will go through the manifest routes and generate all paths for pre-rendering. You will not have pre-rendered pages because `getStaticPaths` runs on [every request](https://nextjs.org/docs/basic-features/data-fetching#runs-on-every-request-in-development-1). 
+
 * In `production` mode, `sitemapFetcher` uses an instance of the `GraphQLSitemapService` to fetch the paths for pre-rendering.
 
 > You can inspect the `sitemapFetcher` implementation in `src/lib/sitemap-fetcher.ts`.
