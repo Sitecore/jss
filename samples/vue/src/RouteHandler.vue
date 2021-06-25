@@ -1,5 +1,5 @@
 <template>
-  <not-found v-if="notFound" :context="appState.sitecoreContext" />
+  <not-found v-if="notFound && !loading" :context="appState.sitecoreContext" />
   <route-loading v-else-if="loading" />
   <layout v-else :route="appState.routeData" />
 </template>
