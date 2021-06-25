@@ -30,6 +30,7 @@ module.exports = function createJssProject(argv, nextSteps) {
 
   setFetchWith(argv.fetchWith);
   setPrerender(argv.prerender);
+  setNextConfig();
 
   return nextSteps;
 };
@@ -107,4 +108,15 @@ function setPrerender(prerender) {
       fs.unlinkSync(sitemapFile);
       break;
   }
+}
+
+/**
+ * Switch development next.config.js to production config
+ */
+function setNextConfig() {
+  const nextConfig = path.join(__dirname, 'next.config.js');
+  const prodConfig = path.join(__dirname, 'next.config.prod.js');
+
+  fs.unlinkSync(nextConfig);
+  fs.renameSync(prodConfig, nextConfig);
 }
