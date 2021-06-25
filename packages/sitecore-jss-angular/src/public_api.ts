@@ -23,6 +23,7 @@ export { JssModule } from './lib.module';
 export {
   dataApi,
   mediaApi,
+  constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   LayoutServiceData,
