@@ -17,7 +17,7 @@ Copy the tsconfig file for the package in the package's root directory. For exam
 Rename the tsconfig.nextjs.json file to tsconfig.json.
 From a terminal, `cd` into the `/packages/sitecore-jss-nextjs` directory. 
 Install typedoc and typedoc-plugin-markdown.
-Run `npx typedoc src`. This will generate the docs under `/data/routes/docs/nextjs/ref-original/`. 
+Run `npx typedoc src --readme none`. This will generate the docs under `/data/routes/docs/nextjs/ref-original/`.
 When the script is done, `cd` into the docs directory. 
 Install glob, dotenv, and fs-extra.
 Update/create a .env file with: 
