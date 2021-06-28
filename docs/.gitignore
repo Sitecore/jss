@@ -2,3 +2,5 @@
 /dist
 /stats.json
 scjssconfig.json
+.env.local
+.env
