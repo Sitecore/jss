@@ -16,7 +16,28 @@ class RouteLinkedRichText extends React.Component {
   // props.history comes from the react-router withRouter() higher order component.
   routeHandler(event) {
     event.preventDefault();
-    this.props.history.push(event.target.pathname);
+    const hash = event.target.hash
+    let destination = hash ? hash : event.target.pathname
+    this.props.history.push(destination);
+
+    // Handle hash presense
+    if (hash) {
+      let element = document.getElementById(hash.replace("#", ""));
+      
+      // Handle erroneous ID for constructor headings spit out by Marked (package used by Typedoc)
+      if (!element) {
+        let id = `${hash.replace("#", "")}-NaN`
+        element = document.getElementById(id);
+      }
+
+      // Add smooth scroll to hash links
+      setTimeout(() => {
+        window.scrollTo({
+          behavior: element ? "smooth" : "auto",
+          top: element ? element.offsetTop : 0
+        });
+      }, 100);
+    }
   }
 
   // rebinds event handlers to route links within this component
