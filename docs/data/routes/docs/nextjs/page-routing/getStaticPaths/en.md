@@ -1,7 +1,7 @@
 ---
 name: getStaticPaths
 routeTemplate: ./data/component-templates/article.yml
-title: Handling dynamic routes
+title: Handling dynamic routes for SSG
 ---
 # Handling dynamic routes
 
