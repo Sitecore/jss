@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: editingdatadiskcache
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [middleware/editing-data-cache](/docs/nextjs/ref/modules/middleware_editing_data_cache) / EditingDataDiskCache
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [middleware/editing-data-cache](/docs/nextjs/ref/modules/middleware_editing_data_cache) / EditingDataDiskCache
 
 # Class: EditingDataDiskCache
 

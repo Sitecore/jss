@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: manifestinstance
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / ManifestInstance
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / ManifestInstance
 
 # Interface: ManifestInstance
 

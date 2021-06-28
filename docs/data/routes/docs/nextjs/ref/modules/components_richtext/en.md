@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: components_richtext
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / components/RichText
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / components/RichText
 
 # Module: components/RichText
 

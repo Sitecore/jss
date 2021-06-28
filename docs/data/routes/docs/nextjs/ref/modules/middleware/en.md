@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: middleware
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / middleware
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / middleware
 
 # Module: middleware
 

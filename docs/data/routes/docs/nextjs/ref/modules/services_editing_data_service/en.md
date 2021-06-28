@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: services_editing_data_service
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / services/editing-data-service
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / services/editing-data-service
 
 # Module: services/editing-data-service
 

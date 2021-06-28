@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: mediaapi
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / mediaApi
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / mediaApi
 
 # Namespace: mediaApi
 

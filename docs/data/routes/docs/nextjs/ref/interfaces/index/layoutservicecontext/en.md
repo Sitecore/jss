@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: layoutservicecontext
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / LayoutServiceContext
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / LayoutServiceContext
 
 # Interface: LayoutServiceContext
 

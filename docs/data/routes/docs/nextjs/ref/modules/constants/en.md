@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: constants
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / constants
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / constants
 
 # Module: constants
 

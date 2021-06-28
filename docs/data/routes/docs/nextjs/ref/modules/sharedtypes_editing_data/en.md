@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: sharedtypes_editing_data
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / sharedTypes/editing-data
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / sharedTypes/editing-data
 
 # Module: sharedTypes/editing-data
 

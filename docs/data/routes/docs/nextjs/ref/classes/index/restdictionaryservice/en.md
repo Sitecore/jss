@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: restdictionaryservice
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / RestDictionaryService
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / RestDictionaryService
 
 # Class: RestDictionaryService
 

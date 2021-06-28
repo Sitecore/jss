@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: componentfields
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / ComponentFields
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / ComponentFields
 
 # Interface: ComponentFields
 

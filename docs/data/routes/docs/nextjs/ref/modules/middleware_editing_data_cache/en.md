@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: middleware_editing_data_cache
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / middleware/editing-data-cache
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / middleware/editing-data-cache
 
 # Module: middleware/editing-data-cache
 

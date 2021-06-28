@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: routedata
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / RouteData
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / RouteData
 
 # Interface: RouteData
 

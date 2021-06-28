@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: dictionaryservice
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / DictionaryService
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / DictionaryService
 
 # Interface: DictionaryService
 

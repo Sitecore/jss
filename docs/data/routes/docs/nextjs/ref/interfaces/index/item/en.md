@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: item
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / Item
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / Item
 
 # Interface: Item
 

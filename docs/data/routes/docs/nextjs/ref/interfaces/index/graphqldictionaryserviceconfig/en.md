@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: graphqldictionaryserviceconfig
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / GraphQLDictionaryServiceConfig
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / GraphQLDictionaryServiceConfig
 
 # Interface: GraphQLDictionaryServiceConfig
 

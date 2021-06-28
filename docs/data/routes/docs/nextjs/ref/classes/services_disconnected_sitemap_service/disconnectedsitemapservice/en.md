@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: disconnectedsitemapservice
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [services/disconnected-sitemap-service](/docs/nextjs/ref/modules/services_disconnected_sitemap_service) / DisconnectedSitemapService
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [services/disconnected-sitemap-service](/docs/nextjs/ref/modules/services_disconnected_sitemap_service) / DisconnectedSitemapService
 
 # Class: DisconnectedSitemapService
 

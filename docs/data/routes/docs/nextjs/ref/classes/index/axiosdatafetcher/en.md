@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: axiosdatafetcher
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / AxiosDataFetcher
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / AxiosDataFetcher
 
 # Class: AxiosDataFetcher
 

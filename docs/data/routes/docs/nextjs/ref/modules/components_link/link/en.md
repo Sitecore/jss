@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: link
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [components/Link](/docs/nextjs/ref/modules/components_link) / Link
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [components/Link](/docs/nextjs/ref/modules/components_link) / Link
 
 # Namespace: Link
 
