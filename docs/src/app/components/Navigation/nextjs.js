@@ -128,10 +128,10 @@ export default {
         //  url: 'edge-schema-introduction',
         //  displayName: 'Introduction to the Edge Schema',
         //},
-        //{
-        //  url: 'sample-app',
-        //  displayName: 'Sitecore GraphQL in the sample app',
-        //},
+        {
+         url: 'sample-app',
+         displayName: 'Sitecore GraphQL in the sample app',
+        },
         {
           url: 'introspection',
           displayName: 'Introspecting the GraphQL schema'
