@@ -33,7 +33,7 @@ class RouteLinkedRichText extends React.Component {
       // Add smooth scroll to hash links
       setTimeout(() => {
         window.scrollTo({
-          behavior: element ? "smooth" : "auto",
+          behavior:"auto",
           top: element ? element.offsetTop : 0
         });
       }, 100);
