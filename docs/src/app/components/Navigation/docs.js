@@ -201,6 +201,16 @@ export default {
           ],
         },
         {
+          url: 'ref',
+          displayName: 'SDK Reference',
+          children: [
+            {
+              url: 'jss',
+              displayName: `JSS`
+            }
+          ]
+        },
+        {
           url: 'troubleshooting',
           displayName: 'Troubleshooting',
           children: [
