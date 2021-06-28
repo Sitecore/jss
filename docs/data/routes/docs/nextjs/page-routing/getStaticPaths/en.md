@@ -19,8 +19,6 @@ The function leverages a `SitemapFetcher` instance that gathers the list of page
 
 * In `development` mode, the `sitemapFetcher`, through an instance of `DisconnectedSitemapService`, generates the list of pages using a `ManifestInstance`. The sample application uses `sitecore/manifest/sitecore-import.json`. You can generate by running `jss manifest` or `jss start:disconnected-proxy`. `DisconnectedSitemapService` will go through the manifest routes and generate all paths for pre-rendering. You will not have pre-rendered pages because `getStaticPaths` runs on [every request](https://nextjs.org/docs/basic-features/data-fetching#runs-on-every-request-in-development-1). 
 
-* In `production` mode, `sitemapFetcher` uses an instance of the `GraphQLSitemapService` to fetch the paths for pre-rendering.
+* In `production` mode, `sitemapFetcher` uses an instance of the [`GraphQLSitemapService`](/docs/nextjs/services/graphql-sitemap-service) to fetch the paths for pre-rendering.
 
 > You can inspect the `sitemapFetcher` implementation in `src/lib/sitemap-fetcher.ts`.
-
-> Learn more about the [`GraphQLSitemapService`](/docs/nextjs/services/graphql-sitemap-service).
