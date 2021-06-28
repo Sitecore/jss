@@ -50,6 +50,8 @@ const SubMenu = ({menuItem, children, open, onClick}) => {
 
 const renderMenu = (baseUrl, menuItem, openMenuState, setOpenMenuState, selected) => {
   const url = `${baseUrl}/${menuItem.url}`;
+  const location = useLocation();
+  const pathName = location.pathname
   const toggleMenu = (url) => {
     if (openMenuState.has(url)) {
       openMenuState.delete(url);
@@ -60,6 +62,8 @@ const renderMenu = (baseUrl, menuItem, openMenuState, setOpenMenuState, selected
   }
 
   if (menuItem.children) {
+    const location = useLocation();
+    const pathName = location.pathname
     return (
       <SubMenu key={menuItem.url} menuItem={menuItem} open={openMenuState.has(menuItem.url)} onClick={() => toggleMenu(menuItem.url)}>
         {menuItem.children.map((child) => renderMenu(url, child, openMenuState, setOpenMenuState, selected))}
@@ -67,7 +71,7 @@ const renderMenu = (baseUrl, menuItem, openMenuState, setOpenMenuState, selected
     );
   } else {
     return (
-      <MenuItem key={menuItem.url} url={url} menuItem={menuItem} active={menuItem.url == selected} />
+      <MenuItem key={menuItem.url} url={url} menuItem={menuItem} active={(menuItem.url == selected) || pathName.includes(menuItem.url)} />
     );
   }
 };
