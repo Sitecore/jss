@@ -96,7 +96,7 @@ export default {
         },
         {
           url: 'getStaticPaths',
-          displayName: 'Handling dynamic routes',
+          displayName: 'Handling dynamic routes for SSG',
         },
         {
           url: 'switching-to-ssr',
