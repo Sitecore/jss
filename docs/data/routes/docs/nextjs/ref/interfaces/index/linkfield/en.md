@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: linkfield
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / LinkField
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / LinkField
 
 # Interface: LinkField
 

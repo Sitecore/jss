@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: sitecorecontext
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / SitecoreContext
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / SitecoreContext
 
 # Class: SitecoreContext<ContextType\>
 

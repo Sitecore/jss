@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: editingpreviewdata
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [sharedTypes/editing-data](/docs/nextjs/ref/modules/sharedtypes_editing_data) / EditingPreviewData
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [sharedTypes/editing-data](/docs/nextjs/ref/modules/sharedtypes_editing_data) / EditingPreviewData
 
 # Interface: EditingPreviewData
 

@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: sharedtypes_component_props
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / sharedTypes/component-props
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / sharedTypes/component-props
 
 # Module: sharedTypes/component-props
 

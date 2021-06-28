@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: componentpropsservice
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [services/component-props-service](/docs/nextjs/ref/modules/services_component_props_service) / ComponentPropsService
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [services/component-props-service](/docs/nextjs/ref/modules/services_component_props_service) / ComponentPropsService
 
 # Class: ComponentPropsService
 

@@ -214,12 +214,6 @@ export default {
     {
       url: 'ref',
       displayName: 'SDK reference',
-      children: [
-        {
-          url: 'modules',
-          displayName: 'Modules'
-        }
-      ]
     },
     {
       url: 'troubleshooting',

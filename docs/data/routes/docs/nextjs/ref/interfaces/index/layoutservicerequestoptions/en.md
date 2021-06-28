@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: layoutservicerequestoptions
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / LayoutServiceRequestOptions
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / LayoutServiceRequestOptions
 
 # Interface: LayoutServiceRequestOptions<T\>
 

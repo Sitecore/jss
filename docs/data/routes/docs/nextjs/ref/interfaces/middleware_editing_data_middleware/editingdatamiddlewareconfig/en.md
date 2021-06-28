@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: editingdatamiddlewareconfig
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [middleware/editing-data-middleware](/docs/nextjs/ref/modules/middleware_editing_data_middleware) / EditingDataMiddlewareConfig
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [middleware/editing-data-middleware](/docs/nextjs/ref/modules/middleware_editing_data_middleware) / EditingDataMiddlewareConfig
 
 # Interface: EditingDataMiddlewareConfig
 

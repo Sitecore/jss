@@ -4,7 +4,13 @@ routeTemplate: ./data/component-templates/article.yml
 title: GraphQL Sitemap Service
 ---
 
-## GraphQLSitemapService
+## GraphQLSitemapService Module
+
+Service that fetches the list of site pages using Sitecore's GraphQL API. 
+
+Next.js uses the list of pages to fetch data for Static Generation and Export functionality.
+
+
 
 This service generates the `sitemap` using the `config.graphqlEndpoint` endpoint. 
 
@@ -15,40 +21,6 @@ It exposes `fetchSSGSitemap` and `fetchExportSitemap`.
 * In SSG mode, use `fetchSSGSitemap`. This function accepts an array of supported `languages`. It will include the `locale` property because the sample application enables i18n by default. It will run GraphQL query for each language.
 
 You can customize the default search query used to fetch items and generate the sitemap.
-
-The default search query is:
-
-```
-graphql
-  query {
-    search(
-      where: {
-        AND:[
-          {
-            name:"_path",
-            value:"${rootItemId.toLowerCase()}" # provided root item id
-          },
-          {
-            name:"_language",
-            value:"${locale}" # provided language
-          },
-          {
-            name:"_hasLayout",
-            value :"true"
-          }
-        ]
-      }
-    ) {
-      results {
-        url {
-          path
-        }
-      }
-    }
-  }
-```
-
-
 
 It is not always desirable to pre-render all the pages. If you have many pages and you wish to customize the search query, use the `formatSearchQuery` argument. Map `language` and `rootItemId` on the new search query.
 
@@ -90,14 +62,5 @@ When you execute `fetchSSGSitemap`/`fetchExportSitemap` using the `GraphQLSitema
 
 > Remember to update the value of the `GRAPHQL_ROOT_ITEM_PATH` if you changed the location of your root item.
 
-### Static HTML Export
 
-If you use [Static HTML Export](/docs/nextjs/deploying-to-production/export) you should define the environment variable `EXPORT_MODE=true`.
 
-#### Disconnected mode
-
-If you run `export` in `disconnected` mode, `sitemapFetcher` will use the `DisconnectedSitemapService` which accepts a `ManifestInstance`. The sample application uses `sitecore/manifest/sitecore-import.json`. You can generate by running `jss manifest` or `jss start:disconnected-proxy`. `DisconnectedSitemapService` will go through the manifest routes and generate all paths for pre-rendering.
-
-#### Connected mode
-
-If you run `export` in `connected` mode, `sitemapFetcher` will use the `GraphQLSitemapService`.

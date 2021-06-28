@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: components_componentpropscontext
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / components/ComponentPropsContext
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / components/ComponentPropsContext
 
 # Module: components/ComponentPropsContext
 

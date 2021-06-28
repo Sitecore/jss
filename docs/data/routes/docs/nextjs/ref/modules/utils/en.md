@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: utils
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / utils
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / utils
 
 # Module: utils
 

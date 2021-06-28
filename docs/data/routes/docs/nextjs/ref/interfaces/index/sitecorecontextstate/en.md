@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: sitecorecontextstate
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / [index](/docs/nextjs/ref/modules/index) / SitecoreContextState
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / [index](/docs/nextjs/ref/modules/index) / SitecoreContextState
 
 # Interface: SitecoreContextState<ContextType\>
 

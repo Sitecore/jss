@@ -4,7 +4,7 @@ routeTemplate: ./data/component-templates/article.yml
 title: middleware_editing_render_middleware
 ---
 
-[Sitecore Next.js SDK](/docs/nextjs/ref/) / [Exports](/docs/nextjs/ref/modules) / middleware/editing-render-middleware
+[Sitecore Next.js SDK](/docs/nextjs/ref/) / middleware/editing-render-middleware
 
 # Module: middleware/editing-render-middleware
 
