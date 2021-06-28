@@ -3,6 +3,7 @@ import express from 'express';
 import compression from 'compression';
 import { forceDomain } from 'forcedomain';
 import enforce from 'express-sslify';
+
 import {
   createDisconnectedAssetMiddleware,
   createDisconnectedLayoutService,
@@ -124,11 +125,11 @@ manifestManager.getManifest(config.language).then((manifest) => {
   server.use('/dist', staticFileMiddleware);
   server.use('/docs/getting-started/:path', (req, res) => {
     req.url = `/docs/client-frameworks/getting-started/${req.params.path}`;
-    res.redirect(req.url, 301);
+    res.redirect(301, req.url);
   })
   server.use('/docs/nextjs/data-fetching/getStaticPaths', (req, res) => {
     req.url = `/docs/nextjs/page-routing/getStaticPaths`;
-    res.redirect(req.url, 301);
+    res.redirect(301, req.url);
   })
   server.use('*', ssrMiddleware);
 
