@@ -4,56 +4,31 @@ routeTemplate: ./data/component-templates/article.yml
 title: GraphQL Sitemap Service
 ---
 
-## GraphQLSitemapService Module
+# GraphQL Sitemap Service
 
-Service that fetches the list of site pages using Sitecore's GraphQL API. 
+The `GraphQLSitemapService` fetches the list of site pages using Sitecore's GraphQL API. We commonly use this service in conjuction with `getStaticPaths`. Next.js uses the list of pages to fetch data for Static Generation and Export functionality. See [Handling dynamic routes for SSG](/docs/nextjs/page-routing/getStaticPaths). 
 
-Next.js uses the list of pages to fetch data for Static Generation and Export functionality.
+## Configuration
 
+In the sample application, in `/src/lib/sitemap-fetcher.ts` you can inspect and modify the default SitemapFetcher configuration. 
 
+The service comes preconfigured with:
+- an `endpoint` - from `temp/config.graphQLEndpoint`,
+- an `apiKey` - from `temp/config.sitecoreApiKey`,
+- a `siteName` - from `temp/config.jssAppName`. 
 
-This service generates the `sitemap` using the `config.graphqlEndpoint` endpoint. 
+You also have the possibility to specify a `rootItemId`. The Sitemap Service needs a root item ID in order to fetch the list of pages for the current app. If `rootItemId` is not specified, the service will attempt to figure out the root item for the current JSS app using GraphQL and the app name.
 
-It exposes `fetchSSGSitemap` and `fetchExportSitemap`.
+> PERFORMANCE TIP: We **strongly** recommend you to specify a `rootItemId` to avoid a additional GraphQL lookups. 
+
+> WARNING: Not specifying the `rootItemId` for the GraphQL Sitemap Service instance can cause errors when using our Next.js SDK in conjuction with SXA integration. 
+
+The service exposes `fetchSSGSitemap` and `fetchExportSitemap`.
 
 * For static export, `fetchExportSitemap`. As static export doesn't support multilingual apps, this function accepts one `language` and will only run GraphQL queries for that language.
 
 * In SSG mode, use `fetchSSGSitemap`. This function accepts an array of supported `languages`. It will include the `locale` property because the sample application enables i18n by default. It will run GraphQL query for each language.
 
-You can customize the default search query used to fetch items and generate the sitemap.
-
-It is not always desirable to pre-render all the pages. If you have many pages and you wish to customize the search query, use the `formatSearchQuery` argument. Map `language` and `rootItemId` on the new search query.
-
-The following example shows a query that retrieves only the first 10 items:
-
-```typescript
-const formatSearchQuery = (rootItemId: string, locale: string) =>
-`search(
-	first: 10,
-	where: {
-		AND:[
-			{
-				name:"_path",
-				value:"${rootItemId}"
-			},
-			{
-				name:"_language",
-				value:"${locale}"
-			},
-			{
-				name:"_hasLayout",
-				value :"true"
-			}
-		]
-	}
-)`;
-
-this._graphqlSitemapService.fetchSSGSitemap(
-	context?.locales || [],
-	this.GRAPHQL_ROOT_ITEM_PATH,
-	formatSearchQuery
-);
-```
 When you execute `fetchSSGSitemap`/`fetchExportSitemap` using the `GraphQLSitemapService`, the service executes the following steps:
 
 1. Fetch the `rootItemId` using the provided `rootItemPath`.
@@ -62,5 +37,45 @@ When you execute `fetchSSGSitemap`/`fetchExportSitemap` using the `GraphQLSitema
 
 > Remember to update the value of the `GRAPHQL_ROOT_ITEM_PATH` if you changed the location of your root item.
 
+## Queries
 
+The default GraphQL query used by GraphQL Sitemap Service to fetch items and generate the sitemap is:
 
+```typescript
+const defaultQuery = /* GraphQL */ `
+  query SitemapQuery(
+    $rootItemId: String!
+    $language: String!
+    $pageSize: Int = 10
+    $hasLayout: String = "true"
+    $after: String
+  ) {
+    search(
+      where: {
+        AND: [
+          { name: "_path", value: $rootItemId, operator: CONTAINS }
+          { name: "_language", value: $language }
+          { name: "_hasLayout", value: $hasLayout }
+        ]
+      }
+      first: $pageSize
+      after: $after
+    ) {
+      total
+      pageInfo {
+        endCursor
+        hasNext
+      }
+      results {
+        url {
+          path
+        }
+      }
+    }
+  }
+`;
+```
+
+To use a custom query, you must extend the `GraphQLSitemapService` class, overriding the `fetchSitemap` method used internally by `fetchSSGSitemap` and `fetchExportSitemap`. 
+
+For more information about the `GraphQLSitemapService` consult the [source code reference](/docs/nextjs/ref/modules/services_graphql_sitemap_service).
