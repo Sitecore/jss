@@ -172,6 +172,20 @@ After creating a new user in the Sitecore Editor Role, attempting to edit JSS ap
 
 The workaround is to set 'Workflow State Write' for the `System/Workflows/JSS development workflow' item manually, enabling the Published state, which is final, to be editable. It allows the user to create a new version of an item for editing using the "Lock and Edit" option.
 
+### GraphQL query error when trying to start Next.js app using a Sitecore + SXA instance
+If you have an SXA integration with a JSS tenant and you deploy Next.js items into the JSS tenant, you might encounter a GraphQL query error when trying to start the Next.js app in production mode:
+
+`Error: Valid value for rootItemId not provided and failed to auto-resolve app root item.`
+
+This error occurs because the Next.js app and Next.js app items deployed into JSS tenant reference different templates, causing the query to fail.
+
+To prevent the error, define a `rootItemId` for your instances of GraphQL services, as follows: 
+
+- `/src/lib/sitemap-fetcher.ts`.
+- `/src/lib/layout-service-factory.ts`.
+- `/src/lib/dictionary-service-factory.ts`.
+
+
 ## Other
 These are less common issues that we have encountered.
 
