@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataService, editingDataService } from '../services/editing-data-service';
@@ -136,6 +137,14 @@ export class EditingRenderMiddleware {
       // replace phkey attribute with key attribute so that newly added renderings
       // show correct placeholders, so save and refresh won't be needed after adding each rendering
       html = html.replace(new RegExp('phkey', 'g'), 'key');
+
+      // When SSG, Next will attempt to perform a router.replace on the client-side to inject the query string parms
+      // to the router state. See https://github.com/vercel/next.js/blob/v10.0.3/packages/next/client/index.tsx#L169.
+      // However, this doesn't really work since at this point we're in the editor and the location.search has nothing
+      // to do with the Next route/page we've rendered. Beyond the extraneous request, this can result in a 404 with
+      // certain route configurations (e.g. multiple catch-all routes).
+      // The following line will trick it into thinking we're SSR, thus avoiding any router.replace.
+      html = html.replace(STATIC_PROPS_ID, SERVER_PROPS_ID);
 
       const body = { html };
 
