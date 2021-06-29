@@ -23,9 +23,15 @@ module.exports = function createJssProject(argv, nextSteps) {
 
   if (!argv.fetchWith || !argv.prerender) {
     nextSteps.push(
-      `* Did you know you can customize the Next.js sample app using ${chalk.green('jss create')} parameters?`,
-      `*  ${chalk.green('--fetchWith {REST|GraphQL}')} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`,
-      `*  ${chalk.green('--prerender {SSG|SSR}')} : Specifies the Next.js pre-rendering form for the optional catch-all route. Default is SSG.`,
+      `* Did you know you can customize the Next.js sample app using ${chalk.green(
+        'jss create'
+      )} parameters?`,
+      `*  ${chalk.green(
+        '--fetchWith {REST|GraphQL}'
+      )} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`,
+      `*  ${chalk.green(
+        '--prerender {SSG|SSR}'
+      )} : Specifies the Next.js pre-rendering form for the optional catch-all route. Default is SSG.`
     );
   }
 
@@ -39,7 +45,7 @@ module.exports = function createJssProject(argv, nextSteps) {
 
 /**
  * Sets how Sitecore data (layout, dictionary) is fetched.
- * @param {string} [fetchWith] {REST|GraphQL} Default is REST. 
+ * @param {string} [fetchWith] {REST|GraphQL} Default is REST.
  */
 function setFetchWith(fetchWith) {
   const defaultDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.ts');
@@ -57,9 +63,7 @@ function setFetchWith(fetchWith) {
     value = FetchWith.REST;
   }
 
-  console.log( 
-    chalk.cyan(`Applying ${value === FetchWith.REST ? 'REST' : 'GraphQL'} fetch...`)
-  );
+  console.log(chalk.cyan(`Applying ${value === FetchWith.REST ? 'REST' : 'GraphQL'} fetch...`));
 
   switch (value) {
     case FetchWith.REST:
@@ -95,9 +99,7 @@ function setPrerender(prerender) {
     value = Prerender.SSG;
   }
 
-  console.log(
-    chalk.cyan(`Applying ${value.toUpperCase()} prerender...`)
-  );
+  console.log(chalk.cyan(`Applying ${value.toUpperCase()} prerender...`));
 
   switch (value) {
     case Prerender.SSG:
@@ -119,6 +121,8 @@ function setNextConfig() {
   const nextConfig = path.join(__dirname, 'next.config.js');
   const prodConfig = path.join(__dirname, 'next.config.base.js');
 
+  console.log(chalk.cyan('Replacing next.config...'));
+
   fs.unlinkSync(nextConfig);
   fs.renameSync(prodConfig, nextConfig);
 }
@@ -127,5 +131,7 @@ function setNextConfig() {
  * Remove dependencies which are not used in production environment
  */
 function removeDependencies() {
-  execSync(`cd ${__dirname} && npm un --save-dev next-transpile-modules`, { stdio: 'inherit' })
+  console.log(chalk.cyan('Removing unused dependencies...'));
+
+  execSync(`cd ${__dirname} && npm un --save-dev next-transpile-modules`);
 }
