@@ -73,8 +73,7 @@
     "react-helmet": "^5.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "showdown": "^1.8.6",
-    "typedoc-default-themes": "file:assets/typedoc-default-themes-0.12.10.tgz"
+    "showdown": "^1.8.6"
   },
   "devDependencies": {
     "@sitecore-jss/sitecore-jss-cli": "^9.0.6",
