@@ -16,8 +16,15 @@ class RouteLinkedRichText extends React.Component {
   // props.history comes from the react-router withRouter() higher order component.
   routeHandler(event) {
     event.preventDefault();
-    const hash = event.target.hash
-    let destination = hash ? hash : event.target.pathname
+    // Sometimes the event.target is an element wrapped in an anchor.
+    // In those cases, the previous code would not work, as `pathname` might be undefined.
+    // To fix, establish proper target.
+    const target = event.target.pathname ? event.target : event.target.parentElement
+   
+    const hash = target.hash
+
+    let destination = hash ? target.pathname + hash : target.pathname
+    
     this.props.history.push(destination);
 
     // Handle hash presense
