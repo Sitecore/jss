@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-cli",
-  "version": "18.0.0-canary.2",
+  "version": "18.0.0-canary.3",
   "description": "Sitecore JSS command-line",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -30,8 +30,8 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^18.0.0-canary.2",
-    "@sitecore-jss/sitecore-jss-manifest": "^18.0.0-canary.2",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^18.0.0-canary.3",
+    "@sitecore-jss/sitecore-jss-manifest": "^18.0.0-canary.3",
     "axios": "^0.21.1",
     "chalk": "^2.4.2",
     "cross-spawn": "^7.0.0",
