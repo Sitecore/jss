@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/create');
+const { execSync } = require('child_process');
 
 /**
  * This function is invoked by `jss create` when an app based on this template is created.
@@ -31,6 +32,7 @@ module.exports = function createJssProject(argv, nextSteps) {
   setFetchWith(argv.fetchWith);
   setPrerender(argv.prerender);
   setNextConfig();
+  removeDependencies();
 
   return nextSteps;
 };
@@ -115,8 +117,15 @@ function setPrerender(prerender) {
  */
 function setNextConfig() {
   const nextConfig = path.join(__dirname, 'next.config.js');
-  const prodConfig = path.join(__dirname, 'next.config.prod.js');
+  const prodConfig = path.join(__dirname, 'next.config.base.js');
 
   fs.unlinkSync(nextConfig);
   fs.renameSync(prodConfig, nextConfig);
+}
+
+/**
+ * Remove dependencies which are not used in production environment
+ */
+function removeDependencies() {
+  execSync('npm un --save-dev next-transpile-modules')
 }

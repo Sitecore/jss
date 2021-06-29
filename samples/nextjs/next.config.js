@@ -2,7 +2,7 @@ const withTM = require('next-transpile-modules')(['@sitecore-jss/sitecore-jss-ne
   resolveSymlinks: false,
 });
 const path = require('path');
-const prodConfig = require('./next.config.prod');
+const prodConfig = require('./next.config.base');
 
 const nextConfig = {
   ...prodConfig,
