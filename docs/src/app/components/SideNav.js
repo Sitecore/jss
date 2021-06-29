@@ -71,7 +71,7 @@ const renderMenu = (baseUrl, menuItem, openMenuState, setOpenMenuState, selected
     );
   } else {
     return (
-      <MenuItem key={menuItem.url} url={url} menuItem={menuItem} active={(menuItem.url == selected) || pathName.includes(menuItem.url)} />
+      <MenuItem key={menuItem.url} url={url} menuItem={menuItem} active={(menuItem.url == selected) || pathName.includes(url)} />
     );
   }
 };
