@@ -1,8 +1,9 @@
 const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
-const { JSS_MODE_DISCONNECTED, getPublicUrl } = require('@sitecore-jss/sitecore-jss-nextjs');
+const { constants, getPublicUrl } = require('@sitecore-jss/sitecore-jss-nextjs');
+
 const disconnectedServerUrl = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
-const isDisconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
+const isDisconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
 
 const publicUrl = getPublicUrl();
 
