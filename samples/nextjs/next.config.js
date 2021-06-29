@@ -2,12 +2,12 @@ const withTM = require('next-transpile-modules')(['@sitecore-jss/sitecore-jss-ne
   resolveSymlinks: false,
 });
 const path = require('path');
-const prodConfig = require('./next.config.base');
+const baseConfig = require('./next.config.base');
 
 const nextConfig = {
-  ...prodConfig,
+  ...baseConfig,
   webpack: (config, options) => {
-    prodConfig.webpack(config, options);
+    baseConfig.webpack(config, options);
 
     if (options.isServer) {
       config.externals = ['react', ...config.externals];

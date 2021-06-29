@@ -119,12 +119,12 @@ function setPrerender(prerender) {
  */
 function setNextConfig() {
   const nextConfig = path.join(__dirname, 'next.config.js');
-  const prodConfig = path.join(__dirname, 'next.config.base.js');
+  const baseConfig = path.join(__dirname, 'next.config.base.js');
 
   console.log(chalk.cyan('Replacing next.config...'));
 
   fs.unlinkSync(nextConfig);
-  fs.renameSync(prodConfig, nextConfig);
+  fs.renameSync(baseConfig, nextConfig);
 }
 
 /**
