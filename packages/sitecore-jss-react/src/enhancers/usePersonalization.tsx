@@ -28,7 +28,7 @@ export interface UsePersonalizationResult {
   /**
    * The personalized component which is provided as a result of the personalization
    */
-  personalizedComponent: React.ReactElement | null | undefined;
+  personalizedComponent: React.ReactElement | null;
 }
 
 /**
@@ -71,7 +71,7 @@ export function usePersonalization(options: UsePersonalizationOptions): UsePerso
   return {
     personalizedComponent: personalizedComponentLayout
       ? createPersonalizedComponent(personalizedComponentLayout, options)
-      : personalizedComponentLayout,
+      : personalizedComponentLayout ?? null,
     isLoading: isLoading,
   };
 }
