@@ -19,6 +19,10 @@ export interface PersonalizationContext {
    * The language
    */
   language: string;
+  /**
+   * The unique identifier of the device layout
+   */
+  layoutDeviceId: string;
 }
 
 /**
@@ -52,6 +56,7 @@ export class LayoutPersonalizationService {
       {
         routePath: context.routePath,
         language: context.language,
+        layoutDeviceId: context.layoutDeviceId,
       },
       personalizedRenderings
     );
@@ -83,6 +88,7 @@ export class LayoutPersonalizationService {
           routePath: context.routePath,
           language: context.language,
           renderingIds: personalizedRenderingIds,
+          layoutDeviceId: context.layoutDeviceId,
         }
       );
       personalizedFragments = await this.resolveFragments(personalizationDecisionsResult, context);

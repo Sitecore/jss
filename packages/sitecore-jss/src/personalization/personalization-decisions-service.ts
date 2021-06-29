@@ -27,6 +27,10 @@ export interface DecisionsContext {
    * The unique identifiers of the personalizable renderings to get layout for
    */
   renderingIds: string[];
+  /**
+   * The unique identifier of the device layout
+   */
+  layoutDeviceId: string;
 }
 
 export interface PersonalizationDecisionData {
@@ -126,6 +130,7 @@ export class PersonalizationDecisionsService {
       renderingIds: context.renderingIds,
       referrer: window.document.referrer,
       url: window.location.pathname + window.location.search,
+      layoutDeviceId: context.layoutDeviceId,
     };
 
     debug.personalizationDecisions(

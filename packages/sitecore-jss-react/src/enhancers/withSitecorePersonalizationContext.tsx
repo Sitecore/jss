@@ -64,6 +64,7 @@ export function withSitecorePersonalizationContext(
           {
             language: props.layoutData?.sitecore.context.language as string,
             routePath: props.layoutData?.sitecore.context.itemPath as string,
+            layoutDeviceId: props.layoutData?.sitecore.route?.deviceId as string,
           },
           route
         );
