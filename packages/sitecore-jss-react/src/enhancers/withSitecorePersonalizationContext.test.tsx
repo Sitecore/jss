@@ -44,6 +44,7 @@ describe('withSitecorePersonalizationContext', () => {
       layoutId: '',
       name: '',
       placeholders: {},
+      deviceId: '',
     };
     layoutPersonalizationService = createStubInstance(
       LayoutPersonalizationService
@@ -85,6 +86,7 @@ describe('withSitecorePersonalizationContext', () => {
       {
         language: testComponentProps.layoutData?.sitecore.context.language as string,
         routePath: testComponentProps.layoutData?.sitecore.context.itemPath as string,
+        layoutDeviceId: testComponentProps.layoutData?.sitecore.route?.deviceId as string,
       },
       route
     );

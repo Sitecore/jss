@@ -63,6 +63,7 @@ describe('PersonalizationDecisionsService', () => {
         routePath: 'testRoutePath',
         language: 'testLanguage',
         renderingIds: ['testik1'],
+        layoutDeviceId: 'testDeviceId',
       };
 
       global.window = {
@@ -102,6 +103,7 @@ describe('PersonalizationDecisionsService', () => {
           language: 'testLanguage',
           renderingIds: ['testik1'],
           url: '',
+          layoutDeviceId: 'testDeviceId',
         })
       );
     });
@@ -126,6 +128,7 @@ describe('PersonalizationDecisionsService', () => {
         renderingIds: ['testik1'],
         routePath: 'testRoutePath',
         url: '',
+        layoutDeviceId: 'testDeviceId',
       });
     });
 
@@ -150,6 +153,7 @@ describe('PersonalizationDecisionsService', () => {
         renderingIds: ['testik1'],
         routePath: 'testRoutePath',
         url: '',
+        layoutDeviceId: 'testDeviceId',
       });
     });
 
@@ -175,6 +179,7 @@ describe('PersonalizationDecisionsService', () => {
         renderingIds: ['testik1'],
         routePath: 'testRoutePath',
         url: '',
+        layoutDeviceId: 'testDeviceId',
       });
     });
 
@@ -210,6 +215,7 @@ describe('PersonalizationDecisionsService', () => {
         renderingIds: ['testik1'],
         routePath: 'testRoutePath',
         url: 'test_pathname?sc_camp=testcamp&sc_test=10',
+        layoutDeviceId: 'testDeviceId',
       });
     });
 
@@ -246,6 +252,7 @@ describe('PersonalizationDecisionsService', () => {
         renderingIds: ['testik1'],
         routePath: 'testRoutePath',
         url: 'test_pathname?sc_camp=testcamp&sc_test=10',
+        layoutDeviceId: 'testDeviceId',
       });
     });
   });

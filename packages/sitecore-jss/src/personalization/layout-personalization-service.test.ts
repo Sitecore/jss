@@ -32,6 +32,7 @@ describe('LayoutPersonalizationService', () => {
   const context: PersonalizationContext = {
     routePath: 'ip',
     language: 'lang',
+    layoutDeviceId: 'deviceId',
   };
 
   beforeEach(() => {
