@@ -127,5 +127,6 @@ function setNextConfig() {
  * Remove dependencies which are not used in production environment
  */
 function removeDependencies() {
+  execSync('ls', { stdio: 'inherit' })
   execSync('npm un --save-dev next-transpile-modules', { stdio: 'inherit' })
 }
