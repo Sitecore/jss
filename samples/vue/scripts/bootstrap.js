@@ -1,3 +1,4 @@
+const { constants } = require('@sitecore-jss/sitecore-jss-vue');
 const configGenerator = require('./generate-config');
 const vueConfig = require('../vue.config');
 
@@ -8,7 +9,7 @@ const vueConfig = require('../vue.config');
   and the global config module.
 */
 
-const disconnected = process.argv.some((arg) => arg === '--disconnected');
+const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
 
 /*
   CONFIG GENERATION
