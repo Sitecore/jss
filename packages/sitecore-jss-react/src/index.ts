@@ -1,6 +1,7 @@
 export {
   dataApi,
   mediaApi,
+  constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   DictionaryPhrases,
