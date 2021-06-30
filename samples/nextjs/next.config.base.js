@@ -17,6 +17,10 @@ const nextConfig = {
   // Make the same PUBLIC_URL available as an environment variable on the client bundle
   env: {
     PUBLIC_URL: publicUrl,
+    IS_TRACKING_ENABLED: process.env.IS_TRACKING_ENABLED,
+    TRACKING_ENDPOINT: process.env.TRACKING_ENDPOINT,
+    PERSONALIZATION_DECISIONS_ENDPOINT: process.env.PERSONALIZATION_DECISIONS_ENDPOINT,
+    SITECORE_SERVICES_API_KEY: process.env.SITECORE_SERVICES_API_KEY,
   },
 
   i18n: {

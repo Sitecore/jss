@@ -13,10 +13,6 @@ const nextConfig = {
       config.externals = ['react', ...config.externals];
     }
 
-    IS_TRACKING_ENABLED: process.env.IS_TRACKING_ENABLED,
-    TRACKING_ENDPOINT: process.env.TRACKING_ENDPOINT,
-    PERSONALIZATION_DECISIONS_ENDPOINT: process.env.PERSONALIZATION_DECISIONS_ENDPOINT,
-    SITECORE_SERVICES_API_KEY: process.env.SITECORE_SERVICES_API_KEY,
     config.resolve.alias['react'] = path.resolve(__dirname, '.', 'node_modules', 'react');
 
     return config;
