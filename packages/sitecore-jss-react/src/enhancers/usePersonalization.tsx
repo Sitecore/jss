@@ -42,7 +42,7 @@ export function usePersonalization(options: UsePersonalizationOptions): UsePerso
 
   const sitecorePersonalizationContext = useContext(SitecorePersonalizationReactContext);
   let personalizedComponentLayout: ComponentRendering | null | undefined = undefined;
-  let isLoading = false;
+  let isLoading = true;
   if (sitecorePersonalizationContext) {
     personalizedComponentLayout = sitecorePersonalizationContext.getPersonalizedComponent(
       options.uid
