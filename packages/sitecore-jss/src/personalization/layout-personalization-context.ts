@@ -64,7 +64,7 @@ export class SitecorePersonalizationContext implements SitecorePersonalizationCo
    * @returns {boolean} The value that indicates whether the loading is in-progress.
    */
   isLoading(componentUid: string): boolean {
-    return !this.components || !this.components[componentUid];
+    return !(this.components && componentUid in this.components);
   }
 
   /**
