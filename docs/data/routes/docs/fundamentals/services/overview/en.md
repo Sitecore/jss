@@ -6,7 +6,7 @@ title: JSS Services & APIs
 
 # JSS Services & APIs
 
-   This section describes the services and APIs available in Sitecore Headless Services (formerly know as JSS Servicer Components) and the Sitecore JavaScript Rendering SDK (JSS).
+   This section describes the services and APIs available in Sitecore Headless Services (formerly know as JSS Server Components) and the Sitecore JavaScript Rendering SDK (JSS).
 
    The services and APIs described in this section, unless otherwise stated, are available for all our framework-specific rendering SDKs.
 
