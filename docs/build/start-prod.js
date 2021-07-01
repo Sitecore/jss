@@ -127,10 +127,6 @@ manifestManager.getManifest(config.language).then((manifest) => {
     req.url = `/docs/client-frameworks/getting-started/${req.params.path}`;
     res.redirect(301, req.url);
   })
-  server.use('/docs/nextjs/data-fetching/getStaticPaths', (req, res) => {
-    req.url = `/docs/nextjs/page-routing/getStaticPaths`;
-    res.redirect(301, req.url);
-  })
   server.use('/docs/fundamentals/services/layout-service', (req, res) => {
     req.url = `/docs/fundamentals/services/layout/sitecore-layout-service`;
     res.redirect(301, req.url);

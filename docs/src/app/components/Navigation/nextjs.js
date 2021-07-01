@@ -95,10 +95,6 @@ export default {
           displayName: 'JSS routes with Next.js',
         },
         {
-          url: 'getStaticPaths',
-          displayName: 'Handling dynamic routes for SSG',
-        },
-        {
           url: 'switching-to-ssr',
           displayName: 'Switching between SSG and SSR',
         },
@@ -121,6 +117,10 @@ export default {
         //  url: 'customizing-static-paths',
         //  displayName: 'Customizing static paths',
         //},
+        {
+          url: 'getStaticPaths',
+          displayName: 'getStaticPaths',
+        },
         {
           url: 'component-level-data-fetching',
           displayName: 'Component-level data fetching',
