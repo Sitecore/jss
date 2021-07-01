@@ -22,7 +22,7 @@ Before diving into the specifics of each service, you should be aware of the fol
 
 **Factory**
 
-A factory creates an instance of a *service*. There are separate factories for services with support for both GraphQL and REST.
+A factory creates an instance of a *service*. There are separate factories for services with support for both GraphQL and REST. You can see examples of factory implementations in the [Next.js sample application](https://github.com/Sitecore/jss/tree/5982057c9a92e3c1a899a2b741e64f6a4dc04713/samples/nextjs/src/lib).
 
 **Service**
 
@@ -48,4 +48,4 @@ A fetcher describes the data-fetching function of *services*.
 As of JSS 18.0.0, the recommended method for customizing/extending a front-end JSS service is to:
 
 1. extend the service itself, followed by
-2. using your new service in the service factory.
+2. using your new service in a service factory.
