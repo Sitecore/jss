@@ -6,7 +6,7 @@ title: GraphQL Sitemap Service
 
 # GraphQL Sitemap Service
 
-The `GraphQLSitemapService` fetches the list of site pages using Sitecore's GraphQL API. We commonly use this service in conjuction with `getStaticPaths`. Next.js uses the list of pages to fetch data for Static Generation and Export functionality. See [Handling dynamic routes for SSG](/docs/nextjs/page-routing/getStaticPaths). 
+The `GraphQLSitemapService` fetches the list of site pages using Sitecore's GraphQL API. We commonly use this service in conjuction with `getStaticPaths`. Next.js uses the list of pages to fetch data for Static Generation and Export functionality. See [getStaticPaths](/docs/nextjs/data-fetching/getStaticPaths). 
 
 ## Configuration
 

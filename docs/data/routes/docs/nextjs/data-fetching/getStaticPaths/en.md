@@ -1,9 +1,9 @@
 ---
 name: getStaticPaths
 routeTemplate: ./data/component-templates/article.yml
-title: Handling dynamic routes for SSG
+title: getStaticPaths
 ---
-# Handling dynamic routes
+# getStaticPaths
 
 Our Next.js sample application comes out of the box with a single [dynamic route](https://nextjs.org/docs/routing/dynamic-routes) `src/pages/[[...path]].tsx` - meaning the application does not know which page this is unless we tell it. To do so in a Next.js application, you use [getStaticPaths](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation). 
 
