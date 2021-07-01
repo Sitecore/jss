@@ -12,7 +12,7 @@ title: JSS Services & APIs
 
    Our SDKs' most frequently used services follow a service-client-fetcher pattern of implementation and support REST request/response, GraphQL queries, or both. The services using this pattern are:
 
-   - [Layout Service](docs/fundamentals/services/layout-service) - available for all frameworks, with REST and GraphQL endpoints.
+   - [Layout Service](/docs/fundamentals/services/layout/overview) - available for all frameworks, with REST and GraphQL endpoints.
    - [Dictionary Service](/docs/fundamentals/services/dictionary-service) - available for all frameworks, with REST and GraphQL endpoints.
    - [Sitemap Service](/docs/nextjs/services/graphql-sitemap-service) - available for Next.js only, GraphQL only.
 
