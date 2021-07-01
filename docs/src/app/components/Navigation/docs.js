@@ -167,6 +167,10 @@ export default {
           displayName: 'Services and APIs',
           children: [
             {
+              url: 'services-overview',
+              displayName: 'Overview',
+            },
+            {
               url: 'app-configuration',
               displayName: 'App Configuration',
             },
