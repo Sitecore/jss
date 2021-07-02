@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Sitecore JavaScript Services documentation
 
-Check [JSS documentation](https://jss.sitecore.net/) for how to install JSS Server and configure Sitecore.
+Check [JSS documentation](https://jss.sitecore.com/) for how to install JSS Server and configure Sitecore.
 
 ## App setup
 

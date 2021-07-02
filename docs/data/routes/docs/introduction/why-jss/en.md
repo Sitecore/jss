@@ -16,6 +16,7 @@ After they assemble components, Content Authors can apply Sitecore-specific feat
 
 ## What is JSS
 
+
 JSS is a set of npm packages containing:
 1. Core packages that abstract away the "Sitecore stuff" like talking to different Sitecore APIs.
 2. Framework-specific packages with components that render data managed by the core packages. 
@@ -42,7 +43,7 @@ With JSS, all the benefits of JavaScript frameworks, such as Next's image optimi
 
 - JSS enables workflows where front-end and back-end teams can work in parallel.
 
-- JSS provides sample applications, which serve as an onboarding tool and living documentation.
+-	JSS provides sample applications that serve as an onboarding tool and living documentation.
 
 - Abstractions for front-end developers that allow working with Sitecore declaratively.
 

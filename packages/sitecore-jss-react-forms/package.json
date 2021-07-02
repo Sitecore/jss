@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-forms",
-  "version": "18.0.0-canary.1",
+  "version": "18.0.0-canary.3",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -14,10 +14,10 @@
   },
   "author": {
     "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "url": "https://jss.sitecore.com"
   },
   "license": "Apache-2.0",
-  "homepage": "https://jss.sitecore.net",
+  "homepage": "https://jss.sitecore.com",
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
@@ -49,7 +49,7 @@
     "react-dom": "^17.0.1"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-forms": "^18.0.0-canary.1",
+    "@sitecore-jss/sitecore-jss-forms": "^18.0.0-canary.3",
     "prop-types": "^15.7.2"
   },
   "description": "",

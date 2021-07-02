@@ -54,7 +54,7 @@ JSS has many possible operation modes that should be tested. Run the scripts in 
 1. Smokey e2e tests (foreach-instance XM, XP - NOT azure)
    - Execute Smokey on XM1/XP1 on-premise installations to verify disconnected and integrated mode workflows.
 1. Azure-specific deploy + e2e tests (foreach-app, azure only)
-   - See https://jss.sitecore.net/docs/techniques/azure-deployment (don't forget to set the Node version)
+   - See https://jss.sitecore.com/docs/techniques/azure-deployment (don't forget to set the Node version)
    - Push build artifacts & configs via FTPS or Kudu
    - Import the site with `jss deploy items -c -d` in `en` and `da-DK`
 1. Experience Editor testing (foreach-app react, angular, vue)
@@ -124,7 +124,7 @@ _Execute after baseline script. Execute each step once per sample app (react, vu
 
 _Execute after baseline script._
 
-1. Perform all necessary setup steps for your environment (Android or iOS). Read the **Prerequisities** section of the `sitecore-jss-react-native` documentation for more information: http://jss.sitecore.net/docs/client-frameworks/react-native
+1. Perform all necessary setup steps for your environment (Android or iOS). Read the **Prerequisities** section of the `sitecore-jss-react-native` documentation for more information: http://jss.sitecore.com/docs/client-frameworks/react-native
 
    - If you haven't done this before, it will take some time, plan accordingly.
 
@@ -140,7 +140,7 @@ _Execute after baseline script._
 1. Start app in `connected-tunnel` mode with `jss start-android:connected-tunnel` or `jss start-ios:connected-tunnel` (depending on your platform).
 
    - Use `jss deploy items -c -d` to generate the app manifest and deploy to a Sitecore instance.
-   - Read the **Connected Tunnel Mode** section on the doc site for more information about what Connected Tunnel Mode is: http://jss.sitecore.net/docs/client-frameworks/react-native
+   - Read the **Connected Tunnel Mode** section on the doc site for more information about what Connected Tunnel Mode is: http://jss.sitecore.com/docs/client-frameworks/react-native
    - The build process for Connected Tunnel mode is the same as for Disconnected mode, just with different configuration.
    - The app will run in the simulator or physical device and should look identical to the app in Disconnected mode.
    - Make changes to app content and/or media in Sitecore, save/publish, then refresh app to ensure it is displaying the changes.
@@ -157,7 +157,7 @@ _Execute after baseline script._
 
 #### Client-side Embedding (Embedded Wizard)
 
-This test plan basically mirrors the installation and verification instructions from the **Client-side Embedding** page of the doc site: http://jss.sitecore.net/docs/techniques/mvc-integration/client-side-embedding
+This test plan basically mirrors the installation and verification instructions from the **Client-side Embedding** page of the doc site: http://jss.sitecore.com/docs/techniques/mvc-integration/client-side-embedding
 
 1. Follow `Step 1` of the guide.
 
@@ -169,7 +169,7 @@ This test plan basically mirrors the installation and verification instructions 
 
 #### JavaScript Rendering Type
 
-This test plan largely mirrors the **Getting Started** and **Component Library** sections of the **Sitecore JavaScript rendering** page of the doc site: http://jss.sitecore.net/docs/techniques/mvc-integration/javascript-rendering
+This test plan largely mirrors the **Getting Started** and **Component Library** sections of the **Sitecore JavaScript rendering** page of the doc site: http://jss.sitecore.com/docs/techniques/mvc-integration/javascript-rendering
 
 1. Follow the `Getting Started` section of the guide.
 

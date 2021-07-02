@@ -6,7 +6,7 @@ placeholders:
     fields:
       heading: JSS Styleguide
       content: |
-        <p>This is a live set of examples of how to use JSS. For more information on using JSS, please see <a href="https://jss.sitecore.net" target="_blank" rel="noopener noreferrer">the documentation</a>.</p>
+        <p>This is a live set of examples of how to use JSS. For more information on using JSS, please see <a href="https://jss.sitecore.com" target="_blank" rel="noopener noreferrer">the documentation</a>.</p>
         <p>The content and layout of this page is defined in <code>/data/routes/styleguide/en.yml</code></p>
   - componentName: Styleguide-Layout
     placeholders:

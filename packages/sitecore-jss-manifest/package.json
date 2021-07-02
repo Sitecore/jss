@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-manifest",
-  "version": "18.0.0-canary.1",
+  "version": "18.0.0-canary.3",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -17,16 +17,16 @@
   },
   "author": {
     "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "url": "https://jss.sitecore.com"
   },
   "license": "Apache-2.0",
-  "homepage": "https://jss.sitecore.net",
+  "homepage": "https://jss.sitecore.com",
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^18.0.0-canary.1",
-    "@sitecore-jss/sitecore-pipelines": "^18.0.0-canary.1",
+    "@sitecore-jss/sitecore-jss": "^18.0.0-canary.3",
+    "@sitecore-jss/sitecore-pipelines": "^18.0.0-canary.3",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.4",
     "import-fresh": "^3.1.0",
