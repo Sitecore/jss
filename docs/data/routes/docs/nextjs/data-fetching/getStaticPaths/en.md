@@ -7,8 +7,6 @@ title: getStaticPaths
 
 Our Next.js sample application comes out of the box with a single [dynamic route](https://nextjs.org/docs/routing/dynamic-routes) `src/pages/[[...path]].tsx` - meaning the application does not know which page this is unless we tell it. To do so in a Next.js application, you use [getStaticPaths](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation). 
 
-## getStaticPaths
-
 If you chose to use static generation when creating your Next.js application, the dynamic, catch-all route `src/pages/[[...path]].tsx` implements and exports the `getStaticPaths` function.
 
 > Before using `getStaticPaths` read more about [the `fallback` key](https://nextjs.org/docs/basic-features/data-fetching#the-fallback-key-required).
