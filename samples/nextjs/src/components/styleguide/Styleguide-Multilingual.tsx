@@ -1,4 +1,4 @@
-import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import Link from 'next/link';
 import { useI18n } from 'next-localization';
 import StyleguideSpecimen from './Styleguide-Specimen';
@@ -44,4 +44,4 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
   );
 };
 
-export default StyleguideMultilingual;
+export default withDatasourceCheck()(StyleguideMultilingual);

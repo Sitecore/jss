@@ -1,6 +1,5 @@
 import 'cross-fetch/polyfill'; // Apollo uses `fetch`, which needs a polyfill for node and older browsers.
-import { ApolloClient } from 'apollo-client';
-import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';
+import { InMemoryCache, ApolloClient } from '@apollo/client/core';
 
 /*
   INTROSPECTION DATA
@@ -21,7 +20,6 @@ import introspectionQueryResultData from '../temp/GraphQLFragmentTypes.json';
 */
 
 // choose between a basic HTTP link to run queries...
-// import { createHttpLink } from 'apollo-link-http';
 
 // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
 import { BatchHttpLink } from 'apollo-link-batch-http';
@@ -42,13 +40,15 @@ export default function(endpoint, ssr, initialCacheState) {
       },
     })
   );
-  // basic HTTP link
-  // const link = createHttpLink({ uri: endpoint, credentials: 'include' });
+
+  const possibleTypes = {};
+
+  introspectionQueryResultData.__schema.types.forEach((supertype) => {
+    possibleTypes[supertype.name] = supertype.possibleTypes.map((subtype) => subtype.name);
+  });
 
   const cache = new InMemoryCache({
-    fragmentMatcher: new IntrospectionFragmentMatcher({
-      introspectionQueryResultData,
-    }),
+    possibleTypes,
   });
 
   return new ApolloClient({

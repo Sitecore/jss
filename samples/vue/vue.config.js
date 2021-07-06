@@ -1,4 +1,6 @@
 let vueConfig = {};
+const path = require('path');
+const { constants } = require('@sitecore-jss/sitecore-jss-vue');
 
 if (process.env.BUILD_TARGET_ENV === 'server') {
   const serverConfig = require('./server/server.vue.config');
@@ -31,7 +33,10 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
 } else {
   vueConfig.devServer = {
     port: process.env.PORT || 3000,
-    proxy: `http://localhost:${process.env.PROXY_PORT || 3042}`,
+    proxy:
+      process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED
+        ? `http://localhost:${process.env.PROXY_PORT || 3042}`
+        : undefined,
   };
 }
 
@@ -53,6 +58,9 @@ vueConfig.configureWebpack = (config) => {
   if (indexOfMjs > -1) {
     config.resolve.extensions.splice(indexOfMjs, 1);
   }
+
+  // We should import same Vue instance, even if we are using symlink with sitecore-jss-vue
+  config.resolve.alias.vue = path.resolve(__dirname, 'node_modules/vue');
 
   config.module.rules.push({
     test: /\.(graphql|gql)$/,

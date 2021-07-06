@@ -12,7 +12,7 @@ describe('<Link />', () => {
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
     const rendered = mount(Link);
-    expect(rendered.isEmpty()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
   });
 
@@ -24,8 +24,8 @@ describe('<Link />', () => {
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
-    const rendered = mount(Link, { context: { props } });
-    expect(rendered.isEmpty()).toBe(true);
+    const rendered = mount(Link, { props });
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
   });
 
@@ -36,7 +36,7 @@ describe('<Link />', () => {
         editableLastPart: '</a>',
       },
     };
-    const rendered = mount(Link, { context: { props } }).find('.sc-link-wrapper > a');
+    const rendered = mount(Link, { props }).find('.sc-link-wrapper > a');
     expect(rendered.html()).toContain(props.field.editableFirstPart);
   });
 
@@ -53,7 +53,7 @@ describe('<Link />', () => {
       editable: false,
     };
 
-    const rendered = mount(Link, { context: { props } }).find('a');
+    const rendered = mount(Link, { props }).find('a');
     expect(rendered.attributes().href).toBe(props.field.value.href);
     expect(rendered.html()).toContain(props.field.value.text);
   });
@@ -65,7 +65,7 @@ describe('<Link />', () => {
         text: 'ipsum',
       },
     };
-    const rendered = mount(Link, { context: { props } }).find('a');
+    const rendered = mount(Link, { props }).find('a');
     expect(rendered.attributes().href).toBe(props.field.href);
     expect(rendered.text()).toBe(props.field.text);
   });
@@ -77,7 +77,7 @@ describe('<Link />', () => {
         editableLastPart: '</a>',
       },
     };
-    const rendered = mount(Link, { context: { props } }).find('span');
+    const rendered = mount(Link, { props }).find('span');
     expect(rendered.html().indexOf('<input')).toBeGreaterThan(-1);
     expect(rendered.html().indexOf('chrometype="field"')).toBeGreaterThan(-1);
   });
@@ -94,7 +94,7 @@ describe('<Link />', () => {
         },
       },
     };
-    const rendered = mount(Link, { context: { props } }).find('a');
+    const rendered = mount(Link, { props }).find('a');
     const renderedAttrs = rendered.attributes();
     // note: order of comparison is important for `toMatchObject` as renderedAttrs won't fully match props.field.value
     expect(props.field.value).toMatchObject(renderedAttrs);
@@ -113,10 +113,10 @@ describe('<Link />', () => {
       id: 'my-link',
       disabled: true,
     };
-    const rendered = mount(Link, { context: { props, attrs } }).find('a');
+    const rendered = mount(Link, { props, attrs }).find('a');
     const renderedAttrs = rendered.attributes();
     expect(renderedAttrs.id).toBe(attrs.id);
-    expect(renderedAttrs.disabled).toBe('disabled');
+    expect(renderedAttrs.disabled).toBe('true');
   });
 
   it('should render other attributes on wrapper span with other props provided with editable', () => {
@@ -129,7 +129,7 @@ describe('<Link />', () => {
     const attrs = {
       id: 'my-link',
     };
-    const rendered = mount(Link, { context: { props, attrs } }).find('span.sc-link-wrapper');
+    const rendered = mount(Link, { props, attrs }).find('span.sc-link-wrapper');
     expect(rendered.attributes().id).toBe(attrs.id);
   });
 });

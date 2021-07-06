@@ -5,8 +5,9 @@ import {
   GetServerSideComponentProps,
   GetStaticComponentProps,
   useComponentProps,
-  JSS_MODE_DISCONNECTED,
+  constants,
   GraphQLRequestClient,
+  withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
 import {
@@ -14,7 +15,7 @@ import {
   AppRoute,
   Item,
   GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
-} from './GraphQL-ConnectedDemo.graphql';
+} from './GraphQL-ConnectedDemo.dynamic.graphql';
 import { StyleguideComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 
@@ -100,7 +101,7 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
  * @param {GetStaticPropsContext} context
  */
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
-  if (process.env.JSS_MODE === JSS_MODE_DISCONNECTED) {
+  if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
     return null;
   }
 
@@ -124,7 +125,7 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
  * @param {GetServerSidePropsContext} context
  */
 export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
-  if (process.env.JSS_MODE === JSS_MODE_DISCONNECTED) {
+  if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
     return null;
   }
 
@@ -141,4 +142,4 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
   return result;
 };
 
-export default GraphQLConnectedDemo;
+export default withDatasourceCheck()(GraphQLConnectedDemo);

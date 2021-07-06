@@ -1,36 +1,20 @@
-import Vue, { PropOptions } from 'vue';
-import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options';
+import { defineComponent, provide, PropType } from 'vue';
 import { ComponentFactory } from './sharedTypes';
 
 export interface SitecoreContextProps {
   componentFactory: ComponentFactory;
 }
 
-// For an explanation of why `ThisTypedComponentOptionsWithRecordProps`
-// is used here, see the `Placeholder.ts` component file.
-export const SitecoreContext: ThisTypedComponentOptionsWithRecordProps<
-  Vue,
-  any,
-  any,
-  any,
-  SitecoreContextProps
-> = {
+export const SitecoreContext = defineComponent({
   props: {
     componentFactory: {
-      // Hopefully this PR will negate having to cast the formatter prop
-      // to PropOptions<any>: https://github.com/vuejs/vue/pull/6856
-      type: Function,
+      type: Function as PropType<ComponentFactory>,
       default: undefined,
-    } as PropOptions<any>,
+    },
   },
 
-  provide() {
-    return {
-      injectedComponentFactory: this.componentFactory,
-    };
+  setup(props, context) {
+    provide('injectedComponentFactory', props.componentFactory);
+    return () => context.slots && context.slots.default();
   },
-
-  render(): any {
-    return this.$slots && this.$slots.default[0];
-  },
-};
+});

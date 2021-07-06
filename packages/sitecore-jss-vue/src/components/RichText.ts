@@ -1,48 +1,47 @@
-import { CreateElement, FunctionalComponentOptions, RenderContext } from 'vue';
+import { h, defineComponent, PropType } from 'vue';
 
-export interface RichTextProps {
-  /** The rich text field data. */
-  field: {
-    value?: string;
-    editable?: string;
-  };
-  /**
-   * The HTML element that will wrap the contents of the field.
-   */
-  tag?: string;
-  /**
-   * Can be used to explicitly disable inline editing.
-   * If true and `field.editable` has a value, then `field.editable` will
-   * be processed and rendered as component output.
-   * If false, `field.editable` value will be ignored and not rendered.
-   */
-  editable?: boolean;
-}
-
-export const RichText: FunctionalComponentOptions<RichTextProps> = {
-  functional: true,
+export const RichText = defineComponent({
   props: {
-    field: { type: Object, required: true },
+    /** The rich text field data. */
+    field: {
+      type: Object as PropType<{
+        value?: string;
+        editable?: string;
+      }>,
+      default() {
+        return {} as {
+          value?: string;
+          editable?: string;
+        };
+      },
+      required: true,
+    },
+    /**
+     * The HTML element that will wrap the contents of the field.
+     */
     tag: { type: String, default: 'div' },
+    /**
+     * Can be used to explicitly disable inline editing.
+     * If true and `field.editable` has a value, then `field.editable` will
+     * be processed and rendered as component output.
+     * If false, `field.editable` value will be ignored and not rendered.
+     */
     editable: { type: Boolean, default: true },
   },
-  // Need to assign `any` return type because Vue type definitions are inaccurate.
-  // The Vue type definitions set `render` to a return type of VNode and that's it.
-  // However, it is possible to return null | string | VNode[] | VNodeChildrenArrayContents.
-  render(createElement: CreateElement, context: RenderContext): any {
-    const { field, tag, editable } = context.props;
+  render() {
+    const { field, tag, editable } = this.$props;
     if (!field || (!field.editable && !field.value)) {
       return null;
     }
 
-    // in functional components, context.data should be passed along to the
+    // this.$data should be passed along to the
     // `createElement` function in order to retain attributes and events
-    // https://vuejs.org/v2/guide/render-function.html#Passing-Attributes-and-Events-to-Child-Elements-Components
+    // https://v3.vuejs.org/guide/render-function.html#render-functions
     const data = {
-      ...context.data,
-      domProps: { innerHTML: field.editable && editable ? field.editable : field.value },
+      ...this.$data,
+      innerHTML: field.editable && editable ? field.editable : field.value,
     };
 
-    return createElement(tag || 'div', data);
+    return h(tag || 'div', data);
   },
-};
+});

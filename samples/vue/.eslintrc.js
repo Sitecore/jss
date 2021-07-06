@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['plugin:vue/essential', '@vue/prettier', 'plugin:yaml/recommended'],
+  extends: ['plugin:vue/vue3-essential', '@vue/prettier', 'plugin:yaml/recommended'],
   plugins: ['yaml'],
   rules: {
     'no-console': 'off',

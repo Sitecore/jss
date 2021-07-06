@@ -18,7 +18,7 @@ The Vue sample supports running in all [JSS application modes](/docs/fundamental
 
 ## Component Format
 
-The JSS Vue sample primarily uses [Single-File Components (SFC)](https://vuejs.org/v2/guide/single-file-components.html) for presentational components. However, you are free to use whichever component declaration and registration method you choose, e.g. `render` functions, inline `template` properties, etc...
+The JSS Vue sample primarily uses [Single-File Components (SFC)](https://v3.vuejs.org/guide/single-file-component.html#introduction) for presentational components. However, you are free to use whichever component declaration and registration method you choose, e.g. `render` functions, inline `template` properties, etc...
 
 ## Routing + State Management
 
@@ -90,9 +90,9 @@ The JSS [disconnected mode](/docs/fundamentals/application-modes) enables develo
 
 Refer to the [JSS + GraphQL](/docs/fundamentals/services/graphql) documentation to understand the overall capabilities first - we're only talking about Vue and _Connected GraphQL_ specifically here. _Integrated_ GraphQL works at the server level, so it is identical in any supported frontend framework.
 
-The Vue sample app makes use of the [vue-apollo](https://akryum.github.io/vue-apollo/) library which in turn integrates with the [Apollo GraphQL client](https://www.apollographql.com/client). Usage is fairly straightforward and you can follow the `vue-apollo` documentation for implementation specifics.
+The Vue sample app makes use of the [@vue/apollo](https://v4.apollo.vuejs.org/) library which in turn integrates with the [Apollo GraphQL client](https://www.apollographql.com/client). Usage is fairly straightforward and you can follow the `@vue/apollo` documentation for implementation specifics.
 
-> When server-side rendering (SSR), the sample app uses the `prefetch` functionality of `vue-apollo` to prefetch GraphQL query data and render the app to HTML on the server. This allows server-side rendering with the async results of GraphQL queries evaluated. If not using GraphQL, the `vue-apollo` prefetching functionality can be removed. It is _important_ to note that when `vue-apollo` is prefetching queries the queries do _not_ have access to instantiated components. This means no access to component props, state, or other instance properties. If queries need that type of data to populate query variables, the data will need to be extracted from the SSR state available via the `renderView` function.
+> When server-side rendering (SSR), the sample app uses the `prefetch` functionality of `@vue/apollo` to prefetch GraphQL query data and render the app to HTML on the server. This allows server-side rendering with the async results of GraphQL queries evaluated. If not using GraphQL, the `@vue/apollo` prefetching functionality can be removed.
 
 > Complete examples of using connected and integrated GraphQL are provided with the sample app and are heavily commented, for example `src/components/GraphQL-ConnectedDemo`. Please refer to these samples for implementation details.
 
@@ -116,12 +116,12 @@ export default {
 
 Usage of `this.$jss` is dependent on installing the `SitecoreJssStorePlugin`:
 
-_createApp.js_ (where your Vue instance is created, e.g. `new Vue()`)
+_createApp.js_ (where your Vue instance is created, e.g. `createApp()/createSSRApp()`)
 
 ```javascript
 import SitecoreJssStorePlugin from './lib/SitecoreJssStorePlugin';
 
-Vue.use(SitecoreJssStorePlugin);
+app.use(SitecoreJssStorePlugin);
 ```
 
 The final piece of using `this.$jss.sitecoreContext()` and `this.$jss.routeData()` is to ensure that the `store` used by the `SitecoreJssStorePlugin` is updated when the Sitecore context/route data changes. This could be when the route changes in your app, or when server-side rendering passes down a state object - any time new layout data is pulled from Sitecore and rendered. To accomplish this, we use the `this.$jss.store.setSitecoreData()` function to update the JSS plugin store with data received from Layout Service. The `setSitecoreData` function accepts raw Layout Service data and updates the app-level context and route data accordingly. You can see an example of usage in `RouteHandler.js`. An abbreviated example is below:

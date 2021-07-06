@@ -3,6 +3,7 @@ export {
   mediaApi,
   isEditorActive,
   resetEditorChromes,
+  constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   DictionaryPhrases,
@@ -38,3 +39,4 @@ export {
 export { withSitecoreContext, useSitecoreContext } from './enhancers/withSitecoreContext';
 export { withEditorChromes, withExperienceEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
+export { withDatasourceCheck } from './enhancers/withDatasourceCheck';

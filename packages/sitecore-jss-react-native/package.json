@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-native",
-  "version": "16.1.0-canary.46",
+  "version": "19.0.0-canary.16",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -18,15 +18,15 @@
   },
   "author": {
     "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "url": "https://jss.sitecore.com"
   },
   "license": "Apache-2.0",
-  "homepage": "https://jss.sitecore.net",
+  "homepage": "https://jss.sitecore.com",
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.1.0-canary.46",
+    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.16",
     "prop-types": "^15.7.2",
     "react-native-htmlview": "^0.15.0",
     "react-native-svg": "^12.1.0",

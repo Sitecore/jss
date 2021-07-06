@@ -1,6 +1,7 @@
 export {
   dataApi,
   mediaApi,
+  constants,
   // generic data access
   HttpDataFetcher,
   HttpResponse,
@@ -42,8 +43,6 @@ export {
 } from '@sitecore-jss/sitecore-jss';
 
 export { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
-
-export * from './constants';
 
 export {
   ComponentPropsCollection,
@@ -103,4 +102,5 @@ export {
   withEditorChromes,
   withExperienceEditorChromes,
   withPlaceholder,
+  withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-react';

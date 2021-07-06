@@ -1,4 +1,4 @@
-import { Field, Placeholder, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Placeholder, Text, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideComponentProps } from 'lib/component-props';
 
 type StyleguideSectionProps = StyleguideComponentProps & {
@@ -19,4 +19,4 @@ const StyleguideSection = (props: StyleguideSectionProps): JSX.Element => (
   </div>
 );
 
-export default StyleguideSection;
+export default withDatasourceCheck()(StyleguideSection);

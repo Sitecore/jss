@@ -31,6 +31,9 @@ export default {
     rendering: {
       type: Object,
     },
+    params: {
+      type: Object,
+    },
   },
   components: {
     ScText: Text,

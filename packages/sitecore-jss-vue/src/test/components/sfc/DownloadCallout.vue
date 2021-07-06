@@ -2,7 +2,7 @@
   <div class="download-callout-mock-sfc">
     message: {{ fields.message ? fields.message.value : 'no message' }}<br />
     arbitrary: {{ arbitrary.value || 'no value' }}<br />
-    arbitrary function: {{arbitrary.withFunction ? arbitrary.withFunction() : 'no function'}}
+    arbitrary function: {{ arbitrary.withFunction ? arbitrary.withFunction() : 'no function' }}
   </div>
 </template>
 
@@ -23,11 +23,12 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    rendering: {
+      type: Object,
+      default: () => ({}),
+    },
   },
 };
 </script>
 
-<style>
-</style>
-
-
+<style></style>

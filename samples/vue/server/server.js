@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import { createRenderer } from 'vue-server-renderer';
+import { renderToString } from '@vue/server-renderer';
 import serializeJavascript from 'serialize-javascript';
+import { renderMetaToString } from 'vue-meta/ssr';
 import axios from 'axios';
 import http from 'http';
 import https from 'https';
@@ -8,12 +8,8 @@ import i18ninit from '../src/i18n';
 import { createApp } from '../src/createApp';
 import { createRouter } from '../src/router';
 import indexTemplate from '../dist/index.html';
-import ApolloSSR from 'vue-apollo/ssr';
-import componentFactory from '../src/temp/componentFactory';
+import { getStates } from '@vue/apollo-ssr';
 import config from '../src/temp/config';
-
-Vue.use(ApolloSSR);
-
 /** Asserts that a string replace actually replaced something */
 function assertReplace(string, value, replacement) {
   let success = false;
@@ -59,64 +55,32 @@ export function renderView(callback, path, data, viewBag) {
   try {
     const state = parseServerData(data, viewBag);
 
+    const ctx = {};
+
     initializei18n(state)
-      .then((i18n) => createApp(state, i18n))
+      .then((i18n) => createApp(state, i18n, true))
       .then(({ app, router, graphQLProvider }) => {
         // set server-side router's location
         router.push(path);
 
         // since there could potentially be asynchronous route hooks or components,
         // we will be returning a Promise so that we can wait until everything is ready before rendering.
-        return new Promise((resolve, reject) => {
-          router.onReady(() => {
-            const matchedComponents = router.getMatchedComponents();
-            // no matched routes, reject
-            if (!matchedComponents.length) {
-              reject(new Error(`No matched components found by router for route '${path}'`));
-            }
-            resolve(matchedComponents);
-          }, reject);
-        })
-          .then((matchedComponents) => {
-            // The Vue SSR renderer does not wait for async actions, invoked by components, to complete.
-            // vue-apollo handles this by "pre-fetching" GraphQL queries attached to Vue components (via the `.apollo` property).
-            // So when those components are rendering, the GraphQL queries use the apollo-client cache for their data.
-            // The biggest caveat to this approach is that when pre-fetching, the queries don't have access
-            // to their Vue component instance. In other words, SSR pre-fetch queries can't set query variables
-            // based on component props, state, etc...
-            // Prefetch queries only have access to the context data that are provided via the `prefetchAll`
-            // method below. In this scenario we provide current route and state data provided by the server.
-
-            // only these components will be prefetched, so we find JSS components in the route data,
-            // as well as static components in the route from the router
-            const apolloComponentsToSSR = [
-              ...matchedComponents,
-              ...resolveComponentsInRoute(state.sitecore),
-              // got static components etc that need to prefetch GraphQL queries? Add them here.
-            ].filter((component) => component.apollo);
-
-            return ApolloSSR.prefetchAll(graphQLProvider, apolloComponentsToSSR, {
-              route: router.currentRoute,
-              state,
-            });
-          })
-          .then(() => {
-            const renderer = createRenderer();
-            // `renderToString` expects an actual `Vue` instance (e.g. `new Vue()`), not just a component definition
-            // `renderToString` returns a promise
-            return renderer.renderToString(app).then((renderedApp) => {
-              // We add the GraphQL state to the SSR state so that we can avoid refetching queries after client load
-              // Not using GraphQL? Get rid of this.
-              state.APOLLO_STATE = ApolloSSR.getStates(graphQLProvider);
-              return {
-                renderedApp,
-                app,
-              };
-            });
+        return router.isReady().then(() => {
+          // `renderToString` expects an actual `App` instance
+          // `renderToString` returns a promise
+          return renderToString(app, ctx).then((renderedApp) => {
+            // We add the GraphQL state to the SSR state so that we can avoid refetching queries after client load
+            // Not using GraphQL? Get rid of this.
+            state.APOLLO_STATE = getStates({ state: graphQLProvider }).state;
+            return {
+              renderedApp,
+              app,
+            };
           });
+        });
       })
-      .then(({ renderedApp, app }) => {
-        const meta = app.$meta().inject();
+      .then(async ({ app, renderedApp }) => {
+        const meta = await renderMetaToString(app, ctx);
 
         // We remove the viewBag from the server-side state before sending it back to the client.
         // This saves bandwidth, because by default the viewBag contains the translation dictionary,
@@ -140,24 +104,16 @@ export function renderView(callback, path, data, viewBag) {
             isJSON: true,
           })}`
         );
-        // render vue-meta data
-        html = assertReplace(
-          html,
-          '<html>',
-          `<html data-vue-meta-server-rendered ${meta.htmlAttrs.text()}>`
-        );
-        html = assertReplace(
-          html,
-          '<head>',
-          `<head>
-            ${meta.meta.text()}
-            ${meta.title.text()}
-            ${meta.link.text()}
-            ${meta.style.text()}
-            ${meta.script.text()}
-            ${meta.noscript.text()}`
-        );
-        html = assertReplace(html, '<body>', `<body ${meta.bodyAttrs.text()}>`);
+        if (meta.teleports) {
+          // render vue-meta data
+          html = assertReplace(
+            html,
+            '<html>',
+            `<html data-vue-meta-server-rendered ${meta.teleports.htmlAttrs || ''}>`
+          );
+          html = assertReplace(html, '<head>', `<head>${meta.teleports.head || ''}`);
+          html = assertReplace(html, '<body>', `<body ${meta.teleports.bodyAttrs || ''}>`);
+        }
 
         callback(null, {
           html,
@@ -189,9 +145,17 @@ export function parseRouteUrl(url) {
   // use vue-router to find the route matching the incoming URL then return its match params.
   // note: createRouter() creates a router with mode set to 'history'. This is for client-side rendering.
   // vue-router will automatically switch to 'abstract' mode when not running in browser (i.e. server-side rendering).
-  const router = createRouter();
-  const match = router.match(url);
-  return match && match.params ? match.params : null;
+  const router = createRouter(true);
+  const match = router.resolve(url);
+
+  if (!match || !match.params) return null;
+
+  // vue-router provides array instead of string
+  match.params.sitecoreRoute = match.params.sitecoreRoute
+    ? match.params.sitecoreRoute.join('/')
+    : undefined;
+
+  return match.params;
 }
 
 function parseServerData(data, viewBag) {
@@ -202,47 +166,6 @@ function parseServerData(data, viewBag) {
     viewBag: parsedViewBag,
     sitecore: parsedData && parsedData.sitecore,
   };
-}
-
-function resolveComponentsInRoute(sitecoreData) {
-  if (!sitecoreData.route) return [];
-
-  const components = new Map();
-
-  getComponents(sitecoreData.route, components);
-
-  const result = [];
-  components.forEach((component) => result.push(component));
-
-  return result;
-}
-
-function getComponents(routeData, componentsMap) {
-  if (!routeData.placeholders) return;
-
-  Object.keys(routeData.placeholders).forEach((placeholderKey) => {
-    routeData.placeholders[placeholderKey].forEach((componentInPlaceholder) => {
-      if (
-        !componentInPlaceholder.componentName ||
-        componentsMap.get(componentInPlaceholder.placeholderName)
-      ) {
-        // component was raw, or we already knew about it in the known components map
-        return;
-      }
-
-      // add this component's name and instance to the map
-      const componentInstance = componentFactory(componentInPlaceholder.componentName);
-
-      if (componentInstance) {
-        componentsMap.set(componentInPlaceholder.componentName, componentInstance);
-      }
-
-      // add child placeholders to the map
-      if (componentInPlaceholder.placeholders) {
-        getComponents(componentInPlaceholder, componentsMap);
-      }
-    });
-  });
 }
 
 function initializei18n(state) {

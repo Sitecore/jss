@@ -7,7 +7,7 @@
     <sc-text :field="fields.sample" :encode="false" tag="p" />
 
     <p>
-      <!-- $t is attached to the Vue instance by the i18n plugin -->
+      <!-- $t is attached to the App instance by the vue-i18n plugin -->
       This is a static dictionary entry from <code>/data/dictionary</code>:&nbsp;{{
         $t('styleguide-sample')
       }}
@@ -19,8 +19,8 @@
       <router-link to="/da-DK/styleguide">Show in Danish</router-link>
     </p>
 
-    <!-- $i18n is attached to the Vue instance by the i18n plugin -->
-    <p>The current language is: {{ $i18n.i18next.language }}</p>
+    <!-- $i18n is attached to the App instance by the vue-i18n plugin -->
+    <p>The current language is: {{ $i18n.locale }}</p>
   </styleguide-specimen>
 </template>
 

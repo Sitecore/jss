@@ -22,6 +22,9 @@ export default {
     fields: {
       type: Object,
     },
+    params: {
+      type: Object,
+    },
   },
   components: {
     ScPlaceholder: Placeholder,

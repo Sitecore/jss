@@ -8,10 +8,8 @@ describe('<MissingComponent />', () => {
     logSpy.mockImplementation(() => {});
 
     const renderedComponent = mount(MissingComponent, {
-      context: {
-        props: {
-          rendering: { componentName: 'missing' },
-        },
+      props: {
+        rendering: { componentName: 'missing' },
       },
     });
     expect(renderedComponent.html()).toMatchSnapshot();

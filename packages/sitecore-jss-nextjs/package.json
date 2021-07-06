@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "16.1.0-canary.46",
+  "version": "19.0.0-canary.16",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -17,13 +17,13 @@
   },
   "author": {
     "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "url": "https://jss.sitecore.com"
   },
   "publishConfig": {
     "access": "public"
   },
   "license": "Apache-2.0",
-  "homepage": "https://jss.sitecore.net",
+  "homepage": "https://jss.sitecore.com",
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
@@ -62,9 +62,9 @@
     "react-dom": "^17.0.1"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.1.0-canary.46",
-    "@sitecore-jss/sitecore-jss-manifest": "^16.1.0-canary.46",
-    "@sitecore-jss/sitecore-jss-react": "^16.1.0-canary.46",
+    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.16",
+    "@sitecore-jss/sitecore-jss-manifest": "^19.0.0-canary.16",
+    "@sitecore-jss/sitecore-jss-react": "^19.0.0-canary.16",
     "prop-types": "^15.7.2",
     "sync-disk-cache": "^2.1.0"
   },

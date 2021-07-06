@@ -13,6 +13,14 @@ describe('<RichText />', () => {
     expect(rendered).to.have.length(0);
   });
 
+  it('should render nothing with empty value', () => {
+    const field = {
+      value: '',
+    };
+    const rendered = mount(<RichText field={field} />).find('div');
+    expect(rendered).to.have.length(0);
+  });
+
   it('should render nothing with missing editable and value', () => {
     const field = {};
     const rendered = mount(<RichText field={field} />).find('div');

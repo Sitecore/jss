@@ -22,6 +22,9 @@ export default {
     rendering: {
       type: Object,
     },
+    params: {
+      type: Object,
+    },
   },
   components: {
     ScText: Text,
@@ -29,7 +32,7 @@ export default {
   },
   computed: {
     isEditing() {
-      // this.$jss is defined on the Vue instance by the SitecoreJssPlugin and provides
+      // this.$jss is defined on the App instance by the SitecoreJssPlugin and provides
       // reactive access to the `sitecoreContext` provided in layout service data.
       return this.$jss.sitecoreContext().pageEditing;
     },

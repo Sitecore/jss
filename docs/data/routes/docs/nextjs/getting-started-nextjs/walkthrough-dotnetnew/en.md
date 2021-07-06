@@ -3,7 +3,7 @@ name: walkthrough-dotnetnew
 routeTemplate: ./data/component-templates/article.yml
 title: Walkthrough with 'dotnet new'
 ---
-# Walkthrough: Using the Sitecore Container Starter Template for JSS Next.js Projects
+# Walkthrough: Using the Sitecore Container Template for JSS Next.js Projects
 
 Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html), the [Sitecore Next.js SDK](https://jss.sitecore.com/), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html). 
 
@@ -49,12 +49,13 @@ Before you can install the template and create a solution, you must make sure th
 * [.NET Framework 4.8 SDK ](https://dotnet.microsoft.com/download/dotnet-framework/net48) (see the [Microsoft procedure for checking .NET Framework versions](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)).
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/install/), with Windows Containers enabled.
+* If you have not already done so, set the `ExecutionPolicy` to allow these scripts to run using the command `Set-ExecutionPolicy Unrestricted`
 
 See the [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html) documentation for more information on system requirements.
 
 ### Install the template
 
-Before you can create a solution, you must download and install the .NET starter template in your file system. 
+Before you can create a solution, you must download and install the Next.js .NET template in your file system. 
 
 To install the template:
 

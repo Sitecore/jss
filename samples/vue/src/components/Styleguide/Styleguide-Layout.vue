@@ -30,6 +30,9 @@ export default {
     rendering: {
       type: Object,
     },
+    params: {
+      type: Object,
+    },
   },
   computed: {
     sections() {

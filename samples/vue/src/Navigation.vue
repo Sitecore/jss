@@ -7,11 +7,11 @@
         <img :src="logoImg" alt="Sitecore" />
       </router-link>
     </h5>
-    <!-- note: `$t` is a computed property on the Vue instance, defined by the i18next plugin -->
+    <!-- note: `$t` is a computed property on the Vue instance, defined by the vue-i18n plugin -->
     <nav class="my-2 my-md-0 mr-md-3">
       <a
         class="p-2 text-dark"
-        href="https://jss.sitecore.net"
+        href="https://jss.sitecore.com"
         target="_blank"
         rel="noopener noreferrer"
       >

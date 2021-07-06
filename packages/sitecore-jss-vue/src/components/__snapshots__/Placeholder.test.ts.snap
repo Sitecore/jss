@@ -295,7 +295,6 @@ exports[`<Placeholder /> with LayoutService data - EE on should pass properties 
         chrometype="placeholder"
         kind="open"
         id="main"
-        key="main"
         class="scpm"
         data-selectable="true"
   >
@@ -317,7 +316,6 @@ exports[`<Placeholder /> with LayoutService data - EE on should pass properties 
             chrometype="placeholder"
             kind="open"
             id="page_header"
-            key="page-header"
             class="scpm"
             data-selectable="true"
       >
@@ -357,7 +355,6 @@ exports[`<Placeholder /> with LayoutService data - EE on should pass properties 
             chrometype="placeholder"
             kind="open"
             id="page_content"
-            key="page-content"
             class="scpm"
             data-selectable="true"
       >
@@ -380,7 +377,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should pass properties 
         <br>
         arbitrary function: indeed
       </div>
-      <div style="[object Object]">
+      <div style="background-color: white; opacity: 0.35; filter: alpha(opacity=35);">
         <div style="height:50px;background: transparent url('/sitecore/shell/themes/standard/images/pageeditor/bg_hidden_rendering.png') repeat;">
         </div>
       </div>
@@ -427,7 +424,6 @@ exports[`<Placeholder /> with LayoutService data - EE on should render a placeho
         chrometype="placeholder"
         kind="open"
         id="page_content"
-        key="page-content"
         class="scpm"
         data-selectable="true"
   >
@@ -450,7 +446,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should render a placeho
     <br>
     arbitrary function: no function
   </div>
-  <div style="[object Object]">
+  <div style="background-color: white; opacity: 0.35; filter: alpha(opacity=35);">
     <div style="height:50px;background: transparent url('/sitecore/shell/themes/standard/images/pageeditor/bg_hidden_rendering.png') repeat;">
     </div>
   </div>
@@ -480,7 +476,6 @@ exports[`<Placeholder /> with LayoutService data - EE on should render component
           chrometype="placeholder"
           kind="open"
           id="main"
-          key="main"
           class="scpm"
           data-selectable="true"
     >
@@ -503,7 +498,6 @@ exports[`<Placeholder /> with LayoutService data - EE on should render component
                 chrometype="placeholder"
                 kind="open"
                 id="page_header"
-                key="page-header"
                 class="scpm"
                 data-selectable="true"
           >
@@ -543,7 +537,6 @@ exports[`<Placeholder /> with LayoutService data - EE on should render component
                 chrometype="placeholder"
                 kind="open"
                 id="page_content"
-                key="page-content"
                 class="scpm"
                 data-selectable="true"
           >
@@ -566,7 +559,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should render component
             <br>
             arbitrary function: indeed
           </div>
-          <div style="[object Object]">
+          <div style="background-color: white; opacity: 0.35; filter: alpha(opacity=35);">
             <div style="height:50px;background: transparent url('/sitecore/shell/themes/standard/images/pageeditor/bg_hidden_rendering.png') repeat;">
             </div>
           </div>
@@ -615,7 +608,6 @@ exports[`<Placeholder /> with LayoutService data - EE on should render nested pl
         chrometype="placeholder"
         kind="open"
         id="main"
-        key="main"
         class="scpm"
         data-selectable="true"
   >
@@ -637,7 +629,6 @@ exports[`<Placeholder /> with LayoutService data - EE on should render nested pl
             chrometype="placeholder"
             kind="open"
             id="page_header"
-            key="page-header"
             class="scpm"
             data-selectable="true"
       >
@@ -677,7 +668,6 @@ exports[`<Placeholder /> with LayoutService data - EE on should render nested pl
             chrometype="placeholder"
             kind="open"
             id="page_content"
-            key="page-content"
             class="scpm"
             data-selectable="true"
       >
@@ -700,7 +690,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should render nested pl
         <br>
         arbitrary function: indeed
       </div>
-      <div style="[object Object]">
+      <div style="background-color: white; opacity: 0.35; filter: alpha(opacity=35);">
         <div style="height:50px;background: transparent url('/sitecore/shell/themes/standard/images/pageeditor/bg_hidden_rendering.png') repeat;">
         </div>
       </div>
