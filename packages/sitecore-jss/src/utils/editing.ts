@@ -1,3 +1,4 @@
+import { ChromeRediscoveryGlobalFunctionName } from '@sitecore/horizon-canvas-sdk';
 import isServer from './is-server';
 
 /**
@@ -36,8 +37,8 @@ export class HorizonEditor {
     if (isServer()) {
       return;
     }
-    // No way to reset chromes in Horizon, simply reload the canvas (iframe) instead
-    window.location.reload();
+    // Reset chromes in Horizon
+		(window as any)[ChromeRediscoveryGlobalFunctionName.name]();
   }
 }
 

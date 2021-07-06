@@ -51,6 +51,7 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
+    "@sitecore/horizon-canvas-sdk": "^6.0.0-r01334",
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "debug": "^4.3.1",
