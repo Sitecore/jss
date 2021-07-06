@@ -14,7 +14,7 @@ Sitecore JSS provides a simple API to make utilizing the Layout Service easier. 
 The `dataApi` object is found in the `@sitecore-jss\sitecore-jss` package but is also exposed via the framework-specific SDKs.
 
 ```javascript
-import { dataApi } from '@sitecore-jss/sitecore-jss-react';
+import { dataApi } from '@sitecore-jss/sitecore-jss';
 import { dataFetcher } from './dataFetcher'; 
 
 const fetchOptions = {
