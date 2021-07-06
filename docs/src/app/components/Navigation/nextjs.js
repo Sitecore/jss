@@ -104,12 +104,12 @@ export default {
         },
         {
           url: 'getStaticPaths',
-          displayName: 'getStaticPaths & sitemap service',
+          displayName: 'getStaticPaths',
         },
-        //{
-        //  url: 'customizing-static-paths',
-        //  displayName: 'Customizing static paths',
-        //},
+        {
+         url: 'customizing-static-paths',
+         displayName: 'Customizing static paths',
+        },
         {
           url: 'component-level-data-fetching',
           displayName: 'Component-level data fetching',
