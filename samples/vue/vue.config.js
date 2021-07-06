@@ -31,7 +31,10 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
 } else {
   vueConfig.devServer = {
     port: process.env.PORT || 3000,
-    proxy: `http://localhost:${process.env.PROXY_PORT || 3042}`,
+    proxy:
+      process.env.JSS_MODE === 'disconnected'
+        ? `http://localhost:${process.env.PROXY_PORT || 3042}`
+        : undefined,
   };
 }
 

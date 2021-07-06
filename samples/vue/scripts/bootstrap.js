@@ -8,7 +8,7 @@ const vueConfig = require('../vue.config');
   and the global config module.
 */
 
-const disconnected = process.argv.some((arg) => arg === '--disconnected');
+const disconnected = process.env.JSS_MODE === 'disconnected';
 
 /*
   CONFIG GENERATION
