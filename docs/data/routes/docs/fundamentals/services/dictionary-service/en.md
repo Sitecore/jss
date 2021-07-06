@@ -32,8 +32,9 @@ It's up to you how you invoke and utilize this data. For example, the React App 
 ## Invoking the Dictionary Service from JSS
 
 The Sitecore JSS SDK provides a simple API to make utilizing the Dictionary Service easier. Create instance of `DictionaryService` class and enter configuration:
+
 ```javascript
-import { DictionaryService } from '@sitecore-jss/sitecore-jss-nextjs';
+import { DictionaryService } from '@sitecore-jss/sitecore-jss';
 import config from './config';
 
 const dictionaryService = new DictionaryService({
@@ -44,14 +45,14 @@ const dictionaryService = new DictionaryService({
 ```
 The `DictionaryServiceConfig` type is found in the `@sitecore-jss\sitecore-jss` package. `DictionaryService` contains caching enabled by default.
 
-The `dataFetcher` option enables you to implement whichever data access method you wish. JSS ships with axios, which can be imported from `src\data-fetcher.js`.
+The `dataFetcher` option enables you to implement whichever data access method you wish. JSS ships with `axios`, which can be imported from `src\data-fetcher.js`.
 ```javascript
 import { AxiosResponse } from 'axios';
 import { 
   AxiosDataFetcher,
   DictionaryService,
   DictionaryServiceData
-} from '@sitecore-jss/sitecore-jss-nextjs';
+} from '@sitecore-jss/sitecore-jss';
 import config from 'temp/config';
 
 function dataFetcher(url: string, data?: unknown): Promise<AxiosResponse<DictionaryServiceData>> {

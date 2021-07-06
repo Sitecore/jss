@@ -167,6 +167,10 @@ export default {
           displayName: 'Services and APIs',
           children: [
             {
+              url: 'services-overview',
+              displayName: 'Overview',
+            },
+            {
               url: 'app-configuration',
               displayName: 'App Configuration',
             },
@@ -175,8 +179,22 @@ export default {
               displayName: 'App Import',
             },
             {
-              url: 'layout-service',
-              displayName: 'Layout Service',
+              url: 'layout',
+              displayName: 'Layout',
+              children: [
+                {
+                  url: 'overview',
+                  displayName: 'Overview'
+                },
+                {
+                  url: 'sitecore-layout-service',
+                  displayName: 'Sitecore Layout Service'
+                },
+                {
+                  url: 'jss-layout-api',
+                  displayName: 'JSS Layout API'
+                }
+              ]
             },
             {
               url: 'graphql',

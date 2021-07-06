@@ -35,6 +35,16 @@ export default {
       ],
     },
     {
+      url: 'services',
+      displayName: 'Services & APIs',
+      children: [
+        {
+          url: 'graphql-sitemap-service',
+          displayName: 'GraphQL Sitemap Service'
+        }
+      ]
+    },
+    {
       url: 'experience-editor',
       displayName: 'Experience Editor',
       children: [
@@ -89,8 +99,8 @@ export default {
           displayName: 'Switching between SSG and SSR',
         },
         {
-         url: 'error-pages',
-         displayName: 'Error Pages',
+          url: 'error-pages',
+          displayName: 'Error Pages',
         },
       ],
     },
@@ -102,14 +112,15 @@ export default {
           url: 'data-services',
           displayName: 'Data Services',
         },
-        {
-          url: 'getStaticPaths',
-          displayName: 'getStaticPaths & sitemap service',
-        },
+
         //{
         //  url: 'customizing-static-paths',
         //  displayName: 'Customizing static paths',
         //},
+        {
+          url: 'getStaticPaths',
+          displayName: 'getStaticPaths',
+        },
         {
           url: 'component-level-data-fetching',
           displayName: 'Component-level data fetching',
