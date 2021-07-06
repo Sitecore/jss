@@ -1,4 +1,4 @@
-import { constants } from '@sitecore-jss/sitecore-jss-angular';
+
 import { generateConfig } from './generate-config';
 const projects = require('../angular.json').projects;
 
@@ -9,7 +9,7 @@ const projects = require('../angular.json').projects;
   and the global config module.
 */
 
-const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
+const disconnected = process.argv.some((arg) => arg === '--disconnected');
 
 /*
   CONFIG GENERATION

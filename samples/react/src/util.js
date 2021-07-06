@@ -1,11 +1,10 @@
 const config = require('./temp/config');
-const { constants } = require('@sitecore-jss/sitecore-jss-react');
 
 /**
  * Check is disconnected mode started
  * @returns {boolean}
  */
-const isDisconnected = () => process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
+const isDisconnected = () => /localhost/i.test(config.sitecoreApiHost);
 
 module.exports.isDisconnected = isDisconnected;
 

@@ -1,5 +1,5 @@
 import { generateConfig } from './generate-config';
-import { constants } from '@sitecore-jss/sitecore-jss-nextjs';
+import { JSS_MODE_DISCONNECTED } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /*
   BOOTSTRAPPING
@@ -8,7 +8,7 @@ import { constants } from '@sitecore-jss/sitecore-jss-nextjs';
   and the global config module.
 */
 
-const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
+const disconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
 
 /*
   CONFIG GENERATION

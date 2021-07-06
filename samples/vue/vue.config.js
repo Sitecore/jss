@@ -1,6 +1,4 @@
 let vueConfig = {};
-const path = require('path');
-const { constants } = require('@sitecore-jss/sitecore-jss-vue');
 
 if (process.env.BUILD_TARGET_ENV === 'server') {
   const serverConfig = require('./server/server.vue.config');
@@ -33,10 +31,7 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
 } else {
   vueConfig.devServer = {
     port: process.env.PORT || 3000,
-    proxy:
-      process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED
-        ? `http://localhost:${process.env.PROXY_PORT || 3042}`
-        : undefined,
+    proxy: `http://localhost:${process.env.PROXY_PORT || 3042}`,
   };
 }
 
