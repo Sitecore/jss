@@ -115,6 +115,6 @@ export const Placeholder = defineComponent({
       return () => scopedSlots.default({ components, isEmpty });
     }
     // Otherwise, if no default scoped slot is defined, assume "normal" rendering of the VNodes that were created from rendering data.
-    return () => (vnodes && vnodes.length > 0 ? h('div', {}, vnodes) : null);
+    return () => (vnodes && vnodes.length > 0 ? vnodes : null);
   },
 });
