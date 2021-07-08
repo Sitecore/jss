@@ -75,5 +75,5 @@ Sitecore requires Windows, but the instance can be on a virtual machine or a rem
 To connect your application to Sitecore, you must:
 
 1. [Setup JSS Server Components](/docs/client-frameworks/getting-started/jss-server-install).
-2. [Deploy the application to a Sitecore environment](/docs/client-frameworks/getting-started/app-deployment).
+2. Run `jss deploy items`.
 3. [Connect to the Experience Editor](/docs/nextjs/experience-editor/walkthrough).
