@@ -1,4 +1,3 @@
-import { ChromeRediscoveryGlobalFunctionName } from '@sitecore/horizon-canvas-sdk';
 import isServer from './is-server';
 
 /**
@@ -23,6 +22,13 @@ export class ExperienceEditor {
 }
 
 /**
+ * Copy of chrome rediscovery contract from Horizon (chrome-rediscovery.contract.ts)
+ */
+export const ChromeRediscoveryGlobalFunctionName = {
+  name: 'Sitecore.Horizon.ResetChromes',
+};
+
+/**
  * Static utility class for Sitecore Horizon Editor
  */
 export class HorizonEditor {
@@ -38,7 +44,8 @@ export class HorizonEditor {
       return;
     }
     // Reset chromes in Horizon
-		(window as any)[ChromeRediscoveryGlobalFunctionName.name]();
+    // eslint-disable-next-line
+    (window as any)[ChromeRediscoveryGlobalFunctionName.name]();
   }
 }
 

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect, spy } from 'chai';
 import { isEditorActive, resetEditorChromes, isServer, resolveUrl } from '.';
+import { ChromeRediscoveryGlobalFunctionName } from './editing';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
@@ -73,7 +74,7 @@ describe('utils', () => {
       expect(resetEditorChromes()).to.not.throw;
     });
 
-    it('should resetChromes on ChromeManager when EE is active', () => {
+    it('should reset chromes when EE is active', () => {
       const resetChromes = spy();
       global.window = {
         document: {},
@@ -84,15 +85,16 @@ describe('utils', () => {
       expect(resetChromes).to.have.been.called.once;
     });
 
-    it('should perform reload when Horizon is active', () => {
-      const reload = spy();
+    it('should reset chromes when Horizon is active', () => {
+      const resetChromes = spy();
       global.window = {
         document: {},
-        location: { search: '?sc_horizon=editor', reload },
+        location: { search: '?sc_horizon=editor' },
         Sitecore: null,
       };
+      global.window[ChromeRediscoveryGlobalFunctionName.name] = resetChromes;
       resetEditorChromes();
-      expect(reload).to.have.been.called.once;
+      expect(resetChromes).to.have.been.called.once;
     });
 
     it('should not throw when EE and Horizon are not active', () => {
