@@ -42,9 +42,9 @@ export default{
 </script>
 ```
 
-The `name` is the key of the placeholder you're exposing, and the `rendering` is the current Sitecore-provided route data, or parent component data if you're exposing a placeholder from within another component.
+The `name` is the key of the placeholder you are exposing, and the `rendering` is the current Sitecore-provided route data, or parent component data if you are exposing a placeholder from within another component.
 
-The `Placeholder` component doesn't render wrapper around child components, it happens because of [fragments technique](https://v3.vuejs.org/guide/migration/fragments.html#overview).
+The `Placeholder` component does not render a wrapper around child components. This is because of Vue's [fragment technique](https://v3.vuejs.org/guide/migration/fragments.html#overview).
 
 ## SitecoreJssPlaceholderPlugin technique
 
@@ -94,7 +94,7 @@ export default {
 
 The `SitecoreJssPlaceholderPlugin` uses a mixin that attaches to the `beforeCreate` hook to look for a `withPlaceholder` property on a component definition. The plugin then uses the value provided by the `withPlaceholder` property to find the specified placeholder data, e.g. `tabs` in the `rendering` prop data. The plugin then creates a computed property on the component, using the name of the placeholder as the property name by default, and assigns an array of all the Vue components for that placeholder to the computed property. This allows you to use the built-in Vue [dynamic component](https://v3.vuejs.org/guide/component-basics.html#dynamic-components) to render the placeholder components in your template.
 
-When you iterate the component array in your template, Vue will render the components where you emit them, or you can achive it using `Placeholder` component. If you emit the placeholder contents with this technique, the placeholder contents will have no wrapping component and will render inline. This is very useful when you're using Vue libraries that are based on a specific component hierarchy, for example this example of `vue-carousel`:
+When you iterate over the component array in your template, Vue will render the components where you emit them, or you can achive this using `Placeholder` component. If you emit the placeholder contents with this technique, the placeholder contents will have no wrapping component and will render inline. This is very useful when you are using Vue libraries that are based on a specific component hierarchy, for example this example of `vue-carousel`:
 
 ```
 <carousel>
@@ -104,7 +104,7 @@ When you iterate the component array in your template, Vue will render the compo
 </carousel>
 ```
 
-In the preceding sample it's expected that the component hierarchy is `Carousel` -> `Slide`. If you wished to add the `slide` components using a placeholder, so that Sitecore could define them, and this were done using the `Placeholder` component, the hierarchy will be the same.
+In the preceding sample it is expected that the component hierarchy is `Carousel` -> `Slide`. If you wished to add the `slide` components using a placeholder, so that Sitecore could define them, and this were done using the `Placeholder` component, the hierarchy will be the same.
 
 ```
 <carousel>
