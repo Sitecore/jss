@@ -11,7 +11,7 @@ import {
 } from '@apollo/client/core';
 import { Observable, empty } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { ComponentRendering, isExperienceEditorActive, resetExperienceEditorChromes } from '@sitecore-jss/sitecore-jss-angular';
+import { ComponentRendering, isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from './jss-context.service';
 import { ExecutableDefinitionNode } from 'graphql';
 import { isPlatformServer } from '@angular/common';
@@ -80,8 +80,8 @@ export class JssGraphQLService {
     // (assuming use of `jss` field in the GQL query). This accomplishes that.
     observable.pipe(first()).subscribe(() => {
       setTimeout(() => {
-        if (isExperienceEditorActive()) {
-          resetExperienceEditorChromes();
+        if (isEditorActive()) {
+          resetEditorChromes();
         }
       }, 1000);
     });

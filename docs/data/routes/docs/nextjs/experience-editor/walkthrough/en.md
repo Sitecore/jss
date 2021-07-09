@@ -90,15 +90,15 @@ The Next.js Fast Refresh feature requires special handling when used within the 
 
 >  See the [Next.js documentation](https://nextjs.org/docs/basic-features/fast-refresh) to learn more about Fast Refresh.
 
-The JSS Next.js SDK provides a `handleExperienceEditorFastRefresh` utility function to solve this problem. You should call the function within a React `useEffect` hook on any Next.js page that will be editable.
+The JSS Next.js SDK provides a `handleEditorFastRefresh` utility function to solve this problem. You should call the function within a React `useEffect` hook on any Next.js page that will be editable.
 
 ```typescript
-import { handleExperienceEditorFastRefresh } from '@sitecore-jss/sitecore-jss-nextjs';
+import { handleEditorFastRefresh } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const MyPage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
-    // Since Experience Editor does not support Fast Refresh need to refresh EE chromes after Fast Refresh finished
-    handleExperienceEditorFastRefresh();
+    // Since Sitecore editors do not support Fast Refresh, need to refresh EE chromes after Fast Refresh finished
+    handleEditorFastRefresh();
   }, []);
   ...
 };

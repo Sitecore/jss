@@ -26,6 +26,8 @@ export {
   GraphQLLayoutServiceConfig,
   RestLayoutService,
   RestLayoutServiceConfig,
+  isEditorActive,
+  resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   PlaceholdersData,
@@ -68,7 +70,7 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { handleExperienceEditorFastRefresh, getPublicUrl } from './utils';
+export { handleEditorFastRefresh, handleExperienceEditorFastRefresh, getPublicUrl } from './utils';
 
 export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
 export {
@@ -97,6 +99,7 @@ export {
   SitecoreContextReactContext,
   withSitecoreContext,
   useSitecoreContext,
+  withEditorChromes,
   withExperienceEditorChromes,
   withPlaceholder,
   withDatasourceCheck,

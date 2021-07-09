@@ -1,6 +1,8 @@
 export {
   dataApi,
   mediaApi,
+  isEditorActive,
+  resetEditorChromes,
   constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
@@ -35,6 +37,6 @@ export {
   SitecoreContextReactContext,
 } from './components/SitecoreContext';
 export { withSitecoreContext, useSitecoreContext } from './enhancers/withSitecoreContext';
-export { withExperienceEditorChromes } from './enhancers/withExperienceEditorChromes';
+export { withEditorChromes, withExperienceEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';

@@ -5,7 +5,7 @@ import Layout from 'src/Layout';
 import {
   SitecoreContext,
   ComponentPropsContext,
-  handleExperienceEditorFastRefresh,
+  handleEditorFastRefresh,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
 import { SitecorePageProps } from 'lib/page-props';
@@ -15,8 +15,8 @@ import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
-    // Since Experience Editor does not support Fast Refresh need to refresh EE chromes after Fast Refresh finished
-    handleExperienceEditorFastRefresh();
+    // Since Sitecore editors do not support Fast Refresh, need to refresh EE chromes after Fast Refresh finished
+    handleEditorFastRefresh();
   }, []);
 
   if (notFound || !layoutData?.sitecore?.route) {

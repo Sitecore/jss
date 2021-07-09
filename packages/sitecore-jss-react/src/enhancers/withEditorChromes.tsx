@@ -1,7 +1,7 @@
 import React, { ComponentType } from 'react';
-import { resetExperienceEditorChromes } from '../';
+import { resetEditorChromes } from '..';
 
-export const withExperienceEditorChromes = (
+export const withEditorChromes = (
   WrappedComponent: React.ComponentClass<unknown> | React.SFC<unknown>
 ) => {
   class Enhancer extends React.Component<unknown> {
@@ -9,7 +9,7 @@ export const withExperienceEditorChromes = (
       (WrappedComponent as ComponentType).displayName || WrappedComponent.name || 'Component';
 
     componentDidUpdate() {
-      resetExperienceEditorChromes();
+      resetEditorChromes();
     }
 
     render() {
@@ -19,3 +19,8 @@ export const withExperienceEditorChromes = (
 
   return Enhancer as React.ComponentClass;
 };
+
+/**
+ * @deprecated Will be removed in a future release. Please use withEditorChromes instead.
+ */
+export const withExperienceEditorChromes = withEditorChromes;
