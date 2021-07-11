@@ -201,6 +201,10 @@ export default {
       ],
     },
     {
+      url: 'ref',
+      displayName: 'SDK reference',
+    },
+    {
       url: 'troubleshooting',
       displayName: 'Troubleshooting',
     },

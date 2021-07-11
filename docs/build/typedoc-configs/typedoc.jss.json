@@ -1,0 +1,14 @@
+{
+  "entryPoints": [
+    "src"
+  ],
+  "name": "Sitecore JavaScript Rendering SDK",
+  "emit": true,
+  "hideGenerator": true,
+  "disableSources": true,
+  "out": "../../docs/data/routes/docs/fundamentals/ref-original/jss/",
+  "publicPath": "/docs/fundamentals/ref/jss/",
+  "markedOptions": {
+    "gfm": true
+  }
+}

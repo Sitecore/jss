@@ -20,7 +20,13 @@ See the `src/pages/[[...path]].tsx` file contains the exported `getStaticPaths` 
 * In `development` mode, you will not have pre-rendered pages because`getStaticPaths` runs on [every request](https://nextjs.org/docs/basic-features/data-fetching#runs-on-every-request-in-development-1).
 * In `production` mode, `getStaticPaths` will use `sitemapFetcher` to fetch the paths for pre-rendering. See the `sitemapFetcher` implementation in `src/lib/sitemap-fetcher.ts`.
 
-## GraphQLSitemapService
+## GraphQLSitemapService Module
+
+Service that fetches the list of site pages using Sitecore's GraphQL API. 
+
+Next.js uses the list of pages to fetch data for Static Generation and Export functionality.
+
+
 
 This service generates the `sitemap` using the `config.graphqlEndpoint` endpoint. 
 
@@ -105,14 +111,6 @@ When you execute `fetchSSGSitemap`/`fetchExportSitemap` using the `GraphQLSitema
 
 > Remember to update the value of the `GRAPHQL_ROOT_ITEM_PATH` if you changed the location of your root item.
 
-### Static HTML Export
 
-If you use [Static HTML Export](/docs/nextjs/deploying-to-production/export) you should define the environment variable `EXPORT_MODE=true`.
-
-#### Disconnected mode
-
-If you run `export` in `disconnected` mode, `sitemapFetcher` will use the `DisconnectedSitemapService` which accepts a `ManifestInstance`. The sample application uses `sitecore/manifest/sitecore-import.json`. You can generate by running `jss manifest` or `jss start:disconnected-proxy`. `DisconnectedSitemapService` will go through the manifest routes and generate all paths for pre-rendering.
-
-#### Connected mode
 
 If you run `export` in `connected` mode, `sitemapFetcher` will use the `GraphQLSitemapService`.

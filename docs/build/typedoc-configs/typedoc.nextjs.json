@@ -1,0 +1,14 @@
+{
+  "entryPoints": [
+    "src"
+  ],
+  "name": "Sitecore Next.js SDK",
+  "emit": true,
+  "hideGenerator": true,
+  "disableSources": true,
+  "out": "../../docs/data/routes/docs/nextjs/ref-original/",
+  "publicPath": "/docs/nextjs/ref/",
+  "markedOptions": {
+    "gfm": true   
+  }
+}
