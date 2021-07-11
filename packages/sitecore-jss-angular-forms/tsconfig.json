@@ -1,0 +1,7 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "target": "es5",
+  }
+}

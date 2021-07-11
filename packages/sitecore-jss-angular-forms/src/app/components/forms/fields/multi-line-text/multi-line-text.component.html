@@ -1,0 +1,16 @@
+<app-label [title]="field.model.title" [class]="field.model.labelCssClass"></app-label>
+<textarea 
+  [ngClass]="field.model.cssClass" 
+  [id]="field.valueField.id" 
+  [name]="field.valueField.name"
+  [value]="field.model.value"
+  [rows]="field.model.rows" 
+  [maxLength]="field.model.maxLength"
+  [placeholder]="field.model.placeholderText"
+  (change)="onChange($event)"
+  (focus)="onFocus($event)"
+  (blur)="onBlur($event)"></textarea>
+
+<!-- <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+  <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
+</ng-container> -->

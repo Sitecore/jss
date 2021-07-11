@@ -1,0 +1,36 @@
+{
+  "name": "sitecore-jss-angular-forms",
+  "version": "1.0.0",
+  "description": "Sitecore Forms implementation via JSS + Angular",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.1",
+    "npm": ">=5.6.0",
+    "yarn": "yarn is not supported, please use npm"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bic742/sitecore-jss-angular-forms.git"
+  },
+  "keywords": [
+    "sitecore",
+    "jss",
+    "angular",
+    "forms"
+  ],
+  "author": "Aaron Bickle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bic742/sitecore-jss-angular-forms/issues"
+  },
+  "homepage": "https://github.com/bic742/sitecore-jss-angular-forms#readme",
+  "devDependencies": {
+    "@angular/core": "^9.1.9",
+    "@angular/forms": "^9.1.9",
+    "@sitecore-jss/sitecore-jss-angular": "^13.0.2",
+    "@sitecore-jss/sitecore-jss-forms": "^13.0.5"
+  }
+}

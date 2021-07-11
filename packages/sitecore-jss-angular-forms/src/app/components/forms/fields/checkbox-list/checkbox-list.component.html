@@ -1,0 +1,16 @@
+<app-label [title]="field.model.title" [class]="field.model.labelCssClass"></app-label>
+<ul>
+  <li *ngFor="let option of items; let idx = index;">
+    <input
+      type="checkbox"
+      [ngClass]="field.model.cssClass" 
+      [id]="field.valueField.id + idx" 
+      [name]="field.valueField.name"
+      [value]="option.value"
+      [checked]="option.selected"
+      (change)="onChange($event)"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)" 
+    />{{option.text}}
+  </li>
+</ul>

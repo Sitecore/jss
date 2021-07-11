@@ -1,0 +1,14 @@
+<form [action]="action" method="POST" (ngSubmit)="onSubmit($event)">
+  
+  <ul>
+    <li *ngFor="let error of formErrors;">
+      {{error}}
+    </li>
+  </ul>
+
+  <ng-template *ngFor="let field of form.fields;" dynamicField [tracker]="_tracker" [field]="field" [group]="formGroup"></ng-template>
+</form>
+
+<div class="form" style="padding: 2rem;">
+  <pre>{{form | json }}</pre>
+</div>

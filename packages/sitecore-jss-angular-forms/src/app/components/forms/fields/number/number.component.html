@@ -1,0 +1,17 @@
+<app-label [title]="field.model.title" [class]="field.model.labelCssClass"></app-label>
+<input 
+  type="number"
+  [ngClass]="field.model.cssClass" 
+  [id]="field.valueField.id" 
+  [name]="field.valueField.name"
+  [value]="field.model.value"
+  [step]="field.model.step"
+  [min]="field.model.min"
+  [max]="field.model.max"
+  (change)="onChange($event)"
+  (focus)="onFocus($event)"
+  (blur)="onBlur($event)">
+
+<!-- <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+  <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
+</ng-container> -->
