@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    "wdio"
+  ],
+  "extends": "plugin:wdio/recommended",
+  "globals": {
+    "$": true,
+    "$$": true,
+    "browser": true,
+    "assert": true
+  },
+  "env": {
+    "jasmine": true
+  },
+  "rules": {
+    "no-empty": ["error", { "allowEmptyCatch": true }]
+  }
+}

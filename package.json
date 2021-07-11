@@ -32,6 +32,7 @@
     "lerna": "^3.22.0",
     "nyc": "^14.1.1",
     "prettier": "^1.14.3",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.6",
+    "wdio-teamcity-reporter": "^2.3.0"
   }
 }

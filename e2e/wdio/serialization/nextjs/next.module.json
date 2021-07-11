@@ -1,0 +1,13 @@
+{
+  "namespace": "AllContent",
+  "items": {
+    "includes": [
+      {
+        "allowedPushOperations": "createUpdateAndDelete",
+        "name": "content",
+        "path": "/sitecore/content",
+        "scope": "itemAndDescendants"
+      }
+    ]
+  }
+}
