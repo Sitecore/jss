@@ -202,13 +202,8 @@ describe('<Placeholder />', () => {
       <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
     );
 
-    const eeChrome = renderedComponent.find({
-      chrometype: 'placeholder',
-      kind: 'open',
-      id: phKey,
-    });
+    const eeChrome = renderedComponent.find({ chrometype: 'placeholder', kind: 'open', id: phKey });
     expect(eeChrome.length).to.eq(1);
-
     const keyAttribute = eeChrome.get(0).key;
     expect(keyAttribute).to.not.be.undefined;
     expect(keyAttribute).to.eq(`${phKey}`);
@@ -229,7 +224,7 @@ describe('<Placeholder />', () => {
     const renderedComponent = mount(
       <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
     );
-    expect(renderedComponent.html()).to.equal('<div></div>');
+    expect(renderedComponent.html()).to.be.empty;
   });
 
   it('should render error message on error', () => {

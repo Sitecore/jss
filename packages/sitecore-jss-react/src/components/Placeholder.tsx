@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
 import {
@@ -6,6 +6,7 @@ import {
   HtmlElementRendering,
   HorizonEditor,
 } from '@sitecore-jss/sitecore-jss';
+
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
    * Render props function that is called when the placeholder contains no content components.
@@ -48,56 +49,17 @@ function isRawRendering(
 
 class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> {
   static propTypes = PlaceholderCommon.propTypes;
-  placeholderRef: React.RefObject<HTMLDivElement>;
 
-  horizonEmptyPlaceholders: { key: string; element: Element }[] | null;
+  isEmpty = false;
 
   constructor(props: PlaceholderComponentProps) {
     super(props);
-
-    this.placeholderRef = createRef();
-    this.horizonEmptyPlaceholders = null;
   }
 
   componentDidMount() {
-    if (HorizonEditor.isActive()) {
-      this.resetHorizonEmptyPlaceholders();
+    if (this.isEmpty && HorizonEditor.isActive()) {
+      HorizonEditor.resetChromes();
     }
-  }
-
-  /**
-   * Insert empty placeholders in correct places.
-   * They were removed by React after first render,
-   * since LayoutData doesn't contain `empty placeholder` tag
-   */
-  resetHorizonEmptyPlaceholders() {
-    if (!this.horizonEmptyPlaceholders) {
-      return;
-    }
-
-    this.horizonEmptyPlaceholders.forEach((ph) => {
-      const placeholderOpenTag = this.placeholderRef.current?.querySelector(
-        // We are going throw all saved keys and trying to find `Placeholder open tag` related to current placeholder
-        `:scope > code[kind="open"][class="scpm"][chrometype="placeholder"][key="${ph.key}"]`
-      );
-
-      placeholderOpenTag && placeholderOpenTag.insertAdjacentElement('afterend', ph.element);
-    });
-  }
-
-  collectHorizonEmptyPlaceholders() {
-    // Grab all empty placeholders on the page, cause we can't search children and use `placeholderRef` before mount
-    const emptyPlaceholders = Array.prototype.slice.call(
-      window.document.querySelectorAll('[class*="empty-placeholder"]')
-    );
-    this.horizonEmptyPlaceholders = emptyPlaceholders.map(
-      // `Placeholder open tag` contains `key` attribute which we can store
-      // to identify position where we need to insert empty placeholder
-      (el) => ({
-        key: el.previousElementSibling?.getAttribute('key') || '',
-        element: el,
-      })
-    );
   }
 
   render() {
@@ -123,23 +85,14 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
       renderingData,
       this.props.name
     );
-
-    const isEmptyPlaceholder = placeholderData.every(
-      (rendering: ComponentRendering | HtmlElementRendering) => isRawRendering(rendering)
-    );
-
     const components = this.getComponentsForRenderingData(placeholderData);
 
-    if (isEmptyPlaceholder) {
-      if (HorizonEditor.isActive() && !this.placeholderRef.current) {
-        this.collectHorizonEmptyPlaceholders();
-      }
+    this.isEmpty = placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
+      isRawRendering(rendering)
+    );
 
-      return (
-        <div ref={this.placeholderRef}>
-          {this.props.renderEmpty ? this.props.renderEmpty(components) : components}
-        </div>
-      );
+    if (this.props.renderEmpty && this.isEmpty) {
+      return this.props.renderEmpty(components);
     } else if (this.props.render) {
       return this.props.render(components, placeholderData, childProps);
     } else if (this.props.renderEach) {
