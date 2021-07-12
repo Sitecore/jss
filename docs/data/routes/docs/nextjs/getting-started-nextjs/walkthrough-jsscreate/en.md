@@ -72,8 +72,14 @@ Deploying your code-first artifacts and content to Sitecore, WYSIWYG editing, an
 
 Sitecore requires Windows, but the instance can be on a virtual machine or a remote server. 
 
-To connect your application to Sitecore, you must:
+To connect your application to Sitecore:
 
 1. [Setup JSS Server Components](/docs/client-frameworks/getting-started/jss-server-install).
-2. [Deploy the application to a Sitecore environment](/docs/client-frameworks/getting-started/app-deployment).
-3. [Connect to the Experience Editor](/docs/nextjs/experience-editor/walkthrough).
+2. Configure the Sitecore server to receive the JSS app: 
+   1. [Obtain a Sitecore API key](/docs/client-frameworks/getting-started/app-deployment#step-2-api-key).
+   2. [Verify the API key is working](/docs/client-frameworks/getting-started/app-deployment#step-3-verification).
+3. Deploy the application to Sitecore: 
+   1. [Setup connection information](/docs/client-frameworks/getting-started/app-deployment#step-1-setup-connection-information). 
+   2. [Deploy the configuration](/docs/client-frameworks/getting-started/app-deployment#step-2-config-deployment).
+   3. Run `jss deploy items --includeContent --includeDictionary`.
+4. [Connect to the Experience Editor](/docs/nextjs/experience-editor/walkthrough).
