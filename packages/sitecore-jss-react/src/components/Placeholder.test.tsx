@@ -204,8 +204,7 @@ describe('<Placeholder />', () => {
 
     const eeChrome = renderedComponent.find({ chrometype: 'placeholder', kind: 'open', id: phKey });
     expect(eeChrome.length).to.eq(1);
-    // getDOMNode() returns underlying DOM element: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
-    const keyAttribute = eeChrome.getDOMNode().getAttribute('key');
+    const keyAttribute = eeChrome.get(0).key;
     expect(keyAttribute).to.not.be.undefined;
     expect(keyAttribute).to.eq(`${phKey}`);
   });
