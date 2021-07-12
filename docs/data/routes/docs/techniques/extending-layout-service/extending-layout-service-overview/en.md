@@ -180,4 +180,4 @@ After patching in your custom configuration, you can utilize it in your JSS App 
 </javaScriptServices>
 ```
 
-You'll need to ensure that you provide this configuration name in your client code as well when invoking Layout Service via the `dataApi` (see examples above).
+You'll need to ensure that you provide this configuration name in your client code as well when invoking Layout Service via the `RestLayoutService` (see examples above).
