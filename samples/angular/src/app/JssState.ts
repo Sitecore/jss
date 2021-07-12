@@ -1,8 +1,8 @@
 import {
   RouteData,
   LayoutServiceContextData,
-  LayoutServiceError,
 } from '@sitecore-jss/sitecore-jss-angular';
+import { LayoutServiceError } from './layout/jss-layout-loader.service';
 
 export class JssState {
   language: string;

@@ -40,7 +40,10 @@ export class RestDictionaryService extends DictionaryServiceBase {
    * Provides default @see AxiosDataFetcher data fetcher
    */
   get defaultFetcher(): HttpDataFetcher<RestDictionaryServiceData> {
-    const dataFetcher = new AxiosDataFetcher({ debugger: debug.dictionary });
+    const dataFetcher = new AxiosDataFetcher({
+      debugger: debug.dictionary,
+      withCredentials: false,
+    });
     return (url: string) => dataFetcher.fetch<RestDictionaryServiceData>(url);
   }
 

@@ -1,9 +1,12 @@
 export {
-  dataApi,
   mediaApi,
   constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  DictionaryService,
+  RestDictionaryService,
+  LayoutService,
+  RestLayoutService,
   LayoutServiceData,
   LayoutServiceContextData,
   RouteData,

@@ -1,8 +1,6 @@
 import { Injectable, } from '@angular/core';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 import {
-  LayoutService,
-  LayoutServiceError,
   LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
@@ -12,8 +10,8 @@ import {
   BehaviorSubject
 } from 'rxjs';
 import { JssState } from './JssState';
-import { environment } from '../environments/environment';
 import { JssDataFetcherService } from './jss-data-fetcher.service';
+import { JssLayoutLoaderService, LayoutServiceError } from './layout/jss-layout-loader.service';
 
 export const jssKey = makeStateKey<JssState>('jss');
 
@@ -30,7 +28,7 @@ export class JssContextService {
 
   constructor(
     protected transferState: TransferState,
-    protected layoutService: LayoutService,
+    protected layoutService: JssLayoutLoaderService,
     protected dataFetcher: JssDataFetcherService,
   ) {
     this.state = new BehaviorSubject<JssState>(new JssState());
@@ -47,16 +45,7 @@ export class JssContextService {
       return observableOf(jssState);
     }
 
-    const fetchOptions = {
-      layoutServiceConfig: { host: environment.sitecoreApiHost },
-      querystringParams: {
-        sc_lang: language,
-        sc_apikey: environment.sitecoreApiKey,
-      },
-      fetcher: this.dataFetcher.fetch,
-    };
-
-    const jssState$ = this.layoutService.getRouteData(route, fetchOptions).pipe(
+    const jssState$ = this.layoutService.getRouteData(route, language).pipe(
       map(routeData => {
         const lsResult = routeData as LayoutServiceData;
 
