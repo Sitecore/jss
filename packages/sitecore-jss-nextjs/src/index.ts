@@ -1,5 +1,4 @@
 export {
-  dataApi,
   mediaApi,
   constants,
   // generic data access

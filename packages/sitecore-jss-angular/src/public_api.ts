@@ -19,7 +19,6 @@ export { RichTextDirective } from './components/rich-text.directive';
 export { TextDirective } from './components/text.directive';
 export { JssModule } from './lib.module';
 export {
-  dataApi,
   mediaApi,
   constants,
   isExperienceEditorActive,
