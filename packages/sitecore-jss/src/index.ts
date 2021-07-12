@@ -41,8 +41,3 @@ export {
 } from './layout/rest-layout-service';
 
 export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
-
-// TODO: these are deprecated and we should stop exporting them
-import { fetchRouteData, fetchPlaceholderData } from './layout/rest-layout-service';
-const dataApi = { fetchRouteData, fetchPlaceholderData };
-export { dataApi };

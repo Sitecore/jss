@@ -2,9 +2,8 @@
 /* global __SC_API_HOST__, __TRANSLATION_PATH__, __SC_API_KEY__ */
 
 import axios from 'axios';
-import { dataApi } from '@sitecore-jss/sitecore-jss-react';
-
-const { fetchRouteData, fetchPlaceholderData } = dataApi;
+import { RestLayoutService } from '@sitecore-jss/sitecore-jss-react';
+import { config } from '../../package.json';
 
 /**
  * Implements a route data fetcher using Axios - replace with your favorite
@@ -24,36 +23,26 @@ function routeDataFetcher(url, data) {
   });
 }
 
-const getFetchOptions = (language) => {
-  const params = {};
-
-  if (language) {
-    params.sc_lang = language;
-  }
-  params.sc_apikey = __SC_API_KEY__;
-
-  return {
-    layoutServiceConfig: {
-      host: `${__SC_API_HOST__}`,
-    },
-    querystringParams: { ...params },
-    fetcher: routeDataFetcher,
-  };
-};
-
 class SitecoreContentService {
+  constructor() {
+    this.layoutService = new RestLayoutService({
+      apiHost: `${__SC_API_HOST__}`,
+      apiKey: __SC_API_KEY__,
+      dataFetcherResolver: () => routeDataFetcher,
+      siteName: config.appName,
+    });
+  }
+
   getRouteData(route, language) {
     return this.getInitialRouteData()
       .catch(() => {
-        const fetchOptions = getFetchOptions(language);
-        return fetchRouteData(route, fetchOptions);
+        return this.layoutService.fetchLayoutData(route, language);
       })
       .catch(() => null);
   }
 
-  getPlaceholderData(placeholderName, route, language, options = {}) {
-    const fetchOptions = getFetchOptions(language, options);
-    return fetchPlaceholderData(placeholderName, route, fetchOptions);
+  getPlaceholderData(placeholderName, route, language) {
+    return this.layoutService.fetchPlaceholderData(placeholderName, route, language);
   }
 
   getTranslationPath() {

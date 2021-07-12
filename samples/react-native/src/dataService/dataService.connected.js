@@ -2,9 +2,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import axios from 'axios';
-import { dataApi } from '@sitecore-jss/sitecore-jss-react-native';
-
-const { fetchRouteData } = dataApi;
+import { RestLayoutService } from '@sitecore-jss/sitecore-jss-react-native';
+import { config } from '../../package.json';
 
 /**
  * Implements a route data fetcher using Axios - replace with your favorite
@@ -34,9 +33,16 @@ const getFetchOptions = (language) => ({
 const getRouteData = (route, { options, language } = {}) => {
   const fetchOptions = options || getFetchOptions(language);
 
-  return fetchRouteData(route, fetchOptions).then((data) =>
-    data && data.sitecore ? data.sitecore.route : {}
-  );
+  const layoutService = new RestLayoutService({
+    apiHost: fetchOptions.layoutServiceConfig.host,
+    apiKey: fetchOptions.querystringParams.sc_apikey,
+    siteName: config.appName,
+    dataFetcherResolver: fetchOptions.fetcher ? () => fetchOptions.fetcher : undefined,
+  });
+
+  return layoutService
+    .fetchLayoutData(route, language)
+    .then((data) => (data && data.sitecore ? data.sitecore.route : {}));
 };
 
 export { getRouteData, getFetchOptions };
