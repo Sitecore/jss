@@ -81,5 +81,5 @@ To connect your application to Sitecore:
 3. Deploy the application to Sitecore: 
    1. [Setup connection information](/docs/client-frameworks/getting-started/app-deployment#step-1-setup-connection-information). 
    2. [Deploy the configuration](/docs/client-frameworks/getting-started/app-deployment#step-2-config-deployment).
-   3. Run `jss deploy items`.
+   3. Run `jss deploy items --includeContent --includeDictionary`.
 4. [Connect to the Experience Editor](/docs/nextjs/experience-editor/walkthrough).
