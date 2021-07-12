@@ -6,5 +6,4 @@ export const layoutService = new RestLayoutService({
   apiHost: getHostname(),
   apiKey: config.sitecoreApiKey,
   siteName: config.jssAppName,
-  configurationName: 'default',
 });

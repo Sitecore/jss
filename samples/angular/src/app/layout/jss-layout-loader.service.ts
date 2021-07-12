@@ -13,7 +13,6 @@ const layoutServiceInstance = new RestLayoutService({
   apiHost: environment.sitecoreApiHost,
   apiKey: environment.sitecoreApiKey,
   siteName: environment.jssAppName,
-  configurationName: 'default',
 });
 
 export class LayoutServiceError {
