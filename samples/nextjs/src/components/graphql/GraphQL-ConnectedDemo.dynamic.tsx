@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Text,
   Link,
@@ -8,6 +8,7 @@ import {
   constants,
   GraphQLRequestClient,
   withDatasourceCheck,
+  resetEditorChromes,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
 import {
@@ -30,6 +31,10 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
   const data = props.rendering.uid
     ? useComponentProps<GraphQLConnectedDemoData>(props.rendering.uid)
     : undefined;
+
+  useEffect(() => {
+    resetEditorChromes();
+  }, []);
 
   return (
     <div data-e2e-id="graphql-connected">

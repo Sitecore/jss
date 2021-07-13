@@ -1,11 +1,7 @@
 import React from 'react';
 import i18n from 'i18next';
 import Helmet from 'react-helmet';
-import {
-  isExperienceEditorActive,
-  dataApi,
-  withSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-react';
+import { isEditorActive, dataApi, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import { dataFetcher } from './dataFetcher';
 import { getHostname } from './util';
 import config from './temp/config';
@@ -131,9 +127,9 @@ class RouteHandler extends React.Component {
       return;
     }
 
-    // if in experience editor - force reload instead of route data update
+    // if in Sitecore editor - force reload instead of route data update
     // avoids confusing Sitecore's editing JS
-    if (isExperienceEditorActive()) {
+    if (isEditorActive()) {
       window.location.assign(newRoute);
       return;
     }

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { isExperienceEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-vue';
+import { isEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-vue';
 import { dataFetcher } from './dataFetcher';
 import config from './temp/config';
 
@@ -127,9 +127,9 @@ export default {
       if (newRoute.hash !== '' && newRoute.path === oldRoute.path) {
         return;
       }
-      // if in experience editor - force reload instead of route data update
+      // if in Sitecore editor - force reload instead of route data update
       // avoids confusing Sitecore's editing JS
-      if (isExperienceEditorActive()) {
+      if (isEditorActive()) {
         window.location.assign(newRoute.path);
         return;
       }
