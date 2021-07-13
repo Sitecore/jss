@@ -1,7 +1,11 @@
 import React from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
-import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
+import {
+  ComponentRendering,
+  HtmlElementRendering,
+  HorizonEditor,
+} from '@sitecore-jss/sitecore-jss';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
@@ -46,8 +50,16 @@ function isRawRendering(
 class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> {
   static propTypes = PlaceholderCommon.propTypes;
 
+  isEmpty = false;
+
   constructor(props: PlaceholderComponentProps) {
     super(props);
+  }
+
+  componentDidMount() {
+    if (this.isEmpty && HorizonEditor.isActive()) {
+      HorizonEditor.resetChromes();
+    }
   }
 
   render() {
@@ -75,12 +87,11 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     );
     const components = this.getComponentsForRenderingData(placeholderData);
 
-    if (
-      this.props.renderEmpty &&
-      placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
-        isRawRendering(rendering)
-      )
-    ) {
+    this.isEmpty = placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
+      isRawRendering(rendering)
+    );
+
+    if (this.props.renderEmpty && this.isEmpty) {
       return this.props.renderEmpty(components);
     } else if (this.props.render) {
       return this.props.render(components, placeholderData, childProps);

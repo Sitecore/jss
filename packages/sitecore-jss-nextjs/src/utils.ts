@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { isExperienceEditorActive, resetExperienceEditorChromes } from '@sitecore-jss/sitecore-jss';
+import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss';
 
 /**
  * Get the publicUrl.
@@ -31,31 +31,29 @@ export const getPublicUrl = (): string => {
 };
 
 /**
- * Since Experience Editor does not support Fast Refresh:
+ * Since Sitecore editors do not support Fast Refresh:
  * 1. Subscribe on events provided by webpack.
- * 2. Reset experience editor chromes when build is finished
+ * 2. Reset editor chromes when build is finished
  * @param {boolean} [forceReload] force page reload instead of reset chromes
  * @default forceReload false
  */
-export const handleExperienceEditorFastRefresh = (forceReload = false): void => {
-  if (process.env.NODE_ENV !== 'development' || !isExperienceEditorActive()) {
-    // Only run if development mode and Experience Editor is active
+export const handleEditorFastRefresh = (forceReload = false): void => {
+  if (process.env.NODE_ENV !== 'development' || !isEditorActive()) {
+    // Only run if development mode and editor is active
     return;
   }
   const eventSource = new window.EventSource(`${getPublicUrl()}/_next/webpack-hmr`);
 
   window.addEventListener('beforeunload', () => eventSource.close());
 
-  eventSource.onopen = () => console.log('[Experience Editor Fast Refresh Listener] Online');
+  eventSource.onopen = () => console.log('[Sitecore Editor Fast Refresh Listener] Online');
 
   eventSource.onmessage = (event) => {
     if (event.data.indexOf('{') === -1) return; // heartbeat
 
     const payload = JSON.parse(event.data);
 
-    console.debug(
-      `[Experience Editor Fast Refresh Listener] Saw event: ${JSON.stringify(payload)}`
-    );
+    console.debug(`[Sitecore Editor Fast Refresh Listener] Saw event: ${JSON.stringify(payload)}`);
 
     if (payload.action !== 'built') return;
 
@@ -63,12 +61,22 @@ export const handleExperienceEditorFastRefresh = (forceReload = false): void => 
 
     setTimeout(() => {
       console.log(
-        '[Experience Editor HMR Listener] Experience Editor does not support Fast Refresh, reloading chromes...'
+        '[Sitecore Editor HMR Listener] Sitecore editor does not support Fast Refresh, reloading chromes...'
       );
-      resetExperienceEditorChromes();
+      resetEditorChromes();
     }, 500);
   };
 };
+
+/**
+ * Since Sitecore editors do not support Fast Refresh:
+ * 1. Subscribe on events provided by webpack.
+ * 2. Reset editor chromes when build is finished
+ * @deprecated Will be removed in a future release. Please use handleEditorFastRefresh instead.
+ * @param {boolean} [forceReload] force page reload instead of reset chromes
+ * @default forceReload false
+ */
+export const handleExperienceEditorFastRefresh = handleEditorFastRefresh;
 
 export const getJssEditingSecret = (): string => {
   const secret = process.env.JSS_EDITING_SECRET;

@@ -21,7 +21,7 @@ export default class RouteHandler extends React.Component {
       this.state = { notFound: true };
     }
   }
-
+  
   componentWillReceiveProps(newProps) {
     const existingRoute = this.props.route.match.url;
     const newRoute = newProps.route.match.url;
@@ -32,6 +32,9 @@ export default class RouteHandler extends React.Component {
         window.location.assign(newRoute);
         return;
       }
+
+      // grab location hash
+      let hash = newProps.route.location.hash;
 
       // get the route data for the new route
       SitecoreContentService.getRouteData(newRoute).then((routeData) => {
@@ -44,7 +47,26 @@ export default class RouteHandler extends React.Component {
           });
 
           this.setState({ state: routeData, notFound: false });
-          window.scrollTo(0, 0);
+
+          // handle hash presence
+          if (hash) {
+            let element = document.getElementById(hash.replace("#", ""));
+
+            if (!element) {
+              return
+            }
+
+            // Add scroll to hash
+            setTimeout(() => {
+              window.scrollTo({
+                behavior: "auto",
+                top: element ? element.offsetTop : 0
+              });
+            }, 100);
+          } else {
+            window.scrollTo(0, 0);
+          }
+          
         } else {
           this.setState({ notFound: true });
         }

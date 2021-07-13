@@ -1,5 +1,7 @@
 export {
   mediaApi,
+  isEditorActive,
+  resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   RestLayoutService,
