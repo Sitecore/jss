@@ -58,8 +58,7 @@
     "isomorphic-fetch": "~3.0.0",
     "prop-types": "~15.6.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-stepzilla": "~4.7.0"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@sitecore-jss/sitecore-jss-cli": "^19.0.0-canary.18",
