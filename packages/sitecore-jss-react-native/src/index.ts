@@ -11,7 +11,6 @@ export {
   RouteData,
   Field,
   HtmlElementRendering,
-  LayoutServiceRequestOptions,
   getChildPlaceholder,
   getFieldValue,
   ComponentRendering,

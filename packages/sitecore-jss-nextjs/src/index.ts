@@ -20,7 +20,6 @@ export {
   LayoutServicePageState,
   LayoutServiceContext,
   LayoutServiceContextData,
-  LayoutServiceRequestOptions,
   GraphQLLayoutService,
   GraphQLLayoutServiceConfig,
   RestLayoutService,
