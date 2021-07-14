@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import { isEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-vue';
-import { dataFetcher } from './dataFetcher';
+import { isEditorActive } from '@sitecore-jss/sitecore-jss-vue';
+import { layoutService } from './lib/layout-service';
 import config from './temp/config';
 
 import Layout from './Layout';
@@ -95,7 +95,7 @@ export default {
       this.loading = true;
 
       // get the route data for the new route
-      getRouteData(sitecoreRoutePath, language).then((routeData) => {
+      layoutService.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
         if (routeData !== null && routeData.sitecore.route) {
           // Update the JSS store instance with the fetched data.
           // This will signal the RouteHandler to update/re-render, as well as any components
@@ -144,28 +144,4 @@ export default {
     RouteLoading,
   },
 };
-
-/**
- * Gets route data from Sitecore. This data is used to construct the component layout for a JSS route.
- * @param {string} route Route path to get data for (e.g. /about)
- * @param {string} language Language to get route data in (content language, e.g. 'en')
- * @param {dataApi.LayoutServiceRequestOptions} options Layout service fetch options
- */
-function getRouteData(route, language) {
-  const fetchOptions = {
-    layoutServiceConfig: { host: config.sitecoreApiHost },
-    querystringParams: { sc_lang: language, sc_apikey: config.sitecoreApiKey },
-    fetcher: dataFetcher,
-  };
-
-  return dataApi.fetchRouteData(route, fetchOptions).catch((error) => {
-    if (error.response && error.response.status === 404 && error.response.data) {
-      return error.response.data;
-    }
-
-    console.error('Route data fetch error', error, error.response);
-
-    return null;
-  });
-}
 </script>

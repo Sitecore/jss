@@ -5,9 +5,8 @@ import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { HttpDataFetcher } from '../data-fetcher';
 import { AxiosDataFetcher } from '../axios-fetcher';
-import { RestLayoutService, fetchPlaceholderData, fetchRouteData } from './rest-layout-service';
+import { RestLayoutService } from './rest-layout-service';
 import { LayoutServiceData, PlaceholderData } from './models';
 
 use(spies);
@@ -373,130 +372,5 @@ describe('RestLayoutService', () => {
           'http://sctest/sitecore/api/layout/placeholder/jss?placeholderName=superPh&item=%2Fxxx&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
         );
       });
-  });
-});
-
-// note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
-// which is necessary for analytics and such
-const axiosFetcher: HttpDataFetcher<any> = (url, data) =>
-  axios({
-    url,
-    method: data ? 'POST' : 'GET',
-    data,
-    withCredentials: true,
-  });
-
-describe('fetchRouteData', () => {
-  let mock: MockAdapter;
-  before(() => {
-    mock = new MockAdapter(axios);
-  });
-
-  afterEach(() => {
-    mock.reset();
-  });
-
-  after(() => {
-    mock.restore();
-  });
-
-  it('should fetch with host', () => {
-    const expectedUrl = 'https://www.myhost.net/sitecore/api/layout/render/jss?item=%2Fabout';
-
-    // configure 'GET' requests to return config options
-    mock.onGet().reply((config) => {
-      // config contains axios client config options, e.g. url, withCredentials, etc...
-      return [200, { ...config }];
-    });
-
-    return fetchRouteData('/about', {
-      layoutServiceConfig: { host: 'https://www.myhost.net' },
-      fetcher: axiosFetcher,
-    }).then((data) => {
-      // testData should contain the 'config' object from the mock request
-      const testData = data as any;
-      expect(testData.url).to.equal(expectedUrl);
-      expect(testData.withCredentials, 'with credentials is not true').to.be.true;
-    });
-  });
-
-  it('should fetch with querystring', () => {
-    const expectedUrl =
-      'https://www.myhost.net/sitecore/api/layout/render/jss?item=%2Fabout&sc_camp=123456';
-
-    // configure 'GET' requests to return config options
-    mock.onGet().reply((config) => {
-      // config contains axios client config options, e.g. url, withCredentials, etc...
-      return [200, { ...config }];
-    });
-
-    return fetchRouteData('/about', {
-      fetcher: axiosFetcher,
-      layoutServiceConfig: { host: 'https://www.myhost.net' },
-      querystringParams: { sc_camp: 123456 },
-    }).then((data) => {
-      // testData should contain the 'config' object from the mock request
-      const testData = data as any;
-      expect(testData.url).to.equal(expectedUrl);
-      expect(testData.withCredentials, 'with credentials is not true').to.be.true;
-    });
-  });
-});
-
-describe('fetchPlaceholderData', () => {
-  let mock: MockAdapter;
-  before(() => {
-    mock = new MockAdapter(axios);
-  });
-
-  afterEach(() => {
-    mock.reset();
-  });
-
-  after(() => {
-    mock.restore();
-  });
-
-  it('should fetch with host', () => {
-    const expectedUrl =
-      'https://www.myhost.net/sitecore/api/layout/placeholder/jss?placeholderName=%2F%24root%2Fmain&item=%2Fabout';
-
-    // configure 'GET' requests to return config options
-    mock.onGet().reply((config) => {
-      // config contains axios client config options, e.g. url, withCredentials, etc...
-      return [200, { elements: [{ ...config }] }];
-    });
-
-    return fetchPlaceholderData('/$root/main', '/about', {
-      layoutServiceConfig: { host: 'https://www.myhost.net' },
-      fetcher: axiosFetcher,
-    }).then((data) => {
-      // testData should contain the 'config' object from the mock request
-      const testData = data as any;
-      expect(testData.elements[0].url).to.equal(expectedUrl);
-      expect(testData.elements[0].withCredentials, 'with credentials is not true').to.be.true;
-    });
-  });
-
-  it('should fetch with querystring', () => {
-    const expectedUrl =
-      'https://www.myhost.net/sitecore/api/layout/placeholder/jss?placeholderName=%2F%24root%2Fmain&item=%2Fabout&sc_camp=123456';
-
-    // configure 'GET' requests to return config options
-    mock.onGet().reply((config) => {
-      // config contains axios client config options, e.g. url, withCredentials, etc...
-      return [200, { elements: [{ ...config }] }];
-    });
-
-    return fetchPlaceholderData('/$root/main', '/about', {
-      layoutServiceConfig: { host: 'https://www.myhost.net' },
-      querystringParams: { sc_camp: 123456 },
-      fetcher: axiosFetcher,
-    }).then((data) => {
-      // testData should contain the 'config' object from the mock request
-      const testData = data as any;
-      expect(testData.elements[0].url).to.equal(expectedUrl);
-      expect(testData.elements[0].withCredentials, 'with credentials is not true').to.be.true;
-    });
   });
 });

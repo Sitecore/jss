@@ -1,9 +1,10 @@
 import React from 'react';
 import i18n from 'i18next';
 import Helmet from 'react-helmet';
-import { isEditorActive, dataApi, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
+import { isEditorActive, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
 import { dataFetcher } from './dataFetcher';
 import { getHostname } from './util';
+import { layoutService } from './lib/layout-service';
 import config from './temp/config';
 import Layout from './Layout';
 import NotFound from './NotFound';
@@ -88,7 +89,7 @@ class RouteHandler extends React.Component {
     const language = this.props.route.match.params.lang || this.state.defaultLanguage;
 
     // get the route data for the new route
-    getRouteData(sitecoreRoutePath, language).then((routeData) => {
+    layoutService.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
       if (routeData !== null && routeData.sitecore && routeData.sitecore.route) {
         // set the sitecore context data and push the new route
         this.props.updateSitecoreContext({
@@ -165,29 +166,6 @@ class RouteHandler extends React.Component {
     // Render the app's root structural layout
     return <Layout route={routeData.sitecore.route} />;
   }
-}
-
-/**
- * Gets route data from Sitecore. This data is used to construct the component layout for a JSS route.
- * @param {string} route Route path to get data for (e.g. /about)
- * @param {string} language Language to get route data in (content language, e.g. 'en')
- */
-function getRouteData(route, language) {
-  const fetchOptions = {
-    layoutServiceConfig: { host: getHostname() },
-    querystringParams: { sc_lang: language, sc_apikey: config.sitecoreApiKey },
-    fetcher: dataFetcher,
-  };
-
-  return dataApi.fetchRouteData(route, fetchOptions).catch((error) => {
-    if (error.response && error.response.status === 404 && error.response.data) {
-      return error.response.data;
-    }
-
-    console.error('Route data fetch error', error, error.response);
-
-    return null;
-  });
 }
 
 export default withSitecoreContext({ updatable: true })(RouteHandler);

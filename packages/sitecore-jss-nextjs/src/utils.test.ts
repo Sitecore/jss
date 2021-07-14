@@ -37,7 +37,7 @@ describe('utils', () => {
       process.env.VERCEL_URL = 'jss.uniqueid.vercel.com';
       const result = getPublicUrl();
       expect(result).to.equal('https://jss.uniqueid.vercel.com');
-    })
+    });
   });
   describe('getJssEditingSecret', () => {
     after(() => {

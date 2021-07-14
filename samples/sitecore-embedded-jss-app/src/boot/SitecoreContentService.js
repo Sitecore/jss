@@ -1,59 +1,28 @@
 /* eslint class-methods-use-this: 0 */
 /* global __SC_API_HOST__, __TRANSLATION_PATH__, __SC_API_KEY__ */
 
-import axios from 'axios';
-import { dataApi } from '@sitecore-jss/sitecore-jss-react';
-
-const { fetchRouteData, fetchPlaceholderData } = dataApi;
-
-/**
- * Implements a route data fetcher using Axios - replace with your favorite
- * SSR-capable HTTP or fetch library if you like. See HttpDataFetcher<T> type
- * in sitecore-jss library for implementation details/notes.
- * @param {string} url The URL to request; may include query string
- * @param {any} data Optional data to POST with the request.
- */
-function routeDataFetcher(url, data) {
-  return axios({
-    url,
-    method: data ? 'POST' : 'GET',
-    data,
-    // note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
-    // which is necessary for analytics and such
-    withCredentials: true,
-  });
-}
-
-const getFetchOptions = (language) => {
-  const params = {};
-
-  if (language) {
-    params.sc_lang = language;
-  }
-  params.sc_apikey = __SC_API_KEY__;
-
-  return {
-    layoutServiceConfig: {
-      host: `${__SC_API_HOST__}`,
-    },
-    querystringParams: { ...params },
-    fetcher: routeDataFetcher,
-  };
-};
+import { RestLayoutService } from '@sitecore-jss/sitecore-jss-react';
+import { config } from '../../package.json';
 
 class SitecoreContentService {
+  constructor() {
+    this.layoutService = new RestLayoutService({
+      apiHost: `${__SC_API_HOST__}`,
+      apiKey: __SC_API_KEY__,
+      siteName: config.appName,
+    });
+  }
+
   getRouteData(route, language) {
     return this.getInitialRouteData()
       .catch(() => {
-        const fetchOptions = getFetchOptions(language);
-        return fetchRouteData(route, fetchOptions);
+        return this.layoutService.fetchLayoutData(route, language);
       })
       .catch(() => null);
   }
 
-  getPlaceholderData(placeholderName, route, language, options = {}) {
-    const fetchOptions = getFetchOptions(language, options);
-    return fetchPlaceholderData(placeholderName, route, fetchOptions);
+  getPlaceholderData(placeholderName, route, language) {
+    return this.layoutService.fetchPlaceholderData(placeholderName, route, language);
   }
 
   getTranslationPath() {

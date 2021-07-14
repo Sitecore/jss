@@ -1,5 +1,4 @@
 export {
-  dataApi,
   mediaApi,
   isEditorActive,
   resetEditorChromes,
@@ -7,6 +6,8 @@ export {
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   DictionaryPhrases,
+  LayoutService,
+  RestLayoutService,
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,
@@ -15,7 +16,6 @@ export {
   Field,
   Item,
   HtmlElementRendering,
-  LayoutServiceRequestOptions,
   getChildPlaceholder,
   getFieldValue,
   ComponentRendering,
