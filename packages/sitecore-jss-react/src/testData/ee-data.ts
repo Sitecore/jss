@@ -51,6 +51,14 @@ export const convertedData = {
             placeholders: {
               'page-header': [
                 {
+                  name: 'img',
+                  type: 'text/sitecore',
+                  contents: '',
+                  attributes: {
+                    src: '/test.png',
+                  },
+                },
+                {
                   name: 'code',
                   type: 'text/sitecore',
                   contents:

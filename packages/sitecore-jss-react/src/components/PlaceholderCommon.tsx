@@ -208,13 +208,13 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     const props: {
       [attr: string]: unknown;
       key?: string;
-      dangerouslySetInnerHTML: {
+      dangerouslySetInnerHTML?: {
         __html: string | null;
       };
     } = {
       ...baseProps,
       ...attributes,
-      dangerouslySetInnerHTML: { __html: elem.contents },
+      dangerouslySetInnerHTML: elem.contents ? { __html: elem.contents } : undefined,
     };
 
     /* Since we can't set the "key" attribute via React, stash it

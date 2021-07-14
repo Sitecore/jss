@@ -1,9 +1,6 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
-import {
-  withSitecoreContext,
-  resetExperienceEditorChromes,
-} from '@sitecore-jss/sitecore-jss-react';
+import { withSitecoreContext, resetEditorChromes } from '@sitecore-jss/sitecore-jss-react';
 
 /**
  * Higher order component that abstracts common JSS + Apollo integration needs.
@@ -91,7 +88,7 @@ function GraphQLData(query, configuration = {}) {
 
       // eslint-disable-next-line class-methods-use-this
       componentDidUpdate() {
-        resetExperienceEditorChromes();
+        resetEditorChromes();
       }
     }
 

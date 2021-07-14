@@ -20,6 +20,8 @@ export { TextDirective } from './components/text.directive';
 export { JssModule } from './lib.module';
 export {
   mediaApi,
+  isEditorActive,
+  resetEditorChromes,
   constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
