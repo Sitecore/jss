@@ -42,6 +42,7 @@ export class RestDictionaryService extends DictionaryServiceBase {
   get defaultFetcher(): HttpDataFetcher<RestDictionaryServiceData> {
     const dataFetcher = new AxiosDataFetcher({
       debugger: debug.dictionary,
+      // CORS issue: Sitecore provides 'Access-Control-Allow-Origin' as wildcard '*', so we can't include credentials for the dictionary service
       withCredentials: false,
     });
     return (url: string) => dataFetcher.fetch<RestDictionaryServiceData>(url);

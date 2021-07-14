@@ -6,70 +6,6 @@ import { AxiosDataFetcher, AxiosDataFetcherConfig } from '../axios-fetcher';
 import { HttpDataFetcher, fetchData } from '../data-fetcher';
 import debug from '../debug';
 
-/**
- * Resolves layout service url
- * @param {LayoutServiceConfig} [options] layout service options
- * @param {string} apiType which layout service API to call ('render' or 'placeholder')
- * @returns the layout service url
- */
-export function resolveLayoutServiceUrl(
-  options: LayoutServiceConfig = {},
-  apiType: 'render' | 'placeholder'
-): string {
-  const { host = '', configurationName = 'jss', serviceUrl } = options;
-
-  if (serviceUrl) {
-    return serviceUrl;
-  }
-
-  return `${host}/sitecore/api/layout/${apiType}/${configurationName}`;
-}
-
-/**
- * Makes a request to Sitecore Layout Service for the specified route item path.
- * @deprecated Will be removed in a future release. Please use LayoutService.fetchLayoutData instead,
- * @see {LayoutService} - fetchLayoutData
- * @param {string} itemPath
- * @param {LayoutServiceRequestOptions<LayoutServiceData>} options
- * @returns {Promise<LayoutServiceData>} layout data
- */
-export function fetchRouteData(
-  itemPath: string,
-  options: LayoutServiceRequestOptions<LayoutServiceData>
-): Promise<LayoutServiceData> {
-  const { querystringParams, layoutServiceConfig } = options;
-
-  const fetchUrl = resolveLayoutServiceUrl(layoutServiceConfig, 'render');
-
-  return fetchData(fetchUrl, options.fetcher, { item: itemPath, ...querystringParams });
-}
-
-/**
- * Makes a request to Sitecore Layout Service for the specified placeholder in
- * a specific route item. Allows you to retrieve rendered data for individual placeholders instead of entire routes.
- * @deprecated Will be removed in a future release. Please use LayoutService.fetchPlaceholderData instead,
- * @see {LayoutService} - fetchPlaceholderData
- * @param {string} placeholderName
- * @param {string} itemPath
- * @param {LayoutServiceRequestOptions<PlaceholderData>} options
- * @returns {Promise<PlaceholderData>} placeholder data
- */
-export function fetchPlaceholderData(
-  placeholderName: string,
-  itemPath: string,
-  options: LayoutServiceRequestOptions<PlaceholderData>
-): Promise<PlaceholderData> {
-  const { querystringParams, layoutServiceConfig } = options;
-
-  const fetchUrl = resolveLayoutServiceUrl(layoutServiceConfig, 'placeholder');
-
-  return fetchData(fetchUrl, options.fetcher, {
-    placeholderName,
-    item: itemPath,
-    ...querystringParams,
-  });
-}
-
 export interface LayoutServiceConfig {
   /**
    * Host name of the Sitecore instance serving Layout Service requests.
@@ -191,7 +127,12 @@ export class RestLayoutService extends LayoutServiceBase {
       ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
       : this.getDefaultFetcher<LayoutServiceData>(req, res);
 
-    return fetchRouteData(itemPath, { fetcher, ...fetchOptions }).catch((error) => {
+    const fetchUrl = this.resolveLayoutServiceUrl(fetchOptions.layoutServiceConfig, 'render');
+
+    return fetchData(fetchUrl, fetcher, {
+      item: itemPath,
+      ...fetchOptions.querystringParams,
+    }).catch((error) => {
       if (error.response?.status === 404) {
         // Aligned with response of GraphQL Layout Service in case if layout is not found.
         // When 404 Rest Layout Service returns
@@ -243,7 +184,13 @@ export class RestLayoutService extends LayoutServiceBase {
       ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
       : this.getDefaultFetcher<PlaceholderData>(req, res);
 
-    return fetchPlaceholderData(placeholderName, itemPath, { fetcher, ...fetchOptions });
+    const fetchUrl = this.resolveLayoutServiceUrl(fetchOptions.layoutServiceConfig, 'placeholder');
+
+    return fetchData(fetchUrl, fetcher, {
+      placeholderName,
+      item: itemPath,
+      ...fetchOptions.querystringParams,
+    });
   }
 
   /**
@@ -267,6 +214,25 @@ export class RestLayoutService extends LayoutServiceBase {
       querystringParams: { ...params },
     };
   };
+
+  /**
+   * Resolves layout service url
+   * @param {LayoutServiceConfig} [options] layout service options
+   * @param {string} apiType which layout service API to call ('render' or 'placeholder')
+   * @returns the layout service url
+   */
+  private resolveLayoutServiceUrl(
+    options: LayoutServiceConfig = {},
+    apiType: 'render' | 'placeholder'
+  ): string {
+    const { host = '', configurationName = 'jss', serviceUrl } = options;
+
+    if (serviceUrl) {
+      return serviceUrl;
+    }
+
+    return `${host}/sitecore/api/layout/${apiType}/${configurationName}`;
+  }
 
   /**
    * Provides default @see AxiosDataFetcher data fetcher

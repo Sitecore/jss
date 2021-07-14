@@ -97,22 +97,22 @@ If you don't want analytics tracking for your JSS app, or for particular Layout 
 
 ## Invoking the Layout Service from JSS
 
-The Sitecore JSS SDK provides a simple API to make utilizing the Layout Service easier. Create instance of `RestLayoutService` and pass your configuration into the constructor and call `layoutService.fetchLayoutData()`. The `dataFetcherResolver` option enables you to implement whichever data access method you wish. JSS ships with axios, which can be imported from `src\dataFetcher.js`.
+The Sitecore JSS SDK provides a simple API to make utilizing the Layout Service easier. Create instance of `RestLayoutService` and pass your configuration into the constructor and call `layoutService.fetchLayoutData()`. The optional `dataFetcherResolver` option enables you to implement whichever data access method you wish. JSS ships with Axios by default.
 
-The `RestLayoutService` instance is found in the `@sitecore-jss\sitecore-jss` package but is also exposed via the framework-specific SDKs
+The `RestLayoutService` class is found in the `@sitecore-jss\sitecore-jss` package but is also exposed via the framework-specific SDKs
 
 ```javascript
 // ./layout-service.js
 
 import { RestLayoutService } from '@sitecore-jss/sitecore-jss-react';
-import { dataFetcher } from './dataFetcher'; 
+import { dataFetcher } from './dataFetcher';
 
 export const layoutService = new RestLayoutService({
   apiHost: 'http://mysitecore',
   apiKey: '{00000000-0000-0000-0000-000000000000}',
   siteName: 'jssappname',
-	tracking: false,
-	dataFetcherResolver: () => dataFetcher,
+  tracking: false,
+  dataFetcherResolver: () => dataFetcher,
 });
 ```
 
@@ -122,8 +122,8 @@ import { layoutService } from './layout-service';
 const language = 'en';
 const sitecoreRoutePath = '/styleguide';
 
-layoutService.fetchLayoutData(sitecoreRoutePath, language).then(route => {
-    console.log(JSON.stringify(route, null, 2));
+layoutService.fetchLayoutData(sitecoreRoutePath, language).then((route) => {
+  console.log(JSON.stringify(route, null, 2));
 });
 ```
 

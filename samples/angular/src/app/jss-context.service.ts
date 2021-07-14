@@ -10,8 +10,7 @@ import {
   BehaviorSubject
 } from 'rxjs';
 import { JssState } from './JssState';
-import { JssDataFetcherService } from './jss-data-fetcher.service';
-import { JssLayoutLoaderService, LayoutServiceError } from './layout/jss-layout-loader.service';
+import { JssLayoutService, LayoutServiceError } from './layout/jss-layout.service';
 
 export const jssKey = makeStateKey<JssState>('jss');
 
@@ -28,8 +27,7 @@ export class JssContextService {
 
   constructor(
     protected transferState: TransferState,
-    protected layoutService: JssLayoutLoaderService,
-    protected dataFetcher: JssDataFetcherService,
+    protected layoutService: JssLayoutService,
   ) {
     this.state = new BehaviorSubject<JssState>(new JssState());
   }

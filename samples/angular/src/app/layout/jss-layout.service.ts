@@ -22,7 +22,7 @@ export class LayoutServiceError {
 }
 
 @Injectable()
-export class JssLayoutLoaderService {
+export class JssLayoutService {
   getRouteData(
     route: string,
     language: string
