@@ -6,49 +6,12 @@ import { AxiosDataFetcher, AxiosDataFetcherConfig } from '../axios-fetcher';
 import { HttpDataFetcher, fetchData } from '../data-fetcher';
 import debug from '../debug';
 
-export interface LayoutServiceConfig {
-  /**
-   * Host name of the Sitecore instance serving Layout Service requests.
-   */
-  host?: string;
-
-  /**
-   * Layout Service "named" configuration
-   */
-  configurationName?: string;
-
-  /**
-   * This value overrides the default layout service URL.
-   * Note: `host` and `configurationName` options are ignored if `layoutServiceUrl` is set.
-   */
-  serviceUrl?: string;
-}
-
-export interface LayoutServiceRequestOptions<T> {
-  /**
-   * Configuration options for Layout Service requests.
-   */
-  layoutServiceConfig?: LayoutServiceConfig;
-  /**
-   * An object of key:value pairs to be stringified and used as querystring parameters.
-   */
-  querystringParams?: { [key: string]: string | number | boolean };
-
-  /** The fetcher that performs the HTTP request and returns a promise to JSON */
-  fetcher: HttpDataFetcher<T>;
-}
-
 interface FetchParams {
   [param: string]: string | number | boolean;
   sc_apikey: string;
   sc_site: string;
   sc_lang: string;
   tracking: boolean;
-}
-
-interface FetchOptions {
-  layoutServiceConfig: LayoutServiceConfig;
-  querystringParams: FetchParams;
 }
 
 export type RestLayoutServiceConfig = {
@@ -115,7 +78,7 @@ export class RestLayoutService extends LayoutServiceBase {
     req?: IncomingMessage,
     res?: ServerResponse
   ): Promise<LayoutServiceData> {
-    const fetchOptions = this.getFetchOptions(language);
+    const querystringParams = this.getFetchParams(language);
 
     debug.layout(
       'fetching layout data for %s %s %s',
@@ -127,11 +90,11 @@ export class RestLayoutService extends LayoutServiceBase {
       ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
       : this.getDefaultFetcher<LayoutServiceData>(req, res);
 
-    const fetchUrl = this.resolveLayoutServiceUrl(fetchOptions.layoutServiceConfig, 'render');
+    const fetchUrl = this.resolveLayoutServiceUrl('render');
 
     return fetchData(fetchUrl, fetcher, {
       item: itemPath,
-      ...fetchOptions.querystringParams,
+      ...querystringParams,
     }).catch((error) => {
       if (error.response?.status === 404) {
         // Aligned with response of GraphQL Layout Service in case if layout is not found.
@@ -171,7 +134,7 @@ export class RestLayoutService extends LayoutServiceBase {
     req?: IncomingMessage,
     res?: ServerResponse
   ): Promise<PlaceholderData> {
-    const fetchOptions = this.getFetchOptions(language);
+    const querystringParams = this.getFetchParams(language);
 
     debug.layout(
       'fetching placeholder data for %s %s %s %s',
@@ -184,12 +147,12 @@ export class RestLayoutService extends LayoutServiceBase {
       ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
       : this.getDefaultFetcher<PlaceholderData>(req, res);
 
-    const fetchUrl = this.resolveLayoutServiceUrl(fetchOptions.layoutServiceConfig, 'placeholder');
+    const fetchUrl = this.resolveLayoutServiceUrl('placeholder');
 
     return fetchData(fetchUrl, fetcher, {
       placeholderName,
       item: itemPath,
-      ...fetchOptions.querystringParams,
+      ...querystringParams,
     });
   }
 
@@ -198,20 +161,12 @@ export class RestLayoutService extends LayoutServiceBase {
    * @param {string} [language] language will be applied to `sc_lang` param
    * @returns {FetchOptions} fetch options
    */
-  private getFetchOptions = (language?: string): FetchOptions => {
-    const params: FetchParams = {
+  protected getFetchParams = (language?: string): FetchParams => {
+    return {
       sc_apikey: this.serviceConfig.apiKey,
       sc_site: this.serviceConfig.siteName,
       sc_lang: language || '',
       tracking: this.serviceConfig.tracking ?? true,
-    };
-
-    return {
-      layoutServiceConfig: {
-        host: this.serviceConfig.apiHost,
-        configurationName: this.serviceConfig.configurationName,
-      },
-      querystringParams: { ...params },
     };
   };
 
@@ -221,17 +176,10 @@ export class RestLayoutService extends LayoutServiceBase {
    * @param {string} apiType which layout service API to call ('render' or 'placeholder')
    * @returns the layout service url
    */
-  private resolveLayoutServiceUrl(
-    options: LayoutServiceConfig = {},
-    apiType: 'render' | 'placeholder'
-  ): string {
-    const { host = '', configurationName = 'jss', serviceUrl } = options;
+  protected resolveLayoutServiceUrl(apiType: 'render' | 'placeholder'): string {
+    const { apiHost = '', configurationName = 'jss' } = this.serviceConfig;
 
-    if (serviceUrl) {
-      return serviceUrl;
-    }
-
-    return `${host}/sitecore/api/layout/${apiType}/${configurationName}`;
+    return `${apiHost}/sitecore/api/layout/${apiType}/${configurationName}`;
   }
 
   /**
@@ -240,7 +188,7 @@ export class RestLayoutService extends LayoutServiceBase {
    * @param {ServerResponse} [res] Response instance
    * @returns default fetcher
    */
-  private getDefaultFetcher = <T>(req?: IncomingMessage, res?: ServerResponse) => {
+  protected getDefaultFetcher = <T>(req?: IncomingMessage, res?: ServerResponse) => {
     const config = {
       debugger: debug.layout,
     } as AxiosDataFetcherConfig;
@@ -262,7 +210,7 @@ export class RestLayoutService extends LayoutServiceBase {
    * @param {IncomingMessage} req
    * @returns {AxiosRequestConfig} axios request config
    */
-  private setupReqHeaders(req: IncomingMessage) {
+  protected setupReqHeaders(req: IncomingMessage) {
     return (reqConfig: AxiosRequestConfig) => {
       debug.layout('performing request header passing');
       reqConfig.headers.common = {
@@ -281,7 +229,7 @@ export class RestLayoutService extends LayoutServiceBase {
    * @param {ServerResponse} res
    * @returns {AxiosResponse} response
    */
-  private setupResHeaders(res: ServerResponse) {
+  protected setupResHeaders(res: ServerResponse) {
     return (serverRes: AxiosResponse) => {
       debug.layout('performing response header passing');
       serverRes.headers['set-cookie'] &&

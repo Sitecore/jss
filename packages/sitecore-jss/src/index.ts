@@ -36,8 +36,6 @@ export {
   RestLayoutService,
   RestLayoutServiceConfig,
   DataFetcherResolver,
-  LayoutServiceConfig,
-  LayoutServiceRequestOptions,
 } from './layout/rest-layout-service';
 
 export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
