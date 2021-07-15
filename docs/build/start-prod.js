@@ -128,7 +128,9 @@ manifestManager.getManifest(config.language).then((manifest) => {
     res.redirect(301, req.url);
   })
   server.use('/docs/fundamentals/services/layout-service', (req, res) => {
-    req.url = `/docs/fundamentals/services/layout`;
+    req.url = `/docs/fundamentals/services/layout/overview`;
+    res.redirect(301, req.url);
+  })
   server.use('/docs/fundamentals/services/dictionary-service', (req, res) => {
     req.url = `/docs/fundamentals/services/dictionary/overview`;
     res.redirect(301, req.url);
