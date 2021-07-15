@@ -37,7 +37,7 @@ A service:
 
 **Client**
 
-A client uses a *JSS service* to interact with a third-party service.
+A client uses a *JSS service* to interact with a Sitecore Headless Service or third-party service.
 
 **Fetcher**
 
