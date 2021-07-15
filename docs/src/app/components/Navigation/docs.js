@@ -209,8 +209,22 @@ export default {
               displayName: 'Forms',
             },
             {
-              url: 'dictionary-service',
-              displayName: 'Dictionary Service',
+              url: 'dictionary',
+              displayName: 'Dictionary',
+              children: [
+                {
+                  url: 'overview',
+                  displayName: 'Overview'
+                },
+                {
+                  url: 'sitecore-dictionary-service',
+                  displayName: 'Sitecore Dictionary Service'
+                },
+                {
+                  url: 'jss-dictionary-api',
+                  displayName: 'JSS Dictionary API'
+                }
+              ]
             },
             {
               url: 'view-engine',
