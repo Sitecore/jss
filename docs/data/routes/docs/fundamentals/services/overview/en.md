@@ -16,6 +16,13 @@ Our SDKs' most frequently used services follow a service-client-fetcher pattern 
 - [Dictionary Service](/docs/fundamentals/services/dictionary/overview) - available for all frameworks, with REST and GraphQL endpoints.
 - [Sitemap Service](/docs/nextjs/services/graphql-sitemap-service) - available for Next.js only, GraphQL only.
 
+Depending on your local development setup, chosen development workflow and framework, you might also need to become familiar with: 
+- [App Configuration](/docs/fundamentals/services/app-configuration).
+- [App Import](/docs/fundamentals/services/app-import).
+- [GraphQL](/docs/fundamentals/services/graphql).
+- [Tracking](/docs/fundamentals/services/tracking).
+- [Forms](/docs/fundamentals/services/forms-service).
+- [View Engine](/docs/fundamentals/services/view-engine).
 
 ## Terminology
 
