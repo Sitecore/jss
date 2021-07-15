@@ -1,10 +1,7 @@
 /* global __SC_API_HOST__, __SC_TUNNEL_HOST__ */
 /* eslint-disable import/no-extraneous-dependencies */
 
-import {
-  getRouteData as baseGetRouteData,
-  getFetchOptions as baseGetFetchOptions,
-} from './dataService.connected';
+import { getRouteData as baseGetRouteData } from './dataService.connected';
 import { mapNestedJson } from './util';
 
 // eslint-disable-next-line no-underscore-dangle
@@ -21,23 +18,13 @@ const processObjectProperty = (key, value) => {
   return value;
 };
 
-const getRouteData = (route, { options = {}, language } = {}) => {
-  const baseOptions = baseGetFetchOptions(language);
-
-  // set the Layout Service host to be the ngrok URL
-  baseOptions.layoutServiceConfig.host = __SC_TUNNEL_HOST__;
-
-  // Use caution when spreading/assigning here, options are a nested object.
-  // Easy to inadvertently overwrite nested keys because spreading/assigning is _not_ a deep merge.
-  const newOptions = {
-    ...baseOptions,
-    ...options,
-  };
-
-  return baseGetRouteData(route, { options: newOptions, language }).then((data) => {
+const getRouteData = (route, { options = {}, language } = {}) =>
+  baseGetRouteData(route, {
+    options: { ...options, apiHost: __SC_TUNNEL_HOST__ },
+    language,
+  }).then((data) => {
     const newData = mapNestedJson(data, processObjectProperty);
     return newData;
   });
-};
 
 export { getRouteData };

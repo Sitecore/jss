@@ -25,7 +25,6 @@ import { RichTextDirective } from './components/rich-text.directive';
 import { RouterLinkDirective } from './components/router-link.directive';
 import { TextDirective } from './components/text.directive';
 import { JssComponentFactoryService } from './jss-component-factory.service';
-import { LayoutService } from './layout.service';
 
 @NgModule({
   imports: [CommonModule],
@@ -72,7 +71,7 @@ export class JssModule {
   static forRoot(): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
-      providers: [LayoutService, DatePipe, JssComponentFactoryService],
+      providers: [DatePipe, JssComponentFactoryService],
     };
   }
 

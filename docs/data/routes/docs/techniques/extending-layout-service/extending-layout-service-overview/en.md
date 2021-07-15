@@ -180,4 +180,13 @@ After patching in your custom configuration, you can utilize it in your JSS App 
 </javaScriptServices>
 ```
 
-You'll need to ensure that you provide this configuration name in your client code as well when invoking Layout Service via the `dataApi` (see examples above).
+Provide configuration name in your client code as well when invoking Layout Service via the `RestLayoutService`.
+
+```javascript
+const layoutService = new RestLayoutService({
+  apiHost: 'http://mysitecore',
+  apiKey: '{00000000-0000-0000-0000-000000000000}',
+  siteName: 'jssappname',
+  configurationName: 'my-jss-config',
+});
+```
