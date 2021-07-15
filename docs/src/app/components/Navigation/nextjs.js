@@ -121,10 +121,6 @@ export default {
          displayName: 'Customizing static paths',
         },
         {
-          url: 'getStaticPaths',
-          displayName: 'getStaticPaths',
-        },
-        {
           url: 'component-level-data-fetching',
           displayName: 'Component-level data fetching',
         },
