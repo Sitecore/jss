@@ -35,8 +35,6 @@ When you execute `fetchSSGSitemap`/`fetchExportSitemap` using the `GraphQLSitema
 2. Fetch items using `rootItemId` and the provided `locale`.
 3. Merge loaded items in the correct format for SSG or static HTML export.
 
-> Remember to update the value of the `GRAPHQL_ROOT_ITEM_PATH` if you changed the location of your root item.
-
 ## Queries
 
 The default GraphQL query used by GraphQL Sitemap Service to fetch items and generate the sitemap is:
