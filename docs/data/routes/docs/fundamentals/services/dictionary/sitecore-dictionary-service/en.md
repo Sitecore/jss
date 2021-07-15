@@ -6,12 +6,13 @@ title: Sitecore Dictionary Service
 
 # Sitecore Dictionary Service
 
-Sitecore JSS provides an additional REST endpoint for retrieving an app-specific translation dictionary, backed by a Sitecore feature called *Dictionary Domains*. The URL format for this API is:
+Sitecore Headless Services provides a REST endpoint for retrieving an app-specific translation dictionary, backed by a Sitecore feature called *Dictionary Domains*. 
 
-`/sitecore/api/jss/dictionary/<app>/<language>/`
+> Note: If you provide the `sc_lang` param to [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) requests, the service will return content in the specified language. The Dictionary Service returns translated phrases in your app
 
-For example:
-http://JssReactWeb/sitecore/api/jss/dictionary/JssReactWeb/es-MX/
+The endpoint format for this API is `/sitecore/api/jss/dictionary/<app>/<language>/`.
+
+For example, a request to `http://JssReactWeb.dev/sitecore/api/jss/dictionary/JssReactWeb/es-MX/` will return:
 
 ```json
 {
@@ -24,9 +25,3 @@ http://JssReactWeb/sitecore/api/jss/dictionary/JssReactWeb/es-MX/
     }
 }
 ```
-
-It's up to you how you invoke and utilize this data. For example, the React App utilizes the `i18next` module with `i18next-fetch-backend`.
-
-> Note for Sitecore devs and admins: By default all JSS apps have a dictionary domain configured for the app. You can alter the app's dictionary domain in the [App configuration](/docs/techniques/content-translation).
-
-## 
