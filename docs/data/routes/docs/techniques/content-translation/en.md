@@ -30,7 +30,7 @@ This is only the default convention for multilingual content for sample apps, de
 
 ## Translation of Dictionary Items
 
-Sitecore JSS provides an additional REST [Dictionary Service](/docs/fundamentals/services/dictionary-service) to support acquiring translated phrases in your app. The sample apps demonstrate using this service to translate static text.
+Sitecore JSS provides an additional REST [Dictionary Service](/docs/fundamentals/services/dictionary/sitecore-dictionary-service) to support acquiring translated phrases in your app. The sample apps demonstrate using this service to translate static text.
 
 ## Language Routing / Language in URL
 
