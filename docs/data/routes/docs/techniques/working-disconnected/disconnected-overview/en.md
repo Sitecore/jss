@@ -30,7 +30,7 @@ Somewhat like website pages if you're new to JS apps or,
 Items under a site root if you're a Sitecore developer. 
 The sample apps use the most popular routing platform for their library (for example, `react-router`) to enable these defined routes to resolve when the app runs.
 
-Routes are hierarchically defined, forming a traditional page-tree architecture. Since there is no requirement to force your app to use this routing paradigm, you can implement more complex routing patterns if you need to. The Sitecore [Layout Service](/docs/fundamentals/services/layout-service) expects to receive a route for retrieving data. But that does not mean the frontend router must use that exact route path in the browser. 
+Routes are hierarchically defined, forming a traditional page-tree architecture. Since there is no requirement to force your app to use this routing paradigm, you can implement more complex routing patterns if you need to. The Sitecore [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) expects to receive a route for retrieving data. But that does not mean the frontend router must use that exact route path in the browser. 
 
 > Using custom routing may require implementing the same custom routing on the Sitecore backend to allow editing the custom routed site. When possible, try to use hierarchical routes.
 

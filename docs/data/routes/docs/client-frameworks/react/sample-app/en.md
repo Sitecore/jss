@@ -16,7 +16,7 @@ The React sample supports running in all [JSS application modes](/docs/fundament
 
 ## Routing + State Management
 
-The sample app uses dynamic routing based on the [Layout Service](/docs/fundamentals/services/layout-service) (or local route data files in _disconnected mode_), and uses route/navigation changes to trigger app state changes. Thus tracing the primary execution flow should begin with the route configuration.
+The sample app uses dynamic routing based on the [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) (or local route data files in _disconnected mode_), and uses route/navigation changes to trigger app state changes. Thus tracing the primary execution flow should begin with the route configuration.
 
 ### Client-side routing
 
@@ -34,7 +34,7 @@ When the React app is pre-rendered by a Node server, thus returning HTML to the 
 
 1.  [Integrated mode only] Sitecore will receive the request, parse the route server-side, and determine whether the requested item will be handled by a JSS application, and thus which bundle to execute.
 1.  [Headless mode only] A request is received by the Node SSR proxy and passed on to a Sitecore layout service
-1.  The Node host will invoke the `renderView` function in the `server/server.js`. The function arguments include the route data / [Layout Service](/docs/fundamentals/services/layout-service) output.
+1.  The Node host will invoke the `renderView` function in the `server/server.js`. The function arguments include the route data / [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) output.
 1.  The `renderView` function performs the following steps:
     * Receive the data to use when server-side rendering (layout service, dictionary)
     * Sets the SSR data into the app's initial state using `setServerSideRenderingState()`

@@ -8,7 +8,7 @@ title: Extending Layout Service
 
 You have a number of options for customizing the output of the Layout Service.
 
-> Looking for [Layout Service basics](/docs/fundamentals/services/layout-service)?
+> Looking for [Layout Service basics](/docs/fundamentals/services/layout/overview)?
 
 ## Anatomy of a Layout Service Request
 

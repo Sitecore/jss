@@ -9,38 +9,27 @@ The JSS Layout API is a suite of services, clients and data fetchers that facili
 
 ## Invoking the REST Layout Service from JSS apps
 
-Sitecore JSS provides a simple API to make utilizing the Layout Service easier. Enter your configuration into the `fetchOptions` object and pass it into `dataApi.fetchRouteData()`. The `fetcher` option enables you to implement whichever data access method you wish. JSS ships with Axios, which can be imported from `src\dataFetcher.js`.
+Sitecore JSS provides a simple API to make utilizing the Layout Service easier.Create instance of `RestLayoutService` and pass your configuration into the constructor and call `layoutService.fetchLayoutData()`. The optional `dataFetcherResolver` option enables you to implement whichever data access method you wish. JSS ships with Axios by default.
 
-The `dataApi` object is found in the `@sitecore-jss\sitecore-jss` package but is also exposed via the framework-specific SDKs.
+The `RestLayoutService` class is defined in the `@sitecore-jss\sitecore-jss` package.
 
 ```javascript
-import { dataApi } from '@sitecore-jss/sitecore-jss';
-import { dataFetcher } from './dataFetcher'; 
-
-const fetchOptions = {
-    fetcher: dataFetcher, 
-    layoutServiceConfig: {
-        host: 'http://mysitecore',
-        configurationName: 'jss',
-    },
-    querystringParams: {
-        sc_lang: 'en',
-        tracking: false,
-        sc_apikey: '{00000000-0000-0000-0000-000000000000}',
-        sc_camp: 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'
-    },
-    requestConfig: { 
-        // AxiosRequestConfig -- https://github.com/axios/axios#request-config
-        // Note: `withCredentials: true` is added automatically
-        timeout: 3000,
-        headers: {
-            'X-JSS': 'Experience is asynchronous.'
-        }
-    },
-}
-
-dataApi.fetchRouteData('/', fetchOptions).then(route => {
-    console.log(JSON.stringify(route, null, 2));
+import { RestLayoutService } from '@sitecore-jss/sitecore-jss-react';
+import { dataFetcher } from './dataFetcher';
+export const layoutService = new RestLayoutService({
+  apiHost: 'http://mysitecore',
+  apiKey: '{00000000-0000-0000-0000-000000000000}',
+  siteName: 'jssappname',
+  tracking: false,
+  dataFetcherResolver: () => dataFetcher,
 });
+```
+
+```javascript
+import { layoutService } from './layout-service';
+const language = 'en';
+const sitecoreRoutePath = '/styleguide';
+layoutService.fetchLayoutData(sitecoreRoutePath, language).then((route) => {
+  console.log(JSON.stringify(route, null, 2));
 ```
 
