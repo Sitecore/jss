@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-vue",
-  "version": "19.0.0-canary.19",
+  "version": "19.0.0-canary.20",
   "description": "Application utilizing Sitecore JavaScript Services and Vue (vue-cli).",
   "private": true,
   "config": {
@@ -49,7 +49,7 @@
   "dependencies": {
     "@apollo/client": "^3.3.19",
     "@panter/vue-i18next": "~0.15.1",
-    "@sitecore-jss/sitecore-jss-vue": "^19.0.0-canary.19",
+    "@sitecore-jss/sitecore-jss-vue": "^19.0.0-canary.20",
     "@vue/apollo-composable": "^4.0.0-alpha.12",
     "@vue/apollo-option": "^4.0.0-alpha.11",
     "@vue/apollo-ssr": "^4.0.0-alpha.11",
@@ -69,10 +69,10 @@
   },
   "devDependencies": {
     "@babel/register": "7.6.2",
-    "@sitecore-jss/sitecore-jss-cli": "^19.0.0-canary.19",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^19.0.0-canary.19",
-    "@sitecore-jss/sitecore-jss-manifest": "^19.0.0-canary.19",
-    "@sitecore-jss/sitecore-jss-tracking": "^19.0.0-canary.19",
+    "@sitecore-jss/sitecore-jss-cli": "^19.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^19.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-manifest": "^19.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-tracking": "^19.0.0-canary.20",
     "@vue/cli-plugin-babel": "~4.5.13",
     "@vue/cli-plugin-eslint": "~4.5.13",
     "@vue/cli-service": "~4.5.13",
