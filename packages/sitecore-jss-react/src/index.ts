@@ -5,6 +5,8 @@ export {
   constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  RestDictionaryService,
+  DictionaryService,
   DictionaryPhrases,
   LayoutService,
   RestLayoutService,
