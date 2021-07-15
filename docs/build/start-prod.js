@@ -128,7 +128,7 @@ manifestManager.getManifest(config.language).then((manifest) => {
     res.redirect(301, req.url);
   })
   server.use('/docs/fundamentals/services/layout-service', (req, res) => {
-    req.url = `/docs/fundamentals/services/layout/sitecore-layout-service`;
+    req.url = `/docs/fundamentals/services/layout`;
     res.redirect(301, req.url);
   })
   server.use('*', ssrMiddleware);
