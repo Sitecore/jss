@@ -1,13 +1,10 @@
 ---
 name: overview
 routeTemplate: ./data/component-templates/article.yml
-title: Layout Service Overview
+title: Layout Services and APIs
 ---
 
 # Layout Services and APIs
-
-
-
 To fetch and use Sitecore layout information in your JSS application, you use the [JSS Layout API](#jss-layout-api). 
 ## Sitecore endpoints for layout data
 You have several options for retrieving layout information for your Sitecore items: 
