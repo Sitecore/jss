@@ -22,7 +22,7 @@ Before diving into the specifics of each service, you should be aware of the fol
 
 **Factory**
 
-A factory creates an instance of a *service*. There are separate factories for services with support for both GraphQL and REST. You can see examples of factory implementations in the [Next.js sample application](https://github.com/Sitecore/jss/tree/5982057c9a92e3c1a899a2b741e64f6a4dc04713/samples/nextjs/src/lib).
+A factory creates an instance of a *service*. In the [Next.js sample application](https://github.com/Sitecore/jss/tree/5982057c9a92e3c1a899a2b741e64f6a4dc04713/samples/nextjs/src/lib), there are examples of factories for services with support for both GraphQL and REST. 
 
 **Service**
 
