@@ -6,15 +6,16 @@ title: JSS Services & APIs
 
 # JSS Services & APIs
 
-   This section describes the services and APIs available in Sitecore Headless Services (formerly known as JSS Server Components) and the Sitecore JavaScript Rendering SDK (JSS).
+This section describes the services and APIs available in Sitecore Headless Services (formerly known as JSS Server Components) and the Sitecore JavaScript Rendering SDK (JSS).
 
-   The services and APIs described in this section, unless otherwise stated, are available for all our framework-specific rendering SDKs.
+The services and APIs described in this section, unless otherwise stated, are available for all our framework-specific rendering SDKs.
 
-   Our SDKs' most frequently used services follow a service-client-fetcher pattern of implementation and support REST request/response, GraphQL queries, or both. The services using this pattern are:
+Our SDKs' most frequently used services follow a service-client-fetcher pattern of implementation and support REST request/response, GraphQL queries, or both. The services using this pattern are:
 
-   - [Layout Service](/docs/fundamentals/services/layout/overview) - available for all frameworks, with REST and GraphQL endpoints.
-   - [Dictionary Service](/docs/fundamentals/services/dictionary-service) - available for all frameworks, with REST and GraphQL endpoints.
-   - [Sitemap Service](/docs/nextjs/services/graphql-sitemap-service) - available for Next.js only, GraphQL only.
+- [Layout Service](/docs/fundamentals/services/layout/overview) - available for all frameworks, with REST and GraphQL endpoints.
+- [Dictionary Service](/docs/fundamentals/services/dictionary/overview) - available for all frameworks, with REST and GraphQL endpoints.
+- [Sitemap Service](/docs/nextjs/services/graphql-sitemap-service) - available for Next.js only, GraphQL only.
+
 
 ## Terminology
 
