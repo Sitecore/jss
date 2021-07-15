@@ -39,12 +39,16 @@ class Wizard extends React.Component {
   renderNavigation = (stepsCount) => (
     <div className="wizard-navigation">
       {this.state.step !== 0 && stepsCount ? (
-        <button onClick={this.selectPreviousStep}>Previous</button>
+        <button type="button" onClick={this.selectPreviousStep}>
+          Previous
+        </button>
       ) : (
         <div />
       )}
       {this.state.step !== stepsCount - 1 && stepsCount && (
-        <button onClick={this.selectNextStep}>Next</button>
+        <button type="button" onClick={this.selectNextStep}>
+          Next
+        </button>
       )}
     </div>
   );
