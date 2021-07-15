@@ -22,7 +22,7 @@ The JSS Vue sample primarily uses [Single-File Components (SFC)](https://v3.vuej
 
 ## Routing + State Management
 
-The sample app uses dynamic routing based on the [Layout Service](/docs/fundamentals/services/layout-service) (or local route data files in _disconnected mode_), and uses route/navigation changes to trigger app state changes. Thus tracing the primary execution flow should begin with the route configuration.
+The sample app uses dynamic routing based on the [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) (or local route data files in _disconnected mode_), and uses route/navigation changes to trigger app state changes. Thus tracing the primary execution flow should begin with the route configuration.
 
 ### Client-side routing
 
@@ -43,7 +43,7 @@ When the Vue app is pre-rendered by a Node server, thus returning HTML to the cl
 
 1.  [Integrated mode only] Sitecore will receive the request, parse the route server-side, and determine whether the requested item will be handled by a JSS application, and thus which bundle to execute.
 1.  [Headless mode only] A request is received by the Node SSR proxy and passed on to a Sitecore layout service.
-1.  The Node host will invoke the `renderView` function in the `server/server.js` file. The function arguments include the route data / [Layout Service](/docs/fundamentals/services/layout-service) output.
+1.  The Node host will invoke the `renderView` function in the `server/server.js` file. The function arguments include the route data / [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) output.
 1.  The `renderView` function performs the following steps:
     * Receive the data to use when server-side rendering (layout service, dictionary)
     * Create and initialize the app via the same `createApp.js` file used in client-side rendering.

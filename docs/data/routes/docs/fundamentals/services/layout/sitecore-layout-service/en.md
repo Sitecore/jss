@@ -100,4 +100,4 @@ If you don't want analytics tracking for your JSS app or particular Layout Servi
 
 ## Extending Layout Service
 
-See [Layout Service Extensibility](../../techniques/extending-layout-service/extending-layout-service-overview).
+See [Layout Service Extensibility](/docs/techniques/extending-layout-service/extending-layout-service-overview).

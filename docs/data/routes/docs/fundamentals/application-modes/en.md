@@ -101,7 +101,7 @@ Consult the [headless with `sitecore-jss-proxy`](/docs/techniques/ssr/headless-m
 
 ## API-Only Mode
 
-In this mode, you consume data directly from Sitecore's headless APIs - [Layout Service](/docs/fundamentals/services/layout-service), [GraphQL](/docs/fundamentals/services/graphql), [Dictionary Service](/docs/fundamentals/services/dictionary-service), [Sitecore Services Client](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/sitecoreservicesclient), etc.
+In this mode, you consume data directly from Sitecore's headless APIs - [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service), [GraphQL](/docs/fundamentals/services/graphql), [Dictionary Service](/docs/fundamentals/services/dictionary-service), [Sitecore Services Client](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/sitecoreservicesclient), etc.
 
 API-only mode can be used with any platform that understands JSON data to consume Sitecore-provided content and personalized layout information. When the data is used this way, none of the JSS npm packages (or indeed any JavaScript) is required. Experience editor will not be supported.
 

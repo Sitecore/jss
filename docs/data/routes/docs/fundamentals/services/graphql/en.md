@@ -21,7 +21,7 @@ The Sitecore GraphQL API is an implementation of a GraphQL server on top of Site
 
 ## Using GraphQL with JSS apps
 
-JSS apps have several choices in terms of using GraphQL. With _integrated_ GraphQL, the format of the [route data](/docs/techniques/working-disconnected/manifest-api) returned for a specific component by the Sitecore [Layout Service](/docs/fundamentals/services/layout-service) can be modified into the result of a GraphQL query. With _connected_ GraphQL, a JSS app makes direct HTTP requests to a Sitecore GraphQL endpoint.
+JSS apps have several choices in terms of using GraphQL. With _integrated_ GraphQL, the format of the [route data](/docs/techniques/working-disconnected/manifest-api) returned for a specific component by the Sitecore [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) can be modified into the result of a GraphQL query. With _connected_ GraphQL, a JSS app makes direct HTTP requests to a Sitecore GraphQL endpoint.
 
 > All JSS sample apps come with examples of using GraphQL, both Integrated and Connected. Refer to the apps for more detailed usage examples and commented code.
 

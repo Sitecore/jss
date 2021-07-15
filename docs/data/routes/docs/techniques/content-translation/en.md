@@ -12,7 +12,7 @@ The sample apps shows one approach to using the tools provided by JSS to make yo
 
 ## Translation of Layout Service Content
 
-The [Layout Service](/docs/fundamentals/services/layout-service) will fully respect the Sitecore *Language Context* when fetching route and context data. This means that requests to the Layout Service can utilize the `sc_lang` param to request content in a specific language.
+The [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) will fully respect the Sitecore *Language Context* when fetching route and context data. This means that requests to the Layout Service can utilize the `sc_lang` param to request content in a specific language.
 
 e.g. `http://JssReactWeb/sitecore/api/layout/render/jss?item=/Services&sc_lang=es-MX&sc_apikey={YOUR_API_KEY}`
 
