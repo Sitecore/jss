@@ -1,19 +1,6 @@
 import 'cross-fetch/polyfill';
 import { createI18n } from 'vue-i18n';
-import config from './temp/config';
-
-/**
- * Fetch dictionary data using specified language
- * @param {string} language
- * @returns dictionary
- */
-export const fetchDictionary = (language) => {
-  const dictionaryServicePath = `${config.sitecoreApiHost}/sitecore/api/jss/dictionary/${config.jssAppName}/${language}?sc_apikey=${config.sitecoreApiKey}`;
-
-  return fetch(dictionaryServicePath)
-    .then((res) => res.json())
-    .then((data) => data.phrases);
-};
+import { dictionaryService } from './lib/dictionary-service';
 
 /**
  * Initializes the vue-i18n library to provide a translation dictionary to the app.
@@ -42,7 +29,7 @@ export default function i18nInit(language, dictionary) {
 
       resolve(i18n);
     } else {
-      fetchDictionary(language).then((phrases) => {
+      dictionaryService.fetchDictionaryData(language).then((phrases) => {
         resolve(
           createI18n({
             fallbackLocale: false,

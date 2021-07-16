@@ -135,21 +135,6 @@ Attempt to connect to Node timed out after 60000ms.
 
 * Placeholders defined in JSS will use the global `key` field on their Placeholder Settings. This means that conflicts may arise if non-JSS and JSS apps use the same placeholder key on a multi-site Sitecore installation. This is not a JSS-specific issue, and to avoid it give JSS apps unique placeholder names such as `myapp-main`. Note that JSS apps will _not_ conflict with each other when using the same placeholder keys, if there are multiple JSS sites.
 
-* Site detection that is not based on `hostName` but on `virtualFolder` / `physicalFolder` attributes requires additional configuration and query string based site name specification. Search your app for `dataApi`, and find where the dataApi's `fetchRouteData()` function is being called. Add `sc_site` to the options passed to `fetchRouteData` like so:
-
-```
-const fetchOptions = {
-  // ...
-  querystringParams: {
-    // ... (i.e. 'sc_lang')
-    sc_site: 'name of your site definition in Sitecore'
-  },
-};
-
-// pseudocode
-dataApi.fetchRouteData(route, fetchOptions);
-```
-
 ## Troubleshooting
 
 ### Missing Layout Service Placeholder Data

@@ -1,5 +1,4 @@
 export {
-  dataApi,
   mediaApi,
   constants,
   // generic data access
@@ -21,7 +20,6 @@ export {
   LayoutServicePageState,
   LayoutServiceContext,
   LayoutServiceContextData,
-  LayoutServiceRequestOptions,
   GraphQLLayoutService,
   GraphQLLayoutServiceConfig,
   RestLayoutService,
