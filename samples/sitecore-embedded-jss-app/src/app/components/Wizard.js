@@ -14,10 +14,6 @@ class Wizard extends React.Component {
     this.onFormValueChange = this.onFormValueChange.bind(this);
   }
 
-  componentDidMount() {
-    console.log('Here should be wizard');
-  }
-
   onFormValueChange(fieldName, value) {
     const formValues = { ...this.state.formValues };
     formValues[fieldName] = value;
