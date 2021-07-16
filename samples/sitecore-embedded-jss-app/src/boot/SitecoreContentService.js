@@ -2,14 +2,13 @@
 /* global __SC_API_HOST__, __TRANSLATION_PATH__, __SC_API_KEY__ */
 
 import { RestLayoutService } from '@sitecore-jss/sitecore-jss-react';
-import { config } from '../../package.json';
 
 class SitecoreContentService {
   constructor() {
     this.layoutService = new RestLayoutService({
       apiHost: `${__SC_API_HOST__}`,
       apiKey: __SC_API_KEY__,
-      siteName: config.appName,
+      siteName: 'website', // the name of the site you're "embedding" into ('website' in the sample)
     });
   }
 

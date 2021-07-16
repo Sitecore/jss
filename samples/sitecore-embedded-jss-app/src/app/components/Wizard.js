@@ -1,11 +1,11 @@
 import React from 'react';
 import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
-import StepZilla from './StepZillaPatched';
 import Step from './Step';
 
 class Wizard extends React.Component {
   state = {
     formValues: {},
+    step: 0,
   };
 
   constructor(props) {
@@ -22,12 +22,52 @@ class Wizard extends React.Component {
     });
   }
 
+  selectNextStep = () => this.setState({ step: this.state.step + 1 });
+
+  selectPreviousStep = () => this.setState({ step: this.state.step - 1 });
+
+  renderStepName = (step, i) => (
+    <span key={step.name} className={`wizard-step-name ${i === this.state.step ? 'selected' : ''}`}>
+      {step.name}
+    </span>
+  );
+
+  renderNavigation = (stepsCount) => (
+    <div className="wizard-navigation">
+      {this.state.step !== 0 && stepsCount ? (
+        <button type="button" onClick={this.selectPreviousStep}>
+          Previous
+        </button>
+      ) : (
+        <div />
+      )}
+      {this.state.step !== stepsCount - 1 && stepsCount && (
+        <button type="button" onClick={this.selectNextStep}>
+          Next
+        </button>
+      )}
+    </div>
+  );
+
+  renderEditing = (childSteps) => (
+    <div>
+      <h1>Wizard Steps</h1>
+      <ol>
+        {childSteps.map((step) => (
+          <li key={step.url}>
+            <a href={step.url}>{step.displayName}</a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+
   render() {
     const { rendering, sitecoreContext } = this.props;
     const childSteps = rendering.fields.data.item.children;
 
     if (sitecoreContext.pageEditing) {
-      return renderEditing(childSteps);
+      return this.renderEditing(childSteps);
     }
 
     const steps = childSteps.map((step, index) => ({
@@ -43,24 +83,13 @@ class Wizard extends React.Component {
     }));
 
     return (
-      <div className="step-progress">
-        <StepZilla steps={steps} dontValidate={true} />
+      <div className="wizard">
+        <div className="wizard-steps">{steps.map(this.renderStepName)}</div>
+        <div className="wizard-step">{steps[this.state.step].component}</div>
+        {this.renderNavigation(steps.length)}
       </div>
     );
   }
 }
-
-const renderEditing = (childSteps, context) => (
-  <div>
-    <h1>Wizard Steps</h1>
-    <ol>
-      {childSteps.map((step) => (
-        <li key={step.url}>
-          <a href={step.url}>{step.displayName}</a>
-        </li>
-      ))}
-    </ol>
-  </div>
-);
 
 export default withSitecoreContext()(Wizard);
