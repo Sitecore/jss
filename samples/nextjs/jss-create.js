@@ -35,6 +35,12 @@ module.exports = function createJssProject(argv, nextSteps) {
     );
   }
 
+  if (argv.empty) {
+    createEmptyStarter();
+  } else {
+    cleanUpStrippedFiles();
+  }
+
   setFetchWith(argv.fetchWith);
   setPrerender(argv.prerender);
   setNextConfig();
@@ -43,15 +49,67 @@ module.exports = function createJssProject(argv, nextSteps) {
   return nextSteps;
 };
 
+function getPath(filepath) {
+  return path.join(__dirname, filepath);
+}
+
+function cleanUpStrippedFiles() {
+  const files = getStrippedFiles();
+
+  files.forEach(filepath => fs.unlinkSync(filepath))
+}
+
+function getStrippedFiles() {
+  return [
+    getPath('scripts/bootstrap.stripped.ts'),
+    getPath('scripts/scaffold-component.stripped.ts'),
+    getPath('src/lib/sitemap-factory.stripped.ts'),
+    getPath('next.config.base.stripped.js'),
+  ];
+}
+
+function createEmptyStarter() {
+  const dataDir = getPath('data');
+  const disconnectedProxyScript = getPath('scripts/disconnected-mode-proxy.ts');
+  const manifestTemplate = getPath('scripts/templates/component-manifest.ts');
+  const definitionsDir = getPath('sitecore/definitions');
+  const componentsDir = getPath('src/components');
+
+  console.log(chalk.cyan('Cleaning up the sample...'));
+
+  const strippedFiles = getStrippedFiles();
+
+  strippedFiles.forEach(strippedFilePath => {
+    const defaultFilePath = strippedFilePath.replace('.stripped', '');
+    fs.unlinkSync(defaultFilePath)
+    fs.renameSync(strippedFilePath, defaultFilePath);
+  })
+
+  fs.rmdirSync(dataDir, { recursive: true });
+  fs.unlinkSync(disconnectedProxyScript);
+  fs.unlinkSync(manifestTemplate);
+  fs.rmdirSync(definitionsDir, { recursive: true });
+  fs.rmdirSync(componentsDir, { recursive: true });
+
+  const packageJson = require('./package.json');
+
+  delete packageJson.scripts.start;
+  delete packageJson.scripts['start:disconnected-proxy'];
+  // Temporary solution until we remove graphql-let, graphql-let can't be used if there are no .graphql files
+  packageJson.scripts.bootstrap = packageJson.scripts.bootstrap.replace(' && graphql-let', '');
+
+  fs.writeFileSync(getPath('package.json'), JSON.stringify(packageJson), 'utf8');
+}
+
 /**
  * Sets how Sitecore data (layout, dictionary) is fetched.
  * @param {string} [fetchWith] {REST|GraphQL} Default is REST.
  */
 function setFetchWith(fetchWith) {
-  const defaultDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.ts');
-  const restDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.rest.ts');
-  const defaultLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.ts');
-  const restLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.rest.ts');
+  const defaultDsfFile = getPath('src/lib/dictionary-service-factory.ts');
+  const restDsfFile = getPath('src/lib/dictionary-service-factory.rest.ts');
+  const defaultLsfFile = getPath('src/lib/layout-service-factory.ts');
+  const restLsfFile = getPath('src/lib/layout-service-factory.rest.ts');
   const FetchWith = {
     GRAPHQL: 'graphql',
     REST: 'rest',
@@ -85,9 +143,9 @@ function setFetchWith(fetchWith) {
  * @param {string} [prerender] {SSG|SSR} Default is SSG.
  */
 function setPrerender(prerender) {
-  const defaultRouteFile = path.join(__dirname, 'src/pages/[[...path]].tsx');
-  const ssrRouteFile = path.join(__dirname, 'src/pages/[[...path]].SSR.tsx');
-  const sitemapFile = path.join(__dirname, 'src/lib/sitemap-fetcher.ts');
+  const defaultRouteFile = getPath('src/pages/[[...path]].tsx');
+  const ssrRouteFile = getPath('src/pages/[[...path]].SSR.tsx');
+  const sitemapFile = getPath('src/lib/sitemap-fetcher.ts');
   const Prerender = {
     SSG: 'ssg',
     SSR: 'ssr',
@@ -118,8 +176,8 @@ function setPrerender(prerender) {
  * Switch development next.config.js to production config
  */
 function setNextConfig() {
-  const nextConfig = path.join(__dirname, 'next.config.js');
-  const baseConfig = path.join(__dirname, 'next.config.base.js');
+  const nextConfig = getPath('next.config.js');
+  const baseConfig = getPath('next.config.base.js');
 
   console.log(chalk.cyan('Replacing next.config...'));
 
