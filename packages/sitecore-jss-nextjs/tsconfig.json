@@ -33,5 +33,5 @@
     "src/testData/*",
     "**/*.test.ts",
     "**/*.test.tsx"
-  ]
+  ],
 }

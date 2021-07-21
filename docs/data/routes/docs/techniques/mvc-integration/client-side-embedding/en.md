@@ -110,9 +110,9 @@ Fastest option. This package contains the rendering items, Sublayout and modifie
 
 ### Wizard Steps
 
-* The sample uses the [`react-stepzilla`](https://github.com/newbreedofgeek/react-stepzilla) module to provide a step-based UX.
+* The sample uses a step-based UX.
 * Each step is a separate JSS route to provide for easier management/editing via the Experience Editor.
-* The `Wizard` component "creatively" uses a `StepReference` component to allow steps to be managed via the Experience Editor, but then when rendering for the front-end, uses the component data to construct the step data expected by `react-stepzilla`.
+* The `Wizard` component "creatively" uses a `StepReference` component to allow steps to be managed via the Experience Editor, but then when rendering for the front-end, uses the component data to construct the step.
 * The `Step` component loads the referenced route from the Layout Service as each step is displayed.
     * This means that each step will register in analytics as it is displayed  as well.
 * `Step` uses the same placeholder name as `App`, so that step contents can be rendered directly in the `App` as well (i.e. in the Experience Editor).
