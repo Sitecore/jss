@@ -56,6 +56,8 @@ function getPath(filepath) {
 function cleanUpStrippedFiles() {
   const files = getStrippedFiles();
 
+  console.log(chalk.cyan('Removing stripped files...'));
+
   files.forEach(filepath => fs.unlinkSync(filepath))
 }
 
