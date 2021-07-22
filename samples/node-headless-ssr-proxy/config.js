@@ -1,10 +1,6 @@
 const fs = require('fs');
-const NodeCache = require('node-cache');
 const { RestDictionaryService } = require('@sitecore-jss/sitecore-jss');
 const httpAgents = require("./httpAgents");
-
-// We keep a cached copy of the site dictionary for performance. Default is 60 seconds.
-const dictionaryCache = new NodeCache({ stdTTL: 60 });
 
 /**
  * The JSS application name defaults to providing part of the bundle path as well as the dictionary service endpoint.
@@ -30,8 +26,9 @@ const apiKey = process.env.SITECORE_API_KEY || serverBundle.apiKey || '{YOUR API
 const dictionaryService = new RestDictionaryService({
   apiHost,
   siteName: appName,
-  apiKey
-})
+  apiKey,
+  cacheTimeout: 60,
+});
 
 /**
  * @type {ProxyConfig}
@@ -143,20 +140,13 @@ const config = {
       return {};
     }
 
-    const cacheKey = `${site}_${language}`;
-
-    const cached = dictionaryCache.get(cacheKey);
-
-    if (cached) return Promise.resolve(cached);
-
     return dictionaryService.fetchDictionaryData(language).then(phrases => {
       const viewBag = {
         dictionary: phrases,
       };
 
-      dictionaryCache.set(cacheKey, viewBag);
       return viewBag;
-    })
+    });
   },
 };
 
