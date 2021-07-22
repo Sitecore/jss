@@ -25,7 +25,6 @@
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
     "strictNullChecks": false
   },
   "exclude": [

@@ -21,7 +21,6 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "strictNullChecks": false,
-    "skipLibCheck": true
   },
   "exclude": [
     "node_modules",
