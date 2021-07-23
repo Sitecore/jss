@@ -1,5 +1,5 @@
 import isServer from './is-server';
-import querystring from 'querystring';
+import { ParsedUrlQueryInput } from 'querystring';
 
 /**
  * note: encodeURIComponent is available via browser (window) or natively in node.js
@@ -7,7 +7,7 @@ import querystring from 'querystring';
  * and would then need to install a package for that functionality
  * @param {Object} params
  */
-function getQueryString(params: querystring.ParsedUrlQueryInput) {
+function getQueryString(params: ParsedUrlQueryInput) {
   return Object.keys(params)
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(String(params[k]))}`)
     .join('&');
@@ -21,7 +21,7 @@ function getQueryString(params: querystring.ParsedUrlQueryInput) {
  * @returns a URL string
  * @throws {RangeError} if the provided url is an empty string
  */
-function resolveUrl(urlBase: string, params: querystring.ParsedUrlQueryInput = {}): string {
+function resolveUrl(urlBase: string, params: ParsedUrlQueryInput = {}): string {
   if (!urlBase) {
     throw new RangeError('url must be a non-empty string');
   }
