@@ -1,5 +1,5 @@
 import resolveUrl from './utils/resolve-url';
-import querystring from 'querystring';
+import { ParsedUrlQueryInput } from 'querystring';
 
 /**
  * Response data for an HTTP request sent to an API
@@ -60,7 +60,7 @@ function checkStatus<T>(response: HttpResponse<T>) {
 export function fetchData<T>(
   url: string,
   fetcher: HttpDataFetcher<T>,
-  params: querystring.ParsedUrlQueryInput = {}
+  params: ParsedUrlQueryInput = {}
 ) {
   return fetcher(resolveUrl(url, params))
     .then(checkStatus)

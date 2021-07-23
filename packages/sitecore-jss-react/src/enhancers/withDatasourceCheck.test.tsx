@@ -36,7 +36,7 @@ describe('withDatasourceCheck', () => {
     const props = {
       rendering: {
         componentName: 'TestComponent',
-        dataSource: undefined,
+        dataSource: '',
       },
     };
 
@@ -69,7 +69,7 @@ describe('withDatasourceCheck', () => {
     const props = {
       rendering: {
         componentName: 'TestComponent',
-        dataSource: undefined,
+        dataSource: '',
       },
     };
 
@@ -90,7 +90,7 @@ describe('withDatasourceCheck', () => {
     const props = {
       rendering: {
         componentName: 'TestComponent',
-        dataSource: undefined,
+        dataSource: '',
       },
     };
 

@@ -29,6 +29,6 @@ export function packageGenerate(options: PackageGenerateOptions) {
   );
 
   return new Promise((resolve) => {
-    createPackage(packageManifestPath, updatePackage, resolve);
+    createPackage(packageManifestPath, updatePackage, () => resolve(null));
   });
 }
