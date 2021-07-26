@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { textField as eeTextData } from '../testData/ee-data';
+import { TextField } from './rendering-field';
 import { TextDirective } from './text.directive';
 
 @Component({
@@ -12,7 +13,7 @@ import { TextDirective } from './text.directive';
   `,
 })
 class TestComponent {
-  @Input() field: any;
+  @Input() field: TextField;
   @Input() editable = true;
   @Input() encode = true;
 }
@@ -40,7 +41,7 @@ describe('<span *scText />', () => {
   });
 
   it('should render nothing with missing editable and value', () => {
-    const field = {};
+    const field: { [prop: string]: unknown } = {};
     comp.field = field;
     fixture.detectChanges();
 
@@ -49,7 +50,7 @@ describe('<span *scText />', () => {
   });
 
   it('should render nothing with empty value', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: '',
     };
 
@@ -60,7 +61,7 @@ describe('<span *scText />', () => {
   });
 
   it('should render editable with editable value', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: 'value',
       editable: 'editable',
     };
@@ -72,7 +73,7 @@ describe('<span *scText />', () => {
   });
 
   it('should render value with editing explicitly disabled', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: 'value',
       editable: 'editable',
     };
@@ -85,7 +86,7 @@ describe('<span *scText />', () => {
   });
 
   it('should encode values with editing explicitly disabled', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: 'value < >',
     };
 
@@ -98,7 +99,7 @@ describe('<span *scText />', () => {
   });
 
   it('should render value with with just a value', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: 'value',
     };
     comp.field = field;
@@ -109,7 +110,7 @@ describe('<span *scText />', () => {
   });
 
   it('should render number value', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: 1.23,
     };
     comp.field = field;
@@ -120,7 +121,7 @@ describe('<span *scText />', () => {
   });
 
   it('should render zero number value', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: 0,
     };
     comp.field = field;
@@ -131,7 +132,7 @@ describe('<span *scText />', () => {
   });
 
   it('should render embedded html as-is when encoding is disabled', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: '<input type="text">some crazy stuff<script code="whaaaat">uh oh</script>',
     };
     comp.field = field;

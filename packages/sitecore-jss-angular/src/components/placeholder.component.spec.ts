@@ -7,6 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
 import { By } from '@angular/platform-browser';
 import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
 
@@ -27,7 +28,7 @@ import {
   `,
 })
 class TestPlaceholderComponent {
-  @Input() rendering: any;
+  @Input() rendering: ComponentRendering;
   @Input() name: string;
 }
 
@@ -38,7 +39,7 @@ class TestPlaceholderComponent {
   `,
 })
 class TestDownloadCalloutComponent {
-  @Input() rendering: any;
+  @Input() rendering: ComponentRendering;
 }
 
 @Component({
@@ -50,7 +51,7 @@ class TestDownloadCalloutComponent {
   `,
 })
 class TestHomeComponent {
-  @Input() rendering: any;
+  @Input() rendering: ComponentRendering;
 }
 
 @Component({
@@ -111,7 +112,7 @@ describe('<sc-placeholder />', () => {
     describe(`with ${dataSet.label}`, () => {
       it('should render a placeholder with given key', async(() => {
         const component = dataSet.data.sitecore.route.placeholders.main.find(
-          (c: any) => c.componentName
+          (c: ComponentRendering) => c.componentName
         );
         const phKey = 'page-content';
         comp.name = phKey;
@@ -270,7 +271,7 @@ describe('<sc-placeholder />', () => {
 })
 class TestParentComponent {
   clickMessage = '';
-  @Input() rendering: any;
+  @Input() rendering: ComponentRendering;
   @Input() name: string;
   @Input() set childMessage(message: string) {
     this.inputs.childMessage = message;

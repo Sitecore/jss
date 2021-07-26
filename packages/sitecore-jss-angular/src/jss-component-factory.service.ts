@@ -26,7 +26,7 @@ export interface ComponentFactoryResult {
 
 @Injectable()
 export class JssComponentFactoryService {
-  private componentMap: Map<string, Type<any>>;
+  private componentMap: Map<string, Type<unknown>>;
   private lazyComponentMap: Map<string, ComponentNameAndModule>;
 
   constructor(
@@ -45,7 +45,9 @@ export class JssComponentFactoryService {
     }
   }
 
-  private loadModuleFactory(lazyComponent: ComponentNameAndModule): Promise<NgModuleFactory<any>> {
+  private loadModuleFactory(
+    lazyComponent: ComponentNameAndModule
+  ): Promise<NgModuleFactory<unknown>> {
     return lazyComponent.loadChildren().then((loaded) => {
       if (loaded instanceof NgModuleFactory) {
         return loaded;

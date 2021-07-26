@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { imageField as eeImageData } from '../testData/ee-data';
 import { ImageDirective } from './image.directive';
+import { ImageField } from './rendering-field';
 
 @Component({
   selector: 'test-image',
@@ -12,7 +13,7 @@ import { ImageDirective } from './image.directive';
   `,
 })
 class TestComponent {
-  @Input() field: any;
+  @Input() field: ImageField | '';
   @Input() editable = true;
 }
 
@@ -33,10 +34,10 @@ class TestComponent {
   `,
 })
 class AnotherTestComponent {
-  @Input() field: any;
+  @Input() field: ImageField;
   @Input() editable = true;
-  @Input() params: any = {};
-  @Input() imageAttrs: any = {};
+  @Input() params: { [param: string]: string | number } = {};
+  @Input() imageAttrs: { [param: string]: unknown } = {};
   @Input() mediaUrlPrefix?: RegExp;
 }
 

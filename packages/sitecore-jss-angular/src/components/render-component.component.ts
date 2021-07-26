@@ -33,16 +33,16 @@ import { isRawRendering } from './rendering';
   `,
 })
 export class RenderComponentComponent implements OnChanges {
-  private _inputs: { [key: string]: any };
-  private _differ: KeyValueDiffer<string, any>;
+  private _inputs: { [key: string]: unknown };
+  private _differ: KeyValueDiffer<string, unknown>;
   private destroyed = false;
 
   @Input() rendering: ComponentRendering | HtmlElementRendering;
-  @Input() outputs: { [k: string]: (eventType: any) => void };
+  @Input() outputs: { [k: string]: (eventType: unknown) => void };
   @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
 
   @Input()
-  set inputs(value: { [key: string]: any }) {
+  set inputs(value: { [key: string]: unknown }) {
     this._inputs = value;
     if (!this._differ && value) {
       this._differ = this.differs.find(value).create();
@@ -53,7 +53,8 @@ export class RenderComponentComponent implements OnChanges {
     private componentFactoryResolver: ComponentFactoryResolver,
     private differs: KeyValueDiffers,
     private componentFactory: JssComponentFactoryService,
-    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>
+    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT)
+    private missingComponentComponent: Type<{ [key: string]: unknown }>
   ) {}
 
   ngOnChanges(changes: SimpleChanges) {
@@ -62,22 +63,26 @@ export class RenderComponentComponent implements OnChanges {
     }
   }
 
-  private _setComponentInputs(componentInstance: any, inputs: { [key: string]: any }) {
+  private _setComponentInputs(
+    componentInstance: { [key: string]: unknown },
+    inputs: { [key: string]: unknown }
+  ) {
     Object.entries(inputs).forEach(
-      ([input, inputValue]) => (componentInstance[input] = inputValue)
+      ([input, inputValue]) =>
+        ((componentInstance as { [prop: string]: unknown })[input] = inputValue)
     );
   }
 
   private _subscribeComponentOutputs(
-    componentInstance: any,
-    outputs: { [k: string]: (eventType: any) => void }
+    componentInstance: { [key: string]: unknown },
+    outputs: { [k: string]: (eventType: unknown) => void }
   ) {
     Object.keys(outputs)
       .filter(
         (output) => componentInstance[output] && componentInstance[output] instanceof Observable
       )
       .forEach((output) =>
-        (componentInstance[output] as Observable<any>)
+        (componentInstance[output] as Observable<unknown>)
           .pipe(takeWhile(() => !this.destroyed))
           .subscribe(outputs[output])
       );

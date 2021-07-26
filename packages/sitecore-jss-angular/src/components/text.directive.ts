@@ -13,7 +13,7 @@ import { TextField } from './rendering-field';
   selector: '[scText]',
 })
 export class TextDirective implements OnChanges {
-  private viewRef: EmbeddedViewRef<any>;
+  private viewRef: EmbeddedViewRef<unknown>;
 
   @Input('scTextEditable') editable = true;
 
@@ -21,7 +21,7 @@ export class TextDirective implements OnChanges {
 
   @Input('scText') field: TextField;
 
-  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<any>) {}
+  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.encode) {
@@ -38,7 +38,11 @@ export class TextDirective implements OnChanges {
     const field = this.field;
     let editable = this.editable;
 
-    if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
+    if (
+      !field ||
+      (!field.editable &&
+        (field.value === undefined || (typeof field.value === 'string' && field.value === '')))
+    ) {
       return;
     }
 
