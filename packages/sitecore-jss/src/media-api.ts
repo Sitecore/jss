@@ -1,6 +1,5 @@
-// what is `import x = require('x');`? great question: https://github.com/Microsoft/TypeScript/issues/5073
-import unescape = require('lodash.unescape');
-import URL = require('url-parse');
+import unescape from 'lodash/unescape';
+import URL from 'url-parse';
 
 // finds an img tag with HTML attributes
 const imgTagRegex = /<img([^>]+)\/>/i;
