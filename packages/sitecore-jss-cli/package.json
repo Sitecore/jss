@@ -2,8 +2,11 @@
   "name": "@sitecore-jss/sitecore-jss-cli",
   "version": "19.0.0-canary.24",
   "description": "Sitecore JSS command-line",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
@@ -19,7 +22,6 @@
   "bin": {
     "jss": "./dist/bin/jss.js"
   },
-  "main": "./dist/cli.js",
   "author": {
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.com"
