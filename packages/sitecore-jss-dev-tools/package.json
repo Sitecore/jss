@@ -2,8 +2,11 @@
   "name": "@sitecore-jss/sitecore-jss-dev-tools",
   "version": "19.0.0-canary.24",
   "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
@@ -18,7 +21,6 @@
     "scjss-verify-setup": "./dist/bin/verify-setup.js",
     "scjss-deploy": "./dist/bin/deploy.js"
   },
-  "main": "./dist/index.js",
   "author": {
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.com"
