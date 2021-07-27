@@ -30,6 +30,8 @@ Starts the application in _connected mode_, where it connects to Sitecore to ret
 
 Copies the Sitecore `.config` file from `/sitecore/config` to your Sitecore instance's `Website/App_Config/zzz` folder specified in `scjssconfig.json` file in the app root. This is a convenience script; you can also manually deploy the JSS app configuration in some other way, or have the config owned by the Sitecore instance instead of the JSS app.
 
+> Note: When using SXA with JSS ensure the site and app node are commented in the Sitecore `.config` file in `/sitecore/config`. Since this will be handled by SXA Site manager.
+
 ### `jss deploy app`
 
 Shorthand for `jss deploy items && jss deploy files`. Used to deploy both the app's manifest items (routes, templates, etc) and a production build of the app's code.
