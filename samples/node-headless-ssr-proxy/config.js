@@ -68,7 +68,6 @@ const config = {
    * pathRewriteExcludePredicate function instead: (url) => boolean;
    */
   pathRewriteExcludeRoutes: [
-    '/dist',
     '/assets',
     '/sitecore/api',
     '/api',
