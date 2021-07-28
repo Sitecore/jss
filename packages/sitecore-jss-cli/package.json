@@ -6,7 +6,7 @@
   "module": "dist/esm/index.js",
   "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json && tsc -p tsconfig-bin.json",
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",

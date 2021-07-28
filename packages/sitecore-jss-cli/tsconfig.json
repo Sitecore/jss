@@ -30,6 +30,7 @@
     "types",
     "dist",
     "src/test",
-    "src/**/*.test.ts"
+    "src/**/*.test.ts",
+    "src/bin"
   ]
 }
