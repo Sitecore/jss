@@ -1,13 +1,15 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
+export interface RichTextField {
+  value?: string;
+  editable?: string;
+}
+
 export interface RichTextProps {
   [htmlAttributes: string]: unknown;
   /** The rich text field data. */
-  field?: {
-    value?: string;
-    editable?: string;
-  };
+  field?: RichTextField;
   /**
    * The HTML element that will wrap the contents of the field.
    * @default <div />

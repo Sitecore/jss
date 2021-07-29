@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 declare module 'style-attr';
 
 declare module 'sync-disk-cache' {
@@ -9,15 +8,5 @@ declare module 'sync-disk-cache' {
     set(key: string, editingData: string): string;
     get(key: string): { value: string; isCached?: boolean };
     remove(key: string): void;
-  }
-}
-
-declare namespace NodeJS {
-  export interface Global {
-    requestAnimationFrame: any;
-    window: any;
-    document: any;
-    navigator: any;
-    HTMLElement: any;
   }
 }

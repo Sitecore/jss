@@ -6,6 +6,6 @@ export type AppRenderer = (
   /**
    * Data returned by Layout Service. If the route does not exist, null.
    */
-  data: any,
-  viewBag: any
+  data: { [key: string]: unknown },
+  viewBag: { [key: string]: unknown }
 ) => void;

@@ -42,8 +42,11 @@ export function withPlaceholder(
   placeholders: WithPlaceholderSpec,
   options?: WithPlaceholderOptions
 ) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (WrappedComponent: React.ComponentClass<any> | React.SFC<any>) => {
+  return (
+    WrappedComponent:
+      | React.ComponentClass<{ [prop: string]: unknown }>
+      | React.FunctionComponent<{ [prop: string]: unknown }>
+  ) => {
     class WithPlaceholder extends PlaceholderCommon<PlaceholderProps> {
       static propTypes = PlaceholderCommon.propTypes;
 

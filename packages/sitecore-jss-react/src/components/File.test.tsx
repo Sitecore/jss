@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import React from 'react';
-import { File } from './File';
+import { File, FileField } from './File';
 
 describe('<File />', () => {
   it('should render nothing with missing field', () => {
-    const field: any = null;
+    const field = null as FileField;
     const rendered = mount(<File field={field} />).children();
     expect(rendered).to.have.length(0);
   });

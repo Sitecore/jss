@@ -42,7 +42,7 @@ export interface RenderingHostServerOptions {
 }
 
 /**
- * @param {any} config
+ * @param {RenderingHostServerOptions} config
  */
 export function startRenderingHostServer({
   port = 0,
@@ -100,10 +100,10 @@ export function startRenderingHostServer({
 
 /**
  * @param {Function | undefined} hook
- * @param {...any} args
+ * @param {...unknown} args
  */
 // eslint-disable-next-line @typescript-eslint/ban-types
-function invokeHook(hook: Function | undefined, ...args: any[]) {
+function invokeHook(hook: Function | undefined, ...args: unknown[]) {
   if (hook && typeof hook === 'function') {
     hook(...args);
   }
