@@ -1,19 +1,12 @@
 {
-  "extends": ["../../.eslintrc"],
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["react-native", "@typescript-eslint"],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
+  "extends": [
+    "../../.eslintrc",
+    "../../eslint-configs/typescript"
+  ],
+  "plugins": [
+    "react-native",
+  ],
   "env": {
     "jest": true
-  },
-  "ignorePatterns": ["src/**/*.test.*", "src/tests/*", "src/testData/*"],
-  "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/indent": ["error", 2]
   }
 }
