@@ -1,5 +1,5 @@
 import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
-import packageJson from '../../../package.json';
+const packageJson = require('../../../package.json');
 
 /**
  * Adds the Styleguide-FieldUsage-ItemLink component to the disconnected manifest.
@@ -17,7 +17,10 @@ export default function StyleguideFieldUsageItemLink(manifest: Manifest) {
         // the path is based on the path the shared items are defined in, under /data/content.
         // Using 'source' is recommended to help content editors find the correct items to refer to,
         // unless they can refer to any item in the whole site.
-        source: `dataSource=/sitecore/content/${packageJson.config.appName}/Content/Styleguide/ItemLinkField`,
+        source: `dataSource=/sitecore/content/${
+          (packageJson as { [key: string]: unknown; config: { [key: string]: unknown } }).config
+            .appName
+        }/Content/Styleguide/ItemLinkField`,
       },
       { name: 'localItemLink', type: CommonFieldTypes.ItemLink },
     ],

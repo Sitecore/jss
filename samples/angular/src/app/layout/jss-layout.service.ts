@@ -39,14 +39,12 @@ export class JssLayoutService {
   ): Observable<PlaceholderData | LayoutServiceError> {
     return fromPromise(
       layoutServiceInstance.fetchPlaceholderData(placeholderName, route, language)
-    ).pipe(
-      catchError(this.getLayoutServiceError)
-    );
+    ).pipe(catchError(this.getLayoutServiceError));
   }
 
-  private getLayoutServiceError(error: any): Observable<LayoutServiceError> {
+  private getLayoutServiceError(error: { [key: string]: unknown }): Observable<LayoutServiceError> {
     const layoutServiceError = new LayoutServiceError();
-    const response = error.response;
+    const response = error.response as { status: number; statusText: string; data: unknown };
     if (response) {
       layoutServiceError.status = response.status;
       layoutServiceError.statusText = response.statusText;
