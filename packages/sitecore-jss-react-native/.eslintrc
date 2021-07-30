@@ -4,7 +4,7 @@
     "../../eslint-configs/typescript"
   ],
   "plugins": [
-    "react-native",
+    "react-native"
   ],
   "env": {
     "jest": true
