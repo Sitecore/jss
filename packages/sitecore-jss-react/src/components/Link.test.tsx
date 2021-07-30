@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 
-import { Link } from './Link';
+import { Link, LinkField } from './Link';
 import { generalLinkField as eeLinkData } from '../testData/ee-data';
 
 describe('<Link />', () => {
   it('should render nothing with missing field', () => {
-    const field: any = null;
+    const field = null as LinkField;
     const rendered = mount(<Link field={field} />).children();
     expect(rendered).to.have.length(0);
   });

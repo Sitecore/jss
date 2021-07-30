@@ -1,5 +1,11 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { ANALYZE_FOR_ENTRY_COMPONENTS, ModuleWithProviders, NgModule, Type } from '@angular/core';
+import {
+  ANALYZE_FOR_ENTRY_COMPONENTS,
+  ModuleWithProviders,
+  NgModule,
+  Provider,
+  Type,
+} from '@angular/core';
 import { ROUTES } from '@angular/router';
 import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
@@ -77,10 +83,10 @@ export class JssModule {
 
   /**
    * Instantiates a module for a lazy-loaded JSS component
-   * @param {Type<any>} component
+   * @param {Type<unknown>} component
    * @returns {ModuleWithProviders<JssModule>} module
    */
-  static forChild(component: Type<any>): ModuleWithProviders<JssModule> {
+  static forChild(component: Type<unknown>): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
       providers: [
@@ -114,7 +120,7 @@ export class JssModule {
         { provide: PLACEHOLDER_LAZY_COMPONENTS, useValue: lazyComponents || [] },
         { provide: ROUTES, useValue: lazyComponents || [], multi: true },
         { provide: PLACEHOLDER_MISSING_COMPONENT_COMPONENT, useValue: MissingComponentComponent },
-        ...(JssModule.forRoot().providers as any[]),
+        ...(JssModule.forRoot().providers as Provider[]),
       ],
     };
   }

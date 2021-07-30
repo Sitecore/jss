@@ -19,14 +19,16 @@ import { RawComponent } from './components/raw.component';
 import { isRawRendering } from './components/rendering';
 
 export interface ComponentFactoryResult {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   componentImplementation?: Type<any>;
   componentDefinition: ComponentRendering | HtmlElementRendering;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   componentFactory?: ComponentFactory<any>;
 }
 
 @Injectable()
 export class JssComponentFactoryService {
-  private componentMap: Map<string, Type<any>>;
+  private componentMap: Map<string, Type<unknown>>;
   private lazyComponentMap: Map<string, ComponentNameAndModule>;
 
   constructor(
@@ -45,7 +47,9 @@ export class JssComponentFactoryService {
     }
   }
 
-  private loadModuleFactory(lazyComponent: ComponentNameAndModule): Promise<NgModuleFactory<any>> {
+  private loadModuleFactory(
+    lazyComponent: ComponentNameAndModule
+  ): Promise<NgModuleFactory<unknown>> {
     return lazyComponent.loadChildren().then((loaded) => {
       if (loaded instanceof NgModuleFactory) {
         return loaded;
@@ -79,6 +83,7 @@ export class JssComponentFactoryService {
         }
 
         if (component.componentName in dynamicComponentType) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           componentType = (dynamicComponentType as { [s: string]: any })[component.componentName];
         } else {
           if (typeof dynamicComponentType === 'function') {

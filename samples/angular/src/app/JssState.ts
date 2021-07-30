@@ -11,5 +11,5 @@ export class JssState {
   sitecore?: LayoutServiceContextData & {
     route: RouteData;
   };
-  viewBag: any;
+  viewBag: { [key: string]: unknown };
 }

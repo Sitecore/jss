@@ -11,8 +11,7 @@ import sitemapServiceResult from '../testData/sitemapServiceResult';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 class TestService extends GraphQLSitemapService {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public client: any;
+  public client: GraphQLClient;
   constructor(options: GraphQLSitemapServiceConfig) {
     super(options);
     this.client = this.getGraphQLClient();

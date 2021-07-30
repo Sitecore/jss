@@ -4,6 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { textField as eeTextData } from '../testData/ee-data';
 import { DateDirective } from './date.directive';
+import { TextField } from './rendering-field';
 
 const testDate = new Date('2010-12-12T12:00Z');
 const testIsoDateValue = testDate.toISOString();
@@ -21,7 +22,7 @@ const defaultFormattedDate = formatDate(testIsoDateValue, testFormat, testLocale
   `,
 })
 class TestComponent {
-  @Input() field: any;
+  @Input() field: TextField;
   @Input() editable = true;
   @Input() format = testFormat;
   @Input() locale = testLocale;

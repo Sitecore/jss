@@ -9,7 +9,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { mediaApi } from '@sitecore-jss/sitecore-jss';
-import { ImageField } from './rendering-field';
+import { ImageField, ImageFieldValue } from './rendering-field';
 
 @Directive({ selector: '[scImage]' })
 export class ImageDirective implements OnChanges {
@@ -28,13 +28,13 @@ export class ImageDirective implements OnChanges {
    */
   @Input('scImageMediaUrlPrefix') mediaUrlPrefix?: RegExp;
 
-  @Input('scImageUrlParams') urlParams = {};
+  @Input('scImageUrlParams') urlParams: { [param: string]: string | number } = {};
 
-  @Input('scImageAttrs') attrs = {};
+  @Input('scImageAttrs') attrs: { [param: string]: unknown } = {};
 
   constructor(
     private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<any>,
+    private templateRef: TemplateRef<unknown>,
     private renderer: Renderer2,
     private elementRef: ElementRef
   ) {}
@@ -62,7 +62,7 @@ export class ImageDirective implements OnChanges {
       return;
     }
 
-    let attrs: any = {};
+    let attrs: { [attr: string]: string } | null = {};
 
     // we likely have an experience editor value, should be a string
     if (this.editable && media.editable) {
@@ -75,7 +75,7 @@ export class ImageDirective implements OnChanges {
         return this.renderInlineWrapper(media.editable);
       }
       const tempImg: HTMLImageElement = this.renderer.createElement('img');
-      Object.entries(attrs).forEach(([key, attrValue]: [string, any]) =>
+      Object.entries(attrs).forEach(([key, attrValue]: [string, string]) =>
         tempImg.setAttribute(key, attrValue)
       );
       const editableMarkup = media.editable.replace(foundImg.imgTag, tempImg.outerHTML);
@@ -94,7 +94,11 @@ export class ImageDirective implements OnChanges {
     }
   }
 
-  private getImageAttrs(fieldAttrs: any, parsedAttrs: any, imageParams: any): any {
+  private getImageAttrs(
+    fieldAttrs: ImageFieldValue,
+    parsedAttrs: { [attr: string]: unknown },
+    imageParams: { [param: string]: string | number }
+  ): { [attr: string]: string } | null {
     const combinedAttrs = {
       ...fieldAttrs,
       ...parsedAttrs,
@@ -104,8 +108,8 @@ export class ImageDirective implements OnChanges {
     if (!src) {
       return null;
     }
-    const newAttrs = {
-      ...otherAttrs,
+    const newAttrs: { [attr: string]: string } = {
+      ...(otherAttrs as { [key: string]: string }),
     };
     // update image URL for jss handler and image rendering params
     src = mediaApi.updateImageUrl(src, imageParams, this.mediaUrlPrefix);
@@ -118,22 +122,22 @@ export class ImageDirective implements OnChanges {
     return newAttrs;
   }
 
-  private renderTemplate(imageProps: any) {
+  private renderTemplate(imageProps: { [prop: string]: string }) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
     viewRef.rootNodes.forEach((node) => {
-      Object.entries(imageProps).forEach(([key, imgPropVal]: [string, any]) =>
+      Object.entries(imageProps).forEach(([key, imgPropVal]: [string, string]) =>
         this.renderer.setAttribute(node, key, imgPropVal)
       );
     });
   }
 
-  private getElementAttrs(): { [key: string]: any } {
+  private getElementAttrs(): { [key: string]: string } {
     const view = this.templateRef.createEmbeddedView(null);
     const element: Element = view.rootNodes[0];
     if (!element) {
       return {};
     }
-    const attrs: { [key: string]: any } = {};
+    const attrs: { [key: string]: string } = {};
     for (let i = 0; i < element.attributes.length; i++) {
       const attr = element.attributes.item(i);
       if (attr) {

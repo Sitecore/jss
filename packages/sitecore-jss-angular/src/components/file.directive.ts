@@ -14,11 +14,11 @@ import { FileField } from './rendering-field';
  */
 @Directive({ selector: '[scFile]' })
 export class FileDirective implements OnChanges {
-  private viewRef: EmbeddedViewRef<any>;
+  private viewRef: EmbeddedViewRef<unknown>;
 
   @Input('scFile') field: FileField;
 
-  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<any>) {}
+  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.field) {
@@ -40,6 +40,8 @@ export class FileDirective implements OnChanges {
 
     const file = field.src ? field : field.value;
     this.viewRef.rootNodes.forEach((node) => {
+      if (!file) return;
+
       node.href = file.src;
       if (node.innerHTML === '') {
         node.innerHTML = file.title || file.displayName;

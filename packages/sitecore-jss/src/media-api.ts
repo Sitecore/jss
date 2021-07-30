@@ -68,10 +68,8 @@ export const updateImageUrl = (
     return url;
   }
   // polyfill node `global` in browser to workaround https://github.com/unshiftio/url-parse/issues/150
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  if (typeof window !== 'undefined' && !(window as any).global) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (window as any).global = {};
+  if (typeof window !== 'undefined' && !window.global) {
+    window.global = {} as NodeJS.Global;
   }
   const parsed = URL(url, {}, true);
 

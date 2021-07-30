@@ -44,8 +44,7 @@ describe('trackEvent', () => {
       fetcher: axiosFetcher,
     }).then((data) => {
       // testData should contain the 'config' object from the mock request
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const testData = data as any;
+      const testData = (data as unknown) as { [key: string]: unknown };
       expect(testData.url).to.equal(expectedUrl);
       expect(testData.withCredentials, 'with credentials is not true').to.be.true;
     });
@@ -67,8 +66,7 @@ describe('trackEvent', () => {
       fetcher: axiosFetcher,
     }).then((data) => {
       // testData should contain the 'config' object from the mock request
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const testData = data as any;
+      const testData = (data as unknown) as { [key: string]: unknown };
       expect(testData.url).to.equal(expectedUrl);
       expect(testData.withCredentials, 'with credentials is not true').to.be.true;
     });

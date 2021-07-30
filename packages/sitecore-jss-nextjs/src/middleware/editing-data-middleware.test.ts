@@ -14,7 +14,7 @@ type Query = {
   [key: string]: string;
 };
 
-const mockRequest = (method: string, query?: Query, body?: any) => {
+const mockRequest = (method: string, query?: Query, body?: unknown) => {
   return {
     method,
     query: query ?? {},
@@ -37,7 +37,7 @@ const mockResponse = () => {
   return res;
 };
 
-const mockCache = (data?: any) => {
+const mockCache = (data?: EditingData) => {
   const cache = {} as EditingDataCache;
   cache.set = spy();
   cache.get = spy(() => {

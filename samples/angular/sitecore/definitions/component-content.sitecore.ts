@@ -12,7 +12,7 @@ interface TemporaryItemDefinition extends ItemDefinition {
  * Component content items are conventionally defined in /data/component-content, similar to route items.
  * This function is invoked by convention (*.sitecore.js) when `jss manifest` is run.
  */
-export default function addComponentContentToManifest(manifest: Manifest): Promise<any> {
+export default function addComponentContentToManifest(manifest: Manifest): Promise<void> {
   const rootItemName = 'Components';
   const startPath = './data/component-content'; // relative to process invocation (i.e. where package.json lives)
 
@@ -21,7 +21,7 @@ export default function addComponentContentToManifest(manifest: Manifest): Promi
   }
 
   return mergeFs(startPath)
-    .then((result) => {
+    .then((result: MergeFsResult) => {
       const items = convertToComponentItems(
         result,
         resolvePath(startPath),
@@ -30,7 +30,7 @@ export default function addComponentContentToManifest(manifest: Manifest): Promi
       );
       return items;
     })
-    .then((contentData) => {
+    .then((contentData: ItemDefinition) => {
       if (contentData) {
         manifest.addContent(contentData);
       }

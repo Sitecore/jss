@@ -1,13 +1,15 @@
 import React, { ReactElement, FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
 
+export interface TextField {
+  value?: string | number;
+  editable?: string;
+}
+
 export interface TextProps {
   [htmlAttributes: string]: unknown;
   /** The text field data. */
-  field?: {
-    value?: string | number;
-    editable?: string;
-  };
+  field?: TextField;
   /**
    * The HTML element that will wrap the contents of the field.
    */

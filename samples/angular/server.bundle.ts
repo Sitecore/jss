@@ -16,13 +16,18 @@ const https = require('https');
 const template = readFileSync(join(__dirname, 'browser', 'index.html')).toString();
 
 // Setup Http/Https agents for keep-alive. Used in headless-proxy
-const setUpDefaultAgents = (httpAgent, httpsAgent) => {
+const setUpDefaultAgents = (httpAgent: unknown, httpsAgent: unknown) => {
   http.globalAgent = httpAgent;
   https.globalAgent = httpsAgent;
 };
 
 // this is the function expected by the JSS View Engine for "integrated mode"
-function renderView(callback, path, data, viewBag) {
+function renderView(
+  callback: (err: unknown, data: { html: string }) => void,
+  path: string,
+  data: { [key: string]: unknown },
+  viewBag: { [key: string]: unknown }
+) {
   try {
     /*
       Data from server is double-encoded since MS JSS does not allow control
@@ -34,11 +39,11 @@ function renderView(callback, path, data, viewBag) {
     const state = {
       sitecore: {
         context: {
-          pageEditing: false
+          pageEditing: false,
         },
         route: {
-          placeholders: {}
-        }
+          placeholders: {},
+        },
       },
       language: '',
       serverRoute: '',
@@ -51,7 +56,7 @@ function renderView(callback, path, data, viewBag) {
 
     // parse the URL that's being handled by Sitecore so we can pass in the initial state to the app
     const routeParser = new JssRouteBuilderService();
-    const jssRoute = routeParser.parseRouteUrl(path.split('/').filter(segment => segment));
+    const jssRoute = routeParser.parseRouteUrl(path.split('/').filter((segment) => segment));
     state.serverRoute = jssRoute.serverRoute;
     state.language = parsedViewBag.language || jssRoute.language;
 
@@ -65,10 +70,10 @@ function renderView(callback, path, data, viewBag) {
         // custom injection with the initial state that SSR should utilize
         { provide: 'JSS_SERVER_LAYOUT_DATA', useValue: transferState },
         { provide: 'JSS_SERVER_VIEWBAG', useValue: state.viewBag },
-      ]
+      ],
     })
-      .then(html => callback(null, { html }))
-      .catch(err => callback(err, null))
+      .then((html) => callback(null, { html }))
+      .catch((err) => callback(err, null));
   } catch (err) {
     // need to ensure the callback is always invoked no matter what
     // or else SSR will hang
@@ -76,12 +81,12 @@ function renderView(callback, path, data, viewBag) {
   }
 }
 
-function parseRouteUrl(url) {
+function parseRouteUrl(url: string) {
   const routeParser = new JssRouteBuilderService();
-  const jssRoute = routeParser.parseRouteUrl(url.split('/').filter(segment => segment));
+  const jssRoute = routeParser.parseRouteUrl(url.split('/').filter((segment) => segment));
   return {
     lang: jssRoute.language,
-    sitecoreRoute: jssRoute.serverRoute
+    sitecoreRoute: jssRoute.serverRoute,
   };
 }
 
@@ -90,5 +95,5 @@ module.exports = {
   parseRouteUrl,
   setUpDefaultAgents,
   apiKey: environment.sitecoreApiKey,
-  appName: environment.jssAppName
+  appName: environment.jssAppName,
 };

@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { generalLinkField as eeLinkData } from '../testData/ee-data';
 import { LinkDirective } from './link.directive';
+import { LinkField } from './rendering-field';
 
 @Component({
   selector: 'test-link',
@@ -12,7 +13,7 @@ import { LinkDirective } from './link.directive';
   `,
 })
 class TestComponent {
-  @Input() field: any;
+  @Input() field: LinkField;
   @Input() editable = true;
   @Input() attrs = {};
 }
@@ -228,7 +229,7 @@ describe('<a *scLink />', () => {
   `,
 })
 class TestWithChildrenComponent {
-  @Input() field: any;
+  @Input() field: LinkField;
   @Input() editable = true;
   @Input() attrs = {};
 }

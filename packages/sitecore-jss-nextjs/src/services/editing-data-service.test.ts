@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import chaiAsPromised from 'chai-as-promised';
@@ -10,11 +9,13 @@ import { EditingDataService, QUERY_PARAM_EDITING_SECRET } from './editing-data-s
 use(spies);
 use(chaiAsPromised);
 
-const mockFetcher = (data?: any) => {
+const mockFetcher = (data?: unknown) => {
   const fetcher = {} as AxiosDataFetcher;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetcher.get = spy<any>(() => {
     return Promise.resolve({ data });
   });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetcher.put = spy<any>(() => {
     return Promise.resolve();
   });
