@@ -85,7 +85,7 @@ export class AxiosDataFetcher {
       this.instance.interceptors.response.use(
         (response: AxiosResponse) => {
           // Note we're removing redundant properties (already part of request log above) to trim down log entry
-          // eslint-disable-next-line no-unused-vars
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { request, config, ...rest } = response;
           debug('response: %o', rest);
           return response;

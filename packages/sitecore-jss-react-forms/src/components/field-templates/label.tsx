@@ -7,7 +7,7 @@ const Label: React.FunctionComponent<LabelProps> = (props) => {
 
     // strip the label component from the custom component props
     // (prevents infinite loop rendering if someone reuses this component as a custom label component)
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { labelComponent, ...labelComponentProps } = props;
 
     return <CustomLabel {...labelComponentProps} />;

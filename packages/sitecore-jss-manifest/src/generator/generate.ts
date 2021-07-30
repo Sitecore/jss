@@ -111,7 +111,7 @@ const writeOutput = async ({
     }
 
     // we remove the media prop as it's unused by the manifest after copying media
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { media, ...finalManifest } = manifest;
 
     await fs.writeJson(outputPath, finalManifest, { spaces: 2 });

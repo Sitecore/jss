@@ -7,7 +7,7 @@ const FieldValidationErrors: React.FunctionComponent<LabelProps> = (props) => {
 
     // strip the errors component from the custom component props
     // (prevents infinite loop rendering if someone reuses this component as a custom error component)
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { fieldValidationErrorsComponent, ...errorsComponentProps } = props;
 
     return <CustomError {...errorsComponentProps} />;
