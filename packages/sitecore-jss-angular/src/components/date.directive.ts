@@ -8,13 +8,13 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-import { TextField } from './rendering-field';
+import { DateField } from './rendering-field';
 
 @Directive({
   selector: '[scDate]',
 })
 export class DateDirective implements OnChanges {
-  private viewRef: EmbeddedViewRef<any>;
+  private viewRef: EmbeddedViewRef<unknown>;
 
   @Input('scDateFormat') format?: string;
 
@@ -24,11 +24,11 @@ export class DateDirective implements OnChanges {
 
   @Input('scDateEditable') editable = true;
 
-  @Input('scDate') field: TextField;
+  @Input('scDate') field: DateField;
 
   constructor(
     private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<any>,
+    private templateRef: TemplateRef<unknown>,
     private datePipe: DatePipe
   ) {}
 

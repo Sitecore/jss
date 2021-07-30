@@ -1,6 +1,6 @@
 import { NgModule, PLATFORM_ID, Inject } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { InMemoryCache } from '@apollo/client/core';
+import { InMemoryCache, NormalizedCacheObject, PossibleTypesMap } from '@apollo/client/core';
 import { Apollo } from 'apollo-angular';
 import { HttpBatchLink } from 'apollo-angular/http';
 import { createPersistedQueryLink } from 'apollo-angular/persisted-queries';
@@ -20,7 +20,7 @@ import introspectionQueryResultData from '../graphql-fragment-types';
 
 // SSR transfer state key to serialize + rehydrate apollo cache on client side
 // See https://www.apollographql.com/docs/angular/recipes/server-side-rendering.html
-const STATE_KEY = makeStateKey<any>('apollo.state');
+const STATE_KEY = makeStateKey<NormalizedCacheObject>('apollo.state');
 
 @NgModule({
   imports: [
@@ -43,7 +43,7 @@ export class GraphQLModule {
   }
 
   onBrowser(cache: InMemoryCache) {
-    const state = this.transferState.get<any>(STATE_KEY, null);
+    const state = this.transferState.get<NormalizedCacheObject>(STATE_KEY, null);
 
     cache.restore(state);
   }
@@ -74,7 +74,7 @@ export class GraphQLModule {
     // APQ + batched, or APQ + http links for example.
     const automaticPersistHttp = createPersistedQueryLink({ sha256 }).concat(batchHttp);
 
-    const possibleTypes = {};
+    const possibleTypes = {} as PossibleTypesMap;
 
     introspectionQueryResultData.__schema.types.forEach((supertype) => {
       possibleTypes[supertype.name] = supertype.possibleTypes.map((subtype) => subtype.name);
@@ -91,7 +91,7 @@ export class GraphQLModule {
       ssrForceFetchDelay: 100,
     });
 
-    const isBrowser = this.transferState.hasKey<any>(STATE_KEY);
+    const isBrowser = this.transferState.hasKey(STATE_KEY);
 
     if (isBrowser) {
       this.onBrowser(cache);

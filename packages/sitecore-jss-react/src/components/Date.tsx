@@ -62,7 +62,7 @@ export const DateField: React.SFC<DateFieldProps> = ({
 
 DateField.propTypes = {
   field: PropTypes.shape({
-    value: PropTypes.any,
+    value: PropTypes.string,
     editable: PropTypes.string,
   }).isRequired,
   tag: PropTypes.string,

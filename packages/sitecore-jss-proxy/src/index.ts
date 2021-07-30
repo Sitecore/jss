@@ -1,7 +1,7 @@
-import { IncomingMessage, ServerResponse, ClientRequest } from 'http';
+import { IncomingMessage, ServerResponse, ClientRequest, IncomingHttpHeaders } from 'http';
 import proxy from 'http-proxy-middleware';
 import HttpStatus from 'http-status-codes';
-import setCookieParser from 'set-cookie-parser';
+import setCookieParser, { Cookie } from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
 import { AppRenderer } from './AppRenderer';
 import { ProxyConfig } from './ProxyConfig';
@@ -9,23 +9,38 @@ import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
 import { buildQueryString, tryParseJson } from './util';
 
+/**
+ * Extends IncomingMessage as it should contain these properties but they are not provided in types
+ */
+export interface ProxyIncomingMessage extends IncomingMessage {
+  originalUrl: string;
+  query: { [key: string]: string | number | boolean };
+}
+
+/**
+ * Extends ClientRequest as it should contain `method` but it's not provided in types
+ */
+interface ExtendedClientRequest extends ClientRequest {
+  method: string;
+}
+
 // For some reason, every other response returned by Sitecore contains the 'set-cookie' header with the SC_ANALYTICS_GLOBAL_COOKIE value as an empty string.
 // This effectively sets the cookie to empty on the client as well, so if a user were to close their browser
 // after one of these 'empty value' responses, they would not be tracked as a returning visitor after re-opening their browser.
 // To address this, we simply parse the response cookies and if the analytics cookie is present but has an empty value, then we
 // remove it from the response header. This means the existing cookie in the browser remains intact.
-export const removeEmptyAnalyticsCookie = (proxyResponse: any) => {
-  const cookies = setCookieParser.parse(proxyResponse.headers['set-cookie']);
+export const removeEmptyAnalyticsCookie = (proxyResponse: IncomingMessage) => {
+  const cookies = setCookieParser.parse(proxyResponse.headers['set-cookie'] as string[]);
   if (cookies) {
     const analyticsCookieIndex = cookies.findIndex(
-      (c: any) => c.name === 'SC_ANALYTICS_GLOBAL_COOKIE'
+      (c: Cookie) => c.name === 'SC_ANALYTICS_GLOBAL_COOKIE'
     );
     if (analyticsCookieIndex !== -1) {
       const analyticsCookie = cookies[analyticsCookieIndex];
       if (analyticsCookie && analyticsCookie.value === '') {
         cookies.splice(analyticsCookieIndex, 1);
         /* eslint-disable no-param-reassign */
-        proxyResponse.headers['set-cookie'] = cookies;
+        proxyResponse.headers['set-cookie'] = (cookies as unknown) as string[];
         /* eslint-enable no-param-reassign */
       }
     }
@@ -77,11 +92,12 @@ async function renderAppToResponse(
 
   // buffer the response body as it is written for later processing
   let buf = Buffer.from('');
-  serverResponse.write = (data: any, encoding: any) => {
+
+  serverResponse.write = (data, encoding: unknown) => {
     if (Buffer.isBuffer(data)) {
       buf = Buffer.concat([buf, data]); // append raw buffer
     } else {
-      buf = Buffer.concat([buf, Buffer.from(data, encoding)]); // append string with optional character encoding (default utf8)
+      buf = Buffer.concat([buf, Buffer.from(data, encoding as BufferEncoding)]); // append string with optional character encoding (default utf8)
     }
 
     // sanity check: if the response is huge, bail.
@@ -96,7 +112,7 @@ async function renderAppToResponse(
   /**
    * Extract layout service data from proxy response
    */
-  async function extractLayoutServiceDataFromProxyResponse(): Promise<any> {
+  async function extractLayoutServiceDataFromProxyResponse() {
     if (
       proxyResponse.statusCode === HttpStatus.OK ||
       proxyResponse.statusCode === HttpStatus.NOT_FOUND
@@ -220,9 +236,13 @@ async function renderAppToResponse(
   /**
    * @param {Buffer | null} content
    * @param {number} statusCode
-   * @param {any} [headers]
+   * @param {IncomingHttpHeaders} [headers]
    */
-  function completeProxyResponse(content: Buffer | null, statusCode: number, headers?: any) {
+  function completeProxyResponse(
+    content: Buffer | null,
+    statusCode: number,
+    headers?: IncomingHttpHeaders
+  ) {
     if (!headers) {
       headers = proxyResponse.headers;
     }
@@ -235,9 +255,9 @@ async function renderAppToResponse(
   }
 
   /**
-   * @param {any} layoutServiceData
+   * @param {object} layoutServiceData
    */
-  async function createViewBag(layoutServiceData: any): Promise<any> {
+  async function createViewBag(layoutServiceData: { [key: string]: unknown }) {
     let viewBag = {
       statusCode: proxyResponse.statusCode,
       dictionary: {},
@@ -272,7 +292,8 @@ async function renderAppToResponse(
 
       return renderer(
         handleRenderingResult,
-        (request as any).originalUrl,
+        // originalUrl not defined in `http-proxy-middleware` types but it exists
+        ((request as unknown) as { [key: string]: unknown }).originalUrl as string,
         layoutServiceData,
         viewBag
       );
@@ -284,14 +305,14 @@ async function renderAppToResponse(
 
 /**
  * @param {IncomingMessage} proxyResponse
- * @param {any} request
+ * @param {IncomingMessage} request
  * @param {ServerResponse} serverResponse
  * @param {AppRenderer} renderer
  * @param {ProxyConfig} config
  */
 function handleProxyResponse(
   proxyResponse: IncomingMessage,
-  request: any,
+  request: IncomingMessage,
   serverResponse: ServerResponse,
   renderer: AppRenderer,
   config: ProxyConfig
@@ -300,8 +321,8 @@ function handleProxyResponse(
 
   if (config.debug) {
     console.log('DEBUG: request url', request.url);
-    console.log('DEBUG: request query', request.query);
-    console.log('DEBUG: request original url', request.originalUrl);
+    console.log('DEBUG: request query', (request as ProxyIncomingMessage).query);
+    console.log('DEBUG: request original url', (request as ProxyIncomingMessage).originalUrl);
     console.log('DEBUG: proxied request response code', proxyResponse.statusCode);
     console.log('DEBUG: RAW request headers', JSON.stringify(request.headers, null, 2));
     console.log(
@@ -312,7 +333,7 @@ function handleProxyResponse(
 
   // if the request URL contains any of the excluded rewrite routes, we assume the response does not need to be server rendered.
   // instead, the response should just be relayed as usual.
-  if (isUrlIgnored(request.originalUrl, config, true)) {
+  if (isUrlIgnored((request as ProxyIncomingMessage).originalUrl, config, true)) {
     return Promise.resolve(undefined);
   }
 
@@ -323,13 +344,13 @@ function handleProxyResponse(
 
 /**
  * @param {string} reqPath
- * @param {any} req
+ * @param {IncomingMessage} req
  * @param {ProxyConfig} config
  * @param {RouteUrlParser} parseRouteUrl
  */
 export function rewriteRequestPath(
   reqPath: string,
-  req: any,
+  req: IncomingMessage,
   config: ProxyConfig,
   parseRouteUrl?: RouteUrlParser
 ) {
@@ -355,7 +376,7 @@ export function rewriteRequestPath(
   const qsIndex = finalReqPath.indexOf('?');
   let qs = '';
   if (qsIndex > -1) {
-    qs = buildQueryString(req.query);
+    qs = buildQueryString((req as ProxyIncomingMessage).query);
     finalReqPath = finalReqPath.slice(0, qsIndex);
   }
 
@@ -469,15 +490,15 @@ function isUrlIgnored(originalUrl: string, config: ProxyConfig, noDebug = false)
 }
 
 /**
- * @param {any} proxyReq
- * @param {any} req
+ * @param {ClientRequest} proxyReq
+ * @param {IncomingMessage} req
  * @param {ServerResponse} res
  * @param {ProxyConfig} config
  * @param {Function} customOnProxyReq
  */
 function handleProxyRequest(
-  proxyReq: any,
-  req: any,
+  proxyReq: ClientRequest,
+  req: IncomingMessage,
   res: ServerResponse,
   config: ProxyConfig,
   customOnProxyReq:
@@ -485,12 +506,14 @@ function handleProxyRequest(
     | undefined
 ) {
   // if a HEAD request, we still need to issue a GET so we can return accurate headers
-  // proxyReq defined as 'any' to allow us to mutate this
-  if (proxyReq.method === 'HEAD' && !isUrlIgnored(req.originalUrl, config, true)) {
+  if (
+    (proxyReq as ExtendedClientRequest).method === 'HEAD' &&
+    !isUrlIgnored((req as ProxyIncomingMessage).originalUrl, config, true)
+  ) {
     if (config.debug) {
       console.log('DEBUG: Rewriting HEAD request to GET to create accurate headers');
     }
-    proxyReq.method = 'GET';
+    (proxyReq as ExtendedClientRequest).method = 'GET';
   }
   // invoke custom onProxyReq
   if (customOnProxyReq) {

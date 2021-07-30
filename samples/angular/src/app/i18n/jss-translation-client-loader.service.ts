@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
-import { Observable,  EMPTY } from 'rxjs';
+import { EMPTY } from 'rxjs';
 import { makeStateKey } from '@angular/platform-browser';
 
 export const dictionaryStateKey = makeStateKey('jssDictionary');
@@ -11,7 +11,7 @@ export class JssTranslationClientLoaderService implements TranslateLoader {
     private fallbackLoader: TranslateLoader,
   ) { }
 
-  getTranslation(lang: string): Observable<any> {
+  getTranslation(lang: string) {
     if (!this.fallbackLoader) {
       return EMPTY;
     }

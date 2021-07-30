@@ -5,6 +5,7 @@ import { By } from '@angular/platform-browser';
 import { generalLinkField as eeLinkData } from '../testData/ee-data';
 import { RouterLinkDirective } from './router-link.directive';
 import { RouterTestingModule } from '@angular/router/testing';
+import { LinkField } from './rendering-field';
 
 @Component({
   selector: 'test-router-link',
@@ -13,7 +14,7 @@ import { RouterTestingModule } from '@angular/router/testing';
   `,
 })
 class TestComponent {
-  @Input() field: any;
+  @Input() field: LinkField;
   @Input() editable = true;
   @Input() attrs = {};
 }
@@ -174,7 +175,7 @@ describe('<a *scRouterLink />', () => {
   `,
 })
 class TestWithChildrenComponent {
-  @Input() field: any;
+  @Input() field: LinkField;
   @Input() editable = true;
   @Input() attrs = {};
 }

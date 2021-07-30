@@ -2,8 +2,5 @@
   "extends": [
     "../../.eslintrc",
     "../../eslint-configs/typescript"
-  ],
-  "parserOptions": {
-    "project": "tsconfig.json"
-  }
+  ]
 }

@@ -101,7 +101,7 @@ export class AxiosDataFetcher {
   /**
    * Implements a data fetcher. @see HttpDataFetcher<T> type for implementation details/notes.
    * @param {string} url The URL to request; may include query string
-   * @param {any} [data] Optional data to POST with the request.
+   * @param {unknown} [data] Optional data to POST with the request.
    * @returns {Promise<AxiosResponse<T>>} response
    */
   fetch<T>(url: string, data?: unknown): Promise<AxiosResponse<T>> {
@@ -135,7 +135,7 @@ export class AxiosDataFetcher {
   /**
    * Perform a POST request
    * @param {string} url The URL to request; may include query string
-   * @param {any} [data] Data to POST with the request.
+   * @param {unknown} [data] Data to POST with the request.
    * @param {AxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse>} response
    */
@@ -146,7 +146,7 @@ export class AxiosDataFetcher {
   /**
    * Perform a PUT request
    * @param {string} url The URL to request; may include query string
-   * @param {any} [data] Data to PUT with the request.
+   * @param {unknown} [data] Data to PUT with the request.
    * @param {AxiosRequestConfig} [config] Axios config
    * @returns {Promise<AxiosResponse>} response
    */

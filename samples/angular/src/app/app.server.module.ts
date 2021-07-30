@@ -15,12 +15,16 @@ import { JssTranslationServerLoaderService } from './i18n/jss-translation-server
     AppModule,
     ServerModule,
     ServerTransferStateModule,
-    TranslateModule.forRoot({ // <-- *Important* to get translation values server-side
+    TranslateModule.forRoot({
+      // <-- *Important* to get translation values server-side
       loader: {
         provide: TranslateLoader,
-        useFactory: (ssrViewBag: any) => new JssTranslationServerLoaderService(ssrViewBag),
-        deps: ['JSS_SERVER_VIEWBAG']
-      }
+        useFactory: (ssrViewBag: {
+          [key: string]: unknown;
+          dictionary: { [key: string]: string };
+        }) => new JssTranslationServerLoaderService(ssrViewBag),
+        deps: ['JSS_SERVER_VIEWBAG'],
+      },
     }),
   ],
   providers: [
@@ -29,6 +33,6 @@ import { JssTranslationServerLoaderService } from './i18n/jss-translation-server
   ],
   // Since the bootstrapped component is not inherited from your
   // imported AppModule, it needs to be repeated here.
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppServerModule { }
+export class AppServerModule {}
