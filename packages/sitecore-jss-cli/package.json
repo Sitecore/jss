@@ -6,12 +6,12 @@
   "module": "dist/esm/cli.js",
   "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json && tsc -p tsconfig-bin.json",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
     "prepublishOnly": "npm run build",
-    "jss": "node ./dist/bin/jss.js",
+    "jss": "node ./dist/cjs/bin/jss.js",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "coverage": "nyc --require ts-node/register npm test"
   },
@@ -20,7 +20,7 @@
   },
   "preferGlobal": true,
   "bin": {
-    "jss": "./dist/bin/jss.js"
+    "jss": "./dist/cjs/bin/jss.js"
   },
   "author": {
     "name": "Sitecore Corporation",
