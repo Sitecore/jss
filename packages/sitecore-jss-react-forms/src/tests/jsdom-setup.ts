@@ -2,20 +2,11 @@
 /* eslint-disable spaced-comment */
 // https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md
 
-/// <reference path="../../global.d.ts" />
+/// <reference types="../../global" />
 
 declare module 'style-attr';
 
-export interface Global {
-  [key: string]: unknown;
-  requestAnimationFrame: (callback: () => void) => void;
-  window: Window;
-  document: Document;
-  navigator: Navigator;
-  HTMLElement: HTMLElement;
-}
-
-declare let global: Global;
+declare let global: NodeJS.Global;
 
 const { JSDOM } = require('jsdom');
 

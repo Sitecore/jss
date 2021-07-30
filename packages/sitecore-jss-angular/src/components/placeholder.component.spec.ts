@@ -108,6 +108,7 @@ describe('<sc-placeholder />', () => {
     { label: 'LayoutService data - EE on', data: eeData },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   testData.forEach((dataSet: any) => {
     describe(`with ${dataSet.label}`, () => {
       it('should render a placeholder with given key', async(() => {
@@ -159,7 +160,7 @@ describe('<sc-placeholder />', () => {
     const phKey = 'main';
 
     comp.name = phKey;
-    comp.rendering = component;
+    comp.rendering = (component as unknown) as ComponentRendering;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
@@ -178,7 +179,7 @@ describe('<sc-placeholder />', () => {
     const component = nonEeDevData.sitecore.route;
     const phKey = 'main';
     comp.name = phKey;
-    comp.rendering = component;
+    comp.rendering = (component as unknown) as ComponentRendering;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
@@ -219,7 +220,7 @@ describe('<sc-placeholder />', () => {
     };
 
     comp.name = phKey;
-    comp.rendering = route;
+    comp.rendering = (route as unknown) as ComponentRendering;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
@@ -245,7 +246,7 @@ describe('<sc-placeholder />', () => {
     };
 
     comp.name = phKey;
-    comp.rendering = route;
+    comp.rendering = (route as unknown) as ComponentRendering;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
@@ -334,7 +335,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
     const functionResult = 42;
     const changedMessage = 'ipsum';
 
-    comp.rendering = {
+    comp.rendering = ({
       placeholders: {
         children: [
           {
@@ -342,7 +343,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
           },
         ],
       },
-    };
+    } as unknown) as ComponentRendering;
     comp.name = 'children';
     comp.childMessage = expectedMessage;
     fixture.detectChanges();
@@ -361,7 +362,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
   it('should bind inputs to multiple', async(() => {
     const expectedMessage = 'lorem';
 
-    comp.rendering = {
+    comp.rendering = ({
       placeholders: {
         children: [
           {
@@ -375,7 +376,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
           },
         ],
       },
-    };
+    } as unknown) as ComponentRendering;
     comp.name = 'children';
     comp.childMessage = expectedMessage;
     fixture.detectChanges();
@@ -391,7 +392,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
   }));
 
   it('should bind outputs to children', async(() => {
-    comp.rendering = {
+    comp.rendering = ({
       placeholders: {
         children: [
           {
@@ -399,7 +400,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
           },
         ],
       },
-    };
+    } as unknown) as ComponentRendering;
     comp.name = 'children';
     fixture.detectChanges();
     fixture.whenStable().then(() => {

@@ -1,6 +1,8 @@
 import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
 const packageJson = require('../../../package.json');
 
+const jsonConfig = packageJson as { [key: string]: unknown; config: { [key: string]: unknown } };
+
 /**
  * Adds the Styleguide-FieldUsage-ContentList component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when `jss manifest` is run.
@@ -17,10 +19,7 @@ export default function StyleguideFieldUsageContentList(manifest: Manifest) {
         // the path is based on the path the shared items are defined in, under /data/content.
         // Using 'source' is recommended to help content editors find the correct items to refer to,
         // unless they can refer to any item in the whole site.
-        source: `dataSource=/sitecore/content/${
-          (packageJson as { [key: string]: unknown; config: { [key: string]: unknown } }).config
-            .appName
-        }/Content/Styleguide/ContentListField`,
+        source: `dataSource=/sitecore/content/${jsonConfig.config.appName}/Content/Styleguide/ContentListField`,
       },
       { name: 'localContentList', type: CommonFieldTypes.ContentList },
     ],

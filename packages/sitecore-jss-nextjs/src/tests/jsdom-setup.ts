@@ -2,21 +2,12 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 // https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md
 
-/// <reference path="../../global.d.ts" />
+/// <reference types="../../global" />
 
 declare module 'style-attr';
 
-export interface Global {
-  [key: string]: unknown;
-  requestAnimationFrame: (callback: () => void) => void;
-  window: Window;
-  document: Document;
-  navigator: Navigator;
-  HTMLElement: HTMLElement;
-}
-
 // eslint-disable-next-line no-var
-declare var global: Global;
+declare var global: NodeJS.Global;
 
 const { JSDOM } = require('jsdom');
 

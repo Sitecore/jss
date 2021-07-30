@@ -258,7 +258,7 @@ export function startDevServer({
 
 /**
  * @param {Function | undefined} hook
- * @param {unknown[]} args
+ * @param {...unknown} args
  */
 // eslint-disable-next-line @typescript-eslint/ban-types
 function invokeHook(hook: Function | undefined, ...args: unknown[]) {

@@ -15,6 +15,7 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": false,
+    "noImplicitAny": true,
     "noUnusedParameters": true,
     "strict": true,
     "typeRoots": [
