@@ -17,7 +17,7 @@ const ComponentQuery: DocumentNode = require('graphql-tag/loader!./graph-ql-conn
 })
 export class GraphQLConnectedDemoComponent implements OnInit {
   @Input() rendering: ComponentRendering;
-  query$: Observable<ApolloQueryResult<any>>;
+  query$: Observable<ApolloQueryResult<unknown>>;
 
   // inject the JssGraphQLService to make GraphQL queries
   // note that it's possible to use Apollo directly, but the JSS

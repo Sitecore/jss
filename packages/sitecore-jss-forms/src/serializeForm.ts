@@ -13,8 +13,7 @@ import { FileInputViewModel, instanceOfInputViewModel } from './ViewModel';
 
 export interface SerializeFormOptions {
   submitButtonName?: string | null;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fieldValueParser?: (field: FormField<any>) => string | string[] | boolean;
+  fieldValueParser?: (field: FormField) => string | string[] | boolean;
 }
 
 /**
@@ -45,13 +44,12 @@ export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions
 
 /**
  * @param {JssFormData} result
- * @param {Array<FormField<any>>} fields
+ * @param {Array<FormField>} fields
  * @param {SerializeFormOptions} options
  */
 function pushFields(
   result: JssFormData,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fields: Array<FormField<any>>,
+  fields: ((TrackableValueFormField & FormField<FileInputViewModel>) | FormField)[],
   options: SerializeFormOptions
 ) {
   fields.forEach((field) => {

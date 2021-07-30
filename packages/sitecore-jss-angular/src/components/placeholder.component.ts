@@ -56,9 +56,9 @@ function getPlaceholder(rendering: ComponentRendering, name: string) {
   `,
 })
 export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
-  private _inputs: { [key: string]: any };
-  private _differ: KeyValueDiffer<string, any>;
-  private _componentInstances: any[] = [];
+  private _inputs: { [key: string]: unknown };
+  private _differ: KeyValueDiffer<string, unknown>;
+  private _componentInstances: { [prop: string]: unknown }[] = [];
   private destroyed = false;
   private parentStyleAttribute = '';
   public isLoading = true;
@@ -66,7 +66,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   @Input() name?: string;
   @Input() rendering: ComponentRendering;
   @Input() renderings?: Array<ComponentRendering | HtmlElementRendering>;
-  @Input() outputs: { [k: string]: (eventType: any) => void };
+  @Input() outputs: { [k: string]: (eventType: unknown) => void };
 
   @Output()
   loaded = new EventEmitter<string | undefined>();
@@ -78,7 +78,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   placeholderLoading?: PlaceholderLoadingDirective;
 
   @Input()
-  set inputs(value: { [key: string]: any }) {
+  set inputs(value: { [key: string]: unknown }) {
     this._inputs = value;
     if (!this._differ && value) {
       this._differ = this.differs.find(value).create();
@@ -92,7 +92,8 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     private changeDetectorRef: ChangeDetectorRef,
     private elementRef: ElementRef,
     private renderer: Renderer2,
-    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT) private missingComponentComponent: Type<any>
+    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT)
+    private missingComponentComponent: Type<unknown>
   ) {}
 
   ngOnInit() {
@@ -130,7 +131,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     if (!changes) {
       return;
     }
-    const updates: { [key: string]: any } = {};
+    const updates: { [key: string]: unknown } = {};
     changes.forEachRemovedItem((change) => (updates[change.key] = null));
     changes.forEachAddedItem((change) => (updates[change.key] = change.currentValue));
     changes.forEachChangedItem((change) => (updates[change.key] = change.currentValue));
@@ -139,22 +140,25 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     );
   }
 
-  private _setComponentInputs(componentInstance: any, inputs: { [key: string]: any }) {
+  private _setComponentInputs(
+    componentInstance: { [key: string]: unknown },
+    inputs: { [key: string]: unknown }
+  ) {
     Object.entries(inputs).forEach(
       ([input, inputValue]) => (componentInstance[input] = inputValue)
     );
   }
 
   private _subscribeComponentOutputs(
-    componentInstance: any,
-    outputs: { [k: string]: (eventType: any) => void }
+    componentInstance: { [key: string]: unknown },
+    outputs: { [k: string]: (eventType: unknown) => void }
   ) {
     Object.keys(outputs)
       .filter(
         (output) => componentInstance[output] && componentInstance[output] instanceof Observable
       )
       .forEach((output) =>
-        (componentInstance[output] as Observable<any>)
+        (componentInstance[output] as Observable<unknown>)
           .pipe(takeWhile(() => !this.destroyed))
           .subscribe(outputs[output])
       );

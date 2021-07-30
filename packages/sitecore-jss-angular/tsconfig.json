@@ -11,6 +11,7 @@
       "dom"
     ],
     "moduleResolution": "node",
+    "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,

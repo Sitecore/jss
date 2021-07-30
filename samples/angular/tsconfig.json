@@ -11,6 +11,7 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "noUnusedLocals": true,
+    "noImplicitAny": true,
     "target": "es5",
     "module": "es2020",
     "newLine": "LF",

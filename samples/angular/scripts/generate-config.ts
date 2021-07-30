@@ -9,7 +9,7 @@ const packageConfig = require('../package.json');
  * settings as variables into the JSS app.
  * NOTE! Any configs returned here will be written into the client-side JS bundle. DO NOT PUT SECRETS HERE.
  */
-export function generateConfig(configOverrides?: any, outputPath?: string) {
+export function generateConfig(configOverrides?: { [key: string]: unknown }, outputPath?: string) {
   const defaultConfig = {
     production: false,
     sitecoreApiHost: '',
@@ -72,7 +72,7 @@ function transformScJssConfig() {
 }
 
 function transformPackageConfig() {
-  const packageAny = packageConfig as any;
+  const packageAny = packageConfig;
 
   if (!packageAny.config) { return {}; }
 
@@ -86,7 +86,7 @@ function transformPackageConfig() {
 /**
  * Adds the GraphQL endpoint URL to the config object, and ensures that components needed to calculate it are valid
  */
-function addGraphQLConfig(baseConfig) {
+function addGraphQLConfig(baseConfig: { [key: string]: unknown }) {
   if (!baseConfig.graphQLEndpointPath || typeof baseConfig.sitecoreApiHost === 'undefined') {
     console.error(
       'The `graphQLEndpointPath` and/or `layoutServiceHost` configurations were not defined. You may need to run `jss setup`.'

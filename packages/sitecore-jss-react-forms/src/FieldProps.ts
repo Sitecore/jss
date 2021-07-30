@@ -51,7 +51,7 @@ export interface FieldWithValueProps<
 
 export type FieldChangeCallback = (
   fieldName: string,
-  newValue: string | string[] | File[],
+  newValue: string | string[] | File[] | boolean,
   isValid: boolean,
   errorMessages: string[]
 ) => void;
@@ -66,6 +66,5 @@ export type ValueFieldProps<
 
 export type LabelProps<TViewModel extends InputViewModel = InputViewModel> = FieldWithValueProps<
   ValueFormField<TViewModel>,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any
+  string | string[]
 >;

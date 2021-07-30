@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
 
 @Component({
   selector: 'sc-missing-component',
@@ -12,5 +13,5 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class MissingComponentComponent {
-  @Input() rendering: any;
+  @Input() rendering: ComponentRendering;
 }

@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
@@ -52,7 +51,7 @@ describe('withDatasourceCheck', () => {
 
   it('should return null if rendering missing in normal mode', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
-    const props = {} as any;
+    const props = {} as WithDatasourceCheckProps;
 
     const wrapper = mount(
       <SitecoreContextReactContext.Provider value={mockContext(false)}>
