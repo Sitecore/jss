@@ -43,7 +43,7 @@
       "error",
       "always"
     ],
-    "linebreak-style": "off",
+    "linebreak-style": ["error", "windows"],
     "guard-for-in": "error",
     "no-unused-labels": "error",
     "no-caller": "error",
