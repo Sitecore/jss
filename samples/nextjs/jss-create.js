@@ -3,6 +3,7 @@ const path = require('path');
 const chalk = require('chalk');
 const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/create');
 const { execSync } = require('child_process');
+const strip = require('./scripts/strip');
 
 /**
  * This function is invoked by `jss create` when an app based on this template is created.
@@ -37,8 +38,6 @@ module.exports = function createJssProject(argv, nextSteps) {
 
   if (argv.empty) {
     createEmptyStarter();
-  } else {
-    cleanUpStrippedFiles();
   }
 
   setFetchWith(argv.fetchWith);
@@ -53,23 +52,6 @@ function getPath(filepath) {
   return path.join(__dirname, filepath);
 }
 
-function cleanUpStrippedFiles() {
-  const files = getStrippedFiles();
-
-  console.log(chalk.cyan('Removing stripped files...'));
-
-  files.forEach(filepath => fs.unlinkSync(filepath))
-}
-
-function getStrippedFiles() {
-  return [
-    getPath('scripts/bootstrap.stripped.ts'),
-    getPath('scripts/scaffold-component.stripped.ts'),
-    getPath('src/lib/sitemap-factory.stripped.ts'),
-    getPath('next.config.base.stripped.js'),
-  ];
-}
-
 function createEmptyStarter() {
   const dataDir = getPath('data');
   const disconnectedProxyScript = getPath('scripts/disconnected-mode-proxy.ts');
@@ -79,19 +61,13 @@ function createEmptyStarter() {
 
   console.log(chalk.cyan('Cleaning up the sample...'));
 
-  const strippedFiles = getStrippedFiles();
-
-  strippedFiles.forEach(strippedFilePath => {
-    const defaultFilePath = strippedFilePath.replace('.stripped', '');
-    fs.unlinkSync(defaultFilePath)
-    fs.renameSync(strippedFilePath, defaultFilePath);
-  })
-
   fs.rmdirSync(dataDir, { recursive: true });
   fs.unlinkSync(disconnectedProxyScript);
   fs.unlinkSync(manifestTemplate);
   fs.rmdirSync(definitionsDir, { recursive: true });
   fs.rmdirSync(componentsDir, { recursive: true });
+
+  strip();
 
   const packageJson = require('./package.json');
 
