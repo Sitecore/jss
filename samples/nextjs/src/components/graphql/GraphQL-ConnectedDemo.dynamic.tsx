@@ -109,6 +109,7 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
     return null;
   }
+
   const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
     apiKey: config.sitecoreApiKey,
   });
@@ -132,6 +133,7 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
     return null;
   }
+
   const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
     apiKey: config.sitecoreApiKey,
   });
