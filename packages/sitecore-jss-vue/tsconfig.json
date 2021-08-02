@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "newLine": "LF",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
@@ -16,13 +19,21 @@
     "noImplicitAny": false,
     "strictNullChecks": false,
     "strict": true,
-    "typeRoots": ["node_modules/@types"],
-    "outDir": "dist",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "outDir": "dist/cjs",
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "exclude": ["src/test/*", "**/*.test.ts", "**/*.snap"],
-  "include": ["src/**/*.ts"]
+  "exclude": [
+    "src/test/*",
+    "**/*.test.ts",
+    "**/*.snap"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
 }

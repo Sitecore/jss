@@ -1,9 +1,11 @@
 {
   "name": "@sitecore-jss/sitecore-jss-rendering-host",
   "version": "19.0.0-canary.26",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
