@@ -60,6 +60,9 @@ steps:
 - script: |
     npm run test-packages
   displayName: 'running tests'
+- script: |
+    npm run coverage-packages
+  displayName: 'running test coverage'
   env: {
     testEnv: 'ci'
   }
