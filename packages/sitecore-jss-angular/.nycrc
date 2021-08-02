@@ -1,0 +1,13 @@
+{
+  "extension": [
+    ".ts"
+  ],
+  "exclude": [
+    "**/*.d.ts",
+    "**/*.spec.ts",
+    "src/testData",
+    "dist",
+    "coverage"
+  ],
+  "all": true
+}
