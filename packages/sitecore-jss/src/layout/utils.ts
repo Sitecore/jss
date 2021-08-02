@@ -10,6 +10,7 @@ export function getFieldValue<T>(
   renderingOrFields: ComponentRendering | Fields,
   fieldName: string
 ): T | undefined;
+// eslint-disable-next-line no-redeclare
 export function getFieldValue<T>(
   renderingOrFields: ComponentRendering | Fields,
   fieldName: string,
@@ -20,6 +21,7 @@ export function getFieldValue<T>(
  * @param {string} fieldName
  * @param {T} [defaultValue]
  */
+// eslint-disable-next-line no-redeclare
 export function getFieldValue<T>(
   renderingOrFields: ComponentRendering | Fields,
   fieldName: string,
