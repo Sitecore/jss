@@ -32,7 +32,10 @@ module.exports = function createJssProject(argv, nextSteps) {
       )} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`,
       `*  ${chalk.green(
         '--prerender {SSG|SSR}'
-      )} : Specifies the Next.js pre-rendering form for the optional catch-all route. Default is SSG.`
+      )} : Specifies the Next.js pre-rendering form for the optional catch-all route. Default is SSG.`,
+      `*  ${chalk.green(
+        '--empty {true|false}'
+      )} : Specifies whether the sample should be empty. Disconnected mode and styleguide components will be removed. Default is false.`,
     );
   }
 
