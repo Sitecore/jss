@@ -10,7 +10,7 @@
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "runner": "npm run build && node ./dist/runner",
-    "coverage": "nyc --require ts-node/register npm test"
+    "coverage": "nyc npm test"
   },
   "engines": {
     "node": ">=8.1"

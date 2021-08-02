@@ -6,8 +6,9 @@
     "build": "npm run clean && tsc",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
-    "test": "mocha --require ts-node/register --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.tsx\"",
-    "prepublishOnly": "npm run build"
+    "test": "mocha --require ts-node/register/transpile-only --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.tsx\"",
+    "prepublishOnly": "npm run build",
+    "coverage": "nyc npm test"
   },
   "engines": {
     "node": ">=8.1"
@@ -38,6 +39,7 @@
     "eslint-plugin-react": "^7.21.5",
     "jsdom": "^16.2.2",
     "mocha": "^7.2.0",
+    "nyc": "^15.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sinon": "^9.0.2",

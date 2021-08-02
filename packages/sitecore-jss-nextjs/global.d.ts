@@ -1,5 +1,3 @@
-declare module 'style-attr';
-
 declare module 'sync-disk-cache' {
   export default import('sync-disk-cache').default;
 
