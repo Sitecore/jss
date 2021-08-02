@@ -9,14 +9,14 @@ const END_REGEXP = /\/\/ #END_STRIP/g;
 
 /**
  * Remove part of code which inside the STRIP block
- * @param {string} file 
+ * @param {string} file
  */
 const compile = (file) => {
   const content = fs.readFileSync(file, 'utf8');
 
   let shouldRemove = false;
 
-  const lines = content.split('\r\n').filter(line => {
+  const lines = content.split('\r\n').filter((line) => {
     if (START_REGEXP.test(line)) {
       shouldRemove = true;
     }
@@ -41,49 +41,49 @@ const compile = (file) => {
 const iterate = function (dir, done) {
   let results = [];
 
-	try {
-		const list = fs.readdirSync(dir);
+  try {
+    const list = fs.readdirSync(dir);
 
-		let i = 0;
-	
-		const nextFile = () => {
-			let file = list[i++];
-	
-			if (!file) return done(null);
+    let i = 0;
 
-			if (EXCLUDE_DIR_REGEXP.test(file)) {
-				return nextFile();
-			}
-	
-			file = path.resolve(dir, file);
-	
-			const stat = fs.statSync(file);
-	
-			if (stat && stat.isDirectory()) {
-				iterate(file, () => {
-					nextFile();
-				});
-	
-				return;
-			}
-	
-			if (!INCLUDE_FILE_REGEXP.test(file)) return nextFile();
-	
-			compile(file);
-	
-			results.push(file);
-	
-			nextFile();
-		};
-	
-		nextFile();
-	} catch (error) {
-		done(error);
-	}
+    const nextFile = () => {
+      let file = list[i++];
+
+      if (!file) return done(null);
+
+      if (EXCLUDE_DIR_REGEXP.test(file)) {
+        return nextFile();
+      }
+
+      file = path.resolve(dir, file);
+
+      const stat = fs.statSync(file);
+
+      if (stat && stat.isDirectory()) {
+        iterate(file, () => {
+          nextFile();
+        });
+
+        return;
+      }
+
+      if (!INCLUDE_FILE_REGEXP.test(file)) return nextFile();
+
+      compile(file);
+
+      results.push(file);
+
+      nextFile();
+    };
+
+    nextFile();
+  } catch (error) {
+    done(error);
+  }
 };
 
 module.exports = () => {
-	iterate(path.join(__dirname, '../'), (err) => {
-		if (err) throw err;
-	});
-}
+  iterate(path.join(__dirname, '../'), (err) => {
+    if (err) throw err;
+  });
+};
