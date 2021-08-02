@@ -64,6 +64,11 @@ export interface GraphQLDictionaryServiceConfig extends SearchServiceConfig, Cac
    * @default '6d1cd89719364a3aa511289a94c2a7b1' (/sitecore/templates/System/Dictionary/Dictionary entry)
    */
   dictionaryEntryTemplateId?: string;
+
+  /**
+   * Optional. The template ID to use when searching for the appRootId.
+   */
+  jssAppTemplateId?: string;
 }
 
 /**
@@ -111,7 +116,12 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     // If the caller does not specify a root item ID, then we try to figure it out
     const rootItemId =
       this.options.rootItemId ||
-      (await getAppRootId(this.graphQLClient, this.options.siteName, language));
+      (await getAppRootId(
+        this.graphQLClient,
+        this.options.siteName,
+        language,
+        this.options.jssAppTemplateId
+      ));
 
     if (!rootItemId) {
       throw new Error(queryError);
