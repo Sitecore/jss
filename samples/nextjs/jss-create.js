@@ -70,6 +70,7 @@ function createEmptyStarter() {
 
   strip();
 
+  fs.mkdirSync(componentsDir);
   fs.unlinkSync(stripScript);
 
   const packageJson = require('./package.json');
@@ -78,6 +79,9 @@ function createEmptyStarter() {
   delete packageJson.scripts['start:disconnected-proxy'];
   // Temporary solution until we remove graphql-let, graphql-let can't be used if there are no .graphql files
   packageJson.scripts.bootstrap = packageJson.scripts.bootstrap.replace(' && graphql-let', '');
+  packageJson.scripts.lint = packageJson.scripts.lint
+    .replace('./sitecore/definitions/**/*.ts ', '')
+    .replace(' ./data/**/*.yml', '');
 
   fs.writeFileSync(getPath('package.json'), JSON.stringify(packageJson), 'utf8');
 }

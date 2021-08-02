@@ -1,12 +1,11 @@
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
 
 const EXCLUDE_DIR_REGEXP = /(^|\\)(node_modules|\.next|out|\.generated)(\\|$)/gi;
-const INCLUDE_FILE_REGEXP = /\.(js|ts?x)$/g;
+const INCLUDE_FILE_REGEXP = /\.(js|tsx?)$/g;
 
 const START_REGEXP = /\/\/ #START_STRIP/g;
-const END_REGEXP = /\/\/ #END_STRIP/;
+const END_REGEXP = /\/\/ #END_STRIP/g;
 
 /**
  * Remove part of code which inside the STRIP block
@@ -17,7 +16,7 @@ const compile = (file) => {
 
   let shouldRemove = false;
 
-  const lines = content.split(os.EOL).filter(line => {
+  const lines = content.split('\r\n').filter(line => {
     if (START_REGEXP.test(line)) {
       shouldRemove = true;
     }
@@ -50,19 +49,18 @@ const iterate = function (dir, done) {
 		const nextFile = () => {
 			let file = list[i++];
 	
+			if (!file) return done(null);
+
 			if (EXCLUDE_DIR_REGEXP.test(file)) {
 				return nextFile();
 			}
-	
-			if (!file) return done(null, results);
 	
 			file = path.resolve(dir, file);
 	
 			const stat = fs.statSync(file);
 	
 			if (stat && stat.isDirectory()) {
-				iterate(file, (err, res) => {
-					results = results.concat(res);
+				iterate(file, () => {
 					nextFile();
 				});
 	
@@ -85,8 +83,7 @@ const iterate = function (dir, done) {
 };
 
 module.exports = () => {
-	iterate(path.resolve(__dirname, '..'), (err, results) => {
+	iterate(path.join(__dirname, '../'), (err) => {
 		if (err) throw err;
-		console.log(results);
 	});
 }
