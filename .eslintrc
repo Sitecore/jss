@@ -43,7 +43,10 @@
       "error",
       "always"
     ],
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
     "guard-for-in": "error",
     "no-unused-labels": "error",
     "no-caller": "error",
@@ -72,14 +75,5 @@
       "error",
       "prefer-double"
     ]
-  },
-  "ignorePatterns": [
-    "src/test/*",
-    "src/tests/*",
-    "src/testData/*",
-    "src/*.test.*",
-    "src/**/*.spec.*",
-    "src/**/*.test.*",
-    "src/**/*.directive.*"
-  ]
+  }
 }

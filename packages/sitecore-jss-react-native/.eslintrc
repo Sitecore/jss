@@ -8,5 +8,10 @@
   ],
   "env": {
     "jest": true
-  }
+  },
+  "ignorePatterns": [
+    "src/**/*.test.*",
+    "src/tests/*",
+    "src/testData/*"
+  ]
 }
