@@ -39,7 +39,7 @@ jss create <your-app-name> <app-template-name>
 |`--proxy`, `-p` |  Specifies a HTTP proxy when downloading templates. | A local directory path |  - |  all |
 |`--fetchWith` |  Specifies how the applicaiton should fetch Sitecore layout and dictionary data. |`REST` or `GraphQL` | `REST` | nextjs |
 |`--prerender` | Specifies the Next.js pre-rendering form for the primary `[[...path]].tsx` route. | `SSG` or `SSR` | `SSG` | nextjs |
-|`--empty` | Specifies the Next.js app should be created empty | - | `false` | all |
+|`--empty` | Specifies the app should be created empty | - | `false` | all |
 
 **Examples**
 ```
