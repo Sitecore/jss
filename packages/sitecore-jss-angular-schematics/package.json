@@ -4,8 +4,9 @@
   "description": "Scaffolding schematics for Sitecore JSS Angular apps",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "jasmine src/**/*_spec.js",
-    "coverage": "nyc npm test"
+    "test-package": "jasmine src/**/*_spec.js",
+    "test": "npm run build && npm run test-package",
+    "coverage": "nyc npm test-package"
   },
   "engines": {
     "node": ">=8.1"
