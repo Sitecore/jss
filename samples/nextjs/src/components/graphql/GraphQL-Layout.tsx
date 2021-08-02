@@ -9,7 +9,6 @@ const GraphQLLayout = ({ rendering }: StyleguideComponentProps): JSX.Element => 
 
   return (
     <div data-e2e-id="graphql-layout">
-      {/* // #START_STRIP */}
       {disconnectedMode && (
         <>
           <p>
@@ -28,7 +27,6 @@ const GraphQLLayout = ({ rendering }: StyleguideComponentProps): JSX.Element => 
           </p>
         </>
       )}
-      {/* // #END_STRIP */}
       {!disconnectedMode && <Placeholder name="jss-graphql-layout" rendering={rendering} />}
     </div>
   );

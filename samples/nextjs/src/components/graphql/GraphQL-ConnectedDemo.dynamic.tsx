@@ -5,9 +5,7 @@ import {
   GetServerSideComponentProps,
   GetStaticComponentProps,
   useComponentProps,
-  // #START_STRIP
   constants,
-  // #END_STRIP
   GraphQLRequestClient,
   withDatasourceCheck,
   resetEditorChromes,
@@ -108,11 +106,9 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
  * @param {GetStaticPropsContext} context
  */
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
-  // #START_STRIP
   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
     return null;
   }
-  // #END_STRIP
   const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
     apiKey: config.sitecoreApiKey,
   });
@@ -133,11 +129,9 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
  * @param {GetServerSidePropsContext} context
  */
 export const getServerSideProps: GetServerSideComponentProps = async (rendering, layoutData) => {
-  // #START_STRIP
   if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
     return null;
   }
-  // #END_STRIP
   const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
     apiKey: config.sitecoreApiKey,
   });

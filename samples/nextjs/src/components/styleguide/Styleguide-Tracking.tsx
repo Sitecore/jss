@@ -153,11 +153,9 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
 
     return (
       <StyleguideSpecimen {...this.props} e2eId="styleguide-tracking">
-        {/* // #START_STRIP */}
         {disconnectedMode && (
           <p>The tracking API is only available in connected, integrated, or headless modes.</p>
         )}
-        {/* // #END_STRIP */}
         {!disconnectedMode && (
           <div>
             <p className="alert alert-warning">
