@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-forms",
-  "version": "19.0.0-canary.25",
+  "version": "19.0.0-canary.26",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -51,7 +51,7 @@
     "react-dom": "^17.0.1"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-forms": "^19.0.0-canary.25",
+    "@sitecore-jss/sitecore-jss-forms": "^19.0.0-canary.26",
     "prop-types": "^15.7.2"
   },
   "description": "",
