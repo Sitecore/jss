@@ -19,8 +19,14 @@ const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
 */
 // #START_STRIP
 const port = process.env.PORT || 3000;
-const configOverride = disconnected ? { sitecoreApiHost: `http://localhost:${port}` } : undefined;
 // #END_STRIP
+let configOverride = undefined;
+// #START_STRIP
+if (disconnected) {
+  configOverride = { sitecoreApiHost: `http://localhost:${port}` };
+}
+// #END_STRIP
+
 generateConfig(configOverride);
 
 /*

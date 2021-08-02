@@ -69,7 +69,6 @@ did not exist. This is normal for Sitecore-first workflow.`)
   );
 }
 // #END_STRIP
-
 console.log(
   chalk.green(`
 Scaffolding of ${componentName} complete.
