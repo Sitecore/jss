@@ -56,6 +56,7 @@ function createEmptyStarter() {
   const dataDir = getPath('data');
   const disconnectedProxyScript = getPath('scripts/disconnected-mode-proxy.ts');
   const manifestTemplate = getPath('scripts/templates/component-manifest.ts');
+  const stripScript = getPath('scripts/strip.js');
   const definitionsDir = getPath('sitecore/definitions');
   const componentsDir = getPath('src/components');
 
@@ -68,6 +69,8 @@ function createEmptyStarter() {
   fs.rmdirSync(componentsDir, { recursive: true });
 
   strip();
+
+  fs.unlinkSync(stripScript);
 
   const packageJson = require('./package.json');
 
