@@ -3,10 +3,10 @@ const os = require('os');
 const path = require('path');
 
 const EXCLUDE_DIR_REGEXP = /(^|\\)(node_modules|\.next|out|\.generated)(\\|$)/gi;
-const INCLUDE_FILE_REGEXP = /\.(js|ts)$/g;
+const INCLUDE_FILE_REGEXP = /\.(js|ts?x)$/g;
 
 const START_REGEXP = /\/\/ #START_STRIP/g;
-const END_REGEXP = /\/\/ #END_STRIP$/;
+const END_REGEXP = /\/\/ #END_STRIP/;
 
 /**
  * Remove part of code which inside the STRIP block
