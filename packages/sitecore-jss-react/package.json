@@ -1,9 +1,11 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react",
-  "version": "19.0.0-canary.21",
-  "main": "dist/index.js",
+  "version": "19.0.0-canary.27",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
     "test": "mocha --require ts-node/register --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\"",
@@ -48,14 +50,14 @@
     "react-test-renderer": "^16.9.0",
     "sinon": "^7.4.2",
     "ts-node": "^8.3.0",
-    "typescript": "3.7.5"
+    "typescript": "~4.3.5"
   },
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.21",
+    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.27",
     "prop-types": "^15.7.2",
     "style-attr": "^1.3.0"
   },

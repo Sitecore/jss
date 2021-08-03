@@ -6,6 +6,7 @@ import { generalLinkField as eeLinkData } from '../testData/ee-data';
 import { GenericLinkDirective } from './generic-link.directive';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import { LinkField } from './rendering-field';
 
 @Component({
   selector: 'test-router-link',
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
   `,
 })
 class TestComponent {
-  @Input() field: any;
+  @Input() field: LinkField;
   @Input() editable = true;
   @Input() attrs = {};
   @Input() extras = {};
@@ -176,7 +177,7 @@ describe('<a *scGenericLink />', () => {
   `,
 })
 class TestWithChildrenComponent {
-  @Input() field: any;
+  @Input() field: LinkField;
   @Input() editable = true;
   @Input() attrs = {};
   @Input() extras = {};

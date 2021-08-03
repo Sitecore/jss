@@ -1,10 +1,6 @@
 const fs = require('fs');
-const fetch = require('node-fetch');
-const NodeCache = require('node-cache');
+const { RestDictionaryService } = require('@sitecore-jss/sitecore-jss');
 const httpAgents = require("./httpAgents");
-
-// We keep a cached copy of the site dictionary for performance. Default is 60 seconds.
-const dictionaryCache = new NodeCache({ stdTTL: 60 });
 
 /**
  * The JSS application name defaults to providing part of the bundle path as well as the dictionary service endpoint.
@@ -24,6 +20,15 @@ httpAgents.setUpDefaultAgents(serverBundle);
 const apiHost = process.env.SITECORE_API_HOST || 'http://my.sitecore.host'
 
 appName = appName || serverBundle.appName;
+
+const apiKey = process.env.SITECORE_API_KEY || serverBundle.apiKey || '{YOUR API KEY HERE}';
+
+const dictionaryService = new RestDictionaryService({
+  apiHost,
+  siteName: appName,
+  apiKey,
+  cacheTimeout: 60,
+});
 
 /**
  * @type {ProxyConfig}
@@ -50,7 +55,7 @@ const config = {
    * apiKey: The Sitecore SSC API key your app uses.
    * Required.
    */
-  apiKey: process.env.SITECORE_API_KEY || serverBundle.apiKey || '{YOUR API KEY HERE}',
+  apiKey,
   /**
    * pathRewriteExcludeRoutes: A list of absolute paths
    * that are NOT app routes and should not attempt to render a route
@@ -63,7 +68,6 @@ const config = {
    * pathRewriteExcludePredicate function instead: (url) => boolean;
    */
   pathRewriteExcludeRoutes: [
-    '/dist',
     '/assets',
     '/sitecore/api',
     '/api',
@@ -135,31 +139,13 @@ const config = {
       return {};
     }
 
-    const cacheKey = `${site}_${language}`;
+    return dictionaryService.fetchDictionaryData(language).then(phrases => {
+      const viewBag = {
+        dictionary: phrases,
+      };
 
-    const cached = dictionaryCache.get(cacheKey);
-
-    if (cached) return Promise.resolve(cached);
-
-    return fetch(
-      `${config.apiHost}/sitecore/api/jss/dictionary/${appName}/${language}?sc_apikey=${
-        config.apiKey
-      }`,
-      {
-        headers: {
-          connection: "keep-alive",
-        },
-      }
-    )
-      .then((result) => result.json())
-      .then((json) => {
-        const viewBag = {
-          dictionary: json && json.phrases,
-        };
-
-        dictionaryCache.set(cacheKey, viewBag);
-        return viewBag;
-      });
+      return viewBag;
+    });
   },
 };
 

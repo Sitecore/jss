@@ -14,7 +14,7 @@ import { LinkField } from './rendering-field';
 export class GenericLinkDirective extends LinkDirective {
   @Input('scGenericLinkEditable') editable = true;
 
-  @Input('scGenericLinkAttrs') attrs: any = {};
+  @Input('scGenericLinkAttrs') attrs: { [key: string]: string } = {};
 
   @Input('scGenericLink') field: LinkField;
 
@@ -22,7 +22,7 @@ export class GenericLinkDirective extends LinkDirective {
 
   constructor(
     viewContainer: ViewContainerRef,
-    templateRef: TemplateRef<any>,
+    templateRef: TemplateRef<unknown>,
     renderer: Renderer2,
     elementRef: ElementRef,
     private router: Router
@@ -30,11 +30,11 @@ export class GenericLinkDirective extends LinkDirective {
     super(viewContainer, templateRef, renderer, elementRef);
   }
 
-  protected renderTemplate(props: any, linkText: string) {
+  protected renderTemplate(props: { [key: string]: string }, linkText: string) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {
-      Object.entries(props).forEach(([key, propValue]: [string, any]) => {
+      Object.entries(props).forEach(([key, propValue]: [string, string]) => {
         if (key === 'href' && !this.isAbsoluteUrl(propValue)) {
           const urlTree = this.router.createUrlTree([propValue], this.extras);
           this.renderer.setAttribute(node, key, this.router.serializeUrl(urlTree));
@@ -53,7 +53,7 @@ export class GenericLinkDirective extends LinkDirective {
     });
   }
 
-  private isAbsoluteUrl(url?: string) {
+  private isAbsoluteUrl(url?: unknown) {
     if (url === null) {
       return false;
     }

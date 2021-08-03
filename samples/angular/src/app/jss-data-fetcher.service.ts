@@ -11,7 +11,7 @@ export class JssDataFetcherService {
     this.fetch = this.fetch.bind(this);
   }
 
-  fetch<T>(url: string, data: any): Promise<HttpResponse<T>> {
+  fetch<T>(url: string, data: unknown): Promise<HttpResponse<T>> {
     let result: Observable<T>;
 
     const options = {

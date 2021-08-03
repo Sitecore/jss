@@ -1,6 +1,5 @@
-// what is `import x = require('x');`? great question: https://github.com/Microsoft/TypeScript/issues/5073
-import unescape = require('lodash.unescape');
-import URL = require('url-parse');
+import unescape from 'lodash/unescape';
+import URL from 'url-parse';
 
 // finds an img tag with HTML attributes
 const imgTagRegex = /<img([^>]+)\/>/i;
@@ -69,10 +68,8 @@ export const updateImageUrl = (
     return url;
   }
   // polyfill node `global` in browser to workaround https://github.com/unshiftio/url-parse/issues/150
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  if (typeof window !== 'undefined' && !(window as any).global) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (window as any).global = {};
+  if (typeof window !== 'undefined' && !window.global) {
+    window.global = {} as NodeJS.Global;
   }
   const parsed = URL(url, {}, true);
 

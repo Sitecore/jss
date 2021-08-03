@@ -1,9 +1,11 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "19.0.0-canary.21",
-  "main": "dist/index.js",
+  "version": "19.0.0-canary.27",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
@@ -48,7 +50,7 @@
     "sinon": "^7.5.0",
     "ts-node": "^8.4.1",
     "tslib": "^1.10.0",
-    "typescript": "^3.6.3"
+    "typescript": "~4.3.5"
   },
   "dependencies": {
     "axios": "^0.21.1",

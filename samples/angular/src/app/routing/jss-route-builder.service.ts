@@ -2,6 +2,7 @@ import { environment as env } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 
 export class JssRoute {
+  [key: string]: string;
   language: string;
   serverRoute: string;
 }

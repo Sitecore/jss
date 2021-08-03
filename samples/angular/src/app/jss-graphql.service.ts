@@ -48,7 +48,7 @@ export class JssGraphQLService {
   }
 
   private static extractVariableNames(query: DocumentNode) {
-    const variableNames = {};
+    const variableNames: { [key: string]: boolean } = {};
     query.definitions
       .map((def) => (def as ExecutableDefinitionNode).variableDefinitions)
       .filter((def) => def)
@@ -60,7 +60,7 @@ export class JssGraphQLService {
         })
       );
 
-    return variableNames as { [key: string]: string };
+    return variableNames;
   }
 
   /**
@@ -105,7 +105,7 @@ export class JssGraphQLService {
   /**
    * Executes a GraphQL subscription (real-time data) against the GraphQL endpoint
    */
-  subscribe<T, V = EmptyObject>(options: SubscriptionOptions<V> & JssGraphQLOptions, extra?: ExtraSubscriptionOptions): Observable<any> {
+  subscribe<T, V = EmptyObject>(options: SubscriptionOptions<V> & JssGraphQLOptions, extra?: ExtraSubscriptionOptions) {
     if (this.isEditingOrPreviewingAndSsr) {
       return empty();
     }
@@ -123,7 +123,7 @@ export class JssGraphQLService {
     const usedVariables = JssGraphQLService.extractVariableNames(query);
 
     if (usedVariables.datasource && rendering && rendering.dataSource) {
-      variables['datasource'] = rendering.dataSource;
+      (variables as EmptyObject).datasource = rendering.dataSource;
     }
 
     if (
@@ -132,7 +132,7 @@ export class JssGraphQLService {
       this.sitecoreContext.state.value.sitecore.route &&
       this.sitecoreContext.state.value.sitecore.route.itemId
     ) {
-      variables['contextItem'] = this.sitecoreContext.state.value.sitecore.route.itemId;
+      (variables as EmptyObject).contextItem = this.sitecoreContext.state.value.sitecore.route.itemId;
     }
 
     return variables;

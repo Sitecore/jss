@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 
-import { RichText } from './RichText';
+import { RichText, RichTextField } from './RichText';
 import { richTextField as eeRichTextData } from '../testData/ee-data';
 
 describe('<RichText />', () => {
   it('should render nothing with missing field', () => {
-    const field: any = null;
+    const field: RichTextField = null;
     const rendered = mount(<RichText field={field} />).find('div');
     expect(rendered).to.have.length(0);
   });

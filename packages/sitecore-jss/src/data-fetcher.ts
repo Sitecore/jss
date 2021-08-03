@@ -1,5 +1,5 @@
 import resolveUrl from './utils/resolve-url';
-import querystring from 'querystring';
+import { ParsedUrlQueryInput } from 'querystring';
 
 /**
  * Response data for an HTTP request sent to an API
@@ -23,10 +23,7 @@ export interface HttpResponse<T> {
  * - Comply with the rules of REST by returning appropriate response status codes when there is an error instead of throwing exceptions.
  * - Send HTTP POST requests if `data` param is specified; GET is suggested but not required for data-less requests
  */
-export type HttpDataFetcher<T> = (
-  url: string,
-  data?: { [key: string]: unknown }
-) => Promise<HttpResponse<T>>;
+export type HttpDataFetcher<T> = (url: string, data?: unknown) => Promise<HttpResponse<T>>;
 
 class ResponseError extends Error {
   response: HttpResponse<unknown>;
@@ -60,7 +57,7 @@ function checkStatus<T>(response: HttpResponse<T>) {
 export function fetchData<T>(
   url: string,
   fetcher: HttpDataFetcher<T>,
-  params: querystring.ParsedUrlQueryInput = {}
+  params: ParsedUrlQueryInput = {}
 ) {
   return fetcher(resolveUrl(url, params))
     .then(checkStatus)

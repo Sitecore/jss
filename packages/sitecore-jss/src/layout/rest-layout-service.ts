@@ -172,7 +172,6 @@ export class RestLayoutService extends LayoutServiceBase {
 
   /**
    * Resolves layout service url
-   * @param {LayoutServiceConfig} [options] layout service options
    * @param {string} apiType which layout service API to call ('render' or 'placeholder')
    * @returns the layout service url
    */

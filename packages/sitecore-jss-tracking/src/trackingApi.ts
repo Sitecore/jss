@@ -36,14 +36,13 @@ function checkStatus<T>(response: HttpResponse<T>) {
  * Note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
  * which is necessary for analytics and such
  * @param {string} url
- * @param {any} data
+ * @param {unknown[]} data
  * @param {HttpDataFetcher<T>} fetcher
  * @param {Object} params
  */
 function fetchData<T>(
   url: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any,
+  data: unknown[],
   fetcher: HttpDataFetcher<T>,
   params: querystring.ParsedUrlQueryInput = {}
 ) {

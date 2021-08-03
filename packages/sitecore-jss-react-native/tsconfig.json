@@ -19,7 +19,8 @@
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strictNullChecks": false,
   },
   "exclude": [
     "node_modules",

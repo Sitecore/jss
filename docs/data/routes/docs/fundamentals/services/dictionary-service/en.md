@@ -25,7 +25,7 @@ http://JssReactWeb/sitecore/api/jss/dictionary/JssReactWeb/es-MX/
 }
 ```
 
-It's up to you how you invoke and utilize this data. For example, the React App utilizes the `i18next` module with `i18next-fetch-backend`.
+It's up to you how you invoke and utilize this data. For example, the React App utilizes the `i18next` module with [custom plugin](https://www.i18next.com/misc/creating-own-plugins).
 
 > Note for Sitecore devs and admins: By default all JSS apps have a dictionary domain configured for the app. You can alter the app's dictionary domain in the [App configuration](/docs/techniques/content-translation).
 

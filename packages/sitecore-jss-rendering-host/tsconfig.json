@@ -6,19 +6,31 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
+    "noImplicitAny": true,
     "noUnusedParameters": false,
     "strict": true,
-    "typeRoots": ["node_modules/@types"],
-    "outDir": "dist",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "outDir": "dist/cjs",
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "exclude": ["node_modules", "types", "dist", "src/**/*.test.ts", "src/testData/*.ts"]
+  "exclude": [
+    "node_modules",
+    "types",
+    "dist",
+    "src/**/*.test.ts",
+    "src/testData/*.ts"
+  ]
 }

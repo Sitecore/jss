@@ -1,5 +1,17 @@
 import isServer from './is-server';
 
+type ExtendedWindow = Window &
+  typeof globalThis & {
+    [key: string]: unknown;
+    Sitecore: {
+      PageModes: {
+        ChromeManager: {
+          resetChromes: () => void;
+        };
+      };
+    };
+  };
+
 /**
  * Static utility class for Sitecore Experience Editor
  */
@@ -9,15 +21,14 @@ export class ExperienceEditor {
       return false;
     }
     // eslint-disable-next-line
-    const sc = (window as any).Sitecore;
+    const sc = (window as ExtendedWindow).Sitecore;
     return Boolean(sc && sc.PageModes && sc.PageModes.ChromeManager);
   }
   static resetChromes(): void {
     if (isServer()) {
       return;
     }
-    // eslint-disable-next-line
-    (window as any).Sitecore.PageModes.ChromeManager.resetChromes();
+    (window as ExtendedWindow).Sitecore.PageModes.ChromeManager.resetChromes();
   }
 }
 
@@ -44,8 +55,7 @@ export class HorizonEditor {
       return;
     }
     // Reset chromes in Horizon
-    // eslint-disable-next-line
-    (window as any)[ChromeRediscoveryGlobalFunctionName.name]();
+    ((window as ExtendedWindow)[ChromeRediscoveryGlobalFunctionName.name] as () => void)();
   }
 }
 

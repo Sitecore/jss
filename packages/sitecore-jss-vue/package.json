@@ -1,10 +1,12 @@
 {
   "name": "@sitecore-jss/sitecore-jss-vue",
-  "version": "19.0.0-canary.21",
+  "version": "19.0.0-canary.27",
   "description": "A library for building Sitecore JSS apps using Vue.js",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
     "test": "jest",
@@ -33,7 +35,7 @@
     "jest": "^26.6.3",
     "jest-serializer-html": "^7.0.0",
     "ts-jest": "26.5.6",
-    "typescript": "~4.2.4",
+    "typescript": "~4.3.5",
     "vue": "^v3.1.0-beta.6",
     "vue-class-component": "^7.2.6",
     "vue-jest": "^5.0.0-alpha.9"
@@ -42,7 +44,7 @@
     "vue": "^v3.1.0-beta.6"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.21",
+    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.27",
     "@vue/compiler-sfc": "^3.0.11"
   },
   "types": "./types/index.d.ts",

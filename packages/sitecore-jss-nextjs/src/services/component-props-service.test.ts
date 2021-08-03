@@ -4,7 +4,11 @@ import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';
 import { ParsedUrlQuery } from 'querystring';
-import { Module } from '../sharedTypes/component-module';
+import { ComponentModule, Module } from '../sharedTypes/component-module';
+import {
+  GetServerSideComponentProps,
+  GetStaticComponentProps,
+} from '../sharedTypes/component-props';
 import { ComponentPropsService } from './component-props-service';
 
 use(spies);
@@ -68,8 +72,9 @@ describe('ComponentPropsService', () => {
     spy(() => (err ? Promise.reject(err) : Promise.resolve(expectedData)));
 
   it('fetchServerSideComponentProps', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ssrModules: { [componentName: string]: any } = {
+    const ssrModules: {
+      [componentName: string]: { getServerSideProps: GetServerSideComponentProps };
+    } = {
       namex11: {
         getServerSideProps: fetchFn('x11SSRData'),
       },
@@ -94,7 +99,7 @@ describe('ComponentPropsService', () => {
     const ssrComponentModule = (componentName: string) => ssrModules[componentName];
 
     const result = await service.fetchServerSideComponentProps({
-      componentModule: ssrComponentModule,
+      componentModule: ssrComponentModule as ComponentModule,
       context: ssrContext,
       layoutData,
     });
@@ -112,8 +117,9 @@ describe('ComponentPropsService', () => {
   });
 
   it('fetchServerSideComponentProps using lazy loading module', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ssrModules: { [componentName: string]: any } = {
+    const ssrModules: {
+      [componentName: string]: { getServerSideProps: GetServerSideComponentProps };
+    } = {
       namex11: {
         getServerSideProps: fetchFn('x11SSRData'),
       },
@@ -138,7 +144,7 @@ describe('ComponentPropsService', () => {
     const ssrComponentModule = (componentName: string) => {
       return new Promise<Module>((res) => {
         setTimeout(() => {
-          res(ssrModules[componentName]);
+          res(ssrModules[componentName] as Module);
         }, 200);
       });
     };
@@ -162,8 +168,7 @@ describe('ComponentPropsService', () => {
   });
 
   it('fetchStaticComponentProps using lazy loading module', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ssgModules: { [componentName: string]: any } = {
+    const ssgModules: { [componentName: string]: { getStaticProps: GetStaticComponentProps } } = {
       namex11: {
         getStaticProps: fetchFn('x11StaticData'),
       },
@@ -179,7 +184,7 @@ describe('ComponentPropsService', () => {
     };
 
     const ssgComponentModule = (componentName: string) => {
-      return new Promise<Module>((res) => {
+      return new Promise<{ getStaticProps: GetStaticComponentProps }>((res) => {
         setTimeout(() => {
           res(ssgModules[componentName]);
         }, 200);
@@ -187,7 +192,7 @@ describe('ComponentPropsService', () => {
     };
 
     const result = await service.fetchStaticComponentProps({
-      componentModule: ssgComponentModule,
+      componentModule: ssgComponentModule as ComponentModule,
       context,
       layoutData,
     });
@@ -205,8 +210,7 @@ describe('ComponentPropsService', () => {
   });
 
   it('fetchStaticComponentProps', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ssgModules: { [componentName: string]: any } = {
+    const ssgModules: { [componentName: string]: { getStaticProps: GetStaticComponentProps } } = {
       namex11: {
         getStaticProps: fetchFn('x11StaticData'),
       },
@@ -224,7 +228,7 @@ describe('ComponentPropsService', () => {
     const ssgComponentModule = (componentName: string) => ssgModules[componentName];
 
     const result = await service.fetchStaticComponentProps({
-      componentModule: ssgComponentModule,
+      componentModule: ssgComponentModule as ComponentModule,
       context,
       layoutData,
     });

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "newLine": "LF",
     "emitDecoratorMetadata": true,
@@ -13,17 +13,18 @@
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
+    "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
     "typeRoots": [
       "node_modules/@types"
     ],
-    "outDir": "dist",
+    "outDir": "dist/cjs",
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
   },
   "exclude": [
     "node_modules",

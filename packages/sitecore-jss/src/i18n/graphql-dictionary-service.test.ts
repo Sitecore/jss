@@ -8,8 +8,7 @@ import dictionaryQueryResponse from '../testData/mockDictionaryQueryResponse.jso
 import appRootQueryResponse from '../testData/mockAppRootQueryResponse.json';
 
 class TestService extends GraphQLDictionaryService {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public client: any;
+  public client: GraphQLClient;
   constructor(options: GraphQLDictionaryServiceConfig) {
     super(options);
     this.client = this.getGraphQLClient();
