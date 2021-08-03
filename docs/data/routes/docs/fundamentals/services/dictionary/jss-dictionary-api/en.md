@@ -13,6 +13,8 @@ The following examples show you how to retrieve dictionary data from your Siteco
 > For all the examples below, we assume you will create the files in the root directory of the application and that you have a `config.js` file in that same directory. Adjust the `import` statements as necessary to reflect your project's setup.
 
 ## Examples
+
+The following sections provide some simplified examples. If your project is based on a JSS sample application (you set it up with `jss create` or copied a sample from the [JSS repository](https://github.com/Sitecore/jss/tree/master/samples)), your application already handles fetching of dictionary data.
 ### Fetching dictionary data with GraphQL
 
 You can fetch dictionary data from Sitecore using GraphQL and the JSS `GraphQLDictionaryService`. 
@@ -112,6 +114,8 @@ dictionaryService.fetchDictionaryData(language).then(data => {
      // do something with the data
 });
 ```
+
+
 
 If you'd like to learn more about other translation techniques with JSS, see [Content Translation](/docs/techniques/content-translation).
 
