@@ -10,6 +10,21 @@ import sitemapQueryResult from '../testData/sitemapQueryResult.json';
 import sitemapServiceResult from '../testData/sitemapServiceResult';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
+/**
+ * @description helper function to generate a random GUID
+ * @returns a randomly generated GUID for testing purposes
+ * @see https://www.tutorialspoint.com/how-to-create-guid-uuid-in-javascript
+ */
+function generateGUID() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    /* eslint no-bitwise: off */
+    const r = (Math.random() * 16) | 0,
+      v = c === 'x' ? r : (r & 0x3) | 0x8;
+    const GUID = v.toString(16);
+    return `{${GUID}}`;
+  });
+}
+
 class TestService extends GraphQLSitemapService {
   public client: GraphQLClient;
   constructor(options: GraphQLSitemapServiceConfig) {
@@ -312,6 +327,42 @@ describe('GraphQLSitemapService', () => {
         apiKey,
         siteName,
         rootItemId: customRootId,
+      });
+
+      const sitemap = await service.fetchSSGSitemap(['ua']);
+      expect(sitemap).to.deep.equal(sitemapServiceResult);
+    });
+
+    it('should use a jssTemplateId, if provided', async () => {
+      const jssAppTemplateId = generateGUID();
+      // mock a random template id
+      const randomId = generateGUID();
+
+      nock(endpoint)
+        .post('/', (body) => body.variables.jssAppTemplateId === jssAppTemplateId)
+        .reply(200, {
+          data: {
+            layout: {
+              homePage: {
+                rootItem: [
+                  {
+                    id: randomId,
+                  },
+                ],
+              },
+            },
+          },
+        });
+
+      nock(endpoint)
+        .post('/', (body) => body.variables.rootItemId === randomId)
+        .reply(200, sitemapQueryResult);
+
+      const service = new GraphQLSitemapService({
+        endpoint,
+        apiKey,
+        siteName,
+        jssAppTemplateId,
       });
 
       const sitemap = await service.fetchSSGSitemap(['ua']);
