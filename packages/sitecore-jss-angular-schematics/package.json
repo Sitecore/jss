@@ -9,7 +9,7 @@
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "test-package": "jasmine src/**/*_spec.js",
     "test": "npm run build && npm run test-package",
-    "coverage": "nyc npm test-package"
+    "coverage": "nyc npm run test-package"
   },
   "engines": {
     "node": ">=8.1"
