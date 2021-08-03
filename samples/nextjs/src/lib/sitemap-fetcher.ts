@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { GraphQLSitemapService, StaticPath } from '@sitecore-jss/sitecore-jss-nextjs';
-// #START_STRIP
+// #START_EMPTY
 import { DisconnectedSitemapService, ManifestInstance } from '@sitecore-jss/sitecore-jss-nextjs';
-// #END_STRIP
+// #END_EMPTY
 import { GetStaticPathsContext } from 'next';
 import config from 'temp/config';
 import { config as packageConfig } from '../../package.json';
 
 export class SitecoreSitemapFetcher {
   private _graphqlSitemapService: GraphQLSitemapService;
-  // #START_STRIP
+  // #START_EMPTY
   private _disconnectedSitemapService: DisconnectedSitemapService;
-  // #END_STRIP
+  // #END_EMPTY
 
   constructor() {
     this._graphqlSitemapService = new GraphQLSitemapService({
@@ -25,14 +25,14 @@ export class SitecoreSitemapFetcher {
       rootItemId: '{GUID}'
       */
     });
-    // #START_STRIP
+    // #START_EMPTY
     this._disconnectedSitemapService = new DisconnectedSitemapService(
       (this.getManifest() as unknown) as ManifestInstance
     );
-    // #END_STRIP
+    // #END_EMPTY
   }
 
-  // #START_STRIP
+  // #START_EMPTY
   /**
    * Get sitecore-import.json manifest
    */
@@ -49,7 +49,7 @@ export class SitecoreSitemapFetcher {
       );
     }
   }
-  // #END_STRIP
+  // #END_EMPTY
   /**
    * Generates SitecoreSitemap for given mode (Export / Disconnected Export / SSG)
    * @param {GetStaticPathsContext} context
@@ -57,12 +57,12 @@ export class SitecoreSitemapFetcher {
   async fetch(context?: GetStaticPathsContext): Promise<StaticPath[]> {
     // If we are in Export mode
     if (process.env.EXPORT_MODE) {
-      // #START_STRIP
+      // #START_EMPTY
       // Disconnected Export mode
       if (process.env.JSS_MODE === 'disconnected') {
         return this._disconnectedSitemapService.fetchExportSitemap();
       }
-      // #END_STRIP
+      // #END_EMPTY
       return this._graphqlSitemapService.fetchExportSitemap(packageConfig.language);
     }
 

@@ -1,7 +1,7 @@
 import { generateConfig } from './generate-config';
-// #START_STRIP
+// #START_EMPTY
 import { constants } from '@sitecore-jss/sitecore-jss-nextjs';
-// #END_STRIP
+// #END_EMPTY
 /*
   BOOTSTRAPPING
   The bootstrap process runs before build, and generates JS that needs to be
@@ -9,23 +9,23 @@ import { constants } from '@sitecore-jss/sitecore-jss-nextjs';
   and the global config module.
 */
 
-// #START_STRIP
+// #START_EMPTY
 const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
-// #END_STRIP
+// #END_EMPTY
 /*
   CONFIG GENERATION
   Generates the /src/temp/config.js file which contains runtime configuration
   that the app can import and use.
 */
-// #START_STRIP
+// #START_EMPTY
 const port = process.env.PORT || 3000;
-// #END_STRIP
+// #END_EMPTY
 const configOverride: { [key: string]: string } = {};
-// #START_STRIP
+// #START_EMPTY
 if (disconnected) {
   configOverride.sitecoreApiHost = `http://localhost:${port}`;
 }
-// #END_STRIP
+// #END_EMPTY
 
 generateConfig(configOverride);
 

@@ -1,16 +1,16 @@
 const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
 const {
-  // #START_STRIP
+  // #START_EMPTY
   constants,
-  // #END_STRIP
+  // #END_EMPTY
   getPublicUrl,
 } = require('@sitecore-jss/sitecore-jss-nextjs');
 
-// #START_STRIP
+// #START_EMPTY
 const disconnectedServerUrl = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
 const isDisconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
-// #END_STRIP
+// #END_EMPTY
 const publicUrl = getPublicUrl();
 
 const nextConfig = {
@@ -35,7 +35,7 @@ const nextConfig = {
   },
 
   async rewrites() {
-    // #START_STRIP
+    // #START_EMPTY
     if (isDisconnected) {
       // When disconnected we proxy to the local faux layout service host, see scripts/disconnected-mode-server.js
       return [
@@ -58,7 +58,7 @@ const nextConfig = {
         },
       ];
     }
-    // #END_STRIP
+    // #END_EMPTY
     // When in connected mode we want to proxy Sitecore paths off to Sitecore
     return [
       {
