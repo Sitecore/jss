@@ -12,7 +12,8 @@ The following examples show you how to retrieve dictionary data from your Siteco
 
 > For all the examples below, we assume you will create the files in the root directory of the application and that you have a `config.js` file in that same directory. Adjust the `import` statements as necessary to reflect your project's setup.
 
-## Fetching dictionary data with GraphQL
+## Examples
+### Fetching dictionary data with GraphQL
 
 You can fetch dictionary data from Sitecore using GraphQL and the JSS `GraphQLDictionaryService`. 
 
@@ -44,7 +45,7 @@ dictionaryService.fetchDictionaryData(language).then(data => {
 });
 ```
 
-## Fetching dictionary data with REST
+### Fetching dictionary data with REST
 
 To invoke the REST Dictionary Service from a JSS application: 
 
