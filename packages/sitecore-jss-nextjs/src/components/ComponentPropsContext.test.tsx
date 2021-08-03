@@ -20,21 +20,41 @@ describe('ComponentPropsContext', () => {
     return <div>Second: {data}</div>;
   };
 
+  const X3Component = () => {
+    const data = useComponentProps<number>('z1');
+
+    return <div>Third: {data ?? 'undefined'}</div>;
+  };
+
+  const X4Component = () => {
+    const data = useComponentProps<number>(undefined);
+
+    return <div>Forth: {data ?? 'undefined'}</div>;
+  };
+
   it('should render', () => {
     const component = mount(
       <ComponentPropsContext value={VALUE}>
         <>
           <X1Component />
           <X2Component />
+          <X3Component />
+          <X4Component />
         </>
       </ComponentPropsContext>
     );
 
     const x1Div = component.find(X1Component);
     const x2Div = component.find(X2Component);
+    const x3Div = component.find(X3Component);
+    const x4Div = component.find(X4Component);
 
     expect(x1Div.contains(<div>First: 101</div>)).to.be.true;
 
     expect(x2Div.contains(<div>Second: 202</div>)).to.be.true;
+
+    expect(x3Div.contains(<div>Third: undefined</div>)).to.be.true;
+
+    expect(x4Div.contains(<div>Forth: undefined</div>)).to.be.true;
   });
 });

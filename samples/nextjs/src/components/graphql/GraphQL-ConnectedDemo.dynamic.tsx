@@ -28,9 +28,7 @@ type GraphQLConnectedDemoData = {
 };
 
 const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
-  const data = props.rendering.uid
-    ? useComponentProps<GraphQLConnectedDemoData>(props.rendering.uid)
-    : undefined;
+  const data = useComponentProps<GraphQLConnectedDemoData>(props.rendering.uid);
 
   useEffect(() => {
     resetEditorChromes();
