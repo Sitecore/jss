@@ -8,7 +8,7 @@
     "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
-    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
+    "test": "mocha --require ts-node/register/transpile-only \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test"
   },

@@ -58,11 +58,8 @@ steps:
     npm run lint-apps
   displayName: 'linting apps'
 - script: |
-    npm run test-packages
-  displayName: 'running tests'
-- script: |
     npm run coverage-packages
-  displayName: 'running test coverage'
+  displayName: 'running tests'
   env: {
     testEnv: 'ci'
   }
