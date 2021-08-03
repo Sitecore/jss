@@ -42,9 +42,9 @@ module.exports = function createJssProject(argv, nextSteps) {
  */
 function setFetchWith(fetchWith) {
   const defaultDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.js');
-  const graphQLDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.graphql.ts');
-  const defaultLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.ts');
-  const graphQLLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.graphql.ts');
+  const graphQLDsfFile = path.join(__dirname, 'src/lib/dictionary-service-factory.graphql.js');
+  const defaultLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.js');
+  const graphQLLsfFile = path.join(__dirname, 'src/lib/layout-service-factory.graphql.js');
   const FetchWith = {
     GRAPHQL: 'graphql',
     REST: 'rest',
