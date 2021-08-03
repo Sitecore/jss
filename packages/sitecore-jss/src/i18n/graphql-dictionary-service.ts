@@ -66,7 +66,7 @@ export interface GraphQLDictionaryServiceConfig extends SearchServiceConfig, Cac
   dictionaryEntryTemplateId?: string;
 
   /**
-   * Optional. The template ID to use when searching for the appRootId.
+   * Optional. The template ID of a JSS App to use when searching for the appRootId.
    * @default '061cba1554744b918a0617903b102b82' (/sitecore/templates/Foundation/JavaScript Services/App)
    */
   jssAppTemplateId?: string;
