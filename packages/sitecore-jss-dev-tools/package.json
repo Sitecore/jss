@@ -18,8 +18,8 @@
     "node": ">=8.1"
   },
   "bin": {
-    "scjss-verify-setup": "./dist/bin/verify-setup.js",
-    "scjss-deploy": "./dist/bin/deploy.js"
+    "scjss-verify-setup": "./dist/cjs/bin/verify-setup.js",
+    "scjss-deploy": "./dist/cjs/bin/deploy.js"
   },
   "author": {
     "name": "Sitecore Corporation",
