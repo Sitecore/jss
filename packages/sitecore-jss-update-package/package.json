@@ -1,10 +1,12 @@
 {
   "name": "@sitecore-jss/sitecore-jss-update-package",
-  "version": "19.0.0-canary.26",
+  "version": "19.0.0-canary.28",
   "description": "Allows creation of Sitecore Update Packages in JavaScript (currently files only).",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
