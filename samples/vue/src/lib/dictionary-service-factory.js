@@ -1,5 +1,5 @@
 import { RestDictionaryService } from '@sitecore-jss/sitecore-jss-vue';
-import config from 'temp/config';
+import config from '../temp/config';
 
 export class DictionaryServiceFactory {
   create() {
