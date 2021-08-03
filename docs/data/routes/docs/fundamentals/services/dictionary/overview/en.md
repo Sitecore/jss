@@ -18,9 +18,9 @@ There are several options for fetching dictionaries from Sitecore:
 
 ### Dictionary Service
 The [Sitecore Dictionary Service](/docs/fundamentals/services/dictionary/sitecore-dictionary-service) is a REST endpoint providing app-specific dictionary data.
-### Sitecore Experience Edge for XM
-[Sitecore Experience Edge for XM](https://doc.sitecore.com/developers/101/developer-tools/en/introducing-sitecore-experience-edge-for-xm.html) comes with a read-only GraphQL schema that is designed to accommodate common front-end use cases for headless Sitecore development. Read about the [Experience Edge schema](https://doc.sitecore.com/developers/101/developer-tools/en/the-experience-edge-schema.html).
 ### Sitecore GraphQL
 [Sitecore GraphQL API](/docs/fundamentals/services/graphql) is an implementation of a GraphQL server on top of Sitecore. The Sitecore GraphQL schema mirrors the [Experience Edge schema](https://doc.sitecore.com/developers/101/developer-tools/en/the-experience-edge-schema.html).
+### Sitecore Experience Edge for XM
+[Sitecore Experience Edge for XM](https://doc.sitecore.com/developers/101/developer-tools/en/introducing-sitecore-experience-edge-for-xm.html) comes with a read-only GraphQL schema that is designed to accommodate common front-end use cases for headless Sitecore development. Read about the [Experience Edge schema](https://doc.sitecore.com/developers/101/developer-tools/en/the-experience-edge-schema.html).
 ## JSS Dictionary API
 The [JSS Dictionary API](/docs/fundamentals/services/dictionary/jss-dictionary-api) is a suite of services, clients and data fetchers for either REST or GraphQL.
