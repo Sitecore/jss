@@ -133,36 +133,6 @@ export default {
           displayName: 'Understanding layout',
         },
         {
-          url: 'personalization',
-          displayName: 'Personalization',
-        },
-        {
-          url: 'dev-workflows',
-          displayName: 'Developer workflows',
-          children: [
-            {
-              url: 'overview',
-              displayName: 'Overview',
-            },
-            {
-              url: 'code-first',
-              displayName: 'Code-first',
-            },
-            {
-              url: 'sitecore-first',
-              displayName: 'Sitecore-first',
-            },
-          ],
-        },
-        {
-          url: 'application-modes',
-          displayName: 'Application modes',
-        },
-        {
-          url: 'cli',
-          displayName: 'JSS CLI',
-        },
-        {
           url: 'services',
           displayName: 'Services and APIs',
           children: [
@@ -232,6 +202,37 @@ export default {
             },
           ],
         },
+        {
+          url: 'personalization',
+          displayName: 'Personalization',
+        },
+        {
+          url: 'dev-workflows',
+          displayName: 'Developer workflows',
+          children: [
+            {
+              url: 'overview',
+              displayName: 'Overview',
+            },
+            {
+              url: 'code-first',
+              displayName: 'Code-first',
+            },
+            {
+              url: 'sitecore-first',
+              displayName: 'Sitecore-first',
+            },
+          ],
+        },
+        {
+          url: 'application-modes',
+          displayName: 'Application modes',
+        },
+        {
+          url: 'cli',
+          displayName: 'JSS CLI',
+        },
+
         {
           url: 'troubleshooting',
           displayName: 'Troubleshooting',
