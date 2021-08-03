@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "newLine": "LF",
     "emitDecoratorMetadata": true,
@@ -19,7 +19,7 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "outDir": "dist",
+    "outDir": "dist/cjs",
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,
@@ -30,6 +30,6 @@
     "types",
     "dist",
     "src/test",
-    "src/**/*.test.ts"
+    "src/**/*.test.ts",
   ]
 }

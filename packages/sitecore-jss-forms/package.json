@@ -1,9 +1,11 @@
 {
   "name": "@sitecore-jss/sitecore-jss-forms",
-  "version": "19.0.0-canary.26",
-  "main": "dist/index.js",
+  "version": "19.0.0-canary.27",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
@@ -42,7 +44,7 @@
     "typescript": "~4.3.5"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.26"
+    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.27"
   },
   "description": "",
   "types": "types/index.d.ts",
