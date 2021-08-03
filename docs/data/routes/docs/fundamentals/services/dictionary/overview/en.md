@@ -12,9 +12,9 @@ Often, multilingual apps need a dictionary of static phrases that require transl
 
 There are several options for fetching dictionaries from Sitecore: 
 
-- [Sitecore Dictionary Service](/docs/fundamentals/services/dictionary/sitecore-dictionary-service),
-- [Sitecore Experience Edge for XM](#sitecore-experience-edge-for-xm) or 
-- [Sitecore GraphQL](#sitecore-graphql).
+- Call the [Dictionary Service REST endpoint](/docs/fundamentals/services/dictionary/sitecore-dictionary-service) provided by Headless Services.
+- Query the [GraphQL endpoint](#sitecore-graphql) provided by Headless Services.
+- Query the GraphQL endpoint provided by [Sitecore Experience Edge for XM](#sitecore-experience-edge-for-xm).
 
 ### Dictionary Service
 The [Sitecore Dictionary Service](/docs/fundamentals/services/dictionary/sitecore-dictionary-service) is a REST endpoint providing app-specific dictionary data.
