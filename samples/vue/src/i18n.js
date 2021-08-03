@@ -1,6 +1,6 @@
 import 'cross-fetch/polyfill';
 import { createI18n } from 'vue-i18n';
-import { dictionaryService } from './lib/dictionary-service';
+import { dictionaryServiceFactory } from './lib/dictionary-service-factory';
 
 /**
  * Initializes the vue-i18n library to provide a translation dictionary to the app.
@@ -29,7 +29,7 @@ export default function i18nInit(language, dictionary) {
 
       resolve(i18n);
     } else {
-      dictionaryService.fetchDictionaryData(language).then((phrases) => {
+      dictionaryServiceFactory.fetchDictionaryData(language).then((phrases) => {
         resolve(
           createI18n({
             fallbackLocale: false,

@@ -11,7 +11,7 @@
 
 <script>
 import ContextView from './ContextView';
-import { dictionaryService } from './lib/dictionary-service';
+import { dictionaryServiceFactory } from './lib/dictionary-service-factory';
 
 export default {
   name: 'AppRoot',
@@ -29,7 +29,7 @@ export default {
         // to show a loading/switching screen when language is being changed.
         this.languageIsChanging = true;
 
-        dictionaryService.fetchDictionaryData(language).then((phrases) => {
+        dictionaryServiceFactory.fetchDictionaryData(language).then((phrases) => {
           i18n.setLocaleMessage(language, phrases);
           i18n.locale = language;
 

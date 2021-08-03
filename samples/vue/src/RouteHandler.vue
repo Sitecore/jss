@@ -9,7 +9,7 @@
 
 <script>
 import { isEditorActive } from '@sitecore-jss/sitecore-jss-vue';
-import { layoutService } from './lib/layout-service';
+import { layoutServiceFactory } from './lib/layout-service-factory';
 import config from './temp/config';
 
 import Layout from './Layout';
@@ -95,7 +95,7 @@ export default {
       this.loading = true;
 
       // get the route data for the new route
-      layoutService.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
+      layoutServiceFactory.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
         if (routeData !== null && routeData.sitecore.route) {
           // Update the JSS store instance with the fetched data.
           // This will signal the RouteHandler to update/re-render, as well as any components
