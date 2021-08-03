@@ -10,7 +10,7 @@ Often, multilingual apps need a dictionary of static phrases that require transl
 
 ## Sitecore endpoints for dictionary data
 
-You have several options for fetching dictionaries from Sitecore: 
+There are several options for fetching dictionaries from Sitecore: 
 
 - [Sitecore Dictionary Service](/docs/fundamentals/services/dictionary/sitecore-dictionary-service),
 - [Sitecore Experience Edge for XM](#sitecore-experience-edge-for-xm) or 
