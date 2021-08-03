@@ -6,7 +6,7 @@ title: JSS Dictionary API
 
 # JSS Dictionary API 
 
-Sitecore JSS provides a simple API to help you fetch app-specific translation dictionaries using the [Sitecore Dictionary Service](/docs/fundamentals/services/dictionary/sitecore-dictionary-service). Once you have the dictionary data, it is up to you to choose how to utilize it and what internationalization libraries you prefer. 
+Sitecore JSS, through the core JSS NPM package `sitecore-jss`, provides a simple API to help you fetch app-specific translation dictionaries using the [Sitecore Dictionary Service](/docs/fundamentals/services/dictionary/sitecore-dictionary-service). Once you have the dictionary data, it is up to you to choose how to utilize it and what internationalization libraries you prefer. 
 
 The following examples show you how to retrieve dictionary data from your Sitecore instance using the REST and GraphQL. 
 
