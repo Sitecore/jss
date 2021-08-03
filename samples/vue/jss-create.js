@@ -20,7 +20,7 @@ module.exports = function createJssProject(argv, nextSteps) {
 
   applyNameToProject(__dirname, argv.name, argv.hostName);
 
-  if (!argv.fetchWith || !argv.prerender) {
+  if (!argv.fetchWith) {
     nextSteps.push(
       `* Did you know you can customize the Next.js sample app using ${chalk.green(
         'jss create'
