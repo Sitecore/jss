@@ -7,7 +7,7 @@ import { from as fromPromise, Observable, throwError as observableThrow } from '
 import { catchError } from 'rxjs/operators';
 import { layoutServiceFactory } from '../lib/layout-service-factory';
 
-const layoutServiceFactoryInstance = layoutServiceFactory.create();
+const layoutServiceInstance = layoutServiceFactory.create();
 
 export class LayoutServiceError {
   status: number;
@@ -21,7 +21,7 @@ export class JssLayoutService {
     route: string,
     language: string
   ): Observable<LayoutServiceData | LayoutServiceError> {
-    return fromPromise(layoutServiceFactoryInstance.fetchLayoutData(route, language)).pipe(
+    return fromPromise(layoutServiceInstance.fetchLayoutData(route, language)).pipe(
       catchError(this.getLayoutServiceError)
     );
   }
