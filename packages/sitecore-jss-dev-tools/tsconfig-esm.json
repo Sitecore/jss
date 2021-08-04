@@ -4,4 +4,12 @@
     "module": "es6",
     "outDir": "dist/esm"
   },
+  "exclude": [
+    "dist",
+    "types",
+    "src/bin",
+    "src/test*",
+    "node_modules",
+    "src/**/*.test.ts"
+  ]
 }
