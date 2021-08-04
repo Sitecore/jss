@@ -41,7 +41,7 @@
       children:
       <ul>
         <li v-for="(child) in result.contextItem.children" :key="child.id">
-          <router-link :to="child.url">{{child.pageTitle.value}}</router-link>&nbsp; (editable title too! <sc-text :field="child.pageTitle.jss" />)
+          <router-link :to="child.url.path">{{child.pageTitle.value}}</router-link>&nbsp; (editable title too! <sc-text :field="child.pageTitle.jsonValue" />)
         </li>
       </ul>
     </div>
