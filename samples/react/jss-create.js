@@ -62,7 +62,7 @@ function setFetchWith(fetchWith) {
   switch (value) {
     case FetchWith.GRAPHQL:
       fs.unlinkSync(defaultDsfFile);
-      fs.renameSync(graphQLDfsFile, defaultDsfFile);
+      fs.renameSync(graphQLDsfFile, defaultDsfFile);
       fs.unlinkSync(defaultLsfFile);
       fs.renameSync(graphQLLsfFile, defaultLsfFile);
       break;
