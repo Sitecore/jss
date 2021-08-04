@@ -26,7 +26,7 @@ const GraphQLIntegratedDemo = (props) => {
           <br />
           sample1: {datasource.sample1.value}
           <br />
-          sample1 (editable): <Text field={datasource.sample1.jss} />
+          sample1 (editable): <Text field={datasource.sample1.jsonValue} />
           <br />
           sample2:
           <br />
@@ -35,7 +35,7 @@ const GraphQLIntegratedDemo = (props) => {
             <li>url: {datasource.sample2.url}</li>
             <li>target: {datasource.sample2.target}</li>
             <li>
-              editable: <Link field={datasource.sample2.jss} />
+              editable: <Link field={datasource.sample2.jsonValue} />
             </li>
             <li>field type: {datasource.sample2.definition.type}</li>
             <li>field is shared?: {datasource.sample2.definition.shared.toString()}</li>
@@ -53,8 +53,8 @@ const GraphQLIntegratedDemo = (props) => {
           <ul>
             {contextItem.children.map((child) => (
               <li key={child.id}>
-                <RouterLink to={child.url}>{child.pageTitle.value}</RouterLink>&nbsp; (editable
-                title too! <Text field={child.pageTitle.jss} />)
+                <RouterLink to={child.url.path}>{child.pageTitle.value}</RouterLink>&nbsp; (editable
+                title too! <Text field={child.pageTitle.jsonValue} />)
               </li>
             ))}
           </ul>
