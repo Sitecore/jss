@@ -19,6 +19,11 @@ const nextConfig = {
     PUBLIC_URL: publicUrl,
   },
 
+  // Enable image optimization for images using our public URL
+  images: {
+    domains: [new URL(publicUrl).hostname],
+  },
+
   i18n: {
     // These are all the locales you want to support in your application.
     // These should generally match (or at least be a subset of) those in Sitecore.

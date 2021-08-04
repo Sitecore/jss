@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect } from 'react';
 import { useI18n } from 'next-localization';
 import {
@@ -24,7 +25,7 @@ const Navigation = () => {
       <h5 className="my-0 mr-md-auto font-weight-normal">
         <Link href="/">
           <a className="text-dark">
-            <img src={`${publicUrl}/sc_logo.svg`} alt="Sitecore" />
+            <Image src={`${publicUrl}/sc_logo.svg`} width={221} height={48} alt="Sitecore" />
           </a>
         </Link>
       </h5>
