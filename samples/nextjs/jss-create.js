@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
+const { strip } = require('@sitecore-jss/sitecore-jss-dev-tools');
 const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/create');
 const { execSync } = require('child_process');
-const strip = require('./scripts/strip');
 
 /**
  * This function is invoked by `jss create` when an app based on this template is created.
@@ -43,6 +43,8 @@ module.exports = function createJssProject(argv, nextSteps) {
     createEmptyStarter();
   }
 
+  strip({ stripCode: argv.empty });
+
   setFetchWith(argv.fetchWith);
   setPrerender(argv.prerender);
   setNextConfig();
@@ -59,7 +61,6 @@ function createEmptyStarter() {
   const dataDir = getPath('data');
   const disconnectedProxyScript = getPath('scripts/disconnected-mode-proxy.ts');
   const manifestTemplate = getPath('scripts/templates/component-manifest.ts');
-  const stripScript = getPath('scripts/strip.js');
   const definitionsDir = getPath('sitecore/definitions');
   const componentsDir = getPath('src/components');
 
@@ -70,11 +71,7 @@ function createEmptyStarter() {
   fs.unlinkSync(manifestTemplate);
   fs.rmdirSync(definitionsDir, { recursive: true });
   fs.rmdirSync(componentsDir, { recursive: true });
-
-  strip();
-
   fs.mkdirSync(componentsDir);
-  fs.unlinkSync(stripScript);
 
   const packageJson = require('./package.json');
 
