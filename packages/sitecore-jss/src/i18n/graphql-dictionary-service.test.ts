@@ -12,7 +12,7 @@ import appRootQueryResponse from '../testData/mockAppRootQueryResponse.json';
  * @returns a randomly generated GUID for testing purposes
  * @see https://www.tutorialspoint.com/how-to-create-guid-uuid-in-javascript
  */
- function generateGUID() {
+function generateGUID() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     /* eslint no-bitwise: off */
     const r = (Math.random() * 16) | 0,
