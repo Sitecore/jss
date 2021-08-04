@@ -20,6 +20,19 @@ module.exports = function createJssProject(argv, nextSteps) {
 
   applyNameToProject(__dirname, argv.name, argv.hostName);
 
+  if (!argv.fetchWith) {
+    nextSteps.push(
+      `* Did you know you can customize the React sample app using ${chalk.green(
+        'jss create'
+      )} parameters?`,
+      `*  ${chalk.green(
+        '--fetchWith {REST|GraphQL}'
+      )} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`
+    );
+  }
+
+  setFetchWith(argv.fetchWith);
+
   return nextSteps;
 };
 
