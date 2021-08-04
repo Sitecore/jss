@@ -3,33 +3,62 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 
 interface QueryResult {
   data: {
-    datasource: {
-      sample1: {
-        jss: string;
+    datasource: DataSource;
+    contextItem: {
+      id: string;
+      children: ItemSearchResults;
+      pageTitle: {
         value: string;
       };
-      sample2: {
-        definition: {
-          type: string;
-          shared: boolean;
-        };
-        jss: string;
+    };
+  };
+};
+
+type DataSource = {
+  sample1: {
+    jsonValue:{
+      value:string;
+    };
+    value: string;
+  };
+  sample2: {
+    definition: {
+      type: string;
+      shared: boolean;
+    };
+    jsonValue: {
+      value: {
+        href: string;
+        linktype: string;
         target: string;
         text: string;
         url: string;
       };
-      name: string;
-      id: string;
     };
-    contextItem: {
-      id: string;
-      pageTitle: {
-        value: string;
-      };
-      children: unknown[];
+    target: string;
+    text: string;
+    url: string;
+  };
+  name: string;
+  id: string;
+};
+
+type Item = {
+  id: string;
+  url: {
+    path: string;
+  };
+  pageTitle: {
+    value: string;
+    jsonValue: {
+      value: string;
     };
   };
-}
+};
+
+type ItemSearchResults = {
+  results: Item[];
+};
 
 @Component({
   selector: 'app-graph-ql-integrated-demo',
