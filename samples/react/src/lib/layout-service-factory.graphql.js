@@ -1,5 +1,5 @@
 import { GraphQLLayoutService } from '@sitecore-jss/sitecore-jss-react';
-import config from 'temp/config';
+import config from '../temp/config';
 
 export class LayoutServiceFactory {
   create() {
