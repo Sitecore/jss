@@ -5,7 +5,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-angular';
 import { from as fromPromise, Observable, throwError as observableThrow } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { layoutServiceFactory } from '../lib/layout-service-factory'
+import { layoutServiceFactory } from '../lib/layout-service-factory';
 
 const layoutServiceFactoryInstance = layoutServiceFactory.create();
 

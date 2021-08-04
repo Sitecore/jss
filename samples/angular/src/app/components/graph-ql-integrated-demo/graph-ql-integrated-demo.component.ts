@@ -14,10 +14,10 @@ interface QueryResult {
   };
 };
 
-type DataSource = {
-  sample1: {
-    jsonValue:{
-      value:string;
+interface DataSource {
+    sample1: {
+    jsonValue: {
+      value: string;
     };
     value: string;
   };
@@ -43,7 +43,7 @@ type DataSource = {
   id: string;
 };
 
-type Item = {
+interface Item {
   id: string;
   url: {
     path: string;
@@ -56,7 +56,7 @@ type Item = {
   };
 };
 
-type ItemSearchResults = {
+interface ItemSearchResults {
   results: Item[];
 };
 
