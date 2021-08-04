@@ -60,7 +60,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
   // Note the context object type here matches the initial value in [[...path]].tsx.
   useEffect(() => {
     updateSitecoreContext && updateSitecoreContext(context);
-  }, [context]);
+  }, [updateSitecoreContext, context]);
 
   const { route } = context;
 

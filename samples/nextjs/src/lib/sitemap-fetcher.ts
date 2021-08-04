@@ -7,7 +7,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { GetStaticPathsContext } from 'next';
 import config from 'temp/config';
-import { config as packageConfig } from '../../package.json';
+import pkg from '../../package.json';
 
 export class SitecoreSitemapFetcher {
   private _graphqlSitemapService: GraphQLSitemapService;
@@ -57,7 +57,7 @@ export class SitecoreSitemapFetcher {
     if (process.env.EXPORT_MODE) {
       return process.env.JSS_MODE === 'disconnected'
         ? this._disconnectedSitemapService.fetchExportSitemap()
-        : this._graphqlSitemapService.fetchExportSitemap(packageConfig.language);
+        : this._graphqlSitemapService.fetchExportSitemap(pkg.config.language);
     }
 
     return this._graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
