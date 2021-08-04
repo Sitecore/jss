@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {
   LayoutServiceData,
   LayoutServiceContextData,
-  PlaceholderData,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { from as fromPromise, Observable, throwError as observableThrow } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -25,16 +24,6 @@ export class JssLayoutService {
     return fromPromise(layoutServiceFactoryInstance.fetchLayoutData(route, language)).pipe(
       catchError(this.getLayoutServiceError)
     );
-  }
-
-  getPlaceholderData(
-    route: string,
-    placeholderName: string,
-    language: string
-  ): Observable<PlaceholderData | LayoutServiceError | unknown> {
-    return fromPromise(
-      layoutServiceFactoryInstance.fetchPlaceholderData(placeholderName, route, language)
-    ).pipe(catchError(this.getLayoutServiceError));
   }
 
   private getLayoutServiceError(error: { [key: string]: unknown }): Observable<LayoutServiceError> {
