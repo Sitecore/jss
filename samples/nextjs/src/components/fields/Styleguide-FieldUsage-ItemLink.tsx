@@ -44,4 +44,6 @@ const StyleguideFieldUsageItemLink = (props: StyleguideFieldUsageItemLinkProps):
   );
 };
 
-export default withDatasourceCheck()(StyleguideFieldUsageItemLink);
+export default withDatasourceCheck()<StyleguideFieldUsageItemLinkProps>(
+  StyleguideFieldUsageItemLink
+);

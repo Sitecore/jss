@@ -145,4 +145,4 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
   return result;
 };
 
-export default withDatasourceCheck()(GraphQLConnectedDemo);
+export default withDatasourceCheck()<StyleguideComponentProps>(GraphQLConnectedDemo);
