@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/create');
+const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/cjs/create');
 
 /**
  * This function is invoked by `jss create` when an app based on this template is created.
