@@ -115,7 +115,21 @@ dictionaryService.fetchDictionaryData(language).then(data => {
 });
 ```
 
+### Dictionary data
 
+Assuming an app called "JssReactWeb", where you want to fetch dictionary data for Mexican Spanish, the JSS application receives the following dictionary data:
+
+```json
+{
+    "lang": "es-MX",
+    "app": "JssReactWeb",
+    "phrases": {
+        "Copyright": "{{year}} Inicio Bootstrap",
+        "Home": "Inicio",
+        "Start Bootstrap": "Inicio Bootstrap"
+    }
+}
+```
 
 If you'd like to learn more about other translation techniques with JSS, see [Content Translation](/docs/techniques/content-translation).
 
