@@ -37,3 +37,40 @@ module.exports = function createJssProject(argv, nextSteps) {
 
   return nextSteps;
 };
+
+/**
+ * Sets how Sitecore data (layout, dictionary) is fetched.
+ * @param {string} [fetchWith] {REST|GraphQL} Default is REST.
+ */
+ function setFetchWith(fetchWith) {
+  const defaultDsfFile = path.join(__dirname, 'src/app/lib/dictionary-service-factory.ts');
+  const graphQLDsfFile = path.join(__dirname, 'src/app/lib/dictionary-service-factory.graphql.ts');
+  const defaultLsfFile = path.join(__dirname, 'src/app/lib/layout-service-factory.ts');
+  const graphQLLsfFile = path.join(__dirname, 'src/app/lib/layout-service-factory.graphql.ts');
+  const FetchWith = {
+    GRAPHQL: 'graphql',
+    REST: 'rest',
+  };
+  let value = fetchWith ? fetchWith.toLowerCase() : FetchWith.REST;
+
+  if (value !== FetchWith.REST && value !== FetchWith.GRAPHQL) {
+    console.warn(chalk.yellow(`Unsupported fetchWith value '${fetchWith}'. Using default 'REST'.`));
+    value = FetchWith.REST;
+  }
+
+  console.log(chalk.cyan(`Applying ${value === FetchWith.REST ? 'REST' : 'GraphQL'} fetch...`));
+
+  switch (value) {
+    case FetchWith.GRAPHQL:
+      fs.unlinkSync(defaultDsfFile);
+      fs.renameSync(graphQLDsfFile, defaultDsfFile);
+      fs.unlinkSync(defaultLsfFile);
+      fs.renameSync(graphQLLsfFile, defaultLsfFile);
+      break;
+
+    case FetchWith.REST:
+      fs.unlinkSync(graphQLDsfFile);
+      fs.unlinkSync(graphQLLsfFile);
+      break;
+  }
+}
