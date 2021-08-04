@@ -15,6 +15,7 @@
   ],
   "ignorePatterns": [".generated/**/*", "**/*.d.ts", "**/*.js"],
   "rules": {
+    "@next/next/no-img-element": "off", // Don't force next/image (these aren't currently compatible with Sitecore editing)
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
