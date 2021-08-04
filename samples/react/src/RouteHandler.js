@@ -2,7 +2,7 @@ import React from 'react';
 import i18n from 'i18next';
 import Helmet from 'react-helmet';
 import { isEditorActive, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
-import { layoutServiceFactory } from './lib/layout-service';
+import { layoutServiceFactory } from './lib/layout-service-factory';
 import config from './temp/config';
 import Layout from './Layout';
 import NotFound from './NotFound';

@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { dictionaryServiceFactory } from './lib/dictionary-service';
+import { dictionaryServiceFactory } from './lib/dictionary-service-factory';
 
 /**
  * Initializes the i18next library to provide a translation dictionary to the app.

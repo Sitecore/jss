@@ -1,4 +1,4 @@
-import { RestDictionaryService } from '@sitecore-jss/sitecore-jss-nextjs';
+import { RestDictionaryService } from '@sitecore-jss/sitecore-jss-react';
 import config from '../temp/config';
 
 export class DictionaryServiceFactory {
