@@ -13,6 +13,7 @@ title: Documentation
 - [Errors deploying a JSS app locally](#errors-deploying-a-jss-app-locally)
 - [Data-fetching issues](#data-fetching-issues)
 - [Errors in GraphiQL](#errors-in-graphiql)
+- [App fails to render on Vercel after 18.0.0 upgrade](#app-fails-to-render-on-vercel-after-1800-upgrade)
 
 ## Debug logging
 
@@ -203,3 +204,23 @@ For example,
 ```
 ngrok http -host-header=rewrite <your-local-url>
 ```
+
+### App fails to render on Vercel after 18.0.0 upgrade
+
+If your app renders and builds correctly in your local development environment, but fails to render when deployed to Vercel, a possible reason for the issue might be an incorrect upgrade to version 18.0.0 or later.
+
+When creating your Next.js application using the `jss create` command, based on the options you chose or the default values for `--fetchWith` and `--prerender` options, the script will clean up after itself. 
+
+When upgrading your Next.js application from JSS 16.0 to JSS 18.0, manually and copying the latest code from the repository, this automatic cleanup does not happen. Prior to version 18.0, `[[...path]].SSR.tsx` was located at `src/pages_examples/`. In version 18.0.0 and later, because of improvements to the `jss create` command, the source for the Next.js sample application holds **both** catch-all, dynamic routes for the `[...path]` parameter in `src/pages`.
+
+
+To resolve the rendering issue: 
+
+- Make sure you choose the right page source file and that you only have one catch-all, dynamic route in `src/pages`
+
+  - If using server-side rendering, keep `src/path/[[...path]].SSR.tsx` and rename it to `[[...path]].tsx`. 
+
+  - If using static generation, delete `src/path/[[...path]].SSR.tsx`. 
+
+- Redeploy your source code.
+
