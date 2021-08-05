@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
 import { from as fromPromise } from 'rxjs';
-import { dictionaryServiceFactory } from '../lib/dictonary-service-factory';
+import { dictionaryServiceFactory } from '../lib/dictionary-service-factory';
 
 export const dictionaryServiceInstance = dictionaryServiceFactory.create();
 
