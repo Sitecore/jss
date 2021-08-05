@@ -10,7 +10,7 @@ One of the major advantages of Sitecore is its ability to personalize and respon
 
 ## Personalization
 
-In JSS [personalization](https://doc.sitecore.net/sitecore_experience_platform/digital_marketing/personalization/walkthrough_personalizing_components) works exactly how it does in a non-headless Sitecore site. The [Layout Service](/docs/fundamentals/services/layout-service) renders pages using the exact same pathway as a traditional Sitecore site uses - meaning that personalization rules, multivariate tests, etc are all respected. As a developer, there's nothing you have to do. The content returned to your JSS app is pre-personalized before it is received.
+In JSS [personalization](https://doc.sitecore.net/sitecore_experience_platform/digital_marketing/personalization/walkthrough_personalizing_components) works exactly how it does in a non-headless Sitecore site. The [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) renders pages using the exact same pathway as a traditional Sitecore site uses - meaning that personalization rules, multivariate tests, etc are all respected. As a developer, there's nothing you have to do. The content returned to your JSS app is pre-personalized before it is received.
 
 ## Analytics
 
@@ -18,7 +18,7 @@ Sitecore gathers behavioral analytics data on visitors that can be used for info
 
 #### Via Layout Service
 
-[Layout Service](/docs/fundamentals/services/layout-service) requests are tracked on the server-side as a 'page view' just like a traditional Sitecore site would. This includes any goals, events, etc configured to be triggered by the route item. Because Sitecore's session tracking is cookie-based, it is important to pass browser cookies to Layout Service requests (this is done by default).
+[Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) requests are tracked on the server-side as a 'page view' just like a traditional Sitecore site would. This includes any goals, events, etc configured to be triggered by the route item. Because Sitecore's session tracking is cookie-based, it is important to pass browser cookies to Layout Service requests (this is done by default).
 
 > If you are tracking route/page views exclusively from the client-side (i.e. using cached route data), you can disable tracking of Layout Service requests by sending `tracking=false` in the service call's query string.
 

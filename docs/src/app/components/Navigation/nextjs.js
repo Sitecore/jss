@@ -35,6 +35,16 @@ export default {
       ],
     },
     {
+      url: 'services',
+      displayName: 'Services & APIs',
+      children: [
+        {
+          url: 'graphql-sitemap-service',
+          displayName: 'GraphQL Sitemap Service'
+        }
+      ]
+    },
+    {
       url: 'experience-editor',
       displayName: 'Experience Editor',
       children: [
@@ -89,8 +99,8 @@ export default {
           displayName: 'Switching between SSG and SSR',
         },
         {
-         url: 'error-pages',
-         displayName: 'Error Pages',
+          url: 'error-pages',
+          displayName: 'Error Pages',
         },
       ],
     },

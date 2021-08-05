@@ -3,6 +3,7 @@ import express from 'express';
 import compression from 'compression';
 import { forceDomain } from 'forcedomain';
 import enforce from 'express-sslify';
+
 import {
   createDisconnectedAssetMiddleware,
   createDisconnectedLayoutService,
@@ -34,10 +35,10 @@ function layoutServiceMiddlewareAsDataAdapter(fakeLayoutServiceMiddleware) {
 
     return new Promise((resolve, reject) => {
       const fakeResponse = {
-        sendStatus: function(statusCode) {
+        sendStatus: function (statusCode) {
           resolve({ statusCode });
         },
-        json: function(result) {
+        json: function (result) {
           resolve(result);
         },
       };
@@ -124,7 +125,15 @@ manifestManager.getManifest(config.language).then((manifest) => {
   server.use('/dist', staticFileMiddleware);
   server.use('/docs/getting-started/:path', (req, res) => {
     req.url = `/docs/client-frameworks/getting-started/${req.params.path}`;
-    res.redirect(req.url, 301);
+    res.redirect(301, req.url);
+  })
+  server.use('/docs/fundamentals/services/layout-service', (req, res) => {
+    req.url = `/docs/fundamentals/services/layout/overview`;
+    res.redirect(301, req.url);
+  })
+  server.use('/docs/fundamentals/services/dictionary-service', (req, res) => {
+    req.url = `/docs/fundamentals/services/dictionary/overview`;
+    res.redirect(301, req.url);
   })
   server.use('*', ssrMiddleware);
 

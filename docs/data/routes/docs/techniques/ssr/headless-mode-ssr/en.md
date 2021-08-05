@@ -70,7 +70,7 @@ But you can extend it and remove additional headers.
 
 ### Media URLs in headless mode
 
-The [Layout Service](/docs/fundamentals/services/layout-service) will return URLs to images with the Sitecore server URL included. For example:
+The [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) will return URLs to images with the Sitecore server URL included. For example:
 
 * The Sitecore server is `http://siteco.re`
 * An image in a media field, or a rich text field, would be returned something like `http://sitecor.re/-/media/jss.jpg`

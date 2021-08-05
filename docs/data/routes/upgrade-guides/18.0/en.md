@@ -10,7 +10,8 @@ title: Upgrading to JSS 18.0
 2. Update all @sitecore-jss/* packages to the latest 18.x version.
 3. Angular sample:
  * Upgrade Angular to version 11. Use [Angular update guide](https://update.angular.io/?l=3&v=10.0-11.0).
-
+4. Next.js sample: 
+  * Keep only one `[[...path]]` page if upgrading from the source code of the sample application. See the explanation for this in our [Troubleshooting guide for Next.js](/docs/nextjs/troubleshooting#app-fails-to-render-on-vercel-after-1800-upgrade).
 ## API changes in `sitecore-jss` package
 
 |Service Type|JSS 16.0 API | JSS 18.0 API | change description

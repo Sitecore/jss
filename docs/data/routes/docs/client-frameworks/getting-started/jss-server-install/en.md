@@ -5,7 +5,9 @@ title: Server Setup
 ---
 # JSS Server Setup
 
-In order to deploy a JSS app to Sitecore, or to pull data from a remote Sitecore instance into a headless JSS app, a Sitecore instance running the Headless Server Components is required.
+In order to deploy a JSS app to Sitecore, or to pull data from a remote Sitecore instance into a headless JSS app, you need a Sitecore instance running the Sitecore Headless Services module.
+
+> 
 
 ## Prerequisites
 
@@ -17,7 +19,13 @@ To run in Integrated Mode (required for editing JSS sites), the Sitecore server 
 
 ### Sitecore
 
-The Headless server components require Sitecore 9.0 Update-1 or later. Install Sitecore according to the instructions for your version available on [the dev site](https://dev.sitecore.net).
+The Headless Services module requires: 
+  - For use with Next.js - Sitecore 10.x or later and Headless Services 16.0 or later. 
+  - For use with other supported frameworks - Sitecore 9.0 Update-1 or later. 
+
+Consult the [Sitecore modules compatibility table for Sitecore XP](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788) to choose the correct versions. 
+
+Install Sitecore according to the instructions for your version available on [the dev site](https://dev.sitecore.net).
 
 ### Sitecore JSS License
 
