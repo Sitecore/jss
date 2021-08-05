@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
+[src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
 
 ## Variables
 
@@ -62,4 +62,4 @@
 
 #### Defined in
 
-[src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/components/Link.tsx#L20)
+[src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/components/Link.tsx#L20)

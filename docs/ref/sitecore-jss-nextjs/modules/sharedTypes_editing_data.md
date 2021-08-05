@@ -35,7 +35,7 @@ Data sent from Experience Editor
 
 #### Defined in
 
-[src/sharedTypes/editing-data.ts:6](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L6)
+[src/sharedTypes/editing-data.ts:6](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L6)
 
 ## Functions
 
@@ -55,4 +55,4 @@ data is EditingData
 
 #### Defined in
 
-[src/sharedTypes/editing-data.ts:16](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L16)
+[src/sharedTypes/editing-data.ts:16](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L16)

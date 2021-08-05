@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/constants.ts:1](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/constants.ts#L1)
+[src/constants.ts:1](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/constants.ts#L1)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[src/constants.ts:2](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/constants.ts#L2)
+[src/constants.ts:2](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/constants.ts#L2)

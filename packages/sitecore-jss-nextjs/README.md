@@ -1,6 +1,7 @@
-# Sitecore JavaScript Services for Next.js
+# Sitecore JavaScript Rendering SDK for Next.js
 
-This module is provided as a part of Sitecore JavaScript Services. It contains Next.js components and integration for JSS.
+This module is provided as a part of Sitecore JavaScript Rendering SDK. It contains Next.js components and integration for JSS.
 
 Consult the [Sitecore JSS documentation](https://jss.sitecore.com) for further details.
 
+Consult the package [API reference documentation](../../docs/ref/sitecore-jss-nextjs/).

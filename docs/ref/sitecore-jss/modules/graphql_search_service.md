@@ -43,7 +43,7 @@ Schema of data returned in response to a "search" query request
 
 #### Defined in
 
-[graphql/search-service.ts:8](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/graphql/search-service.ts#L8)
+[graphql/search-service.ts:8](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/graphql/search-service.ts#L8)
 
 ___
 
@@ -65,4 +65,4 @@ The other predicates are optional.
 
 #### Defined in
 
-[graphql/search-service.ts:34](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/graphql/search-service.ts#L34)
+[graphql/search-service.ts:34](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/graphql/search-service.ts#L34)

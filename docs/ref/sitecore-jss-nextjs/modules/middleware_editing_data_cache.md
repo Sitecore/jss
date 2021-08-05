@@ -26,4 +26,4 @@ EditingDataDiskCache singleton
 
 #### Defined in
 
-[src/middleware/editing-data-cache.ts:48](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L48)
+[src/middleware/editing-data-cache.ts:48](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L48)

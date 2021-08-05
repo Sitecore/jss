@@ -51,7 +51,7 @@ Creates an instance of search query service.
 
 #### Defined in
 
-[graphql/search-service.ts:83](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/graphql/search-service.ts#L83)
+[graphql/search-service.ts:83](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/graphql/search-service.ts#L83)
 
 ## Properties
 
@@ -90,4 +90,4 @@ array of result objects.
 
 #### Defined in
 
-[graphql/search-service.ts:96](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/graphql/search-service.ts#L96)
+[graphql/search-service.ts:96](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/graphql/search-service.ts#L96)

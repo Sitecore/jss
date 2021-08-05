@@ -39,7 +39,7 @@ The schema of data returned in response to a dictionary query request.
 
 #### Defined in
 
-[i18n/graphql-dictionary-service.ts:72](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L72)
+[i18n/graphql-dictionary-service.ts:72](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L72)
 
 ## Variables
 
@@ -49,4 +49,4 @@ The schema of data returned in response to a dictionary query request.
 
 #### Defined in
 
-[i18n/graphql-dictionary-service.ts:9](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L9)
+[i18n/graphql-dictionary-service.ts:9](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L9)

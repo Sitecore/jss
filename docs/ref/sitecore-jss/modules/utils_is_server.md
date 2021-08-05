@@ -24,4 +24,4 @@ true if executing server-side
 
 #### Defined in
 
-[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/utils/is-server.ts#L5)

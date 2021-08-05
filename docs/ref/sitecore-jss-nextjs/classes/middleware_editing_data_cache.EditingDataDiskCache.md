@@ -35,7 +35,7 @@ A disk-based editing data cache implementation (required for hosting on Vercel v
 
 #### Defined in
 
-[src/middleware/editing-data-cache.ts:22](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L22)
+[src/middleware/editing-data-cache.ts:22](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L22)
 
 ## Properties
 
@@ -45,7 +45,7 @@ A disk-based editing data cache implementation (required for hosting on Vercel v
 
 #### Defined in
 
-[src/middleware/editing-data-cache.ts:20](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L20)
+[src/middleware/editing-data-cache.ts:20](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L20)
 
 ## Methods
 
@@ -69,7 +69,7 @@ A disk-based editing data cache implementation (required for hosting on Vercel v
 
 #### Defined in
 
-[src/middleware/editing-data-cache.ts:34](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L34)
+[src/middleware/editing-data-cache.ts:34](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L34)
 
 ___
 
@@ -94,4 +94,4 @@ ___
 
 #### Defined in
 
-[src/middleware/editing-data-cache.ts:27](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L27)
+[src/middleware/editing-data-cache.ts:27](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L27)

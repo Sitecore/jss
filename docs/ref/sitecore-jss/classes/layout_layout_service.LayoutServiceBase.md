@@ -61,4 +61,4 @@ layout data
 
 #### Defined in
 
-[layout/layout-service.ts:22](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/layout-service.ts#L22)
+[layout/layout-service.ts:22](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/layout-service.ts#L22)

@@ -33,7 +33,7 @@ The API key to use for authentication.
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:78](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L78)
+[src/services/graphql-sitemap-service.ts:78](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L78)
 
 ___
 
@@ -45,7 +45,7 @@ Your Graphql endpoint
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:73](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L73)
+[src/services/graphql-sitemap-service.ts:73](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L73)
 
 ___
 

@@ -32,7 +32,7 @@ child placeholder
 
 #### Defined in
 
-[layout/utils.ts:56](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/utils.ts#L56)
+[layout/utils.ts:56](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/utils.ts#L56)
 
 ___
 
@@ -62,7 +62,7 @@ Null will be returned if the field is not defined.
 
 #### Defined in
 
-[layout/utils.ts:9](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/utils.ts#L9)
+[layout/utils.ts:9](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/utils.ts#L9)
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -86,4 +86,4 @@ Null will be returned if the field is not defined.
 
 #### Defined in
 
-[layout/utils.ts:13](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/utils.ts#L13)
+[layout/utils.ts:13](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/utils.ts#L13)

@@ -31,7 +31,7 @@ Enable/disable caching mechanism
 
 #### Defined in
 
-[cache-client.ts:40](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/cache-client.ts#L40)
+[cache-client.ts:40](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/cache-client.ts#L40)
 
 ___
 
@@ -45,4 +45,4 @@ Cache timeout (sec)
 
 #### Defined in
 
-[cache-client.ts:45](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/cache-client.ts#L45)
+[cache-client.ts:45](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/cache-client.ts#L45)

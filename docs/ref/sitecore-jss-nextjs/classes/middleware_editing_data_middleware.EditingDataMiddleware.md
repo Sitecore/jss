@@ -37,7 +37,7 @@ which is required for Sitecore Experience Editor support.
 
 #### Defined in
 
-[src/middleware/editing-data-middleware.ts:36](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-data-middleware.ts#L36)
+[src/middleware/editing-data-middleware.ts:36](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-data-middleware.ts#L36)
 
 ## Properties
 
@@ -47,7 +47,7 @@ which is required for Sitecore Experience Editor support.
 
 #### Defined in
 
-[src/middleware/editing-data-middleware.ts:31](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-data-middleware.ts#L31)
+[src/middleware/editing-data-middleware.ts:31](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-data-middleware.ts#L31)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/middleware/editing-data-middleware.ts:30](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-data-middleware.ts#L30)
+[src/middleware/editing-data-middleware.ts:30](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-data-middleware.ts#L30)
 
 ## Methods
 
@@ -92,7 +92,7 @@ route handler
 
 #### Defined in
 
-[src/middleware/editing-data-middleware.ts:45](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-data-middleware.ts#L45)
+[src/middleware/editing-data-middleware.ts:45](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-data-middleware.ts#L45)
 
 ___
 
@@ -113,4 +113,4 @@ ___
 
 #### Defined in
 
-[src/middleware/editing-data-middleware.ts:49](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-data-middleware.ts#L49)
+[src/middleware/editing-data-middleware.ts:49](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-data-middleware.ts#L49)

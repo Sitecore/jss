@@ -36,4 +36,4 @@ Fetch dictionary data for a language.
 
 #### Defined in
 
-[i18n/dictionary-service.ts:18](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/dictionary-service.ts#L18)
+[i18n/dictionary-service.ts:18](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/dictionary-service.ts#L18)

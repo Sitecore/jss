@@ -30,7 +30,7 @@ The `AxiosDataFetcher` instance to use for API requests.
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:14](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L14)
+[src/middleware/editing-render-middleware.ts:14](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L14)
 
 ___
 
@@ -48,7 +48,7 @@ By default, this is `editingDataService` (an `EditingDataService` singleton).
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:22](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L22)
+[src/middleware/editing-render-middleware.ts:22](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L22)
 
 ## Methods
 
@@ -78,7 +78,7 @@ The URL to render
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:32](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L32)
+[src/middleware/editing-render-middleware.ts:32](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L32)
 
 ___
 
@@ -105,4 +105,4 @@ By default, the host header is used, with https protocol on Vercel (due to serve
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:40](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L40)
+[src/middleware/editing-render-middleware.ts:40](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L40)

@@ -49,7 +49,7 @@ Creates an instance of graphQL sitemap service with the provided options
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:101](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L101)
+[src/services/graphql-sitemap-service.ts:101](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L101)
 
 ## Properties
 
@@ -59,7 +59,7 @@ Creates an instance of graphQL sitemap service with the provided options
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:87](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L87)
+[src/services/graphql-sitemap-service.ts:87](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L87)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:88](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L88)
+[src/services/graphql-sitemap-service.ts:88](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L88)
 
 ## Accessors
 
@@ -91,7 +91,7 @@ Gets the default query used for fetching the list of site pages
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:93](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L93)
+[src/services/graphql-sitemap-service.ts:93](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L93)
 
 ## Methods
 
@@ -117,7 +117,7 @@ an array of @see StaticPath objects
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:113](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L113)
+[src/services/graphql-sitemap-service.ts:113](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L113)
 
 ___
 
@@ -141,7 +141,7 @@ an array of @see StaticPath objects
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:128](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L128)
+[src/services/graphql-sitemap-service.ts:128](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L128)
 
 ___
 
@@ -171,7 +171,7 @@ list of pages
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:148](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L148)
+[src/services/graphql-sitemap-service.ts:148](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L148)
 
 ___
 
@@ -191,7 +191,7 @@ implementation
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:193](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L193)
+[src/services/graphql-sitemap-service.ts:193](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L193)
 
 ___
 
@@ -209,4 +209,4 @@ the search query service
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:204](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L204)
+[src/services/graphql-sitemap-service.ts:204](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L204)

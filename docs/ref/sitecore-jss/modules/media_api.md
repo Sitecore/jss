@@ -33,7 +33,7 @@ found image tag
 
 #### Defined in
 
-[media-api.ts:19](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/media-api.ts#L19)
+[media-api.ts:19](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/media-api.ts#L19)
 
 ___
 
@@ -65,7 +65,7 @@ requiredParams
 
 #### Defined in
 
-[media-api.ts:45](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/media-api.ts#L45)
+[media-api.ts:45](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/media-api.ts#L45)
 
 ___
 
@@ -100,7 +100,7 @@ src set
 
 #### Defined in
 
-[media-api.ts:116](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/media-api.ts#L116)
+[media-api.ts:116](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/media-api.ts#L116)
 
 ___
 
@@ -130,4 +130,4 @@ url
 
 #### Defined in
 
-[media-api.ts:62](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/media-api.ts#L62)
+[media-api.ts:62](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/media-api.ts#L62)

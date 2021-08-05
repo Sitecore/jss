@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[src/services/editing-data-service.ts:5](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L5)
+[src/services/editing-data-service.ts:5](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L5)
 
 ___
 
@@ -37,4 +37,4 @@ EditingDataService singleton (with default values)
 
 #### Defined in
 
-[src/services/editing-data-service.ts:99](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L99)
+[src/services/editing-data-service.ts:99](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L99)

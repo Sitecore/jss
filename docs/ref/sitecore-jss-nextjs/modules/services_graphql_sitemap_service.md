@@ -39,7 +39,7 @@ The schema of data returned in response to a page list query request
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:54](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L54)
+[src/services/graphql-sitemap-service.ts:54](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L54)
 
 ___
 
@@ -59,7 +59,7 @@ Object model of a site page item.
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:59](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L59)
+[src/services/graphql-sitemap-service.ts:59](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L59)
 
 ## Variables
 
@@ -69,7 +69,7 @@ Object model of a site page item.
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:15](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L15)
+[src/services/graphql-sitemap-service.ts:15](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L15)
 
 ___
 
@@ -79,4 +79,4 @@ ___
 
 #### Defined in
 
-[src/services/graphql-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L11)
+[src/services/graphql-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L11)

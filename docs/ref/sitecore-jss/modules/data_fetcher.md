@@ -53,7 +53,7 @@ The interface implementation must:
 
 #### Defined in
 
-[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/data-fetcher.ts#L26)
 
 ## Functions
 
@@ -81,4 +81,4 @@ The interface implementation must:
 
 #### Defined in
 
-[data-fetcher.ts:60](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/data-fetcher.ts#L60)
+[data-fetcher.ts:60](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/data-fetcher.ts#L60)

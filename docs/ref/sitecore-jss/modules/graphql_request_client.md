@@ -33,4 +33,4 @@ Minimum configuration options for classes that implement @see GraphQLClient
 
 #### Defined in
 
-[graphql-request-client.ts:20](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/graphql-request-client.ts#L20)
+[graphql-request-client.ts:20](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/graphql-request-client.ts#L20)

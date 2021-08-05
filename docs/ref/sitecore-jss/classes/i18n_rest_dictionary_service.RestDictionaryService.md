@@ -55,7 +55,7 @@ Initializes a new instance of @see DictionaryService using the provided @see Cac
 
 #### Defined in
 
-[i18n/rest-dictionary-service.ts:47](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L47)
+[i18n/rest-dictionary-service.ts:47](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L47)
 
 ## Properties
 
@@ -81,7 +81,7 @@ Provides default @see AxiosDataFetcher data fetcher
 
 #### Defined in
 
-[i18n/rest-dictionary-service.ts:42](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L42)
+[i18n/rest-dictionary-service.ts:42](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L42)
 
 ## Methods
 
@@ -107,7 +107,7 @@ Fetch dictionary data for a language.
 
 #### Defined in
 
-[i18n/rest-dictionary-service.ts:55](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L55)
+[i18n/rest-dictionary-service.ts:55](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L55)
 
 ___
 
@@ -131,7 +131,7 @@ implementation
 
 #### Defined in
 
-[i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
+[i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
 
 ___
 
@@ -159,7 +159,7 @@ The @see DictionaryPhrases value, or null if the specified key is not found in t
 
 #### Defined in
 
-[i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
+[i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
 
 ___
 
@@ -181,7 +181,7 @@ Generate dictionary service url
 
 #### Defined in
 
-[i18n/rest-dictionary-service.ts:76](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L76)
+[i18n/rest-dictionary-service.ts:76](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L76)
 
 ___
 
@@ -212,4 +212,4 @@ The value added to the cache.
 
 #### Defined in
 
-[i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
+[i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)

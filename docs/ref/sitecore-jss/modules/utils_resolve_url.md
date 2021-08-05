@@ -34,4 +34,4 @@ a URL string
 
 #### Defined in
 
-[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/utils/resolve-url.ts#L24)
+[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/utils/resolve-url.ts#L24)

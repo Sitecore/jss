@@ -57,7 +57,7 @@ Initializes a new instance of @see MemoryCacheClient using the provided @see Cac
 
 #### Defined in
 
-[cache-client.ts:61](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/cache-client.ts#L61)
+[cache-client.ts:61](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/cache-client.ts#L61)
 
 ## Properties
 
@@ -67,7 +67,7 @@ Initializes a new instance of @see MemoryCacheClient using the provided @see Cac
 
 #### Defined in
 
-[cache-client.ts:55](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/cache-client.ts#L55)
+[cache-client.ts:55](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/cache-client.ts#L55)
 
 ___
 
@@ -103,7 +103,7 @@ The cache value as {T}, or null if the specified key is not found in the cache.
 
 #### Defined in
 
-[cache-client.ts:77](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/cache-client.ts#L77)
+[cache-client.ts:77](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/cache-client.ts#L77)
 
 ___
 
@@ -134,4 +134,4 @@ The value added to the cache.
 
 #### Defined in
 
-[cache-client.ts:88](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/cache-client.ts#L88)
+[cache-client.ts:88](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/cache-client.ts#L88)

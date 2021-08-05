@@ -35,7 +35,7 @@ The schema of data returned in response to an app root query request
 
 #### Defined in
 
-[graphql/app-root-query.ts:28](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/graphql/app-root-query.ts#L28)
+[graphql/app-root-query.ts:28](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/graphql/app-root-query.ts#L28)
 
 ## Variables
 
@@ -45,7 +45,7 @@ The schema of data returned in response to an app root query request
 
 #### Defined in
 
-[graphql/app-root-query.ts:8](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/graphql/app-root-query.ts#L8)
+[graphql/app-root-query.ts:8](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/graphql/app-root-query.ts#L8)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[graphql/app-root-query.ts:6](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/graphql/app-root-query.ts#L6)
+[graphql/app-root-query.ts:6](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/graphql/app-root-query.ts#L6)
 
 ## Functions
 
@@ -88,4 +88,4 @@ the root item ID of the JSS App in Sitecore. Returns null if the app root item i
 
 #### Defined in
 
-[graphql/app-root-query.ts:52](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/graphql/app-root-query.ts#L52)
+[graphql/app-root-query.ts:52](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/graphql/app-root-query.ts#L52)

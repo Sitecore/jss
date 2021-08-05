@@ -28,7 +28,7 @@ Shape of context data from the Sitecore Layout Service
 
 #### Defined in
 
-[layout/models.ts:25](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/models.ts#L25)
+[layout/models.ts:25](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/models.ts#L25)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:24](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/models.ts#L24)
+[layout/models.ts:24](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/models.ts#L24)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:26](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/models.ts#L26)
+[layout/models.ts:26](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/models.ts#L26)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:28](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/models.ts#L28)
+[layout/models.ts:28](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/models.ts#L28)
 
 ___
 
@@ -74,4 +74,4 @@ ___
 
 #### Defined in
 
-[layout/models.ts:27](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/models.ts#L27)
+[layout/models.ts:27](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/models.ts#L27)

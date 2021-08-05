@@ -418,4 +418,4 @@ Renames and exports: [default](utils_resolve_url.md#default)
 
 #### Defined in
 
-[index.ts:47](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/index.ts#L47)
+[index.ts:47](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/index.ts#L47)

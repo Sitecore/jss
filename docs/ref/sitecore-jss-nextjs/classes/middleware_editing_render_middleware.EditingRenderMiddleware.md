@@ -41,7 +41,7 @@ which is required for Sitecore Experience Editor support.
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:56](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L56)
+[src/middleware/editing-render-middleware.ts:56](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L56)
 
 ## Properties
 
@@ -51,7 +51,7 @@ which is required for Sitecore Experience Editor support.
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:49](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L49)
+[src/middleware/editing-render-middleware.ts:49](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L49)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:48](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L48)
+[src/middleware/editing-render-middleware.ts:48](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L48)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:50](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L50)
+[src/middleware/editing-render-middleware.ts:50](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L50)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:51](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L51)
+[src/middleware/editing-render-middleware.ts:51](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L51)
 
 ## Methods
 
@@ -133,7 +133,7 @@ Default page URL resolution.
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:166](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L166)
+[src/middleware/editing-render-middleware.ts:166](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L166)
 
 ___
 
@@ -161,7 +161,7 @@ https://vercel.com/docs/environment-variables#system-environment-variables
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:180](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L180)
+[src/middleware/editing-render-middleware.ts:180](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L180)
 
 ___
 
@@ -196,7 +196,7 @@ route handler
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:68](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L68)
+[src/middleware/editing-render-middleware.ts:68](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L68)
 
 ___
 
@@ -217,4 +217,4 @@ ___
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:72](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L72)
+[src/middleware/editing-render-middleware.ts:72](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L72)

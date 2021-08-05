@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[src/sharedTypes/component-module.ts:9](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L9)
+[src/sharedTypes/component-module.ts:9](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L9)

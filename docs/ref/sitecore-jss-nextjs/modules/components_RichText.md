@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
+[src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
 
 ## Variables
 
@@ -62,4 +62,4 @@
 
 #### Defined in
 
-[src/components/RichText.tsx:20](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L20)
+[src/components/RichText.tsx:20](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L20)

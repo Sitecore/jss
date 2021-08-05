@@ -38,7 +38,7 @@ Service responsible for maintaining Sitecore Experience Editor data between requ
 
 #### Defined in
 
-[src/services/editing-data-service.ts:34](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L34)
+[src/services/editing-data-service.ts:34](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L34)
 
 ## Properties
 
@@ -48,7 +48,7 @@ Service responsible for maintaining Sitecore Experience Editor data between requ
 
 #### Defined in
 
-[src/services/editing-data-service.ts:28](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L28)
+[src/services/editing-data-service.ts:28](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L28)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/services/editing-data-service.ts:29](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L29)
+[src/services/editing-data-service.ts:29](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L29)
 
 ## Methods
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/services/editing-data-service.ts:78](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L78)
+[src/services/editing-data-service.ts:78](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L78)
 
 ___
 
@@ -102,7 +102,7 @@ The [EditingData](../modules/sharedTypes_editing_data.md#editingdata)
 
 #### Defined in
 
-[src/services/editing-data-service.ts:69](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L69)
+[src/services/editing-data-service.ts:69](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L69)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[src/services/editing-data-service.ts:88](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L88)
+[src/services/editing-data-service.ts:88](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L88)
 
 ___
 
@@ -148,4 +148,4 @@ The [EditingPreviewData](../interfaces/sharedTypes_editing_data.EditingPreviewDa
 
 #### Defined in
 
-[src/services/editing-data-service.ts:49](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L49)
+[src/services/editing-data-service.ts:49](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L49)

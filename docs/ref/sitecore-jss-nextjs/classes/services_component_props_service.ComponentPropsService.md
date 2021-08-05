@@ -59,7 +59,7 @@ array of requests
 
 #### Defined in
 
-[src/services/component-props-service.ts:115](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L115)
+[src/services/component-props-service.ts:115](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L115)
 
 ___
 
@@ -89,7 +89,7 @@ requests result
 
 #### Defined in
 
-[src/services/component-props-service.ts:161](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L161)
+[src/services/component-props-service.ts:161](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L161)
 
 ___
 
@@ -122,7 +122,7 @@ component props
 
 #### Defined in
 
-[src/services/component-props-service.ts:88](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L88)
+[src/services/component-props-service.ts:88](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L88)
 
 ___
 
@@ -147,7 +147,7 @@ props
 
 #### Defined in
 
-[src/services/component-props-service.ts:38](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L38)
+[src/services/component-props-service.ts:38](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L38)
 
 ___
 
@@ -172,7 +172,7 @@ props
 
 #### Defined in
 
-[src/services/component-props-service.ts:62](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L62)
+[src/services/component-props-service.ts:62](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L62)
 
 ___
 
@@ -206,4 +206,4 @@ renderings
 
 #### Defined in
 
-[src/services/component-props-service.ts:214](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L214)
+[src/services/component-props-service.ts:214](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L214)

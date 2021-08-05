@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[debug.ts:6](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/debug.ts#L6)
+[debug.ts:6](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/debug.ts#L6)
 
 ## Properties
 

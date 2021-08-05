@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/axios-fetcher.ts#L35)

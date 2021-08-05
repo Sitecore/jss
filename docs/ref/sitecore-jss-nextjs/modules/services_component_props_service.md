@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/services/component-props-service.ts:20](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L20)
+[src/services/component-props-service.ts:20](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L20)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/services/component-props-service.ts:14](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L14)
+[src/services/component-props-service.ts:14](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L14)

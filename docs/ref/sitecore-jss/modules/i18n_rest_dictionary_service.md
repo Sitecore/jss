@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[i18n/rest-dictionary-service.ts:14](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L14)
+[i18n/rest-dictionary-service.ts:14](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L14)
 
 ___
 
@@ -39,4 +39,4 @@ A reply from the REST Sitecore Dictionary Service
 
 #### Defined in
 
-[i18n/rest-dictionary-service.ts:10](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L10)
+[i18n/rest-dictionary-service.ts:10](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L10)

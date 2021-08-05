@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[utils/experience-editor.ts:3](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/utils/experience-editor.ts#L3)
+[utils/experience-editor.ts:3](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/utils/experience-editor.ts#L3)
 
 ___
 
@@ -35,4 +35,4 @@ ___
 
 #### Defined in
 
-[utils/experience-editor.ts:12](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/utils/experience-editor.ts#L12)
+[utils/experience-editor.ts:12](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/utils/experience-editor.ts#L12)

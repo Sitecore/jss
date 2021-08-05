@@ -34,4 +34,4 @@
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:188](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L188)
+[src/middleware/editing-render-middleware.ts:188](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L188)

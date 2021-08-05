@@ -55,7 +55,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[layout/rest-layout-service.ts:154](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/rest-layout-service.ts#L154)
+[layout/rest-layout-service.ts:154](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/rest-layout-service.ts#L154)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[layout/rest-layout-service.ts:118](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/rest-layout-service.ts#L118)
+[layout/rest-layout-service.ts:118](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/rest-layout-service.ts#L118)
 
 ## Functions
 
@@ -107,7 +107,7 @@ placeholder data
 
 #### Defined in
 
-[layout/rest-layout-service.ts:57](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/rest-layout-service.ts#L57)
+[layout/rest-layout-service.ts:57](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/rest-layout-service.ts#L57)
 
 ___
 
@@ -136,7 +136,7 @@ layout data
 
 #### Defined in
 
-[layout/rest-layout-service.ts:36](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/rest-layout-service.ts#L36)
+[layout/rest-layout-service.ts:36](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/rest-layout-service.ts#L36)
 
 ___
 
@@ -161,4 +161,4 @@ the layout service url
 
 #### Defined in
 
-[layout/rest-layout-service.ts:15](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/rest-layout-service.ts#L15)
+[layout/rest-layout-service.ts:15](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/rest-layout-service.ts#L15)

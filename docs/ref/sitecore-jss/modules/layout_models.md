@@ -37,7 +37,7 @@ Field value data on a component
 
 #### Defined in
 
-[layout/models.ts:109](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/models.ts#L109)
+[layout/models.ts:109](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/models.ts#L109)
 
 ___
 
@@ -56,4 +56,4 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[layout/models.ts:64](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/models.ts#L64)
+[layout/models.ts:64](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/models.ts#L64)

@@ -29,4 +29,4 @@
 
 #### Defined in
 
-[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/e49fd4cc/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
+[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/bd756fd2/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
