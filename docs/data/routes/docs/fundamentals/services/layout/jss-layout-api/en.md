@@ -16,9 +16,9 @@ The following examples show you how to retrieve layout data from your Sitecore i
 
 ## Fetching layout data with GraphQL
 
-You can fetch layout data from Sitecore using GraphQL and the JSS `GraphQLLayoutService`. 
+You can fetch layout data from Sitecore using GraphQL and the JSS [`GraphQLLayoutService`](https://github.com/Sitecore/jss/blob/release/18.0.0/ref-docs/sitecore-jss/modules/layout_graphql_layout_service.md). 
 
-1. In a file `layout-service.ts`, create and configure an instance of the `GraphQLLayoutService`: 
+1. In a file `layout-service.ts`, create and configure an instance of the [`GraphQLLayoutService`](https://github.com/Sitecore/jss/blob/release/18.0.0/ref-docs/sitecore-jss/classes/layout_graphql_layout_service.GraphQLLayoutService.md) using : 
 
 ```javascript
 import {GraphQLLayoutService} from '@sitecore-jss/sitecore-jss';
@@ -41,13 +41,13 @@ layoutService.fetchLayoutData(language).then(data => {
 });
 ```
 
-> TIP: You can pass a `formatLayoutQuery` option to your GraphQLLayoutService instance to override the default query. See the [`GraphQLLayoutServiceConfig`](https://github.com/Sitecore/jss/blob/release/18.0.0/packages/sitecore-jss/src/layout/graphql-layout-service.ts) type for details. 
+> TIP: You can pass a `formatLayoutQuery` option to your GraphQLLayoutService instance to override the default query. See the [`GraphQLLayoutServiceConfig`](https://github.com/Sitecore/jss/blob/release/18.0.0/ref-docs/sitecore-jss/classes/layout_graphql_layout_service.GraphQLLayoutService.md) type for details. 
 
 ## Fetching layout data with REST
 
-To invoke the REST Layout Service from a JSS application: 
+To invoke the REST Layout Service from a JSS application using the JSS [`RestLayoutService`](https://github.com/Sitecore/jss/blob/release/18.0.0/ref-docs/sitecore-jss/modules/layout_rest_layout_service.md): 
 
-1. In a file `layout-service.ts`, create an instance of the `RestLayoutService` class and provide the configuration object:
+1. In a file `layout-service.ts`, create an instance of the [`RestLayoutService` class](https://github.com/Sitecore/jss/blob/release/18.0.0/ref-docs/sitecore-jss/classes/layout_rest_layout_service.RestLayoutService.md) and provide the configuration object (of type [`RestLayoutServiceConfig`](https://github.com/Sitecore/jss/blob/release/18.0.0/ref-docs/sitecore-jss/modules/layout_rest_layout_service.md#restlayoutserviceconfig)):
 
 ```javascript
 import { RestLayoutService } from '@sitecore-jss/sitecore-jss';
@@ -75,11 +75,11 @@ layoutService.fetchLayoutData(sitecoreRoutePath, language).then(data => {
 
 ### Using a custom data fetcher
 
-The `RestLayoutServiceConfig` type accepts a `dataFetcherResolver` property. You can use this property to pass a custom data fetcher to your instance of the Layout Service. By default, the JSS REST Layout service uses `axios`.
+The [`RestLayoutServiceConfig`](https://github.com/Sitecore/jss/blob/release/18.0.0/ref-docs/sitecore-jss/modules/layout_rest_layout_service.md#restlayoutserviceconfig) type accepts a `dataFetcherResolver` property. You can use this property to pass a custom data fetcher to your instance of the Layout Service. By default, the JSS REST Layout service uses [`axios`](https://www.npmjs.com/package/axios).
 
 To use a REST layout service with a custom data fetcher: 
 
-1. In a file `layout-service.ts`, create an instance of the `RestLayoutService` class and provide the configuration object:
+1. In a file `layout-service.ts`, create an instance of the [`RestLayoutService` class](https://github.com/Sitecore/jss/blob/release/18.0.0/ref-docs/sitecore-jss/classes/layout_rest_layout_service.RestLayoutService.md) and provide the configuration object:
 
 ```typescript
 import { AxiosResponse } from 'axios';
