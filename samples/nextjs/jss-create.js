@@ -35,11 +35,11 @@ module.exports = function createJssProject(argv, nextSteps) {
       )} : Specifies the Next.js pre-rendering form for the optional catch-all route. Default is SSG.`,
       `*  ${chalk.green(
         '--empty {true|false}'
-      )} : Specifies whether the sample should be empty. Disconnected mode and styleguide components will be removed. Default is false.`,
+      )} : Specifies whether the sample should be empty. Disconnected mode and styleguide components will be removed. Default is false.`
     );
   }
 
-  setEmpty(argv.empty);  
+  setEmpty(argv.empty);
   setFetchWith(argv.fetchWith);
   setPrerender(argv.prerender);
   setNextConfig();
@@ -55,7 +55,7 @@ function getPath(filepath) {
 function setEmpty(empty) {
   console.log(chalk.cyan('Cleaning up the sample...'));
 
-  strip({ stripCode: empty, suffix: 'EMPTY' });
+  strip({ stripCode: empty, suffix: 'EMPTY', cwd: getPath('/') });
 
   if (!empty) return;
 
