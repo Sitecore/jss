@@ -46,7 +46,7 @@ There are two actions that Layout Service exposes:
     | `item`    | The path to the item, relative to the context site's home item or item GUID (ID). |
     | `sc_lang` | The language version of the item you wish to retrieve. |
     | `sc_apikey`     | An [SSC API Key](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/api_keys_for_the_odata_item_service) which has been configured for use with the Layout Service controller (`Sitecore.LayoutService.Mvc.Controllers.LayoutServiceController, Sitecore.LayoutService.Mvc`). An API Key is required in the query string or `sc_apikey` HTTP Header. |
-    | `tracking`    | (optional) Enables/disables analytics tracking for the Layout Service invocation. Default is `true`. See details below on the Layout Service and Analytics. |
+    | `tracking`    | (optional, for Sitecore XP only) Enables/disables analytics tracking for the Layout Service invocation. Default is `true`. See details below on the Layout Service and Analytics. |
 
 2. Getting the output of a particular placeholder.
 
