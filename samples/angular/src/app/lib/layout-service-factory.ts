@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 export class LayoutServiceFactory {
   create(): LayoutService {
     return new RestLayoutService({
-      apiHost: environment.graphQLEndpoint,
+      apiHost: environment.sitecoreApiHost,
       apiKey: environment.sitecoreApiKey,
       siteName: environment.jssAppName,
     });
