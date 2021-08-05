@@ -1,7 +1,9 @@
+Sitecore JavaScript Rendering SDK / [Exports](modules.md)
+
 # Sitecore JavaScript Rendering SDK 
 
 This module is provided as a part of Sitecore JavaScript Rendering SDK. It contains the core JSS APIs (layout service) and utilities.
 
 Consult the [Sitecore JSS documentation](https://jss.sitecore.com) for further details.
 
-Consult the package [API reference documentation](/ref-docs/sitecore-jss/modules.md).
+Consult the package [API reference documentation](/ref-docs/sitecore-jss/).
