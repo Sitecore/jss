@@ -38,7 +38,7 @@ module.exports = function createJssProject(argv, nextSteps) {
 
   if (!argv.fetchWith) {
     nextSteps.push(
-      `* Did you know you can customize the React sample app using ${chalk.green(
+      `* Did you know you can customize the Angular sample app using ${chalk.green(
         'jss create'
       )} parameters?`,
       `*  ${chalk.green(
