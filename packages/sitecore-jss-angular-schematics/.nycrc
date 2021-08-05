@@ -4,10 +4,14 @@
   ],
   "exclude": [
     "**/*.d.ts",
-    "**/*.spec.ts",
+    "**/*.test.ts",
     "src/testData",
     "dist",
-    "coverage"
+    "src/test.ts"
   ],
-  "all": true
+  "all": true,
+  "reporter": [
+    "json-summary",
+    "text"
+  ]
 }
