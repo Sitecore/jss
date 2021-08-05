@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / services/disconnected-sitemap-service
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / services/disconnected-sitemap-service
 
 # Module: services/disconnected-sitemap-service
 

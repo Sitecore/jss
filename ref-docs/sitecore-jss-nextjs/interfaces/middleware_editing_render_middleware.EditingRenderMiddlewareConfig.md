@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / [middleware/editing-render-middleware](../modules/middleware_editing_render_middleware.md) / EditingRenderMiddlewareConfig
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [middleware/editing-render-middleware](../modules/middleware_editing_render_middleware.md) / EditingRenderMiddlewareConfig
 
 # Interface: EditingRenderMiddlewareConfig
 
@@ -30,7 +30,7 @@ The `AxiosDataFetcher` instance to use for API requests.
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:14](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L14)
+[src/middleware/editing-render-middleware.ts:14](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L14)
 
 ___
 
@@ -48,7 +48,7 @@ By default, this is `editingDataService` (an `EditingDataService` singleton).
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:22](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L22)
+[src/middleware/editing-render-middleware.ts:22](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L22)
 
 ## Methods
 
@@ -78,7 +78,7 @@ The URL to render
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:32](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L32)
+[src/middleware/editing-render-middleware.ts:32](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L32)
 
 ___
 
@@ -105,4 +105,4 @@ By default, the host header is used, with https protocol on Vercel (due to serve
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:40](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L40)
+[src/middleware/editing-render-middleware.ts:40](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L40)

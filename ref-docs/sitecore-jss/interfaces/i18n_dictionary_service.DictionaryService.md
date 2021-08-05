@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [i18n/dictionary-service](../modules/i18n_dictionary_service.md) / DictionaryService
+[Sitecore JavaScript Rendering SDK](../README.md) / [i18n/dictionary-service](../modules/i18n_dictionary_service.md) / DictionaryService
 
 # Interface: DictionaryService
 
@@ -36,4 +36,4 @@ Fetch dictionary data for a language.
 
 #### Defined in
 
-[i18n/dictionary-service.ts:18](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/dictionary-service.ts#L18)
+[i18n/dictionary-service.ts:18](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/dictionary-service.ts#L18)

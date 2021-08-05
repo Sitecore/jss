@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / [services/disconnected-sitemap-service](../modules/services_disconnected_sitemap_service.md) / DisconnectedSitemapService
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [services/disconnected-sitemap-service](../modules/services_disconnected_sitemap_service.md) / DisconnectedSitemapService
 
 # Class: DisconnectedSitemapService
 
@@ -32,7 +32,7 @@ You can use `sitecore/manifest/sitecore-import.json` as manifest
 
 #### Defined in
 
-[src/services/disconnected-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L11)
+[src/services/disconnected-sitemap-service.ts:11](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L11)
 
 ## Methods
 
@@ -49,4 +49,4 @@ Since i18n is not supported, the output paths will not include a `locale` proper
 
 #### Defined in
 
-[src/services/disconnected-sitemap-service.ts:17](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L17)
+[src/services/disconnected-sitemap-service.ts:17](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/services/disconnected-sitemap-service.ts#L17)

@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [layout/layout-service](../modules/layout_layout_service.md) / LayoutService
+[Sitecore JavaScript Rendering SDK](../README.md) / [layout/layout-service](../modules/layout_layout_service.md) / LayoutService
 
 # Interface: LayoutService
 
@@ -39,4 +39,4 @@ layout data
 
 #### Defined in
 
-[layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/layout-service.ts#L13)
+[layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/layout-service.ts#L13)

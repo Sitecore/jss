@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [i18n/dictionary-service](../modules/i18n_dictionary_service.md) / DictionaryPhrases
+[Sitecore JavaScript Rendering SDK](../README.md) / [i18n/dictionary-service](../modules/i18n_dictionary_service.md) / DictionaryPhrases
 
 # Interface: DictionaryPhrases
 

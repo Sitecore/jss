@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [layout/rest-layout-service](../modules/layout_rest_layout_service.md) / LayoutServiceConfig
+[Sitecore JavaScript Rendering SDK](../README.md) / [layout/rest-layout-service](../modules/layout_rest_layout_service.md) / LayoutServiceConfig
 
 # Interface: LayoutServiceConfig
 
@@ -22,7 +22,7 @@ Layout Service "named" configuration
 
 #### Defined in
 
-[layout/rest-layout-service.ts:82](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/rest-layout-service.ts#L82)
+[layout/rest-layout-service.ts:82](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/rest-layout-service.ts#L82)
 
 ___
 
@@ -34,7 +34,7 @@ Host name of the Sitecore instance serving Layout Service requests.
 
 #### Defined in
 
-[layout/rest-layout-service.ts:77](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/rest-layout-service.ts#L77)
+[layout/rest-layout-service.ts:77](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/rest-layout-service.ts#L77)
 
 ___
 
@@ -47,4 +47,4 @@ Note: `host` and `configurationName` options are ignored if `layoutServiceUrl` i
 
 #### Defined in
 
-[layout/rest-layout-service.ts:88](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/rest-layout-service.ts#L88)
+[layout/rest-layout-service.ts:88](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/rest-layout-service.ts#L88)

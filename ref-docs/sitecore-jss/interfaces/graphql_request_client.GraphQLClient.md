@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [graphql-request-client](../modules/graphql_request_client.md) / GraphQLClient
+[Sitecore JavaScript Rendering SDK](../README.md) / [graphql-request-client](../modules/graphql_request_client.md) / GraphQLClient
 
 # Interface: GraphQLClient
 
@@ -43,4 +43,4 @@ Execute graphql request
 
 #### Defined in
 
-[graphql-request-client.ts:14](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/graphql-request-client.ts#L14)
+[graphql-request-client.ts:14](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/graphql-request-client.ts#L14)

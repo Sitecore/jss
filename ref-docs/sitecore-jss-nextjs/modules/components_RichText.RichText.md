@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / [components/RichText](components_RichText.md) / RichText
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [components/RichText](components_RichText.md) / RichText
 
 # Namespace: RichText
 

@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / debug
+[Sitecore JavaScript Rendering SDK](../README.md) / debug
 
 # Module: debug
 
@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[debug.ts:6](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/debug.ts#L6)
+[debug.ts:6](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/debug.ts#L6)
 
 ## Properties
 

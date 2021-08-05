@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / sharedTypes/component-props
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / sharedTypes/component-props
 
 # Module: sharedTypes/component-props
 
@@ -25,7 +25,7 @@ Shape of component props storage
 
 #### Defined in
 
-[src/sharedTypes/component-props.ts:7](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L7)
+[src/sharedTypes/component-props.ts:7](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L7)
 
 ___
 
@@ -60,7 +60,7 @@ Type of side effect function which could be invoked on component level (getStati
 
 #### Defined in
 
-[src/sharedTypes/component-props.ts:14](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L14)
+[src/sharedTypes/component-props.ts:14](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L14)
 
 ___
 
@@ -72,7 +72,7 @@ Shape of getServerSideProps function on component level
 
 #### Defined in
 
-[src/sharedTypes/component-props.ts:23](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L23)
+[src/sharedTypes/component-props.ts:23](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L23)
 
 ___
 
@@ -84,4 +84,4 @@ Shape of getStaticProps function on component level
 
 #### Defined in
 
-[src/sharedTypes/component-props.ts:28](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L28)
+[src/sharedTypes/component-props.ts:28](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L28)

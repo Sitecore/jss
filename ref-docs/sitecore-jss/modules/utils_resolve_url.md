@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / utils/resolve-url
+[Sitecore JavaScript Rendering SDK](../README.md) / utils/resolve-url
 
 # Module: utils/resolve-url
 
@@ -34,4 +34,4 @@ a URL string
 
 #### Defined in
 
-[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/utils/resolve-url.ts#L24)
+[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/utils/resolve-url.ts#L24)

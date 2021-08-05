@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / [components/Link](components_Link.md) / Link
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [components/Link](components_Link.md) / Link
 
 # Namespace: Link
 

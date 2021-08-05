@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / constants
+[Sitecore JavaScript Rendering SDK](../README.md) / constants
 
 # Module: constants
 

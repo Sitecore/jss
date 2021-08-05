@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / services/component-props-service
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / services/component-props-service
 
 # Module: services/component-props-service
 
@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/services/component-props-service.ts:20](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L20)
+[src/services/component-props-service.ts:20](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L20)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/services/component-props-service.ts:14](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L14)
+[src/services/component-props-service.ts:14](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/services/component-props-service.ts#L14)

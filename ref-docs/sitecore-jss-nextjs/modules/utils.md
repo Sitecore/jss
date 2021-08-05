@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / utils
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / utils
 
 # Module: utils
 
@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[src/utils.ts:64](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/utils.ts#L64)
+[src/utils.ts:64](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/utils.ts#L64)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/utils.ts:4](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/utils.ts#L4)
+[src/utils.ts:4](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/utils.ts#L4)
 
 ___
 
@@ -62,4 +62,4 @@ Since Experience Editor does not support Fast Refresh:
 
 #### Defined in
 
-[src/utils.ts:31](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/utils.ts#L31)
+[src/utils.ts:31](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/utils.ts#L31)

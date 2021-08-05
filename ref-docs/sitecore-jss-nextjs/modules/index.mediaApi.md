@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / [index](index.md) / mediaApi
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [index](index.md) / mediaApi
 
 # Namespace: mediaApi
 

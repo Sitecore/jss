@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / i18n/dictionary-service
+[Sitecore JavaScript Rendering SDK](../README.md) / i18n/dictionary-service
 
 # Module: i18n/dictionary-service
 

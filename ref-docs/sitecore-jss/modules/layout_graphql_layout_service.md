@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / layout/graphql-layout-service
+[Sitecore JavaScript Rendering SDK](../README.md) / layout/graphql-layout-service
 
 # Module: layout/graphql-layout-service
 
@@ -29,4 +29,4 @@
 
 #### Defined in
 
-[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
+[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)

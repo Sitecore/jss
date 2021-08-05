@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / sharedTypes/component-module
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / sharedTypes/component-module
 
 # Module: sharedTypes/component-module
 
@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[src/sharedTypes/component-module.ts:9](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L9)
+[src/sharedTypes/component-module.ts:9](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L9)

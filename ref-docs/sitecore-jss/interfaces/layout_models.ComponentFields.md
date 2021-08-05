@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [layout/models](../modules/layout_models.md) / ComponentFields
+[Sitecore JavaScript Rendering SDK](../README.md) / [layout/models](../modules/layout_models.md) / ComponentFields
 
 # Interface: ComponentFields
 

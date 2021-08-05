@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / middleware/editing-data-cache
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / middleware/editing-data-cache
 
 # Module: middleware/editing-data-cache
 
@@ -26,4 +26,4 @@ EditingDataDiskCache singleton
 
 #### Defined in
 
-[src/middleware/editing-data-cache.ts:48](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L48)
+[src/middleware/editing-data-cache.ts:48](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/middleware/editing-data-cache.ts#L48)

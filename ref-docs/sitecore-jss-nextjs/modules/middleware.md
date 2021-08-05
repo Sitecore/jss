@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / middleware
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / middleware
 
 # Module: middleware
 

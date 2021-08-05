@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [i18n/graphql-dictionary-service](../modules/i18n_graphql_dictionary_service.md) / GraphQLDictionaryService
+[Sitecore JavaScript Rendering SDK](../README.md) / [i18n/graphql-dictionary-service](../modules/i18n_graphql_dictionary_service.md) / GraphQLDictionaryService
 
 # Class: GraphQLDictionaryService
 
@@ -54,7 +54,7 @@ Creates an instance of graphQL dictionary service with the provided options
 
 #### Defined in
 
-[i18n/graphql-dictionary-service.ts:90](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L90)
+[i18n/graphql-dictionary-service.ts:90](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L90)
 
 ## Properties
 
@@ -64,7 +64,7 @@ Creates an instance of graphQL dictionary service with the provided options
 
 #### Defined in
 
-[i18n/graphql-dictionary-service.ts:83](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L83)
+[i18n/graphql-dictionary-service.ts:83](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L83)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[i18n/graphql-dictionary-service.ts:84](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L84)
+[i18n/graphql-dictionary-service.ts:84](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L84)
 
 ## Methods
 
@@ -116,7 +116,7 @@ dictionary phrases
 
 #### Defined in
 
-[i18n/graphql-dictionary-service.ts:103](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L103)
+[i18n/graphql-dictionary-service.ts:103](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L103)
 
 ___
 
@@ -140,7 +140,7 @@ implementation
 
 #### Defined in
 
-[i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
+[i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
 
 ___
 
@@ -168,7 +168,7 @@ The @see DictionaryPhrases value, or null if the specified key is not found in t
 
 #### Defined in
 
-[i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
+[i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
 
 ___
 
@@ -188,7 +188,7 @@ implementation
 
 #### Defined in
 
-[i18n/graphql-dictionary-service.ts:143](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L143)
+[i18n/graphql-dictionary-service.ts:143](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L143)
 
 ___
 
@@ -219,4 +219,4 @@ The value added to the cache.
 
 #### Defined in
 
-[i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
+[i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)

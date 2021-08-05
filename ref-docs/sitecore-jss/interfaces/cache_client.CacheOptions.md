@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [cache-client](../modules/cache_client.md) / CacheOptions
+[Sitecore JavaScript Rendering SDK](../README.md) / [cache-client](../modules/cache_client.md) / CacheOptions
 
 # Interface: CacheOptions
 
@@ -31,7 +31,7 @@ Enable/disable caching mechanism
 
 #### Defined in
 
-[cache-client.ts:40](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/cache-client.ts#L40)
+[cache-client.ts:40](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/cache-client.ts#L40)
 
 ___
 
@@ -45,4 +45,4 @@ Cache timeout (sec)
 
 #### Defined in
 
-[cache-client.ts:45](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/cache-client.ts#L45)
+[cache-client.ts:45](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/cache-client.ts#L45)

@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / utils
+[Sitecore JavaScript Rendering SDK](../README.md) / utils
 
 # Module: utils
 

@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / [services/editing-data-service](../modules/services_editing_data_service.md) / EditingDataServiceConfig
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [services/editing-data-service](../modules/services_editing_data_service.md) / EditingDataServiceConfig
 
 # Interface: EditingDataServiceConfig
 
@@ -27,7 +27,7 @@ This endpoint should run the `EditingDataMiddleware`.
 
 #### Defined in
 
-[src/services/editing-data-service.ts:15](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L15)
+[src/services/editing-data-service.ts:15](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L15)
 
 ___
 
@@ -43,4 +43,4 @@ The `AxiosDataFetcher` instance to use for API requests.
 
 #### Defined in
 
-[src/services/editing-data-service.ts:21](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L21)
+[src/services/editing-data-service.ts:21](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L21)

@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / cache-client
+[Sitecore JavaScript Rendering SDK](../README.md) / cache-client
 
 # Module: cache-client
 

@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [constants](../modules/constants.md) / SitecoreTemplateId
+[Sitecore JavaScript Rendering SDK](../README.md) / [constants](../modules/constants.md) / SitecoreTemplateId
 
 # Enumeration: SitecoreTemplateId
 
@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[constants.ts:6](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/constants.ts#L6)
+[constants.ts:6](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/constants.ts#L6)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[constants.ts:3](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/constants.ts#L3)
+[constants.ts:3](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/constants.ts#L3)

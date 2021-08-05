@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / graphql
+[Sitecore JavaScript Rendering SDK](../README.md) / graphql
 
 # Module: graphql
 

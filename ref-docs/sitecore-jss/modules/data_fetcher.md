@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / data-fetcher
+[Sitecore JavaScript Rendering SDK](../README.md) / data-fetcher
 
 # Module: data-fetcher
 
@@ -53,7 +53,7 @@ The interface implementation must:
 
 #### Defined in
 
-[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/data-fetcher.ts#L26)
 
 ## Functions
 
@@ -81,4 +81,4 @@ The interface implementation must:
 
 #### Defined in
 
-[data-fetcher.ts:60](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/data-fetcher.ts#L60)
+[data-fetcher.ts:60](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/data-fetcher.ts#L60)

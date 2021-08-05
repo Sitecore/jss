@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / axios-fetcher
+[Sitecore JavaScript Rendering SDK](../README.md) / axios-fetcher
 
 # Module: axios-fetcher
 
@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/axios-fetcher.ts#L35)

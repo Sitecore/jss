@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / sharedTypes/editing-data
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / sharedTypes/editing-data
 
 # Module: sharedTypes/editing-data
 
@@ -35,7 +35,7 @@ Data sent from Experience Editor
 
 #### Defined in
 
-[src/sharedTypes/editing-data.ts:6](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L6)
+[src/sharedTypes/editing-data.ts:6](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L6)
 
 ## Functions
 
@@ -55,4 +55,4 @@ data is EditingData
 
 #### Defined in
 
-[src/sharedTypes/editing-data.ts:16](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L16)
+[src/sharedTypes/editing-data.ts:16](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L16)

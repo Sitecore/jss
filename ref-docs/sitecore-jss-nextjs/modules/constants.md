@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / constants
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / constants
 
 # Module: constants
 
@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/constants.ts:1](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/constants.ts#L1)
+[src/constants.ts:1](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/constants.ts#L1)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[src/constants.ts:2](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/constants.ts#L2)
+[src/constants.ts:2](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/constants.ts#L2)

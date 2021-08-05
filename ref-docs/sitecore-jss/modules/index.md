@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / index
+[Sitecore JavaScript Rendering SDK](../README.md) / index
 
 # Module: index
 
@@ -418,4 +418,4 @@ Renames and exports: [default](utils_resolve_url.md#default)
 
 #### Defined in
 
-[index.ts:47](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/index.ts#L47)
+[index.ts:47](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/index.ts#L47)

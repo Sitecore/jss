@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / components/ComponentPropsContext
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / components/ComponentPropsContext
 
 # Module: components/ComponentPropsContext
 
@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[src/components/ComponentPropsContext.tsx:21](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L21)
+[src/components/ComponentPropsContext.tsx:21](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L21)
 
 ## Variables
 
@@ -44,7 +44,7 @@ Component props context which we are using in order to store data fetched on com
 
 #### Defined in
 
-[src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
+[src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
 
 ## Functions
 
@@ -64,7 +64,7 @@ Component props context which we are using in order to store data fetched on com
 
 #### Defined in
 
-[src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
+[src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
 
 ___
 
@@ -96,4 +96,4 @@ component props
 
 #### Defined in
 
-[src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
+[src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)

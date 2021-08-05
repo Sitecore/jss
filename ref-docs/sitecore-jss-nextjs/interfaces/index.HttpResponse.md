@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / [index](../modules/index.md) / HttpResponse
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [index](../modules/index.md) / HttpResponse
 
 # Interface: HttpResponse<T\>
 

@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [layout/rest-layout-service](../modules/layout_rest_layout_service.md) / LayoutServiceRequestOptions
+[Sitecore JavaScript Rendering SDK](../README.md) / [layout/rest-layout-service](../modules/layout_rest_layout_service.md) / LayoutServiceRequestOptions
 
 # Interface: LayoutServiceRequestOptions<T\>
 
@@ -28,7 +28,7 @@ The fetcher that performs the HTTP request and returns a promise to JSON
 
 #### Defined in
 
-[layout/rest-layout-service.ts:102](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/rest-layout-service.ts#L102)
+[layout/rest-layout-service.ts:102](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/rest-layout-service.ts#L102)
 
 ___
 
@@ -40,7 +40,7 @@ Configuration options for Layout Service requests.
 
 #### Defined in
 
-[layout/rest-layout-service.ts:95](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/rest-layout-service.ts#L95)
+[layout/rest-layout-service.ts:95](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/rest-layout-service.ts#L95)
 
 ___
 
@@ -56,4 +56,4 @@ An object of key:value pairs to be stringified and used as querystring parameter
 
 #### Defined in
 
-[layout/rest-layout-service.ts:99](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/rest-layout-service.ts#L99)
+[layout/rest-layout-service.ts:99](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/rest-layout-service.ts#L99)

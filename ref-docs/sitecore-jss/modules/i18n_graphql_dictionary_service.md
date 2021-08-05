@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / i18n/graphql-dictionary-service
+[Sitecore JavaScript Rendering SDK](../README.md) / i18n/graphql-dictionary-service
 
 # Module: i18n/graphql-dictionary-service
 
@@ -39,7 +39,7 @@ The schema of data returned in response to a dictionary query request.
 
 #### Defined in
 
-[i18n/graphql-dictionary-service.ts:72](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L72)
+[i18n/graphql-dictionary-service.ts:72](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L72)
 
 ## Variables
 
@@ -49,4 +49,4 @@ The schema of data returned in response to a dictionary query request.
 
 #### Defined in
 
-[i18n/graphql-dictionary-service.ts:9](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L9)
+[i18n/graphql-dictionary-service.ts:9](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/i18n/graphql-dictionary-service.ts#L9)

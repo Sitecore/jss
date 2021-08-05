@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / services/editing-data-service
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / services/editing-data-service
 
 # Module: services/editing-data-service
 
@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[src/services/editing-data-service.ts:5](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L5)
+[src/services/editing-data-service.ts:5](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L5)
 
 ___
 
@@ -37,4 +37,4 @@ EditingDataService singleton (with default values)
 
 #### Defined in
 
-[src/services/editing-data-service.ts:99](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L99)
+[src/services/editing-data-service.ts:99](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L99)

@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / graphql/search-service
+[Sitecore JavaScript Rendering SDK](../README.md) / graphql/search-service
 
 # Module: graphql/search-service
 
@@ -43,7 +43,7 @@ Schema of data returned in response to a "search" query request
 
 #### Defined in
 
-[graphql/search-service.ts:8](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/graphql/search-service.ts#L8)
+[graphql/search-service.ts:8](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/graphql/search-service.ts#L8)
 
 ___
 
@@ -65,4 +65,4 @@ The other predicates are optional.
 
 #### Defined in
 
-[graphql/search-service.ts:34](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/graphql/search-service.ts#L34)
+[graphql/search-service.ts:34](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/graphql/search-service.ts#L34)

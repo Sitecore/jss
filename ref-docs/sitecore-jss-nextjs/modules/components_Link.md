@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / components/Link
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / components/Link
 
 # Module: components/Link
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
+[src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
 
 ## Variables
 
@@ -62,4 +62,4 @@
 
 #### Defined in
 
-[src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/components/Link.tsx#L20)
+[src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/components/Link.tsx#L20)

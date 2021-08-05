@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / middleware/editing-render-middleware
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / middleware/editing-render-middleware
 
 # Module: middleware/editing-render-middleware
 
@@ -34,4 +34,4 @@
 
 #### Defined in
 
-[src/middleware/editing-render-middleware.ts:188](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L188)
+[src/middleware/editing-render-middleware.ts:188](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/middleware/editing-render-middleware.ts#L188)

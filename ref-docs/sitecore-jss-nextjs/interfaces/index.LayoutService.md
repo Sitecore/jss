@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / [index](../modules/index.md) / LayoutService
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [index](../modules/index.md) / LayoutService
 
 # Interface: LayoutService
 

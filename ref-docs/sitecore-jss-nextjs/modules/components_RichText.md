@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / components/RichText
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / components/RichText
 
 # Module: components/RichText
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
+[src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
 
 ## Variables
 
@@ -62,4 +62,4 @@
 
 #### Defined in
 
-[src/components/RichText.tsx:20](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L20)
+[src/components/RichText.tsx:20](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L20)

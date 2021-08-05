@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [cache-client](../modules/cache_client.md) / CacheClient
+[Sitecore JavaScript Rendering SDK](../README.md) / [cache-client](../modules/cache_client.md) / CacheClient
 
 # Interface: CacheClient<T\>
 
@@ -46,7 +46,7 @@ The cache value as {T}, or null if the specified key was not found in the cache.
 
 #### Defined in
 
-[cache-client.ts:21](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/cache-client.ts#L21)
+[cache-client.ts:21](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/cache-client.ts#L21)
 
 ___
 
@@ -71,4 +71,4 @@ The value added to the cache.
 
 #### Defined in
 
-[cache-client.ts:14](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/cache-client.ts#L14)
+[cache-client.ts:14](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/cache-client.ts#L14)

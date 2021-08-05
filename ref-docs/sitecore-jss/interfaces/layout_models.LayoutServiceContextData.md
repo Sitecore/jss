@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [layout/models](../modules/layout_models.md) / LayoutServiceContextData
+[Sitecore JavaScript Rendering SDK](../README.md) / [layout/models](../modules/layout_models.md) / LayoutServiceContextData
 
 # Interface: LayoutServiceContextData
 
@@ -20,4 +20,4 @@ Context information from the Sitecore Layout Service
 
 #### Defined in
 
-[layout/models.ts:37](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/models.ts#L37)
+[layout/models.ts:37](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/models.ts#L37)

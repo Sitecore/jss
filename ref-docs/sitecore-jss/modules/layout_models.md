@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / layout/models
+[Sitecore JavaScript Rendering SDK](../README.md) / layout/models
 
 # Module: layout/models
 
@@ -37,7 +37,7 @@ Field value data on a component
 
 #### Defined in
 
-[layout/models.ts:109](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/models.ts#L109)
+[layout/models.ts:109](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/models.ts#L109)
 
 ___
 
@@ -56,4 +56,4 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[layout/models.ts:64](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/layout/models.ts#L64)
+[layout/models.ts:64](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/layout/models.ts#L64)

@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [Exports](../modules.md) / [sharedTypes/editing-data](../modules/sharedTypes_editing_data.md) / EditingPreviewData
+[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / [sharedTypes/editing-data](../modules/sharedTypes_editing_data.md) / EditingPreviewData
 
 # Interface: EditingPreviewData
 
@@ -21,7 +21,7 @@ Data for Next.js Preview (Editing) mode
 
 #### Defined in
 
-[src/sharedTypes/editing-data.ts:29](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L29)
+[src/sharedTypes/editing-data.ts:29](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L29)
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 #### Defined in
 
-[src/sharedTypes/editing-data.ts:30](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L30)
+[src/sharedTypes/editing-data.ts:30](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L30)

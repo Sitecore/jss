@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK](../README.md) / [Exports](../modules.md) / [graphql/search-service](../modules/graphql_search_service.md) / SearchQueryService
+[Sitecore JavaScript Rendering SDK](../README.md) / [graphql/search-service](../modules/graphql_search_service.md) / SearchQueryService
 
 # Class: SearchQueryService<T\>
 
@@ -51,7 +51,7 @@ Creates an instance of search query service.
 
 #### Defined in
 
-[graphql/search-service.ts:83](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/graphql/search-service.ts#L83)
+[graphql/search-service.ts:83](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/graphql/search-service.ts#L83)
 
 ## Properties
 
@@ -90,4 +90,4 @@ array of result objects.
 
 #### Defined in
 
-[graphql/search-service.ts:96](https://github.com/Sitecore/jss/blob/8c00be96/packages/sitecore-jss/src/graphql/search-service.ts#L96)
+[graphql/search-service.ts:96](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss/src/graphql/search-service.ts#L96)
