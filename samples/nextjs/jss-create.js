@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const { strip } = require('@sitecore-jss/sitecore-jss-dev-tools');
-const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/create');
+const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/cjs/create');
 const { execSync } = require('child_process');
 
 /**
