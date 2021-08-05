@@ -9,8 +9,6 @@
     "build-apps": "lerna run build --scope *-sample*",
     "lint-packages": "lerna run lint --ignore *-sample*",
     "lint-apps": "lerna run lint --ignore @sitecore-jss/*",
-    "test-packages": "lerna run test --ignore *-sample*",
-    "test": "lerna run test",
     "coverage-packages": "lerna run coverage --ignore *-sample*"
   },
   "author": {
