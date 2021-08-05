@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
 const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/cjs/create');
 
 /**
