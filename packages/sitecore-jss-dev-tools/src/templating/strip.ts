@@ -1,8 +1,9 @@
 import path from 'path';
 import fs from 'fs';
+import glob from 'glob';
 
-const EXCLUDE_DIR_REGEXP = /(^|\\)(node_modules|dist|\.next|out|\.generated)(\\|$)/gi;
-const INCLUDE_FILE_REGEXP = /\.(js|tsx?)$/i;
+const PATTERN = '**/*.@(js|ts?(x))';
+const IGNORE_PATTERN = '@(node_modules|dist|.next|out|.generated)/**';
 
 /**
  * Generates comments block
@@ -10,19 +11,14 @@ const INCLUDE_FILE_REGEXP = /\.(js|tsx?)$/i;
  * @param {string} [suffix] ending part
  * @returns {RegExp} regExp
  */
-const getStripRegExp = (prefix: string, suffix = 'EMPTY') => {
+const getStripRegExp = (prefix: string, suffix = 'STRIP') => {
   return new RegExp(`// #${prefix}_${suffix}`, 'g');
 };
 
 interface StripSettings {
   /**
-   * Strip function starting path
-   * @default process.cwd()
-   */
-  sourcePath?: string;
-  /**
    * Custom identificator for comments block in case if you want to have comments with special name
-   * @default 'EMPTY'
+   * @default 'STRIP'
    */
   suffix?: string;
   /**
@@ -31,15 +27,20 @@ interface StripSettings {
    */
   stripCode?: boolean;
   /**
-   * Pattern to exclude specific directories from iterations
-   * @default /(^|\\)(node_modules|dist|\.next|out|\.generated)(\\|$)/gi
+   * Indicates which files should be included
+   * @default '!(node_modules|dist|.next|out|.generated)/**\/*.@(js|ts?(x))'
    */
-  excludeDirPattern?: RegExp;
+  pattern?: string;
   /**
-   * Pattern to exclude files with specific filename from iterations
-   * @default /\.(js|tsx?)$/i
+   * Indicates which files should be ignored
+   * @default '@(node_modules|dist|.next|out|.generated)/**'
    */
-  includeFilePattern?: RegExp;
+  ignore?: string;
+  /**
+   * Current working directory
+   * @default process.cwd()
+   */
+  cwd?: string;
 }
 
 /**
@@ -77,92 +78,14 @@ export const compile = (file: string, settings: StripSettings) => {
 };
 
 /**
- * Process next file from the specified directory
- * @param {string} dirPath
- * @param {Directory} directory
- * @param {StripSettings} settings
- */
-export const processNextFile = (
-  dirPath: string,
-  directory: Directory,
-  settings: StripSettings
-): void => {
-  let file = directory.getNextFile();
-
-  if (!file) return;
-
-  if ((settings.excludeDirPattern || EXCLUDE_DIR_REGEXP).test(file)) {
-    return processNextFile(dirPath, directory, settings);
-  }
-
-  file = path.resolve(dirPath, file);
-
-  const stat = fs.statSync(file);
-
-  if (stat && stat.isDirectory()) {
-    processDirectory(file, settings);
-    processNextFile(dirPath, directory, settings);
-
-    return;
-  }
-
-  if (!(settings.includeFilePattern || INCLUDE_FILE_REGEXP).test(file)) {
-    return processNextFile(dirPath, directory, settings);
-  }
-
-  compile(file, settings);
-
-  processNextFile(dirPath, directory, settings);
-};
-
-interface Directory {
-  /**
-   * Files list in the directory
-   */
-  files: string[];
-  /**
-   * Current file index
-   */
-  index: number;
-  /**
-   * Returns next file in the directory
-   */
-  getNextFile(): string;
-}
-
-/**
- * Get files list and returns @interface Directory instance
- * @param {string} dir directory path
- * @returns {Directory} instance
- */
-export const getDirectory = (dir: string): Directory => {
-  const list = fs.readdirSync(dir);
-
-  return {
-    files: list,
-    index: 0,
-    getNextFile() {
-      return this.files[this.index++];
-    },
-  };
-};
-
-/**
- * Iterate files/directories in provided directory
- * @param {string} dirPath current directory
- * @param {StripSettings} settings
- */
-export const processDirectory = (dirPath: string, settings: StripSettings) => {
-  const directory = getDirectory(dirPath);
-
-  processNextFile(dirPath, directory, settings);
-};
-
-/**
  * Removes part of code which inside the special comments block.
  * Compiles each not excluded file starting from current dirrectory (or `settings.sourcePath`).
  * @param {StripSettings} settings
  */
 export const strip = (settings: StripSettings = {}) => {
-  processDirectory(settings.sourcePath || process.cwd(), settings);
+  const { pattern = PATTERN, ignore = IGNORE_PATTERN, cwd = process.cwd() } = settings;
+
+  const files = glob.sync(pattern, { ignore, cwd });
+
+  files.forEach((file) => compile(path.resolve(cwd, file), settings));
 };

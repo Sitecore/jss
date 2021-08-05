@@ -39,12 +39,7 @@ module.exports = function createJssProject(argv, nextSteps) {
     );
   }
 
-  if (argv.empty) {
-    createEmptyStarter();
-  }
-
-  strip({ stripCode: argv.empty });
-
+  setEmpty(argv.empty);  
   setFetchWith(argv.fetchWith);
   setPrerender(argv.prerender);
   setNextConfig();
@@ -57,14 +52,18 @@ function getPath(filepath) {
   return path.join(__dirname, filepath);
 }
 
-function createEmptyStarter() {
+function setEmpty(empty) {
+  console.log(chalk.cyan('Cleaning up the sample...'));
+
+  strip({ stripCode: empty, suffix: 'EMPTY' });
+
+  if (!empty) return;
+
   const dataDir = getPath('data');
   const disconnectedProxyScript = getPath('scripts/disconnected-mode-proxy.ts');
   const manifestTemplate = getPath('scripts/templates/component-manifest.ts');
   const definitionsDir = getPath('sitecore/definitions');
   const componentsDir = getPath('src/components');
-
-  console.log(chalk.cyan('Cleaning up the sample...'));
 
   fs.rmdirSync(dataDir, { recursive: true });
   fs.unlinkSync(disconnectedProxyScript);
