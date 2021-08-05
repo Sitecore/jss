@@ -22,7 +22,7 @@ module.exports = function createJssProject(argv, nextSteps) {
 
   if (!argv.fetchWith) {
     nextSteps.push(
-      `* Did you know you can customize the Next.js sample app using ${chalk.green(
+      `* Did you know you can customize the Vue sample app using ${chalk.green(
         'jss create'
       )} parameters?`,
       `*  ${chalk.green(
