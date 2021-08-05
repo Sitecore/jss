@@ -7,6 +7,7 @@ export class LayoutServiceFactory {
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
+      configurationName: 'default',
     });
   }
 }
