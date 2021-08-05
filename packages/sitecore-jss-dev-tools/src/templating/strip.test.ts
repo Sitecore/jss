@@ -264,7 +264,7 @@ describe('strip', () => {
       readFileSyncStub.restore();
     });
 
-    it('should process files and strip code using custom sourcePath', () => {
+    it('should process files and strip code using custom cwd', () => {
       const sourceDirPath = path.resolve(process.cwd(), 'sub_dir');
 
       const globStub = sinon.stub(glob, 'sync');
