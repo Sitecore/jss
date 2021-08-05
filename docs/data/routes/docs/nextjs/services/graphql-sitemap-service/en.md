@@ -37,41 +37,4 @@ When you execute `fetchSSGSitemap`/`fetchExportSitemap` using the `GraphQLSitema
 
 ## Queries
 
-The default GraphQL query used by GraphQL Sitemap Service to fetch items and generate the sitemap is:
-
-```typescript
-const defaultQuery = /* GraphQL */ `
-  query SitemapQuery(
-    $rootItemId: String!
-    $language: String!
-    $pageSize: Int = 10
-    $hasLayout: String = "true"
-    $after: String
-  ) {
-    search(
-      where: {
-        AND: [
-          { name: "_path", value: $rootItemId, operator: CONTAINS }
-          { name: "_language", value: $language }
-          { name: "_hasLayout", value: $hasLayout }
-        ]
-      }
-      first: $pageSize
-      after: $after
-    ) {
-      total
-      pageInfo {
-        endCursor
-        hasNext
-      }
-      results {
-        url {
-          path
-        }
-      }
-    }
-  }
-`;
-```
-
-To use a custom query, you must extend the `GraphQLSitemapService` class, overriding the `fetchSitemap` method used internally by `fetchSSGSitemap` and `fetchExportSitemap`. 
+The [default GraphQL query used by GraphQL Sitemap Service](https://github.com/Sitecore/jss/blob/release/18.0.0/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L18-L49) to fetch items and generate the sitemap can be replaced with a custom query. To do so, extend the `GraphQLSitemapService` class, overriding the `fetchSitemap` method used internally by `fetchSSGSitemap` and `fetchExportSitemap`. 
