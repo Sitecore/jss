@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-vue",
-  "version": "18.0.0-canary.5",
+  "version": "18.0.0-canary.6",
   "description": "Application utilizing Sitecore JavaScript Services and Vue (vue-cli).",
   "private": true,
   "config": {
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@panter/vue-i18next": "~0.15.1",
-    "@sitecore-jss/sitecore-jss-vue": "^18.0.0-canary.5",
+    "@sitecore-jss/sitecore-jss-vue": "^18.0.0-canary.6",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
     "apollo-link": "~1.2.13",
@@ -69,10 +69,10 @@
   },
   "devDependencies": {
     "@babel/register": "7.6.2",
-    "@sitecore-jss/sitecore-jss-cli": "^18.0.0-canary.5",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^18.0.0-canary.5",
-    "@sitecore-jss/sitecore-jss-manifest": "^18.0.0-canary.5",
-    "@sitecore-jss/sitecore-jss-tracking": "^18.0.0-canary.5",
+    "@sitecore-jss/sitecore-jss-cli": "^18.0.0-canary.6",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^18.0.0-canary.6",
+    "@sitecore-jss/sitecore-jss-manifest": "^18.0.0-canary.6",
+    "@sitecore-jss/sitecore-jss-tracking": "^18.0.0-canary.6",
     "@vue/cli-plugin-babel": "~4.5.6",
     "@vue/cli-plugin-eslint": "~4.5.6",
     "@vue/cli-service": "~4.5.6",
