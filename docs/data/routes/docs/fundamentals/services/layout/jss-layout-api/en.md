@@ -6,10 +6,9 @@ title: JSS Layout API
 # JSS Layout API
 
 The JSS Layout API is a suite of services, clients and data fetchers that facilitate retrieving Sitecore layout data from Sitecore REST and/or GraphQL endpoints.
+## Examples
 
-## Invoking the REST Layout Service from JSS apps
-
-Sitecore JSS provides a simple API to make utilizing the [Sitecore Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) easier. 
+The following sections provide some simplified examples to demonstrate how to use the JSS Layout API. If your project is based on a JSS sample application (you set it up with `jss create` or copied a sample from the [JSS repository](https://github.com/Sitecore/jss/tree/master/samples)), your application already handles fetching of layout data.
 
 The following examples show you how to retrieve layout data from your Sitecore instance using the REST and GraphQL. 
 
@@ -118,3 +117,4 @@ layoutService.fetchLayoutData(sitecoreRoutePath, language).then(data => {
      // do something with the data
 });
 ```
+
