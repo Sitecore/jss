@@ -15,6 +15,7 @@ The following sections provide some simplified examples to demonstrate how to us
 The following examples show you how to retrieve dictionary data from your Sitecore instance using the REST and GraphQL. 
 
 > For all the examples below, we assume you will create the files in the root directory of the application and that you have a `config.js` file in that same directory. Adjust the `import` statements as necessary to reflect your project's setup.
+
 ### Fetching dictionary data with GraphQL
 
 You can fetch dictionary data from Sitecore using GraphQL and the JSS `GraphQLDictionaryService`. 
