@@ -28,7 +28,7 @@ interface StripSettings {
   stripCode?: boolean;
   /**
    * Indicates which files should be included
-   * @default '!(node_modules|dist|.next|out|.generated)/**\/*.@(js|ts?(x))'
+   * @default '**\/*.@(js|ts?(x))'
    */
   pattern?: string;
   /**
