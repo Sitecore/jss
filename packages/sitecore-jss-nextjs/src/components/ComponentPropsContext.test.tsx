@@ -29,7 +29,7 @@ describe('ComponentPropsContext', () => {
   const X4Component = () => {
     const data = useComponentProps<number>(undefined);
 
-    return <div>Forth: {data ?? 'undefined'}</div>;
+    return <div>Fourth: {data ?? 'undefined'}</div>;
   };
 
   it('should render', () => {
@@ -55,6 +55,6 @@ describe('ComponentPropsContext', () => {
 
     expect(x3Div.contains(<div>Third: undefined</div>)).to.be.true;
 
-    expect(x4Div.contains(<div>Forth: undefined</div>)).to.be.true;
+    expect(x4Div.contains(<div>Fourth: undefined</div>)).to.be.true;
   });
 });
