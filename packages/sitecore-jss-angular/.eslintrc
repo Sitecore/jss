@@ -1,9 +1,7 @@
 {
   "extends": [
     "plugin:@angular-eslint/recommended",
-    "../../.eslintrc"
-	],
-	"rules": {
-		"@typescript-eslint/explicit-module-boundary-types": "off"
-	}
+    "../../.eslintrc",
+    "../../eslint-configs/typescript"
+	]
 }

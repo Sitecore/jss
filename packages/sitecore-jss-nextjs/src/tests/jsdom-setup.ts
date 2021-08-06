@@ -4,8 +4,6 @@
 
 /// <reference types="../../global" />
 
-declare module 'style-attr';
-
 // eslint-disable-next-line no-var
 declare var global: NodeJS.Global;
 

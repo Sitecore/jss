@@ -1,4 +1,9 @@
-declare module 'style-attr';
+declare module 'style-attr' {
+  export const parse: (
+    style: string,
+    config: { preserveNumbers: boolean }
+  ) => { [key: string]: unknown };
+}
 
 declare namespace NodeJS {
   export interface Global {
