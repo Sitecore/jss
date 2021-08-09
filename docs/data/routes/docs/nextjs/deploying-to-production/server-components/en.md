@@ -26,4 +26,4 @@ Install using Headless Services WDP packages.
 ## Sitecore Containers
 Layer the Sitecore Headless Services module onto your container images in your Dockerfiles.
 * [Walkthrough: Add Sitecore modules to custom images](https://doc.sitecore.com/developers/101/developer-tools/en/add-sitecore-modules.html)
-* [Sitecore container module reference for Headless Services](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-module-reference.html#idp15853)
+* [Sitecore container module reference for Headless Services](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-module-reference.html#javascript-services--jss---sitecore-headless-services_body)

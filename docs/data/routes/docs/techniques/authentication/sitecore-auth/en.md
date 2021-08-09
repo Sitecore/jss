@@ -14,7 +14,7 @@ As the [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-servi
 
 Sitecore Services Client includes an Authentication Service which can be utilized to RESTfully log into Sitecore and set the `.ASPXAUTH` cookie. You may invoke this service within your JSS application in order to utilize Sitecore authentication and authorization.
 
-For more information on this service, see the [SSC API Documentation](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/the_restful_api_for_the_itemservice).
+For more information on this service, see the [SSC API Documentation](https://doc.sitecore.com/en/developers/101/sitecore-experience-manager/the-restful-api-for-the-itemservice.html).
 
 > The SSC Auth services require an SSL/TLS connection, so for local development you will need to set up a certificate and SSL bindings for your Sitecore site. SSL configuration is beyond the scope of this documentation. `https://my.sitecore.hostname` should work, even if with a security warning, before attempting to use SSC auth from a JSS app.
 
@@ -47,7 +47,7 @@ To test/explore authentication and security with a sample app, you'll need to cr
 
 ## SSC Auth 
 
-It is possible to build a simple login/logout using the [SSC Authentication services](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/the_restful_api_for_the_itemservice).
+It is possible to build a simple login/logout using the [SSC Authentication services](https://doc.sitecore.com/en/developers/101/sitecore-experience-manager/the-restful-api-for-the-itemservice.html).
 
 ### Integrated Mode
 
