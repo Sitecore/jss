@@ -94,8 +94,10 @@ export default {
         this.route.params.lang || this.appState.sitecoreContext.language || this.defaultLanguage;
       this.loading = true;
 
+      // instantiate layout service
+      const layoutServiceInstance = layoutServiceFactory.create();
       // get the route data for the new route
-      layoutServiceFactory.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
+      layoutServiceInstance.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
         if (routeData !== null && routeData.sitecore.route) {
           // Update the JSS store instance with the fetched data.
           // This will signal the RouteHandler to update/re-render, as well as any components

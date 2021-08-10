@@ -29,7 +29,10 @@ export default function i18nInit(language, dictionary) {
 
       resolve(i18n);
     } else {
-      dictionaryServiceFactory.fetchDictionaryData(language).then((phrases) => {
+      // initialize an instance of the dictionary service
+      const dictionaryServiceInstance = dictionaryServiceFactory.create();
+
+      dictionaryServiceInstance.fetchDictionaryData(language).then((phrases) => {
         resolve(
           createI18n({
             fallbackLocale: false,
