@@ -35,6 +35,7 @@ import { BatchHttpLink } from 'apollo-link-batch-http';
 // the APQ link is _chained_ behind another link that performs the actual HTTP calls, so you can choose
 // APQ + batched, or APQ + http links for example.
 import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
+import config from '../temp/config';
 
 export default function (endpoint, ssr, initialCacheState) {
   /* HTTP link selection: default to batched + APQ */
@@ -44,6 +45,7 @@ export default function (endpoint, ssr, initialCacheState) {
       credentials: 'include',
       headers: {
         connection: 'keep-alive',
+        sc_apikey: config.sitecoreApiKey,
       },
     })
   );
