@@ -10,21 +10,6 @@ import sitemapQueryResult from '../testData/sitemapQueryResult.json';
 import sitemapServiceResult from '../testData/sitemapServiceResult';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
-/**
- * @description helper function to generate a random GUID
- * @returns a randomly generated GUID for testing purposes
- * @see https://www.tutorialspoint.com/how-to-create-guid-uuid-in-javascript
- */
-function generateGUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    /* eslint no-bitwise: off */
-    const r = (Math.random() * 16) | 0,
-      v = c === 'x' ? r : (r & 0x3) | 0x8;
-    const GUID = v.toString(16);
-    return `{${GUID}}`;
-  });
-}
-
 class TestService extends GraphQLSitemapService {
   public client: GraphQLClient;
   constructor(options: GraphQLSitemapServiceConfig) {
@@ -334,9 +319,8 @@ describe('GraphQLSitemapService', () => {
     });
 
     it('should use a jssTemplateId, if provided', async () => {
-      const jssAppTemplateId = generateGUID();
-      // mock a random template id
-      const randomId = generateGUID();
+      const jssAppTemplateId = '{de397294-cfcc-4795-847e-442416d0617b}';
+      const randomId = '{5a4e6edc-4518-4afb-afdc-9fa22ec4eb91}';
 
       nock(endpoint)
         .post('/', (body) => body.variables.jssAppTemplateId === jssAppTemplateId)

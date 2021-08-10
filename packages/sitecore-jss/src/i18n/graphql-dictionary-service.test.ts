@@ -7,21 +7,6 @@ import { GraphQLDictionaryService } from '.';
 import dictionaryQueryResponse from '../testData/mockDictionaryQueryResponse.json';
 import appRootQueryResponse from '../testData/mockAppRootQueryResponse.json';
 
-/**
- * @description helper function to generate a random GUID
- * @returns a randomly generated GUID for testing purposes
- * @see https://www.tutorialspoint.com/how-to-create-guid-uuid-in-javascript
- */
-function generateGUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    /* eslint no-bitwise: off */
-    const r = (Math.random() * 16) | 0,
-      v = c === 'x' ? r : (r & 0x3) | 0x8;
-    const GUID = v.toString(16);
-    return `{${GUID}}`;
-  });
-}
-
 class TestService extends GraphQLDictionaryService {
   public client: GraphQLClient;
   constructor(options: GraphQLDictionaryServiceConfig) {
@@ -97,9 +82,9 @@ describe('GraphQLDictionaryService', () => {
   });
 
   it('should use a jssTemplateId, if provided', async () => {
-    const jssAppTemplateId = generateGUID();
-    // mock a random template id
-    const randomId = generateGUID();
+    const jssAppTemplateId = '{71d608ca-ac9c-4f1c-8e0a-85a6946e30f8}';
+    const randomId = '{412286b7-6d4f-4deb-80e9-108ee986c6e9}';
+
     nock(endpoint)
       .post('/', (body) => body.variables.jssAppTemplateId === jssAppTemplateId)
       .reply(200, {
