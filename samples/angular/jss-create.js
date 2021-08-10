@@ -80,6 +80,7 @@ module.exports = function createJssProject(argv, nextSteps) {
       fs.renameSync(graphQLDsfFile, defaultDsfFile);
       fs.unlinkSync(defaultLsfFile);
       fs.renameSync(graphQLLsfFile, defaultLsfFile);
+      setCredentials();
       break;
 
     case FetchWith.REST:
@@ -87,4 +88,25 @@ module.exports = function createJssProject(argv, nextSteps) {
       fs.unlinkSync(graphQLLsfFile);
       break;
   }
+}
+
+/**
+ * This function will set the 'withCredentials' key in the
+ * jss-graphql.module.ts file to `false` if --fetchWith graphql
+ * is passed into the `jss create` command.
+ */
+ function setCredentials() {
+  console.log(chalk.cyan('Setting GraphQL Client credentials...'));
+
+  const graphQLClientFactoryFile = path.join(__dirname, 'src/app/jss-graphql.module.ts');
+
+  fs.readFile(graphQLClientFactoryFile, 'utf8', (err, data) => {
+    if (err) return console.log(chalk.red(err));
+
+    const result = data.replace(/withCredentials:\strue,/g, 'withCredentials: false,'); // if fetching with GraphQL, credentials must be omitted.
+
+    fs.writeFile(graphQLClientFactoryFile, result, 'utf8', (err) => {
+      if (err) return console.log(chalk.red(err));
+    });
+  });
 }

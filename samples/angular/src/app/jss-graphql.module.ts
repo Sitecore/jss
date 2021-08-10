@@ -1,5 +1,5 @@
 import { NgModule, PLATFORM_ID, Inject } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { InMemoryCache, NormalizedCacheObject, PossibleTypesMap } from '@apollo/client/core';
 import { Apollo } from 'apollo-angular';
 import { HttpBatchLink } from 'apollo-angular/http';
@@ -59,6 +59,10 @@ export class GraphQLModule {
       link passes cookies along with requests (withCredentials: true).
     */
 
+
+    // must send sc_apikey header when using GraphQL dictionary and layout service
+    const sc_apikey = new HttpHeaders().set('sc_apikey', environment.sitecoreApiKey);
+
     // choose between a basic HTTP link to run queries...
     // import { createHttpLink } from 'apollo-angular-link-http';
     // const link = createHttpLink({ uri: endpoint, withCredentials: 'include' });
@@ -67,6 +71,7 @@ export class GraphQLModule {
     const batchHttp = this.httpLink.create({
       uri: environment.graphQLEndpoint,
       withCredentials: true,
+      headers: sc_apikey
     });
 
     // ...and an automatic persisted query link, which reduces bandwidth by using query hashes to alias content
