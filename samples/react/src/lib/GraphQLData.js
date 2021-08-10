@@ -66,6 +66,15 @@ function GraphQLData(query, configuration = {}) {
           newConfiguration.options.variables.contextItem = this.props.sitecoreContext.itemId;
         }
 
+        // set the language variable, if we're using it
+        if (
+          variableNames.language &&
+          this.props.sitecoreContext &&
+          this.props.sitecoreContext.language
+        ) {
+          newConfiguration.options.variables.language = this.props.sitecoreContext.language;
+        }
+
         // build the props processing function that will set the result object to the name
         newConfiguration.props = (props) => {
           const innerQuery = props[newConfiguration.name];
