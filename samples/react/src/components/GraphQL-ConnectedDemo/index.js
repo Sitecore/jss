@@ -38,21 +38,21 @@ const GraphQLConnectedDemo = (props) => {
           <br />
           name: {datasource.name}
           <br />
-          sample1: {datasource.sample1.value}
+          sample1: {datasource.sample1?.value}
           <br />
-          sample1 (editable): <Text field={datasource.sample1.jsonValue} />
+          sample1 (editable): <Text field={datasource.sample1?.jsonValue} />
           <br />
           sample2:
           <br />
           <ul>
-            <li>text: {datasource.sample2.text}</li>
-            <li>url: {datasource.sample2.url}</li>
-            <li>target: {datasource.sample2.target}</li>
+            <li>text: {datasource.sample2?.text}</li>
+            <li>url: {datasource.sample2?.url}</li>
+            <li>target: {datasource.sample2?.target}</li>
             <li>
-              editable: <Link field={datasource.sample2.jsonValue} />
+              editable: <Link field={datasource.sample2?.jsonValue} />
             </li>
-            <li>field type: {datasource.sample2.definition.type}</li>
-            <li>field is shared?: {datasource.sample2.definition.shared.toString()}</li>
+            <li>field type: {datasource.sample2?.definition?.type}</li>
+            <li>field is shared: {datasource.sample2?.definition.shared.toString()}</li>
           </ul>
         </div>
       )}
@@ -61,14 +61,16 @@ const GraphQLConnectedDemo = (props) => {
           <h4>Route Item (via Connected GraphQL)</h4>
           id: {contextItem.id}
           <br />
-          page title: {contextItem.pageTitle.value}
+          page title: {contextItem.pageTitle?.value}
           <br />
           children:
           <ul>
-            {contextItem.children.map((child) => (
-              <li key={child.id}>
-                <RouterLink to={child.url.path}>{child.pageTitle.value}</RouterLink>&nbsp; (editable
-                title too! <Text field={child.pageTitle.jsonValue} />)
+            {contextItem?.children?.results?.map((child) => (
+              <li key={child?.id}>
+                <RouterLink to={child.url?.path} field={child.url?.path}>
+                  {child.pageTitle?.value}
+                </RouterLink>
+                &nbsp; (editable title too! <Text field={child.pageTitle?.jsonValue} />)
               </li>
             ))}
           </ul>
