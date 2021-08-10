@@ -18,9 +18,12 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
+// #START_EMPTY
 import generateComponentManifest from './templates/component-manifest';
 
 const componentManifestDefinitionsPath = 'sitecore/definitions/components';
+// #END_EMPTY
+
 const componentRootPath = 'src/components';
 
 // Matches component names that start with a capital letter, and contain only letters, number,
@@ -49,6 +52,7 @@ const componentOutputPath = scaffoldFile(
   filename
 );
 
+// #START_EMPTY
 let manifestOutputPath = null;
 if (fs.existsSync(componentManifestDefinitionsPath)) {
   const filename = `${componentName}.sitecore.ts`;
@@ -64,13 +68,14 @@ if (fs.existsSync(componentManifestDefinitionsPath)) {
 did not exist. This is normal for Sitecore-first workflow.`)
   );
 }
-
+// #END_EMPTY
 console.log(
   chalk.green(`
 Scaffolding of ${componentName} complete.
 Next steps:`)
 );
 
+// #START_EMPTY
 if (manifestOutputPath) {
   console.log(`* Define the component's data in ${chalk.green(manifestOutputPath)}`);
 } else {
@@ -80,9 +85,11 @@ if (manifestOutputPath) {
     )}, or create the rendering item and datasource template yourself.`
   );
 }
+// #END_EMPTY
 if (componentOutputPath) {
   console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
 }
+// #START_EMPTY
 if (manifestOutputPath) {
   console.log(
     `* Add the component to a route layout (/data/routes) and test it with ${chalk.green(
@@ -97,6 +104,7 @@ if (manifestOutputPath) {
   );
   console.log(`* Add the component to a route using Sitecore Experience Editor, and test it.`);
 }
+// #END_EMPTY
 
 /**
  * Force to use `crlf` line endings, we are using `crlf` across the project.
