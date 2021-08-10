@@ -76,6 +76,12 @@ export interface GraphQLSitemapServiceConfig extends SearchServiceConfig {
    * The API key to use for authentication.
    */
   apiKey: string;
+
+  /**
+   * Optional. The template ID of a JSS App to use when searching for the appRootId.
+   * @default '061cba1554744b918a0617903b102b82' (/sitecore/templates/Foundation/JavaScript Services/App)
+   */
+  jssAppTemplateId?: string;
 }
 
 /**
@@ -156,7 +162,12 @@ export class GraphQLSitemapService {
     // If the caller does not specify a root item ID, then we try to figure it out
     const rootItemId =
       this.options.rootItemId ||
-      (await getAppRootId(this.graphQLClient, this.options.siteName, languages[0]));
+      (await getAppRootId(
+        this.graphQLClient,
+        this.options.siteName,
+        languages[0],
+        this.options.jssAppTemplateId
+      ));
 
     if (!rootItemId) {
       throw new Error(queryError);
