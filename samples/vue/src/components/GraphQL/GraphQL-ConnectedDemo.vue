@@ -42,7 +42,7 @@
       <br />
       children:
       <ul>
-        <li v-for="child in result.contextItem.children" :key="child.id">
+        <li v-for="child in result.contextItem.children.results" :key="child.id">
           <router-link :to="child.url.path">{{ child.pageTitle.value }}</router-link
           >&nbsp; (editable title too! <sc-text :field="child.pageTitle.jsonValue" />)
         </li>
@@ -55,6 +55,7 @@
 import { getCurrentInstance, defineComponent } from 'vue';
 import { useQuery } from '@vue/apollo-composable/dist/useQuery';
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
+import config from '../../../package.json';
 
 import { Text, Link } from '@sitecore-jss/sitecore-jss-vue';
 
@@ -81,6 +82,7 @@ export default defineComponent({
       const variables = {
         contextItem: properties ? properties.sitecoreContext().itemId : defaultValue,
         datasource: (props.rendering && props.rendering.dataSource) || defaultValue,
+        language: properties ? properties.sitecoreContext().language : config.language,
       };
 
       if (!variables.contextItem) variables.contextItem = defaultValue;

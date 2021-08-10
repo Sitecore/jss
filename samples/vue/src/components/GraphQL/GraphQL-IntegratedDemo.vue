@@ -39,7 +39,7 @@
       <br />
       children:
       <ul>
-        <li v-for="child in contextItem.children" :key="child.id">
+        <li v-for="child in contextItem.children.results" :key="child.id">
           <router-link :to="child.url.path">{{ child.pageTitle.value }}</router-link
           >&nbsp; (editable title too! <sc-text :field="child.pageTitle.jss" />)
         </li>
