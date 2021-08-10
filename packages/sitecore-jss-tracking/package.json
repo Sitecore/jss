@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-tracking",
-  "version": "19.0.0-canary.28",
+  "version": "19.0.0-canary.32",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -10,7 +10,7 @@
     "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
-    "coverage": "nyc --require ts-node/register npm test"
+    "coverage": "nyc npm test"
   },
   "engines": {
     "node": ">=8.1"
@@ -43,7 +43,7 @@
     "typescript": "~4.3.5"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.28"
+    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.32"
   },
   "description": "",
   "types": "types/index.d.ts",
