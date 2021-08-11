@@ -60,7 +60,7 @@ describe('<FileUpload />', () => {
     tracker: new FormTracker({ endpoint: 'xxx_endpoint' }),
   };
 
-  it('should file input', () => {
+  it('should render file input', () => {
     const c = shallow(<FileUpload {...p} />);
     const input = c.find('input');
     const prop = (name: string) => input.prop(name);
