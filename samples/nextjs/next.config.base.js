@@ -33,6 +33,9 @@ const nextConfig = {
     // prefixed path e.g. `/styleguide`.
     defaultLocale: packageConfig.language,
   },
+  
+  // Enable React Strict Mode
+  reactStrictMode: true,
 
   async rewrites() {
     // #START_EMPTY

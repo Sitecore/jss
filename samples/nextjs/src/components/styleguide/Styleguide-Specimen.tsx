@@ -37,4 +37,4 @@ const StyleguideSpecimen = ({
   </div>
 );
 
-export default withDatasourceCheck()(StyleguideSpecimen);
+export default withDatasourceCheck()<StyleguideSpecimenProps>(StyleguideSpecimen);

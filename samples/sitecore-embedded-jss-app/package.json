@@ -56,8 +56,8 @@
     "babel-polyfill": "~6.26.0",
     "isomorphic-fetch": "~3.0.0",
     "prop-types": "~15.6.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@sitecore-jss/sitecore-jss-cli": "^19.0.0-canary.34",

@@ -42,4 +42,4 @@ const StyleguideFieldUsageLink = (props: StyleguideFieldUsageLinkProps): JSX.Ele
   </StyleguideSpecimen>
 );
 
-export default withDatasourceCheck()(StyleguideFieldUsageLink);
+export default withDatasourceCheck()<StyleguideFieldUsageLinkProps>(StyleguideFieldUsageLink);
