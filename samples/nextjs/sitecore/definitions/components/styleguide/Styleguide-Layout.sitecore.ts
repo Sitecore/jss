@@ -5,7 +5,7 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
-export default function (manifest: Manifest): void {
+export default function StyleguideLayout(manifest: Manifest): void {
   manifest.addComponent({
     name: 'Styleguide-Layout',
     icon: SitecoreIcon.Layout,

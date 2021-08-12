@@ -9,10 +9,15 @@ export const ComponentPropsReactContext = createContext<ComponentPropsCollection
 /**
  * Hook in order to get access to props related to specific component. Data comes from ComponentPropsContext.
  * @see ComponentPropsContext
- * @param {string} componentUid component uId
- * @returns {ComponentData} component props
+ * @param {string | undefined} componentUid component uId
+ * @returns {ComponentData | undefined} component props
  */
-export function useComponentProps<ComponentData>(componentUid: string): ComponentData {
+export function useComponentProps<ComponentData>(
+  componentUid: string | undefined
+): ComponentData | undefined {
+  if (!componentUid) {
+    return undefined;
+  }
   const data = useContext(ComponentPropsReactContext);
 
   return data[componentUid] as ComponentData;

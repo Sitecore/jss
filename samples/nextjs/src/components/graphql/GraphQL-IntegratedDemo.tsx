@@ -127,4 +127,4 @@ const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element =
   );
 };
 
-export default withDatasourceCheck()(GraphQLIntegratedDemo);
+export default withDatasourceCheck()<GraphQlIntegratedDemoProps>(GraphQLIntegratedDemo);

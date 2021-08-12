@@ -21,4 +21,4 @@ const StyleguideFieldUsageCustom = (props: StyleguideFieldUsageCustomProps): JSX
   </StyleguideSpecimen>
 );
 
-export default withDatasourceCheck()(StyleguideFieldUsageCustom);
+export default withDatasourceCheck()<StyleguideFieldUsageCustomProps>(StyleguideFieldUsageCustom);

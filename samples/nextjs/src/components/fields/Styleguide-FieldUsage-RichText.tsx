@@ -29,4 +29,6 @@ const StyleguideFieldUsageRichText = (props: StyleguideFieldUsageRichTextProps):
   </StyleguideSpecimen>
 );
 
-export default withDatasourceCheck()(StyleguideFieldUsageRichText);
+export default withDatasourceCheck()<StyleguideFieldUsageRichTextProps>(
+  StyleguideFieldUsageRichText
+);
