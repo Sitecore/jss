@@ -21,4 +21,4 @@ const ContentBlock = ({ fields }: ContentBlockProps): JSX.Element => (
   </div>
 );
 
-export default withDatasourceCheck()(ContentBlock);
+export default withDatasourceCheck()<ContentBlockProps>(ContentBlock);

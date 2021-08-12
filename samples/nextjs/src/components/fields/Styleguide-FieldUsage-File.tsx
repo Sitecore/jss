@@ -26,4 +26,4 @@ const StyleguideFieldUsageFile = (props: StyleguideFieldUsageFileProps): JSX.Ele
   </StyleguideSpecimen>
 );
 
-export default withDatasourceCheck()(StyleguideFieldUsageFile);
+export default withDatasourceCheck()<StyleguideFieldUsageFileProps>(StyleguideFieldUsageFile);

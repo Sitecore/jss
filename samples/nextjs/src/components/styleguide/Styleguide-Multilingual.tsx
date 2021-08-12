@@ -44,4 +44,4 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
   );
 };
 
-export default withDatasourceCheck()(StyleguideMultilingual);
+export default withDatasourceCheck()<StyleguideMultilingualProps>(StyleguideMultilingual);

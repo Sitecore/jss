@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { NextRouter } from 'next/router';
 import NextLink from 'next/link';
 import { Link as ReactLink } from '@sitecore-jss/sitecore-jss-react';
 import { use, expect, spy } from 'chai';
@@ -9,14 +10,16 @@ import { Link } from './Link';
 
 use(spies);
 
-const Router = () => ({
+const Router = (): NextRouter => ({
   pathname: '/',
   route: '/',
   query: {},
   asPath: '/',
-  components: {},
-  isFallback: false,
   basePath: '',
+  isLocaleDomain: false,
+  isFallback: false,
+  isPreview: false,
+  isReady: false,
   events: { emit: spy(), off: spy(), on: spy() },
   push: spy(() => Promise.resolve(true)),
   replace: spy(() => Promise.resolve(true)),

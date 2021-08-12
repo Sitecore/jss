@@ -5,7 +5,7 @@ import { DisconnectedSitemapService, ManifestInstance } from '@sitecore-jss/site
 // #END_EMPTY
 import { GetStaticPathsContext } from 'next';
 import config from 'temp/config';
-import { config as packageConfig } from '../../package.json';
+import pkg from '../../package.json';
 
 export class SitecoreSitemapFetcher {
   private _graphqlSitemapService: GraphQLSitemapService;
@@ -63,7 +63,7 @@ export class SitecoreSitemapFetcher {
         return this._disconnectedSitemapService.fetchExportSitemap();
       }
       // #END_EMPTY
-      return this._graphqlSitemapService.fetchExportSitemap(packageConfig.language);
+      return this._graphqlSitemapService.fetchExportSitemap(pkg.config.language);
     }
 
     return this._graphqlSitemapService.fetchSSGSitemap(context?.locales || []);

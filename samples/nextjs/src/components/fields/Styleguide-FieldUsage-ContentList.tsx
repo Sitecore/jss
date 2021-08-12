@@ -52,4 +52,6 @@ const StyleguideFieldUsageContentList = (
   );
 };
 
-export default withDatasourceCheck()(StyleguideFieldUsageContentList);
+export default withDatasourceCheck()<StyleguideFieldUsageContentListProps>(
+  StyleguideFieldUsageContentList
+);

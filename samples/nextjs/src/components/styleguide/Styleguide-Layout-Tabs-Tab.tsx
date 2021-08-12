@@ -38,4 +38,4 @@ const StyleguideLayoutTabsTab = (props: StyleguideLayoutTabsTabProps): JSX.Eleme
   );
 };
 
-export default withDatasourceCheck()(StyleguideLayoutTabsTab);
+export default withDatasourceCheck()<StyleguideLayoutTabsTabProps>(StyleguideLayoutTabsTab);

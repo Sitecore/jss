@@ -90,7 +90,7 @@ describe('ComponentPropsService', () => {
     };
 
     const ssrContext = {
-      req: {} as IncomingMessage,
+      req: {} as IncomingMessage & { cookies: { [key: string]: string } },
       res: {} as ServerResponse,
       query: {} as ParsedUrlQuery,
       resolvedUrl: '',
@@ -135,7 +135,7 @@ describe('ComponentPropsService', () => {
     };
 
     const ssrContext = {
-      req: {} as IncomingMessage,
+      req: {} as IncomingMessage & { cookies: { [key: string]: string } },
       res: {} as ServerResponse,
       query: {} as ParsedUrlQuery,
       resolvedUrl: '',

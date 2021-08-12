@@ -23,6 +23,7 @@ export interface ErrorComponentProps {
 
 export interface FormProps {
   form: SitecoreForm;
+  className?: string;
   fieldFactory?: FieldFactory;
   sitecoreApiHost: string;
   sitecoreApiKey: string;
@@ -108,7 +109,12 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
     const fieldErrors = this.collectCurrentFieldValues().filter((field) => !field.state.isValid);
 
     return (
-      <form action={action} method="POST" onSubmit={this.onSubmit.bind(this)}>
+      <form
+        className={this.props.className}
+        action={action}
+        method="POST"
+        onSubmit={this.onSubmit.bind(this)}
+      >
         <ErrorComponent form={form} formErrors={this.state.errors} fieldErrors={fieldErrors} />
         {fieldComponents}
       </form>

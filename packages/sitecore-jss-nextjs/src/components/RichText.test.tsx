@@ -2,6 +2,7 @@
 import React, { ReactNode } from 'react';
 import { use, expect, spy } from 'chai';
 import { RichText as ReactRichText } from '@sitecore-jss/sitecore-jss-react';
+import { NextRouter } from 'next/router';
 import { mount } from 'enzyme';
 import spies from 'chai-spies';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
@@ -9,14 +10,16 @@ import { RichText } from './RichText';
 
 use(spies);
 
-const Router = () => ({
+const Router = (): NextRouter => ({
   pathname: '/',
   route: '/',
   query: {},
   asPath: '/',
-  components: {},
-  isFallback: false,
   basePath: '',
+  isLocaleDomain: false,
+  isFallback: false,
+  isPreview: false,
+  isReady: false,
   events: { emit: spy(), off: spy(), on: spy() },
   push: spy(() => Promise.resolve(true)),
   replace: spy(() => Promise.resolve(true)),
