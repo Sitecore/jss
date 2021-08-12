@@ -29,7 +29,10 @@ export default {
         // to show a loading/switching screen when language is being changed.
         this.languageIsChanging = true;
 
-        dictionaryServiceFactory.fetchDictionaryData(language).then((phrases) => {
+        // create an instance of the dictonary service
+        const dictionaryServiceInstance = dictionaryServiceFactory.create();
+
+        dictionaryServiceInstance.fetchDictionaryData(language).then((phrases) => {
           i18n.setLocaleMessage(language, phrases);
           i18n.locale = language;
 
