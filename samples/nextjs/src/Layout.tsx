@@ -1,6 +1,6 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useEffect } from 'react';
 import { useI18n } from 'next-localization';
 import {
   Placeholder,
@@ -34,15 +34,17 @@ const Navigation = () => {
           href="https://jss.sitecore.com"
           target="_blank"
           rel="noopener noreferrer"
-        >
+          >
           {t('Documentation')}
         </a>
+          {/* #START_EMPTY */}
         <Link href="/styleguide">
           <a className="p-2 text-dark">{t('Styleguide')}</a>
         </Link>
         <Link href="/graphql">
           <a className="p-2 text-dark">{t('GraphQL')}</a>
         </Link>
+      {/* #END_EMPTY */}
       </nav>
     </div>
   );
@@ -69,7 +71,6 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
         <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
-
       {/*
         VisitorIdentification is necessary for Sitecore Analytics to determine if the visitor is a robot.
         If Sitecore XP (with xConnect/xDB) is used, this is required or else analytics will not be collected for the JSS app.
@@ -80,7 +81,6 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
       <VisitorIdentification />
 
       <Navigation />
-
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
         <Placeholder name="jss-main" rendering={route} />
