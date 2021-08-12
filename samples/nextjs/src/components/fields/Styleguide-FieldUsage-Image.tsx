@@ -54,4 +54,4 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
   </StyleguideSpecimen>
 );
 
-export default withDatasourceCheck()(StyleguideFieldUsageImage);
+export default withDatasourceCheck()<StyleguideFieldUsageImageProps>(StyleguideFieldUsageImage);

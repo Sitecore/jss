@@ -39,4 +39,4 @@ const StyleguideFieldUsageText = (props: StyleguideFieldUsageTextProps): JSX.Ele
   </StyleguideSpecimen>
 );
 
-export default withDatasourceCheck()(StyleguideFieldUsageText);
+export default withDatasourceCheck()<StyleguideFieldUsageTextProps>(StyleguideFieldUsageText);

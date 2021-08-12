@@ -51,4 +51,4 @@ const StyleguideFieldUsageDate = (props: StyleguideFieldUsageDateProps): JSX.Ele
   );
 };
 
-export default withDatasourceCheck()(StyleguideFieldUsageDate);
+export default withDatasourceCheck()<StyleguideFieldUsageDateProps>(StyleguideFieldUsageDate);

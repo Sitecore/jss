@@ -19,4 +19,4 @@ const StyleguideSection = (props: StyleguideSectionProps): JSX.Element => (
   </div>
 );
 
-export default withDatasourceCheck()(StyleguideSection);
+export default withDatasourceCheck()<StyleguideSectionProps>(StyleguideSection);

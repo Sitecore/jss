@@ -1,7 +1,6 @@
 import {
   Field,
   ComponentParams,
-  ComponentFactory,
   ComponentRendering,
   LayoutServiceContext,
   RouteData,
@@ -29,7 +28,6 @@ export type StyleguideSpecimenFields = {
  * Shared styleguide component props
  */
 export type StyleguideComponentProps = {
-  componentFactory: ComponentFactory;
   rendering: ComponentRendering;
   params: ComponentParams;
 };

@@ -44,8 +44,8 @@ export function withPlaceholder(
 ) {
   return (
     WrappedComponent:
-      | React.ComponentClass<{ [prop: string]: unknown }>
-      | React.FunctionComponent<{ [prop: string]: unknown }>
+      | React.ComponentClass<PlaceholderProps>
+      | React.FunctionComponent<PlaceholderProps>
   ) => {
     class WithPlaceholder extends PlaceholderCommon<PlaceholderProps> {
       static propTypes = PlaceholderCommon.propTypes;

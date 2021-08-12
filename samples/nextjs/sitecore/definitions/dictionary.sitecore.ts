@@ -9,7 +9,9 @@ import fs from 'fs';
  * @param {Manifest} manifest
  * @returns {Promise}
  */
-export default function addDictionaryToManifest(manifest: Manifest): Promise<void> | undefined {
+export default function addDictionaryToManifest(
+  manifest: Manifest
+): Promise<void> | void | undefined {
   const startPath = './data/dictionary'; // relative to process invocation (i.e. where package.json lives)
 
   if (!fs.existsSync(startPath)) return;
