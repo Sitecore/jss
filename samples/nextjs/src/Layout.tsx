@@ -44,7 +44,7 @@ const Navigation = () => {
         <Link href="/graphql">
           <a className="p-2 text-dark">{t('GraphQL')}</a>
         </Link>
-      {/* #END_EMPTY */}
+          {/* #END_EMPTY */}
       </nav>
     </div>
   );
