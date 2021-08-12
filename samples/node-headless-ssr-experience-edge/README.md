@@ -14,8 +14,6 @@ This is a sample setup showing one of how you can configure rendering server on 
 
 1. Next.js, React, Angular, and Vue samples support Experience Edge out of the box. The GraphQL components and query are compatible with the Experience Edge schema with no further changes necessary. Provide a `sc_apikey` header for authentication, this header is used for both Sitecore XM Edge schema and Sitecore Experience Edge. Refer to the GraphQL Connected demo component in the desired framework. 
 
-    > Note: the `withCredentials` or `credentials` header passed into the GraphQLClientFactory must be set to `false` or `'omit'` to avoid CORS errors when fetching with GraphQL.
-
 1. Build your JS app bundle with `jss build`.
 
 	> You can use JSS sample apps which support server side rendering (JSS integrated mode) to operate with this project.
