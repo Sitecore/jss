@@ -79,7 +79,6 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
 
         VI detection only runs once for a given analytics ID, so this is not a recurring operation once cookies are established.
       */}
-
       <VisitorIdentification />
 
       <Navigation />
