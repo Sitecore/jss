@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { useI18n } from 'next-localization';
 import {
   Placeholder,
@@ -71,6 +71,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
         <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
+
       {/*
         VisitorIdentification is necessary for Sitecore Analytics to determine if the visitor is a robot.
         If Sitecore XP (with xConnect/xDB) is used, this is required or else analytics will not be collected for the JSS app.
@@ -78,6 +79,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
 
         VI detection only runs once for a given analytics ID, so this is not a recurring operation once cookies are established.
       */}
+
       <VisitorIdentification />
 
       <Navigation />
