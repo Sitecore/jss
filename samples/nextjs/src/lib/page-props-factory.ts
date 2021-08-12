@@ -13,6 +13,7 @@ import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { componentModule } from 'temp/componentFactory';
 import { config as packageConfig } from '../../package.json';
+import { StyleguideSitecoreContextValue } from './component-props';
 
 /**
  * Extract normalized Sitecore item path from query
@@ -65,7 +66,8 @@ export class SitecorePagePropsFactory {
       layoutData: LayoutServiceData | null,
       dictionary: DictionaryPhrases,
       componentProps = {},
-      notFound = false;
+      notFound = false,
+      sitecoreContext: StyleguideSitecoreContextValue | null = null;
 
     if (context.preview) {
       /**
@@ -114,6 +116,12 @@ export class SitecorePagePropsFactory {
 
     // Retrieve component props using side-effects defined on components level
     if (layoutData?.sitecore?.route) {
+      sitecoreContext = {
+        route: layoutData.sitecore.route,
+        itemId: layoutData.sitecore.route?.itemId,
+        ...layoutData.sitecore.context,
+      };
+
       if (isServerSidePropsContext(context)) {
         componentProps = await this.componentPropsService.fetchServerSideComponentProps({
           layoutData: layoutData,
@@ -128,10 +136,12 @@ export class SitecorePagePropsFactory {
         });
       }
     }
+
     return {
       locale,
       layoutData,
       dictionary,
+      sitecoreContext,
       componentProps,
       notFound,
     };

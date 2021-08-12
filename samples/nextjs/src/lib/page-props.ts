@@ -3,6 +3,7 @@ import {
   LayoutServiceData,
   ComponentPropsCollection,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { StyleguideSitecoreContextValue } from './component-props';
 
 /**
  * Sitecore page props
@@ -13,4 +14,5 @@ export type SitecorePageProps = {
   dictionary: DictionaryPhrases;
   componentProps: ComponentPropsCollection;
   notFound: boolean;
+  sitecoreContext: StyleguideSitecoreContextValue | null;
 };

@@ -12,30 +12,29 @@ import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
 
-const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
+const SitecorePage = ({
+  notFound,
+  layoutData,
+  componentProps,
+  sitecoreContext,
+}: SitecorePageProps): JSX.Element => {
   useEffect(() => {
     // Since Sitecore editors do not support Fast Refresh, need to refresh EE chromes after Fast Refresh finished
     handleEditorFastRefresh();
   }, []);
 
-  if (notFound || !layoutData?.sitecore?.route) {
+  if (notFound || !layoutData?.sitecore?.route || !sitecoreContext) {
     // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
     return <NotFound />;
   }
-
-  const context: StyleguideSitecoreContextValue = {
-    route: layoutData.sitecore.route,
-    itemId: layoutData.sitecore.route?.itemId,
-    ...layoutData.sitecore.context,
-  };
 
   return (
     <ComponentPropsContext value={componentProps}>
       <SitecoreContext<StyleguideSitecoreContextValue>
         componentFactory={componentFactory}
-        context={context}
+        context={sitecoreContext}
       >
-        <Layout context={context} />
+        <Layout />
       </SitecoreContext>
     </ComponentPropsContext>
   );
