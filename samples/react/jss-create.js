@@ -65,7 +65,6 @@ function setFetchWith(fetchWith) {
       fs.renameSync(graphQLDsfFile, defaultDsfFile);
       fs.unlinkSync(defaultLsfFile);
       fs.renameSync(graphQLLsfFile, defaultLsfFile);
-      setCredentials();
       break;
 
     case FetchWith.REST:
@@ -73,24 +72,4 @@ function setFetchWith(fetchWith) {
       fs.unlinkSync(graphQLLsfFile);
       break;
   }
-}
-
-/**
- * This function will replace the 'credentials' key in the GraphQLClientFactory with 'omit'
- * if --fetchWith graphql is passed into the `jss create` command.
- */
-function setCredentials() {
-  console.log(chalk.cyan('Setting GraphQL Client credentials...'));
-
-  const graphQLClientFactoryFile = path.join(__dirname, 'src/lib/GraphQLClientFactory.js');
-
-  fs.readFile(graphQLClientFactoryFile, 'utf8', (err, data) => {
-    if (err) return console.log(chalk.red(err));
-    // eslint-disable-next-line quotes
-    const result = data.replace(/credentials:\s'include',/g, "credentials: 'omit',"); // if fetching with GraphQL, credentials must be omitted.
-
-    fs.writeFile(graphQLClientFactoryFile, result, 'utf8', (err) => {
-      if (err) return console.log(chalk.red(err));
-    });
-  });
 }
