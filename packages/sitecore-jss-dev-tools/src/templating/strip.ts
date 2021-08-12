@@ -43,11 +43,6 @@ interface StripSettings {
    * @default process.cwd()
    */
   cwd?: string;
-  /**
-   * Indicates weather jsx style comments should be considered for stripping
-   * @default true
-   * @example {/* #START_EMPTY *\/}
-   */
 }
 
 /**
