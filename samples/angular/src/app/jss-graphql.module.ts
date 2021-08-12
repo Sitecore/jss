@@ -60,7 +60,7 @@ export class GraphQLModule {
     */
 
 
-    // must send sc_apikey header when using GraphQL dictionary and layout service
+    // set sc_apikey header which is required for any GraphQL calls
     const sc_apikey = new HttpHeaders().set('sc_apikey', environment.sitecoreApiKey);
 
     // choose between a basic HTTP link to run queries...
