@@ -62,12 +62,11 @@ export class GraphQLModule {
 
     // choose between a basic HTTP link to run queries...
     // import { createHttpLink } from 'apollo-angular-link-http';
-    // const link = createHttpLink({ uri: endpoint, withCredentials: false });
+    // const link = createHttpLink({ uri: endpoint });
 
     // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
     const batchHttp = this.httpLink.create({
       uri: environment.graphQLEndpoint,
-      withCredentials: false,
       headers: sc_apikey
     });
 

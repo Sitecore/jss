@@ -23,7 +23,7 @@ import introspectionQueryResultData from '../temp/GraphQLFragmentTypes.json';
 
 // choose between a basic HTTP link to run queries...
 // import { createHttpLink } from 'apollo-link-http';
-// const link = createHttpLink({ uri: endpoint, credentials: 'omit' });
+// const link = createHttpLink({ uri: endpoint });
 
 // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
 import { BatchHttpLink } from 'apollo-link-batch-http';
@@ -39,7 +39,6 @@ export default function (endpoint, ssr, initialCacheState) {
   const link = createPersistedQueryLink().concat(
     new BatchHttpLink({
       uri: endpoint,
-      credentials: 'omit',
       headers: {
         connection: 'keep-alive',
         sc_apikey: config.sitecoreApiKey,

@@ -32,7 +32,6 @@ export default function(endpoint, ssr, initialCacheState) {
   const link = createPersistedQueryLink().concat(
     new BatchHttpLink({
       uri: endpoint,
-      credentials: 'omit',
       headers: {
         connection: 'keep-alive',
         sc_apikey: config.sitecoreApiKey,
