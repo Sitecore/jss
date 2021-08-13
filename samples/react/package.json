@@ -10,7 +10,7 @@
     ],
     "sitecoreDistPath": "/dist/JssReactWeb",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
-    "graphQLEndpointPath": "/api/jssreactweb",
+    "graphQLEndpointPath": "/sitecore/api/graph/edge",
     "language": "en",
     "tunnelUrl": "http://jss.ngrok.io"
   },

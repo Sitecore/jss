@@ -10,7 +10,7 @@
     ],
     "sitecoreDistPath": "/dist/JssVueWeb",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
-    "graphQLEndpointPath": "/api/jssvueweb",
+    "graphQLEndpointPath": "/sitecore/api/graph/edge",
     "buildArtifactsPath": "./dist",
     "language": "en"
   },

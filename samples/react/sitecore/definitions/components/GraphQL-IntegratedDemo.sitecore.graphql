@@ -5,25 +5,25 @@
 # within the context of the IntegratedDemoQuery _operation_. This makes it
 # very efficient at gathering data from multiple sources.
 
-query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
+query IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language: String!) {
   # Datasource query
   # $datasource will always be set to the ID of the rendering's datasource item
   # (as long as the GraphQLData helper is used)
-  datasource(value: $datasource) {
+  datasource: item(path: $datasource, language: $language) {
     id
     name
     # Strongly-typed querying on known templates is possible!
     ...on GraphQLIntegratedDemo {
       # Single-line text field
       sample1 {
-        # the 'jss' field is a JSON blob that represents the object that
+        # the 'jsonValue' field is a JSON blob that represents the object that
         # should be passed to JSS field rendering helpers (i.e. text, image, link)
-        jss
+        jsonValue
         value
       }
       # General Link field
       sample2 {
-        jss
+        jsonValue
         # Structured querying of the field's values is possible
         text
         target
@@ -40,7 +40,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
   # Context/route item query
   # $contextItem will always be set to the ID of the current context item (the route item)
   # (as long as the GraphQLData helper is used)
-  contextItem: item(path: $contextItem) {
+  contextItem: item(path: $contextItem, language: $language) {
     id
     # Get the page title from the app route template
     ...on AppRoute {
@@ -50,18 +50,22 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
     }
 
     # List the children of the current route
-    children(requirePresentation: true) {
-      id
-      # typing fragments can be used anywhere!
-      # so in this case, we're grabbing the 'pageTitle'
-      # field on all child route items.
-      ...on AppRoute {
-        pageTitle {
-          value
-          jss
+    children(hasLayout: true) {
+      results {
+        id
+        # typing fragments can be used anywhere!
+        # so in this case, we're grabbing the 'pageTitle'
+        # field on all child route items.
+        ...on AppRoute {
+          pageTitle {
+            jsonValue
+            value
+          }
+        }
+        url{
+          path
         }
       }
-      url(options: { disableLanguageEmbedding: true })
     }
   }
 }
