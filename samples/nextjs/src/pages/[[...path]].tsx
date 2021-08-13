@@ -15,7 +15,6 @@ import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
 const SitecorePage = ({
   notFound,
-  layoutData,
   sitecoreContext,
   componentProps,
 }: SitecorePageProps): JSX.Element => {
@@ -24,7 +23,7 @@ const SitecorePage = ({
     handleEditorFastRefresh();
   }, []);
 
-  if (notFound || !layoutData?.sitecore?.route || !sitecoreContext) {
+  if (notFound || !sitecoreContext?.route) {
     // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
     return <NotFound />;
   }

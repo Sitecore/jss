@@ -124,13 +124,13 @@ export class SitecorePagePropsFactory {
 
       if (isServerSidePropsContext(context)) {
         componentProps = await this.componentPropsService.fetchServerSideComponentProps({
-          layoutData: layoutData,
+          layoutData,
           context,
           componentModule,
         });
       } else {
         componentProps = await this.componentPropsService.fetchStaticComponentProps({
-          layoutData: layoutData,
+          layoutData,
           context,
           componentModule,
         });
@@ -139,7 +139,6 @@ export class SitecorePagePropsFactory {
 
     return {
       locale,
-      layoutData,
       dictionary,
       sitecoreContext,
       componentProps,
