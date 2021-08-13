@@ -25,6 +25,8 @@ const proxyOptions = {
   appName: config.appName,
   watchPaths: ['./data'],
   language: config.language,
+  // Additional transpilation is not needed
+  requireArg: '',
   port: 3043,
   onManifestUpdated: (manifest: ManifestInstance) => {
     // if we can resolve the config file, we can alter it to force reloading the app automatically
