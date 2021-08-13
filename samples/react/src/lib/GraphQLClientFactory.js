@@ -19,14 +19,11 @@ import introspectionQueryResultData from '../temp/GraphQLFragmentTypes.json';
   A link is transport which GraphQL queries are pushed across.
   You have many choices.
   See the apollo-link documentation for more details.
-
-  NOTE: to use Sitecore Experience Editor it is essential that your
-  link passes cookies along with requests (credentials: 'include').
 */
 
 // choose between a basic HTTP link to run queries...
 // import { createHttpLink } from 'apollo-link-http';
-// const link = createHttpLink({ uri: endpoint, credentials: 'include' });
+// const link = createHttpLink({ uri: endpoint, credentials: 'omit' });
 
 // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
 import { BatchHttpLink } from 'apollo-link-batch-http';
@@ -42,7 +39,7 @@ export default function (endpoint, ssr, initialCacheState) {
   const link = createPersistedQueryLink().concat(
     new BatchHttpLink({
       uri: endpoint,
-      credentials: 'include',
+      credentials: 'omit',
       headers: {
         connection: 'keep-alive',
         sc_apikey: config.sitecoreApiKey,

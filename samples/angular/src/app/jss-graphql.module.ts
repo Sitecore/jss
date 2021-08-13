@@ -54,9 +54,6 @@ export class GraphQLModule {
       A link is transport which GraphQL queries are pushed across.
       You have many choices.
       See the apollo-link documentation for more details.
-
-      NOTE: to use Sitecore Experience Editor it is essential that your
-      link passes cookies along with requests (withCredentials: true).
     */
 
 
@@ -65,12 +62,12 @@ export class GraphQLModule {
 
     // choose between a basic HTTP link to run queries...
     // import { createHttpLink } from 'apollo-angular-link-http';
-    // const link = createHttpLink({ uri: endpoint, withCredentials: 'include' });
+    // const link = createHttpLink({ uri: endpoint, withCredentials: false });
 
     // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
     const batchHttp = this.httpLink.create({
       uri: environment.graphQLEndpoint,
-      withCredentials: true,
+      withCredentials: false,
       headers: sc_apikey
     });
 
