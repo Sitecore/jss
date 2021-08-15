@@ -4,40 +4,97 @@ routeTemplate: ./data/component-templates/full-page.yml
 title: Release Notes
 ---
 # Release Notes
+> Our docs are moving soon. We will continue to capture detailed notes relevant to developers in our [changelog](https://github.com/Sitecore/jss/blob/dev/CHANGELOG.md).
 
-## Sitecore JSS 18.0 for Sitecore 10.1
+## JSS 18.0.0 Release Notes
 
-### Upgrading
-
-There are [migration instructions](/upgrade-guides/18.0) from JSS 16-based applications.
+> JSS 18.0.0 is compatible with Sitecore 10.1. To ensure that your JSS application is compatible with your licensed Sitecore version, consult the [compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788).
 
 ### Breaking changes
-* [PR #635](https://github.com/Sitecore/jss/pull/635) [Angular sample] Upgrade angular to v11.
-* [PR #624](https://github.com/Sitecore/jss/pull/624) [sitecore-jss-react-native] Removed `dataConversation`, since `editable` property not used in `disconnected` mode.
-* [PR #638](https://github.com/Sitecore/jss/pull/638) [samples/nextjs] Changed how a custom query can be used in GraphQLSitemapService. Previous way: pass a `formatSearchQuery` function to `fetchExportSitemap` or `fetchSSGSitemap`. New way: extend the `GraphQLSitemapService` class and override the `fetchSitemap` method.
 
-### New Features & Improvements
-* [PR #624](https://github.com/Sitecore/jss/pull/624):
-	* [React-Native sample] Added shared `<Layout/>` component in order to have shared navigation panel.
-	* [React-Native sample] Sitecore logo in header is touchable and will navigate to Home page when click on it.
-	* [React-Native sample] Removed usage of `dataConversation`.
-* [PR #638](https://github.com/Sitecore/jss/pull/638) [samples/nextjs] The sitemap fetcher in `getStaticPaths` now uses pagination to fetch all pages, and the default `pageSize` value can be customized.
-* [PR #645](https://github.com/Sitecore/jss/pull/645) [Debug logging](/docs/fundamentals/troubleshooting/debug-logging) for SDKs (focused on Next.js) using the [debug](https://www.npmjs.com/package/debug) module.
+> There are [migration instructions](/upgrade-guides/18.0) from JSS 16-based applications.
+
+`[sitecore-jss-react-native]` Removed `dataConversation`, since `editable` property not used in `disconnected` mode. (#624)
+
+`[samples/angular]` Upgrade `angular` to v11. (#635)
+
+`[samples/nextjs]` Change how a custom query can be used in GraphQLSitemapService. Previous way: pass a `formatSearchQuery` function to `fetchExportSitemap` or `fetchSSGSitemap`. New way: extend the `GraphQLSitemapService` class and override the `fetchSitemap` method. (#638)
+
+* As part of adding support for Experience Edge, Sitecore XM's graphQL API was updated to mirror Experience Edge's schema. The following updates in JSS
+  * [sitecore-jss-nextjs] Update sitemap query to comply with changes to the GraphQL API
+  * [samples/nextjs] Update generated TypeScript models for GraphQL components to comply with changes to the GraphQL API
+
+With the added support of GraphQL endpoints, the API surface area of JSS has essentially doubled. As a result, some reorganizing was done in the base packages, which causes breaking changes for how some services, classes and functions are exported. If you have imports from JSS base packages in your project, they may need to be updated per the [migration guide table](https://jss.sitecore.com/upgrade-guides/18.0).
+
+## #Introducing support for Sitecore Experience Edge 🎉🎉🎉
+
+Experience Edge is Sitecore's new delivery platform, which serves Sitecore data to your JSS app at blazing fast speeds. [Read more](TODO://).
+
+`[samples/nextjs]`
+* Update Sitecore configuration patches with relevant Edge-specific definitions.
+* [#695](https://github.com/Sitecore/jss/pull/695) Add settings for language fallback with Experience Edge.
+* [#696](https://github.com/Sitecore/jss/pull/696) Add `IncludeServerUrlInMediaUrls` "default" configuration to avoid exposing the Sitecore server publicly when using Experience Edge.
+
+`[react]` `[angular]` and `[vue]` samples can also utilize Sitecore Experience Edge. A new `[node-headless-ssr-experience-edge]` sample has been adeded to demonstrate how to configure this. [Read docs](/docs/techniques/ssr/sitecore-experience-edge).
+
+### New & Improved Service Classes
+
+Read our updated docs:
+* [Dictionary Service](https://jss.sitecore.com/docs/fundamentals/services/dictionary/overview)
+* [Layout Service](https://jss.sitecore.com/docs/fundamentals/services/layout/overview)
+
+`[sitecore-jss]`
+* `GraphQLDictionaryService` is a new service for fetching dictionary data using GraphQL [Read docs](https://jss.sitecore.com/docs/fundamentals/services/dictionary/overview).
+* `GraphQLLayoutService` is a new service for fetching layout data using GraphQL [Read docs](https://jss.sitecore.com/docs/fundamentals/services/dictionary/overview).
+* [#716](https://github.com/Sitecore/jss/pull/716) Allow overriding which "named" Layout Service configuration (from Sitecore config) is used by JSS.
+* Allow overriding 3rd party dependencies in JSS services that depend on 3rd party functionality (GraphQLLayoutService, RestDictionaryService, GraphQLDictionaryService, GraphQLSitemapService).
+
+`[sitecore-jss-nextjs]`
+* Make `GraphQLSitemapService` easier to customize by allowing overrides of default options. ([#682](https://github.com/Sitecore/jss/pull/682), [#705](https://github.com/Sitecore/jss/pull/705)) 
+
+### Other Notable Improvements
+
+* `[sitecore-jss]` Enable **debug logging** for JSS services using the [debug](https://www.npmjs.com/package/debug) module. [Read docs](/docs/fundamentals/troubleshooting/debug-logging).
+* New options in `jss create` command. [Read docs](/TODO).
+
+`[samples/react-native]` (#624)
+* Add shared `<Layout/>` component in order to have shared navigation panel.
+* Make Sitecore logo in header is touchable and will navigate to Home page when click on it.
+* Remove usage of `dataConversation`.
 
 ### Bug Fixes
 
-* [PR #680](https://github.com/Sitecore/jss/pull/680) [node-headless-ssr-proxy + Angular sample] Error in console when refresh /graphql page
-* [PR #659](https://github.com/Sitecore/jss/pull/659) [sitecore-jss-nextjs] Links inside RichText control cause page to be loaded twice
-* [PR #624](https://github.com/Sitecore/jss/pull/624):
-	* [sitecore-jss-react-native] [Image] Pass Object `style` type for `SvgUrI` instead of Array. 
-	* [sitecore-jss-react-native] [Date] Always render `<HtmlView/>` if `editable` is provided.
-	* [React-Native sample] Styleguide-FieldUsage-Date is not working in connected mode.
-	* [React-Native sample] Styleguide-FieldUsage-Image fix incorrect `src` prop type in disconnected mode, fixed 'Plain image' example in connected mode, removed unsupported 'Srcset image' adaptive example.
-	* [React-Native sample] Styleguide-ComponentParams fix incorrect `params` prop types in connected mode.
-	* [React-Native sample] Fix connected tunnel mode for secure (https) Sitecore endpoints.
-* [PR #638](https://github.com/Sitecore/jss/pull/638) [sitecore-jss-nextjs] [samples/nextjs] Fix issue with `getStaticPaths`only pre-rendering the first 10 pages.
-* [PR #677](https://github.com/Sitecore/jss/pull/677) [sitecore-jss-forms] Fix issue where pre-filled (default) form data isn't removed for multi-valued fields when user de-selects values.
-* [PR #681](https://github.com/Sitecore/jss/pull/681) [sitecore-jss] [mediaApi] `updateImageUrl` now *only* switches to JSS media handler prefix if `imageParams` are sent. Otherwise, the original media URL is returned. Fixes hash errors ("ERROR MediaRequestProtection: An invalid/missing hash value was encountered.") from appearing in Sitecore logs.
+`[sitecore-jss]`
+* Fix issue with dictionary phrases not being cached when caching is enabled (#639)
+* `mediaApi.updateImageUrl` now *only* switches to JSS media handler prefix if `imageParams` are sent. Otherwise, the original media URL is returned. Fixes hash errors ("ERROR MediaRequestProtection: An invalid/missing hash value was encountered.") from appearing in Sitecore logs (#681)
+
+`[samples/nextjs]` `[samples/react]` `[samples/vue]`
+* Fix issue where using the `jss scaffold` generated files with inconsistent line endings (#684)
+* Update Text components to accept number values (#713)
+
+`[sitecore-jss-nextjs]`
+* Fix issue with `getStaticPaths`only pre-rendering the first 10 pages (638)
+* Fix issue where links inside RichText controls caused pages to load twice (659)
+
+`[sitecore-jss-react]` Render value instead of array of single value when value doesn't contain line breaks (714)
+
+`[sitecore-jss-react-native]` (#624)
+* [Image] Pass Object `style` type for `SvgUrI` instead of Array.
+* [Date] Always render `<HtmlView/>` if `editable` is provided.
+
+`[samples/react-native]` (#624)
+* Fix Styleguide-FieldUsage-Date not working in connected mode.
+* **Styleguide-FieldUsage-Image**: Fix incorrect `src` prop type in disconnected mode. Fix 'Plain image' example in connected mode. Remove unsupported 'Srcset image' adaptive example.
+* **Styleguide-ComponentParams**: fix incorrect `params` prop types in connected mode.
+* Fix connected tunnel mode for secure (https) Sitecore endpoints.
+
+`[samples/node-headless-ssr-proxy]` Fix how header value for 'accept-encoding' is set. This resolves an issue in the Angular sample where the /graphql page caused a console error (#680)
+
+`[sitecore-jss-forms]` Fix issue where pre-filled (default) form data isn't removed for multi-valued fields when user de-selects values (#677)
+
+.
+
+.
 
 ## Sitecore JSS 16.0 for Sitecore 10.1
 
@@ -71,7 +128,11 @@ There are [migration instructions](/upgrade-guides/16.0) from JSS 15-based appli
 * [PR #459](https://github.com/Sitecore/jss/pull/459) [sitecore-jss-react] Fix propType of `missingComponentComponent`, resolving an issue with custom "Missing Component" components not working.
 * [PR #538](https://github.com/Sitecore/jss/pull/538) [sitecore-jss-react] Fix propType of `errorComponent`, resolving an issue with custom "Error" components not working.
 * [PR #521](https://github.com/Sitecore/jss/pull/521) [packages/samples] Upgrade react, react-dom.
-*
+
+.
+
+.
+
 ## Sitecore JSS 15.0.1
 
 ### Bug Fixes
