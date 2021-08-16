@@ -69,7 +69,12 @@ Dependency upgrades
 ## New Features
 All JSS services have been upgraded to support [**Sitecore Experience Edge** GraphQL schema](https://doc.sitecore.com/developers/101/developer-tools/en/the-experience-edge-schema.html).
 
-The `[nextjs]` sample uses Edge schema by default.
+`[sitecore-jss]`
+* We added [API reference docs for the package](https://github.com/Sitecore/jss/tree/release/18.0.0/ref-docs/sitecore-jss).
+
+`[nextjs]`
+* The `[nextjs]` sample uses Edge schema by default.
+* We added [API reference docs for the package](https://github.com/Sitecore/jss/tree/release/18.0.0/ref-docs/sitecore-jss-nextjs).
 
 `[samples/nextjs]`
 * Update Sitecore configuration patches with relevant Edge-specific definitions.
