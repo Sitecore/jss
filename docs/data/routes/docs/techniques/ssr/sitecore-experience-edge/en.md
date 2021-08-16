@@ -55,7 +55,7 @@ To use the SSR rendering with Sitecore Experience Edge:
    - `appName` to the value set for your JSS application in `config.appName` in the `package.json` file.
    - `bundlePath` to the path where you copied the built JSS app's `server.bundle.js`. For example: `'./dist/<JSS app name>/server.bundle'`. 
    - `endpoint` to your Experience Edge endpoint.
-   - `apiKey` to the API key provisioned on Sitecore Experience Edge.
+   - `apiKey` to the [API key provisioned on Sitecore Experience Edge](https://doc.sitecore.com/en/developers/101/developer-tools/test-your-queries.html#UUID-779f6288-57a9-7a09-aa44-3c130d3cad33_procedure-idm4588913365819232428308238427).
    - `defaultLanguage` to the JSS app's default language used to determine language context if no language is specified in the request URL.
    - `port` for starting the SSR sample. 
 
@@ -70,7 +70,7 @@ You can set the following environment variables to configure the SSR sample inst
 | Parameter                           | Description                                                  |
 | ----------------------------------- | ------------------------------------------------------------ |
 | `SITECORE_JSS_APP_NAME`             | The JSS app's name. Used when request layout data and dictionary using graphql query and the default value of `SITECORE_JSS_SERVER_BUNDLE` if not set. |
-| `SITECORE_API_KEY`                  | [The API key provisioned on Sitecore Experience Edge.](https://doc.sitecore.com/developers/101/developer-tools/en/test-your-queries.html)         |
+| `SITECORE_API_KEY`                  | [The API key provisioned on Sitecore Experience Edge.](https://doc.sitecore.com/en/developers/101/developer-tools/test-your-queries.html#UUID-779f6288-57a9-7a09-aa44-3c130d3cad33_procedure-idm4588913365819232428308238427)         |
 | `SITECORE_JSS_SERVER_BUNDLE`        | Path to the JSS app's `server.bundle.js` file.               |
 | `SITECORE_EXPERIENCE_EDGE_ENDPOINT` | Sitecore Experience Edge endpoint.                           |
 | `DEFAULT_LANGUAGE`                  | The JSS app's default language. Used to determine language context if language unspecified in the request URL. |
