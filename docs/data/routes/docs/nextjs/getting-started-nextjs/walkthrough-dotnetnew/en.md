@@ -5,7 +5,7 @@ title: Walkthrough with 'dotnet new'
 ---
 # Walkthrough: Using the Sitecore Container Template for JSS Next.js Projects
 
-Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html), the [Sitecore Next.js SDK](https://jss.sitecore.com/), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html). 
+Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html), the [Sitecore Next.js SDK](/docs/nextjs/getting-started-nextjs/why-nextjs), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html). 
 
 For simplicity, this solution does not implement Sitecore Helix conventions for solution architecture. As you begin building your Sitecore solution, you should review [Sitecore Helix](https://helix.sitecore.net/) and the [Sitecore Helix Examples](https://sitecore.github.io/Helix.Examples/) for guidance on implementing a modular solution architecture.
 
