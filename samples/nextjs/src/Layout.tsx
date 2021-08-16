@@ -35,17 +35,17 @@ const Navigation = () => {
           href="https://jss.sitecore.com"
           target="_blank"
           rel="noopener noreferrer"
-          >
+        >
           {t('Documentation')}
         </a>
-          {/* #START_EMPTY */}
+        {/* #START_EMPTY */}
         <Link href="/styleguide">
           <a className="p-2 text-dark">{t('Styleguide')}</a>
         </Link>
         <Link href="/graphql">
           <a className="p-2 text-dark">{t('GraphQL')}</a>
         </Link>
-          {/* #END_EMPTY */}
+        {/* #END_EMPTY */}
       </nav>
     </div>
   );
