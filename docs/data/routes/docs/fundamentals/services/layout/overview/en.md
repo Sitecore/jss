@@ -20,7 +20,7 @@ There are several options for fetching dictionaries from Sitecore:
 ### REST Layout Service
 The [Sitecore REST layout Service endpoint](/docs/fundamentals/services/layout/sitecore-layout-service) is a REST endpoint providing app-specific layout data.
 ### Sitecore Edge Preview GraphQL
-[Sitecore Edge Preview GraphQL API](/docs/fundamentals/services/graphql) is an implementation of a GraphQL server on top of Sitecore. The Sitecore GraphQL schema mirrors the [Experience Edge schema](https://doc.sitecore.com/developers/101/developer-tools/en/the-experience-edge-schema.html).
+[Sitecore Edge Preview GraphQL API](https://doc.sitecore.com/en/developers/101/developer-tools/the-architecture-of-sitecore-experience-edge-for-xm.html#the-preview-graphql-endpoint_body) is an implementation of a GraphQL server on top of Sitecore. The Sitecore GraphQL schema mirrors the [Experience Edge schema](https://doc.sitecore.com/developers/101/developer-tools/en/the-experience-edge-schema.html).
 ### Sitecore Experience Edge for XM
 [Sitecore Experience Edge for XM](https://doc.sitecore.com/developers/101/developer-tools/en/introducing-sitecore-experience-edge-for-xm.html) comes with a read-only GraphQL schema that is designed to accommodate common front-end use cases for headless Sitecore development. Read about the [Experience Edge schema](https://doc.sitecore.com/developers/101/developer-tools/en/the-experience-edge-schema.html).
 ### Sitecore GraphQL Endpoint

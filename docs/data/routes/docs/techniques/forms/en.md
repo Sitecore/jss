@@ -5,7 +5,7 @@ title: Forms + JSS
 ---
 # Sitecore Forms + JSS
 
-JSS provides the capability to consume and post [Sitecore Forms](https://doc.sitecore.com/users/91/sitecore-experience-platform/en/introducing-sitecore-forms.html) from JSS apps. Sitecore Forms is a capable form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
+JSS provides the capability to consume and post [Sitecore Forms](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/introducing-sitecore-forms.html) from JSS apps. Sitecore Forms is a capable form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
 
 Usage of Sitecore Forms in JSS works like this:
 
