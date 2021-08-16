@@ -96,7 +96,7 @@ const parseRouteData = (sourceRouteData, file) => {
     const relativePath = path.relative(rootPath, file).replace(/\\/g, '/');
     routeData.fields.editLink = {
       text: 'Edit this on GitHub',
-      href: `https://github.com/Sitecore/jss/edit/master/docs/${relativePath}`,
+      href: `https://github.com/Sitecore/jss/edit/release/18.0.0/docs/${relativePath}`,
     };
   }
 
