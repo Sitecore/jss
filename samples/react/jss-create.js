@@ -68,7 +68,7 @@ function setFetchWith(fetchWith) {
       break;
 
     case FetchWith.REST:
-      fs.unlinkSync(graphQLDfsFile);
+      fs.unlinkSync(graphQLDsfFile);
       fs.unlinkSync(graphQLLsfFile);
       break;
   }
