@@ -1,5 +1,5 @@
 import { NgModule, PLATFORM_ID, Inject } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { InMemoryCache, NormalizedCacheObject, PossibleTypesMap } from '@apollo/client/core';
 import { Apollo } from 'apollo-angular';
 import { HttpBatchLink } from 'apollo-angular/http';
@@ -54,19 +54,20 @@ export class GraphQLModule {
       A link is transport which GraphQL queries are pushed across.
       You have many choices.
       See the apollo-link documentation for more details.
-
-      NOTE: to use Sitecore Experience Editor it is essential that your
-      link passes cookies along with requests (withCredentials: true).
     */
+
+
+    // set sc_apikey header which is required for any GraphQL calls
+    const sc_apikey = new HttpHeaders().set('sc_apikey', environment.sitecoreApiKey);
 
     // choose between a basic HTTP link to run queries...
     // import { createHttpLink } from 'apollo-angular-link-http';
-    // const link = createHttpLink({ uri: endpoint, withCredentials: 'include' });
+    // const link = createHttpLink({ uri: endpoint });
 
     // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
     const batchHttp = this.httpLink.create({
       uri: environment.graphQLEndpoint,
-      withCredentials: true,
+      headers: sc_apikey
     });
 
     // ...and an automatic persisted query link, which reduces bandwidth by using query hashes to alias content

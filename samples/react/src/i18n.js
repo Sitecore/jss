@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { dictionaryService } from './lib/dictionary-service';
+import { dictionaryServiceFactory } from './lib/dictionary-service-factory';
 
 /**
  * Initializes the i18next library to provide a translation dictionary to the app.
@@ -46,11 +46,14 @@ export default function i18nInit(language, dictionary) {
       // We're running client-side, so we get translation data from the Sitecore dictionary API using fetch backend
       // For higher performance (but less simplicity), consider adding the i18n chained backend to a local cache option like the local storage backend.
 
+      // instantiate the dictionary service.
+      const dictionaryServiceInstance = dictionaryServiceFactory.create();
+
       i18n
         .use({
           type: 'backend',
           read(language, _namespace, callback) {
-            dictionaryService
+            dictionaryServiceInstance
               .fetchDictionaryData(language)
               .then((phrases) => {
                 callback(null, phrases);

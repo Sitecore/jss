@@ -2,18 +2,12 @@ import { Injectable } from '@angular/core';
 import {
   LayoutServiceData,
   LayoutServiceContextData,
-  RestLayoutService,
-  PlaceholderData,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { from as fromPromise, Observable, throwError as observableThrow } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import { layoutServiceFactory } from '../lib/layout-service-factory';
 
-const layoutServiceInstance = new RestLayoutService({
-  apiHost: environment.sitecoreApiHost,
-  apiKey: environment.sitecoreApiKey,
-  siteName: environment.jssAppName,
-});
+const layoutServiceInstance = layoutServiceFactory.create();
 
 export class LayoutServiceError {
   status: number;
@@ -30,16 +24,6 @@ export class JssLayoutService {
     return fromPromise(layoutServiceInstance.fetchLayoutData(route, language)).pipe(
       catchError(this.getLayoutServiceError)
     );
-  }
-
-  getPlaceholderData(
-    route: string,
-    placeholderName: string,
-    language: string
-  ): Observable<PlaceholderData | LayoutServiceError> {
-    return fromPromise(
-      layoutServiceInstance.fetchPlaceholderData(placeholderName, route, language)
-    ).pipe(catchError(this.getLayoutServiceError));
   }
 
   private getLayoutServiceError(error: { [key: string]: unknown }): Observable<LayoutServiceError> {

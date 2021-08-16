@@ -22,14 +22,14 @@
       <br />
       sample1: {{ result.datasource.sample1.value }}
       <br />
-      sample1 (editable): <sc-text :field="result.datasource.sample1.jss" />
+      sample1 (editable): <sc-text :field="result.datasource.sample1.jsonValue" />
       <br />
       sample2:<br />
       <ul>
         <li>text: {{ result.datasource.sample2.text }}</li>
         <li>url: {{ result.datasource.sample2.url }}</li>
         <li>target: {{ result.datasource.sample2.target }}</li>
-        <li>editable: <sc-link :field="result.datasource.sample2.jss" /></li>
+        <li>editable: <sc-link :field="result.datasource.sample2.jsonValue" /></li>
         <li>field type: {{ result.datasource.sample2.definition.type }}</li>
         <li>field is shared?: {{ result.datasource.sample2.definition.shared.toString() }}</li>
       </ul>
@@ -42,9 +42,9 @@
       <br />
       children:
       <ul>
-        <li v-for="child in result.contextItem.children" :key="child.id">
-          <router-link :to="child.url">{{ child.pageTitle.value }}</router-link
-          >&nbsp; (editable title too! <sc-text :field="child.pageTitle.jss" />)
+        <li v-for="child in result.contextItem.children.results" :key="child.id">
+          <router-link :to="child.url.path">{{ child.pageTitle.value }}</router-link
+          >&nbsp; (editable title too! <sc-text :field="child.pageTitle.jsonValue" />)
         </li>
       </ul>
     </div>
@@ -55,6 +55,7 @@
 import { getCurrentInstance, defineComponent } from 'vue';
 import { useQuery } from '@vue/apollo-composable/dist/useQuery';
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
+import config from '../../../package.json';
 
 import { Text, Link } from '@sitecore-jss/sitecore-jss-vue';
 
@@ -81,6 +82,7 @@ export default defineComponent({
       const variables = {
         contextItem: properties ? properties.sitecoreContext().itemId : defaultValue,
         datasource: (props.rendering && props.rendering.dataSource) || defaultValue,
+        language: properties ? properties.sitecoreContext().language : config.language,
       };
 
       if (!variables.contextItem) variables.contextItem = defaultValue;

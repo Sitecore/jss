@@ -2,7 +2,7 @@ import React from 'react';
 import i18n from 'i18next';
 import Helmet from 'react-helmet';
 import { isEditorActive, withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
-import { layoutService } from './lib/layout-service';
+import { layoutServiceFactory } from './lib/layout-service-factory';
 import config from './temp/config';
 import Layout from './Layout';
 import NotFound from './NotFound';
@@ -66,8 +66,11 @@ class RouteHandler extends React.Component {
 
     const language = this.props.route.match.params.lang || this.state.defaultLanguage;
 
+    // instantiate the dictionary service.
+    const layoutServiceInstance = layoutServiceFactory.create();
+
     // get the route data for the new route
-    layoutService.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
+    layoutServiceInstance.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
       if (routeData !== null && routeData.sitecore && routeData.sitecore.route) {
         // set the sitecore context data and push the new route
         this.props.updateSitecoreContext({

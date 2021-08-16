@@ -12,7 +12,9 @@ const IGNORE_PATTERN = '@(node_modules|dist|.next|out|.generated)/**';
  * @returns {RegExp} regExp
  */
 const getStripRegExp = (prefix: string, suffix = 'STRIP') => {
-  return new RegExp(`// #${prefix}_${suffix}`, 'g');
+  const name = `#${prefix}_${suffix}`;
+
+  return new RegExp(`(// ${name})|({\\/\\* ${name} \\*\\/})`, 'g');
 };
 
 interface StripSettings {
@@ -79,7 +81,7 @@ export const compile = (file: string, settings: StripSettings) => {
 
 /**
  * Removes part of code which inside the special comments block.
- * Compiles each not excluded file starting from current dirrectory (or `settings.sourcePath`).
+ * Compiles each not excluded file starting from current directory (or `settings.sourcePath`).
  * @param {StripSettings} settings
  */
 export const strip = (settings: StripSettings = {}) => {
