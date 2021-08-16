@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-rendering-host",
-  "version": "18.0.0-canary.6",
+  "version": "18.0.0-canary.7",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
