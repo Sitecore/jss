@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-rendering-host",
-  "version": "19.0.0-canary.40",
+  "version": "19.0.0-canary.41",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
