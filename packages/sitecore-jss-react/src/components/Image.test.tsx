@@ -4,7 +4,6 @@ import chai from 'chai';
 import chaiString from 'chai-string';
 import { mount } from 'enzyme';
 import React from 'react';
-import URL from 'url-parse';
 import { imageField as eeImageData } from '../testData/ee-data';
 import { Image } from './Image';
 
@@ -141,11 +140,11 @@ describe('<Image />', () => {
     });
 
     it('should update image url', () => {
-      const url = (URL as any)(img.getAttribute('src') as string, true);
+      const url = new URL(img.getAttribute('src') as string, 'http://test.com');
       expect(url.pathname).to.contain('/-/jssmedia/');
-      expect(url.query.h).to.equal(props.imageParams.h);
-      expect(url.query.w).to.equal(props.imageParams.w);
-      expect(url.query.hash).to.be.undefined;
+      expect(url.searchParams.get('h')).to.equal(props.imageParams.h);
+      expect(url.searchParams.get('w')).to.equal(props.imageParams.w);
+      expect(url.hash).to.be.empty;
     });
 
     it('should render <img /> with style and className props', () => {
@@ -182,18 +181,19 @@ describe('<Image />', () => {
         id: 'some-id',
         style: { width: '100%' },
         className: 'the-dude-abides',
+        imageParams: { foo: 'bar' },
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
       const rendered = mount(<Image {...props} />);
 
-      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png');
+      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png?foo=bar');
 
       rendered.setProps({
         ...props,
         media: { value: { src: '/-assets/img/test0.png', alt: 'my image' } },
       });
 
-      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png');
+      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
     });
 
     it('should transform url with direct image object, no value/editable', () => {
@@ -208,11 +208,12 @@ describe('<Image />', () => {
           width: '100%',
         },
         className: 'the-dude-abides',
+        imageParams: { foo: 'bar' },
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
       const rendered = mount(<Image {...props} />);
 
-      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png');
+      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png?foo=bar');
 
       rendered.setProps({
         ...props,
@@ -223,7 +224,7 @@ describe('<Image />', () => {
         },
       });
 
-      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png');
+      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
     });
 
     it('should transform url with responsive image object', () => {
@@ -240,7 +241,10 @@ describe('<Image />', () => {
 
       const rendered = mount(<Image {...props} />);
 
-      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png');
+      expect(rendered.find('img').prop('src')).to.equal('/~assets/img/test0.png');
+      expect(rendered.find('img').prop('srcSet')).to.equal(
+        '/~/jssmedia/img/test0.png?mw=100 100w, /~/jssmedia/img/test0.png?mw=300 300w'
+      );
 
       rendered.setProps({
         ...props,
@@ -249,9 +253,13 @@ describe('<Image />', () => {
           width: 8,
           height: 10,
         },
+        imageParams: { foo: 'bar' },
       });
 
-      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png');
+      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
+      expect(rendered.find('img').prop('srcSet')).to.equal(
+        '/-/jssmedia/img/test0.png?foo=bar&mw=100 100w, /-/jssmedia/img/test0.png?foo=bar&mw=300 300w'
+      );
     });
   });
 

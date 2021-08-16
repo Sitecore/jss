@@ -1,4 +1,4 @@
-import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditingData, EditingPreviewData } from '../sharedTypes/editing-data';
 import { getJssEditingSecret } from '../utils';
 
@@ -36,7 +36,8 @@ export class EditingDataService {
     if (!this.apiRoute.includes('[key]')) {
       throw new Error(`The specified apiRoute '${this.apiRoute}' is missing '[key]'.`);
     }
-    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher();
+    this.dataFetcher =
+      config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.experienceEditor });
   }
 
   /**
@@ -49,11 +50,14 @@ export class EditingDataService {
     const key = this.generateKey(data);
     const url = this.getUrl(serverUrl, key);
 
+    const previewData = {
+      key,
+      serverUrl,
+    } as EditingPreviewData;
+
+    debug.experienceEditor('storing editing data for %o: %o', previewData, data);
     return this.dataFetcher.put(url, data).then(() => {
-      return {
-        key,
-        serverUrl,
-      };
+      return previewData;
     });
   }
 
@@ -65,6 +69,7 @@ export class EditingDataService {
   async getEditingData(previewData: EditingPreviewData): Promise<EditingData | undefined> {
     const url = this.getUrl(previewData.serverUrl, previewData.key);
 
+    debug.experienceEditor('fetching editing data for %o', previewData);
     return this.dataFetcher.get<EditingData>(url).then((response: { data: EditingData }) => {
       return response.data;
     });
@@ -77,7 +82,7 @@ export class EditingDataService {
     const suffix = Math.random()
       .toString(36)
       .substring(2, 12);
-    return `${data.layoutData.sitecore.route.itemId}-${suffix}`;
+    return `${data.layoutData.sitecore.route?.itemId}-${suffix}`;
   }
 
   protected getUrl(serverUrl: string, key: string): string {

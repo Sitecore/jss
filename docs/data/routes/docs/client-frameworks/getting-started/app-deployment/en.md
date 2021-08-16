@@ -39,7 +39,7 @@ After adding the host name entry, add it as a binding on your IIS instance as we
 
 ### Step 2. API Key
 
-The services used by JSS (including the [Layout Service](/docs/fundamentals/services/layout-service), [GraphQL](/docs/fundamentals/services/graphql), [Tracking Service](/docs/fundamentals/services/tracking), and [Dictionary Service](/docs/fundamentals/services/dictionary-service)) utilize the [API Key mechanism provided by Sitecore Services Client (SSC)](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/api_keys_for_the_odata_item_service). You'll need to create an API Key and note its Item ID for use in setting up the sample apps.
+The services used by JSS (including the [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service), [GraphQL](/docs/fundamentals/services/graphql), [Tracking Service](/docs/fundamentals/services/tracking), and [Dictionary Service](/docs/fundamentals/services/dictionary/sitecore-dictionary-service)) utilize the [API Key mechanism provided by Sitecore Services Client (SSC)](https://doc.sitecore.net/sitecore_experience_platform/developing/developing_with_sitecore/sitecoreservicesclient/api_keys_for_the_odata_item_service). You'll need to create an API Key and note its Item ID for use in setting up the sample apps.
 
 1. Log into Sitecore (e.g. http://myapp.siteco.re/sitecore) and open the *Desktop* application.
 1. > **For Sitecore 9.0.x only! Skip for Sitecore 9.1+**
@@ -73,7 +73,7 @@ The services utilized by JSS will honor the configuration options on the API Key
 
 ### Step 3. Verification
 
-Make a request to the [Layout Service](/docs/fundamentals/services/layout-service) on your Sitecore host:
+Make a request to the [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) on your Sitecore host:
 `http://myapp.siteco.re/sitecore/api/layout/render/jss?item=/&sc_apikey={YOUR_API_KEY_ID}`.
 
 > Be sure to specify the API key ID created above. If the API key is not provided, the server will return `HTTP 400 - Bad Request`.

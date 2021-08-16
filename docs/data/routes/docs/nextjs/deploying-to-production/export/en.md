@@ -9,6 +9,7 @@ You can serve your JSS Next.js application as static HTML files using any static
 
 > Static HTML export does not support: 
 >
+> * Server-side Rendered (SSR) pages (using `getServerSideProps`).
 > * Internationalized routing.
 > * Request rewrites.
 > * Visitor identification. 
@@ -26,13 +27,9 @@ To export your JSS Next.js application as static HTML files, you must:
 
 Before exporting your application, you must: 
 
-1. Remove internationalization configuration:
-   * In `next.config.js`, delete the `i18n` configuration.
-   * In `package.json`, delete any language configuration under `config.language`.
+1. In `next.config.js`, remove `rewrites` and `i18n`.
 
-2. In `next.config.js`, remove `rewrites`.
-
-3. In `JssNextWeb.config`:
+2. In `JssNextWeb.config`:
 
    *  Include the Sitecore server URL as part of the media requests: 
 
@@ -58,9 +55,11 @@ Before exporting your application, you must:
 
    * Run `jss deploy config`.
 
-4. Remove usage of `<VisitorIdentification />` component in `src/components/Layout.tsx`.
+3. Remove usage of `<VisitorIdentification />` component in `src/components/Layout.tsx`.
 
-5. In `.env`, define the `PUBLIC_URL` variable.
+4. In `.env`, define the `PUBLIC_URL` variable.
+
+5. In `.env`, add `EXPORT_MODE=true`.
 
 6. In `package.json`, add the following scripts: 
 

@@ -1,119 +1,71 @@
-import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios';
+import resolveUrl from './utils/resolve-url';
+import querystring from 'querystring';
 
-export type AxiosDataFetcherHandlers = {
-  /**
-   * Callback which executed before request is sent. You can modify axios config.
-   * {@link https://github.com/axios/axios#interceptors}
-   * @param {AxiosRequestConfig} config axios config
-   */
-  onReq?: (config: AxiosRequestConfig) => AxiosRequestConfig | Promise<AxiosRequestConfig>;
-  /**
-   * Callback which invoked when request error happened.
-   * {@link https://github.com/axios/axios#interceptors}
-   * @param {unknown} error
-   */
-  onReqError?: (error: unknown) => unknown;
-  /**
-   * Callback which invoked when got response from server.
-   * {@link https://github.com/axios/axios#interceptors}
-   * @param {AxiosResponse} serverRes server response
-   */
-  onRes?: (serverRes: AxiosResponse) => AxiosResponse | Promise<AxiosResponse>;
-  /**
-   * Callback which invoked when status codes fallen outside the range of 2xx.
-   * {@link https://github.com/axios/axios#interceptors}
-   * @param {unknown} error
-   */
-  onResError?: (error: unknown) => unknown;
-};
+/**
+ * Response data for an HTTP request sent to an API
+ * @template T the type of data model requested
+ */
+export interface HttpResponse<T> {
+  /** HTTP status code of the response (i.e. 200, 404) */
+  status: number;
+  /** HTTP status text of the response (i.e. 'OK', 'Bad Request') */
+  statusText: string;
+  /** Response content */
+  data: T;
+}
 
-export type AxiosDataFetcherConfig = AxiosRequestConfig & AxiosDataFetcherHandlers;
+/**
+ * Describes functions that fetch data asynchronously (i.e. from an API endpoint).
+ * This interface conforms to Axios' public API, but is adaptable to other HTTP libraries and
+ * fetch polyfills.
+ * The interface implementation must:
+ * - Support SSR
+ * - Comply with the rules of REST by returning appropriate response status codes when there is an error instead of throwing exceptions.
+ * - Send HTTP POST requests if `data` param is specified; GET is suggested but not required for data-less requests
+ */
+export type HttpDataFetcher<T> = (
+  url: string,
+  data?: { [key: string]: unknown }
+) => Promise<HttpResponse<T>>;
 
-export class AxiosDataFetcher {
-  private instance: AxiosInstance;
+class ResponseError extends Error {
+  response: HttpResponse<unknown>;
 
-  /**
-   * @param {AxiosDataFetcherConfig} dataFetcherConfig Axios data fetcher configuration.
-   * Note `withCredentials` is set to `true` by default in order for Sitecore cookies to
-   * be included in CORS requests (which is necessary for analytics and such).
-   */
-  constructor(dataFetcherConfig: AxiosDataFetcherConfig = {}) {
-    const { onReq, onRes, onReqError, onResError, ...axiosConfig } = dataFetcherConfig;
-    if (axiosConfig.withCredentials === undefined) {
-      axiosConfig.withCredentials = true;
-    }
-    this.instance = axios.create(axiosConfig);
-    if (onReq) {
-      this.instance.interceptors.request.use(onReq, onReqError);
-    }
-    if (onRes) {
-      this.instance.interceptors.response.use(onRes, onResError);
-    }
+  constructor(message: string, response: HttpResponse<unknown>) {
+    super(message);
+
+    Object.setPrototypeOf(this, ResponseError.prototype);
+    this.response = response;
+  }
+}
+
+/**
+ * @param {HttpResponse<T>} response
+ * @throws {ResponseError} if response code is not ok
+ */
+function checkStatus<T>(response: HttpResponse<T>) {
+  if (response.status >= 200 && response.status < 300) {
+    return response;
   }
 
-  /**
-   * Implements a data fetcher. @see HttpJsonFetcher<T> type for implementation details/notes.
-   * @param {string} url The URL to request; may include query string
-   * @param {any} [data] Optional data to POST with the request.
-   * @returns {Promise<AxiosResponse<T>>} response
-   */
-  fetch<T>(url: string, data?: unknown): Promise<AxiosResponse<T>> {
-    return this.instance.request({
-      url,
-      method: data ? 'POST' : 'GET',
-      data,
+  const error = new ResponseError(response.statusText, response);
+  throw error;
+}
+
+/**
+ * @param {string} url
+ * @param {HttpDataFetcher} fetcher
+ * @param {Object} params
+ */
+export function fetchData<T>(
+  url: string,
+  fetcher: HttpDataFetcher<T>,
+  params: querystring.ParsedUrlQueryInput = {}
+) {
+  return fetcher(resolveUrl(url, params))
+    .then(checkStatus)
+    .then((response) => {
+      // axios auto-parses JSON responses, don't need to JSON.parse
+      return response.data;
     });
-  }
-
-  /**
-   * Perform a GET request
-   * @param {string} url The URL to request; may include query string
-   * @param {AxiosRequestConfig} [config] Axios config
-   * @returns {Promise<AxiosResponse<T>>} response
-   */
-  get<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-    return this.instance.get(url, config);
-  }
-
-  /**
-   * Perform a HEAD request
-   * @param {string} url The URL to request; may include query string
-   * @param {AxiosRequestConfig} [config] Axios config
-   * @returns {Promise<AxiosResponse>} response
-   */
-  head(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
-    return this.instance.head(url, config);
-  }
-
-  /**
-   * Perform a POST request
-   * @param {string} url The URL to request; may include query string
-   * @param {any} [data] Data to POST with the request.
-   * @param {AxiosRequestConfig} [config] Axios config
-   * @returns {Promise<AxiosResponse>} response
-   */
-  post(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse> {
-    return this.instance.post(url, data, config);
-  }
-
-  /**
-   * Perform a PUT request
-   * @param {string} url The URL to request; may include query string
-   * @param {any} [data] Data to PUT with the request.
-   * @param {AxiosRequestConfig} [config] Axios config
-   * @returns {Promise<AxiosResponse>} response
-   */
-  put(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse> {
-    return this.instance.put(url, data, config);
-  }
-
-  /**
-   * Perform a DELETE request
-   * @param {string} url The URL to request; may include query string
-   * @param {AxiosRequestConfig} [config] Axios config
-   * @returns {Promise<AxiosResponse>} response
-   */
-  delete(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
-    return this.instance.delete(url, config);
-  }
 }

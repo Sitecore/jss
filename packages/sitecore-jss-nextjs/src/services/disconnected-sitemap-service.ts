@@ -1,5 +1,5 @@
 import { ItemDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
-import { StaticPath } from '../sharedTypes/sitemap';
+import { StaticPath } from './graphql-sitemap-service';
 
 export class DisconnectedSitemapService {
   /**

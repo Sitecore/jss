@@ -1,7 +1,6 @@
 import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import * as URL from 'url-parse';
 
 import { imageField as eeImageData } from '../testData/ee-data';
 import { ImageDirective } from './image.directive';
@@ -205,11 +204,11 @@ describe('<img *scImage />', () => {
       fixture2.detectChanges();
 
       const img = de.nativeElement.getElementsByTagName('img')[0];
-      const url = URL(img.getAttribute('src'), null as any, true);
+      const url = new URL(img.getAttribute('src'), 'http://test.com');
       expect(url.pathname).toContain('/-/jssmedia/');
-      expect(url.query.h).toBe(imageParams.h);
-      expect(url.query.w).toBe(imageParams.w);
-      expect(url.query.hash).toBeUndefined();
+      expect(url.searchParams.get('h')).toBe(imageParams.h);
+      expect(url.searchParams.get('w')).toBe(imageParams.w);
+      expect(url.searchParams.get('hash')).toBeNull();
     });
 
     it('should update image url in EE mode', () => {
@@ -217,22 +216,22 @@ describe('<img *scImage />', () => {
       fixture2.detectChanges();
 
       const img = de.nativeElement.getElementsByTagName('img')[0];
-      const url = URL(img.getAttribute('src'), null as any, true);
+      const url = new URL(img.getAttribute('src'), 'http://test.com');
       expect(url.pathname).toContain('/-/jssmedia/');
-      expect(url.query.h).toBe(imageParams.h);
-      expect(url.query.w).toBe(imageParams.w);
-      expect(url.query.hash).toBeUndefined();
+      expect(url.searchParams.get('h')).toBe(imageParams.h);
+      expect(url.searchParams.get('w')).toBe(imageParams.w);
+      expect(url.searchParams.get('hash')).toBeNull();
     });
 
     it('should update image url using custom mediaUrlPrefix', () => {
       const testImg = (expectedPrefix: string) => {
         const img = de.nativeElement.getElementsByTagName('img')[0];
-        const url = URL(img.getAttribute('src'), null as any, true);
+        const url = new URL(img.getAttribute('src'), 'http://test.com');
 
         expect(url.pathname).toContain(expectedPrefix);
-        expect(url.query.h).toBe(imageParams.h);
-        expect(url.query.w).toBe(imageParams.w);
-        expect(url.query.hash).toBeUndefined();
+        expect(url.searchParams.get('h')).toBe(imageParams.h);
+        expect(url.searchParams.get('w')).toBe(imageParams.w);
+        expect(url.searchParams.get('hash')).toBeNull();
       };
 
       comp2.mediaUrlPrefix = /\/([-~]{1})test\//i;

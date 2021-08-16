@@ -10,6 +10,8 @@ JSS supports headless server-side rendering using any service that supports host
 
 All Sitecore marketing features are supported by this headless mode, including personalization, tracking, multivariate testing, etc.
 
+ > NodeJS is a third-party technology that you must configure according to your specific use-case scenarios for Headless mode.
+
 ## How to use
 
 1. Clone [the JSS samples repository](https://github.com/sitecore/jss) and copy the `samples/node-headless-ssr-proxy` folder to your disk, for example: `c:\jss-headless`.
@@ -68,7 +70,7 @@ But you can extend it and remove additional headers.
 
 ### Media URLs in headless mode
 
-The [Layout Service](/docs/fundamentals/services/layout-service) will return URLs to images with the Sitecore server URL included. For example:
+The [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) will return URLs to images with the Sitecore server URL included. For example:
 
 * The Sitecore server is `http://siteco.re`
 * An image in a media field, or a rich text field, would be returned something like `http://sitecor.re/-/media/jss.jpg`

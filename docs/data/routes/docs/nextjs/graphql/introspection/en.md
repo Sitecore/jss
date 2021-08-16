@@ -13,13 +13,9 @@ The file `.graphql-let.yml` in the sample app root contains configuration for `g
 
 > Read more about [graphql-let configuration](https://github.com/piglovesyou/graphql-let#configuration-is-compatible-with-codegenyml-except).
 
-When working with GraphQL in the sample Next.js application, you should be aware of two concepts:
-* **Introspection data**, which describes the queries supported by the GraphQL schema. Read more [here](https://graphql.org/learn/introspection). `graphq-let` uses this introspection data to understand which types it should use during code generation.
-* **Fragment data**, which is basic information about the shape of the GraphQL schema. Apollo Client supports caching GraphQL responses, which can greatly reduce network traffic needs. To work correctly with interfaces in GraphQL, the Apollo Client needs to know the information in this file. Read more [here](https://www.apollographql.com/docs/react/advanced/fragments.html#fragment-matcher).
+When working with GraphQL in the sample Next.js application, you should be aware of the concept of **introspection data**, which describes the queries supported by the GraphQL schema. Read more [here](https://graphql.org/learn/introspection). `graphq-let` uses this introspection data to understand which types it should use during code generation.
 
-After you build the application for the first time, you will find: 
-* `src/temp/GraphQLIntrospectionResult.json`, containing introspection data.
-* `src/temp/GraphQLFragmentTypes.json`, containing fragment data.
+After you build the application for the first time, you will find `src/temp/GraphQLIntrospectionResult.json`, containing introspection data.
 
 When you alter Sitecore templates related to the site, you should update the introspection data. 
 In the root of your Next.js application, run: 
@@ -27,10 +23,6 @@ In the root of your Next.js application, run:
 ```
 jss graphql:update 
 ```
-This script will fetch fresh introspection data and fragment data from your defined GraphQL endpoint and update the two files. 
+This calls a script `scripts/fetch-graphql-introspection-data.ts` which will fetch fresh introspection data from your defined GraphQL endpoint and update the file.
 
-The script `jss graphql:update` calls two other scripts: 
-* `scripts/fetch-graphql-introspection-data.ts` is responsible for fetching introspection data. 
-* `scripts/update-graphql-fragment-data.ts` is responsible for fetching fragment data. 
-
-Both scripts use the `graphQLEndpoint` defined in `src/temp/config.js`, a file generated when you start your sample app for the first time.
+The script uses the `graphQLEndpoint` and `sitecoreApiKey` defined in `src/temp/config.js`, a file generated when you start your sample app for the first time.

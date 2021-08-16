@@ -1,10 +1,16 @@
 import { Injectable, PLATFORM_ID, Inject, } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { ExtraSubscriptionOptions, R } from 'apollo-angular/types';
-import { QueryOptions, ApolloQueryResult, SubscriptionOptions, MutationOptions } from 'apollo-client';
+import { ExtraSubscriptionOptions, EmptyObject } from 'apollo-angular/types';
+import {
+  QueryOptions,
+  ApolloQueryResult,
+  SubscriptionOptions,
+  MutationOptions,
+  FetchResult,
+  DocumentNode
+} from '@apollo/client/core';
 import { Observable, empty } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { FetchResult, DocumentNode } from 'apollo-link';
 import { ComponentRendering, isExperienceEditorActive, resetExperienceEditorChromes } from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from './jss-context.service';
 import { ExecutableDefinitionNode } from 'graphql';
@@ -60,7 +66,7 @@ export class JssGraphQLService {
   /**
    * Executes a read query against the GraphQL endpoint
    */
-  query<T, V = R>(options: QueryOptions<V> & JssGraphQLOptions): Observable<ApolloQueryResult<T>> {
+  query<T, V = EmptyObject>(options: QueryOptions<V> & JssGraphQLOptions): Observable<ApolloQueryResult<T>> {
     if (this.isEditingOrPreviewingAndSsr) {
       return empty();
     }
@@ -86,7 +92,7 @@ export class JssGraphQLService {
   /**
    * Executes a GraphQL mutation (write) against the GraphQL endpoint
    */
-  mutate<T, V = R>(options: MutationOptions<T, V> & JssGraphQLOptions): Observable<FetchResult<T>> {
+  mutate<T, V = EmptyObject>(options: MutationOptions<T, V> & JssGraphQLOptions): Observable<FetchResult<T>> {
     if (this.isEditingOrPreviewingAndSsr) {
       return empty();
     }
@@ -99,7 +105,7 @@ export class JssGraphQLService {
   /**
    * Executes a GraphQL subscription (real-time data) against the GraphQL endpoint
    */
-  subscribe<T, V = R>(options: SubscriptionOptions<V> & JssGraphQLOptions, extra?: ExtraSubscriptionOptions): Observable<any> {
+  subscribe<T, V = EmptyObject>(options: SubscriptionOptions<V> & JssGraphQLOptions, extra?: ExtraSubscriptionOptions): Observable<any> {
     if (this.isEditingOrPreviewingAndSsr) {
       return empty();
     }
@@ -109,7 +115,7 @@ export class JssGraphQLService {
     return this.apollo.subscribe<T, V>(options, extra);
   }
 
-  private addJssAmbientVariables<V = R>(query: DocumentNode, variables: V, rendering?: ComponentRendering) {
+  private addJssAmbientVariables<V = EmptyObject>(query: DocumentNode, variables: V, rendering?: ComponentRendering) {
     if (!variables) {
       variables = {} as V;
     }

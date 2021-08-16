@@ -38,7 +38,7 @@ export class TextDirective implements OnChanges {
     const field = this.field;
     let editable = this.editable;
 
-    if (!field || (!field.editable && !field.value)) {
+    if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
       return;
     }
 

@@ -15,7 +15,7 @@ The Angular sample supports running in all [JSS application modes](/docs/fundame
 
 ## Routing + State Management
 
-The sample app uses dynamic routing based on the [Layout Service](/docs/fundamentals/services/layout-service) (or local route data files in _disconnected mode_), and uses route/navigation changes to trigger app state changes. Thus tracing the primary execution flow should begin with the route configuration.
+The sample app uses dynamic routing based on the [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) (or local route data files in _disconnected mode_), and uses route/navigation changes to trigger app state changes. Thus tracing the primary execution flow should begin with the route configuration.
 
 ### Client-side routing
 
@@ -28,7 +28,7 @@ Client-side routing occurs in the web browser. The flow of client-side routing i
 1. `JssRouteResolver` first invokes `changeRoute` on the `JssContextService`.
 1. `JssContextService` on the client side will retrieve the route from one of the following:
     * If running in _Integrated_ or _Headless SSR_ mode immediately following a server render, an attempt is made to obtain route data from the `TransferState`, which should contain the server-side rendering state. When this occurs, the HTTP call to layout service is skipped.
-    * In any other case, the route data is fetched via HTTP call to the Sitecore [Layout Service](/docs/fundamentals/services/layout-service).
+    * In any other case, the route data is fetched via HTTP call to the Sitecore [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service).
 1. The `JssContextService` will retain the current route state (more on this later), and return it to the `JssRouteResolver`. The route resolver performs routines necessary for Experience Editor support.
 1. Finally the configured route component (defined in `routing.module.ts`, defaults to `app/routing/layout/layout.component.ts`) is loaded into into the `router-outlet` defined in `src/app/app.component.ts` and is provided with the data from the route resolver. This _layout component_ is responsible for:
     * Handling the UI for data fetching errors, such as HTTP 404s and 500s
@@ -41,7 +41,7 @@ When the Angular app is pre-rendered by a Node server, thus returning HTML to th
 
 1. [Integrated mode only] Sitecore will receive the request, parse the route server-side, and determine whether the requested item will be handled by a JSS application, and thus which bundle to execute.
 1. [Headless mode only] A request is received by the Node SSR proxy and passed on to a Sitecore layout service
-1. The Node host will invoke the `renderView` function in the `server.bundle.ts` artifact. The function arguments include the route data / [Layout Service](/docs/fundamentals/services/layout-service) output.
+1. The Node host will invoke the `renderView` function in the `server.bundle.ts` artifact. The function arguments include the route data / [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) output.
 1. The `renderView` function will use Angular SSR to render the application, with two key differences in its module initialization:
     * The `AppServerModule` is used instead, which provides server-specific implementations of some services.
     * The initial route state is injected via DI using a `JSS_SERVER_TO_SSR` injection token.

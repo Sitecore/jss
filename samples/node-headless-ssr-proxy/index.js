@@ -27,6 +27,19 @@ server.use(
  */
 // server.use(cacheMiddleware());
 
+server.use((req, res, next) => {
+  // because this is a proxy, all headers are forwarded on to the Sitecore server
+  // but, if we SSR we only understand how to decompress gzip and deflate. Some
+  // modern browsers would send 'br' (brotli) as well, and if the Sitecore server
+  // supported that (maybe via CDN) it would fail SSR as we can't decode the Brotli
+  // response. So, we force the accept-encoding header to only include what we can understand.
+  if (req.headers['accept-encoding']) {
+    req.headers['accept-encoding'] = 'gzip, deflate';
+  }
+
+  next();
+})
+
 // For any other requests, we render app routes server-side and return them
 server.use('*', scProxy(config.serverBundle.renderView, config, config.serverBundle.parseRouteUrl));
 

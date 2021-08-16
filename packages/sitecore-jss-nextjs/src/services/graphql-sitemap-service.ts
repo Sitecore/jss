@@ -1,103 +1,131 @@
-import chalk from 'chalk';
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
-import { StaticPath } from '../sharedTypes/sitemap';
+import {
+  GraphQLClient,
+  GraphQLRequestClient,
+  debug,
+  getAppRootId,
+  SearchServiceConfig,
+  SearchQueryService,
+} from '@sitecore-jss/sitecore-jss';
 
-export type GraphQLSitemapServiceConfig = {
+/** @private */
+export const queryError =
+  'Valid value for rootItemId not provided and failed to auto-resolve app root item.';
+
+/** @private */
+export const languageError = 'The list of languages cannot be empty';
+
+// Even though _hasLayout should always be "true" in this query, using a variable is necessary for compatibility with Edge
+const defaultQuery = /* GraphQL */ `
+  query SitemapQuery(
+    $rootItemId: String!
+    $language: String!
+    $pageSize: Int = 10
+    $hasLayout: String = "true"
+    $after: String
+  ) {
+    search(
+      where: {
+        AND: [
+          { name: "_path", value: $rootItemId, operator: CONTAINS }
+          { name: "_language", value: $language }
+          { name: "_hasLayout", value: $hasLayout }
+        ]
+      }
+      first: $pageSize
+      after: $after
+    ) {
+      total
+      pageInfo {
+        endCursor
+        hasNext
+      }
+      results {
+        url {
+          path
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * The schema of data returned in response to a page list query request
+ */
+export type PageListQueryResult = { url: { path: string } };
+
+/**
+ * Object model of a site page item.
+ */
+export type StaticPath = {
+  params: {
+    path: string[];
+  };
+  locale?: string;
+};
+
+/**
+ * Configuration options for @see GraphQLSitemapService instances
+ */
+export interface GraphQLSitemapServiceConfig extends SearchServiceConfig {
   /**
    * Your Graphql endpoint
    */
   endpoint: string;
-};
 
-type SearchResult = {
-  search: {
-    results: { url: { path: string } }[];
-  };
-};
-
-export class GraphQLSitemapService {
   /**
-   * Provides ability to fetch sitemap from graphql endpoint.
-   * Sitemap can be used for SSG/Export
-   * @param {GraphQLSitemapServiceConfig} config graphql sitemap service config
+   * The API key to use for authentication.
    */
-  constructor(private config: GraphQLSitemapServiceConfig) {}
+  apiKey: string;
+}
+
+/**
+ * Service that fetches the list of site pages using Sitecore's GraphQL API.
+ * This list is used for SSG and Export functionality.
+ * @mixes SearchQueryService<PageListQueryResult>
+ */
+export class GraphQLSitemapService {
+  private graphQLClient: GraphQLClient;
+  private searchService: SearchQueryService<PageListQueryResult>;
+
+  /**
+   * Gets the default query used for fetching the list of site pages
+   */
+  protected get query(): string {
+    return defaultQuery;
+  }
+
+  /**
+   * Creates an instance of graphQL sitemap service with the provided options
+   * @param {GraphQLSitemapServiceConfig} options instance
+   */
+  constructor(public options: GraphQLSitemapServiceConfig) {
+    this.graphQLClient = this.getGraphQLClient();
+    this.searchService = new SearchQueryService<PageListQueryResult>(this.graphQLClient);
+  }
 
   /**
    * Fetch sitemap which could be used for generation of static pages during `next export`.
    * The `locale` parameter will be used in the item query, but since i18n is not supported,
-   * the output paths will not include a `locale` property.
-   * @param {string} locale locale which application supports
-   * @param {string} rootItemPath root item path
-   * @param {Function} [formatSearchQuery] override default search query
-   *
-   * @default
-   * Search query
-   * search(
-   *    where: {
-   *      AND:[
-   *        {
-   *           name:"_path",
-   *          value:"${rootItemId.toLowerCase()}"
-   *        },
-   *        {
-   *          name:"_language",
-   *          value:"${locale}"
-   *        },
-   *        {
-   *          name:"_hasLayout",
-   *          value :"true"
-   *        }
-   *      ]
-   *    }
-   *  )
+   * the output paths will not include a `language` property.
+   * @param {string} locale which application supports
+   * @returns an array of @see StaticPath objects
    */
-  async fetchExportSitemap(
-    locale: string,
-    rootItemPath: string,
-    formatSearchQuery?: (rootItemId: string, locale: string) => string
-  ): Promise<StaticPath[]> {
+  async fetchExportSitemap(locale: string): Promise<StaticPath[]> {
     const formatPath = (path: string[]) => ({
       params: {
         path,
       },
     });
 
-    return this.fetch([locale], rootItemPath, formatPath, formatSearchQuery);
+    return this.fetchSitemap([locale], formatPath);
   }
 
   /**
    * Fetch sitemap which could be used for generation of static pages using SSG mode
    * @param {string[]} locales locales which application supports
-   * @param {string} rootItemPath root item path
-   * @param {Function} [formatSearchQuery] override default search query
-   *
-   * @default
-   * Search query
-   * search(
-   *    where: {
-   *      AND:[
-   *        {
-   *           name:"_path",
-   *          value:"${rootItemId.toLowerCase()}"
-   *        },
-   *        {
-   *          name:"_language",
-   *          value:"${locale}"
-   *        },
-   *        {
-   *          name:"_hasLayout",
-   *          value :"true"
-   *        }
-   *      ]
-   *    }
-   *  )
+   * @returns an array of @see StaticPath objects
    */
-  async fetchSSGSitemap(
-    locales: string[],
-    rootItemPath: string,
-    formatSearchQuery?: (rootItemId: string, locale: string) => string
-  ): Promise<StaticPath[]> {
+  async fetchSSGSitemap(locales: string[]): Promise<StaticPath[]> {
     const formatPath = (path: string[], locale: string) => ({
       params: {
         path,
@@ -105,153 +133,75 @@ export class GraphQLSitemapService {
       locale,
     });
 
-    return this.fetch(locales, rootItemPath, formatPath, formatSearchQuery);
+    return this.fetchSitemap(locales, formatPath);
   }
 
   /**
-   * Internal fetch
-   * @param {string[]} locales
-   * @param {string} rootItemPath
-   * @param {Function} formatStaticPath
-   * @param {Function} [formatSearchQuery]
+   * Fetch a flat list of all pages that are descendants of the specified root item and have a
+   * version in the specified language(s).
+   * @param {string[]} languages Fetch pages that have versions in this language(s).
+   * @param {Function} formatStaticPath Function for transforming the raw search results into (@see StaticPath) types.
+   * @returns list of pages
+   * @throws {RangeError} if the list of languages is empty.
+   * @throws {Error} if the app root was not found for the specified site and language.
    */
-  private async fetch(
-    locales: string[],
-    rootItemPath: string,
-    formatStaticPath: (path: string[], locale: string) => StaticPath,
-    formatSearchQuery?: (rootItemId: string, locale: string) => string
+  protected async fetchSitemap(
+    languages: string[],
+    formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
-    if (!locales.length) {
-      return [];
+    if (!languages.length) {
+      throw new RangeError(languageError);
     }
 
-    const rootItemId = await this.getRootItemId(rootItemPath);
+    // If the caller does not specify a root item ID, then we try to figure it out
+    const rootItemId =
+      this.options.rootItemId ||
+      (await getAppRootId(this.graphQLClient, this.options.siteName, languages[0]));
 
     if (!rootItemId) {
-      console.error(
-        chalk.red(
-          `Error occurred while fetching sitemap: root item id could not be found for provided rootItemPath '${rootItemPath}'`
-        )
-      );
-      return [];
+      throw new Error(queryError);
     }
 
-    const getStaticPaths = async (locale: string): Promise<StaticPath[]> => {
-      const query = this.getSitemapQuery(rootItemId, locale, formatSearchQuery);
-
-      const data = await this.createClient()
-        .request<SearchResult>(query)
-        .catch((error) => {
-          console.error(
-            chalk.red('Error occurred while fetching sitemap:'),
-            error.response || error
-          );
-
-          return null;
-        });
-
-      const items = data?.search.results ? data.search.results : [];
-
-      const staticPaths = items.reduce((list: StaticPath[], item: { url: { path: string } }) => {
-        // replace first and last /
-        // transform to array of paths
-        const path = item.url.path.replace(/^\/|\/$/g, '').split('/');
-
-        return list.concat(formatStaticPath(path, locale));
-      }, []);
-
-      return staticPaths;
-    };
-
     // Fetch paths using all locales
-    const paths = await Promise.all(locales.map(getStaticPaths));
+    const paths = await Promise.all(
+      languages.map((language) => {
+        debug.sitemap('fetching sitemap data for %s', language);
+        return this.searchService
+          .fetch(this.query, {
+            rootItemId,
+            language,
+            pageSize: this.options.pageSize,
+          })
+          .then((results) => {
+            return results.map((item) =>
+              formatStaticPath(item.url.path.replace(/^\/|\/$/g, '').split('/'), language)
+            );
+          });
+      })
+    );
 
-    // merge promises result
+    // merge promises results into single result
     return ([] as StaticPath[]).concat(...paths);
   }
 
   /**
-   * Returns new graphql client instance
+   * Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
+   * library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
+   * want to use something else.
+   * @returns {GraphQLClient} implementation
    */
-  private createClient(): GraphQLRequestClient {
-    const { endpoint } = this.config;
-
-    return new GraphQLRequestClient(endpoint);
+  protected getGraphQLClient(): GraphQLClient {
+    return new GraphQLRequestClient(this.options.endpoint, {
+      apiKey: this.options.apiKey,
+      debugger: debug.sitemap,
+    });
   }
 
   /**
-   * Returns query to request root item id
-   * @param {string} rootItemPath root item path
+   * Gets a service that can perform GraphQL "search" queries to fetch @see PageListQueryResult
+   * @returns {SearchQueryService<PageListQueryResult>} the search query service
    */
-  private getRootItemIdQuery(rootItemPath: string): string {
-    return `query {
-      item(path:"${rootItemPath}") {
-        id
-      }
-    }`;
-  }
-
-  /**
-   * Request root item id using path
-   * @param {string} rootItemPath root item path
-   */
-  private async getRootItemId(rootItemPath: string): Promise<string | undefined> {
-    const query = this.getRootItemIdQuery(rootItemPath);
-
-    const data = await this.createClient()
-      .request<{ item: { id: string } }>(query)
-      .catch((error) => {
-        console.error(
-          chalk.red('Error occurred while fetching root item id:'),
-          error.response || error
-        );
-
-        return null;
-      });
-
-    return data?.item?.id;
-  }
-
-  /**
-   * Graphql query in order to fetch sitemap
-   * @param {string} rootItemId
-   * @param {string} locale
-   * @param {Function} [formatSearchQuery] generate custom search query
-   */
-  private getSitemapQuery(
-    rootItemId: string,
-    locale: string,
-    formatSearchQuery?: (rootItemId: string, locale: string) => string
-  ): string {
-    const searchQuery = formatSearchQuery
-      ? formatSearchQuery(rootItemId, locale)
-      : `search(
-      where: {
-        AND:[
-          {
-            name:"_path",
-            value:"${rootItemId.toLowerCase()}"
-          },
-          {
-            name:"_language",
-            value:"${locale}"
-          },
-          {
-            name:"_hasLayout",
-            value :"true"
-          }
-        ]
-      }
-    )`;
-
-    return `query {
-      ${searchQuery}{
-        results {
-          url {
-            path
-          }
-        }
-      }
-    }`;
+  protected getSearchService(): SearchQueryService<PageListQueryResult> {
+    return new SearchQueryService<PageListQueryResult>(this.graphQLClient);
   }
 }

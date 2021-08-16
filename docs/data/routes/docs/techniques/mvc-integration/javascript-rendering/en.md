@@ -138,7 +138,7 @@ Note: serialized field names will be returned with their letter case preserved, 
 
 ### `placeholders`
 
-This property is an object containing the [layout service](/docs/fundamentals/services/layout-service) data for any placeholders set on the rendering item's `Layout Service Placeholders` field. The format of the `placeholders` object will match the format found in [route data for a JSS app](/docs/fundamentals/services/layout-service). You can use this to expose placeholders from within your JS rendering - for example, to embed Sitecore MVC or XSLT renderings _inside your JS rendering_.
+This property is an object containing the [layout service](/docs/fundamentals/services/layout/sitecore-layout-service) data for any placeholders set on the rendering item's `Layout Service Placeholders` field. The format of the `placeholders` object will match the format found in the route data for a JSS app. You can use this to expose placeholders from within your JS rendering - for example, to embed Sitecore MVC or XSLT renderings _inside your JS rendering_.
 
 ### `context`
 

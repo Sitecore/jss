@@ -1,28 +1,37 @@
 export {
   dataApi,
   mediaApi,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
+  // generic data access
+  HttpDataFetcher,
+  HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
-  LayoutService,
-  RestLayoutService,
-  RestLayoutServiceConfig,
+  // dictionary service
   DictionaryPhrases,
-  DictionaryServiceData,
   DictionaryService,
+  GraphQLRequestClient,
+  GraphQLDictionaryService,
+  GraphQLDictionaryServiceConfig,
   RestDictionaryService,
   RestDictionaryServiceConfig,
+  // layout service
+  LayoutService,
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,
   LayoutServiceContextData,
+  LayoutServiceRequestOptions,
+  GraphQLLayoutService,
+  GraphQLLayoutServiceConfig,
+  RestLayoutService,
+  RestLayoutServiceConfig,
+  isExperienceEditorActive,
+  resetExperienceEditorChromes,
   PlaceholdersData,
   RouteData,
   Field,
   Item,
   HtmlElementRendering,
-  LayoutServiceRequestOptions,
   getChildPlaceholder,
   getFieldValue,
   ComponentRendering,
@@ -51,7 +60,7 @@ export {
   GraphQLSitemapServiceConfig,
 } from './services/graphql-sitemap-service';
 
-export { StaticPath } from './sharedTypes/sitemap';
+export { StaticPath } from './services/graphql-sitemap-service';
 
 export {
   ComponentPropsReactContext,

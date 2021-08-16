@@ -35,6 +35,16 @@ export default {
       ],
     },
     {
+      url: 'services',
+      displayName: 'Services & APIs',
+      children: [
+        {
+          url: 'graphql-sitemap-service',
+          displayName: 'GraphQL Sitemap Service'
+        }
+      ]
+    },
+    {
       url: 'experience-editor',
       displayName: 'Experience Editor',
       children: [
@@ -86,11 +96,11 @@ export default {
         },
         {
           url: 'switching-to-ssr',
-          displayName: 'Switching to SSR',
+          displayName: 'Switching between SSG and SSR',
         },
         {
-         url: 'error-pages',
-         displayName: 'Error Pages',
+          url: 'error-pages',
+          displayName: 'Error Pages',
         },
       ],
     },
@@ -104,16 +114,20 @@ export default {
         },
         {
           url: 'getStaticPaths',
-          displayName: 'getStaticPaths & sitemap service',
+          displayName: 'getStaticPaths',
         },
-        //{
-        //  url: 'customizing-static-paths',
-        //  displayName: 'Customizing static paths',
-        //},
+        {
+         url: 'customizing-static-paths',
+         displayName: 'Customizing static paths',
+        },
         {
           url: 'component-level-data-fetching',
           displayName: 'Component-level data fetching',
         },
+        {
+          url: 'switching-fetch-method',
+          displayName: 'Switching between REST and GraphQL',
+        }
       ],
     },
     {
@@ -124,10 +138,10 @@ export default {
         //  url: 'edge-schema-introduction',
         //  displayName: 'Introduction to the Edge Schema',
         //},
-        //{
-        //  url: 'sample-app',
-        //  displayName: 'Sitecore GraphQL in the sample app',
-        //},
+        {
+         url: 'sample-app',
+         displayName: 'Sitecore GraphQL in the sample app',
+        },
         {
           url: 'introspection',
           displayName: 'Introspecting the GraphQL schema'

@@ -27,7 +27,8 @@
             "scripts": [],
             "allowedCommonJsDependencies": [
               "@sitecore-jss/sitecore-jss",
-              "zen-observable"
+              "zen-observable",
+              "js-sha256"
             ]
           },
           "configurations": {
@@ -38,11 +39,11 @@
                   "maximumWarning": "6kb"
                 }
               ],
+              "baseHref": "/",
               "aot": true,
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -105,7 +106,7 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/server",
-            "main": "src/main.server.ts",
+            "main": "server.bundle.ts",
             "tsConfig": "src/tsconfig.server.json"
           },
           "configurations": {

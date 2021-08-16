@@ -4,7 +4,6 @@ export {
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   DictionaryPhrases,
-  DictionaryServiceData,
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,

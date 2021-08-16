@@ -23,14 +23,14 @@
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
   },
   "exclude": [
     "node_modules",
     "types",
     "dist",
-    "src/customTypes",
     "src/**/*.test.ts",
-    "src/testData/*.ts"
+    "src/testData/*",
   ]
 }

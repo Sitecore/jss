@@ -133,6 +133,76 @@ export default {
           displayName: 'Understanding layout',
         },
         {
+          url: 'services',
+          displayName: 'Services and APIs',
+          children: [
+            {
+              url: 'services-overview',
+              displayName: 'Overview',
+            },
+            {
+              url: 'app-configuration',
+              displayName: 'App Configuration',
+            },
+            {
+              url: 'app-import',
+              displayName: 'App Import',
+            },
+            {
+              url: 'layout',
+              displayName: 'Layout',
+              children: [
+                {
+                  url: 'overview',
+                  displayName: 'Overview'
+                },
+                {
+                  url: 'sitecore-layout-service',
+                  displayName: 'Sitecore Layout Service'
+                },
+                {
+                  url: 'jss-layout-api',
+                  displayName: 'JSS Layout API'
+                }
+              ]
+            },
+            {
+              url: 'graphql',
+              displayName: 'GraphQL',
+            },
+            {
+              url: 'tracking',
+              displayName: 'Tracking',
+            },
+            {
+              url: 'forms-service',
+              displayName: 'Forms',
+            },
+            {
+              url: 'dictionary',
+              displayName: 'Dictionary',
+              children: [
+                {
+                  url: 'overview',
+                  displayName: 'Overview'
+                },
+                {
+                  url: 'sitecore-dictionary-service',
+                  displayName: 'Sitecore Dictionary Service'
+                },
+                {
+                  url: 'jss-dictionary-api',
+                  displayName: 'JSS Dictionary API'
+                }
+              ]
+            },
+            {
+              url: 'view-engine',
+              displayName: 'View Engine / SSR',
+            },
+          ],
+        },
+        {
           url: 'personalization',
           displayName: 'Personalization',
         },
@@ -162,44 +232,7 @@ export default {
           url: 'cli',
           displayName: 'JSS CLI',
         },
-        {
-          url: 'services',
-          displayName: 'Services and APIs',
-          children: [
-            {
-              url: 'app-configuration',
-              displayName: 'App Configuration',
-            },
-            {
-              url: 'app-import',
-              displayName: 'App Import',
-            },
-            {
-              url: 'layout-service',
-              displayName: 'Layout Service',
-            },
-            {
-              url: 'graphql',
-              displayName: 'GraphQL',
-            },
-            {
-              url: 'tracking',
-              displayName: 'Tracking',
-            },
-            {
-              url: 'forms-service',
-              displayName: 'Forms',
-            },
-            {
-              url: 'dictionary-service',
-              displayName: 'Dictionary Service',
-            },
-            {
-              url: 'view-engine',
-              displayName: 'View Engine / SSR',
-            },
-          ],
-        },
+
         {
           url: 'troubleshooting',
           displayName: 'Troubleshooting',
@@ -207,6 +240,10 @@ export default {
             {
               url: 'node-certificates',
               displayName: 'Sitecore CA certificates for Node.js',
+            },
+            {
+              url: 'debug-logging',
+              displayName: 'Debug logging',
             },
           ],
         },
@@ -289,6 +326,10 @@ export default {
             {
               url: 'headless-mode-ssr',
               displayName: 'via Headless Mode',
+            },
+            {
+              url: 'ssr-experience-edge',
+              displayName: 'using Experience Edge',
             },
             {
               url: 'server-rendering-viewbag',

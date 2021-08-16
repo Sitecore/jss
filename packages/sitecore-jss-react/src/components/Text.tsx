@@ -5,7 +5,7 @@ export interface TextProps {
   [htmlAttributes: string]: unknown;
   /** The text field data. */
   field?: {
-    value?: string;
+    value?: string | number;
     editable?: string;
   };
   /**
@@ -31,7 +31,7 @@ export const Text: FunctionComponent<TextProps> = ({
   encode,
   ...otherProps
 }) => {
-  if (!field || (!field.editable && !field.value)) {
+  if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
     return null;
   }
 
@@ -41,30 +41,36 @@ export const Text: FunctionComponent<TextProps> = ({
     editable = false;
   }
 
-  const value = (field.editable && editable ? field.editable : field.value) || '';
+  const isEditable = field.editable && editable;
 
-  let output: (ReactElement | string)[] = [value];
+  let output: string | number | (ReactElement | string)[] = isEditable
+    ? field.editable || ''
+    : field.value === undefined
+    ? ''
+    : field.value;
 
-  // when value isn't formatted, we should format line breaks
-  if (!field.editable && value) {
-    const splitted = String(value).split('\n');
+  // when string value isn't formatted, we should format line breaks
+  if (!field.editable && typeof output === 'string') {
+    const splitted = String(output).split('\n');
 
     if (splitted.length) {
-      output = [];
+      const formatted: (ReactElement | string)[] = [];
+
+      splitted.forEach((str, i) => {
+        const isLast = i === splitted.length - 1;
+
+        formatted.push(str);
+
+        if (!isLast) {
+          formatted.push(<br key={i} />);
+        }
+      });
+
+      output = formatted;
     }
-
-    splitted.forEach((str, i) => {
-      const isLast = i === splitted.length - 1;
-
-      output.push(str);
-
-      if (!isLast) {
-        output.push(<br key={i} />);
-      }
-    });
   }
 
-  const setDangerously = (field.editable && editable) || !encode;
+  const setDangerously = isEditable || !encode;
 
   let children = null;
   const htmlProps: {
@@ -91,7 +97,7 @@ export const Text: FunctionComponent<TextProps> = ({
 
 Text.propTypes = {
   field: PropTypes.shape({
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     editable: PropTypes.string,
   }),
   tag: PropTypes.string,

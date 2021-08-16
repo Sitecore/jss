@@ -2,8 +2,6 @@
 // This is simply to show that there are many ways to store/retrieve data for routes and for Sitecore manifest generation.
 // For instance, you may to wish to have data stored in static files, or in separate .js functions, or whatever...
 
-/* eslint-disable import/no-extraneous-dependencies */
-import { convertRouteToLayoutServiceFormat } from '@sitecore-jss/sitecore-jss-react-native/dist/dataConversion';
 // eslint-disable-next-line
 import { images } from 'static-assets';
 import styleguideEnData from '../../data/routes/styleguide/en.json';
@@ -31,7 +29,7 @@ const data = {
 const processObjectProperty = (key, value) => (key === 'src' ? images[value] : value);
 
 const produceData = (route, language) => {
-  const formattedData = convertRouteToLayoutServiceFormat(data[language][route]);
+  const formattedData = data[language][route];
   return mapNestedJson(formattedData, processObjectProperty);
 };
 

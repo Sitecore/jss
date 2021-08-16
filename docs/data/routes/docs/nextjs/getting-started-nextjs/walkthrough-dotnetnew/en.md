@@ -1,13 +1,15 @@
 ---
 name: walkthrough-dotnetnew
 routeTemplate: ./data/component-templates/article.yml
-title: Walkthrough with `dotnet new`
+title: Walkthrough with 'dotnet new'
 ---
-# Walkthrough: Using the Sitecore Container Starter Template for JSS Next.js Projects
+# Walkthrough: Using the Sitecore Container Template for JSS Next.js Projects
 
-Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html), the [Sitecore Next.js SDK](https://jss.sitecore.com/), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html). 
+Sitecore provides a Getting Started template for Sitecore developers that want to try out  Sitecore JSS with [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-tools/en/containers-in-sitecore-development.html), the [Sitecore Next.js SDK](/docs/nextjs/getting-started-nextjs/why-nextjs), and [Sitecore Content Serialization](https://doc.sitecore.com/developers/101/developer-tools/en/sitecore-content-serialization.html). 
 
 For simplicity, this solution does not implement Sitecore Helix conventions for solution architecture. As you begin building your Sitecore solution, you should review [Sitecore Helix](https://helix.sitecore.net/) and the [Sitecore Helix Examples](https://sitecore.github.io/Helix.Examples/) for guidance on implementing a modular solution architecture.
+
+> This template configures a development environment for the current release Sitecore XP and JSS. To find out which version of JSS to use with your licensed Sitecore XP version, consult [the compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788).
 
 The template includes: 
 
@@ -53,7 +55,7 @@ See the [Sitecore Containers](https://doc.sitecore.com/developers/101/developer-
 
 ### Install the template
 
-Before you can create a solution, you must download and install the .NET starter template in your file system. 
+Before you can create a solution, you must download and install the Next.js .NET template in your file system. 
 
 To install the template:
 
@@ -112,6 +114,12 @@ To create the `MyProject` solution:
    ```powershell
    dotnet new sitecore.nextjs.gettingstarted -n MyProject 
    ```
+
+  > You can customize the parameters passed into the `jss create` command by this template via the `--JSSCreateParams` parameter, e.g.
+  > ```
+  > dotnet new sitecore.nextjs.gettingstarted -n MyProject --JSSCreateParams "--fetchWith GraphQL --prerender SSR"
+  > ```
+  > For more information on `jss create` parameters see [the JSS CLI reference](/docs/fundamentals/cli).
 
 5. Go to the `MyProject` folder.
 

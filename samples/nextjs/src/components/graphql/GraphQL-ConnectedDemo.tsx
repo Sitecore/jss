@@ -6,6 +6,7 @@ import {
   GetStaticComponentProps,
   useComponentProps,
   JSS_MODE_DISCONNECTED,
+  GraphQLRequestClient,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
 import {
@@ -14,8 +15,8 @@ import {
   Item,
   GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
 } from './GraphQL-ConnectedDemo.graphql';
-import GraphQLClientFactory from 'lib/GraphQLClientFactory';
 import { StyleguideComponentProps } from 'lib/component-props';
+import config from 'temp/config';
 
 type RouteItem = AppRoute & Item;
 
@@ -75,7 +76,7 @@ const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
           <br />
           children:
           <ul>
-            {data.contextItem.children.map((child) => {
+            {data.contextItem.children.results.map((child) => {
               const routeItem = child as RouteItem;
 
               return (
@@ -103,17 +104,17 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
     return null;
   }
 
-  const graphQLClient = GraphQLClientFactory();
-
-  const result = await graphQLClient.query({
-    query: ConnectedDemoQueryDocument,
-    variables: {
-      datasource: rendering.dataSource,
-      contextItem: layoutData?.sitecore?.route?.itemId,
-    },
+  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
+    apiKey: config.sitecoreApiKey,
   });
 
-  return result.data;
+  const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
+    datasource: rendering.dataSource,
+    contextItem: layoutData?.sitecore?.route?.itemId,
+    language: layoutData?.sitecore?.context?.language,
+  });
+
+  return result;
 };
 
 /**
@@ -127,17 +128,17 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
     return null;
   }
 
-  const graphQLClient = GraphQLClientFactory();
-
-  const result = await graphQLClient.query({
-    query: ConnectedDemoQueryDocument,
-    variables: {
-      datasource: rendering.dataSource,
-      contextItem: layoutData?.sitecore?.route?.itemId,
-    },
+  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
+    apiKey: config.sitecoreApiKey,
   });
 
-  return result.data;
+  const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
+    datasource: rendering.dataSource,
+    contextItem: layoutData?.sitecore?.route?.itemId,
+    language: layoutData?.sitecore?.context?.language,
+  });
+
+  return result;
 };
 
 export default GraphQLConnectedDemo;

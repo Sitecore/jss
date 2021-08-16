@@ -6,7 +6,7 @@ exports[`<Image /> with network images with direct image object, no value/editab
   resizeMode="cover"
   source={
     Object {
-      "uri": "https://jssapp/-/jssmedia/myfile.ashx&w=180&h=360",
+      "uri": "https://jssapp/-/media/myfile.ashx&w=180&h=360",
     }
   }
   style={
@@ -24,7 +24,7 @@ exports[`<Image /> with network images with style prop with width or height spec
   resizeMode="cover"
   source={
     Object {
-      "uri": "https://jssapp/-/jssmedia/myfile.ashx&w=180&h=360",
+      "uri": "https://jssapp/-/media/myfile.ashx&w=180&h=360",
     }
   }
   style={
@@ -47,7 +47,7 @@ exports[`<Image /> with network images with value/editable image object should r
   resizeMode="cover"
   source={
     Object {
-      "uri": "https://jssapp/-/jssmedia/myfile.ashx&w=180&h=360",
+      "uri": "https://jssapp/-/media/myfile.ashx&w=180&h=360",
     }
   }
   style={

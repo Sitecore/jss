@@ -73,6 +73,20 @@ describe('EditingDataService', () => {
       expect(previewData1.key).to.not.equal(previewData2.key);
     });
 
+    it('should generate unique key for item when route is null', async () => {
+      const data = {
+        layoutData: { sitecore: { route: null } },
+      } as EditingData;
+      const fetcher = mockFetcher();
+      const serverUrl = 'https://test.com';
+
+      const service = new EditingDataService({ dataFetcher: fetcher });
+
+      const previewData1 = await service.setEditingData(data, serverUrl);
+      const previewData2 = await service.setEditingData(data, serverUrl);
+      expect(previewData1.key).to.not.equal(previewData2.key);
+    });
+
     it('should use custom apiRoute', async () => {
       const data = {
         layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },

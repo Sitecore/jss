@@ -1,4 +1,4 @@
-import { HttpJsonFetcher, HttpResponse, isServer } from '@sitecore-jss/sitecore-jss';
+import { HttpDataFetcher, HttpResponse, isServer, resolveUrl } from '@sitecore-jss/sitecore-jss';
 import {
   CampaignInstance,
   EventInstance,
@@ -7,6 +7,7 @@ import {
   PageViewInstance,
 } from './dataModels';
 import { TrackingRequestOptions } from './trackingRequestOptions';
+import querystring from 'querystring';
 
 class ResponseError extends Error {
   response: HttpResponse<unknown>;
@@ -22,7 +23,7 @@ class ResponseError extends Error {
 /**
  * @param {HttpResponse<unknown>} response
  */
-function checkStatus(response: HttpResponse<unknown>) {
+function checkStatus<T>(response: HttpResponse<T>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -32,37 +33,21 @@ function checkStatus(response: HttpResponse<unknown>) {
 }
 
 /**
- * note: encodeURIComponent is available via browser (window) or natively in node.js
- * if you use another js engine for server-side rendering you may not have native encodeURIComponent
- * and would then need to install a package for that functionality
- * @param {Object} params
- */
-function getQueryString(params: { [key: string]: unknown }) {
-  return Object.keys(params)
-    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k] as string)}`)
-    .join('&');
-}
-
-/**
  * Note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
  * which is necessary for analytics and such
  * @param {string} url
  * @param {any} data
- * @param {HttpJsonFetcher<T>} fetcher
+ * @param {HttpDataFetcher<T>} fetcher
  * @param {Object} params
  */
 function fetchData<T>(
   url: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any,
-  fetcher: HttpJsonFetcher<T>,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  params: { [key: string]: any } = {}
+  fetcher: HttpDataFetcher<T>,
+  params: querystring.ParsedUrlQueryInput = {}
 ) {
-  const qs = getQueryString(params);
-  const fetchUrl = url.indexOf('?') !== -1 ? `${url}&${qs}` : `${url}?${qs}`;
-
-  return fetcher(fetchUrl, data)
+  return fetcher(resolveUrl(url, params), data)
     .then(checkStatus)
     .then((response) => {
       // axios auto-parses JSON responses, don't need to JSON.parse

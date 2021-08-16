@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-tracking",
-  "version": "16.0.0",
+  "version": "18.0.0-canary.7",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
@@ -15,10 +15,10 @@
   },
   "author": {
     "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "url": "https://jss.sitecore.com"
   },
   "license": "Apache-2.0",
-  "homepage": "https://jss.sitecore.net",
+  "homepage": "https://jss.sitecore.com",
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
@@ -28,7 +28,6 @@
     "@types/lodash.unescape": "^4.0.6",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.11",
-    "@types/url-parse": "^1.4.3",
     "axios": "^0.21.1",
     "axios-mock-adapter": "^1.17.0",
     "chai": "^4.2.0",
@@ -39,14 +38,10 @@
     "sinon": "^7.5.0",
     "ts-node": "^8.4.1",
     "tslib": "^1.10.0",
-    "typescript": "^3.6.3",
-    "url-parse": "^1.4.7"
-  },
-  "peerDependencies": {
-    "url-parse": "^1.4.7"
+    "typescript": "^3.6.3"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^16.0.0"
+    "@sitecore-jss/sitecore-jss": "^18.0.0-canary.7"
   },
   "description": "",
   "types": "types/index.d.ts",

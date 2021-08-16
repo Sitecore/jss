@@ -4,22 +4,21 @@ import {
   ComponentPropsService,
   DictionaryPhrases,
   DictionaryService,
-  RestDictionaryService,
   LayoutServiceData,
   LayoutService,
-  RestLayoutService,
   editingDataService,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
+import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
+import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { componentModule } from 'temp/componentFactory';
 import { config as packageConfig } from '../../package.json';
-import config from 'temp/config';
 
 /**
  * Extract normalized Sitecore item path from query
  * @param {ParsedUrlQuery | undefined} params
  */
-const extractPath = function (params: ParsedUrlQuery | undefined): string {
+function extractPath(params: ParsedUrlQuery | undefined): string {
   if (params === undefined) {
     return '/';
   }
@@ -31,7 +30,7 @@ const extractPath = function (params: ParsedUrlQuery | undefined): string {
   }
 
   return path;
-};
+}
 
 /**
  * Determines whether context is GetServerSidePropsContext (SSR) or GetStaticPropsContext (SSG)
@@ -50,19 +49,8 @@ export class SitecorePagePropsFactory {
 
   constructor() {
     this.componentPropsService = new ComponentPropsService();
-
-    // Note we're using our standard REST-based dictionary and layout services here,
-    // but in the very near future we'll also have GraphQL-based counterparts available (for Sitecore Experience Edge).
-    this.dictionaryService = new RestDictionaryService({
-      apiHost: config.sitecoreApiHost,
-      apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
-    });
-    this.layoutService = new RestLayoutService({
-      apiHost: config.sitecoreApiHost,
-      apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
-    });
+    this.dictionaryService = dictionaryServiceFactory.create();
+    this.layoutService = layoutServiceFactory.create();
   }
 
   /**
@@ -104,25 +92,21 @@ export class SitecorePagePropsFactory {
       locale = context.locale ?? packageConfig.language;
 
       // Fetch layout data, passing on req/res for SSR
-      layoutData = await this.layoutService
-        .fetchLayoutData(
-          path,
-          locale,
-          // eslint-disable-next-line prettier/prettier
-          isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).req : undefined,
-          isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).res : undefined
-        )
-        .catch((error) => {
-          if (error.response?.status === 404) {
-            // Let 404s (invalid path) through, and set notFound.
-            // Our page routes will return this in getStatic/ServerSideProps,
-            // which will trigger our custom 404 page with proper 404 status code.
-            // You could perform additional logging here to track these if desired.
-            notFound = true;
-            return null;
-          }
-          throw error;
-        });
+      layoutData = await this.layoutService.fetchLayoutData(
+        path,
+        locale,
+        // eslint-disable-next-line prettier/prettier
+        isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).req : undefined,
+        isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).res : undefined
+      );
+
+      if (!layoutData.sitecore.route) {
+        // A missing route value signifies an invalid path, so set notFound.
+        // Our page routes will return this in getStatic/ServerSideProps,
+        // which will trigger our custom 404 page with proper 404 status code.
+        // You could perform additional logging here to track these if desired.
+        notFound = true;
+      }
 
       // Fetch dictionary data
       dictionary = await this.dictionaryService.fetchDictionaryData(locale);

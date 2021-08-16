@@ -4,12 +4,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
   },
-  bgImage: {
-    width: null,
-  },
-  logoImage: {
-    margin: 20,
-  },
   title: {
     fontSize: 22,
     fontWeight: 'bold',

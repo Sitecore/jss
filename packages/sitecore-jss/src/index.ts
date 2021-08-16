@@ -1,32 +1,18 @@
-import * as dataApi from './dataApi';
-import * as mediaApi from './mediaApi';
+import * as mediaApi from './media-api';
+import * as constants from './constants';
 
-export { dataApi, mediaApi };
+export { mediaApi, constants };
+export * from './utils';
+export * from './graphql';
+export { default as debug, Debugger } from './debug';
+export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
+export * from './graphql-request-client';
+export * from './axios-fetcher';
+export * from './cache-client';
+export * from './i18n';
 
-export { GraphQLRequestClient } from './graphql-request-client';
-
-export { LayoutServiceRequestOptions } from './dataApi';
-
-export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
-
+// layout
 export {
-  LayoutService,
-  RestLayoutService,
-  RestLayoutServiceConfig,
-  DataFetcherResolver,
-} from './layout-service';
-
-export {
-  DictionaryService,
-  RestDictionaryService,
-  RestDictionaryServiceConfig,
-} from './dictionary-service';
-
-export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
-
-export {
-  DictionaryPhrases,
-  DictionaryServiceData,
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,
@@ -40,8 +26,23 @@ export {
   PlaceholdersData,
   ComponentFields,
   ComponentParams,
-} from './dataModels';
+} from './layout/models';
 
-export { getFieldValue, getChildPlaceholder } from './layoutDataUtils';
+export { getFieldValue, getChildPlaceholder } from './layout/utils';
 
-export { HttpJsonFetcher, HttpResponse } from './httpClientInterface';
+export { LayoutService } from './layout/layout-service';
+
+export {
+  RestLayoutService,
+  RestLayoutServiceConfig,
+  DataFetcherResolver,
+  LayoutServiceConfig,
+  LayoutServiceRequestOptions,
+} from './layout/rest-layout-service';
+
+export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
+
+// TODO: these are deprecated and we should stop exporting them
+import { fetchRouteData, fetchPlaceholderData } from './layout/rest-layout-service';
+const dataApi = { fetchRouteData, fetchPlaceholderData };
+export { dataApi };

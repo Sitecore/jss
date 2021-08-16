@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { mount } from '@vue/test-utils';
-import URL from 'url-parse';
 
 import { imageField as eeImageData } from '../test/data/field-data-EE-on';
 import { Image } from './Image';
@@ -106,10 +105,10 @@ describe('<Image />', () => {
       const rendered = mount(Image, { context: { props, attrs } }).find('img');
       const img = rendered.find('img');
 
-      const url = new URL(img.attributes().src, {}, true);
+      const url = new URL(img.attributes().src, 'http://test.com');
       expect(url.pathname).toContain('/-/jssmedia/');
-      expect(url.query.h).toBe(props.imageParams.h);
-      expect(url.query.w).toBe(props.imageParams.w);
+      expect(url.searchParams.get('h')).toBe(props.imageParams.h);
+      expect(url.searchParams.get('w')).toBe(props.imageParams.w);
     });
 
     it('should handle /~/media', () => {
@@ -129,10 +128,10 @@ describe('<Image />', () => {
       const rendered = mount(Image, { context: { props, attrs } }).find('img');
       const img = rendered.find('img');
 
-      const url = new URL(img.attributes().src, {}, true);
+      const url = new URL(img.attributes().src, 'http://test.com');
       expect(url.pathname).toContain('/~/jssmedia/');
-      expect(url.query.h).toBe(props.imageParams.h);
-      expect(url.query.w).toBe(props.imageParams.w);
+      expect(url.searchParams.get('h')).toBe(props.imageParams.h);
+      expect(url.searchParams.get('w')).toBe(props.imageParams.w);
     });
 
     it('should handle custom mediaUrlPrefix, /-assets', () => {
@@ -153,10 +152,10 @@ describe('<Image />', () => {
       const rendered = mount(Image, { context: { props, attrs } }).find('img');
       const img = rendered.find('img');
 
-      const url = new URL(img.attributes().src, {}, true);
+      const url = new URL(img.attributes().src, 'http://test.com');
       expect(url.pathname).toContain('/-/jssmedia/');
-      expect(url.query.h).toBe(props.imageParams.h);
-      expect(url.query.w).toBe(props.imageParams.w);
+      expect(url.searchParams.get('h')).toBe(props.imageParams.h);
+      expect(url.searchParams.get('w')).toBe(props.imageParams.w);
     });
 
     it('should handle custom mediaUrlPrefix, /~assets', () => {
@@ -177,10 +176,10 @@ describe('<Image />', () => {
       const rendered = mount(Image, { context: { props, attrs } }).find('img');
       const img = rendered.find('img');
 
-      const url = new URL(img.attributes().src, {}, true);
+      const url = new URL(img.attributes().src, 'http://test.com');
       expect(url.pathname).toContain('/~/jssmedia/');
-      expect(url.query.h).toBe(props.imageParams.h);
-      expect(url.query.w).toBe(props.imageParams.w);
+      expect(url.searchParams.get('h')).toBe(props.imageParams.h);
+      expect(url.searchParams.get('w')).toBe(props.imageParams.w);
     });
   });
 

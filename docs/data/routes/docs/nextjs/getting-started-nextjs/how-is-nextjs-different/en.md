@@ -8,11 +8,11 @@ The Next.js SDK for Sitecore has some key differences from other Sitecore JavaSc
 
 ## Architecture and Deployment
 * Next.js provides built-in options for build time and runtime static site generation (SSG).
-  * Out of the box, the Next.js SDK does not support Sitecore tracking or personalization with SSG.
+  * Out of the box, the Next.js SDK does not support Sitecore tracking or personalization with SSG or Sitecore GraphQL Edge.
 * The _Headless SSR Proxy_ is not required for [production deployment](/docs/nextjs/deploying-to-production/deployment-options).
   * Next.js has built-in pre-rendering.
   * Next.js has [built-in rewrite / proxying support](https://nextjs.org/docs/api-reference/next.config.js/rewrites#rewriting-to-an-external-url) 
-  * Sitecore tracking and analytics are supported through [header passing](/docs/nextjs/tracking-and-analytics/overview) (SSR-only).
+  * Sitecore tracking and analytics are supported through [header passing](/docs/nextjs/tracking-and-analytics/overview) (SSR with Sitecore Layout Service REST API only).
 * [Experience Editor integration](/docs/nextjs/experience-editor/walkthrough) does not require a separate deployment, and only supports the [HTTP Rendering Engine](/docs/fundamentals/services/view-engine#http-rendering-engine).
   * There is no requirement to install node.js on your Sitecore Content Management role.
   * There is never a need to deploy your application to the Sitecore Content Management role.
@@ -21,10 +21,11 @@ The Next.js SDK for Sitecore has some key differences from other Sitecore JavaSc
 ## Development
 * Overall, less boilerplate code than other Sitecore JavaScript SDKs.
 * Development and production runtime parity, including server-side rendering during development.
-* The Next.js Styleguide sample has a simplified component filesystem structure.
-* The Next.js Styleguide sample defaults to TypeScript, which is supported out of the box by Next.js.
-* The Next.js Styleguide sample includes code generation for GraphQL schema types.
-* A [container-based starter template](/docs/nextjs/getting-started-nextjs/walkthrough-dotnetnew/) is available for Next.js, which is optimized for a [Sitecore-first workflow](/docs/fundamentals/dev-workflows/sitecore-first/).
+* The Next.js Styleguide sample:
+    - has a simplified component filesystem structure.
+    - defaults to TypeScript, which is supported out of the box by Next.js.
+    - includes code generation for GraphQL schema types.
+* A [container-based template](/docs/nextjs/getting-started-nextjs/walkthrough-dotnetnew/) is available for Next.js. The template is optimized for a [Sitecore-first workflow](/docs/fundamentals/dev-workflows/sitecore-first/).
 
 ## In Detail
 * You should not use `jss deploy app` or `jss deploy files` when working with Next.js.

@@ -93,9 +93,6 @@ const config = {
     // This is a major security issue, so NEVER EVER set this to false
     // outside local development. Use a real CA-issued certificate.
 		secure: true,
-		headers: {
-			"accept-encoding": "gzip, deflate"
-		},
 		xfwd: true
 	},
 	/**
@@ -129,6 +126,7 @@ const config = {
       return {};
     }
 
+    // TODO: fallback language should come from app configuration
     const language = layoutServiceData.sitecore.context.language || 'en';
     const site =
       layoutServiceData.sitecore.context.site && layoutServiceData.sitecore.context.site.name;

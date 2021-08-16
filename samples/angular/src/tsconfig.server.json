@@ -11,13 +11,9 @@
   "lib": [
     "esnext.asynciterable"
   ],
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts",
-    "**/*.sitecore.ts",
-    "./main.ts",
-    "./polyfills.ts",
-    "./environments/environment.prod.ts"
+  "files": [
+    "main.server.ts",
+    "../server.bundle.ts"
   ],
   "angularCompilerOptions": {
     "entryModule": "app/app.server.module#AppServerModule"

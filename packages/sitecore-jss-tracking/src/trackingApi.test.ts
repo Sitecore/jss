@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { HttpJsonFetcher } from '@sitecore-jss/sitecore-jss';
+import { HttpDataFetcher } from '@sitecore-jss/sitecore-jss';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { expect } from 'chai';
@@ -7,7 +7,7 @@ import { trackEvent } from './trackingApi';
 
 // note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
 // which is necessary for analytics and such
-const axiosFetcher: HttpJsonFetcher<void> = (url, data) =>
+const axiosFetcher: HttpDataFetcher<void> = (url, data) =>
   axios({
     url,
     method: data ? 'POST' : 'GET',
@@ -30,7 +30,7 @@ describe('trackEvent', () => {
   });
 
   it('should fetch with host', () => {
-    const expectedUrl = 'https://www.myhost.net/sitecore/api/jss/track/event?';
+    const expectedUrl = 'https://www.myhost.net/sitecore/api/jss/track/event';
 
     // configure 'POST' requests to return config options
     mock.onPost().reply((config) => {
