@@ -26,9 +26,9 @@ title: Release Notes
 
 With the added support of GraphQL endpoints, the API surface area of JSS has essentially doubled. As a result, some reorganizing was done in the base packages, which causes breaking changes for how some services, classes and functions are exported. If you have imports from JSS base packages in your project, they may need to be updated per the [migration guide table](https://jss.sitecore.com/upgrade-guides/18.0).
 
-## #Introducing support for Sitecore Experience Edge 🎉🎉🎉
+## Introducing support for Sitecore Experience Edge 🎉🎉🎉
 
-Experience Edge is Sitecore's new delivery platform, which serves Sitecore data to your JSS app at blazing fast speeds. [Read more](TODO://).
+[Experience Edge](https://doc.sitecore.com/developers/101/developer-tools/en/introducing-sitecore-experience-edge-for-xm.html) is Sitecore's new delivery platform, which serves Sitecore data to your JSS app at blazing fast speeds. You should learn about the [Experience Edge GraphQL schema](https://doc.sitecore.com/developers/101/developer-tools/en/the-experience-edge-schema.html).
 
 `[samples/nextjs]`
 * Update Sitecore configuration patches with relevant Edge-specific definitions.
