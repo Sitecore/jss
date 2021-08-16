@@ -39,7 +39,7 @@ With the added support of GraphQL endpoints, the API surface area of JSS has ess
 
 ### Documentation
 
-We have addded/updated documentation for our main package and our Next.js SDK, as follows:
+We have added/updated documentation for our main package and our Next.js SDK, as follows:
 
 For `sitecore-jss`, see:
 * [Dictionary Service](https://jss.sitecore.com/docs/fundamentals/services/dictionary/overview).
