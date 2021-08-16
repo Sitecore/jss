@@ -8,10 +8,9 @@ title: Upgrading to JSS 18.0
 
 1. Update peer dependencies version.
 2. Update all @sitecore-jss/* packages to the latest 18.x version.
-3. Angular sample:
-   * Upgrade Angular to version 11. Use [Angular update guide](https://update.angular.io/?l=3&v=10.0-11.0).
-4. Next.js sample: 
-    * Keep only one `[[...path]]` page if upgrading from the source code of the sample application. See the explanation for this in our [Troubleshooting guide for Next.js](/docs/nextjs/troubleshooting#app-fails-to-render-on-vercel-after-1800-upgrade).
+3. For projects based on the "angular" sample: Upgrade Angular to version 11. Use [Angular update guide](https://update.angular.io/?l=3&v=10.0-11.0).
+4. For projects based on the "nextjs" sample: Keep only one `[[...path]]` page if upgrading from the source code of the sample application. See the explanation for this in our [Troubleshooting guide for Next.js](/docs/nextjs/troubleshooting#app-fails-to-render-on-vercel-after-1800-upgrade).
+5. For compatibility with Edge schema, GraphQL queries (integrated and connected) are required to specify a `$language` argument.
 
 ## API changes in `sitecore-jss` package
 
