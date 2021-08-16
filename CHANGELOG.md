@@ -97,7 +97,7 @@ All JSS services have been upgraded to support [**Sitecore Experience Edge** Gra
 ## Other Notable Improvements
 
 * `[sitecore-jss]` Enable **debug logging** for JSS services using the [debug](https://www.npmjs.com/package/debug) module. [Read docs](/docs/fundamentals/troubleshooting/debug-logging).
-* New options in `jss create` command. [Read docs](/TODO).
+* New options in `jss create` command. [Read docs](https://jss.sitecore.com/docs/fundamentals/cli#jss-create).
 
 `[samples/react-native]` (#624)
 * Add shared `<Layout/>` component in order to have shared navigation panel.
