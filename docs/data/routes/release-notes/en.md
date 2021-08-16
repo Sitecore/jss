@@ -37,15 +37,25 @@ With the added support of GraphQL endpoints, the API surface area of JSS has ess
 
 `[react]` `[angular]` and `[vue]` samples can also utilize Sitecore Experience Edge. A new `[node-headless-ssr-experience-edge]` sample has been adeded to demonstrate how to configure this. [Read docs](/docs/techniques/ssr/sitecore-experience-edge).
 
+### Documentation
+
+We have addded/updated documentation for our main package and our Next.js SDK, as follows:
+
+For `sitecore-jss`, see:
+* [Dictionary Service](https://jss.sitecore.com/docs/fundamentals/services/dictionary/overview).
+* [Layout Service](https://jss.sitecore.com/docs/fundamentals/services/layout/overview).
+* [JSS API reference docs](https://github.com/Sitecore/jss/tree/release/18.0.0/ref-docs/sitecore-jss).
+
+For `sitecore-jss-nextjs`, see: 
+* [GraphQL Sitemap Service](https://jss.sitecore.com/docs/nextjs/services/graphql-sitemap-service).
+* [Next.js SDK API reference docs](https://github.com/Sitecore/jss/tree/release/18.0.0/ref-docs/sitecore-jss-nextjs).
+
+
 ### New & Improved Service Classes
 
-Read our updated docs:
-* [Dictionary Service](https://jss.sitecore.com/docs/fundamentals/services/dictionary/overview)
-* [Layout Service](https://jss.sitecore.com/docs/fundamentals/services/layout/overview)
-
 `[sitecore-jss]`
-* `GraphQLDictionaryService` is a new service for fetching dictionary data using GraphQL [Read docs](https://jss.sitecore.com/docs/fundamentals/services/dictionary/overview).
-* `GraphQLLayoutService` is a new service for fetching layout data using GraphQL [Read docs](https://jss.sitecore.com/docs/fundamentals/services/dictionary/overview).
+* `GraphQLDictionaryService` is a new service for fetching dictionary data using GraphQL [Read docs](https://jss.sitecore.com/docs/fundamentals/services/dictionary/jss-dictionary-api).
+* `GraphQLLayoutService` is a new service for fetching layout data using GraphQL [Read docs](https://jss.sitecore.com/docs/fundamentals/services/layout/jss-layout-api).
 * [#716](https://github.com/Sitecore/jss/pull/716) Allow overriding which "named" Layout Service configuration (from Sitecore config) is used by JSS.
 * Allow overriding 3rd party dependencies in JSS services that depend on 3rd party functionality (GraphQLLayoutService, RestDictionaryService, GraphQLDictionaryService, GraphQLSitemapService).
 
