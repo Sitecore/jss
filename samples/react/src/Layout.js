@@ -2,6 +2,7 @@ import React from 'react';
 import { Placeholder, VisitorIdentification } from '@sitecore-jss/sitecore-jss-react';
 import { NavLink } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
+import deepEqual from 'deep-equal';
 import Helmet from 'react-helmet';
 
 // Using bootstrap is completely optional. It's used here to provide a clean layout for samples,
@@ -78,4 +79,10 @@ const Layout = ({ route }) => (
   </React.Fragment>
 );
 
-export default Layout;
+const propsAreEqual = (prevProps, nextProps) => {
+  if (deepEqual(prevProps.route, nextProps.route)) return true;
+
+  return false;
+};
+
+export default React.memo(Layout, propsAreEqual);

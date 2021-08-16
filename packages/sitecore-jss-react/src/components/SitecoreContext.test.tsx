@@ -30,9 +30,7 @@ describe('SitecoreContext', () => {
       </SitecoreContext>
     );
 
-    const value = component.instance().state.context;
-
-    expect(value).deep.equal({
+    expect(component.state().context).deep.equal({
       x: 'test1',
       y: 'test2',
     });
@@ -42,9 +40,7 @@ describe('SitecoreContext', () => {
       y: 'test22',
     });
 
-    const updatedValue = component.instance().state.context;
-
-    expect(updatedValue).deep.equal({
+    expect(component.state().context).deep.equal({
       x: 'test11',
       y: 'test22',
     });
@@ -57,10 +53,32 @@ describe('SitecoreContext', () => {
       </SitecoreContext>
     );
 
-    const context = component.instance().state.context;
-
-    expect(context).deep.equal({
+    expect(component.state().context).deep.equal({
       pageEditing: false,
+    });
+  });
+
+  it('should update state when new context as prop received', () => {
+    const component = shallow<SitecoreContext>(
+      <SitecoreContext componentFactory={mockComponentFactory}>
+        <NestedComponentWithContext />
+      </SitecoreContext>
+    );
+
+    expect(component.state().context).deep.equal({
+      pageEditing: false,
+    });
+
+    component.setProps({
+      context: {
+        v1: 10,
+        v2: 20,
+      },
+    });
+
+    expect(component.state().context).to.deep.equal({
+      v1: 10,
+      v2: 20,
     });
   });
 });

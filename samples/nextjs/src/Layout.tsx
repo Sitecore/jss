@@ -1,11 +1,12 @@
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import deepEqual from 'deep-equal';
 import { useI18n } from 'next-localization';
 import {
   Placeholder,
   VisitorIdentification,
-  useSitecoreContext,
+  withSitecoreContext,
   getPublicUrl,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideSitecoreContextValue } from 'lib/component-props';
@@ -50,21 +51,11 @@ const Navigation = () => {
   );
 };
 
-type LayoutProps = {
-  context: StyleguideSitecoreContextValue;
-};
+interface LayoutProps {
+  sitecoreContext: StyleguideSitecoreContextValue;
+}
 
-const Layout = ({ context }: LayoutProps): JSX.Element => {
-  const { updateSitecoreContext } = useSitecoreContext({ updatable: true });
-
-  // Update Sitecore Context if layoutData has changed (i.e. on client-side route change).
-  // Note the context object type here matches the initial value in [[...path]].tsx.
-  useEffect(() => {
-    updateSitecoreContext && updateSitecoreContext(context);
-  }, [updateSitecoreContext, context]);
-
-  const { route } = context;
-
+const Layout = ({ sitecoreContext: { route } }: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
@@ -90,4 +81,10 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
   );
 };
 
-export default Layout;
+const propsAreEqual = (prevProps: LayoutProps, nextProps: LayoutProps) => {
+  if (deepEqual(prevProps.sitecoreContext.route, nextProps.sitecoreContext.route)) return true;
+
+  return false;
+};
+
+export default withSitecoreContext()(React.memo(Layout, propsAreEqual));

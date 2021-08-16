@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import PropTypes from 'prop-types';
+import deepEqual from 'deep-equal';
 import { ComponentFactory } from './sharedTypes';
 
 export interface SitecoreContextProps<ContextType = any> {
@@ -53,7 +54,19 @@ export class SitecoreContext<ContextType = any> extends React.Component<
     };
   }
 
+  componentDidUpdate(prevProps: any) {
+    if (!deepEqual(prevProps.context, this.props.context)) {
+      this.setState({
+        context: this.props.context,
+      });
+
+      return;
+    }
+  }
+
   setContext = (value: ContextType) => {
+    if (deepEqual(value, this.state.context)) return;
+
     this.setState({
       context: value,
     });
