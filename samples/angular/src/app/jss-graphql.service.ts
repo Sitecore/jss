@@ -135,6 +135,14 @@ export class JssGraphQLService {
       (variables as EmptyObject).contextItem = this.sitecoreContext.state.value.sitecore.route.itemId;
     }
 
+    // pass language as a variable to the query, if language exists as a variable and in sitecoreContext
+    if (
+      usedVariables.language &&
+      this.sitecoreContext.state.value.language
+    ) {
+      (variables as EmptyObject).language = this.sitecoreContext.state.value.language;
+    }
+
     return variables;
   }
 }

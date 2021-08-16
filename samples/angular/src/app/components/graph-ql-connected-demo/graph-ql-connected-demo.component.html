@@ -18,7 +18,7 @@
       <br />
       sample1: {{ queryResult.data.datasource.sample1.value }}
       <br />
-      sample1 (editable): <span *scText="queryResult.data.datasource.sample1.jss"></span>
+      sample1 (editable): <span *scText="queryResult.data.datasource.sample1.jsonValue"></span>
       <br />
       sample2:<br />
       <ul>
@@ -26,7 +26,7 @@
         <li>url: {{ queryResult.data.datasource.sample2.url }}</li>
         <li>target: {{ queryResult.data.datasource.sample2.target }}</li>
         <li>
-          editable: <a *scLink="queryResult.data.datasource.sample2.jss"></a>
+          editable: <a *scLink="queryResult.data.datasource.sample2.jsonValue"></a>
         </li>
         <li>field type: {{ queryResult.data.datasource.sample2.definition.type }}</li>
         <li>field is shared?: {{ queryResult.data.datasource.sample2.definition.shared.toString() }}</li>
@@ -41,9 +41,9 @@
       <br />
       children:
       <ul>
-        <li *ngFor="let child of queryResult.data.contextItem.children">
-          <a [routerLink]="child.url">{{ child.pageTitle.value }}</a>
-          (editable title too! <span *scText="child.pageTitle.jss"></span>)
+        <li *ngFor="let child of queryResult.data.contextItem.children.results">
+          <a [routerLink]="child.url.path">{{ child.pageTitle.value }}</a>
+          (editable title too! <span *scText="child.pageTitle.jsonValue"></span>)
         </li>
       </ul>
     </div>
