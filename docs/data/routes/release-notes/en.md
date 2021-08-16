@@ -44,11 +44,11 @@ We have addded/updated documentation for our main package and our Next.js SDK, a
 For `sitecore-jss`, see:
 * [Dictionary Service](https://jss.sitecore.com/docs/fundamentals/services/dictionary/overview).
 * [Layout Service](https://jss.sitecore.com/docs/fundamentals/services/layout/overview).
-* [JSS API reference docs](https://github.com/Sitecore/jss/tree/release/18.0.0/ref-docs/sitecore-jss).
+* [JSS reference docs](https://github.com/Sitecore/jss/tree/release/18.0.0/ref-docs/sitecore-jss).
 
 For `sitecore-jss-nextjs`, see: 
 * [GraphQL Sitemap Service](https://jss.sitecore.com/docs/nextjs/services/graphql-sitemap-service).
-* [Next.js SDK API reference docs](https://github.com/Sitecore/jss/tree/release/18.0.0/ref-docs/sitecore-jss-nextjs).
+* [Next.js SDK reference docs](https://github.com/Sitecore/jss/tree/release/18.0.0/ref-docs/sitecore-jss-nextjs).
 
 
 ### New & Improved Service Classes
