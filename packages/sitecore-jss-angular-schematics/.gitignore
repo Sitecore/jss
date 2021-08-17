@@ -2,6 +2,7 @@ src/**/*.js
 **/*.js.map
 **/*.d.ts
 !src/jss-component/schema.d.ts
+!src/jss-component/index.js
 
 # IDEs
 .idea/
