@@ -51,7 +51,6 @@ const GraphQLIntegratedDemo = (props) => {
           <br />
           children:
           <ul>
-            {console.log(contextItem.children)}
             {contextItem?.children?.results.map((child) => (
               <li key={child.id}>
                 <RouterLink to={child.url?.path}>{child.pageTitle?.value}</RouterLink>&nbsp;
