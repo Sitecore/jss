@@ -55,7 +55,8 @@ export class HorizonEditor {
       return;
     }
     // Reset chromes in Horizon
-    ((window as ExtendedWindow)[ChromeRediscoveryGlobalFunctionName.name] as () => void)();
+    (window as ExtendedWindow)[ChromeRediscoveryGlobalFunctionName.name] &&
+      ((window as ExtendedWindow)[ChromeRediscoveryGlobalFunctionName.name] as () => void)();
   }
 }
 
