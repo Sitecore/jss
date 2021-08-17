@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "19.0.0-canary.42",
+  "version": "19.0.0-canary.43",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -63,9 +63,9 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.42",
-    "@sitecore-jss/sitecore-jss-manifest": "^19.0.0-canary.42",
-    "@sitecore-jss/sitecore-jss-react": "^19.0.0-canary.42",
+    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.43",
+    "@sitecore-jss/sitecore-jss-manifest": "^19.0.0-canary.43",
+    "@sitecore-jss/sitecore-jss-react": "^19.0.0-canary.43",
     "prop-types": "^15.7.2",
     "sync-disk-cache": "^2.1.0"
   },
