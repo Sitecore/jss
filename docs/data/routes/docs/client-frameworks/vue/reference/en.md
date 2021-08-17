@@ -6,7 +6,7 @@ title: Vue Package Reference
 
 # JSS Vue Package
 
-The `sitecore-jss-vue` package is a library that delivers UI helper components and helper utilities for rendering data from the Sitecore [Layout Service](/docs/fundamentals/services/layout-service) (provided via JSS server package).
+The `sitecore-jss-vue` package is a library that delivers UI helper components and helper utilities for rendering data from the Sitecore [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) (provided via JSS server package).
 
 # Getting started
 

@@ -23,8 +23,8 @@ jss create <your-app-name> <app-template-name>
 
 |Parameter |Description| Value type| 
 | --- | --- | --- | 
-|name| The name of the app to create.|`String`|
-|template| The template to create the app from; corresponds to folders in the [Official JSS repository](https://github.com/Sitecore/jss/tree/master/samples)|`String`|
+|`name`| The name of the app to create.|`String`|
+|`template`| The template to create the app from; corresponds to folders in the [Official JSS repository](https://github.com/Sitecore/jss/tree/master/samples)|`String`|
 
 **Optional parameters**
 

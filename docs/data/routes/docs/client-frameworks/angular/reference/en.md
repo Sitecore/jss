@@ -6,7 +6,7 @@ title: Angular API Reference
 
 # JSS Angular API
 
-The `sitecore-jss-angular` package is a UI library that delivers components for rendering data from the Sitecore [Layout Service](/docs/fundamentals/services/layout-service).
+The `sitecore-jss-angular` package is a UI library that delivers components for rendering data from the Sitecore [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service).
 
 # Getting started
 

@@ -12,7 +12,7 @@ The manifest API is used to define the structure of your JSS site while it is di
 
 Route data is used to represent the routes served by your app when running in _disconnected mode_. The `Placeholder` component, and any components that it renders, expect route data to adhere to a specific schema - outlined in the [Reference](#reference) below.
 
-For disconnected development, route data is typically retrieved from static YAML or JSON files, or simple JavaScript files. For connected development or production, the route data is retrieved using calls to the Sitecore [Layout Service](/docs/fundamentals/services/layout-service) (via HTTP, or in-process for integrated mode SSR).
+For disconnected development, route data is typically retrieved from static YAML or JSON files, or simple JavaScript files. For connected development or production, the route data is retrieved using calls to the Sitecore [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) (via HTTP, or in-process for integrated mode SSR).
 
 The sample apps define route data in `/data/routes` by using [YAML](https://en.wikipedia.org/wiki/YAML) files. You can choose to use JSON files instead if you prefer that format (just rename the file to .json and run the content through a [YAML-to-JSON converter](https://jsonformatter.org/yaml-to-json)). YAML supports comments, multiline values, and other niceties that make the content authoring experience a bit nicer.
 

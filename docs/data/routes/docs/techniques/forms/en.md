@@ -5,7 +5,7 @@ title: Forms + JSS
 ---
 # Sitecore Forms + JSS
 
-JSS provides the capability to consume and post [Sitecore Forms](https://doc.sitecore.com/users/91/sitecore-experience-platform/en/introducing-sitecore-forms.html) from JSS apps. Sitecore Forms is a capable form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
+JSS provides the capability to consume and post [Sitecore Forms](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/introducing-sitecore-forms.html) from JSS apps. Sitecore Forms is a capable form-authoring framework that enables marketers to author their own forms, collect data, and analyze form performance.
 
 Usage of Sitecore Forms in JSS works like this:
 
@@ -13,7 +13,7 @@ Usage of Sitecore Forms in JSS works like this:
 
 ## Getting Started
 
-This document assumes you are familiar with JSS fundamentals and have a React-based JSS app that you have set up and deployed to Sitecore. It is not possible to use Sitecore Forms in disconnected mode.
+This document assumes you are familiar with JSS fundamentals and have a React- or Next.js-based JSS app that you have set up and deployed to Sitecore. It is not possible to use Sitecore Forms in disconnected mode.
 
 ### Creating a Sitecore Form
 
@@ -23,7 +23,7 @@ For the sake of simplicity, consider starting off with a simple form with a text
 
 ### Creating a Form Rendering component for your JSS App
 
-> JSS comes with a **React** example of consuming the forms API. It is possible to consume the forms schema data with other frameworks as well, but example components are not provided.
+> JSS comes with a **React** example of consuming the Forms API. It is possible to consume the forms schema data with other frameworks as well, but example components are not provided.
 
 To add a form to the JSS app we need a component to render the form. A form rendering component is a normal JSS component, but since disconnected mode is not supported for forms we'll create it Sitecore-first.
 
@@ -54,12 +54,11 @@ To use the sample forms implementation, install the forms packages:
 * run command `npm i @sitecore-jss/sitecore-jss-forms`
 * run command `npm i @sitecore-jss/sitecore-jss-react-forms`
 
-### Implement the Form React component
+### Implement the Form component
 
-To make the form render as a form, we need to tell React how to render the Sitecore Forms schema.
+To make the form render as a form, we need to tell the application how to render the Sitecore Forms schema.
 
-* Create a new React component in `src/components/Form/index.js`
-* Set the contents to:
+1. Create a new component in `src/components/Form/index.js` with the following content:
 
 ```jsx
 import React from 'react';
@@ -73,15 +72,15 @@ export default function Form(props) {
   return <code>{JSON.stringify(form, null, 2)}</code>;
 }
 ```
-
-* Start the JSS app in connected mode with `jss start:connected`
-* You should see the form data dumped to the page as JSON
+2. Start the JSS app in connected mode with `jss start:connected`.
+3. You should see the form data dumped to the page as JSON.
 
 ### Use the sample JSS forms implementation
 
 Sitecore provides a sample implementation of rendering this form data into a usable React form for your reference and modification. The sample implementation provides a native React state-based implementation using controlled form components. It supports client and server-side validation and multistep forms.
 
-To use the example React forms implementation, modify your Form component to use the library's form components:
+#### Implement the Form in a React-based JSS app
+To use the example React forms implementation, modify your Form component to use the library's form components and `withRouter` from `react-router-dom`:
 
 ```jsx
 import { Form } from '@sitecore-jss/sitecore-jss-react-forms';
@@ -89,7 +88,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { sitecoreApiHost, sitecoreApiKey } from '../../temp/config';
 
-const JssForm = ({ fields, history }) => (
+const JssReactForm = ({ fields, history }) => (
   <Form
     form={fields}
     sitecoreApiHost={sitecoreApiHost}
@@ -98,11 +97,46 @@ const JssForm = ({ fields, history }) => (
   />
 );
 
-export default withRouter(JssForm);
+export default withRouter(JssReactForm);
+```
+#### Implement the Form in a Next.js-based JSS app
+
+To render a Sitecore Form in a Next.js-based JSS app, the solution is similar to the React example. 
+
+For the Next.js app, however, you will need to use `withRouter` provided by `next/router`. 
+
+Another key difference is that you need to pass a `router` object to the form rendering function. 
+
+```jsx
+import { Form } from '@sitecore-jss/sitecore-jss-react-forms';
+import React from 'react';
+import { withRouter } from 'next/router';
+import { sitecoreApiHost, sitecoreApiKey } from '../temp/config';
+
+const JssNextForm = ({ fields, router }: any) => (
+    <Form
+      form={fields}
+      sitecoreApiHost={sitecoreApiHost}
+      sitecoreApiKey={sitecoreApiKey}
+      onRedirect={(url) => router.push(url)}
+    />
+  );
+
+export default withRouter(JssNextForm);
 ```
 
-> If you are using `headless` mode, set `sitecoreApiHost={''}`, so requests will be sent directly to your node server.
-> If you send requests directly to Sitecore instance you will get an error (only in headless mode).
+In the file `next.config.base.js`, add the following rewrite definition to  the connected mode rewrites to prevent CORS and 404 errors: 
+
+```javascript
+    {
+        source: '/api/jss/:path*',
+       	destination: `${jssConfig.sitecoreApiHost}/api/jss/:path*`
+    },
+```
+
+#### A note on using forms in `headless` mode
+
+*In `headless` mode*, if you send requests directly to the Sitecore instance you will get an error. Make sure to set `sitecoreApiHost` to an empty string `sitecoreApiHost={''}`, so requests will be sent directly to your node server.
 
 #### Customizing sample forms markup
 

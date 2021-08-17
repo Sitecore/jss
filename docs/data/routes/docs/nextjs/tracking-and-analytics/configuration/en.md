@@ -16,7 +16,7 @@ JSS supports tracking and analytics only for server-side rendered applications u
 ## Pre-requisites
 
 - The application uses the SSR pre-rendering form. 
-- The application uses the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout-service). 
+- The application uses the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout/sitecore-layout-service). 
 
 > You can choose the pre-rendering form and the fetch method when creating the project with the JSS CLI. For details, consult the [JSS CLI reference](/docs/fundamentals/cli).
 
@@ -28,7 +28,7 @@ JSS supports tracking and analytics only for server-side rendered applications u
 
 Sitecore Layout Service requests must:
 
-1. Have tracking enabled (see [`tracking` parameter](/docs/fundamentals/services/layout-service#using-the-layout-service)).
+1. Have tracking enabled (see [`tracking` parameter](/docs/fundamentals/services/layout/sitecore-layout-service#using-the-layout-service)).
 2. Perform [header passing](/docs/nextjs/tracking-and-analytics/overview#header-passing).
 
 Both of these **are taken care of** using the `RestLayoutService` included with the Next.js SDK (part of the `@sitecore-jss/sitecore-jss-nextjs` npm package).

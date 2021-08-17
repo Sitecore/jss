@@ -7,7 +7,7 @@ title: Switching between REST and GraphQL
 
 The Next.js sample application can use either the Sitecore Layout Service REST API or the Sitecore GraphQL Edge schema to fetch layout and dictionary data.
 
-> See [Layout Service API reference](/docs/fundamentals/services/layout-service) and [Dictionary Service API reference](/docs/fundamentals/services/dictionary-service) for more information.
+> See [Layout Service API reference](/docs/fundamentals/services/layout/overview) and [Dictionary Service API reference](/docs/fundamentals/services/dictionary/overview) for more information.
 
 You can change the data-fetching method after project creation. 
 

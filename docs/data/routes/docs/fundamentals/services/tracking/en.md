@@ -72,7 +72,7 @@ The tracking API ships with TypeScript typings, so with TS-aware editors like VS
 
 The tracking API supports tracking arbitrary page view events. This can be useful for things like tracking route changes that do not involve a Layout Service request (cached, custom routes, etc). When tracking page views, it's important to know:
 
-* Requests to [Layout Service](/docs/fundamentals/services/layout-service) will track a page view by default. This can be disabled by adding `tracking=false` to the Layout Service request query string (configurable via the `RestLayoutService` class in JSS apps). Disabling LS tracking may make sense if all page tracking is to be handled using the tracking API.
+* Requests to [Layout Service](/docs/fundamentals/services/layout/sitecore-layout-service) will track a page view by default. This can be disabled by adding `tracking=false` to the Layout Service request query string (configurable via the `RestLayoutService` class in JSS apps). Disabling LS tracking may make sense if all page tracking is to be handled using the tracking API.
 * Page view events require a Sitecore Item ID to track against, even though the URL tracked is arbitrary. If tracking non-item-based routes, you may need to create surrogate items to track against.
 
 ```js

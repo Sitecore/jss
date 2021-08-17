@@ -59,6 +59,8 @@ Before exporting your application, you must:
 
 4. In `.env`, define the `PUBLIC_URL` variable.
 
+5. In `.env`, add `EXPORT_MODE=true`.
+
 5. In `package.json`, add the following scripts: 
 
    * `"next:export": "next export"`.
