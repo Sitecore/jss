@@ -6,7 +6,7 @@
       "dom"
     ],
     "newLine": "LF",
-    "module": "commonjs",
+    "module": "es2020",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
@@ -19,8 +19,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "target": "es6",
-    "outDir": "dist/cjs",
+    "target": "es5",
     "types": [
       "jasmine",
       "node"
