@@ -96,6 +96,12 @@ const nextConfig = {
   webpack: (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);
 
+    // #START_EMPTY
+    config.resolve.fallback = {
+      'sitecore/manifest/sitecore-import.json': false
+    };
+    // #END_EMPTY
+
     return config;
   },
 };
