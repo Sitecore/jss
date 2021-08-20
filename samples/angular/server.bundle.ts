@@ -83,7 +83,7 @@ function renderView(
 
 function parseRouteUrl(url: string) {
   const routeParser = new JssRouteBuilderService();
-  const jssRoute = routeParser.parseRouteUrl(url.split('/').filter((segment) => segment));
+  const jssRoute = routeParser.parseRouteUrl(url.split('/').filter((segment) => segment), true);
   return {
     lang: jssRoute.language,
     sitecoreRoute: jssRoute.serverRoute,

@@ -1,14 +1,8 @@
-import { Injectable, } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
-import {
-  LayoutServiceData,
-} from '@sitecore-jss/sitecore-jss-angular';
+import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
-import {
-  Observable,
-  of as observableOf,
-  BehaviorSubject
-} from 'rxjs';
+import { Observable, of as observableOf, BehaviorSubject } from 'rxjs';
 import { JssState } from './JssState';
 import { JssLayoutService, LayoutServiceError } from './layout/jss-layout.service';
 
@@ -25,11 +19,12 @@ export class JssContextService {
   // as well as current language and server route
   state: BehaviorSubject<JssState>;
 
-  constructor(
-    protected transferState: TransferState,
-    protected layoutService: JssLayoutService,
-  ) {
+  constructor(protected transferState: TransferState, protected layoutService: JssLayoutService) {
     this.state = new BehaviorSubject<JssState>(new JssState());
+  }
+
+  changeLanguage(language: string) {
+    this.state.next({ ...this.state.value, language });
   }
 
   // primarily invoked by JssRouteResolver on URL/route change
@@ -43,19 +38,21 @@ export class JssContextService {
       return observableOf(jssState);
     }
 
-    const jssState$ = this.layoutService.getRouteData(route, language).pipe(
-      map(routeData => {
+    const appLanguage = this.state.value.language || language;
+
+    const jssState$ = this.layoutService.getRouteData(route, appLanguage).pipe(
+      map((routeData) => {
         const lsResult = routeData as LayoutServiceData;
 
         const result = new JssState();
         result.sitecore = lsResult.sitecore ? lsResult.sitecore : null;
-        result.language = language;
+        result.language = appLanguage;
         result.serverRoute = route;
         return result;
       }),
       catchError((error: LayoutServiceError) => {
         const result = new JssState();
-        result.language = language;
+        result.language = appLanguage;
         result.serverRoute = route;
         result.routeFetchError = error;
         return observableOf(result);
@@ -64,11 +61,9 @@ export class JssContextService {
     );
 
     // subscribe to it ourselves so we can maintain current state
-    jssState$.subscribe(
-      (jssState) => {
-        this.state.next(jssState);
-      }
-    );
+    jssState$.subscribe((jssState) => {
+      this.state.next(jssState);
+    });
 
     return jssState$;
   }

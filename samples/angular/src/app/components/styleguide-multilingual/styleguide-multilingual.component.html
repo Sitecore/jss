@@ -6,9 +6,9 @@
   </p>
 
   <p>
-    <a routerLink="/en/styleguide">Show in English</a>
+    <a routerLink="/en/styleguide" (click)="switchLanguage($event)">Show in English</a>
     <br />
-    <a routerLink="/da-DK/styleguide">Show in Danish</a>
+    <a routerLink="/da-DK/styleguide" (click)="switchLanguage($event)">Show in Danish</a>
   </p>
 
   <p>The current language is: {{ translate.currentLang }}</p>

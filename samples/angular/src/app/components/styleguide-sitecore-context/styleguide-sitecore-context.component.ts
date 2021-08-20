@@ -23,7 +23,7 @@ export class StyleguideSitecoreContextComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.contextSubscription = this.jssContext.state.subscribe((state) => {
-      console.log('The current Sitecore Context in styleguide-sitecore-context.component.ts is...', state);
+      // console.log('The current Sitecore Context in styleguide-sitecore-context.component.ts is...', state);
     });
   }
 
