@@ -55,7 +55,7 @@ describe('applyNameToPackageJson', () => {
     expect(result.name).to.equal('bar');
     expect(result.config.appName).to.equal('bar');
     expect(result.config.sitecoreDistPath).to.equal('/dist/bar');
-    expect(result.config.graphQLEndpointPath).to.equal('/api/bar');
+    expect(result.config.graphQLEndpointPath).to.equal('/sitecore/api/graph/edge');
   });
 
   it('should apply name using replaceName', () => {

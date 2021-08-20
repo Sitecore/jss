@@ -47,7 +47,7 @@ export function applyNameToPackageJson(pkg: PackageJson, name: string, replaceNa
   if (pkg.config.graphQLEndpointPath) {
     pkg.config.graphQLEndpointPath = replaceName
       ? applyNameReplacement(pkg.config.graphQLEndpointPath, replaceName, name)
-      : `/api/${name}`;
+      : '/sitecore/api/graph/edge';
   }
   return pkg;
 }
