@@ -65,8 +65,7 @@ function getComponents(folderPath) {
       console.debug(`Registering JSS component ${componentFolder}`);
       imports.push(`import ${importVarName} from '${importPath}';`);
       registrations.push(`components.set('${componentFolder}', ${importVarName});`);
-    }
-    else if (fs.lstatSync(componentFolderFullPath).isDirectory()) {
+    } else if (fs.lstatSync(componentFolderFullPath).isDirectory()) {
       getComponents(componentFolderFullPath);
     }
   });
