@@ -3,7 +3,6 @@ import { expect } from 'chai';
 import {
   applyNameToPackageJson,
   applyHostNameToSitecoreConfig,
-  applyNameToSitecoreConfig,
   applyNameReplacement,
 } from './index';
 
@@ -44,19 +43,6 @@ describe('applyNameReplacement', () => {
 });
 
 describe('applyNameToPackageJson', () => {
-  it('should apply name using defaults', () => {
-    const result = applyNameToPackageJson(
-      {
-        name: 'FooName',
-        config: { appName: 'FooAppName', sitecoreDistPath: 'na' },
-      },
-      'bar'
-    );
-    expect(result.name).to.equal('bar');
-    expect(result.config.appName).to.equal('bar');
-    expect(result.config.sitecoreDistPath).to.equal('/dist/bar');
-  });
-
   it('should apply name using replaceName', () => {
     const result = applyNameToPackageJson(
       {
@@ -99,7 +85,8 @@ describe('applyNameToPackageJson', () => {
         name: 'FooName',
         config: { appName: 'FooAppName' },
       },
-      'bar'
+      'bar',
+      'JssTestWeb'
     );
     expect(result.config.sitecoreDistPath).to.be.undefined;
     expect(result.config.graphQLEndpointPath).to.be.undefined;
@@ -126,114 +113,5 @@ describe('applyHostNameToSitecoreConfig', () => {
     const config = mockConfig();
     const result = applyHostNameToSitecoreConfig(config, 'bar.localhost');
     expect(result).to.match(/<site ((.|\n|\r)*?)hostName="bar.localhost"/, 'site host name');
-  });
-});
-
-describe('applyNameToSitecoreConfig', () => {
-  const mockConfig = (appName: string, customPath?: string) => {
-    return `
-<configuration>
-  <sitecore>
-    <sites>
-      <site patch:before="site[@name='website']"
-            inherits="website"
-            name="${appName}"
-            rootPath="${customPath ? customPath : '/sitecore/content/'}${appName}"
-            startItem="/home"
-            database="master" />
-    </sites>
-    <javaScriptServices>
-      <apps>
-        <app name="${appName}"
-            sitecorePath="${customPath ? customPath : '/sitecore/content/'}${appName}"
-            useLanguageSpecificLayout="true"
-            graphQLEndpoint="/sitecore/api/graph/edge"
-            inherits="defaults"
-        />
-      </apps>
-    </javaScriptServices>
-    <api>
-      <GraphQL>
-        <endpoints>
-          <${appName}GraphQLEndpoint url="/sitecore/api/graph/edge">
-            <schema>
-              <content>
-                <templates>
-                  <paths>
-                    <templates>${
-                      customPath ? customPath : '/sitecore/templates/Project/'
-                    }${appName}</templates>
-                  </paths>
-                </templates>
-              </content>
-            </schema>
-          </${appName}GraphQLEndpoint>
-        </endpoints>
-      </GraphQL>
-    </api>
-  </sitecore>
-</configuration>
-    `;
-  };
-
-  it('should apply name using defaults', () => {
-    const config = mockConfig('FooApp', '/somewhere/else/');
-    const result = applyNameToSitecoreConfig(config, 'Bar');
-    expect(result).to.match(/<site ((.|\n|\r)*?)name="Bar"/, 'site name');
-    expect(result).to.match(
-      /<site ((.|\n|\r)*?)rootPath="\/sitecore\/content\/Bar"/,
-      'site root path'
-    );
-    expect(result).to.match(/<app ((.|\n|\r)*?)name="Bar"/, 'app name');
-    expect(result).to.match(
-      /<app ((.|\n|\r)*?)sitecorePath="\/sitecore\/content\/Bar"/,
-      'app sitecorePath'
-    );
-    expect(result).to.match(
-      /<BarGraphQLEndpoint ((.|\n|\r)*?)url="\/sitecore\/api\/graph\/edge"/,
-      'GraphQL endpoint'
-    );
-  });
-
-  it('should apply name using replaceName', () => {
-    const config = mockConfig('FooApp', '/somewhere/else/');
-    const result = applyNameToSitecoreConfig(config, 'Bar', 'FooApp');
-    expect(result).to.match(/<site ((.|\n|\r)*?)name="Bar"/, 'site name');
-    expect(result).to.match(
-      /<site ((.|\n|\r)*?)rootPath="\/somewhere\/else\/Bar"/,
-      'site root path'
-    );
-    expect(result).to.match(/<app ((.|\n|\r)*?)name="Bar"/, 'app name');
-    expect(result).to.match(
-      /<app ((.|\n|\r)*?)sitecorePath="\/somewhere\/else\/Bar"/,
-      'app sitecorePath'
-    );
-    expect(result).to.match(
-      /<BarGraphQLEndpoint ((.|\n|\r)*?)url="\/sitecore\/api\/graph\/edge"/,
-      'GraphQL endpoint'
-    );
-  });
-
-  it('should not apply name using replaceName if no match', () => {
-    const config = mockConfig('FooApp', '/somewhere/else/');
-    const result = applyNameToSitecoreConfig(config, 'Bar', 'BarApp');
-    expect(result).to.not.match(/<site ((.|\n|\r)*?)name="Bar"/, 'site name');
-    expect(result).to.not.match(
-      /<site ((.|\n|\r)*?)rootPath="\/somewhere\/else\/Bar"/,
-      'site root path'
-    );
-    expect(result).to.not.match(/<app ((.|\n|\r)*?)name="Bar"/, 'app name');
-    expect(result).to.not.match(
-      /<app ((.|\n|\r)*?)sitecorePath="\/somewhere\/else\/Bar"/,
-      'app sitecorePath'
-    );
-    expect(result).to.not.match(
-      /<app ((.|\n|\r)*?)graphQLEndpoint="\/somewhere\/else\/Bar"/,
-      'app graphQLEndpoint'
-    );
-    expect(result).to.not.match(
-      /<BarGraphQLEndpoint ((.|\n|\r)*?)url="\/somewhere\/else\/Bar"/,
-      'GraphQL endpoint'
-    );
   });
 });
