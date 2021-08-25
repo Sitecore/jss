@@ -31,7 +31,7 @@ export function applyNameReplacement(value: string, replaceName: string, withNam
 /**
  * @param {PackageJson} pkg package.json object
  * @param {string} name App name
- * @param {string} replaceName Token which will enable "name replacement mode".
+ * @param {string} replaceName Name value to replace
  */
 export function applyNameToPackageJson(pkg: PackageJson, name: string, replaceName: string) {
   pkg.name = name; // root name will never match "replaceName", so always set directly
@@ -64,7 +64,7 @@ export function applyHostNameToSitecoreConfig(configXml: string, hostName: strin
  * @param {string} projectFolder Project folder
  * @param {string} name App name
  * @param {string} hostName App hostname
- * @param {string} replaceName Token which will enable "name replacement mode" on project files.
+ * @param {string} replaceName Name value to replace
  */
 export function applyNameToProject(
   projectFolder: string,
