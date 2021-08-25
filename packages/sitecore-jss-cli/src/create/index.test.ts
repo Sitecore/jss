@@ -7,6 +7,52 @@ import {
 } from './index';
 
 describe('applyNameReplacement', () => {
+  const mockConfig = (appName: string, customPath?: string) => {
+    return `
+<configuration>
+  <sitecore>
+    <sites>
+      <site patch:before="site[@name='website']"
+            inherits="website"
+            name="${appName}"
+            rootPath="${customPath ? customPath : '/sitecore/content/'}${appName}"
+            startItem="/home"
+            database="master" />
+    </sites>
+    <javaScriptServices>
+      <apps>
+        <app name="${appName}"
+            sitecorePath="${customPath ? customPath : '/sitecore/content/'}${appName}"
+            useLanguageSpecificLayout="true"
+            graphQLEndpoint="${customPath ? customPath : '/api/'}${appName}"
+            inherits="defaults"
+        />
+      </apps>
+    </javaScriptServices>
+    <api>
+      <GraphQL>
+        <endpoints>
+          <${appName}GraphQLEndpoint url="${customPath ? customPath : '/api/'}${appName}">
+            <schema>
+              <content>
+                <templates>
+                  <paths>
+                    <templates>${
+                      customPath ? customPath : '/sitecore/templates/Project/'
+                    }${appName}</templates>
+                  </paths>
+                </templates>
+              </content>
+            </schema>
+          </${appName}GraphQLEndpoint>
+        </endpoints>
+      </GraphQL>
+    </api>
+  </sitecore>
+</configuration>
+    `;
+  };
+
   it('should replace name', () => {
     const result = applyNameReplacement('this is a test.', 'test', 'passing test');
     expect(result).to.equal('this is a passing test.');
@@ -39,6 +85,52 @@ describe('applyNameReplacement', () => {
   it('should handle special RegEx characters in replaceName', () => {
     const result = applyNameReplacement('this is a te$+.', 'te$+', 'passing test');
     expect(result).to.equal('this is a passing test.');
+  });
+
+  it('should apply name using replaceName', () => {
+    const config = mockConfig('FooApp', '/somewhere/else/');
+    const result = applyNameReplacement(config, 'FooApp', 'Bar');
+    expect(result).to.match(/<site ((.|\n|\r)*?)name="Bar"/, 'site name');
+    expect(result).to.match(
+      /<site ((.|\n|\r)*?)rootPath="\/somewhere\/else\/Bar"/,
+      'site root path'
+    );
+    expect(result).to.match(/<app ((.|\n|\r)*?)name="Bar"/, 'app name');
+    expect(result).to.match(
+      /<app ((.|\n|\r)*?)sitecorePath="\/somewhere\/else\/Bar"/,
+      'app sitecorePath'
+    );
+    expect(result).to.match(
+      /<app ((.|\n|\r)*?)graphQLEndpoint="\/somewhere\/else\/Bar"/,
+      'app graphQLEndpoint'
+    );
+    expect(result).to.match(
+      /<BarGraphQLEndpoint ((.|\n|\r)*?)url="\/somewhere\/else\/Bar"/,
+      'GraphQL endpoint'
+    );
+  });
+
+  it('should not apply name using replaceName if no match', () => {
+    const config = mockConfig('FooApp', '/somewhere/else/');
+    const result = applyNameReplacement(config, 'BarApp', 'Bar');
+    expect(result).to.not.match(/<site ((.|\n|\r)*?)name="Bar"/, 'site name');
+    expect(result).to.not.match(
+      /<site ((.|\n|\r)*?)rootPath="\/somewhere\/else\/Bar"/,
+      'site root path'
+    );
+    expect(result).to.not.match(/<app ((.|\n|\r)*?)name="Bar"/, 'app name');
+    expect(result).to.not.match(
+      /<app ((.|\n|\r)*?)sitecorePath="\/somewhere\/else\/Bar"/,
+      'app sitecorePath'
+    );
+    expect(result).to.not.match(
+      /<app ((.|\n|\r)*?)graphQLEndpoint="\/somewhere\/else\/Bar"/,
+      'app graphQLEndpoint'
+    );
+    expect(result).to.not.match(
+      /<BarGraphQLEndpoint ((.|\n|\r)*?)url="\/somewhere\/else\/Bar"/,
+      'GraphQL endpoint'
+    );
   });
 });
 
