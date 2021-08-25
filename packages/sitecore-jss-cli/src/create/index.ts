@@ -44,11 +44,6 @@ export function applyNameToPackageJson(pkg: PackageJson, name: string, replaceNa
       ? applyNameReplacement(pkg.config.sitecoreDistPath, replaceName, name)
       : `/dist/${name}`;
   }
-  if (pkg.config.graphQLEndpointPath) {
-    pkg.config.graphQLEndpointPath = replaceName
-      ? applyNameReplacement(pkg.config.graphQLEndpointPath, replaceName, name)
-      : '/sitecore/api/graph/edge';
-  }
   return pkg;
 }
 
@@ -93,16 +88,10 @@ export function applyNameToSitecoreConfig(configXml: string, name: string, repla
     `<app $1sitecorePath="/sitecore/content/${name}"`
   );
 
-  // replace jss app graphQLEndpoint
-  configXml = configXml.replace(
-    /<app ((.|\n|\r)*?)graphQLEndpoint="[^"]+"/g,
-    `<app $1graphQLEndpoint="/api/${name}"`
-  );
-
   // replace GraphQL url
   configXml = configXml.replace(
     /<([^ ]+)GraphQLEndpoint ((.|\n|\r)*?)url="[^"]+"/g,
-    `<${name}GraphQLEndpoint $2url="/api/${name}"`
+    `<${name}GraphQLEndpoint url="/sitecore/api/graph/edge"`
   );
 
   configXml = configXml.replace(/<\/(.+)GraphQLEndpoint>/g, `</${name}GraphQLEndpoint>`);

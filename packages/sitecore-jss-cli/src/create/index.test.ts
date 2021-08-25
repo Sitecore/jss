@@ -48,14 +48,13 @@ describe('applyNameToPackageJson', () => {
     const result = applyNameToPackageJson(
       {
         name: 'FooName',
-        config: { appName: 'FooAppName', sitecoreDistPath: 'na', graphQLEndpointPath: 'na' },
+        config: { appName: 'FooAppName', sitecoreDistPath: 'na' },
       },
       'bar'
     );
     expect(result.name).to.equal('bar');
     expect(result.config.appName).to.equal('bar');
     expect(result.config.sitecoreDistPath).to.equal('/dist/bar');
-    expect(result.config.graphQLEndpointPath).to.equal('/sitecore/api/graph/edge');
   });
 
   it('should apply name using replaceName', () => {
@@ -65,7 +64,6 @@ describe('applyNameToPackageJson', () => {
         config: {
           appName: 'FooAppName',
           sitecoreDistPath: '/somewhere/dist/FooAppName',
-          graphQLEndpointPath: '/somewhere/api/FooAppName',
         },
       },
       'bar',
@@ -74,7 +72,6 @@ describe('applyNameToPackageJson', () => {
     expect(result.name).to.equal('bar');
     expect(result.config.appName).to.equal('bar');
     expect(result.config.sitecoreDistPath).to.equal('/somewhere/dist/bar');
-    expect(result.config.graphQLEndpointPath).to.equal('/somewhere/api/bar');
   });
 
   it('should not apply name using replaceName if no match', () => {
@@ -150,7 +147,7 @@ describe('applyNameToSitecoreConfig', () => {
         <app name="${appName}"
             sitecorePath="${customPath ? customPath : '/sitecore/content/'}${appName}"
             useLanguageSpecificLayout="true"
-            graphQLEndpoint="${customPath ? customPath : '/api/'}${appName}"
+            graphQLEndpoint="/sitecore/api/graph/edge"
             inherits="defaults"
         />
       </apps>
@@ -158,7 +155,7 @@ describe('applyNameToSitecoreConfig', () => {
     <api>
       <GraphQL>
         <endpoints>
-          <${appName}GraphQLEndpoint url="${customPath ? customPath : '/api/'}${appName}">
+          <${appName}GraphQLEndpoint url="/sitecore/api/graph/edge">
             <schema>
               <content>
                 <templates>
@@ -193,11 +190,7 @@ describe('applyNameToSitecoreConfig', () => {
       'app sitecorePath'
     );
     expect(result).to.match(
-      /<app ((.|\n|\r)*?)graphQLEndpoint="\/api\/Bar"/,
-      'app graphQLEndpoint'
-    );
-    expect(result).to.match(
-      /<BarGraphQLEndpoint ((.|\n|\r)*?)url="\/api\/Bar"/,
+      /<BarGraphQLEndpoint ((.|\n|\r)*?)url="\/sitecore\/api\/graph\/edge"/,
       'GraphQL endpoint'
     );
   });
@@ -216,11 +209,7 @@ describe('applyNameToSitecoreConfig', () => {
       'app sitecorePath'
     );
     expect(result).to.match(
-      /<app ((.|\n|\r)*?)graphQLEndpoint="\/somewhere\/else\/Bar"/,
-      'app graphQLEndpoint'
-    );
-    expect(result).to.match(
-      /<BarGraphQLEndpoint ((.|\n|\r)*?)url="\/somewhere\/else\/Bar"/,
+      /<BarGraphQLEndpoint ((.|\n|\r)*?)url="\/sitecore\/api\/graph\/edge"/,
       'GraphQL endpoint'
     );
   });
