@@ -16,7 +16,7 @@ export interface ManifestManagerOptions {
   rootPath?: string;
   sourceFiles?: string[];
   watchOnlySourceFiles?: string[];
-  requireArg?: string;
+  requireArg?: string | null;
   outputPath?: string;
   pipelinePatchFiles?: string[];
   appName?: string;
