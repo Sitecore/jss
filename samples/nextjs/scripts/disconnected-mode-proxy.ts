@@ -20,7 +20,7 @@ const serverOptions = {
   appRoot: path.join(__dirname, '..'),
   appName: config.appName,
   // Prevent require of ./sitecore/definitions/config.js, because ts-node is running
-  requireArg: '',
+  requireArg: null,
   watchPaths: ['./data'],
   language: config.language,
   port: Number(process.env.PROXY_PORT) || 3042,
