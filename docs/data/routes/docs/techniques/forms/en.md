@@ -13,7 +13,13 @@ Usage of Sitecore Forms in JSS works like this:
 
 ## Getting Started
 
-This document assumes you are familiar with JSS fundamentals and have a React- or Next.js-based JSS app that you have set up and deployed to Sitecore. It is not possible to use Sitecore Forms in disconnected mode.
+This document assumes you are familiar with JSS fundamentals and have a React- or Next.js-based JSS app that you have set up and deployed to Sitecore. It is not possible to use Sitecore Forms in disconnected mode. 
+
+Additionally, Sitecore Forms usage in JSS requires functioning session cookies. This means:
+
+1. [Secure cookies are used (or bypassed)](/docs/nextjs/tracking-and-analytics/configuration#secure-cookies)
+2. For React, you are using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout/sitecore-layout-service)
+3. For Next.js, you are using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout/sitecore-layout-service) and SSR pre-rendering. These are the same requirements to [enable tracking and analytics](/docs/nextjs/tracking-and-analytics/configuration).
 
 ### Creating a Sitecore Form
 
@@ -99,24 +105,29 @@ const JssReactForm = ({ fields, history }) => (
 
 export default withRouter(JssReactForm);
 ```
+
+##### A note on using forms in `headless` mode
+
+*In `headless` mode*, if you send requests directly to the Sitecore instance you will get an error. Make sure to set `sitecoreApiHost` to an empty string `sitecoreApiHost={''}`, so requests will be sent directly to your node server.
+
 #### Implement the Form in a Next.js-based JSS app
 
 To render a Sitecore Form in a Next.js-based JSS app, the solution is similar to the React example. 
 
-For the Next.js app, however, you will need to use `withRouter` provided by `next/router`. 
+For the Next.js app, however, you will need to use `withRouter` and `router` provided by `next/router`.
 
-Another key difference is that you need to pass a `router` object to the form rendering function. 
+Similar to `headless` mode with React, you need to make sure to set `sitecoreApiHost` to an empty string `sitecoreApiHost={''}`, so requests will be sent directly to your Next.js server. 
 
 ```jsx
 import { Form } from '@sitecore-jss/sitecore-jss-react-forms';
 import React from 'react';
 import { withRouter } from 'next/router';
-import { sitecoreApiHost, sitecoreApiKey } from '../temp/config';
+import { sitecoreApiKey } from '../temp/config';
 
 const JssNextForm = ({ fields, router }: any) => (
     <Form
       form={fields}
-      sitecoreApiHost={sitecoreApiHost}
+      sitecoreApiHost={''}
       sitecoreApiKey={sitecoreApiKey}
       onRedirect={(url) => router.push(url)}
     />
@@ -125,18 +136,14 @@ const JssNextForm = ({ fields, router }: any) => (
 export default withRouter(JssNextForm);
 ```
 
-In the file `next.config.base.js`, add the following rewrite definition to  the connected mode rewrites to prevent CORS and 404 errors: 
+In the file `next.config.js`, add the following rewrite definition to the connected mode rewrites to prevent CORS and 404 errors: 
 
 ```javascript
-    {
-        source: '/api/jss/:path*',
-       	destination: `${jssConfig.sitecoreApiHost}/api/jss/:path*`
-    },
+{
+  source: '/api/jss/:path*',
+  destination: `${jssConfig.sitecoreApiHost}/api/jss/:path*`,
+},
 ```
-
-#### A note on using forms in `headless` mode
-
-*In `headless` mode*, if you send requests directly to the Sitecore instance you will get an error. Make sure to set `sitecoreApiHost` to an empty string `sitecoreApiHost={''}`, so requests will be sent directly to your node server.
 
 #### Customizing sample forms markup
 
