@@ -3,87 +3,87 @@ All notable changes to this project will be documented in this file. The format 
 
 This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
 
-# Unreleased
+## 19.0.0
 
-## New Features and Notable Improvements
-`[sitecore-jss-react]` `[sitecore-jss-nextjs]` Add `withDatasourceCheck` higher order component (HOC) to better error handling for renderings missing datasources (#723)
+### New Features & Improvements
 
-`[sitecore-jss-*]` Compile and publish all base package as ESM (#758)
+`[sitecore-jss-react]` `[sitecore-jss-nextjs]` Add `withDatasourceCheck` higher order component (HOC) to better handle renderings with missing datasources ([#723](https://github.com/Sitecore/jss/pull/723))
 
-`[sitecore-jss]` `[sitecore-jss-nextjs]` [Dictionary Service] [Sitemap Service] Provide ability to customize jssAppTemplateId (#763)
+`[sitecore-jss-*]` Compile and publish all base package as ESM ([#758](https://github.com/Sitecore/jss/pull/758))
 
-`[sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` `[sitecore-jss-angular]` `[sitecore-jss-vue]` `[sitecore-jss-react-native]`
-  Update editing functions for **Horizon** compatibility (backwards compatible) (#712)(#723)
+`[sitecore-jss]` `[sitecore-jss-nextjs]` [Dictionary Service] [Sitemap Service] Provide ability to customize jssAppTemplateId ([#763](https://github.com/Sitecore/jss/pull/763))
+
+`[sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` `[sitecore-jss-angular]` `[sitecore-jss-vue]` `[sitecore-jss-react-native]` Update editing functions for **Horizon** compatibility (backwards compatible) ([#712](https://github.com/Sitecore/jss/pull/712), [#723](https://github.com/Sitecore/jss/pull/723))
 
 `[sitecore-jss-nextjs]`
-* Upgrade to Next.js 11 (#768)
-* Utilize the `VERCEL_URL` env variable (if available) for generating public URLs (#725)
-* Enable dynamic component import (#727)
-* Prevent extraneous router.replace in Experience Editor when using SSG (#736)
+* Upgrade to Next.js 11 ([#768](https://github.com/Sitecore/jss/pull/768))
+* Utilize the `VERCEL_URL` env variable (if available) for generating public URLs ([#725](https://github.com/Sitecore/jss/pull/725))
+* Enable dynamic component import ([#727](https://github.com/Sitecore/jss/pull/727))
+* Prevent extraneous router.replace in Experience Editor when using SSG ([#736](https://github.com/Sitecore/jss/pull/736))
 
 `[sitecore-jss-vue]`
-* Upgrade version 2.x to 3.x (#724)
-* Use fragments by default with sc-placeholder (#742)
+* Upgrade version 2.x to 3.x ([#724](https://github.com/Sitecore/jss/pull/724))
+* Use fragments by default with sc-placeholder ([#742](https://github.com/Sitecore/jss/pull/742))
 
-## Notable Improvements to Samples
-* Remove usage deprecated dataApi (#744)
-* Dependency upgrades
+`[samples/nextjs]` `[samples/react]` `[samples/angular]` `[samples/vue]`
+* Remove usage of deprecated `dataApi`. Replaced by `RestLayoutService` and `RestDictionaryService` ([#744](https://github.com/Sitecore/jss/pull/744))
+* More reliable detection of disconnected or connected mode ([#732](https://github.com/Sitecore/jss/pull/732))
+* **Horizon** compatibility ([#712](https://github.com/Sitecore/jss/pull/712), [#752](https://github.com/Sitecore/jss/pull/752))
 
-`[nextjs]` `[react]` `[angular]` `[vue]`
-* More reliable detection of disconnected or connected mode (#732)
-* **Horizon** compatibility (#712)(#752)
+`[samples/react]` `[samples/angular]` `[samples/vue]`  ([#773](https://github.com/Sitecore/jss/pull/773))
+* Add support for the `--fetchWith` option for `jss create`, which selects REST or GraphQL APIs
+* Update to use Edge schema for GraphQL by default
+* Update Sitecore configuration patches with relevant Edge-specific definitions
 
-`[react]` `[angular]` `[vue]` Add support for the `fetchWith` create option, which selects REST or GraphQL APIs (#773)
+`[samples/nextjs]`
+* Upgrade to Next.js 11 ([#768](https://github.com/Sitecore/jss/pull/768))
+* Styleguide component datasource resiliency ([#723](https://github.com/Sitecore/jss/pull/723))
+* Enable creating a new app without boilerplate with the `--empty` flag for `jss create` ([#754](https://github.com/Sitecore/jss/pull/754))
+* Enable dynamic component import in sample ([#727](https://github.com/Sitecore/jss/pull/727), [#730](https://github.com/Sitecore/jss/pull/730))
 
-`[nextjs]`
-* Styleguide component datasource resiliency (#723)
-* Enable creating a new app without boilerplate with the `--empty` flag (#754)
-* Enable dynamic component import in sample (#727)(#730)
+`[samples/vue]` Upgrade version 2.x to 3.x. Simplify dependencies; remove dependency on **i18n** ([#724](https://github.com/Sitecore/jss/pull/724))
 
-`[vue]` Upgrade version 2.x to 3.x. Simplify dependencies; remove dependency on **i18n** (#724)
+`[samples/embedded-app]` Remove dependency on StepZilla ([#747](https://github.com/Sitecore/jss/pull/747))
 
-`[angular]` dk-DA language is not rendered in connected and disconnected mode (#734)
+`[samples/node-headless-ssr-proxy]` Remove '/dist' path from pathRewriteExcludeRoutes ([#756](https://github.com/Sitecore/jss/pull/756))
 
-`[embedded-app]` Remove dependency on StepZilla (#747)
+### Bug Fixes
 
-`[node-headless-ssr-proxy]` Remove '/dist' path from pathRewriteExcludeRoutes (#756)
+`[sitecore-jss-react]` `[samples/nextjs]` `[samples/react]` Fix double rendering ([#775](https://github.com/Sitecore/jss/pull/775))
 
-## Bug fixes
-`[sitecore-jss-react]` Error rendering raw self-closing tag elements in placeholders (#745)
+`[sitecore-jss-react]` Error rendering raw self-closing tag elements in placeholders ([#745](https://github.com/Sitecore/jss/pull/745))
 
-`[sitecore-jss-react-forms]` Experience Forms JSS React implementation doesn't use CSS class applied to entire form (#771)
+`[sitecore-jss-react-forms]` Experience Forms JSS React implementation doesn't use CSS class applied to entire form ([#771](https://github.com/Sitecore/jss/pull/771))
 
+`[samples/angular]` Fix issue where dk-DA language is not rendered in connected and disconnected mode ([#734](https://github.com/Sitecore/jss/pull/734))
 
-## Maintenance
-**Breaking change** `[sitecore-jss]` `[sitecore-jss-vue]` `[sitecore-jss-react-native]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` Remove deprecated dataApi (#744)
+### Breaking Changes
 
-Dependency upgrades
+`[sitecore-jss]` `[sitecore-jss-vue]` `[sitecore-jss-react-native]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` Remove deprecated `dataApi` ([#744](https://github.com/Sitecore/jss/pull/744))
 
-.
-
-.
+`[sitecore-jss-*]` `[samples/*]` Avoid use of 'any' for TypeScript definitions ([#759](https://github.com/Sitecore/jss/pull/759))
 
 
-# 18.0.0
+## 18.0.0
 
-## New Features
+### New Features
 All JSS services have been upgraded to support [**Sitecore Experience Edge** GraphQL schema](https://doc.sitecore.com/developers/101/developer-tools/en/the-experience-edge-schema.html).
 
 `[sitecore-jss]`
 * We added [API reference docs for the package](https://github.com/Sitecore/jss/tree/release/18.0.0/ref-docs/sitecore-jss).
 
-`[nextjs]`
-* The `[nextjs]` sample uses Edge schema by default.
+`[sitecore-jss-nextjs]`
 * We added [API reference docs for the package](https://github.com/Sitecore/jss/tree/release/18.0.0/ref-docs/sitecore-jss-nextjs).
 
 `[samples/nextjs]`
 * Update Sitecore configuration patches with relevant Edge-specific definitions.
+* The sample uses Edge schema by default.
 * [#695](https://github.com/Sitecore/jss/pull/695) Add settings for language fallback with Experience Edge.
 * [#696](https://github.com/Sitecore/jss/pull/696) Add `IncludeServerUrlInMediaUrls` "default" configuration to avoid exposing the Sitecore server publicly when using Experience Edge.
 
-`[react]` `[angular]` and `[vue]` samples can also utilize Sitecore Experience Edge. A new `[node-headless-ssr-experience-edge]` sample has been adeded to demonstrate how to configure this. [Read docs](/docs/techniques/ssr/sitecore-experience-edge).
+`[samples/react]` `[samples/angular]` `[samples/vue]` The samples can also utilize Sitecore Experience Edge. A new sample `[samples/node-headless-ssr-experience-edge]` has been adeded to demonstrate how to configure this. [Read docs](/docs/techniques/ssr/sitecore-experience-edge).
 
-## New & Improved Service Classes
+### New & Improved Service Classes
 
 `[sitecore-jss]`
 * `GraphQLDictionaryService` is a new service for fetching dictionary data using GraphQL [Read docs](https://jss.sitecore.com/docs/fundamentals/services/dictionary/jss-dictionary-api).
@@ -94,7 +94,7 @@ All JSS services have been upgraded to support [**Sitecore Experience Edge** Gra
 `[sitecore-jss-nextjs]`
 * Make `GraphQLSitemapService` easier to customize by allowing overrides of default options. ([#682](https://github.com/Sitecore/jss/pull/682), [#705](https://github.com/Sitecore/jss/pull/705)) 
 
-## Other Notable Improvements
+### Other Notable Improvements
 
 * `[sitecore-jss]` Enable **debug logging** for JSS services using the [debug](https://www.npmjs.com/package/debug) module. [Read docs](/docs/fundamentals/troubleshooting/debug-logging).
 * New options in `jss create` command. [Read docs](https://jss.sitecore.com/docs/fundamentals/cli#jss-create).
@@ -104,7 +104,7 @@ All JSS services have been upgraded to support [**Sitecore Experience Edge** Gra
 * Make Sitecore logo in header is touchable and will navigate to Home page when click on it.
 * Remove usage of `dataConversation`.
 
-## Bug Fixes
+### Bug Fixes
 
 `[sitecore-jss]`
 * Fix issue with dictionary phrases not being cached when caching is enabled (#639)
@@ -135,7 +135,7 @@ All JSS services have been upgraded to support [**Sitecore Experience Edge** Gra
 `[sitecore-jss-forms]` Fix issue where pre-filled (default) form data isn't removed for multi-valued fields when user de-selects values (#677)
 
 
-## Breaking changes
+### Breaking Changes
 
 `[sitecore-jss-react-native]` Removed `dataConversation`, since `editable` property not used in `disconnected` mode. (#624)
 
