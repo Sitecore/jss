@@ -1,6 +1,6 @@
 {
   "name": "jss-javascript-renderings-reactweb-sample",
-  "version": "19.0.0-canary.53",
+  "version": "19.0.0-canary.54",
   "description": "A basic component library utilizing Sitecore JavaScript Services. Demonstrates how to use indidivual components as renderings in Sitecore instead of full-fledged applications.",
   "config": {
     "appName": "JssComponentsReactWeb",
@@ -45,16 +45,16 @@
   "homepage": "https://jss.sitecore.com",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^19.0.0-canary.53",
+    "@sitecore-jss/sitecore-jss-react": "^19.0.0-canary.54",
     "babel-polyfill": "~6.26.0",
     "prop-types": "~15.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^19.0.0-canary.53",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^19.0.0-canary.53",
-    "@sitecore-jss/sitecore-jss-manifest": "^19.0.0-canary.53",
+    "@sitecore-jss/sitecore-jss-cli": "^19.0.0-canary.54",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^19.0.0-canary.54",
+    "@sitecore-jss/sitecore-jss-manifest": "^19.0.0-canary.54",
     "babel-core": "~6.26.0",
     "babel-eslint": "~7.2.3",
     "babel-loader": "~7.1.2",
