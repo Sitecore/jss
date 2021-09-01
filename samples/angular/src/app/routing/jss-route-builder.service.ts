@@ -19,9 +19,10 @@ export class JssRouteBuilderService {
     return `/${route.language}${route.serverRoute}`;
   }
 
-  parseRouteUrl(url: string[]): JssRoute {
+  parseRouteUrl(url: string[], isSSR?: boolean): JssRoute {
     const route = new JssRoute();
-    route.language = env.defaultLanguage;
+    // In case if we are in SSR, server will extract language from cookies
+    route.language = isSSR ? undefined : env.defaultLanguage;
     route.serverRoute = env.defaultServerRoute;
 
     if (url.length === 0) {

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from '../../jss-context.service';
@@ -23,7 +24,7 @@ export class StyleguideSitecoreContextComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.contextSubscription = this.jssContext.state.subscribe((state) => {
-      console.log('The current Sitecore Context in styleguide-sitecore-context.component.ts is...', state);
+      console.debug('The current Sitecore Context in styleguide-sitecore-context.component.ts is...', state);
     });
   }
 
