@@ -19,7 +19,7 @@ Additionally, Sitecore Forms usage in JSS requires functioning session cookies. 
 
 1. [You have SSL enabled for your environment or disabled secure cookies in your Sitecore instance](/docs/nextjs/tracking-and-analytics/configuration#secure-cookies).
 2. For React, you are using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout/sitecore-layout-service).
-3. For Next.js, you are using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout/sitecore-layout-service) and you are server-side rendering the application. These are the same requirements to [enable tracking and analytics](/docs/nextjs/tracking-and-analytics/configuration).
+3. For Next.js, you are using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout/sitecore-layout-service) and you are server-side rendering the route that displays the form. These are the same requirements to [enable tracking and analytics](/docs/nextjs/tracking-and-analytics/configuration).
 
 ### Creating a Sitecore Form
 
