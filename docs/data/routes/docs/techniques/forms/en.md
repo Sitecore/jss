@@ -25,7 +25,7 @@ Additionally, Sitecore Forms usage in JSS requires functioning session cookies. 
 
 To use a form in JSS, you must create the form in Sitecore. The [Sitecore Forms documentation](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/design-a-form.html) details how to create forms in Sitecore.
 
-For the sake of simplicity, consider starting off with a simple form with a text box and submit button. It's helpful to set the _submit actions_ on the submit button to _Save Data_ and _Redirect to Page_ - without Save Data the form data won't be stored, and without Redirect to Page the form will clear itself on submit but not provide other feedback. Note that in a JSS app, _Redirect to Page_ can easily be accomplished with client-side routing - it need not be an actual reload of the page.
+For the sake of simplicity, consider starting off with a simple form with a text box and submit button. It's helpful to set the _submit actions_ on the submit button to _Save Data_ and _Redirect to Page_ - without Save Data the form data is not stored, and without Redirect to Page the form clears itself on submit without providing other feedback. Note that in a JSS app, _Redirect to Page_ can easily be accomplished with client-side routing - it needs not be an actual reload of the page.
 
 ### Creating a Form Rendering component for your JSS App
 
@@ -39,14 +39,14 @@ To add a form to the JSS app we need a component to render the form. A form rend
     * Navigate to the rendering item that was created (`/sitecore/layout/Renderings/Project/$yourappname/Form`)
     * Set the `Datasource location` field to `/sitecore/forms`
     * Set the `Datasource template` field to `/sitecore/templates/System/Forms/Form`
-    * Set the `Rendering Contents Resolver` field to `Sitecore Forms Resolver`. This will cause JSS to deliver form data to the component instead of item data.
+    * Set the `Rendering Contents Resolver` field to `Sitecore Forms Resolver`. This causes JSS to deliver form data to the component instead of item data.
 
 ### Add the Form Rendering to an app route
 
 * Enter Experience Editor on the JSS route item you wish to add the form to
 * Insert the new `Form` component into the placeholder it is allowed in
 * Choose the Sitecore Form you created previously as the Associated Content
-* NOTE: you will see a warning that the component is missing its implementation. This is normal - we haven't yet defined what the form looks like.
+* NOTE: The system displays a warning that the component is missing its implementation. This is normal - you have not yet defined what the form looks like.
 
 ### Install NPM packages
 
@@ -108,15 +108,15 @@ export default withRouter(JssReactForm);
 
 ##### A note on using forms in `headless` mode
 
-*In `headless` mode*, if you send requests directly to the Sitecore instance you will get an error. Make sure to set `sitecoreApiHost` to an empty string `sitecoreApiHost={''}`, so requests will be sent directly to your node server.
+*In `headless` mode*, sending requests directly to the Sitecore instance trigger an error. You must set `sitecoreApiHost` to an empty string `sitecoreApiHost={''}` to send requests directly to your node.js server.
 
 #### Implement the Form in a Next.js-based JSS app
 
 To render a Sitecore Form in a Next.js-based JSS app, the solution is similar to the React example. 
 
-For the Next.js app, however, you will need to use `withRouter` and `router` provided by `next/router`.
+For the Next.js app, however, you must use `withRouter` and `router` provided by `next/router`.
 
-Similar to `headless` mode with React, you need to make sure to set `sitecoreApiHost` to an empty string `sitecoreApiHost={''}`, so requests will be sent directly to your Next.js server. 
+Similar to `headless` mode with React, you must set `sitecoreApiHost` to an empty string `sitecoreApiHost={''}`to send requests directly to your Next.js server. 
 
 ```jsx
 import { Form } from '@sitecore-jss/sitecore-jss-react-forms';
@@ -153,7 +153,7 @@ When using the JSS sample forms implementation there are several options to cust
 
 If you'd like to customize how a specific type of field renders in your form, such as Checkbox or Single-Line Text, you can pass your own _field factory_.
 
-Similar to JSS' _component factory_, the field factory maps a given Sitecore Forms field type into an implementing React component. The _default field factory_ is used if no other is passed, and thus the default form field implementations will be used. Here's an example:
+Similar to JSS' _component factory_, the field factory maps a given Sitecore Forms field type into an implementing React component. If you do not pass a different field factory, the application uses the _default field factory_, and therefore the default form field implementations. Here's an example:
 
 ```jsx
 // start from scratch (empty field factory)
@@ -176,7 +176,7 @@ defaultFieldFactory.setComponent(FieldTypes.RadioButtonList, (props) => (
 
 ##### Add a wrapper to all form fields
 
-It's possible to wrap all form fields in a custom component to create wrapping markup, for example, to control the vertical rhythm. The wrappers will contain both the label and value of the field.
+You can wrap all form fields in a custom component to create wrapping markup, for example, to control the vertical rhythm. The wrappers contain both the label and value of the field.
 
 ```jsx
 // Sample wraps all fields in a div and prints a span with the field name unless the field is a Text field type
@@ -195,9 +195,9 @@ const WrapperComponent = (props) => (
 
 ##### Customizing Labels
 
-You can customize the rendering of field labels. Note that if you are using custom field components as described in the previous section, those components can ignore the custom label component if they choose to not use the `labelComponent` property they receive.
+You can customize the rendering of field labels. If you are using custom field components as described in the previous section, those components can ignore the custom label component if they choose to not use the `labelComponent` property they receive.
 
-> The customized label is used only for the primary field label. Checkbox lists and radio button lists will not use this component for the individual labels wrapping each list element.
+> The customized label is used only for the primary field label. Checkbox lists and radio button lists do not use this component for the individual labels wrapping each list element.
 
 ```jsx
 // sample renders labels in blue
@@ -220,7 +220,7 @@ const LabelComponent = (props) => (
 // Usage on form component
 <Form labelComponent={LabelComponent} {...otherProps} />
 
-> Some of the components can contain markup that nested into basic `<Label />` component (for example `<Checkbox />`). In this case you should add `props.children` into markup of `<LabelComponent />`. So in `<Checkbox />` check button will be placed before `props.field.model.title`
+> Some of the components can contain markup that nested into basic `<Label />` component (for example `<Checkbox />`). In this case you should add `props.children` into the markup of `<LabelComponent />`. So in a `<Checkbox />` component, the check button is placed before `props.field.model.title`
 
 ##### Customizing Error Handling
 
