@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from '../../jss-context.service';
