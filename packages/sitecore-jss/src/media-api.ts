@@ -1,4 +1,4 @@
-import unescape from 'lodash/unescape';
+import unescape from 'lodash.unescape';
 import URL from 'url-parse';
 
 // finds an img tag with HTML attributes

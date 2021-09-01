@@ -18,7 +18,7 @@ const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/cjs/
 module.exports = function createJssProject(argv, nextSteps) {
   console.log(`Executing create script: ${__filename}...`);
 
-  applyNameToProject(__dirname, argv.name, argv.hostName);
+  applyNameToProject(__dirname, argv.name, argv.hostName, 'JssAngularWeb');
 
   // Replace app name in Angular-specific locations
   function replaceAngularAppNameInFile(filePath) {

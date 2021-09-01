@@ -20,7 +20,6 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "target": "es6",
-    "outDir": "dist/cjs",
     "types": [
       "jasmine",
       "node"
