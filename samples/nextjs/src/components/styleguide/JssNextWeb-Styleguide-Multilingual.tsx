@@ -1,7 +1,7 @@
 import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import Link from 'next/link';
 import { useI18n } from 'next-localization';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import StyleguideSpecimen from './JssNextWeb-Styleguide-Specimen';
 import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
 
 type StyleguideMultilingualProps = StyleguideComponentWithContextProps &

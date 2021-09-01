@@ -15,8 +15,8 @@ import {
   ConnectedDemoQueryDocument,
   AppRoute,
   Item,
-  GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
-} from './GraphQL-ConnectedDemo.dynamic.graphql';
+  JssNextWebGraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
+} from './JssNextWeb-GraphQL-ConnectedDemo.dynamic.graphql';
 import { StyleguideComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 

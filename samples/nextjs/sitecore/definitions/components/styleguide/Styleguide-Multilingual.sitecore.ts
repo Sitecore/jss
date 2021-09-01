@@ -7,7 +7,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function StyleguideMultilingual(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'Styleguide-Multilingual',
+    name: 'JssNextWeb-Styleguide-Multilingual',
+    displayName: 'Styleguide-Multilingual',
     icon: SitecoreIcon.FlagGeneric,
     fields: [
       {
@@ -18,6 +19,6 @@ export default function StyleguideMultilingual(manifest: Manifest): void {
     ],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['styleguide-explanatory-component-template'],
+    inherits: ['jssnextweb-styleguide-explanatory-component-template'],
   });
 }
