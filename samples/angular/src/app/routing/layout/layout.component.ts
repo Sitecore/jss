@@ -69,6 +69,6 @@ export class LayoutComponent implements OnInit, OnDestroy {
   onPlaceholderLoaded(placeholderName: string) {
     // you may optionally hook to the loaded event for a placeholder,
     // which can be useful for analytics and other DOM-based things that need to know when a placeholder's content is available.
-    // console.log(`layout.component.ts: placeholder component fired loaded event for the ${placeholderName} placeholder`);
+    console.debug(`layout.component.ts: placeholder component fired loaded event for the ${placeholderName} placeholder`);
   }
 }
