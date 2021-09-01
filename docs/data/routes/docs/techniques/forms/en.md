@@ -19,11 +19,11 @@ Additionally, Sitecore Forms usage in JSS requires functioning session cookies. 
 
 1. [You have SSL enabled for your environment or disabled secure cookies in your Sitecore instance](/docs/nextjs/tracking-and-analytics/configuration#secure-cookies).
 2. For React, you are using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout/sitecore-layout-service).
-3. For Next.js, you are using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout/sitecore-layout-service) and you are server-side rendering the route that displays the form. These are the same requirements to [enable tracking and analytics](/docs/nextjs/tracking-and-analytics/configuration).
+3. For Next.js, you are using the [Sitecore Layout Service REST API](/docs/fundamentals/services/layout/sitecore-layout-service) and you are server-side rendering the route displaying the form. These are the same requirements to [enable tracking and analytics](/docs/nextjs/tracking-and-analytics/configuration).
 
 ### Creating a Sitecore Form
 
-To use a form in JSS, the form must be created in Sitecore. The [Sitecore Forms documentation](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/design-a-form.html) details how to create forms within Sitecore.
+To use a form in JSS, you must create the form in Sitecore. The [Sitecore Forms documentation](https://doc.sitecore.com/users/101/sitecore-experience-platform/en/design-a-form.html) details how to create forms in Sitecore.
 
 For the sake of simplicity, consider starting off with a simple form with a text box and submit button. It's helpful to set the _submit actions_ on the submit button to _Save Data_ and _Redirect to Page_ - without Save Data the form data won't be stored, and without Redirect to Page the form will clear itself on submit but not provide other feedback. Note that in a JSS app, _Redirect to Page_ can easily be accomplished with client-side routing - it need not be an actual reload of the page.
 
@@ -195,7 +195,7 @@ const WrapperComponent = (props) => (
 
 ##### Customizing Labels
 
-You can customize the rendering of field labels. Note that if you are using custom field components (above), those components can ignore the custom label component if they choose to not use the `labelComponent` prop they receive.
+You can customize the rendering of field labels. Note that if you are using custom field components as described in the previous section, those components can ignore the custom label component if they choose to not use the `labelComponent` property they receive.
 
 > The customized label is used only for the primary field label. Checkbox lists and radio button lists will not use this component for the individual labels wrapping each list element.
 
@@ -219,13 +219,12 @@ const LabelComponent = (props) => (
 
 // Usage on form component
 <Form labelComponent={LabelComponent} {...otherProps} />
-```
 
 > Some of the components can contain markup that nested into basic `<Label />` component (for example `<Checkbox />`). In this case you should add `props.children` into markup of `<LabelComponent />`. So in `<Checkbox />` check button will be placed before `props.field.model.title`
 
 ##### Customizing Error Handling
 
-You can customize the behavior of the _form-wide_ error message display, i.e. for submit errors or to summarize validation errors.
+You can customize the behavior of the _form-wide_ error message display, for example for submit errors or to summarize validation errors.
 
 ```jsx
 // sample renders only form-level errors (field errors are ignored)
