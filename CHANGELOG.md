@@ -16,7 +16,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 `[sitecore-jss]` `[sitecore-jss-nextjs]` [Dictionary Service] [Sitemap Service] Provide ability to customize jssAppTemplateId ([#763](https://github.com/Sitecore/jss/pull/763))
 
-`[sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` `[sitecore-jss-angular]` `[sitecore-jss-vue]` `[sitecore-jss-react-native]` Update editing functions for **Horizon** compatibility (backwards compatible) ([#712](https://github.com/Sitecore/jss/pull/712), [#723](https://github.com/Sitecore/jss/pull/723))
+`[sitecore-jss]` Update editing functions for **Horizon** compatibility (backwards compatible) ([#712](https://github.com/Sitecore/jss/pull/712))
 
 `[sitecore-jss-nextjs]`
 * Upgrade to Next.js 11 ([#768](https://github.com/Sitecore/jss/pull/768))
@@ -31,7 +31,6 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 `[samples/nextjs]` `[samples/react]` `[samples/angular]` `[samples/vue]`
 * Remove usage of deprecated `dataApi`. Replaced by `RestLayoutService` and `RestDictionaryService` ([#744](https://github.com/Sitecore/jss/pull/744))
 * More reliable detection of disconnected or connected mode ([#732](https://github.com/Sitecore/jss/pull/732))
-* **Horizon** compatibility ([#712](https://github.com/Sitecore/jss/pull/712), [#752](https://github.com/Sitecore/jss/pull/752))
 
 `[samples/react]` `[samples/angular]` `[samples/vue]`  ([#773](https://github.com/Sitecore/jss/pull/773))
 * Add support for the `--fetchWith` option for `jss create`, which selects REST or GraphQL APIs
@@ -40,7 +39,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 `[samples/nextjs]`
 * Upgrade to Next.js 11 ([#768](https://github.com/Sitecore/jss/pull/768))
-* Styleguide component datasource resiliency ([#723](https://github.com/Sitecore/jss/pull/723))
+* **Horizon** editor compatibility ([#712](https://github.com/Sitecore/jss/pull/712), [#723](https://github.com/Sitecore/jss/pull/723), [#752](https://github.com/Sitecore/jss/pull/752))
 * Enable creating a new app without boilerplate with the `--empty` flag for `jss create` ([#754](https://github.com/Sitecore/jss/pull/754))
 * Enable dynamic component import in sample ([#727](https://github.com/Sitecore/jss/pull/727), [#730](https://github.com/Sitecore/jss/pull/730))
 
