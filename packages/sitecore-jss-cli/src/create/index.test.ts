@@ -4,6 +4,7 @@ import {
   applyNameToPackageJson,
   applyHostNameToSitecoreConfig,
   applyNameReplacement,
+  getGqlFormattedName,
 } from './index';
 
 describe('applyNameReplacement', () => {
@@ -205,5 +206,13 @@ describe('applyHostNameToSitecoreConfig', () => {
     const config = mockConfig();
     const result = applyHostNameToSitecoreConfig(config, 'bar.localhost');
     expect(result).to.match(/<site ((.|\n|\r)*?)hostName="bar.localhost"/, 'site host name');
+  });
+});
+
+describe('getGqlFormattedName', () => {
+  it('should reformat kebab-case to Capitalization case', () => {
+    const result = getGqlFormattedName('my-next-sitecore-app');
+
+    expect(result).to.match(/Mynextsitecoreapp/);
   });
 });

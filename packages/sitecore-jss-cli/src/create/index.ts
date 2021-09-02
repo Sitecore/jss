@@ -25,7 +25,7 @@ export function applyNameReplacement(value: string, replaceName: string, withNam
   const escapeLiteral = (literal: string) => {
     return literal.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
   };
-  return value.replace(RegExp(escapeLiteral(replaceName), 'g'), withName);
+  return value.replace(RegExp(escapeLiteral(replaceName), 'gi'), withName);
 }
 
 /**
@@ -105,4 +105,77 @@ export function applyNameToProject(
 
       fs.writeFileSync(finalConfigFileName, configXml);
     });
+
+  replacePrefix(projectFolder, name, replaceName);
+}
+
+/**
+ * Returns a string formatted to Uppercase and no hyphens
+ * so my-next-sitecore-app becomes Mynextsitecoreapp
+ * @param {string} name
+ */
+export function getGqlFormattedName(name: string): string {
+  let gqlFormattedName: string = name.split('-').join('');
+  gqlFormattedName = gqlFormattedName.charAt(0).toUpperCase() + gqlFormattedName.slice(1);
+
+  return gqlFormattedName;
+}
+
+/**
+ * Called during jss create, this function replaces the sample's prefix with the app's name on Sitecore templates
+ * @param {string} projectFolder Project folder
+ * @param {string} name Name value to replace
+ * @param {string} prefix Prefix of the sample app's template - should match Jss[RAV|Next]Web
+ */
+export function replacePrefix(projectFolder: string, name: string, prefix: string) {
+  glob.sync(path.join(projectFolder, '**/*.*')).forEach((filePath: string) => {
+    if (filePath.match(/data|sitecore\/definitions|src/)) {
+      let fileContents: string = fs.readFileSync(filePath, 'utf8');
+
+      if (filePath.match('routes/graphql') && fileContents.match(`${prefix}-GraphQL`)) {
+        // in this case there are multiple prefixes on the page to replace,
+        // but some should be gqlFormatted and others shouldn't
+        fileContents = applyNameReplacement(
+          fileContents,
+          `${prefix}-GraphQL-IntegratedDemo`,
+          `${getGqlFormattedName(name)}-GraphQL-IntegratedDemo`
+        );
+        fileContents = applyNameReplacement(
+          fileContents,
+          `${prefix}-GraphQL-ConnectedDemo`,
+          `${getGqlFormattedName(name)}-GraphQL-ConnectedDemo`
+        );
+        fileContents = applyNameReplacement(fileContents, prefix, name);
+        fs.writeFileSync(filePath, fileContents);
+        return;
+      }
+
+      if (fileContents.match(/ConnectedDemo|IntegratedDemo/g)) {
+        // this case is for the GraphQL components that need file renames in addition to
+        // the applyNameReplacement
+        fileContents = applyNameReplacement(fileContents, prefix, getGqlFormattedName(name));
+        fs.writeFileSync(filePath, fileContents);
+
+        // need to change filename here because it's imported in another component
+        const newPath: string = applyNameReplacement(filePath, prefix, getGqlFormattedName(name));
+        fs.renameSync(filePath, newPath);
+        if (filePath.match(/GraphQl/)) {
+          fileContents = applyNameReplacement(fileContents, prefix, getGqlFormattedName(name));
+          fs.writeFileSync(filePath, fileContents);
+        }
+        return;
+      }
+
+      if (filePath.includes(`${prefix}-`)) {
+        fileContents = applyNameReplacement(fileContents, prefix, name);
+        fs.writeFileSync(filePath, fileContents);
+        const newPath: string = applyNameReplacement(filePath, prefix, name);
+        fs.renameSync(filePath, newPath);
+        return;
+      }
+
+      fileContents = applyNameReplacement(fileContents, prefix, name);
+      fs.writeFileSync(filePath, fileContents);
+    }
+  });
 }

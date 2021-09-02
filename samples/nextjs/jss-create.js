@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const { strip } = require('@sitecore-jss/sitecore-jss-dev-tools');
-const { applyNameToProject, replacePrefix } = require('@sitecore-jss/sitecore-jss-cli/dist/cjs/create');
+const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/cjs/create');
 const { execSync } = require('child_process');
 
 /**
@@ -21,7 +21,6 @@ module.exports = function createJssProject(argv, nextSteps) {
   console.log(`Executing create script: ${__filename}...`);
 
   applyNameToProject(__dirname, argv.name, argv.hostName, 'JssNextWeb');
-  replacePrefix(__dirname, argv.name, 'JssNextWeb');
 
   if (!argv.fetchWith || !argv.prerender) {
     nextSteps.push(
