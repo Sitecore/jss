@@ -12,12 +12,8 @@ trigger:
   paths:
     include:
     - /
-    exclude:
-    - docs/*
 
 # should trigger builds for PRs targeting any of the listed branches
-# should _not_ trigger builds for PRs that _only_ have changes in the docs folder
-# should trigger builds for PRs that have changes in both docs folder _and_ any other folder besides docs
 pr:
   branches:
     include:
@@ -27,8 +23,6 @@ pr:
   paths:
     include:
     - /
-    exclude:
-    - docs/*
 
 pool:
   # todo: we dgaf what specific version of Linux is installed, is there any way to wildcard the version?
@@ -64,7 +58,7 @@ steps:
     testEnv: 'ci'
   }
   #
-  # LERNA VERSION 
+  # LERNA VERSION
   # * Configure git with a commit user
   # * Update git remote to include a Personal Access Token, so lerna can push
   # * Explicitly check out the current branch since Pipelines will use disconnected HEAD by default
