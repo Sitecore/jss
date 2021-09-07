@@ -38,7 +38,7 @@
     <br />
     children:
     <ul>
-      <li *ngFor="let child of queryResult.data.contextItem.children">
+      <li *ngFor="let child of queryResult.data.contextItem.children.results">
         <a [routerLink]="child.url.path">{{ child.pageTitle.value }}</a>
         (editable title too! <span *scText="child.pageTitle.jsonValue"></span>)
       </li>
