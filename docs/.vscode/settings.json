@@ -1,8 +1,0 @@
-// Place your settings in this file to overwrite default and user settings.
-{
-  "editor.tabSize": 2,
-  "javascript.validate.enable": false,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
-  "editor.detectIndentation": false,
-  "vsicons.presets.angular": false
-}
