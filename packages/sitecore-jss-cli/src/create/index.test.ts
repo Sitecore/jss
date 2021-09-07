@@ -4,7 +4,7 @@ import {
   applyNameToPackageJson,
   applyHostNameToSitecoreConfig,
   applyNameReplacement,
-  getGqlFormattedName,
+  getPascalCaseName,
 } from './index';
 
 describe('applyNameReplacement', () => {
@@ -209,10 +209,16 @@ describe('applyHostNameToSitecoreConfig', () => {
   });
 });
 
-describe('getGqlFormattedName', () => {
-  it('should reformat kebab-case to Capitalization case', () => {
-    const result = getGqlFormattedName('my-next-sitecore-app');
+describe('getPascalCaseName', () => {
+  it('should reformat kebab-case to PascalCase', () => {
+    const result = getPascalCaseName('my-next-sitecore-app');
 
-    expect(result).to.match(/Mynextsitecoreapp/);
+    expect(result).to.match(/MyNextSitecoreApp/);
+  });
+
+  it('should reformat one word lowercase app name to be capitalized', () => {
+    const result = getPascalCaseName('onewordappnamenohyphen');
+
+    expect(result).to.match(/Onewordappnamenohyphen/);
   });
 });

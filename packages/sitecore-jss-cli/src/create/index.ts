@@ -25,7 +25,7 @@ export function applyNameReplacement(value: string, replaceName: string, withNam
   const escapeLiteral = (literal: string) => {
     return literal.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
   };
-  return value.replace(RegExp(escapeLiteral(replaceName), 'gi'), withName);
+  return value.replace(RegExp(escapeLiteral(replaceName), 'g'), withName);
 }
 
 /**
@@ -110,15 +110,14 @@ export function applyNameToProject(
 }
 
 /**
- * Returns a string formatted to Uppercase and no hyphens
- * so my-next-sitecore-app becomes Mynextsitecoreapp
+ * Returns a string formatted to PascalCase
+ * my-next-sitecore-app becomes MyNextSitecoreApp
  * @param {string} name
  */
-export function getGqlFormattedName(name: string): string {
-  let gqlFormattedName: string = name.split('-').join('');
-  gqlFormattedName = gqlFormattedName.charAt(0).toUpperCase() + gqlFormattedName.slice(1);
-
-  return gqlFormattedName;
+export function getPascalCaseName(name: string): string {
+  const temp: string[] = name.split('-');
+  name = temp.map((item: string) => (item = item.charAt(0).toUpperCase() + item.slice(1))).join('');
+  return name;
 }
 
 /**
@@ -128,54 +127,18 @@ export function getGqlFormattedName(name: string): string {
  * @param {string} prefix Prefix of the sample app's template - should match Jss[RAV|Next]Web
  */
 export function replacePrefix(projectFolder: string, name: string, prefix: string) {
-  glob.sync(path.join(projectFolder, '**/*.*')).forEach((filePath: string) => {
-    if (filePath.match(/data|sitecore\/definitions|src/)) {
+  console.log(chalk.cyan(`Replacing template prefix with ${getPascalCaseName(name)}`));
+  glob
+    .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'))
+    .forEach((filePath: string) => {
       let fileContents: string = fs.readFileSync(filePath, 'utf8');
 
-      if (filePath.match('routes/graphql') && fileContents.match(`${prefix}-GraphQL`)) {
-        // in this case there are multiple prefixes on the page to replace,
-        // but some should be gqlFormatted and others shouldn't
-        fileContents = applyNameReplacement(
-          fileContents,
-          `${prefix}-GraphQL-IntegratedDemo`,
-          `${getGqlFormattedName(name)}-GraphQL-IntegratedDemo`
-        );
-        fileContents = applyNameReplacement(
-          fileContents,
-          `${prefix}-GraphQL-ConnectedDemo`,
-          `${getGqlFormattedName(name)}-GraphQL-ConnectedDemo`
-        );
-        fileContents = applyNameReplacement(fileContents, prefix, name);
-        fs.writeFileSync(filePath, fileContents);
-        return;
-      }
-
-      if (fileContents.match(/ConnectedDemo|IntegratedDemo/g)) {
-        // this case is for the GraphQL components that need file renames in addition to
-        // the applyNameReplacement
-        fileContents = applyNameReplacement(fileContents, prefix, getGqlFormattedName(name));
-        fs.writeFileSync(filePath, fileContents);
-
-        // need to change filename here because it's imported in another component
-        const newPath: string = applyNameReplacement(filePath, prefix, getGqlFormattedName(name));
-        fs.renameSync(filePath, newPath);
-        if (filePath.match(/GraphQl/)) {
-          fileContents = applyNameReplacement(fileContents, prefix, getGqlFormattedName(name));
-          fs.writeFileSync(filePath, fileContents);
-        }
-        return;
-      }
-
-      if (filePath.includes(`${prefix}-`)) {
-        fileContents = applyNameReplacement(fileContents, prefix, name);
-        fs.writeFileSync(filePath, fileContents);
-        const newPath: string = applyNameReplacement(filePath, prefix, name);
-        fs.renameSync(filePath, newPath);
-        return;
-      }
-
-      fileContents = applyNameReplacement(fileContents, prefix, name);
+      // replace prefix with pascal case app name
+      fileContents = applyNameReplacement(fileContents, prefix, getPascalCaseName(name));
       fs.writeFileSync(filePath, fileContents);
-    }
-  });
+
+      // "" on the filename
+      const newPath: string = applyNameReplacement(filePath, prefix, getPascalCaseName(name));
+      fs.renameSync(filePath, newPath);
+    });
 }
