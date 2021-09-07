@@ -13,6 +13,6 @@ export default function StyleguideFieldUsageFile(manifest: Manifest): void {
     fields: [{ name: 'file', type: CommonFieldTypes.File }],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['jssnextweb-styleguide-explanatory-component-template'],
+    inherits: ['JssNextWeb-styleguide-explanatory-component-template'],
   });
 }

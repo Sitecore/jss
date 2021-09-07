@@ -12,7 +12,7 @@ export default function StyleguideExplanatoryComponent(manifest: Manifest): void
   manifest.addTemplate({
     name: 'JssNextWeb-Styleguide-Explanatory-Component',
     displayName: 'Styleguide-Explanatory-Component-Template',
-    id: 'jssnextweb-styleguide-explanatory-component-template',
+    id: 'JssNextWeb-styleguide-explanatory-component-template',
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
       { name: 'description', type: CommonFieldTypes.RichText },
