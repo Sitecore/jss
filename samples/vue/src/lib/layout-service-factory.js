@@ -4,7 +4,7 @@ import config from '../temp/config';
 export class LayoutServiceFactory {
   create() {
     return new RestLayoutService({
-      endpoint: config.graphQLEndpoint,
+      apiHost: config.sitecoreApiHost,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
       configurationName: 'default',
