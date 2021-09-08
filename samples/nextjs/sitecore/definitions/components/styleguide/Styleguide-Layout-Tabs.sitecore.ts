@@ -7,11 +7,12 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  */
 export default function StyleguideLayoutTabs(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'Styleguide-Layout-Tabs',
+    name: 'JssNextWeb-Styleguide-Layout-Tabs',
+    displayName: 'Styleguide-Layout-Tabs',
     icon: SitecoreIcon.DocumentTag,
     placeholders: ['jss-tabs'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['styleguide-explanatory-component-template'],
+    inherits: ['JssNextWeb-styleguide-explanatory-component-template'],
   });
 }

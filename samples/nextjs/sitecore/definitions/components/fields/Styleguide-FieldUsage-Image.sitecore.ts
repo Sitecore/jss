@@ -7,7 +7,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function StyleguideFieldUsageImage(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'Styleguide-FieldUsage-Image',
+    name: 'JssNextWeb-Styleguide-FieldUsage-Image',
+    displayName: 'Styleguide-FieldUsage-Image',
     icon: SitecoreIcon.PhotoPortrait,
     fields: [
       { name: 'sample1', type: CommonFieldTypes.Image },
@@ -15,6 +16,6 @@ export default function StyleguideFieldUsageImage(manifest: Manifest): void {
     ],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['styleguide-explanatory-component-template'],
+    inherits: ['JssNextWeb-styleguide-explanatory-component-template'],
   });
 }

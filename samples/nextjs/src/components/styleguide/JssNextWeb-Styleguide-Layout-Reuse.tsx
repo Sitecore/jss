@@ -1,5 +1,5 @@
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import StyleguideSpecimen from './JssNextWeb-Styleguide-Specimen';
 import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
 type StyleguideLayoutReuseProps = StyleguideComponentProps & StyleguideSpecimenFields;

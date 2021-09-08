@@ -20,7 +20,7 @@ fields:
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
   jss-main:
-    - componentName: ContentBlock
+    - componentName: JssNextWeb-ContentBlock
       fields:
         heading: Welcome to Sitecore JSS
         # to author content in YAML, use _multi-line values_ (prefixed with | + endline)

@@ -7,7 +7,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function ContentBlock(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'ContentBlock',
+    name: 'JssNextWeb-ContentBlock',
     displayName: 'Content Block',
     // totally optional, but fun
     icon: SitecoreIcon.DocumentTag,
