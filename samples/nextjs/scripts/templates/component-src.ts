@@ -16,7 +16,7 @@ type ${componentName}Props = StyleguideComponentProps & {
 const ${componentName} = (props: ${componentName}Props): JSX.Element => (
   <div>
     <p>${componentName} Component</p>
-    <Text field={props.fields.heading} />
+    <Text field={props.fields?.heading} />
   </div>
 );
 
