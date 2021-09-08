@@ -93,6 +93,7 @@
     "@sitecore-jss/sitecore-jss-cli": "^19.0.0-canary.56",
     "@sitecore-jss/sitecore-jss-dev-tools": "^19.0.0-canary.56",
     "@sitecore-jss/sitecore-jss-manifest": "^19.0.0-canary.56",
+    "@types/isomorphic-fetch": "0.0.35",
     "@types/jasmine": "~3.6.7",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~12.7.9",
