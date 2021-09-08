@@ -2,7 +2,7 @@ fields:
   pageTitle: Sample 2 Page Title
 placeholders:
   jss-main:
-  - componentName: ContentBlock
+  - componentName: JssReactWeb-ContentBlock
     fields:
       heading: GraphQL Sample 2
       content: |

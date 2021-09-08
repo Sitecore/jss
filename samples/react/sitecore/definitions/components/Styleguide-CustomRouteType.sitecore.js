@@ -14,7 +14,8 @@ export default function (manifest) {
   // article sections, where you may wish to use route-level fields for
   // _sorting and filtering_ (it's difficult to query on component-level field data).
   manifest.addRouteType({
-    name: 'ExampleCustomRouteType',
+    name: 'JssReactWeb-ExampleCustomRouteType',
+    displayName: 'ExampleCustomRouteType',
     fields: [
       { name: 'headline', type: CommonFieldTypes.SingleLineText },
       { name: 'author', type: CommonFieldTypes.SingleLineText },
@@ -25,7 +26,8 @@ export default function (manifest) {
   // We're also adding a component, that we can put on our sample custom route type route.
   // This component will display the route level fields on the custom route type.
   manifest.addComponent({
-    name: 'Styleguide-CustomRouteType',
+    name: 'JssReactWeb-Styleguide-CustomRouteType',
+    displayName: 'Styleguide-CustomRouteType',
     icon: SitecoreIcon.DocumentTag,
   });
 }

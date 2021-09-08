@@ -8,13 +8,14 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'Styleguide-RouteFields',
+    name: 'JssReactWeb-Styleguide-RouteFields',
+    displayName: 'Styleguide-RouteFields',
     icon: SitecoreIcon.TextField,
     // this component gets all of its fields from the _route_,
     // so it does not need any local fields defined.
 
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['styleguide-explanatory-component-template'],
+    inherits: ['JssReactWeb-styleguide-explanatory-component-template'],
   });
 }

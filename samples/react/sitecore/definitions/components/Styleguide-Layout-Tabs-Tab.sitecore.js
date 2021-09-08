@@ -8,7 +8,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'Styleguide-Layout-Tabs-Tab',
+    name: 'JssReactWeb-Styleguide-Layout-Tabs-Tab',
+    displayName: 'Styleguide-Layout-Tabs-Tab',
     icon: SitecoreIcon.TabPane,
     fields: [
       { name: 'title', type: CommonFieldTypes.SingleLineText },

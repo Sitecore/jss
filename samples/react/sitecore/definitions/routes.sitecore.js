@@ -23,7 +23,8 @@ export default function addRoutesToManifest(manifest) {
   const appTemplateSection = 'Page Metadata';
 
   manifest.setDefaultRouteType({
-    name: 'App Route',
+    name: 'JssReactWeb-App Route',
+    displayName: 'App Route',
     fields: [
       {
         name: 'pageTitle',
@@ -32,7 +33,7 @@ export default function addRoutesToManifest(manifest) {
         type: CommonFieldTypes.SingleLineText,
       },
     ],
-    insertOptions: ['App Route'],
+    insertOptions: ['JssReactWeb-App Route'],
   });
 
   return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)
