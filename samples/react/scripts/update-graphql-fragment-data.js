@@ -1,8 +1,8 @@
 /* eslint-disable no-console, no-underscore-dangle */
 
-import fetch from 'cross-fetch';
-import fs from 'fs';
-import generateConfig from './generate-config';
+const fetch = require('cross-fetch');
+const fs = require('fs');
+const generateConfig = require('./generate-config');
 
 // Apollo Client supports caching GraphQL responses, which can greatly reduce network traffic needs.
 // In order to work correctly with interfaces in GraphQL, it needs to know some basic information about
@@ -17,7 +17,7 @@ let jssConfig;
 
 try {
   // eslint-disable-next-line global-require
-  jssConfig = require('../src/temp/config').default;
+  jssConfig = require('../src/temp/config');
 } catch (e) {
   console.error(
     'Unable to require JSS config. Ensure `jss setup` has been run, and the app has been started at least once after setup.'
@@ -30,7 +30,7 @@ console.log(`Updating GraphQL fragment type data from ${jssConfig.graphQLEndpoin
 
 fetch(jssConfig.graphQLEndpoint, {
   method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+  headers: { 'Content-Type': 'application/json', sc_apikey: jssConfig.sitecoreApiKey },
   body: JSON.stringify({
     query: `
       {
