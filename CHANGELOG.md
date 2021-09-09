@@ -63,6 +63,8 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 `[samples/angular]` Fix issue where dk-DA language is not rendered in connected and disconnected mode ([#734](https://github.com/Sitecore/jss/pull/734))
 
+`[samples/react]` Fix 504 (Gateway Timeout) errors for proxied Sitecore requests (visitor identification, media, etc) when running in connected mode ([#808](https://github.com/Sitecore/jss/pull/808))
+
 ### Breaking Changes
 
 `[sitecore-jss]` `[sitecore-jss-vue]` `[sitecore-jss-react-native]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` Remove deprecated `dataApi` ([#744](https://github.com/Sitecore/jss/pull/744))

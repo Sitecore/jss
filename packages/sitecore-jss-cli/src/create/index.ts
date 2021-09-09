@@ -65,14 +65,14 @@ export function applyHostNameToSitecoreConfig(configXml: string, hostName: strin
  * @param {string} name App name
  * @param {string} hostName App hostname
  * @param {string} replaceName Name value to replace
- * @param {string} withPrefix Option to pass to replacePrefix - defaults to false
+ * @param {boolean} withPrefix Option to pass to replacePrefix - defaults to false
  */
 export function applyNameToProject(
   projectFolder: string,
   name: string,
   hostName: string,
   replaceName: string,
-  withPrefix?: string
+  withPrefix?: boolean
 ) {
   // Apply name to package.json file
   console.log(chalk.cyan(`Applying name ${name} to package.json...`));
@@ -127,20 +127,19 @@ export function getPascalCaseName(name: string): string {
  * @param {string} projectFolder Project folder
  * @param {string} name Name value to replace
  * @param {string} prefix Prefix of the sample app's template - should match Jss[RAV|Next]Web
- * @param {string} withPrefix if true, replaces prefix with app name in PascalCase,
+ * @param {boolean} withPrefix if true, replaces prefix with app name in PascalCase,
  * otherwise strip the prefix
  */
 export function replacePrefix(
   projectFolder: string,
   name: string,
   prefix: string,
-  withPrefix?: string
+  withPrefix?: boolean
 ) {
-  const value: boolean = withPrefix?.toLowerCase() === 'true' ? true : false;
+  const value: boolean = withPrefix === true ? true : false;
 
   if (!value) {
     console.log(chalk.cyan('Removing template prefix...'));
-    name = '';
     const prefixWithHyphen = prefix + '-';
     glob
       .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'))
@@ -148,14 +147,14 @@ export function replacePrefix(
         let fileContents: string = fs.readFileSync(filePath, 'utf8');
 
         // remove prefix
-        fileContents = applyNameReplacement(fileContents, prefixWithHyphen, name);
+        fileContents = applyNameReplacement(fileContents, prefixWithHyphen, '');
         // need to call applyNameReplacement again with original prefix
         // to account for GraphQL queries and associated components
-        fileContents = applyNameReplacement(fileContents, prefix, name);
+        fileContents = applyNameReplacement(fileContents, prefix, '');
         fs.writeFileSync(filePath, fileContents);
 
         // remove prefix on the filename
-        const newPath: string = applyNameReplacement(filePath, prefixWithHyphen, name);
+        const newPath: string = applyNameReplacement(filePath, prefixWithHyphen, '');
         fs.renameSync(filePath, newPath);
       });
     return;

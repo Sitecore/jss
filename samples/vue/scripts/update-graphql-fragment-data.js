@@ -30,7 +30,7 @@ console.log(`Updating GraphQL fragment type data from ${jssConfig.graphQLEndpoin
 
 fetch(jssConfig.graphQLEndpoint, {
   method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+  headers: { 'Content-Type': 'application/json', sc_apikey: jssConfig.sitecoreApiKey },
   body: JSON.stringify({
     query: `
       {
