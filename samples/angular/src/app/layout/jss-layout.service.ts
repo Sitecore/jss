@@ -4,7 +4,7 @@ import {
   LayoutServiceContextData,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { from as fromPromise, Observable, throwError as observableThrow } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { layoutServiceFactory } from '../lib/layout-service-factory';
 
 const layoutServiceInstance = layoutServiceFactory.create();
@@ -22,11 +22,25 @@ export class JssLayoutService {
     language: string
   ): Observable<LayoutServiceData | LayoutServiceError> {
     return fromPromise(layoutServiceInstance.fetchLayoutData(route, language)).pipe(
+      map(routeData => {
+        if (!routeData.sitecore.route) {
+          // A missing route value signifies an invalid path, so simulate Not Found error
+          const error = new LayoutServiceError();
+          error.status = 404;
+          error.statusText = 'Not Found';
+          error.data = routeData;
+          throw error;
+        }
+        return routeData;
+      }),
       catchError(this.getLayoutServiceError)
     );
   }
 
   private getLayoutServiceError(error: { [key: string]: unknown }): Observable<LayoutServiceError> {
+    if (error instanceof LayoutServiceError) {
+      return observableThrow(error);
+    }
     const layoutServiceError = new LayoutServiceError();
     const response = error.response as { status: number; statusText: string; data: unknown };
     if (response) {
