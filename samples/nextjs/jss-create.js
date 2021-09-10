@@ -20,7 +20,7 @@ const { execSync } = require('child_process');
 module.exports = function createJssProject(argv, nextSteps) {
   console.log(`Executing create script: ${__filename}...`);
 
-  applyNameToProject(__dirname, argv.name, argv.hostName, 'JssNextWeb', argv.prefix);
+  applyNameToProject(__dirname, argv.name, argv.hostName, 'JssNextWeb', Boolean(argv.prefix));
 
   if (!argv.fetchWith || !argv.prerender) {
     nextSteps.push(
