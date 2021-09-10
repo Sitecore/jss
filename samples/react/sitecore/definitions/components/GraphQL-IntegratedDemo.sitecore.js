@@ -14,8 +14,8 @@ const query = fs.readFileSync(
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'JssReactWeb-GraphQL-IntegratedDemo',
-    displayName: 'GraphQL-IntegratedDemo',
+    name: 'GraphQL-IntegratedDemo',
+    templateName: 'JssReactWeb-GraphQL-IntegratedDemo',
     icon: SitecoreIcon.GraphConnection_directed,
     graphQLQuery: query,
     fields: [

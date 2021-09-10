@@ -8,8 +8,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'JssReactWeb-Styleguide-Multilingual',
-    displayName: 'Styleguide-Multilingual',
+    name: 'Styleguide-Multilingual',
+    templateName: 'JssReactWeb-Styleguide-Multilingual',
     icon: SitecoreIcon.FlagGeneric,
     fields: [
       {

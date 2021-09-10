@@ -8,8 +8,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'JssReactWeb-Styleguide-FieldUsage-File',
-    displayName: 'Styleguide-FieldUsage-File',
+    name: 'Styleguide-FieldUsage-File',
+    templateName: 'JssReactWeb-Styleguide-FieldUsage-File',
     icon: SitecoreIcon.FloppyDisk,
     fields: [{ name: 'file', type: CommonFieldTypes.File }],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)

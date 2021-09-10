@@ -14,8 +14,8 @@ export default function (manifest) {
   // article sections, where you may wish to use route-level fields for
   // _sorting and filtering_ (it's difficult to query on component-level field data).
   manifest.addRouteType({
-    name: 'JssReactWeb-ExampleCustomRouteType',
-    displayName: 'ExampleCustomRouteType',
+    name: 'ExampleCustomRouteType',
+    templateName: 'JssReactWeb-ExampleCustomRouteType',
     fields: [
       { name: 'headline', type: CommonFieldTypes.SingleLineText },
       { name: 'author', type: CommonFieldTypes.SingleLineText },

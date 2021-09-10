@@ -8,8 +8,8 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'JssReactWeb-Styleguide-RouteFields',
-    displayName: 'Styleguide-RouteFields',
+    name: 'Styleguide-RouteFields',
+    templateName: 'JssReactWeb-Styleguide-RouteFields',
     icon: SitecoreIcon.TextField,
     // this component gets all of its fields from the _route_,
     // so it does not need any local fields defined.

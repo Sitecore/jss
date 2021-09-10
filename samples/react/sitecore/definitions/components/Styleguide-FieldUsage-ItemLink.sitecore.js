@@ -9,8 +9,8 @@ import packageJson from '../../../package.json';
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'JssReactWeb-Styleguide-FieldUsage-ItemLink',
-    displayName: 'Styleguide-FieldUsage-ItemLink',
+    name: 'Styleguide-FieldUsage-ItemLink',
+    templateName: 'JssReactWeb-Styleguide-FieldUsage-ItemLink',
     icon: SitecoreIcon.Link,
     fields: [
       {

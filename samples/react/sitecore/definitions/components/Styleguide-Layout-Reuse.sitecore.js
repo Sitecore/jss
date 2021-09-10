@@ -8,8 +8,8 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'JssReactWeb-Styleguide-Layout-Reuse',
-    displayName: 'Styleguide-Layout-Reuse',
+    name: 'Styleguide-Layout-Reuse',
+    templateName: 'JssReactWeb-Styleguide-Layout-Reuse',
     icon: SitecoreIcon.DocumentsExchange,
     placeholders: ['jss-reuse-example'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)

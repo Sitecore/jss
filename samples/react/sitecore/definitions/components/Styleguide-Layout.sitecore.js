@@ -8,8 +8,8 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'JssReactWeb-Styleguide-Layout',
-    displayName: 'Styleguide-Layout',
+    name: 'Styleguide-Layout',
+    templateName: 'JssReactWeb-Styleguide-Layout',
     icon: SitecoreIcon.Layout,
     placeholders: ['jss-styleguide-layout'],
   });

@@ -24,7 +24,6 @@ export default function addRoutesToManifest(manifest) {
 
   manifest.setDefaultRouteType({
     name: 'JssReactWeb-App Route',
-    displayName: 'App Route',
     fields: [
       {
         name: 'pageTitle',

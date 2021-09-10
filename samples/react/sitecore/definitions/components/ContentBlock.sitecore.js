@@ -8,8 +8,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'JssReactWeb-ContentBlock',
-    displayName: 'Content Block',
+    name: 'Content Block',
+    templateName: 'JssReactWeb-ContentBlock',
     // totally optional, but fun
     icon: SitecoreIcon.DocumentTag,
     fields: [

@@ -8,8 +8,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'JssReactWeb-Styleguide-FieldUsage-RichText',
-    displayName: 'Styleguide-FieldUsage-RichText',
+    name: 'Styleguide-FieldUsage-RichText',
+    templateName: 'JssReactWeb-Styleguide-FieldUsage-RichText',
     icon: SitecoreIcon.TextField,
     fields: [
       { name: 'sample', type: CommonFieldTypes.RichText },

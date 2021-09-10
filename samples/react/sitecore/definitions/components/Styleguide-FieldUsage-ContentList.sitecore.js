@@ -9,8 +9,8 @@ import packageJson from '../../../package.json';
  */
 export default function (manifest) {
   manifest.addComponent({
-    name: 'JssReactWeb-Styleguide-FieldUsage-ContentList',
-    displayName: 'Styleguide-FieldUsage-ContentList',
+    name: 'Styleguide-FieldUsage-ContentList',
+    templateName: 'JssReactWeb-Styleguide-FieldUsage-ContentList',
     icon: SitecoreIcon.ListStyle_numbered,
     fields: [
       {
