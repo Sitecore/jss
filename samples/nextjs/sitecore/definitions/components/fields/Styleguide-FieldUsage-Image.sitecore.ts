@@ -7,8 +7,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function StyleguideFieldUsageImage(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-FieldUsage-Image',
-    displayName: 'Styleguide-FieldUsage-Image',
+    name: 'Styleguide-FieldUsage-Image',
+    templateName: 'JssNextWeb-Styleguide-FieldUsage-Image',
     icon: SitecoreIcon.PhotoPortrait,
     fields: [
       { name: 'sample1', type: CommonFieldTypes.Image },

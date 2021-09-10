@@ -13,8 +13,8 @@ const query = fs.readFileSync(
  */
 export default function GraphQLIntegratedDemo(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-GraphQL-IntegratedDemo',
-    displayName: 'GraphQL-IntegratedDemo',
+    name: 'GraphQL-IntegratedDemo',
+    templateName: 'JssNextWeb-GraphQL-IntegratedDemo',
     icon: SitecoreIcon.GraphConnection_directed,
     graphQLQuery: query,
     fields: [

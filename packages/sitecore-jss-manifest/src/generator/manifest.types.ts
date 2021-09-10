@@ -263,6 +263,11 @@ export interface ComponentDefinition {
    */
   templateId?: string;
   /**
+   * Optionally specify a name used when importing the datasource template item for this component.
+   * For Sitecore developers only.
+   */
+  templateName?: string;
+  /**
    * The path or GUID of a Sitecore workflow to assign to the component's data.
    * For Sitecore developers only.
    */

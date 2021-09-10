@@ -8,8 +8,8 @@ import packageJson from '../../../../package.json';
  */
 export default function StyleguideFieldUsageContentList(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-FieldUsage-ContentList',
-    displayName: 'Styleguide-FieldUsage-ContentList',
+    name: 'Styleguide-FieldUsage-ContentList',
+    templateName: 'JssNextWeb-Styleguide-FieldUsage-ContentList',
     icon: SitecoreIcon.ListStyle_numbered,
     fields: [
       {

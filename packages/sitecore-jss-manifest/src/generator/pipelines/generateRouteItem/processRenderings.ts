@@ -8,7 +8,7 @@ import {
   ItemDefinition,
   ItemReference,
 } from '../../manifest.types';
-import { convertComponentDataToFields, validateFieldDefinitions } from '../../utils';
+import { convertComponentDataToFields, validateFieldDefinitions, findComponent } from '../../utils';
 
 const JSS_UUID_NAMESPACE = '0e52892a-f862-4d08-9487-987617b637cd';
 
@@ -68,7 +68,7 @@ const generateRenderingParams = (component: any, rendering: any) => {
 };
 
 const generateFields = (
-  component: ComponentDefinition,
+  component: ComponentDefinition | undefined,
   rendering: ComponentInstanceDefinition,
   dataSourceItem: ItemDefinition,
   allComponents: ComponentDefinition[]
@@ -117,27 +117,30 @@ const generateChildrenFields = (children: Array<ItemDefinition | ItemReference>)
   return result;
 };
 
-const createDataSourceItem = ({
-  rendering,
-  datasourceNamer,
-  datasourceDisplayNamer,
-  ...context
-}: {
-  [key: string]: any;
-  rendering: any;
-  datasourceNamer: (options: {
-    item: any;
-    placeholder: any;
+const createDataSourceItem = (
+  {
+    rendering,
+    datasourceNamer,
+    datasourceDisplayNamer,
+    ...context
+  }: {
+    [key: string]: any;
     rendering: any;
-    index: number;
-  }) => string;
-  datasourceDisplayNamer: (options: {
-    item: any;
-    placeholder: any;
-    rendering: any;
-    index: number;
-  }) => string;
-}) => {
+    datasourceNamer: (options: {
+      item: any;
+      placeholder: any;
+      rendering: any;
+      index: number;
+    }) => string;
+    datasourceDisplayNamer: (options: {
+      item: any;
+      placeholder: any;
+      rendering: any;
+      index: number;
+    }) => string;
+  },
+  component?: ComponentDefinition
+) => {
   // rendering is an ID reference, not a whole rendering, so this will come from elsewhere
   // UNLESS it's a copy - in which case we still want it to get named as a local DS item
   if (!rendering.componentName && rendering.id && !rendering.copy) {
@@ -155,7 +158,7 @@ const createDataSourceItem = ({
   const result = {
     name,
     displayName,
-    template: rendering.componentName,
+    template: component?.templateName || component?.name || rendering.componentName,
     ...rendering,
   };
 
@@ -203,9 +206,7 @@ const processRendering = (
   context: GenerateRouteItemPipelineArgs
 ) => {
   const newContext = { ...context, rendering, index };
-  const dsItem = createDataSourceItem(newContext);
-
-  const component = context.componentFactory(context.components, rendering.componentName);
+  const component = findComponent(rendering.componentName, context.components);
   // check for component def, as long as the component isn't an id-only ref
   // (defines id but not name)
   if (!component && rendering.componentName) {
@@ -213,6 +214,8 @@ const processRendering = (
       `The component '${rendering.componentName}' used on route '${context.route.name}' was not defined in the manifest. Please define this component with 'manifest.addComponent()', or change the name to an existing component name.`
     );
   }
+
+  const dsItem = createDataSourceItem(newContext, component);
 
   const renderingParams = generateRenderingParams(component, rendering);
 

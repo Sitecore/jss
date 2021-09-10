@@ -2,7 +2,7 @@ fields:
   pageTitle: Styleguide | Sitecore JSS
 placeholders:
   jss-main:
-  - componentName: JssNextWeb-ContentBlock
+  - componentName: ContentBlock
     fields:
       heading: JSS Styleguide
       content: |
@@ -11,15 +11,15 @@ placeholders:
           Use the <a href="/en/styleguide">English version</a> for full content.
         </div>
         <p>Indholdet og layoutet på denne side er defineret i <code>/data/routes/styleguide/da-DK.yml</code></p>
-  - componentName: JssNextWeb-Styleguide-Layout
+  - componentName: Styleguide-Layout
     placeholders:
       jss-styleguide-layout:
-      - componentName: JssNextWeb-Styleguide-Section
+      - componentName: Styleguide-Section
         fields:
           heading: Flersprogede mønstre
         placeholders:
           jss-styleguide-section:
-          - componentName: JssNextWeb-Styleguide-Multilingual
+          - componentName: Styleguide-Multilingual
             fields:
               heading: Brug af ordbogen
               sample: Denne tekst kan oversættes til da-DK.yml

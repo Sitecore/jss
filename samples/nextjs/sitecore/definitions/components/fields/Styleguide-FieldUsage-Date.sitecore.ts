@@ -7,8 +7,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function StyleguideFieldUsageDate(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-FieldUsage-Date',
-    displayName: 'Styleguide-FieldUsage-Date',
+    name: 'Styleguide-FieldUsage-Date',
+    templateName: 'JssNextWeb-Styleguide-FieldUsage-Date',
     icon: SitecoreIcon.Clock,
     fields: [
       { name: 'date', type: CommonFieldTypes.Date },

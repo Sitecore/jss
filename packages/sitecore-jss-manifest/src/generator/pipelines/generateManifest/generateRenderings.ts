@@ -3,7 +3,7 @@ import {
   RenderingParameterDefinition,
   CommonFieldTypes,
 } from '../../manifest.types';
-import { checkUnique } from '../../utils';
+import { checkUnique, findTemplateForComponent } from '../../utils';
 
 const getExposedPlaceholders = (component: any) => {
   if (!Array.isArray(component.placeholders)) {
@@ -18,17 +18,6 @@ const getExposedPlaceholders = (component: any) => {
   });
 };
 
-const getDataSourceTemplate = (component: any, templates: any) => {
-  if (Array.isArray(templates)) {
-    return templates.reduce(
-      (result, template) => (template.name === component.name ? template.name : result),
-      ''
-    );
-  }
-
-  return '';
-};
-
 const generateRenderings = ({ components, templates }: { components: any; templates: any }) =>
   components.map((component: any) => {
     const { renderingId, ...rendering } = component;
@@ -38,13 +27,16 @@ const generateRenderings = ({ components, templates }: { components: any; templa
     }
 
     delete rendering.templateId;
+    delete rendering.templateName;
     delete rendering.fields;
     delete rendering.placeholders;
     delete rendering.inherits;
     delete rendering.insertOptions;
 
     rendering.exposedPlaceholders = getExposedPlaceholders(component);
-    rendering.dataSourceTemplate = getDataSourceTemplate(component, templates);
+
+    const template = findTemplateForComponent(component, templates);
+    rendering.dataSourceTemplate = template?.name || '';
 
     // params can be an array of strings or of RenderingParameterDefinition-s
     // we normalize that into an object format for the manifest for easier ingestion

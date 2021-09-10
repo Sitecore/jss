@@ -1,6 +1,7 @@
 import { createIdMapping } from '../../createIdMapping';
-import { GeneratePipelineArgs, ManifestInstance } from '../../manifest.types';
+import { ComponentDefinition, GeneratePipelineArgs, ManifestInstance } from '../../manifest.types';
 import { traverseAllItems } from '../../traversal';
+import { findComponentForTemplate } from '../../utils';
 
 // expands content or renderings referenced by ID in the manifest source
 // into the manifest. Only items with 'copy:true' are normally fully expanded.
@@ -8,8 +9,9 @@ import { traverseAllItems } from '../../traversal';
 
 /**
  * @param {ManifestInstance} manifest
+ * @param {ComponentDefinition[]} components
  */
-function expandReferencedContent(manifest: ManifestInstance) {
+function expandReferencedContent(manifest: ManifestInstance, components: ComponentDefinition[]) {
   // because of transitive references we may need to make multiple expand passes
   let expandedItems = false;
 
@@ -39,7 +41,8 @@ function expandReferencedContent(manifest: ManifestInstance) {
 
       // change 'template' (for items) to 'renderingName' (for renderings)
       if (expandedRef.template) {
-        expandedRef.renderingName = expandedRef.template;
+        const component = findComponentForTemplate(expandedRef.template, components);
+        expandedRef.renderingName = component?.name || expandedRef.template;
 
         // we do want 'template' under dataSource, though
         expandedRef.dataSource.template = expandedRef.template;
@@ -135,14 +138,14 @@ function expandReferencedContent(manifest: ManifestInstance) {
   // this allows us to follow transitive references (e.g. 'A' refs 'B', but 'B' refs 'C';
   // the copy of 'C' in 'A' will need a second pass depending on the order of expansion)
   if (expandedItems) {
-    expandReferencedContent(manifest);
+    expandReferencedContent(manifest, components);
   }
 }
 
 export default (args: GeneratePipelineArgs) => {
-  const { pipelineResult: manifest } = args;
+  const { pipelineResult: manifest, components } = args;
 
-  expandReferencedContent(manifest);
+  expandReferencedContent(manifest, components);
 
   return args;
 };
