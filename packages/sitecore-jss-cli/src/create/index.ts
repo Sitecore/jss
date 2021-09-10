@@ -152,10 +152,6 @@ export function replacePrefix(
         // to account for GraphQL queries and associated components
         fileContents = applyNameReplacement(fileContents, prefix, '');
         fs.writeFileSync(filePath, fileContents);
-
-        // remove prefix on the filename
-        const newPath: string = applyNameReplacement(filePath, prefixWithHyphen, '');
-        fs.renameSync(filePath, newPath);
       });
     return;
   }
@@ -169,9 +165,5 @@ export function replacePrefix(
       // replace prefix with pascal case app name
       fileContents = applyNameReplacement(fileContents, prefix, getPascalCaseName(name));
       fs.writeFileSync(filePath, fileContents);
-
-      // "" on the filename
-      const newPath: string = applyNameReplacement(filePath, prefix, getPascalCaseName(name));
-      fs.renameSync(filePath, newPath);
     });
 }
