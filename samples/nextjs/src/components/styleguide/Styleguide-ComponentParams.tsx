@@ -1,4 +1,4 @@
-import StyleguideSpecimen from './JssNextWeb-Styleguide-Specimen';
+import StyleguideSpecimen from './Styleguide-Specimen';
 import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
 type StyleguideComponentParamsProps = StyleguideComponentProps &

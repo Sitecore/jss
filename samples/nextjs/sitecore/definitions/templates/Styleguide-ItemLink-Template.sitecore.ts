@@ -8,7 +8,6 @@ import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-manifest'
 export default function StyleguideItemLinkItemTemplate(manifest: Manifest): void {
   manifest.addTemplate({
     name: 'JssNextWeb-Styleguide-ItemLink-Item-Template',
-    displayName: 'Styleguide-ItemLink-Item-Template',
     fields: [{ name: 'textField', type: CommonFieldTypes.SingleLineText }],
   });
 }

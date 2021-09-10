@@ -7,8 +7,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function StyleguideFieldUsageLink(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-FieldUsage-Link',
-    displayName: 'Styleguide-FieldUsage-Link',
+    name: 'Styleguide-FieldUsage-Link',
+    templateName: 'JssNextWeb-Styleguide-FieldUsage-Link',
     icon: SitecoreIcon.Link,
     fields: [
       { name: 'externalLink', type: CommonFieldTypes.GeneralLink },

@@ -8,8 +8,8 @@ import packageJson from '../../../../package.json';
  */
 export default function StyleguideFieldUsageItemLink(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-FieldUsage-ItemLink',
-    displayName: 'Styleguide-FieldUsage-ItemLink',
+    name: 'Styleguide-FieldUsage-ItemLink',
+    templateName: 'JssNextWeb-Styleguide-FieldUsage-ItemLink',
     icon: SitecoreIcon.Link,
     fields: [
       {

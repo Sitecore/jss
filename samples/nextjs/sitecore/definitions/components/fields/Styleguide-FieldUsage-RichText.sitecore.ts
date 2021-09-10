@@ -7,8 +7,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function StyleguideFieldUsageRichText(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-FieldUsage-RichText',
-    displayName: 'Styleguide-FieldUsage-RichText',
+    name: 'Styleguide-FieldUsage-RichText',
+    templateName: 'JssNextWeb-Styleguide-FieldUsage-RichText',
     icon: SitecoreIcon.TextField,
     fields: [
       { name: 'sample', type: CommonFieldTypes.RichText },
