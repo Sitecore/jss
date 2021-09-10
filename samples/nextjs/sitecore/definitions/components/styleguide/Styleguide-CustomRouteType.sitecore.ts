@@ -14,7 +14,6 @@ export default function StyleguideCustomRouteType(manifest: Manifest): void {
   // _sorting and filtering_ (it's difficult to query on component-level field data).
   manifest.addRouteType({
     name: 'JssNextWeb-ExampleCustomRouteType',
-    displayName: 'ExampleCustomRouteType',
     fields: [
       { name: 'headline', type: CommonFieldTypes.SingleLineText },
       { name: 'author', type: CommonFieldTypes.SingleLineText },
@@ -25,8 +24,8 @@ export default function StyleguideCustomRouteType(manifest: Manifest): void {
   // We're also adding a component, that we can put on our sample custom route type route.
   // This component will display the route level fields on the custom route type.
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-CustomRouteType',
-    displayName: 'Styleguide-CustomRouteType',
+    name: 'Styleguide-CustomRouteType',
+    templateName: 'JssNextWeb-Styleguide-CustomRouteType',
     icon: SitecoreIcon.DocumentTag,
   });
 }

@@ -7,8 +7,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function StyleguideLayoutTabsTab(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-Layout-Tabs-Tab',
-    displayName: 'Styleguide-Layout-Tabs-Tab',
+    name: 'Styleguide-Layout-Tabs-Tab',
+    templateName: 'JssNextWeb-Styleguide-Layout-Tabs-Tab',
     icon: SitecoreIcon.TabPane,
     fields: [
       { name: 'title', type: CommonFieldTypes.SingleLineText },

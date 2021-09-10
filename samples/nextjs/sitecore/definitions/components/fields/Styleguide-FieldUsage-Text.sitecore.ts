@@ -7,8 +7,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function StyleguideFieldUsageText(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-FieldUsage-Text',
-    displayName: 'Styleguide-FieldUsage-Text',
+    name: 'Styleguide-FieldUsage-Text',
+    templateName: 'JssNextWeb-Styleguide-FieldUsage-Text',
     icon: SitecoreIcon.Text,
     fields: [
       { name: 'sample', type: CommonFieldTypes.SingleLineText },

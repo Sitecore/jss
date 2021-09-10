@@ -162,38 +162,79 @@ export function checkUnique(input: any[], selector: (element: any) => string) {
 }
 
 /**
- * Finds a template definition by name in one or more arrays of template/component definitions
+ * Finds a component definition by name in array of component definitions
+ * @param {string} componentName
+ * @param {Array<ComponentDefinition>} components
+ * @returns {ComponentDefinition | undefined} component
+ */
+export function findComponent(
+  componentName: string,
+  components: Array<ComponentDefinition>
+): ComponentDefinition | undefined {
+  if (!components) {
+    return undefined;
+  }
+
+  return components.find(
+    (componentDef: ComponentDefinition) => componentDef.name === componentName
+  );
+}
+
+/**
+ * Finds a component definition for template name in array of component definitions
  * @param {string} templateName
- * @param {...Array<Array<TemplateDefinition | ComponentDefinition>>} templates
- * @returns {TemplateDefinition | ComponentDefinition | null} template
+ * @param {Array<ComponentDefinition>} components
+ * @returns {ComponentDefinition | undefined} component
+ */
+export function findComponentForTemplate(
+  templateName: string,
+  components: Array<ComponentDefinition>
+): ComponentDefinition | undefined {
+  if (!components) {
+    return undefined;
+  }
+
+  return (
+    // If not found by 'templateName', use 'name'
+    components.find(
+      (componentDef: ComponentDefinition) => componentDef.templateName === templateName
+    ) ?? findComponent(templateName, components)
+  );
+}
+
+/**
+ * Finds a template definition by name in array of template definitions
+ * @param {string} templateName
+ * @param {Array<TemplateDefinition>} templates
+ * @returns {TemplateDefinition | undefined} template
  */
 export function findTemplate(
   templateName: string,
-  ...templates: Array<Array<TemplateDefinition | ComponentDefinition>>
-): TemplateDefinition | ComponentDefinition | null {
-  let templateResult: TemplateDefinition | ComponentDefinition | null = null;
-
+  templates: Array<TemplateDefinition>
+): TemplateDefinition | undefined {
   if (!templates) {
-    return null;
+    return undefined;
   }
 
-  templates.forEach((templateList) => {
-    if (!templateList) {
-      return;
-    }
+  return templates.find((templateDef: TemplateDefinition) => templateDef.name === templateName);
+}
 
-    const template = templateList.find((templateDef: any) => templateDef.name === templateName);
+/**
+ * Finds a template definition by component in array of template definitions
+ * @param {ComponentDefinition} component
+ * @param {Array<TemplateDefinition>} templates
+ * @returns {TemplateDefinition | undefined} template
+ */
+export function findTemplateForComponent(
+  component: ComponentDefinition,
+  templates: Array<TemplateDefinition>
+): TemplateDefinition | undefined {
+  if (!component || !templates) {
+    return undefined;
+  }
 
-    if (template && templateResult !== null) {
-      throw `Template ${templateName} was defined more than once with the same name.`;
-    }
-
-    if (template) {
-      templateResult = template;
-    }
-  });
-
-  return templateResult;
+  const templateName = component.templateName || component.name || '';
+  return findTemplate(templateName, templates);
 }
 
 /**

@@ -1,6 +1,11 @@
 import chalk from 'chalk';
 import { GenerateContentItemArgs } from '../../manifest.types';
-import { convertComponentDataToFields, findTemplate, validateFieldDefinitions } from '../../utils';
+import {
+  convertComponentDataToFields,
+  findComponent,
+  findTemplate,
+  validateFieldDefinitions,
+} from '../../utils';
 
 export default (args: GenerateContentItemArgs) => {
   const { componentName, ...item } = args.content as any;
@@ -10,10 +15,11 @@ export default (args: GenerateContentItemArgs) => {
 
   // shared components may come through here and use the 'componentName' spec instead of 'template' - this allows that
   if (componentName) {
-    item.template = componentName;
+    const component = findComponent(componentName, args.components);
+    item.template = component?.templateName || componentName;
   }
 
-  const template = findTemplate(item.template, args.components, args.templates);
+  const template = findTemplate(item.template, args.templates);
 
   if (!template && item.template !== 'Folder') {
     console.warn(

@@ -7,8 +7,8 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  */
 export default function StyleguideMultilingual(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-Multilingual',
-    displayName: 'Styleguide-Multilingual',
+    name: 'Styleguide-Multilingual',
+    templateName: 'JssNextWeb-Styleguide-Multilingual',
     icon: SitecoreIcon.FlagGeneric,
     fields: [
       {

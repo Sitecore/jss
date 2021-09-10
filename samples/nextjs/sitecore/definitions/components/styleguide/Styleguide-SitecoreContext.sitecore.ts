@@ -7,8 +7,8 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
  */
 export default function StyleguideSitecoreContext(manifest: Manifest): void {
   manifest.addComponent({
-    name: 'JssNextWeb-Styleguide-SitecoreContext',
-    displayName: 'Styleguide-SitecoreContext',
+    name: 'Styleguide-SitecoreContext',
+    templateName: 'JssNextWeb-Styleguide-SitecoreContext',
     icon: SitecoreIcon.ControlPanel,
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
