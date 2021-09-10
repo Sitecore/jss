@@ -48,6 +48,9 @@
             "name": "UnknownItem"
           },
           {
+            "name": "StyleguideComponentParamsRenderingParameters"
+          },
+          {
             "name": "C__StandardTemplate"
           },
           {
@@ -121,9 +124,6 @@
           },
           {
             "name": "JssReactWebStyleguideContentListItemTemplate"
-          },
-          {
-            "name": "JssReactWebStyleguideComponentParamsRenderingParameters"
           },
           {
             "name": "JssReactWebStyleguideComponentParams"
