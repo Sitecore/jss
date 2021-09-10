@@ -37,7 +37,13 @@ const generateContentItems = async (
 };
 
 export default async (args: GeneratePipelineArgs) => {
-  const { content, pipelines, components, templates } = args;
+  const {
+    content,
+    pipelines,
+    components,
+    // Note we're sending the aggregate templates here (from previous 'generateTemplates' pipeline processor)
+    pipelineResult: { templates },
+  } = args;
 
   const contentItems = await generateContentItems(content, templates, components, pipelines);
   return {

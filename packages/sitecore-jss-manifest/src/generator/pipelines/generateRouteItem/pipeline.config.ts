@@ -1,7 +1,6 @@
 import { pipelineFactory, PipelineRegistry } from '@sitecore-jss/sitecore-pipelines';
 import * as path from 'path';
 import { getDynamicPlaceholderKey } from '../../dynamicPlaceholders';
-import { ComponentDefinition } from '../../manifest.types';
 import processRenderings from './processRenderings';
 
 // __dirname returns the directory of this file/module, so it has to be called here
@@ -45,9 +44,6 @@ const defaultDatasourceDisplayNamer = ({
   index: number;
 }) => `${rendering.componentName}-${index + 1}`;
 
-const defaultComponentFactory = (components: ComponentDefinition[], componentName: string) =>
-  components.find((component) => component.name === componentName);
-
 export const config = (pipelines: PipelineRegistry) => {
   const pipeline = pipelineFactory.create('generateRouteItem');
 
@@ -68,7 +64,6 @@ export const config = (pipelines: PipelineRegistry) => {
         phKey: '/',
       },
       rendering: {},
-      componentFactory: defaultComponentFactory,
       datasourceNamer: defaultDatasourceNamer,
       datasourceDisplayNamer: defaultDatasourceDisplayNamer,
     },

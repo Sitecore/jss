@@ -15,10 +15,13 @@ export default (args: any) => {
       return result;
     }
 
-    const { templateId, ...template } = component;
+    const { templateId, templateName, ...template } = component;
 
     if (templateId) {
       template.id = templateId;
+    }
+    if (templateName) {
+      template.name = templateName;
     }
 
     delete template.renderingId;
