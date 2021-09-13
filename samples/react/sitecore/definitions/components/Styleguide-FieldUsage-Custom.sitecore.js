@@ -9,6 +9,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-FieldUsage-Custom',
+    templateName: 'JssReactWeb-Styleguide-FieldUsage-Custom',
     icon: SitecoreIcon.Gearwheel,
     // NOTE: not using 'CommonFieldTypes' here, because it's a custom field.
     // The 'Integer' field ships with Sitecore; something really custom would need to be
@@ -16,6 +17,6 @@ export default function (manifest) {
     fields: [{ name: 'customIntField', type: 'Integer' }],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['styleguide-explanatory-component-template'],
+    inherits: ['JssReactWeb-styleguide-explanatory-component-template'],
   });
 }

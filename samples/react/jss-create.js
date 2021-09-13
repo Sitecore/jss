@@ -18,16 +18,19 @@ const { applyNameToProject } = require('@sitecore-jss/sitecore-jss-cli/dist/cjs/
 module.exports = function createJssProject(argv, nextSteps) {
   console.log(`Executing create script: ${__filename}...`);
 
-  applyNameToProject(__dirname, argv.name, argv.hostName, 'JssReactWeb');
+  applyNameToProject(__dirname, argv.name, argv.hostName, 'JssReactWeb', argv.prefix === 'true');
 
-  if (!argv.fetchWith) {
+  if (!argv.fetchWith || !argv.prefix) {
     nextSteps.push(
       `* Did you know you can customize the React sample app using ${chalk.green(
         'jss create'
       )} parameters?`,
       `*  ${chalk.green(
         '--fetchWith {REST|GraphQL}'
-      )} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`
+      )} : Specifies how Sitecore data (layout, dictionary) is fetched. Default is REST.`,
+      `*  ${chalk.green(
+        '--prefix {true|false}'
+      )} : Specifies whether the templates should include a prefix. If true, the app's templates will be prefixed with the app's name in PascalCase. This is helpful if deploying multiple apps to the same Sitecore instance. If false, no prefix will be used. Default is false.`
     );
   }
 

@@ -120,7 +120,7 @@ placeholders:
               # see /data/content/Styleguide/ItemLinkField for definition of this IDs
                 id: styleguide-item-link-field-shared-1
               localItemLink:
-                template: Styleguide-ItemLink-Item-Template
+                template: JssReactWeb-Styleguide-ItemLink-Item-Template
                 fields:
                   textField: Referenced item textField
           - componentName: Styleguide-FieldUsage-ContentList
@@ -148,10 +148,10 @@ placeholders:
               # note that names are default auto-generated to be unique. Explicitly specified names must be unique.
               # NOTE: local item definitions cannot be shared with other content list fields, and are
               # generally not preferable compared to using shared definitions.
-              - template: Styleguide-ContentList-Item-Template
+              - template: JssReactWeb-Styleguide-ContentList-Item-Template
                 fields:
                   textField: Hello World Item 1
-              - template: Styleguide-ContentList-Item-Template
+              - template: JssReactWeb-Styleguide-ContentList-Item-Template
                 fields:
                   textField: Hello World Item 2
           - componentName: Styleguide-FieldUsage-Custom

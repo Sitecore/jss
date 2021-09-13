@@ -136,9 +136,7 @@ export function replacePrefix(
   prefix: string,
   withPrefix?: boolean
 ) {
-  const value: boolean = withPrefix === true ? true : false;
-
-  if (!value) {
+  if (!withPrefix) {
     console.log(chalk.cyan('Removing template prefix...'));
     const prefixWithHyphen = prefix + '-';
     glob
