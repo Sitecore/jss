@@ -1,5 +1,5 @@
 # Using a Custom Route Type enables adding more field data to the route level.
-template: ExampleCustomRouteType
+template: JssAngularWeb-ExampleCustomRouteType
 fields:
   # Note that custom route types inherit from the default route type automatically.
   # This is what makes the `pageTitle` field available here, when it's not defined on the custom route type.

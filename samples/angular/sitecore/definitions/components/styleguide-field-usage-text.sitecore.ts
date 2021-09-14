@@ -7,6 +7,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function StyleguideFieldUsageText(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideFieldUsageText',
+    templateName: 'JssAngularWeb-StyleguideFieldUsageText',
     icon: SitecoreIcon.Text,
     fields: [
       { name: 'sample', type: CommonFieldTypes.SingleLineText },
@@ -19,6 +20,6 @@ export default function StyleguideFieldUsageText(manifest: Manifest) {
     ],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['styleguide-explanatory-component-template'],
+    inherits: ['JssAngularWeb-styleguide-explanatory-component-template'],
   });
 }

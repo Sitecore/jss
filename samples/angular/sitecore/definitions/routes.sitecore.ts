@@ -16,7 +16,7 @@ export default function addRoutesToManifest(manifest: Manifest): Promise<void> {
   // which routes can use by setting `template: YourCustomRouteTypeName` in their definition.
   const appTemplateSection = 'Page Metadata';
   manifest.setDefaultRouteType({
-    name: 'App Route',
+    name: 'JssAngularWeb-App Route',
     fields: [
       {
         name: 'pageTitle',
@@ -25,7 +25,7 @@ export default function addRoutesToManifest(manifest: Manifest): Promise<void> {
         type: CommonFieldTypes.SingleLineText,
       },
     ],
-    insertOptions: ['App Route'],
+    insertOptions: ['JssAngularWeb-App Route'],
   });
 
   return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)

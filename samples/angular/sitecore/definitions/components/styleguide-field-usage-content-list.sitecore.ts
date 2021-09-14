@@ -10,6 +10,7 @@ const jsonConfig = packageJson as { [key: string]: unknown; config: { [key: stri
 export default function StyleguideFieldUsageContentList(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideFieldUsageContentList',
+    templateName: 'JssAngularWeb-StyleguideFieldUsageContentList',
     icon: SitecoreIcon.ListStyle_numbered,
     fields: [
       {
@@ -25,6 +26,6 @@ export default function StyleguideFieldUsageContentList(manifest: Manifest) {
     ],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['styleguide-explanatory-component-template'],
+    inherits: ['JssAngularWeb-styleguide-explanatory-component-template'],
   });
 }

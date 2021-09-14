@@ -6,7 +6,7 @@ import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-manifest'
  */
 export default function StyleguideItemLinkItemTemplate(manifest: Manifest) {
   manifest.addTemplate({
-    name: 'Styleguide-ItemLink-Item-Template',
+    name: 'JssAngularWeb-Styleguide-ItemLink-Item-Template',
     fields: [{ name: 'textField', type: CommonFieldTypes.SingleLineText }],
   });
 }
