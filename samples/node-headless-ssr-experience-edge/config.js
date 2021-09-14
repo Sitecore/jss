@@ -33,10 +33,10 @@ const config = {
    */
   port: process.env.PORT || 3000,
   /*
-  * The default language to use in case the context language cannot be determined (this happens
-  * on initial page load, if the language is not specified in the URL)
-  */
-  defaultLanguage: process.env.DEFAULT_LANGUAGE || serverBundle.defaultLanguage
+   * The default language to use in case the context language cannot be determined (this happens
+   * on initial page load, if the language is not specified in the URL)
+   */
+  defaultLanguage: process.env.DEFAULT_LANGUAGE || 'en',
 };
 
 module.exports = config;
