@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const appName = process.env.SITECORE_JSS_APP_NAME;
 
 /**
