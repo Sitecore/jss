@@ -7,6 +7,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function StyleguideSection(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideSection',
+    templateName: 'JssAngularWeb-StyleguideSection',
     icon: SitecoreIcon.DocumentTag,
     fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
     placeholders: ['jss-styleguide-section'],

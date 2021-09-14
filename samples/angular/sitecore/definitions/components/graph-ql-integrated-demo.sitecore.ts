@@ -13,6 +13,7 @@ const query = readFileSync(
 export default function GraphQLIntegratedDemo(manifest: Manifest) {
   manifest.addComponent({
     name: 'GraphQLIntegratedDemo',
+    templateName: 'JssAngularWeb-GraphQLIntegratedDemo',
     icon: SitecoreIcon.GraphConnection_directed,
     graphQLQuery: query,
     fields: [

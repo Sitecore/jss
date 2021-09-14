@@ -7,6 +7,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function StyleguideLayoutTabsTab(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideLayoutTabsTab',
+    templateName: 'JssAngularWeb-StyleguideLayoutTabsTab',
     icon: SitecoreIcon.TabPane,
     fields: [
       { name: 'title', type: CommonFieldTypes.SingleLineText },

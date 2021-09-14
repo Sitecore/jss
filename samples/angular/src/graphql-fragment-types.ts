@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   "__schema": {
     "types": [
@@ -7,13 +6,16 @@ export default {
         "name": "ItemField",
         "possibleTypes": [
           {
-            "name": "ReferenceField"
+            "name": "RichTextField"
           },
           {
             "name": "NumberField"
           },
           {
             "name": "MultilistField"
+          },
+          {
+            "name": "LookupField"
           },
           {
             "name": "LinkField"
@@ -28,9 +30,6 @@ export default {
             "name": "ImageField"
           },
           {
-            "name": "FileField"
-          },
-          {
             "name": "DateField"
           },
           {
@@ -38,12 +37,6 @@ export default {
           },
           {
             "name": "NameValueListField"
-          },
-          {
-            "name": "LookupField"
-          },
-          {
-            "name": "LayoutField"
           }
         ]
       },
@@ -55,160 +48,160 @@ export default {
             "name": "UnknownItem"
           },
           {
-            "name": "StyleguideSitecoreContext"
-          },
-          {
-            "name": "StyleguideSection"
-          },
-          {
-            "name": "StyleguideRouteFields"
-          },
-          {
-            "name": "StyleguideMultilingual"
-          },
-          {
-            "name": "StyleguideLayoutTabsTab"
-          },
-          {
-            "name": "StyleguideLayoutTabs"
-          },
-          {
-            "name": "StyleguideLayoutReuse"
-          },
-          {
-            "name": "StyleguideItemLinkItemTemplate"
-          },
-          {
-            "name": "StyleguideFieldUsageText"
-          },
-          {
-            "name": "StyleguideFieldUsageRichText"
-          },
-          {
-            "name": "StyleguideFieldUsageNumber"
-          },
-          {
-            "name": "StyleguideFieldUsageLink"
-          },
-          {
-            "name": "StyleguideFieldUsageItemLink"
-          },
-          {
-            "name": "StyleguideFieldUsageImage"
-          },
-          {
-            "name": "StyleguideFieldUsageFile"
-          },
-          {
-            "name": "StyleguideFieldUsageDate"
-          },
-          {
-            "name": "StyleguideFieldUsageCustom"
-          },
-          {
-            "name": "StyleguideFieldUsageContentList"
-          },
-          {
-            "name": "StyleguideFieldUsageCheckbox"
-          },
-          {
-            "name": "C__StyleguideExplanatoryComponent"
-          },
-          {
-            "name": "StyleguideContentListItemTemplate"
-          },
-          {
-            "name": "StyleguideComponentParams"
+            "name": "StyleguideComponentParamsRenderingParameters"
           },
           {
             "name": "C__StandardTemplate"
           },
           {
-            "name": "GraphQLIntegratedDemo"
+            "name": "C__Route"
           },
           {
-            "name": "GraphQLConnectedDemo"
+            "name": "RenderEngineType"
           },
           {
-            "name": "ExampleCustomRouteType"
+            "name": "JssAngularWebStyleguideTracking"
           },
           {
-            "name": "ContentBlock"
+            "name": "JssAngularWebStyleguideSitecoreContext"
           },
           {
-            "name": "C__AppRoute"
+            "name": "JssAngularWebStyleguideSection"
+          },
+          {
+            "name": "JssAngularWebStyleguideRouteFields"
+          },
+          {
+            "name": "JssAngularWebStyleguideMultilingual"
+          },
+          {
+            "name": "JssAngularWebStyleguideLayoutTabsTab"
+          },
+          {
+            "name": "JssAngularWebStyleguideLayoutTabs"
+          },
+          {
+            "name": "JssAngularWebStyleguideLayoutReuse"
+          },
+          {
+            "name": "JssAngularWebStyleguideItemLinkItemTemplate"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageText"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageRichText"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageNumber"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageLink"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageItemLink"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageImage"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageFile"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageDate"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageCustom"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageContentList"
+          },
+          {
+            "name": "JssAngularWebStyleguideFieldUsageCheckbox"
+          },
+          {
+            "name": "JssAngularWebStyleguideExplanatoryComponent"
+          },
+          {
+            "name": "JssAngularWebStyleguideContentListItemTemplate"
+          },
+          {
+            "name": "JssAngularWebStyleguideComponentParams"
+          },
+          {
+            "name": "JssAngularWebStyleguideAngularLazyLoading"
+          },
+          {
+            "name": "JssAngularWebGraphQLIntegratedDemo"
+          },
+          {
+            "name": "JssAngularWebGraphQLConnectedDemo"
+          },
+          {
+            "name": "JssAngularWebExampleCustomRouteType"
+          },
+          {
+            "name": "JssAngularWebContentBlock"
+          },
+          {
+            "name": "C__JssAngularWebAppRoute"
+          },
+          {
+            "name": "JsonRendering"
+          },
+          {
+            "name": "JavaScriptRendering"
+          },
+          {
+            "name": "JSSLayout"
+          },
+          {
+            "name": "App"
           }
         ]
       },
       {
         "kind": "INTERFACE",
-        "name": "StyleguideExplanatoryComponent",
+        "name": "RenderingOptions",
         "possibleTypes": [
           {
-            "name": "StyleguideSitecoreContext"
+            "name": "JsonRendering"
           },
           {
-            "name": "StyleguideRouteFields"
-          },
-          {
-            "name": "StyleguideMultilingual"
-          },
-          {
-            "name": "StyleguideLayoutTabs"
-          },
-          {
-            "name": "StyleguideLayoutReuse"
-          },
-          {
-            "name": "StyleguideFieldUsageText"
-          },
-          {
-            "name": "StyleguideFieldUsageRichText"
-          },
-          {
-            "name": "StyleguideFieldUsageNumber"
-          },
-          {
-            "name": "StyleguideFieldUsageLink"
-          },
-          {
-            "name": "StyleguideFieldUsageItemLink"
-          },
-          {
-            "name": "StyleguideFieldUsageImage"
-          },
-          {
-            "name": "StyleguideFieldUsageFile"
-          },
-          {
-            "name": "StyleguideFieldUsageDate"
-          },
-          {
-            "name": "StyleguideFieldUsageCustom"
-          },
-          {
-            "name": "StyleguideFieldUsageContentList"
-          },
-          {
-            "name": "StyleguideFieldUsageCheckbox"
-          },
-          {
-            "name": "C__StyleguideExplanatoryComponent"
-          },
-          {
-            "name": "StyleguideComponentParams"
+            "name": "JavaScriptRendering"
           }
         ]
       },
       {
         "kind": "INTERFACE",
-        "name": "AppRoute",
+        "name": "Layout",
         "possibleTypes": [
           {
-            "name": "ExampleCustomRouteType"
+            "name": "JSSLayout"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "JssAngularWebAppRoute",
+        "possibleTypes": [
+          {
+            "name": "JssAngularWebExampleCustomRouteType"
           },
           {
-            "name": "C__AppRoute"
+            "name": "C__JssAngularWebAppRoute"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "Caching",
+        "possibleTypes": [
+          {
+            "name": "JsonRendering"
+          },
+          {
+            "name": "JavaScriptRendering"
           }
         ]
       }
