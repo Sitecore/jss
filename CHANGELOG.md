@@ -8,10 +8,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 ### New Features & Improvements
 
 `[samples/angular]` Language is now preserved when navigating to another page ([#793](https://github.com/Sitecore/jss/pull/793))
-`[samples/nextjs][sitecore-jss-cli]` Prefix added to templates which is replaced on jss create ([#800](https://github.com/Sitecore/jss/pull/800))
-`[samples/react][sitecore-jss-cli]` Prefix added to templates which is replaced on jss create ([#811](https://github.com/Sitecore/jss/pull/811))
-`[samples/angular][sitecore-jss-cli]` Prefix added to templates which is replaced on jss create ([#813](https://github.com/Sitecore/jss/pull/813))
-`[samples/vue][sitecore-jss-cli]` Prefix added to templates which is replaced on jss create ([#814](https://github.com/Sitecore/jss/pull/814))
+`[samples/nextjs][samples/react][samples/vue][samples/angular][sitecore-jss-cli]` Prefix added to templates which is replaced on jss create ([#800](https://github.com/Sitecore/jss/pull/800), [#811](https://github.com/Sitecore/jss/pull/811), [#813](https://github.com/Sitecore/jss/pull/813), (https://github.com/Sitecore/jss/pull/814))
 
 ## 19.0.0
 
