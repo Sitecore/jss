@@ -64,7 +64,7 @@ export const updateImageUrl = (
   }
 	const parsed = URL(url, {}, true);
  
-  const query = params || parsed.query
+  const query = { ...(params || parsed.query) }
 
   // In case if imageParams provided
   if (params) {

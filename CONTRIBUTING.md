@@ -17,6 +17,12 @@ Want to contribute to Sitecore JavaScript Services? There are a few things you n
 
 - `npm run test-packages`
 
+# Branching overview
+
+* master - latest released version
+* dev - latest changes for the next release
+* release branches - created in order to make changes/updates to past major version releases
+
 # Documentation contributions
 
 If your documentation changes are related to a code feature that you are submitting to the JSS repo, you should make those changes in your code feature branch and submit them with your feature pull request.
@@ -37,7 +43,7 @@ If you need to make code changes to the documentation site, follow these steps:
 - Clone the forked repo to your local machine.
 - From a terminal in the repo root: `cd docs`
 - Create a feature branch from `master` for your changes. e.g. `git checkout -b my-feature-branch`
-  > Note: although `dev` is the default branch for the JSS repo, documentation changes that pertain to the current release of JSS should be branched from `master`. The `master` branch contains the published / active documentation content.
+  > Note: although `master` is the default branch for the JSS repo, documentation changes that pertain to the current release of JSS should be branched from `master`. The `master` branch contains the published / active documentation content. Changes related to to the next release should be added to the `dev` branch.
 - `npm install`
 - `jss start` (to preview your changes locally)
 - Make your changes
