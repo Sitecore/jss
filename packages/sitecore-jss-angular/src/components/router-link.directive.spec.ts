@@ -116,6 +116,7 @@ describe('<a *scRouterLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
+    expect(rendered.nativeElement.href).toContain(field.value.href);
     expect(rendered.nativeElement.className).toContain(field.value.class);
     expect(rendered.nativeElement.title).toContain(field.value.title);
     expect(rendered.nativeElement.target).toContain(field.value.target);
@@ -175,7 +176,8 @@ describe('<a *scRouterLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.href).toBe('http://localhost:9876/lorem');
+    expect(rendered.nativeElement.href).toContain(field.href);
+    expect(rendered.nativeElement.href).not.toContain('?sc_site=lorem_ipsum');
   });
 });
 
