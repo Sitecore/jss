@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { generalLinkField as eeLinkData } from '../testData/ee-data';
-import { RouterLinkDirective, stripQueryParams } from './router-link.directive';
+import { RouterLinkDirective } from './router-link.directive';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LinkField } from './rendering-field';
 
@@ -164,20 +164,6 @@ describe('<a *scRouterLink />', () => {
     const rendered = de.query(By.css('a'));
     expect(rendered.nativeElement.target).toBe('_blank');
     expect(rendered.nativeElement.title).toBe('footip');
-  });
-
-  it('should strip query string from href', () => {
-    const field = {
-      href: '/lorem?sc_site=lorem_ipsum',
-      text: 'ipsum',
-    };
-    comp.field = field;
-    field.href = stripQueryParams(field.href);
-    fixture.detectChanges();
-
-    const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.href).toContain(field.href);
-    expect(rendered.nativeElement.href).not.toContain('?sc_site=lorem_ipsum');
   });
 });
 
