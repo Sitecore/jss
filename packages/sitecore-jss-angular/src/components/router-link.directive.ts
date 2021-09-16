@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
 
+export const stripQueryParams = (href: string) => href.split('?')[0];
+
 @Directive({ selector: '[scRouterLink]' })
 export class RouterLinkDirective extends LinkDirective {
   @Input('scRouterLinkEditable') editable = true;
@@ -36,8 +38,9 @@ export class RouterLinkDirective extends LinkDirective {
         this.renderer.setAttribute(node, key, propValue);
 
         if (key === 'href') {
+          const path = stripQueryParams(propValue);
           this.renderer.listen(node, 'click', (event) => {
-            this.router.navigate([propValue]);
+            this.router.navigate([path]);
             event.preventDefault();
           });
         }
