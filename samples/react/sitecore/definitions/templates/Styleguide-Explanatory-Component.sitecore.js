@@ -11,7 +11,7 @@ import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-manifest'
 export default function (manifest) {
   manifest.addTemplate({
     name: 'JssReactWeb-Styleguide-Explanatory-Component',
-    id: 'styleguide-explanatory-component-template',
+    id: 'JssReactWeb-styleguide-explanatory-component-template',
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
       { name: 'description', type: CommonFieldTypes.RichText },

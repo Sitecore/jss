@@ -60,91 +60,91 @@
             "name": "RenderEngineType"
           },
           {
-            "name": "JssAngularWebStyleguideTracking"
+            "name": "JssVueWebStyleguideTracking"
           },
           {
-            "name": "JssAngularWebStyleguideSitecoreContext"
+            "name": "JssVueWebStyleguideSitecoreContext"
           },
           {
-            "name": "JssAngularWebStyleguideSection"
+            "name": "JssVueWebStyleguideSection"
           },
           {
-            "name": "JssAngularWebStyleguideRouteFields"
+            "name": "JssVueWebStyleguideRouteFields"
           },
           {
-            "name": "JssAngularWebStyleguideMultilingual"
+            "name": "JssVueWebStyleguideMultilingual"
           },
           {
-            "name": "JssAngularWebStyleguideLayoutTabsTab"
+            "name": "JssVueWebStyleguideLayoutTabsTab"
           },
           {
-            "name": "JssAngularWebStyleguideLayoutTabs"
+            "name": "JssVueWebStyleguideLayoutTabs"
           },
           {
-            "name": "JssAngularWebStyleguideLayoutReuse"
+            "name": "JssVueWebStyleguideLayoutReuse"
           },
           {
-            "name": "JssAngularWebStyleguideItemLinkItemTemplate"
+            "name": "JssVueWebStyleguideItemLinkItemTemplate"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageText"
+            "name": "JssVueWebStyleguideFieldUsageText"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageRichText"
+            "name": "JssVueWebStyleguideFieldUsageRichText"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageNumber"
+            "name": "JssVueWebStyleguideFieldUsageNumber"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageLink"
+            "name": "JssVueWebStyleguideFieldUsageLink"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageItemLink"
+            "name": "JssVueWebStyleguideFieldUsageItemLink"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageImage"
+            "name": "JssVueWebStyleguideFieldUsageImage"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageFile"
+            "name": "JssVueWebStyleguideFieldUsageFile"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageDate"
+            "name": "JssVueWebStyleguideFieldUsageDate"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageCustom"
+            "name": "JssVueWebStyleguideFieldUsageCustom"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageContentList"
+            "name": "JssVueWebStyleguideFieldUsageContentList"
           },
           {
-            "name": "JssAngularWebStyleguideFieldUsageCheckbox"
+            "name": "C__JssVueWebStyleguideExplanatoryComponent"
           },
           {
-            "name": "JssAngularWebStyleguideExplanatoryComponent"
+            "name": "JssVueWebStyleguideContentListItemTemplate"
           },
           {
-            "name": "JssAngularWebStyleguideContentListItemTemplate"
+            "name": "JssVueWebStyleguideComponentParams"
           },
           {
-            "name": "JssAngularWebStyleguideComponentParams"
+            "name": "JssVueWebGraphQLSSRDemo"
           },
           {
-            "name": "JssAngularWebStyleguideAngularLazyLoading"
+            "name": "JssVueWebGraphQLIntegratedDemo"
           },
           {
-            "name": "JssAngularWebGraphQLIntegratedDemo"
+            "name": "JssVueWebGraphQLConnectedDemo"
           },
           {
-            "name": "JssAngularWebGraphQLConnectedDemo"
+            "name": "JssVueWebFieldUsageCheckbox"
           },
           {
-            "name": "JssAngularWebExampleCustomRouteType"
+            "name": "JssVueWebExampleCustomRouteType"
           },
           {
-            "name": "JssAngularWebContentBlock"
+            "name": "JssVueWebContentBlock"
           },
           {
-            "name": "C__JssAngularWebAppRoute"
+            "name": "C__JssVueWebAppRoute"
           },
           {
             "name": "JsonRendering"
@@ -183,13 +183,76 @@
       },
       {
         "kind": "INTERFACE",
-        "name": "JssAngularWebAppRoute",
+        "name": "JssVueWebStyleguideExplanatoryComponent",
         "possibleTypes": [
           {
-            "name": "JssAngularWebExampleCustomRouteType"
+            "name": "JssVueWebStyleguideTracking"
           },
           {
-            "name": "C__JssAngularWebAppRoute"
+            "name": "JssVueWebStyleguideSitecoreContext"
+          },
+          {
+            "name": "JssVueWebStyleguideRouteFields"
+          },
+          {
+            "name": "JssVueWebStyleguideMultilingual"
+          },
+          {
+            "name": "JssVueWebStyleguideLayoutTabs"
+          },
+          {
+            "name": "JssVueWebStyleguideLayoutReuse"
+          },
+          {
+            "name": "JssVueWebStyleguideFieldUsageText"
+          },
+          {
+            "name": "JssVueWebStyleguideFieldUsageRichText"
+          },
+          {
+            "name": "JssVueWebStyleguideFieldUsageNumber"
+          },
+          {
+            "name": "JssVueWebStyleguideFieldUsageLink"
+          },
+          {
+            "name": "JssVueWebStyleguideFieldUsageItemLink"
+          },
+          {
+            "name": "JssVueWebStyleguideFieldUsageImage"
+          },
+          {
+            "name": "JssVueWebStyleguideFieldUsageFile"
+          },
+          {
+            "name": "JssVueWebStyleguideFieldUsageDate"
+          },
+          {
+            "name": "JssVueWebStyleguideFieldUsageCustom"
+          },
+          {
+            "name": "JssVueWebStyleguideFieldUsageContentList"
+          },
+          {
+            "name": "C__JssVueWebStyleguideExplanatoryComponent"
+          },
+          {
+            "name": "JssVueWebStyleguideComponentParams"
+          },
+          {
+            "name": "JssVueWebFieldUsageCheckbox"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "JssVueWebAppRoute",
+        "possibleTypes": [
+          {
+            "name": "JssVueWebExampleCustomRouteType"
+          },
+          {
+            "name": "C__JssVueWebAppRoute"
           }
         ]
       },
