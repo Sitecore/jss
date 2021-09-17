@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-update-package",
-  "version": "20.0.0-canary.18",
+  "version": "20.0.0-canary.19",
   "description": "Allows creation of Sitecore Update Packages in JavaScript (currently files only).",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
