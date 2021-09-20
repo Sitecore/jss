@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-cli",
-  "version": "20.0.0-canary.19",
+  "version": "20.0.0-canary.20",
   "description": "Sitecore JSS command-line",
   "main": "dist/cjs/cli.js",
   "module": "dist/esm/cli.js",
@@ -32,8 +32,8 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.19",
-    "@sitecore-jss/sitecore-jss-manifest": "^20.0.0-canary.19",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-manifest": "^20.0.0-canary.20",
     "axios": "^0.21.1",
     "chalk": "^2.4.2",
     "cross-spawn": "^7.0.0",
