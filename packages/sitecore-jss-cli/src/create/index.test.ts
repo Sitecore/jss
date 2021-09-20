@@ -216,6 +216,12 @@ describe('getPascalCaseName', () => {
     expect(result).to.match(/MyNextSitecoreApp/);
   });
 
+  it('should reformat snake_case to PascalCase', () => {
+    const result = getPascalCaseName('my_next_sitecore_app');
+
+    expect(result).to.match(/MyNextSitecoreApp/);
+  });
+
   it('should reformat one word lowercase app name to be capitalized', () => {
     const result = getPascalCaseName('onewordappnamenohyphen');
 

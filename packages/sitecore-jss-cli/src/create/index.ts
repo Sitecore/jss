@@ -117,7 +117,8 @@ export function applyNameToProject(
  * @param {string} name
  */
 export function getPascalCaseName(name: string): string {
-  const temp: string[] = name.split('-');
+  // handle underscores by converting them to hyphens
+  const temp: string[] = name.replace(/_/g, '-').split('-');
   name = temp.map((item: string) => (item = item.charAt(0).toUpperCase() + item.slice(1))).join('');
   return name;
 }

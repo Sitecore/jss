@@ -10,7 +10,6 @@ export default function(manifest) {
   manifest.addComponent({
     name: 'ContentBlock',
     templateName: 'JssVueWeb-ContentBlock',
-    displayName: 'Content Block',
     // totally optional, but fun
     icon: SitecoreIcon.DocumentTag,
     fields: [
