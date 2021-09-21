@@ -142,7 +142,7 @@ export function replacePrefix(
     const prefixWithHyphen = prefix + '-';
     glob
       .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'), {
-        ignore: '{.png,.pdf}',
+        ignore: '{**/*.png,**/*.pdf}',
       })
       .forEach((filePath: string) => {
         let fileContents: string = fs.readFileSync(filePath, 'utf8');
