@@ -141,7 +141,9 @@ export function replacePrefix(
     console.log(chalk.cyan('Removing template prefix...'));
     const prefixWithHyphen = prefix + '-';
     glob
-      .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'))
+      .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'), {
+        ignore: '{**/*.png,**/*.pdf}',
+      })
       .forEach((filePath: string) => {
         let fileContents: string = fs.readFileSync(filePath, 'utf8');
 
@@ -157,7 +159,9 @@ export function replacePrefix(
 
   console.log(chalk.cyan(`Replacing template prefix with ${getPascalCaseName(name)}...`));
   glob
-    .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'))
+    .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'), {
+      ignore: '{**/*.png,**/*.pdf}',
+    })
     .forEach((filePath: string) => {
       let fileContents: string = fs.readFileSync(filePath, 'utf8');
 
