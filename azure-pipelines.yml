@@ -18,7 +18,6 @@ pr:
   branches:
     include:
     - master
-    - dev
     - release/*
   paths:
     include:

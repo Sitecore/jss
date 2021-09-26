@@ -20,8 +20,8 @@
       <router-link to="/company" class="p-2 text-dark">
         {{ $t('Company') }}
       </router-link>
-      <router-link to="/graphql" class="p-2 text-dark">
-        {{ $t('GraphQL') }}
+      <router-link to="/contact" class="p-2 text-dark disabled">
+        {{ $t('Contact') }}
       </router-link>
       <button class="btn btn-secondary align-baseline" type="button" v-on:click="toggleContext">
         {{ contextButtonText }}
