@@ -4,7 +4,7 @@
   author experience.
 -->
 <template>
-  <div data-e2e-class="styleguide-layout-tabs-tab">
+  <div data-e2e-class="company-layout-tabs-tab">
     <sc-text v-if="isEditing" tag="h5" :field="fields.title" />
     <sc-rich-text :field="fields.content" />
   </div>
@@ -14,7 +14,7 @@
 import { RichText, Text } from '@sitecore-jss/sitecore-jss-vue';
 
 export default {
-  name: 'Styleguide-Layout-Tabs-Tab',
+  name: 'Company-Layout-Tabs-Tab',
   props: {
     fields: {
       type: Object,

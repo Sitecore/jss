@@ -2,7 +2,7 @@
   Demonstrates gaining access to root route-level data from within components.
 -->
 <template>
-  <div data-e2e-id="styleguide-customroutetype">
+  <div data-e2e-id="company-customroutetype">
     <sc-text tag="h3" :field="routeData.fields.headline" />
 
     <p>
@@ -11,7 +11,7 @@
 
     <sc-rich-text :field="routeData.fields.content" />
 
-    <router-link to="/styleguide">Return to the Styleguide</router-link>
+    <router-link to="/company">Return to the Company</router-link>
   </div>
 </template>
 
@@ -19,7 +19,7 @@
 import { Text, RichText } from '@sitecore-jss/sitecore-jss-vue';
 
 export default {
-  name: 'Styleguide-CustomRouteType',
+  name: 'Company-CustomRouteType',
   props: {
     fields: {
       type: Object,

@@ -48,7 +48,7 @@
             "name": "UnknownItem"
           },
           {
-            "name": "StyleguideComponentParamsRenderingParameters"
+            "name": "CompanyComponentParamsRenderingParameters"
           },
           {
             "name": "C__StandardTemplate"
@@ -60,70 +60,70 @@
             "name": "RenderEngineType"
           },
           {
-            "name": "JssVueWebStyleguideTracking"
+            "name": "JssVueWebCompanyTracking"
           },
           {
-            "name": "JssVueWebStyleguideSitecoreContext"
+            "name": "JssVueWebCompanySitecoreContext"
           },
           {
-            "name": "JssVueWebStyleguideSection"
+            "name": "JssVueWebCompanySection"
           },
           {
-            "name": "JssVueWebStyleguideRouteFields"
+            "name": "JssVueWebCompanyRouteFields"
           },
           {
-            "name": "JssVueWebStyleguideMultilingual"
+            "name": "JssVueWebCompanyMultilingual"
           },
           {
-            "name": "JssVueWebStyleguideLayoutTabsTab"
+            "name": "JssVueWebCompanyLayoutTabsTab"
           },
           {
-            "name": "JssVueWebStyleguideLayoutTabs"
+            "name": "JssVueWebCompanyLayoutTabs"
           },
           {
-            "name": "JssVueWebStyleguideLayoutReuse"
+            "name": "JssVueWebCompanyLayoutReuse"
           },
           {
-            "name": "JssVueWebStyleguideItemLinkItemTemplate"
+            "name": "JssVueWebCompanyItemLinkItemTemplate"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageText"
+            "name": "JssVueWebCompanyFieldUsageText"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageRichText"
+            "name": "JssVueWebCompanyFieldUsageRichText"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageNumber"
+            "name": "JssVueWebCompanyFieldUsageNumber"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageLink"
+            "name": "JssVueWebCompanyFieldUsageLink"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageItemLink"
+            "name": "JssVueWebCompanyFieldUsageItemLink"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageImage"
+            "name": "JssVueWebCompanyFieldUsageImage"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageFile"
+            "name": "JssVueWebCompanyFieldUsageFile"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageDate"
+            "name": "JssVueWebCompanyFieldUsageDate"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageCustom"
+            "name": "JssVueWebCompanyFieldUsageCustom"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageContentList"
+            "name": "JssVueWebCompanyFieldUsageContentList"
           },
           {
-            "name": "C__JssVueWebStyleguideExplanatoryComponent"
+            "name": "C__JssVueWebCompanyExplanatoryComponent"
           },
           {
-            "name": "JssVueWebStyleguideContentListItemTemplate"
+            "name": "JssVueWebCompanyContentListItemTemplate"
           },
           {
-            "name": "JssVueWebStyleguideComponentParams"
+            "name": "JssVueWebCompanyComponentParams"
           },
           {
             "name": "JssVueWebGraphQLSSRDemo"
@@ -183,61 +183,61 @@
       },
       {
         "kind": "INTERFACE",
-        "name": "JssVueWebStyleguideExplanatoryComponent",
+        "name": "JssVueWebCompanyExplanatoryComponent",
         "possibleTypes": [
           {
-            "name": "JssVueWebStyleguideTracking"
+            "name": "JssVueWebCompanyTracking"
           },
           {
-            "name": "JssVueWebStyleguideSitecoreContext"
+            "name": "JssVueWebCompanySitecoreContext"
           },
           {
-            "name": "JssVueWebStyleguideRouteFields"
+            "name": "JssVueWebCompanyRouteFields"
           },
           {
-            "name": "JssVueWebStyleguideMultilingual"
+            "name": "JssVueWebCompanyMultilingual"
           },
           {
-            "name": "JssVueWebStyleguideLayoutTabs"
+            "name": "JssVueWebCompanyLayoutTabs"
           },
           {
-            "name": "JssVueWebStyleguideLayoutReuse"
+            "name": "JssVueWebCompanyLayoutReuse"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageText"
+            "name": "JssVueWebCompanyFieldUsageText"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageRichText"
+            "name": "JssVueWebCompanyFieldUsageRichText"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageNumber"
+            "name": "JssVueWebCompanyFieldUsageNumber"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageLink"
+            "name": "JssVueWebCompanyFieldUsageLink"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageItemLink"
+            "name": "JssVueWebCompanyFieldUsageItemLink"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageImage"
+            "name": "JssVueWebCompanyFieldUsageImage"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageFile"
+            "name": "JssVueWebCompanyFieldUsageFile"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageDate"
+            "name": "JssVueWebCompanyFieldUsageDate"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageCustom"
+            "name": "JssVueWebCompanyFieldUsageCustom"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageContentList"
+            "name": "JssVueWebCompanyFieldUsageContentList"
           },
           {
-            "name": "C__JssVueWebStyleguideExplanatoryComponent"
+            "name": "C__JssVueWebCompanyExplanatoryComponent"
           },
           {
-            "name": "JssVueWebStyleguideComponentParams"
+            "name": "JssVueWebCompanyComponentParams"
           },
           {
             "name": "JssVueWebFieldUsageCheckbox"

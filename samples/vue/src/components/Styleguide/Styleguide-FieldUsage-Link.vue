@@ -2,7 +2,7 @@
   Demonstrates usage of a General Link (hyperlink) content field within JSS.
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-link">
+  <company-specimen v-bind="$props" data-e2e-id="company-fieldusage-link">
     External link:&nbsp;
     <sc-link :field="fields.externalLink" />
     <br />
@@ -25,15 +25,15 @@
       class="font-weight-bold"
       data-otherattributes="pass-through-to-anchor-tag"
     />
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { Link } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-FieldUsage-Link',
+  name: 'Company-FieldUsage-Link',
   props: {
     fields: {
       type: Object,
@@ -44,7 +44,7 @@ export default {
   },
   components: {
     ScLink: Link,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
 };
 </script>

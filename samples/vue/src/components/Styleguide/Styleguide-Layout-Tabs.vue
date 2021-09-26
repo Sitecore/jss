@@ -7,11 +7,11 @@
   for easy inline editing.
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-layout-tabs">
+  <company-specimen v-bind="$props" data-e2e-id="company-layout-tabs">
     <ul class="nav nav-tabs">
       <!--
         When the page is editing, we hide the tab headings, because they are not updated when xEditor adds or removes a tab rendering.
-        Instead, we show the tab header inline with the tab contents (see Styleguide-Layout-Tabs-Tab).
+        Instead, we show the tab header inline with the tab contents (see Company-Layout-Tabs-Tab).
       -->
       <template v-if="!isEditing">
         <li
@@ -48,15 +48,15 @@
         <component :is="activeTab" />
       </template>
     </div>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { Text } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-Layout-Tabs',
+  name: 'Company-Layout-Tabs',
   props: {
     fields: {
       type: Object,
@@ -66,7 +66,7 @@ export default {
     },
   },
   components: {
-    StyleguideSpecimen,
+    CompanySpecimen,
     ScText: Text,
   },
   data() {

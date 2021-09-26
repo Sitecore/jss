@@ -1,6 +1,6 @@
 <!--
  Helper component that displays explanatory information and where to find the definitions
- of styleguide specimens.
+ of company specimens.
 -->
 <template>
   <div class="pt-3" :id="renderingId">
@@ -9,7 +9,7 @@
 
     <p>
       <small>
-        Implementation: <code>/src/components/Styleguide/{{ rendering.componentName }}.vue</code>
+        Implementation: <code>/src/components/Company/{{ rendering.componentName }}.vue</code>
         <br />
         Definition:
         <code>/sitecore/definitions/components/{{ rendering.componentName }}.sitecore.js</code>
@@ -23,7 +23,7 @@
 import { RichText, Text } from '@sitecore-jss/sitecore-jss-vue';
 
 export default {
-  name: 'StyleguideSpecimen',
+  name: 'CompanySpecimen',
   props: {
     fields: {
       type: Object,

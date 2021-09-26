@@ -1,11 +1,11 @@
 <!--
-  Demonstrates how to reuse content within JSS. See /data/routes/styleguide/en.yml
+  Demonstrates how to reuse content within JSS. See /data/routes/company/en.yml
   for the reused content definition sample. This component also demonstrates how to use
   the Placeholder component's scoped slots to wrap all components in the placeholder
   in a column tag (thus creating a horizontally laid out placeholder)
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-layout-reuse">
+  <company-specimen v-bind="$props" data-e2e-id="company-layout-reuse">
     <!--
       This placeholder is using a _slot_ to enable customizing the markup for each component within.
       In this case, it's placing each component in its own column of a flexbox layout - giving an n-up columnar layout.
@@ -55,15 +55,15 @@
         </div>
       </template>
     </sc-placeholder>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { Placeholder } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-Layout-Reuse',
+  name: 'Company-Layout-Reuse',
   props: {
     fields: {
       type: Object,
@@ -74,7 +74,7 @@ export default {
   },
   components: {
     ScPlaceholder: Placeholder,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
 };
 </script>

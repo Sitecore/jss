@@ -5,7 +5,7 @@
 -->
 
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-content-list">
+  <company-specimen v-bind="$props" data-e2e-id="company-fieldusage-content-list">
     <h5>Shared Content List</h5>
     <!--
       Content list fields are returned with their value as an array of the referenced items.
@@ -26,15 +26,15 @@
         <p>Field: <sc-text :field="listItem.fields.textField" /></p>
       </div>
     </template>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { Text } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-FieldUsage-ContentList',
+  name: 'Company-FieldUsage-ContentList',
   props: {
     fields: {
       type: Object,
@@ -45,7 +45,7 @@ export default {
   },
   components: {
     ScText: Text,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
 };
 </script>

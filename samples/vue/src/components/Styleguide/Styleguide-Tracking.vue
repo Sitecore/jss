@@ -2,7 +2,7 @@
   Demonstrates analytics tracking patterns (xDB)
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-tracking">
+  <company-specimen v-bind="$props" data-e2e-id="company-tracking">
     <p v-if="disconnectedMode">
       The tracking API is only available in connected, integrated, or headless modes.
     </p>
@@ -145,7 +145,7 @@
         </fieldset>
       </div>
     </div>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
@@ -153,10 +153,10 @@ import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
 import { dataFetcher } from '../../dataFetcher';
 import config from '../../temp/config';
 
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-Tracking',
+  name: 'Company-Tracking',
   data: () => ({
     txtEvent: '',
     txtGoal: '',
@@ -175,7 +175,7 @@ export default {
     },
   },
   components: {
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
   computed: {
     trackingApiOptions() {

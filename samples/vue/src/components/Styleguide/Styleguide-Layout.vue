@@ -1,12 +1,12 @@
 <!--
-  The main layout (columns) of the styleguide.
+  The main layout (columns) of the company.
   Navigation is automatically generated based on the components added to the layout,
   and does not need to be manually maintained.
 -->
 <template>
   <div class="row">
     <div class="col-sm-8 col-lg-10">
-      <sc-placeholder name="jss-styleguide-layout" :rendering="rendering" />
+      <sc-placeholder name="jss-company-layout" :rendering="rendering" />
     </div>
     <div class="col-sm-4 col-lg-2 order-sm-first pt-2">
       <nav v-for="section in sections" :key="section.heading" class="nav flex-column pt-2">
@@ -25,7 +25,7 @@
 import { Placeholder, getChildPlaceholder, getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
 
 export default {
-  name: 'Styleguide-Layout',
+  name: 'Company-Layout',
   props: {
     rendering: {
       type: Object,
@@ -37,13 +37,13 @@ export default {
   computed: {
     sections() {
       // this code reads the components in the child placeholders of this component,
-      // and the template projects them into the left navigation column for the styleguide
-      return getChildPlaceholder(this.rendering, 'jss-styleguide-layout')
+      // and the template projects them into the left navigation column for the company
+      return getChildPlaceholder(this.rendering, 'jss-company-layout')
         .filter((section) => getFieldValue(section, 'heading'))
         .map((section) => ({
           heading: getFieldValue(section, 'heading'),
           id: `i${section.uid.replace(/[{}]/g, '')}`,
-          children: getChildPlaceholder(section, 'jss-styleguide-section')
+          children: getChildPlaceholder(section, 'jss-company-section')
             .filter((component) => getFieldValue(component, 'heading'))
             .map((component) => ({
               heading: getFieldValue(component, 'heading'),

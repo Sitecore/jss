@@ -3,7 +3,7 @@
   Text fields are HTML encoded by default.
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-text">
+  <company-specimen v-bind="$props" data-e2e-id="company-fieldusage-text">
     <!-- Basic use of a text field. No wrapper. -->
     <sc-text :field="fields.sample" />
 
@@ -24,15 +24,15 @@
       is selected in xEditor)
     -->
     <div>Raw value (not editable): {{ getFieldValue(fields, 'sample') }}</div>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { Text, getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-FieldUsage-Text',
+  name: 'Company-FieldUsage-Text',
   props: {
     fields: {
       type: Object,
@@ -43,7 +43,7 @@ export default {
   },
   components: {
     ScText: Text,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
   methods: {
     getFieldValue,

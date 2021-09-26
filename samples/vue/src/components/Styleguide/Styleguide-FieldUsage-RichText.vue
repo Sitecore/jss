@@ -2,7 +2,7 @@
   Demonstrates usage of a Rich Text (HTML) content field within JSS.
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-richtext">
+  <company-specimen v-bind="$props" data-e2e-id="company-fieldusage-richtext">
     <!-- Basic use of a rich text field. Wraps in a <div>. -->
     <sc-rich-text :field="fields.sample" />
 
@@ -14,15 +14,15 @@
       class="text-center"
       data-sample="other-attributes-pass-through"
     />
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { RichText } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-FieldUsage-RichText',
+  name: 'Company-FieldUsage-RichText',
   props: {
     fields: {
       type: Object,
@@ -33,7 +33,7 @@ export default {
   },
   components: {
     ScRichText: RichText,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
 };
 </script>

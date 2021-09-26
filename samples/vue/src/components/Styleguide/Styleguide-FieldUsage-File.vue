@@ -4,7 +4,7 @@
 -->
 
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-file">
+  <company-specimen v-bind="$props" data-e2e-id="company-fieldusage-file">
     <!--
       Renders a file link
       Note: the rendered link element text will be the file field `title` or `displayName` if title is not defined.
@@ -23,15 +23,15 @@
         >
       </template>
     </sc-file>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { File } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-FieldUsage-File',
+  name: 'Company-FieldUsage-File',
   props: {
     fields: {
       type: Object,
@@ -42,7 +42,7 @@ export default {
   },
   components: {
     ScFile: File,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
   methods: {
     handleClick(src) {

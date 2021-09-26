@@ -2,7 +2,7 @@
   Demonstrates usage of date and time content field types within JSS.
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-date">
+  <company-specimen v-bind="$props" data-e2e-id="company-fieldusage-date">
     <ul>
       <li>Date helper: <sc-date :field="fields.date" /></li>
       <li>Date helper (datetime): <sc-date :field="fields.dateTime" /></li>
@@ -35,15 +35,15 @@
         </sc-date>
       </li>
     </ul>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { DateField } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-FieldUsage-Date',
+  name: 'Company-FieldUsage-Date',
   props: {
     fields: {
       type: Object,
@@ -54,7 +54,7 @@ export default {
   },
   components: {
     ScDate: DateField,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
 };
 </script>

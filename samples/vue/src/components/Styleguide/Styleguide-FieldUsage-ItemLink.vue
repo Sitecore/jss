@@ -4,7 +4,7 @@
 -->
 
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-itemlink">
+  <company-specimen v-bind="$props" data-e2e-id="company-fieldusage-itemlink">
     <h5>Shared Item Link</h5>
     <!--
         Item link fields are returned with their value as the referenced item value.
@@ -18,15 +18,15 @@
     <div v-if="localItemLink">
       <p>Field: <sc-text :field="localItemLink.fields.textField" /></p>
     </div>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { Text } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-FieldUsage-ItemLink',
+  name: 'Company-FieldUsage-ItemLink',
   props: {
     fields: {
       type: Object,
@@ -37,7 +37,7 @@ export default {
   },
   components: {
     ScText: Text,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
   computed: {
     sharedItemLink() {

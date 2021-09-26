@@ -3,7 +3,7 @@
   within other components.
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-sitecore-context">
+  <company-specimen v-bind="$props" data-e2e-id="company-sitecore-context">
     <p>The current Sitecore Context is...</p>
     <!--
       this.$jss is defined on the App instance by the SitecoreJssPlugin and provides
@@ -12,14 +12,14 @@
     <pre :style="{ maxHeight: '400px', overflow: 'scroll' }">
   {{ JSON.stringify($jss.sitecoreContext(), null, 2) }}
     </pre>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-SitecoreContext',
+  name: 'Company-SitecoreContext',
   props: {
     fields: {
       type: Object,
@@ -29,7 +29,7 @@ export default {
     },
   },
   components: {
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
 };
 </script>

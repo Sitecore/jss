@@ -3,33 +3,33 @@
   multiple languages.
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-multilingual">
+  <company-specimen v-bind="$props" data-e2e-id="company-multilingual">
     <sc-text :field="fields.sample" :encode="false" tag="p" />
 
     <p>
       <!-- $t is attached to the App instance by the vue-i18n plugin -->
       This is a static dictionary entry from <code>/data/dictionary</code>:&nbsp;{{
-        $t('styleguide-sample')
+        $t('company-sample')
       }}
     </p>
 
     <p>
-      <router-link to="/en/styleguide">Show in English</router-link>
+      <router-link to="/en/company">Show in English</router-link>
       <br />
-      <router-link to="/da-DK/styleguide">Show in Danish</router-link>
+      <router-link to="/da-DK/company">Show in Danish</router-link>
     </p>
 
     <!-- $i18n is attached to the App instance by the vue-i18n plugin -->
     <p>The current language is: {{ $i18n.locale }}</p>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { Text } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-Multilingual',
+  name: 'Company-Multilingual',
   props: {
     fields: {
       type: Object,
@@ -39,7 +39,7 @@ export default {
     },
   },
   components: {
-    StyleguideSpecimen,
+    CompanySpecimen,
     ScText: Text,
   },
 };

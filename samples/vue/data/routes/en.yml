@@ -32,8 +32,8 @@ placeholders:
           <h3><a href="https://jss.sitecore.com" rel="noopener noreferrer">Documentation</a></h3>
           <p>The official JSS documentation can help you with any JSS task from getting started to advanced techniques.</p>
 
-          <h3><a href="/styleguide">Styleguide</a></h3>
-          <p>The JSS styleguide is a living example of how to use JSS, hosted right in this app.
+          <h3><a href="/company">Company</a></h3>
+          <p>The JSS company is a living example of how to use JSS, hosted right in this app.
           It demonstrates most of the common patterns that JSS implementations may need to use,
           as well as useful architectural patterns.</p>
 
@@ -49,13 +49,13 @@ placeholders:
 
           <div class="alert alert-dark">
             <h4>How to start with an empty app</h4>
-            <p>To remove all of the default sample content (the Styleguide and GraphQL routes) and start out with an empty JSS app:</p>
+            <p>To remove all of the default sample content (the Company and Contact routes) and start out with an empty JSS app:</p>
             <ol>
-              <li>Delete <code>/src/components/Styleguide*</code> and <code>/src/components/GraphQL*</code></li>
-              <li>Delete <code>/sitecore/definitions/components/Styleguide*</code>, <code>/sitecore/definitions/templates/Styleguide*</code>, and <code>/sitecore/definitions/components/GraphQL*</code></li>
-              <li>Delete <code>/data/component-content/Styleguide</code></li>
-              <li>Delete <code>/data/content/Styleguide</code></li>
-              <li>Delete <code>/data/routes/styleguide</code> and <code>/data/routes/graphql</code></li>
+              <li>Delete <code>/src/components/Company*</code> and <code>/src/components/Contact*</code></li>
+              <li>Delete <code>/sitecore/definitions/components/Company*</code>, <code>/sitecore/definitions/templates/Company*</code>, and <code>/sitecore/definitions/components/Contact*</code></li>
+              <li>Delete <code>/data/component-content/Company</code></li>
+              <li>Delete <code>/data/content/Company</code></li>
+              <li>Delete <code>/data/routes/Company</code> and <code>/data/routes/contact</code></li>
               <li>Delete <code>/data/dictionary/*.yml</code></li>
             </ol>
           </div>

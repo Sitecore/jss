@@ -17,8 +17,8 @@
       >
         {{ $t('Documentation') }}
       </a>
-      <router-link to="/styleguide" class="p-2 text-dark">
-        {{ $t('Styleguide') }}
+      <router-link to="/company" class="p-2 text-dark">
+        {{ $t('Company') }}
       </router-link>
       <router-link to="/graphql" class="p-2 text-dark">
         {{ $t('GraphQL') }}

@@ -2,14 +2,14 @@
 import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
 
 /**
- * Adds the Styleguide-FieldUsage-Link component to the disconnected manifest.
+ * Adds the Company-FieldUsage-Link component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
 export default function(manifest) {
   manifest.addComponent({
-    name: 'Styleguide-FieldUsage-Link',
-    templateName: 'JssVueWeb-Styleguide-FieldUsage-Link',
+    name: 'Company-FieldUsage-Link',
+    templateName: 'JssVueWeb-Company-FieldUsage-Link',
     icon: SitecoreIcon.Link,
     fields: [
       { name: 'externalLink', type: CommonFieldTypes.GeneralLink },
@@ -17,8 +17,8 @@ export default function(manifest) {
       { name: 'emailLink', type: CommonFieldTypes.GeneralLink },
       { name: 'paramsLink', type: CommonFieldTypes.GeneralLink },
     ],
-    // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
+    // inherit fields from another template (../templates/Company-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['JssVueWeb-styleguide-explanatory-component-template'],
+    inherits: ['JssVueWeb-company-explanatory-component-template'],
   });
 }

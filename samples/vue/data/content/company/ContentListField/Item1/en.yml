@@ -1,0 +1,6 @@
+id: company-content-list-field-shared-1
+displayName: Company Content List Item 1 (Shared)
+# Template defines the available fields. See /sitecore/definitions/templates/Company-ContentList-Template.sitecore.js
+template: JssVueWeb-Company-ContentList-Item-Template
+fields:
+  textField: ContentList Demo (Shared) Item 1 Text Field

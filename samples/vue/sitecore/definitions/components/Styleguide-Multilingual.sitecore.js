@@ -2,14 +2,14 @@
 import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
 
 /**
- * Adds the Styleguide-Multilingual component to the disconnected manifest.
+ * Adds the Company-Multilingual component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
 export default function(manifest) {
   manifest.addComponent({
-    name: 'Styleguide-Multilingual',
-    templateName: 'JssVueWeb-Styleguide-Multilingual',
+    name: 'Company-Multilingual',
+    templateName: 'JssVueWeb-Company-Multilingual',
     icon: SitecoreIcon.FlagGeneric,
     fields: [
       {
@@ -18,8 +18,8 @@ export default function(manifest) {
         displayName: 'This field has a translated value',
       },
     ],
-    // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
+    // inherit fields from another template (../templates/Company-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['JssVueWeb-styleguide-explanatory-component-template'],
+    inherits: ['JssVueWeb-company-explanatory-component-template'],
   });
 }

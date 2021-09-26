@@ -3,14 +3,14 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 import packageJson from '../../../package.json';
 
 /**
- * Adds the Styleguide-FieldUsage-ContentList component to the disconnected manifest.
+ * Adds the Company-FieldUsage-ContentList component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
 export default function(manifest) {
   manifest.addComponent({
-    name: 'Styleguide-FieldUsage-ContentList',
-    templateName: 'JssVueWeb-Styleguide-FieldUsage-ContentList',
+    name: 'Company-FieldUsage-ContentList',
+    templateName: 'JssVueWeb-Company-FieldUsage-ContentList',
     icon: SitecoreIcon.ListStyle_numbered,
     fields: [
       {
@@ -20,12 +20,12 @@ export default function(manifest) {
         // the path is based on the path the shared items are defined in, under /data/content.
         // Using 'source' is recommended to help content editors find the correct items to refer to,
         // unless they can refer to any item in the whole site.
-        source: `dataSource=/sitecore/content/${packageJson.config.appName}/Content/Styleguide/ContentListField`,
+        source: `dataSource=/sitecore/content/${packageJson.config.appName}/Content/Company/ContentListField`,
       },
       { name: 'localContentList', type: CommonFieldTypes.ContentList },
     ],
-    // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
+    // inherit fields from another template (../templates/Company-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['JssVueWeb-styleguide-explanatory-component-template'],
+    inherits: ['JssVueWeb-company-explanatory-component-template'],
   });
 }

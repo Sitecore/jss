@@ -1,5 +1,5 @@
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-componentparams">
+  <company-specimen v-bind="$props" data-e2e-id="company-componentparams">
     <p :class="params.cssClass">
       The CSS class of this paragraph (<code>{{ params.cssClass }}</code
       >) is set using a param
@@ -17,14 +17,14 @@
     <div class="row" v-if="columnsArray">
       <div v-for="(_, index) in columnsArray" :key="index" class="col-sm">Column {{ index }}</div>
     </div>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-Specimen',
+  name: 'Company-Specimen',
   props: {
     params: {
       type: Object,
@@ -42,7 +42,7 @@ export default {
     },
   },
   components: {
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
 };
 </script>

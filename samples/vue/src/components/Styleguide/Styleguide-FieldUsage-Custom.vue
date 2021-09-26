@@ -1,21 +1,21 @@
 <!--
   Demonstrates usage of a custom content field type within JSS.
-  See /sitecore/definitions/components/Styleguide-FieldUsage-Custom.sitecore.js
+  See /sitecore/definitions/components/Company-FieldUsage-Custom.sitecore.js
   for the definition of the structure of the custom field. This code is just for display.
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-custom">
+  <company-specimen v-bind="$props" data-e2e-id="company-fieldusage-custom">
     <!-- Because the integer field is essentially text, we can render it with the Text helper -->
     <sc-text :field="fields.customIntField" />
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { Text } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-FieldUsage-Custom',
+  name: 'Company-FieldUsage-Custom',
   props: {
     fields: {
       type: Object,
@@ -26,7 +26,7 @@ export default {
   },
   components: {
     ScText: Text,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
 };
 </script>

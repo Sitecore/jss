@@ -2,7 +2,7 @@
   Demonstrates usage of a Number (decimal) content field within JSS.
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-number">
+  <company-specimen v-bind="$props" data-e2e-id="company-fieldusage-number">
     <!-- Basic emission of a number field for editing can be done with the <Text> component. -->
     <sc-text :field="fields.sample" />
 
@@ -12,15 +12,15 @@
       <br />
       JS value: {{ fieldValue }}
     </p>
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { Text, getFieldValue } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-FieldUsage-Number',
+  name: 'Company-FieldUsage-Number',
   props: {
     fields: {
       type: Object,
@@ -31,7 +31,7 @@ export default {
   },
   components: {
     ScText: Text,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
   computed: {
     fieldValue() {

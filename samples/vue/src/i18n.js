@@ -5,7 +5,7 @@ import { dictionaryServiceFactory } from './lib/dictionary-service-factory';
 /**
  * Initializes the vue-i18n library to provide a translation dictionary to the app.
  * If your app is not multilingual, this file and references to it can be removed.
- * Elsewhere in the app to use the dictionary `{{ $t('styleguide-sample') }}`
+ * Elsewhere in the app to use the dictionary `{{ $t('company-sample') }}`
  * If you want to use translation inside the function use:
  * ```
  * import { useI18n } from 'vue-i18n';

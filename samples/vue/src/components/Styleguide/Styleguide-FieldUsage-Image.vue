@@ -3,7 +3,7 @@
   Image field data is uploaded into the Sitecore Media Library.
 -->
 <template>
-  <styleguide-specimen v-bind="$props" data-e2e-id="styleguide-fieldusage-image">
+  <company-specimen v-bind="$props" data-e2e-id="company-fieldusage-image">
     <p>Plain image</p>
     <sc-image :media="fields.sample1" />
 
@@ -39,15 +39,15 @@
       sizes="(min-width: 960px) 300px, 100px"
       class="img-fluid"
     />
-  </styleguide-specimen>
+  </company-specimen>
 </template>
 
 <script>
 import { Image } from '@sitecore-jss/sitecore-jss-vue';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import CompanySpecimen from './Company-Specimen';
 
 export default {
-  name: 'Styleguide-FieldUsage-Image',
+  name: 'Company-FieldUsage-Image',
   props: {
     fields: {
       type: Object,
@@ -58,7 +58,7 @@ export default {
   },
   components: {
     ScImage: Image,
-    StyleguideSpecimen,
+    CompanySpecimen,
   },
 };
 </script>
