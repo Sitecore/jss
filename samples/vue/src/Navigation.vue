@@ -11,7 +11,7 @@
     <nav class="my-2 my-md-0 mr-md-3">
       <a
         class="p-2 text-dark"
-        href="https://jss.sitecore.com"
+        href="https://github.com/victora2/cli2Cms"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import logo from './assets/sc_logo.svg';
+import logo from './assets/valtech_logo.svg';
 
 export default {
   name: 'Navigation',

@@ -20,8 +20,8 @@
     "yarn": "yarn is not supported, please use npm"
   },
   "author": {
-    "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.com"
+    "name": "Victor Antofica/Valtech Switzerland AG",
+    "url": "https://github.com/victora2/cli2Cms"
   },
   "repository": {
     "type": "git",
