@@ -21,7 +21,7 @@ npm run lint-apps;`;
 
   // Write the hook to the local .git folder. Using writeFile in order to catch any errors
   /* eslint-disable no-unused-vars */
-  fs.writeFile('./.git/hooks/pre-commit.local-linter', data, 'utf8', (err, _) => {
+  fs.writeFile('./.git/hooks/pre-commit', data, 'utf8', (err, _) => {
     if (err) {
       console.log('\x1b[31m%o\x1b[0m', err);
     }
