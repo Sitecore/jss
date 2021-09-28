@@ -10,7 +10,7 @@
     "lint-packages": "lerna run lint --ignore *-sample*",
     "lint-apps": "lerna run lint --ignore @sitecore-jss/*",
     "coverage-packages": "lerna run coverage --ignore *-sample*",
-    "install-git-hooks": "node ./scripts/installHooks.js"
+    "install-git-hooks": "node ./scripts/install-hooks.js"
   },
   "author": {
     "name": "Sitecore Corporation",

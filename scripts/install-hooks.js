@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const installHook = async () => {
+const installHooks = () => {
   // data to be written to the file
   const data = `#!/bin/sh
 #
@@ -29,4 +29,4 @@ npm run lint-apps;`;
   });
 };
 
-installHook();
+installHooks();
