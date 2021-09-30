@@ -47,6 +47,7 @@ export {
 
 // layout
 export {
+  // models
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,
@@ -60,16 +61,16 @@ export {
   PlaceholdersData,
   ComponentFields,
   ComponentParams,
-} from './layout/models';
-
-export { getFieldValue, getChildPlaceholder } from './layout/utils';
-
-export { LayoutService } from './layout/layout-service';
-
-export {
+  // utils
+  getFieldValue,
+  getChildPlaceholder,
+  // layout-service
+  LayoutService,
+  // rest-layout-service
   RestLayoutService,
   RestLayoutServiceConfig,
   DataFetcherResolver,
-} from './layout/rest-layout-service';
-
-export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
+  // graphql-layout-service
+  GraphQLLayoutService,
+  GraphQLLayoutServiceConfig,
+} from './layout';
