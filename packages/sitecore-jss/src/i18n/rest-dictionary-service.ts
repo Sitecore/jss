@@ -1,8 +1,8 @@
-import { AxiosDataFetcher } from '../axios-fetcher';
-import { HttpDataFetcher, fetchData } from '../data-fetcher';
+import { AxiosDataFetcher } from '../utils/axios-fetcher';
+import { HttpDataFetcher, fetchData } from '../utils/data-fetcher';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
-import { CacheOptions } from '../cache-client';
-import debug from '../debug';
+import { CacheOptions } from '../utils/cache-client';
+import debug from '../utils/debug';
 
 /**
  * A reply from the REST Sitecore Dictionary Service

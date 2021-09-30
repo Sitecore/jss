@@ -1,9 +1,9 @@
-import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
-import { SitecoreTemplateId } from '../constants';
+import { GraphQLClient, GraphQLRequestClient } from '../graphql/graphql-request-client';
+import { SitecoreTemplateId } from '../utils/constants';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
-import { CacheOptions } from '../cache-client';
+import { CacheOptions } from '../utils/cache-client';
 import { getAppRootId, SearchServiceConfig, SearchQueryService } from '../graphql';
-import debug from '../debug';
+import debug from '../utils/debug';
 
 /** @private */
 export const queryError =

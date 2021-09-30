@@ -5,7 +5,7 @@ import spies from 'chai-spies';
 import nock from 'nock';
 import { GraphQLRequestClient } from './graphql-request-client';
 import debugApi from 'debug';
-import debug from './debug';
+import debug from '../utils/debug';
 
 use(spies);
 

@@ -1,4 +1,4 @@
-import { GraphQLClient } from '../graphql-request-client';
+import { GraphQLClient } from './graphql-request-client';
 import { DocumentNode } from 'graphql';
 
 /**

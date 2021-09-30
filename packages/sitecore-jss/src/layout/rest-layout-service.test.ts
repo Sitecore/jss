@@ -4,7 +4,7 @@ import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';
 import axios, { AxiosRequestConfig } from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { AxiosDataFetcher } from '../axios-fetcher';
+import { AxiosDataFetcher } from '../utils/axios-fetcher';
 import { RestLayoutService } from './rest-layout-service';
 import { LayoutServiceData, PlaceholderData } from './models';
 

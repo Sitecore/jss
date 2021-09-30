@@ -1,4 +1,4 @@
-import resolveUrl from './utils/resolve-url';
+import resolveUrl from './resolve-url';
 import { ParsedUrlQueryInput } from 'querystring';
 
 /**

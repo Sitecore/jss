@@ -2,9 +2,9 @@ import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { IncomingMessage, ServerResponse } from 'http';
 import { LayoutServiceBase } from './layout-service';
 import { PlaceholderData, LayoutServiceData } from './models';
-import { AxiosDataFetcher, AxiosDataFetcherConfig } from '../axios-fetcher';
-import { HttpDataFetcher, fetchData } from '../data-fetcher';
-import debug from '../debug';
+import { AxiosDataFetcher, AxiosDataFetcherConfig } from '../utils/axios-fetcher';
+import { HttpDataFetcher, fetchData } from '../utils/data-fetcher';
+import debug from '../utils/debug';
 
 interface FetchParams {
   [param: string]: string | number | boolean;

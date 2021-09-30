@@ -1,6 +1,6 @@
 import { GraphQLClient as Client, ClientError } from 'graphql-request';
 import { DocumentNode } from 'graphql';
-import debuggers, { Debugger } from './debug';
+import debuggers, { Debugger } from '../utils/debug';
 
 /**
  * An interface for GraphQL clients for Sitecore APIs
