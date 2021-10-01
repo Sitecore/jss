@@ -44,7 +44,12 @@
     "js-yaml": "^3.13.1",
     "readline-sync": "^1.4.10",
     "resolve": "^1.12.0",
-    "url-join": "^4.0.1"
+    "url-join": "^4.0.1",
+    "import-fresh": "^3.1.0",
+    "joi": "^14.3.0",
+    "ts-node": "^8.4.1",
+    "uuid": "^3.3.3",
+    "yargs": "^14.0.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.3",
@@ -59,6 +64,13 @@
     "@types/resolve": "^0.0.8",
     "@types/sinon": "^7.5.0",
     "@types/url-join": "^4.0.0",
+    "@types/glob": "^7.1.1",
+    "@types/joi": "^13.6.1",
+    "@types/uuid": "^3.4.4",
+    "@types/yargs": "^12.0.1",
+    "babel-core": "^6.26.3",
+    "chalk": "^2.4.1",
+    "del": "^3.0.0",
     "chai": "^4.2.0",
     "cross-env": "^6.0.3",
     "del-cli": "^3.0.1",

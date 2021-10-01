@@ -40,7 +40,7 @@ export {
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss';
 
-export { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+export { ManifestInstance } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 export {
   ComponentPropsCollection,

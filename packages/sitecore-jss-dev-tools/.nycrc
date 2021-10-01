@@ -5,7 +5,8 @@
   "exclude": [
     "**/*.d.ts",
     "**/*.test.ts",
-    "src/testData",
+    "src/**/testData",
+    "src/pipelines/test",
     "dist",
     "types"
   ],

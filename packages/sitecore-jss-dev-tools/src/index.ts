@@ -32,3 +32,6 @@ export {
 } from './disconnected-server/create-default-disconnected-server';
 export { ScJssConfig, JssConfiguration, resolveScJssConfig } from './resolve-scjssconfig';
 export { strip } from './templating/strip';
+
+export * from './manifest';
+export * from './pipelines';

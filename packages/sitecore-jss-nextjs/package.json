@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "@sitecore-jss/sitecore-jss": "^20.0.0-canary.23",
-    "@sitecore-jss/sitecore-jss-manifest": "^20.0.0-canary.23",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.23",
     "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.23",
     "prop-types": "^15.7.2",
     "sync-disk-cache": "^2.1.0"
