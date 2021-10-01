@@ -71,7 +71,6 @@
     "@babel/register": "7.6.2",
     "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.23",
     "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.23",
-    "@sitecore-jss/sitecore-jss-manifest": "^20.0.0-canary.23",
     "@sitecore-jss/sitecore-jss-tracking": "^20.0.0-canary.23",
     "@vue/cli-plugin-babel": "~4.5.13",
     "@vue/cli-plugin-eslint": "~4.5.13",

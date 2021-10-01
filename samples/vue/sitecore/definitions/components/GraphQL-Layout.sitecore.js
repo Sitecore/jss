@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adds the GraphQL-Layout component to the disconnected manifest.

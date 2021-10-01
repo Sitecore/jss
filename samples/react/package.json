@@ -62,7 +62,6 @@
     "@babel/register": "~7.6.2",
     "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.23",
     "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.23",
-    "@sitecore-jss/sitecore-jss-manifest": "^20.0.0-canary.23",
     "@sitecore-jss/sitecore-jss-rendering-host": "^20.0.0-canary.23",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "~9.0.2",

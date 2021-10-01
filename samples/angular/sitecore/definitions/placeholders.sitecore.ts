@@ -1,4 +1,4 @@
-import { Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 export default (manifest: Manifest) => {
   /**

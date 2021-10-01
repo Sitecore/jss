@@ -1,4 +1,4 @@
-import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adds the Styleguide-Layout-Reuse component to the disconnected manifest.

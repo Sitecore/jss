@@ -1,4 +1,4 @@
-import { Manifest, ItemDefinition } from '@sitecore-jss/sitecore-jss-manifest';
+import { Manifest, ItemDefinition } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { mergeFs, MergeFsResult } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { resolve as resolvePath } from 'path';
 import { existsSync as fileExistsSync } from 'fs';

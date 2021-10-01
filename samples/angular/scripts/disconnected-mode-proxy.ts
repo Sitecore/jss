@@ -10,7 +10,7 @@
 import * as fs from 'fs';
 import { join } from 'path';
 import { createDefaultDisconnectedServer, DisconnectedServerOptions } from '@sitecore-jss/sitecore-jss-dev-tools';
-import { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+import { ManifestInstance } from '@sitecore-jss/sitecore-jss-dev-tools';
 const packageJson = require('../package.json');
 
 const config = (packageJson as {

@@ -1,4 +1,4 @@
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 const packageJson = require('../../../package.json');
 
 const jsonConfig = packageJson as { [key: string]: unknown; config: { [key: string]: unknown } };
