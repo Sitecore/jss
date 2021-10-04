@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.23",
-    "@sitecore-jss/sitecore-jss-manifest": "^20.0.0-canary.23",
     "axios": "^0.21.1",
     "chalk": "^2.4.2",
     "cross-spawn": "^7.0.0",
