@@ -23,18 +23,18 @@ describe('runProcessors', () => {
   const fileProcessors = () => [
     {
       name: 'proc0',
-      modulePath: './src/test/pipelines/pipeline0/proc0',
+      modulePath: './src/pipelines/test/pipelines/pipeline0/proc0',
       args: {
         fileArg0: 'fileArg0',
       },
     },
     {
       name: 'proc1',
-      modulePath: './src/test/pipelines/pipeline0/proc1.ts',
+      modulePath: './src/pipelines/test/pipelines/pipeline0/proc1.ts',
     },
     {
       name: 'proc2',
-      modulePath: './src/test/pipelines/pipeline0/proc2.ts',
+      modulePath: './src/pipelines/test/pipelines/pipeline0/proc2.ts',
     },
   ];
 
