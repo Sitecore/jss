@@ -4,7 +4,7 @@
   "version": "20.0.0-canary.19",
   "private": true,
   "config": {
-    "appName": "JssNextWeb",
+    "appName": "SxaSampleSite",
     "rootPlaceholders": [
       "jss-main"
     ],

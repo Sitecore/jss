@@ -34,6 +34,11 @@ export { Text, TextField } from './components/Text';
 export { DateField } from './components/Date';
 export { Link, LinkField, LinkFieldValue, LinkProps, LinkPropTypes } from './components/Link';
 export { File, FileField } from './components/File';
+export {
+  RenderingVariants,
+  RenderingVariantProps,
+  RenderingVariantParameters,
+} from './components/RenderingVariants';
 export { VisitorIdentification } from './components/VisitorIdentification';
 export {
   SitecoreContext,

@@ -1,3 +1,6 @@
 import { ComponentType } from 'react';
 
-export type ComponentFactory = (componentName: string) => ComponentType | null;
+export type ComponentFactory = <ComponentProps>(
+  componentName: string,
+  exportName?: string
+) => ComponentType<ComponentProps> | null;

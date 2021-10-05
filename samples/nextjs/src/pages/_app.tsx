@@ -10,6 +10,7 @@ import NProgress from 'nprogress';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'nprogress/nprogress.css';
 import 'assets/app.css';
+import 'assets/optimized.min.css';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 

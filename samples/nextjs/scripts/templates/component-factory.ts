@@ -77,13 +77,17 @@ export function componentModule(componentName: string) {
   return component;
 }
   
-export function componentFactory(componentName: string) {
+export function componentFactory(componentName: string, exportName?: string) {
   const component = components.get(componentName);
 
   // check that component should be dynamically imported
   if (component?.element) {
     // return next.js dynamic import
     return component.element();
+  }
+
+  if (exportName) {
+    return component[exportName];
   }
 
   return component?.default || component;

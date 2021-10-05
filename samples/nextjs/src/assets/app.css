@@ -17,3 +17,10 @@ a[target='_blank']:after {
   padding: 1em;
   background-color: lightyellow;
 }
+
+.image-caption {
+  display: block;
+  font-style: italic;
+  font-size: 11px;
+  color: #747474;
+}
