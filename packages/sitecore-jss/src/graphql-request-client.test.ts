@@ -106,4 +106,14 @@ describe('GraphQLRequestClient', () => {
 
     expect(debug.layout.log, 'request and response log').to.be.called.twice;
   });
+
+  it('should throw error when endpoint is not a valid url', () => {
+    try {
+      new GraphQLRequestClient('invalid', { debugger: debug.layout });
+    } catch (error) {
+      expect(error.toString()).to.equal(
+        'Error: Graphql endpoint must be a non-empty string. Verify that `layoutServiceHost` property in `scjssconfig.json` is not empty or appropriate environment variable is set'
+      );
+    }
+  });
 });
