@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { HttpDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { HttpDataFetcher } from './../index';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { expect } from 'chai';

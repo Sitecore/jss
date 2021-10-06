@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
-import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
+import { trackingApi, TrackingRequestOptions } from '@sitecore-jss/sitecore-jss';
 import { environment } from '../../../environments/environment';
 import { JssDataFetcherService } from '../../jss-data-fetcher.service';
-import { TrackingRequestOptions } from '@sitecore-jss/sitecore-jss-tracking/types/trackingRequestOptions';
 
 /**
  * Demonstrates usage of a Text content field within JSS.

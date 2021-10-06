@@ -1,5 +1,5 @@
 import querystring from 'querystring';
-import { HttpDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { HttpDataFetcher } from './../index';
 
 export interface TrackingRequestOptions {
   /** Hostname of tracking service; e.g. http://my.site.core */

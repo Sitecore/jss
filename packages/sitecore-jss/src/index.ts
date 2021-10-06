@@ -84,3 +84,14 @@ export {
   GraphQLLayoutService,
   GraphQLLayoutServiceConfig,
 } from './layout';
+
+// tracking
+export {
+  trackingApi,
+  TrackingRequestOptions,
+  CampaignInstance,
+  GoalInstance,
+  OutcomeInstance,
+  EventInstance,
+  PageViewInstance,
+} from './tracking';

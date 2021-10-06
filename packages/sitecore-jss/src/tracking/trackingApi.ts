@@ -1,4 +1,4 @@
-import { HttpDataFetcher, HttpResponse, isServer, resolveUrl } from '@sitecore-jss/sitecore-jss';
+import { HttpDataFetcher, HttpResponse, isServer, resolveUrl } from './../index';
 import {
   CampaignInstance,
   EventInstance,

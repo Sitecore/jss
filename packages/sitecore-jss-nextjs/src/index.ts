@@ -38,6 +38,14 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  // tracking
+  trackingApi,
+  TrackingRequestOptions,
+  CampaignInstance,
+  GoalInstance,
+  OutcomeInstance,
+  EventInstance,
+  PageViewInstance,
 } from '@sitecore-jss/sitecore-jss';
 
 export { ManifestInstance } from '@sitecore-jss/sitecore-jss-dev-tools';

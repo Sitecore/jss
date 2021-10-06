@@ -21,6 +21,14 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  // tracking
+  trackingApi,
+  TrackingRequestOptions,
+  CampaignInstance,
+  GoalInstance,
+  OutcomeInstance,
+  EventInstance,
+  PageViewInstance,
 } from '@sitecore-jss/sitecore-jss';
 
 export { Placeholder } from './components/Placeholder';
