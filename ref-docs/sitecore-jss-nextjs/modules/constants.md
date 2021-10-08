@@ -1,30 +1,30 @@
-[Sitecore JavaScript Rendering SDK for Next.js](../README.md) / constants
+[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / constants
 
-# Module: constants
+# Namespace: constants
 
 ## Table of contents
 
+### Enumerations
+
+- [SitecoreTemplateId](../enums/constants.SitecoreTemplateId.md)
+
 ### Variables
 
-- [JSS\_MODE\_CONNECTED](constants.md#jss_mode_connected)
-- [JSS\_MODE\_DISCONNECTED](constants.md#jss_mode_disconnected)
+- [JSS\_MODE](constants.md#jss_mode)
 
 ## Variables
 
-### JSS\_MODE\_CONNECTED
+### JSS\_MODE
 
-• `Const` **JSS\_MODE\_CONNECTED**: ``"connected"``
+• **JSS\_MODE**: `Object`
 
-#### Defined in
+#### Type declaration
 
-[src/constants.ts:1](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/constants.ts#L1)
-
-___
-
-### JSS\_MODE\_DISCONNECTED
-
-• `Const` **JSS\_MODE\_DISCONNECTED**: ``"disconnected"``
+| Name | Type |
+| :------ | :------ |
+| `CONNECTED` | `string` |
+| `DISCONNECTED` | `string` |
 
 #### Defined in
 
-[src/constants.ts:2](https://github.com/Sitecore/jss/blob/c1078945/packages/sitecore-jss-nextjs/src/constants.ts#L2)
+node_modules/@sitecore-jss/sitecore-jss/types/constants.d.ts:5
