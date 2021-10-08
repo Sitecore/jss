@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "paths": {
       "@update": [
-        "update/"
+        "update"
       ],
     },
     "target": "es6",

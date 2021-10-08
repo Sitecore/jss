@@ -10,7 +10,8 @@
     "lint-packages": "lerna run lint --ignore *-sample*",
     "lint-apps": "lerna run lint --ignore @sitecore-jss/*",
     "coverage-packages": "lerna run coverage --ignore *-sample*",
-    "install-git-hooks": "node ./scripts/install-hooks.js"
+    "install-git-hooks": "node ./scripts/install-hooks.js",
+    "generate-docs": "lerna run generate-docs"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -29,8 +30,12 @@
     "eslint-plugin-jsdoc": "^30.7.9",
     "eslint-plugin-prettier": "^3.3.0",
     "lerna": "^3.22.0",
+    "none": "^1.0.0",
     "nyc": "^14.1.1",
     "prettier": "^1.14.3",
+    "typedoc": "^0.22.5",
+    "typedoc-plugin-markdown": "^3.11.3",
     "typescript": "^3.9.6"
-  }
+  },
+  "dependencies": {}
 }

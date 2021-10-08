@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { GraphQLSitemapService, StaticPath } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  GraphQLSitemapService,
+  StaticPath,
+  DisconnectedSitemapService,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 // #START_EMPTY
-import { DisconnectedSitemapService, ManifestInstance } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ManifestInstance } from '@sitecore-jss/sitecore-jss-dev-tools';
 // #END_EMPTY
 import { GetStaticPathsContext } from 'next';
 import config from 'temp/config';

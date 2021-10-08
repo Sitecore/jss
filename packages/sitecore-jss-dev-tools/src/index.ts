@@ -35,3 +35,4 @@ export { strip } from './templating/strip';
 
 export * from './manifest';
 export * from './pipelines';
+export * from './update';
