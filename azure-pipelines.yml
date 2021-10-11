@@ -31,8 +31,7 @@ pr:
     - docs/*
 
 pool:
-  # todo: we dgaf what specific version of Linux is installed, is there any way to wildcard the version?
-  vmImage: 'Ubuntu-16.04'
+  vmImage: 'ubuntu-latest'
 
 variables:
   shouldPublish: $[or(eq(variables['Build.SourceBranch'], 'refs/heads/dev'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'))]
