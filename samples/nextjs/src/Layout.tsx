@@ -75,7 +75,7 @@ const Layout = ({ sitecoreContext: { route } }: LayoutProps): JSX.Element => {
       <Navigation />
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
-        <Placeholder name="jss-main" rendering={route} />
+        <Placeholder name="JssNextWeb-main" rendering={route} />
       </div>
     </>
   );

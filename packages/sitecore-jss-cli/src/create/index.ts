@@ -7,6 +7,7 @@ interface PackageJsonConfig {
   appName: string;
   graphQLEndpointPath?: string;
   sitecoreDistPath?: string;
+  rootPlaceholders?: string[];
 }
 
 interface PackageJson {
@@ -32,10 +33,24 @@ export function applyNameReplacement(value: string, replaceName: string, withNam
  * @param {PackageJson} pkg package.json object
  * @param {string} name App name
  * @param {string} replaceName Name value to replace
+ * @param {boolean} withPrefix should replace placeholder prefix
  */
-export function applyNameToPackageJson(pkg: PackageJson, name: string, replaceName: string) {
+export function applyNameToPackageJson(
+  pkg: PackageJson,
+  name: string,
+  replaceName: string,
+  withPrefix?: boolean
+) {
   pkg.name = name; // root name will never match "replaceName", so always set directly
   pkg.config.appName = applyNameReplacement(pkg.config.appName, replaceName, name);
+
+  pkg.config.rootPlaceholders = pkg.config.rootPlaceholders?.map((ph) =>
+    applyNameReplacement(
+      ph,
+      withPrefix ? replaceName : name,
+      withPrefix ? getPascalCaseName(name) : ''
+    )
+  );
 
   if (pkg.config.sitecoreDistPath) {
     pkg.config.sitecoreDistPath = applyNameReplacement(
@@ -79,7 +94,7 @@ export function applyNameToProject(
 
   const packagePath = path.join(projectFolder, 'package.json');
   let pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
-  pkg = applyNameToPackageJson(pkg, name, replaceName);
+  pkg = applyNameToPackageJson(pkg, name, replaceName, withPrefix);
   fs.writeFileSync(packagePath, JSON.stringify(pkg, null, 2));
 
   // Apply name and hostName to Sitecore config files
@@ -124,10 +139,10 @@ export function getPascalCaseName(name: string): string {
 }
 
 /**
- * Called during jss create, this function replaces the sample's prefix with the app's name on Sitecore templates
+ * Called during jss create, this function replaces the sample's prefix with the app's name on Sitecore templates/placeholders
  * @param {string} projectFolder Project folder
  * @param {string} name Name value to replace
- * @param {string} prefix Prefix of the sample app's template - should match Jss[RAV|Next]Web
+ * @param {string} prefix Prefix of the sample app's template/placeholder - should match Jss[RAV|Next]Web
  * @param {boolean} withPrefix if true, replaces prefix with app name in PascalCase,
  * otherwise strip the prefix
  */
@@ -138,7 +153,7 @@ export function replacePrefix(
   withPrefix?: boolean
 ) {
   if (!withPrefix) {
-    console.log(chalk.cyan('Removing template prefix...'));
+    console.log(chalk.cyan('Removing template/placeholder prefix...'));
     const prefixWithHyphen = prefix + '-';
     glob
       .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'), {
@@ -157,7 +172,9 @@ export function replacePrefix(
     return;
   }
 
-  console.log(chalk.cyan(`Replacing template prefix with ${getPascalCaseName(name)}...`));
+  console.log(
+    chalk.cyan(`Replacing template/placeholder prefix with ${getPascalCaseName(name)}...`)
+  );
   glob
     .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'), {
       ignore: '{**/*.png,**/*.pdf}',

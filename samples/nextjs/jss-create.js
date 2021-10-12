@@ -38,7 +38,7 @@ module.exports = function createJssProject(argv, nextSteps) {
       )} : Specifies whether the sample should be empty. Disconnected mode and styleguide components will be removed. Default is false.`,
       `*  ${chalk.green(
         '--prefix {true|false}'
-      )} : Specifies whether the templates should include a prefix. If true, the app's templates will be prefixed with the app's name in PascalCase. This is helpful if deploying multiple apps to the same Sitecore instance. If false, no prefix will be used. Default is false.`
+      )} : Specifies whether the templates/placeholders should include a prefix. If true, the app's templates/placeholders will be prefixed with the app's name in PascalCase. This is helpful if deploying multiple apps to the same Sitecore instance. If false, no prefix will be used. Default is false.`
     );
   }
 

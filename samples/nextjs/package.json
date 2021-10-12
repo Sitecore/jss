@@ -6,7 +6,7 @@
   "config": {
     "appName": "JssNextWeb",
     "rootPlaceholders": [
-      "jss-main"
+      "JssNextWeb-main"
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
