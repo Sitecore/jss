@@ -47,7 +47,7 @@ export function applyNameToPackageJson(
   pkg.config.rootPlaceholders = pkg.config.rootPlaceholders?.map((ph) =>
     applyNameReplacement(
       ph,
-      withPrefix ? replaceName : name,
+      withPrefix ? replaceName : `${replaceName}-`,
       withPrefix ? getPascalCaseName(name) : ''
     )
   );

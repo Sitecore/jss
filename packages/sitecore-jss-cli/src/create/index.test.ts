@@ -153,6 +153,46 @@ describe('applyNameToPackageJson', () => {
     expect(result.config.sitecoreDistPath).to.equal('/somewhere/dist/bar');
   });
 
+  it('should apply prefix for rootPlaceholders', () => {
+    const result = applyNameToPackageJson(
+      {
+        name: 'FooName',
+        config: {
+          appName: 'FooAppName',
+          sitecoreDistPath: '/somewhere/dist/FooAppName',
+          rootPlaceholders: ['FooAppName-main', 'FooAppName-header'],
+        },
+      },
+      'bar',
+      'FooAppName',
+      true
+    );
+    expect(result.name).to.equal('bar');
+    expect(result.config.appName).to.equal('bar');
+    expect(result.config.sitecoreDistPath).to.equal('/somewhere/dist/bar');
+    expect(result.config.rootPlaceholders).to.deep.equal(['Bar-main', 'Bar-header']);
+  });
+
+  it('should remove prefix from the rootPlaceholders', () => {
+    const result = applyNameToPackageJson(
+      {
+        name: 'FooName',
+        config: {
+          appName: 'FooAppName',
+          sitecoreDistPath: '/somewhere/dist/FooAppName',
+          rootPlaceholders: ['FooAppName-main', 'FooAppName-header'],
+        },
+      },
+      'bar',
+      'FooAppName',
+      false
+    );
+    expect(result.name).to.equal('bar');
+    expect(result.config.appName).to.equal('bar');
+    expect(result.config.sitecoreDistPath).to.equal('/somewhere/dist/bar');
+    expect(result.config.rootPlaceholders).to.deep.equal(['main', 'header']);
+  });
+
   it('should not apply name using replaceName if no match', () => {
     const result = applyNameToPackageJson(
       {
