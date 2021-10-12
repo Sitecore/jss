@@ -9,7 +9,7 @@ export default function StyleguideLayoutReuse(manifest: Manifest) {
     name: 'StyleguideLayoutReuse',
     templateName: 'JssAngularWeb-StyleguideLayoutReuse',
     icon: SitecoreIcon.DocumentsExchange,
-    placeholders: ['jss-reuse-example'],
+    placeholders: ['JssAngularWeb-reuse-example'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
     inherits: ['JssAngularWeb-styleguide-explanatory-component-template'],

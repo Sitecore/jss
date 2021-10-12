@@ -5,7 +5,7 @@
   "config": {
     "appName": "JssAngularWeb",
     "rootPlaceholders": [
-      "jss-main"
+      "JssAngularWeb-main"
     ],
     "sitecoreDistPath": "/dist/JssAngularWeb",
     "sitecoreConfigPath": "/App_Config/Include/zzz",

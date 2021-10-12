@@ -10,6 +10,6 @@ export default function StyleguideSection(manifest: Manifest) {
     templateName: 'JssAngularWeb-StyleguideSection',
     icon: SitecoreIcon.DocumentTag,
     fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
-    placeholders: ['jss-styleguide-section'],
+    placeholders: ['JssAngularWeb-styleguide-section'],
   });
 }
