@@ -11,7 +11,7 @@ export default function (manifest) {
     name: 'Styleguide-Layout-Reuse',
     templateName: 'JssReactWeb-Styleguide-Layout-Reuse',
     icon: SitecoreIcon.DocumentsExchange,
-    placeholders: ['jss-reuse-example'],
+    placeholders: ['JssReactWeb-reuse-example'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
     inherits: ['JssReactWeb-styleguide-explanatory-component-template'],

@@ -1,7 +1,7 @@
 fields:
   pageTitle: Styleguide | Sitecore JSS
 placeholders:
-  jss-main:
+  JssReactWeb-main:
   - componentName: ContentBlock
     fields:
       heading: JSS Styleguide
@@ -13,12 +13,12 @@ placeholders:
         <p>Indholdet og layoutet på denne side er defineret i <code>/data/routes/styleguide/da-DK.yml</code></p>
   - componentName: Styleguide-Layout
     placeholders:
-      jss-styleguide-layout:
+      JssReactWeb-styleguide-layout:
       - componentName: Styleguide-Section
         fields:
           heading: Flersprogede mønstre
         placeholders:
-          jss-styleguide-section:
+          JssReactWeb-styleguide-section:
           - componentName: Styleguide-Multilingual
             fields:
               heading: Brug af ordbogen

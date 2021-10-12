@@ -11,6 +11,6 @@ export default function (manifest) {
     name: 'Styleguide-Layout',
     templateName: 'JssReactWeb-Styleguide-Layout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['jss-styleguide-layout'],
+    placeholders: ['JssReactWeb-styleguide-layout'],
   });
 }
