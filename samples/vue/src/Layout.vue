@@ -6,7 +6,7 @@
     <visitor-identification />
     <navigation />
     <div class="container">
-      <placeholder name="jss-main" :rendering="route" />
+      <placeholder name="JssVueWeb-main" :rendering="route" />
     </div>
   </div>
 </template>

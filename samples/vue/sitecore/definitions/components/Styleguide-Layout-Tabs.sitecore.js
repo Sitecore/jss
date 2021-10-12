@@ -11,7 +11,7 @@ export default function(manifest) {
     name: 'Styleguide-Layout-Tabs',
     templateName: 'JssVueWeb-Styleguide-Layout-Tabs',
     icon: SitecoreIcon.DocumentTag,
-    placeholders: ['jss-tabs'],
+    placeholders: ['JssVueWeb-tabs'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
     inherits: ['JssVueWeb-styleguide-explanatory-component-template'],

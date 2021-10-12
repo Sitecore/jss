@@ -6,7 +6,7 @@
 <template>
   <div class="pt-3" :id="`i${rendering.uid.replace(/[{}]/g, '')}`">
     <sc-text class="border-bottom" :field="fields.heading" tag="h3" />
-    <sc-placeholder name="jss-styleguide-section" :rendering="rendering" />
+    <sc-placeholder name="JssVueWeb-styleguide-section" :rendering="rendering" />
   </div>
 </template>
 

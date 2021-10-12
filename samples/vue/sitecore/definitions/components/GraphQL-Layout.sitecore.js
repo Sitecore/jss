@@ -11,6 +11,6 @@ export default function(manifest) {
     name: 'GraphQL-Layout',
     templateName: 'JssVueWeb-GraphQL-Layout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['jss-graphql-layout'],
+    placeholders: ['JssVueWeb-graphql-layout'],
   });
 }

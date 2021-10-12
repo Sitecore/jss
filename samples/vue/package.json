@@ -6,7 +6,7 @@
   "config": {
     "appName": "JssVueWeb",
     "rootPlaceholders": [
-      "jss-main"
+      "JssVueWeb-main"
     ],
     "sitecoreDistPath": "/dist/JssVueWeb",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
