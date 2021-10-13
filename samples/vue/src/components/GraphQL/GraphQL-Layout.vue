@@ -16,7 +16,7 @@
         deploy the app to Sitecore to run in integrated mode per the JSS documentation.
       </p>
     </template>
-    <sc-placeholder name="JssVueWeb-graphql-layout" :rendering="rendering" v-else />
+    <sc-placeholder name="JssVueWeb-jss-graphql-layout" :rendering="rendering" v-else />
   </div>
 </template>
 

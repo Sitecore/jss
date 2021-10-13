@@ -8,5 +8,5 @@ fields:
   author: Myrtle
   content: <p>Custom route type fields are good for things like articles, where you may wish to have a filter UI on content fields, such as author or category. Route level fields are easy to query against, whereas component-level fields are not because it's possible to remove a component from a route. Note that route level fields <em>cannot be personalized</em> because you cannot conditionally swap out the route item for a different content item.</p>
 placeholders:
-  JssVueWeb-main:
+  JssVueWeb-jss-main:
   - componentName: Styleguide-CustomRouteType

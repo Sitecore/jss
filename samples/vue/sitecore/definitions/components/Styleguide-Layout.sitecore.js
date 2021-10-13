@@ -11,6 +11,6 @@ export default function(manifest) {
     name: 'Styleguide-Layout',
     templateName: 'JssVueWeb-Styleguide-Layout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['JssVueWeb-styleguide-layout'],
+    placeholders: ['JssVueWeb-jss-styleguide-layout'],
   });
 }

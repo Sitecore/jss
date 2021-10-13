@@ -1,7 +1,7 @@
 fields:
   pageTitle: Styleguide | Sitecore JSS
 placeholders:
-  JssVueWeb-main:
+  JssVueWeb-jss-main:
     - componentName: ContentBlock
       fields:
         heading: JSS Styleguide
@@ -10,12 +10,12 @@ placeholders:
           <p>The content and layout of this page is defined in <code>/data/routes/styleguide/en.yml</code></p>
     - componentName: Styleguide-Layout
       placeholders:
-        JssVueWeb-styleguide-layout:
+        JssVueWeb-jss-styleguide-layout:
           - componentName: Styleguide-Section
             fields:
               heading: Content Data
             placeholders:
-              JssVueWeb-styleguide-section:
+              JssVueWeb-jss-styleguide-section:
                 - componentName: Styleguide-FieldUsage-Text
                   fields:
                     heading: Single-Line Text
@@ -171,15 +171,15 @@ placeholders:
             fields:
               heading: Layout Patterns
             placeholders:
-              JssVueWeb-header:
+              JssVueWeb-jss-header:
                 - componentName: Styleguide-Layout-Reuse
-              JssVueWeb-styleguide-section:
+              JssVueWeb-jss-styleguide-section:
                 - componentName: Styleguide-Layout-Reuse
                   fields:
                     heading: Reusing Content
                     description: <p>JSS provides powerful options to reuse content, whether it's sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>
                   placeholders:
-                    JssVueWeb-reuse-example:
+                    JssVueWeb-jss-reuse-example:
                       # Reference shared content using its ID (this is defined in /data/component/content/Styleguide/ContentReuse/LoremIpsumContentBlock/en.yml)
                       # Shared content is an 'edit once, reflected everywhere' operation for a content author.
                       - id: lorem-ipsum-content-block
@@ -196,7 +196,7 @@ placeholders:
                     heading: Tabs
                     description: <p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>
                   placeholders:
-                    JssVueWeb-tabs:
+                    JssVueWeb-jss-tabs:
                       - componentName: Styleguide-Layout-Tabs-Tab
                         fields:
                           title: Tab 1
@@ -213,7 +213,7 @@ placeholders:
             fields:
               heading: Sitecore Patterns
             placeholders:
-              JssVueWeb-styleguide-section:
+              JssVueWeb-jss-styleguide-section:
                 - componentName: Styleguide-SitecoreContext
                   fields:
                     heading: Sitecore Context
@@ -240,7 +240,7 @@ placeholders:
             fields:
               heading: Multilingual Patterns
             placeholders:
-              JssVueWeb-styleguide-section:
+              JssVueWeb-jss-styleguide-section:
                 - componentName: Styleguide-Multilingual
                   fields:
                     heading: Translation Patterns
