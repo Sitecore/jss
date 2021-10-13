@@ -1,7 +1,7 @@
 fields:
   pageTitle: GraphQL | Sitecore JSS
 placeholders:
-  jss-main:
+  JssAngularWeb-jss-main:
   - componentName: ContentBlock
     fields:
       heading: Using GraphQL with JSS
@@ -10,7 +10,7 @@ placeholders:
         For more information on GraphQL use in JSS, please see <a href="https://jss.sitecore.com" target="_blank" rel="noopener noreferrer">the documentation</a>.</p>
   - componentName: GraphQLLayout
     placeholders:
-      jss-graphql-layout:
+      JssAngularWeb-jss-graphql-layout:
       - componentName: GraphQLIntegratedDemo
         fields:
           sample1: Hello integrated GraphQL world!

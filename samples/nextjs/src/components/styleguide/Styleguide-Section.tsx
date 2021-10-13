@@ -15,7 +15,7 @@ type StyleguideSectionProps = StyleguideComponentProps & {
 const StyleguideSection = (props: StyleguideSectionProps): JSX.Element => (
   <div className="pt-3" id={`i${props.rendering.uid && props.rendering.uid.replace(/[{}]/g, '')}`}>
     <Text className="border-bottom" field={props.fields.heading} tag="h3" />
-    <Placeholder name="jss-styleguide-section" rendering={props.rendering} />
+    <Placeholder name="JssNextWeb-jss-styleguide-section" rendering={props.rendering} />
   </div>
 );
 

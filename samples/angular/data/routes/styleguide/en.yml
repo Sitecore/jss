@@ -1,7 +1,7 @@
 fields:
   pageTitle: Styleguide | Sitecore JSS
 placeholders:
-  jss-main:
+  JssAngularWeb-jss-main:
   - componentName: ContentBlock
     fields:
       heading: JSS Styleguide
@@ -10,12 +10,12 @@ placeholders:
         <p>The content and layout of this page is defined in <code>/data/routes/styleguide/en.yml</code></p>
   - componentName: StyleguideLayout
     placeholders:
-      jss-styleguide-layout:
+      JssAngularWeb-jss-styleguide-layout:
       - componentName: StyleguideSection
         fields:
           heading: Content Data
         placeholders:
-          jss-styleguide-section:
+          JssAngularWeb-jss-styleguide-section:
           - componentName: StyleguideFieldUsageText
             fields:
               heading: Single-Line Text
@@ -171,13 +171,13 @@ placeholders:
         fields:
           heading: Layout Patterns
         placeholders:
-          jss-styleguide-section:
+          JssAngularWeb-jss-styleguide-section:
           - componentName: StyleguideLayoutReuse
             fields:
               heading: Reusing Content
               description: <p>JSS provides powerful options to reuse content, whether it's sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>
             placeholders:
-              jss-reuse-example:
+              JssAngularWeb-jss-reuse-example:
               # Reference shared content using its ID (this is defined in /data/component/content/Styleguide/ContentReuse/LoremIpsumContentBlock/en.yml)
               # Shared content is an 'edit once, reflected everywhere' operation for a content author.
               - id: lorem-ipsum-content-block
@@ -194,7 +194,7 @@ placeholders:
               heading: Tabs
               description: <p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>
             placeholders:
-              jss-tabs:
+              JssAngularWeb-jss-tabs:
               - componentName: StyleguideLayoutTabsTab
                 fields:
                   title: Tab 1
@@ -211,7 +211,7 @@ placeholders:
         fields:
           heading: Sitecore Patterns
         placeholders:
-          jss-styleguide-section:
+          JssAngularWeb-jss-styleguide-section:
           - componentName: StyleguideSitecoreContext
             fields:
               heading: Sitecore Context
@@ -238,7 +238,7 @@ placeholders:
         fields:
           heading: Multilingual Patterns
         placeholders:
-          jss-styleguide-section:
+          JssAngularWeb-jss-styleguide-section:
           - componentName: StyleguideMultilingual
             fields:
               heading: Translation Patterns
@@ -247,7 +247,7 @@ placeholders:
         fields:
           heading: Angular Patterns
         placeholders:
-          jss-styleguide-section:
+          JssAngularWeb-jss-styleguide-section:
           - componentName: StyleguideAngularLazyLoading
             fields:
               heading: Lazy Loading
