@@ -45,11 +45,7 @@ export function applyNameToPackageJson(
   pkg.config.appName = applyNameReplacement(pkg.config.appName, replaceName, name);
 
   pkg.config.rootPlaceholders = pkg.config.rootPlaceholders?.map((ph) =>
-    applyNameReplacement(
-      ph,
-      withPrefix ? replaceName : `${replaceName}-`,
-      withPrefix ? getPascalCaseName(name) : ''
-    )
+    applyNameReplacement(ph, withPrefix ? replaceName : `${replaceName}-`, withPrefix ? name : '')
   );
 
   if (pkg.config.sitecoreDistPath) {
@@ -167,6 +163,8 @@ export function replacePrefix(
         // need to call applyNameReplacement again with original prefix
         // to account for GraphQL queries and associated components
         fileContents = applyNameReplacement(fileContents, prefix, '');
+        // placeholders
+        fileContents = applyNameReplacement(fileContents, prefixWithHyphen + 'jss', 'jss');
         fs.writeFileSync(filePath, fileContents);
       });
     return;
@@ -182,8 +180,11 @@ export function replacePrefix(
     .forEach((filePath: string) => {
       let fileContents: string = fs.readFileSync(filePath, 'utf8');
 
+      // placeholders
+      fileContents = applyNameReplacement(fileContents, prefix + '-jss', name + '-jss');
       // replace prefix with pascal case app name
       fileContents = applyNameReplacement(fileContents, prefix, getPascalCaseName(name));
+
       fs.writeFileSync(filePath, fileContents);
     });
 }

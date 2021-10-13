@@ -1,7 +1,7 @@
 fields:
   pageTitle: Sample 1 Page Title
 placeholders:
-  JssNextWeb-main:
+  JssNextWeb-jss-main:
   - componentName: ContentBlock
     fields:
       heading: GraphQL Sample 1

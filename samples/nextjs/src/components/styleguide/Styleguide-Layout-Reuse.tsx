@@ -29,7 +29,7 @@ const StyleguideLayoutReuse = (props: StyleguideLayoutReuseProps): JSX.Element =
        */}
       <Placeholder
         rendering={props.rendering}
-        name="JssNextWeb-reuse-example"
+        name="JssNextWeb-jss-reuse-example"
         renderEach={(component, index) => (
           <div className="col-sm" key={index}>
             {component}

@@ -96,7 +96,7 @@ class StyleguideLayoutTabs extends React.Component<
 // in this case, chosen because we primarily need access to the _data_
 // of the placeholder.
 const tabsComponentWithPlaceholderInjected = withPlaceholder({
-  placeholder: 'JssNextWeb-tabs',
+  placeholder: 'JssNextWeb-jss-tabs',
   prop: 'tabsPlaceholder',
 })(StyleguideLayoutTabs);
 

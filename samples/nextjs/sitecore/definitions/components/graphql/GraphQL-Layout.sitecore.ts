@@ -10,6 +10,6 @@ export default function GraphQLLayout(manifest: Manifest): void {
     name: 'GraphQL-Layout',
     templateName: 'JssNextWeb-GraphQL-Layout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['JssNextWeb-graphql-layout'],
+    placeholders: ['JssNextWeb-jss-graphql-layout'],
   });
 }

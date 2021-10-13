@@ -6,7 +6,7 @@
   "config": {
     "appName": "JssNextWeb",
     "rootPlaceholders": [
-      "JssNextWeb-main"
+      "JssNextWeb-jss-main"
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
@@ -50,7 +50,7 @@
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
     "@graphql-typed-document-node/core": "^3.1.0",
-    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.27",
+    "@sitecore-jss/sitecore-jss-cli": "C:/work/projects/Sitecore.JSS.Repo/packages/sitecore-jss-cli",
     "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.27",
     "@sitecore-jss/sitecore-jss-manifest": "^20.0.0-canary.27",
     "@types/deep-equal": "^1.0.1",
