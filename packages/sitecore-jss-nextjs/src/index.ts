@@ -10,7 +10,6 @@ export {
   isExperienceEditorActive,
   resetExperienceEditorChromes,
 } from '@sitecore-jss/sitecore-jss';
-
 export {
   LayoutService,
   LayoutServiceData,
