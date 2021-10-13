@@ -1,7 +1,7 @@
 fields:
   pageTitle: Sample 2 Page Title
 placeholders:
-  JssReactWeb-main:
+  JssReactWeb-jss-main:
   - componentName: ContentBlock
     fields:
       heading: GraphQL Sample 2

@@ -9,12 +9,12 @@ import { Placeholder, getChildPlaceholder, getFieldValue } from '@sitecore-jss/s
 const StyleguideLayout = (props) => {
   // this code reads the components in the child placeholders of this component,
   // and projects them into the left navigation column for the styleguide
-  const sections = getChildPlaceholder(props.rendering, 'JssReactWeb-styleguide-layout')
+  const sections = getChildPlaceholder(props.rendering, 'JssReactWeb-jss-styleguide-layout')
     .filter((section) => getFieldValue(section, 'heading'))
     .map((section) => ({
       heading: getFieldValue(section, 'heading'),
       id: `i${section.uid.replace(/[{}]/g, '')}`,
-      children: getChildPlaceholder(section, 'JssReactWeb-styleguide-section')
+      children: getChildPlaceholder(section, 'JssReactWeb-jss-styleguide-section')
         .filter((component) => getFieldValue(component, 'heading'))
         .map((component) => ({
           heading: getFieldValue(component, 'heading'),
@@ -44,7 +44,7 @@ const StyleguideLayout = (props) => {
   return (
     <div className="row">
       <div className="col-sm-8 col-lg-10">
-        <Placeholder name="JssReactWeb-styleguide-layout" rendering={props.rendering} />
+        <Placeholder name="JssReactWeb-jss-styleguide-layout" rendering={props.rendering} />
       </div>
       <div className="col-sm-4 col-lg-2 order-sm-first pt-2">{sections}</div>
     </div>

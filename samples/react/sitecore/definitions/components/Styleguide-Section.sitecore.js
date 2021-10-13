@@ -12,6 +12,6 @@ export default function (manifest) {
     templateName: 'JssReactWeb-Styleguide-Section',
     icon: SitecoreIcon.DocumentTag,
     fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
-    placeholders: ['JssReactWeb-styleguide-section'],
+    placeholders: ['JssReactWeb-jss-styleguide-section'],
   });
 }

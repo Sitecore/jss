@@ -27,7 +27,7 @@ const StyleguideLayoutReuse = (props) => (
        */}
       <Placeholder
         rendering={props.rendering}
-        name="JssReactWeb-reuse-example"
+        name="JssReactWeb-jss-reuse-example"
         renderEach={(component, index) => (
           <div className="col-sm" key={index}>
             {component}

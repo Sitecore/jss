@@ -9,7 +9,7 @@ export default function StyleguideLayoutTabs(manifest: Manifest) {
     name: 'StyleguideLayoutTabs',
     templateName: 'JssAngularWeb-StyleguideLayoutTabs',
     icon: SitecoreIcon.DocumentTag,
-    placeholders: ['JssAngularWeb-tabs'],
+    placeholders: ['JssAngularWeb-jss-tabs'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
     inherits: ['JssAngularWeb-styleguide-explanatory-component-template'],

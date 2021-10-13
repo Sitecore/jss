@@ -25,7 +25,7 @@ const GraphQLLayout = ({ sitecoreContext, rendering }) => {
           </p>
         </React.Fragment>
       )}
-      {!disconnectedMode && <Placeholder name="JssReactWeb-graphql-layout" rendering={rendering} />}
+      {!disconnectedMode && <Placeholder name="JssReactWeb-jss-graphql-layout" rendering={rendering} />}
     </div>
   );
 };

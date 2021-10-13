@@ -9,6 +9,6 @@ export default function GraphQLLayout(manifest: Manifest) {
     name: 'GraphQLLayout',
     templateName: 'JssAngularWeb-GraphQLLayout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['JssAngularWeb-graphql-layout'],
+    placeholders: ['JssAngularWeb-jss-graphql-layout'],
   });
 }

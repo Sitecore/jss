@@ -6,7 +6,7 @@
   "config": {
     "appName": "JssReactWeb",
     "rootPlaceholders": [
-      "JssReactWeb-main"
+      "JssReactWeb-jss-main"
     ],
     "sitecoreDistPath": "/dist/JssReactWeb",
     "sitecoreConfigPath": "/App_Config/Include/zzz",

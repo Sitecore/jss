@@ -2,7 +2,7 @@
 <div class="container">
   <ng-container *ngIf="state === LayoutState.Layout">
     <app-visitor-identification></app-visitor-identification>
-    <sc-placeholder name="JssAngularWeb-main" [rendering]="route" (loaded)="onPlaceholderLoaded($event)"></sc-placeholder>
+    <sc-placeholder name="JssAngularWeb-jss-main" [rendering]="route" (loaded)="onPlaceholderLoaded($event)"></sc-placeholder>
   </ng-container>
 
   <app-not-found *ngIf="state === LayoutState.NotFound" [errorContextData]="errorContextData"></app-not-found>

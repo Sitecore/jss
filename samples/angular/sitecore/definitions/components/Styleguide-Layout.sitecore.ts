@@ -9,6 +9,6 @@ export default function StyleguideLayout(manifest: Manifest) {
     name: 'StyleguideLayout',
     templateName: 'JssAngularWeb-StyleguideLayout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['JssAngularWeb-styleguide-layout'],
+    placeholders: ['JssAngularWeb-jss-styleguide-layout'],
   });
 }
