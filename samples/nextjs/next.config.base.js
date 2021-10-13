@@ -46,17 +46,9 @@ const nextConfig = {
           source: '/sitecore/:path*',
           destination: `${disconnectedServerUrl}/sitecore/:path*`,
         },
-        {
-          source: '/:locale/sitecore/:path*',
-          destination: `${disconnectedServerUrl}/sitecore/:path*`,
-        },
         // media items
         {
           source: '/data/media/:path*',
-          destination: `${disconnectedServerUrl}/data/media/:path*`,
-        },
-        {
-          source: '/:locale/data/media/:path*',
           destination: `${disconnectedServerUrl}/data/media/:path*`,
         },
       ];
@@ -68,26 +60,14 @@ const nextConfig = {
         source: '/sitecore/:path*',
         destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
       },
-      {
-        source: '/:locale/sitecore/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
-      },
       // media items
       {
         source: '/-/:path*',
         destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
       },
-      {
-        source: '/:locale/-/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
-      },
       // visitor identification
       {
         source: '/layouts/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
-      },
-      {
-        source: '/:locale/layouts/:path*',
         destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
       },
     ];
