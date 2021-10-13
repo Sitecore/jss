@@ -163,8 +163,6 @@ export function replacePrefix(
         // need to call applyNameReplacement again with original prefix
         // to account for GraphQL queries and associated components
         fileContents = applyNameReplacement(fileContents, prefix, '');
-        // placeholders
-        fileContents = applyNameReplacement(fileContents, prefixWithHyphen + 'jss', 'jss');
         fs.writeFileSync(filePath, fileContents);
       });
     return;
