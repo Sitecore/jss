@@ -1,7 +1,7 @@
 {
   "name": "jss-sample-react",
   "description": "Application utilizing Sitecore JavaScript Services and React (create-react-app).",
-  "version": "20.0.0-canary.23",
+  "version": "20.0.0-canary.29",
   "private": true,
   "config": {
     "appName": "JssReactWeb",

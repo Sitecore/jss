@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-reactnative",
-  "version": "20.0.0-canary.23",
+  "version": "20.0.0-canary.29",
   "description": "A basic React Native app utilizing Sitecore JavaScript Services",
   "config": {
     "appName": "JssReactNative",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
-    "@sitecore-jss/sitecore-jss-react-native": "^20.0.0-canary.23",
+    "@sitecore-jss/sitecore-jss-react-native": "^20.0.0-canary.29",
     "prop-types": "^15.6.0",
     "react": "16.13.1",
     "react-native": "^0.63.4",

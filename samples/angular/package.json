@@ -1,6 +1,6 @@
 {
   "name": "jss-sample-angular",
-  "version": "20.0.0-canary.23",
+  "version": "20.0.0-canary.29",
   "description": "Application utilizing Sitecore JavaScript Services and Angular (angular-cli).",
   "config": {
     "appName": "JssAngularWeb",
