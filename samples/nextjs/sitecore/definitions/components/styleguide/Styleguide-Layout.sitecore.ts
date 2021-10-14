@@ -10,6 +10,6 @@ export default function StyleguideLayout(manifest: Manifest): void {
     name: 'Styleguide-Layout',
     templateName: 'JssNextWeb-Styleguide-Layout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['JssNextWeb-styleguide-layout'],
+    placeholders: ['JssNextWeb-jss-styleguide-layout'],
   });
 }
