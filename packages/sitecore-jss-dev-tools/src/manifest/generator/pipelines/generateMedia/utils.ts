@@ -1,7 +1,7 @@
 export const enhanceTemplates = (templates: any) => {
   const newTemplates: { [k: string]: any } = [...templates];
   newTemplates.getTemplate = function getTemplate(templateName: string) {
-    const foundTemplate = this.find((template: any) => template.name === templateName);
+    const foundTemplate = this.find((template: { name: string }) => template.name === templateName);
     if (foundTemplate) {
       foundTemplate.allFields = getAllTemplateFields(foundTemplate, templates);
     }
@@ -41,7 +41,7 @@ function getAllTemplateFields(template: any, templateCollection: any) {
   if (template.inherits && Array.isArray(template.inherits)) {
     template.inherits.forEach((inheritedTemplateName: any) => {
       const inheritedTemplate = templateCollection.find(
-        (t: any) => t.name === inheritedTemplateName
+        (t: { name: string }) => t.name === inheritedTemplateName
       );
       if (
         !inheritedTemplate ||
