@@ -11,6 +11,6 @@ export default function (manifest) {
     name: 'GraphQL-Layout',
     templateName: 'JssReactWeb-GraphQL-Layout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['jss-graphql-layout'],
+    placeholders: ['JssReactWeb-jss-graphql-layout'],
   });
 }

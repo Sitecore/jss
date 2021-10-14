@@ -11,6 +11,6 @@ export default function StyleguideSection(manifest: Manifest): void {
     templateName: 'JssNextWeb-Styleguide-Section',
     icon: SitecoreIcon.DocumentTag,
     fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
-    placeholders: ['jss-styleguide-section'],
+    placeholders: ['JssNextWeb-styleguide-section'],
   });
 }

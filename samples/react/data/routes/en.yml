@@ -16,10 +16,10 @@ id: home-page
 # Define route level fields in /sitecore/definitions/routes.sitecore
 fields:
   pageTitle: Welcome to Sitecore JSS
-# Define the page layout starting at the root placeholder - in this case, 'jss-main'
+# Define the page layout starting at the root placeholder - in this case, 'JssReactWeb-jss-main'
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
-  jss-main:
+  JssReactWeb-jss-main:
     - componentName: ContentBlock
       fields:
         heading: Welcome to Sitecore JSS
