@@ -14,7 +14,7 @@ type ContentBlockProps = StyleguideComponentProps & {
  * JSS component that's useful.
  */
 const ContentBlock = ({ fields }: ContentBlockProps): JSX.Element => (
-  <div className="contentBlock">
+  <div className="contentBlock component">
     <Text tag="h2" className="display-4" field={fields.heading} />
 
     <RichText className="contentDescription" field={fields.content} />

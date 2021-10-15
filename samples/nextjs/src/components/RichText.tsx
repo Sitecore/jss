@@ -32,20 +32,24 @@ const RichText = (props: ComponentProps): JSX.Element => {
 
 export const Default = (props: RenderingVariantProps<Fields>): JSX.Element => {
   return (
-    <JssRichText
-      className={`${props.styles?.replace(/\|/g, ' ')} my-4`}
-      field={props.fields.Text}
-    />
+    <div className={`component rich-text ${props.styles?.replace(/\|/g, ' ')}`}>
+      <div className="component-content">
+        <JssRichText field={props.fields.Text} />
+      </div>
+    </div>
   );
 };
 
 export const WithTitle = (props: RenderingVariantProps<Fields>): JSX.Element => {
   return (
-    <div className={`${props.styles?.replace(/\|/g, ' ')} my-4`}>
-      <Text tag="h4" field={props.fields.Title} />
-      <JssRichText field={props.fields.Text} />
+    <div className={`component rich-text ${props.styles?.replace(/\|/g, ' ')}`}>
+      <div className="component-content">
+        <Text tag="h4" field={props.fields.Title} />
+        <JssRichText field={props.fields.Text} />
+      </div>
     </div>
   );
 };
+
 
 export default RichText;

@@ -36,20 +36,24 @@ const Image = (props: ComponentProps): JSX.Element => {
 
 export const Default = (props: RenderingVariantProps<Fields>): JSX.Element => {
   return (
-    <div className={`${props.styles?.replace(/\|/g, ' ')} my-4`}>
-      <JssImage field={props.fields.Image} />
-      <Text className="image-caption" field={props.fields.ImageCaption} />
+    <div className={`component image ${props.styles?.replace(/\|/g, ' ')}`}>
+      <div className="component-content">
+        <JssImage field={props.fields.Image} />
+        <Text className="image-caption field-imagecaption" field={props.fields.ImageCaption} />
+      </div>
     </div>
   );
 };
 
 export const Link = (props: RenderingVariantProps<Fields>): JSX.Element => {
-  return (
-    <div className={`${props.styles?.replace(/\|/g, ' ')} my-4`}>
-      <JssLink field={props.fields.Link}>
-        <JssImage field={props.fields.Image} />
-        <Text tag="span" className="image-caption" field={props.fields.ImageCaption} />
-      </JssLink>
+  return (  
+    <div className={`component image ${props.styles?.replace(/\|/g, ' ')}`}>
+      <div className="component-content">
+        <JssLink field={props.fields.Link}>
+          <JssImage field={props.fields.Image} />
+          <Text tag="span" className="image-caption field-imagecaption" field={props.fields.ImageCaption} />
+        </JssLink>
+      </div>
     </div>
   );
 };

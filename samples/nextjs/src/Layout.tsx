@@ -61,6 +61,8 @@ const Layout = ({ sitecoreContext: { route } }: LayoutProps): JSX.Element => {
       <Head>
         <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></link>
+        <link type="text/css" rel="stylesheet" href={`${publicUrl}/styles.css`} />        
       </Head>
 
       {/*
@@ -75,7 +77,9 @@ const Layout = ({ sitecoreContext: { route } }: LayoutProps): JSX.Element => {
       <Navigation />
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
-        <Placeholder name="jss-main" rendering={route} />
+        <div className="row">
+          <Placeholder name="jss-main" rendering={route} />
+        </div>
       </div>
     </>
   );
