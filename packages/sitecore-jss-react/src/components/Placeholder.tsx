@@ -62,6 +62,17 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     }
   }
 
+  /**
+   * In case if we need to render empty placeholder, some part of markup will be inserted by EE,
+   * so we need to separate empty placeholder's markup and allow react reconciliation to be executed correctly
+   * and don't mess sibling tags
+   * @param {React.ReactNode | React.ReactElement[]} node react node
+   * @returns react node
+   */
+  renderEmptyPlaceholder(node: React.ReactNode | React.ReactElement[]) {
+    return <div className="sc-jss-empty-placeholder">{node}</div>;
+  }
+
   render() {
     const childProps: PlaceholderComponentProps = { ...this.props };
 
@@ -92,7 +103,9 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     );
 
     if (this.props.renderEmpty && this.isEmpty) {
-      return this.props.renderEmpty(components);
+      const rendered = this.props.renderEmpty(components);
+
+      return this.isEmpty && components.length ? this.renderEmptyPlaceholder(rendered) : rendered;
     } else if (this.props.render) {
       return this.props.render(components, placeholderData, childProps);
     } else if (this.props.renderEach) {
@@ -106,7 +119,11 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
         return renderEach(component, index);
       });
     } else {
-      return components;
+      return this.isEmpty && components.length ? (
+        this.renderEmptyPlaceholder(components)
+      ) : (
+        <>{components}</>
+      );
     }
   }
 }
