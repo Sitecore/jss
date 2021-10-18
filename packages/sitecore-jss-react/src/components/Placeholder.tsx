@@ -105,7 +105,9 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     if (this.props.renderEmpty && this.isEmpty) {
       const rendered = this.props.renderEmpty(components);
 
-      return this.isEmpty && components.length ? this.renderEmptyPlaceholder(rendered) : rendered;
+      return components.length ? this.renderEmptyPlaceholder(rendered) : rendered;
+    } else if (components.length && this.isEmpty) {
+      return this.renderEmptyPlaceholder(components);
     } else if (this.props.render) {
       return this.props.render(components, placeholderData, childProps);
     } else if (this.props.renderEach) {
@@ -119,11 +121,7 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
         return renderEach(component, index);
       });
     } else {
-      return this.isEmpty && components.length ? (
-        this.renderEmptyPlaceholder(components)
-      ) : (
-        <>{components}</>
-      );
+      return components;
     }
   }
 }
