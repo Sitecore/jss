@@ -1,6 +1,6 @@
 export { default as isServer } from './is-server';
 export { default as resolveUrl } from './resolve-url';
-export * as constants from './constants';
+export { SitecoreTemplateId, JSS_MODE as constants } from './constants';
 export { default as debug, Debugger } from './debug';
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
