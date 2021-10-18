@@ -1,11 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "paths": {
-      "@update": [
-        "update"
-      ],
-    },
     "target": "es6",
     "module": "commonjs",
     "newLine": "LF",
