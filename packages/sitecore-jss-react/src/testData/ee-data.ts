@@ -260,6 +260,84 @@ export const convertedData = {
   },
 };
 
+export const emptyPlaceholderData = {
+  sitecore: {
+    context: {
+      pageEditing: true,
+    },
+    route: {
+      name: 'home',
+      displayName: 'Home',
+      placeholders: {
+        main: [
+          {
+            name: 'code',
+            type: 'text/sitecore',
+            contents:
+              '{"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the \'{0}\' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"main","expandedDisplayName":null}',
+            attributes: {
+              type: 'text/sitecore',
+              chrometype: 'placeholder',
+              kind: 'open',
+              id: 'main',
+              key: 'main',
+              class: 'scpm',
+              'data-selectable': 'true',
+            },
+          },
+          {
+            name: 'code',
+            type: 'text/sitecore',
+            contents: '',
+            attributes: {
+              type: 'text/sitecore',
+              chrometype: 'rendering',
+              kind: 'open',
+              hintname: 'HomeRendering',
+              id: 'r_2339622D093B4258833495979E41EFA6',
+              class: 'scpm',
+              'data-selectable': 'true',
+            },
+          },
+          {
+            name: 'code',
+            type: 'text/sitecore',
+            contents: '',
+            attributes: {
+              type: 'text/sitecore',
+              id: 'scEnclosingTag_r_',
+              chrometype: 'rendering',
+              kind: 'close',
+              hintkey: 'HomeRendering',
+              class: 'scpm',
+            },
+          },
+          {
+            name: 'code',
+            type: 'text/sitecore',
+            contents: '',
+            attributes: {
+              type: 'text/sitecore',
+              id: 'scEnclosingTag_',
+              chrometype: 'placeholder',
+              kind: 'close',
+              hintname: 'main',
+              class: 'scpm',
+            },
+          },
+        ],
+      },
+      fields: {
+        key: {
+          value: '',
+          editable:
+            '<input id=\'fld_9BCF4A172EC7416095045ABD096B46AE_30F5C2ACE7C842418AD031434E4E96CF_en_1_a95ded857429473e8ced62dee49d6747_15\' class=\'scFieldValue\' name=\'fld_9BCF4A172EC7416095045ABD096B46AE_30F5C2ACE7C842418AD031434E4E96CF_en_1_a95ded857429473e8ced62dee49d6747_15\' type=\'hidden\' value="This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;" /><span class="scChromeData">{"commands":[{"click":"chrome:common:edititem({command:\\"webedit:open\\"})","header":"Edit the related item","icon":"/temp/iconcache/office/16x16/cubes.png","disabledIcon":"/temp/cubes_disabled16x16.png","isDivider":false,"tooltip":"Edit the related item in the Content Editor.","type":"common"},{"click":"chrome:rendering:personalize({command:\\"webedit:personalize\\"})","header":"Personalize","icon":"/temp/iconcache/office/16x16/users_family.png","disabledIcon":"/temp/users_family_disabled16x16.png","isDivider":false,"tooltip":"Create or edit personalization for this component.","type":"sticky"},{"click":"chrome:rendering:editvariations({command:\\"webedit:editvariations\\"})","header":"Edit variations","icon":"/temp/iconcache/office/16x16/windows.png","disabledIcon":"/temp/windows_disabled16x16.png","isDivider":false,"tooltip":"Edit the variations.","type":"sticky"}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&ver=1","custom":{},"displayName":"Key","expandedDisplayName":null}</span><span id="fld_9BCF4A172EC7416095045ABD096B46AE_30F5C2ACE7C842418AD031434E4E96CF_en_1_a95ded857429473e8ced62dee49d6747_15_edit" sc_parameters="prevent-line-break=true" contenteditable="true" class="scWebEditInput" scFieldType="single-line text" scDefaultText="[No text in field]">This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;</span>',
+        },
+      },
+    },
+  },
+};
+
 export const imageField =
   '<input id=\'fld_F5201E35767444EBB903E52488A0EB5A_B7F425624A1F4F3F925C4A4381197239_en_1_0f581df6173e468f9c0b36bd730739e4_13\' class=\'scFieldValue\' name=\'fld_F5201E35767444EBB903E52488A0EB5A_B7F425624A1F4F3F925C4A4381197239_en_1_0f581df6173e468f9c0b36bd730739e4_13\' type=\'hidden\' value="&lt;image mediaid=&quot;{B013777F-C6CA-4880-9562-B9B7688AF63A}&quot; /&gt;" /><code id="fld_F5201E35767444EBB903E52488A0EB5A_B7F425624A1F4F3F925C4A4381197239_en_1_0f581df6173e468f9c0b36bd730739e4_13_edit" type="text/sitecore" chromeType="field" scFieldType="image" class="scpm" kind="open">{"commands":[{"click":"chrome:field:editcontrol({command:\\"webedit: chooseimage\\"})","header":"Choose Image","icon":"/sitecore/shell/themes/standard/custom/16x16/photo_landscape2.png","disabledIcon":"/temp/photo_landscape2_disabled16x16.png","isDivider":false,"tooltip":"Choose an image.","type":""},{"click":"chrome:field:editcontrol({command:\\"webedit: editimage\\"})","header":"Properties","icon":"/sitecore/shell/themes/standard/custom/16x16/photo_landscape2_edit.png","disabledIcon":"/temp/photo_landscape2_edit_disabled16x16.png","isDivider":false,"tooltip":"Modify image appearance.","type":""},{"click":"chrome:field:editcontrol({command:\\"webedit: clearimage\\"})","header":"Clear","icon":"/sitecore/shell/themes/standard/custom/16x16/photo_landscape2_delete.png","disabledIcon":"/temp/photo_landscape2_delete_disabled16x16.png","isDivider":false,"tooltip":"Remove the image.","type":""},{"click":"chrome:common:edititem({command:\\"webedit: open\\"})","header":"Edit the related item","icon":"/temp/iconcache/office/16x16/cubes.png","disabledIcon":"/temp/cubes_disabled16x16.png","isDivider":false,"tooltip":"Edit the related item in the Content Editor.","type":"common"},{"click":"chrome:rendering:personalize({command:\\"webedit: personalize\\"})","header":"Personalize","icon":"/temp/iconcache/office/16x16/users_family.png","disabledIcon":"/temp/users_family_disabled16x16.png","isDivider":false,"tooltip":"Create or edit personalization for this component.","type":"sticky"},{"click":"chrome:rendering:editvariations({command:\\"webedit: editvariations\\"})","header":"Edit variations","icon":"/temp/iconcache/office/16x16/windows.png","disabledIcon":"/temp/windows_disabled16x16.png","isDivider":false,"tooltip":"Edit the variations.","type":"sticky"}],"contextItemUri":"sitecore://master/{F5201E35-7674-44EB-B903-E52488A0EB5A}?lang=en&ver=1","custom":{},"displayName":"Image","expandedDisplayName":null}</code><img src="http://jssadvancedapp/sitecore/shell/-/media/JssAdvancedApp/assets/img/portfolio/1.ashx?h=350&amp;la=en&amp;w=650&amp;hash=B973470AA333773341C62A76511361C88897E2D4" alt="" width="650" height="350" /><code class="scpm" type="text/sitecore" chromeType="field" kind="close"></code>';
 export const richTextField =
