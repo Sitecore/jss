@@ -13,6 +13,7 @@ import { GenericLinkDirective } from './components/generic-link.directive';
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
+import { HiddenRenderingComponent } from './components/hidden-rendering.component';
 import { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 import { PlaceholderComponent } from './components/placeholder.component';
 import {
@@ -50,6 +51,7 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
     RichTextDirective,
     TextDirective,
     MissingComponentComponent,
+    HiddenRenderingComponent,
   ],
   exports: [
     FileDirective,
@@ -62,6 +64,7 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
     RenderEmptyDirective,
     RenderComponentComponent,
     PlaceholderComponent,
+    HiddenRenderingComponent,
     PlaceholderLoadingDirective,
     RichTextDirective,
     TextDirective,
@@ -108,6 +111,8 @@ export class JssModule {
     components: ComponentNameAndType[],
     lazyComponents?: ComponentNameAndModule[]
   ): ModuleWithProviders<JssModule> {
+    components.push({ name: 'Hidden Rendering', type: HiddenRenderingComponent });
+
     return {
       ngModule: JssModule,
       providers: [
