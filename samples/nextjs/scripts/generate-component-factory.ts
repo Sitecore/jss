@@ -1,7 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import chokidar from 'chokidar';
-import generateComponentFactory, { ComponentFile } from './templates/component-factory';
+import generateComponentFactory, {
+  ComponentFile,
+  PackageDefinition,
+} from './templates/component-factory';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -59,15 +62,30 @@ function watchComponentFactory() {
  * Modify this function to use a different convention.
  */
 function writeComponentFactory() {
-  const fileContent = generateComponentFactory(getComponentList(componentRootPath));
+  const packageComponents: PackageDefinition[] = [
+    {
+      name: '@sitecore-jss/sitecore-jss-nextjs',
+      components: [
+        {
+          componentName: 'Hidden Rendering',
+          moduleName: 'HiddenRendering',
+        },
+      ],
+    },
+  ];
+  const components = getComponentList(componentRootPath);
+
+  components.unshift(...packageComponents);
+
+  const fileContent = generateComponentFactory(components);
   console.log(`Writing component factory to ${componentFactoryPath}`);
   fs.writeFileSync(componentFactoryPath, fileContent, {
     encoding: 'utf8',
   });
 }
 
-function getComponentList(path: string): ComponentFile[] {
-  const components: ComponentFile[] = [];
+function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
+  const components: (PackageDefinition | ComponentFile)[] = [];
   const folders: fs.Dirent[] = [];
 
   fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {

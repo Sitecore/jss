@@ -91,6 +91,7 @@ export {
   DateField,
   File,
   FileField,
+  HiddenRendering,
   VisitorIdentification,
   SitecoreContext,
   SitecoreContextState,
