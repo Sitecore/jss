@@ -63,9 +63,9 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
   }
 
   /**
-   * In case if we need to render empty placeholder, some part of markup will be inserted by EE,
-   * so we need to separate empty placeholder's markup and allow react reconciliation to be executed correctly
-   * and don't mess sibling tags
+   * In case we need to render an empty placeholder, some part of the markup will be inserted by the EE,
+   * so we need to separate the empty placeholder's markup and allow React reconciliation to be executed correctly
+   * and retain sibling tags
    * @param {React.ReactNode | React.ReactElement[]} node react node
    * @returns react node
    */
