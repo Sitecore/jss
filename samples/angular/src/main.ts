@@ -17,4 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => console.log(err));
   });
 
+// allows Experience Editor anchor tag's onclick events to properly propagate
 handleEditorAnchors();
