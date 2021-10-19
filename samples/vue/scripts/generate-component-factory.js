@@ -58,6 +58,29 @@ function generateComponentFactory() {
 
   const imports = [];
   const registrations = [];
+  const packages = [
+    {
+      name: '@sitecore-jss/sitecore-jss-vue',
+      components: [
+        {
+          componentName: 'Hidden Rendering',
+          moduleName: 'HiddenRendering',
+        },
+      ],
+    },
+  ];
+
+  packages.forEach((p) => {
+    const variables = p.components
+      .map((c) => {
+        registrations.push(`components.set('${c.componentName}', ${c.moduleName});`);
+
+        return c.moduleName;
+      })
+      .join(', ');
+
+    imports.push(`import { ${variables} } from '${p.name}'`);
+  });
 
   const componentFiles = extractVueFiles(componentRootPath);
   componentFiles.forEach((componentFile) => {

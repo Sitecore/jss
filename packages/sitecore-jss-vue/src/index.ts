@@ -31,5 +31,6 @@ export { Link } from './components/Link';
 export { File } from './components/File';
 export { DateField } from './components/Date';
 export { SitecoreContext } from './components/SitecoreContext';
+export { HiddenRendering } from './components/HiddenRendering';
 export { providePlaceholders } from './enhancers/providePlaceholders';
 export { SitecoreJssPlaceholderPlugin } from './plugins/SitecoreJssPlaceholderPlugin';

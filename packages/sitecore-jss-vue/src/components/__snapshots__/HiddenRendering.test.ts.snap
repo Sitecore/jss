@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HiddenRendering /> should render 1`] = `
+<div style="height: 100px; background-size: 3px 3px;">
+</div>
+`;
