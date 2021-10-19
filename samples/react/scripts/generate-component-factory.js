@@ -60,6 +60,29 @@ function generateComponentFactory() {
 
   const imports = [];
   const registrations = [];
+  const packages = [
+    {
+      name: '@sitecore-jss/sitecore-jss-react',
+      components: [
+        {
+          componentName: 'Hidden Rendering',
+          moduleName: 'HiddenRendering',
+        },
+      ],
+    },
+  ];
+
+  packages.forEach((p) => {
+    const variables = p.components
+      .map((c) => {
+        registrations.push(`components.set('${c.componentName}', ${c.moduleName});`);
+
+        return c.moduleName;
+      })
+      .join(', ');
+
+    imports.push(`import { ${variables} } from '${p.name}'`);
+  });
 
   fs.readdirSync(componentRootPath).forEach((componentFolder) => {
     const componentFolderFullPath = path.join(componentRootPath, componentFolder);
