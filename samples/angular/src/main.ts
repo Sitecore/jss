@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic()
     .bootstrapModule(AppModule)
     .catch(err => console.log(err));
-  });
 
-// allows Experience Editor anchor tag's onclick events to properly propagate
-handleEditorAnchors();
+    // allows Experience Editor anchor tag's onclick events to properly propagate
+    handleEditorAnchors();
+  });
