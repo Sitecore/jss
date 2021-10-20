@@ -73,3 +73,9 @@ export {
 } from './layout/rest-layout-service';
 
 export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
+
+export {
+  GraphQLSitemapXmlService,
+  GraphQLSitemapXmlServiceConfig,
+  SitemapItem,
+} from './sitemap/graphql-sitemap-xml-service';

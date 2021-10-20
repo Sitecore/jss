@@ -38,6 +38,9 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  GraphQLSitemapXmlService,
+  GraphQLSitemapXmlServiceConfig,
+  SitemapItem,
 } from '@sitecore-jss/sitecore-jss';
 
 export { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
