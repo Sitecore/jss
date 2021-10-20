@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-manifest",
-  "version": "20.0.0-canary.32",
+  "version": "20.0.0-canary.33",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -27,8 +27,8 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.32",
-    "@sitecore-jss/sitecore-pipelines": "^20.0.0-canary.32",
+    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.33",
+    "@sitecore-jss/sitecore-pipelines": "^20.0.0-canary.33",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.4",
     "import-fresh": "^3.1.0",
