@@ -62,7 +62,7 @@ function watchComponentFactory() {
  * Modify this function to use a different convention.
  */
 function writeComponentFactory() {
-  const packageComponents: PackageDefinition[] = [
+  const packages: PackageDefinition[] = [
     {
       name: '@sitecore-jss/sitecore-jss-nextjs',
       components: [
@@ -75,7 +75,7 @@ function writeComponentFactory() {
   ];
   const components = getComponentList(componentRootPath);
 
-  components.unshift(...packageComponents);
+  components.unshift(...packages);
 
   const fileContent = generateComponentFactory(components);
   console.log(`Writing component factory to ${componentFactoryPath}`);

@@ -29,7 +29,7 @@ function generateComponentFactory(components: (PackageDefinition | ComponentFile
   const componentFiles = components.filter(
     (component) => (component as ComponentFile).path
   ) as ComponentFile[];
-  const packageComponents = components.filter(
+  const packages = components.filter(
     (component) => (component as PackageDefinition).components
   ) as PackageDefinition[];
 
@@ -41,7 +41,7 @@ function generateComponentFactory(components: (PackageDefinition | ComponentFile
 
 ${hasLazyModules ? "import dynamic from 'next/dynamic'" : ''}
 
-${packageComponents.map((component) => {
+${packages.map((component) => {
   const list = component.components.map((c) => c.moduleName).join(', ');
 
   return `import { ${list} } from '${component.name}'`;
@@ -61,7 +61,7 @@ ${componentFiles
   .join('\n')}
 
 const components = new Map();
-${packageComponents.map((p) =>
+${packages.map((p) =>
   p.components.map(
     (component) => `components.set('${component.componentName}', ${component.moduleName})`
   )
