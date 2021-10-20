@@ -46,8 +46,8 @@ describe('<sc-hidden-rendering />', () => {
   });
 
   it('should show section', () => {
-    const div = de.nativeElement.getElementsByTagName('div')[0];
-    expect(div).toBeDefined();
-    expect(div.getAttribute('style')).toBe('height: 100px; background-image: linear-gradient(45deg, #ffffff 25%, #dcdcdc 25%, #dcdcdc 50%, #ffffff 50%, #ffffff 75%, #dcdcdc 75%, #dcdcdc 100%); background-size: 3px 3px;');
+    const el = de.nativeElement.getElementsByTagName('sc-hidden-rendering')[0];
+    expect(el).toBeDefined();
+    expect(el.getAttribute('style')).toEqual('display: block; height: 100px; background-image: linear-gradient(45deg, #ffffff 25%, #dcdcdc 25%, #dcdcdc 50%, #ffffff 50%, #ffffff 75%, #dcdcdc 75%, #dcdcdc 100%); backgroundSize: 3px 3px;');
   });
 });
