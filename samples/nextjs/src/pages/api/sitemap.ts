@@ -27,7 +27,12 @@ const sitemapApi = async (_req: NextApiRequest, res: NextApiResponse): Promise<v
     siteName: config.jssAppName,
     jssAppTemplateId: '{9ED66404-64C9-4122-90E1-869CB3CEA566}', // SXA Headless Site
   });
-  const dynamicURLs = await sitemapXmlService.fetchSitemap(nextConfig.i18n.locales);
+  // Note this assumes sub-path routing approach for i18n
+  // Would need to go about this differently for domain routing
+  const dynamicURLs = await sitemapXmlService.fetchSitemap(
+    nextConfig.i18n.locales,
+    nextConfig.i18n.defaultLocale
+  );
 
   // Use 'sitemap' module to do the heavy lifting of formatting, streaming, etc
   // https://www.npmjs.com/package/sitemap

@@ -135,11 +135,12 @@ export class GraphQLSitemapXmlService {
    * Fetch a flat list of all pages that are descendants of the specified root item and have a
    * version in the specified language(s).
    * @param {string[]} languages Fetch pages that have versions in this language(s).
+   * @param {string} defaultLanguage The default language. Results will not include the default language in the path (i.e. for sub-path routing).
    * @returns list of pages
    * @throws {RangeError} if the list of languages is empty.
    * @throws {Error} if the app root was not found for the specified site and language.
    */
-  async fetchSitemap(languages: string[]): Promise<SitemapItem[]> {
+  async fetchSitemap(languages: string[], defaultLanguage: string): Promise<SitemapItem[]> {
     if (!languages.length) {
       throw new RangeError(languageError);
     }
@@ -187,7 +188,7 @@ export class GraphQLSitemapXmlService {
             (item) =>
               // TODO: refactor with helper function
               ({
-                path: item.url.path,
+                path: `${language === defaultLanguage ? '' : '/' + language}${item.url.path}`,
                 lastModified: new Date(),
                 changeFrequency: item.changeFrequency?.enum?.value?.value?.toLowerCase(),
                 priority: Number(item.priority?.enum?.value?.value),
