@@ -1,6 +1,6 @@
 {
   "name": "jss-embedded-jss-app-sample",
-  "version": "20.0.0-canary.32",
+  "version": "20.0.0-canary.34",
   "description": "Demonstrates embedding a JSS application within a traditional Sitecore page",
   "config": {
     "appName": "EmbeddedWizard",
@@ -51,7 +51,7 @@
   "homepage": "https://jss.sitecore.com",
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.32",
+    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.34",
     "babel-plugin-inline-import": "~2.0.6",
     "babel-polyfill": "~6.26.0",
     "isomorphic-fetch": "~3.0.0",

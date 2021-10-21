@@ -3,6 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { handleEditorAnchors } from '@sitecore-jss/sitecore-jss-angular';
 
 if (environment.production) {
   enableProdMode();
@@ -14,4 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic()
     .bootstrapModule(AppModule)
     .catch(err => console.log(err));
-});
+
+    // allows Experience Editor anchor tag's onclick events to properly propagate
+    handleEditorAnchors();
+  });
