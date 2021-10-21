@@ -20,6 +20,7 @@ export { TextDirective } from './components/text.directive';
 export { LayoutService } from './layout.service';
 export { LayoutServiceError } from './layout-service-error';
 export { JssModule } from './lib.module';
+export { handleEditorAnchors } from './utils';
 export {
   dataApi,
   mediaApi,
