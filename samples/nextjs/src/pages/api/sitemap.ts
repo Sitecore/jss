@@ -2,7 +2,7 @@ import { createGzip } from 'zlib';
 import { SitemapStream } from 'sitemap';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import config from 'temp/config';
-import nextConfig from 'next.config.base';
+import nextConfig from '../../../next.config.base';
 import {
   GraphQLSitemapXmlService,
   SitemapItem,

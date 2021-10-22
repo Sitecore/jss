@@ -189,7 +189,7 @@ export class GraphQLSitemapXmlService {
               // TODO: refactor with helper function
               ({
                 path: `${language === defaultLanguage ? '' : '/' + language}${item.url.path}`,
-                lastModified: new Date(),
+                lastModified: new Date(), // TODO: get actual __Updated date once available in schema
                 changeFrequency: item.changeFrequency?.enum?.value?.value?.toLowerCase(),
                 priority: Number(item.priority?.enum?.value?.value),
               } as SitemapItem)
