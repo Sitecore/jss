@@ -6,7 +6,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
-import { ComponentRendering, Field, Item, RouteData } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss';
 import { ComponentFactory } from './sharedTypes';
 import { Placeholder } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
@@ -14,7 +14,7 @@ import {
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
 } from '../testData/non-ee-data';
-import { convertedData as eeData } from '../testData/ee-data';
+import { convertedData as eeData, emptyPlaceholderData } from '../testData/ee-data';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
@@ -187,6 +187,25 @@ describe('<Placeholder />', () => {
         expect(renderedComponent.find('.jumbotron-mock').length).to.equal(0);
       });
 
+      it('should render output based on the renderEmpty function in case of empty placeholder', () => {
+        const route = emptyPlaceholderData.sitecore.route as RouteData;
+        const phKey = 'main';
+
+        const renderedComponent = mount(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder
+              name={phKey}
+              rendering={route}
+              renderEmpty={(comp) => <span>My name is empty placeholder</span>}
+            />
+          </SitecoreContext>
+        );
+
+        expect(renderedComponent.html()).to.equal(
+          '<div class="sc-jss-empty-placeholder"><span>My name is empty placeholder</span></div>'
+        );
+      });
+
       it('should pass properties to nested components', () => {
         const component = dataSet.data.sitecore.route as any;
         const phKey = 'main';
@@ -222,6 +241,19 @@ describe('<Placeholder />', () => {
     const keyAttribute = eeChrome.get(0).key;
     expect(keyAttribute).to.not.be.undefined;
     expect(keyAttribute).to.eq(`${phKey}`);
+  });
+
+  it('should render empty placeholder', () => {
+    const phKey = 'main';
+
+    const renderedComponent = mount(
+      <Placeholder
+        name={phKey}
+        rendering={emptyPlaceholderData.sitecore.route}
+        componentFactory={componentFactory}
+      />
+    );
+    expect(renderedComponent.find('.sc-jss-empty-placeholder').length).to.equal(1);
   });
 
   it('should render null for unknown placeholder', () => {
