@@ -41,10 +41,10 @@ function generateComponentFactory(components: (PackageDefinition | ComponentFile
 
 ${hasLazyModules ? "import dynamic from 'next/dynamic'" : ''}
 
-${packages.map((component) => {
-  const list = component.components.map((c) => c.moduleName).join(', ');
+${packages.map((pkg) => {
+  const list = pkg.components.map((c) => c.moduleName).join(', ');
 
-  return `import { ${list} } from '${component.name}'`;
+  return `import { ${list} } from '${pkg.name}'`;
 })}
 ${componentFiles
   .map((component) => {
