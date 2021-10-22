@@ -1,4 +1,4 @@
-import { pipelineFactory, PipelineRegistry } from '../../../../index';
+import { pipelineFactory, PipelineRegistry } from '@root';
 
 export const config = (pipelines: PipelineRegistry) => {
   const pipeline = pipelineFactory.create('generateMedia');

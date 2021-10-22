@@ -1,4 +1,4 @@
-import { Manifest } from '../../../index';
+import { Manifest } from '@root';
 
 export default (manifest: Manifest) => {
   manifest.addComponent({

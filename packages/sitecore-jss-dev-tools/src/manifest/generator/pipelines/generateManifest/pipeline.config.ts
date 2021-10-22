@@ -1,4 +1,4 @@
-import { pipelineFactory, PipelineRegistry } from '../../../../index';
+import { pipelineFactory, PipelineRegistry } from '@root';
 import * as path from 'path';
 
 // __dirname returns the directory of this file/module, so it has to be called here

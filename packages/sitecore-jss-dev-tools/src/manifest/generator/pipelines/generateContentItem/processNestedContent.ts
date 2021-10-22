@@ -1,4 +1,4 @@
-import { runPipeline } from '../../../../index';
+import { runPipeline } from '@root';
 import { GenerateContentItemArgs, ItemDefinition } from '../../manifest.types';
 
 export default async (args: GenerateContentItemArgs) => {

@@ -1,4 +1,4 @@
-import { runPipeline } from '../../../../index';
+import { runPipeline } from '@root';
 import { GeneratePipelineArgs, GeneratePlaceholdersPipelineArgs } from '../../manifest.types';
 
 const generatePlaceholders = async ({

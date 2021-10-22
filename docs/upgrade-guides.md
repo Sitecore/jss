@@ -17,20 +17,12 @@ If you are importing any of these into your project, the imports need to be upda
 ||`i18` | No change
 || `layout` | No change
 ||`media` | New
-||`testData` | No change
+||`utils` | No change
 ||`tracking` | Moved as a submodule from being a separate package
 |**Sitecore-jss-angular**||*No Change*
 |**Sitecore-jss-angular-schematics**||*No Change*
 |**Sitecore-jss-cli**||*No Change*
-|**Sitecore-jss-dev-tools**|||
-||`bin` | No change
-||`disconnected-server` | No change
-||`manifest` | Moved as a submodule from being a separate package
-||`pipelines` | Moved as a submodule from being a separate package
-||`setup` | No change
-||`templating` | No change
-||`testData` | No change
-||`update` | Moved as a submodule from being a separate package
+|**Sitecore-jss-dev-tools**|| Now manifest, pipelines and update package part of this package|
 |**Sitecore-jss-tracking**||Moved to Sitecore-jss
 |**Sitecore-jss-manifest**||Moved to Sitecore-jss-dev-tools
 |**Sitecore-jss-pipelines**||Moved to Sitecore-jss-dev-tools

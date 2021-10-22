@@ -1,4 +1,4 @@
-import { runPipeline } from '../../../../index';
+import { runPipeline } from '@root';
 import { GenerateRouteItemPipelineArgs } from '../../manifest.types';
 
 export default async (args: GenerateRouteItemPipelineArgs) => {

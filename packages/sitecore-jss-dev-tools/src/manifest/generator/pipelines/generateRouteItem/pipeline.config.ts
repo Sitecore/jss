@@ -1,4 +1,4 @@
-import { pipelineFactory, PipelineRegistry } from '../../../../index';
+import { pipelineFactory, PipelineRegistry } from '@root';
 import * as path from 'path';
 import { getDynamicPlaceholderKey } from '../../dynamicPlaceholders';
 import processRenderings from './processRenderings';
