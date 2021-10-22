@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image as NativeImage, ImageSourcePropType } from 'react-native';
 import SvgUri from 'react-native-svg-uri';
-import { mediaApi } from '@sitecore-jss/sitecore-jss';
+import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 
 export interface ImageFieldValue {
   /** HTML attributes that will be appended to the rendered <img /> tag. */

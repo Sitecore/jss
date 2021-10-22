@@ -3,7 +3,7 @@
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss/utils';
 import { EditingDataService } from '../services/editing-data-service';
 import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
 import { EditingPreviewData } from '../sharedTypes/editing-data';

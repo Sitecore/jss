@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
-import { HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
+import { HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 
 @Component({
   selector: 'sc-raw',

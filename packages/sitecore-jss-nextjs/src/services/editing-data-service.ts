@@ -1,4 +1,4 @@
-import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
+import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss/utils';
 import { EditingData, EditingPreviewData } from '../sharedTypes/editing-data';
 import { getJssEditingSecret } from '../utils';
 import { PreviewData } from 'next';

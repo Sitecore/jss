@@ -33,6 +33,7 @@
     "dist",
     "layout.d.ts",
     "media.d.ts",
+    "utils.d.ts",
     "graphql.d.ts",
     "i18n.d.ts",
     "tracking.d.ts",

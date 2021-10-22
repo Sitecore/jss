@@ -8,7 +8,7 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-import { mediaApi } from '@sitecore-jss/sitecore-jss';
+import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import { ImageField, ImageFieldValue } from './rendering-field';
 
 @Directive({ selector: '[scImage]' })

@@ -5,7 +5,7 @@ import {
   HtmlElementRendering,
   Item,
   RouteData,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/layout';
 import { Component, h, VNode, DefineComponent } from 'vue';
 import { MissingComponent } from './MissingComponent';
 import { ComponentFactory } from './sharedTypes';

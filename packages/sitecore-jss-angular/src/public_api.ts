@@ -50,4 +50,4 @@ export {
   HttpDataFetcher,
   HttpResponse,
   isServer,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/utils';

@@ -1,4 +1,4 @@
-import { HttpDataFetcher, HttpResponse, isServer, resolveUrl } from './../index';
+import { HttpDataFetcher, HttpResponse, isServer, resolveUrl } from './../utils';
 import {
   CampaignInstance,
   EventInstance,
@@ -48,7 +48,7 @@ function fetchData<T>(
 ) {
   return fetcher(resolveUrl(url, params), data)
     .then(checkStatus)
-    .then((response) => {
+    .then((response: HttpResponse<unknown>) => {
       // axios auto-parses JSON responses, don't need to JSON.parse
       return response.data as T;
     });

@@ -1,5 +1,5 @@
 import { defineComponent, h, ref, onErrorCaptured, inject, getCurrentInstance } from 'vue';
-import { ComponentRendering, RouteData, Field, Item } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, RouteData, Field, Item } from '@sitecore-jss/sitecore-jss/layout';
 import {
   convertVNodesToDynamicComponents,
   getPlaceholderDataFromRenderingData,

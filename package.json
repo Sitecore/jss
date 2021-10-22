@@ -30,7 +30,6 @@
     "eslint-plugin-jsdoc": "^30.7.9",
     "eslint-plugin-prettier": "^3.3.0",
     "lerna": "^3.22.0",
-    "none": "^1.0.0",
     "nyc": "^14.1.1",
     "prettier": "^1.14.3",
     "typedoc": "^0.22.5",
