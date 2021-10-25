@@ -1,10 +1,10 @@
 export {
   isEditorActive,
   resetEditorChromes,
-  constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/utils';
+export { constants } from '@sitecore-jss/sitecore-jss';
 export {
   trackingApi,
   TrackingRequestOptions,

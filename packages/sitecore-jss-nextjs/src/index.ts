@@ -5,11 +5,13 @@ export {
   HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
+} from '@sitecore-jss/sitecore-jss';
+export {
   isEditorActive,
   resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
   LayoutServiceData,

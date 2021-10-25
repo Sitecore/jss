@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { getAppRootId, siteNameError, languageError } from './app-root-query';
-import { GraphQLRequestClient } from './graphql-request-client';
+import { GraphQLRequestClient } from './../graphql-request-client';
 import appRootQueryResponse from '../test-data/mockAppRootQueryResponse.json';
 import nock from 'nock';
-import { SitecoreTemplateId } from '../utils/constants';
+import { SitecoreTemplateId } from '../constants';
 
 // Todo: Instead of creating a GraphQLRequestClient instance, we can use the
 // GraphQLClient interface. This would be a better mock. Potentially create a

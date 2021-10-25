@@ -42,12 +42,14 @@ export {
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
-  isEditorActive,
-  resetEditorChromes,
   constants,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
   HttpDataFetcher,
   HttpResponse
 } from '@sitecore-jss/sitecore-jss';
-export { isServer } from '@sitecore-jss/sitecore-jss/utils'
+export {
+  isServer,
+  isExperienceEditorActive,
+  resetExperienceEditorChromes,
+  isEditorActive,
+  resetEditorChromes, }
+  from '@sitecore-jss/sitecore-jss/utils'

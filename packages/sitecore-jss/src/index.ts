@@ -10,12 +10,4 @@ export {
   GraphQLRequestClientConfig,
 } from './graphql-request-client';
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
-export {
-  ExperienceEditor,
-  HorizonEditor,
-  isEditorActive,
-  resetEditorChromes,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
-} from './editing';
 export { constants };
