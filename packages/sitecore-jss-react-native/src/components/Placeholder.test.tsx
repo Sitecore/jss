@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import renderer from 'react-test-renderer';
-import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { Placeholder, PlaceholderComponentProps } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
 import { devData } from '../../testData/dev-data';
