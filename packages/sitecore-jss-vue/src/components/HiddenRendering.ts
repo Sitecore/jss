@@ -12,3 +12,5 @@ export const HiddenRendering = defineComponent({
     });
   },
 });
+
+export const HIDDEN_RENDERING_NAME = 'Hidden Rendering';
