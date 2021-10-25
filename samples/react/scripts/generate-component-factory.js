@@ -60,17 +60,21 @@ function generateComponentFactory() {
 
   const imports = [];
   const registrations = [];
-  const packages = [
-    {
-      name: '@sitecore-jss/sitecore-jss-react',
-      components: [
-        {
-          componentName: 'Hidden Rendering',
-          moduleName: 'HiddenRendering',
-        },
-      ],
-    },
-  ];
+
+  /**
+   * You can specify components which you want to import from external/internal packages
+   * in format:
+   *  {
+   *    name: 'package name',
+   *    components: [
+   *      {
+   *        componentName: 'component name', // component rendering name,
+   *        moduleName: 'module name' // component name to import from the package
+   *      }
+   *    ]
+   *  }
+   */
+  const packages = [];
 
   packages.forEach((p) => {
     const variables = p.components

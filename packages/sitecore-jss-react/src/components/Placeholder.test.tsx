@@ -16,6 +16,7 @@ import {
 } from '../testData/non-ee-data';
 import { convertedData as eeData, emptyPlaceholderData } from '../testData/ee-data';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
+import { HiddenRendering } from './HiddenRendering';
 
 const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
@@ -377,6 +378,56 @@ it('should render MissingComponent for unknown rendering', () => {
     />
   );
   expect(renderedComponent.find('.missing-component').length).to.equal(1);
+});
+
+it('should render HiddenRendering when rendering is hidden', () => {
+  const route: any = {
+    placeholders: {
+      main: [
+        {
+          componentName: 'Hidden Rendering',
+        },
+      ],
+    },
+  };
+  const phKey = 'main';
+
+  const renderedComponent = mount(
+    <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
+  );
+  expect(renderedComponent.find(HiddenRendering).length).to.equal(1);
+});
+
+it('should render custom HiddenRendering when rendering is hidden', () => {
+  const route: any = {
+    placeholders: {
+      main: [
+        {
+          componentName: 'Hidden Rendering',
+        },
+      ],
+    },
+  };
+  const phKey = 'main';
+
+  const CustomHiddenRendering: React.FC<any> = (props) => (
+    <div className="hidden-rendering">
+      <HiddenRendering />
+      <p>{props.rendering.componentName}</p>
+    </div>
+  );
+
+  const renderedComponent = mount(
+    <Placeholder
+      name={phKey}
+      rendering={route}
+      componentFactory={componentFactory}
+      hiddenRenderingComponent={CustomHiddenRendering}
+    />
+  );
+  expect(renderedComponent.find('.hidden-rendering').length).to.equal(1);
+  expect(renderedComponent.find(HiddenRendering).length).to.equal(1);
+  expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
 });
 
 after(() => {
