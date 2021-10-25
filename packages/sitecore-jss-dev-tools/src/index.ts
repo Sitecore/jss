@@ -33,39 +33,6 @@ export {
 export { ScJssConfig, JssConfiguration, resolveScJssConfig } from './resolve-scjssconfig';
 export { strip } from './templating/strip';
 
-export {
-  generateToFile,
-  generateToVariable,
-  SitecoreIcon,
-  Manifest,
-  ManifestInstance,
-  CreateManifestInstanceArgs,
-  CommonFieldTypes,
-  FieldStorage,
-  FieldDefinition,
-  RenderingParameterDefinition,
-  PlaceholderDefinition,
-  ComponentDefinition,
-  DictionaryDefinition,
-  ImageFieldValue,
-  LinkFieldValue,
-  ContentFieldValue,
-  ItemDefinition,
-  ItemReference,
-  isItemDefinition,
-  RouteDefinition,
-  ComponentInstanceDefinition,
-  GeneratePipelineArgs,
-  GenerateContentItemArgs,
-  GeneratePlaceholdersPipelineArgs,
-  GenerateRouteItemPipelineArgs,
-  addComponent,
-  addTemplate,
-  addPlaceholder,
-  addRouteType,
-  addRoute,
-  addContent,
-  addDictionary,
-} from './manifest';
+export * from './manifest';
 export * from './pipelines';
 export * from './update';

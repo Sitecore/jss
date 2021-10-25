@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { HttpDataFetcher } from './../index';
+import { HttpDataFetcher } from './../utils';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { expect } from 'chai';
@@ -7,7 +7,7 @@ import { trackEvent } from './trackingApi';
 
 // note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
 // which is necessary for analytics and such
-const axiosFetcher: HttpDataFetcher<void> = (url, data) =>
+const axiosFetcher: HttpDataFetcher<void> = (url: string, data: unknown) =>
   axios({
     url,
     method: data ? 'POST' : 'GET',
