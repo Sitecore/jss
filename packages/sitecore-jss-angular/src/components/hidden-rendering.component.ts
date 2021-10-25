@@ -8,3 +8,5 @@ import { Component } from '@angular/core';
   template: ''
 })
 export class HiddenRenderingComponent {}
+
+export const HIDDEN_RENDERING_NAME = 'Hidden Rendering';

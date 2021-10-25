@@ -23,6 +23,7 @@ import {
   PLACEHOLDER_COMPONENTS,
   PLACEHOLDER_LAZY_COMPONENTS,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
+  PLACEHOLDER_HIDDEN_RENDERING_COMPONENT
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { RenderComponentComponent } from './components/render-component.component';
@@ -111,8 +112,6 @@ export class JssModule {
     components: ComponentNameAndType[],
     lazyComponents?: ComponentNameAndModule[]
   ): ModuleWithProviders<JssModule> {
-    components.push({ name: 'Hidden Rendering', type: HiddenRenderingComponent });
-
     return {
       ngModule: JssModule,
       providers: [
@@ -125,6 +124,7 @@ export class JssModule {
         { provide: PLACEHOLDER_LAZY_COMPONENTS, useValue: lazyComponents || [] },
         { provide: ROUTES, useValue: lazyComponents || [], multi: true },
         { provide: PLACEHOLDER_MISSING_COMPONENT_COMPONENT, useValue: MissingComponentComponent },
+        { provide: PLACEHOLDER_HIDDEN_RENDERING_COMPONENT, useValue: HiddenRenderingComponent },
         ...(JssModule.forRoot().providers as Provider[]),
       ],
     };
