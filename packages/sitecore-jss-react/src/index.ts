@@ -27,7 +27,6 @@ export {
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss';
 export { ComponentFactory } from './components/sharedTypes';
-export { HiddenRendering } from './components/HiddenRendering';
 export { Placeholder } from './components/Placeholder';
 export { Image, ImageField } from './components/Image';
 export { RichText, RichTextProps, RichTextPropTypes, RichTextField } from './components/RichText';
