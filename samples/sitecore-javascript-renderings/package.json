@@ -52,9 +52,8 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.34",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.34",
-    "@sitecore-jss/sitecore-jss-manifest": "^20.0.0-canary.34",
+    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.23",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.23",
     "babel-core": "~6.26.0",
     "babel-eslint": "~7.2.3",
     "babel-loader": "~7.1.2",

@@ -1,4 +1,4 @@
-import { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+import { ManifestInstance } from '../index';
 import Express from 'express';
 import { join } from 'path';
 import { ManifestManager } from '../manifest-manager';

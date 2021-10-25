@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 const query = readFileSync(
   'sitecore/definitions/components/graph-ql-integrated-demo.sitecore.graphql',

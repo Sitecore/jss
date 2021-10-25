@@ -1,20 +1,18 @@
 export {
-  mediaApi,
   constants,
   // generic data access
   HttpDataFetcher,
   HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
-  // dictionary service
-  DictionaryPhrases,
-  DictionaryService,
-  GraphQLRequestClient,
-  GraphQLDictionaryService,
-  GraphQLDictionaryServiceConfig,
-  RestDictionaryService,
-  RestDictionaryServiceConfig,
-  // layout service
+} from '@sitecore-jss/sitecore-jss';
+export {
+  isEditorActive,
+  resetEditorChromes,
+  isExperienceEditorActive,
+  resetExperienceEditorChromes,
+} from '@sitecore-jss/sitecore-jss/utils';
+export {
   LayoutService,
   LayoutServiceData,
   LayoutServicePageState,
@@ -24,10 +22,6 @@ export {
   GraphQLLayoutServiceConfig,
   RestLayoutService,
   RestLayoutServiceConfig,
-  isEditorActive,
-  resetEditorChromes,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
   PlaceholdersData,
   RouteData,
   Field,
@@ -38,9 +32,26 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-} from '@sitecore-jss/sitecore-jss';
-
-export { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+} from '@sitecore-jss/sitecore-jss/layout';
+export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
+export {
+  trackingApi,
+  TrackingRequestOptions,
+  CampaignInstance,
+  GoalInstance,
+  OutcomeInstance,
+  EventInstance,
+  PageViewInstance,
+} from '@sitecore-jss/sitecore-jss/tracking';
+export {
+  DictionaryPhrases,
+  DictionaryService,
+  GraphQLDictionaryService,
+  GraphQLDictionaryServiceConfig,
+  RestDictionaryService,
+  RestDictionaryServiceConfig,
+} from '@sitecore-jss/sitecore-jss/i18n';
+export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export {
   ComponentPropsCollection,

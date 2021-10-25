@@ -149,7 +149,7 @@
 </template>
 
 <script>
-import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
+import { trackingApi } from '@sitecore-jss/sitecore-jss-vue';
 import { dataFetcher } from '../../dataFetcher';
 import config from '../../temp/config';
 

@@ -1,4 +1,4 @@
-import { createPackage } from '@sitecore-jss/sitecore-jss-update-package';
+import { createPackage } from './update';
 import fsExtra from 'fs-extra';
 import path from 'path';
 

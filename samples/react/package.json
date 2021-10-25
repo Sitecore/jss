@@ -32,8 +32,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.34",
-    "@sitecore-jss/sitecore-jss-tracking": "^20.0.0-canary.34",
+    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.23",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
     "apollo-link": "~1.2.13",
@@ -60,10 +59,9 @@
   "devDependencies": {
     "@babel/preset-env": "^7.10.4",
     "@babel/register": "~7.6.2",
-    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.34",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.34",
-    "@sitecore-jss/sitecore-jss-manifest": "^20.0.0-canary.34",
-    "@sitecore-jss/sitecore-jss-rendering-host": "^20.0.0-canary.34",
+    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.23",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.23",
+    "@sitecore-jss/sitecore-jss-rendering-host": "^20.0.0-canary.23",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "~9.0.2",
     "chalk": "~2.4.2",

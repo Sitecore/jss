@@ -7,7 +7,7 @@ import {
   Compiler,
   NgModuleFactory,
 } from '@angular/core';
-import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import {
   ComponentNameAndModule,
   ComponentNameAndType,

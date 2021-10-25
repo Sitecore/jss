@@ -1,4 +1,4 @@
-import { GraphQLClient } from '../graphql-request-client';
+import { GraphQLClient } from './../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 import debug from '../debug';
 

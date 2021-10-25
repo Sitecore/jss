@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
-import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {

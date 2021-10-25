@@ -1,4 +1,4 @@
-import { mediaApi } from '@sitecore-jss/sitecore-jss';
+import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import { h, defineComponent, PropType } from 'vue';
 import { generateHtmlTag } from '../utils';
 

@@ -1,6 +1,5 @@
 import React from 'react';
-import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-react';
-import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
+import { withSitecoreContext, trackingApi } from '@sitecore-jss/sitecore-jss-react';
 import { dataFetcher } from '../../dataFetcher';
 import config from '../../temp/config';
 import StyleguideSpecimen from '../Styleguide-Specimen';

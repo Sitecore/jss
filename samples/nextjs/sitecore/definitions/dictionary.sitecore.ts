@@ -1,5 +1,4 @@
-import { Manifest } from '@sitecore-jss/sitecore-jss-manifest';
-import { mergeFs, MergeFsResult } from '@sitecore-jss/sitecore-jss-dev-tools';
+import { Manifest, mergeFs, MergeFsResult } from '@sitecore-jss/sitecore-jss-dev-tools';
 import fs from 'fs';
 
 /**

@@ -8,7 +8,7 @@ import {
 import appRootQueryResponse from '../testData/mockAppRootQueryResponse.json';
 import sitemapQueryResult from '../testData/sitemapQueryResult.json';
 import sitemapServiceResult from '../testData/sitemapServiceResult';
-import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
+import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss/graphql';
 
 class TestService extends GraphQLSitemapService {
   public client: GraphQLClient;
