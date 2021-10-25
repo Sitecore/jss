@@ -30,7 +30,10 @@ import {
 } from '../jss-component-factory.service';
 import { HIDDEN_RENDERING_NAME } from './hidden-rendering.component';
 import { PlaceholderLoadingDirective } from './placeholder-loading.directive';
-import { PLACEHOLDER_HIDDEN_RENDERING_COMPONENT, PLACEHOLDER_MISSING_COMPONENT_COMPONENT } from './placeholder.token';
+import {
+  PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
+  PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
+} from './placeholder.token';
 import { RenderEachDirective } from './render-each.directive';
 import { RenderEmptyDirective } from './render-empty.directive';
 import { isRawRendering } from './rendering';
@@ -238,7 +241,9 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   }
 
   private _renderEmbeddedComponent(rendering: ComponentFactoryResult, index: number) {
-    if ((rendering.componentDefinition as ComponentRendering).componentName === HIDDEN_RENDERING_NAME) {
+    if (
+      (rendering.componentDefinition as ComponentRendering).componentName === HIDDEN_RENDERING_NAME
+    ) {
       rendering.componentImplementation = this.hiddenRenderingComponent;
     }
 

@@ -44,7 +44,7 @@ export const PLACEHOLDER_MISSING_COMPONENT_COMPONENT = new InjectionToken<Type<u
 );
 export const PLACEHOLDER_HIDDEN_RENDERING_COMPONENT = new InjectionToken<Type<unknown>>(
   'Sc.placeholder.hiddenRenderingComponent'
-)
+);
 export const DYNAMIC_COMPONENT = new InjectionToken<Type<unknown> | { [s: string]: unknown }>(
   'Sc.placeholder.dynamicComponent'
 );

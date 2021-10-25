@@ -23,7 +23,7 @@ import {
   PLACEHOLDER_COMPONENTS,
   PLACEHOLDER_LAZY_COMPONENTS,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
-  PLACEHOLDER_HIDDEN_RENDERING_COMPONENT
+  PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { RenderComponentComponent } from './components/render-component.component';
