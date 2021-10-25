@@ -62,17 +62,20 @@ function watchComponentFactory() {
  * Modify this function to use a different convention.
  */
 function writeComponentFactory() {
-  const packages: PackageDefinition[] = [
-    {
-      name: '@sitecore-jss/sitecore-jss-nextjs',
-      components: [
-        {
-          componentName: 'Hidden Rendering',
-          moduleName: 'HiddenRendering',
-        },
-      ],
-    },
-  ];
+  /**
+   * You can specify components which you want to import from external/internal packages
+   * in format:
+   *  {
+   *    name: 'package name',
+   *    components: [
+   *      {
+   *        componentName: 'component name', // component rendering name,
+   *        moduleName: 'module name' // component name to import from the package
+   *      }
+   *    ]
+   *  }
+   */
+  const packages: PackageDefinition[] = [];
   const components = getComponentList(componentRootPath);
 
   components.unshift(...packages);
