@@ -5,7 +5,7 @@ import {
   SearchServiceConfig,
   SearchQueryService,
 } from '@sitecore-jss/sitecore-jss/graphql';
-import { debug } from '@sitecore-jss/sitecore-jss/utils';
+import { debug } from '@sitecore-jss/sitecore-jss';
 
 /** @private */
 export const queryError =

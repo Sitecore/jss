@@ -1,4 +1,4 @@
-import { ExperienceEditor } from '@sitecore-jss/sitecore-jss/utils';
+import { ExperienceEditor } from '@sitecore-jss/sitecore-jss';
 
 /**
  * @description in Experience Editor with an Angular sample app, anchor tags

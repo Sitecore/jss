@@ -9,7 +9,7 @@ export {
   resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss';
 export {
   LayoutService,
   LayoutServiceData,
@@ -49,7 +49,7 @@ export {
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';
-export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss/graphql';
+export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export {
   ComponentPropsCollection,

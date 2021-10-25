@@ -1,5 +1,5 @@
 import querystring from 'querystring';
-import { HttpDataFetcher } from './../utils';
+import { HttpDataFetcher } from './../data-fetcher';
 
 export interface TrackingRequestOptions {
   /** Hostname of tracking service; e.g. http://my.site.core */

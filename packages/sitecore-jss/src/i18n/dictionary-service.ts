@@ -1,4 +1,4 @@
-import { CacheClient, CacheOptions, MemoryCacheClient } from '../utils/cache-client';
+import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
 /**
  * Object model for Sitecore dictionary phrases

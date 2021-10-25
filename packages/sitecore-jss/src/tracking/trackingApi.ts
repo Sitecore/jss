@@ -1,4 +1,4 @@
-import { HttpDataFetcher, HttpResponse, isServer, resolveUrl } from './../utils';
+import { isServer, resolveUrl } from './../utils';
 import {
   CampaignInstance,
   EventInstance,
@@ -8,6 +8,7 @@ import {
 } from './dataModels';
 import { TrackingRequestOptions } from './trackingRequestOptions';
 import querystring from 'querystring';
+import { HttpDataFetcher, HttpResponse } from './../data-fetcher';
 
 class ResponseError extends Error {
   response: HttpResponse<unknown>;

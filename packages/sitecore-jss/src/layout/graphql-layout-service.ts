@@ -1,7 +1,7 @@
 import { LayoutServiceBase } from './layout-service';
 import { LayoutServiceData } from './models';
-import { GraphQLClient, GraphQLRequestClient } from '../graphql/graphql-request-client';
-import debug from '../utils/debug';
+import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
+import debug from '../debug';
 
 export type GraphQLLayoutServiceConfig = {
   /**

@@ -4,7 +4,7 @@ export {
   constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss';
 export {
   LayoutService,
   LayoutServiceData,

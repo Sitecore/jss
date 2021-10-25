@@ -2,7 +2,7 @@ import React from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { HorizonEditor } from '@sitecore-jss/sitecore-jss/utils';
+import { HorizonEditor } from '@sitecore-jss/sitecore-jss';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**

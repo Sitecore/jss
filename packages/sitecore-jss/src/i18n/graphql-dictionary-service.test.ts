@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import nock from 'nock';
-import { SitecoreTemplateId } from '../utils/constants';
-import { GraphQLClient, GraphQLRequestClient } from '../graphql/graphql-request-client';
+import { SitecoreTemplateId } from '../constants';
+import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import { queryError, GraphQLDictionaryServiceConfig } from './graphql-dictionary-service';
 import { GraphQLDictionaryService } from '.';
 import dictionaryQueryResponse from '../test-data/mockDictionaryQueryResponse.json';

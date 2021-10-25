@@ -1,6 +1,6 @@
-import { GraphQLClient } from './graphql-request-client';
-import { SitecoreTemplateId } from '../utils/constants';
-import debug from '../utils/debug';
+import { GraphQLClient } from './../graphql-request-client';
+import { SitecoreTemplateId } from '../constants';
+import debug from '../debug';
 
 /** @private */
 export const siteNameError = 'The site name must be a non-empty string';

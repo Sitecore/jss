@@ -3,7 +3,7 @@ export {
   resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
-} from '@sitecore-jss/sitecore-jss/utils';
+} from '@sitecore-jss/sitecore-jss';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
   RestLayoutService,

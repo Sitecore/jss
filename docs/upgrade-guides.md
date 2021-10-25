@@ -12,17 +12,17 @@ If you are importing any of these into your project, the imports need to be upda
 
 |Package Name|Submodule Added  | change description
 |---|------|---
-|**Sitecore-jss**|||
-||`graphql` |  No change
-||`i18` | No change
-|| `layout` | No change
-||`media` | New
-||`utils` | No change
-||`tracking` | Moved as a submodule from being a separate package
+|**Sitecore-jss**||Broken into submodules so now all function, classes and interfaces within this package gets imported directly into all other packages and sample apps from individual submodules.|
+||`graphql` |   E.g. 'import { GraphQLClient } from @sitecore-jss/sitecore-jss/graphql'
+||`i18` | E.g. 'import { RestDictionaryService } from @sitecore-jss/sitecore-jss/i18n'
+|| `layout` | E.g. 'import { LayoutServiceData } from @sitecore-jss/sitecore-jss/layout'
+||`media` | E.g. 'import { mediaApi } from @sitecore-jss/sitecore-jss/media'
+||`utils` | E.g. 'import { isServer } from @sitecore-jss/sitecore-jss/utils'
+||`tracking` | Moved as a submodule from being a separate package. E.g. 'import { trackingApi } from @sitecore-jss/sitecore-jss/tracking'
 |**Sitecore-jss-angular**||*No Change*
 |**Sitecore-jss-angular-schematics**||*No Change*
 |**Sitecore-jss-cli**||*No Change*
-|**Sitecore-jss-dev-tools**|| Now manifest, pipelines and update package part of this package|
+|**Sitecore-jss-dev-tools**|| Now manifest, pipelines and update package are part of this package.|
 |**Sitecore-jss-tracking**||Moved to Sitecore-jss
 |**Sitecore-jss-manifest**||Moved to Sitecore-jss-dev-tools
 |**Sitecore-jss-pipelines**||Moved to Sitecore-jss-dev-tools

@@ -3,7 +3,7 @@ import spies from 'chai-spies';
 import { RestDictionaryService, RestDictionaryServiceData } from './rest-dictionary-service';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { AxiosDataFetcher } from '../utils/axios-fetcher';
+import { AxiosDataFetcher } from '../axios-fetcher';
 
 use(spies);
 

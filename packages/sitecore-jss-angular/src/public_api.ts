@@ -48,6 +48,6 @@ export {
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   HttpDataFetcher,
-  HttpResponse,
-  isServer,
-} from '@sitecore-jss/sitecore-jss/utils';
+  HttpResponse
+} from '@sitecore-jss/sitecore-jss';
+export { isServer } from '@sitecore-jss/sitecore-jss/utils'

@@ -3,7 +3,7 @@ export {
   GraphQLClient,
   GraphQLRequestClient,
   GraphQLRequestClientConfig,
-} from './graphql-request-client';
+} from './../graphql-request-client';
 export {
   SearchQueryResult,
   SearchQueryVariables,
