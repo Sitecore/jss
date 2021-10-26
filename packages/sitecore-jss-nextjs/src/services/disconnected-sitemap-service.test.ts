@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { ItemDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+import { ItemDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { DisconnectedSitemapService } from './disconnected-sitemap-service';
 
 describe('DisconnectedSitemapService', () => {

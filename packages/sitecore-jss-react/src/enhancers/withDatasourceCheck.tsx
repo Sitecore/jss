@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { useSitecoreContext } from './withSitecoreContext';
 
 export const DefaultEditingError = (): JSX.Element => (

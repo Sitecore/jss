@@ -112,7 +112,7 @@ export default ${exportVarName};
 
 function scaffoldManifest() {
   const manifestTemplate = `// eslint-disable-next-line no-unused-vars
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adds the ${componentName} component to the disconnected manifest.

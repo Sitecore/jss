@@ -1,5 +1,9 @@
 import React from 'react';
-import { ComponentRendering, RouteData, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
+import {
+  ComponentRendering,
+  RouteData,
+  HtmlElementRendering,
+} from '@sitecore-jss/sitecore-jss/layout';
 import { PlaceholderProps, PlaceholderCommon } from '../components/PlaceholderCommon';
 import { withComponentFactory } from './withComponentFactory';
 

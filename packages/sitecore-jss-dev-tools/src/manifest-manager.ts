@@ -1,8 +1,4 @@
-import {
-  generateToFile,
-  generateToVariable,
-  ManifestInstance,
-} from '@sitecore-jss/sitecore-jss-manifest';
+import { generateToFile, generateToVariable, ManifestInstance } from './index';
 import { FSWatcher, watch } from 'chokidar';
 import { dirname, join } from 'path';
 

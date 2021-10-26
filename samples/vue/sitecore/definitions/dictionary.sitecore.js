@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { mergeFs } from '@sitecore-jss/sitecore-jss-dev-tools';
 import fs from 'fs';
 

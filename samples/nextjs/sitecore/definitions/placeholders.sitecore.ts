@@ -1,4 +1,4 @@
-import { Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adding placeholders is optional but allows setting a user-friendly display name. Placeholder Settings

@@ -10,6 +10,12 @@
       "es2017",
       "dom"
     ],
+    "baseUrl": "src",
+    "paths": {
+      "@root": [
+        "index"
+      ]
+    },
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
@@ -23,7 +29,7 @@
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
   },
   "exclude": [
     "node_modules",

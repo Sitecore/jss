@@ -18,23 +18,20 @@ export {
 export { RichTextDirective } from './components/rich-text.directive';
 export { TextDirective } from './components/text.directive';
 export { JssModule } from './lib.module';
+export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { handleEditorAnchors } from './utils';
 export {
-  mediaApi,
-  isEditorActive,
-  resetEditorChromes,
-  constants,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
   DictionaryService,
-  RestDictionaryService,
   GraphQLDictionaryService,
-  RestLayoutService,
-  GraphQLLayoutService,
+  RestDictionaryService,
+} from '@sitecore-jss/sitecore-jss/i18n';
+export {
   LayoutService,
   LayoutServiceData,
   LayoutServiceContextData,
-  PlaceholderData,
+  GraphQLLayoutService,
+  RestLayoutService,
+  PlaceholdersData,
   RouteData,
   Field,
   HtmlElementRendering,
@@ -43,7 +40,16 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+} from '@sitecore-jss/sitecore-jss/layout';
+export {
+  constants,
   HttpDataFetcher,
-  HttpResponse,
-  isServer,
+  HttpResponse
 } from '@sitecore-jss/sitecore-jss';
+export {
+  isServer,
+  isExperienceEditorActive,
+  resetExperienceEditorChromes,
+  isEditorActive,
+  resetEditorChromes, }
+  from '@sitecore-jss/sitecore-jss/utils'

@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "20.0.0-canary.34",
+  "version": "20.0.0-canary.35",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -10,7 +10,8 @@
     "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
-    "coverage": "nyc npm test"
+    "coverage": "nyc npm test",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../ref-docs/sitecore-jss src/index.ts"
   },
   "engines": {
     "node": ">=8.1"

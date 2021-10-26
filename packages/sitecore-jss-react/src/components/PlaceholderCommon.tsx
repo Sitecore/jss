@@ -8,7 +8,7 @@ import {
   Field,
   Item,
   HtmlElementRendering,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/layout';
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering, HiddenRenderingName } from './HiddenRendering';
 

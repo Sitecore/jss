@@ -1,5 +1,5 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
-import { ComponentRendering, LayoutServiceData } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
 
 /**
  * Shape of component props storage

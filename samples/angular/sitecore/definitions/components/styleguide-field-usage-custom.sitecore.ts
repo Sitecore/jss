@@ -1,4 +1,4 @@
-import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adds the Styleguide-FieldUsage-Custom component to the disconnected manifest.
@@ -8,7 +8,7 @@ export default function StyleguideFieldUsageCustom(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideFieldUsageCustom',
     templateName: 'JssAngularWeb-StyleguideFieldUsageCustom',
-    icon: SitecoreIcon.Gearwheel,   
+    icon: SitecoreIcon.Gearwheel,
     // NOTE: not using 'CommonFieldTypes' here, because it's a custom field.
     // The 'Integer' field ships with Sitecore; something really custom would need to be
     // implemented as a Sitecore field type as well.

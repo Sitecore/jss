@@ -1,4 +1,4 @@
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adds the Styleguide-FieldUsage-Text component to the disconnected manifest.

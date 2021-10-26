@@ -1,4 +1,4 @@
-import { addRoute } from '@sitecore-jss/sitecore-jss-manifest';
+import { addRoute } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { mergeFs } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 // Collects the disconnected routes defined in data/routes into the manifest.

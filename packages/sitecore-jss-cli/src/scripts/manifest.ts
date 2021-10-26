@@ -1,5 +1,4 @@
-import { clean } from '@sitecore-jss/sitecore-jss-dev-tools';
-import { generateToFile } from '@sitecore-jss/sitecore-jss-manifest';
+import { clean, generateToFile } from '@sitecore-jss/sitecore-jss-dev-tools';
 import chalk from 'chalk';
 import { existsSync } from 'fs';
 import path from 'path';
