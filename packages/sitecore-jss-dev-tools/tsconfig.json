@@ -10,12 +10,6 @@
       "es2017",
       "dom"
     ],
-    "baseUrl": "src",
-    "paths": {
-      "@root": [
-        "index"
-      ]
-    },
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,

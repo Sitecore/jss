@@ -1,4 +1,4 @@
-import { runPipeline } from '@root';
+import { runPipeline } from './../../../../index';
 import { GeneratePipelineArgs } from '../../manifest.types';
 
 const generateMedia = async ({ items, templates, pipelines }: any) => {

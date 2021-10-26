@@ -1,4 +1,4 @@
-import { Manifest } from '@root';
+import { Manifest } from './../../../index';
 
 export default (manifest: Manifest) => {
   return Promise.resolve(manifest).then((manifest1) => {

@@ -1,4 +1,4 @@
-import { Manifest } from '@root';
+import { Manifest } from './../../../index';
 import json from './children.json';
 import data from './route';
 
