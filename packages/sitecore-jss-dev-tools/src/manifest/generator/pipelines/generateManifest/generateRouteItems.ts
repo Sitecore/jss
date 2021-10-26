@@ -1,4 +1,4 @@
-import { ExecutablePipeline, runPipeline } from '@root';
+import { ExecutablePipeline, runPipeline } from './../../../../index';
 import {
   ComponentDefinition,
   GeneratePipelineArgs,

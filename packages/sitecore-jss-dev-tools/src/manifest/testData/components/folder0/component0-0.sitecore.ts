@@ -1,4 +1,4 @@
-import { Manifest } from '@root';
+import { Manifest } from './../../../../index';
 import { CommonFieldTypes } from '../../../generator/manifest.types';
 
 export default (manifest: Manifest) => {
