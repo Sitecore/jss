@@ -90,6 +90,11 @@ const nextConfig = {
         source: '/:locale/layouts/:path*',
         destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
       },
+      // sitemap.xml
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      }
     ];
   },
 
