@@ -5,7 +5,6 @@ import {
   RenderingVariantParameters,
   Field,
   RichText as JssRichText,
-  Text,
   ComponentRendering,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
