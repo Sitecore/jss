@@ -94,6 +94,7 @@ export {
   VisitorIdentification,
   SitecoreContext,
   SitecoreContextState,
+  SitecoreContextValue,
   SitecoreContextReactContext,
   withSitecoreContext,
   useSitecoreContext,

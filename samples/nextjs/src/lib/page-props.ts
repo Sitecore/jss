@@ -1,5 +1,8 @@
-import { DictionaryPhrases, ComponentPropsCollection } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideSitecoreContextValue } from './component-props';
+import {
+  DictionaryPhrases,
+  ComponentPropsCollection,
+  LayoutServiceData,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
  * Sitecore page props
@@ -9,5 +12,5 @@ export type SitecorePageProps = {
   dictionary: DictionaryPhrases;
   componentProps: ComponentPropsCollection;
   notFound: boolean;
-  sitecoreContext: StyleguideSitecoreContextValue | null;
+  layoutData: LayoutServiceData;
 };

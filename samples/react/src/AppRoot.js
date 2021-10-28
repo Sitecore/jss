@@ -22,53 +22,21 @@ export const routePatterns = [
 // SitecoreContext: provides component resolution and context services via withSitecoreContext
 // Router: provides a basic routing setup that will resolve Sitecore item routes and allow for language URL prefixes.
 class AppRoot extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      ssrRenderComplete: false,
-    };
-
-    if (props.ssrState) {
-      this.sitecoreContext =
-        props.ssrState.sitecore && props.ssrState.sitecore.route
-          ? {
-              route: props.ssrState.sitecore.route,
-              itemId: props.ssrState.sitecore.route.itemId,
-              ...props.ssrState.sitecore.context,
-            }
-          : props.ssrState.sitecore.context;
-    } else {
-      this.sitecoreContext = null;
-    }
-  }
-
-  setSsrRenderComplete = (ssrRenderComplete) =>
-    this.setState({
-      ssrRenderComplete,
-    });
-
-  componentDidMount() {
-    this.setSsrRenderComplete(true);
-  }
+  renderRoute = (props) => {
+    return <RouteHandler route={props} isSSR={!!this.props.ssrState} />;
+  };
 
   render() {
     const { path, Router, graphQLClient } = this.props;
 
     return (
       <ApolloProvider client={graphQLClient}>
-        <SitecoreContext componentFactory={componentFactory} context={this.sitecoreContext}>
+        <SitecoreContext componentFactory={componentFactory} layoutData={this.props.ssrState}>
           <Router location={path} context={{}}>
             <Switch>
-              {routePatterns.map((routePattern) => (
-                <Route
-                  key={routePattern}
-                  path={routePattern}
-                  render={(props) => (
-                    <RouteHandler route={props} ssrRenderComplete={this.state.ssrRenderComplete} />
-                  )}
-                />
-              ))}
+              <Route path="/:lang([a-z]{2}-[A-Z]{2})/:sitecoreRoute*" render={this.renderRoute} />
+              <Route path="/:lang([a-z]{2})/:sitecoreRoute*" render={this.renderRoute} />
+              <Route path="/:sitecoreRoute*" render={this.renderRoute} />
             </Switch>
           </Router>
         </SitecoreContext>

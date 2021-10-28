@@ -79,6 +79,8 @@ const Layout = ({ route }) => (
   </React.Fragment>
 );
 
+// We don't want to re-render `Layout` when route is changed but layout data is not loaded
+// Layout will be re-rendered only when layout data is changed
 const propsAreEqual = (prevProps, nextProps) => {
   if (deepEqual(prevProps.route, nextProps.route)) return true;
 

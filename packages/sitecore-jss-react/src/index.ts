@@ -38,6 +38,7 @@ export { VisitorIdentification } from './components/VisitorIdentification';
 export {
   SitecoreContext,
   SitecoreContextState,
+  SitecoreContextValue,
   SitecoreContextReactContext,
 } from './components/SitecoreContext';
 export { withSitecoreContext, useSitecoreContext } from './enhancers/withSitecoreContext';
