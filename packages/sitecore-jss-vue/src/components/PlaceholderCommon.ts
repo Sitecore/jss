@@ -46,7 +46,7 @@ export interface PlaceholderProps {
   /**
    * A component that is rendered in place of any components that are hidden.
    */
-  hiddenRenderingComponent: DefineComponent;
+  hiddenRenderingComponent?: DefineComponent;
 
   /**
    * A component that is rendered in place of the placeholder when an error occurs rendering

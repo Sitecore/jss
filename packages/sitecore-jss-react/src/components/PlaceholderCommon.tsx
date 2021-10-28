@@ -10,7 +10,7 @@ import {
   HtmlElementRendering,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { convertAttributesToReactProps } from '../utils';
-import { HiddenRendering, HiddenRenderingName } from './HiddenRendering';
+import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
@@ -163,7 +163,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         let component;
 
-        if (componentRendering.componentName === HiddenRenderingName) {
+        if (componentRendering.componentName === HIDDEN_RENDERING_NAME) {
           component = hiddenRenderingComponent ?? HiddenRendering;
         } else {
           component = this.getComponentForRendering(componentRendering);

@@ -9,4 +9,4 @@ const styles = {
 
 export const HiddenRendering = () => <div style={styles} />;
 
-export const HiddenRenderingName = 'Hidden Rendering';
+export const HIDDEN_RENDERING_NAME = 'Hidden Rendering';
