@@ -47,6 +47,10 @@ export const Placeholder = defineComponent({
       type: Object,
       default: undefined,
     },
+    hiddenRenderingComponent: {
+      type: Object,
+      default: undefined,
+    },
     errorComponent: {
       type: Object,
       default: undefined,

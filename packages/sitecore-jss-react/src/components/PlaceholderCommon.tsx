@@ -10,6 +10,7 @@ import {
   HtmlElementRendering,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { convertAttributesToReactProps } from '../utils';
+import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
@@ -48,6 +49,11 @@ export interface PlaceholderProps {
   missingComponentComponent?: React.ComponentClass<unknown> | React.FC<unknown>;
 
   /**
+   * A component that is rendered in place of any components that are hidden
+   */
+  hiddenRenderingComponent?: React.ComponentClass<unknown> | React.FC<unknown>;
+
+  /**
    * A component that is rendered in place of the placeholder when an error occurs rendering
    * the placeholder
    */
@@ -68,6 +74,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     ),
     params: PropTypes.objectOf(PropTypes.string.isRequired),
     missingComponentComponent: PropTypes.oneOfType([
+      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
+      PropTypes.func as Requireable<React.FC<unknown>>,
+    ]),
+    hiddenRenderingComponent: PropTypes.oneOfType([
       PropTypes.object as Requireable<React.ComponentClass<unknown>>,
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
@@ -130,6 +140,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       fields: placeholderFields,
       params: placeholderParams,
       missingComponentComponent,
+      hiddenRenderingComponent,
       ...placeholderProps
     } = this.props;
 
@@ -150,7 +161,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         const componentRendering = rendering as ComponentRendering;
 
-        let component = this.getComponentForRendering(componentRendering);
+        let component;
+
+        if (componentRendering.componentName === HIDDEN_RENDERING_NAME) {
+          component = hiddenRenderingComponent ?? HiddenRendering;
+        } else {
+          component = this.getComponentForRendering(componentRendering);
+        }
+
         if (!component) {
           console.error(
             `Placeholder ${name} contains unknown component ${componentRendering.componentName}. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`

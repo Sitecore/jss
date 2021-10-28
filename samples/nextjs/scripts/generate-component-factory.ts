@@ -1,7 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import chokidar from 'chokidar';
-import generateComponentFactory, { ComponentFile } from './templates/component-factory';
+import generateComponentFactory, {
+  ComponentFile,
+  PackageDefinition,
+} from './templates/component-factory';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -59,15 +62,33 @@ function watchComponentFactory() {
  * Modify this function to use a different convention.
  */
 function writeComponentFactory() {
-  const fileContent = generateComponentFactory(getComponentList(componentRootPath));
+  /**
+   * You can specify components which you want to import from external/internal packages
+   * in format:
+   *  {
+   *    name: 'package name',
+   *    components: [
+   *      {
+   *        componentName: 'component name', // component rendering name,
+   *        moduleName: 'module name' // component name to import from the package
+   *      }
+   *    ]
+   *  }
+   */
+  const packages: PackageDefinition[] = [];
+  const components = getComponentList(componentRootPath);
+
+  components.unshift(...packages);
+
+  const fileContent = generateComponentFactory(components);
   console.log(`Writing component factory to ${componentFactoryPath}`);
   fs.writeFileSync(componentFactoryPath, fileContent, {
     encoding: 'utf8',
   });
 }
 
-function getComponentList(path: string): ComponentFile[] {
-  const components: ComponentFile[] = [];
+function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
+  const components: (PackageDefinition | ComponentFile)[] = [];
   const folders: fs.Dirent[] = [];
 
   fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {
