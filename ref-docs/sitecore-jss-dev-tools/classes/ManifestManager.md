@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[manifest-manager.ts:29](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L29)
+[manifest-manager.ts:29](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L29)
 
 ## Properties
 
@@ -46,7 +46,7 @@
 
 #### Defined in
 
-[manifest-manager.ts:22](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L22)
+[manifest-manager.ts:22](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L22)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[manifest-manager.ts:27](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L27)
+[manifest-manager.ts:27](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L27)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[manifest-manager.ts:23](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L23)
+[manifest-manager.ts:23](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L23)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[manifest-manager.ts:24](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L24)
+[manifest-manager.ts:24](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L24)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[manifest-manager.ts:25](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L25)
+[manifest-manager.ts:25](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L25)
 
 ## Methods
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[manifest-manager.ts:112](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L112)
+[manifest-manager.ts:112](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L112)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[manifest-manager.ts:108](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L108)
+[manifest-manager.ts:108](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L108)
 
 ___
 
@@ -140,4 +140,4 @@ ___
 
 #### Defined in
 
-[manifest-manager.ts:80](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L80)
+[manifest-manager.ts:80](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest-manager.ts#L80)

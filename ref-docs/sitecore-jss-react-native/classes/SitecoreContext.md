@@ -62,7 +62,7 @@ React.Component&lt;SitecoreContextProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
 
 ## Properties
 
@@ -72,7 +72,7 @@ React.Component&lt;SitecoreContextProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
 
 ## Methods
 
@@ -606,7 +606,7 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/f5c66a8c/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
 
 ___
 

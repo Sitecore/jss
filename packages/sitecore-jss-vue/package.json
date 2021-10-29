@@ -12,7 +12,7 @@
     "test": "jest",
     "prepublishOnly": "npm run build",
     "coverage": "jest --config ./jest.config.coverage.js",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-vue src/index.ts"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-vue src/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=8.1"

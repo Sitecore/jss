@@ -12,7 +12,7 @@
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-proxy src/index.ts"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-proxy src/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=8.1"
