@@ -1,4 +1,4 @@
-import { runPipeline } from './../../index';
+import { runPipeline } from '../../pipelines';
 import fieldTypes from './fieldTypes';
 import {
   ComponentDefinition,

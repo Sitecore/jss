@@ -1,7 +1,6 @@
-import { ManifestInstance } from '../index';
+import { ManifestInstance, ManifestManager } from '../manifest/index';
 import Express from 'express';
 import { join } from 'path';
-import { ManifestManager } from '../manifest-manager';
 import { createDisconnectedDictionaryService } from './dictionary-service';
 import {
   CustomizeContextFunction,
