@@ -4,9 +4,9 @@
     "prettier",
     "plugin:import/errors",
     "plugin:import/warnings",
+    "plugin:prettier/recommended",
     "plugin:react/recommended",
-    "plugin:yaml/recommended",
-    "plugin:prettier/recommended"
+    "plugin:yaml/recommended"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
