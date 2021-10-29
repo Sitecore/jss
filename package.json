@@ -35,6 +35,5 @@
     "typedoc": "^0.22.5",
     "typedoc-plugin-markdown": "^3.11.3",
     "typescript": "^3.9.6"
-  },
-  "dependencies": {}
+  }
 }

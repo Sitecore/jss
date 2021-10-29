@@ -6,7 +6,8 @@
     "build": "tsc -p tsconfig.json",
     "test-package": "jasmine src/**/*_spec.js",
     "test": "npm run build && npm run test-package",
-    "coverage": "nyc npm run test-package"
+    "coverage": "nyc npm run test-package",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-angular-schematics src/jss-component/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=8.1"

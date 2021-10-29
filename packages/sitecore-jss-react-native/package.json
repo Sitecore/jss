@@ -11,7 +11,8 @@
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
     "test": "jest",
     "prepublishOnly": "npm test && npm run build",
-    "coverage": "jest --config ./jest.config.coverage.js"
+    "coverage": "jest --config ./jest.config.coverage.js",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-react-native src/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=8.1"

@@ -10,7 +10,8 @@
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
     "test": "mocha --require ts-node/register/transpile-only --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.tsx\"",
     "prepublishOnly": "npm run build",
-    "coverage": "nyc npm test"
+    "coverage": "nyc npm test",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-forms src/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=8.1"
