@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-dev-tools",
-  "version": "20.0.0-canary.38",
+  "version": "20.0.0-canary.39",
   "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -12,7 +12,8 @@
     "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register -r tsconfig-paths/register  \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
-    "coverage": "nyc npm test"
+    "coverage": "nyc npm test",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-dev-tools src/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=8.1"
@@ -31,7 +32,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.38",
+    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.39",
     "axios": "^0.21.1",
     "chokidar": "^3.2.1",
     "del": "^5.1.0",

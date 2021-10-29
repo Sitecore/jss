@@ -93,7 +93,7 @@ export class ManifestManager {
       ignorePermissionErrors: true,
       cwd: this.rootPath,
     })
-      .on('all', async (event, path) => {
+      .on('all', async (event: string, path: string) => {
         console.log(`Manifest source file ${path} changed (${event}), reloading manifest...`);
         try {
           callback(await generateToVariable(this.manifestArgs));
@@ -101,7 +101,7 @@ export class ManifestManager {
           console.error(e);
         }
       })
-      .on('error', (error) => console.error(`Manifest watcher error: ${error}`));
+      .on('error', (error: string) => console.error(`Manifest watcher error: ${error}`));
 
     console.log('Manifest manager is watching for manifest source file changes...');
   }

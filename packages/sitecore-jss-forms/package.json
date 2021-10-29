@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-forms",
-  "version": "20.0.0-canary.38",
+  "version": "20.0.0-canary.39",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -10,7 +10,8 @@
     "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
-    "coverage": "nyc npm test"
+    "coverage": "nyc npm test",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-forms src/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=8.1"
@@ -44,7 +45,7 @@
     "typescript": "~4.3.5"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.38"
+    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.39"
   },
   "description": "",
   "types": "types/index.d.ts",
