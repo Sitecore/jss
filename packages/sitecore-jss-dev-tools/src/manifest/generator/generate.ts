@@ -1,4 +1,4 @@
-import { configLoader } from '../../index';
+import { configLoader } from '../../pipelines';
 import chalk from 'chalk';
 import * as fs from 'fs-extra';
 import * as path from 'path';

@@ -1,4 +1,5 @@
-import { generateToFile, generateToVariable, ManifestInstance } from './index';
+import { generateToFile, generateToVariable } from './generator/generate';
+import { ManifestInstance } from './generator/manifest.types';
 import { FSWatcher, watch } from 'chokidar';
 import { dirname, join } from 'path';
 

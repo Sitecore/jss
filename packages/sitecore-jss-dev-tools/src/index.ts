@@ -25,7 +25,6 @@ export {
   createDefaultDocumentMiddleware,
   DefaultDocumentMiddlewareOptions,
 } from './disconnected-server/default-document';
-export { ManifestManager } from './manifest-manager';
 export {
   createDefaultDisconnectedServer,
   DisconnectedServerOptions,
