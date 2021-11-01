@@ -25,7 +25,7 @@ Definition of a component instance within a placeholder on a route
 
 #### Defined in
 
-[layout/models.ts:86](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L86)
+[layout/models.ts:86](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/layout/models.ts#L86)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:87](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L87)
+[layout/models.ts:87](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/layout/models.ts#L87)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:90](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L90)
+[layout/models.ts:90](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/layout/models.ts#L90)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:91](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L91)
+[layout/models.ts:91](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/layout/models.ts#L91)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:89](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L89)
+[layout/models.ts:89](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/layout/models.ts#L89)
 
 ___
 
@@ -75,4 +75,4 @@ ___
 
 #### Defined in
 
-[layout/models.ts:88](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L88)
+[layout/models.ts:88](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/layout/models.ts#L88)

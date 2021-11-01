@@ -1432,7 +1432,7 @@
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:2](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L2)
+[manifest/generator/SitecoreIcon.ts:2](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L2)
 
 ___
 
@@ -1442,7 +1442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:3](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L3)
+[manifest/generator/SitecoreIcon.ts:3](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L3)
 
 ___
 
@@ -1452,7 +1452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:4](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L4)
+[manifest/generator/SitecoreIcon.ts:4](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L4)
 
 ___
 
@@ -1462,7 +1462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:5](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L5)
+[manifest/generator/SitecoreIcon.ts:5](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L5)
 
 ___
 
@@ -1472,7 +1472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:6](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L6)
+[manifest/generator/SitecoreIcon.ts:6](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L6)
 
 ___
 
@@ -1482,7 +1482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:7](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L7)
+[manifest/generator/SitecoreIcon.ts:7](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L7)
 
 ___
 
@@ -1492,7 +1492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:8](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L8)
+[manifest/generator/SitecoreIcon.ts:8](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L8)
 
 ___
 
@@ -1502,7 +1502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:9](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L9)
+[manifest/generator/SitecoreIcon.ts:9](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L9)
 
 ___
 
@@ -1512,7 +1512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:10](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L10)
+[manifest/generator/SitecoreIcon.ts:10](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L10)
 
 ___
 
@@ -1522,7 +1522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:11](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L11)
+[manifest/generator/SitecoreIcon.ts:11](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L11)
 
 ___
 
@@ -1532,7 +1532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:12](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L12)
+[manifest/generator/SitecoreIcon.ts:12](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L12)
 
 ___
 
@@ -1542,7 +1542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:13](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L13)
+[manifest/generator/SitecoreIcon.ts:13](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L13)
 
 ___
 
@@ -1552,7 +1552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:14](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L14)
+[manifest/generator/SitecoreIcon.ts:14](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L14)
 
 ___
 
@@ -1562,7 +1562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:15](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L15)
+[manifest/generator/SitecoreIcon.ts:15](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L15)
 
 ___
 
@@ -1572,7 +1572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:16](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L16)
+[manifest/generator/SitecoreIcon.ts:16](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L16)
 
 ___
 
@@ -1582,7 +1582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:17](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L17)
+[manifest/generator/SitecoreIcon.ts:17](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L17)
 
 ___
 
@@ -1592,7 +1592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:18](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L18)
+[manifest/generator/SitecoreIcon.ts:18](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L18)
 
 ___
 
@@ -1602,7 +1602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:19](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L19)
+[manifest/generator/SitecoreIcon.ts:19](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L19)
 
 ___
 
@@ -1612,7 +1612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:20](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L20)
+[manifest/generator/SitecoreIcon.ts:20](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L20)
 
 ___
 
@@ -1622,7 +1622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:21](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L21)
+[manifest/generator/SitecoreIcon.ts:21](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L21)
 
 ___
 
@@ -1632,7 +1632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:22](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L22)
+[manifest/generator/SitecoreIcon.ts:22](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L22)
 
 ___
 
@@ -1642,7 +1642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:23](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L23)
+[manifest/generator/SitecoreIcon.ts:23](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L23)
 
 ___
 
@@ -1652,7 +1652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:24](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L24)
+[manifest/generator/SitecoreIcon.ts:24](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L24)
 
 ___
 
@@ -1662,7 +1662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:25](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L25)
+[manifest/generator/SitecoreIcon.ts:25](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L25)
 
 ___
 
@@ -1672,7 +1672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:26](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L26)
+[manifest/generator/SitecoreIcon.ts:26](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L26)
 
 ___
 
@@ -1682,7 +1682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:27](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L27)
+[manifest/generator/SitecoreIcon.ts:27](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L27)
 
 ___
 
@@ -1692,7 +1692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:28](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L28)
+[manifest/generator/SitecoreIcon.ts:28](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L28)
 
 ___
 
@@ -1702,7 +1702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:29](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L29)
+[manifest/generator/SitecoreIcon.ts:29](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L29)
 
 ___
 
@@ -1712,7 +1712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:30](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L30)
+[manifest/generator/SitecoreIcon.ts:30](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L30)
 
 ___
 
@@ -1722,7 +1722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:31](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L31)
+[manifest/generator/SitecoreIcon.ts:31](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L31)
 
 ___
 
@@ -1732,7 +1732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:32](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L32)
+[manifest/generator/SitecoreIcon.ts:32](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L32)
 
 ___
 
@@ -1742,7 +1742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:33](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L33)
+[manifest/generator/SitecoreIcon.ts:33](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L33)
 
 ___
 
@@ -1752,7 +1752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:34](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L34)
+[manifest/generator/SitecoreIcon.ts:34](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L34)
 
 ___
 
@@ -1762,7 +1762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:35](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L35)
+[manifest/generator/SitecoreIcon.ts:35](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L35)
 
 ___
 
@@ -1772,7 +1772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:36](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L36)
+[manifest/generator/SitecoreIcon.ts:36](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L36)
 
 ___
 
@@ -1782,7 +1782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:37](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L37)
+[manifest/generator/SitecoreIcon.ts:37](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L37)
 
 ___
 
@@ -1792,7 +1792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:38](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L38)
+[manifest/generator/SitecoreIcon.ts:38](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L38)
 
 ___
 
@@ -1802,7 +1802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:39](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L39)
+[manifest/generator/SitecoreIcon.ts:39](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L39)
 
 ___
 
@@ -1812,7 +1812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:40](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L40)
+[manifest/generator/SitecoreIcon.ts:40](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L40)
 
 ___
 
@@ -1822,7 +1822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:41](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L41)
+[manifest/generator/SitecoreIcon.ts:41](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L41)
 
 ___
 
@@ -1832,7 +1832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:42](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L42)
+[manifest/generator/SitecoreIcon.ts:42](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L42)
 
 ___
 
@@ -1842,7 +1842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:43](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L43)
+[manifest/generator/SitecoreIcon.ts:43](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L43)
 
 ___
 
@@ -1852,7 +1852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:44](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L44)
+[manifest/generator/SitecoreIcon.ts:44](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L44)
 
 ___
 
@@ -1862,7 +1862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:45](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L45)
+[manifest/generator/SitecoreIcon.ts:45](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L45)
 
 ___
 
@@ -1872,7 +1872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:46](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L46)
+[manifest/generator/SitecoreIcon.ts:46](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L46)
 
 ___
 
@@ -1882,7 +1882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:47](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L47)
+[manifest/generator/SitecoreIcon.ts:47](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L47)
 
 ___
 
@@ -1892,7 +1892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:48](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L48)
+[manifest/generator/SitecoreIcon.ts:48](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L48)
 
 ___
 
@@ -1902,7 +1902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:49](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L49)
+[manifest/generator/SitecoreIcon.ts:49](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L49)
 
 ___
 
@@ -1912,7 +1912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:50](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L50)
+[manifest/generator/SitecoreIcon.ts:50](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L50)
 
 ___
 
@@ -1922,7 +1922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:51](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L51)
+[manifest/generator/SitecoreIcon.ts:51](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L51)
 
 ___
 
@@ -1932,7 +1932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:52](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L52)
+[manifest/generator/SitecoreIcon.ts:52](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L52)
 
 ___
 
@@ -1942,7 +1942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:53](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L53)
+[manifest/generator/SitecoreIcon.ts:53](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L53)
 
 ___
 
@@ -1952,7 +1952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:54](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L54)
+[manifest/generator/SitecoreIcon.ts:54](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L54)
 
 ___
 
@@ -1962,7 +1962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:55](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L55)
+[manifest/generator/SitecoreIcon.ts:55](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L55)
 
 ___
 
@@ -1972,7 +1972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:56](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L56)
+[manifest/generator/SitecoreIcon.ts:56](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L56)
 
 ___
 
@@ -1982,7 +1982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:57](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L57)
+[manifest/generator/SitecoreIcon.ts:57](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L57)
 
 ___
 
@@ -1992,7 +1992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:61](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L61)
+[manifest/generator/SitecoreIcon.ts:61](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L61)
 
 ___
 
@@ -2002,7 +2002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:58](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L58)
+[manifest/generator/SitecoreIcon.ts:58](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L58)
 
 ___
 
@@ -2012,7 +2012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:59](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L59)
+[manifest/generator/SitecoreIcon.ts:59](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L59)
 
 ___
 
@@ -2022,7 +2022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:60](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L60)
+[manifest/generator/SitecoreIcon.ts:60](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L60)
 
 ___
 
@@ -2032,7 +2032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:62](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L62)
+[manifest/generator/SitecoreIcon.ts:62](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L62)
 
 ___
 
@@ -2042,7 +2042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:63](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L63)
+[manifest/generator/SitecoreIcon.ts:63](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L63)
 
 ___
 
@@ -2052,7 +2052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:64](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L64)
+[manifest/generator/SitecoreIcon.ts:64](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L64)
 
 ___
 
@@ -2062,7 +2062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:65](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L65)
+[manifest/generator/SitecoreIcon.ts:65](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L65)
 
 ___
 
@@ -2072,7 +2072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:66](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L66)
+[manifest/generator/SitecoreIcon.ts:66](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L66)
 
 ___
 
@@ -2082,7 +2082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:67](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L67)
+[manifest/generator/SitecoreIcon.ts:67](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L67)
 
 ___
 
@@ -2092,7 +2092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:68](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L68)
+[manifest/generator/SitecoreIcon.ts:68](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L68)
 
 ___
 
@@ -2102,7 +2102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:69](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L69)
+[manifest/generator/SitecoreIcon.ts:69](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L69)
 
 ___
 
@@ -2112,7 +2112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:70](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L70)
+[manifest/generator/SitecoreIcon.ts:70](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L70)
 
 ___
 
@@ -2122,7 +2122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:71](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L71)
+[manifest/generator/SitecoreIcon.ts:71](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L71)
 
 ___
 
@@ -2132,7 +2132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:72](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L72)
+[manifest/generator/SitecoreIcon.ts:72](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L72)
 
 ___
 
@@ -2142,7 +2142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:73](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L73)
+[manifest/generator/SitecoreIcon.ts:73](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L73)
 
 ___
 
@@ -2152,7 +2152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:74](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L74)
+[manifest/generator/SitecoreIcon.ts:74](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L74)
 
 ___
 
@@ -2162,7 +2162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:75](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L75)
+[manifest/generator/SitecoreIcon.ts:75](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L75)
 
 ___
 
@@ -2172,7 +2172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:76](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L76)
+[manifest/generator/SitecoreIcon.ts:76](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L76)
 
 ___
 
@@ -2182,7 +2182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:77](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L77)
+[manifest/generator/SitecoreIcon.ts:77](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L77)
 
 ___
 
@@ -2192,7 +2192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:78](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L78)
+[manifest/generator/SitecoreIcon.ts:78](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L78)
 
 ___
 
@@ -2202,7 +2202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:79](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L79)
+[manifest/generator/SitecoreIcon.ts:79](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L79)
 
 ___
 
@@ -2212,7 +2212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:80](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L80)
+[manifest/generator/SitecoreIcon.ts:80](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L80)
 
 ___
 
@@ -2222,7 +2222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:81](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L81)
+[manifest/generator/SitecoreIcon.ts:81](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L81)
 
 ___
 
@@ -2232,7 +2232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:82](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L82)
+[manifest/generator/SitecoreIcon.ts:82](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L82)
 
 ___
 
@@ -2242,7 +2242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:83](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L83)
+[manifest/generator/SitecoreIcon.ts:83](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L83)
 
 ___
 
@@ -2252,7 +2252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:84](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L84)
+[manifest/generator/SitecoreIcon.ts:84](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L84)
 
 ___
 
@@ -2262,7 +2262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:85](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L85)
+[manifest/generator/SitecoreIcon.ts:85](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L85)
 
 ___
 
@@ -2272,7 +2272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:86](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L86)
+[manifest/generator/SitecoreIcon.ts:86](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L86)
 
 ___
 
@@ -2282,7 +2282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:87](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L87)
+[manifest/generator/SitecoreIcon.ts:87](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L87)
 
 ___
 
@@ -2292,7 +2292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:88](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L88)
+[manifest/generator/SitecoreIcon.ts:88](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L88)
 
 ___
 
@@ -2302,7 +2302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:89](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L89)
+[manifest/generator/SitecoreIcon.ts:89](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L89)
 
 ___
 
@@ -2312,7 +2312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:90](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L90)
+[manifest/generator/SitecoreIcon.ts:90](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L90)
 
 ___
 
@@ -2322,7 +2322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:91](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L91)
+[manifest/generator/SitecoreIcon.ts:91](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L91)
 
 ___
 
@@ -2332,7 +2332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:92](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L92)
+[manifest/generator/SitecoreIcon.ts:92](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L92)
 
 ___
 
@@ -2342,7 +2342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:93](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L93)
+[manifest/generator/SitecoreIcon.ts:93](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L93)
 
 ___
 
@@ -2352,7 +2352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:94](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L94)
+[manifest/generator/SitecoreIcon.ts:94](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L94)
 
 ___
 
@@ -2362,7 +2362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:95](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L95)
+[manifest/generator/SitecoreIcon.ts:95](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L95)
 
 ___
 
@@ -2372,7 +2372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:96](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L96)
+[manifest/generator/SitecoreIcon.ts:96](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L96)
 
 ___
 
@@ -2382,7 +2382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:97](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L97)
+[manifest/generator/SitecoreIcon.ts:97](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L97)
 
 ___
 
@@ -2392,7 +2392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:98](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L98)
+[manifest/generator/SitecoreIcon.ts:98](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L98)
 
 ___
 
@@ -2402,7 +2402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:99](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L99)
+[manifest/generator/SitecoreIcon.ts:99](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L99)
 
 ___
 
@@ -2412,7 +2412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:100](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L100)
+[manifest/generator/SitecoreIcon.ts:100](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L100)
 
 ___
 
@@ -2422,7 +2422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:101](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L101)
+[manifest/generator/SitecoreIcon.ts:101](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L101)
 
 ___
 
@@ -2432,7 +2432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:102](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L102)
+[manifest/generator/SitecoreIcon.ts:102](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L102)
 
 ___
 
@@ -2442,7 +2442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:103](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L103)
+[manifest/generator/SitecoreIcon.ts:103](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L103)
 
 ___
 
@@ -2452,7 +2452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:104](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L104)
+[manifest/generator/SitecoreIcon.ts:104](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L104)
 
 ___
 
@@ -2462,7 +2462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:105](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L105)
+[manifest/generator/SitecoreIcon.ts:105](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L105)
 
 ___
 
@@ -2472,7 +2472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:106](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L106)
+[manifest/generator/SitecoreIcon.ts:106](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L106)
 
 ___
 
@@ -2482,7 +2482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:107](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L107)
+[manifest/generator/SitecoreIcon.ts:107](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L107)
 
 ___
 
@@ -2492,7 +2492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:108](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L108)
+[manifest/generator/SitecoreIcon.ts:108](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L108)
 
 ___
 
@@ -2502,7 +2502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:109](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L109)
+[manifest/generator/SitecoreIcon.ts:109](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L109)
 
 ___
 
@@ -2512,7 +2512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:110](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L110)
+[manifest/generator/SitecoreIcon.ts:110](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L110)
 
 ___
 
@@ -2522,7 +2522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:111](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L111)
+[manifest/generator/SitecoreIcon.ts:111](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L111)
 
 ___
 
@@ -2532,7 +2532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:112](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L112)
+[manifest/generator/SitecoreIcon.ts:112](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L112)
 
 ___
 
@@ -2542,7 +2542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:113](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L113)
+[manifest/generator/SitecoreIcon.ts:113](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L113)
 
 ___
 
@@ -2552,7 +2552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:114](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L114)
+[manifest/generator/SitecoreIcon.ts:114](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L114)
 
 ___
 
@@ -2562,7 +2562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:119](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L119)
+[manifest/generator/SitecoreIcon.ts:119](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L119)
 
 ___
 
@@ -2572,7 +2572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:120](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L120)
+[manifest/generator/SitecoreIcon.ts:120](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L120)
 
 ___
 
@@ -2582,7 +2582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:121](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L121)
+[manifest/generator/SitecoreIcon.ts:121](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L121)
 
 ___
 
@@ -2592,7 +2592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:122](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L122)
+[manifest/generator/SitecoreIcon.ts:122](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L122)
 
 ___
 
@@ -2602,7 +2602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:115](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L115)
+[manifest/generator/SitecoreIcon.ts:115](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L115)
 
 ___
 
@@ -2612,7 +2612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:116](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L116)
+[manifest/generator/SitecoreIcon.ts:116](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L116)
 
 ___
 
@@ -2622,7 +2622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:117](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L117)
+[manifest/generator/SitecoreIcon.ts:117](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L117)
 
 ___
 
@@ -2632,7 +2632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:118](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L118)
+[manifest/generator/SitecoreIcon.ts:118](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L118)
 
 ___
 
@@ -2642,7 +2642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:123](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L123)
+[manifest/generator/SitecoreIcon.ts:123](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L123)
 
 ___
 
@@ -2652,7 +2652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:124](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L124)
+[manifest/generator/SitecoreIcon.ts:124](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L124)
 
 ___
 
@@ -2662,7 +2662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:128](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L128)
+[manifest/generator/SitecoreIcon.ts:128](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L128)
 
 ___
 
@@ -2672,7 +2672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:125](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L125)
+[manifest/generator/SitecoreIcon.ts:125](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L125)
 
 ___
 
@@ -2682,7 +2682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:126](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L126)
+[manifest/generator/SitecoreIcon.ts:126](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L126)
 
 ___
 
@@ -2692,7 +2692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:127](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L127)
+[manifest/generator/SitecoreIcon.ts:127](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L127)
 
 ___
 
@@ -2702,7 +2702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:129](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L129)
+[manifest/generator/SitecoreIcon.ts:129](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L129)
 
 ___
 
@@ -2712,7 +2712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:130](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L130)
+[manifest/generator/SitecoreIcon.ts:130](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L130)
 
 ___
 
@@ -2722,7 +2722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:131](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L131)
+[manifest/generator/SitecoreIcon.ts:131](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L131)
 
 ___
 
@@ -2732,7 +2732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:132](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L132)
+[manifest/generator/SitecoreIcon.ts:132](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L132)
 
 ___
 
@@ -2742,7 +2742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:133](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L133)
+[manifest/generator/SitecoreIcon.ts:133](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L133)
 
 ___
 
@@ -2752,7 +2752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:134](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L134)
+[manifest/generator/SitecoreIcon.ts:134](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L134)
 
 ___
 
@@ -2762,7 +2762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:135](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L135)
+[manifest/generator/SitecoreIcon.ts:135](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L135)
 
 ___
 
@@ -2772,7 +2772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:136](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L136)
+[manifest/generator/SitecoreIcon.ts:136](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L136)
 
 ___
 
@@ -2782,7 +2782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:137](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L137)
+[manifest/generator/SitecoreIcon.ts:137](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L137)
 
 ___
 
@@ -2792,7 +2792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:138](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L138)
+[manifest/generator/SitecoreIcon.ts:138](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L138)
 
 ___
 
@@ -2802,7 +2802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:139](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L139)
+[manifest/generator/SitecoreIcon.ts:139](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L139)
 
 ___
 
@@ -2812,7 +2812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:140](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L140)
+[manifest/generator/SitecoreIcon.ts:140](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L140)
 
 ___
 
@@ -2822,7 +2822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:141](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L141)
+[manifest/generator/SitecoreIcon.ts:141](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L141)
 
 ___
 
@@ -2832,7 +2832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:142](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L142)
+[manifest/generator/SitecoreIcon.ts:142](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L142)
 
 ___
 
@@ -2842,7 +2842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:143](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L143)
+[manifest/generator/SitecoreIcon.ts:143](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L143)
 
 ___
 
@@ -2852,7 +2852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:144](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L144)
+[manifest/generator/SitecoreIcon.ts:144](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L144)
 
 ___
 
@@ -2862,7 +2862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:145](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L145)
+[manifest/generator/SitecoreIcon.ts:145](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L145)
 
 ___
 
@@ -2872,7 +2872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:146](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L146)
+[manifest/generator/SitecoreIcon.ts:146](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L146)
 
 ___
 
@@ -2882,7 +2882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:147](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L147)
+[manifest/generator/SitecoreIcon.ts:147](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L147)
 
 ___
 
@@ -2892,7 +2892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:148](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L148)
+[manifest/generator/SitecoreIcon.ts:148](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L148)
 
 ___
 
@@ -2902,7 +2902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:149](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L149)
+[manifest/generator/SitecoreIcon.ts:149](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L149)
 
 ___
 
@@ -2912,7 +2912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:150](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L150)
+[manifest/generator/SitecoreIcon.ts:150](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L150)
 
 ___
 
@@ -2922,7 +2922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:151](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L151)
+[manifest/generator/SitecoreIcon.ts:151](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L151)
 
 ___
 
@@ -2932,7 +2932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:152](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L152)
+[manifest/generator/SitecoreIcon.ts:152](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L152)
 
 ___
 
@@ -2942,7 +2942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:153](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L153)
+[manifest/generator/SitecoreIcon.ts:153](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L153)
 
 ___
 
@@ -2952,7 +2952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:154](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L154)
+[manifest/generator/SitecoreIcon.ts:154](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L154)
 
 ___
 
@@ -2962,7 +2962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:155](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L155)
+[manifest/generator/SitecoreIcon.ts:155](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L155)
 
 ___
 
@@ -2972,7 +2972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:156](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L156)
+[manifest/generator/SitecoreIcon.ts:156](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L156)
 
 ___
 
@@ -2982,7 +2982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:157](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L157)
+[manifest/generator/SitecoreIcon.ts:157](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L157)
 
 ___
 
@@ -2992,7 +2992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:158](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L158)
+[manifest/generator/SitecoreIcon.ts:158](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L158)
 
 ___
 
@@ -3002,7 +3002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:159](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L159)
+[manifest/generator/SitecoreIcon.ts:159](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L159)
 
 ___
 
@@ -3012,7 +3012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:160](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L160)
+[manifest/generator/SitecoreIcon.ts:160](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L160)
 
 ___
 
@@ -3022,7 +3022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:161](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L161)
+[manifest/generator/SitecoreIcon.ts:161](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L161)
 
 ___
 
@@ -3032,7 +3032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:162](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L162)
+[manifest/generator/SitecoreIcon.ts:162](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L162)
 
 ___
 
@@ -3042,7 +3042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:163](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L163)
+[manifest/generator/SitecoreIcon.ts:163](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L163)
 
 ___
 
@@ -3052,7 +3052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:164](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L164)
+[manifest/generator/SitecoreIcon.ts:164](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L164)
 
 ___
 
@@ -3062,7 +3062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:165](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L165)
+[manifest/generator/SitecoreIcon.ts:165](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L165)
 
 ___
 
@@ -3072,7 +3072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:166](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L166)
+[manifest/generator/SitecoreIcon.ts:166](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L166)
 
 ___
 
@@ -3082,7 +3082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:167](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L167)
+[manifest/generator/SitecoreIcon.ts:167](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L167)
 
 ___
 
@@ -3092,7 +3092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:168](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L168)
+[manifest/generator/SitecoreIcon.ts:168](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L168)
 
 ___
 
@@ -3102,7 +3102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:169](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L169)
+[manifest/generator/SitecoreIcon.ts:169](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L169)
 
 ___
 
@@ -3112,7 +3112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:172](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L172)
+[manifest/generator/SitecoreIcon.ts:172](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L172)
 
 ___
 
@@ -3122,7 +3122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:173](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L173)
+[manifest/generator/SitecoreIcon.ts:173](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L173)
 
 ___
 
@@ -3132,7 +3132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:174](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L174)
+[manifest/generator/SitecoreIcon.ts:174](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L174)
 
 ___
 
@@ -3142,7 +3142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:175](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L175)
+[manifest/generator/SitecoreIcon.ts:175](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L175)
 
 ___
 
@@ -3152,7 +3152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:176](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L176)
+[manifest/generator/SitecoreIcon.ts:176](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L176)
 
 ___
 
@@ -3162,7 +3162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:170](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L170)
+[manifest/generator/SitecoreIcon.ts:170](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L170)
 
 ___
 
@@ -3172,7 +3172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:171](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L171)
+[manifest/generator/SitecoreIcon.ts:171](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L171)
 
 ___
 
@@ -3182,7 +3182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:178](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L178)
+[manifest/generator/SitecoreIcon.ts:178](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L178)
 
 ___
 
@@ -3192,7 +3192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:177](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L177)
+[manifest/generator/SitecoreIcon.ts:177](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L177)
 
 ___
 
@@ -3202,7 +3202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:179](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L179)
+[manifest/generator/SitecoreIcon.ts:179](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L179)
 
 ___
 
@@ -3212,7 +3212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:180](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L180)
+[manifest/generator/SitecoreIcon.ts:180](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L180)
 
 ___
 
@@ -3222,7 +3222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:181](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L181)
+[manifest/generator/SitecoreIcon.ts:181](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L181)
 
 ___
 
@@ -3232,7 +3232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:182](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L182)
+[manifest/generator/SitecoreIcon.ts:182](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L182)
 
 ___
 
@@ -3242,7 +3242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:183](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L183)
+[manifest/generator/SitecoreIcon.ts:183](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L183)
 
 ___
 
@@ -3252,7 +3252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:184](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L184)
+[manifest/generator/SitecoreIcon.ts:184](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L184)
 
 ___
 
@@ -3262,7 +3262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:185](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L185)
+[manifest/generator/SitecoreIcon.ts:185](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L185)
 
 ___
 
@@ -3272,7 +3272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:186](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L186)
+[manifest/generator/SitecoreIcon.ts:186](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L186)
 
 ___
 
@@ -3282,7 +3282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:187](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L187)
+[manifest/generator/SitecoreIcon.ts:187](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L187)
 
 ___
 
@@ -3292,7 +3292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:188](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L188)
+[manifest/generator/SitecoreIcon.ts:188](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L188)
 
 ___
 
@@ -3302,7 +3302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:189](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L189)
+[manifest/generator/SitecoreIcon.ts:189](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L189)
 
 ___
 
@@ -3312,7 +3312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:190](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L190)
+[manifest/generator/SitecoreIcon.ts:190](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L190)
 
 ___
 
@@ -3322,7 +3322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:191](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L191)
+[manifest/generator/SitecoreIcon.ts:191](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L191)
 
 ___
 
@@ -3332,7 +3332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:192](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L192)
+[manifest/generator/SitecoreIcon.ts:192](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L192)
 
 ___
 
@@ -3342,7 +3342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:193](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L193)
+[manifest/generator/SitecoreIcon.ts:193](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L193)
 
 ___
 
@@ -3352,7 +3352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:194](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L194)
+[manifest/generator/SitecoreIcon.ts:194](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L194)
 
 ___
 
@@ -3362,7 +3362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:195](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L195)
+[manifest/generator/SitecoreIcon.ts:195](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L195)
 
 ___
 
@@ -3372,7 +3372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:196](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L196)
+[manifest/generator/SitecoreIcon.ts:196](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L196)
 
 ___
 
@@ -3382,7 +3382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:197](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L197)
+[manifest/generator/SitecoreIcon.ts:197](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L197)
 
 ___
 
@@ -3392,7 +3392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:198](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L198)
+[manifest/generator/SitecoreIcon.ts:198](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L198)
 
 ___
 
@@ -3402,7 +3402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:199](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L199)
+[manifest/generator/SitecoreIcon.ts:199](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L199)
 
 ___
 
@@ -3412,7 +3412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:200](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L200)
+[manifest/generator/SitecoreIcon.ts:200](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L200)
 
 ___
 
@@ -3422,7 +3422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:201](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L201)
+[manifest/generator/SitecoreIcon.ts:201](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L201)
 
 ___
 
@@ -3432,7 +3432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:202](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L202)
+[manifest/generator/SitecoreIcon.ts:202](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L202)
 
 ___
 
@@ -3442,7 +3442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:203](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L203)
+[manifest/generator/SitecoreIcon.ts:203](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L203)
 
 ___
 
@@ -3452,7 +3452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:204](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L204)
+[manifest/generator/SitecoreIcon.ts:204](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L204)
 
 ___
 
@@ -3462,7 +3462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:205](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L205)
+[manifest/generator/SitecoreIcon.ts:205](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L205)
 
 ___
 
@@ -3472,7 +3472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:206](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L206)
+[manifest/generator/SitecoreIcon.ts:206](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L206)
 
 ___
 
@@ -3482,7 +3482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:207](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L207)
+[manifest/generator/SitecoreIcon.ts:207](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L207)
 
 ___
 
@@ -3492,7 +3492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:208](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L208)
+[manifest/generator/SitecoreIcon.ts:208](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L208)
 
 ___
 
@@ -3502,7 +3502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:209](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L209)
+[manifest/generator/SitecoreIcon.ts:209](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L209)
 
 ___
 
@@ -3512,7 +3512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:210](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L210)
+[manifest/generator/SitecoreIcon.ts:210](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L210)
 
 ___
 
@@ -3522,7 +3522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:211](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L211)
+[manifest/generator/SitecoreIcon.ts:211](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L211)
 
 ___
 
@@ -3532,7 +3532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:212](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L212)
+[manifest/generator/SitecoreIcon.ts:212](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L212)
 
 ___
 
@@ -3542,7 +3542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:213](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L213)
+[manifest/generator/SitecoreIcon.ts:213](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L213)
 
 ___
 
@@ -3552,7 +3552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:214](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L214)
+[manifest/generator/SitecoreIcon.ts:214](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L214)
 
 ___
 
@@ -3562,7 +3562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:215](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L215)
+[manifest/generator/SitecoreIcon.ts:215](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L215)
 
 ___
 
@@ -3572,7 +3572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:216](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L216)
+[manifest/generator/SitecoreIcon.ts:216](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L216)
 
 ___
 
@@ -3582,7 +3582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:217](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L217)
+[manifest/generator/SitecoreIcon.ts:217](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L217)
 
 ___
 
@@ -3592,7 +3592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:218](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L218)
+[manifest/generator/SitecoreIcon.ts:218](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L218)
 
 ___
 
@@ -3602,7 +3602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:219](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L219)
+[manifest/generator/SitecoreIcon.ts:219](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L219)
 
 ___
 
@@ -3612,7 +3612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:220](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L220)
+[manifest/generator/SitecoreIcon.ts:220](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L220)
 
 ___
 
@@ -3622,7 +3622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:221](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L221)
+[manifest/generator/SitecoreIcon.ts:221](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L221)
 
 ___
 
@@ -3632,7 +3632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:222](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L222)
+[manifest/generator/SitecoreIcon.ts:222](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L222)
 
 ___
 
@@ -3642,7 +3642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:223](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L223)
+[manifest/generator/SitecoreIcon.ts:223](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L223)
 
 ___
 
@@ -3652,7 +3652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:224](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L224)
+[manifest/generator/SitecoreIcon.ts:224](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L224)
 
 ___
 
@@ -3662,7 +3662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:225](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L225)
+[manifest/generator/SitecoreIcon.ts:225](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L225)
 
 ___
 
@@ -3672,7 +3672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:226](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L226)
+[manifest/generator/SitecoreIcon.ts:226](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L226)
 
 ___
 
@@ -3682,7 +3682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:227](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L227)
+[manifest/generator/SitecoreIcon.ts:227](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L227)
 
 ___
 
@@ -3692,7 +3692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:229](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L229)
+[manifest/generator/SitecoreIcon.ts:229](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L229)
 
 ___
 
@@ -3702,7 +3702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:228](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L228)
+[manifest/generator/SitecoreIcon.ts:228](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L228)
 
 ___
 
@@ -3712,7 +3712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:230](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L230)
+[manifest/generator/SitecoreIcon.ts:230](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L230)
 
 ___
 
@@ -3722,7 +3722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:232](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L232)
+[manifest/generator/SitecoreIcon.ts:232](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L232)
 
 ___
 
@@ -3732,7 +3732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:231](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L231)
+[manifest/generator/SitecoreIcon.ts:231](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L231)
 
 ___
 
@@ -3742,7 +3742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:233](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L233)
+[manifest/generator/SitecoreIcon.ts:233](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L233)
 
 ___
 
@@ -3752,7 +3752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:234](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L234)
+[manifest/generator/SitecoreIcon.ts:234](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L234)
 
 ___
 
@@ -3762,7 +3762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:235](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L235)
+[manifest/generator/SitecoreIcon.ts:235](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L235)
 
 ___
 
@@ -3772,7 +3772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:236](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L236)
+[manifest/generator/SitecoreIcon.ts:236](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L236)
 
 ___
 
@@ -3782,7 +3782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:237](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L237)
+[manifest/generator/SitecoreIcon.ts:237](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L237)
 
 ___
 
@@ -3792,7 +3792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:238](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L238)
+[manifest/generator/SitecoreIcon.ts:238](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L238)
 
 ___
 
@@ -3802,7 +3802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:239](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L239)
+[manifest/generator/SitecoreIcon.ts:239](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L239)
 
 ___
 
@@ -3812,7 +3812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:240](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L240)
+[manifest/generator/SitecoreIcon.ts:240](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L240)
 
 ___
 
@@ -3822,7 +3822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:241](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L241)
+[manifest/generator/SitecoreIcon.ts:241](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L241)
 
 ___
 
@@ -3832,7 +3832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:242](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L242)
+[manifest/generator/SitecoreIcon.ts:242](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L242)
 
 ___
 
@@ -3842,7 +3842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:243](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L243)
+[manifest/generator/SitecoreIcon.ts:243](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L243)
 
 ___
 
@@ -3852,7 +3852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:244](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L244)
+[manifest/generator/SitecoreIcon.ts:244](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L244)
 
 ___
 
@@ -3862,7 +3862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:245](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L245)
+[manifest/generator/SitecoreIcon.ts:245](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L245)
 
 ___
 
@@ -3872,7 +3872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:246](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L246)
+[manifest/generator/SitecoreIcon.ts:246](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L246)
 
 ___
 
@@ -3882,7 +3882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:247](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L247)
+[manifest/generator/SitecoreIcon.ts:247](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L247)
 
 ___
 
@@ -3892,7 +3892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:248](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L248)
+[manifest/generator/SitecoreIcon.ts:248](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L248)
 
 ___
 
@@ -3902,7 +3902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:249](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L249)
+[manifest/generator/SitecoreIcon.ts:249](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L249)
 
 ___
 
@@ -3912,7 +3912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:250](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L250)
+[manifest/generator/SitecoreIcon.ts:250](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L250)
 
 ___
 
@@ -3922,7 +3922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:251](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L251)
+[manifest/generator/SitecoreIcon.ts:251](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L251)
 
 ___
 
@@ -3932,7 +3932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:252](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L252)
+[manifest/generator/SitecoreIcon.ts:252](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L252)
 
 ___
 
@@ -3942,7 +3942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:253](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L253)
+[manifest/generator/SitecoreIcon.ts:253](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L253)
 
 ___
 
@@ -3952,7 +3952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:254](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L254)
+[manifest/generator/SitecoreIcon.ts:254](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L254)
 
 ___
 
@@ -3962,7 +3962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:255](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L255)
+[manifest/generator/SitecoreIcon.ts:255](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L255)
 
 ___
 
@@ -3972,7 +3972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:256](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L256)
+[manifest/generator/SitecoreIcon.ts:256](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L256)
 
 ___
 
@@ -3982,7 +3982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:257](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L257)
+[manifest/generator/SitecoreIcon.ts:257](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L257)
 
 ___
 
@@ -3992,7 +3992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:258](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L258)
+[manifest/generator/SitecoreIcon.ts:258](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L258)
 
 ___
 
@@ -4002,7 +4002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:259](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L259)
+[manifest/generator/SitecoreIcon.ts:259](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L259)
 
 ___
 
@@ -4012,7 +4012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:260](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L260)
+[manifest/generator/SitecoreIcon.ts:260](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L260)
 
 ___
 
@@ -4022,7 +4022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:261](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L261)
+[manifest/generator/SitecoreIcon.ts:261](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L261)
 
 ___
 
@@ -4032,7 +4032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:262](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L262)
+[manifest/generator/SitecoreIcon.ts:262](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L262)
 
 ___
 
@@ -4042,7 +4042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:263](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L263)
+[manifest/generator/SitecoreIcon.ts:263](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L263)
 
 ___
 
@@ -4052,7 +4052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:264](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L264)
+[manifest/generator/SitecoreIcon.ts:264](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L264)
 
 ___
 
@@ -4062,7 +4062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:265](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L265)
+[manifest/generator/SitecoreIcon.ts:265](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L265)
 
 ___
 
@@ -4072,7 +4072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:266](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L266)
+[manifest/generator/SitecoreIcon.ts:266](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L266)
 
 ___
 
@@ -4082,7 +4082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:267](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L267)
+[manifest/generator/SitecoreIcon.ts:267](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L267)
 
 ___
 
@@ -4092,7 +4092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:268](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L268)
+[manifest/generator/SitecoreIcon.ts:268](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L268)
 
 ___
 
@@ -4102,7 +4102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:269](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L269)
+[manifest/generator/SitecoreIcon.ts:269](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L269)
 
 ___
 
@@ -4112,7 +4112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:270](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L270)
+[manifest/generator/SitecoreIcon.ts:270](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L270)
 
 ___
 
@@ -4122,7 +4122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:271](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L271)
+[manifest/generator/SitecoreIcon.ts:271](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L271)
 
 ___
 
@@ -4132,7 +4132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:272](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L272)
+[manifest/generator/SitecoreIcon.ts:272](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L272)
 
 ___
 
@@ -4142,7 +4142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:273](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L273)
+[manifest/generator/SitecoreIcon.ts:273](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L273)
 
 ___
 
@@ -4152,7 +4152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:274](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L274)
+[manifest/generator/SitecoreIcon.ts:274](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L274)
 
 ___
 
@@ -4162,7 +4162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:275](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L275)
+[manifest/generator/SitecoreIcon.ts:275](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L275)
 
 ___
 
@@ -4172,7 +4172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:276](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L276)
+[manifest/generator/SitecoreIcon.ts:276](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L276)
 
 ___
 
@@ -4182,7 +4182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:277](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L277)
+[manifest/generator/SitecoreIcon.ts:277](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L277)
 
 ___
 
@@ -4192,7 +4192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:278](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L278)
+[manifest/generator/SitecoreIcon.ts:278](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L278)
 
 ___
 
@@ -4202,7 +4202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:279](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L279)
+[manifest/generator/SitecoreIcon.ts:279](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L279)
 
 ___
 
@@ -4212,7 +4212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:280](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L280)
+[manifest/generator/SitecoreIcon.ts:280](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L280)
 
 ___
 
@@ -4222,7 +4222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:281](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L281)
+[manifest/generator/SitecoreIcon.ts:281](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L281)
 
 ___
 
@@ -4232,7 +4232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:282](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L282)
+[manifest/generator/SitecoreIcon.ts:282](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L282)
 
 ___
 
@@ -4242,7 +4242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:283](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L283)
+[manifest/generator/SitecoreIcon.ts:283](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L283)
 
 ___
 
@@ -4252,7 +4252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:284](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L284)
+[manifest/generator/SitecoreIcon.ts:284](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L284)
 
 ___
 
@@ -4262,7 +4262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:285](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L285)
+[manifest/generator/SitecoreIcon.ts:285](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L285)
 
 ___
 
@@ -4272,7 +4272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:286](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L286)
+[manifest/generator/SitecoreIcon.ts:286](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L286)
 
 ___
 
@@ -4282,7 +4282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:287](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L287)
+[manifest/generator/SitecoreIcon.ts:287](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L287)
 
 ___
 
@@ -4292,7 +4292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:288](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L288)
+[manifest/generator/SitecoreIcon.ts:288](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L288)
 
 ___
 
@@ -4302,7 +4302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:289](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L289)
+[manifest/generator/SitecoreIcon.ts:289](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L289)
 
 ___
 
@@ -4312,7 +4312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:290](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L290)
+[manifest/generator/SitecoreIcon.ts:290](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L290)
 
 ___
 
@@ -4322,7 +4322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:292](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L292)
+[manifest/generator/SitecoreIcon.ts:292](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L292)
 
 ___
 
@@ -4332,7 +4332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:293](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L293)
+[manifest/generator/SitecoreIcon.ts:293](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L293)
 
 ___
 
@@ -4342,7 +4342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:291](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L291)
+[manifest/generator/SitecoreIcon.ts:291](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L291)
 
 ___
 
@@ -4352,7 +4352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:294](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L294)
+[manifest/generator/SitecoreIcon.ts:294](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L294)
 
 ___
 
@@ -4362,7 +4362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:295](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L295)
+[manifest/generator/SitecoreIcon.ts:295](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L295)
 
 ___
 
@@ -4372,7 +4372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:296](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L296)
+[manifest/generator/SitecoreIcon.ts:296](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L296)
 
 ___
 
@@ -4382,7 +4382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:297](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L297)
+[manifest/generator/SitecoreIcon.ts:297](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L297)
 
 ___
 
@@ -4392,7 +4392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:298](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L298)
+[manifest/generator/SitecoreIcon.ts:298](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L298)
 
 ___
 
@@ -4402,7 +4402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:299](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L299)
+[manifest/generator/SitecoreIcon.ts:299](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L299)
 
 ___
 
@@ -4412,7 +4412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:300](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L300)
+[manifest/generator/SitecoreIcon.ts:300](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L300)
 
 ___
 
@@ -4422,7 +4422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:301](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L301)
+[manifest/generator/SitecoreIcon.ts:301](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L301)
 
 ___
 
@@ -4432,7 +4432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:302](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L302)
+[manifest/generator/SitecoreIcon.ts:302](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L302)
 
 ___
 
@@ -4442,7 +4442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:303](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L303)
+[manifest/generator/SitecoreIcon.ts:303](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L303)
 
 ___
 
@@ -4452,7 +4452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:304](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L304)
+[manifest/generator/SitecoreIcon.ts:304](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L304)
 
 ___
 
@@ -4462,7 +4462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:305](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L305)
+[manifest/generator/SitecoreIcon.ts:305](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L305)
 
 ___
 
@@ -4472,7 +4472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:306](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L306)
+[manifest/generator/SitecoreIcon.ts:306](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L306)
 
 ___
 
@@ -4482,7 +4482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:307](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L307)
+[manifest/generator/SitecoreIcon.ts:307](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L307)
 
 ___
 
@@ -4492,7 +4492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:309](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L309)
+[manifest/generator/SitecoreIcon.ts:309](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L309)
 
 ___
 
@@ -4502,7 +4502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:308](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L308)
+[manifest/generator/SitecoreIcon.ts:308](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L308)
 
 ___
 
@@ -4512,7 +4512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:310](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L310)
+[manifest/generator/SitecoreIcon.ts:310](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L310)
 
 ___
 
@@ -4522,7 +4522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:311](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L311)
+[manifest/generator/SitecoreIcon.ts:311](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L311)
 
 ___
 
@@ -4532,7 +4532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:312](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L312)
+[manifest/generator/SitecoreIcon.ts:312](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L312)
 
 ___
 
@@ -4542,7 +4542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:313](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L313)
+[manifest/generator/SitecoreIcon.ts:313](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L313)
 
 ___
 
@@ -4552,7 +4552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:314](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L314)
+[manifest/generator/SitecoreIcon.ts:314](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L314)
 
 ___
 
@@ -4562,7 +4562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:315](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L315)
+[manifest/generator/SitecoreIcon.ts:315](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L315)
 
 ___
 
@@ -4572,7 +4572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:316](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L316)
+[manifest/generator/SitecoreIcon.ts:316](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L316)
 
 ___
 
@@ -4582,7 +4582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:317](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L317)
+[manifest/generator/SitecoreIcon.ts:317](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L317)
 
 ___
 
@@ -4592,7 +4592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:320](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L320)
+[manifest/generator/SitecoreIcon.ts:320](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L320)
 
 ___
 
@@ -4602,7 +4602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:321](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L321)
+[manifest/generator/SitecoreIcon.ts:321](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L321)
 
 ___
 
@@ -4612,7 +4612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:322](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L322)
+[manifest/generator/SitecoreIcon.ts:322](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L322)
 
 ___
 
@@ -4622,7 +4622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:323](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L323)
+[manifest/generator/SitecoreIcon.ts:323](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L323)
 
 ___
 
@@ -4632,7 +4632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:324](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L324)
+[manifest/generator/SitecoreIcon.ts:324](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L324)
 
 ___
 
@@ -4642,7 +4642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:325](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L325)
+[manifest/generator/SitecoreIcon.ts:325](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L325)
 
 ___
 
@@ -4652,7 +4652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:326](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L326)
+[manifest/generator/SitecoreIcon.ts:326](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L326)
 
 ___
 
@@ -4662,7 +4662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:327](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L327)
+[manifest/generator/SitecoreIcon.ts:327](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L327)
 
 ___
 
@@ -4672,7 +4672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:328](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L328)
+[manifest/generator/SitecoreIcon.ts:328](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L328)
 
 ___
 
@@ -4682,7 +4682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:329](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L329)
+[manifest/generator/SitecoreIcon.ts:329](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L329)
 
 ___
 
@@ -4692,7 +4692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:330](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L330)
+[manifest/generator/SitecoreIcon.ts:330](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L330)
 
 ___
 
@@ -4702,7 +4702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:331](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L331)
+[manifest/generator/SitecoreIcon.ts:331](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L331)
 
 ___
 
@@ -4712,7 +4712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:332](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L332)
+[manifest/generator/SitecoreIcon.ts:332](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L332)
 
 ___
 
@@ -4722,7 +4722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:333](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L333)
+[manifest/generator/SitecoreIcon.ts:333](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L333)
 
 ___
 
@@ -4732,7 +4732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:334](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L334)
+[manifest/generator/SitecoreIcon.ts:334](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L334)
 
 ___
 
@@ -4742,7 +4742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:335](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L335)
+[manifest/generator/SitecoreIcon.ts:335](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L335)
 
 ___
 
@@ -4752,7 +4752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:336](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L336)
+[manifest/generator/SitecoreIcon.ts:336](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L336)
 
 ___
 
@@ -4762,7 +4762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:337](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L337)
+[manifest/generator/SitecoreIcon.ts:337](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L337)
 
 ___
 
@@ -4772,7 +4772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:338](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L338)
+[manifest/generator/SitecoreIcon.ts:338](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L338)
 
 ___
 
@@ -4782,7 +4782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:339](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L339)
+[manifest/generator/SitecoreIcon.ts:339](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L339)
 
 ___
 
@@ -4792,7 +4792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:340](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L340)
+[manifest/generator/SitecoreIcon.ts:340](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L340)
 
 ___
 
@@ -4802,7 +4802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:341](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L341)
+[manifest/generator/SitecoreIcon.ts:341](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L341)
 
 ___
 
@@ -4812,7 +4812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:342](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L342)
+[manifest/generator/SitecoreIcon.ts:342](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L342)
 
 ___
 
@@ -4822,7 +4822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:343](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L343)
+[manifest/generator/SitecoreIcon.ts:343](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L343)
 
 ___
 
@@ -4832,7 +4832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:344](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L344)
+[manifest/generator/SitecoreIcon.ts:344](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L344)
 
 ___
 
@@ -4842,7 +4842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:345](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L345)
+[manifest/generator/SitecoreIcon.ts:345](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L345)
 
 ___
 
@@ -4852,7 +4852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:346](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L346)
+[manifest/generator/SitecoreIcon.ts:346](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L346)
 
 ___
 
@@ -4862,7 +4862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:318](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L318)
+[manifest/generator/SitecoreIcon.ts:318](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L318)
 
 ___
 
@@ -4872,7 +4872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:319](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L319)
+[manifest/generator/SitecoreIcon.ts:319](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L319)
 
 ___
 
@@ -4882,7 +4882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:347](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L347)
+[manifest/generator/SitecoreIcon.ts:347](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L347)
 
 ___
 
@@ -4892,7 +4892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:348](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L348)
+[manifest/generator/SitecoreIcon.ts:348](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L348)
 
 ___
 
@@ -4902,7 +4902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:349](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L349)
+[manifest/generator/SitecoreIcon.ts:349](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L349)
 
 ___
 
@@ -4912,7 +4912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:350](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L350)
+[manifest/generator/SitecoreIcon.ts:350](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L350)
 
 ___
 
@@ -4922,7 +4922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:351](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L351)
+[manifest/generator/SitecoreIcon.ts:351](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L351)
 
 ___
 
@@ -4932,7 +4932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:352](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L352)
+[manifest/generator/SitecoreIcon.ts:352](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L352)
 
 ___
 
@@ -4942,7 +4942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:353](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L353)
+[manifest/generator/SitecoreIcon.ts:353](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L353)
 
 ___
 
@@ -4952,7 +4952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:354](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L354)
+[manifest/generator/SitecoreIcon.ts:354](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L354)
 
 ___
 
@@ -4962,7 +4962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:355](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L355)
+[manifest/generator/SitecoreIcon.ts:355](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L355)
 
 ___
 
@@ -4972,7 +4972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:356](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L356)
+[manifest/generator/SitecoreIcon.ts:356](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L356)
 
 ___
 
@@ -4982,7 +4982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:357](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L357)
+[manifest/generator/SitecoreIcon.ts:357](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L357)
 
 ___
 
@@ -4992,7 +4992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:358](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L358)
+[manifest/generator/SitecoreIcon.ts:358](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L358)
 
 ___
 
@@ -5002,7 +5002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:359](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L359)
+[manifest/generator/SitecoreIcon.ts:359](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L359)
 
 ___
 
@@ -5012,7 +5012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:360](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L360)
+[manifest/generator/SitecoreIcon.ts:360](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L360)
 
 ___
 
@@ -5022,7 +5022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:361](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L361)
+[manifest/generator/SitecoreIcon.ts:361](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L361)
 
 ___
 
@@ -5032,7 +5032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:362](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L362)
+[manifest/generator/SitecoreIcon.ts:362](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L362)
 
 ___
 
@@ -5042,7 +5042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:363](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L363)
+[manifest/generator/SitecoreIcon.ts:363](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L363)
 
 ___
 
@@ -5052,7 +5052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:364](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L364)
+[manifest/generator/SitecoreIcon.ts:364](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L364)
 
 ___
 
@@ -5062,7 +5062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:365](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L365)
+[manifest/generator/SitecoreIcon.ts:365](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L365)
 
 ___
 
@@ -5072,7 +5072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:366](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L366)
+[manifest/generator/SitecoreIcon.ts:366](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L366)
 
 ___
 
@@ -5082,7 +5082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:367](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L367)
+[manifest/generator/SitecoreIcon.ts:367](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L367)
 
 ___
 
@@ -5092,7 +5092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:368](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L368)
+[manifest/generator/SitecoreIcon.ts:368](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L368)
 
 ___
 
@@ -5102,7 +5102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:369](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L369)
+[manifest/generator/SitecoreIcon.ts:369](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L369)
 
 ___
 
@@ -5112,7 +5112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:370](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L370)
+[manifest/generator/SitecoreIcon.ts:370](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L370)
 
 ___
 
@@ -5122,7 +5122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:371](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L371)
+[manifest/generator/SitecoreIcon.ts:371](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L371)
 
 ___
 
@@ -5132,7 +5132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:372](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L372)
+[manifest/generator/SitecoreIcon.ts:372](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L372)
 
 ___
 
@@ -5142,7 +5142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:373](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L373)
+[manifest/generator/SitecoreIcon.ts:373](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L373)
 
 ___
 
@@ -5152,7 +5152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:374](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L374)
+[manifest/generator/SitecoreIcon.ts:374](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L374)
 
 ___
 
@@ -5162,7 +5162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:375](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L375)
+[manifest/generator/SitecoreIcon.ts:375](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L375)
 
 ___
 
@@ -5172,7 +5172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:376](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L376)
+[manifest/generator/SitecoreIcon.ts:376](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L376)
 
 ___
 
@@ -5182,7 +5182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:377](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L377)
+[manifest/generator/SitecoreIcon.ts:377](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L377)
 
 ___
 
@@ -5192,7 +5192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:378](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L378)
+[manifest/generator/SitecoreIcon.ts:378](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L378)
 
 ___
 
@@ -5202,7 +5202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:379](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L379)
+[manifest/generator/SitecoreIcon.ts:379](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L379)
 
 ___
 
@@ -5212,7 +5212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:380](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L380)
+[manifest/generator/SitecoreIcon.ts:380](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L380)
 
 ___
 
@@ -5222,7 +5222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:390](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L390)
+[manifest/generator/SitecoreIcon.ts:390](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L390)
 
 ___
 
@@ -5232,7 +5232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:391](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L391)
+[manifest/generator/SitecoreIcon.ts:391](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L391)
 
 ___
 
@@ -5242,7 +5242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:381](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L381)
+[manifest/generator/SitecoreIcon.ts:381](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L381)
 
 ___
 
@@ -5252,7 +5252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:382](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L382)
+[manifest/generator/SitecoreIcon.ts:382](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L382)
 
 ___
 
@@ -5262,7 +5262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:383](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L383)
+[manifest/generator/SitecoreIcon.ts:383](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L383)
 
 ___
 
@@ -5272,7 +5272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:384](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L384)
+[manifest/generator/SitecoreIcon.ts:384](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L384)
 
 ___
 
@@ -5282,7 +5282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:385](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L385)
+[manifest/generator/SitecoreIcon.ts:385](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L385)
 
 ___
 
@@ -5292,7 +5292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:386](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L386)
+[manifest/generator/SitecoreIcon.ts:386](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L386)
 
 ___
 
@@ -5302,7 +5302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:387](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L387)
+[manifest/generator/SitecoreIcon.ts:387](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L387)
 
 ___
 
@@ -5312,7 +5312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:388](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L388)
+[manifest/generator/SitecoreIcon.ts:388](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L388)
 
 ___
 
@@ -5322,7 +5322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:389](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L389)
+[manifest/generator/SitecoreIcon.ts:389](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L389)
 
 ___
 
@@ -5332,7 +5332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:392](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L392)
+[manifest/generator/SitecoreIcon.ts:392](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L392)
 
 ___
 
@@ -5342,7 +5342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:393](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L393)
+[manifest/generator/SitecoreIcon.ts:393](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L393)
 
 ___
 
@@ -5352,7 +5352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:394](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L394)
+[manifest/generator/SitecoreIcon.ts:394](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L394)
 
 ___
 
@@ -5362,7 +5362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:395](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L395)
+[manifest/generator/SitecoreIcon.ts:395](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L395)
 
 ___
 
@@ -5372,7 +5372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:396](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L396)
+[manifest/generator/SitecoreIcon.ts:396](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L396)
 
 ___
 
@@ -5382,7 +5382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:397](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L397)
+[manifest/generator/SitecoreIcon.ts:397](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L397)
 
 ___
 
@@ -5392,7 +5392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:398](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L398)
+[manifest/generator/SitecoreIcon.ts:398](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L398)
 
 ___
 
@@ -5402,7 +5402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:399](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L399)
+[manifest/generator/SitecoreIcon.ts:399](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L399)
 
 ___
 
@@ -5412,7 +5412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:400](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L400)
+[manifest/generator/SitecoreIcon.ts:400](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L400)
 
 ___
 
@@ -5422,7 +5422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:401](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L401)
+[manifest/generator/SitecoreIcon.ts:401](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L401)
 
 ___
 
@@ -5432,7 +5432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:402](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L402)
+[manifest/generator/SitecoreIcon.ts:402](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L402)
 
 ___
 
@@ -5442,7 +5442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:403](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L403)
+[manifest/generator/SitecoreIcon.ts:403](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L403)
 
 ___
 
@@ -5452,7 +5452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:404](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L404)
+[manifest/generator/SitecoreIcon.ts:404](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L404)
 
 ___
 
@@ -5462,7 +5462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:405](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L405)
+[manifest/generator/SitecoreIcon.ts:405](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L405)
 
 ___
 
@@ -5472,7 +5472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:406](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L406)
+[manifest/generator/SitecoreIcon.ts:406](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L406)
 
 ___
 
@@ -5482,7 +5482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:407](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L407)
+[manifest/generator/SitecoreIcon.ts:407](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L407)
 
 ___
 
@@ -5492,7 +5492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:408](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L408)
+[manifest/generator/SitecoreIcon.ts:408](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L408)
 
 ___
 
@@ -5502,7 +5502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:409](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L409)
+[manifest/generator/SitecoreIcon.ts:409](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L409)
 
 ___
 
@@ -5512,7 +5512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:410](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L410)
+[manifest/generator/SitecoreIcon.ts:410](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L410)
 
 ___
 
@@ -5522,7 +5522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:411](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L411)
+[manifest/generator/SitecoreIcon.ts:411](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L411)
 
 ___
 
@@ -5532,7 +5532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:412](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L412)
+[manifest/generator/SitecoreIcon.ts:412](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L412)
 
 ___
 
@@ -5542,7 +5542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:413](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L413)
+[manifest/generator/SitecoreIcon.ts:413](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L413)
 
 ___
 
@@ -5552,7 +5552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:414](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L414)
+[manifest/generator/SitecoreIcon.ts:414](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L414)
 
 ___
 
@@ -5562,7 +5562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:415](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L415)
+[manifest/generator/SitecoreIcon.ts:415](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L415)
 
 ___
 
@@ -5572,7 +5572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:416](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L416)
+[manifest/generator/SitecoreIcon.ts:416](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L416)
 
 ___
 
@@ -5582,7 +5582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:418](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L418)
+[manifest/generator/SitecoreIcon.ts:418](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L418)
 
 ___
 
@@ -5592,7 +5592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:419](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L419)
+[manifest/generator/SitecoreIcon.ts:419](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L419)
 
 ___
 
@@ -5602,7 +5602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:417](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L417)
+[manifest/generator/SitecoreIcon.ts:417](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L417)
 
 ___
 
@@ -5612,7 +5612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:420](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L420)
+[manifest/generator/SitecoreIcon.ts:420](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L420)
 
 ___
 
@@ -5622,7 +5622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:421](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L421)
+[manifest/generator/SitecoreIcon.ts:421](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L421)
 
 ___
 
@@ -5632,7 +5632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:422](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L422)
+[manifest/generator/SitecoreIcon.ts:422](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L422)
 
 ___
 
@@ -5642,7 +5642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:423](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L423)
+[manifest/generator/SitecoreIcon.ts:423](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L423)
 
 ___
 
@@ -5652,7 +5652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:424](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L424)
+[manifest/generator/SitecoreIcon.ts:424](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L424)
 
 ___
 
@@ -5662,7 +5662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:425](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L425)
+[manifest/generator/SitecoreIcon.ts:425](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L425)
 
 ___
 
@@ -5672,7 +5672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:426](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L426)
+[manifest/generator/SitecoreIcon.ts:426](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L426)
 
 ___
 
@@ -5682,7 +5682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:427](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L427)
+[manifest/generator/SitecoreIcon.ts:427](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L427)
 
 ___
 
@@ -5692,7 +5692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:428](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L428)
+[manifest/generator/SitecoreIcon.ts:428](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L428)
 
 ___
 
@@ -5702,7 +5702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:429](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L429)
+[manifest/generator/SitecoreIcon.ts:429](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L429)
 
 ___
 
@@ -5712,7 +5712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:430](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L430)
+[manifest/generator/SitecoreIcon.ts:430](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L430)
 
 ___
 
@@ -5722,7 +5722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:431](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L431)
+[manifest/generator/SitecoreIcon.ts:431](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L431)
 
 ___
 
@@ -5732,7 +5732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:432](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L432)
+[manifest/generator/SitecoreIcon.ts:432](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L432)
 
 ___
 
@@ -5742,7 +5742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:433](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L433)
+[manifest/generator/SitecoreIcon.ts:433](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L433)
 
 ___
 
@@ -5752,7 +5752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:434](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L434)
+[manifest/generator/SitecoreIcon.ts:434](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L434)
 
 ___
 
@@ -5762,7 +5762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:437](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L437)
+[manifest/generator/SitecoreIcon.ts:437](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L437)
 
 ___
 
@@ -5772,7 +5772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:435](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L435)
+[manifest/generator/SitecoreIcon.ts:435](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L435)
 
 ___
 
@@ -5782,7 +5782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:436](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L436)
+[manifest/generator/SitecoreIcon.ts:436](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L436)
 
 ___
 
@@ -5792,7 +5792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:438](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L438)
+[manifest/generator/SitecoreIcon.ts:438](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L438)
 
 ___
 
@@ -5802,7 +5802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:439](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L439)
+[manifest/generator/SitecoreIcon.ts:439](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L439)
 
 ___
 
@@ -5812,7 +5812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:440](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L440)
+[manifest/generator/SitecoreIcon.ts:440](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L440)
 
 ___
 
@@ -5822,7 +5822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:441](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L441)
+[manifest/generator/SitecoreIcon.ts:441](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L441)
 
 ___
 
@@ -5832,7 +5832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:442](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L442)
+[manifest/generator/SitecoreIcon.ts:442](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L442)
 
 ___
 
@@ -5842,7 +5842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:443](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L443)
+[manifest/generator/SitecoreIcon.ts:443](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L443)
 
 ___
 
@@ -5852,7 +5852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:444](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L444)
+[manifest/generator/SitecoreIcon.ts:444](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L444)
 
 ___
 
@@ -5862,7 +5862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:445](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L445)
+[manifest/generator/SitecoreIcon.ts:445](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L445)
 
 ___
 
@@ -5872,7 +5872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:446](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L446)
+[manifest/generator/SitecoreIcon.ts:446](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L446)
 
 ___
 
@@ -5882,7 +5882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:447](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L447)
+[manifest/generator/SitecoreIcon.ts:447](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L447)
 
 ___
 
@@ -5892,7 +5892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:449](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L449)
+[manifest/generator/SitecoreIcon.ts:449](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L449)
 
 ___
 
@@ -5902,7 +5902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:448](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L448)
+[manifest/generator/SitecoreIcon.ts:448](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L448)
 
 ___
 
@@ -5912,7 +5912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:450](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L450)
+[manifest/generator/SitecoreIcon.ts:450](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L450)
 
 ___
 
@@ -5922,7 +5922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:451](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L451)
+[manifest/generator/SitecoreIcon.ts:451](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L451)
 
 ___
 
@@ -5932,7 +5932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:452](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L452)
+[manifest/generator/SitecoreIcon.ts:452](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L452)
 
 ___
 
@@ -5942,7 +5942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:453](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L453)
+[manifest/generator/SitecoreIcon.ts:453](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L453)
 
 ___
 
@@ -5952,7 +5952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:456](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L456)
+[manifest/generator/SitecoreIcon.ts:456](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L456)
 
 ___
 
@@ -5962,7 +5962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:457](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L457)
+[manifest/generator/SitecoreIcon.ts:457](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L457)
 
 ___
 
@@ -5972,7 +5972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:458](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L458)
+[manifest/generator/SitecoreIcon.ts:458](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L458)
 
 ___
 
@@ -5982,7 +5982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:459](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L459)
+[manifest/generator/SitecoreIcon.ts:459](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L459)
 
 ___
 
@@ -5992,7 +5992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:460](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L460)
+[manifest/generator/SitecoreIcon.ts:460](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L460)
 
 ___
 
@@ -6002,7 +6002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:461](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L461)
+[manifest/generator/SitecoreIcon.ts:461](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L461)
 
 ___
 
@@ -6012,7 +6012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:462](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L462)
+[manifest/generator/SitecoreIcon.ts:462](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L462)
 
 ___
 
@@ -6022,7 +6022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:463](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L463)
+[manifest/generator/SitecoreIcon.ts:463](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L463)
 
 ___
 
@@ -6032,7 +6032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:464](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L464)
+[manifest/generator/SitecoreIcon.ts:464](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L464)
 
 ___
 
@@ -6042,7 +6042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:465](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L465)
+[manifest/generator/SitecoreIcon.ts:465](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L465)
 
 ___
 
@@ -6052,7 +6052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:454](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L454)
+[manifest/generator/SitecoreIcon.ts:454](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L454)
 
 ___
 
@@ -6062,7 +6062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:455](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L455)
+[manifest/generator/SitecoreIcon.ts:455](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L455)
 
 ___
 
@@ -6072,7 +6072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:466](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L466)
+[manifest/generator/SitecoreIcon.ts:466](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L466)
 
 ___
 
@@ -6082,7 +6082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:467](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L467)
+[manifest/generator/SitecoreIcon.ts:467](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L467)
 
 ___
 
@@ -6092,7 +6092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:468](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L468)
+[manifest/generator/SitecoreIcon.ts:468](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L468)
 
 ___
 
@@ -6102,7 +6102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:469](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L469)
+[manifest/generator/SitecoreIcon.ts:469](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L469)
 
 ___
 
@@ -6112,7 +6112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:470](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L470)
+[manifest/generator/SitecoreIcon.ts:470](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L470)
 
 ___
 
@@ -6122,7 +6122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:471](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L471)
+[manifest/generator/SitecoreIcon.ts:471](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L471)
 
 ___
 
@@ -6132,7 +6132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:472](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L472)
+[manifest/generator/SitecoreIcon.ts:472](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L472)
 
 ___
 
@@ -6142,7 +6142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:473](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L473)
+[manifest/generator/SitecoreIcon.ts:473](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L473)
 
 ___
 
@@ -6152,7 +6152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:474](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L474)
+[manifest/generator/SitecoreIcon.ts:474](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L474)
 
 ___
 
@@ -6162,7 +6162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:475](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L475)
+[manifest/generator/SitecoreIcon.ts:475](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L475)
 
 ___
 
@@ -6172,7 +6172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:476](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L476)
+[manifest/generator/SitecoreIcon.ts:476](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L476)
 
 ___
 
@@ -6182,7 +6182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:477](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L477)
+[manifest/generator/SitecoreIcon.ts:477](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L477)
 
 ___
 
@@ -6192,7 +6192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:478](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L478)
+[manifest/generator/SitecoreIcon.ts:478](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L478)
 
 ___
 
@@ -6202,7 +6202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:479](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L479)
+[manifest/generator/SitecoreIcon.ts:479](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L479)
 
 ___
 
@@ -6212,7 +6212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:480](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L480)
+[manifest/generator/SitecoreIcon.ts:480](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L480)
 
 ___
 
@@ -6222,7 +6222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:481](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L481)
+[manifest/generator/SitecoreIcon.ts:481](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L481)
 
 ___
 
@@ -6232,7 +6232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:482](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L482)
+[manifest/generator/SitecoreIcon.ts:482](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L482)
 
 ___
 
@@ -6242,7 +6242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:483](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L483)
+[manifest/generator/SitecoreIcon.ts:483](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L483)
 
 ___
 
@@ -6252,7 +6252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:484](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L484)
+[manifest/generator/SitecoreIcon.ts:484](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L484)
 
 ___
 
@@ -6262,7 +6262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:485](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L485)
+[manifest/generator/SitecoreIcon.ts:485](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L485)
 
 ___
 
@@ -6272,7 +6272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:486](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L486)
+[manifest/generator/SitecoreIcon.ts:486](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L486)
 
 ___
 
@@ -6282,7 +6282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:487](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L487)
+[manifest/generator/SitecoreIcon.ts:487](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L487)
 
 ___
 
@@ -6292,7 +6292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:488](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L488)
+[manifest/generator/SitecoreIcon.ts:488](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L488)
 
 ___
 
@@ -6302,7 +6302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:489](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L489)
+[manifest/generator/SitecoreIcon.ts:489](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L489)
 
 ___
 
@@ -6312,7 +6312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:490](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L490)
+[manifest/generator/SitecoreIcon.ts:490](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L490)
 
 ___
 
@@ -6322,7 +6322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:491](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L491)
+[manifest/generator/SitecoreIcon.ts:491](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L491)
 
 ___
 
@@ -6332,7 +6332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:492](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L492)
+[manifest/generator/SitecoreIcon.ts:492](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L492)
 
 ___
 
@@ -6342,7 +6342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:493](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L493)
+[manifest/generator/SitecoreIcon.ts:493](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L493)
 
 ___
 
@@ -6352,7 +6352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:494](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L494)
+[manifest/generator/SitecoreIcon.ts:494](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L494)
 
 ___
 
@@ -6362,7 +6362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:495](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L495)
+[manifest/generator/SitecoreIcon.ts:495](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L495)
 
 ___
 
@@ -6372,7 +6372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:496](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L496)
+[manifest/generator/SitecoreIcon.ts:496](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L496)
 
 ___
 
@@ -6382,7 +6382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:497](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L497)
+[manifest/generator/SitecoreIcon.ts:497](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L497)
 
 ___
 
@@ -6392,7 +6392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:498](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L498)
+[manifest/generator/SitecoreIcon.ts:498](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L498)
 
 ___
 
@@ -6402,7 +6402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:499](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L499)
+[manifest/generator/SitecoreIcon.ts:499](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L499)
 
 ___
 
@@ -6412,7 +6412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:500](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L500)
+[manifest/generator/SitecoreIcon.ts:500](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L500)
 
 ___
 
@@ -6422,7 +6422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:501](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L501)
+[manifest/generator/SitecoreIcon.ts:501](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L501)
 
 ___
 
@@ -6432,7 +6432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:502](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L502)
+[manifest/generator/SitecoreIcon.ts:502](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L502)
 
 ___
 
@@ -6442,7 +6442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:503](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L503)
+[manifest/generator/SitecoreIcon.ts:503](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L503)
 
 ___
 
@@ -6452,7 +6452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:504](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L504)
+[manifest/generator/SitecoreIcon.ts:504](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L504)
 
 ___
 
@@ -6462,7 +6462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:505](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L505)
+[manifest/generator/SitecoreIcon.ts:505](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L505)
 
 ___
 
@@ -6472,7 +6472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:506](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L506)
+[manifest/generator/SitecoreIcon.ts:506](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L506)
 
 ___
 
@@ -6482,7 +6482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:507](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L507)
+[manifest/generator/SitecoreIcon.ts:507](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L507)
 
 ___
 
@@ -6492,7 +6492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:508](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L508)
+[manifest/generator/SitecoreIcon.ts:508](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L508)
 
 ___
 
@@ -6502,7 +6502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:509](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L509)
+[manifest/generator/SitecoreIcon.ts:509](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L509)
 
 ___
 
@@ -6512,7 +6512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:510](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L510)
+[manifest/generator/SitecoreIcon.ts:510](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L510)
 
 ___
 
@@ -6522,7 +6522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:511](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L511)
+[manifest/generator/SitecoreIcon.ts:511](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L511)
 
 ___
 
@@ -6532,7 +6532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:512](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L512)
+[manifest/generator/SitecoreIcon.ts:512](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L512)
 
 ___
 
@@ -6542,7 +6542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:513](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L513)
+[manifest/generator/SitecoreIcon.ts:513](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L513)
 
 ___
 
@@ -6552,7 +6552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:514](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L514)
+[manifest/generator/SitecoreIcon.ts:514](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L514)
 
 ___
 
@@ -6562,7 +6562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:515](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L515)
+[manifest/generator/SitecoreIcon.ts:515](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L515)
 
 ___
 
@@ -6572,7 +6572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:516](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L516)
+[manifest/generator/SitecoreIcon.ts:516](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L516)
 
 ___
 
@@ -6582,7 +6582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:517](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L517)
+[manifest/generator/SitecoreIcon.ts:517](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L517)
 
 ___
 
@@ -6592,7 +6592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:518](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L518)
+[manifest/generator/SitecoreIcon.ts:518](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L518)
 
 ___
 
@@ -6602,7 +6602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:519](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L519)
+[manifest/generator/SitecoreIcon.ts:519](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L519)
 
 ___
 
@@ -6612,7 +6612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:520](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L520)
+[manifest/generator/SitecoreIcon.ts:520](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L520)
 
 ___
 
@@ -6622,7 +6622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:521](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L521)
+[manifest/generator/SitecoreIcon.ts:521](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L521)
 
 ___
 
@@ -6632,7 +6632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:522](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L522)
+[manifest/generator/SitecoreIcon.ts:522](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L522)
 
 ___
 
@@ -6642,7 +6642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:523](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L523)
+[manifest/generator/SitecoreIcon.ts:523](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L523)
 
 ___
 
@@ -6652,7 +6652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:524](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L524)
+[manifest/generator/SitecoreIcon.ts:524](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L524)
 
 ___
 
@@ -6662,7 +6662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:525](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L525)
+[manifest/generator/SitecoreIcon.ts:525](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L525)
 
 ___
 
@@ -6672,7 +6672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:526](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L526)
+[manifest/generator/SitecoreIcon.ts:526](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L526)
 
 ___
 
@@ -6682,7 +6682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:527](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L527)
+[manifest/generator/SitecoreIcon.ts:527](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L527)
 
 ___
 
@@ -6692,7 +6692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:528](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L528)
+[manifest/generator/SitecoreIcon.ts:528](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L528)
 
 ___
 
@@ -6702,7 +6702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:529](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L529)
+[manifest/generator/SitecoreIcon.ts:529](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L529)
 
 ___
 
@@ -6712,7 +6712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:530](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L530)
+[manifest/generator/SitecoreIcon.ts:530](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L530)
 
 ___
 
@@ -6722,7 +6722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:531](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L531)
+[manifest/generator/SitecoreIcon.ts:531](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L531)
 
 ___
 
@@ -6732,7 +6732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:532](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L532)
+[manifest/generator/SitecoreIcon.ts:532](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L532)
 
 ___
 
@@ -6742,7 +6742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:533](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L533)
+[manifest/generator/SitecoreIcon.ts:533](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L533)
 
 ___
 
@@ -6752,7 +6752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:536](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L536)
+[manifest/generator/SitecoreIcon.ts:536](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L536)
 
 ___
 
@@ -6762,7 +6762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:537](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L537)
+[manifest/generator/SitecoreIcon.ts:537](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L537)
 
 ___
 
@@ -6772,7 +6772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:538](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L538)
+[manifest/generator/SitecoreIcon.ts:538](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L538)
 
 ___
 
@@ -6782,7 +6782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:539](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L539)
+[manifest/generator/SitecoreIcon.ts:539](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L539)
 
 ___
 
@@ -6792,7 +6792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:540](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L540)
+[manifest/generator/SitecoreIcon.ts:540](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L540)
 
 ___
 
@@ -6802,7 +6802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:541](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L541)
+[manifest/generator/SitecoreIcon.ts:541](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L541)
 
 ___
 
@@ -6812,7 +6812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:542](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L542)
+[manifest/generator/SitecoreIcon.ts:542](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L542)
 
 ___
 
@@ -6822,7 +6822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:543](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L543)
+[manifest/generator/SitecoreIcon.ts:543](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L543)
 
 ___
 
@@ -6832,7 +6832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:544](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L544)
+[manifest/generator/SitecoreIcon.ts:544](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L544)
 
 ___
 
@@ -6842,7 +6842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:545](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L545)
+[manifest/generator/SitecoreIcon.ts:545](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L545)
 
 ___
 
@@ -6852,7 +6852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:546](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L546)
+[manifest/generator/SitecoreIcon.ts:546](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L546)
 
 ___
 
@@ -6862,7 +6862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:547](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L547)
+[manifest/generator/SitecoreIcon.ts:547](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L547)
 
 ___
 
@@ -6872,7 +6872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:548](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L548)
+[manifest/generator/SitecoreIcon.ts:548](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L548)
 
 ___
 
@@ -6882,7 +6882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:549](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L549)
+[manifest/generator/SitecoreIcon.ts:549](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L549)
 
 ___
 
@@ -6892,7 +6892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:550](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L550)
+[manifest/generator/SitecoreIcon.ts:550](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L550)
 
 ___
 
@@ -6902,7 +6902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:551](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L551)
+[manifest/generator/SitecoreIcon.ts:551](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L551)
 
 ___
 
@@ -6912,7 +6912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:552](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L552)
+[manifest/generator/SitecoreIcon.ts:552](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L552)
 
 ___
 
@@ -6922,7 +6922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:553](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L553)
+[manifest/generator/SitecoreIcon.ts:553](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L553)
 
 ___
 
@@ -6932,7 +6932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:554](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L554)
+[manifest/generator/SitecoreIcon.ts:554](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L554)
 
 ___
 
@@ -6942,7 +6942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:555](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L555)
+[manifest/generator/SitecoreIcon.ts:555](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L555)
 
 ___
 
@@ -6952,7 +6952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:556](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L556)
+[manifest/generator/SitecoreIcon.ts:556](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L556)
 
 ___
 
@@ -6962,7 +6962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:557](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L557)
+[manifest/generator/SitecoreIcon.ts:557](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L557)
 
 ___
 
@@ -6972,7 +6972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:558](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L558)
+[manifest/generator/SitecoreIcon.ts:558](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L558)
 
 ___
 
@@ -6982,7 +6982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:534](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L534)
+[manifest/generator/SitecoreIcon.ts:534](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L534)
 
 ___
 
@@ -6992,7 +6992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:535](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L535)
+[manifest/generator/SitecoreIcon.ts:535](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L535)
 
 ___
 
@@ -7002,7 +7002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:559](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L559)
+[manifest/generator/SitecoreIcon.ts:559](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L559)
 
 ___
 
@@ -7012,7 +7012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:560](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L560)
+[manifest/generator/SitecoreIcon.ts:560](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L560)
 
 ___
 
@@ -7022,7 +7022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:561](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L561)
+[manifest/generator/SitecoreIcon.ts:561](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L561)
 
 ___
 
@@ -7032,7 +7032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:562](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L562)
+[manifest/generator/SitecoreIcon.ts:562](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L562)
 
 ___
 
@@ -7042,7 +7042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:563](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L563)
+[manifest/generator/SitecoreIcon.ts:563](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L563)
 
 ___
 
@@ -7052,7 +7052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:564](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L564)
+[manifest/generator/SitecoreIcon.ts:564](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L564)
 
 ___
 
@@ -7062,7 +7062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:565](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L565)
+[manifest/generator/SitecoreIcon.ts:565](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L565)
 
 ___
 
@@ -7072,7 +7072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:567](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L567)
+[manifest/generator/SitecoreIcon.ts:567](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L567)
 
 ___
 
@@ -7082,7 +7082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:566](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L566)
+[manifest/generator/SitecoreIcon.ts:566](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L566)
 
 ___
 
@@ -7092,7 +7092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:568](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L568)
+[manifest/generator/SitecoreIcon.ts:568](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L568)
 
 ___
 
@@ -7102,7 +7102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:569](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L569)
+[manifest/generator/SitecoreIcon.ts:569](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L569)
 
 ___
 
@@ -7112,7 +7112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:570](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L570)
+[manifest/generator/SitecoreIcon.ts:570](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L570)
 
 ___
 
@@ -7122,7 +7122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:571](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L571)
+[manifest/generator/SitecoreIcon.ts:571](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L571)
 
 ___
 
@@ -7132,7 +7132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:572](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L572)
+[manifest/generator/SitecoreIcon.ts:572](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L572)
 
 ___
 
@@ -7142,7 +7142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:573](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L573)
+[manifest/generator/SitecoreIcon.ts:573](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L573)
 
 ___
 
@@ -7152,7 +7152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:574](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L574)
+[manifest/generator/SitecoreIcon.ts:574](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L574)
 
 ___
 
@@ -7162,7 +7162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:575](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L575)
+[manifest/generator/SitecoreIcon.ts:575](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L575)
 
 ___
 
@@ -7172,7 +7172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:576](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L576)
+[manifest/generator/SitecoreIcon.ts:576](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L576)
 
 ___
 
@@ -7182,7 +7182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:577](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L577)
+[manifest/generator/SitecoreIcon.ts:577](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L577)
 
 ___
 
@@ -7192,7 +7192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:578](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L578)
+[manifest/generator/SitecoreIcon.ts:578](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L578)
 
 ___
 
@@ -7202,7 +7202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:579](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L579)
+[manifest/generator/SitecoreIcon.ts:579](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L579)
 
 ___
 
@@ -7212,7 +7212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:580](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L580)
+[manifest/generator/SitecoreIcon.ts:580](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L580)
 
 ___
 
@@ -7222,7 +7222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:581](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L581)
+[manifest/generator/SitecoreIcon.ts:581](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L581)
 
 ___
 
@@ -7232,7 +7232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:582](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L582)
+[manifest/generator/SitecoreIcon.ts:582](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L582)
 
 ___
 
@@ -7242,7 +7242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:583](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L583)
+[manifest/generator/SitecoreIcon.ts:583](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L583)
 
 ___
 
@@ -7252,7 +7252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:584](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L584)
+[manifest/generator/SitecoreIcon.ts:584](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L584)
 
 ___
 
@@ -7262,7 +7262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:585](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L585)
+[manifest/generator/SitecoreIcon.ts:585](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L585)
 
 ___
 
@@ -7272,7 +7272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:586](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L586)
+[manifest/generator/SitecoreIcon.ts:586](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L586)
 
 ___
 
@@ -7282,7 +7282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:587](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L587)
+[manifest/generator/SitecoreIcon.ts:587](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L587)
 
 ___
 
@@ -7292,7 +7292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:588](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L588)
+[manifest/generator/SitecoreIcon.ts:588](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L588)
 
 ___
 
@@ -7302,7 +7302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:589](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L589)
+[manifest/generator/SitecoreIcon.ts:589](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L589)
 
 ___
 
@@ -7312,7 +7312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:590](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L590)
+[manifest/generator/SitecoreIcon.ts:590](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L590)
 
 ___
 
@@ -7322,7 +7322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:591](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L591)
+[manifest/generator/SitecoreIcon.ts:591](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L591)
 
 ___
 
@@ -7332,7 +7332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:592](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L592)
+[manifest/generator/SitecoreIcon.ts:592](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L592)
 
 ___
 
@@ -7342,7 +7342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:593](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L593)
+[manifest/generator/SitecoreIcon.ts:593](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L593)
 
 ___
 
@@ -7352,7 +7352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:594](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L594)
+[manifest/generator/SitecoreIcon.ts:594](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L594)
 
 ___
 
@@ -7362,7 +7362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:595](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L595)
+[manifest/generator/SitecoreIcon.ts:595](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L595)
 
 ___
 
@@ -7372,7 +7372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:596](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L596)
+[manifest/generator/SitecoreIcon.ts:596](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L596)
 
 ___
 
@@ -7382,7 +7382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:597](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L597)
+[manifest/generator/SitecoreIcon.ts:597](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L597)
 
 ___
 
@@ -7392,7 +7392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:598](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L598)
+[manifest/generator/SitecoreIcon.ts:598](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L598)
 
 ___
 
@@ -7402,7 +7402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:599](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L599)
+[manifest/generator/SitecoreIcon.ts:599](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L599)
 
 ___
 
@@ -7412,7 +7412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:600](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L600)
+[manifest/generator/SitecoreIcon.ts:600](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L600)
 
 ___
 
@@ -7422,7 +7422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:601](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L601)
+[manifest/generator/SitecoreIcon.ts:601](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L601)
 
 ___
 
@@ -7432,7 +7432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:602](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L602)
+[manifest/generator/SitecoreIcon.ts:602](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L602)
 
 ___
 
@@ -7442,7 +7442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:603](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L603)
+[manifest/generator/SitecoreIcon.ts:603](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L603)
 
 ___
 
@@ -7452,7 +7452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:604](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L604)
+[manifest/generator/SitecoreIcon.ts:604](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L604)
 
 ___
 
@@ -7462,7 +7462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:605](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L605)
+[manifest/generator/SitecoreIcon.ts:605](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L605)
 
 ___
 
@@ -7472,7 +7472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:606](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L606)
+[manifest/generator/SitecoreIcon.ts:606](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L606)
 
 ___
 
@@ -7482,7 +7482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:607](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L607)
+[manifest/generator/SitecoreIcon.ts:607](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L607)
 
 ___
 
@@ -7492,7 +7492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:608](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L608)
+[manifest/generator/SitecoreIcon.ts:608](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L608)
 
 ___
 
@@ -7502,7 +7502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:609](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L609)
+[manifest/generator/SitecoreIcon.ts:609](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L609)
 
 ___
 
@@ -7512,7 +7512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:610](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L610)
+[manifest/generator/SitecoreIcon.ts:610](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L610)
 
 ___
 
@@ -7522,7 +7522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:611](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L611)
+[manifest/generator/SitecoreIcon.ts:611](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L611)
 
 ___
 
@@ -7532,7 +7532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:612](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L612)
+[manifest/generator/SitecoreIcon.ts:612](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L612)
 
 ___
 
@@ -7542,7 +7542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:613](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L613)
+[manifest/generator/SitecoreIcon.ts:613](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L613)
 
 ___
 
@@ -7552,7 +7552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:614](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L614)
+[manifest/generator/SitecoreIcon.ts:614](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L614)
 
 ___
 
@@ -7562,7 +7562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:615](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L615)
+[manifest/generator/SitecoreIcon.ts:615](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L615)
 
 ___
 
@@ -7572,7 +7572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:616](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L616)
+[manifest/generator/SitecoreIcon.ts:616](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L616)
 
 ___
 
@@ -7582,7 +7582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:617](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L617)
+[manifest/generator/SitecoreIcon.ts:617](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L617)
 
 ___
 
@@ -7592,7 +7592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:618](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L618)
+[manifest/generator/SitecoreIcon.ts:618](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L618)
 
 ___
 
@@ -7602,7 +7602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:619](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L619)
+[manifest/generator/SitecoreIcon.ts:619](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L619)
 
 ___
 
@@ -7612,7 +7612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:620](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L620)
+[manifest/generator/SitecoreIcon.ts:620](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L620)
 
 ___
 
@@ -7622,7 +7622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:621](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L621)
+[manifest/generator/SitecoreIcon.ts:621](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L621)
 
 ___
 
@@ -7632,7 +7632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:622](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L622)
+[manifest/generator/SitecoreIcon.ts:622](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L622)
 
 ___
 
@@ -7642,7 +7642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:623](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L623)
+[manifest/generator/SitecoreIcon.ts:623](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L623)
 
 ___
 
@@ -7652,7 +7652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:624](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L624)
+[manifest/generator/SitecoreIcon.ts:624](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L624)
 
 ___
 
@@ -7662,7 +7662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:625](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L625)
+[manifest/generator/SitecoreIcon.ts:625](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L625)
 
 ___
 
@@ -7672,7 +7672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:626](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L626)
+[manifest/generator/SitecoreIcon.ts:626](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L626)
 
 ___
 
@@ -7682,7 +7682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:627](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L627)
+[manifest/generator/SitecoreIcon.ts:627](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L627)
 
 ___
 
@@ -7692,7 +7692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:628](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L628)
+[manifest/generator/SitecoreIcon.ts:628](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L628)
 
 ___
 
@@ -7702,7 +7702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:629](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L629)
+[manifest/generator/SitecoreIcon.ts:629](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L629)
 
 ___
 
@@ -7712,7 +7712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:630](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L630)
+[manifest/generator/SitecoreIcon.ts:630](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L630)
 
 ___
 
@@ -7722,7 +7722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:631](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L631)
+[manifest/generator/SitecoreIcon.ts:631](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L631)
 
 ___
 
@@ -7732,7 +7732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:632](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L632)
+[manifest/generator/SitecoreIcon.ts:632](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L632)
 
 ___
 
@@ -7742,7 +7742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:633](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L633)
+[manifest/generator/SitecoreIcon.ts:633](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L633)
 
 ___
 
@@ -7752,7 +7752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:634](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L634)
+[manifest/generator/SitecoreIcon.ts:634](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L634)
 
 ___
 
@@ -7762,7 +7762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:635](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L635)
+[manifest/generator/SitecoreIcon.ts:635](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L635)
 
 ___
 
@@ -7772,7 +7772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:636](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L636)
+[manifest/generator/SitecoreIcon.ts:636](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L636)
 
 ___
 
@@ -7782,7 +7782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:637](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L637)
+[manifest/generator/SitecoreIcon.ts:637](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L637)
 
 ___
 
@@ -7792,7 +7792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:638](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L638)
+[manifest/generator/SitecoreIcon.ts:638](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L638)
 
 ___
 
@@ -7802,7 +7802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:639](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L639)
+[manifest/generator/SitecoreIcon.ts:639](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L639)
 
 ___
 
@@ -7812,7 +7812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:640](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L640)
+[manifest/generator/SitecoreIcon.ts:640](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L640)
 
 ___
 
@@ -7822,7 +7822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:641](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L641)
+[manifest/generator/SitecoreIcon.ts:641](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L641)
 
 ___
 
@@ -7832,7 +7832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:642](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L642)
+[manifest/generator/SitecoreIcon.ts:642](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L642)
 
 ___
 
@@ -7842,7 +7842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:643](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L643)
+[manifest/generator/SitecoreIcon.ts:643](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L643)
 
 ___
 
@@ -7852,7 +7852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:644](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L644)
+[manifest/generator/SitecoreIcon.ts:644](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L644)
 
 ___
 
@@ -7862,7 +7862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:645](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L645)
+[manifest/generator/SitecoreIcon.ts:645](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L645)
 
 ___
 
@@ -7872,7 +7872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:646](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L646)
+[manifest/generator/SitecoreIcon.ts:646](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L646)
 
 ___
 
@@ -7882,7 +7882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:647](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L647)
+[manifest/generator/SitecoreIcon.ts:647](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L647)
 
 ___
 
@@ -7892,7 +7892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:648](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L648)
+[manifest/generator/SitecoreIcon.ts:648](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L648)
 
 ___
 
@@ -7902,7 +7902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:649](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L649)
+[manifest/generator/SitecoreIcon.ts:649](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L649)
 
 ___
 
@@ -7912,7 +7912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:650](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L650)
+[manifest/generator/SitecoreIcon.ts:650](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L650)
 
 ___
 
@@ -7922,7 +7922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:651](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L651)
+[manifest/generator/SitecoreIcon.ts:651](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L651)
 
 ___
 
@@ -7932,7 +7932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:652](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L652)
+[manifest/generator/SitecoreIcon.ts:652](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L652)
 
 ___
 
@@ -7942,7 +7942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:653](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L653)
+[manifest/generator/SitecoreIcon.ts:653](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L653)
 
 ___
 
@@ -7952,7 +7952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:654](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L654)
+[manifest/generator/SitecoreIcon.ts:654](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L654)
 
 ___
 
@@ -7962,7 +7962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:655](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L655)
+[manifest/generator/SitecoreIcon.ts:655](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L655)
 
 ___
 
@@ -7972,7 +7972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:656](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L656)
+[manifest/generator/SitecoreIcon.ts:656](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L656)
 
 ___
 
@@ -7982,7 +7982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:657](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L657)
+[manifest/generator/SitecoreIcon.ts:657](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L657)
 
 ___
 
@@ -7992,7 +7992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:658](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L658)
+[manifest/generator/SitecoreIcon.ts:658](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L658)
 
 ___
 
@@ -8002,7 +8002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:659](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L659)
+[manifest/generator/SitecoreIcon.ts:659](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L659)
 
 ___
 
@@ -8012,7 +8012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:660](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L660)
+[manifest/generator/SitecoreIcon.ts:660](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L660)
 
 ___
 
@@ -8022,7 +8022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:661](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L661)
+[manifest/generator/SitecoreIcon.ts:661](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L661)
 
 ___
 
@@ -8032,7 +8032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:662](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L662)
+[manifest/generator/SitecoreIcon.ts:662](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L662)
 
 ___
 
@@ -8042,7 +8042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:663](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L663)
+[manifest/generator/SitecoreIcon.ts:663](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L663)
 
 ___
 
@@ -8052,7 +8052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:664](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L664)
+[manifest/generator/SitecoreIcon.ts:664](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L664)
 
 ___
 
@@ -8062,7 +8062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:665](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L665)
+[manifest/generator/SitecoreIcon.ts:665](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L665)
 
 ___
 
@@ -8072,7 +8072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:666](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L666)
+[manifest/generator/SitecoreIcon.ts:666](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L666)
 
 ___
 
@@ -8082,7 +8082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:667](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L667)
+[manifest/generator/SitecoreIcon.ts:667](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L667)
 
 ___
 
@@ -8092,7 +8092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:668](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L668)
+[manifest/generator/SitecoreIcon.ts:668](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L668)
 
 ___
 
@@ -8102,7 +8102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:669](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L669)
+[manifest/generator/SitecoreIcon.ts:669](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L669)
 
 ___
 
@@ -8112,7 +8112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:670](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L670)
+[manifest/generator/SitecoreIcon.ts:670](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L670)
 
 ___
 
@@ -8122,7 +8122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:671](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L671)
+[manifest/generator/SitecoreIcon.ts:671](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L671)
 
 ___
 
@@ -8132,7 +8132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:672](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L672)
+[manifest/generator/SitecoreIcon.ts:672](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L672)
 
 ___
 
@@ -8142,7 +8142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:673](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L673)
+[manifest/generator/SitecoreIcon.ts:673](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L673)
 
 ___
 
@@ -8152,7 +8152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:674](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L674)
+[manifest/generator/SitecoreIcon.ts:674](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L674)
 
 ___
 
@@ -8162,7 +8162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:675](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L675)
+[manifest/generator/SitecoreIcon.ts:675](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L675)
 
 ___
 
@@ -8172,7 +8172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:676](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L676)
+[manifest/generator/SitecoreIcon.ts:676](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L676)
 
 ___
 
@@ -8182,7 +8182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:677](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L677)
+[manifest/generator/SitecoreIcon.ts:677](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L677)
 
 ___
 
@@ -8192,7 +8192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:678](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L678)
+[manifest/generator/SitecoreIcon.ts:678](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L678)
 
 ___
 
@@ -8202,7 +8202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:679](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L679)
+[manifest/generator/SitecoreIcon.ts:679](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L679)
 
 ___
 
@@ -8212,7 +8212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:680](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L680)
+[manifest/generator/SitecoreIcon.ts:680](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L680)
 
 ___
 
@@ -8222,7 +8222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:681](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L681)
+[manifest/generator/SitecoreIcon.ts:681](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L681)
 
 ___
 
@@ -8232,7 +8232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:682](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L682)
+[manifest/generator/SitecoreIcon.ts:682](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L682)
 
 ___
 
@@ -8242,7 +8242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:683](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L683)
+[manifest/generator/SitecoreIcon.ts:683](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L683)
 
 ___
 
@@ -8252,7 +8252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:684](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L684)
+[manifest/generator/SitecoreIcon.ts:684](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L684)
 
 ___
 
@@ -8262,7 +8262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:685](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L685)
+[manifest/generator/SitecoreIcon.ts:685](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L685)
 
 ___
 
@@ -8272,7 +8272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:686](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L686)
+[manifest/generator/SitecoreIcon.ts:686](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L686)
 
 ___
 
@@ -8282,7 +8282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:687](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L687)
+[manifest/generator/SitecoreIcon.ts:687](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L687)
 
 ___
 
@@ -8292,7 +8292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:688](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L688)
+[manifest/generator/SitecoreIcon.ts:688](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L688)
 
 ___
 
@@ -8302,7 +8302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:689](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L689)
+[manifest/generator/SitecoreIcon.ts:689](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L689)
 
 ___
 
@@ -8312,7 +8312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:690](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L690)
+[manifest/generator/SitecoreIcon.ts:690](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L690)
 
 ___
 
@@ -8322,7 +8322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:691](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L691)
+[manifest/generator/SitecoreIcon.ts:691](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L691)
 
 ___
 
@@ -8332,7 +8332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:692](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L692)
+[manifest/generator/SitecoreIcon.ts:692](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L692)
 
 ___
 
@@ -8342,7 +8342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:693](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L693)
+[manifest/generator/SitecoreIcon.ts:693](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L693)
 
 ___
 
@@ -8352,7 +8352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:694](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L694)
+[manifest/generator/SitecoreIcon.ts:694](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L694)
 
 ___
 
@@ -8362,7 +8362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:695](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L695)
+[manifest/generator/SitecoreIcon.ts:695](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L695)
 
 ___
 
@@ -8372,7 +8372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:696](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L696)
+[manifest/generator/SitecoreIcon.ts:696](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L696)
 
 ___
 
@@ -8382,7 +8382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:697](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L697)
+[manifest/generator/SitecoreIcon.ts:697](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L697)
 
 ___
 
@@ -8392,7 +8392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:698](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L698)
+[manifest/generator/SitecoreIcon.ts:698](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L698)
 
 ___
 
@@ -8402,7 +8402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:699](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L699)
+[manifest/generator/SitecoreIcon.ts:699](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L699)
 
 ___
 
@@ -8412,7 +8412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:700](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L700)
+[manifest/generator/SitecoreIcon.ts:700](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L700)
 
 ___
 
@@ -8422,7 +8422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:701](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L701)
+[manifest/generator/SitecoreIcon.ts:701](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L701)
 
 ___
 
@@ -8432,7 +8432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:702](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L702)
+[manifest/generator/SitecoreIcon.ts:702](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L702)
 
 ___
 
@@ -8442,7 +8442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:703](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L703)
+[manifest/generator/SitecoreIcon.ts:703](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L703)
 
 ___
 
@@ -8452,7 +8452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:704](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L704)
+[manifest/generator/SitecoreIcon.ts:704](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L704)
 
 ___
 
@@ -8462,7 +8462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:705](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L705)
+[manifest/generator/SitecoreIcon.ts:705](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L705)
 
 ___
 
@@ -8472,7 +8472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:706](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L706)
+[manifest/generator/SitecoreIcon.ts:706](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L706)
 
 ___
 
@@ -8482,7 +8482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:711](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L711)
+[manifest/generator/SitecoreIcon.ts:711](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L711)
 
 ___
 
@@ -8492,7 +8492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:712](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L712)
+[manifest/generator/SitecoreIcon.ts:712](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L712)
 
 ___
 
@@ -8502,7 +8502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:707](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L707)
+[manifest/generator/SitecoreIcon.ts:707](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L707)
 
 ___
 
@@ -8512,7 +8512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:708](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L708)
+[manifest/generator/SitecoreIcon.ts:708](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L708)
 
 ___
 
@@ -8522,7 +8522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:709](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L709)
+[manifest/generator/SitecoreIcon.ts:709](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L709)
 
 ___
 
@@ -8532,7 +8532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:710](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L710)
+[manifest/generator/SitecoreIcon.ts:710](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L710)
 
 ___
 
@@ -8542,7 +8542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:713](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L713)
+[manifest/generator/SitecoreIcon.ts:713](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L713)
 
 ___
 
@@ -8552,7 +8552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:714](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L714)
+[manifest/generator/SitecoreIcon.ts:714](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L714)
 
 ___
 
@@ -8562,7 +8562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:715](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L715)
+[manifest/generator/SitecoreIcon.ts:715](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L715)
 
 ___
 
@@ -8572,7 +8572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:716](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L716)
+[manifest/generator/SitecoreIcon.ts:716](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L716)
 
 ___
 
@@ -8582,7 +8582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:717](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L717)
+[manifest/generator/SitecoreIcon.ts:717](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L717)
 
 ___
 
@@ -8592,7 +8592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:718](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L718)
+[manifest/generator/SitecoreIcon.ts:718](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L718)
 
 ___
 
@@ -8602,7 +8602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:719](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L719)
+[manifest/generator/SitecoreIcon.ts:719](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L719)
 
 ___
 
@@ -8612,7 +8612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:720](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L720)
+[manifest/generator/SitecoreIcon.ts:720](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L720)
 
 ___
 
@@ -8622,7 +8622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:721](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L721)
+[manifest/generator/SitecoreIcon.ts:721](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L721)
 
 ___
 
@@ -8632,7 +8632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:723](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L723)
+[manifest/generator/SitecoreIcon.ts:723](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L723)
 
 ___
 
@@ -8642,7 +8642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:722](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L722)
+[manifest/generator/SitecoreIcon.ts:722](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L722)
 
 ___
 
@@ -8652,7 +8652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:724](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L724)
+[manifest/generator/SitecoreIcon.ts:724](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L724)
 
 ___
 
@@ -8662,7 +8662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:725](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L725)
+[manifest/generator/SitecoreIcon.ts:725](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L725)
 
 ___
 
@@ -8672,7 +8672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:726](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L726)
+[manifest/generator/SitecoreIcon.ts:726](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L726)
 
 ___
 
@@ -8682,7 +8682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:727](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L727)
+[manifest/generator/SitecoreIcon.ts:727](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L727)
 
 ___
 
@@ -8692,7 +8692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:731](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L731)
+[manifest/generator/SitecoreIcon.ts:731](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L731)
 
 ___
 
@@ -8702,7 +8702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:732](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L732)
+[manifest/generator/SitecoreIcon.ts:732](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L732)
 
 ___
 
@@ -8712,7 +8712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:733](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L733)
+[manifest/generator/SitecoreIcon.ts:733](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L733)
 
 ___
 
@@ -8722,7 +8722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:734](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L734)
+[manifest/generator/SitecoreIcon.ts:734](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L734)
 
 ___
 
@@ -8732,7 +8732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:735](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L735)
+[manifest/generator/SitecoreIcon.ts:735](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L735)
 
 ___
 
@@ -8742,7 +8742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:736](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L736)
+[manifest/generator/SitecoreIcon.ts:736](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L736)
 
 ___
 
@@ -8752,7 +8752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:737](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L737)
+[manifest/generator/SitecoreIcon.ts:737](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L737)
 
 ___
 
@@ -8762,7 +8762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:738](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L738)
+[manifest/generator/SitecoreIcon.ts:738](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L738)
 
 ___
 
@@ -8772,7 +8772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:739](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L739)
+[manifest/generator/SitecoreIcon.ts:739](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L739)
 
 ___
 
@@ -8782,7 +8782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:740](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L740)
+[manifest/generator/SitecoreIcon.ts:740](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L740)
 
 ___
 
@@ -8792,7 +8792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:741](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L741)
+[manifest/generator/SitecoreIcon.ts:741](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L741)
 
 ___
 
@@ -8802,7 +8802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:742](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L742)
+[manifest/generator/SitecoreIcon.ts:742](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L742)
 
 ___
 
@@ -8812,7 +8812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:743](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L743)
+[manifest/generator/SitecoreIcon.ts:743](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L743)
 
 ___
 
@@ -8822,7 +8822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:744](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L744)
+[manifest/generator/SitecoreIcon.ts:744](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L744)
 
 ___
 
@@ -8832,7 +8832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:745](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L745)
+[manifest/generator/SitecoreIcon.ts:745](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L745)
 
 ___
 
@@ -8842,7 +8842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:746](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L746)
+[manifest/generator/SitecoreIcon.ts:746](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L746)
 
 ___
 
@@ -8852,7 +8852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:728](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L728)
+[manifest/generator/SitecoreIcon.ts:728](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L728)
 
 ___
 
@@ -8862,7 +8862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:729](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L729)
+[manifest/generator/SitecoreIcon.ts:729](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L729)
 
 ___
 
@@ -8872,7 +8872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:730](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L730)
+[manifest/generator/SitecoreIcon.ts:730](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L730)
 
 ___
 
@@ -8882,7 +8882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:747](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L747)
+[manifest/generator/SitecoreIcon.ts:747](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L747)
 
 ___
 
@@ -8892,7 +8892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:748](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L748)
+[manifest/generator/SitecoreIcon.ts:748](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L748)
 
 ___
 
@@ -8902,7 +8902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:749](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L749)
+[manifest/generator/SitecoreIcon.ts:749](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L749)
 
 ___
 
@@ -8912,7 +8912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:750](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L750)
+[manifest/generator/SitecoreIcon.ts:750](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L750)
 
 ___
 
@@ -8922,7 +8922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:751](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L751)
+[manifest/generator/SitecoreIcon.ts:751](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L751)
 
 ___
 
@@ -8932,7 +8932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:752](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L752)
+[manifest/generator/SitecoreIcon.ts:752](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L752)
 
 ___
 
@@ -8942,7 +8942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:753](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L753)
+[manifest/generator/SitecoreIcon.ts:753](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L753)
 
 ___
 
@@ -8952,7 +8952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:754](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L754)
+[manifest/generator/SitecoreIcon.ts:754](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L754)
 
 ___
 
@@ -8962,7 +8962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:755](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L755)
+[manifest/generator/SitecoreIcon.ts:755](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L755)
 
 ___
 
@@ -8972,7 +8972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:756](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L756)
+[manifest/generator/SitecoreIcon.ts:756](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L756)
 
 ___
 
@@ -8982,7 +8982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:757](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L757)
+[manifest/generator/SitecoreIcon.ts:757](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L757)
 
 ___
 
@@ -8992,7 +8992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:758](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L758)
+[manifest/generator/SitecoreIcon.ts:758](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L758)
 
 ___
 
@@ -9002,7 +9002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:759](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L759)
+[manifest/generator/SitecoreIcon.ts:759](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L759)
 
 ___
 
@@ -9012,7 +9012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:760](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L760)
+[manifest/generator/SitecoreIcon.ts:760](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L760)
 
 ___
 
@@ -9022,7 +9022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:761](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L761)
+[manifest/generator/SitecoreIcon.ts:761](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L761)
 
 ___
 
@@ -9032,7 +9032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:762](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L762)
+[manifest/generator/SitecoreIcon.ts:762](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L762)
 
 ___
 
@@ -9042,7 +9042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:763](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L763)
+[manifest/generator/SitecoreIcon.ts:763](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L763)
 
 ___
 
@@ -9052,7 +9052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:764](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L764)
+[manifest/generator/SitecoreIcon.ts:764](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L764)
 
 ___
 
@@ -9062,7 +9062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:765](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L765)
+[manifest/generator/SitecoreIcon.ts:765](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L765)
 
 ___
 
@@ -9072,7 +9072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:766](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L766)
+[manifest/generator/SitecoreIcon.ts:766](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L766)
 
 ___
 
@@ -9082,7 +9082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:767](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L767)
+[manifest/generator/SitecoreIcon.ts:767](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L767)
 
 ___
 
@@ -9092,7 +9092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:768](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L768)
+[manifest/generator/SitecoreIcon.ts:768](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L768)
 
 ___
 
@@ -9102,7 +9102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:769](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L769)
+[manifest/generator/SitecoreIcon.ts:769](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L769)
 
 ___
 
@@ -9112,7 +9112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:770](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L770)
+[manifest/generator/SitecoreIcon.ts:770](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L770)
 
 ___
 
@@ -9122,7 +9122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:771](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L771)
+[manifest/generator/SitecoreIcon.ts:771](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L771)
 
 ___
 
@@ -9132,7 +9132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:772](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L772)
+[manifest/generator/SitecoreIcon.ts:772](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L772)
 
 ___
 
@@ -9142,7 +9142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:773](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L773)
+[manifest/generator/SitecoreIcon.ts:773](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L773)
 
 ___
 
@@ -9152,7 +9152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:774](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L774)
+[manifest/generator/SitecoreIcon.ts:774](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L774)
 
 ___
 
@@ -9162,7 +9162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:775](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L775)
+[manifest/generator/SitecoreIcon.ts:775](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L775)
 
 ___
 
@@ -9172,7 +9172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:776](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L776)
+[manifest/generator/SitecoreIcon.ts:776](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L776)
 
 ___
 
@@ -9182,7 +9182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:777](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L777)
+[manifest/generator/SitecoreIcon.ts:777](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L777)
 
 ___
 
@@ -9192,7 +9192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:778](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L778)
+[manifest/generator/SitecoreIcon.ts:778](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L778)
 
 ___
 
@@ -9202,7 +9202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:779](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L779)
+[manifest/generator/SitecoreIcon.ts:779](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L779)
 
 ___
 
@@ -9212,7 +9212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:780](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L780)
+[manifest/generator/SitecoreIcon.ts:780](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L780)
 
 ___
 
@@ -9222,7 +9222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:781](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L781)
+[manifest/generator/SitecoreIcon.ts:781](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L781)
 
 ___
 
@@ -9232,7 +9232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:782](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L782)
+[manifest/generator/SitecoreIcon.ts:782](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L782)
 
 ___
 
@@ -9242,7 +9242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:783](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L783)
+[manifest/generator/SitecoreIcon.ts:783](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L783)
 
 ___
 
@@ -9252,7 +9252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:784](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L784)
+[manifest/generator/SitecoreIcon.ts:784](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L784)
 
 ___
 
@@ -9262,7 +9262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:785](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L785)
+[manifest/generator/SitecoreIcon.ts:785](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L785)
 
 ___
 
@@ -9272,7 +9272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:786](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L786)
+[manifest/generator/SitecoreIcon.ts:786](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L786)
 
 ___
 
@@ -9282,7 +9282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:787](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L787)
+[manifest/generator/SitecoreIcon.ts:787](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L787)
 
 ___
 
@@ -9292,7 +9292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:788](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L788)
+[manifest/generator/SitecoreIcon.ts:788](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L788)
 
 ___
 
@@ -9302,7 +9302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:789](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L789)
+[manifest/generator/SitecoreIcon.ts:789](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L789)
 
 ___
 
@@ -9312,7 +9312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:790](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L790)
+[manifest/generator/SitecoreIcon.ts:790](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L790)
 
 ___
 
@@ -9322,7 +9322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:791](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L791)
+[manifest/generator/SitecoreIcon.ts:791](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L791)
 
 ___
 
@@ -9332,7 +9332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:792](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L792)
+[manifest/generator/SitecoreIcon.ts:792](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L792)
 
 ___
 
@@ -9342,7 +9342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:793](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L793)
+[manifest/generator/SitecoreIcon.ts:793](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L793)
 
 ___
 
@@ -9352,7 +9352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:794](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L794)
+[manifest/generator/SitecoreIcon.ts:794](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L794)
 
 ___
 
@@ -9362,7 +9362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:795](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L795)
+[manifest/generator/SitecoreIcon.ts:795](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L795)
 
 ___
 
@@ -9372,7 +9372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:796](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L796)
+[manifest/generator/SitecoreIcon.ts:796](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L796)
 
 ___
 
@@ -9382,7 +9382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:797](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L797)
+[manifest/generator/SitecoreIcon.ts:797](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L797)
 
 ___
 
@@ -9392,7 +9392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:798](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L798)
+[manifest/generator/SitecoreIcon.ts:798](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L798)
 
 ___
 
@@ -9402,7 +9402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:799](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L799)
+[manifest/generator/SitecoreIcon.ts:799](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L799)
 
 ___
 
@@ -9412,7 +9412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:800](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L800)
+[manifest/generator/SitecoreIcon.ts:800](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L800)
 
 ___
 
@@ -9422,7 +9422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:806](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L806)
+[manifest/generator/SitecoreIcon.ts:806](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L806)
 
 ___
 
@@ -9432,7 +9432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:807](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L807)
+[manifest/generator/SitecoreIcon.ts:807](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L807)
 
 ___
 
@@ -9442,7 +9442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:805](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L805)
+[manifest/generator/SitecoreIcon.ts:805](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L805)
 
 ___
 
@@ -9452,7 +9452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:808](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L808)
+[manifest/generator/SitecoreIcon.ts:808](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L808)
 
 ___
 
@@ -9462,7 +9462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:809](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L809)
+[manifest/generator/SitecoreIcon.ts:809](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L809)
 
 ___
 
@@ -9472,7 +9472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:810](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L810)
+[manifest/generator/SitecoreIcon.ts:810](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L810)
 
 ___
 
@@ -9482,7 +9482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:811](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L811)
+[manifest/generator/SitecoreIcon.ts:811](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L811)
 
 ___
 
@@ -9492,7 +9492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:812](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L812)
+[manifest/generator/SitecoreIcon.ts:812](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L812)
 
 ___
 
@@ -9502,7 +9502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:813](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L813)
+[manifest/generator/SitecoreIcon.ts:813](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L813)
 
 ___
 
@@ -9512,7 +9512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:801](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L801)
+[manifest/generator/SitecoreIcon.ts:801](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L801)
 
 ___
 
@@ -9522,7 +9522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:802](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L802)
+[manifest/generator/SitecoreIcon.ts:802](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L802)
 
 ___
 
@@ -9532,7 +9532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:803](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L803)
+[manifest/generator/SitecoreIcon.ts:803](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L803)
 
 ___
 
@@ -9542,7 +9542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:804](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L804)
+[manifest/generator/SitecoreIcon.ts:804](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L804)
 
 ___
 
@@ -9552,7 +9552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:814](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L814)
+[manifest/generator/SitecoreIcon.ts:814](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L814)
 
 ___
 
@@ -9562,7 +9562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:815](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L815)
+[manifest/generator/SitecoreIcon.ts:815](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L815)
 
 ___
 
@@ -9572,7 +9572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:816](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L816)
+[manifest/generator/SitecoreIcon.ts:816](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L816)
 
 ___
 
@@ -9582,7 +9582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:817](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L817)
+[manifest/generator/SitecoreIcon.ts:817](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L817)
 
 ___
 
@@ -9592,7 +9592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:818](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L818)
+[manifest/generator/SitecoreIcon.ts:818](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L818)
 
 ___
 
@@ -9602,7 +9602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:819](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L819)
+[manifest/generator/SitecoreIcon.ts:819](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L819)
 
 ___
 
@@ -9612,7 +9612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:820](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L820)
+[manifest/generator/SitecoreIcon.ts:820](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L820)
 
 ___
 
@@ -9622,7 +9622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:821](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L821)
+[manifest/generator/SitecoreIcon.ts:821](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L821)
 
 ___
 
@@ -9632,7 +9632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:822](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L822)
+[manifest/generator/SitecoreIcon.ts:822](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L822)
 
 ___
 
@@ -9642,7 +9642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:823](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L823)
+[manifest/generator/SitecoreIcon.ts:823](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L823)
 
 ___
 
@@ -9652,7 +9652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:826](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L826)
+[manifest/generator/SitecoreIcon.ts:826](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L826)
 
 ___
 
@@ -9662,7 +9662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:824](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L824)
+[manifest/generator/SitecoreIcon.ts:824](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L824)
 
 ___
 
@@ -9672,7 +9672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:825](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L825)
+[manifest/generator/SitecoreIcon.ts:825](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L825)
 
 ___
 
@@ -9682,7 +9682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:827](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L827)
+[manifest/generator/SitecoreIcon.ts:827](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L827)
 
 ___
 
@@ -9692,7 +9692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:828](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L828)
+[manifest/generator/SitecoreIcon.ts:828](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L828)
 
 ___
 
@@ -9702,7 +9702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:829](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L829)
+[manifest/generator/SitecoreIcon.ts:829](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L829)
 
 ___
 
@@ -9712,7 +9712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:830](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L830)
+[manifest/generator/SitecoreIcon.ts:830](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L830)
 
 ___
 
@@ -9722,7 +9722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:831](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L831)
+[manifest/generator/SitecoreIcon.ts:831](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L831)
 
 ___
 
@@ -9732,7 +9732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:832](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L832)
+[manifest/generator/SitecoreIcon.ts:832](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L832)
 
 ___
 
@@ -9742,7 +9742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:833](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L833)
+[manifest/generator/SitecoreIcon.ts:833](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L833)
 
 ___
 
@@ -9752,7 +9752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:834](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L834)
+[manifest/generator/SitecoreIcon.ts:834](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L834)
 
 ___
 
@@ -9762,7 +9762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:835](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L835)
+[manifest/generator/SitecoreIcon.ts:835](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L835)
 
 ___
 
@@ -9772,7 +9772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:837](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L837)
+[manifest/generator/SitecoreIcon.ts:837](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L837)
 
 ___
 
@@ -9782,7 +9782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:836](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L836)
+[manifest/generator/SitecoreIcon.ts:836](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L836)
 
 ___
 
@@ -9792,7 +9792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:838](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L838)
+[manifest/generator/SitecoreIcon.ts:838](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L838)
 
 ___
 
@@ -9802,7 +9802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:839](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L839)
+[manifest/generator/SitecoreIcon.ts:839](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L839)
 
 ___
 
@@ -9812,7 +9812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:840](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L840)
+[manifest/generator/SitecoreIcon.ts:840](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L840)
 
 ___
 
@@ -9822,7 +9822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:841](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L841)
+[manifest/generator/SitecoreIcon.ts:841](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L841)
 
 ___
 
@@ -9832,7 +9832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:842](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L842)
+[manifest/generator/SitecoreIcon.ts:842](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L842)
 
 ___
 
@@ -9842,7 +9842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:843](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L843)
+[manifest/generator/SitecoreIcon.ts:843](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L843)
 
 ___
 
@@ -9852,7 +9852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:862](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L862)
+[manifest/generator/SitecoreIcon.ts:862](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L862)
 
 ___
 
@@ -9862,7 +9862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:863](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L863)
+[manifest/generator/SitecoreIcon.ts:863](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L863)
 
 ___
 
@@ -9872,7 +9872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:864](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L864)
+[manifest/generator/SitecoreIcon.ts:864](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L864)
 
 ___
 
@@ -9882,7 +9882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:865](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L865)
+[manifest/generator/SitecoreIcon.ts:865](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L865)
 
 ___
 
@@ -9892,7 +9892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:866](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L866)
+[manifest/generator/SitecoreIcon.ts:866](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L866)
 
 ___
 
@@ -9902,7 +9902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:867](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L867)
+[manifest/generator/SitecoreIcon.ts:867](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L867)
 
 ___
 
@@ -9912,7 +9912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:868](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L868)
+[manifest/generator/SitecoreIcon.ts:868](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L868)
 
 ___
 
@@ -9922,7 +9922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:869](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L869)
+[manifest/generator/SitecoreIcon.ts:869](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L869)
 
 ___
 
@@ -9932,7 +9932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:870](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L870)
+[manifest/generator/SitecoreIcon.ts:870](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L870)
 
 ___
 
@@ -9942,7 +9942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:871](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L871)
+[manifest/generator/SitecoreIcon.ts:871](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L871)
 
 ___
 
@@ -9952,7 +9952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:872](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L872)
+[manifest/generator/SitecoreIcon.ts:872](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L872)
 
 ___
 
@@ -9962,7 +9962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:873](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L873)
+[manifest/generator/SitecoreIcon.ts:873](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L873)
 
 ___
 
@@ -9972,7 +9972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:844](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L844)
+[manifest/generator/SitecoreIcon.ts:844](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L844)
 
 ___
 
@@ -9982,7 +9982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:845](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L845)
+[manifest/generator/SitecoreIcon.ts:845](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L845)
 
 ___
 
@@ -9992,7 +9992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:846](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L846)
+[manifest/generator/SitecoreIcon.ts:846](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L846)
 
 ___
 
@@ -10002,7 +10002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:847](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L847)
+[manifest/generator/SitecoreIcon.ts:847](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L847)
 
 ___
 
@@ -10012,7 +10012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:848](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L848)
+[manifest/generator/SitecoreIcon.ts:848](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L848)
 
 ___
 
@@ -10022,7 +10022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:849](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L849)
+[manifest/generator/SitecoreIcon.ts:849](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L849)
 
 ___
 
@@ -10032,7 +10032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:850](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L850)
+[manifest/generator/SitecoreIcon.ts:850](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L850)
 
 ___
 
@@ -10042,7 +10042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:851](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L851)
+[manifest/generator/SitecoreIcon.ts:851](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L851)
 
 ___
 
@@ -10052,7 +10052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:852](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L852)
+[manifest/generator/SitecoreIcon.ts:852](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L852)
 
 ___
 
@@ -10062,7 +10062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:853](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L853)
+[manifest/generator/SitecoreIcon.ts:853](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L853)
 
 ___
 
@@ -10072,7 +10072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:854](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L854)
+[manifest/generator/SitecoreIcon.ts:854](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L854)
 
 ___
 
@@ -10082,7 +10082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:855](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L855)
+[manifest/generator/SitecoreIcon.ts:855](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L855)
 
 ___
 
@@ -10092,7 +10092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:856](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L856)
+[manifest/generator/SitecoreIcon.ts:856](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L856)
 
 ___
 
@@ -10102,7 +10102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:857](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L857)
+[manifest/generator/SitecoreIcon.ts:857](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L857)
 
 ___
 
@@ -10112,7 +10112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:858](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L858)
+[manifest/generator/SitecoreIcon.ts:858](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L858)
 
 ___
 
@@ -10122,7 +10122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:859](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L859)
+[manifest/generator/SitecoreIcon.ts:859](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L859)
 
 ___
 
@@ -10132,7 +10132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:860](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L860)
+[manifest/generator/SitecoreIcon.ts:860](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L860)
 
 ___
 
@@ -10142,7 +10142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:861](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L861)
+[manifest/generator/SitecoreIcon.ts:861](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L861)
 
 ___
 
@@ -10152,7 +10152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:874](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L874)
+[manifest/generator/SitecoreIcon.ts:874](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L874)
 
 ___
 
@@ -10162,7 +10162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:875](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L875)
+[manifest/generator/SitecoreIcon.ts:875](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L875)
 
 ___
 
@@ -10172,7 +10172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:878](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L878)
+[manifest/generator/SitecoreIcon.ts:878](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L878)
 
 ___
 
@@ -10182,7 +10182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:876](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L876)
+[manifest/generator/SitecoreIcon.ts:876](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L876)
 
 ___
 
@@ -10192,7 +10192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:877](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L877)
+[manifest/generator/SitecoreIcon.ts:877](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L877)
 
 ___
 
@@ -10202,7 +10202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:879](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L879)
+[manifest/generator/SitecoreIcon.ts:879](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L879)
 
 ___
 
@@ -10212,7 +10212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:880](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L880)
+[manifest/generator/SitecoreIcon.ts:880](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L880)
 
 ___
 
@@ -10222,7 +10222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:884](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L884)
+[manifest/generator/SitecoreIcon.ts:884](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L884)
 
 ___
 
@@ -10232,7 +10232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:885](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L885)
+[manifest/generator/SitecoreIcon.ts:885](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L885)
 
 ___
 
@@ -10242,7 +10242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:886](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L886)
+[manifest/generator/SitecoreIcon.ts:886](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L886)
 
 ___
 
@@ -10252,7 +10252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:881](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L881)
+[manifest/generator/SitecoreIcon.ts:881](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L881)
 
 ___
 
@@ -10262,7 +10262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:882](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L882)
+[manifest/generator/SitecoreIcon.ts:882](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L882)
 
 ___
 
@@ -10272,7 +10272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:883](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L883)
+[manifest/generator/SitecoreIcon.ts:883](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L883)
 
 ___
 
@@ -10282,7 +10282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:887](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L887)
+[manifest/generator/SitecoreIcon.ts:887](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L887)
 
 ___
 
@@ -10292,7 +10292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:888](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L888)
+[manifest/generator/SitecoreIcon.ts:888](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L888)
 
 ___
 
@@ -10302,7 +10302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:896](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L896)
+[manifest/generator/SitecoreIcon.ts:896](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L896)
 
 ___
 
@@ -10312,7 +10312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:897](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L897)
+[manifest/generator/SitecoreIcon.ts:897](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L897)
 
 ___
 
@@ -10322,7 +10322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:898](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L898)
+[manifest/generator/SitecoreIcon.ts:898](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L898)
 
 ___
 
@@ -10332,7 +10332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:899](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L899)
+[manifest/generator/SitecoreIcon.ts:899](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L899)
 
 ___
 
@@ -10342,7 +10342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:900](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L900)
+[manifest/generator/SitecoreIcon.ts:900](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L900)
 
 ___
 
@@ -10352,7 +10352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:901](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L901)
+[manifest/generator/SitecoreIcon.ts:901](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L901)
 
 ___
 
@@ -10362,7 +10362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:902](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L902)
+[manifest/generator/SitecoreIcon.ts:902](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L902)
 
 ___
 
@@ -10372,7 +10372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:903](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L903)
+[manifest/generator/SitecoreIcon.ts:903](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L903)
 
 ___
 
@@ -10382,7 +10382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:904](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L904)
+[manifest/generator/SitecoreIcon.ts:904](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L904)
 
 ___
 
@@ -10392,7 +10392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:905](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L905)
+[manifest/generator/SitecoreIcon.ts:905](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L905)
 
 ___
 
@@ -10402,7 +10402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:906](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L906)
+[manifest/generator/SitecoreIcon.ts:906](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L906)
 
 ___
 
@@ -10412,7 +10412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:889](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L889)
+[manifest/generator/SitecoreIcon.ts:889](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L889)
 
 ___
 
@@ -10422,7 +10422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:890](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L890)
+[manifest/generator/SitecoreIcon.ts:890](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L890)
 
 ___
 
@@ -10432,7 +10432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:891](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L891)
+[manifest/generator/SitecoreIcon.ts:891](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L891)
 
 ___
 
@@ -10442,7 +10442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:892](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L892)
+[manifest/generator/SitecoreIcon.ts:892](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L892)
 
 ___
 
@@ -10452,7 +10452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:893](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L893)
+[manifest/generator/SitecoreIcon.ts:893](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L893)
 
 ___
 
@@ -10462,7 +10462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:894](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L894)
+[manifest/generator/SitecoreIcon.ts:894](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L894)
 
 ___
 
@@ -10472,7 +10472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:895](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L895)
+[manifest/generator/SitecoreIcon.ts:895](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L895)
 
 ___
 
@@ -10482,7 +10482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:907](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L907)
+[manifest/generator/SitecoreIcon.ts:907](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L907)
 
 ___
 
@@ -10492,7 +10492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:908](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L908)
+[manifest/generator/SitecoreIcon.ts:908](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L908)
 
 ___
 
@@ -10502,7 +10502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:909](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L909)
+[manifest/generator/SitecoreIcon.ts:909](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L909)
 
 ___
 
@@ -10512,7 +10512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:910](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L910)
+[manifest/generator/SitecoreIcon.ts:910](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L910)
 
 ___
 
@@ -10522,7 +10522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:911](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L911)
+[manifest/generator/SitecoreIcon.ts:911](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L911)
 
 ___
 
@@ -10532,7 +10532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:912](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L912)
+[manifest/generator/SitecoreIcon.ts:912](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L912)
 
 ___
 
@@ -10542,7 +10542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:913](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L913)
+[manifest/generator/SitecoreIcon.ts:913](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L913)
 
 ___
 
@@ -10552,7 +10552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:914](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L914)
+[manifest/generator/SitecoreIcon.ts:914](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L914)
 
 ___
 
@@ -10562,7 +10562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:921](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L921)
+[manifest/generator/SitecoreIcon.ts:921](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L921)
 
 ___
 
@@ -10572,7 +10572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:922](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L922)
+[manifest/generator/SitecoreIcon.ts:922](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L922)
 
 ___
 
@@ -10582,7 +10582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:923](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L923)
+[manifest/generator/SitecoreIcon.ts:923](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L923)
 
 ___
 
@@ -10592,7 +10592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:915](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L915)
+[manifest/generator/SitecoreIcon.ts:915](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L915)
 
 ___
 
@@ -10602,7 +10602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:916](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L916)
+[manifest/generator/SitecoreIcon.ts:916](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L916)
 
 ___
 
@@ -10612,7 +10612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:917](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L917)
+[manifest/generator/SitecoreIcon.ts:917](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L917)
 
 ___
 
@@ -10622,7 +10622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:918](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L918)
+[manifest/generator/SitecoreIcon.ts:918](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L918)
 
 ___
 
@@ -10632,7 +10632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:919](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L919)
+[manifest/generator/SitecoreIcon.ts:919](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L919)
 
 ___
 
@@ -10642,7 +10642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:920](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L920)
+[manifest/generator/SitecoreIcon.ts:920](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L920)
 
 ___
 
@@ -10652,7 +10652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:926](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L926)
+[manifest/generator/SitecoreIcon.ts:926](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L926)
 
 ___
 
@@ -10662,7 +10662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:924](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L924)
+[manifest/generator/SitecoreIcon.ts:924](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L924)
 
 ___
 
@@ -10672,7 +10672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:925](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L925)
+[manifest/generator/SitecoreIcon.ts:925](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L925)
 
 ___
 
@@ -10682,7 +10682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:927](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L927)
+[manifest/generator/SitecoreIcon.ts:927](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L927)
 
 ___
 
@@ -10692,7 +10692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:928](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L928)
+[manifest/generator/SitecoreIcon.ts:928](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L928)
 
 ___
 
@@ -10702,7 +10702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:929](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L929)
+[manifest/generator/SitecoreIcon.ts:929](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L929)
 
 ___
 
@@ -10712,7 +10712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:930](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L930)
+[manifest/generator/SitecoreIcon.ts:930](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L930)
 
 ___
 
@@ -10722,7 +10722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:931](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L931)
+[manifest/generator/SitecoreIcon.ts:931](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L931)
 
 ___
 
@@ -10732,7 +10732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:932](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L932)
+[manifest/generator/SitecoreIcon.ts:932](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L932)
 
 ___
 
@@ -10742,7 +10742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:933](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L933)
+[manifest/generator/SitecoreIcon.ts:933](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L933)
 
 ___
 
@@ -10752,7 +10752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:934](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L934)
+[manifest/generator/SitecoreIcon.ts:934](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L934)
 
 ___
 
@@ -10762,7 +10762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:935](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L935)
+[manifest/generator/SitecoreIcon.ts:935](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L935)
 
 ___
 
@@ -10772,7 +10772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:936](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L936)
+[manifest/generator/SitecoreIcon.ts:936](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L936)
 
 ___
 
@@ -10782,7 +10782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:937](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L937)
+[manifest/generator/SitecoreIcon.ts:937](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L937)
 
 ___
 
@@ -10792,7 +10792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:938](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L938)
+[manifest/generator/SitecoreIcon.ts:938](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L938)
 
 ___
 
@@ -10802,7 +10802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:939](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L939)
+[manifest/generator/SitecoreIcon.ts:939](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L939)
 
 ___
 
@@ -10812,7 +10812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:940](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L940)
+[manifest/generator/SitecoreIcon.ts:940](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L940)
 
 ___
 
@@ -10822,7 +10822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:941](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L941)
+[manifest/generator/SitecoreIcon.ts:941](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L941)
 
 ___
 
@@ -10832,7 +10832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:942](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L942)
+[manifest/generator/SitecoreIcon.ts:942](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L942)
 
 ___
 
@@ -10842,7 +10842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:943](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L943)
+[manifest/generator/SitecoreIcon.ts:943](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L943)
 
 ___
 
@@ -10852,7 +10852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:944](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L944)
+[manifest/generator/SitecoreIcon.ts:944](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L944)
 
 ___
 
@@ -10862,7 +10862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:945](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L945)
+[manifest/generator/SitecoreIcon.ts:945](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L945)
 
 ___
 
@@ -10872,7 +10872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:946](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L946)
+[manifest/generator/SitecoreIcon.ts:946](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L946)
 
 ___
 
@@ -10882,7 +10882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:947](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L947)
+[manifest/generator/SitecoreIcon.ts:947](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L947)
 
 ___
 
@@ -10892,7 +10892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:948](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L948)
+[manifest/generator/SitecoreIcon.ts:948](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L948)
 
 ___
 
@@ -10902,7 +10902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:949](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L949)
+[manifest/generator/SitecoreIcon.ts:949](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L949)
 
 ___
 
@@ -10912,7 +10912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:950](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L950)
+[manifest/generator/SitecoreIcon.ts:950](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L950)
 
 ___
 
@@ -10922,7 +10922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:951](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L951)
+[manifest/generator/SitecoreIcon.ts:951](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L951)
 
 ___
 
@@ -10932,7 +10932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:952](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L952)
+[manifest/generator/SitecoreIcon.ts:952](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L952)
 
 ___
 
@@ -10942,7 +10942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:953](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L953)
+[manifest/generator/SitecoreIcon.ts:953](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L953)
 
 ___
 
@@ -10952,7 +10952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:954](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L954)
+[manifest/generator/SitecoreIcon.ts:954](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L954)
 
 ___
 
@@ -10962,7 +10962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:955](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L955)
+[manifest/generator/SitecoreIcon.ts:955](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L955)
 
 ___
 
@@ -10972,7 +10972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:956](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L956)
+[manifest/generator/SitecoreIcon.ts:956](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L956)
 
 ___
 
@@ -10982,7 +10982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:957](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L957)
+[manifest/generator/SitecoreIcon.ts:957](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L957)
 
 ___
 
@@ -10992,7 +10992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:958](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L958)
+[manifest/generator/SitecoreIcon.ts:958](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L958)
 
 ___
 
@@ -11002,7 +11002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:959](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L959)
+[manifest/generator/SitecoreIcon.ts:959](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L959)
 
 ___
 
@@ -11012,7 +11012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:960](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L960)
+[manifest/generator/SitecoreIcon.ts:960](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L960)
 
 ___
 
@@ -11022,7 +11022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:962](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L962)
+[manifest/generator/SitecoreIcon.ts:962](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L962)
 
 ___
 
@@ -11032,7 +11032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:963](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L963)
+[manifest/generator/SitecoreIcon.ts:963](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L963)
 
 ___
 
@@ -11042,7 +11042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:964](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L964)
+[manifest/generator/SitecoreIcon.ts:964](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L964)
 
 ___
 
@@ -11052,7 +11052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:965](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L965)
+[manifest/generator/SitecoreIcon.ts:965](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L965)
 
 ___
 
@@ -11062,7 +11062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:961](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L961)
+[manifest/generator/SitecoreIcon.ts:961](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L961)
 
 ___
 
@@ -11072,7 +11072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:966](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L966)
+[manifest/generator/SitecoreIcon.ts:966](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L966)
 
 ___
 
@@ -11082,7 +11082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:967](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L967)
+[manifest/generator/SitecoreIcon.ts:967](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L967)
 
 ___
 
@@ -11092,7 +11092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:968](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L968)
+[manifest/generator/SitecoreIcon.ts:968](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L968)
 
 ___
 
@@ -11102,7 +11102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:969](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L969)
+[manifest/generator/SitecoreIcon.ts:969](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L969)
 
 ___
 
@@ -11112,7 +11112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:970](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L970)
+[manifest/generator/SitecoreIcon.ts:970](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L970)
 
 ___
 
@@ -11122,7 +11122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:971](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L971)
+[manifest/generator/SitecoreIcon.ts:971](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L971)
 
 ___
 
@@ -11132,7 +11132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:972](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L972)
+[manifest/generator/SitecoreIcon.ts:972](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L972)
 
 ___
 
@@ -11142,7 +11142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:973](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L973)
+[manifest/generator/SitecoreIcon.ts:973](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L973)
 
 ___
 
@@ -11152,7 +11152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:974](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L974)
+[manifest/generator/SitecoreIcon.ts:974](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L974)
 
 ___
 
@@ -11162,7 +11162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:975](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L975)
+[manifest/generator/SitecoreIcon.ts:975](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L975)
 
 ___
 
@@ -11172,7 +11172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:976](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L976)
+[manifest/generator/SitecoreIcon.ts:976](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L976)
 
 ___
 
@@ -11182,7 +11182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:977](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L977)
+[manifest/generator/SitecoreIcon.ts:977](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L977)
 
 ___
 
@@ -11192,7 +11192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:978](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L978)
+[manifest/generator/SitecoreIcon.ts:978](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L978)
 
 ___
 
@@ -11202,7 +11202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:979](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L979)
+[manifest/generator/SitecoreIcon.ts:979](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L979)
 
 ___
 
@@ -11212,7 +11212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:980](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L980)
+[manifest/generator/SitecoreIcon.ts:980](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L980)
 
 ___
 
@@ -11222,7 +11222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:981](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L981)
+[manifest/generator/SitecoreIcon.ts:981](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L981)
 
 ___
 
@@ -11232,7 +11232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:982](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L982)
+[manifest/generator/SitecoreIcon.ts:982](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L982)
 
 ___
 
@@ -11242,7 +11242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:983](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L983)
+[manifest/generator/SitecoreIcon.ts:983](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L983)
 
 ___
 
@@ -11252,7 +11252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:984](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L984)
+[manifest/generator/SitecoreIcon.ts:984](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L984)
 
 ___
 
@@ -11262,7 +11262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:987](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L987)
+[manifest/generator/SitecoreIcon.ts:987](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L987)
 
 ___
 
@@ -11272,7 +11272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:985](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L985)
+[manifest/generator/SitecoreIcon.ts:985](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L985)
 
 ___
 
@@ -11282,7 +11282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:986](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L986)
+[manifest/generator/SitecoreIcon.ts:986](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L986)
 
 ___
 
@@ -11292,7 +11292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:988](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L988)
+[manifest/generator/SitecoreIcon.ts:988](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L988)
 
 ___
 
@@ -11302,7 +11302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:989](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L989)
+[manifest/generator/SitecoreIcon.ts:989](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L989)
 
 ___
 
@@ -11312,7 +11312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:990](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L990)
+[manifest/generator/SitecoreIcon.ts:990](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L990)
 
 ___
 
@@ -11322,7 +11322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:991](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L991)
+[manifest/generator/SitecoreIcon.ts:991](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L991)
 
 ___
 
@@ -11332,7 +11332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:995](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L995)
+[manifest/generator/SitecoreIcon.ts:995](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L995)
 
 ___
 
@@ -11342,7 +11342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:992](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L992)
+[manifest/generator/SitecoreIcon.ts:992](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L992)
 
 ___
 
@@ -11352,7 +11352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:993](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L993)
+[manifest/generator/SitecoreIcon.ts:993](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L993)
 
 ___
 
@@ -11362,7 +11362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:994](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L994)
+[manifest/generator/SitecoreIcon.ts:994](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L994)
 
 ___
 
@@ -11372,7 +11372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:996](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L996)
+[manifest/generator/SitecoreIcon.ts:996](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L996)
 
 ___
 
@@ -11382,7 +11382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:997](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L997)
+[manifest/generator/SitecoreIcon.ts:997](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L997)
 
 ___
 
@@ -11392,7 +11392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:998](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L998)
+[manifest/generator/SitecoreIcon.ts:998](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L998)
 
 ___
 
@@ -11402,7 +11402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:999](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L999)
+[manifest/generator/SitecoreIcon.ts:999](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L999)
 
 ___
 
@@ -11412,7 +11412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1000](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1000)
+[manifest/generator/SitecoreIcon.ts:1000](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1000)
 
 ___
 
@@ -11422,7 +11422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1001](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1001)
+[manifest/generator/SitecoreIcon.ts:1001](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1001)
 
 ___
 
@@ -11432,7 +11432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1002](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1002)
+[manifest/generator/SitecoreIcon.ts:1002](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1002)
 
 ___
 
@@ -11442,7 +11442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1003](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1003)
+[manifest/generator/SitecoreIcon.ts:1003](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1003)
 
 ___
 
@@ -11452,7 +11452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1005](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1005)
+[manifest/generator/SitecoreIcon.ts:1005](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1005)
 
 ___
 
@@ -11462,7 +11462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1004](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1004)
+[manifest/generator/SitecoreIcon.ts:1004](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1004)
 
 ___
 
@@ -11472,7 +11472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1006](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1006)
+[manifest/generator/SitecoreIcon.ts:1006](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1006)
 
 ___
 
@@ -11482,7 +11482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1007](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1007)
+[manifest/generator/SitecoreIcon.ts:1007](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1007)
 
 ___
 
@@ -11492,7 +11492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1008](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1008)
+[manifest/generator/SitecoreIcon.ts:1008](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1008)
 
 ___
 
@@ -11502,7 +11502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1009](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1009)
+[manifest/generator/SitecoreIcon.ts:1009](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1009)
 
 ___
 
@@ -11512,7 +11512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1010](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1010)
+[manifest/generator/SitecoreIcon.ts:1010](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1010)
 
 ___
 
@@ -11522,7 +11522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1011](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1011)
+[manifest/generator/SitecoreIcon.ts:1011](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1011)
 
 ___
 
@@ -11532,7 +11532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1012](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1012)
+[manifest/generator/SitecoreIcon.ts:1012](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1012)
 
 ___
 
@@ -11542,7 +11542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1013](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1013)
+[manifest/generator/SitecoreIcon.ts:1013](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1013)
 
 ___
 
@@ -11552,7 +11552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1014](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1014)
+[manifest/generator/SitecoreIcon.ts:1014](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1014)
 
 ___
 
@@ -11562,7 +11562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1015](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1015)
+[manifest/generator/SitecoreIcon.ts:1015](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1015)
 
 ___
 
@@ -11572,7 +11572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1016](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1016)
+[manifest/generator/SitecoreIcon.ts:1016](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1016)
 
 ___
 
@@ -11582,7 +11582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1017](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1017)
+[manifest/generator/SitecoreIcon.ts:1017](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1017)
 
 ___
 
@@ -11592,7 +11592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1018](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1018)
+[manifest/generator/SitecoreIcon.ts:1018](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1018)
 
 ___
 
@@ -11602,7 +11602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1019](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1019)
+[manifest/generator/SitecoreIcon.ts:1019](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1019)
 
 ___
 
@@ -11612,7 +11612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1020](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1020)
+[manifest/generator/SitecoreIcon.ts:1020](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1020)
 
 ___
 
@@ -11622,7 +11622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1021](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1021)
+[manifest/generator/SitecoreIcon.ts:1021](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1021)
 
 ___
 
@@ -11632,7 +11632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1022](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1022)
+[manifest/generator/SitecoreIcon.ts:1022](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1022)
 
 ___
 
@@ -11642,7 +11642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1023](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1023)
+[manifest/generator/SitecoreIcon.ts:1023](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1023)
 
 ___
 
@@ -11652,7 +11652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1024](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1024)
+[manifest/generator/SitecoreIcon.ts:1024](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1024)
 
 ___
 
@@ -11662,7 +11662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1025](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1025)
+[manifest/generator/SitecoreIcon.ts:1025](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1025)
 
 ___
 
@@ -11672,7 +11672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1026](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1026)
+[manifest/generator/SitecoreIcon.ts:1026](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1026)
 
 ___
 
@@ -11682,7 +11682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1027](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1027)
+[manifest/generator/SitecoreIcon.ts:1027](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1027)
 
 ___
 
@@ -11692,7 +11692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1028](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1028)
+[manifest/generator/SitecoreIcon.ts:1028](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1028)
 
 ___
 
@@ -11702,7 +11702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1029](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1029)
+[manifest/generator/SitecoreIcon.ts:1029](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1029)
 
 ___
 
@@ -11712,7 +11712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1030](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1030)
+[manifest/generator/SitecoreIcon.ts:1030](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1030)
 
 ___
 
@@ -11722,7 +11722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1031](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1031)
+[manifest/generator/SitecoreIcon.ts:1031](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1031)
 
 ___
 
@@ -11732,7 +11732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1032](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1032)
+[manifest/generator/SitecoreIcon.ts:1032](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1032)
 
 ___
 
@@ -11742,7 +11742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1033](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1033)
+[manifest/generator/SitecoreIcon.ts:1033](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1033)
 
 ___
 
@@ -11752,7 +11752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1034](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1034)
+[manifest/generator/SitecoreIcon.ts:1034](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1034)
 
 ___
 
@@ -11762,7 +11762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1035](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1035)
+[manifest/generator/SitecoreIcon.ts:1035](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1035)
 
 ___
 
@@ -11772,7 +11772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1036](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1036)
+[manifest/generator/SitecoreIcon.ts:1036](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1036)
 
 ___
 
@@ -11782,7 +11782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1037](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1037)
+[manifest/generator/SitecoreIcon.ts:1037](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1037)
 
 ___
 
@@ -11792,7 +11792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1038](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1038)
+[manifest/generator/SitecoreIcon.ts:1038](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1038)
 
 ___
 
@@ -11802,7 +11802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1039](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1039)
+[manifest/generator/SitecoreIcon.ts:1039](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1039)
 
 ___
 
@@ -11812,7 +11812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1040](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1040)
+[manifest/generator/SitecoreIcon.ts:1040](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1040)
 
 ___
 
@@ -11822,7 +11822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1041](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1041)
+[manifest/generator/SitecoreIcon.ts:1041](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1041)
 
 ___
 
@@ -11832,7 +11832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1042](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1042)
+[manifest/generator/SitecoreIcon.ts:1042](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1042)
 
 ___
 
@@ -11842,7 +11842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1043](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1043)
+[manifest/generator/SitecoreIcon.ts:1043](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1043)
 
 ___
 
@@ -11852,7 +11852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1044](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1044)
+[manifest/generator/SitecoreIcon.ts:1044](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1044)
 
 ___
 
@@ -11862,7 +11862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1045](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1045)
+[manifest/generator/SitecoreIcon.ts:1045](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1045)
 
 ___
 
@@ -11872,7 +11872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1046](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1046)
+[manifest/generator/SitecoreIcon.ts:1046](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1046)
 
 ___
 
@@ -11882,7 +11882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1047](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1047)
+[manifest/generator/SitecoreIcon.ts:1047](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1047)
 
 ___
 
@@ -11892,7 +11892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1048](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1048)
+[manifest/generator/SitecoreIcon.ts:1048](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1048)
 
 ___
 
@@ -11902,7 +11902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1049](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1049)
+[manifest/generator/SitecoreIcon.ts:1049](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1049)
 
 ___
 
@@ -11912,7 +11912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1050](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1050)
+[manifest/generator/SitecoreIcon.ts:1050](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1050)
 
 ___
 
@@ -11922,7 +11922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1051](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1051)
+[manifest/generator/SitecoreIcon.ts:1051](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1051)
 
 ___
 
@@ -11932,7 +11932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1054](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1054)
+[manifest/generator/SitecoreIcon.ts:1054](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1054)
 
 ___
 
@@ -11942,7 +11942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1055](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1055)
+[manifest/generator/SitecoreIcon.ts:1055](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1055)
 
 ___
 
@@ -11952,7 +11952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1056](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1056)
+[manifest/generator/SitecoreIcon.ts:1056](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1056)
 
 ___
 
@@ -11962,7 +11962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1057](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1057)
+[manifest/generator/SitecoreIcon.ts:1057](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1057)
 
 ___
 
@@ -11972,7 +11972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1052](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1052)
+[manifest/generator/SitecoreIcon.ts:1052](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1052)
 
 ___
 
@@ -11982,7 +11982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1053](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1053)
+[manifest/generator/SitecoreIcon.ts:1053](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1053)
 
 ___
 
@@ -11992,7 +11992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1058](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1058)
+[manifest/generator/SitecoreIcon.ts:1058](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1058)
 
 ___
 
@@ -12002,7 +12002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1059](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1059)
+[manifest/generator/SitecoreIcon.ts:1059](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1059)
 
 ___
 
@@ -12012,7 +12012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1060](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1060)
+[manifest/generator/SitecoreIcon.ts:1060](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1060)
 
 ___
 
@@ -12022,7 +12022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1061](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1061)
+[manifest/generator/SitecoreIcon.ts:1061](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1061)
 
 ___
 
@@ -12032,7 +12032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1062](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1062)
+[manifest/generator/SitecoreIcon.ts:1062](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1062)
 
 ___
 
@@ -12042,7 +12042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1063](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1063)
+[manifest/generator/SitecoreIcon.ts:1063](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1063)
 
 ___
 
@@ -12052,7 +12052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1064](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1064)
+[manifest/generator/SitecoreIcon.ts:1064](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1064)
 
 ___
 
@@ -12062,7 +12062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1065](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1065)
+[manifest/generator/SitecoreIcon.ts:1065](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1065)
 
 ___
 
@@ -12072,7 +12072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1066](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1066)
+[manifest/generator/SitecoreIcon.ts:1066](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1066)
 
 ___
 
@@ -12082,7 +12082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1067](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1067)
+[manifest/generator/SitecoreIcon.ts:1067](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1067)
 
 ___
 
@@ -12092,7 +12092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1068](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1068)
+[manifest/generator/SitecoreIcon.ts:1068](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1068)
 
 ___
 
@@ -12102,7 +12102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1069](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1069)
+[manifest/generator/SitecoreIcon.ts:1069](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1069)
 
 ___
 
@@ -12112,7 +12112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1070](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1070)
+[manifest/generator/SitecoreIcon.ts:1070](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1070)
 
 ___
 
@@ -12122,7 +12122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1071](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1071)
+[manifest/generator/SitecoreIcon.ts:1071](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1071)
 
 ___
 
@@ -12132,7 +12132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1072](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1072)
+[manifest/generator/SitecoreIcon.ts:1072](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1072)
 
 ___
 
@@ -12142,7 +12142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1073](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1073)
+[manifest/generator/SitecoreIcon.ts:1073](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1073)
 
 ___
 
@@ -12152,7 +12152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1074](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1074)
+[manifest/generator/SitecoreIcon.ts:1074](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1074)
 
 ___
 
@@ -12162,7 +12162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1075](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1075)
+[manifest/generator/SitecoreIcon.ts:1075](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1075)
 
 ___
 
@@ -12172,7 +12172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1076](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1076)
+[manifest/generator/SitecoreIcon.ts:1076](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1076)
 
 ___
 
@@ -12182,7 +12182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1077](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1077)
+[manifest/generator/SitecoreIcon.ts:1077](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1077)
 
 ___
 
@@ -12192,7 +12192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1078](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1078)
+[manifest/generator/SitecoreIcon.ts:1078](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1078)
 
 ___
 
@@ -12202,7 +12202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1079](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1079)
+[manifest/generator/SitecoreIcon.ts:1079](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1079)
 
 ___
 
@@ -12212,7 +12212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1080](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1080)
+[manifest/generator/SitecoreIcon.ts:1080](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1080)
 
 ___
 
@@ -12222,7 +12222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1081](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1081)
+[manifest/generator/SitecoreIcon.ts:1081](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1081)
 
 ___
 
@@ -12232,7 +12232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1082](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1082)
+[manifest/generator/SitecoreIcon.ts:1082](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1082)
 
 ___
 
@@ -12242,7 +12242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1083](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1083)
+[manifest/generator/SitecoreIcon.ts:1083](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1083)
 
 ___
 
@@ -12252,7 +12252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1084](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1084)
+[manifest/generator/SitecoreIcon.ts:1084](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1084)
 
 ___
 
@@ -12262,7 +12262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1085](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1085)
+[manifest/generator/SitecoreIcon.ts:1085](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1085)
 
 ___
 
@@ -12272,7 +12272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1086](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1086)
+[manifest/generator/SitecoreIcon.ts:1086](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1086)
 
 ___
 
@@ -12282,7 +12282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1087](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1087)
+[manifest/generator/SitecoreIcon.ts:1087](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1087)
 
 ___
 
@@ -12292,7 +12292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1088](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1088)
+[manifest/generator/SitecoreIcon.ts:1088](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1088)
 
 ___
 
@@ -12302,7 +12302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1089](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1089)
+[manifest/generator/SitecoreIcon.ts:1089](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1089)
 
 ___
 
@@ -12312,7 +12312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1090](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1090)
+[manifest/generator/SitecoreIcon.ts:1090](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1090)
 
 ___
 
@@ -12322,7 +12322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1091](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1091)
+[manifest/generator/SitecoreIcon.ts:1091](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1091)
 
 ___
 
@@ -12332,7 +12332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1092](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1092)
+[manifest/generator/SitecoreIcon.ts:1092](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1092)
 
 ___
 
@@ -12342,7 +12342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1093](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1093)
+[manifest/generator/SitecoreIcon.ts:1093](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1093)
 
 ___
 
@@ -12352,7 +12352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1094](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1094)
+[manifest/generator/SitecoreIcon.ts:1094](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1094)
 
 ___
 
@@ -12362,7 +12362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1095](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1095)
+[manifest/generator/SitecoreIcon.ts:1095](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1095)
 
 ___
 
@@ -12372,7 +12372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1096](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1096)
+[manifest/generator/SitecoreIcon.ts:1096](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1096)
 
 ___
 
@@ -12382,7 +12382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1097](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1097)
+[manifest/generator/SitecoreIcon.ts:1097](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1097)
 
 ___
 
@@ -12392,7 +12392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1098](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1098)
+[manifest/generator/SitecoreIcon.ts:1098](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1098)
 
 ___
 
@@ -12402,7 +12402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1099](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1099)
+[manifest/generator/SitecoreIcon.ts:1099](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1099)
 
 ___
 
@@ -12412,7 +12412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1100](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1100)
+[manifest/generator/SitecoreIcon.ts:1100](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1100)
 
 ___
 
@@ -12422,7 +12422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1101](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1101)
+[manifest/generator/SitecoreIcon.ts:1101](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1101)
 
 ___
 
@@ -12432,7 +12432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1102](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1102)
+[manifest/generator/SitecoreIcon.ts:1102](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1102)
 
 ___
 
@@ -12442,7 +12442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1103](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1103)
+[manifest/generator/SitecoreIcon.ts:1103](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1103)
 
 ___
 
@@ -12452,7 +12452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1104](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1104)
+[manifest/generator/SitecoreIcon.ts:1104](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1104)
 
 ___
 
@@ -12462,7 +12462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1105](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1105)
+[manifest/generator/SitecoreIcon.ts:1105](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1105)
 
 ___
 
@@ -12472,7 +12472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1106](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1106)
+[manifest/generator/SitecoreIcon.ts:1106](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1106)
 
 ___
 
@@ -12482,7 +12482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1108](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1108)
+[manifest/generator/SitecoreIcon.ts:1108](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1108)
 
 ___
 
@@ -12492,7 +12492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1109](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1109)
+[manifest/generator/SitecoreIcon.ts:1109](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1109)
 
 ___
 
@@ -12502,7 +12502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1110](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1110)
+[manifest/generator/SitecoreIcon.ts:1110](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1110)
 
 ___
 
@@ -12512,7 +12512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1111](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1111)
+[manifest/generator/SitecoreIcon.ts:1111](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1111)
 
 ___
 
@@ -12522,7 +12522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1112](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1112)
+[manifest/generator/SitecoreIcon.ts:1112](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1112)
 
 ___
 
@@ -12532,7 +12532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1113](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1113)
+[manifest/generator/SitecoreIcon.ts:1113](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1113)
 
 ___
 
@@ -12542,7 +12542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1114](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1114)
+[manifest/generator/SitecoreIcon.ts:1114](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1114)
 
 ___
 
@@ -12552,7 +12552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1115](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1115)
+[manifest/generator/SitecoreIcon.ts:1115](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1115)
 
 ___
 
@@ -12562,7 +12562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1116](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1116)
+[manifest/generator/SitecoreIcon.ts:1116](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1116)
 
 ___
 
@@ -12572,7 +12572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1107](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1107)
+[manifest/generator/SitecoreIcon.ts:1107](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1107)
 
 ___
 
@@ -12582,7 +12582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1117](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1117)
+[manifest/generator/SitecoreIcon.ts:1117](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1117)
 
 ___
 
@@ -12592,7 +12592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1118](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1118)
+[manifest/generator/SitecoreIcon.ts:1118](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1118)
 
 ___
 
@@ -12602,7 +12602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1119](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1119)
+[manifest/generator/SitecoreIcon.ts:1119](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1119)
 
 ___
 
@@ -12612,7 +12612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1120](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1120)
+[manifest/generator/SitecoreIcon.ts:1120](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1120)
 
 ___
 
@@ -12622,7 +12622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1121](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1121)
+[manifest/generator/SitecoreIcon.ts:1121](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1121)
 
 ___
 
@@ -12632,7 +12632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1122](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1122)
+[manifest/generator/SitecoreIcon.ts:1122](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1122)
 
 ___
 
@@ -12642,7 +12642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1123](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1123)
+[manifest/generator/SitecoreIcon.ts:1123](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1123)
 
 ___
 
@@ -12652,7 +12652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1124](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1124)
+[manifest/generator/SitecoreIcon.ts:1124](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1124)
 
 ___
 
@@ -12662,7 +12662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1125](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1125)
+[manifest/generator/SitecoreIcon.ts:1125](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1125)
 
 ___
 
@@ -12672,7 +12672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1126](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1126)
+[manifest/generator/SitecoreIcon.ts:1126](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1126)
 
 ___
 
@@ -12682,7 +12682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1127](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1127)
+[manifest/generator/SitecoreIcon.ts:1127](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1127)
 
 ___
 
@@ -12692,7 +12692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1128](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1128)
+[manifest/generator/SitecoreIcon.ts:1128](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1128)
 
 ___
 
@@ -12702,7 +12702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1141](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1141)
+[manifest/generator/SitecoreIcon.ts:1141](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1141)
 
 ___
 
@@ -12712,7 +12712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1142](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1142)
+[manifest/generator/SitecoreIcon.ts:1142](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1142)
 
 ___
 
@@ -12722,7 +12722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1143](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1143)
+[manifest/generator/SitecoreIcon.ts:1143](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1143)
 
 ___
 
@@ -12732,7 +12732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1144](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1144)
+[manifest/generator/SitecoreIcon.ts:1144](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1144)
 
 ___
 
@@ -12742,7 +12742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1145](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1145)
+[manifest/generator/SitecoreIcon.ts:1145](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1145)
 
 ___
 
@@ -12752,7 +12752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1146](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1146)
+[manifest/generator/SitecoreIcon.ts:1146](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1146)
 
 ___
 
@@ -12762,7 +12762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1147](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1147)
+[manifest/generator/SitecoreIcon.ts:1147](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1147)
 
 ___
 
@@ -12772,7 +12772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1148](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1148)
+[manifest/generator/SitecoreIcon.ts:1148](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1148)
 
 ___
 
@@ -12782,7 +12782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1149](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1149)
+[manifest/generator/SitecoreIcon.ts:1149](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1149)
 
 ___
 
@@ -12792,7 +12792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1150](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1150)
+[manifest/generator/SitecoreIcon.ts:1150](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1150)
 
 ___
 
@@ -12802,7 +12802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1130](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1130)
+[manifest/generator/SitecoreIcon.ts:1130](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1130)
 
 ___
 
@@ -12812,7 +12812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1131](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1131)
+[manifest/generator/SitecoreIcon.ts:1131](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1131)
 
 ___
 
@@ -12822,7 +12822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1132](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1132)
+[manifest/generator/SitecoreIcon.ts:1132](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1132)
 
 ___
 
@@ -12832,7 +12832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1133](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1133)
+[manifest/generator/SitecoreIcon.ts:1133](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1133)
 
 ___
 
@@ -12842,7 +12842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1134](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1134)
+[manifest/generator/SitecoreIcon.ts:1134](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1134)
 
 ___
 
@@ -12852,7 +12852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1135](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1135)
+[manifest/generator/SitecoreIcon.ts:1135](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1135)
 
 ___
 
@@ -12862,7 +12862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1136](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1136)
+[manifest/generator/SitecoreIcon.ts:1136](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1136)
 
 ___
 
@@ -12872,7 +12872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1137](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1137)
+[manifest/generator/SitecoreIcon.ts:1137](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1137)
 
 ___
 
@@ -12882,7 +12882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1129](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1129)
+[manifest/generator/SitecoreIcon.ts:1129](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1129)
 
 ___
 
@@ -12892,7 +12892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1138](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1138)
+[manifest/generator/SitecoreIcon.ts:1138](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1138)
 
 ___
 
@@ -12902,7 +12902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1139](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1139)
+[manifest/generator/SitecoreIcon.ts:1139](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1139)
 
 ___
 
@@ -12912,7 +12912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1140](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1140)
+[manifest/generator/SitecoreIcon.ts:1140](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1140)
 
 ___
 
@@ -12922,7 +12922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1151](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1151)
+[manifest/generator/SitecoreIcon.ts:1151](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1151)
 
 ___
 
@@ -12932,7 +12932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1152](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1152)
+[manifest/generator/SitecoreIcon.ts:1152](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1152)
 
 ___
 
@@ -12942,7 +12942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1153](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1153)
+[manifest/generator/SitecoreIcon.ts:1153](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1153)
 
 ___
 
@@ -12952,7 +12952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1154](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1154)
+[manifest/generator/SitecoreIcon.ts:1154](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1154)
 
 ___
 
@@ -12962,7 +12962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1155](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1155)
+[manifest/generator/SitecoreIcon.ts:1155](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1155)
 
 ___
 
@@ -12972,7 +12972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1156](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1156)
+[manifest/generator/SitecoreIcon.ts:1156](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1156)
 
 ___
 
@@ -12982,7 +12982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1157](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1157)
+[manifest/generator/SitecoreIcon.ts:1157](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1157)
 
 ___
 
@@ -12992,7 +12992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1158](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1158)
+[manifest/generator/SitecoreIcon.ts:1158](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1158)
 
 ___
 
@@ -13002,7 +13002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1159](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1159)
+[manifest/generator/SitecoreIcon.ts:1159](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1159)
 
 ___
 
@@ -13012,7 +13012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1160](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1160)
+[manifest/generator/SitecoreIcon.ts:1160](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1160)
 
 ___
 
@@ -13022,7 +13022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1161](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1161)
+[manifest/generator/SitecoreIcon.ts:1161](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1161)
 
 ___
 
@@ -13032,7 +13032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1162](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1162)
+[manifest/generator/SitecoreIcon.ts:1162](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1162)
 
 ___
 
@@ -13042,7 +13042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1163](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1163)
+[manifest/generator/SitecoreIcon.ts:1163](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1163)
 
 ___
 
@@ -13052,7 +13052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1164](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1164)
+[manifest/generator/SitecoreIcon.ts:1164](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1164)
 
 ___
 
@@ -13062,7 +13062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1165](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1165)
+[manifest/generator/SitecoreIcon.ts:1165](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1165)
 
 ___
 
@@ -13072,7 +13072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1166](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1166)
+[manifest/generator/SitecoreIcon.ts:1166](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1166)
 
 ___
 
@@ -13082,7 +13082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1167](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1167)
+[manifest/generator/SitecoreIcon.ts:1167](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1167)
 
 ___
 
@@ -13092,7 +13092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1168](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1168)
+[manifest/generator/SitecoreIcon.ts:1168](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1168)
 
 ___
 
@@ -13102,7 +13102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1169](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1169)
+[manifest/generator/SitecoreIcon.ts:1169](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1169)
 
 ___
 
@@ -13112,7 +13112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1170](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1170)
+[manifest/generator/SitecoreIcon.ts:1170](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1170)
 
 ___
 
@@ -13122,7 +13122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1171](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1171)
+[manifest/generator/SitecoreIcon.ts:1171](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1171)
 
 ___
 
@@ -13132,7 +13132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1172](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1172)
+[manifest/generator/SitecoreIcon.ts:1172](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1172)
 
 ___
 
@@ -13142,7 +13142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1173](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1173)
+[manifest/generator/SitecoreIcon.ts:1173](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1173)
 
 ___
 
@@ -13152,7 +13152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1174](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1174)
+[manifest/generator/SitecoreIcon.ts:1174](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1174)
 
 ___
 
@@ -13162,7 +13162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1175](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1175)
+[manifest/generator/SitecoreIcon.ts:1175](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1175)
 
 ___
 
@@ -13172,7 +13172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1176](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1176)
+[manifest/generator/SitecoreIcon.ts:1176](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1176)
 
 ___
 
@@ -13182,7 +13182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1177](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1177)
+[manifest/generator/SitecoreIcon.ts:1177](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1177)
 
 ___
 
@@ -13192,7 +13192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1178](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1178)
+[manifest/generator/SitecoreIcon.ts:1178](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1178)
 
 ___
 
@@ -13202,7 +13202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1179](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1179)
+[manifest/generator/SitecoreIcon.ts:1179](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1179)
 
 ___
 
@@ -13212,7 +13212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1180](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1180)
+[manifest/generator/SitecoreIcon.ts:1180](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1180)
 
 ___
 
@@ -13222,7 +13222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1181](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1181)
+[manifest/generator/SitecoreIcon.ts:1181](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1181)
 
 ___
 
@@ -13232,7 +13232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1182](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1182)
+[manifest/generator/SitecoreIcon.ts:1182](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1182)
 
 ___
 
@@ -13242,7 +13242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1183](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1183)
+[manifest/generator/SitecoreIcon.ts:1183](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1183)
 
 ___
 
@@ -13252,7 +13252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1184](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1184)
+[manifest/generator/SitecoreIcon.ts:1184](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1184)
 
 ___
 
@@ -13262,7 +13262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1185](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1185)
+[manifest/generator/SitecoreIcon.ts:1185](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1185)
 
 ___
 
@@ -13272,7 +13272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1186](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1186)
+[manifest/generator/SitecoreIcon.ts:1186](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1186)
 
 ___
 
@@ -13282,7 +13282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1187](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1187)
+[manifest/generator/SitecoreIcon.ts:1187](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1187)
 
 ___
 
@@ -13292,7 +13292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1188](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1188)
+[manifest/generator/SitecoreIcon.ts:1188](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1188)
 
 ___
 
@@ -13302,7 +13302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1189](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1189)
+[manifest/generator/SitecoreIcon.ts:1189](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1189)
 
 ___
 
@@ -13312,7 +13312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1190](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1190)
+[manifest/generator/SitecoreIcon.ts:1190](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1190)
 
 ___
 
@@ -13322,7 +13322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1191](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1191)
+[manifest/generator/SitecoreIcon.ts:1191](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1191)
 
 ___
 
@@ -13332,7 +13332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1192](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1192)
+[manifest/generator/SitecoreIcon.ts:1192](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1192)
 
 ___
 
@@ -13342,7 +13342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1193](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1193)
+[manifest/generator/SitecoreIcon.ts:1193](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1193)
 
 ___
 
@@ -13352,7 +13352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1194](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1194)
+[manifest/generator/SitecoreIcon.ts:1194](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1194)
 
 ___
 
@@ -13362,7 +13362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1195](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1195)
+[manifest/generator/SitecoreIcon.ts:1195](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1195)
 
 ___
 
@@ -13372,7 +13372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1196](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1196)
+[manifest/generator/SitecoreIcon.ts:1196](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1196)
 
 ___
 
@@ -13382,7 +13382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1197](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1197)
+[manifest/generator/SitecoreIcon.ts:1197](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1197)
 
 ___
 
@@ -13392,7 +13392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1198](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1198)
+[manifest/generator/SitecoreIcon.ts:1198](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1198)
 
 ___
 
@@ -13402,7 +13402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1199](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1199)
+[manifest/generator/SitecoreIcon.ts:1199](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1199)
 
 ___
 
@@ -13412,7 +13412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1200](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1200)
+[manifest/generator/SitecoreIcon.ts:1200](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1200)
 
 ___
 
@@ -13422,7 +13422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1201](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1201)
+[manifest/generator/SitecoreIcon.ts:1201](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1201)
 
 ___
 
@@ -13432,7 +13432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1202](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1202)
+[manifest/generator/SitecoreIcon.ts:1202](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1202)
 
 ___
 
@@ -13442,7 +13442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1203](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1203)
+[manifest/generator/SitecoreIcon.ts:1203](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1203)
 
 ___
 
@@ -13452,7 +13452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1204](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1204)
+[manifest/generator/SitecoreIcon.ts:1204](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1204)
 
 ___
 
@@ -13462,7 +13462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1205](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1205)
+[manifest/generator/SitecoreIcon.ts:1205](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1205)
 
 ___
 
@@ -13472,7 +13472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1206](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1206)
+[manifest/generator/SitecoreIcon.ts:1206](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1206)
 
 ___
 
@@ -13482,7 +13482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1207](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1207)
+[manifest/generator/SitecoreIcon.ts:1207](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1207)
 
 ___
 
@@ -13492,7 +13492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1208](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1208)
+[manifest/generator/SitecoreIcon.ts:1208](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1208)
 
 ___
 
@@ -13502,7 +13502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1209](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1209)
+[manifest/generator/SitecoreIcon.ts:1209](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1209)
 
 ___
 
@@ -13512,7 +13512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1210](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1210)
+[manifest/generator/SitecoreIcon.ts:1210](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1210)
 
 ___
 
@@ -13522,7 +13522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1211](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1211)
+[manifest/generator/SitecoreIcon.ts:1211](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1211)
 
 ___
 
@@ -13532,7 +13532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1212](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1212)
+[manifest/generator/SitecoreIcon.ts:1212](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1212)
 
 ___
 
@@ -13542,7 +13542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1213](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1213)
+[manifest/generator/SitecoreIcon.ts:1213](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1213)
 
 ___
 
@@ -13552,7 +13552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1214](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1214)
+[manifest/generator/SitecoreIcon.ts:1214](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1214)
 
 ___
 
@@ -13562,7 +13562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1215](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1215)
+[manifest/generator/SitecoreIcon.ts:1215](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1215)
 
 ___
 
@@ -13572,7 +13572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1218](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1218)
+[manifest/generator/SitecoreIcon.ts:1218](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1218)
 
 ___
 
@@ -13582,7 +13582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1216](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1216)
+[manifest/generator/SitecoreIcon.ts:1216](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1216)
 
 ___
 
@@ -13592,7 +13592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1217](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1217)
+[manifest/generator/SitecoreIcon.ts:1217](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1217)
 
 ___
 
@@ -13602,7 +13602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1219](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1219)
+[manifest/generator/SitecoreIcon.ts:1219](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1219)
 
 ___
 
@@ -13612,7 +13612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1220](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1220)
+[manifest/generator/SitecoreIcon.ts:1220](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1220)
 
 ___
 
@@ -13622,7 +13622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1221](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1221)
+[manifest/generator/SitecoreIcon.ts:1221](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1221)
 
 ___
 
@@ -13632,7 +13632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1222](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1222)
+[manifest/generator/SitecoreIcon.ts:1222](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1222)
 
 ___
 
@@ -13642,7 +13642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1223](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1223)
+[manifest/generator/SitecoreIcon.ts:1223](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1223)
 
 ___
 
@@ -13652,7 +13652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1224](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1224)
+[manifest/generator/SitecoreIcon.ts:1224](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1224)
 
 ___
 
@@ -13662,7 +13662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1225](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1225)
+[manifest/generator/SitecoreIcon.ts:1225](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1225)
 
 ___
 
@@ -13672,7 +13672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1226](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1226)
+[manifest/generator/SitecoreIcon.ts:1226](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1226)
 
 ___
 
@@ -13682,7 +13682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1227](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1227)
+[manifest/generator/SitecoreIcon.ts:1227](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1227)
 
 ___
 
@@ -13692,7 +13692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1229](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1229)
+[manifest/generator/SitecoreIcon.ts:1229](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1229)
 
 ___
 
@@ -13702,7 +13702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1230](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1230)
+[manifest/generator/SitecoreIcon.ts:1230](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1230)
 
 ___
 
@@ -13712,7 +13712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1228](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1228)
+[manifest/generator/SitecoreIcon.ts:1228](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1228)
 
 ___
 
@@ -13722,7 +13722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1231](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1231)
+[manifest/generator/SitecoreIcon.ts:1231](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1231)
 
 ___
 
@@ -13732,7 +13732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1232](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1232)
+[manifest/generator/SitecoreIcon.ts:1232](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1232)
 
 ___
 
@@ -13742,7 +13742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1233](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1233)
+[manifest/generator/SitecoreIcon.ts:1233](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1233)
 
 ___
 
@@ -13752,7 +13752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1234](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1234)
+[manifest/generator/SitecoreIcon.ts:1234](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1234)
 
 ___
 
@@ -13762,7 +13762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1235](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1235)
+[manifest/generator/SitecoreIcon.ts:1235](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1235)
 
 ___
 
@@ -13772,7 +13772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1236](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1236)
+[manifest/generator/SitecoreIcon.ts:1236](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1236)
 
 ___
 
@@ -13782,7 +13782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1237](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1237)
+[manifest/generator/SitecoreIcon.ts:1237](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1237)
 
 ___
 
@@ -13792,7 +13792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1238](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1238)
+[manifest/generator/SitecoreIcon.ts:1238](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1238)
 
 ___
 
@@ -13802,7 +13802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1239](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1239)
+[manifest/generator/SitecoreIcon.ts:1239](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1239)
 
 ___
 
@@ -13812,7 +13812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1240](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1240)
+[manifest/generator/SitecoreIcon.ts:1240](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1240)
 
 ___
 
@@ -13822,7 +13822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1241](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1241)
+[manifest/generator/SitecoreIcon.ts:1241](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1241)
 
 ___
 
@@ -13832,7 +13832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1242](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1242)
+[manifest/generator/SitecoreIcon.ts:1242](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1242)
 
 ___
 
@@ -13842,7 +13842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1243](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1243)
+[manifest/generator/SitecoreIcon.ts:1243](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1243)
 
 ___
 
@@ -13852,7 +13852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1254](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1254)
+[manifest/generator/SitecoreIcon.ts:1254](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1254)
 
 ___
 
@@ -13862,7 +13862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1244](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1244)
+[manifest/generator/SitecoreIcon.ts:1244](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1244)
 
 ___
 
@@ -13872,7 +13872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1248](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1248)
+[manifest/generator/SitecoreIcon.ts:1248](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1248)
 
 ___
 
@@ -13882,7 +13882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1249](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1249)
+[manifest/generator/SitecoreIcon.ts:1249](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1249)
 
 ___
 
@@ -13892,7 +13892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1250](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1250)
+[manifest/generator/SitecoreIcon.ts:1250](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1250)
 
 ___
 
@@ -13902,7 +13902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1251](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1251)
+[manifest/generator/SitecoreIcon.ts:1251](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1251)
 
 ___
 
@@ -13912,7 +13912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1252](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1252)
+[manifest/generator/SitecoreIcon.ts:1252](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1252)
 
 ___
 
@@ -13922,7 +13922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1253](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1253)
+[manifest/generator/SitecoreIcon.ts:1253](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1253)
 
 ___
 
@@ -13932,7 +13932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1245](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1245)
+[manifest/generator/SitecoreIcon.ts:1245](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1245)
 
 ___
 
@@ -13942,7 +13942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1246](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1246)
+[manifest/generator/SitecoreIcon.ts:1246](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1246)
 
 ___
 
@@ -13952,7 +13952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1247](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1247)
+[manifest/generator/SitecoreIcon.ts:1247](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1247)
 
 ___
 
@@ -13962,7 +13962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1255](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1255)
+[manifest/generator/SitecoreIcon.ts:1255](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1255)
 
 ___
 
@@ -13972,7 +13972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1256](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1256)
+[manifest/generator/SitecoreIcon.ts:1256](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1256)
 
 ___
 
@@ -13982,7 +13982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1257](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1257)
+[manifest/generator/SitecoreIcon.ts:1257](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1257)
 
 ___
 
@@ -13992,7 +13992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1258](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1258)
+[manifest/generator/SitecoreIcon.ts:1258](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1258)
 
 ___
 
@@ -14002,7 +14002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1259](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1259)
+[manifest/generator/SitecoreIcon.ts:1259](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1259)
 
 ___
 
@@ -14012,7 +14012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1260](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1260)
+[manifest/generator/SitecoreIcon.ts:1260](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1260)
 
 ___
 
@@ -14022,7 +14022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1261](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1261)
+[manifest/generator/SitecoreIcon.ts:1261](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1261)
 
 ___
 
@@ -14032,7 +14032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1262](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1262)
+[manifest/generator/SitecoreIcon.ts:1262](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1262)
 
 ___
 
@@ -14042,7 +14042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1263](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1263)
+[manifest/generator/SitecoreIcon.ts:1263](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1263)
 
 ___
 
@@ -14052,7 +14052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1264](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1264)
+[manifest/generator/SitecoreIcon.ts:1264](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1264)
 
 ___
 
@@ -14062,7 +14062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1265](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1265)
+[manifest/generator/SitecoreIcon.ts:1265](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1265)
 
 ___
 
@@ -14072,7 +14072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1266](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1266)
+[manifest/generator/SitecoreIcon.ts:1266](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1266)
 
 ___
 
@@ -14082,7 +14082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1267](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1267)
+[manifest/generator/SitecoreIcon.ts:1267](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1267)
 
 ___
 
@@ -14092,7 +14092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1268](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1268)
+[manifest/generator/SitecoreIcon.ts:1268](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1268)
 
 ___
 
@@ -14102,7 +14102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1269](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1269)
+[manifest/generator/SitecoreIcon.ts:1269](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1269)
 
 ___
 
@@ -14112,7 +14112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1270](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1270)
+[manifest/generator/SitecoreIcon.ts:1270](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1270)
 
 ___
 
@@ -14122,7 +14122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1271](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1271)
+[manifest/generator/SitecoreIcon.ts:1271](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1271)
 
 ___
 
@@ -14132,7 +14132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1272](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1272)
+[manifest/generator/SitecoreIcon.ts:1272](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1272)
 
 ___
 
@@ -14142,7 +14142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1273](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1273)
+[manifest/generator/SitecoreIcon.ts:1273](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1273)
 
 ___
 
@@ -14152,7 +14152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1274](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1274)
+[manifest/generator/SitecoreIcon.ts:1274](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1274)
 
 ___
 
@@ -14162,7 +14162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1275](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1275)
+[manifest/generator/SitecoreIcon.ts:1275](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1275)
 
 ___
 
@@ -14172,7 +14172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1276](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1276)
+[manifest/generator/SitecoreIcon.ts:1276](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1276)
 
 ___
 
@@ -14182,7 +14182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1277](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1277)
+[manifest/generator/SitecoreIcon.ts:1277](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1277)
 
 ___
 
@@ -14192,7 +14192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1278](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1278)
+[manifest/generator/SitecoreIcon.ts:1278](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1278)
 
 ___
 
@@ -14202,7 +14202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1279](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1279)
+[manifest/generator/SitecoreIcon.ts:1279](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1279)
 
 ___
 
@@ -14212,7 +14212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1280](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1280)
+[manifest/generator/SitecoreIcon.ts:1280](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1280)
 
 ___
 
@@ -14222,7 +14222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1281](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1281)
+[manifest/generator/SitecoreIcon.ts:1281](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1281)
 
 ___
 
@@ -14232,7 +14232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1282](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1282)
+[manifest/generator/SitecoreIcon.ts:1282](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1282)
 
 ___
 
@@ -14242,7 +14242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1283](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1283)
+[manifest/generator/SitecoreIcon.ts:1283](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1283)
 
 ___
 
@@ -14252,7 +14252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1286](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1286)
+[manifest/generator/SitecoreIcon.ts:1286](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1286)
 
 ___
 
@@ -14262,7 +14262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1284](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1284)
+[manifest/generator/SitecoreIcon.ts:1284](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1284)
 
 ___
 
@@ -14272,7 +14272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1285](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1285)
+[manifest/generator/SitecoreIcon.ts:1285](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1285)
 
 ___
 
@@ -14282,7 +14282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1287](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1287)
+[manifest/generator/SitecoreIcon.ts:1287](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1287)
 
 ___
 
@@ -14292,7 +14292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1288](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1288)
+[manifest/generator/SitecoreIcon.ts:1288](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1288)
 
 ___
 
@@ -14302,7 +14302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1289](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1289)
+[manifest/generator/SitecoreIcon.ts:1289](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1289)
 
 ___
 
@@ -14312,7 +14312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1290](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1290)
+[manifest/generator/SitecoreIcon.ts:1290](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1290)
 
 ___
 
@@ -14322,7 +14322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1291](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1291)
+[manifest/generator/SitecoreIcon.ts:1291](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1291)
 
 ___
 
@@ -14332,7 +14332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1292](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1292)
+[manifest/generator/SitecoreIcon.ts:1292](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1292)
 
 ___
 
@@ -14342,7 +14342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1293](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1293)
+[manifest/generator/SitecoreIcon.ts:1293](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1293)
 
 ___
 
@@ -14352,7 +14352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1294](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1294)
+[manifest/generator/SitecoreIcon.ts:1294](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1294)
 
 ___
 
@@ -14362,7 +14362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1295](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1295)
+[manifest/generator/SitecoreIcon.ts:1295](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1295)
 
 ___
 
@@ -14372,7 +14372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1296](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1296)
+[manifest/generator/SitecoreIcon.ts:1296](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1296)
 
 ___
 
@@ -14382,7 +14382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1297](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1297)
+[manifest/generator/SitecoreIcon.ts:1297](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1297)
 
 ___
 
@@ -14392,7 +14392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1298](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1298)
+[manifest/generator/SitecoreIcon.ts:1298](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1298)
 
 ___
 
@@ -14402,7 +14402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1299](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1299)
+[manifest/generator/SitecoreIcon.ts:1299](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1299)
 
 ___
 
@@ -14412,7 +14412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1300](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1300)
+[manifest/generator/SitecoreIcon.ts:1300](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1300)
 
 ___
 
@@ -14422,7 +14422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1301](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1301)
+[manifest/generator/SitecoreIcon.ts:1301](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1301)
 
 ___
 
@@ -14432,7 +14432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1302](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1302)
+[manifest/generator/SitecoreIcon.ts:1302](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1302)
 
 ___
 
@@ -14442,7 +14442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1303](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1303)
+[manifest/generator/SitecoreIcon.ts:1303](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1303)
 
 ___
 
@@ -14452,7 +14452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1304](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1304)
+[manifest/generator/SitecoreIcon.ts:1304](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1304)
 
 ___
 
@@ -14462,7 +14462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1305](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1305)
+[manifest/generator/SitecoreIcon.ts:1305](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1305)
 
 ___
 
@@ -14472,7 +14472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1306](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1306)
+[manifest/generator/SitecoreIcon.ts:1306](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1306)
 
 ___
 
@@ -14482,7 +14482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1307](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1307)
+[manifest/generator/SitecoreIcon.ts:1307](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1307)
 
 ___
 
@@ -14492,7 +14492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1308](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1308)
+[manifest/generator/SitecoreIcon.ts:1308](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1308)
 
 ___
 
@@ -14502,7 +14502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1309](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1309)
+[manifest/generator/SitecoreIcon.ts:1309](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1309)
 
 ___
 
@@ -14512,7 +14512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1310](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1310)
+[manifest/generator/SitecoreIcon.ts:1310](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1310)
 
 ___
 
@@ -14522,7 +14522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1311](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1311)
+[manifest/generator/SitecoreIcon.ts:1311](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1311)
 
 ___
 
@@ -14532,7 +14532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1312](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1312)
+[manifest/generator/SitecoreIcon.ts:1312](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1312)
 
 ___
 
@@ -14542,7 +14542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1313](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1313)
+[manifest/generator/SitecoreIcon.ts:1313](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1313)
 
 ___
 
@@ -14552,7 +14552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1314](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1314)
+[manifest/generator/SitecoreIcon.ts:1314](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1314)
 
 ___
 
@@ -14562,7 +14562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1315](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1315)
+[manifest/generator/SitecoreIcon.ts:1315](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1315)
 
 ___
 
@@ -14572,7 +14572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1316](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1316)
+[manifest/generator/SitecoreIcon.ts:1316](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1316)
 
 ___
 
@@ -14582,7 +14582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1317](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1317)
+[manifest/generator/SitecoreIcon.ts:1317](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1317)
 
 ___
 
@@ -14592,7 +14592,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1328](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1328)
+[manifest/generator/SitecoreIcon.ts:1328](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1328)
 
 ___
 
@@ -14602,7 +14602,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1329](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1329)
+[manifest/generator/SitecoreIcon.ts:1329](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1329)
 
 ___
 
@@ -14612,7 +14612,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1330](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1330)
+[manifest/generator/SitecoreIcon.ts:1330](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1330)
 
 ___
 
@@ -14622,7 +14622,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1331](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1331)
+[manifest/generator/SitecoreIcon.ts:1331](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1331)
 
 ___
 
@@ -14632,7 +14632,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1332](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1332)
+[manifest/generator/SitecoreIcon.ts:1332](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1332)
 
 ___
 
@@ -14642,7 +14642,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1333](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1333)
+[manifest/generator/SitecoreIcon.ts:1333](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1333)
 
 ___
 
@@ -14652,7 +14652,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1334](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1334)
+[manifest/generator/SitecoreIcon.ts:1334](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1334)
 
 ___
 
@@ -14662,7 +14662,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1335](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1335)
+[manifest/generator/SitecoreIcon.ts:1335](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1335)
 
 ___
 
@@ -14672,7 +14672,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1318](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1318)
+[manifest/generator/SitecoreIcon.ts:1318](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1318)
 
 ___
 
@@ -14682,7 +14682,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1319](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1319)
+[manifest/generator/SitecoreIcon.ts:1319](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1319)
 
 ___
 
@@ -14692,7 +14692,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1320](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1320)
+[manifest/generator/SitecoreIcon.ts:1320](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1320)
 
 ___
 
@@ -14702,7 +14702,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1321](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1321)
+[manifest/generator/SitecoreIcon.ts:1321](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1321)
 
 ___
 
@@ -14712,7 +14712,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1322](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1322)
+[manifest/generator/SitecoreIcon.ts:1322](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1322)
 
 ___
 
@@ -14722,7 +14722,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1323](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1323)
+[manifest/generator/SitecoreIcon.ts:1323](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1323)
 
 ___
 
@@ -14732,7 +14732,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1324](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1324)
+[manifest/generator/SitecoreIcon.ts:1324](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1324)
 
 ___
 
@@ -14742,7 +14742,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1325](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1325)
+[manifest/generator/SitecoreIcon.ts:1325](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1325)
 
 ___
 
@@ -14752,7 +14752,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1326](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1326)
+[manifest/generator/SitecoreIcon.ts:1326](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1326)
 
 ___
 
@@ -14762,7 +14762,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1327](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1327)
+[manifest/generator/SitecoreIcon.ts:1327](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1327)
 
 ___
 
@@ -14772,7 +14772,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1336](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1336)
+[manifest/generator/SitecoreIcon.ts:1336](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1336)
 
 ___
 
@@ -14782,7 +14782,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1337](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1337)
+[manifest/generator/SitecoreIcon.ts:1337](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1337)
 
 ___
 
@@ -14792,7 +14792,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1338](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1338)
+[manifest/generator/SitecoreIcon.ts:1338](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1338)
 
 ___
 
@@ -14802,7 +14802,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1339](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1339)
+[manifest/generator/SitecoreIcon.ts:1339](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1339)
 
 ___
 
@@ -14812,7 +14812,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1340](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1340)
+[manifest/generator/SitecoreIcon.ts:1340](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1340)
 
 ___
 
@@ -14822,7 +14822,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1341](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1341)
+[manifest/generator/SitecoreIcon.ts:1341](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1341)
 
 ___
 
@@ -14832,7 +14832,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1342](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1342)
+[manifest/generator/SitecoreIcon.ts:1342](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1342)
 
 ___
 
@@ -14842,7 +14842,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1343](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1343)
+[manifest/generator/SitecoreIcon.ts:1343](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1343)
 
 ___
 
@@ -14852,7 +14852,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1344](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1344)
+[manifest/generator/SitecoreIcon.ts:1344](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1344)
 
 ___
 
@@ -14862,7 +14862,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1345](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1345)
+[manifest/generator/SitecoreIcon.ts:1345](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1345)
 
 ___
 
@@ -14872,7 +14872,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1347](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1347)
+[manifest/generator/SitecoreIcon.ts:1347](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1347)
 
 ___
 
@@ -14882,7 +14882,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1348](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1348)
+[manifest/generator/SitecoreIcon.ts:1348](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1348)
 
 ___
 
@@ -14892,7 +14892,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1349](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1349)
+[manifest/generator/SitecoreIcon.ts:1349](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1349)
 
 ___
 
@@ -14902,7 +14902,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1346](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1346)
+[manifest/generator/SitecoreIcon.ts:1346](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1346)
 
 ___
 
@@ -14912,7 +14912,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1350](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1350)
+[manifest/generator/SitecoreIcon.ts:1350](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1350)
 
 ___
 
@@ -14922,7 +14922,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1351](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1351)
+[manifest/generator/SitecoreIcon.ts:1351](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1351)
 
 ___
 
@@ -14932,7 +14932,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1352](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1352)
+[manifest/generator/SitecoreIcon.ts:1352](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1352)
 
 ___
 
@@ -14942,7 +14942,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1353](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1353)
+[manifest/generator/SitecoreIcon.ts:1353](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1353)
 
 ___
 
@@ -14952,7 +14952,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1355](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1355)
+[manifest/generator/SitecoreIcon.ts:1355](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1355)
 
 ___
 
@@ -14962,7 +14962,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1354](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1354)
+[manifest/generator/SitecoreIcon.ts:1354](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1354)
 
 ___
 
@@ -14972,7 +14972,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1356](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1356)
+[manifest/generator/SitecoreIcon.ts:1356](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1356)
 
 ___
 
@@ -14982,7 +14982,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1359](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1359)
+[manifest/generator/SitecoreIcon.ts:1359](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1359)
 
 ___
 
@@ -14992,7 +14992,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1360](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1360)
+[manifest/generator/SitecoreIcon.ts:1360](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1360)
 
 ___
 
@@ -15002,7 +15002,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1357](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1357)
+[manifest/generator/SitecoreIcon.ts:1357](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1357)
 
 ___
 
@@ -15012,7 +15012,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1358](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1358)
+[manifest/generator/SitecoreIcon.ts:1358](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1358)
 
 ___
 
@@ -15022,7 +15022,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1361](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1361)
+[manifest/generator/SitecoreIcon.ts:1361](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1361)
 
 ___
 
@@ -15032,7 +15032,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1362](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1362)
+[manifest/generator/SitecoreIcon.ts:1362](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1362)
 
 ___
 
@@ -15042,7 +15042,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1363](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1363)
+[manifest/generator/SitecoreIcon.ts:1363](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1363)
 
 ___
 
@@ -15052,7 +15052,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1364](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1364)
+[manifest/generator/SitecoreIcon.ts:1364](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1364)
 
 ___
 
@@ -15062,7 +15062,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1365](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1365)
+[manifest/generator/SitecoreIcon.ts:1365](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1365)
 
 ___
 
@@ -15072,7 +15072,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1366](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1366)
+[manifest/generator/SitecoreIcon.ts:1366](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1366)
 
 ___
 
@@ -15082,7 +15082,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1367](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1367)
+[manifest/generator/SitecoreIcon.ts:1367](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1367)
 
 ___
 
@@ -15092,7 +15092,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1368](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1368)
+[manifest/generator/SitecoreIcon.ts:1368](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1368)
 
 ___
 
@@ -15102,7 +15102,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1369](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1369)
+[manifest/generator/SitecoreIcon.ts:1369](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1369)
 
 ___
 
@@ -15112,7 +15112,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1370](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1370)
+[manifest/generator/SitecoreIcon.ts:1370](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1370)
 
 ___
 
@@ -15122,7 +15122,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1397](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1397)
+[manifest/generator/SitecoreIcon.ts:1397](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1397)
 
 ___
 
@@ -15132,7 +15132,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1398](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1398)
+[manifest/generator/SitecoreIcon.ts:1398](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1398)
 
 ___
 
@@ -15142,7 +15142,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1371](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1371)
+[manifest/generator/SitecoreIcon.ts:1371](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1371)
 
 ___
 
@@ -15152,7 +15152,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1374](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1374)
+[manifest/generator/SitecoreIcon.ts:1374](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1374)
 
 ___
 
@@ -15162,7 +15162,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1375](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1375)
+[manifest/generator/SitecoreIcon.ts:1375](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1375)
 
 ___
 
@@ -15172,7 +15172,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1376](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1376)
+[manifest/generator/SitecoreIcon.ts:1376](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1376)
 
 ___
 
@@ -15182,7 +15182,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1377](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1377)
+[manifest/generator/SitecoreIcon.ts:1377](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1377)
 
 ___
 
@@ -15192,7 +15192,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1378](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1378)
+[manifest/generator/SitecoreIcon.ts:1378](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1378)
 
 ___
 
@@ -15202,7 +15202,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1379](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1379)
+[manifest/generator/SitecoreIcon.ts:1379](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1379)
 
 ___
 
@@ -15212,7 +15212,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1380](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1380)
+[manifest/generator/SitecoreIcon.ts:1380](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1380)
 
 ___
 
@@ -15222,7 +15222,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1381](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1381)
+[manifest/generator/SitecoreIcon.ts:1381](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1381)
 
 ___
 
@@ -15232,7 +15232,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1382](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1382)
+[manifest/generator/SitecoreIcon.ts:1382](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1382)
 
 ___
 
@@ -15242,7 +15242,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1383](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1383)
+[manifest/generator/SitecoreIcon.ts:1383](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1383)
 
 ___
 
@@ -15252,7 +15252,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1384](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1384)
+[manifest/generator/SitecoreIcon.ts:1384](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1384)
 
 ___
 
@@ -15262,7 +15262,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1385](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1385)
+[manifest/generator/SitecoreIcon.ts:1385](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1385)
 
 ___
 
@@ -15272,7 +15272,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1386](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1386)
+[manifest/generator/SitecoreIcon.ts:1386](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1386)
 
 ___
 
@@ -15282,7 +15282,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1387](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1387)
+[manifest/generator/SitecoreIcon.ts:1387](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1387)
 
 ___
 
@@ -15292,7 +15292,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1388](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1388)
+[manifest/generator/SitecoreIcon.ts:1388](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1388)
 
 ___
 
@@ -15302,7 +15302,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1389](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1389)
+[manifest/generator/SitecoreIcon.ts:1389](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1389)
 
 ___
 
@@ -15312,7 +15312,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1390](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1390)
+[manifest/generator/SitecoreIcon.ts:1390](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1390)
 
 ___
 
@@ -15322,7 +15322,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1391](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1391)
+[manifest/generator/SitecoreIcon.ts:1391](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1391)
 
 ___
 
@@ -15332,7 +15332,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1392](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1392)
+[manifest/generator/SitecoreIcon.ts:1392](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1392)
 
 ___
 
@@ -15342,7 +15342,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1393](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1393)
+[manifest/generator/SitecoreIcon.ts:1393](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1393)
 
 ___
 
@@ -15352,7 +15352,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1394](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1394)
+[manifest/generator/SitecoreIcon.ts:1394](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1394)
 
 ___
 
@@ -15362,7 +15362,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1372](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1372)
+[manifest/generator/SitecoreIcon.ts:1372](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1372)
 
 ___
 
@@ -15372,7 +15372,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1373](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1373)
+[manifest/generator/SitecoreIcon.ts:1373](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1373)
 
 ___
 
@@ -15382,7 +15382,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1395](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1395)
+[manifest/generator/SitecoreIcon.ts:1395](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1395)
 
 ___
 
@@ -15392,7 +15392,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1396](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1396)
+[manifest/generator/SitecoreIcon.ts:1396](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1396)
 
 ___
 
@@ -15402,7 +15402,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1399](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1399)
+[manifest/generator/SitecoreIcon.ts:1399](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1399)
 
 ___
 
@@ -15412,7 +15412,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1400](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1400)
+[manifest/generator/SitecoreIcon.ts:1400](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1400)
 
 ___
 
@@ -15422,7 +15422,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1401](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1401)
+[manifest/generator/SitecoreIcon.ts:1401](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1401)
 
 ___
 
@@ -15432,7 +15432,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1402](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1402)
+[manifest/generator/SitecoreIcon.ts:1402](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1402)
 
 ___
 
@@ -15442,7 +15442,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1403](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1403)
+[manifest/generator/SitecoreIcon.ts:1403](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1403)
 
 ___
 
@@ -15452,7 +15452,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1404](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1404)
+[manifest/generator/SitecoreIcon.ts:1404](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1404)
 
 ___
 
@@ -15462,7 +15462,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1405](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1405)
+[manifest/generator/SitecoreIcon.ts:1405](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1405)
 
 ___
 
@@ -15472,7 +15472,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1406](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1406)
+[manifest/generator/SitecoreIcon.ts:1406](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1406)
 
 ___
 
@@ -15482,7 +15482,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1407](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1407)
+[manifest/generator/SitecoreIcon.ts:1407](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1407)
 
 ___
 
@@ -15492,7 +15492,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1408](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1408)
+[manifest/generator/SitecoreIcon.ts:1408](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1408)
 
 ___
 
@@ -15502,7 +15502,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1409](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1409)
+[manifest/generator/SitecoreIcon.ts:1409](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1409)
 
 ___
 
@@ -15512,7 +15512,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1410](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1410)
+[manifest/generator/SitecoreIcon.ts:1410](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1410)
 
 ___
 
@@ -15522,7 +15522,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1411](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1411)
+[manifest/generator/SitecoreIcon.ts:1411](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1411)
 
 ___
 
@@ -15532,7 +15532,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1412](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1412)
+[manifest/generator/SitecoreIcon.ts:1412](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1412)
 
 ___
 
@@ -15542,7 +15542,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1413](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1413)
+[manifest/generator/SitecoreIcon.ts:1413](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1413)
 
 ___
 
@@ -15552,7 +15552,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1414](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1414)
+[manifest/generator/SitecoreIcon.ts:1414](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1414)
 
 ___
 
@@ -15562,7 +15562,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1415](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1415)
+[manifest/generator/SitecoreIcon.ts:1415](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1415)
 
 ___
 
@@ -15572,7 +15572,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1416](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1416)
+[manifest/generator/SitecoreIcon.ts:1416](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1416)
 
 ___
 
@@ -15582,7 +15582,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1417](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1417)
+[manifest/generator/SitecoreIcon.ts:1417](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1417)
 
 ___
 
@@ -15592,4 +15592,4 @@ ___
 
 #### Defined in
 
-[manifest/generator/SitecoreIcon.ts:1418](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1418)
+[manifest/generator/SitecoreIcon.ts:1418](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1418)

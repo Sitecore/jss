@@ -29,7 +29,7 @@ Registers a statically loaded component
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:5](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L5)
+[sitecore-jss-angular/src/components/placeholder.token.ts:5](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L5)
 
 ___
 
@@ -39,4 +39,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:6](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L6)
+[sitecore-jss-angular/src/components/placeholder.token.ts:6](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L6)

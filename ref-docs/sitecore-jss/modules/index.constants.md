@@ -29,4 +29,4 @@
 
 #### Defined in
 
-[constants.ts:9](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/constants.ts#L9)
+[constants.ts:9](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/constants.ts#L9)

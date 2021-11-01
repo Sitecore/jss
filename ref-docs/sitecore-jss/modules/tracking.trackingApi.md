@@ -33,4 +33,4 @@ void
 
 #### Defined in
 
-[tracking/trackingApi.ts:73](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/tracking/trackingApi.ts#L73)
+[tracking/trackingApi.ts:73](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/tracking/trackingApi.ts#L73)
