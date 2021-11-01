@@ -32,7 +32,7 @@ export function withDatasourceCheck(options?: WithDatasourceCheckOptions) {
     Component: React.ComponentType<ComponentProps>
   ) {
     return function WithDatasourceCheck(props: ComponentProps) {
-      const { sitecoreContext } = useSitecoreContext<{ pageEditing: boolean }>();
+      const { sitecoreContext } = useSitecoreContext();
       const EditingError = options?.editingErrorComponent ?? DefaultEditingError;
 
       return props.rendering?.dataSource ? (

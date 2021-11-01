@@ -5,7 +5,7 @@ import {
   useSitecoreContext,
   withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps, StyleguideSitecoreContextValue } from 'lib/component-props';
+import { StyleguideComponentProps } from 'lib/component-props';
 
 type StyleguideLayoutTabsTabProps = StyleguideComponentProps & {
   fields: {
@@ -20,7 +20,7 @@ type StyleguideLayoutTabsTabProps = StyleguideComponentProps & {
  * author experience.
  */
 const StyleguideLayoutTabsTab = (props: StyleguideLayoutTabsTabProps): JSX.Element => {
-  const { sitecoreContext } = useSitecoreContext<StyleguideSitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
 
   return (
     <div data-e2e-class="styleguide-layout-tabs-tab">

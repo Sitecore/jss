@@ -1,10 +1,6 @@
 import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from './Styleguide-Specimen';
-import {
-  StyleguideSpecimenFields,
-  StyleguideSitecoreContextValue,
-  StyleguideComponentProps,
-} from 'lib/component-props';
+import { StyleguideSpecimenFields, StyleguideComponentProps } from 'lib/component-props';
 
 type StyleguideSitecoreContextProps = StyleguideComponentProps & StyleguideSpecimenFields;
 
@@ -13,7 +9,7 @@ type StyleguideSitecoreContextProps = StyleguideComponentProps & StyleguideSpeci
  * within other components.
  */
 const StyleguideSitecoreContext = (props: StyleguideSitecoreContextProps): JSX.Element => {
-  const { sitecoreContext } = useSitecoreContext<StyleguideSitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
 
   return (
     <StyleguideSpecimen {...props} e2eId="styleguide-sitecore-context">
