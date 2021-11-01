@@ -34,7 +34,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-[utils/editing.ts:67](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/utils/editing.ts#L67)
+[utils/editing.ts:67](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L67)
 
 ___
 
@@ -54,7 +54,7 @@ true if executing within the Sitecore Experience Editor
 
 #### Defined in
 
-[utils/editing.ts:87](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/utils/editing.ts#L87)
+[utils/editing.ts:87](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L87)
 
 ___
 
@@ -72,7 +72,7 @@ true if executing server-side
 
 #### Defined in
 
-[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/is-server.ts#L5)
 
 ___
 
@@ -88,7 +88,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-[utils/editing.ts:74](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/utils/editing.ts#L74)
+[utils/editing.ts:74](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L74)
 
 ___
 
@@ -106,7 +106,7 @@ Resets Sitecore Experience Editor "chromes"
 
 #### Defined in
 
-[utils/editing.ts:93](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/utils/editing.ts#L93)
+[utils/editing.ts:93](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L93)
 
 ___
 
@@ -134,4 +134,4 @@ a URL string
 
 #### Defined in
 
-[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/utils/resolve-url.ts#L24)
+[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/resolve-url.ts#L24)

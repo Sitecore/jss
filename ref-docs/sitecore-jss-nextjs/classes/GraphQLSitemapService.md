@@ -47,7 +47,7 @@ Creates an instance of graphQL sitemap service with the provided options
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:107](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L107)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:107](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L107)
 
 ## Properties
 
@@ -57,7 +57,7 @@ Creates an instance of graphQL sitemap service with the provided options
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:93](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L93)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:93](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L93)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:94](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L94)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:94](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L94)
 
 ## Accessors
 
@@ -89,7 +89,7 @@ Gets the default query used for fetching the list of site pages
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:99](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L99)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:99](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L99)
 
 ## Methods
 
@@ -115,7 +115,7 @@ an array of @see StaticPath objects
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:119](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L119)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:119](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L119)
 
 ___
 
@@ -139,7 +139,7 @@ an array of @see StaticPath objects
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:134](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L134)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:134](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L134)
 
 ___
 
@@ -169,7 +169,7 @@ list of pages
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:154](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L154)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:154](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L154)
 
 ___
 
@@ -189,7 +189,7 @@ implementation
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:204](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L204)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:204](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L204)
 
 ___
 
@@ -207,4 +207,4 @@ the search query service
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:215](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L215)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:215](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L215)
