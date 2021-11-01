@@ -29,7 +29,7 @@ Represents a field on a JSS component or template
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:112](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L112)
+[manifest/generator/manifest.types.ts:112](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L112)
 
 ___
 
@@ -41,7 +41,7 @@ Optionally specify an ID used when importing. Can be either a GUID, or a string.
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:116](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L116)
+[manifest/generator/manifest.types.ts:116](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L116)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:107](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L107)
+[manifest/generator/manifest.types.ts:107](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L107)
 
 ___
 
@@ -64,7 +64,7 @@ Default: false
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:133](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L133)
+[manifest/generator/manifest.types.ts:133](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L133)
 
 ___
 
@@ -76,7 +76,7 @@ Template section name used in Sitecore. Defaults to 'Data'
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:128](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L128)
+[manifest/generator/manifest.types.ts:128](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L128)
 
 ___
 
@@ -88,7 +88,7 @@ Specify a sort order for the field to be used when importing. Defaults to the or
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:120](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L120)
+[manifest/generator/manifest.types.ts:120](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L120)
 
 ___
 
@@ -100,7 +100,7 @@ Sets the field source in Sitecore.
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:146](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L146)
+[manifest/generator/manifest.types.ts:146](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L146)
 
 ___
 
@@ -112,7 +112,7 @@ The value this field will contain when a new item is created with this field on 
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:124](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L124)
+[manifest/generator/manifest.types.ts:124](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L124)
 
 ___
 
@@ -126,7 +126,7 @@ Content data loss could occur if altered after import.
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:152](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L152)
+[manifest/generator/manifest.types.ts:152](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L152)
 
 ___
 
@@ -138,7 +138,7 @@ The data type of the field used when importing. Either a CommonFieldTypes enum v
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:111](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L111)
+[manifest/generator/manifest.types.ts:111](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L111)
 
 ___
 
@@ -150,7 +150,7 @@ When used with validationPattern, the message shown when the field fails regex v
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:142](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L142)
+[manifest/generator/manifest.types.ts:142](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L142)
 
 ___
 
@@ -163,4 +163,4 @@ Example: '^[A-Za-z ]+$'
 
 #### Defined in
 
-[manifest/generator/manifest.types.ts:138](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L138)
+[manifest/generator/manifest.types.ts:138](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L138)

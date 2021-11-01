@@ -71,7 +71,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
+[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
 
 ___
 
@@ -109,7 +109,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[layout/models.ts:64](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L64)
+[layout/models.ts:64](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L64)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Functions
 
@@ -155,7 +155,7 @@ child placeholder
 
 #### Defined in
 
-[layout/utils.ts:58](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/utils.ts#L58)
+[layout/utils.ts:58](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/utils.ts#L58)
 
 ___
 
@@ -185,7 +185,7 @@ Null will be returned if the field is not defined.
 
 #### Defined in
 
-[layout/utils.ts:9](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/utils.ts#L9)
+[layout/utils.ts:9](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/utils.ts#L9)
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -209,4 +209,4 @@ Null will be returned if the field is not defined.
 
 #### Defined in
 
-[layout/utils.ts:14](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/utils.ts#L14)
+[layout/utils.ts:14](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/utils.ts#L14)

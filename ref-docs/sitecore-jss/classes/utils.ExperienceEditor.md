@@ -35,7 +35,7 @@ Static utility class for Sitecore Experience Editor
 
 #### Defined in
 
-[utils/editing.ts:19](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/utils/editing.ts#L19)
+[utils/editing.ts:19](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/utils/editing.ts#L19)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[utils/editing.ts:27](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/utils/editing.ts#L27)
+[utils/editing.ts:27](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/utils/editing.ts#L27)
