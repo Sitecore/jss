@@ -31,7 +31,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[layout/models.ts:49](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L49)
+[layout/models.ts:49](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L49)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:50](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L50)
+[layout/models.ts:50](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L50)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:45](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L45)
+[layout/models.ts:45](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L45)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:46](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L46)
+[layout/models.ts:46](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L46)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:57](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L57)
+[layout/models.ts:57](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L57)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:51](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L51)
+[layout/models.ts:51](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L51)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:52](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L52)
+[layout/models.ts:52](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L52)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:53](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L53)
+[layout/models.ts:53](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L53)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:44](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L44)
+[layout/models.ts:44](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L44)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:56](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L56)
+[layout/models.ts:56](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L56)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:54](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L54)
+[layout/models.ts:54](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L54)
 
 ___
 
@@ -145,4 +145,4 @@ ___
 
 #### Defined in
 
-[layout/models.ts:55](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss/src/layout/models.ts#L55)
+[layout/models.ts:55](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss/src/layout/models.ts#L55)

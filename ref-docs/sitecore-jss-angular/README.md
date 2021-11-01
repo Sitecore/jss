@@ -134,7 +134,7 @@ sitecore-jss/types/layout/models.d.ts:59
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:45](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L45)
+[sitecore-jss-angular/src/components/placeholder.token.ts:48](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L48)
 
 ## Functions
 
@@ -236,7 +236,7 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 
 #### Defined in
 
-[sitecore-jss-angular/src/utils.ts:12](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-angular/src/utils.ts#L12)
+[sitecore-jss-angular/src/utils.ts:12](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-angular/src/utils.ts#L12)
 
 ___
 
@@ -294,7 +294,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/08de6c61/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/fe629f32/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
