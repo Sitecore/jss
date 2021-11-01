@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-forms",
-  "version": "20.0.0-canary.42",
+  "version": "20.0.0-canary.43",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -45,7 +45,7 @@
     "typescript": "~4.3.5"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.42"
+    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.43"
   },
   "description": "",
   "types": "types/index.d.ts",
