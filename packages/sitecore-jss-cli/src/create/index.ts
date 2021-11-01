@@ -2,6 +2,7 @@ import chalk from 'chalk';
 import fs from 'fs';
 import glob from 'glob';
 import path from 'path';
+import runPackageScript from '../run-package-script';
 
 interface PackageJsonConfig {
   appName: string;
@@ -120,6 +121,10 @@ export function applyNameToProject(
     });
 
   replacePrefix(projectFolder, name, replaceName, withPrefix);
+
+  // fix any lint errors created by replacePrefix
+  console.log(chalk.cyan('Fixing potential linting errors...'));
+  runPackageScript(['lint', '--fix'], { cwd: projectFolder, encoding: 'utf-8' });
 }
 
 /**
