@@ -124,11 +124,22 @@ export class EditingRenderMiddleware {
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
       const requestUrl = this.resolvePageUrl(serverUrl, editingData.path);
       debug.experienceEditor('fetching page route for %s', editingData.path);
-      const pageRes = await this.dataFetcher.get<string>(`${requestUrl}?timestamp=${Date.now()}`, {
-        headers: {
-          Cookie: cookies.join(';'),
-        },
-      });
+      const pageRes = await this.dataFetcher
+        .get<string>(`${requestUrl}?timestamp=${Date.now()}`, {
+          headers: {
+            Cookie: cookies.join(';'),
+          },
+        })
+        .catch((err) => {
+          // We need to handle not found error provided by Vercel
+          // for `fallback: false` pages
+          if (err.response.status === 404) {
+            return err.response;
+          }
+
+          throw err;
+        });
+
       let html = pageRes.data;
       if (!html || html.length === 0) {
         throw new Error(`Failed to render html for ${requestUrl}`);

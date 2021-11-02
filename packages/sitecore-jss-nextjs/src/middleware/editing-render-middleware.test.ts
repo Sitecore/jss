@@ -116,6 +116,83 @@ describe('EditingRenderMiddleware', () => {
     });
   });
 
+  it('should handle 404 for route data request', async () => {
+    const html = '<html phkey="test1"><body phkey="test2">Page not found</body></html>';
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const previewData = { key: 'key1234' } as EditingPreviewData;
+
+    const fetcher = {} as AxiosDataFetcher;
+    fetcher.get = spy<any>(() => {
+      return Promise.reject({ response: { data: html, status: 404 } });
+    });
+
+    const dataService = mockDataService(previewData);
+    const req = mockRequest(EE_BODY, query);
+    const res = mockResponse();
+
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(dataService.setEditingData, 'stash editing data').to.have.been.called();
+    expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.called.with(previewData);
+    expect(res.getHeader, 'get preview cookies').to.have.been.called.with('Set-Cookie');
+    expect(fetcher.get).to.have.been.called.once;
+    expect(fetcher.get, 'pass along preview cookies').to.have.been.called.with({
+      headers: {
+        Cookie: mockNextJsPreviewCookies.join(';'),
+      },
+    });
+    expect(res.status).to.have.been.called.once;
+    expect(res.status).to.have.been.called.with(200);
+    expect(res.json).to.have.been.called.once;
+    expect(res.json).to.have.been.called.with({
+      html: '<html key="test1"><body key="test2">Page not found</body></html>',
+    });
+  });
+
+  it('should throw error for route data request', async () => {
+    const html = '<html phkey="test1"><body phkey="test2">Error occured</body></html>';
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const previewData = { key: 'key1234' } as EditingPreviewData;
+
+    const fetcher = {} as AxiosDataFetcher;
+    fetcher.get = spy<any>(() => {
+      return Promise.reject({ response: { data: html, status: 500 } });
+    });
+
+    const dataService = mockDataService(previewData);
+    const req = mockRequest(EE_BODY, query);
+    const res = mockResponse();
+
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(dataService.setEditingData, 'stash editing data').to.have.been.called();
+    expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.called.with(previewData);
+    expect(res.getHeader, 'get preview cookies').to.have.been.called.with('Set-Cookie');
+    expect(fetcher.get).to.have.been.called.once;
+    expect(fetcher.get, 'pass along preview cookies').to.have.been.called.with({
+      headers: {
+        Cookie: mockNextJsPreviewCookies.join(';'),
+      },
+    });
+    expect(res.status).to.have.been.called.once;
+    expect(res.status).to.have.been.called.with(500);
+    expect(res.json).to.have.been.called.once;
+  });
+
   it('should respond with 405 for unsupported method', async () => {
     const fetcher = mockFetcher();
     const dataService = mockDataService();
