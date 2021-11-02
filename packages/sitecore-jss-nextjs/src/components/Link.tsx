@@ -48,7 +48,7 @@ export const Link = (props: LinkProps): JSX.Element => {
     }
   }
 
-  return <ReactLink {...props} />;
+  return <ReactLink {...htmlLinkProps} editable={editable} showLinkTextWithChildrenPresent={showLinkTextWithChildrenPresent} />;
 };
 
 Link.defaultProps = {
