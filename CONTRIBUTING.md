@@ -12,7 +12,7 @@ Want to contribute to Sitecore JavaScript Services? There are a few things you n
 See Branching overview below - We use `dev` for our current development.
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
-2. Create a new branch i.e. `git switch -c feature/my-jss-feature`
+2. Create a new branch e.g. `git switch -c feature/my-jss-feature`
 3. When you're happy with your changes, open a Pull Request targeting the `dev` branch of the `sitecore/jss` repository. 
 4. Note: CI will run lint for all packages and samples, as well as tests for all packages. Please make sure these pass or your PR can not be merged.
 
