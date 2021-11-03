@@ -13,7 +13,7 @@ See Branching overview below - We use `dev` for our current development.
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
 2. Create a new branch i.e. `git switch -c feature/my-jss-feature`
-3. When you're happy with your changes, open a Pull Request targeting the `dev` branch of the `sitecore/jss` repository. 
+3. When you're happy with your changes, open a Pull Request targeting the `dev` branch of the `sitecore/jss` repository. You may add the JSS Dev Reviewers group as Reviewers for potentially expedited initial PR review.
 4. Note: CI will run lint for all packages and samples, as well as tests for all packages. Please make sure these pass or your PR can not be merged.
 
 ## Setting up
@@ -22,7 +22,7 @@ In your fork from the root of the monorepo:
 
 - `npm install` - this will install Lerna at the root and allow the remaining scripts to be called.
 - (optional) `npm run install-git-hooks` - installs a pre-push hook that will lint all samples and apps before a `git-push`. Opt out per-push with the `--no-verify` flag.
-- `npm run reset` -> will clean all `node_modules`, re-install them with `lerna bootstrap`, and then build all JSS packages. You'll want to run this between any version changes.
+- `npm run reset` -> will clean all `node_modules`, re-install them with `lerna bootstrap`, and then build all JSS packages.
 
 ## Linting and Code Style guidelines
 
@@ -84,5 +84,5 @@ npm run reset
 
 * `master `- latest released version
 * `dev `- latest changes for the next release
-* `release `branches - created in order to make changes/updates to past major version releases
+* `release `branches - all major released versions
 
