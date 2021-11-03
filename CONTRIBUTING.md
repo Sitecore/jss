@@ -73,8 +73,14 @@ npm run test
 
 Problem: Build of package or sample fails with the following error: `cannot find module ...`
 
-Solution: If dependencies in a package change, you may need to reset the repo to have the latest changes. This is often needed after pulling changes that include a dependency change.
+Solution: If dependencies in a package change, you may need to install said dependencies.
 From the root of the monorepo:
+
+```shell
+npm run bootstrap
+```
+
+`npm run bootstrap` will solve the problem in most cases, however in nuclear scenarios you may run the following to completely reset the monorepo:
 
 ```shell
 npm run reset
