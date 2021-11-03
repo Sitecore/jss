@@ -5,7 +5,7 @@ Want to contribute to Sitecore JavaScript Services? There are a few things you n
 ## Pre-requisites:
 
 - `node.js` ([Active LTS](https://nodejs.org/en/about/releases/) version) installed (cmd `node -v` to test).
-- `npm` (6.x or later) installed (cmd `npm -v` to test).
+- `npm` (6.x) installed (cmd `npm -v` to test).
 
 ## Developing
 
