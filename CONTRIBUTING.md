@@ -69,6 +69,17 @@ In the root of a package:
 npm run test
 ```
 
+# Troubleshooting
+
+Problem: Build of package or sample fails with the following error: `cannot find module ...`
+
+Solution: If dependencies in a package change, you may need to reset the repo to have the latest changes. This is often needed after pulling changes that include a dependency change.
+From the root of the monorepo:
+
+```shell
+npm run reset
+```
+
 # Branching overview
 
 * `master `- latest released version
