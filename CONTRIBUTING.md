@@ -7,46 +7,71 @@ Want to contribute to Sitecore JavaScript Services? There are a few things you n
 - `node.js` ([Active LTS](https://nodejs.org/en/about/releases/) version) installed (cmd `node -v` to test).
 - `npm` (6.x or later) installed (cmd `npm -v` to test).
 
+## Developing
+
+See Branching overview below - We use `dev` for our current development.
+
+1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
+2. Create a new branch i.e. `git switch -c feature/my-jss-feature`
+3. When you're happy with your changes, open a Pull Request targeting the `dev` branch of the `sitecore/jss` repository. 
+4. Note: CI will run lint for all packages and samples, as well as tests for all packages. Please make sure these pass or your PR can not be merged.
+
 ## Setting up
 
-- `npm install`
-- `npm install -g lerna`
-- `npm run reset` -> will clean all `node_modules`, re-install them with `lerna bootstrap`, and then build all JSS packages
+In your fork from the root of the monorepo:
+
+- `npm install` - this will install Lerna at the root and allow the remaining scripts to be called.
+- (optional) `npm run install-git-hooks` - installs a pre-push hook that will lint all samples and apps before a `git-push`. Opt out per-push with the `--no-verify` flag.
+- `npm run reset` -> will clean all `node_modules`, re-install them with `lerna bootstrap`, and then build all JSS packages. You'll want to run this between any version changes.
+
+## Linting and Code Style guidelines
+
+The monorepo includes a top level `.eslintrc` file that each package inherits. In order to avoid linting errors and adhere to our style guidelines while developing, it is strongly recommended to install the vs code extension  [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), and use it as the document formatter. Formatting the document with this plugin will fix formatting issues and avoid linting errors.
+
+To lint manually, the following commands are available from the root of the monorepo, you may also install the git-hook which will run these commands as a pre-push hook:
+
+```shell
+npm run lint-packages // lint everything under ./packages
+npm run lint-apps // lint everything under ./samples
+```
+
+You may also lint a package by itself by running `npm run lint` while the `cwd` is the root of the package, for example:
+
+```shell
+cd ./packages/sitecore-jss
+npm run lint
+```
+
+Some linting errors may be fixed automatically using the `--fix` flag. You may do this from the root, however you will need `--` twice before the flag in order to pass the argument to the inner command
+
+```shell
+npm run lint-packages -- -- --fix 
+```
+
+In addition to linting rules, there are a few coding guidelines worth mentioning here that will cause less friction when trying to get a PR merged.
+
+- TypeScript: make sure everything has the appropriate type.
+
+- JSDoc: new functions, interfaces, classes, etc. need to have a JSDoc style comment above their declaration. Example: https://jsdoc.app/howto-es2015-classes.html
 
 ## Run unit tests
 
-- `npm run test-packages`
+To keep everything running smoothly, please include unit tests when applicable.
+To run all tests, from the root of the monorepo:
+
+```shell
+npm run test-packages
+```
+
+In the root of a package:
+
+```shell
+npm run test
+```
 
 # Branching overview
 
-* master - latest released version
-* dev - latest changes for the next release
-* release branches - created in order to make changes/updates to past major version releases
+* `master `- latest released version
+* `dev `- latest changes for the next release
+* `release `branches - created in order to make changes/updates to past major version releases
 
-# Documentation contributions
-
-If your documentation changes are related to a code feature that you are submitting to the JSS repo, you should make those changes in your code feature branch and submit them with your feature pull request.
-
-If your documentation changes are related to features that are _already available_ in JSS, then choose one of the approaches below.
-
-## Edit on GitHub
-
-Every route on the documentation site (https://jss.sitecore.com) has a link at the bottom of the page titled `Edit this on GitHub`. Clicking this link will use the GitHub editing features to allow you to make changes to the page content.
-
-When your changes are complete, use the `Create a new branch for this comment and start a pull request` option. This will create a pull request to the `master` branch. Your changes will be reviewed and merged if appropriate.
-
-## Edit in repo
-
-If you need to make code changes to the documentation site, follow these steps:
-
-- Fork the JSS GitHub repo: `https://github.com/Sitecore/jss`
-- Clone the forked repo to your local machine.
-- From a terminal in the repo root: `cd docs`
-- Create a feature branch from `master` for your changes. e.g. `git checkout -b my-feature-branch`
-  > Note: although `dev` is the default branch for the JSS repo, documentation changes that pertain to the current release of JSS should be branched from `master`. The `master` branch contains the published / active documentation content. Changes related to the next release should be added to the `dev` branch.
-- `npm install`
-- `jss start` (to preview your changes locally)
-- Make your changes
-- Commit, push to your remote fork of the JSS repo, then open a pull request (PR) to the `master` branch of the JSS repo.
-
-Your changes will be reviewed and merged if appropriate.
