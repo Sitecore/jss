@@ -1,4 +1,4 @@
-import { Link, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Link, LinkField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
@@ -42,4 +42,4 @@ const StyleguideFieldUsageLink = (props: StyleguideFieldUsageLinkProps): JSX.Ele
   </StyleguideSpecimen>
 );
 
-export default StyleguideFieldUsageLink;
+export default withDatasourceCheck()<StyleguideFieldUsageLinkProps>(StyleguideFieldUsageLink);

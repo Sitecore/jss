@@ -1,4 +1,4 @@
-import _Vue, { PluginObject } from 'vue';
+import { Plugin } from 'vue';
 import { ComponentFactory } from '../components/sharedTypes';
 import { providePlaceholders } from '../enhancers/providePlaceholders';
 
@@ -9,30 +9,29 @@ export interface SitecoreJssPlaceholderPluginOptions {
 /**
  * Vue plugins must export a function named 'install'
  *
- * @param {typeof _Vue} Vue
+ * @param {App} app
  * @param {SitecoreJssPlaceholderPluginOptions} options
  */
-function install(Vue: typeof _Vue, options?: SitecoreJssPlaceholderPluginOptions) {
+function install(app, options?: SitecoreJssPlaceholderPluginOptions) {
   // eslint-disable-next-line no-param-reassign
-  Vue.prototype.$jss = {
+  app.config.globalProperties.$jss = {
     // there may be other JSS plugins installed
-    ...Vue.prototype.$jss,
+    ...app.config.globalProperties.$jss,
     componentFactory: options && options.componentFactory,
   };
 
-  Vue.mixin({
+  app.mixin({
     beforeCreate() {
       providePlaceholders(this, options && options.componentFactory);
     },
   });
 }
 
-export const SitecoreJssPlaceholderPlugin: PluginObject<SitecoreJssPlaceholderPluginOptions> = {
+export const SitecoreJssPlaceholderPlugin: Plugin & SitecoreJssPlaceholderPluginOptions = {
   install,
-  key: 'SitecoreJssPlaceholderPlugin',
 };
 
-declare module 'vue/types/vue' {
+declare module 'vue/dist/vue' {
   export interface Vue {
     $jss: {
       componentFactory?: ComponentFactory;

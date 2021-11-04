@@ -1,10 +1,12 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular-schematics",
-  "version": "18.0.0",
+  "version": "19.0.0-canary.63",
   "description": "Scaffolding schematics for Sitecore JSS Angular apps",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js"
+    "test-package": "jasmine src/**/*_spec.js",
+    "test": "npm run build && npm run test-package",
+    "coverage": "nyc npm run test-package"
   },
   "engines": {
     "node": ">=8.1"
@@ -28,7 +30,8 @@
     "@types/jasmine": "^2.8.0",
     "@types/node": "^12.7.8",
     "jasmine": "^2.99.0",
-    "typescript": "~4.1.5"
+    "nyc": "^15.1.0",
+    "typescript": "~4.3.5"
   },
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
 }

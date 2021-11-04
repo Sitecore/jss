@@ -199,7 +199,7 @@ There are several mechanisms of using/outputting translated values with `ngx-tra
 
 #### `JssTranslationLoaderService`
 
-This implementation loads the Sitecore dictionary from the Dictionary Service provided by JSS, found at `/sitecore/api/jss/dictionary/`, using `HttpClient`. It is used as a "fallback" during both client and server rendering.
+This implementation loads the Sitecore dictionary from the Dictionary Service provided by JSS, found at `/sitecore/api/jss/dictionary/`, using `RestDictionaryService`. It is used as a "fallback" during both client and server rendering.
 
 #### `JssTranslationServerLoaderService`
 

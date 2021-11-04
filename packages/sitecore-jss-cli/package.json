@@ -1,25 +1,27 @@
 {
   "name": "@sitecore-jss/sitecore-jss-cli",
-  "version": "18.0.0",
+  "version": "19.0.0-canary.63",
   "description": "Sitecore JSS command-line",
+  "main": "dist/cjs/cli.js",
+  "module": "dist/esm/cli.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
     "prepublishOnly": "npm run build",
-    "jss": "node ./dist/bin/jss.js",
+    "jss": "node ./dist/cjs/bin/jss.js",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
-    "coverage": "nyc --require ts-node/register npm test"
+    "coverage": "nyc npm test"
   },
   "engines": {
     "node": ">=8.1"
   },
   "preferGlobal": true,
   "bin": {
-    "jss": "./dist/bin/jss.js"
+    "jss": "./dist/cjs/bin/jss.js"
   },
-  "main": "./dist/cli.js",
   "author": {
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.com"
@@ -30,8 +32,8 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^18.0.0",
-    "@sitecore-jss/sitecore-jss-manifest": "^18.0.0",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^19.0.0-canary.63",
+    "@sitecore-jss/sitecore-jss-manifest": "^19.0.0-canary.63",
     "axios": "^0.21.1",
     "chalk": "^2.4.2",
     "cross-spawn": "^7.0.0",
@@ -63,9 +65,10 @@
     "del-cli": "^3.0.1",
     "eslint": "^7.15.0",
     "mocha": "^8.1.3",
+    "nyc": "^15.1.0",
     "sinon": "^7.5.0",
     "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "typescript": "~4.3.5"
   },
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
 }

@@ -14,6 +14,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noImplicitAny": true,
     "strict": true,
     "typeRoots": ["node_modules/@types"],
     "outDir": "dist/cjs",
@@ -33,5 +34,5 @@
     "src/testData/*",
     "**/*.test.ts",
     "**/*.test.tsx"
-  ]
+  ],
 }

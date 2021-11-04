@@ -5,7 +5,7 @@ import { RichText } from './RichText';
 
 describe('<RichText />', () => {
   test('should render nothing with missing field', () => {
-    const field = null;
+    const field: unknown = null;
     const rendered = renderer.create(<RichText field={field} />);
     expect(rendered).toMatchSnapshot();
   });

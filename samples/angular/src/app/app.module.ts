@@ -4,6 +4,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MetaModule } from '@ngx-meta/core';
 import { RoutingModule } from './routing/routing.module';
+import { JssLayoutService } from './layout/jss-layout.service';
 import { JssContextService } from './jss-context.service';
 import { AppComponentsModule } from './components/app-components.module';
 import { AppComponent } from './app.component';
@@ -25,7 +26,7 @@ import { JssDataFetcherService } from './jss-data-fetcher.service';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (http: HttpClient) => new JssTranslationClientLoaderService(new JssTranslationLoaderService(http)),
+        useFactory: () => new JssTranslationClientLoaderService(new JssTranslationLoaderService()),
         deps: [HttpClient, TransferState]
       }
     }),
@@ -34,6 +35,7 @@ import { JssDataFetcherService } from './jss-data-fetcher.service';
   providers: [
     JssContextService,
     JssDataFetcherService,
+    JssLayoutService,
     // IMPORTANT: you must set the base href with this token, not a <base> tag in the HTML.
     // the Sitecore Experience Editor will not work correctly when a base tag is used.
     { provide: APP_BASE_HREF, useValue: '/' },

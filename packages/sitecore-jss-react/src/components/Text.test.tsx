@@ -1,15 +1,14 @@
 /* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 
-import { Text } from './Text';
+import { Text, TextField } from './Text';
 import { textField as eeTextData } from '../testData/ee-data';
 
 describe('<Text />', () => {
   it('should render nothing with missing field', () => {
-    const field: any = null;
+    const field: TextField = null;
     const rendered = mount(<Text field={field} />);
     expect(rendered).to.have.length(1);
     expect(rendered.html()).to.be.null;

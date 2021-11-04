@@ -1,4 +1,4 @@
-import { Text, Field, getFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, getFieldValue, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
@@ -30,4 +30,4 @@ const StyleguideFieldUsageText = (props: StyleguideFieldUsageTextProps): JSX.Ele
   );
 };
 
-export default StyleguideFieldUsageText;
+export default withDatasourceCheck()<StyleguideFieldUsageTextProps>(StyleguideFieldUsageText);

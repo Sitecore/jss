@@ -14,13 +14,13 @@ import { LinkField } from './rendering-field';
 export class RouterLinkDirective extends LinkDirective {
   @Input('scRouterLinkEditable') editable = true;
 
-  @Input('scRouterLinkAttrs') attrs: any = {};
+  @Input('scRouterLinkAttrs') attrs: { [attr: string]: string } = {};
 
   @Input('scRouterLink') field: LinkField;
 
   constructor(
     viewContainer: ViewContainerRef,
-    templateRef: TemplateRef<any>,
+    templateRef: TemplateRef<unknown>,
     renderer: Renderer2,
     elementRef: ElementRef,
     private router: Router
@@ -28,11 +28,11 @@ export class RouterLinkDirective extends LinkDirective {
     super(viewContainer, templateRef, renderer, elementRef);
   }
 
-  protected renderTemplate(props: any, linkText: string) {
+  protected renderTemplate(props: { [prop: string]: string }, linkText: string) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {
-      Object.entries(props).forEach(([key, propValue]: [string, any]) => {
+      Object.entries(props).forEach(([key, propValue]) => {
         this.renderer.setAttribute(node, key, propValue);
 
         if (key === 'href') {

@@ -1,6 +1,64 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
-import { ApolloQueryResult } from '@apollo/client/core';
+
+interface QueryResult {
+  data: {
+    datasource: DataSource;
+    contextItem: {
+      id: string;
+      children: ItemSearchResults;
+      pageTitle: {
+        value: string;
+      };
+    };
+  };
+};
+
+interface DataSource {
+    sample1: {
+    jsonValue: {
+      value: string;
+    };
+    value: string;
+  };
+  sample2: {
+    definition: {
+      type: string;
+      shared: boolean;
+    };
+    jsonValue: {
+      value: {
+        href: string;
+        linktype: string;
+        target: string;
+        text: string;
+        url: string;
+      };
+    };
+    target: string;
+    text: string;
+    url: string;
+  };
+  name: string;
+  id: string;
+};
+
+interface Item {
+  id: string;
+  url: {
+    path: string;
+  };
+  pageTitle: {
+    value: string;
+    jsonValue: {
+      value: string;
+    };
+  };
+};
+
+interface ItemSearchResults {
+  results: Item[];
+};
 
 @Component({
   selector: 'app-graph-ql-integrated-demo',
@@ -8,11 +66,11 @@ import { ApolloQueryResult } from '@apollo/client/core';
 })
 export class GraphQLIntegratedDemoComponent implements OnInit {
   @Input() rendering: ComponentRendering;
-  queryResult: ApolloQueryResult<any>;
+  queryResult: QueryResult;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.queryResult = this.rendering.fields as any;
+    this.queryResult = (this.rendering.fields as unknown) as QueryResult;
   }
 }

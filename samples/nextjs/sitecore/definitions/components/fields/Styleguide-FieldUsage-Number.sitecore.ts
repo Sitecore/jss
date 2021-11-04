@@ -5,7 +5,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
-export default function (manifest: Manifest): void {
+export default function StyleguideFieldUsageNumber(manifest: Manifest): void {
   manifest.addComponent({
     name: 'Styleguide-FieldUsage-Number',
     icon: SitecoreIcon.NumbersField,

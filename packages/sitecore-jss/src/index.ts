@@ -1,15 +1,49 @@
+// NOTE: all imports are now named as to not make breaking changes
+// and to keep react-native working with cjs modules.
+// This will very likely change again when sub-modules are added.
+
 import * as mediaApi from './media-api';
 import * as constants from './constants';
 
 export { mediaApi, constants };
-export * from './utils';
-export * from './graphql';
 export { default as debug, Debugger } from './debug';
 export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
-export * from './graphql-request-client';
-export * from './axios-fetcher';
-export * from './cache-client';
-export * from './i18n';
+export {
+  GraphQLClient,
+  GraphQLRequestClient,
+  GraphQLRequestClientConfig,
+} from './graphql-request-client';
+export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
+export {
+  AppRootQueryResult,
+  SearchQueryResult,
+  SearchQueryService,
+  SearchQueryVariables,
+  SearchServiceConfig,
+  getAppRootId,
+} from './graphql';
+export {
+  ExperienceEditor,
+  HorizonEditor,
+  isEditorActive,
+  isExperienceEditorActive,
+  isServer,
+  resetEditorChromes,
+  resetExperienceEditorChromes,
+  resolveUrl,
+} from './utils';
+export { CacheClient, CacheOptions, MemoryCacheClient } from './cache-client';
+
+export {
+  DictionaryPhrases,
+  DictionaryService,
+  DictionaryServiceBase,
+  GraphQLDictionaryService,
+  GraphQLDictionaryServiceConfig,
+  RestDictionaryService,
+  RestDictionaryServiceConfig,
+  RestDictionaryServiceData,
+} from './i18n';
 
 // layout
 export {
@@ -36,13 +70,6 @@ export {
   RestLayoutService,
   RestLayoutServiceConfig,
   DataFetcherResolver,
-  LayoutServiceConfig,
-  LayoutServiceRequestOptions,
 } from './layout/rest-layout-service';
 
 export { GraphQLLayoutService, GraphQLLayoutServiceConfig } from './layout/graphql-layout-service';
-
-// TODO: these are deprecated and we should stop exporting them
-import { fetchRouteData, fetchPlaceholderData } from './layout/rest-layout-service';
-const dataApi = { fetchRouteData, fetchPlaceholderData };
-export { dataApi };

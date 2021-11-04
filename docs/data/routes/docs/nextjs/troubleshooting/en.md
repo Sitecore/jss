@@ -25,6 +25,16 @@ DEBUG=sitecore-jss:*
 
 This will output _all_ debug logs. However, you may wish to be more selective. Refer to [Debug logging](/docs/fundamentals/troubleshooting/debug-logging) for additional details.
 
+## Debug logging
+
+You can enable debug logging of the Sitecore JSS npm packages by setting the `DEBUG` environment variable. In your `.env` (or `.env.local` for local environments), add the following line:
+
+```
+DEBUG=sitecore-jss:*
+```
+
+This will output _all_ debug logs. However, you may wish to be more selective. Refer to [Debug logging](/docs/fundamentals/troubleshooting/debug-logging) for additional details.
+
 ## General setup checklist
 
 You can prevent most errors by performing the following steps: 

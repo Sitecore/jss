@@ -1,8 +1,8 @@
 import {
   RouteData,
   LayoutServiceContextData,
-  LayoutServiceError,
 } from '@sitecore-jss/sitecore-jss-angular';
+import { LayoutServiceError } from './layout/jss-layout.service';
 
 export class JssState {
   language: string;
@@ -11,5 +11,5 @@ export class JssState {
   sitecore?: LayoutServiceContextData & {
     route: RouteData;
   };
-  viewBag: any;
+  viewBag: { [key: string]: unknown };
 }

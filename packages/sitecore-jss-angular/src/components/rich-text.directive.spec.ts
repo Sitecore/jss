@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { richTextField as eeRichTextData } from '../testData/ee-data';
+import { RichTextField } from './rendering-field';
 import { RichTextDirective } from './rich-text.directive';
 
 @Component({
@@ -12,7 +13,7 @@ import { RichTextDirective } from './rich-text.directive';
   `,
 })
 class TestComponent {
-  @Input() field: any;
+  @Input() field: RichTextField;
   @Input() editable = true;
 }
 
@@ -47,7 +48,7 @@ describe('<div *scRichText />', () => {
   });
 
   it('should render editable with editable value', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: 'value',
       editable: 'editable',
     };
@@ -59,7 +60,7 @@ describe('<div *scRichText />', () => {
   });
 
   it('should render value with editing explicitly disabled', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: 'value',
       editable: 'editable',
     };
@@ -72,7 +73,7 @@ describe('<div *scRichText />', () => {
   });
 
   it('should render value with with just a value', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: 'value',
     };
     comp.field = field;
@@ -83,7 +84,7 @@ describe('<div *scRichText />', () => {
   });
 
   it('should render embedded html as-is', () => {
-    const field = {
+    const field: { [prop: string]: unknown } = {
       value: '<input type="text">some crazy stuff<script code="whaaaat">uh oh</script>',
     };
     comp.field = field;

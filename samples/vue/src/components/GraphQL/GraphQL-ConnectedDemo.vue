@@ -12,39 +12,39 @@
       Consult the Apollo documentation for details.
     </p>
 
-    <p v-if="loadingQueriesCount > 0" class="alert alert-info">GraphQL query is executing...</p>
+    <p v-if="loading" class="alert alert-info">GraphQL query is executing...</p>
     <p v-if="error" class="alert alert-danger">GraphQL query error: {{ error.toString() }}</p>
-    <div v-if="datasource">
+    <div v-if="!loading && result && result.datasource">
       <h4>Datasource Item (via Connected GraphQL)</h4>
-      id: {{ datasource.id }}
+      id: {{ result.datasource.id }}
       <br />
-      name: {{ datasource.name }}
+      name: {{ result.datasource.name }}
       <br />
-      sample1: {{ datasource.sample1.value }}
+      sample1: {{ result.datasource.sample1.value }}
       <br />
-      sample1 (editable): <sc-text :field="datasource.sample1.jss" />
+      sample1 (editable): <sc-text :field="result.datasource.sample1.jsonValue" />
       <br />
       sample2:<br />
       <ul>
-        <li>text: {{ datasource.sample2.text }}</li>
-        <li>url: {{ datasource.sample2.url }}</li>
-        <li>target: {{ datasource.sample2.target }}</li>
-        <li>editable: <sc-link :field="datasource.sample2.jss" /></li>
-        <li>field type: {{ datasource.sample2.definition.type }}</li>
-        <li>field is shared?: {{ datasource.sample2.definition.shared.toString() }}</li>
+        <li>text: {{ result.datasource.sample2.text }}</li>
+        <li>url: {{ result.datasource.sample2.url }}</li>
+        <li>target: {{ result.datasource.sample2.target }}</li>
+        <li>editable: <sc-link :field="result.datasource.sample2.jsonValue" /></li>
+        <li>field type: {{ result.datasource.sample2.definition.type }}</li>
+        <li>field is shared?: {{ result.datasource.sample2.definition.shared.toString() }}</li>
       </ul>
     </div>
-    <div v-if="contextItem">
+    <div v-if="!loading && result && result.contextItem">
       <h4>Route Item (via Connected GraphQL)</h4>
-      id: {{ contextItem.id }}
+      id: {{ result.contextItem.id }}
       <br />
-      page title: {{ contextItem.pageTitle.value }}
+      page title: {{ result.contextItem.pageTitle.value }}
       <br />
       children:
       <ul>
-        <li v-for="child in contextItem.children" :key="child.id">
-          <router-link :to="child.url">{{ child.pageTitle.value }}</router-link
-          >&nbsp; (editable title too! <sc-text :field="child.pageTitle.jss" />)
+        <li v-for="child in result.contextItem.children.results" :key="child.id">
+          <router-link :to="child.url.path">{{ child.pageTitle.value }}</router-link
+          >&nbsp; (editable title too! <sc-text :field="child.pageTitle.jsonValue" />)
         </li>
       </ul>
     </div>
@@ -52,11 +52,14 @@
 </template>
 
 <script>
+import { getCurrentInstance, defineComponent } from 'vue';
+import { useQuery } from '@vue/apollo-composable/dist/useQuery';
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
+import config from '../../../package.json';
 
 import { Text, Link } from '@sitecore-jss/sitecore-jss-vue';
 
-export default {
+export default defineComponent({
   name: 'GraphQL-ConnectedDemo',
   props: {
     fields: {
@@ -70,51 +73,30 @@ export default {
     ScText: Text,
     ScLink: Link,
   },
-  data() {
+  setup(props) {
+    const instance = getCurrentInstance();
+
+    const variables = () => {
+      const properties = instance.appContext.config.globalProperties.$jss;
+      const defaultValue = '{00000000-0000-0000-0000-000000000000}';
+      const variables = {
+        contextItem: properties ? properties.sitecoreContext().itemId : defaultValue,
+        datasource: (props.rendering && props.rendering.dataSource) || defaultValue,
+        language: properties ? properties.sitecoreContext().language : config.language,
+      };
+
+      if (!variables.contextItem) variables.contextItem = defaultValue;
+
+      return variables;
+    };
+
+    const { result, loading, error } = useQuery(ConnectedDemoQuery, variables());
+
     return {
-      loadingQueriesCount: 0,
-      error: null,
+      result,
+      loading,
+      error,
     };
   },
-  computed: {
-    datasource() {
-      return this.queryData && this.queryData.datasource;
-    },
-    contextItem() {
-      return this.queryData && this.queryData.contextItem;
-    },
-  },
-  apollo: {
-    queryData: {
-      query: ConnectedDemoQuery,
-      variables() {
-        const defaultValue = '{00000000-0000-0000-0000-000000000000}';
-        const variables = {
-          contextItem: this.$jss ? this.$jss.sitecoreContext().itemId : defaultValue,
-          datasource: (this.rendering && this.rendering.dataSource) || defaultValue,
-        };
-
-        if (!variables.contextItem) variables.contextItem = defaultValue;
-
-        return variables;
-      },
-      error(error) {
-        this.error = error;
-      },
-      loadingKey: 'loadingQueriesCount',
-      update(data) {
-        // By default, vue-apollo will try to add a property to the component instance
-        // using the query key specified above, e.g. `queryData`.
-        // Also by default, vue-apollo will try to extract data from the query result using
-        // that same query key, e.g. result.data.queryData.
-        // However, the demo query we use returns multiple (2) fields in the result data: `datasource` and `contextItem`.
-        // Therefore, we need to use the `update` function to assign the result data object
-        // to the component data property.
-        // The end result is that you use `this.queryData.contextItem` or `this.queryData.datasource`
-        // to access the query result data.
-        return data;
-      },
-    },
-  },
-};
+});
 </script>

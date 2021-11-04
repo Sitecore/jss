@@ -8,8 +8,7 @@ import dictionaryQueryResponse from '../testData/mockDictionaryQueryResponse.jso
 import appRootQueryResponse from '../testData/mockAppRootQueryResponse.json';
 
 class TestService extends GraphQLDictionaryService {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public client: any;
+  public client: GraphQLClient;
   constructor(options: GraphQLDictionaryServiceConfig) {
     super(options);
     this.client = this.getGraphQLClient();
@@ -78,6 +77,42 @@ describe('GraphQLDictionaryService', () => {
       cacheEnabled: false,
       rootItemId: customRootId,
     });
+    const result = await service.fetchDictionaryData('en');
+    expect(result).to.have.all.keys('foo', 'bar');
+  });
+
+  it('should use a jssTemplateId, if provided', async () => {
+    const jssAppTemplateId = '{71d608ca-ac9c-4f1c-8e0a-85a6946e30f8}';
+    const randomId = '{412286b7-6d4f-4deb-80e9-108ee986c6e9}';
+
+    nock(endpoint)
+      .post('/', (body) => body.variables.jssAppTemplateId === jssAppTemplateId)
+      .reply(200, {
+        data: {
+          layout: {
+            homePage: {
+              rootItem: [
+                {
+                  id: randomId,
+                },
+              ],
+            },
+          },
+        },
+      });
+
+    nock(endpoint)
+      .post('/', (body) => body.variables.rootItemId === randomId)
+      .reply(200, dictionaryQueryResponse);
+
+    const service = new GraphQLDictionaryService({
+      endpoint,
+      apiKey,
+      siteName,
+      cacheEnabled: false,
+      jssAppTemplateId,
+    });
+
     const result = await service.fetchDictionaryData('en');
     expect(result).to.have.all.keys('foo', 'bar');
   });

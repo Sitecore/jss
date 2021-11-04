@@ -23,13 +23,13 @@ export interface ErrorComponentProps {
 
 export interface FormProps {
   form: SitecoreForm;
+  className?: string;
   fieldFactory?: FieldFactory;
   sitecoreApiHost: string;
   sitecoreApiKey: string;
   onRedirect?: (url: string) => void;
   errorComponent?: ComponentType<ErrorComponentProps>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fieldWrapperComponent?: ComponentType<FieldWithValueProps<any>>;
+  fieldWrapperComponent?: ComponentType<FieldWithValueProps>;
 
   /** Optionally override the label component for any field components that render a label */
   labelComponent?: ComponentType<LabelProps>;
@@ -66,15 +66,14 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
   constructor(props: FormProps) {
     super(props);
 
-    this.state = {
+    this.state = ({
       errors: [],
       // in a multistep form the server can reset the form schema
       // to display further steps; this state property overrides
       // the form passed in from props if present
       nextForm: null,
       submitButton: null,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any; // workaround index type limitations in TS
+    } as unknown) as FieldStateCollection & FormState;
 
     this.createFieldComponent = this.createFieldComponent.bind(this);
     this.getCurrentFieldState = this.getCurrentFieldState.bind(this);
@@ -110,7 +109,12 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
     const fieldErrors = this.collectCurrentFieldValues().filter((field) => !field.state.isValid);
 
     return (
-      <form action={action} method="POST" onSubmit={this.onSubmit.bind(this)}>
+      <form
+        className={this.props.className}
+        action={action}
+        method="POST"
+        onSubmit={this.onSubmit.bind(this)}
+      >
         <ErrorComponent form={form} formErrors={this.state.errors} fieldErrors={fieldErrors} />
         {fieldComponents}
       </form>

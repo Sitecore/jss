@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-unused-expressions */
 import { mount } from '@vue/test-utils';
-
 import DateSlotSfc from '../test/components/sfc/SampleScopedSlotDateField.vue';
 import { DateField, FormatterFunction } from './Date';
 
@@ -12,22 +11,22 @@ describe('<Date />', () => {
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
     const rendered = mount(DateField);
-    expect(rendered.isEmpty()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
   });
 
   it('should render nothing with missing editable and value', () => {
     const field = { editable: '', value: '' };
     const rendered = mount(DateField, {
-      context: { props: { field } },
+      props: { field },
     });
-    expect(rendered.isEmpty()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(undefined);
   });
 
   it('should render editable with editable value', () => {
     const props = { field: { value: 'value', editable: 'editable' } };
     const rendered = mount(DateField, {
-      context: { props },
+      props,
     }).find('span');
     expect(rendered.element.innerHTML).toBe(props.field.editable);
   });
@@ -35,7 +34,7 @@ describe('<Date />', () => {
   it('should render value with editing explicitly disabled', () => {
     const props = { field: { value: 'value', editable: 'editable' }, editable: false };
     const rendered = mount(DateField, {
-      context: { props },
+      props,
     }).find('span');
 
     expect(rendered.element.innerHTML).toBe(props.field.value);
@@ -49,7 +48,7 @@ describe('<Date />', () => {
     };
 
     const rendered = mount(DateField, {
-      context: { props },
+      props,
     }).find('span');
     expect(rendered.element.innerHTML).toBe('rendered val');
   });
@@ -63,7 +62,7 @@ describe('<Date />', () => {
     };
 
     const rendered = mount(DateField, {
-      context: { props },
+      props,
     }).find('span');
     expect(rendered.element.innerHTML).toBe('rendered val null');
   });
@@ -73,10 +72,8 @@ describe('<Date />', () => {
     const attrs = { id: 'my-date', class: 'my-css', arbitrary: 'somevalue' };
 
     const rendered = mount(DateField, {
-      context: {
-        props: { field },
-        attrs,
-      },
+      props: { field },
+      attrs,
     });
 
     expect(rendered.attributes()).toMatchObject(attrs);
@@ -86,11 +83,10 @@ describe('<Date />', () => {
     const props = { field: { value: '1970-01-01' } };
 
     const rendered = mount(DateField, {
-      context: {
-        props,
-      },
-      scopedSlots: {
-        default: '<em slot-scope="date">{{date.toISOString()}}</em>',
+      props,
+      slots: {
+        default:
+          '<template v-slot:default="props"><em>{{props.date.toISOString()}}</em></template>',
       },
     });
 
@@ -108,7 +104,7 @@ describe('<Date />', () => {
       },
     };
     const rendered = mount(DateSlotSfc, {
-      propsData: props,
+      props,
     });
     expect(rendered.element.innerHTML).toBe(
       `<em>${new Date(props.fields.date.value).toISOString()}</em>`

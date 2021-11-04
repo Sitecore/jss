@@ -12,7 +12,8 @@ import { SitecorePageProps } from 'lib/page-props';
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { componentModule } from 'temp/componentFactory';
-import { config as packageConfig } from '../../package.json';
+import pkg from '../../package.json';
+import { StyleguideSitecoreContextValue } from './component-props';
 
 /**
  * Extract normalized Sitecore item path from query
@@ -65,7 +66,8 @@ export class SitecorePagePropsFactory {
       layoutData: LayoutServiceData | null,
       dictionary: DictionaryPhrases,
       componentProps = {},
-      notFound = false;
+      notFound = false,
+      sitecoreContext: StyleguideSitecoreContextValue | null = null;
 
     if (context.preview) {
       /**
@@ -89,7 +91,7 @@ export class SitecorePagePropsFactory {
       const path = extractPath(context.params);
 
       // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
-      locale = context.locale ?? packageConfig.language;
+      locale = context.locale ?? pkg.config.language;
 
       // Fetch layout data, passing on req/res for SSR
       layoutData = await this.layoutService.fetchLayoutData(
@@ -114,24 +116,31 @@ export class SitecorePagePropsFactory {
 
     // Retrieve component props using side-effects defined on components level
     if (layoutData?.sitecore?.route) {
+      sitecoreContext = {
+        route: layoutData.sitecore.route,
+        itemId: layoutData.sitecore.route?.itemId,
+        ...layoutData.sitecore.context,
+      };
+
       if (isServerSidePropsContext(context)) {
         componentProps = await this.componentPropsService.fetchServerSideComponentProps({
-          layoutData: layoutData,
+          layoutData,
           context,
           componentModule,
         });
       } else {
         componentProps = await this.componentPropsService.fetchStaticComponentProps({
-          layoutData: layoutData,
+          layoutData,
           context,
           componentModule,
         });
       }
     }
+
     return {
       locale,
-      layoutData,
       dictionary,
+      sitecoreContext,
       componentProps,
       notFound,
     };

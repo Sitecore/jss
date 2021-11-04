@@ -15,6 +15,12 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    params: {
+      type: Object,
+    },
+    rendering: {
+      type: Object,
+    },
   },
   components: {
     ScText: Text,

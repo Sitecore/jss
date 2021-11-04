@@ -61,7 +61,7 @@ Before exporting your application, you must:
 
 5. In `.env`, add `EXPORT_MODE=true`.
 
-6. In `package.json`, add the following scripts: 
+5. In `package.json`, add the following scripts: 
 
    * `"next:export": "next export"`.
 
@@ -71,7 +71,7 @@ Before exporting your application, you must:
 
       Replace the `PORT` value with the port of your disconnected server.
 
-7. For disconnected mode only, run `jss start:disconnected-proxy`. During the build stage, Next.js will fetch the required data (layout, dictionary, sitemap) from your disconnected server.
+6. For disconnected mode only, run `jss start:disconnected-proxy`. During the build stage, Next.js will fetch the required data (layout, dictionary, sitemap) from your disconnected server.
 
 ## Export the application
 

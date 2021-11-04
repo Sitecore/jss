@@ -1,4 +1,7 @@
 <template>
+  <metainfo>
+    <template v-slot:title="{ content }">{{ content }}</template>
+  </metainfo>
   <div>
     <visitor-identification />
     <navigation />
@@ -9,14 +12,15 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-vue';
 import Navigation from './Navigation';
 import VisitorIdentification from './VisitorIdentification';
-
+import { useMeta } from 'vue-meta';
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/app.css';
 
-export default {
+export default defineComponent({
   name: 'Layout',
   props: {
     route: {
@@ -24,17 +28,19 @@ export default {
       default: () => ({}),
     },
   },
-  metaInfo() {
-    return {
+  setup(props) {
+    useMeta({
       title:
-        (this.route.fields && this.route.fields.pageTitle && this.route.fields.pageTitle.value) ||
+        (props.route.fields &&
+          props.route.fields.pageTitle &&
+          props.route.fields.pageTitle.value) ||
         'Page',
-    };
+    });
   },
   components: {
     Placeholder,
     Navigation,
     VisitorIdentification,
   },
-};
+});
 </script>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -5,6 +6,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
+import { ComponentRendering, Field, Item, RouteData } from '@sitecore-jss/sitecore-jss';
 import { ComponentFactory } from './sharedTypes';
 import { Placeholder } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
@@ -19,8 +21,14 @@ const componentFactory: ComponentFactory = (componentName: string) => {
   const components = new Map<string, React.FC>();
 
   // pass otherProps to page-content to test property cascading through the Placeholder
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const Home: React.FC<any> = ({ rendering, render, renderEach, renderEmpty, ...otherProps }) => (
+
+  const Home: React.FC<{ [prop: string]: unknown; rendering?: RouteData | ComponentRendering }> = ({
+    rendering,
+    render,
+    renderEach,
+    renderEmpty,
+    ...otherProps
+  }) => (
     <div className="home-mock">
       <Placeholder name="page-header" rendering={rendering} />
       <Placeholder name="page-content" rendering={rendering} {...otherProps} />
@@ -32,15 +40,20 @@ const componentFactory: ComponentFactory = (componentName: string) => {
 
   components.set('Home', Home);
 
-  const DownloadCallout: React.FC<any> = (props) => (
+  const DownloadCallout: React.FC<{
+    [prop: string]: unknown;
+    fields?: { message?: { value?: string } };
+  }> = (props) => (
     <div className="download-callout-mock">
       {props.fields.message ? props.fields.message.value : ''}
     </div>
   );
   DownloadCallout.propTypes = {
     fields: PropTypes.shape({
-      message: PropTypes.object,
-    }),
+      message: PropTypes.shape({
+        value: PropTypes.string,
+      }),
+    }).isRequired,
   };
 
   components.set('DownloadCallout', DownloadCallout);
@@ -51,8 +64,9 @@ const componentFactory: ComponentFactory = (componentName: string) => {
 
 describe('<Placeholder />', () => {
   it('should render without required props', () => {
-    const key: any = null;
-    const renderedComponent = shallow(<Placeholder name={key} rendering={key} />);
+    const key: string = null;
+    const rendering: RouteData = null;
+    const renderedComponent = shallow(<Placeholder name={key} rendering={rendering} />);
     expect(renderedComponent.length).to.eql(1);
   });
 
@@ -65,9 +79,10 @@ describe('<Placeholder />', () => {
   testData.forEach((dataSet) => {
     describe(`with ${dataSet.label}`, () => {
       it('should render a placeholder with given key', () => {
-        const component = (dataSet.data.sitecore.route.placeholders.main as any[]).find(
-          (c) => c.componentName
-        );
+        const component = (dataSet.data.sitecore.route.placeholders.main as (
+          | ComponentRendering
+          | RouteData
+        )[]).find((c) => (c as ComponentRendering).componentName);
         const phKey = 'page-content';
 
         const renderedComponent = mount(
@@ -78,7 +93,7 @@ describe('<Placeholder />', () => {
       });
 
       it('should render nested placeholders', () => {
-        const component: any = dataSet.data.sitecore.route;
+        const component = dataSet.data.sitecore.route as RouteData;
         const phKey = 'main';
 
         const renderedComponent = mount(
@@ -91,7 +106,7 @@ describe('<Placeholder />', () => {
       });
 
       it('should render components based on the rendereach function', () => {
-        const component: any = dataSet.data.sitecore.route;
+        const component = dataSet.data.sitecore.route as RouteData;
         const phKey = 'main';
 
         const renderedComponent = mount(
@@ -108,7 +123,7 @@ describe('<Placeholder />', () => {
       });
 
       it('should render components based on the render function', () => {
-        const component: any = dataSet.data.sitecore.route;
+        const component = dataSet.data.sitecore.route as RouteData;
         const phKey = 'main';
 
         const renderedComponent = mount(
@@ -126,7 +141,7 @@ describe('<Placeholder />', () => {
 
       it('when null passed to render function', () => {
         it('should render empty placeholder', () => {
-          const component: any = dataSet.data.sitecore.route;
+          const component = dataSet.data.sitecore.route as RouteData;
           const phKey = 'main';
 
           const renderedComponent = mount(
@@ -142,9 +157,9 @@ describe('<Placeholder />', () => {
       });
 
       it('should render output based on the renderEmpty function in case of no renderings', () => {
-        const component: any = dataSet.data.sitecore.route;
+        const component = dataSet.data.sitecore.route as RouteData;
         const renderings = component.placeholders.main.filter(
-          ({ componentName }: any) => !componentName
+          (c) => !(c as ComponentRendering).componentName
         );
         const myComponent = {
           ...component,
@@ -204,14 +219,13 @@ describe('<Placeholder />', () => {
 
     const eeChrome = renderedComponent.find({ chrometype: 'placeholder', kind: 'open', id: phKey });
     expect(eeChrome.length).to.eq(1);
-    // getDOMNode() returns underlying DOM element: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
-    const keyAttribute = eeChrome.getDOMNode().getAttribute('key');
+    const keyAttribute = eeChrome.get(0).key;
     expect(keyAttribute).to.not.be.undefined;
     expect(keyAttribute).to.eq(`${phKey}`);
   });
 
   it('should render null for unknown placeholder', () => {
-    const route: any = {
+    const route = ({
       placeholders: {
         main: [
           {
@@ -219,7 +233,7 @@ describe('<Placeholder />', () => {
           },
         ],
       },
-    };
+    } as unknown) as RouteData;
     const phKey = 'unknown';
 
     const renderedComponent = mount(
@@ -232,14 +246,11 @@ describe('<Placeholder />', () => {
     const componentFactory: ComponentFactory = (componentName: string) => {
       const components = new Map<string, React.FC>();
 
-      const Home: React.FC<any> = ({ rendering }) => (
+      const Home: React.FC<{ rendering?: RouteData }> = ({ rendering }) => (
         <div className="home-mock">
           <Placeholder name="main" rendering={rendering} />
         </div>
       );
-      Home.propTypes = {
-        placeholders: PropTypes.object,
-      };
 
       components.set('Home', Home);
       components.set('ThrowError', () => {
@@ -248,7 +259,7 @@ describe('<Placeholder />', () => {
       return components.get(componentName) || null;
     };
 
-    const route: any = {
+    const route = ({
       placeholders: {
         main: [
           {
@@ -256,7 +267,7 @@ describe('<Placeholder />', () => {
           },
         ],
       },
-    };
+    } as unknown) as RouteData;
     const phKey = 'main';
 
     const renderedComponent = mount(
@@ -267,16 +278,13 @@ describe('<Placeholder />', () => {
 
   it('should render custom errorComponent on error, if provided', () => {
     const componentFactory: ComponentFactory = (componentName: string) => {
-      const components = new Map<string, React.FC>();
+      const components = new Map<string, React.FC<{ [key: string]: unknown }>>();
 
-      const Home: React.FC<any> = ({ rendering }) => (
+      const Home: React.FC<{ rendering?: RouteData }> = ({ rendering }) => (
         <div className="home-mock">
           <Placeholder name="main" rendering={rendering} />
         </div>
       );
-      Home.propTypes = {
-        placeholders: PropTypes.object,
-      };
 
       components.set('Home', Home);
       components.set('ThrowError', () => {
@@ -285,9 +293,9 @@ describe('<Placeholder />', () => {
       return components.get(componentName) || null;
     };
 
-    const CustomError: React.FC<any> = () => <div className="custom-error">Custom Error</div>;
+    const CustomError: React.FC = () => <div className="custom-error">Custom Error</div>;
 
-    const route: any = {
+    const route = ({
       placeholders: {
         main: [
           {
@@ -295,7 +303,7 @@ describe('<Placeholder />', () => {
           },
         ],
       },
-    };
+    } as unknown) as RouteData;
     const phKey = 'main';
 
     const renderedComponent = mount(

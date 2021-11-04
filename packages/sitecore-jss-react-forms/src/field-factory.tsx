@@ -12,8 +12,7 @@ export type FormFieldComponent<TProps extends FieldProps> = React.ComponentType<
  * but it maps form element components instead of layout components
  */
 class FieldFactory {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private _fieldMap = new Map<string, React.ComponentType<any>>();
+  private _fieldMap = new Map<string, React.ComponentType<unknown>>();
   private _defaultComponent: React.ComponentType<FormField>;
 
   constructor() {
@@ -30,7 +29,7 @@ class FieldFactory {
   }
 
   setComponent<TProps extends FieldProps>(type: FieldTypes, component: FormFieldComponent<TProps>) {
-    this._fieldMap.set(type, component);
+    this._fieldMap.set(type, component as React.ComponentType<unknown>);
   }
 
   get(field: FormField, props: FieldProps): React.ReactNode {

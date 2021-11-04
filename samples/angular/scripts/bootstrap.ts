@@ -1,4 +1,4 @@
-
+import { constants } from '@sitecore-jss/sitecore-jss-angular';
 import { generateConfig } from './generate-config';
 const projects = require('../angular.json').projects;
 
@@ -9,7 +9,7 @@ const projects = require('../angular.json').projects;
   and the global config module.
 */
 
-const disconnected = process.argv.some((arg) => arg === '--disconnected');
+const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
 
 /*
   CONFIG GENERATION
@@ -19,7 +19,7 @@ const disconnected = process.argv.some((arg) => arg === '--disconnected');
   This is generated rather than using Angular environments because of the need to set config params
   based on build arguments, which env files don't directly allow.
 */
-function writeConfig(configOverride: any, outputPath?: string) {
+function writeConfig(configOverride: { production: boolean, sitecoreApiHost?: string }, outputPath?: string) {
   if (disconnected) {
     configOverride.sitecoreApiHost = `http://localhost:${projects['JssAngularWeb'].architect.serve.options.port}`;
   }

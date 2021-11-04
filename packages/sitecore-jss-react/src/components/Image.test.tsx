@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-expressions */
 import chai from 'chai';
 import chaiString from 'chai-string';
 import { mount } from 'enzyme';
 import React from 'react';
 import { imageField as eeImageData } from '../testData/ee-data';
-import { Image } from './Image';
+import { Image, ImageField } from './Image';
 
 const expect = chai.use(chaiString).expect;
 
@@ -264,7 +263,7 @@ describe('<Image />', () => {
   });
 
   it('should render no <img /> when media prop is empty', () => {
-    const img: any = '';
+    const img = '' as ImageField;
     const rendered = mount(<Image media={img} />);
     expect(rendered.find('img')).to.have.length(0);
   });

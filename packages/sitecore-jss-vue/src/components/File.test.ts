@@ -12,7 +12,7 @@ describe('<File />', () => {
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
     const rendered = mount(File);
-    expect(rendered.isEmpty()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
   });
 
@@ -20,8 +20,8 @@ describe('<File />', () => {
     const field = {
       editable: 'lorem',
     };
-    const rendered = mount(File, { context: { props: { field } } });
-    expect(rendered.isEmpty()).toBe(true);
+    const rendered = mount(File, { props: { field } });
+    expect(rendered.element.innerHTML).toBe(undefined);
   });
 
   it('should render with src directly on provided field', () => {
@@ -29,7 +29,7 @@ describe('<File />', () => {
       src: '/lorem',
       title: 'ipsum',
     };
-    const rendered = mount(File, { context: { props: { field } } });
+    const rendered = mount(File, { props: { field } });
     expect(rendered.attributes().href).toBe(field.src);
     expect(rendered.text()).toBe(field.title);
   });
@@ -41,7 +41,7 @@ describe('<File />', () => {
         title: 'ipsum',
       },
     };
-    const rendered = mount(File, { context: { props: { field } } });
+    const rendered = mount(File, { props: { field } });
     expect(rendered.attributes().href).toBe(field.value.src);
     expect(rendered.text()).toBe(field.value.title);
   });
@@ -53,7 +53,7 @@ describe('<File />', () => {
         displayName: 'ipsum',
       },
     };
-    const rendered = mount(File, { context: { props: { field } } });
+    const rendered = mount(File, { props: { field } });
     expect(rendered.text()).toBe(field.value.displayName);
   });
 
@@ -67,17 +67,15 @@ describe('<File />', () => {
     const attrs = { id: 'my-file', class: 'my-css', arbitrary: 'somevalue' };
 
     const rendered = mount(File, {
-      context: {
-        props: { field },
-        attrs,
-      },
+      props: { field },
+      attrs,
     });
 
     expect(rendered.attributes()).toMatchObject(attrs);
   });
 
   describe('when scoped slot is defined', () => {
-    const propsData = {
+    const props = {
       fields: {
         file: {
           value: {
@@ -90,26 +88,24 @@ describe('<File />', () => {
 
     it('should render scoped slot', () => {
       const rendered = mount(File, {
-        context: {
-          props: { field: propsData.fields.file },
-        },
-        scopedSlots: {
-          default: '<span slot-scope="file">{{file.src}}</span>',
+        props: { field: props.fields.file },
+        slots: {
+          default: '<template v-slot:default="file"><span>{{file.src}}</span></template>',
         },
       });
 
-      expect(rendered.html()).toBe(`<span>${propsData.fields.file.value.src}</span>`);
+      expect(rendered.html()).toBe(`<span>${props.fields.file.value.src}</span>`);
     });
 
     // This test uses an imported SFC to essentially test what the previous unit tests.
     // Helping to ensure integration with SFC usage.
     it('should render SFC component as scoped slot', () => {
       const rendered = mount(FileSlotSfc, {
-        propsData,
+        props,
       });
 
       expect(rendered.element.innerHTML).toBe(
-        `<button><span>${propsData.fields.file.value.title}</span></button>`
+        `<button><span>${props.fields.file.value.title}</span></button>`
       );
     });
 
@@ -118,14 +114,14 @@ describe('<File />', () => {
     it('should bind slot data to slot component event handler', () => {
       const clickHandler = jest.fn();
       const rendered = mount(FileSlotSfc, {
-        propsData: {
-          ...propsData,
+        props: {
+          ...props,
           onDoIt: clickHandler,
         },
       });
 
       rendered.find('button').trigger('click');
-      expect(clickHandler.mock.calls[0][0]).toBe(propsData.fields.file.value.src);
+      expect(clickHandler.mock.calls[0][0]).toBe(props.fields.file.value.src);
     });
   });
 });

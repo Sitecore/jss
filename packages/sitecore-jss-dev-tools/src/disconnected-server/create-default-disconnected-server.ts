@@ -32,7 +32,7 @@ export interface DisconnectedServerOptions {
   /**
    * Module to require before starting the disconnected server (i.e. a transpiler, or a config script that loads one)
    */
-  requireArg?: string;
+  requireArg?: string | null;
 
   /**
    * Express-like server instance to attach to. Defaults to a new Express instance if not passed.

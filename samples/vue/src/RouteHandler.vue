@@ -1,12 +1,15 @@
 <template>
-  <not-found v-if="notFound" :context="appState.sitecoreContext" />
+  <not-found
+    v-if="notFound && !loading && !languageIsChanging"
+    :context="appState.sitecoreContext"
+  />
   <route-loading v-else-if="loading" />
   <layout v-else :route="appState.routeData" />
 </template>
 
 <script>
-import { isExperienceEditorActive, dataApi } from '@sitecore-jss/sitecore-jss-vue';
-import { dataFetcher } from './dataFetcher';
+import { isEditorActive } from '@sitecore-jss/sitecore-jss-vue';
+import { layoutServiceFactory } from './lib/layout-service-factory';
 import config from './temp/config';
 
 import Layout from './Layout';
@@ -26,7 +29,7 @@ export default {
 
     // To take advantage of Vue's reactive data for tracking app state changes, we need
     // to reference the same `state` object that the $jss store references in order for mutations to be observed.
-    // $jss is attached to the Vue instance via `SitecoreJssPlugin`.
+    // $jss is attached to the App instance via `SitecoreJssPlugin`.
     const appState = this.$jss.store.state;
 
     // if the app state has routeData, we don't need to load it and don't need a loading screen
@@ -68,6 +71,9 @@ export default {
     this.updateLanguage();
   },
   inject: {
+    languageIsChanging: {
+      type: Boolean,
+    },
     changeAppLanguage: {
       type: Function,
     },
@@ -77,7 +83,9 @@ export default {
      * Loads route data from Sitecore Layout Service into appState.routeData
      */
     updateRouteData() {
-      let sitecoreRoutePath = this.route.params.sitecoreRoute || '/';
+      let sitecoreRoutePath = this.route.params.sitecoreRoute
+        ? this.route.params.sitecoreRoute.join('/')
+        : '/';
       if (!sitecoreRoutePath.startsWith('/')) {
         sitecoreRoutePath = `/${sitecoreRoutePath}`;
       }
@@ -86,8 +94,10 @@ export default {
         this.route.params.lang || this.appState.sitecoreContext.language || this.defaultLanguage;
       this.loading = true;
 
+      // instantiate layout service
+      const layoutServiceInstance = layoutServiceFactory.create();
       // get the route data for the new route
-      getRouteData(sitecoreRoutePath, language).then((routeData) => {
+      layoutServiceInstance.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
         if (routeData !== null && routeData.sitecore.route) {
           // Update the JSS store instance with the fetched data.
           // This will signal the RouteHandler to update/re-render, as well as any components
@@ -119,9 +129,9 @@ export default {
       if (newRoute.hash !== '' && newRoute.path === oldRoute.path) {
         return;
       }
-      // if in experience editor - force reload instead of route data update
+      // if in Sitecore editor - force reload instead of route data update
       // avoids confusing Sitecore's editing JS
-      if (isExperienceEditorActive()) {
+      if (isEditorActive()) {
         window.location.assign(newRoute.path);
         return;
       }
@@ -136,28 +146,4 @@ export default {
     RouteLoading,
   },
 };
-
-/**
- * Gets route data from Sitecore. This data is used to construct the component layout for a JSS route.
- * @param {string} route Route path to get data for (e.g. /about)
- * @param {string} language Language to get route data in (content language, e.g. 'en')
- * @param {dataApi.LayoutServiceRequestOptions} options Layout service fetch options
- */
-function getRouteData(route, language) {
-  const fetchOptions = {
-    layoutServiceConfig: { host: config.sitecoreApiHost },
-    querystringParams: { sc_lang: language, sc_apikey: config.sitecoreApiKey },
-    fetcher: dataFetcher,
-  };
-
-  return dataApi.fetchRouteData(route, fetchOptions).catch((error) => {
-    if (error.response && error.response.status === 404 && error.response.data) {
-      return error.response.data;
-    }
-
-    console.error('Route data fetch error', error, error.response);
-
-    return null;
-  });
-}
 </script>

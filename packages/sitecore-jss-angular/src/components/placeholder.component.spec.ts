@@ -7,6 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
 import { By } from '@angular/platform-browser';
 import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
 
@@ -27,7 +28,7 @@ import {
   `,
 })
 class TestPlaceholderComponent {
-  @Input() rendering: any;
+  @Input() rendering: ComponentRendering;
   @Input() name: string;
 }
 
@@ -38,7 +39,7 @@ class TestPlaceholderComponent {
   `,
 })
 class TestDownloadCalloutComponent {
-  @Input() rendering: any;
+  @Input() rendering: ComponentRendering;
 }
 
 @Component({
@@ -50,7 +51,7 @@ class TestDownloadCalloutComponent {
   `,
 })
 class TestHomeComponent {
-  @Input() rendering: any;
+  @Input() rendering: ComponentRendering;
 }
 
 @Component({
@@ -107,11 +108,12 @@ describe('<sc-placeholder />', () => {
     { label: 'LayoutService data - EE on', data: eeData },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   testData.forEach((dataSet: any) => {
     describe(`with ${dataSet.label}`, () => {
       it('should render a placeholder with given key', async(() => {
         const component = dataSet.data.sitecore.route.placeholders.main.find(
-          (c: any) => c.componentName
+          (c: ComponentRendering) => c.componentName
         );
         const phKey = 'page-content';
         comp.name = phKey;
@@ -158,7 +160,7 @@ describe('<sc-placeholder />', () => {
     const phKey = 'main';
 
     comp.name = phKey;
-    comp.rendering = component;
+    comp.rendering = (component as unknown) as ComponentRendering;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
@@ -177,7 +179,7 @@ describe('<sc-placeholder />', () => {
     const component = nonEeDevData.sitecore.route;
     const phKey = 'main';
     comp.name = phKey;
-    comp.rendering = component;
+    comp.rendering = (component as unknown) as ComponentRendering;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
@@ -218,7 +220,7 @@ describe('<sc-placeholder />', () => {
     };
 
     comp.name = phKey;
-    comp.rendering = route;
+    comp.rendering = (route as unknown) as ComponentRendering;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
@@ -244,7 +246,7 @@ describe('<sc-placeholder />', () => {
     };
 
     comp.name = phKey;
-    comp.rendering = route;
+    comp.rendering = (route as unknown) as ComponentRendering;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
@@ -270,7 +272,7 @@ describe('<sc-placeholder />', () => {
 })
 class TestParentComponent {
   clickMessage = '';
-  @Input() rendering: any;
+  @Input() rendering: ComponentRendering;
   @Input() name: string;
   @Input() set childMessage(message: string) {
     this.inputs.childMessage = message;
@@ -333,7 +335,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
     const functionResult = 42;
     const changedMessage = 'ipsum';
 
-    comp.rendering = {
+    comp.rendering = ({
       placeholders: {
         children: [
           {
@@ -341,7 +343,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
           },
         ],
       },
-    };
+    } as unknown) as ComponentRendering;
     comp.name = 'children';
     comp.childMessage = expectedMessage;
     fixture.detectChanges();
@@ -360,7 +362,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
   it('should bind inputs to multiple', async(() => {
     const expectedMessage = 'lorem';
 
-    comp.rendering = {
+    comp.rendering = ({
       placeholders: {
         children: [
           {
@@ -374,7 +376,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
           },
         ],
       },
-    };
+    } as unknown) as ComponentRendering;
     comp.name = 'children';
     comp.childMessage = expectedMessage;
     fixture.detectChanges();
@@ -390,7 +392,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
   }));
 
   it('should bind outputs to children', async(() => {
-    comp.rendering = {
+    comp.rendering = ({
       placeholders: {
         children: [
           {
@@ -398,7 +400,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
           },
         ],
       },
-    };
+    } as unknown) as ComponentRendering;
     comp.name = 'children';
     fixture.detectChanges();
     fixture.whenStable().then(() => {

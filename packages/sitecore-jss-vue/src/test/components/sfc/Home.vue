@@ -1,17 +1,21 @@
 <template>
   <div class="home-mock-sfc">
     <placeholder name="page-header" :rendering="rendering" />
-    <placeholder name="page-content" :rendering="rendering" :arbitrary="arbitrary" v-bind="{ fields, params }" />
+    <placeholder
+      name="page-content"
+      :rendering="rendering"
+      :arbitrary="arbitrary"
+      v-bind="{ fields, params }"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
 import { Placeholder } from '../../../components/Placeholder';
 
 // If VSCode shows "Default export of the module has or is using private name 'VueConstructor'.",
 // you can ignore it. The test and component should still compile and run.
-export default Vue.extend({
+export default {
   data() {
     return {
       arbitrary: { value: 'magical', withFunction: () => 'indeed' },
@@ -25,10 +29,7 @@ export default Vue.extend({
   components: {
     placeholder: Placeholder,
   },
-});
+};
 </script>
 
-<style>
-</style>
-
-
+<style></style>

@@ -42,7 +42,9 @@ export default{
 </script>
 ```
 
-The `name` is the key of the placeholder you're exposing, and the `rendering` is the current Sitecore-provided route data, or parent component data if you're exposing a placeholder from within another component.
+The `name` is the key of the placeholder you are exposing, and the `rendering` is the current Sitecore-provided route data, or parent component data if you are exposing a placeholder from within another component.
+
+The `Placeholder` component does not render a wrapper around child components. This is because of Vue's [fragment technique](https://v3.vuejs.org/guide/migration/fragments.html#overview).
 
 ## SitecoreJssPlaceholderPlugin technique
 
@@ -53,13 +55,15 @@ Another technique allows you to get _an array of the Vue components in a placeho
 All of the following examples assume you have installed the `SitecoreJssPlaceholderPlugin` on your Vue instance:
 
 ```
-import Vue from 'vue';
+import { createApp, createSSRApp } from 'vue';
 import { SitecoreJssPlaceholderPlugin } from '@sitecore-jss/sitecore-jss-vue';
 import componentFactory from './path/to/your/componentFactory.js';
 
+const app = isSSR ? createSSRApp(vueOptions) : createApp(vueOptions);
+
 // The plugin uses a "global" componentFactory, but you can override
 // the `componentFactory` at the component level if needed.
-Vue.use(SitecoreJssPlaceholderPlugin, { componentFactory });
+app.use(SitecoreJssPlaceholderPlugin, { componentFactory });
 ```
 
 ### Basic Usage
@@ -88,9 +92,9 @@ export default {
 
 ### How It Works
 
-The `SitecoreJssPlaceholderPlugin` uses a mixin that attaches to the `beforeCreate` hook to look for a `withPlaceholder` property on a component definition. The plugin then uses the value provided by the `withPlaceholder` property to find the specified placeholder data, e.g. `tabs` in the `rendering` prop data. The plugin then creates a computed property on the component, using the name of the placeholder as the property name by default, and assigns an array of all the Vue components for that placeholder to the computed property. This allows you to use the built-in Vue [dynamic component](https://vuejs.org/v2/guide/components.html#Dynamic-Components) to render the placeholder components in your template.
+The `SitecoreJssPlaceholderPlugin` uses a mixin that attaches to the `beforeCreate` hook to look for a `withPlaceholder` property on a component definition. The plugin then uses the value provided by the `withPlaceholder` property to find the specified placeholder data, e.g. `tabs` in the `rendering` prop data. The plugin then creates a computed property on the component, using the name of the placeholder as the property name by default, and assigns an array of all the Vue components for that placeholder to the computed property. This allows you to use the built-in Vue [dynamic component](https://v3.vuejs.org/guide/component-basics.html#dynamic-components) to render the placeholder components in your template.
 
-When you iterate the component array in your template, Vue will render the components where you emit them. The main advantage of this technique is that _there is no wrapper component_. If you use the `Placeholder` component, all child components render underneath it in the Vue component tree. If you emit the placeholder contents with this technique, the placeholder contents will have no wrapping component and will render inline. This is very useful when you're using Vue libraries that are based on a specific component hierarchy, for example this example of `vue-carousel`:
+When you iterate over the component array in your template, Vue will render the components where you emit them, or you can achive this using `Placeholder` component. If you emit the placeholder contents with this technique, the placeholder contents will have no wrapping component and will render inline. This is very useful when you are using Vue libraries that are based on a specific component hierarchy, for example this example of `vue-carousel`:
 
 ```
 <carousel>
@@ -100,60 +104,12 @@ When you iterate the component array in your template, Vue will render the compo
 </carousel>
 ```
 
-In the preceding sample it's expected that the component hierarchy is `Carousel` -> `Slide`. If you wished to add the `slide` components using a placeholder, so that Sitecore could define them, and this were done using the `Placeholder` component, the hierarchy would instead look like `Carousel` -> `Placeholder` -> `SitecoreSlideWrapper` -> `Slide`:
+In the preceding sample it is expected that the component hierarchy is `Carousel` -> `Slide`. If you wished to add the `slide` components using a placeholder, so that Sitecore could define them, and this were done using the `Placeholder` component, the hierarchy will be the same.
 
 ```
 <carousel>
   <sc-placeholder name="jss-slides" :rendering="rendering" />
 </carousel>
-```
-
-With the placeholder computed property, we can solve this in two different ways:
-
-### Inline components
-
-If the library doesn't mind a single layer of component wrapping, you can place the child component into your rendering component. This will result in a component hierarchy like `Carousel` -> `SitecoreSlideContainer` -> `Slide` in the sample below:
-
-##### Carousel Container
-
-```
-<template>
-  <carousel>
-    <component v-for="(slide, index) in slidesPlaceholder" :is="slide" :key="`slide${index}`" />
-  </carousel>
-</template>
-
-<script>
-export default {
-  name: 'ContainerComponent',
-  props: {
-    rendering: {
-      type: Object,
-    },
-  },
-  withPlaceholder: {
-    // you can alias the computed prop name for the placeholder or pass an array of placeholders
-    placeholders: {
-      placeholder: 'slides',
-      computedPropName: 'slidesPlaceholder',
-    },
-  },
-};
-</script>
-```
-
-##### Slide Container
-
-```
-<!-- This component would be added to the Sitecore placeholder and wraps the carousel `<slide />` component. -->
-<template>
-  <slide>Your JSS or other Vue components here</slide>
-</template>
-<script>
-export default {
-  name: 'SitecoreSlideContainer',
-}
-</script>
 ```
 
 ### Component transformation
@@ -163,7 +119,7 @@ If you need a completely flat component hierarchy (`Carousel` -> `Slide` in our 
 ```
 <template>
   <carousel>
-    <template v-for="(slide, index) in slidesPlaceholder">
+    <template v-for="(slide, index) in $options.computed.slidesPlaceholder">
       <!-- this `v-if` is important, as it helps prevents breakage of the carousel markup when using Sitecore Experience Editor -->
       <component v-if="slide.isxEditorComponent" :is="slide" />
 
@@ -194,16 +150,16 @@ export default {
 </script>
 ```
 
-## Scoped Slot API
+## Slot API
 
-If you like the [scoped slot pattern](https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots) instead of a dynamic computed prop, you'll be happy to know JSS placeholder a default scoped slot too! Using the `<Placeholder>` component's `default` scoped slot prop, you can take over rendering of the placeholder contents in the same way as with the dyanmic computed prop.
+If you like the [slot pattern](https://v3.vuejs.org/guide/component-slots.html#slots) instead of a dynamic computed prop, you'll be happy to know JSS placeholder a default scoped slot too! Using the `<Placeholder>` component's `default` scoped slot prop, you can take over rendering of the placeholder contents in the same way as with the dyanmic computed prop.
 
 The following example illustrates how to get the components array and render it using the default scoped slot.
 
 ```
 <template>
   <sc-placeholder :rendering="rendering" name="jss-main">
-    <div slot-scope="{components, isEmpty}">
+    <div v-slot="{components, isEmpty}">
       <!--
         The placeholder is considered "empty" if it contains no assigned presentation components.
         However, if in Experience Editor (EE) mode, the placeholder may still contain EE-generated components.
@@ -295,7 +251,7 @@ export default {
   },
   computed: {
     activeTab() {
-      return this.tabsPlaceholder && this.tabsPlaceholder[this.activeTabIndex];
+      return this.$options.computed.tabsPlaceholder && this.$options.computed.tabsPlaceholder[this.activeTabIndex];
     },
   },
 }
@@ -341,10 +297,10 @@ export default{
 <template>
   <div>
     <div class="col-1">
-      <component v-for="(comp, index) in phColumn1" :is="comp" :key="`comp${index}`" />
+      <component v-for="(comp, index) in this.$options.computed.phColumn1" :is="comp" :key="`comp${index}`" />
     </div>
     <div class="col-2">
-      <component v-for="(comp, index) in phColumn2" :is="comp" :key="`comp${index}`" />
+      <component v-for="(comp, index) in this.$options.computed.phColumn2" :is="comp" :key="`comp${index}`" />
     </div>
   </div>
 </template>
@@ -375,7 +331,7 @@ export default {
 
 ## SitecoreJssPlaceholderPlugin API
 
-As described earlier in The `SitecoreJssPlaceholderPlugin` uses a mixin that attaches to the `beforeCreate` hook to look for a `withPlaceholder` property on a component definition. The plugin then uses the value provided by the `withPlaceholder` property to find the specified placeholder data, e.g. `tabs` in the `rendering` prop data. The plugin then creates a computed property on the component, using the name of the placeholder as the property name by default, and assigns all of the Vue components for that placeholder to the computed property. This allows you to use the built-in Vue [dynamic component](https://vuejs.org/v2/guide/components.html#Dynamic-Components) to render the placeholder components in your template.
+As described earlier in The `SitecoreJssPlaceholderPlugin` uses a mixin that attaches to the `beforeCreate` hook to look for a `withPlaceholder` property on a component definition. The plugin then uses the value provided by the `withPlaceholder` property to find the specified placeholder data, e.g. `tabs` in the `rendering` prop data. The plugin then creates a computed property on the component, using the name of the placeholder as the property name by default, and assigns all of the Vue components for that placeholder to the computed property. This allows you to use the built-in Vue [dynamic component](https://v3.vuejs.org/guide/component-basics.html#dynamic-components) to render the placeholder components in your template.
 
 ## Enhancing Placeholders
 

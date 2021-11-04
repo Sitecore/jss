@@ -4,6 +4,11 @@ import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';
 import { ParsedUrlQuery } from 'querystring';
+import { ComponentModule, Module } from '../sharedTypes/component-module';
+import {
+  GetServerSideComponentProps,
+  GetStaticComponentProps,
+} from '../sharedTypes/component-props';
 import { ComponentPropsService } from './component-props-service';
 
 use(spies);
@@ -67,8 +72,9 @@ describe('ComponentPropsService', () => {
     spy(() => (err ? Promise.reject(err) : Promise.resolve(expectedData)));
 
   it('fetchServerSideComponentProps', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ssrModules: { [componentName: string]: any } = {
+    const ssrModules: {
+      [componentName: string]: { getServerSideProps: GetServerSideComponentProps };
+    } = {
       namex11: {
         getServerSideProps: fetchFn('x11SSRData'),
       },
@@ -84,13 +90,64 @@ describe('ComponentPropsService', () => {
     };
 
     const ssrContext = {
-      req: {} as IncomingMessage,
+      req: {} as IncomingMessage & { cookies: { [key: string]: string } },
       res: {} as ServerResponse,
       query: {} as ParsedUrlQuery,
       resolvedUrl: '',
     };
 
     const ssrComponentModule = (componentName: string) => ssrModules[componentName];
+
+    const result = await service.fetchServerSideComponentProps({
+      componentModule: ssrComponentModule as ComponentModule,
+      context: ssrContext,
+      layoutData,
+    });
+
+    expect(result).to.deep.equal({
+      x11: 'x11SSRData',
+      x14: {
+        error: 'Error during preload data for component x14: whoops',
+      },
+      x16: 'myCustomComponentSSRData',
+      x161: 'myCustomComponentSSRData',
+      x23: 'myCustomComponentSSRData',
+      x24: 'x24SSRData',
+    });
+  });
+
+  it('fetchServerSideComponentProps using lazy loading module', async () => {
+    const ssrModules: {
+      [componentName: string]: { getServerSideProps: GetServerSideComponentProps };
+    } = {
+      namex11: {
+        getServerSideProps: fetchFn('x11SSRData'),
+      },
+      namex14: {
+        getServerSideProps: fetchFn('x14SSRData', 'whoops'),
+      },
+      MyCustomComponent: {
+        getServerSideProps: fetchFn('myCustomComponentSSRData'),
+      },
+      namex24: {
+        getServerSideProps: fetchFn('x24SSRData'),
+      },
+    };
+
+    const ssrContext = {
+      req: {} as IncomingMessage & { cookies: { [key: string]: string } },
+      res: {} as ServerResponse,
+      query: {} as ParsedUrlQuery,
+      resolvedUrl: '',
+    };
+
+    const ssrComponentModule = (componentName: string) => {
+      return new Promise<Module>((res) => {
+        setTimeout(() => {
+          res(ssrModules[componentName] as Module);
+        }, 200);
+      });
+    };
 
     const result = await service.fetchServerSideComponentProps({
       componentModule: ssrComponentModule,
@@ -110,9 +167,50 @@ describe('ComponentPropsService', () => {
     });
   });
 
+  it('fetchStaticComponentProps using lazy loading module', async () => {
+    const ssgModules: { [componentName: string]: { getStaticProps: GetStaticComponentProps } } = {
+      namex11: {
+        getStaticProps: fetchFn('x11StaticData'),
+      },
+      namex14: {
+        getStaticProps: fetchFn('x14StaticData', 'whoops'),
+      },
+      MyCustomComponent: {
+        getStaticProps: fetchFn('myCustomComponentStaticData'),
+      },
+      namex24: {
+        getStaticProps: fetchFn('x24StaticData'),
+      },
+    };
+
+    const ssgComponentModule = (componentName: string) => {
+      return new Promise<{ getStaticProps: GetStaticComponentProps }>((res) => {
+        setTimeout(() => {
+          res(ssgModules[componentName]);
+        }, 200);
+      });
+    };
+
+    const result = await service.fetchStaticComponentProps({
+      componentModule: ssgComponentModule as ComponentModule,
+      context,
+      layoutData,
+    });
+
+    expect(result).to.deep.equal({
+      x11: 'x11StaticData',
+      x14: {
+        error: 'Error during preload data for component x14: whoops',
+      },
+      x16: 'myCustomComponentStaticData',
+      x161: 'myCustomComponentStaticData',
+      x23: 'myCustomComponentStaticData',
+      x24: 'x24StaticData',
+    });
+  });
+
   it('fetchStaticComponentProps', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ssgModules: { [componentName: string]: any } = {
+    const ssgModules: { [componentName: string]: { getStaticProps: GetStaticComponentProps } } = {
       namex11: {
         getStaticProps: fetchFn('x11StaticData'),
       },
@@ -130,7 +228,7 @@ describe('ComponentPropsService', () => {
     const ssgComponentModule = (componentName: string) => ssgModules[componentName];
 
     const result = await service.fetchStaticComponentProps({
-      componentModule: ssgComponentModule,
+      componentModule: ssgComponentModule as ComponentModule,
       context,
       layoutData,
     });

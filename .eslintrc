@@ -2,7 +2,6 @@
   "root": true,
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:jsdoc/recommended",
     "prettier",
     "prettier/@typescript-eslint"
@@ -15,7 +14,11 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "prettier", "jsdoc"],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "jsdoc"
+  ],
   "env": {
     "browser": true,
     "node": true,
@@ -29,31 +32,21 @@
     "jsdoc/no-undefined-types": "off",
     "jsdoc/require-returns-type": "off",
     "prettier/prettier": "error",
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        "format": ["PascalCase"],
-        "selector": "typeLike",
-        "custom": {
-          "regex": "^I[A-Z]",
-          "match": false
-        }
-      }
-    ],
-    "@typescript-eslint/member-ordering": "error",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": [
-      "error",
-      { "functions": false, "variables": false }
-    ],
-    "@typescript-eslint/typedef": "error",
-    "@typescript-eslint/type-annotation-spacing": "error",
-    "@typescript-eslint/semi": "error",
-    "@typescript-eslint/no-var-requires": "off",
     "no-useless-escape": "off",
     "spaced-comment": "error",
-    "curly": ["error", "multi-line"],
-    "eol-last": ["error", "always"],
+    "curly": [
+      "error",
+      "multi-line"
+    ],
+    "eol-last": [
+      "error",
+      "always"
+    ],
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
     "guard-for-in": "error",
     "no-unused-labels": "error",
     "no-caller": "error",
@@ -63,12 +56,24 @@
     "no-eval": "error",
     "dot-notation": "error",
     "no-trailing-spaces": "error",
-    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
     "brace-style": "error",
-    "quotes": ["error", "single"],
+    "quotes": [
+      "error",
+      "single"
+    ],
     "radix": "error",
     "default-case": "error",
     "eqeqeq": "error",
-    "jsx-quotes": ["error", "prefer-double"]
+    "jsx-quotes": [
+      "error",
+      "prefer-double"
+    ]
   }
 }

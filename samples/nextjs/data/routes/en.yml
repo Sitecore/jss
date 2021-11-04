@@ -49,13 +49,15 @@ placeholders:
 
           <div class="alert alert-dark">
             <h4>How to start with an empty app</h4>
+            <p>To start with a fresh app with no boilerplate, run <code>jss create <name of your app> nextjs --empty</code>. Note, disconnected mode is not supported this way</p>
             <p>To remove all of the default sample content (the Styleguide and GraphQL routes) and start out with an empty JSS app:</p>
             <ol>
-              <li>Delete <code>/src/components/Styleguide*</code> and <code>/src/components/GraphQL*</code></li>
-              <li>Delete <code>/sitecore/definitions/components/Styleguide*</code>, <code>/sitecore/definitions/templates/Styleguide*</code>, and <code>/sitecore/definitions/components/GraphQL*</code></li>
-              <li>Delete <code>/data/component-content/Styleguide</code></li>
-              <li>Delete <code>/data/content/Styleguide</code></li>
-              <li>Delete <code>/data/routes/styleguide</code> and <code>/data/routes/graphql</code></li>
               <li>Delete <code>/data/dictionary/*.yml</code></li>
+              <li>Delete <code>/data/routes/styleguide</code> and <code>/data/routes/graphql</code></li>
+              <li>Delete <code>/data/content/Styleguide</code></li>
+              <li>Delete <code>/data/component-content/Styleguide</code></li>
+              <li>Delete <code>/sitecore/definitions/components/Styleguide*</code>, <code>/sitecore/definitions/templates/Styleguide*</code>, and <code>/sitecore/definitions/components/GraphQL*</code></li>
+              <li>Delete <code>graphql-let</code> command from <code>bootstrap</code> npm command in <code>package.json</code> until you create <code>.graphql</code> files</li>
+              <li>Delete <code>/src/components/*</code></li>
             </ol>
           </div>

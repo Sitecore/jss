@@ -26,5 +26,9 @@ export {
   DefaultDocumentMiddlewareOptions,
 } from './disconnected-server/default-document';
 export { ManifestManager } from './manifest-manager';
-export { createDefaultDisconnectedServer } from './disconnected-server/create-default-disconnected-server';
+export {
+  createDefaultDisconnectedServer,
+  DisconnectedServerOptions,
+} from './disconnected-server/create-default-disconnected-server';
 export { ScJssConfig, JssConfiguration, resolveScJssConfig } from './resolve-scjssconfig';
+export { strip } from './templating/strip';

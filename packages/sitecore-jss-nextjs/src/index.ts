@@ -1,6 +1,6 @@
 export {
-  dataApi,
   mediaApi,
+  constants,
   // generic data access
   HttpDataFetcher,
   HttpResponse,
@@ -20,11 +20,12 @@ export {
   LayoutServicePageState,
   LayoutServiceContext,
   LayoutServiceContextData,
-  LayoutServiceRequestOptions,
   GraphQLLayoutService,
   GraphQLLayoutServiceConfig,
   RestLayoutService,
   RestLayoutServiceConfig,
+  isEditorActive,
+  resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
   PlaceholdersData,
@@ -40,8 +41,6 @@ export {
 } from '@sitecore-jss/sitecore-jss';
 
 export { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
-
-export * from './constants';
 
 export {
   ComponentPropsCollection,
@@ -69,7 +68,7 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { handleExperienceEditorFastRefresh } from './utils';
+export { handleEditorFastRefresh, handleExperienceEditorFastRefresh, getPublicUrl } from './utils';
 
 export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
 export {
@@ -98,6 +97,8 @@ export {
   SitecoreContextReactContext,
   withSitecoreContext,
   useSitecoreContext,
+  withEditorChromes,
   withExperienceEditorChromes,
   withPlaceholder,
+  withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-react';

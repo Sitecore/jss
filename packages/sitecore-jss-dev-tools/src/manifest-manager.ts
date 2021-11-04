@@ -16,7 +16,7 @@ export interface ManifestManagerOptions {
   rootPath?: string;
   sourceFiles?: string[];
   watchOnlySourceFiles?: string[];
-  requireArg?: string;
+  requireArg?: string | null;
   outputPath?: string;
   pipelinePatchFiles?: string[];
   appName?: string;
@@ -37,11 +37,15 @@ export class ManifestManager {
       './sitecore/definitions/**/*.sitecore.ts',
     ],
     watchOnlySourceFiles = [],
-    requireArg = './sitecore/definitions/config.js',
+    requireArg,
     outputPath = './sitecore/manifest/sitecore-import.json',
     pipelinePatchFiles = ['./sitecore/pipelines/**/*.patch.js'],
     appName = 'JssDisconnectedService',
   }: ManifestManagerOptions) {
+    if (!requireArg && requireArg !== null) {
+      requireArg = './sitecore/definitions/config.js';
+    }
+
     this.manifestArgs = {
       fileGlobs: sourceFiles,
       requireArg,

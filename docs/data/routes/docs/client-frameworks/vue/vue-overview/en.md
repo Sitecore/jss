@@ -20,7 +20,7 @@ jss start
 
 We recommend reading the [sample app walkthrough](/docs/client-frameworks/vue/sample-app) to understand the sample app, but it's also well commented if you'd rather read code.
 
-> The sample app was built using the [`@vue/cli` version 3](https://github.com/vuejs/vue-cli) as a starting point. However, the `sitecore-jss-vue` package has no dependencies on `@vue/cli`.
+> The sample app was built using the [`@vue/cli` version 4](https://github.com/vuejs/vue-cli) as a starting point. However, the `sitecore-jss-vue` package has no dependencies on `@vue/cli`.
 
 ## Tools
 

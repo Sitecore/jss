@@ -19,13 +19,11 @@ if (!verb || (verb !== 'connected' && verb !== 'disconnected')) {
 }
 
 const config = [
-  // Due to current inablitiy to set\change a port for the next.js app 
-  // this section has to be commented due to conflict with angular app on the same port untill this is resolved
-  // {
-  //   name: 'nextjs',
-  //   port: 3000,
-  //   proxyPort: 1336,
-  // },
+  {
+    name: 'nextjs',
+    port: 1335,
+    proxyPort: 1336,
+  },
   {
     name: 'react',
     port: 1337,
@@ -58,6 +56,7 @@ function startAppAsync(appConfig) {
       env: {
         PORT: appConfig.port,
         PROXY_PORT: appConfig.proxyPort,
+        PUBLIC_URL: `http://localhost:${appConfig.port}`,
         ...process.env,
       },
       maxBuffer: 1024 * 1024 * 50, // 50mb, webpack can break default 200k limit ;)

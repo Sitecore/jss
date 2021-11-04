@@ -1,4 +1,4 @@
-import { Text, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, RichText, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
 type StyleguideSpecimenProps = StyleguideComponentProps &
@@ -37,4 +37,4 @@ const StyleguideSpecimen = ({
   </div>
 );
 
-export default StyleguideSpecimen;
+export default withDatasourceCheck()<StyleguideSpecimenProps>(StyleguideSpecimen);

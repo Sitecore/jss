@@ -7,6 +7,7 @@ export interface ValidationDataModel {
 }
 
 export interface ViewModel {
+  [key: string]: unknown;
   itemId: string;
   name: string;
   templateId: string;

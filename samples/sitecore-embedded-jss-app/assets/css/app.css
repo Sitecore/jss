@@ -99,8 +99,29 @@ ol.progtrckr li.progtrckr-done:hover:before {
 
 /* Custom */
 
-.step-progress {
+.wizard {
   width: 400px;
+}
+
+.wizard-step {
+  height: 250px;
+  margin-top: 20px;
+  padding-left: 15px;
+  padding-bottom: 20px;
+}
+
+.wizard-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wizard-step-name {
+  padding-bottom: 5px;
+  margin: 0 10px;
+}
+
+.wizard-step-name.selected {
+  border-bottom: 2px solid rgb(3, 31, 156);
 }
 
 .footer-buttons {
@@ -113,11 +134,6 @@ ol.progtrckr li.progtrckr-done:hover:before {
 
 .pull-right {
   float: right !important;
-}
-
-.wizard-step {
-  height: 250px;
-  padding-left: 15px;
 }
 
 .question {

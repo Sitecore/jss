@@ -54,10 +54,10 @@ function generateComponentFactory() {
   // NOTE: generating the component factory module is also totally optional,
   // and it can be maintained manually if preferred.
 
-  const imports = [];
-  const registrations = [];
-  const lazyRegistrations = [];
-  const declarations = [];
+  const imports: string[] = [];
+  const registrations: string[] = [];
+  const lazyRegistrations: string[] = [];
+  const declarations: string[] = [];
 
   fs.readdirSync(componentRootPath).forEach((componentFolder) => {
     // ignore ts files in component root folder

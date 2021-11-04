@@ -8,7 +8,7 @@ import { existsSync as fileExistsSync } from 'fs';
  * Content items are conventionally defined in /data/content, similar to route items.
  * This function is invoked by convention (*.sitecore.js) when `jss manifest` is run.
  */
-export default function addContentToManifest(manifest: Manifest): Promise<any> {
+export default function addContentToManifest(manifest: Manifest): Promise<void> {
   const rootItemName = 'Content';
   const startPath = './data/content'; // relative to process invocation (i.e. where package.json lives)
 

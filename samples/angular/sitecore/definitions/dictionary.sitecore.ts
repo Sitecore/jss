@@ -21,7 +21,7 @@ export default function addDictionaryToManifest(manifest: Manifest): Promise<voi
     .then((dictionary) => manifest.addDictionary(...dictionary));
 }
 
-function convertToManifestDictionary(mergedDictionary: object) {
+function convertToManifestDictionary(mergedDictionary: { [key: string]: string }) {
   return Object.keys(mergedDictionary).map((key) => ({
     key,
     value: mergedDictionary[key],
@@ -33,7 +33,7 @@ function convertToManifestDictionary(mergedDictionary: object) {
 /**
  * Maps a filesystem dictionary file into an object that represents the dictionary.
  */
-function mergeDictionaryFiles(data: MergeFsResult, language: string): object {
+function mergeDictionaryFiles(data: MergeFsResult, language: string): { [key: string]: string } {
   let dictionaryResult = {};
 
   // regex that matches the expected dictionary file name

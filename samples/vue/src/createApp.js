@@ -1,7 +1,11 @@
-import Vue from 'vue';
-import Meta from 'vue-meta';
-import VueApollo from 'vue-apollo';
+import { createApp as createVueApp, h, createSSRApp } from 'vue';
 import { SitecoreJssPlaceholderPlugin } from '@sitecore-jss/sitecore-jss-vue';
+import { DefaultApolloClient } from '@vue/apollo-composable/dist/useApolloClient';
+import {
+  createMetaManager as createVueMetaManager,
+  defaultConfig,
+  deepestResolver,
+} from 'vue-meta';
 import AppRoot from './AppRoot';
 import { createRouter } from './router';
 import SitecoreJssStorePlugin from './lib/SitecoreJssStorePlugin';
@@ -9,34 +13,40 @@ import GraphQLClientFactory from './lib/GraphQLClientFactory';
 import config from './temp/config';
 import componentFactory from './temp/componentFactory';
 
-Vue.use(Meta);
-Vue.use(SitecoreJssStorePlugin);
-Vue.use(SitecoreJssPlaceholderPlugin, { componentFactory });
-Vue.use(VueApollo);
+const createMetaManager = (isSSR = false) =>
+  createVueMetaManager(
+    isSSR,
+    {
+      ...defaultConfig,
+    },
+    deepestResolver
+  );
 
 // createApp is invoked by both the main and SSR entry points, so the two entry points can use the same app creation process.
-export function createApp(initialState, i18n) {
-  Vue.config.productionTip = false;
-
-  const router = createRouter();
+export function createApp(initialState, i18n, isSSR) {
+  const router = createRouter(isSSR);
+  const metaManager = createMetaManager(isSSR);
   const graphQLProvider = createGraphQLProvider(initialState);
 
   const vueOptions = {
-    apolloProvider: graphQLProvider,
     router,
-
-    render: (createElement) => createElement(AppRoot),
+    render: () => h(AppRoot),
+    i18n,
   };
-  // conditionally add i18n to the Vue instance if it is defined
-  if (i18n) {
-    vueOptions.i18n = i18n;
-  }
 
-  const app = new Vue(vueOptions);
+  const app = isSSR ? createSSRApp(vueOptions) : createVueApp(vueOptions);
+
+  app.provide(DefaultApolloClient, graphQLProvider);
+
+  app.use(router);
+  app.use(SitecoreJssStorePlugin);
+  app.use(SitecoreJssPlaceholderPlugin, { componentFactory });
+  app.use(i18n);
+  app.use(metaManager);
 
   // if there is an initial state defined, push it into the store, where it can be referenced by interested components.
   if (initialState) {
-    app.$jss.store.setSitecoreData(initialState);
+    app.config.globalProperties.$jss.store.setSitecoreData(initialState);
   }
 
   return { app, router, graphQLProvider };
@@ -48,9 +58,5 @@ export function createGraphQLProvider(initialState) {
       ? GraphQLClientFactory(config.graphQLEndpoint, false, initialState.APOLLO_STATE)
       : GraphQLClientFactory(config.graphQLEndpoint, true);
 
-  const provider = new VueApollo({
-    defaultClient: client,
-  });
-
-  return provider;
+  return client;
 }

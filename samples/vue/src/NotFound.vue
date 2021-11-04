@@ -1,4 +1,7 @@
 <template>
+  <metainfo>
+    <template v-slot:title="{ content }">{{ content }}</template>
+  </metainfo>
   <div>
     <h1>Page not found</h1>
     <p>This page does not exist.</p>
@@ -11,12 +14,16 @@
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n';
+import { useMeta } from 'vue-meta';
+
 export default {
   name: 'not-found',
-  metaInfo() {
-    return {
-      title: this.$t('page-not-found'),
-    };
+  setup() {
+    const { t } = useI18n();
+    useMeta({
+      title: t('page-not-found'),
+    });
   },
   props: {
     context: {

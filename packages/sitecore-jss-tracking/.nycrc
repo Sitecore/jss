@@ -15,5 +15,6 @@
   "reporter": [
     "json-summary",
     "text"
-  ]
+  ],
+  "require": ["ts-node/register"]
 }

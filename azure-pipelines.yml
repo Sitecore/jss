@@ -31,8 +31,7 @@ pr:
     - docs/*
 
 pool:
-  # todo: we dgaf what specific version of Linux is installed, is there any way to wildcard the version?
-  vmImage: 'Ubuntu-16.04'
+  vmImage: 'ubuntu-latest'
 
 variables:
   shouldPublish: $[or(eq(variables['Build.SourceBranch'], 'refs/heads/dev'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'))]
@@ -58,7 +57,7 @@ steps:
     npm run lint-apps
   displayName: 'linting apps'
 - script: |
-    npm run test-packages
+    npm run coverage-packages
   displayName: 'running tests'
   env: {
     testEnv: 'ci'

@@ -1,7 +1,8 @@
+/* eslint-disable vue/one-component-per-file */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-unused-expressions */
 
-import { CreateElement, RenderContext } from 'vue';
+import { h, defineComponent } from 'vue';
 
 import { Placeholder } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
@@ -16,6 +17,7 @@ import { lsDataEeOff } from '../test/data/LS-data-EE-off';
 import { lsDataEeOn } from '../test/data/LS-data-EE-on';
 
 import { mount } from '@vue/test-utils';
+import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss';
 
 // import { config } from '@vue/test-utils'
 // config.logModifiedComponents = false;
@@ -26,77 +28,67 @@ const testComponents: any = {
     DownloadCallout,
   },
   // pass otherProps to page-content to test property cascading through the Placeholder
-  Home: {
-    functional: true,
-
+  Home: defineComponent({
     props: {
-      rendering: { type: Object, default: () => ({}) },
+      rendering: { type: Object as () => ComponentRendering | RouteData, default: () => ({}) },
       fields: { type: Object, default: () => ({}) },
       params: { type: Object, default: () => ({}) },
     },
 
-    render(createElement: CreateElement, context: RenderContext) {
-      const { props } = context;
-      const { rendering, ...otherProps } = props;
+    render() {
+      const { rendering, ...otherProps } = this.$props;
       const arbitraryProp = { value: 'magical', withFunction: () => 'indeed' };
 
-      return createElement('div', { class: 'home-mock' }, [
-        createElement(Placeholder, {
-          props: {
-            name: 'page-header',
-            rendering,
-          },
+      return h('div', { class: 'home-mock' }, [
+        h(Placeholder, {
+          name: 'page-header',
+          rendering,
         }),
-        createElement(Placeholder, {
-          props: {
-            name: 'page-content',
-            rendering,
-          },
+        h(Placeholder, {
+          name: 'page-content',
+          rendering,
           // "unknown"/unmapped props need to be passed in as attributes,
           // otherwise the Placeholder will ignore them.
           // An unfortunate limitation of Vue.
-          attrs: {
-            arbitrary: arbitraryProp,
-            ...otherProps,
-          },
+          arbitrary: arbitraryProp,
+          ...otherProps,
         }),
       ]);
     },
-  },
-  DownloadCallout: {
-    functional: true,
-
+  }),
+  DownloadCallout: defineComponent({
     props: {
       fields: { type: Object, default: () => ({}) },
       arbitrary: { type: Object, default: () => ({}) },
+      rendering: { type: Object, default: () => ({}) },
+      params: { type: Object, default: () => ({}) },
     },
 
-    render(createElement: CreateElement, context: RenderContext) {
-      const { props } = context;
-      return createElement('div', { class: 'download-callout-mock' }, [
-        `message: ${props.fields.message ? props.fields.message.value : 'no message'}`,
-        createElement('br'),
-        `arbitrary: ${props.arbitrary.value || 'no value'}`,
-        createElement('br'),
+    render() {
+      return h('div', { class: 'download-callout-mock' }, [
+        `message: ${this.$props.fields.message ? this.$props.fields.message.value : 'no message'}`,
+        h('br'),
+        `arbitrary: ${this.$props.arbitrary.value || 'no value'}`,
+        h('br'),
         `arbitrary function: ${
-          props.arbitrary.withFunction ? props.arbitrary.withFunction() : 'no function'
+          this.$props.arbitrary.withFunction ? this.$props.arbitrary.withFunction() : 'no function'
         }`,
       ]);
     },
-  },
-  Jumbotron: {
-    functional: true,
+  }),
+  Jumbotron: defineComponent({
+    inheritAttrs: false,
 
-    render(createElement: CreateElement) {
-      return createElement('div', { class: 'jumbotron-mock' });
+    render() {
+      return h('div', { class: 'jumbotron-mock' });
     },
-  },
-  ErrorThrowingComponent: {
+  }),
+  ErrorThrowingComponent: defineComponent({
     render() {
       const blah: any = null;
       return blah.nonExistantProperty;
     },
-  },
+  }),
 };
 
 const componentFactory = (componentName: string) => {
@@ -125,7 +117,7 @@ describe('<Placeholder />', () => {
         const phKey = 'page-content';
 
         const renderedComponent = mount(Placeholder, {
-          propsData: {
+          props: {
             name: phKey,
             rendering: component,
             componentFactory,
@@ -143,21 +135,17 @@ describe('<Placeholder />', () => {
         const phKey = 'main';
 
         const testComponent = {
-          render(createElement: CreateElement) {
-            return createElement(
+          render() {
+            return h(
               SitecoreContext,
               {
-                props: {
-                  componentFactory,
-                },
+                componentFactory,
               },
-              [
-                createElement(Placeholder, {
-                  props: {
-                    name: phKey,
-                    rendering: component,
-                    componentFactory,
-                  },
+              () => [
+                h(Placeholder, {
+                  name: phKey,
+                  rendering: component as any,
+                  componentFactory,
                 }),
               ]
             );
@@ -173,9 +161,9 @@ describe('<Placeholder />', () => {
         const phKey = 'main';
 
         const testComponent = {
-          render(createElement: CreateElement) {
-            return createElement(SitecoreContext, { props: { componentFactory } }, [
-              createElement(Placeholder, { props: { name: phKey, rendering: component } }),
+          render() {
+            return h(SitecoreContext, { componentFactory }, () => [
+              h(Placeholder, { name: phKey, rendering: component as any }),
             ]);
           },
         };
@@ -189,10 +177,11 @@ describe('<Placeholder />', () => {
         const phKey = 'main';
 
         const testComponent = {
-          render(createElement: CreateElement) {
-            return createElement(SitecoreContext, { props: { componentFactory } }, [
-              createElement(SampleScopedSlotPlaceholder, {
-                props: { name: phKey, rendering: component },
+          render() {
+            return h(SitecoreContext, { componentFactory }, () => [
+              h(SampleScopedSlotPlaceholder, {
+                name: phKey,
+                rendering: component,
               }),
             ]);
           },
@@ -234,13 +223,11 @@ describe('<Placeholder />', () => {
 
     it('should render default missing component for unknown components', () => {
       const testComponent = {
-        render(createElement: CreateElement) {
-          return createElement(Placeholder, {
-            props: {
-              name: 'main',
-              rendering: route,
-              componentFactory,
-            },
+        render() {
+          return h(Placeholder, {
+            name: 'main',
+            rendering: route as any,
+            componentFactory,
           });
         },
       };
@@ -252,24 +239,24 @@ describe('<Placeholder />', () => {
     });
 
     it('should render specific missing component for unknown components', () => {
-      const missingComponent = {
-        render(createElement: CreateElement) {
-          return createElement('div', {}, 'this is a custom missing component');
-        },
-      };
+      const missingComponent = defineComponent({
+        inheritAttrs: false,
 
-      const testComponent = {
-        render(createElement: CreateElement) {
-          return createElement(Placeholder, {
-            props: {
-              name: 'main',
-              rendering: route,
-              componentFactory,
-              missingComponentComponent: missingComponent,
-            },
+        render() {
+          return h('div', null, 'this is a custom missing component');
+        },
+      });
+
+      const testComponent = defineComponent({
+        render() {
+          return h(Placeholder, {
+            name: 'main',
+            rendering: route as any,
+            componentFactory,
+            missingComponentComponent: missingComponent,
           });
         },
-      };
+      });
 
       const renderedComponent = mount(testComponent);
       expect(renderedComponent.html()).toMatchSnapshot();
@@ -283,14 +270,14 @@ describe('<Placeholder />', () => {
     const phKey = 'unknown-test';
 
     const renderedComponent = mount(Placeholder, {
-      propsData: {
+      props: {
         name: phKey,
-        rendering: route,
+        rendering: route as any,
         componentFactory,
       },
     });
 
-    expect(renderedComponent.isEmpty()).toBe(true);
+    expect(renderedComponent.element.innerHTML).toBe(undefined);
 
     warnSpy.mockRestore();
   });
@@ -312,13 +299,11 @@ describe('<Placeholder />', () => {
     };
 
     const testComponent = {
-      render(createElement: CreateElement) {
-        return createElement(SampleScopedSlotPlaceholderEmpty, {
-          props: {
-            componentFactory,
-            rendering: renderingData,
-            name: phKey,
-          },
+      render() {
+        return h(SampleScopedSlotPlaceholderEmpty, {
+          componentFactory,
+          rendering: renderingData,
+          name: phKey,
         });
       },
     };
@@ -332,44 +317,44 @@ describe('<Placeholder />', () => {
   // that the Placeholder component uses. When the testComponent is mounted and an error occurs
   // the error causes the test to fail prior to evaluating assertions.
   // There's probably a clever way to do it, but too clever for me.
-  describe.skip('when rendering error occurs', () => {
-    const route = {
-      placeholders: {
-        main: [{ componentName: 'ErrorThrowingComponent' }],
-      },
-    };
+  // describe.skip('when rendering error occurs', () => {
+  //   const route = {
+  //     placeholders: {
+  //       main: [{ componentName: 'ErrorThrowingComponent' }],
+  //     },
+  //   };
 
-    it('should render custom error component if provided', () => {
-      const errorComponent = {
-        props: { error: { type: Error } },
-        render(createElement: CreateElement) {
-          return createElement('div', {}, 'this is a custom error component');
-        },
-      };
+  //   it('should render custom error component if provided', () => {
+  //     const errorComponent = {
+  //       props: { error: { type: Error } },
+  //       render() {
+  //         return h('div', {}, 'this is a custom error component');
+  //       },
+  //     };
 
-      const testComponent = {
-        render(createElement: CreateElement) {
-          return createElement(Placeholder, {
-            props: { name: 'main', rendering: route, componentFactory, errorComponent },
-          });
-        },
-      };
+  //     const testComponent = {
+  //       render() {
+  //         return h(Placeholder, {
+  //           props: { name: 'main', rendering: route, componentFactory, errorComponent },
+  //         });
+  //       },
+  //     };
 
-      const renderedComponent = mount(testComponent);
-      expect(renderedComponent.html()).toMatchSnapshot();
-    });
+  //     const renderedComponent = mount(testComponent);
+  //     expect(renderedComponent.html()).toMatchSnapshot();
+  //   });
 
-    it('should render default error component if no custom error component provided', () => {
-      const testComponent = {
-        render(createElement: CreateElement) {
-          return createElement(Placeholder, {
-            props: { name: 'main', rendering: route, componentFactory },
-          });
-        },
-      };
+  //   it('should render default error component if no custom error component provided', () => {
+  //     const testComponent = {
+  //       render() {
+  //         return h(Placeholder, {
+  //           props: { name: 'main', rendering: route, componentFactory },
+  //         });
+  //       },
+  //     };
 
-      const renderedComponent = mount(testComponent);
-      expect(renderedComponent.html()).toMatchSnapshot();
-    });
-  });
+  //     const renderedComponent = mount(testComponent);
+  //     expect(renderedComponent.html()).toMatchSnapshot();
+  //   });
+  // });
 });

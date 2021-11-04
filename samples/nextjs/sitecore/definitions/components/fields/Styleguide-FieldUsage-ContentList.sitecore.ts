@@ -6,7 +6,7 @@ import packageJson from '../../../../package.json';
  * This function is invoked by convention (*.sitecore.js) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
-export default function (manifest: Manifest): void {
+export default function StyleguideFieldUsageContentList(manifest: Manifest): void {
   manifest.addComponent({
     name: 'Styleguide-FieldUsage-ContentList',
     icon: SitecoreIcon.ListStyle_numbered,

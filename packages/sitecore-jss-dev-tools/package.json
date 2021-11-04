@@ -1,24 +1,26 @@
 {
   "name": "@sitecore-jss/sitecore-jss-dev-tools",
-  "version": "18.0.0",
+  "version": "19.0.0-canary.63",
   "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
-    "coverage": "nyc --require ts-node/register npm test"
+    "coverage": "nyc npm test"
   },
   "engines": {
     "node": ">=8.1"
   },
   "bin": {
-    "scjss-verify-setup": "./dist/bin/verify-setup.js",
-    "scjss-deploy": "./dist/bin/deploy.js"
+    "scjss-verify-setup": "./dist/cjs/bin/verify-setup.js",
+    "scjss-deploy": "./dist/cjs/bin/deploy.js"
   },
-  "main": "./dist/index.js",
   "author": {
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.com"
@@ -29,9 +31,9 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^18.0.0",
-    "@sitecore-jss/sitecore-jss-manifest": "^18.0.0",
-    "@sitecore-jss/sitecore-jss-update-package": "^18.0.0",
+    "@sitecore-jss/sitecore-jss": "^19.0.0-canary.63",
+    "@sitecore-jss/sitecore-jss-manifest": "^19.0.0-canary.63",
+    "@sitecore-jss/sitecore-jss-update-package": "^19.0.0-canary.63",
     "axios": "^0.21.1",
     "chokidar": "^3.2.1",
     "del": "^5.1.0",
@@ -63,9 +65,10 @@
     "eslint": "^7.15.0",
     "mocha": "^8.1.3",
     "nock": "^13.0.6",
+    "nyc": "^15.1.0",
     "sinon": "^7.5.0",
     "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "typescript": "~4.3.5"
   },
   "peerDependencies": {
     "chalk": "^2.1.0"

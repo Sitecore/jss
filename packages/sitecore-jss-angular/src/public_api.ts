@@ -17,20 +17,26 @@ export {
 } from './components/rendering-field';
 export { RichTextDirective } from './components/rich-text.directive';
 export { TextDirective } from './components/text.directive';
-export { LayoutService } from './layout.service';
-export { LayoutServiceError } from './layout-service-error';
 export { JssModule } from './lib.module';
 export {
-  dataApi,
   mediaApi,
+  isEditorActive,
+  resetEditorChromes,
+  constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  DictionaryService,
+  RestDictionaryService,
+  GraphQLDictionaryService,
+  RestLayoutService,
+  GraphQLLayoutService,
+  LayoutService,
   LayoutServiceData,
   LayoutServiceContextData,
+  PlaceholderData,
   RouteData,
   Field,
   HtmlElementRendering,
-  LayoutServiceRequestOptions,
   getChildPlaceholder,
   getFieldValue,
   ComponentRendering,

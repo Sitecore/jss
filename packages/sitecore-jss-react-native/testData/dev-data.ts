@@ -16,7 +16,7 @@ export const devData = {
               },
             },
             uid: '2339622d-093b-4258-8334-95979e41efa6',
-            renderingParams: [],
+            renderingParams: [] as { [key: string]: unknown }[],
             placeholders: {
               'page-header': [
                 {
@@ -46,7 +46,7 @@ export const devData = {
                     },
                   },
                   uid: '6701ac71-845d-4de4-bf8e-1f4feddf8908',
-                  params: [],
+                  params: [] as { [key: string]: unknown }[],
                 },
               ],
             },

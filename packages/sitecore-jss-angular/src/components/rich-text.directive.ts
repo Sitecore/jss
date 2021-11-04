@@ -13,13 +13,13 @@ import { RichTextField } from './rendering-field';
   selector: '[scRichText]',
 })
 export class RichTextDirective implements OnChanges {
-  private viewRef: EmbeddedViewRef<any>;
+  private viewRef: EmbeddedViewRef<unknown>;
 
   @Input('scRichTextEditable') editable = true;
 
   @Input('scRichText') field: RichTextField;
 
-  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<any>) {}
+  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable) {

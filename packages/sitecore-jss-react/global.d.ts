@@ -1,11 +1,17 @@
-declare module 'style-attr';
+declare module 'style-attr' {
+  export const parse: (
+    style: string,
+    config: { preserveNumbers: boolean }
+  ) => { [key: string]: unknown };
+}
 
 declare namespace NodeJS {
   export interface Global {
-    requestAnimationFrame: any;
-    window: any;
-    document: any;
-    navigator: any;
-    HTMLElement: any;
+    [key: string]: unknown;
+    requestAnimationFrame: (callback: () => void) => void;
+    window: Window;
+    document: Document;
+    navigator: Navigator;
+    HTMLElement: HTMLElement;
   }
 }
