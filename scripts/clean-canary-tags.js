@@ -1,7 +1,10 @@
 const { execSync } = require('child_process');
 
+// prune local tags
+execSync('git fetch origin --prune --prune-tags', { stdio: 'inherit' });
+
 // fetch all tags from repository
-execSync('git fetch --all --tags', { stdio: 'inherit' });
+execSync('git fetch --all --tags -f', { stdio: 'inherit' });
 
 const output = execSync('git tag', {
   encoding: 'utf-8',
