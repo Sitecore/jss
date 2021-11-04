@@ -1,6 +1,6 @@
 # Contributing to Sitecore JavaScript Services
 
-Want to contribute to Sitecore JavaScript Services? There are a few things you need to know. First, are you contributing a change to documentation only? If so, see the [documentation contributions section](#documentation-contribution) further below. Otherwise, read on.
+Want to contribute to Sitecore JavaScript Services? There are a few things you need to know.
 
 ## Pre-requisites:
 
