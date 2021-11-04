@@ -48,7 +48,11 @@ export const Link = (props: LinkProps): JSX.Element => {
     }
   }
 
-  return <ReactLink {...htmlLinkProps} editable={editable} showLinkTextWithChildrenPresent={showLinkTextWithChildrenPresent} />;
+  // prevent passing internalLinkMatcher as it is an invalid DOM element prop
+  const reactLinkProps = { ...props };
+  delete reactLinkProps.internalLinkMatcher;
+
+  return <ReactLink {...reactLinkProps} />;
 };
 
 Link.defaultProps = {

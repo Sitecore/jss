@@ -3,7 +3,7 @@ import { NextRouter } from 'next/router';
 import NextLink from 'next/link';
 import { Link as ReactLink } from '@sitecore-jss/sitecore-jss-react';
 import { use, expect, spy } from 'chai';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import spies from 'chai-spies';
 import { RouterContext } from 'next/dist/next-server/lib/router-context';
 import { Link } from './Link';
@@ -229,6 +229,34 @@ describe('<Link />', () => {
     );
     expect(rendered.find(NextLink).length).to.equal(0);
     expect(rendered.find(ReactLink).length).to.equal(1);
+  });
+
+  it('should prevent passing internalLinkMatcher to ReactLink', () => {
+    const field = {
+      value: {
+        href: 'http://jssreactweb/lorem',
+        text: 'ipsum',
+        class: 'my-link',
+        title: 'My Link',
+        target: '_blank',
+      },
+    };
+    const rendered = mount(
+      <Page>
+        <Link
+          field={field}
+          showLinkTextWithChildrenPresent
+          internalLinkMatcher={/^http:\/\/doc.sitecore.com/g}
+        >
+          <p>Hello world...</p>
+        </Link>
+      </Page>
+    );
+    expect(rendered.find(NextLink).length).to.equal(0);
+    expect(rendered.find(ReactLink).length).to.equal(1);
+
+    const link = rendered.find('a');
+    expect(link.html()).not.to.contain('internallinkmatcher');
   });
 
   it('should render ReactLink if href not exists', () => {
