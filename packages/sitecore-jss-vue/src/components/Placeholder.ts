@@ -1,5 +1,5 @@
 import { defineComponent, h, ref, onErrorCaptured, inject, getCurrentInstance } from 'vue';
-import { ComponentRendering, RouteData, Field, Item } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, RouteData, Field, Item } from '@sitecore-jss/sitecore-jss/layout';
 import {
   convertVNodesToDynamicComponents,
   getPlaceholderDataFromRenderingData,
@@ -44,6 +44,10 @@ export const Placeholder = defineComponent({
       default: undefined,
     },
     missingComponentComponent: {
+      type: Object,
+      default: undefined,
+    },
+    hiddenRenderingComponent: {
       type: Object,
       default: undefined,
     },

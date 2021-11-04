@@ -17,7 +17,7 @@ import { lsDataEeOff } from '../test/data/LS-data-EE-off';
 import { lsDataEeOn } from '../test/data/LS-data-EE-on';
 
 import { mount } from '@vue/test-utils';
-import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 
 // import { config } from '@vue/test-utils'
 // config.logModifiedComponents = false;

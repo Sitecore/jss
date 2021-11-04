@@ -1,11 +1,7 @@
 // NOTE: all imports are now named as to not make breaking changes
 // and to keep react-native working with cjs modules.
-// This will very likely change again when sub-modules are added.
 
-import * as mediaApi from './media-api';
 import * as constants from './constants';
-
-export { mediaApi, constants };
 export { default as debug, Debugger } from './debug';
 export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
 export {
@@ -79,3 +75,5 @@ export {
   GraphQLSitemapXmlServiceConfig,
   SitemapItem,
 } from './sitemap/graphql-sitemap-xml-service';
+
+export { constants };

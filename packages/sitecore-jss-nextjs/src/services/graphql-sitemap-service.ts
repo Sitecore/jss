@@ -1,11 +1,11 @@
 import {
   GraphQLClient,
   GraphQLRequestClient,
-  debug,
   getAppRootId,
   SearchServiceConfig,
   SearchQueryService,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/graphql';
+import { debug } from '@sitecore-jss/sitecore-jss';
 
 /** @private */
 export const queryError =

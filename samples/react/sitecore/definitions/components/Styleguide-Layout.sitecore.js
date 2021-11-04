@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adds the Styleguide-Layout component to the disconnected manifest.
@@ -11,6 +11,6 @@ export default function (manifest) {
     name: 'Styleguide-Layout',
     templateName: 'JssReactWeb-Styleguide-Layout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['jss-styleguide-layout'],
+    placeholders: ['JssReactWeb-jss-styleguide-layout'],
   });
 }

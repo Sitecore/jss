@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adds the Styleguide-Section component to the disconnected manifest.
@@ -12,6 +12,6 @@ export default function(manifest) {
     templateName: 'JssVueWeb-Styleguide-Section',
     icon: SitecoreIcon.DocumentTag,
     fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
-    placeholders: ['jss-styleguide-section'],
+    placeholders: ['JssVueWeb-jss-styleguide-section'],
   });
 }

@@ -1,4 +1,4 @@
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adds the Styleguide-Section component to the disconnected manifest.
@@ -11,6 +11,6 @@ export default function StyleguideSection(manifest: Manifest): void {
     templateName: 'JssNextWeb-Styleguide-Section',
     icon: SitecoreIcon.DocumentTag,
     fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
-    placeholders: ['jss-styleguide-section'],
+    placeholders: ['JssNextWeb-jss-styleguide-section'],
   });
 }

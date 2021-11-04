@@ -1,4 +1,4 @@
-import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adds the Styleguide-Layout-Reuse component to the disconnected manifest.
@@ -10,7 +10,7 @@ export default function StyleguideLayoutReuse(manifest: Manifest): void {
     name: 'Styleguide-Layout-Reuse',
     templateName: 'JssNextWeb-Styleguide-Layout-Reuse',
     icon: SitecoreIcon.DocumentsExchange,
-    placeholders: ['jss-reuse-example'],
+    placeholders: ['JssNextWeb-jss-reuse-example'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
     inherits: ['JssNextWeb-styleguide-explanatory-component-template'],

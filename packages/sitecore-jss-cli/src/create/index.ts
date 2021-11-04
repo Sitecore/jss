@@ -2,11 +2,13 @@ import chalk from 'chalk';
 import fs from 'fs';
 import glob from 'glob';
 import path from 'path';
+import runPackageScript from '../run-package-script';
 
 interface PackageJsonConfig {
   appName: string;
   graphQLEndpointPath?: string;
   sitecoreDistPath?: string;
+  rootPlaceholders?: string[];
 }
 
 interface PackageJson {
@@ -32,10 +34,20 @@ export function applyNameReplacement(value: string, replaceName: string, withNam
  * @param {PackageJson} pkg package.json object
  * @param {string} name App name
  * @param {string} replaceName Name value to replace
+ * @param {boolean} withPrefix should replace placeholder prefix
  */
-export function applyNameToPackageJson(pkg: PackageJson, name: string, replaceName: string) {
+export function applyNameToPackageJson(
+  pkg: PackageJson,
+  name: string,
+  replaceName: string,
+  withPrefix?: boolean
+) {
   pkg.name = name; // root name will never match "replaceName", so always set directly
   pkg.config.appName = applyNameReplacement(pkg.config.appName, replaceName, name);
+
+  pkg.config.rootPlaceholders = pkg.config.rootPlaceholders?.map((ph) =>
+    applyNameReplacement(ph, withPrefix ? replaceName : `${replaceName}-`, withPrefix ? name : '')
+  );
 
   if (pkg.config.sitecoreDistPath) {
     pkg.config.sitecoreDistPath = applyNameReplacement(
@@ -79,7 +91,7 @@ export function applyNameToProject(
 
   const packagePath = path.join(projectFolder, 'package.json');
   let pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
-  pkg = applyNameToPackageJson(pkg, name, replaceName);
+  pkg = applyNameToPackageJson(pkg, name, replaceName, withPrefix);
   fs.writeFileSync(packagePath, JSON.stringify(pkg, null, 2));
 
   // Apply name and hostName to Sitecore config files
@@ -109,6 +121,10 @@ export function applyNameToProject(
     });
 
   replacePrefix(projectFolder, name, replaceName, withPrefix);
+
+  // fix any lint errors created by replacePrefix
+  console.log(chalk.cyan('Fixing potential linting errors...'));
+  runPackageScript(['lint', '--fix'], { cwd: projectFolder, encoding: 'utf-8' });
 }
 
 /**
@@ -117,16 +133,17 @@ export function applyNameToProject(
  * @param {string} name
  */
 export function getPascalCaseName(name: string): string {
-  const temp: string[] = name.split('-');
+  // handle underscores by converting them to hyphens
+  const temp: string[] = name.replace(/_/g, '-').split('-');
   name = temp.map((item: string) => (item = item.charAt(0).toUpperCase() + item.slice(1))).join('');
   return name;
 }
 
 /**
- * Called during jss create, this function replaces the sample's prefix with the app's name on Sitecore templates
+ * Called during jss create, this function replaces the sample's prefix with the app's name on Sitecore templates/placeholders
  * @param {string} projectFolder Project folder
  * @param {string} name Name value to replace
- * @param {string} prefix Prefix of the sample app's template - should match Jss[RAV|Next]Web
+ * @param {string} prefix Prefix of the sample app's template/placeholder - should match Jss[RAV|Next]Web
  * @param {boolean} withPrefix if true, replaces prefix with app name in PascalCase,
  * otherwise strip the prefix
  */
@@ -137,10 +154,12 @@ export function replacePrefix(
   withPrefix?: boolean
 ) {
   if (!withPrefix) {
-    console.log(chalk.cyan('Removing template prefix...'));
+    console.log(chalk.cyan('Removing template/placeholder prefix...'));
     const prefixWithHyphen = prefix + '-';
     glob
-      .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'))
+      .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'), {
+        ignore: '{**/*.png,**/*.pdf}',
+      })
       .forEach((filePath: string) => {
         let fileContents: string = fs.readFileSync(filePath, 'utf8');
 
@@ -154,14 +173,21 @@ export function replacePrefix(
     return;
   }
 
-  console.log(chalk.cyan(`Replacing template prefix with ${getPascalCaseName(name)}...`));
+  console.log(
+    chalk.cyan(`Replacing template/placeholder prefix with ${getPascalCaseName(name)}...`)
+  );
   glob
-    .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'))
+    .sync(path.join(projectFolder, './{data,sitecore/definitions,src}/**/*.*'), {
+      ignore: '{**/*.png,**/*.pdf}',
+    })
     .forEach((filePath: string) => {
       let fileContents: string = fs.readFileSync(filePath, 'utf8');
 
+      // placeholders
+      fileContents = applyNameReplacement(fileContents, prefix + '-jss', name + '-jss');
       // replace prefix with pascal case app name
       fileContents = applyNameReplacement(fileContents, prefix, getPascalCaseName(name));
+
       fs.writeFileSync(filePath, fileContents);
     });
 }

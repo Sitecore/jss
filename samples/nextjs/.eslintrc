@@ -5,8 +5,8 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "plugin:yaml/recommended"
+    "plugin:yaml/recommended",
+    "plugin:prettier/recommended"
   ],
   "plugins": [
     "@typescript-eslint",

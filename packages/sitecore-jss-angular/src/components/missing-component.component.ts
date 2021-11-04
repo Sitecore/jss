@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 
 @Component({
   selector: 'sc-missing-component',

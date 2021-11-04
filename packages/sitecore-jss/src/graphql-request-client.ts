@@ -1,4 +1,5 @@
 import { GraphQLClient as Client, ClientError } from 'graphql-request';
+import parse from 'url-parse';
 import { DocumentNode } from 'graphql';
 import debuggers, { Debugger } from './debug';
 
@@ -46,6 +47,13 @@ export class GraphQLRequestClient implements GraphQLClient {
     if (clientConfig.apiKey) {
       this.headers.sc_apikey = clientConfig.apiKey;
     }
+
+    if (!endpoint || !parse(endpoint).hostname) {
+      throw new Error(
+        `Invalid GraphQL endpoint '${endpoint}'. Verify that 'layoutServiceHost' property in 'scjssconfig.json' file or appropriate environment variable is set`
+      );
+    }
+
     this.client = new Client(endpoint, { headers: this.headers });
     this.debug = clientConfig.debugger || debuggers.http;
   }

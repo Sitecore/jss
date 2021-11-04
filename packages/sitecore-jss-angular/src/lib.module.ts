@@ -13,6 +13,7 @@ import { GenericLinkDirective } from './components/generic-link.directive';
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
+import { HiddenRenderingComponent } from './components/hidden-rendering.component';
 import { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 import { PlaceholderComponent } from './components/placeholder.component';
 import {
@@ -22,6 +23,7 @@ import {
   PLACEHOLDER_COMPONENTS,
   PLACEHOLDER_LAZY_COMPONENTS,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
+  PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { RenderComponentComponent } from './components/render-component.component';
@@ -50,6 +52,7 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
     RichTextDirective,
     TextDirective,
     MissingComponentComponent,
+    HiddenRenderingComponent,
   ],
   exports: [
     FileDirective,
@@ -62,6 +65,7 @@ import { JssComponentFactoryService } from './jss-component-factory.service';
     RenderEmptyDirective,
     RenderComponentComponent,
     PlaceholderComponent,
+    HiddenRenderingComponent,
     PlaceholderLoadingDirective,
     RichTextDirective,
     TextDirective,
@@ -120,6 +124,7 @@ export class JssModule {
         { provide: PLACEHOLDER_LAZY_COMPONENTS, useValue: lazyComponents || [] },
         { provide: ROUTES, useValue: lazyComponents || [], multi: true },
         { provide: PLACEHOLDER_MISSING_COMPONENT_COMPONENT, useValue: MissingComponentComponent },
+        { provide: PLACEHOLDER_HIDDEN_RENDERING_COMPONENT, useValue: HiddenRenderingComponent },
         ...(JssModule.forRoot().providers as Provider[]),
       ],
     };

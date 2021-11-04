@@ -1,4 +1,4 @@
-import { Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 export default (manifest: Manifest) => {
   /**
@@ -8,10 +8,10 @@ export default (manifest: Manifest) => {
    */
 
   manifest.addPlaceholder(
-    { name: 'jss-main', displayName: 'Main' },
+    { name: 'JssAngularWeb-jss-main', displayName: 'Main' },
     // you can optionally pass a GUID or unique (app-wide) string as an ID
     // this will inform the ID that is set when imported into Sitecore.
     // If the ID is not set, an ID is created based on the placeholder name.
-    { name: 'jss-tabs', displayName: 'Tabs', id: 'tabs-placeholder' }
+    { name: 'JssAngularWeb-jss-tabs', displayName: 'Tabs', id: 'tabs-placeholder' }
   );
 };

@@ -9,7 +9,9 @@
     "build-apps": "lerna run build --scope *-sample*",
     "lint-packages": "lerna run lint --ignore *-sample*",
     "lint-apps": "lerna run lint --ignore @sitecore-jss/*",
-    "coverage-packages": "lerna run coverage --ignore *-sample*"
+    "coverage-packages": "lerna run coverage --ignore *-sample*",
+    "install-git-hooks": "node ./scripts/install-hooks.js",
+    "generate-docs": "lerna run generate-docs"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -30,6 +32,8 @@
     "lerna": "^3.22.0",
     "nyc": "^14.1.1",
     "prettier": "^1.14.3",
-    "typescript": "^3.9.6"
+    "typedoc": "^0.22.5",
+    "typedoc-plugin-markdown": "^3.11.3",
+    "typescript": "~4.3.5"
   }
 }

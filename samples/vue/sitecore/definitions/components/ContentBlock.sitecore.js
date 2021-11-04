@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
+import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
  * Adds the ContentBlock component to the disconnected manifest.
@@ -10,7 +10,6 @@ export default function(manifest) {
   manifest.addComponent({
     name: 'ContentBlock',
     templateName: 'JssVueWeb-ContentBlock',
-    displayName: 'Content Block',
     // totally optional, but fun
     icon: SitecoreIcon.DocumentTag,
     fields: [

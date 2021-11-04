@@ -33,7 +33,7 @@ const nextConfig = {
     // prefixed path e.g. `/styleguide`.
     defaultLocale: packageConfig.language,
   },
-  
+
   // Enable React Strict Mode
   reactStrictMode: true,
 
@@ -41,13 +41,8 @@ const nextConfig = {
     // #START_EMPTY
     if (isDisconnected) {
       // When disconnected we proxy to the local faux layout service host, see scripts/disconnected-mode-server.js
-      return [
-        {
+      return [{
           source: '/sitecore/:path*',
-          destination: `${disconnectedServerUrl}/sitecore/:path*`,
-        },
-        {
-          source: '/:locale/sitecore/:path*',
           destination: `${disconnectedServerUrl}/sitecore/:path*`,
         },
         // media items
@@ -55,30 +50,17 @@ const nextConfig = {
           source: '/data/media/:path*',
           destination: `${disconnectedServerUrl}/data/media/:path*`,
         },
-        {
-          source: '/:locale/data/media/:path*',
-          destination: `${disconnectedServerUrl}/data/media/:path*`,
-        },
       ];
     }
     // #END_EMPTY
     // When in connected mode we want to proxy Sitecore paths off to Sitecore
-    return [
-      {
+    return [{
         source: '/sitecore/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
-      },
-      {
-        source: '/:locale/sitecore/:path*',
         destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
       },
       // media items
       {
         source: '/-/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
-      },
-      {
-        source: '/:locale/-/:path*',
         destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
       },
       // visitor identification
@@ -115,7 +97,9 @@ const applyGraphQLCodeGenerationLoaders = (config, options) => {
   config.module.rules.push({
     test: /\.graphql$/,
     exclude: /node_modules/,
-    use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader' }],
+    use: [options.defaultLoaders.babel, {
+      loader: 'graphql-let/loader'
+    }],
   });
 
   config.module.rules.push({

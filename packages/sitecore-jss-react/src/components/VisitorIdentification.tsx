@@ -1,10 +1,9 @@
 import React from 'react';
 import { withSitecoreContext } from '../enhancers/withSitecoreContext';
+import { SitecoreContextValue } from './SitecoreContext';
 
 interface VIProps {
-  sitecoreContext: {
-    visitorIdentificationTimestamp?: string;
-  };
+  sitecoreContext: SitecoreContextValue;
 }
 
 let emittedVI = false;
@@ -26,7 +25,7 @@ const VIComponent: React.FC<VIProps> = ({ sitecoreContext }) => {
 
   const meta = document.createElement('meta');
   meta.name = 'VIcurrentDateTime';
-  meta.content = sitecoreContext.visitorIdentificationTimestamp;
+  meta.content = sitecoreContext.visitorIdentificationTimestamp.toString();
 
   const head = document.querySelector('head');
   head && head.appendChild(script);

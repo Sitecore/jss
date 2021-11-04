@@ -83,7 +83,7 @@ export default {
     return {
       placeholders: [
         {
-          placeholder: 'jss-tabs',
+          placeholder: 'JssVueWeb-jss-tabs',
           computedPropName: 'tabsPlaceholder',
         },
       ],

@@ -1,13 +1,13 @@
 import React, { ReactNode } from 'react';
-import { SitecoreContextReactContext } from '../components/SitecoreContext';
+import { SitecoreContextReactContext, SitecoreContextValue } from '../components/SitecoreContext';
 
 export interface WithSitecoreContextOptions {
   updatable?: boolean;
 }
 
 export interface WithSitecoreContextProps {
-  sitecoreContext: unknown;
-  updateSitecoreContext?: ((value: unknown) => void) | false;
+  sitecoreContext: SitecoreContextValue;
+  updateSitecoreContext?: ((value: SitecoreContextValue) => void) | false;
 }
 
 export interface ComponentConsumerProps extends WithSitecoreContextProps {
@@ -67,12 +67,12 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
  * }
  * @returns {Object} { sitecoreContext, updateSitecoreContext }
  */
-export function useSitecoreContext<Context>(options?: WithSitecoreContextOptions) {
+export function useSitecoreContext(options?: WithSitecoreContextOptions) {
   const reactContext = React.useContext(SitecoreContextReactContext);
   const updatable = options?.updatable;
 
   return {
-    sitecoreContext: reactContext.context as Context,
+    sitecoreContext: reactContext.context,
     updateSitecoreContext: updatable ? reactContext.setContext : undefined,
   };
 }

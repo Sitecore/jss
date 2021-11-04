@@ -2,17 +2,8 @@ import {
   Field,
   ComponentParams,
   ComponentRendering,
-  LayoutServiceContext,
-  RouteData,
+  SitecoreContextValue,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-
-/**
- * Styleguide sitecore context value shape
- */
-export type StyleguideSitecoreContextValue = LayoutServiceContext & {
-  itemId?: string;
-  route: RouteData;
-};
 
 /**
  * Shared styleguide specimen fields
@@ -39,5 +30,5 @@ export type StyleguideComponentProps = {
  * @example const { sitecoreContext } = useSitecoreContext()
  */
 export type StyleguideComponentWithContextProps = StyleguideComponentProps & {
-  sitecoreContext: StyleguideSitecoreContextValue;
+  sitecoreContext: SitecoreContextValue;
 };

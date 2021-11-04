@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';

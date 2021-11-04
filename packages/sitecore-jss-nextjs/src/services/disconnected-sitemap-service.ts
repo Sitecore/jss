@@ -1,4 +1,4 @@
-import { ItemDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+import { ItemDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { StaticPath } from './graphql-sitemap-service';
 
 export class DisconnectedSitemapService {

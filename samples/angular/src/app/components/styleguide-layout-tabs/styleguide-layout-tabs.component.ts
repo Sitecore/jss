@@ -23,7 +23,7 @@ export class StyleguideLayoutTabsComponent implements OnInit, OnDestroy {
   isEditing = false;
   private contextSubscription: Subscription;
 
-  constructor(private jssContext: JssContextService) { }
+  constructor(private jssContext: JssContextService) {}
 
   ngOnInit() {
     // to get access to route-level data from Sitecore such as route item fields or
@@ -44,7 +44,9 @@ export class StyleguideLayoutTabsComponent implements OnInit, OnDestroy {
   }
 
   update() {
-    this.tabs = getChildPlaceholder(this.rendering, 'jss-tabs').filter((tab: ComponentRendering) => tab.fields) as ComponentRendering[];
+    this.tabs = getChildPlaceholder(this.rendering, 'JssAngularWeb-jss-tabs').filter(
+      (tab: ComponentRendering) => tab.fields
+    ) as ComponentRendering[];
 
     if (!this.activeTab && this.tabs.length > 0) {
       this.activeTab = this.tabs[0];

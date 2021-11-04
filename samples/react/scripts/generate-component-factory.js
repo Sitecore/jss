@@ -61,6 +61,33 @@ function generateComponentFactory() {
   const imports = [];
   const registrations = [];
 
+  /**
+   * You can specify components which you want to import from external/internal packages
+   * in format:
+   *  {
+   *    name: 'package name',
+   *    components: [
+   *      {
+   *        componentName: 'component name', // component rendering name,
+   *        moduleName: 'module name' // component name to import from the package
+   *      }
+   *    ]
+   *  }
+   */
+  const packages = [];
+
+  packages.forEach((p) => {
+    const variables = p.components
+      .map((c) => {
+        registrations.push(`components.set('${c.componentName}', ${c.moduleName});`);
+
+        return c.moduleName;
+      })
+      .join(', ');
+
+    imports.push(`import { ${variables} } from '${p.name}'`);
+  });
+
   fs.readdirSync(componentRootPath).forEach((componentFolder) => {
     const componentFolderFullPath = path.join(componentRootPath, componentFolder);
 

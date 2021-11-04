@@ -17,6 +17,13 @@ const chokidar = require('chokidar');
   This is used during `jss start` to pick up new or removed components at runtime.
 */
 
+export interface PackageDefinition {
+  name: string;
+  components: {
+    moduleName: string;
+    componentName: string;
+  }[];
+}
 
 const componentFactoryPath = path.resolve('src/app/components/app-components.module.ts');
 const componentRootPath = 'src/app/components';
@@ -55,9 +62,35 @@ function generateComponentFactory() {
   // and it can be maintained manually if preferred.
 
   const imports: string[] = [];
+  /**
+   * You can specify components which you want to import from external/internal packages
+   * in format:
+   *  {
+   *    name: 'package name',
+   *    components: [
+   *      {
+   *        componentName: 'component name', // component rendering name,
+   *        moduleName: 'module name' // component name to import from the package
+   *      }
+   *    ]
+   *  }
+   */
+  const packages: PackageDefinition[] = [];
   const registrations: string[] = [];
   const lazyRegistrations: string[] = [];
   const declarations: string[] = [];
+
+  packages.forEach((p) => {
+    const variables = p.components
+      .map((c) => {
+        registrations.push(`{ name: '${c.componentName}', type: ${c.moduleName} },`);
+        declarations.push(`${c.moduleName},`);
+
+        return c.moduleName;
+      })
+      .join(', ');
+    imports.push(`import { ${variables} } from '${p.name}'`);
+  });
 
   fs.readdirSync(componentRootPath).forEach((componentFolder) => {
     // ignore ts files in component root folder
@@ -84,8 +117,6 @@ function generateComponentFactory() {
 
     const componentName = componentClassMatch[1];
     const importVarName = `${componentName}Component`;
-
-
 
     // check for lazy loading needs
     const moduleFilePath = path.join(componentRootPath, componentFolder, `${componentFolder}.module.ts`);

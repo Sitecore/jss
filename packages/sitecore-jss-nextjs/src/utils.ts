@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss';
+import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
 
 /**
  * Get the publicUrl.

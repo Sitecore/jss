@@ -153,6 +153,46 @@ describe('applyNameToPackageJson', () => {
     expect(result.config.sitecoreDistPath).to.equal('/somewhere/dist/bar');
   });
 
+  it('should apply prefix for rootPlaceholders', () => {
+    const result = applyNameToPackageJson(
+      {
+        name: 'FooName',
+        config: {
+          appName: 'FooAppName',
+          sitecoreDistPath: '/somewhere/dist/FooAppName',
+          rootPlaceholders: ['FooAppName-jss-main', 'FooAppName-jss-header'],
+        },
+      },
+      'bar',
+      'FooAppName',
+      true
+    );
+    expect(result.name).to.equal('bar');
+    expect(result.config.appName).to.equal('bar');
+    expect(result.config.sitecoreDistPath).to.equal('/somewhere/dist/bar');
+    expect(result.config.rootPlaceholders).to.deep.equal(['bar-jss-main', 'bar-jss-header']);
+  });
+
+  it('should remove prefix from the rootPlaceholders', () => {
+    const result = applyNameToPackageJson(
+      {
+        name: 'FooName',
+        config: {
+          appName: 'FooAppName',
+          sitecoreDistPath: '/somewhere/dist/FooAppName',
+          rootPlaceholders: ['FooAppName-jss-main', 'FooAppName-jss-header'],
+        },
+      },
+      'bar',
+      'FooAppName',
+      false
+    );
+    expect(result.name).to.equal('bar');
+    expect(result.config.appName).to.equal('bar');
+    expect(result.config.sitecoreDistPath).to.equal('/somewhere/dist/bar');
+    expect(result.config.rootPlaceholders).to.deep.equal(['jss-main', 'jss-header']);
+  });
+
   it('should not apply name using replaceName if no match', () => {
     const result = applyNameToPackageJson(
       {
@@ -212,6 +252,12 @@ describe('applyHostNameToSitecoreConfig', () => {
 describe('getPascalCaseName', () => {
   it('should reformat kebab-case to PascalCase', () => {
     const result = getPascalCaseName('my-next-sitecore-app');
+
+    expect(result).to.match(/MyNextSitecoreApp/);
+  });
+
+  it('should reformat snake_case to PascalCase', () => {
+    const result = getPascalCaseName('my_next_sitecore_app');
 
     expect(result).to.match(/MyNextSitecoreApp/);
   });

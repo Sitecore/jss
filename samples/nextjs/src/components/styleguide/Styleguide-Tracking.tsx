@@ -1,10 +1,12 @@
 import React, { RefObject } from 'react';
-import { withSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { trackingApi } from '@sitecore-jss/sitecore-jss-tracking';
+import {
+  withSitecoreContext,
+  trackingApi,
+  TrackingRequestOptions,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { dataFetcher } from 'lib/data-fetcher';
 import config from 'temp/config';
 import StyleguideSpecimen from './Styleguide-Specimen';
-import { TrackingRequestOptions } from '@sitecore-jss/sitecore-jss-tracking/types/trackingRequestOptions';
 import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
 
 /* eslint-disable no-alert,no-undef */

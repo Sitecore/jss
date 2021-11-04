@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { useSitecoreContext } from './withSitecoreContext';
 
 export const DefaultEditingError = (): JSX.Element => (
@@ -32,7 +32,7 @@ export function withDatasourceCheck(options?: WithDatasourceCheckOptions) {
     Component: React.ComponentType<ComponentProps>
   ) {
     return function WithDatasourceCheck(props: ComponentProps) {
-      const { sitecoreContext } = useSitecoreContext<{ pageEditing: boolean }>();
+      const { sitecoreContext } = useSitecoreContext();
       const EditingError = options?.editingErrorComponent ?? DefaultEditingError;
 
       return props.rendering?.dataSource ? (

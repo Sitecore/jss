@@ -1,4 +1,4 @@
-import { addComponent, CommonFieldTypes } from '@sitecore-jss/sitecore-jss-manifest';
+import { addComponent, CommonFieldTypes } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 export default (manifest) => {
   addComponent(manifest, {

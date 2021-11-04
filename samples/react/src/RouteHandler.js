@@ -19,84 +19,50 @@ class RouteHandler extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      notFound: true,
-      defaultLanguage: config.defaultLanguage,
-    };
-
-    const routeData = this.props.sitecoreContext;
-
-    // route data from react-router - if route was resolved, it's not a 404
-    if (props.route !== null) {
-      this.state.notFound = false;
-    }
-
-    // if we have an initial SSR state, and that state doesn't have a valid route data,
-    // then this is a 404 route.
-    if (routeData && !routeData.route) {
-      this.state.notFound = true;
-    }
-
-    // if we have an SSR state, and that state has language data, set the current language
-    // (this makes the language of content follow the Sitecore context language cookie)
-    // note that a route-based language (i.e. /de-DE) will override this default; this is for home.
-    if (routeData && routeData.language) {
-      this.state.defaultLanguage = routeData.language;
-    }
-
     // tell i18next to sync its current language with the route language
     this.updateLanguage();
   }
 
   componentDidMount() {
-    // if no existing routeData is present (from SSR), get Layout Service fetching the route data or ssr render complete
-    if (!this.props.sitecoreContext || this.props.ssrRenderComplete) {
-      this.updateRouteData();
+    // If we are not using SSR we have to load layout data
+    if (!this.props.isSSR) {
+      this.updateLayoutData();
     }
   }
 
   /**
    * Loads route data from Sitecore Layout Service into state.routeData
    */
-  updateRouteData() {
+  updateLayoutData() {
     let sitecoreRoutePath = this.props.route.match.params.sitecoreRoute || '/';
     if (!sitecoreRoutePath.startsWith('/')) {
       sitecoreRoutePath = `/${sitecoreRoutePath}`;
     }
 
-    const language = this.props.route.match.params.lang || this.state.defaultLanguage;
+    const language = this.getLanguage();
 
     // instantiate the dictionary service.
     const layoutServiceInstance = layoutServiceFactory.create();
 
     // get the route data for the new route
     layoutServiceInstance.fetchLayoutData(sitecoreRoutePath, language).then((routeData) => {
-      if (routeData !== null && routeData.sitecore && routeData.sitecore.route) {
-        // set the sitecore context data and push the new route
-        this.props.updateSitecoreContext({
-          route: routeData.sitecore.route,
-          itemId: routeData.sitecore.route.itemId,
-          ...routeData.sitecore.context,
-        });
-
-        if (this.state.notFound) {
-          this.setState({ notFound: false });
-        }
-      } else {
-        this.setState({ notFound: true }, () => {
-          const context = routeData && routeData.sitecore ? routeData.sitecore.context : null;
-
-          this.props.updateSitecoreContext(context);
-        });
-      }
+      this.props.updateSitecoreContext(routeData);
     });
+  }
+
+  getLanguage() {
+    return (
+      this.props.route.match.params.lang ||
+      this.props.sitecoreContext.language ||
+      config.defaultLanguage
+    );
   }
 
   /**
    * Updates the current app language to match the route data.
    */
   updateLanguage() {
-    const newLanguage = this.props.route.match.params.lang || this.state.defaultLanguage;
+    const newLanguage = this.getLanguage();
 
     if (i18n.language !== newLanguage) {
       i18n.changeLanguage(newLanguage);
@@ -120,35 +86,34 @@ class RouteHandler extends React.Component {
     }
 
     this.updateLanguage();
-    this.updateRouteData();
+    this.updateLayoutData();
   }
 
   render() {
-    const { notFound } = this.state;
-    const routeData = this.props.sitecoreContext;
+    const layoutData = this.props.sitecoreContext;
 
-    // no route data for the current route in Sitecore - show not found component.
     // Note: this is client-side only 404 handling. Server-side 404 handling is the responsibility
     // of the server being used (i.e. node-headless-ssr-proxy and Sitecore intergrated rendering know how to send 404 status codes).
-    if (notFound && routeData) {
+    // `route` is null in case if route is not found
+    if (layoutData.route === null) {
       return (
         <div>
           <Helmet>
             <title>{i18n.t('Page not found')}</title>
           </Helmet>
-          <NotFound context={routeData} />
+          <NotFound context={layoutData} />
         </div>
       );
     }
 
     // Don't render anything if the route data or dictionary data is not fully loaded yet.
     // This is a good place for a "Loading" component, if one is needed.
-    if (!routeData) {
+    if (!layoutData.route) {
       return null;
     }
 
     // Render the app's root structural layout
-    return <Layout route={routeData.route} />;
+    return <Layout route={layoutData.route} />;
   }
 }
 
