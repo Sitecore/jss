@@ -49,7 +49,7 @@ placeholders:
 
           <div class="alert alert-dark">
             <h4>How to start with an empty app</h4>
-            <p>To start with a fresh app with no boilerplate, run <code>jss create <name of your app> nextjs --empty</code>. Note, disconnected mode is not supported this way</p>
+            <p>To start with a fresh app with no boilerplate, run <code>jss create {name of your app} nextjs --empty</code>. Note, disconnected mode is not supported this way</p>
             <p>To remove all of the default sample content (the Styleguide and GraphQL routes) and start out with an empty JSS app:</p>
             <ol>
               <li>Delete <code>/data/dictionary/*.yml</code></li>
