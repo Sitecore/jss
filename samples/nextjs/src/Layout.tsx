@@ -81,10 +81,6 @@ const Layout = ({ sitecoreContext: { route } }: LayoutProps): JSX.Element => {
   );
 };
 
-// If you use:
-// * SSG mode - it's required to use `React.memo`, Nextjs renders app twice on initial load and we don't need to render <Layout /> twice.
-// * SSR mode - you can remove `React.memo`, Nextjs renders app once.
-// Read more https://nextjs.org/docs/advanced-features/automatic-static-optimization#how-it-works
 const propsAreEqual = (prevProps: LayoutProps, nextProps: LayoutProps) => {
   if (deepEqual(prevProps.sitecoreContext.route, nextProps.sitecoreContext.route)) return true;
 
