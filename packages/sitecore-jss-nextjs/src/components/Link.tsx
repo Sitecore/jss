@@ -48,7 +48,11 @@ export const Link = (props: LinkProps): JSX.Element => {
     }
   }
 
-  return <ReactLink {...props} />;
+  // prevent passing internalLinkMatcher as it is an invalid DOM element prop
+  const reactLinkProps = { ...props };
+  delete reactLinkProps.internalLinkMatcher;
+
+  return <ReactLink {...reactLinkProps} />;
 };
 
 Link.defaultProps = {
