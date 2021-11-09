@@ -1,4 +1,4 @@
-import { CommandModule, Arguments } from '../node_modules/@types/yargs';
+import { CommandModule, Arguments } from 'yargs';
 import cli from './cli-shared';
 import resolvePackage from './resolve-package';
 import runPackageScript from './run-package-script';

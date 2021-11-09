@@ -57,12 +57,14 @@
     "serialize-javascript": "~3.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.10.4",
     "@babel/register": "~7.6.2",
     "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.46",
     "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.46",
     "@sitecore-jss/sitecore-jss-rendering-host": "^20.0.0-canary.46",
-    "babel-loader": "^8.1.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "8.1.0",
     "babel-preset-react-app": "~9.0.2",
     "chalk": "~2.4.2",
     "chokidar": "~3.1.1",
@@ -117,5 +119,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "installConfig": {
+    "hoistingLimits": "workspaces"
+  }
 }

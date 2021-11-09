@@ -1,15 +1,12 @@
 {
+  "private": true,
   "scripts": {
-    "reset": "lerna clean --yes && npm run bootstrap && npm run build-packages",
-    "bootstrap": "lerna bootstrap && npm run bootstrap-react && npm run bootstrap-react-dom",
-    "bootstrap:ci": "lerna bootstrap --ci",
-    "bootstrap-react": "cd ./packages/sitecore-jss-react/node_modules/react && npm link && cd ../../../../samples/react && npm link react",
-    "bootstrap-react-dom": "cd ./packages/sitecore-jss-react/node_modules/react-dom && npm link && cd ../../../../samples/react && npm link react-dom",
-    "build-packages": "lerna run build --ignore *-sample*",
-    "build-apps": "lerna run build --scope *-sample*",
-    "lint-packages": "lerna run lint --ignore *-sample*",
-    "lint-apps": "lerna run lint --ignore @sitecore-jss/*",
-    "coverage-packages": "lerna run coverage --ignore *-sample*",
+    "reset": "lerna clean --yes",
+    "build-packages": "yarn workspaces foreach --exclude 'jss-sample-*' run build",
+    "build-apps": "lerna run build --scope 'jss-sample-*' --npm-client npm",
+    "lint-packages": "yarn workspaces foreach --exclude 'jss-sample-*' run lint",
+    "lint-apps": "yarn workspaces foreach --exclude '@sitecore-jss/*' run lint",
+    "coverage-packages": "yarn workspaces foreach --exclude 'jss-sample-*' run coverage",
     "install-git-hooks": "node ./scripts/install-hooks.js",
     "generate-docs": "lerna run generate-docs"
   },
@@ -35,5 +32,10 @@
     "typedoc": "^0.22.5",
     "typedoc-plugin-markdown": "^3.11.3",
     "typescript": "~4.3.5"
-  }
+  },
+  "workspaces": [
+    "packages/*",
+    "samples/*"
+  ],
+  "packageManager": "yarn@3.1.0"
 }

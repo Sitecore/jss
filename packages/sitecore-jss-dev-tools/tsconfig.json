@@ -20,6 +20,7 @@
       "node_modules/@types"
     ],
     "outDir": "dist/cjs",
+    "skipLibCheck": true,
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,

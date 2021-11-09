@@ -2,7 +2,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
-import { Argv } from '../../node_modules/@types/yargs';
+import { Argv } from 'yargs';
 import { FolderSource } from '../create/create.source.folder';
 import { GitHubSource } from '../create/create.source.github';
 import { runPackageManagerCommand } from '../run-package-script';

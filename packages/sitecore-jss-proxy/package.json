@@ -47,5 +47,8 @@
     "typescript": "~4.3.5"
   },
   "types": "types/index.d.ts",
-  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+  "installConfig": {
+    "hoistingLimits": "workspaces"
+  }
 }
