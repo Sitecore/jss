@@ -31,5 +31,8 @@
     "dist",
     "src/test",
     "src/**/*.test.ts",
+  ],
+  "references": [
+    "../sitecore-jss-dev-tools"
   ]
 }

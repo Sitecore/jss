@@ -3,6 +3,7 @@
     "target": "es6",
     "module": "commonjs",
     "newLine": "LF",
+    "composite": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,

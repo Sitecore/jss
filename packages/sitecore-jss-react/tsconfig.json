@@ -4,6 +4,7 @@
     "module": "commonjs",
     "newLine": "LF",
     "emitDecoratorMetadata": true,
+    "composite": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "lib": [

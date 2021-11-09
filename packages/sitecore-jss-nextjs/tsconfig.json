@@ -35,4 +35,7 @@
     "**/*.test.ts",
     "**/*.test.tsx"
   ],
+  "references": [
+    "../sitecore-jss-nextjs"
+  ]
 }
