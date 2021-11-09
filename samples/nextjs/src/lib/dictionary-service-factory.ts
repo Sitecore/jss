@@ -1,20 +1,44 @@
-import { DictionaryService, GraphQLDictionaryService } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  DictionaryService,
+  RestDictionaryService,
+  GraphQLDictionaryService,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 
-export class DictionaryServiceFactory {
-  create(): DictionaryService {
-    return new GraphQLDictionaryService({
-      endpoint: config.graphQLEndpoint,
-      apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
-      /*
-      The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current
-      app. If your Sitecore instance only has 1 JSS App, you can specify the root item ID here;
-      otherwise, the service will attempt to figure out the root item for the current JSS App using GraphQL and app name.
-      rootItemId: '{GUID}'
-      */
-    });
+interface DictionaryServiceFactory {
+  create(): DictionaryService;
+}
+let dictionaryServiceFactory: DictionaryServiceFactory;
+
+if (process.env.FETCH_WITH === 'rest') {
+  class RestDictionaryServiceFactory {
+    create(): DictionaryService {
+      return new RestDictionaryService({
+        apiHost: config.sitecoreApiHost,
+        apiKey: config.sitecoreApiKey,
+        siteName: config.jssAppName,
+      });
+    }
   }
+
+  dictionaryServiceFactory = new RestDictionaryServiceFactory();
+} else if (process.env.FETCH_WITH === 'graphql') {
+  class GraphQLDictionaryServiceFactory {
+    create(): DictionaryService {
+      return new GraphQLDictionaryService({
+        endpoint: config.graphQLEndpoint,
+        apiKey: config.sitecoreApiKey,
+        siteName: config.jssAppName,
+        /*
+        The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current
+        app. If your Sitecore instance only has 1 JSS App, you can specify the root item ID here;
+        otherwise, the service will attempt to figure out the root item for the current JSS App using GraphQL and app name.
+        rootItemId: '{GUID}'
+        */
+      });
+    }
+  }
+  dictionaryServiceFactory = new GraphQLDictionaryServiceFactory();
 }
 
-export const dictionaryServiceFactory = new DictionaryServiceFactory();
+export { dictionaryServiceFactory };
