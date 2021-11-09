@@ -50,12 +50,14 @@ type ItemSearchResults = {
 
 type GraphQlIntegratedDemoProps = StyleguideComponentProps & {
   fields: {
-    datasource: DataSource;
-    contextItem: {
-      id: string;
-      children: ItemSearchResults;
-      pageTitle: {
-        value: string;
+    data: {
+      datasource: DataSource;
+      contextItem: {
+        id: string;
+        children: ItemSearchResults;
+        pageTitle: {
+          value: string;
+        };
       };
     };
   };
@@ -64,7 +66,7 @@ type GraphQlIntegratedDemoProps = StyleguideComponentProps & {
 const GraphQLIntegratedDemo = (props: GraphQlIntegratedDemoProps): JSX.Element => {
   // Query results in integrated GraphQL replace the normal `fields` data
   // i.e. with { data, }
-  const { datasource, contextItem } = props.fields;
+  const { datasource, contextItem } = props.fields.data;
 
   return (
     <div data-e2e-id="graphql-integrated">
