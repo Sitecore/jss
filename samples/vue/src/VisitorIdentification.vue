@@ -17,8 +17,8 @@
 export default {
   name: 'VisitorIdentification',
   data() {
-    const visitorIdentificationTimestamp = this.$jss.sitecoreContext()
-      .visitorIdentificationTimestamp;
+    const visitorIdentificationTimestamp =
+      this.$jss.sitecoreContext().visitorIdentificationTimestamp;
 
     emitVIScript(visitorIdentificationTimestamp);
 

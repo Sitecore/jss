@@ -3,7 +3,7 @@ import { NextRouter } from 'next/router';
 import NextLink from 'next/link';
 import { Link as ReactLink } from '@sitecore-jss/sitecore-jss-react';
 import { use, expect, spy } from 'chai';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import spies from 'chai-spies';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 import { Link } from './Link';
