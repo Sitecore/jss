@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
+    "rootDir": "src",
+    "baseUrl": ".",
     "newLine": "LF",
     "emitDecoratorMetadata": true,
     "composite": true,
