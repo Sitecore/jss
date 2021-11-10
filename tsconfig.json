@@ -1,4 +1,12 @@
 {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "declaration": true,
+    "paths": {
+      "@sitecore-jss/*": ["packages/*"],
+    },
+  },
 	"references": [
     {
       "path": "./packages/sitecore-jss-react"
