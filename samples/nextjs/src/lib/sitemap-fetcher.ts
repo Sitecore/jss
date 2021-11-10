@@ -31,7 +31,7 @@ export class SitecoreSitemapFetcher {
     });
     // #START_EMPTY
     this._disconnectedSitemapService = new DisconnectedSitemapService(
-      (this.getManifest() as unknown) as ManifestInstance
+      this.getManifest() as unknown as ManifestInstance
     );
     // #END_EMPTY
   }
