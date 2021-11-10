@@ -24,7 +24,7 @@
     "start-ios": "node ./build/start.js --platform ios",
     "start-ios:connected": "scjss-verify-setup && node ./build/start.js --platform ios --appMode connected",
     "start-ios:connected-tunnel": "scjss-verify-setup && node ./build/start.js --platform ios --appMode connected-tunnel",
-    "lint": "eslint ./src/**/*.js ./sitecore/definitions/**/*.js ./**/*.js"
+    "lint": "eslint ./src/**/*.js ./sitecore/definitions/**/*.js"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -79,5 +79,8 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "homepage": "https://jss.sitecore.com",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "installConfig": {
+    "hoistingLimits": "workspaces"
+  }
 }
