@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "reset": "lerna clean --yes",
-    "build-packages": "yarn workspaces foreach --exclude 'jss-sample-*' run build",
+    "bootstrap:ci": "yarn install --immutable",
+    "build-packages": "lerna run build --ignore 'jss-sample-*'",
     "build-apps": "lerna run build --scope 'jss-sample-*' --npm-client npm",
     "lint-packages": "yarn workspaces foreach --exclude 'jss-sample-*' run lint",
     "lint-apps": "yarn workspaces foreach --exclude '@sitecore-jss/*' run lint",
