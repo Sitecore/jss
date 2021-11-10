@@ -33,6 +33,6 @@
     "src/**/*.test.ts",
   ],
   "references": [
-    "../sitecore-jss-dev-tools"
+    { "path": "../sitecore-jss-dev-tools" }
   ]
 }
