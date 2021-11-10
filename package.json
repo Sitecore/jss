@@ -3,11 +3,11 @@
   "scripts": {
     "reset": "lerna clean --yes",
     "install:ci": "yarn cache clean && yarn install --immutable",
-    "build-packages": "lerna run build --ignore 'jss-sample-*'",
+    "build-packages": "lerna run build --ignore '*jss-sample-*'",
     "build-apps": "lerna run build --scope 'jss-sample-*' --npm-client npm",
-    "lint-packages": "yarn workspaces foreach --exclude 'jss-sample-*' run lint",
-    "lint-apps": "yarn workspaces foreach --exclude '@sitecore-jss/*' run lint",
-    "coverage-packages": "yarn workspaces foreach --exclude 'jss-sample-*' run coverage",
+    "lint-packages": "lerna run lint --ignore '*jss-sample*'",
+    "lint-apps": "lerna run lint --ignore '@sitecore-jss/*'",
+    "coverage-packages": "lerna run coverage --ignore '*jss-sample*'",
     "install-git-hooks": "node ./scripts/install-hooks.js",
     "generate-docs": "lerna run generate-docs"
   },
