@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { expect, use, spy } from 'chai';
-import spies from 'chai-spies';
+import { expect } from 'chai';
 import { mount } from 'enzyme';
+import { spy } from 'sinon';
 
 import { useSitecoreContext, withSitecoreContext } from '../enhancers/withSitecoreContext';
 import { SitecoreContextReactContext } from '../components/SitecoreContext';
-
-use(spies);
 
 describe('withSitecoreContext', () => {
   it('withSitecoreContext()', () => {
@@ -40,7 +38,7 @@ describe('withSitecoreContext', () => {
     expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
     wrapper.find('div').simulate('click');
 
-    expect(testComponentProps.setContext).not.to.be.called();
+    expect(testComponentProps.setContext.notCalled);
 
     TestComponentWithContext = withSitecoreContext({ updatable: true })(TestComponent);
 
@@ -52,7 +50,7 @@ describe('withSitecoreContext', () => {
 
     wrapper.find('div').simulate('click');
 
-    expect(testComponentProps.setContext).to.be.called();
+    expect(testComponentProps.setContext.called);
   });
 
   describe('useSitecoreContext()', () => {
@@ -89,7 +87,7 @@ describe('withSitecoreContext', () => {
       expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
       wrapper.find('div').simulate('click');
 
-      expect(testComponentProps.setContext).not.to.be.called();
+      expect(testComponentProps.setContext.notCalled);
     });
 
     it('updatable', () => {
@@ -125,7 +123,7 @@ describe('withSitecoreContext', () => {
       expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'bbb');
       wrapper.find('div').simulate('click');
 
-      expect(testComponentProps.setContext).to.be.called();
+      expect(testComponentProps.setContext.called);
     });
   });
 });

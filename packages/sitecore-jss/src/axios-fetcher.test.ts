@@ -1,21 +1,19 @@
 /* eslint-disable no-unused-expressions */
 
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import MockAdapter from 'axios-mock-adapter';
+import { AxiosResponse, AxiosRequestConfig } from 'axios';
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
 import debugApi from 'debug';
 import debug from './debug';
+import nock from 'nock';
 
 use(spies);
 
 describe('AxiosDataFetcher', () => {
-  let mock: MockAdapter;
   let debugNamespaces: string;
 
   before(() => {
-    mock = new MockAdapter(axios);
     debugNamespaces = debugApi.disable();
     debugApi.enable(`${debug.http.namespace},${debug.layout.namespace}`);
   });
@@ -26,68 +24,67 @@ describe('AxiosDataFetcher', () => {
   });
 
   afterEach(() => {
-    mock.reset();
+    nock.cleanAll();
     spy.restore(debug.http);
     spy.restore(debug.layout);
   });
 
   after(() => {
-    mock.restore();
     debugApi.enable(debugNamespaces);
   });
 
   describe('fetch', () => {
     it('should execute POST request with data', () => {
-      mock.onPost().reply((config) => {
-        // append axios config as response data
-        return [200, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .post('/styleguide')
+        .reply(200, (_, requestBody) => requestBody);
 
       const fetcher = new AxiosDataFetcher();
 
-      return fetcher.fetch('/styleguide', { x: 'val1', y: 'val2' }).then((res: AxiosResponse) => {
-        expect(res.status).to.equal(200);
-        expect(res.data.data).to.equal('{"x":"val1","y":"val2"}');
-        expect(res.data.url).to.equal('/styleguide');
-        expect(res.data.withCredentials, 'with credentials is not true').to.be.true;
-      });
+      return fetcher
+        .fetch('http://jssnextweb/styleguide', { x: 'val1', y: 'val2' })
+        .then((res: AxiosResponse) => {
+          expect(res.status).to.equal(200);
+          expect(res.config.data).to.equal('{"x":"val1","y":"val2"}');
+          expect(res.config.url).to.equal('http://jssnextweb/styleguide');
+          expect(res.config.withCredentials, 'with credentials is not true').to.be.true;
+        });
     });
 
     it('should execute GET request without data', () => {
-      mock.onGet().reply((config) => {
-        // append axios config as response data
-        return [200, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .get('/home')
+        .reply(200, (_, requestBody) => requestBody);
 
       const fetcher = new AxiosDataFetcher();
 
-      return fetcher.fetch('/home').then((res: AxiosResponse) => {
+      return fetcher.fetch('http://jssnextweb/home').then((res: AxiosResponse) => {
         expect(res.status).to.equal(200);
-        expect(res.data.data).to.equal(undefined);
-        expect(res.data.url).to.equal('/home');
-        expect(res.data.withCredentials, 'with credentials is not true').to.be.true;
+        expect(res.config.data).to.equal(undefined);
+        expect(res.config.url).to.equal('http://jssnextweb/home');
+        expect(res.config.withCredentials, 'with credentials is not true').to.be.true;
       });
     });
 
     it('should execute failed request with data', () => {
-      mock.onPost().reply((config) => {
-        // append axios config as response data
-        return [400, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .post('/styleguide')
+        .reply(400, (_, requestBody) => requestBody);
 
       const fetcher = new AxiosDataFetcher();
 
-      return fetcher.fetch('/styleguide', { x: 'val1', y: 'val2' }).catch((err) => {
-        expect(err.response.status).to.equal(400);
-        expect(err.response.data.url).to.equal('/styleguide');
-      });
+      return fetcher
+        .fetch('http://jssnextweb/styleguide', { x: 'val1', y: 'val2' })
+        .catch((err) => {
+          expect(err.response.status).to.equal(400);
+          expect(err.response.config.url).to.equal('http://jssnextweb/styleguide');
+        });
     });
 
     it('should execute request with custom config', () => {
-      mock.onGet().reply((config) => {
-        // append axios config as response data
-        return [204, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .get('/home')
+        .reply(204, (_, requestBody) => requestBody);
 
       const config: AxiosDataFetcherConfig = {
         timeout: 200,
@@ -99,24 +96,23 @@ describe('AxiosDataFetcher', () => {
 
       const fetcher = new AxiosDataFetcher(config);
 
-      return fetcher.fetch('/home').then((res: AxiosResponse) => {
+      return fetcher.fetch('http://jssnextweb/home').then((res: AxiosResponse) => {
         expect(res.status).to.equal(204);
-        expect(res.data.auth).to.deep.equal({
+        expect(res.config.auth).to.deep.equal({
           username: 'xxx',
           password: 'bbb',
         });
-        expect(res.data.timeout).to.equal(200);
-        expect(res.data.data).to.equal(undefined);
-        expect(res.data.url).to.equal('/home');
-        expect(res.data.withCredentials, 'with credentials is not true').to.be.true;
+        expect(res.config.timeout).to.equal(200);
+        expect(res.config.data).to.equal(undefined);
+        expect(res.config.url).to.equal('http://jssnextweb/home');
+        expect(res.config.withCredentials, 'with credentials is not true').to.be.true;
       });
     });
 
     it('should allow override of default config', () => {
-      mock.onGet().reply((config) => {
-        // append axios config as response data
-        return [200, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .get('/home')
+        .reply(200, (_, requestBody) => requestBody);
 
       const config: AxiosDataFetcherConfig = {
         withCredentials: false,
@@ -124,23 +120,20 @@ describe('AxiosDataFetcher', () => {
 
       const fetcher = new AxiosDataFetcher(config);
 
-      return fetcher.fetch('/home').then((res: AxiosResponse) => {
+      return fetcher.fetch('http://jssnextweb/home').then((res: AxiosResponse) => {
         expect(res.status).to.equal(200);
-        expect(res.data.url).to.equal('/home');
-        expect(res.data.withCredentials, 'with credentials is not false').to.be.false;
+        expect(res.config.url).to.equal('http://jssnextweb/home');
+        expect(res.config.withCredentials, 'with credentials is not false').to.be.false;
       });
     });
 
     it('should fetch using req and res and invoke callbacks', () => {
-      mock.onGet().reply((config) => {
-        return [
-          200,
-          {
-            ...config,
-            data: { sitecore: { context: {}, route: { name: 'xxx' } } },
-          },
-        ];
-      });
+      nock('http://jssnextweb')
+        .get('/home')
+        .reply(200, (_, requestBody) => ({
+          requestBody: requestBody,
+          data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+        }));
 
       const onReqSpy = spy((config: AxiosRequestConfig) => {
         return config;
@@ -162,10 +155,10 @@ describe('AxiosDataFetcher', () => {
 
       const fetcher = new AxiosDataFetcher(config);
 
-      return fetcher.fetch('/home', undefined).then((res: AxiosResponse) => {
+      return fetcher.fetch('http://jssnextweb/home', undefined).then((res: AxiosResponse) => {
         expect(res.status).to.equal(200);
 
-        expect(res.data.url).to.equal('/home');
+        expect(res.config.url).to.equal('http://jssnextweb/home');
         expect(res.data.data).to.deep.equal({
           sitecore: {
             context: {},
@@ -178,120 +171,120 @@ describe('AxiosDataFetcher', () => {
     });
 
     it('should debug log request and response', async () => {
-      mock.onGet().reply((config) => {
-        // append axios config as response data
-        return [200, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .get('/home')
+        .reply(200, (_, requestBody) => requestBody);
 
       const fetcher = new AxiosDataFetcher();
 
-      await fetcher.fetch('/home');
+      await fetcher.fetch('http://jssnextweb/home');
       expect(debug.http.log, 'request and response log').to.be.called.twice;
     });
 
     it('should debug log request and response error', () => {
-      mock.onPost().reply((config) => {
-        // append axios config as response data
-        return [400, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .post('/home')
+        .reply(400, (_, requestBody) => requestBody);
 
       const fetcher = new AxiosDataFetcher();
 
-      return fetcher.fetch('/home').catch(() => {
+      return fetcher.fetch('http://jssnextweb/home').catch(() => {
         expect(debug.http.log, 'request and response error log').to.be.called.twice;
       });
     });
 
     it('should use debugger override', async () => {
-      mock.onGet().reply((config) => {
-        // append axios config as response data
-        return [200, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .get('/home')
+        .reply(200, (_, requestBody) => requestBody);
 
       const fetcher = new AxiosDataFetcher({ debugger: debug.layout });
 
-      await fetcher.fetch('/home');
+      await fetcher.fetch('http://jssnextweb/home');
       expect(debug.layout.log, 'request and response log').to.be.called.twice;
     });
   });
 
   describe('get', () => {
     it('should execute GET request', () => {
-      mock.onGet().reply((config) => {
-        // append axios config as response data
-        return [200, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .get('/home')
+        .reply(200, (_, requestBody) => requestBody);
 
       const fetcher = new AxiosDataFetcher();
 
-      return fetcher.get('/home').then((res: AxiosResponse) => {
+      return fetcher.get('http://jssnextweb/home').then((res: AxiosResponse) => {
         expect(res.status).to.equal(200);
-        expect(res.data.url).to.equal('/home');
+        expect(res.config.url).to.equal('http://jssnextweb/home');
       });
     });
   });
 
   describe('head', () => {
     it('should execute HEAD request', () => {
-      mock.onHead().reply((config) => {
-        // append axios config as response data
-        return [200, { ...config }];
-      });
+      // mock.onHead().reply((config) => {
+      //   // append axios config as response data
+      //   return [200, { ...config }];
+      // });
+      nock('http://jssnextweb')
+        .head('/home')
+        .reply(200, (_, requestBody) => requestBody);
 
       const fetcher = new AxiosDataFetcher();
 
-      return fetcher.head('/home').then((res: AxiosResponse) => {
+      return fetcher.head('http://jssnextweb/home').then((res: AxiosResponse) => {
         expect(res.status).to.equal(200);
-        expect(res.data.url).to.equal('/home');
+        expect(res.config.url).to.equal('http://jssnextweb/home');
       });
     });
   });
 
   describe('post', () => {
     it('should execute POST request', () => {
-      mock.onPost().reply((config) => {
-        // append axios config as response data
-        return [200, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .post('/styleguide')
+        .reply(200, (_, requestBody) => requestBody);
 
       const fetcher = new AxiosDataFetcher();
 
-      return fetcher.post('/styleguide', { x: 'val1', y: 'val2' }).then((res: AxiosResponse) => {
-        expect(res.status).to.equal(200);
-        expect(res.data.data).to.equal('{"x":"val1","y":"val2"}');
-        expect(res.data.url).to.equal('/styleguide');
-      });
+      return fetcher
+        .post('http://jssnextweb/styleguide', { x: 'val1', y: 'val2' })
+        .then((res: AxiosResponse) => {
+          expect(res.status).to.equal(200);
+          expect(res.config.data).to.equal('{"x":"val1","y":"val2"}');
+          expect(res.config.url).to.equal('http://jssnextweb/styleguide');
+        });
     });
   });
 
   describe('put', () => {
     it('should execute PUT request', () => {
-      mock.onPut().reply((config) => {
-        // append axios config as response data
-        return [200, { ...config }];
-      });
+      nock('http://jssnextweb')
+        .put('/styleguide')
+        .reply(200, (_, requestBody) => requestBody);
 
       const fetcher = new AxiosDataFetcher();
 
-      return fetcher.put('/styleguide', { x: 'val1', y: 'val2' }).then((res: AxiosResponse) => {
-        expect(res.status).to.equal(200);
-        expect(res.data.data).to.equal('{"x":"val1","y":"val2"}');
-        expect(res.data.url).to.equal('/styleguide');
-      });
+      return fetcher
+        .put('http://jssnextweb/styleguide', { x: 'val1', y: 'val2' })
+        .then((res: AxiosResponse) => {
+          expect(res.status).to.equal(200);
+          expect(res.config.data).to.equal('{"x":"val1","y":"val2"}');
+          expect(res.config.url).to.equal('http://jssnextweb/styleguide');
+        });
     });
 
     describe('delete', () => {
       it('should execute GET request', () => {
-        mock.onDelete().reply((config) => {
-          // append axios config as response data
-          return [200, { ...config }];
-        });
+        nock('http://jssnextweb')
+          .delete('/home')
+          .reply(200, (_, requestBody) => requestBody);
 
         const fetcher = new AxiosDataFetcher();
 
-        return fetcher.delete('/home').then((res: AxiosResponse) => {
+        return fetcher.delete('http://jssnextweb/home').then((res: AxiosResponse) => {
           expect(res.status).to.equal(200);
-          expect(res.data.url).to.equal('/home');
+          expect(res.config.url).to.equal('http://jssnextweb/home');
         });
       });
     });

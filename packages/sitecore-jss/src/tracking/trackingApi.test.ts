@@ -1,74 +1,57 @@
 /* eslint-disable no-unused-expressions */
-import { HttpDataFetcher } from './../data-fetcher';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import { expect } from 'chai';
 import { trackEvent } from './trackingApi';
+import { AxiosDataFetcher } from '../axios-fetcher';
+import { AxiosResponse } from 'axios';
+import nock from 'nock';
 
-// note: axios needs to use `withCredentials: true` in order for Sitecore cookies to be included in CORS requests
-// which is necessary for analytics and such
-const axiosFetcher: HttpDataFetcher<void> = (url: string, data: unknown) =>
-  axios({
-    url,
-    method: data ? 'POST' : 'GET',
-    data,
-    withCredentials: true,
-  });
+/**
+ * Implements a data fetcher using Axios - replace with your favorite
+ * SSR-capable HTTP or fetch library if you like. See HttpDataFetcher<T> type
+ * in sitecore-jss library for implementation details/notes.
+ * @param {string} url The URL to request; may include query string
+ * @param {unknown} data Optional data to POST with the request.
+ */
+function dataFetcher<ResponseType>(
+  url: string,
+  data?: unknown
+): Promise<AxiosResponse<ResponseType>> {
+  return new AxiosDataFetcher().fetch<ResponseType>(url, data);
+}
 
 describe('trackEvent', () => {
-  let mock: MockAdapter;
-  before(() => {
-    mock = new MockAdapter(axios);
-  });
-
   afterEach(() => {
-    mock.reset();
-  });
-
-  after(() => {
-    mock.restore();
+    nock.cleanAll();
   });
 
   it('should fetch with host', () => {
-    const expectedUrl = 'https://www.myhost.net/sitecore/api/jss/track/event';
-
-    // configure 'POST' requests to return config options
-    mock.onPost().reply((config) => {
-      // config contains axios client config options, e.g. url, withCredentials, etc...
-      return [200, { ...config }];
-    });
+    nock('https://www.myhost.net')
+      .post('/sitecore/api/jss/track/event')
+      .reply(200, (_, requestBody) => requestBody);
 
     return trackEvent([{ eventId: 'porgs' }], {
       host: 'https://www.myhost.net',
       test: true,
-      fetcher: axiosFetcher,
+      fetcher: dataFetcher,
     }).then((data) => {
-      // testData should contain the 'config' object from the mock request
-      const testData = (data as unknown) as { [key: string]: unknown };
-      expect(testData.url).to.equal(expectedUrl);
-      expect(testData.withCredentials, 'with credentials is not true').to.be.true;
+      expect(data).to.deep.equal([{ eventId: 'porgs' }]);
     });
   });
 
   it('should fetch with querystring', () => {
-    const expectedUrl = 'https://www.myhost.net/sitecore/api/jss/track/event?sc_camp=123456';
-
     // configure 'POST' requests to return config options
-    mock.onPost().reply((config) => {
-      // config contains axios client config options, e.g. url, withCredentials, etc...
-      return [200, { ...config }];
-    });
+    nock('https://www.myhost.net')
+      .post('/sitecore/api/jss/track/event')
+      .query({ sc_camp: 123456 })
+      .reply(200, (_, requestBody) => requestBody);
 
     return trackEvent([{ campaignId: '123456' }], {
       host: 'https://www.myhost.net',
       querystringParams: { sc_camp: 123456 },
       test: true,
-      fetcher: axiosFetcher,
+      fetcher: dataFetcher,
     }).then((data) => {
-      // testData should contain the 'config' object from the mock request
-      const testData = (data as unknown) as { [key: string]: unknown };
-      expect(testData.url).to.equal(expectedUrl);
-      expect(testData.withCredentials, 'with credentials is not true').to.be.true;
+      expect(data).to.deep.equal([{ campaignId: '123456' }]);
     });
   });
 });
