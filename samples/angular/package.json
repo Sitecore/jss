@@ -125,8 +125,5 @@
     "ts-node": "~9.1.1",
     "typescript": "~4.1.5",
     "yaml-lint": "^1.2.4"
-  },
-  "installConfig": {
-    "hoistingLimits": "workspaces"
   }
 }

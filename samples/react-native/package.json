@@ -78,8 +78,5 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "homepage": "https://jss.sitecore.com",
-  "license": "Apache-2.0",
-  "installConfig": {
-    "hoistingLimits": "workspaces"
-  }
+  "license": "Apache-2.0"
 }
