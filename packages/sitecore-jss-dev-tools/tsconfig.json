@@ -2,8 +2,6 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "baseUrl": ".",
-    "rootDir": "src",
     "newLine": "LF",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -22,7 +20,6 @@
       "node_modules/@types"
     ],
     "outDir": "dist/cjs",
-    "skipLibCheck": true,
     "declaration": true,
     "declarationDir": "./types",
     "allowSyntheticDefaultImports": true,

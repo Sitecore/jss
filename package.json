@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "reset": "lerna clean --yes && yarn dlx rimraf node_modules && yarn build-packages",
+    "reset": "lerna clean --yes && yarn dlx rimraf node_modules && yarn install && yarn build-packages",
     "bootstrap:ci": "yarn cache clean && yarn install --immutable",
     "build-packages": "lerna run build --ignore '*jss-sample-*'",
     "build-apps": "lerna run build --scope 'jss-sample-*' --npm-client npm",

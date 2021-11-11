@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir": "src",
     "target": "es6",
     "module": "commonjs",
     "newLine": "LF",
@@ -36,5 +34,5 @@
     "src/testData/*",
     "**/*.test.ts",
     "**/*.test.tsx"
-  ]
+  ],
 }
