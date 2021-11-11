@@ -1,5 +1,4 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
@@ -34,8 +33,5 @@
     "dist",
     "src/test",
     "src/**/*.test.ts",
-  ],
-  "references": [
-    { "path": "../sitecore-jss-dev-tools" }
   ]
 }

@@ -1,5 +1,4 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
@@ -37,8 +36,5 @@
     "src/testData/*",
     "**/*.test.ts",
     "**/*.test.tsx"
-  ],
-  "references": [
-    { "path": "../sitecore-jss-react" }
   ]
 }

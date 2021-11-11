@@ -1,5 +1,4 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
@@ -7,7 +6,6 @@
     "baseUrl": ".",
     "newLine": "LF",
     "emitDecoratorMetadata": true,
-    "composite": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "lib": [
