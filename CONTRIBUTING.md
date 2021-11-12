@@ -7,6 +7,12 @@ Want to contribute to Sitecore JavaScript Services? There are a few things you n
 - `node.js` ([Active LTS](https://nodejs.org/en/about/releases/) version) installed (cmd `node -v` to test).
 - `npm` (6.x) installed (cmd `npm -v` to test).
 
+Install yarn globally:
+
+```shell
+npm i -g yarn
+```
+
 ## Developing
 
 See Branching overview below - We use `dev` for our current development.
@@ -20,9 +26,14 @@ See Branching overview below - We use `dev` for our current development.
 
 In your fork from the root of the monorepo:
 
-- `npm install` - this will install Lerna at the root and allow the remaining scripts to be called.
-- (optional) `npm run install-git-hooks` - installs a pre-push hook that will lint all samples and apps before a `git-push`. Opt out per-push with the `--no-verify` flag.
-- `npm run reset` -> will clean all `node_modules`, re-install them with `lerna bootstrap`, and then build all JSS packages.
+- `yarn install` - this will install Lerna at the root, packages, samples and will link them and allow the remaining scripts to be called.
+- (optional) `yarn install-git-hooks` - installs a pre-push hook that will lint all samples and apps before a `git-push`. Opt out per-push with the `--no-verify` flag.
+- `yarn reset` -> will clean all `node_modules`, re-install them with `lerna bootstrap`, and then build all JSS packages.
+
+In our terms `workspace` - it's a sample or package.
+
+- `yarn workspaces focus <workspace>` -> will install dependencies, linked dependencies for specified workspace.
+- `yarn workspaces foreach -ptR --from '<workspace>' run <command>` -> will run `<command>` script for specified workspace including linked dependencies.
 
 ## Linting and Code Style guidelines
 
@@ -31,21 +42,21 @@ The monorepo includes a top level `.eslintrc` file that each package inherits. I
 To lint manually, the following commands are available from the root of the monorepo, you may also install the git-hook which will run these commands as a pre-push hook:
 
 ```shell
-npm run lint-packages // lint everything under ./packages
-npm run lint-apps // lint everything under ./samples
+yarn lint-packages // lint everything under ./packages
+yarn lint-apps // lint everything under ./samples
 ```
 
-You may also lint a package by itself by running `npm run lint` while the `cwd` is the root of the package, for example:
+You may also lint a package by itself by running `yarn lint` while the `cwd` is the root of the package, for example:
 
 ```shell
 cd ./packages/sitecore-jss
-npm run lint
+yarn lint
 ```
 
 Some linting errors may be fixed automatically using the `--fix` flag. You may do this from the root, however you will need `--` twice before the flag in order to pass the argument to the inner command
 
 ```shell
-npm run lint-packages -- -- --fix 
+yarn lint-packages -- -- --fix 
 ```
 
 In addition to linting rules, there are a few coding guidelines worth mentioning here that will cause less friction when trying to get a PR merged.
@@ -60,13 +71,13 @@ To keep everything running smoothly, please include unit tests when applicable.
 To run all tests, from the root of the monorepo:
 
 ```shell
-npm run test-packages
+yarn test-packages
 ```
 
 In the root of a package:
 
 ```shell
-npm run test
+yarn test
 ```
 
 # Troubleshooting
@@ -77,13 +88,13 @@ Solution: If dependencies in a package change, you may need to install said depe
 From the root of the monorepo:
 
 ```shell
-npm run bootstrap
+yarn install
 ```
 
-`npm run bootstrap` will solve the problem in most cases, however in nuclear scenarios you may run the following to completely reset the monorepo:
+`yarn install` will solve the problem in most cases, however in nuclear scenarios you may run the following to completely reset the monorepo:
 
 ```shell
-npm run reset
+yarn reset
 ```
 
 # Branching overview
