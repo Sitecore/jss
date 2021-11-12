@@ -28,7 +28,7 @@ In your fork from the root of the monorepo:
 
 - `yarn install` - this will install Lerna at the root, packages, samples and will link them and allow the remaining scripts to be called.
 - (optional) `yarn install-git-hooks` - installs a pre-push hook that will lint all samples and apps before a `git-push`. Opt out per-push with the `--no-verify` flag.
-- `yarn reset` -> will clean all `node_modules`, re-install them with `lerna bootstrap`, and then build all JSS packages.
+- `yarn reset` -> will clean all `node_modules`, re-install dependencies and link them, and then build all JSS packages.
 
 In our terms `workspace` - it's a sample or package.
 
