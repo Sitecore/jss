@@ -2,7 +2,6 @@
   "private": true,
   "scripts": {
     "reset": "lerna clean --yes && yarn dlx rimraf node_modules && yarn install && yarn build",
-    "install:ci": "yarn cache clean --all && yarn install --immutable",
     "build": "lerna run build --ignore '*jss-sample-*'",
     "lint-packages": "lerna run lint --ignore '*jss-sample*'",
     "lint-apps": "lerna run lint --ignore '@sitecore-jss/*'",
