@@ -70,7 +70,8 @@ steps:
     git checkout $(branchName)
     $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes --no-push
     yarn install
-    git stage yarn.lock
+    git add yarn.lock
+    git commit -m "update yarn.lock"
     git push
   displayName: 'pre-release version update'
   condition: and(succeeded(), eq(variables.shouldPublish, true))
