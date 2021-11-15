@@ -1,6 +1,6 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
-import { Argv } from '../../node_modules/@types/yargs';
+import { Argv } from 'yargs';
 import * as app from './deploy.app';
 import component from './deploy.component';
 import * as config from './deploy.config';

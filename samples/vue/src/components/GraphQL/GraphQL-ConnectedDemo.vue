@@ -53,7 +53,7 @@
 
 <script>
 import { getCurrentInstance, defineComponent } from 'vue';
-import { useQuery } from '@vue/apollo-composable/dist/useQuery';
+import { useQuery } from '@vue/apollo-composable';
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
 import config from '../../../package.json';
 

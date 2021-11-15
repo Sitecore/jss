@@ -19,8 +19,8 @@
     "node": ">=8.1"
   },
   "bin": {
-    "scjss-verify-setup": "./dist/cjs/bin/verify-setup.js",
-    "scjss-deploy": "./dist/cjs/bin/deploy.js"
+    "scjss-deploy": "./dist/cjs/bin/deploy.js",
+    "scjss-verify-setup": "./dist/cjs/bin/verify-setup.js"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -43,6 +43,7 @@
     "import-fresh": "^3.1.0",
     "joi": "^14.3.0",
     "js-yaml": "^3.13.1",
+    "jszip": "^3.7.1",
     "module-alias": "^2.2.2",
     "readline-sync": "^1.4.10",
     "resolve": "^1.12.0",
