@@ -222,10 +222,6 @@ describe('AxiosDataFetcher', () => {
 
   describe('head', () => {
     it('should execute HEAD request', () => {
-      // mock.onHead().reply((config) => {
-      //   // append axios config as response data
-      //   return [200, { ...config }];
-      // });
       nock('http://jssnextweb')
         .head('/home')
         .reply(200, (_, requestBody) => requestBody);
