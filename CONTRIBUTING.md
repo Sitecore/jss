@@ -33,7 +33,21 @@ In your fork from the root of the monorepo:
 In our terms `workspace` - it's a sample or package.
 
 - `yarn workspaces focus <workspace>` -> will install dependencies, linked dependencies for specified workspace.
-- `yarn workspaces foreach -ptR --from '<workspace>' run <command>` -> will run `<command>` script for specified workspace including linked dependencies.
+- `yarn workspaces foreach -Rt --from '<workspace>' run <command>` -> will run `<command>` script for specified workspace including linked dependencies.
+
+Working on a package
+
+```shell
+yarn workspaces focus
+yarn workspaces foreach -Rt run build
+```
+
+Working on a sample
+
+```shell
+yarn workspaces focus
+yarn workspaces foreach -Rt --no-private run build
+```
 
 ## Linting and Code Style guidelines
 

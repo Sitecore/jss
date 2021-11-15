@@ -1,10 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "reset": "lerna clean --yes && yarn dlx rimraf node_modules && yarn install && yarn build-packages",
-    "bootstrap:ci": "yarn cache clean && yarn install --immutable",
-    "build-packages": "lerna run build --ignore '*jss-sample-*'",
-    "build-apps": "lerna run build --scope 'jss-sample-*' --npm-client npm",
+    "reset": "lerna clean --yes && yarn dlx rimraf node_modules && yarn install && yarn build",
+    "install:ci": "yarn cache clean --all && yarn install --immutable",
+    "build": "lerna run build --ignore '*jss-sample-*'",
     "lint-packages": "lerna run lint --ignore '*jss-sample*'",
     "lint-apps": "lerna run lint --ignore '@sitecore-jss/*'",
     "coverage-packages": "lerna run coverage --ignore '*jss-sample*'",

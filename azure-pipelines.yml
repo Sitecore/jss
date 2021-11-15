@@ -36,10 +36,10 @@ variables:
 
 steps:
 - script: |
-    yarn cache clean --all && yarn install --immutable
+    yarn install:ci
   displayName: 'yarn install'
 - script: |
-    yarn build-packages
+    yarn build
   displayName: 'building packages'
 - script: |
     yarn lint-packages
