@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular-schematics",
-  "version": "20.0.0-canary.49",
+  "version": "20.0.0-canary.65",
   "description": "Scaffolding schematics for Sitecore JSS Angular apps",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -23,6 +23,7 @@
   },
   "schematics": "./src/collection.json",
   "dependencies": {
+    "@angular-devkit/core": "^11.2.5",
     "@angular-devkit/schematics": "^11.2.5",
     "@schematics/angular": "^11.2.5",
     "chalk": "^2.4.2"

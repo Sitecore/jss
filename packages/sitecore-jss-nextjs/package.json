@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "20.0.0-canary.49",
+  "version": "20.0.0-canary.65",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -45,6 +45,7 @@
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "chai-spies": "^1.0.0",
+    "chalk": "^4.1.2",
     "del-cli": "^3.0.1",
     "enzyme": "^3.10.0",
     "eslint": "^7.15.0",
@@ -57,10 +58,10 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
-    "ts-node": "^9.0.0",
-    "typescript": "~4.3.5",
     "sinon": "^7.5.0",
-    "sinon-chai": "^3.7.0"
+    "sinon-chai": "^3.7.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~4.3.5"
   },
   "peerDependencies": {
     "next": "^11.0.1",
@@ -68,9 +69,9 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.49",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.49",
-    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.49",
+    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.65",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.65",
+    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.65",
     "prop-types": "^15.7.2",
     "sync-disk-cache": "^2.1.0"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "20.0.0-canary.49",
+  "version": "20.0.0-canary.65",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -37,7 +37,7 @@
     "@types/lodash.unescape": "^4.0.6",
     "@types/memory-cache": "^0.2.1",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.7.11",
+    "@types/node": "^16.11.6",
     "@types/url-parse": "1.4.3",
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",

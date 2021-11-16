@@ -1,7 +1,7 @@
 {
   "name": "jss-sample-nextjs",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
-  "version": "20.0.0-canary.49",
+  "version": "20.0.0-canary.65",
   "private": true,
   "config": {
     "appName": "JssNextWeb",
@@ -14,8 +14,7 @@
   },
   "engines": {
     "node": ">=8.1",
-    "npm": ">=5.6.0",
-    "yarn": "yarn is not supported, please use npm"
+    "npm": ">=5.6.0"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -30,12 +29,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-nextjs": "^20.0.0-canary.49",
+    "@sitecore-jss/sitecore-jss-nextjs": "^20.0.0-canary.65",
     "bootstrap": "^4.3.1",
     "deep-equal": "^2.0.5",
     "graphql": "~15.4.0",
     "graphql-tag": "^2.11.0",
-    "next": "^11.0.1",
+    "next": "~11.0.1",
     "next-localization": "^0.10.0",
     "nprogress": "~0.2.0",
     "react": "^17.0.2",
@@ -49,8 +48,8 @@
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
     "@graphql-typed-document-node/core": "^3.1.0",
-    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.49",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.49",
+    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.65",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.65",
     "@types/deep-equal": "^1.0.1",
     "@types/node": "^14.6.4",
     "@types/nprogress": "^0.2.0",

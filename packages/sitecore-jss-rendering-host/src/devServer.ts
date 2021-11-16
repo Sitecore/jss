@@ -6,6 +6,7 @@ import { PathParams } from 'express-serve-static-core';
 import openBrowser from 'opn';
 import path from 'path';
 import webpack from 'webpack';
+import { MultiCompiler } from 'webpack-dev-server/node_modules/webpack/types';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackDevServer from 'webpack-dev-server';
 import {
@@ -239,7 +240,10 @@ export function startDevServer({
 
   // WDS types don't expose the `use` method from the underlying Express interface.
   // So declare as `any` to make the compiler happy.
-  const server: WebpackDevServer = new WebpackDevServer(compiler, serverOptions);
+  const server: WebpackDevServer = new WebpackDevServer(
+    (compiler as unknown) as MultiCompiler,
+    serverOptions
+  );
 
   // Give devs a chance to add more middleware or whatever prior to starting the server.
   invokeHook(hooks.beforeDevServerStarted, server);

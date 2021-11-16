@@ -1,7 +1,7 @@
 {
   "name": "jss-sample-react",
   "description": "Application utilizing Sitecore JavaScript Services and React (create-react-app).",
-  "version": "20.0.0-canary.49",
+  "version": "20.0.0-canary.65",
   "private": true,
   "config": {
     "appName": "JssReactWeb",
@@ -16,8 +16,7 @@
   },
   "engines": {
     "node": ">=8.1",
-    "npm": ">=5.6.0",
-    "yarn": "yarn is not supported, please use npm"
+    "npm": ">=5.6.0"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -32,7 +31,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.49",
+    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.65",
     "apollo-cache-inmemory": "~1.6.3",
     "apollo-client": "~2.6.4",
     "apollo-link": "~1.2.13",
@@ -57,12 +56,14 @@
     "serialize-javascript": "~3.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.10.4",
     "@babel/register": "~7.6.2",
-    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.49",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.49",
-    "@sitecore-jss/sitecore-jss-rendering-host": "^20.0.0-canary.49",
-    "babel-loader": "^8.1.0",
+    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary.65",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.65",
+    "@sitecore-jss/sitecore-jss-rendering-host": "^20.0.0-canary.65",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "8.1.0",
     "babel-preset-react-app": "~9.0.2",
     "chalk": "~2.4.2",
     "chokidar": "~3.1.1",

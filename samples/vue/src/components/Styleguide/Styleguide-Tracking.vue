@@ -36,9 +36,7 @@
             v-model="txtGoal"
             placeholder="i.e. Register"
           />
-          <button type="button" class="btn btn-primary mt-3" v-on:click="submitGoal">
-            Submit
-          </button>
+          <button type="button" class="btn btn-primary mt-3" v-on:click="submitGoal">Submit</button>
         </fieldset>
       </div>
       <div class="row">

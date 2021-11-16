@@ -36,22 +36,19 @@ variables:
 
 steps:
 - script: |
-    npm ci
-  displayName: 'npm ci'
+    yarn cache clean --all && yarn install --immutable
+  displayName: 'yarn install'
 - script: |
-    npm run bootstrap:ci
-  displayName: 'bootstrapping packages'
-- script: |
-    npm run build-packages
+    yarn build
   displayName: 'building packages'
 - script: |
-    npm run lint-packages
+    yarn lint-packages
   displayName: 'linting packages'
 - script: |
-    npm run lint-apps
+    yarn lint-apps
   displayName: 'linting apps'
 - script: |
-    npm run coverage-packages
+    yarn coverage-packages
   displayName: 'running tests'
   env: {
     testEnv: 'ci'
@@ -71,7 +68,11 @@ steps:
     git config user.name "Automated Build"
     git remote set-url origin https://$GITHUB_PAT_ENV@github.com/Sitecore/jss.git
     git checkout $(branchName)
-    $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes
+    $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes --no-push
+    yarn install --no-immutable --mode=update-lockfile
+    git add yarn.lock
+    git commit --amend --no-edit
+    git push
   displayName: 'pre-release version update'
   condition: and(succeeded(), eq(variables.shouldPublish, true))
   env:

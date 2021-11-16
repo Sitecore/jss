@@ -51,7 +51,7 @@
 <script>
 import { getCurrentInstance, defineComponent, watch } from 'vue';
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
-import { useQuery } from "@vue/apollo-composable/dist/useQuery";
+import { useQuery } from "@vue/apollo-composable";
 import config from '../../../package.json';
 
 import { Text } from '@sitecore-jss/sitecore-jss-vue';

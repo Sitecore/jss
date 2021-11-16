@@ -1,6 +1,6 @@
 import { createApp as createVueApp, h, createSSRApp } from 'vue';
 import { SitecoreJssPlaceholderPlugin } from '@sitecore-jss/sitecore-jss-vue';
-import { DefaultApolloClient } from '@vue/apollo-composable/dist/useApolloClient';
+import { DefaultApolloClient } from '@vue/apollo-composable';
 import {
   createMetaManager as createVueMetaManager,
   defaultConfig,
