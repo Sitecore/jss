@@ -84,8 +84,7 @@ steps:
 - script: |
     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
     $(npm bin)/lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
-    set YARN_ENABLE_IMMUTABLE_INSTALLS=false
-    yarn install
+    yarn install --mode=update-lockfile
     git add yarn.lock
     git commit -m "update yarn.lock file"
     git push
