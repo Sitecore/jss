@@ -6,7 +6,8 @@
   "module": "dist/esm/cli.js",
   "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json && npm run build-templates",
+    "build-templates": "ts-node ./build-templates.ts",
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
@@ -38,6 +39,7 @@
     "cross-spawn": "^7.0.0",
     "dotenv": "^8.2.0",
     "dotenv-expand": "^5.1.0",
+    "ejs": "^3.1.6",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.4",
     "inquirer": "^8.2.0",
@@ -50,6 +52,7 @@
   "devDependencies": {
     "@types/chai": "^4.2.3",
     "@types/cross-spawn": "^6.0.0",
+    "@types/ejs": "^3.1.0",
     "@types/fs-extra": "^8.0.0",
     "@types/glob": "^7.1.1",
     "@types/inquirer": "^8.1.3",

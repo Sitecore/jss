@@ -12,7 +12,7 @@ import { GenerateArgs } from '../generate/models';
  */
 export function builder(yargs: Argv<GenerateArgs>) {
   return yargs.command(
-    'generate <name> <template>',
+    'generate <template>',
     'Generates a new JSS application based on one of the starter templates',
     (innerBuilder) =>
       innerBuilder

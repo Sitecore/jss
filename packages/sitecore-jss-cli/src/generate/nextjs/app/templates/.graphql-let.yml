@@ -1,0 +1,10 @@
+schema:
+  - './src/temp/GraphQLIntrospectionResult.json'
+documents: 'src/**/*.graphql'
+plugins:
+  - typescript
+  - typescript-operations
+  - typed-document-node
+cacheDir: .generated
+config:
+    useIndexSignature: true

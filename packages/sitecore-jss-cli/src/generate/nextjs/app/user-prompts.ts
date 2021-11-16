@@ -1,36 +1,27 @@
-
-import { Question, Answers } from 'inquirer';
+import { QuestionCollection } from 'inquirer';
+import { Answer } from '../../models';
 import chalk from 'chalk';
 
-export interface Answer {
-  appName: string;
-  destination: string;
-  fetchWith: string;
-  prerender: string;
-}
-
-export const userPrompts: Question<Answer>[] = [
+export const userPrompts: QuestionCollection<Answer> = [
   // App name
   {
     type: 'input',
     name: 'appName',
     message: 'What is the name of your app?',
     default: 'JssNextWeb',
-    validate: (input: string): boolean | undefined => {
-        console.log(input);
+    validate: (input: string): string | boolean => {
+      console.log(input);
 
-
-        if (!/^[a-z\-_.]+$/.test(input)) {
-            console.error(
-              chalk.red(
-                `${input} is not a valid name; you may use lowercase letters, hyphens, and underscores only.`
-              )
-              ) 
-              return false;
-              // process.exit(1);
-          } 
-        return true;
-    }
+      if (!/^[a-z\-_.]+$/.test(input)) {
+        console.error(
+          chalk.red(
+            `${input} is not a valid name; you may use lowercase letters, hyphens, and underscores only.`
+          )
+        );
+        return false;
+      }
+      return true;
+    },
   },
   // destination path
   {
@@ -41,17 +32,25 @@ export const userPrompts: Question<Answer>[] = [
   },
   // fetchWith
   {
-  type: 'list',
-  name: 'fetchWith',
-  message: 'How would you like to fetch Layout and Dictionary data?',
-  choices: ['GraphQL', 'REST'],
+    type: 'list',
+    name: 'fetchWith',
+    message: 'How would you like to fetch Layout and Dictionary data?',
+    choices: ['GraphQL', 'REST'],
+    default: 'GraphQL',
   },
-  // Prerender
+  // prerender
   {
-  type: 'list',
-  name: 'prerender',
-  message: 'How would you like to prerender your application?',
-  choices: ['SSR', 'SSG'],
+    type: 'list',
+    name: 'prerender',
+    message: 'How would you like to prerender your application?',
+    choices: ['SSG', 'SSR'],
+    default: 'SSG',
   },
-  
+  // hostName
+  {
+    type: 'input',
+    name: 'hostName',
+    message: 'What is your Sitecore hostname?',
+    default: 'https://cm.jss.localhost',
+  },
 ];

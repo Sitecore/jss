@@ -1,3 +1,11 @@
 {
     "editor.fontSize": 13,
+    "launch": {
+        "name": "Launch via npm",
+        "type": "node",
+        "request": "launch",
+        "cwd": "${workspaceFolder}/",
+        "runtimeArgs": ["run-script", "debug"],
+        at
+      }
 }
