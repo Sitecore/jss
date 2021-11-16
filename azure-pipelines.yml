@@ -86,7 +86,7 @@ steps:
     $(npm bin)/lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
     yarn install
     git add yarn.lock
-    git commit -m "update yarn.lock"
+    git commit -m "update yarn.lock file"
     git push
   displayName: 'pre-release canary publish'
   condition: and(succeeded(), eq(variables.shouldPublish, true))
