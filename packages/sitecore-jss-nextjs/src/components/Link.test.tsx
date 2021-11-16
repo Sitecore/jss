@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 import { Link as ReactLink } from '@sitecore-jss/sitecore-jss-react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { RouterContext } from 'next/dist/next-server/lib/router-context';
+import { RouterContext } from 'next/dist/shared/lib/router-context';
 import { Link } from './Link';
 import { spy } from 'sinon';
 

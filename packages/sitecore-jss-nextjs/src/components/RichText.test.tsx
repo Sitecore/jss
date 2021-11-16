@@ -4,7 +4,7 @@ import { use, expect } from 'chai';
 import { RichText as ReactRichText } from '@sitecore-jss/sitecore-jss-react';
 import { NextRouter } from 'next/router';
 import { mount } from 'enzyme';
-import { RouterContext } from 'next/dist/next-server/lib/router-context';
+import { RouterContext } from 'next/dist/shared/lib/router-context';
 import { RichText } from './RichText';
 import { spy } from 'sinon';
 import sinonChai from 'sinon-chai';
