@@ -1,6 +1,6 @@
 {
 	"name": "node-headless-ssr-proxy-sample",
-	"version": "20.0.0-canary.57",
+	"version": "20.0.0-canary.58",
 	"description": "Node server-side-rendering proxy sample for running JSS apps under Node hosting",
 	"main": "dist/index.js",
 	"scripts": {
@@ -24,8 +24,8 @@
 	"homepage": "https://jss.sitecore.com",
 	"license": "Apache-2.0",
 	"dependencies": {
-		"@sitecore-jss/sitecore-jss": "^20.0.0-canary.57",
-		"@sitecore-jss/sitecore-jss-proxy": "^20.0.0-canary.57",
+		"@sitecore-jss/sitecore-jss": "^20.0.0-canary.58",
+		"@sitecore-jss/sitecore-jss-proxy": "^20.0.0-canary.58",
 		"agentkeepalive": "^4.1.3",
 		"compression": "~1.7.3",
 		"express": "~4.16.4",
