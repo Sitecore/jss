@@ -1,5 +1,5 @@
 import { QuestionCollection } from 'inquirer';
-import { Answer } from '../../models';
+import { Answer } from '../models';
 import chalk from 'chalk';
 
 export const userPrompts: QuestionCollection<Answer> = [

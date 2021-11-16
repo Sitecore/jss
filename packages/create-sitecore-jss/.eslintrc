@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "../../.eslintrc",
+    "../../eslint-configs/typescript"
+  ],
+  "ignorePatterns": "src/templates/**/*"
+}

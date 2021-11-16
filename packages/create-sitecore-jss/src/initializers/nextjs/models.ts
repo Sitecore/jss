@@ -1,5 +1,3 @@
-import { Arguments } from 'yargs';
-
 export interface GenerateArgs {
   template: string;
 }
@@ -14,5 +12,5 @@ export interface Answer {
 
 export interface Generator {
   promptUser: () => void; // tbd
-  generate: (args: Arguments<GenerateArgs>) => void; // tbd
+  generate: (args: GenerateArgs) => void; // tbd
 }

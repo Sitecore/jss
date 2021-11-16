@@ -1,8 +1,7 @@
-import { Generator, GenerateArgs, Answer } from '../../models';
+import { Generator, GenerateArgs, Answer } from '../models';
 import { userPrompts } from './user-prompts';
-import { Arguments } from 'yargs';
 import { prompt } from 'inquirer';
-import { copyFiles, getDestinationPath } from '../../shared';
+import { copyFiles, getDestinationPath } from '../../../shared';
 import path from 'path';
 // import fs from 'fs';
 // import chalk from 'chalk';
@@ -17,7 +16,7 @@ export class NextjsGenerator implements Generator {
   //   // pass in answers
   //   // renderFile()
   // }
-  async generate(args: Arguments<GenerateArgs>) {
+  async generate(args: GenerateArgs) {
     console.log('args: ', args);
     // do the stuff
     const answers: Answer = await this.promptUser();
