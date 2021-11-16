@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-expressions */
-import { expect, use, spy } from 'chai';
-import spies from 'chai-spies';
+import { expect, use } from 'chai';
+// import spies from 'chai-spies';
 import chaiAsPromised from 'chai-as-promised';
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataService, QUERY_PARAM_EDITING_SECRET } from './editing-data-service';
+import sinonChai from 'sinon-chai';
+import { spy, stub } from 'sinon';
 
-use(spies);
+use(sinonChai);
 use(chaiAsPromised);
 
 const mockFetcher = (data?: unknown) => {
@@ -49,14 +51,14 @@ describe('EditingDataService', () => {
       const fetcher = mockFetcher();
 
       const service = new EditingDataService({ dataFetcher: fetcher });
-      spy.on(service, 'generateKey', () => {
+      stub(service, <any>'generateKey').callsFake(() => {
         return key;
       });
 
       return service.setEditingData(data, serverUrl).then((previewData) => {
         expect(previewData.key).to.equal(key);
-        expect(fetcher.put).to.have.been.called.once;
-        expect(fetcher.put).to.have.been.called.with.exactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledOnce;
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
       });
     });
 
@@ -102,13 +104,13 @@ describe('EditingDataService', () => {
         dataFetcher: fetcher,
         apiRoute: '/api/some/path/[key]',
       });
-      spy.on(service, 'generateKey', () => {
+      stub(service, <any>'generateKey').callsFake(() => {
         return key;
       });
 
       return service.setEditingData(data, serverUrl).then(() => {
-        expect(fetcher.put).to.have.been.called.once;
-        expect(fetcher.put).to.have.been.called.with.exactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledOnce;
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
       });
     });
 
@@ -127,13 +129,13 @@ describe('EditingDataService', () => {
       const fetcher = mockFetcher();
 
       const service = new EditingDataService({ dataFetcher: fetcher });
-      spy.on(service, 'generateKey', () => {
+      stub(service, <any>'generateKey').callsFake(() => {
         return key;
       });
 
       return service.setEditingData(data, serverUrl).then(() => {
-        expect(fetcher.put).to.have.been.called.once;
-        expect(fetcher.put).to.have.been.called.with.exactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledOnce;
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
       });
     });
   });
@@ -150,14 +152,14 @@ describe('EditingDataService', () => {
       const fetcher = mockFetcher(data);
 
       const service = new EditingDataService({ dataFetcher: fetcher });
-      spy.on(service, 'generateKey', () => {
+      stub(service, <any>'generateKey').callsFake(() => {
         return key;
       });
 
       const editingData = await service.getEditingData({ key, serverUrl });
       expect(editingData).to.equal(data);
-      expect(fetcher.get).to.have.been.called.once;
-      expect(fetcher.get).to.have.been.called.with(expectedUrl);
+      expect(fetcher.get).to.have.been.calledOnce;
+      expect(fetcher.get).to.have.been.calledWith(expectedUrl);
     });
   });
 });
