@@ -36,7 +36,7 @@ variables:
 
 steps:
 - script: |
-    yarn cache clean --all && yarn install
+    yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install'
 - script: |
     yarn build
@@ -71,7 +71,7 @@ steps:
     $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes --no-push
     yarn config set enableInlineBuilds false
     set YARN_ENABLE_IMMUTABLE_INSTALLS=false
-    yarn install --mode=update-lockfile
+    yarn install --no-immutable --mode=update-lockfile
     git add yarn.lock
     git commit -m "update yarn.lock"
     git push
