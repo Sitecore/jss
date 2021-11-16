@@ -68,7 +68,7 @@ steps:
     git config user.name "Automated Build"
     git remote set-url origin https://$GITHUB_PAT_ENV@github.com/Sitecore/jss.git
     git checkout $(branchName)
-    $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --yes --no-push
+    $(npm bin)/lerna version prerelease --preid canary --force-publish --message "version %s [skip ci]" --no-push
     yarn config set enableInlineBuilds false
     set YARN_ENABLE_IMMUTABLE_INSTALLS=false
     yarn install --mode=update-lockfile
