@@ -29,6 +29,7 @@
     "node_modules",
     "types",
     "dist",
+    "scripts/*",
     "src/templates/**/*",
     "src/test",
     "src/**/*.test.ts",
