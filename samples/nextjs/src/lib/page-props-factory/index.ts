@@ -35,7 +35,7 @@ export class SitecorePagePropsFactory {
   public async create(
     context: GetServerSidePropsContext | GetStaticPropsContext
   ): Promise<SitecorePageProps> {
-    const extendedProps = await Object.values(plugins)
+    const extendedProps = await (Object.values(plugins) as Plugin[])
       .sort((p1, p2) => +p2.base - +p1.base) // Plugins with the `base = true` should be at the start
       .reduce(async (result, plugin) => {
         const props = await result;
