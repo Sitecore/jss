@@ -33,3 +33,7 @@ generateConfig(configOverride);
   COMPONENT FACTORY GENERATION
 */
 import './generate-component-factory';
+/*
+  PAGE PROPS FACTORY PLUGINS GENERATION
+*/
+import './generate-page-props-factory-plugins';
