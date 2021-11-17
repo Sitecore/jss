@@ -1,16 +1,8 @@
-export interface GenerateArgs {
-  template: string;
-}
-
-export interface Answer {
+import { Answers } from 'inquirer';
+export interface Answer extends Answers {
   appName: string;
   destination: string;
   fetchWith: string;
   prerender: string;
   hostname: string;
-}
-
-export interface Generator {
-  promptUser: () => void; // tbd
-  generate: (args: GenerateArgs) => void; // tbd
 }

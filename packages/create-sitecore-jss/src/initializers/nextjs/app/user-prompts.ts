@@ -27,8 +27,8 @@ export const userPrompts: QuestionCollection<Answer> = [
   {
     type: 'input',
     name: 'destination',
-    message: 'Where would you like your new app created? (will be created at path/appName)',
-    default: './',
+    message: 'Where would you like your new app created?',
+    default: (answers: Answer) => `${process.cwd()}/${answers.appName}`,
   },
   // fetchWith
   {
