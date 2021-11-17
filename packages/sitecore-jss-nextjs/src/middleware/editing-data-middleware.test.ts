@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, use } from 'chai';
-// import spies from 'chai-spies';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
 import { EditingData } from '../sharedTypes/editing-data';

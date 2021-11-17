@@ -6186,7 +6186,6 @@ __metadata:
     "@sitecore-jss/sitecore-jss-react": ^20.0.0-canary.65
     "@types/chai": ^4.2.2
     "@types/chai-as-promised": ^7.1.3
-    "@types/chai-spies": ^1.0.1
     "@types/chai-string": ^1.4.2
     "@types/enzyme": ^3.10.3
     "@types/mocha": ^5.2.7
@@ -6199,7 +6198,6 @@ __metadata:
     "@wojtekmaj/enzyme-adapter-react-17": ^0.6.3
     chai: ^4.2.0
     chai-as-promised: ^7.1.1
-    chai-spies: ^1.0.0
     chalk: ^4.1.2
     del-cli: ^3.0.1
     enzyme: ^3.10.0
@@ -6708,7 +6706,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai-spies@npm:^1.0.1, @types/chai-spies@npm:^1.0.3":
+"@types/chai-spies@npm:^1.0.3":
   version: 1.0.3
   resolution: "@types/chai-spies@npm:1.0.3"
   dependencies:

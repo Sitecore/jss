@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-expressions */
 import { expect, use } from 'chai';
-// import spies from 'chai-spies';
 import chaiAsPromised from 'chai-as-promised';
 import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from '../sharedTypes/editing-data';

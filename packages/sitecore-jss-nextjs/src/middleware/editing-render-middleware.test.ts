@@ -148,11 +148,14 @@ describe('EditingRenderMiddleware', () => {
     expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
     expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
     expect(fetcher.get).to.have.been.calledOnce;
-    // expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith({
-    //   headers: {
-    //     Cookie: mockNextJsPreviewCookies.join(';'),
-    //   },
-    // });
+    expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      match('http://localhost:3000/test/path?timestamp'),
+      {
+        headers: {
+          Cookie: mockNextJsPreviewCookies.join(';'),
+        },
+      }
+    );
     expect(res.status).to.have.been.calledOnce;
     expect(res.status).to.have.been.calledWith(200);
     expect(res.json).to.have.been.calledOnce;
@@ -188,11 +191,14 @@ describe('EditingRenderMiddleware', () => {
     expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
     expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
     expect(fetcher.get).to.have.been.calledOnce;
-    // expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith({
-    //   headers: {
-    //     Cookie: mockNextJsPreviewCookies.join(';'),
-    //   },
-    // });
+    expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      match('http://localhost:3000/test/path?timestamp'),
+      {
+        headers: {
+          Cookie: mockNextJsPreviewCookies.join(';'),
+        },
+      }
+    );
     expect(res.status).to.have.been.calledOnce;
     expect(res.status).to.have.been.calledWith(500);
     expect(res.json).to.have.been.calledOnce;
@@ -319,129 +325,116 @@ describe('EditingRenderMiddleware', () => {
 
     await handler(req, res);
 
-    expect(fetcher.get).to.have.been.calledOnce.and.satisfies((args: any) => {
-      const spy = args.__spy;
-      const url = spy.calls[0][0] as string;
-      return url.startsWith('https://vercel.com');
+    expect(fetcher.get).to.have.been.calledWithMatch('https://vercel.com');
+
+    it('should use custom resolveServerUrl', async () => {
+      const html = '<html><body>Something amazing</body></html>';
+      const fetcher = mockFetcher(html);
+      const dataService = mockDataService();
+      const query = {} as Query;
+      query[QUERY_PARAM_EDITING_SECRET] = secret;
+      const req = mockRequest(EE_BODY, query);
+      const res = mockResponse();
+
+      const serverUrl = 'https://test.com';
+
+      const middleware = new EditingRenderMiddleware({
+        dataFetcher: fetcher,
+        editingDataService: dataService,
+        resolveServerUrl: () => {
+          return serverUrl;
+        },
+      });
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(fetcher.get).to.have.been.calledWithMatch(serverUrl);
+    });
+
+    it('should use custom resolvePageUrl', async () => {
+      const html = '<html><body>Something amazing</body></html>';
+      const fetcher = mockFetcher(html);
+      const dataService = mockDataService();
+      const query = {} as Query;
+      query[QUERY_PARAM_EDITING_SECRET] = secret;
+      const req = mockRequest(EE_BODY, query);
+      const res = mockResponse();
+
+      const serverUrl = 'https://test.com';
+      const resolvePageUrl = spy((serverUrl: string, itemPath: string) => {
+        return `${serverUrl}/some/path${itemPath}`;
+      });
+
+      const middleware = new EditingRenderMiddleware({
+        dataFetcher: fetcher,
+        editingDataService: dataService,
+        resolvePageUrl: resolvePageUrl,
+        resolveServerUrl: () => {
+          return serverUrl;
+        },
+      });
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(resolvePageUrl).to.have.been.calledOnce;
+      expect(resolvePageUrl).to.have.been.calledWith(EE_PATH);
+      expect(fetcher.get).to.have.been.calledWithMatch(serverUrl);
+    });
+
+    it('should respondWith 500 if rendered html empty', async () => {
+      const fetcher = mockFetcher('');
+      const dataService = mockDataService();
+      const query = {} as Query;
+      query[QUERY_PARAM_EDITING_SECRET] = secret;
+      const req = mockRequest(EE_BODY, query);
+      const res = mockResponse();
+
+      const middleware = new EditingRenderMiddleware({
+        dataFetcher: fetcher,
+        editingDataService: dataService,
+      });
+      const handler = middleware.getHandler();
+
+      await handler(req, res);
+
+      expect(res.status).to.have.been.calledOnce;
+      expect(res.status).to.have.been.calledWith(500);
+      expect(res.json).to.have.been.calledOnce;
     });
   });
 
-  // it('should use custom resolveServerUrl', async () => {
-  //   const html = '<html><body>Something amazing</body></html>';
-  //   const fetcher = mockFetcher(html);
-  //   const dataService = mockDataService();
-  //   const query = {} as Query;
-  //   query[QUERY_PARAM_EDITING_SECRET] = secret;
-  //   const req = mockRequest(EE_BODY, query);
-  //   const res = mockResponse();
-
-  //   const serverUrl = 'https://test.com';
-
-  //   const middleware = new EditingRenderMiddleware({
-  //     dataFetcher: fetcher,
-  //     editingDataService: dataService,
-  //     resolveServerUrl: () => {
-  //       return serverUrl;
-  //     },
-  //   });
-  //   const handler = middleware.getHandler();
-
-  //   await handler(req, res);
-
-  //   expect(fetcher.get).to.have.been.calledOnce.and.satisfies((args: any) => {
-  //     const spy = args.__spy;
-  //     const url = spy.calls[0][0] as string;
-  //     return url.startsWith(serverUrl);
-  //   });
-  // });
-
-  // it('should use custom resolvePageUrl', async () => {
-  //   const html = '<html><body>Something amazing</body></html>';
-  //   const fetcher = mockFetcher(html);
-  //   const dataService = mockDataService();
-  //   const query = {} as Query;
-  //   query[QUERY_PARAM_EDITING_SECRET] = secret;
-  //   const req = mockRequest(EE_BODY, query);
-  //   const res = mockResponse();
-
-  //   const serverUrl = 'https://test.com';
-  //   const expectedPageUrl = `${serverUrl}/some/path${EE_PATH}`;
-  //   const resolvePageUrl = spy((serverUrl: string, itemPath: string) => {
-  //     return `${serverUrl}/some/path${itemPath}`;
-  //   });
-
-  //   const middleware = new EditingRenderMiddleware({
-  //     dataFetcher: fetcher,
-  //     editingDataService: dataService,
-  //     resolvePageUrl: resolvePageUrl,
-  //     resolveServerUrl: () => {
-  //       return serverUrl;
-  //     },
-  //   });
-  //   const handler = middleware.getHandler();
-
-  //   await handler(req, res);
-
-  //   expect(resolvePageUrl).to.have.been.calledOnce;
-  //   expect(resolvePageUrl).to.have.been.calledWith(EE_PATH);
-  //   expect(fetcher.get).to.have.been.calledOnce.and.satisfies((args: any) => {
-  //     const spy = args.__spy;
-  //     const url = spy.calls[0][0] as string;
-  //     return url.startsWith(expectedPageUrl);
-  //   });
-  // });
-
-  it('should respondWith 500 if rendered html empty', async () => {
-    const fetcher = mockFetcher('');
-    const dataService = mockDataService();
-    const query = {} as Query;
-    query[QUERY_PARAM_EDITING_SECRET] = secret;
-    const req = mockRequest(EE_BODY, query);
-    const res = mockResponse();
-
-    const middleware = new EditingRenderMiddleware({
-      dataFetcher: fetcher,
-      editingDataService: dataService,
+  describe('extractEditingData', () => {
+    it('should throw if body missing', () => {
+      const req = mockRequest();
+      expect(() => extractEditingData(req)).to.throw();
     });
-    const handler = middleware.getHandler();
 
-    await handler(req, res);
+    it('should return path', () => {
+      const req = mockRequest(EE_BODY);
+      const data = extractEditingData(req);
+      expect(data.path).to.equal(EE_PATH);
+    });
 
-    expect(res.status).to.have.been.calledOnce;
-    expect(res.status).to.have.been.calledWith(500);
-    expect(res.json).to.have.been.calledOnce;
-  });
-});
+    it('should return language', () => {
+      const req = mockRequest(EE_BODY);
+      const data = extractEditingData(req);
+      expect(data.language).to.equal(EE_LANGUAGE);
+    });
 
-describe('extractEditingData', () => {
-  it('should throw if body missing', () => {
-    const req = mockRequest();
-    expect(() => extractEditingData(req)).to.throw();
-  });
+    it('should return layout data', () => {
+      const req = mockRequest(EE_BODY);
+      const data = extractEditingData(req);
+      const expected = JSON.parse(EE_LAYOUT);
+      expect(data.layoutData).to.eql(expected);
+    });
 
-  it('should return path', () => {
-    const req = mockRequest(EE_BODY);
-    const data = extractEditingData(req);
-    expect(data.path).to.equal(EE_PATH);
-  });
-
-  it('should return language', () => {
-    const req = mockRequest(EE_BODY);
-    const data = extractEditingData(req);
-    expect(data.language).to.equal(EE_LANGUAGE);
-  });
-
-  it('should return layout data', () => {
-    const req = mockRequest(EE_BODY);
-    const data = extractEditingData(req);
-    const expected = JSON.parse(EE_LAYOUT);
-    expect(data.layoutData).to.eql(expected);
-  });
-
-  it('should return dictionary', () => {
-    const req = mockRequest(EE_BODY);
-    const data = extractEditingData(req);
-    const expected = JSON.parse(EE_DICTIONARY);
-    expect(data.dictionary).to.eql(expected);
+    it('should return dictionary', () => {
+      const req = mockRequest(EE_BODY);
+      const data = extractEditingData(req);
+      const expected = JSON.parse(EE_DICTIONARY);
+      expect(data.dictionary).to.eql(expected);
+    });
   });
 });
