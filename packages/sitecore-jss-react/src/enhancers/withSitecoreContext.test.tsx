@@ -41,6 +41,7 @@ describe('withSitecoreContext', () => {
     expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
     wrapper.find('div').simulate('click');
 
+    // eslint-disable-next-line no-unused-expressions
     expect(testComponentProps.setContext).not.to.be.called;
 
     TestComponentWithContext = withSitecoreContext({ updatable: true })(TestComponent);
@@ -53,6 +54,7 @@ describe('withSitecoreContext', () => {
 
     wrapper.find('div').simulate('click');
 
+    // eslint-disable-next-line no-unused-expressions
     expect(testComponentProps.setContext).to.have.been.called;
   });
 
@@ -90,6 +92,7 @@ describe('withSitecoreContext', () => {
       expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
       wrapper.find('div').simulate('click');
 
+      // eslint-disable-next-line no-unused-expressions
       expect(testComponentProps.setContext).to.not.have.been.called;
     });
 
@@ -126,6 +129,7 @@ describe('withSitecoreContext', () => {
       expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'bbb');
       wrapper.find('div').simulate('click');
 
+      // eslint-disable-next-line no-unused-expressions
       expect(testComponentProps.setContext).to.have.been.called;
     });
   });
