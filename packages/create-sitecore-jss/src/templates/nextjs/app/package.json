@@ -1,7 +1,7 @@
 {
   "name": "jss-template-nextjs",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
-  "version": "20.0.0-canary.51",
+  "version": "20.0.0-canary.55",
   "private": true,
   "config": {
     "appName": "<%- appName %>",
@@ -30,7 +30,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-nextjs": "^20.0.0-canary.51",
+    "@sitecore-jss/sitecore-jss-nextjs": "^20.0.0-canary.55",
     "deep-equal": "^2.0.5",
     "graphql": "~15.4.0",
     "graphql-tag": "^2.11.0",
