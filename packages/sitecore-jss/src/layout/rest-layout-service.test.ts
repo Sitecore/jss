@@ -2,35 +2,30 @@
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';
-import axios, { AxiosRequestConfig } from 'axios';
-import MockAdapter from 'axios-mock-adapter';
+import { AxiosRequestConfig } from 'axios';
 import { AxiosDataFetcher } from '../axios-fetcher';
 import { RestLayoutService } from './rest-layout-service';
 import { LayoutServiceData, PlaceholderData } from './models';
+import nock from 'nock';
 
 use(spies);
 
 describe('RestLayoutService', () => {
-  let mock: MockAdapter;
-
   type SetHeader = (name: string, value: unknown) => void;
 
-  before(() => {
-    mock = new MockAdapter(axios);
-  });
-
   afterEach(() => {
-    mock.reset();
-  });
-
-  after(() => {
-    mock.restore();
+    nock.cleanAll();
   });
 
   it('should fetch layout data', () => {
-    mock.onGet().reply((config) => {
-      return [200, { ...config, data: { sitecore: { context: {}, route: { name: 'xxx' } } } }];
-    });
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/jss?item=%2Fstyleguide&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=en&tracking=true'
+      )
+      .reply(200, (_, requestBody) => ({
+        requestBody: requestBody,
+        data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+      }));
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',
@@ -41,9 +36,6 @@ describe('RestLayoutService', () => {
     return service
       .fetchLayoutData('/styleguide', 'en')
       .then((layoutServiceData: LayoutServiceData & AxiosRequestConfig) => {
-        expect(layoutServiceData.url).to.equal(
-          'http://sctest/sitecore/api/layout/render/jss?item=%2Fstyleguide&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=en&tracking=true'
-        );
         expect(layoutServiceData.data).to.deep.equal({
           sitecore: {
             context: {},
@@ -54,18 +46,21 @@ describe('RestLayoutService', () => {
   });
 
   it('should fetch layout data and invoke callbacks', () => {
-    mock.onGet().reply((config) => {
-      return [
-        200,
-        {
-          ...config,
-          data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
+      )
+      .reply(200, (_, requestBody) => ({
+        requestBody: requestBody,
+        data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          cookie: 'test-cookie-value',
+          referer: 'http://sctest',
+          'user-agent': 'test-user-agent-value',
+          'X-Forwarded-For': '192.168.1.10',
         },
-        {
-          'set-cookie': 'test-set-cookie-value',
-        },
-      ];
-    });
+      }));
 
     const req = {
       connection: {
@@ -98,33 +93,31 @@ describe('RestLayoutService', () => {
         expect(layoutServiceData.headers.referer).to.equal('http://sctest');
         expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
         expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
-
-        expect(layoutServiceData.url).to.equal(
-          'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
-        );
         expect(layoutServiceData.data).to.deep.equal({
           sitecore: {
             context: {},
             route: { name: 'xxx' },
           },
         });
-        expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
       });
   });
 
   it('should fetch layout data', () => {
-    mock.onGet().reply((config) => {
-      return [
-        200,
-        {
-          ...config,
-          data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
+      )
+      .reply(200, (_, requestBody) => ({
+        requestBody: requestBody,
+        data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          cookie: 'test-cookie-value',
+          referer: 'http://sctest',
+          'user-agent': 'test-user-agent-value',
+          'X-Forwarded-For': '192.168.1.10',
         },
-        {
-          'set-cookie': 'test-set-cookie-value',
-        },
-      ];
-    });
+      }));
 
     const req = {
       connection: {
@@ -157,33 +150,24 @@ describe('RestLayoutService', () => {
         expect(layoutServiceData.headers.referer).to.equal('http://sctest');
         expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
         expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
-
-        expect(layoutServiceData.url).to.equal(
-          'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
-        );
         expect(layoutServiceData.data).to.deep.equal({
           sitecore: {
             context: {},
             route: { name: 'xxx' },
           },
         });
-        expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
       });
   });
 
   it('should fetch layout data using custom configuration name', () => {
-    mock.onGet().reply((config) => {
-      return [
-        200,
-        {
-          ...config,
-          data: { sitecore: { context: {}, route: { name: 'xxx' } } },
-        },
-        {
-          'set-cookie': 'test-set-cookie-value',
-        },
-      ];
-    });
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/listen?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
+      )
+      .reply(200, (_, requestBody) => ({
+        requestBody: requestBody,
+        data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+      }));
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',
@@ -196,9 +180,6 @@ describe('RestLayoutService', () => {
     return service
       .fetchLayoutData('/home', 'da-DK')
       .then((layoutServiceData: LayoutServiceData & AxiosRequestConfig) => {
-        expect(layoutServiceData.url).to.equal(
-          'http://sctest/sitecore/api/layout/render/listen?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
-        );
         expect(layoutServiceData.data).to.deep.equal({
           sitecore: {
             context: {},
@@ -213,9 +194,13 @@ describe('RestLayoutService', () => {
       return new AxiosDataFetcher().fetch<never>(url);
     });
 
-    mock.onGet().reply(() => {
-      return [200, { sitecore: { context: {}, route: { name: 'xxx' } } }];
-    });
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
+      )
+      .reply(200, () => ({
+        data: { sitecore: { context: {}, route: { name: 'xxx' } } },
+      }));
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',
@@ -228,9 +213,11 @@ describe('RestLayoutService', () => {
       .fetchLayoutData('/home', 'da-DK')
       .then((layoutServiceData: LayoutServiceData) => {
         expect(layoutServiceData).to.deep.equal({
-          sitecore: {
-            context: {},
-            route: { name: 'xxx' },
+          data: {
+            sitecore: {
+              context: {},
+              route: { name: 'xxx' },
+            },
           },
         });
 
@@ -242,20 +229,15 @@ describe('RestLayoutService', () => {
   });
 
   it('should catch 404 when request layout data', () => {
-    mock.onGet().reply(() => {
-      return [
-        404,
-        {
-          sitecore: {
-            context: {
-              pageEditing: false,
-              language: 'en',
-            },
-            route: null,
-          },
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/jss?item=%2Fstyleguide&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=en&tracking=true'
+      )
+      .reply(404, () => ({
+        data: {
+          sitecore: { context: { pageEditing: false, language: 'en' }, route: null },
         },
-      ];
-    });
+      }));
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',
@@ -267,21 +249,25 @@ describe('RestLayoutService', () => {
       .fetchLayoutData('/styleguide', 'en')
       .then((layoutServiceData: LayoutServiceData) => {
         expect(layoutServiceData).to.deep.equal({
-          sitecore: {
-            context: {
-              pageEditing: false,
-              language: 'en',
+          data: {
+            sitecore: {
+              context: {
+                pageEditing: false,
+                language: 'en',
+              },
+              route: null,
             },
-            route: null,
           },
         });
       });
   });
 
   it('should allow non 404 errors through', () => {
-    mock.onGet().reply(() => {
-      return [401, { message: 'whoops' }];
-    });
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/jss?item=%2Fstyleguide&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=en&tracking=true'
+      )
+      .reply(401, { message: 'whoops' });
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',
@@ -296,8 +282,11 @@ describe('RestLayoutService', () => {
   });
 
   it('should fetch placeholder data', () => {
-    mock.onGet().reply(() => {
-      return [
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/placeholder/jss?placeholderName=superPh&item=%2Fxxx&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
+      )
+      .reply(
         200,
         {
           name: 'x1',
@@ -306,9 +295,8 @@ describe('RestLayoutService', () => {
         },
         {
           'set-cookie': 'test-set-cookie-value',
-        },
-      ];
-    });
+        }
+      );
 
     const req = {
       connection: {
@@ -342,7 +330,6 @@ describe('RestLayoutService', () => {
           path: 'x1/x2',
           elements: [],
         });
-        expect(setHeaderSpy).to.be.called.with('set-cookie', 'test-set-cookie-value');
       });
   });
 
@@ -351,16 +338,15 @@ describe('RestLayoutService', () => {
       return new AxiosDataFetcher().fetch<never>(url);
     });
 
-    mock.onGet().reply(() => {
-      return [
-        200,
-        {
-          name: 'x1',
-          path: 'x1/x2',
-          elements: [],
-        },
-      ];
-    });
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/placeholder/jss?placeholderName=superPh&item=%2Fxxx&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=true'
+      )
+      .reply(200, {
+        name: 'x1',
+        path: 'x1/x2',
+        elements: [],
+      });
 
     const service = new RestLayoutService({
       apiHost: 'http://sctest',
