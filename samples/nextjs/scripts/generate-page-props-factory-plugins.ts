@@ -43,8 +43,8 @@ function writePlugins() {
     .map((plugin) => {
       return `export { ${plugin.name} } from '${plugin.path}';`;
     })
-    .join('\n')
-    .concat('\n');
+    .join('\r\n')
+    .concat('\r\n');
 
   console.log(`Writing page props factory plugins to ${pluginListPath}`);
   fs.writeFileSync(pluginListPath, fileContent, {
