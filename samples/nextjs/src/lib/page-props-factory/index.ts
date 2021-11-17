@@ -41,7 +41,7 @@ export class SitecorePagePropsFactory {
         const props = await result;
         const newProps = await plugin.exec(props, context);
         return newProps;
-      }, Promise.resolve({}));
+      }, Promise.resolve({} as SitecorePageProps));
 
     return extendedProps;
   }

@@ -1,8 +1,9 @@
 import { ParsedUrlQuery } from 'querystring';
-import { GetServerSidePropsContext } from 'next';
+import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { DictionaryService, LayoutService } from '@sitecore-jss/sitecore-jss-nextjs';
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
+import { SitecorePageProps } from 'lib/page-props';
 import { Plugin, isServerSidePropsContext } from '../';
 import pkg from '../../../../package.json';
 
@@ -35,7 +36,7 @@ class NormalModePlugin implements Plugin {
     this.layoutService = layoutServiceFactory.create();
   }
 
-  async exec(props, context) {
+  async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
     if (context.preview) return props;
 
     /**
