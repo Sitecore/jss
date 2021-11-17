@@ -8,7 +8,7 @@ import path from 'path';
 // import fs from 'fs';
 // import chalk from 'chalk';
 
-export class NextjsGenerator implements Initializer {
+export class NextjsInitializer implements Initializer {
   // async writing(answers: Answer) {
   //   // call ejs render
   //   // pass in answers
@@ -17,7 +17,6 @@ export class NextjsGenerator implements Initializer {
   async init(args: ParsedArgs) {
     // do the stuff
     const answers = await prompt<Answer>(userPrompts, args);
-    console.log('answers: ', answers);
     // path to the templates
     const templatePath = path.resolve(__dirname, '../../../templates/nextjs/app');
 

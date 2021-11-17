@@ -8,7 +8,7 @@ export const userPrompts: QuestionCollection<Answer> = [
     type: 'input',
     name: 'appName',
     message: 'What is the name of your app?',
-    default: 'JssNextWeb',
+    default: 'sitecore-jss-nextjs',
     validate: (input: string): string | boolean => {
       console.log(input);
 
@@ -28,7 +28,7 @@ export const userPrompts: QuestionCollection<Answer> = [
     type: 'input',
     name: 'destination',
     message: 'Where would you like your new app created?',
-    default: (answers: Answer) => `${process.cwd()}/${answers.appName}`,
+    default: (answers: Answer) => `${process.cwd()}\\${answers.appName}`,
   },
   // fetchWith
   {

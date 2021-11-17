@@ -1,1 +1,1 @@
-export { NextjsGenerator } from './app/index';
+export { NextjsInitializer } from './app/index';

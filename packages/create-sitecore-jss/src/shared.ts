@@ -30,7 +30,6 @@ export const transformFiles = (templatePath: string, answers: Answers) => {
 
   const options: IOptions = { cwd: templatePath, dot: true };
   const files = glob.sync('**/*', options);
-  console.log(answers);
 
   // console.log(files, destinationPath);
   // todo, ejs
