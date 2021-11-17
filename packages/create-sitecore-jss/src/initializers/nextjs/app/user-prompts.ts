@@ -9,9 +9,7 @@ export const userPrompts: QuestionCollection<Answer> = [
     name: 'appName',
     message: 'What is the name of your app?',
     default: 'sitecore-jss-nextjs',
-    validate: (input: string): string | boolean => {
-      console.log(input);
-
+    validate: (input: string): boolean => {
       if (!/^[a-z\-_.]+$/.test(input)) {
         console.error(
           chalk.red(

@@ -5,22 +5,26 @@ import { prompt } from 'inquirer';
 import { ParsedArgs } from 'minimist';
 import { transformFiles } from '../../../shared';
 import path from 'path';
-// import fs from 'fs';
-// import chalk from 'chalk';
+import fs from 'fs';
+import chalk from 'chalk';
 
 export class NextjsInitializer implements Initializer {
-  // async writing(answers: Answer) {
-  //   // call ejs render
-  //   // pass in answers
-  //   // renderFile()
-  // }
   async init(args: ParsedArgs) {
-    // do the stuff
     const answers = await prompt<Answer>(userPrompts, args);
-    // path to the templates
-    const templatePath = path.resolve(__dirname, '../../../templates/nextjs/app');
+    
+    if (fs.readdirSync(path.resolve(answers.destination)).length > 0) {
+      const answer = await prompt({
+        type: 'confirm',
+        name: 'continue',
+        message: `Directory '${answers.destination}' not empty. Are you sure you want to continue?`,
+      });
+      if (!answer.continue) {
+        process.exit();
+      }
+    }
 
-    // returns array of filenames to render with ejs
+    const templatePath = path.resolve(__dirname, '../../../templates/nextjs/app');
     transformFiles(templatePath, answers);
+    console.log(chalk.green('Success!'));
   }
 }
