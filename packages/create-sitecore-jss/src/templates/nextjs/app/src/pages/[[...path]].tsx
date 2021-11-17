@@ -1,4 +1,3 @@
-// @ts-ignore
 import { useEffect } from 'react';
 <% if (prerender === 'SSG') { %>
 import { GetStaticPaths, GetStaticProps } from 'next';
