@@ -11,8 +11,9 @@ import chalk from 'chalk';
 export class NextjsInitializer implements Initializer {
   async init(args: ParsedArgs) {
     const answers = await prompt<Answer>(userPrompts, args);
-    
-    if (fs.readdirSync(path.resolve(answers.destination)).length > 0) {
+
+    const destination = path.resolve(answers.destination);
+    if (fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
       const answer = await prompt({
         type: 'confirm',
         name: 'continue',

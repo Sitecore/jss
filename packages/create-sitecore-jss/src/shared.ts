@@ -2,17 +2,8 @@ import glob from 'glob';
 import { Answers } from 'inquirer';
 import path from 'path';
 import { renderFile } from 'ejs';
-import fs from 'fs';
+import fs from 'fs-extra';
 import chalk from 'chalk';
-
-export const mkdirp = (dir: string) => {
-  try {
-    fs.mkdirSync(dir, { recursive: true });
-  } catch (e) {
-    if (e.code === 'EEXIST') return;
-    throw e;
-  }
-};
 
 export const transformFiles = (templatePath: string, answers: Answers) => {
   // get absolute path for destination of app
@@ -22,20 +13,21 @@ export const transformFiles = (templatePath: string, answers: Answers) => {
 
   files.forEach((file) => {
     // if the directory doesn't exist, create it
-    mkdirp(path.dirname(`${destinationPath}/${file}`));
-    
+    fs.mkdirsSync(path.dirname(`${destinationPath}\\${file}`));
+
     renderFile(path.join(templatePath, file), answers, (err, str) => {
       if (err) {
         console.error(chalk.red(err));
       }
-      fs.writeFileSync(`${destinationPath}/${transformFilename(file, answers)}`, str, 'utf-8');
+      fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
     });
   });
 };
 
 const transformFilename = (file: string, answers: Answers): string => {
+  // eslint-disable-next-line guard-for-in
   for (const key in answers) {
     file = file.replace(`{{${key}}}`, answers[key]);
   }
   return file;
-}
+};
