@@ -1,5 +1,5 @@
 {
-  "name": "<%- appName %>",
+  "name": "jss-template-nextjs",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
   "version": "20.0.0-canary.51",
   "private": true,
