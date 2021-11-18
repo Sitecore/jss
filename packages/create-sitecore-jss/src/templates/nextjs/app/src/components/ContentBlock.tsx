@@ -15,7 +15,7 @@ type ContentBlockProps = StyleguideComponentProps & {
  */
 const ContentBlock = ({ fields }: ContentBlockProps): JSX.Element => (
   <div className="contentBlock">
-    <Text tag="h2" className="display-4" field={fields.heading} />
+    <Text field={fields.heading} />
 
     <RichText className="contentDescription" field={fields.content} />
   </div>

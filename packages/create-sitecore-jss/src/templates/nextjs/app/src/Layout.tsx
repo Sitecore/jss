@@ -36,7 +36,7 @@ const Layout = ({ sitecoreContext: { route } }: LayoutProps): JSX.Element => {
 
       {/* root placeholder for the app, which we add components to using route data */}
       <div>
-        {route && <Placeholder name="<%= appName %>-jss-main" rendering={route} />}
+        {route && <Placeholder name="<%- appPrefix ? `${appName}-` : '' %>jss-main" rendering={route} />}
       </div>
     </>
   );

@@ -2,12 +2,12 @@
 import parseArgs, { ParsedArgs } from 'minimist';
 import { prompt } from 'inquirer';
 import chalk from 'chalk';
-import { NextjsInitializer } from './initializers/nextjs/index';
+import { NextjsInitializer, StyleguideInitializer } from './initializers/nextjs/index';
 
 // parse any command line arguments passed into `init sitecore-jss`
 // to pass to the generator prompts and skip them.
 // useful for CI and testing purposes
-const argv: ParsedArgs = parseArgs(process.argv.slice(2));
+const argv: ParsedArgs = parseArgs(process.argv.slice(2), { boolean: ['appPrefix'] });
 
 const main = async () => {
   let template = '';
@@ -20,14 +20,14 @@ const main = async () => {
     // fire off add initializer here
     switch (`${framework} add ${postTemplate}`) {
       case 'nextjs add styleguide':
-        return console.log(`adding ${postTemplate} to ${framework}`);
-      // return new StyleguideInitializer().init();
+        return new StyleguideInitializer().init(argv);
       default:
         console.log(
           chalk.red(
-            `Unsupported addon ${chalk.yellow('postTemplate')} to '${chalk.yellow(framework)}'`
+            `Unsupported addon '${chalk.yellow(postTemplate)}' to '${chalk.yellow(framework)}.'`
           )
         );
+        process.exit();
     }
   }
 

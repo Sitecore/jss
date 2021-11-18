@@ -5,4 +5,5 @@ export interface Answer extends Answers {
   fetchWith: string;
   prerender: string;
   hostname: string;
+  prefix?: boolean;
 }
