@@ -1,6 +1,6 @@
-import { Answer } from '../models';
+import { NextjsAnswer } from '../models';
 import { userPrompts } from './user-prompts';
-import { Initializer } from '../../../initializers';
+import { Initializer } from '../../../models';
 import { prompt } from 'inquirer';
 import { ParsedArgs } from 'minimist';
 import { transformFiles } from '../../../shared';
@@ -10,10 +10,10 @@ import chalk from 'chalk';
 
 export class NextjsInitializer implements Initializer {
   async init(args: ParsedArgs) {
-    const answers = await prompt<Answer>(userPrompts, args);
+    const answers = await prompt<NextjsAnswer>(userPrompts, args);
 
     const destination = path.resolve(answers.destination);
-    if (fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
+    if (!answers.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
       const answer = await prompt({
         type: 'confirm',
         name: 'continue',
@@ -26,6 +26,9 @@ export class NextjsInitializer implements Initializer {
 
     const templatePath = path.resolve(__dirname, '../../../templates/nextjs/app');
     transformFiles(templatePath, answers);
-    console.log(chalk.green('Success!'));
+
+    if (!answers.silent) {
+      console.log(chalk.green('Success!'));
+    }
   }
 }

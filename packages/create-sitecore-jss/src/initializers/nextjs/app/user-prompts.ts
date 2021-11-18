@@ -1,8 +1,8 @@
 import { QuestionCollection } from 'inquirer';
-import { Answer } from '../models';
+import { NextjsAnswer } from '../models';
 import chalk from 'chalk';
 
-export const userPrompts: QuestionCollection<Answer> = [
+export const userPrompts: QuestionCollection<NextjsAnswer> = [
   // App name
   {
     type: 'input',
@@ -26,7 +26,7 @@ export const userPrompts: QuestionCollection<Answer> = [
     type: 'input',
     name: 'destination',
     message: 'Where would you like your new app created?',
-    default: (answers: Answer) => `${process.cwd()}\\${answers.appName}`,
+    default: (answers: NextjsAnswer) => `${process.cwd()}\\${answers.appName}`,
   },
   // fetchWith
   {
