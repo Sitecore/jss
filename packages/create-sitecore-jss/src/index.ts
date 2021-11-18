@@ -11,12 +11,31 @@ const argv: ParsedArgs = parseArgs(process.argv.slice(2));
 
 const main = async () => {
   let template = '';
+  // argv._ stores positional parameters
+  // if the user wants to run a post-init,
+  // we expect the following positionals:
+  const [add, framework, postTemplate] = argv._;
+
+  if (argv._.length > 0 && add === 'add') {
+    // fire off add initializer here
+    switch (`${framework} add ${postTemplate}`) {
+      case 'nextjs add styleguide':
+        return console.log(`adding ${postTemplate} to ${framework}`);
+      // return new StyleguideInitializer().init();
+      default:
+        console.log(
+          chalk.red(
+            `Unsupported addon ${chalk.yellow('postTemplate')} to '${chalk.yellow(framework)}'`
+          )
+        );
+    }
+  }
 
   if (!argv.template) {
     const answer = await prompt({
       type: 'list',
       name: 'template',
-      message: 'Select the template you\'d like to create?',
+      message: "Select the template you'd like to create?",
       choices: ['nextjs'],
       default: 'nextjs',
     });
@@ -24,11 +43,11 @@ const main = async () => {
   } else {
     template = argv.template;
   }
-  
+
   switch (template) {
     case 'nextjs':
       return new NextjsInitializer().init(argv);
-  
+
     default:
       console.error(chalk.red(`Unsupported template '${template}'`));
       Promise.resolve();
