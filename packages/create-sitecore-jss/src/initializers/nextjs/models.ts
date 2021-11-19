@@ -1,8 +1,5 @@
-import { Answers } from 'inquirer';
-export interface Answer extends Answers {
-  appName: string;
-  destination: string;
-  fetchWith: string;
+import { Answer } from '../../models';
+export interface NextjsAnswer extends Answer {
   prerender: string;
   hostName: string;
   appPrefix?: boolean;

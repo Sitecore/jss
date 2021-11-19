@@ -1,0 +1,15 @@
+﻿{
+  "initializers": [
+    "nextjs"
+  ],
+  "args": {
+    "force": true,
+    "silent": true,
+    "appPrefix": true,
+    "appName": "test",
+    "destination": "..\\..\\samples\\test",
+    "fetchWith": "GraphQL",
+    "prerender": "SSG",
+    "hostName": "https: //cm.jss.localhost"
+  }
+}

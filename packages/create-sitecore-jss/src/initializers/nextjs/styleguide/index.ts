@@ -1,5 +1,5 @@
 import path from 'path';
-import { Initializer } from '../../../initializers';
+import { Initializer } from '../../../models';
 import { ParsedArgs } from 'minimist';
 import { openPackageJson, transformFiles } from '../../../shared';
 
@@ -7,6 +7,7 @@ export class StyleguideInitializer implements Initializer {
   async init(args: ParsedArgs) {
     // read the package.json to get the appName
     const pkg = openPackageJson();
+    // TODO: add dependencies and scripts (bootstrap,nprogres start script)
 
     args.appName = pkg.config.appName;
     args.destination = path.resolve(process.cwd());
