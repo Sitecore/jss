@@ -1,16 +1,14 @@
 ﻿{
-  "args": [
-    "--force",
-    "--silent",
-    "--appName",
-    "test",
-    "--destination",
-    "..\\..\\samples\\test",
-    "--fetchWith",
-    "GraphQL",
-    "--prerender",
-    "SSG",
-    "--hostName",
-    "https: //cm.jss.localhost"
-  ]
+  "initializers": [
+    "nextjs"
+  ],
+  "args": {
+    "force": true,
+    "silent": true,
+    "appName": "test",
+    "destination": "..\\..\\samples\\test",
+    "fetchWith": "GraphQL",
+    "prerender": "SSG",
+    "hostName": "https: //cm.jss.localhost"
+  }
 }
