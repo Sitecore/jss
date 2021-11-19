@@ -1,5 +1,5 @@
 import path from 'path';
-import { Initializer } from '../../../initializers';
+import { Initializer } from '../../../models';
 import { ParsedArgs } from 'minimist';
 import { openPackageJson, transformFiles } from '../../../shared';
 
