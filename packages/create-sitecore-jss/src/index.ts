@@ -16,7 +16,7 @@ const main = async () => {
     const answer = await prompt({
       type: 'list',
       name: 'template',
-      message: 'Select the template you\'d like to create?',
+      message: "Select the template you'd like to create?",
       choices: ['nextjs'],
       default: 'nextjs',
     });
@@ -24,11 +24,11 @@ const main = async () => {
   } else {
     template = argv.template;
   }
-  
+
   switch (template) {
     case 'nextjs':
       return new NextjsInitializer().init(argv);
-  
+
     default:
       console.error(chalk.red(`Unsupported template '${template}'`));
       Promise.resolve();

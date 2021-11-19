@@ -2,32 +2,26 @@ import chokidar from 'chokidar';
 import path from 'path';
 import parseArgs, { ParsedArgs } from 'minimist';
 import { NextjsInitializer } from '../src/initializers/nextjs/index';
+import { initializerType } from './../utils';
 
+import watch from './../watch.json';
 chokidar
   .watch(path.join(process.cwd(), '.\\src\\templates'), { ignoreInitial: true })
-  .on('add', callback)
-  .on('change', callback)
-  .on('unlink', callback)
-  .on('ready', callback);
+  .on('ready', () => console.log('Initial scan complete. Ready for changes...'))
+  .on('all', (event, path) => callback(event, path));
+/**
+ * @param event
+ * @param path
+ */
+function callback(event: string, path: string) {
+  const initializer = initializerType
+    .map((item: string) => path.includes(item) && item)
+    .filter(Boolean)[0];
+  console.log(initializer);
 
-// TODO: logs here for ready and pathname
-// TODO: detect inititializer based on path (e.g. path.startsWith('nextjs'))
-// TODO: feed args from json config file (i.e. watch.json)
+  console.table(`${event} ${path}`);
 
-function callback() {
-  const args: ParsedArgs = parseArgs([
-    '--force',
-    '--silent',
-    '--appName',
-    'test',
-    '--destination',
-    '..\\..\\samples\\test',
-    '--fetchWith',
-    'GraphQL',
-    '--prerender',
-    'SSG',
-    '--hostName',
-    'https://cm.jss.localhost',
-  ]);
+  const args: ParsedArgs = parseArgs(watch.args);
+
   new NextjsInitializer().init(args);
 }
