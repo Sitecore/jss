@@ -14,9 +14,9 @@ export const isServerSidePropsContext = function (
 
 export interface Plugin {
   /**
-   * Detect whether the plugin contains base data for other plugins, so it will be called at the start
+   * Detect order when the plugin should be called, e.g. 0 - will be called first (can be a plugin which data is required for other plugins)
    */
-  base: boolean;
+  order: number;
   /**
    * A function which will be called during page props generation
    */
@@ -36,7 +36,7 @@ export class SitecorePagePropsFactory {
     context: GetServerSidePropsContext | GetStaticPropsContext
   ): Promise<SitecorePageProps> {
     const extendedProps = await (Object.values(plugins) as Plugin[])
-      .sort((p1, p2) => +p2.base - +p1.base) // Plugins with the `base = true` should be at the start
+      .sort((p1, p2) => p1.order - p2.order)
       .reduce(async (result, plugin) => {
         const props = await result;
         const newProps = await plugin.exec(props, context);

@@ -7,7 +7,7 @@ import { Plugin, isServerSidePropsContext } from '../';
 class ComponentPropsPlugin implements Plugin {
   private componentPropsService: ComponentPropsService;
 
-  base = false;
+  order = 1;
 
   constructor() {
     this.componentPropsService = new ComponentPropsService();

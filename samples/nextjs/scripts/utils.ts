@@ -1,41 +1,31 @@
 import fs from 'fs';
 import chokidar from 'chokidar';
 
-// Matches TypeScript files that are not type definition files
-const fileFormat = new RegExp(/(.+)(?<!\.d)\.tsx?$/);
-
-/**
- * Generation can be invoked using default/watch mode.
- * This function helps to detect mode and call the appropriate function
- */
-export function invokeAppropriateMode(writeFunction: () => void, watchFuncion: () => void): void {
-  const isWatch = process.argv.some((arg) => arg === '--watch');
-
-  (isWatch ? watchFuncion : writeFunction)();
-}
-
 /**
  * Run watch mode, watching on @var rootPath
  */
-export function watchItems(rootPath: string, onAdd: () => void, onUnlink: () => void): void {
+export function watchItems(rootPath: string, cb: () => void): void {
   chokidar
     .watch(rootPath, { ignoreInitial: true, awaitWriteFinish: true })
-    .on('add', onAdd)
-    .on('unlink', onUnlink);
+    .on('add', cb)
+    .on('unlink', cb);
 }
 
 /**
  * Using @var path find all files recursively and generate output using @var resolveItem by calling it for each file
  * @param path plugins path
  * @param resolveItem will resolve item in required data format
- * @param logMessage will be called when new item is found
+ * @param cb will be called when new item is found
+ * @param fileFormat Matches specific files
  * @returns {Item[]} items
  */
-export function getItems<Item>(
-  path: string,
-  resolveItem: (path: string, name: string) => Item,
-  logMessage?: (name: string) => void
-): Item[] {
+export function getItems<Item>(settings: {
+  path: string;
+  resolveItem: (path: string, name: string) => Item;
+  cb?: (name: string) => void;
+  fileFormat?: RegExp;
+}): Item[] {
+  const { path, resolveItem, cb, fileFormat = new RegExp(/(.+)(?<!\.d)\.tsx?$/) } = settings;
   const items: Item[] = [];
   const folders: fs.Dirent[] = [];
 
@@ -47,13 +37,20 @@ export function getItems<Item>(
     if (fileFormat.test(item.name)) {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const name = item.name.match(fileFormat)![1];
-      logMessage && logMessage(name);
       items.push(resolveItem(path, name));
+      cb && cb(name);
     }
   });
 
   for (const folder of folders) {
-    items.push(...getItems<Item>(`${path}/${folder.name}`, resolveItem, logMessage));
+    items.push(
+      ...getItems<Item>({
+        path: `${path}/${folder.name}`,
+        resolveItem,
+        cb,
+        fileFormat,
+      })
+    );
   }
 
   return items;

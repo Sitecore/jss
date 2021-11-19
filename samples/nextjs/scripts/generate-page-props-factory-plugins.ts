@@ -53,14 +53,14 @@ function writePlugins() {
 }
 
 function getPluginList(path: string): PluginFile[] {
-  const plugins = getItems<PluginFile>(
+  const plugins = getItems<PluginFile>({
     path,
-    (path, name) => ({
+    resolveItem: (path, name) => ({
       path: `${path}/${name}`,
       name: `${name.replace(/[^\w]+/g, '')}Plugin`,
     }),
-    (name) => console.debug(`Registering page props factory plugin ${name}`)
-  );
+    cb: (name) => console.debug(`Registering page props factory plugin ${name}`),
+  });
 
   return plugins;
 }

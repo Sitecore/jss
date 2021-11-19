@@ -29,7 +29,7 @@ class NormalModePlugin implements Plugin {
   private dictionaryService: DictionaryService;
   private layoutService: LayoutService;
 
-  base = true;
+  order = 0;
 
   constructor() {
     this.dictionaryService = dictionaryServiceFactory.create();

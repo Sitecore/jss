@@ -4,7 +4,7 @@ import generateComponentFactory, {
   ComponentFile,
   PackageDefinition,
 } from './templates/component-factory';
-import { invokeAppropriateMode, getItems, watchItems } from './utils';
+import { getItems, watchItems } from './utils';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -30,7 +30,9 @@ import { invokeAppropriateMode, getItems, watchItems } from './utils';
 const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
 const componentRootPath = 'src/components';
 
-invokeAppropriateMode(writeComponentFactory, watchComponentFactory);
+const isWatch = process.argv.some((arg) => arg === '--watch');
+
+(isWatch ? watchComponentFactory : writeComponentFactory)();
 
 /**
  * Watches component directory for changes. When files are added or deleted, the component factory
@@ -40,7 +42,7 @@ invokeAppropriateMode(writeComponentFactory, watchComponentFactory);
 function watchComponentFactory() {
   console.log(`Watching for changes to component factory sources in ${componentRootPath}...`);
 
-  watchItems(componentRootPath, writeComponentFactory, writeComponentFactory);
+  watchItems(componentRootPath, writeComponentFactory);
 }
 
 /**
@@ -79,15 +81,15 @@ function writeComponentFactory() {
 }
 
 function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
-  const components = getItems<PackageDefinition | ComponentFile>(
+  const components = getItems<PackageDefinition | ComponentFile>({
     path,
-    (path, name) => ({
+    resolveItem: (path, name) => ({
       path: `${path}/${name}`,
       componentName: name,
       moduleName: name.replace(/[^\w]+/g, ''),
     }),
-    (name) => console.debug(`Registering JSS component ${name}`)
-  );
+    cb: (name) => console.debug(`Registering JSS component ${name}`),
+  });
 
   return components;
 }

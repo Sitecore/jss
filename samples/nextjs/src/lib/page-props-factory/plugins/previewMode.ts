@@ -4,7 +4,7 @@ import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { Plugin } from '../';
 
 class PreviewModePlugin implements Plugin {
-  base = true;
+  order = 0;
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
     if (!context.preview) return props;
