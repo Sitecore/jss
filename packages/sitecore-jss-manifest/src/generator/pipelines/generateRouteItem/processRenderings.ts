@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import uuid from 'uuid/v5';
+import { v5 as uuid } from 'uuid';
 import {
   ComponentDefinition,
   ComponentInstanceDefinition,
@@ -9,7 +9,6 @@ import {
   ItemReference,
 } from '../../manifest.types';
 import { convertComponentDataToFields, validateFieldDefinitions } from '../../utils';
-
 const JSS_UUID_NAMESPACE = '0e52892a-f862-4d08-9487-987617b637cd';
 
 const generateRenderingParams = (component: any, rendering: any) => {

@@ -15,6 +15,7 @@
     "noUnusedParameters": true,
     "strict": true,
     "typeRoots": ["node_modules/@types"],
+    "skipLibCheck": true,
     "outDir": "dist",
     "declaration": true,
     "declarationDir": "./types",

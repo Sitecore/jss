@@ -1,6 +1,6 @@
-import ngrok, { INgrokOptions } from 'ngrok';
+import ngrok, { Ngrok } from 'ngrok';
 
-export interface TunnelOptions extends INgrokOptions {
+export interface TunnelOptions extends Ngrok.Options {
   port?: number;
   quiet?: boolean;
 }
@@ -11,7 +11,7 @@ export interface TunnelOptions extends INgrokOptions {
  */
 export function startRenderHostTunnel(
   renderHostname: string,
-  options: INgrokOptions = { port: 80, proto: 'http', quiet: false }
+  options: Ngrok.Options = { port: 80, proto: 'http', quiet: false }
 ) {
   if (!renderHostname) {
     throw new Error(

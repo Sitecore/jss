@@ -94,10 +94,14 @@ describe('RestLayoutService', () => {
     return service
       .fetchLayoutData('/home', 'da-DK', req, res)
       .then((layoutServiceData: LayoutServiceData & AxiosRequestConfig) => {
-        expect(layoutServiceData.headers.cookie).to.equal('test-cookie-value');
-        expect(layoutServiceData.headers.referer).to.equal('http://sctest');
-        expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
-        expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
+        expect(layoutServiceData.headers?.cookie).to.equal('test-cookie-value');
+        expect(layoutServiceData.headers?.referer).to.equal('http://sctest');
+        expect(layoutServiceData.headers && layoutServiceData.headers['user-agent']).to.equal(
+          'test-user-agent-value'
+        );
+        expect(layoutServiceData.headers && layoutServiceData.headers['X-Forwarded-For']).to.equal(
+          '192.168.1.10'
+        );
 
         expect(layoutServiceData.url).to.equal(
           'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
@@ -153,10 +157,14 @@ describe('RestLayoutService', () => {
     return service
       .fetchLayoutData('/home', 'da-DK', req, res)
       .then((layoutServiceData: LayoutServiceData & AxiosRequestConfig) => {
-        expect(layoutServiceData.headers.cookie).to.equal('test-cookie-value');
-        expect(layoutServiceData.headers.referer).to.equal('http://sctest');
-        expect(layoutServiceData.headers['user-agent']).to.equal('test-user-agent-value');
-        expect(layoutServiceData.headers['X-Forwarded-For']).to.equal('192.168.1.10');
+        expect(layoutServiceData.headers?.cookie).to.equal('test-cookie-value');
+        expect(layoutServiceData.headers?.referer).to.equal('http://sctest');
+        expect(layoutServiceData.headers && layoutServiceData.headers['user-agent']).to.equal(
+          'test-user-agent-value'
+        );
+        expect(layoutServiceData.headers && layoutServiceData.headers['X-Forwarded-For']).to.equal(
+          '192.168.1.10'
+        );
 
         expect(layoutServiceData.url).to.equal(
           'http://sctest/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=da-DK&tracking=false'
