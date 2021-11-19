@@ -4,6 +4,6 @@ export interface Answer extends Answers {
   destination: string;
   fetchWith: string;
   prerender: string;
-  hostname: string;
-  prefix?: boolean;
+  hostName: string;
+  appPrefix?: boolean;
 }

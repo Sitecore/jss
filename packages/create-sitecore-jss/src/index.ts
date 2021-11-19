@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-import parseArgs, { ParsedArgs } from 'minimist';
-import { prompt } from 'inquirer';
 import chalk from 'chalk';
+import { prompt } from 'inquirer';
+import parseArgs, { ParsedArgs } from 'minimist';
 import { NextjsInitializer, StyleguideInitializer } from './initializers/nextjs/index';
 
 // parse any command line arguments passed into `init sitecore-jss`
 // to pass to the generator prompts and skip them.
 // useful for CI and testing purposes
-const argv: ParsedArgs = parseArgs(process.argv.slice(2), { boolean: ['appPrefix'] });
+const argv: ParsedArgs = parseArgs(process.argv.slice(2), { boolean: ['appPrefix', 'yes'] });
 
 const main = async () => {
   let template = '';
@@ -16,11 +16,15 @@ const main = async () => {
   // we expect the following positionals:
   const [add, framework, postTemplate] = argv._;
 
+  // TODO: add --yes flag that sets all defaults
+
+
   if (argv._.length > 0 && add === 'add') {
     // fire off add initializer here
     switch (`${framework} add ${postTemplate}`) {
       case 'nextjs add styleguide':
-        return new StyleguideInitializer().init(argv);
+         await new StyleguideInitializer().init(argv);
+         return;
       default:
         console.log(
           chalk.red(
@@ -46,11 +50,11 @@ const main = async () => {
 
   switch (template) {
     case 'nextjs':
-      return new NextjsInitializer().init(argv);
-
+      await new NextjsInitializer().init(argv);
+      return;
     default:
       console.error(chalk.red(`Unsupported template '${template}'`));
-      Promise.resolve();
+      process.exit();
   }
 };
 
