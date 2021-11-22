@@ -477,7 +477,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:^3.3.12, @apollo/client@npm:^3.3.19":
+"@apollo/client@npm:^3.3.12":
   version: 3.5.1
   resolution: "@apollo/client@npm:3.5.1"
   dependencies:
@@ -503,6 +503,36 @@ __metadata:
     subscriptions-transport-ws:
       optional: true
   checksum: de92dd1dfb3a677854c9f7bf9c07a239f1abd011685f64c4403f784c585a942c004a9c1a141bc03364473c2c1a46fab37e9d6ece661c48805c080dc881d29b5e
+  languageName: node
+  linkType: hard
+
+"@apollo/client@npm:~3.3.19":
+  version: 3.3.21
+  resolution: "@apollo/client@npm:3.3.21"
+  dependencies:
+    "@graphql-typed-document-node/core": ^3.0.0
+    "@types/zen-observable": ^0.8.0
+    "@wry/context": ^0.6.0
+    "@wry/equality": ^0.5.0
+    fast-json-stable-stringify: ^2.0.0
+    graphql-tag: ^2.12.0
+    hoist-non-react-statics: ^3.3.2
+    optimism: ^0.16.0
+    prop-types: ^15.7.2
+    symbol-observable: ^4.0.0
+    ts-invariant: ^0.8.0
+    tslib: ^1.10.0
+    zen-observable: ^0.8.14
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0
+    react: ^16.8.0 || ^17.0.0
+    subscriptions-transport-ws: ^0.9.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    subscriptions-transport-ws:
+      optional: true
+  checksum: cdb501045ce8154fadd2cc38d10e92b90c789f58c1960797244f114fd2ac39f535895228545521407ef6b3e7cea64dc8e7050980ca47df7f54d36cb4ecef35df
   languageName: node
   linkType: hard
 
@@ -19165,7 +19195,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-tag@npm:^2.10.1, graphql-tag@npm:^2.11.0, graphql-tag@npm:^2.12.3, graphql-tag@npm:^2.12.4":
+"graphql-tag@npm:^2.10.1, graphql-tag@npm:^2.11.0, graphql-tag@npm:^2.12.0, graphql-tag@npm:^2.12.3, graphql-tag@npm:^2.12.4":
   version: 2.12.6
   resolution: "graphql-tag@npm:2.12.6"
   dependencies:
@@ -23433,7 +23463,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jss-sample-vue@workspace:samples/vue"
   dependencies:
-    "@apollo/client": ^3.3.19
+    "@apollo/client": ~3.3.19
     "@babel/register": 7.6.2
     "@panter/vue-i18next": ~0.15.1
     "@sitecore-jss/sitecore-jss-cli": ^20.0.0-canary.70
@@ -27478,7 +27508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"optimism@npm:^0.16.1":
+"optimism@npm:^0.16.0, optimism@npm:^0.16.1":
   version: 0.16.1
   resolution: "optimism@npm:0.16.1"
   dependencies:
@@ -34796,6 +34826,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ts-invariant@npm:^0.8.0":
+  version: 0.8.2
+  resolution: "ts-invariant@npm:0.8.2"
+  dependencies:
+    tslib: ^2.1.0
+  checksum: 783ec7a6aff6cc7c39712f0aa40c63e4a6f1cb3d217a15a639b477251ad019dd945e740e7d769e12ada8ef8df27b2b180f04cd301aeb8df4ab66102b08bd9c87
+  languageName: node
+  linkType: hard
+
 "ts-invariant@npm:^0.9.0":
   version: 0.9.3
   resolution: "ts-invariant@npm:0.9.3"
@@ -37849,7 +37888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zen-observable@npm:0.8.15, zen-observable@npm:^0.8.0":
+"zen-observable@npm:0.8.15, zen-observable@npm:^0.8.0, zen-observable@npm:^0.8.14":
   version: 0.8.15
   resolution: "zen-observable@npm:0.8.15"
   checksum: b7289084bc1fc74a559b7259faa23d3214b14b538a8843d2b001a35e27147833f4107590b1b44bf5bc7f6dfe6f488660d3a3725f268e09b3925b3476153b7821

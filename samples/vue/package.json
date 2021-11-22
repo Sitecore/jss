@@ -46,7 +46,7 @@
     "lint": "vue-cli-service lint ./src/**/*.vue ./src/**/*.js ./sitecore/definitions/**/*.js ./scripts/**/*.js ./server/**/*.js ./data/**/*.yml"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.19",
+    "@apollo/client": "~3.3.19",
     "@panter/vue-i18next": "~0.15.1",
     "@sitecore-jss/sitecore-jss-vue": "^20.0.0-canary.70",
     "@vue/apollo-composable": "^4.0.0-alpha.12",
