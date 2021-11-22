@@ -1,12 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import chalk from 'chalk';
 import { NextjsAnswer } from '../models';
 import { prompt } from 'inquirer';
 import { ParsedArgs } from 'minimist';
 import { userPrompts } from './user-prompts';
 import { Initializer } from '../../../models';
-import { transformFiles } from '../../../shared';
+import { transformFiles, nextSteps } from '../../../shared';
 
 export class NextjsInitializer implements Initializer {
   async init(args: ParsedArgs) {
@@ -42,7 +41,7 @@ export class NextjsInitializer implements Initializer {
     await transformFiles(templatePath, answers);
 
     if (!answers.silent) {
-      console.log(chalk.green('Success!'));
+      nextSteps(answers.appName);
     }
   }
 }
