@@ -10,19 +10,22 @@ import { transformFiles } from '../../../shared';
 
 export class NextjsInitializer implements Initializer {
   async init(args: ParsedArgs) {
-    let answers: NextjsAnswer;
-    if (args.yes) {
-      answers = {
+
+    // identify defaults
+    let defaults = (args.yes) ? {
         appName: 'sitecore-jss-nextjs',
         destination: `${process.cwd()}\\sitecore-jss-nextjs`,
         fetchWith: 'GraphQL',
         prerender: 'SSG',
         hostName: 'https://cm.jss.localhost',
         appPrefix: true,
-      };
-    } else {
-      answers = await prompt<NextjsAnswer>(userPrompts, args);
-    }
+      } : {}
+
+    // override defaults with passed in args (if any)
+    defaults = Object.assign(defaults, args);
+
+    const answers = await prompt<NextjsAnswer>(userPrompts, defaults);
+
     const destination = path.resolve(answers.destination);
     if (!args.yes && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
       const answer = await prompt({

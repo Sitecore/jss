@@ -33,18 +33,12 @@ export const diffFiles = async (/*transformed version of our template*/sourceFil
 
     const targetFileContents = fs.readFileSync(path.resolve(process.cwd(), targetFilePath), 'utf8');
 
-    if (targetFileContents === sourceFileContent) {
-      console.log('files are equal, returning empty string');
-      return '';
-    }
+    if (targetFileContents === sourceFileContent) return '';
 
     const diff = diffLines(targetFileContents, sourceFileContent);
-    
     if (!diff) return '';
 
-    const count = diff.reduce((acc, curr) => acc += curr.count || 0, 0);
-    console.log('count from diff: ', count);
-    
+    const count = diff.reduce((acc, curr) => acc += curr.count || 0, 0);    
     if (!count) return '';
 
     // log the diff
@@ -87,9 +81,7 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
   const files = glob.sync('**/*', { cwd: templatePath, dot: true, nodir: true });
 
   for (const file of files) {
-    try {
-      console.log('file: ', file);
-      
+    try {      
       const pathToNewFile = `${destinationPath}\\${file}`
       const pathToTemplate = path.join(templatePath, file);
       
@@ -113,7 +105,6 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
       if (answers._?.includes('add')) {
         let choice: string;
         choice = await diffFiles(str, transformFilename(pathToNewFile, answers));
-        console.log('choice:', choice);
         switch (choice) {
           case 'yes':
             fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');

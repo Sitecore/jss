@@ -7,7 +7,7 @@ import { NextjsInitializer } from '../src/initializers/nextjs/index';
 
 // TODO - add yes flag on npm init
 
-import watch from './../watch.json';
+import watch from '../watch.json';
 chokidar
   .watch(path.join(process.cwd(), '.\\src\\templates'), { ignoreInitial: true })
   .on('ready', () => console.log('Initial scan complete. Ready for changes...'))
