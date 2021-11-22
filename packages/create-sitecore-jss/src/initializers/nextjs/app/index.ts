@@ -23,9 +23,8 @@ export class NextjsInitializer implements Initializer {
     } else {
       answers = await prompt<NextjsAnswer>(userPrompts, args);
     }
-    console.log(answers);
     const destination = path.resolve(answers.destination);
-    if (!answers.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
+    if (!args.yes && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
       const answer = await prompt({
         type: 'confirm',
         name: 'continue',

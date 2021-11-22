@@ -21,43 +21,55 @@ const transformFilename = (file: string, answers: Answers): string => {
   return file;
 };
 
-export const diffFiles = async (/*transformed version of our template*/sourceFileContent: string, /*user's file*/ targetFilePath: string) => {
-  // console.log('sourceFile, targetFile: ', sourceFile, targetFile);
-  
-  if (sourceFileContent.endsWith('.pdf') || sourceFileContent.endsWith('.png')) return;
+export const diffFiles = async (/*transformed version of our template*/sourceFileContent: string, /*user's file*/ targetFilePath: string): Promise<string> => {
+  // return early with empty string if...
+  // * the target file path doesn't exist yet,
+  // * there is no diff
+  // *
+  // don't diff pdfs or pngs
+  if (sourceFileContent.endsWith('.pdf') || sourceFileContent.endsWith('.png')) return '';
 
-  if (fs.pathExistsSync(targetFilePath)) {
+  if (!fs.pathExistsSync(targetFilePath)) return '';
 
     const targetFileContents = fs.readFileSync(path.resolve(process.cwd(), targetFilePath), 'utf8');
-    const diff = diffLines(targetFileContents, sourceFileContent, { ignoreWhitespace: true});
 
-    console.log('diff: ', diff);
-    // from the docs...
+    if (targetFileContents === sourceFileContent) {
+      console.log('files are equal, returning empty string');
+      return '';
+    }
+
+    const diff = diffLines(targetFileContents, sourceFileContent);
+    
+    if (!diff) return '';
+
+    const count = diff.reduce((acc, curr) => acc += curr.count || 0, 0);
+    console.log('count from diff: ', count);
+    
+    if (!count) return '';
+
+    // log the diff
+    // from the jsdiff docs
     diff.forEach(async (change: Change) => {
       // green for additions, red for deletions
       // grey for common parts
       const color = change.added ? chalk.green :
       change.removed ? chalk.red : chalk.gray;
       console.log(color(change.value));
-      
-    //   if (change.added || change.removed) {
-    // }
     });
-
-    console.log(`Showing potential changes in ${targetFilePath}`)
+  
+    // filename will appear at bottom of diff, then prompt
+    console.log(`Showing potential changes in ${targetFilePath.replace('/', '\\')}`)
 
     const answer = await prompt({
       type: 'list',
       name: 'choice',
-      choices: ['yes', 'yes to all', 'skip', 'abort'],
+      choices: ['yes', 'skip', 'yes to all', 'abort'],
       message: `File ${chalk.yellow(targetFilePath)} is about to be overwritten with the above changes. Are you sure you want to continue?`,
     });
 
-    if (answer.choice === 'abort') {
-      console.log(chalk.yellow('Goodbye!'));
-      process.exit();
-    }; 
-  }
+    console.log('answer.choice: ', answer.choice)
+
+    return answer.choice;
 };
 
 export const transformFiles = async (templatePath: string, answers: Answers) => {
@@ -76,6 +88,8 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
 
   for (const file of files) {
     try {
+      console.log('file: ', file);
+      
       const pathToNewFile = `${destinationPath}\\${file}`
       const pathToTemplate = path.join(templatePath, file);
       
@@ -85,23 +99,42 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
       if (!answers.appPrefix) {
         answers.appPrefix = false;
       };
-  
-            
-      const str = await renderFile(pathToTemplate, ejsData);
-
+      
       if (file.endsWith('.pdf')) {
         // pdfs may have <% encoded, which throws an error for ejs.
         // we simply want to copy file if it's a pdf, not render it with ejs.
         fs.copySync(pathToTemplate, pathToNewFile);
-        return;
+        continue;
       };
+            
+      const str = await renderFile(pathToTemplate, ejsData);
 
+      // if it's a post-initializer, run diffFiles()
       if (answers._?.includes('add')) {
-          await diffFiles(str, transformFilename(pathToNewFile, answers));
-      };
-
-      fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
-      
+        let choice: string;
+        choice = await diffFiles(str, transformFilename(pathToNewFile, answers));
+        console.log('choice:', choice);
+        switch (choice) {
+          case 'yes':
+            fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+            continue;
+          case 'yes to all':
+            // empty answers so diffFiles() won't be run again
+            answers._ = [];
+            fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+            continue;
+          case 'skip':
+            continue;
+          case 'abort':
+            console.log(chalk.yellow('Goodbye!'));
+            process.exit();
+          default: 
+            fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+            continue;
+        }
+      } else {
+        fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+      }
   
     } catch (error) {
       console.log(chalk.red(error));

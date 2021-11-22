@@ -3,7 +3,7 @@
     "nextjs"
   ],
   "args": {
-    "force": true,
+    "yes": true,
     "silent": true,
     "appPrefix": true,
     "appName": "test",
