@@ -16,9 +16,6 @@ const main = async () => {
   // we expect the following positionals:
   const [add, framework, postTemplate] = argv._;
 
-  // TODO: add --yes flag that sets all defaults
-
-
   if (argv._.length > 0 && add === 'add') {
     // fire off add initializer here
     switch (`${framework} add ${postTemplate}`) {

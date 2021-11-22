@@ -35,7 +35,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "../styleguide/src/components/Navigation.tsx"  ],
   "exclude": [
     "node_modules"
   ]

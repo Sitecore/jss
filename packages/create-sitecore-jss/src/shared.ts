@@ -100,6 +100,7 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
         fs.copySync(pathToTemplate, pathToNewFile);
         continue;
       };
+      // if file is package.json, do package.json logic (merge the partial with the target)
             
       const str = await renderFile(pathToTemplate, ejsData);
 
@@ -135,6 +136,7 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
   };
 };
 
+// TODO: Do this (readingiand writing package.json) in transformFiles() above
 export const openPackageJson = () => {
   const data = fs.readFileSync(path.resolve('./', 'package.json'), 'utf8');
   return JSON.parse(data);
@@ -145,7 +147,7 @@ export const writePackageJson = (pkg: PackageJsonProperty, props: PackageJsonPro
   for (const prop of Object.keys(props)) {
     console.log('pkg[prop], props[prop]: ', pkg[prop], props[prop]);
     // TODO: write sort function, wrap Object.assign(...) in it
-    pkg[prop] = Object.assign(pkg[prop], props[prop]);
+    pkg[prop] = sortKeys(Object.assign(pkg[prop], props[prop]));
   }
   // TODO: make this dynamic
   // pkg.dependencies = Object.assign(pkg.dependencies, props.dependencies);
@@ -155,16 +157,16 @@ export const writePackageJson = (pkg: PackageJsonProperty, props: PackageJsonPro
 
   // TODO: ask before adding to package.json?
   fs.writeFileSync(path.resolve('./', 'package.json'), JSON.stringify(pkg, null, 2), 'utf8');
-}
+};
 
 export const install = () => {
   // TODO: write skippable install feature, accept flag for npm/yarn/pnpm?
   
-}
+};
 
 // TODO: write function to sort package.json keys
-export const sortKeys = (obj: PackageJsonProperty) => {
-  const sorted: PackageJsonProperty = {};
+export const sortKeys = (obj: any) => {
+  const sorted: any = {};
   Object.keys(obj).sort().forEach((key) => sorted[key] = obj[key])
 
   return sorted;
