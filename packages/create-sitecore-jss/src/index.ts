@@ -31,7 +31,7 @@ const main = async () => {
             `Unsupported addon '${chalk.yellow(postTemplate)}' to '${chalk.yellow(framework)}.'`
           )
         );
-        process.exit();
+        process.exit(1);
     }
   }
 
@@ -54,7 +54,7 @@ const main = async () => {
       return;
     default:
       console.error(chalk.red(`Unsupported template '${template}'`));
-      process.exit();
+      process.exit(1);
   }
 };
 
