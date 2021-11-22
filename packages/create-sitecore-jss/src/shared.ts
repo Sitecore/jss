@@ -5,6 +5,7 @@ import { renderFile } from 'ejs';
 import fs from 'fs-extra';
 import chalk from 'chalk';
 import { diffLines, Change } from 'diff';
+import { PackageJsonProperty } from './models';
 
 export const getPascalCaseName = (name: string): string => {
   // handle underscores by converting them to hyphens
@@ -48,7 +49,8 @@ export const diffFiles = async (/*transformed version of our template*/sourceFil
       // grey for common parts
       const color = change.added ? chalk.green :
       change.removed ? chalk.red : chalk.gray;
-      console.log(color(change.value));
+      const prefix = change.added ? '+' : change.removed ? '-' : '';
+      console.log(color(`${prefix} ${change.value}`));
     });
   
     // filename will appear at bottom of diff, then prompt
@@ -138,7 +140,32 @@ export const openPackageJson = () => {
   return JSON.parse(data);
 };
 
+export const writePackageJson = (pkg: PackageJsonProperty, props: PackageJsonProperty) => {
+  
+  for (const prop of Object.keys(props)) {
+    console.log('pkg[prop], props[prop]: ', pkg[prop], props[prop]);
+    // TODO: write sort function, wrap Object.assign(...) in it
+    pkg[prop] = Object.assign(pkg[prop], props[prop]);
+  }
+  // TODO: make this dynamic
+  // pkg.dependencies = Object.assign(pkg.dependencies, props.dependencies);
+  // pkg.devDependencies = Object.assign(pkg.devDependencies, props.devDependencies);
+  // pkg.scripts = Object.assign(pkg.scripts, props.scripts);
+  // diffFiles(JSON.stringify(pkg, null, 2), path.resolve('./', 'package.json'));
+
+  // TODO: ask before adding to package.json?
+  fs.writeFileSync(path.resolve('./', 'package.json'), JSON.stringify(pkg, null, 2), 'utf8');
+}
+
 export const install = () => {
-  // TODO: write install feature, npm install for customers, yarn install for us
+  // TODO: write skippable install feature, accept flag for npm/yarn/pnpm?
   
 }
+
+// TODO: write function to sort package.json keys
+export const sortKeys = (obj: PackageJsonProperty) => {
+  const sorted: PackageJsonProperty = {};
+  Object.keys(obj).sort().forEach((key) => sorted[key] = obj[key])
+
+  return sorted;
+};
