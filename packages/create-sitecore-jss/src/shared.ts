@@ -5,6 +5,8 @@ import { renderFile } from 'ejs';
 import fs from 'fs-extra';
 import chalk from 'chalk';
 import { diffLines, Change } from 'diff';
+import { SpawnSyncOptionsWithStringEncoding } from 'child_process';
+import spawn from 'cross-spawn';
 
 export const getPascalCaseName = (name: string): string => {
   // handle underscores by converting them to hyphens
@@ -21,7 +23,10 @@ const transformFilename = (file: string, answers: Answers): string => {
   return file;
 };
 
-export const diffFiles = async (/*transformed version of our template*/sourceFileContent: string, /*user's file*/ targetFilePath: string): Promise<string> => {
+export const diffFiles = async (
+  /* transformed version of our template*/ sourceFileContent: string,
+  /* user's file*/ targetFilePath: string
+): Promise<string> => {
   // return early with empty string if...
   // * the target file path doesn't exist yet,
   // * there is no diff
@@ -31,45 +36,46 @@ export const diffFiles = async (/*transformed version of our template*/sourceFil
 
   if (!fs.pathExistsSync(targetFilePath)) return '';
 
-    const targetFileContents = fs.readFileSync(path.resolve(process.cwd(), targetFilePath), 'utf8');
+  const targetFileContents = fs.readFileSync(path.resolve(process.cwd(), targetFilePath), 'utf8');
 
-    if (targetFileContents === sourceFileContent) return '';
+  if (targetFileContents === sourceFileContent) return '';
 
-    const diff = diffLines(targetFileContents, sourceFileContent);
-    if (!diff) return '';
+  const diff = diffLines(targetFileContents, sourceFileContent);
+  if (!diff) return '';
 
-    const count = diff.reduce((acc, curr) => acc += curr.count || 0, 0);    
-    if (!count) return '';
+  const count = diff.reduce((acc, curr) => (acc += curr.count || 0), 0);
+  if (!count) return '';
 
-    // log the diff
-    // from the jsdiff docs
-    diff.forEach(async (change: Change) => {
-      // green for additions, red for deletions
-      // grey for common parts
-      const color = change.added ? chalk.green :
-      change.removed ? chalk.red : chalk.gray;
-      console.log(color(change.value));
-    });
-  
-    // filename will appear at bottom of diff, then prompt
-    console.log(`Showing potential changes in ${targetFilePath.replace('/', '\\')}`)
+  // log the diff
+  // from the jsdiff docs
+  diff.forEach(async (change: Change) => {
+    // green for additions, red for deletions
+    // grey for common parts
+    const color = change.added ? chalk.green : change.removed ? chalk.red : chalk.gray;
+    console.log(color(change.value));
+  });
 
-    const answer = await prompt({
-      type: 'list',
-      name: 'choice',
-      choices: ['yes', 'skip', 'yes to all', 'abort'],
-      message: `File ${chalk.yellow(targetFilePath)} is about to be overwritten with the above changes. Are you sure you want to continue?`,
-    });
+  // filename will appear at bottom of diff, then prompt
+  console.log(`Showing potential changes in ${targetFilePath.replace('/', '\\')}`);
 
-    console.log('answer.choice: ', answer.choice)
+  const answer = await prompt({
+    type: 'list',
+    name: 'choice',
+    choices: ['yes', 'skip', 'yes to all', 'abort'],
+    message: `File ${chalk.yellow(
+      targetFilePath
+    )} is about to be overwritten with the above changes. Are you sure you want to continue?`,
+  });
 
-    return answer.choice;
+  console.log('answer.choice: ', answer.choice);
+
+  return answer.choice;
 };
 
 export const transformFiles = async (templatePath: string, answers: Answers) => {
   // get absolute path for destination of app
   const destinationPath = path.resolve(answers.destination);
-  
+
   // pass in helper to answers object
   const ejsData = {
     ...answers,
@@ -77,60 +83,71 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
       getPascalCaseName: getPascalCaseName,
     },
   };
-  
+
   const files = glob.sync('**/*', { cwd: templatePath, dot: true, nodir: true });
 
   for (const file of files) {
-    try {      
-      const pathToNewFile = `${destinationPath}\\${file}`
+    try {
+      const pathToNewFile = `${destinationPath}\\${file}`;
       const pathToTemplate = path.join(templatePath, file);
-      
+
       // if the directory doesn't exist, create it
       fs.mkdirsSync(path.dirname(pathToNewFile));
-  
+
       if (!answers.appPrefix) {
         answers.appPrefix = false;
-      };
-      
+      }
+
       if (file.endsWith('.pdf')) {
         // pdfs may have <% encoded, which throws an error for ejs.
         // we simply want to copy file if it's a pdf, not render it with ejs.
         fs.copySync(pathToTemplate, pathToNewFile);
         continue;
-      };
-            
+      }
+
       const str = await renderFile(pathToTemplate, ejsData);
 
       // if it's a post-initializer, run diffFiles()
       if (answers._?.includes('add')) {
-        let choice: string;
-        choice = await diffFiles(str, transformFilename(pathToNewFile, answers));
+        const choice = await diffFiles(str, transformFilename(pathToNewFile, answers));
         switch (choice) {
           case 'yes':
-            fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+            fs.writeFileSync(
+              `${destinationPath}\\${transformFilename(file, answers)}`,
+              str,
+              'utf-8'
+            );
             continue;
           case 'yes to all':
             // empty answers so diffFiles() won't be run again
             answers._ = [];
-            fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+            fs.writeFileSync(
+              `${destinationPath}\\${transformFilename(file, answers)}`,
+              str,
+              'utf-8'
+            );
             continue;
           case 'skip':
             continue;
           case 'abort':
             console.log(chalk.yellow('Goodbye!'));
             process.exit();
-          default: 
-            fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+            break;
+          default:
+            fs.writeFileSync(
+              `${destinationPath}\\${transformFilename(file, answers)}`,
+              str,
+              'utf-8'
+            );
             continue;
         }
       } else {
         fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
       }
-  
     } catch (error) {
       console.log(chalk.red(error));
     }
-  };
+  }
 };
 
 export const openPackageJson = () => {
@@ -181,3 +198,69 @@ export const nextSteps = (appName: string) => {
   console.log();
   console.log(chalk.green('Enjoy!'));
 };
+
+/**
+ * @param {string} command
+ * @param {string[]} args
+ * @param {SpawnSyncOptionsWithStringEncoding} options
+ */
+export const spawnFunc = (
+  command: string,
+  args: string[],
+  options?: SpawnSyncOptionsWithStringEncoding
+) => {
+  const result = spawn.sync(command, args, Object.assign({ stdio: 'inherit' }, options));
+
+  if (result.signal) {
+    if (result.signal === 'SIGKILL') {
+      console.log(
+        'The operation failed because the process exited too early. ' +
+          'This probably means the system ran out of memory or someone called ' +
+          '`kill -9` on the process.'
+      );
+    } else if (result.signal === 'SIGTERM') {
+      console.log(
+        'The operation failed because the process exited too early. ' +
+          'Someone might have called `kill` or `killall`, or the system could ' +
+          'be shutting down.'
+      );
+    }
+    process.exit(1);
+  }
+
+  if (result.status && result.status > 0) {
+    process.exit(result.status);
+  }
+};
+
+/**
+ * @param npmArgs
+ * @param options
+ */
+export function runPackageManagerCommand(
+  npmArgs: string[],
+  options?: SpawnSyncOptionsWithStringEncoding
+) {
+  console.log(`> yarn ${npmArgs.join(' ')}`);
+  spawnFunc('yarn', npmArgs, options);
+}
+
+/**
+ * @param {string} projectFolder
+ */
+export function installPackages(projectFolder: string) {
+  console.log(chalk.cyan('Installing packages...'));
+  console.log(__dirname, process.cwd());
+
+  // when we run `create` against development prerelease packages, we must:
+  // a) run the command within the 'samples' folder of the jss repo
+  // b) run `lerna bootstrap` to link the latest packages into the created app
+  const lernaPath = path.join(projectFolder, '..', '..');
+  if (fs.existsSync(path.join(lernaPath, 'lerna.json'))) {
+    console.log(chalk.yellow('Detected development environment with Lerna monorepo. '));
+    runPackageManagerCommand(['workspaces', 'focus', '--all'], {
+      cwd: projectFolder,
+      encoding: 'utf8',
+    });
+  }
+}

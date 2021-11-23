@@ -5,20 +5,21 @@ import { prompt } from 'inquirer';
 import { ParsedArgs } from 'minimist';
 import { userPrompts } from './user-prompts';
 import { Initializer } from '../../../models';
-import { transformFiles, nextSteps } from '../../../shared';
+import { transformFiles, nextSteps, installPackages } from '../../../shared';
 
 export class NextjsInitializer implements Initializer {
   async init(args: ParsedArgs) {
-
     // identify defaults
-    let defaults = (args.yes) ? {
-        appName: 'sitecore-jss-nextjs',
-        destination: `${process.cwd()}\\sitecore-jss-nextjs`,
-        fetchWith: 'GraphQL',
-        prerender: 'SSG',
-        hostName: 'https://cm.jss.localhost',
-        appPrefix: true,
-      } : {}
+    let defaults = args.yes
+      ? {
+          appName: 'sitecore-jss-nextjs',
+          destination: `${process.cwd()}\\sitecore-jss-nextjs`,
+          fetchWith: 'GraphQL',
+          prerender: 'SSG',
+          hostName: 'https://cm.jss.localhost',
+          appPrefix: true,
+        }
+      : {};
 
     // override defaults with passed in args (if any)
     defaults = Object.assign(defaults, args);
@@ -40,6 +41,9 @@ export class NextjsInitializer implements Initializer {
     const templatePath = path.resolve(__dirname, '../../../templates/nextjs/app');
     await transformFiles(templatePath, answers);
 
+    // const newProjectPath = path.join(process.cwd(), answers.destination);
+
+    installPackages(answers.destination);
     if (!answers.silent) {
       nextSteps(answers.appName);
     }
