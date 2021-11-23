@@ -1,11 +1,11 @@
+import chalk from 'chalk';
+import fs from 'fs-extra';
 import glob from 'glob';
-import { Answers, prompt } from 'inquirer';
 import path from 'path';
 import { renderFile } from 'ejs';
-import fs from 'fs-extra';
-import chalk from 'chalk';
-import { diffLines, Change, diffJson } from 'diff';
+import { Answers, prompt } from 'inquirer';
 import { PackageJsonProperty } from './models';
+import { diffLines, Change, diffJson } from 'diff';
 
 export const getPascalCaseName = (name: string): string => {
   // handle underscores by converting them to hyphens
@@ -27,7 +27,7 @@ export const openPackageJson = (pkgPath?: string) => {
   return JSON.parse(data);
 };
 
-const merge = (currentPkg: PackageJsonProperty, templatePkg: PackageJsonProperty) => {
+const merge = (currentPkg: PackageJsonProperty, templatePkg: PackageJsonProperty): string => {
   for (const key of Object.keys(templatePkg)) {
     currentPkg[key] = sortKeys(Object.assign(currentPkg[key], templatePkg[key]));
   }
@@ -48,7 +48,9 @@ export const diffFiles = async (
 
   if (targetFileContents === sourceFileContent) return '';
 
-  const diff = targetFilePath.endsWith('.json') ? diffJson(JSON.parse(targetFileContents), JSON.parse(sourceFileContent)) : diffLines(targetFileContents, sourceFileContent);
+  const diff = targetFilePath.endsWith('.json')
+    ? diffJson(JSON.parse(targetFileContents), JSON.parse(sourceFileContent))
+    : diffLines(targetFileContents, sourceFileContent);
   if (!diff) return '';
 
   const count = diff.reduce((acc, curr) => (acc += curr.count || 0), 0);
@@ -85,7 +87,7 @@ export const diffFiles = async (
 export const transformFiles = async (templatePath: string, answers: Answers) => {
   // get absolute path for destination of app
   const destinationPath = path.resolve(answers.destination);
-  
+
   if (!answers.appPrefix) {
     answers.appPrefix = false;
   }
@@ -111,7 +113,6 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
       // if the directory doesn't exist, create it
       fs.mkdirsSync(path.dirname(pathToNewFile));
 
-
       if (file.endsWith('.pdf') || file.endsWith('.png')) {
         // pdfs may have <% encoded, which throws an error for ejs.
         // we simply want to copy file if it's a pdf, not render it with ejs.
@@ -126,11 +127,9 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
         // and avoid the ejs renderFile()
         const currentPkg = openPackageJson(pathToNewFile);
         const templatePkg = openPackageJson(pathToTemplate);
-        console.log(' json.parse currentPkg, templatePkg: ',currentPkg, templatePkg)
         str = merge(currentPkg, templatePkg);
       }
 
-      
       str = str ? str : await renderFile(path.resolve(pathToTemplate), ejsData);
 
       // if it's a post-initializer, run diffFiles()
