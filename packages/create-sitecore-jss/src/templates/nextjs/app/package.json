@@ -14,8 +14,7 @@
   },
   "engines": {
     "node": ">=8.1",
-    "npm": ">=5.6.0",
-    "yarn": "yarn is not supported, please use npm"
+    "npm": ">=5.6.0"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -47,6 +46,7 @@
     "@graphql-codegen/typescript-operations": "^1.17.9",
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
     "@graphql-typed-document-node/core": "^3.1.0",
+    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary",
     "@types/deep-equal": "^1.0.1",
     "@types/node": "^14.6.4",
     "@types/react": "^17.0.15",
