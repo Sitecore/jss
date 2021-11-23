@@ -34,8 +34,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "../styleguide/src/components/Navigation.tsx"  ],
+    "**/*.tsx",
+  ],
   "exclude": [
     "node_modules"
   ]
