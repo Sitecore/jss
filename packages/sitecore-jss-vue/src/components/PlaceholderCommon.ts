@@ -6,7 +6,7 @@ import {
   Item,
   RouteData,
 } from '@sitecore-jss/sitecore-jss/layout';
-import { Component, h, VNode, DefineComponent } from 'vue';
+import { Component, h, VNode, DefineComponent, ref, watchEffect } from 'vue';
 import { MissingComponent } from './MissingComponent';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
 import { ComponentFactory } from './sharedTypes';
@@ -197,9 +197,38 @@ function createRawElement(elem: any) {
     return null;
   }
 
-  const component = h(elem.name, { ...elem.attributes, innerHTML: elem.contents });
+  const component = {
+    setup() {
+      const elRef = ref(null);
 
-  return component;
+      /*
+       * Since we can't set the "key" via Vue attributes
+       * so we can set in the DOM after render.
+       */
+      if (
+        !Array.isArray(elem.attributes) &&
+        elem.attributes &&
+        elem.attributes.chrometype === 'placeholder' &&
+        elem.attributes.key
+      ) {
+        watchEffect(
+          () => {
+            elRef.value.setAttribute('key', elem.attributes.key);
+          },
+          { flush: 'post' }
+        );
+      }
+
+      return () =>
+        h(elem.name, {
+          ...elem.attributes,
+          innerHTML: elem.contents,
+          ref: elRef,
+        });
+    },
+  };
+
+  return h(component);
 }
 
 /**
