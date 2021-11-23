@@ -4,7 +4,7 @@ import path from 'path';
 import { renderFile } from 'ejs';
 import fs from 'fs-extra';
 import chalk from 'chalk';
-import { diffLines, Change } from 'diff';
+import { diffLines, Change, diffJson } from 'diff';
 import { PackageJsonProperty } from './models';
 
 export const getPascalCaseName = (name: string): string => {
@@ -29,9 +29,8 @@ export const openPackageJson = (pkgPath?: string) => {
 
 const merge = (currentPkg: PackageJsonProperty, templatePkg: PackageJsonProperty) => {
   for (const key of Object.keys(templatePkg)) {
-    currentPkg[key] = Object.assign(currentPkg[key], templatePkg[key]);
+    currentPkg[key] = sortKeys(Object.assign(currentPkg[key], templatePkg[key]));
   }
-  currentPkg = sortKeys(currentPkg);
   return JSON.stringify(currentPkg, null, 2);
 };
 
@@ -42,7 +41,6 @@ export const diffFiles = async (
   // return early with empty string if...
   // * the target file path doesn't exist yet,
   // * there is no diff
-  // *
 
   if (!fs.pathExistsSync(targetFilePath)) return '';
 
@@ -50,7 +48,7 @@ export const diffFiles = async (
 
   if (targetFileContents === sourceFileContent) return '';
 
-  const diff = diffLines(targetFileContents, sourceFileContent);
+  const diff = targetFilePath.endsWith('.json') ? diffJson(JSON.parse(targetFileContents), JSON.parse(sourceFileContent)) : diffLines(targetFileContents, sourceFileContent);
   if (!diff) return '';
 
   const count = diff.reduce((acc, curr) => (acc += curr.count || 0), 0);
@@ -87,6 +85,10 @@ export const diffFiles = async (
 export const transformFiles = async (templatePath: string, answers: Answers) => {
   // get absolute path for destination of app
   const destinationPath = path.resolve(answers.destination);
+  
+  if (!answers.appPrefix) {
+    answers.appPrefix = false;
+  }
 
   // pass in helper to answers object
   const ejsData = {
@@ -96,20 +98,19 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
     },
   };
 
+  // the templates to be run through ejs render
   const files = glob.sync('**/*', { cwd: templatePath, dot: true, nodir: true });
 
   for (const file of files) {
     try {
       const pathToNewFile = `${destinationPath}\\${file}`;
       const pathToTemplate = path.join(templatePath, file);
+      // holds the content to be written to the new file
       let str: string | undefined;
 
       // if the directory doesn't exist, create it
       fs.mkdirsSync(path.dirname(pathToNewFile));
 
-      if (!answers.appPrefix) {
-        answers.appPrefix = false;
-      }
 
       if (file.endsWith('.pdf') || file.endsWith('.png')) {
         // pdfs may have <% encoded, which throws an error for ejs.
@@ -120,20 +121,20 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
 
       if (file.endsWith('package.json') && fs.existsSync(pathToNewFile)) {
         // we treat package.json a bit differently
+        // read the current package.json and the partial (templatePkg)
+        // merge them and set the result to str which will then go through diff
+        // and avoid the ejs renderFile()
         const currentPkg = openPackageJson(pathToNewFile);
-        console.log('currentPkg: ', currentPkg);
         const templatePkg = openPackageJson(pathToTemplate);
-        console.log('templatePkg: ', templatePkg);
+        console.log(' json.parse currentPkg, templatePkg: ',currentPkg, templatePkg)
         str = merge(currentPkg, templatePkg);
-        console.log('result of merge(): ', str);
       }
 
+      
       str = str ? str : await renderFile(path.resolve(pathToTemplate), ejsData);
 
       // if it's a post-initializer, run diffFiles()
-      if (!answers._?.includes('add') || answers._?.includes('yes')) {
-        fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
-      } else {
+      if (answers._?.includes('add') && !answers.yes) {
         const choice = await diffFiles(str, transformFilename(pathToNewFile, answers));
         switch (choice) {
           case 'yes':
@@ -156,7 +157,7 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
             continue;
           case 'abort':
             console.log(chalk.yellow('Goodbye!'));
-            return process.exit();
+            process.exit();
           default:
             fs.writeFileSync(
               `${destinationPath}\\${transformFilename(file, answers)}`,
@@ -165,6 +166,8 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
             );
             continue;
         }
+      } else {
+        fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
       }
     } catch (error) {
       console.log(chalk.red(error));
@@ -172,30 +175,13 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
   }
 };
 
-// export const writePackageJson = (pkg: PackageJsonProperty, props: PackageJsonProperty) => {
-
-//   for (const prop of Object.keys(props)) {
-//     console.log('pkg[prop], props[prop]: ', pkg[prop], props[prop]);
-//     // TODO: write sort function, wrap Object.assign(...) in it
-//     pkg[prop] = sortKeys(Object.assign(pkg[prop], props[prop]));
-//   }
-//   // TODO: make this dynamic
-//   // pkg.dependencies = Object.assign(pkg.dependencies, props.dependencies);
-//   // pkg.devDependencies = Object.assign(pkg.devDependencies, props.devDependencies);
-//   // pkg.scripts = Object.assign(pkg.scripts, props.scripts);
-//   // diffFiles(JSON.stringify(pkg, null, 2), path.resolve('./', 'package.json'));
-
-//   // TODO: ask before adding to package.json?
-//   fs.writeFileSync(path.resolve('./', 'package.json'), JSON.stringify(pkg, null, 2), 'utf8');
-// };
-
 export const install = () => {
   // TODO: write skippable install feature, accept flag for npm/yarn/pnpm?
 };
 
-// TODO: write function to sort package.json keys
-export const sortKeys = (obj: PackageJsonProperty) => {
-  const sorted: PackageJsonProperty = {};
+// TODO: replace any with proper types
+export const sortKeys = (obj: any) => {
+  const sorted: any = {};
   Object.keys(obj)
     .sort()
     .forEach((key: string) => (sorted[key] = obj[key]));

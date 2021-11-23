@@ -18,6 +18,3 @@ export interface Initializer {
 export interface PackageJsonProperty {
   [key: string]: string;
 }
-// export interface PackageJson {
-//   [key: string]: PackageJsonProperty;
-// }
