@@ -22,56 +22,72 @@ const transformFilename = (file: string, answers: Answers): string => {
   return file;
 };
 
-export const diffFiles = async (/*transformed version of our template*/sourceFileContent: string, /*user's file*/ targetFilePath: string): Promise<string> => {
+export const openPackageJson = (pkgPath?: string) => {
+  const data = fs.readFileSync(path.resolve(pkgPath ? pkgPath : './package.json'), 'utf8');
+  return JSON.parse(data);
+};
+
+const merge = (currentPkg: PackageJsonProperty, templatePkg: PackageJsonProperty) => {
+  for (const key of Object.keys(templatePkg)) {
+    currentPkg[key] = Object.assign(currentPkg[key], templatePkg[key]);
+  }
+  currentPkg = sortKeys(currentPkg);
+  return JSON.stringify(currentPkg, null, 2);
+};
+
+export const diffFiles = async (
+  /* transformed version of our template*/ sourceFileContent: string,
+  /* user's file*/ targetFilePath: string
+): Promise<string> => {
   // return early with empty string if...
   // * the target file path doesn't exist yet,
   // * there is no diff
   // *
-  // don't diff pdfs or pngs
-  if (sourceFileContent.endsWith('.pdf') || sourceFileContent.endsWith('.png')) return '';
 
   if (!fs.pathExistsSync(targetFilePath)) return '';
 
-    const targetFileContents = fs.readFileSync(path.resolve(process.cwd(), targetFilePath), 'utf8');
+  const targetFileContents = fs.readFileSync(path.resolve(process.cwd(), targetFilePath), 'utf8');
 
-    if (targetFileContents === sourceFileContent) return '';
+  if (targetFileContents === sourceFileContent) return '';
 
-    const diff = diffLines(targetFileContents, sourceFileContent);
-    if (!diff) return '';
+  const diff = diffLines(targetFileContents, sourceFileContent);
+  if (!diff) return '';
 
-    const count = diff.reduce((acc, curr) => acc += curr.count || 0, 0);    
-    if (!count) return '';
+  const count = diff.reduce((acc, curr) => (acc += curr.count || 0), 0);
+  if (!count) return '';
 
-    // log the diff
-    // from the jsdiff docs
-    diff.forEach(async (change: Change) => {
-      // green for additions, red for deletions
-      // grey for common parts
-      const color = change.added ? chalk.green :
-      change.removed ? chalk.red : chalk.gray;
-      const prefix = change.added ? '+' : change.removed ? '-' : '';
-      console.log(color(`${prefix} ${change.value}`));
-    });
-  
-    // filename will appear at bottom of diff, then prompt
-    console.log(`Showing potential changes in ${targetFilePath.replace('/', '\\')}`)
+  // from the jsdiff docs
+  diff.forEach(async (change: Change) => {
+    // green for additions, red for deletions
+    // grey for common parts
+    const color = change.added ? chalk.green : change.removed ? chalk.red : chalk.gray;
+    const prefix = change.added ? '+' : change.removed ? '-' : '';
+    console.log(color(`${prefix} ${change.value}`));
+  });
+  // TODO - enhancement: Write 'pagination' function that prints off
+  // only x lines and prints remaining x lines on user input.
+  // allow user to move forward and back like when piping to more in bash
+  // examples of more: https://shapeshed.com/unix-more/#what-is-the-more-command-in-unix
 
-    const answer = await prompt({
-      type: 'list',
-      name: 'choice',
-      choices: ['yes', 'skip', 'yes to all', 'abort'],
-      message: `File ${chalk.yellow(targetFilePath)} is about to be overwritten with the above changes. Are you sure you want to continue?`,
-    });
+  // filename will appear at bottom of diff, then prompt
+  console.log(`Showing potential changes in ${chalk.yellow(targetFilePath.replace('/', '\\'))}`);
 
-    console.log('answer.choice: ', answer.choice)
+  const answer = await prompt({
+    type: 'list',
+    name: 'choice',
+    choices: ['yes', 'skip', 'yes to all', 'abort'],
+    message: `File ${chalk.yellow(
+      targetFilePath.replace('/', '\\')
+    )} is about to be overwritten with the above changes. Are you sure you want to continue?`,
+  });
 
-    return answer.choice;
+  return answer.choice;
 };
 
 export const transformFiles = async (templatePath: string, answers: Answers) => {
   // get absolute path for destination of app
   const destinationPath = path.resolve(answers.destination);
-  
+
   // pass in helper to answers object
   const ejsData = {
     ...answers,
@@ -79,99 +95,113 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
       getPascalCaseName: getPascalCaseName,
     },
   };
-  
+
   const files = glob.sync('**/*', { cwd: templatePath, dot: true, nodir: true });
 
   for (const file of files) {
-    try {      
-      const pathToNewFile = `${destinationPath}\\${file}`
+    try {
+      const pathToNewFile = `${destinationPath}\\${file}`;
       const pathToTemplate = path.join(templatePath, file);
-      
+      let str: string | undefined;
+
       // if the directory doesn't exist, create it
       fs.mkdirsSync(path.dirname(pathToNewFile));
-  
+
       if (!answers.appPrefix) {
         answers.appPrefix = false;
-      };
-      
-      if (file.endsWith('.pdf')) {
+      }
+
+      if (file.endsWith('.pdf') || file.endsWith('.png')) {
         // pdfs may have <% encoded, which throws an error for ejs.
         // we simply want to copy file if it's a pdf, not render it with ejs.
         fs.copySync(pathToTemplate, pathToNewFile);
         continue;
-      };
-      // if file is package.json, do package.json logic (merge the partial with the target)
-            
-      const str = await renderFile(pathToTemplate, ejsData);
+      }
+
+      if (file.endsWith('package.json') && fs.existsSync(pathToNewFile)) {
+        // we treat package.json a bit differently
+        const currentPkg = openPackageJson(pathToNewFile);
+        console.log('currentPkg: ', currentPkg);
+        const templatePkg = openPackageJson(pathToTemplate);
+        console.log('templatePkg: ', templatePkg);
+        str = merge(currentPkg, templatePkg);
+        console.log('result of merge(): ', str);
+      }
+
+      str = str ? str : await renderFile(path.resolve(pathToTemplate), ejsData);
 
       // if it's a post-initializer, run diffFiles()
-      if (answers._?.includes('add')) {
-        let choice: string;
-        choice = await diffFiles(str, transformFilename(pathToNewFile, answers));
+      if (!answers._?.includes('add') || answers._?.includes('yes')) {
+        fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+      } else {
+        const choice = await diffFiles(str, transformFilename(pathToNewFile, answers));
         switch (choice) {
           case 'yes':
-            fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+            fs.writeFileSync(
+              `${destinationPath}\\${transformFilename(file, answers)}`,
+              str,
+              'utf-8'
+            );
             continue;
           case 'yes to all':
             // empty answers so diffFiles() won't be run again
             answers._ = [];
-            fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+            fs.writeFileSync(
+              `${destinationPath}\\${transformFilename(file, answers)}`,
+              str,
+              'utf-8'
+            );
             continue;
           case 'skip':
             continue;
           case 'abort':
             console.log(chalk.yellow('Goodbye!'));
-            process.exit();
-          default: 
-            fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+            return process.exit();
+          default:
+            fs.writeFileSync(
+              `${destinationPath}\\${transformFilename(file, answers)}`,
+              str,
+              'utf-8'
+            );
             continue;
         }
-      } else {
-        fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
       }
-  
     } catch (error) {
       console.log(chalk.red(error));
     }
-  };
-};
-
-// TODO: Do this (readingiand writing package.json) in transformFiles() above
-export const openPackageJson = () => {
-  const data = fs.readFileSync(path.resolve('./', 'package.json'), 'utf8');
-  return JSON.parse(data);
-};
-
-export const writePackageJson = (pkg: PackageJsonProperty, props: PackageJsonProperty) => {
-  
-  for (const prop of Object.keys(props)) {
-    console.log('pkg[prop], props[prop]: ', pkg[prop], props[prop]);
-    // TODO: write sort function, wrap Object.assign(...) in it
-    pkg[prop] = sortKeys(Object.assign(pkg[prop], props[prop]));
   }
-  // TODO: make this dynamic
-  // pkg.dependencies = Object.assign(pkg.dependencies, props.dependencies);
-  // pkg.devDependencies = Object.assign(pkg.devDependencies, props.devDependencies);
-  // pkg.scripts = Object.assign(pkg.scripts, props.scripts);
-  // diffFiles(JSON.stringify(pkg, null, 2), path.resolve('./', 'package.json'));
-
-  // TODO: ask before adding to package.json?
-  fs.writeFileSync(path.resolve('./', 'package.json'), JSON.stringify(pkg, null, 2), 'utf8');
 };
+
+// export const writePackageJson = (pkg: PackageJsonProperty, props: PackageJsonProperty) => {
+
+//   for (const prop of Object.keys(props)) {
+//     console.log('pkg[prop], props[prop]: ', pkg[prop], props[prop]);
+//     // TODO: write sort function, wrap Object.assign(...) in it
+//     pkg[prop] = sortKeys(Object.assign(pkg[prop], props[prop]));
+//   }
+//   // TODO: make this dynamic
+//   // pkg.dependencies = Object.assign(pkg.dependencies, props.dependencies);
+//   // pkg.devDependencies = Object.assign(pkg.devDependencies, props.devDependencies);
+//   // pkg.scripts = Object.assign(pkg.scripts, props.scripts);
+//   // diffFiles(JSON.stringify(pkg, null, 2), path.resolve('./', 'package.json'));
+
+//   // TODO: ask before adding to package.json?
+//   fs.writeFileSync(path.resolve('./', 'package.json'), JSON.stringify(pkg, null, 2), 'utf8');
+// };
 
 export const install = () => {
   // TODO: write skippable install feature, accept flag for npm/yarn/pnpm?
-  
 };
 
 // TODO: write function to sort package.json keys
-export const sortKeys = (obj: any) => {
-  const sorted: any = {};
-  Object.keys(obj).sort().forEach((key) => sorted[key] = obj[key])
+export const sortKeys = (obj: PackageJsonProperty) => {
+  const sorted: PackageJsonProperty = {};
+  Object.keys(obj)
+    .sort()
+    .forEach((key: string) => (sorted[key] = obj[key]));
 
   return sorted;
 };
-
 
 export const nextSteps = (appName: string) => {
   console.log(chalk.red('                 -/oyhdmNNNNmdhyo/-                '));
@@ -193,7 +223,7 @@ export const nextSteps = (appName: string) => {
   console.log(chalk.red('  yMMMMMMd/o`                .oNdhmMhhMmh++MMMMMMy '));
   console.log(chalk.red('  `dMMMMMMm+do.-         ./oyhhhNNhyNMMNosMMMMMMd` '));
   console.log(chalk.red('   `dMMMMMMMssNdhsoo+/+oyyyydMmhhhMMMNs+mMMMMMMd`  '));
-  console.log(chalk.red('    `yMMMMMMMNyydMNddddddddddhmMMMMho+dMMMMMMMy`   '));=
+  console.log(chalk.red('    `yMMMMMMMNyydMNddddddddddhmMMMMho+dMMMMMMMy`   '));
   console.log(chalk.red('      :mMMMMMMMMmhhhdNMMMMMMMMmhssohMMMMMMMMm:     '));
   console.log(chalk.red('        /mMMMMMMMMMMNdhyyyyyyyhmMMMMMMMMMMm/       '));
   console.log(chalk.red('          :yNMMMMMMMMMMMMMMMMMMMMMMMMMMNy:         '));

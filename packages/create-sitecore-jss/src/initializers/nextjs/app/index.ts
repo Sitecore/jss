@@ -9,16 +9,17 @@ import { transformFiles, nextSteps } from '../../../shared';
 
 export class NextjsInitializer implements Initializer {
   async init(args: ParsedArgs) {
-
     // identify defaults
-    let defaults = (args.yes) ? {
-        appName: 'sitecore-jss-nextjs',
-        destination: `${process.cwd()}\\sitecore-jss-nextjs`,
-        fetchWith: 'GraphQL',
-        prerender: 'SSG',
-        hostName: 'https://cm.jss.localhost',
-        appPrefix: true,
-      } : {}
+    let defaults = args.yes
+      ? {
+          appName: 'sitecore-jss-nextjs',
+          destination: `${process.cwd()}\\sitecore-jss-nextjs`,
+          fetchWith: 'GraphQL',
+          prerender: 'SSG',
+          hostName: 'https://cm.jss.localhost',
+          appPrefix: true,
+        }
+      : {};
 
     // override defaults with passed in args (if any)
     defaults = Object.assign(defaults, args);

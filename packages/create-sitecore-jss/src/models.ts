@@ -16,9 +16,7 @@ export interface Initializer {
 }
 
 export interface PackageJsonProperty {
-  [key: string]: string 
-  | { [key: string]: string } 
-  | { [key: string]: string[] }
+  [key: string]: string;
 }
 // export interface PackageJson {
 //   [key: string]: PackageJsonProperty;

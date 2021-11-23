@@ -20,8 +20,8 @@ const main = async () => {
     // fire off add initializer here
     switch (`${framework} add ${postTemplate}`) {
       case 'nextjs add styleguide':
-         await new StyleguideInitializer().init(argv);
-         return;
+        await new StyleguideInitializer().init(argv);
+        return;
       default:
         console.log(
           chalk.red(
@@ -36,7 +36,7 @@ const main = async () => {
     const answer = await prompt({
       type: 'list',
       name: 'template',
-      message: "Select the template you'd like to create?",
+      message: 'Select the template you\'d like to create?',
       choices: ['nextjs'],
       default: 'nextjs',
     });
