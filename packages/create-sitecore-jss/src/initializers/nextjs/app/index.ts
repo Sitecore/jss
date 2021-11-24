@@ -5,7 +5,7 @@ import { prompt } from 'inquirer';
 import { ParsedArgs } from 'minimist';
 import { userPrompts } from './user-prompts';
 import { Initializer } from '../../../models';
-import { transformFiles, nextSteps } from '../../../shared';
+import { transformFiles, nextSteps, installPackages } from '../../../shared';
 
 export class NextjsInitializer implements Initializer {
   async init(args: ParsedArgs) {
@@ -41,6 +41,10 @@ export class NextjsInitializer implements Initializer {
     const templatePath = path.resolve(__dirname, '../../../templates/nextjs/app');
     await transformFiles(templatePath, answers);
 
+    // const newProjectPath = path.join(process.cwd(), answers.destination);
+    if (!answers.initialized) {
+      installPackages(answers.destination);
+    }
     if (!answers.silent) {
       nextSteps(answers.appName);
     }

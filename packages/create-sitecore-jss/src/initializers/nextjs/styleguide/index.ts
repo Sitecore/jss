@@ -1,8 +1,8 @@
-import path from 'path';
-import { Initializer } from '../../../models';
-import { ParsedArgs } from 'minimist';
-import { openPackageJson, transformFiles } from '../../../shared';
 import chalk from 'chalk';
+import path from 'path';
+import { ParsedArgs } from 'minimist';
+import { Initializer } from '../../../models';
+import { openPackageJson, transformFiles } from '../../../shared';
 
 export class StyleguideInitializer implements Initializer {
   async init(args: ParsedArgs) {
