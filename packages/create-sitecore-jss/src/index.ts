@@ -16,15 +16,12 @@ const main = async () => {
   // we expect the following positionals:
   const [add, framework, postTemplate] = argv._;
 
-  // TODO: add --yes flag that sets all defaults
-
-
   if (argv._.length > 0 && add === 'add') {
     // fire off add initializer here
     switch (`${framework} add ${postTemplate}`) {
       case 'nextjs add styleguide':
-         await new StyleguideInitializer().init(argv);
-         return;
+        await new StyleguideInitializer().init(argv);
+        return;
       default:
         console.log(
           chalk.red(
@@ -39,7 +36,7 @@ const main = async () => {
     const answer = await prompt({
       type: 'list',
       name: 'template',
-      message: "Select the template you'd like to create?",
+      message: 'Select the template you\'d like to create?',
       choices: ['nextjs'],
       default: 'nextjs',
     });

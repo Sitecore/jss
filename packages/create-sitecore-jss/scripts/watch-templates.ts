@@ -1,11 +1,11 @@
+import chalk from 'chalk';
 import chokidar from 'chokidar';
+import fs from 'fs';
 import path from 'path';
+import watch from '../watch.json';
 import { ParsedArgs } from 'minimist';
 import { NextjsInitializer } from '../src/initializers/nextjs/index';
-import chalk from 'chalk';
-import fs from 'fs';
 
-import watch from '../watch.json';
 chokidar
   .watch(path.join(process.cwd(), '.\\src\\templates'), { ignoreInitial: true })
   .on('ready', () => ready())
@@ -44,6 +44,11 @@ async function initializeApps() {
     switch (initializer) {
       case 'nextjs':
         await new NextjsInitializer().init(args);
+        // if (watch.postInit.length > 0) {
+        //   watch.postInit.forEach(async (init) => {
+
+        //   })
+        // }
         break;
       default:
         console.error(chalk.red(`Initializer ${initializer} not found.`));

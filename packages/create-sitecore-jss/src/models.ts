@@ -14,3 +14,7 @@ export interface Answer extends Answers {
 export interface Initializer {
   init: (args: ParsedArgs) => void; // tbd
 }
+
+export interface PackageJsonProperty {
+  [key: string]: string;
+}

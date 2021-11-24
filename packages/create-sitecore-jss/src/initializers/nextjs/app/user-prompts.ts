@@ -1,6 +1,6 @@
-import { QuestionCollection } from 'inquirer';
-import { NextjsAnswer } from '../models';
 import chalk from 'chalk';
+import { NextjsAnswer } from '../models';
+import { QuestionCollection } from 'inquirer';
 
 export const userPrompts: QuestionCollection<NextjsAnswer> = [
   // App name
