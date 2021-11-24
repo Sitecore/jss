@@ -237,12 +237,13 @@ export const spawnFunc = (
  * @param npmArgs
  * @param options
  */
-export function runPackageManagerCommand(
-  npmArgs: string[],
+export function runCommand(
+  command: string,
+  args: string[],
   options?: SpawnSyncOptionsWithStringEncoding
 ) {
-  console.log(`> yarn ${npmArgs.join(' ')}`);
-  spawnFunc('yarn', npmArgs, options);
+  console.log(`> ${command} ${args.join(' ')}`);
+  spawnFunc(command, args, options);
 }
 
 /**
@@ -250,15 +251,16 @@ export function runPackageManagerCommand(
  */
 export function installPackages(projectFolder: string) {
   console.log(chalk.cyan('Installing packages...'));
-  console.log(__dirname, process.cwd());
 
-  // when we run `create` against development prerelease packages, we must:
-  // a) run the command within the 'samples' folder of the jss repo
-  // b) run `lerna bootstrap` to link the latest packages into the created app
   const lernaPath = path.join(projectFolder, '..', '..');
   if (fs.existsSync(path.join(lernaPath, 'lerna.json'))) {
-    console.log(chalk.yellow('Detected development environment with Lerna monorepo. '));
-    runPackageManagerCommand(['workspaces', 'focus', '--all'], {
+    console.log(chalk.yellow('Detected development environment. '));
+    runCommand('yarn', ['workspaces', 'focus', '--all'], {
+      cwd: projectFolder,
+      encoding: 'utf8',
+    });
+  } else {
+    runCommand('npm', ['install'], {
       cwd: projectFolder,
       encoding: 'utf8',
     });

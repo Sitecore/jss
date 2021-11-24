@@ -42,8 +42,9 @@ export class NextjsInitializer implements Initializer {
     await transformFiles(templatePath, answers);
 
     // const newProjectPath = path.join(process.cwd(), answers.destination);
-
-    installPackages(answers.destination);
+    if (!answers.initialized) {
+      installPackages(answers.destination);
+    }
     if (!answers.silent) {
       nextSteps(answers.appName);
     }
