@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { expect, assert } from 'chai';
-import { transformFilename, getPascalCaseName, openPackageJson, merge } from './shared';
+import { transformFilename, getPascalCaseName, openPackageJson, sortKeys, merge } from './shared';
 
 let answers;
 
@@ -76,6 +76,46 @@ describe('openPackageJson', () => {
   });
 });
 
+describe('sortKeys', () => {
+  it('should sort the keys of an object alphabetically', () => {
+    // TODO: use proper types
+    const obj: any = {
+      dependencies: {
+        d: '0.0',
+        b: '0.0',
+        c: '0.0',
+        a: '0.0',
+      },
+      scripts: {
+        c: '',
+        d: '',
+        b: '',
+        a: '',
+      },
+    };
+    const expected: any = {
+      dependencies: {
+        a: '0.0',
+        b: '0.0',
+        c: '0.0',
+        d: '0.0',
+      },
+      scripts: {
+        a: '',
+        b: '',
+        c: '',
+        d: '',
+      },
+    }
+    let result: any = {};
+    for (const key of Object.keys(obj)) {
+      result[key] = sortKeys(obj[key]);
+    }
+
+    expect(JSON.stringify(result)).to.equal(JSON.stringify(expected));
+  });
+});
+
 describe('merge', () => {
   const pkgData = () => ({
     name: 'test',
@@ -95,7 +135,10 @@ describe('merge', () => {
   });
   afterEach(() => {
     // reset test.package.json
-    fs.writeFileSync(path.resolve('src', 'test-data', 'test.package.json'), JSON.stringify(pkgData(), null, 2));
+    fs.writeFileSync(
+      path.resolve('src', 'test-data', 'test.package.json'),
+      JSON.stringify(pkgData(), null, 2)
+    );
   });
 
   it('should merge the contents of a partial package.json with the target package.json', () => {
@@ -120,10 +163,16 @@ describe('merge', () => {
         typescript: '~4.3.5',
       },
     };
-    const currentPkg = openPackageJson(path.resolve('src', 'test-data', 'test.package.json'));
-    const partialPkg = openPackageJson(path.resolve('src', 'test-data', 'testSource.package.json'));
+    const currentPkg = fs.readFileSync(
+      path.resolve('src', 'test-data', 'test.package.json'),
+      'utf8'
+    );
+    const partialPkg = fs.readFileSync(
+      path.resolve('src', 'test-data', 'testSource.package.json'),
+      'utf8'
+    );
 
-    const result = merge(currentPkg, partialPkg);
+    const result = merge(JSON.parse(currentPkg), JSON.parse(partialPkg));
 
     expect(result).to.equal(JSON.stringify(expected, null, 2));
   });
