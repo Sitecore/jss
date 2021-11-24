@@ -122,7 +122,11 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
         continue;
       }
 
-      if (file.endsWith('package.json') && fs.existsSync(pathToNewFile)) {
+      if (
+        file.endsWith('package.json') &&
+        fs.existsSync(pathToNewFile) &&
+        answers._?.includes('add')
+      ) {
         // we treat package.json a bit differently
         // read the current package.json and the partial (templatePkg)
         // merge them and set the result to str which will then go through diff
@@ -173,6 +177,7 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
       }
     } catch (error) {
       console.log(chalk.red(error));
+      console.log(`Error occurred when trying to render to ${chalk.yellow(path.resolve(file))}`);
     }
   }
 };
