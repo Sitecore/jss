@@ -2,10 +2,12 @@ import chalk from 'chalk';
 import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
+import spawn from 'cross-spawn';
 import { renderFile } from 'ejs';
 import { Answers, prompt } from 'inquirer';
 import { PackageJsonProperty } from './models';
-import { diffLines, Change, diffJson } from 'diff';
+import { diffLines, diffJson, Change } from 'diff';
+import { SpawnSyncOptionsWithStringEncoding } from 'child_process';
 
 export const getPascalCaseName = (name: string): string => {
   // handle underscores by converting them to hyphens
@@ -157,6 +159,7 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
           case 'abort':
             console.log(chalk.yellow('Goodbye!'));
             process.exit();
+          // eslint-disable no-fallthrough
           default:
             fs.writeFileSync(
               `${destinationPath}\\${transformFilename(file, answers)}`,
@@ -172,10 +175,6 @@ export const transformFiles = async (templatePath: string, answers: Answers) => 
       console.log(chalk.red(error));
     }
   }
-};
-
-export const install = () => {
-  // TODO: write skippable install feature, accept flag for npm/yarn/pnpm?
 };
 
 // TODO: replace any with proper types
@@ -231,3 +230,73 @@ export const nextSteps = (appName: string) => {
   console.log();
   console.log(chalk.green('Enjoy!'));
 };
+
+/**
+ * @param {string} command
+ * @param {string[]} args
+ * @param {SpawnSyncOptionsWithStringEncoding} options
+ */
+export const spawnFunc = (
+  command: string,
+  args: string[],
+  options?: SpawnSyncOptionsWithStringEncoding
+) => {
+  const result = spawn.sync(command, args, Object.assign({ stdio: 'inherit' }, options));
+
+  if (result.signal) {
+    if (result.signal === 'SIGKILL') {
+      console.log(
+        'The operation failed because the process exited too early. ' +
+          'This probably means the system ran out of memory or someone called ' +
+          '`kill -9` on the process.'
+      );
+    } else if (result.signal === 'SIGTERM') {
+      console.log(
+        'The operation failed because the process exited too early. ' +
+          'Someone might have called `kill` or `killall`, or the system could ' +
+          'be shutting down.'
+      );
+    }
+    process.exit(1);
+  }
+
+  if (result.status && result.status > 0) {
+    process.exit(result.status);
+  }
+};
+
+/**
+ * @param npmArgs
+ * @param options
+ */
+export function runCommand(
+  command: string,
+  args: string[],
+  options?: SpawnSyncOptionsWithStringEncoding
+) {
+  console.log(`> ${command} ${args.join(' ')}`);
+  spawnFunc(command, args, options);
+}
+
+/**
+ * @param {string} projectFolder
+ */
+export function installPackages(projectFolder: string) {
+  console.log(chalk.cyan('Installing packages...'));
+
+  const lernaPath = path.join(projectFolder, '..', '..');
+
+  if (fs.existsSync(path.join(lernaPath, 'lerna.json'))) {
+    console.log(chalk.yellow('Detected development environment. '));
+
+    runCommand('yarn', ['workspaces', 'focus', '--all'], {
+      cwd: projectFolder,
+      encoding: 'utf8',
+    });
+  } else {
+    runCommand('npm', ['install'], {
+      cwd: projectFolder,
+      encoding: 'utf8',
+    });
+  }
+}
