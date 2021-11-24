@@ -34,5 +34,6 @@
     "src/templates/**/*",
     "src/test",
     "src/**/*.test.ts",
+    "src/test-data/**/*",
   ]
 }

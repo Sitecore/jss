@@ -7,7 +7,8 @@
     "build": "npm run clean && tsc && ts-node ./scripts/build-templates.ts",
     "clean": "npx rimraf -rf dist types",
     "lint": "eslint --no-eslintrc -c .eslintrc ./src/**/*.ts",
-    "watch": "ts-node ./scripts/watch-templates.ts"
+    "watch": "ts-node ./scripts/watch-templates.ts",
+    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\""
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "minimist": "^1.2.5"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.22",
     "@types/chalk": "^2.2.0",
     "@types/chokidar": "^2.1.3",
     "@types/cross-spawn": "^6.0.0",
@@ -43,9 +45,12 @@
     "@types/glob": "^7.2.0",
     "@types/inquirer": "^8.1.3",
     "@types/minimist": "^1.2.2",
+    "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.7",
+    "chai": "^4.3.4",
     "chokidar": "^3.5.2",
     "eslint": "^7.15.0",
+    "mocha": "^9.1.3",
     "ts-node": "^10.4.0",
     "typescript": "~4.3.5"
   }

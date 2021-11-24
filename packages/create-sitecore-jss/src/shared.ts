@@ -16,7 +16,7 @@ export const getPascalCaseName = (name: string): string => {
   return name;
 };
 
-const transformFilename = (file: string, answers: Answers): string => {
+export const transformFilename = (file: string, answers: Answers): string => {
   // eslint-disable-next-line guard-for-in
   for (const key in answers) {
     file = file.replace(`{{${key}}}`, answers[key]);
@@ -29,7 +29,7 @@ export const openPackageJson = (pkgPath?: string) => {
   return JSON.parse(data);
 };
 
-const merge = (currentPkg: PackageJsonProperty, templatePkg: PackageJsonProperty): string => {
+export const merge = (currentPkg: PackageJsonProperty, templatePkg: PackageJsonProperty): string => {
   for (const key of Object.keys(templatePkg)) {
     currentPkg[key] = sortKeys(Object.assign(currentPkg[key], templatePkg[key]));
   }
