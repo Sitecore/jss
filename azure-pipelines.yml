@@ -39,7 +39,7 @@ steps:
   inputs:
     versionSpec: '16.x'
 - script: |
-    node -v && npm -v && yarn cache clean --all && yarn install --immutable
+    yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install'
 - script: |
     yarn build
