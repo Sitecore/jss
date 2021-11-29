@@ -141,7 +141,8 @@ function checkName(name: string, proposedPath: string) {
  */
 function installPackages(projectFolder: string) {
   console.log(chalk.cyan('Installing packages...'));
-  runPackageManagerCommand(['install'], { cwd: projectFolder, encoding: 'utf8' });
+  // Peer dependencies are strict after npm 7, remove `--legacy-peer-deps` when our samples will have upgraded dependencies
+  runPackageManagerCommand(['install', '--legacy-peer-deps'], { cwd: projectFolder, encoding: 'utf8' });
 
   // when we run `create` against development prerelease packages, we must:
   // a) run the command within the 'samples' folder of the jss repo

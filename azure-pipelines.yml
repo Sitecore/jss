@@ -35,6 +35,9 @@ variables:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
 
 steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
 - script: |
     yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install'
