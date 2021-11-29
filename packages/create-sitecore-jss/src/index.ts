@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 import chalk from 'chalk';
+import fs from 'fs';
+import path from 'path';
 import { prompt } from 'inquirer';
+import { openPackageJson } from './shared';
 import parseArgs, { ParsedArgs } from 'minimist';
 import { NextjsInitializer, StyleguideInitializer } from './initializers/nextjs/index';
 
@@ -17,6 +20,26 @@ const main = async () => {
   const [add, framework, postTemplate] = argv._;
 
   if (argv._.length > 0 && add === 'add') {
+    // check if current project is a JSS project
+    const pkgPath = path.resolve(process.cwd(), 'package.json');
+    const pkg = fs.existsSync(pkgPath) && openPackageJson(pkgPath);
+    if (pkg?.config?.sitecoreConfigPath === undefined) {
+      console.log(
+        chalk.red(
+          `Could not add ${chalk.yellow(postTemplate)} to ${chalk.yellow(
+            framework
+          )} because it is not a JSS app.`
+        )
+      );
+      console.log(
+        chalk.yellow(
+          `Make sure the cwd is the root of your JSS application and the ${chalk.cyan(
+            'sitecoreConfigPath'
+          )} property exists in the ${chalk.cyan('package.json')}`
+        )
+      );
+      process.exit(1);
+    }
     // fire off add initializer here
     switch (`${framework} add ${postTemplate}`) {
       case 'nextjs add styleguide':
@@ -36,7 +59,8 @@ const main = async () => {
     const answer = await prompt({
       type: 'list',
       name: 'template',
-      message: 'Select the template you\'d like to create?',
+      // eslint-disable-next-line quotes
+      message: "Select the template you'd like to create?",
       choices: ['nextjs'],
       default: 'nextjs',
     });

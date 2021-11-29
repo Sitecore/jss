@@ -29,7 +29,10 @@ export const openPackageJson = (pkgPath?: string) => {
   return JSON.parse(data);
 };
 
-export const merge = (currentPkg: PackageJsonProperty, templatePkg: PackageJsonProperty): string => {
+export const merge = (
+  currentPkg: PackageJsonProperty,
+  templatePkg: PackageJsonProperty
+): string => {
   for (const key of Object.keys(templatePkg)) {
     currentPkg[key] = sortKeys(Object.assign(currentPkg[key], templatePkg[key]));
   }
