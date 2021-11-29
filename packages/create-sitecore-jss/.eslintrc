@@ -3,5 +3,8 @@
     "../../.eslintrc",
     "../../eslint-configs/typescript"
   ],
-  "ignorePatterns": "src/templates/**/*"
+  "ignorePatterns": [
+    "src/templates/**/*", 
+    "src/common/test-data/**/*"
+  ]
 }

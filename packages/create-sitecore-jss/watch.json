@@ -1,6 +1,6 @@
 ﻿{
   "initializers": [
-    "nextjs"
+    "nextjs", "nextjs-styleguide"
   ],
   "args": {
     "yes": true,
@@ -11,6 +11,6 @@
     "destination": "..\\..\\samples\\test",
     "fetchWith": "GraphQL",
     "prerender": "SSG",
-    "hostName": "https: //cm.jss.localhost"
+    "hostName": "https://cm.jss.localhost"
   }
 }

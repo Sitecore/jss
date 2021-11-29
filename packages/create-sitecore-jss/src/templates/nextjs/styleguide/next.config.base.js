@@ -73,7 +73,7 @@ const nextConfig = {
     config.resolve.fallback = {
       'sitecore/manifest/sitecore-import.json': false
     };
-
+    console.log('heelo');
     return config;
   },
 };

@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import { NextjsAnswer } from '../models';
 import { prompt } from 'inquirer';
 import { ParsedArgs } from 'minimist';
+import { NextjsAnswer } from '../models';
 import { userPrompts } from './user-prompts';
-import { Initializer } from '../../../models';
-import { transformFiles, nextSteps, installPackages } from '../../../shared';
+import { Initializer } from '../../../common/Initializer';
+import { transform, nextSteps, installPackages } from '../../../common/steps';
 
 export class NextjsInitializer implements Initializer {
   async init(args: ParsedArgs) {
@@ -39,7 +39,7 @@ export class NextjsInitializer implements Initializer {
     }
 
     const templatePath = path.resolve(__dirname, '../../../templates/nextjs/app');
-    await transformFiles(templatePath, answers);
+    await transform(templatePath, answers);
 
     // const newProjectPath = path.join(process.cwd(), answers.destination);
     if (!answers.initialized) {

@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import watch from '../watch.json';
 import { ParsedArgs } from 'minimist';
-import { NextjsInitializer } from '../src/initializers/nextjs/index';
+import { InitializerFactory } from '../src/InitializerFactory';
 
 chokidar
   .watch(path.join(process.cwd(), '.\\src\\templates'), { ignoreInitial: true })
@@ -36,22 +36,20 @@ async function callback(event?: string, path?: string) {
  */
 async function initializeApps() {
   const args: ParsedArgs = { ...watch.args, '--': undefined, _: [] };
-  const init = watch.initializers || [];
+  const initializers = watch.initializers || [];
   if (fs.existsSync(path.resolve(args.destination, 'node_modules'))) {
     args.initialized = true;
   }
-  for (const initializer of init) {
-    switch (initializer) {
-      case 'nextjs':
-        await new NextjsInitializer().init(args);
-        // if (watch.postInit.length > 0) {
-        //   watch.postInit.forEach(async (init) => {
-
-        //   })
-        // }
-        break;
-      default:
-        console.error(chalk.red(`Initializer ${initializer} not found.`));
+  for (const initializer of initializers) {
+    const init = new InitializerFactory().create(initializer);
+    if (!init) {
+      console.error(chalk.red(`Unsupported template '${initializer}'`));
+      process.exit(1);
+    }
+    try {
+      init?.init(args);
+    } catch (error) {
+      console.log(chalk.red('An error occurred: ', error));
     }
   }
 }
