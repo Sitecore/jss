@@ -1,7 +1,6 @@
-import fs from 'fs';
-import path from 'path';
 import { expect } from 'chai';
 import { transformFilename, merge } from './transform';
+import { currentPkg, partialPkg } from '../test-data/pkg';
 
 let answers;
 
@@ -31,31 +30,6 @@ describe('transformFilename', () => {
 });
 
 describe('merge', () => {
-  // default content of test-data/test.package.json
-  const pkgData = () => ({
-    name: 'test',
-    version: '1.0.0',
-    description: 'Test package.json',
-    scripts: {
-      test: 'tests are good',
-    },
-    files: ['dist'],
-    dependencies: {
-      chalk: '^4.1.2',
-    },
-    devDependencies: {
-      '@types/node': '^16.11.7',
-      typescript: '~4.3.5',
-    },
-  });
-  afterEach(() => {
-    // reset test.package.json
-    fs.writeFileSync(
-      path.resolve('src', 'test-data', 'test.package.json'),
-      JSON.stringify(pkgData(), null, 2)
-    );
-  });
-
   it('should merge the contents of a partial package.json with the target package.json', () => {
     const expected = {
       name: 'test',
@@ -78,26 +52,17 @@ describe('merge', () => {
         typescript: '~4.3.5',
       },
     };
-    // make these strings instead of reading from files
-    const currentPkg = fs.readFileSync(
-      path.resolve('src', 'test-data', 'test.package.json'),
-      'utf8'
-    );
-    const partialPkg = fs.readFileSync(
-      path.resolve('src', 'test-data', 'test-source.package.json'),
-      'utf8'
-    );
 
-    const result = merge(JSON.parse(currentPkg), JSON.parse(partialPkg));
+    const result = merge(currentPkg, partialPkg);
 
     expect(result).to.equal(JSON.stringify(expected, null, 2));
   });
 });
 
-describe('diffFiles', () => {
-  // stub prompt, test each answer
-  it('should show the diff between a rendered template file and a target file', () => {
-    // make file content strings
-    const sourceFileContent = fs.readFileSync(path.resolve('./test-data', 'Navigation.tsx'));
-  });
-});
+// describe('diffFiles', () => {
+//   // stub prompt, test each answer
+//   it('should show the diff between a rendered template file and a target file', () => {
+//     // make file content strings
+//     const sourceFileContent = fs.readFileSync(path.resolve('./test-data', 'Navigation.tsx'));
+//   });
+// });

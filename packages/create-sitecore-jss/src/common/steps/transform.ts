@@ -9,7 +9,12 @@ import { getPascalCaseName, sortKeys, openPackageJson } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 
 export interface PackageJsonProperty {
-  [key: string]: string;
+  [key: string]:
+    | string
+    | string[]
+    | {
+        [key: string]: string | string[];
+      };
 }
 
 export const transformFilename = (file: string, answers: Answer): string => {

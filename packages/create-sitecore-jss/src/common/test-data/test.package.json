@@ -5,9 +5,7 @@
   "scripts": {
     "test": "tests are good"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "dependencies": {
     "chalk": "^4.1.2"
   },
