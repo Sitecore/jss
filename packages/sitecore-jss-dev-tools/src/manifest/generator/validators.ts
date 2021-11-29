@@ -25,7 +25,7 @@ const validate = (
   valid: boolean;
   error?: joi.ValidationError;
 } => {
-  const { error } = joi.validate(object, schema, { allowUnknown });
+  const { error } = schema.validate(object, { allowUnknown });
   if (!error) {
     return { valid: true };
   }
