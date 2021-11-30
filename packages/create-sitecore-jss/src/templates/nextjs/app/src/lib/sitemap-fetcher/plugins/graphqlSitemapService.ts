@@ -1,11 +1,12 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { GraphQLSitemapService, StaticPath } from '@sitecore-jss/sitecore-jss-nextjs';
-import { GetStaticPathsContext } from 'next';
+﻿import { GraphQLSitemapService } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
-import pkg from '../../package.json';
+import { SitemapFetcherPlugin } from '..';
+import { GetStaticPathsContext } from 'next';
+import pkg from '../../../../package.json';
+import { StaticPath } from '@sitecore-jss/sitecore-jss-nextjs';
 
-export class SitecoreSitemapFetcher {
-  private _graphqlSitemapService: GraphQLSitemapService;
+class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
+  _graphqlSitemapService: GraphQLSitemapService;
 
   constructor() {
     this._graphqlSitemapService = new GraphQLSitemapService({
@@ -21,18 +22,15 @@ export class SitecoreSitemapFetcher {
     });
   }
 
-  /**
-   * Generates SitecoreSitemap for given mode (Export / Disconnected Export / SSG)
-   * @param {GetStaticPathsContext} context
-   */
-  async fetch(context?: GetStaticPathsContext): Promise<StaticPath[]> {
-    // If we are in Export mode
+  async exec(context?: GetStaticPathsContext): Promise<StaticPath[]> {
     if (process.env.EXPORT_MODE) {
-      return this._graphqlSitemapService.fetchExportSitemap(pkg.config.language);
+      // Disconnected Export mode
+      if (process.env.JSS_MODE !== 'disconnected') {
+        return this._graphqlSitemapService.fetchExportSitemap(pkg.config.language);
+      }
     }
-
     return this._graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
   }
 }
 
-export const sitemapFetcher = new SitecoreSitemapFetcher();
+export const graphqlSitemapServicePlugin = new GraphqlSitemapServicePlugin();

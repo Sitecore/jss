@@ -62,8 +62,8 @@ export const diffFiles = async (
   if (targetFileContents === sourceFileContent) return '';
 
   const diff = targetFilePath.endsWith('.json')
-    ? diffJson(JSON.parse(sourceFileContent), JSON.parse(targetFileContents))
-    : diffLines(sourceFileContent, targetFileContents);
+    ? diffJson(JSON.parse(targetFileContents), JSON.parse(sourceFileContent))
+    : diffLines(targetFileContents, sourceFileContent);
 
   diff.forEach(async (change: Change) => {
     const color = change.added ? chalk.green : change.removed ? chalk.red : chalk.gray;
