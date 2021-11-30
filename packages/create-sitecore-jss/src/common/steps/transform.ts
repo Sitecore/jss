@@ -47,14 +47,14 @@ export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): str
   return JSON.stringify(mergeObject(targetObj, sourceObj), null, 2);
 };
 
+/**
+ * @param {string} sourceFileContent transformed version of our template
+ * @param {string} targetFilePath user's file path
+ */
 export const diffFiles = async (
-  /* transformed version of our template*/ sourceFileContent: string,
-  /* user's file*/ targetFilePath: string
+  sourceFileContent: string,
+  targetFilePath: string
 ): Promise<string> => {
-  // return early with empty string if...
-  // * the target file path doesn't exist yet,
-  // * there is no diff
-
   if (!fs.pathExistsSync(targetFilePath)) return '';
 
   const targetFileContents = fs.readFileSync(path.resolve(process.cwd(), targetFilePath), 'utf8');
@@ -62,20 +62,16 @@ export const diffFiles = async (
   if (targetFileContents === sourceFileContent) return '';
 
   const diff = targetFilePath.endsWith('.json')
-    ? diffJson(JSON.parse(targetFileContents), JSON.parse(sourceFileContent))
-    : diffLines(targetFileContents, sourceFileContent);
-  if (!diff) return '';
+    ? diffJson(JSON.parse(sourceFileContent), JSON.parse(targetFileContents))
+    : diffLines(sourceFileContent, targetFileContents);
 
-  const count = diff.reduce((acc, curr) => (acc += curr.count || 0), 0);
-  if (!count) return '';
-
-  // from the jsdiff docs
   diff.forEach(async (change: Change) => {
-    // green for additions, red for deletions
-    // grey for common parts
     const color = change.added ? chalk.green : change.removed ? chalk.red : chalk.gray;
     const prefix = change.added ? '+' : change.removed ? '-' : '=';
+
     change.value.split('\n').forEach((value) => {
+      if (!value) return;
+
       console.log(color(`${prefix} ${value}`));
     });
   });
@@ -84,7 +80,6 @@ export const diffFiles = async (
   // allow user to move forward and back like when piping to more in bash
   // examples of more: https://shapeshed.com/unix-more/#what-is-the-more-command-in-unix
 
-  // filename will appear at bottom of diff, then prompt
   console.log(`Showing potential changes in ${chalk.yellow(targetFilePath.replace('/', '\\'))}`);
 
   const answer = await prompt({
