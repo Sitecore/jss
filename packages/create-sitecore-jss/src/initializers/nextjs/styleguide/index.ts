@@ -4,7 +4,7 @@ import { ParsedArgs } from 'minimist';
 import { Initializer } from '../../../common/Initializer';
 import { Answer } from '../../../common/Answer';
 import { isJssApp, openPackageJson } from '../../../common/utils/helpers';
-import { transform } from '../../../common/steps/index';
+import { transform, lintFix } from '../../../common/steps/index';
 
 export class NextjsStyleguideInitializer implements Initializer {
   async init(args: ParsedArgs) {
@@ -29,5 +29,6 @@ export class NextjsStyleguideInitializer implements Initializer {
     if (!args.silent) {
       console.log(chalk.green(`Successfully added styleguide to ${args.appName}!`));
     }
+    lintFix(args.destination);
   }
 }

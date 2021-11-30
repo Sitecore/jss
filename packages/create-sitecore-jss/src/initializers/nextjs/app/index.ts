@@ -5,7 +5,7 @@ import { ParsedArgs } from 'minimist';
 import { NextjsAnswer } from '../models';
 import { userPrompts } from './user-prompts';
 import { Initializer } from '../../../common/Initializer';
-import { transform, nextSteps, installPackages } from '../../../common/steps';
+import { transform, nextSteps, installPackages, lintFix } from '../../../common/steps';
 
 export class NextjsInitializer implements Initializer {
   async init(args: ParsedArgs) {
@@ -44,6 +44,7 @@ export class NextjsInitializer implements Initializer {
     // const newProjectPath = path.join(process.cwd(), answers.destination);
     if (!answers.initialized) {
       installPackages(answers.destination);
+      lintFix(answers.destination);
     }
     if (!answers.silent) {
       nextSteps(answers.appName);
