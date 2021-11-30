@@ -1,7 +1,7 @@
 import path from 'path';
 import { expect } from 'chai';
 import chalk from 'chalk';
-import sinon from 'sinon';
+import sinon, { SinonStub } from 'sinon';
 import { getPascalCaseName, openPackageJson, sortKeys, isJssApp } from './helpers';
 import { JsonObjectType } from '../steps/transform';
 import testPackage from '../test-data/test.package.json';
@@ -28,6 +28,10 @@ describe('getPascalCaseName', () => {
 });
 
 describe('openPackageJson', () => {
+  let log: SinonStub;
+
+  afterEach(() => log?.restore());
+
   it('should return package.json data using provided path', () => {
     const filePath = path.resolve('src', 'common', 'test-data', 'test.package.json');
 
@@ -37,7 +41,7 @@ describe('openPackageJson', () => {
   });
 
   it('should throw an error when the path to the package does not exist', () => {
-    const log = sinon.stub(console, 'log');
+    log = sinon.stub(console, 'log');
 
     const filePath = path.resolve('not', 'existing', 'path', 'package.json');
 
@@ -104,9 +108,17 @@ describe('sortKeys', () => {
 });
 
 describe('isJssApp', () => {
+  let log: SinonStub;
+  let exit: SinonStub;
+
+  afterEach(() => {
+    log?.restore();
+    exit?.restore();
+  });
+
   it('should log error when sitecoreConfigPath is not provided', () => {
-    const log = sinon.stub(console, 'log');
-    const exit = sinon.stub(process, 'exit');
+    log = sinon.stub(console, 'log');
+    exit = sinon.stub(process, 'exit');
     isJssApp('nextjs', {});
 
     expect(log.getCalls().length).to.equal(3);
@@ -135,7 +147,5 @@ describe('isJssApp', () => {
 
     expect(exit.getCalls().length).to.equal(1);
     expect(exit.getCall(0).args[0]).to.equal(1);
-
-    log.restore();
   });
 });

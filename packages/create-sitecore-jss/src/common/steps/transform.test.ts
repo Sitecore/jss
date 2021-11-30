@@ -1,11 +1,11 @@
-import { expect } from 'chai';
-import sinon from 'sinon';
+import fs from 'fs';
+import path from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-import { transformFilename, merge, diffFiles } from './transform';
+import { expect } from 'chai';
+import sinon, { SinonStub } from 'sinon';
 import { currentPkg, partialPkg } from '../test-data/pkg';
-import path from 'path';
-import fs from 'fs';
+import { transformFilename, merge, diffFiles } from './transform';
 
 let answers;
 
@@ -76,6 +76,14 @@ describe('merge', () => {
 });
 
 describe('diffFiles', () => {
+  let log: SinonStub;
+  let prompt: SinonStub;
+
+  afterEach(() => {
+    log?.restore();
+    prompt?.restore();
+  });
+
   it('should return empty string when target file is not found', async () => {
     const result = await diffFiles('test', 'not/existing/path');
 
@@ -96,8 +104,8 @@ describe('diffFiles', () => {
   });
 
   it('should show diff using text regular file', async () => {
-    const log = sinon.stub(console, 'log');
-    const prompt = sinon.stub(inquirer, 'prompt').returns({ choice: true } as any);
+    log = sinon.stub(console, 'log');
+    prompt = sinon.stub(inquirer, 'prompt').returns({ choice: true } as any);
     const targetFilePath = path.resolve('src', 'common', 'test-data', 'transform', 'target.ts');
 
     const source = fs.readFileSync(
@@ -105,19 +113,18 @@ describe('diffFiles', () => {
       'utf-8'
     );
     const result = await diffFiles(source, targetFilePath);
-
     expect(log.getCalls().length).to.equal(12);
 
     const calls = [
       chalk.grey('= '),
-      chalk.red('- const a = 10;'),
-      chalk.green('+ const x = 15;'),
+      chalk.red('- const x = 15;'),
+      chalk.green('+ const a = 10;'),
       chalk.grey('= const b = 20;'),
       chalk.grey('= '),
       chalk.grey('= console.log(10 + 20);'),
       chalk.grey('= '),
-      chalk.red('- console.log(20 + 30);'),
-      chalk.green('+ console.log(40 + 10);'),
+      chalk.red('- console.log(40 + 10);'),
+      chalk.green('+ console.log(20 + 30);'),
       chalk.grey('= '),
       chalk.grey('= console.log(a + b);'),
     ];
@@ -142,14 +149,11 @@ describe('diffFiles', () => {
     ).to.equal(true);
 
     expect(result).equal(true);
-
-    log.restore();
-    prompt.restore();
   });
 
   it('should show diff using json file', async () => {
-    const log = sinon.stub(console, 'log');
-    const prompt = sinon.stub(inquirer, 'prompt').returns({ choice: true } as any);
+    log = sinon.stub(console, 'log');
+    prompt = sinon.stub(inquirer, 'prompt').returns({ choice: true } as any);
     const targetFilePath = path.resolve('src', 'common', 'test-data', 'transform', 'target.json');
 
     const source = fs.readFileSync(
@@ -162,19 +166,19 @@ describe('diffFiles', () => {
 
     const calls = [
       chalk.grey('= {'),
-      chalk.green('+   "a": ['),
-      chalk.green('+     1,'),
-      chalk.green('+     2'),
-      chalk.green('+   ],'),
+      chalk.red('-   "a": ['),
+      chalk.red('-     1,'),
+      chalk.red('-     2'),
+      chalk.red('-   ],'),
       chalk.grey('=   "foo": {'),
-      chalk.red('-     "bar": false,'),
-      chalk.green('+     "b": 50,'),
-      chalk.green('+     "bar": true,'),
+      chalk.red('-     "b": 50,'),
+      chalk.red('-     "bar": true,'),
+      chalk.green('+     "bar": false,'),
       chalk.grey('=     "y": 15'),
       chalk.grey('=   },'),
       chalk.grey('=   "x": 10,'),
-      chalk.red('-   "z": "30"'),
-      chalk.green('+   "z": "40"'),
+      chalk.red('-   "z": "40"'),
+      chalk.green('+   "z": "30"'),
       chalk.grey('= }'),
     ];
 
@@ -198,8 +202,5 @@ describe('diffFiles', () => {
     ).to.equal(true);
 
     expect(result).equal(true);
-
-    log.restore();
-    prompt.restore();
   });
 });
