@@ -12,11 +12,6 @@ import { getItems } from './utils';
   The default convention uses the plugin's filename (without the extension) as the first part of the component
   name. For example, the file `/lib/page-props-factory/plugins/exampleName.ts` would map to plugin `exampleNamePlugin`.
   This can be customized in writePlugins().
-
-  This script supports two modes. In default mode, the plugins file is written once.
-  In watch mode, the plugins source folder is watched, and {pluginName}-plugins.ts is
-  regenerated whenever files are added or deleted. Run in watch mode by passing a `--watch` argument
-  when calling the script.
 */
 
 const sitemapFetcherPluginListPath = path.resolve('src/temp/sitemap-fetcher-plugins.ts');
@@ -72,7 +67,7 @@ function writePlugins(pluginListPath: string, pluginsRootPath: string) {
     .join('\r\n')
     .concat('\r\n');
 
-  console.log(`Writing page ${pluginName} plugins to ${pluginListPath}`);
+  console.log(`Writing ${pluginName} plugins to ${pluginListPath}`);
   fs.writeFileSync(pluginListPath, fileContent, {
     encoding: 'utf8',
   });

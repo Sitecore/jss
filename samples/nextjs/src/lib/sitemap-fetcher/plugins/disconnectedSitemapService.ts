@@ -1,18 +1,14 @@
 ﻿import { DisconnectedSitemapService } from '@sitecore-jss/sitecore-jss-nextjs';
-// #START_EMPTY
 import { ManifestInstance } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { SitemapFetcherPlugin } from '..';
-// #END_EMPTY
 
 class DisconnectedSitemapServicePlugin implements SitemapFetcherPlugin {
   _disconnectedSitemapService: DisconnectedSitemapService;
 
   constructor() {
-    // #START_EMPTY
     this._disconnectedSitemapService = new DisconnectedSitemapService(
       this.getManifest() as unknown as ManifestInstance
     );
-    // #END_EMPTY
   }
 
   /**
@@ -37,12 +33,10 @@ class DisconnectedSitemapServicePlugin implements SitemapFetcherPlugin {
   async exec() {
     // If we are in Export mode
     if (process.env.EXPORT_MODE) {
-      // #START_EMPTY
       // Disconnected Export mode
       if (process.env.JSS_MODE === 'disconnected') {
         return this._disconnectedSitemapService.fetchExportSitemap();
       }
-      // #END_EMPTY
     }
 
     return [];
