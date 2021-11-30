@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
-import chokidar from 'chokidar';
 import generateComponentFactory, {
   ComponentFile,
   PackageDefinition,
 } from './templates/component-factory';
+import { getItems, watchItems } from './utils';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -27,15 +27,11 @@ import generateComponentFactory, {
   when calling the script.
 */
 
-/* eslint-disable no-console */
-
 const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
 const componentRootPath = 'src/components';
 
-// Matches TypeScript files that are not type definition files
-const fileFormat = new RegExp(/(.+)(?<!\.d)\.tsx?$/);
-
 const isWatch = process.argv.some((arg) => arg === '--watch');
+
 (isWatch ? watchComponentFactory : writeComponentFactory)();
 
 /**
@@ -46,10 +42,7 @@ const isWatch = process.argv.some((arg) => arg === '--watch');
 function watchComponentFactory() {
   console.log(`Watching for changes to component factory sources in ${componentRootPath}...`);
 
-  chokidar
-    .watch(componentRootPath, { ignoreInitial: true, awaitWriteFinish: true })
-    .on('add', writeComponentFactory)
-    .on('unlink', writeComponentFactory);
+  watchItems(componentRootPath, writeComponentFactory);
 }
 
 /**
@@ -88,29 +81,15 @@ function writeComponentFactory() {
 }
 
 function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
-  const components: (PackageDefinition | ComponentFile)[] = [];
-  const folders: fs.Dirent[] = [];
-
-  fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {
-    if (item.isDirectory()) {
-      folders.push(item);
-    }
-
-    if (fileFormat.test(item.name)) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const name = item.name.match(fileFormat)![1];
-      console.debug(`Registering JSS component ${name}`);
-      components.push({
-        path: `${path}/${name}`,
-        componentName: name,
-        moduleName: name.replace(/[^\w]+/g, ''),
-      });
-    }
+  const components = getItems<PackageDefinition | ComponentFile>({
+    path,
+    resolveItem: (path, name) => ({
+      path: `${path}/${name}`,
+      componentName: name,
+      moduleName: name.replace(/[^\w]+/g, ''),
+    }),
+    cb: (name) => console.debug(`Registering JSS component ${name}`),
   });
-
-  for (const folder of folders) {
-    components.push(...getComponentList(`${path}/${folder.name}`));
-  }
 
   return components;
 }

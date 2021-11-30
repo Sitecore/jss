@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-forms",
-  "version": "20.0.0-canary.55",
+  "version": "20.0.0-canary.75",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -8,7 +8,7 @@
     "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
-    "test": "mocha --require ts-node/register/transpile-only --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.tsx\"",
+    "test": "mocha --require ts-node/register/transpile-only --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.tsx\" --exit",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-forms src/index.ts --githubPages false"
@@ -54,7 +54,7 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-forms": "^20.0.0-canary.55",
+    "@sitecore-jss/sitecore-jss-forms": "^20.0.0-canary.75",
     "prop-types": "^15.7.2"
   },
   "description": "",

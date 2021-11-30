@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
-import { expect, use, spy } from 'chai';
-import spies from 'chai-spies';
+import { expect } from 'chai';
 import { mount } from 'enzyme';
+import { spy } from 'sinon';
 
 import {
   withDatasourceCheck,
@@ -10,8 +10,6 @@ import {
   DefaultEditingError,
 } from '../enhancers/withDatasourceCheck';
 import { SitecoreContextReactContext } from '../components/SitecoreContext';
-
-use(spies);
 
 const mockContext = (editing: boolean) => {
   return {

@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import uuid from 'uuid/v5';
+import { v5 as uuid } from 'uuid';
 import {
   ComponentDefinition,
   ComponentInstanceDefinition,

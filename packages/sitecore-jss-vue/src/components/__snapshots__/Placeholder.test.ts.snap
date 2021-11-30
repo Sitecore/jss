@@ -244,6 +244,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should pass properties 
       id="main"
       class="scpm"
       data-selectable="true"
+      key="main"
 >
   {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"main","expandedDisplayName":null}
 </code>
@@ -264,6 +265,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should pass properties 
         id="page_header"
         class="scpm"
         data-selectable="true"
+        key="page-header"
   >
     {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"page-header","expandedDisplayName":null}
   </code>
@@ -301,6 +303,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should pass properties 
         id="page_content"
         class="scpm"
         data-selectable="true"
+        key="page-content"
   >
     {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"page-content","expandedDisplayName":null}
   </code>
@@ -367,6 +370,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should render a placeho
       id="page_content"
       class="scpm"
       data-selectable="true"
+      key="page-content"
 >
   {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"page-content","expandedDisplayName":null}
 </code>
@@ -412,25 +416,30 @@ exports[`<Placeholder /> with LayoutService data - EE on should render a placeho
 exports[`<Placeholder /> with LayoutService data - EE on should render components via default scoped slot (i.e. render prop) 1`] = `
 <div class="placeholder-scoped-slot-mock-sfc">
   <ul>
-    <code type="text/sitecore"
-          chrometype="placeholder"
-          kind="open"
-          id="main"
-          class="scpm"
-          data-selectable="true"
-    >
-      {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"main","expandedDisplayName":null}
-    </code>
-    <code type="text/sitecore"
-          chrometype="rendering"
-          kind="open"
-          hintname="HomeRendering"
-          id="r_2339622D093B4258833495979E41EFA6"
-          class="scpm"
-          data-selectable="true"
-    >
-      {"commands":[{"click":"chrome:rendering:sort","header":"Change position","icon":"/temp/iconcache/office/16x16/document_size.png","disabledIcon":"/temp/document_size_disabled16x16.png","isDivider":false,"tooltip":"Move component.","type":""},{"click":"javascript:Sitecore.PageModes.PageEditor.postRequest('webedit:componentoptions(referenceId={2339622D-093B-4258-8334-95979E41EFA6},renderingId={6CAAAD00-D87A-4B71-BA0E-763BA7003FE5},id={F142E1B0-EFD1-4730-BBC5-C30064AD19D9})',null,false)","header":"Edit Experience Editor Options","icon":"/temp/iconcache/office/16x16/clipboard_check_edit.png","disabledIcon":"/temp/clipboard_check_edit_disabled16x16.png","isDivider":false,"tooltip":"Edit the Experience Editor options for the component.","type":"common"},{"click":"chrome:rendering:properties","header":"Edit component properties","icon":"/temp/iconcache/office/16x16/elements_branch.png","disabledIcon":"/temp/elements_branch_disabled16x16.png","isDivider":false,"tooltip":"Edit the properties for the component.","type":"common"},{"click":"javascript:Sitecore.PageModes.PageEditor.postRequest('webedit:setdatasource(referenceId={2339622D-093B-4258-8334-95979E41EFA6},renderingId={6CAAAD00-D87A-4B71-BA0E-763BA7003FE5},id={F142E1B0-EFD1-4730-BBC5-C30064AD19D9})',null,false)","header":"{dsHeader}","icon":"/temp/iconcache/office/16x16/data.png","disabledIcon":"/temp/data_disabled16x16.png","isDivider":false,"tooltip":"{dsTooltip}","type":"datasourcesmenu"},{"click":"chrome:rendering:personalize({command:\\"webedit:personalize\\"})","header":"Personalize","icon":"/temp/iconcache/office/16x16/users_family.png","disabledIcon":"/temp/users_family_disabled16x16.png","isDivider":false,"tooltip":"Create or edit personalization for this component.","type":"sticky"},{"click":"chrome:rendering:editvariations({command:\\"webedit:editvariations\\"})","header":"Edit variations","icon":"/temp/iconcache/office/16x16/windows.png","disabledIcon":"/temp/windows_disabled16x16.png","isDivider":false,"tooltip":"Test the component.","type":"sticky"},{"click":"chrome:common:edititem({command:\\"webedit:open\\"})","header":"Edit the related item","icon":"/temp/iconcache/office/16x16/cubes.png","disabledIcon":"/temp/cubes_disabled16x16.png","isDivider":false,"tooltip":"Edit the related item in the Content Editor.","type":"datasourcesmenu"},{"click":"chrome:rendering:delete","header":"Delete","icon":"/temp/iconcache/office/16x16/delete.png","disabledIcon":"/temp/delete_disabled16x16.png","isDivider":false,"tooltip":"Remove component.","type":"sticky"}],"contextItemUri":"sitecore://master/{F142E1B0-EFD1-4730-BBC5-C30064AD19D9}?lang=en&amp;ver=1","custom":{"renderingID":"6CAAAD00D87A4B71BA0E763BA7003FE5","editable":"true"},"displayName":"HomeRendering","expandedDisplayName":null}
-    </code>
+    <li>
+      <code type="text/sitecore"
+            chrometype="placeholder"
+            kind="open"
+            id="main"
+            class="scpm"
+            data-selectable="true"
+            key="main"
+      >
+        {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"main","expandedDisplayName":null}
+      </code>
+    </li>
+    <li>
+      <code type="text/sitecore"
+            chrometype="rendering"
+            kind="open"
+            hintname="HomeRendering"
+            id="r_2339622D093B4258833495979E41EFA6"
+            class="scpm"
+            data-selectable="true"
+      >
+        {"commands":[{"click":"chrome:rendering:sort","header":"Change position","icon":"/temp/iconcache/office/16x16/document_size.png","disabledIcon":"/temp/document_size_disabled16x16.png","isDivider":false,"tooltip":"Move component.","type":""},{"click":"javascript:Sitecore.PageModes.PageEditor.postRequest('webedit:componentoptions(referenceId={2339622D-093B-4258-8334-95979E41EFA6},renderingId={6CAAAD00-D87A-4B71-BA0E-763BA7003FE5},id={F142E1B0-EFD1-4730-BBC5-C30064AD19D9})',null,false)","header":"Edit Experience Editor Options","icon":"/temp/iconcache/office/16x16/clipboard_check_edit.png","disabledIcon":"/temp/clipboard_check_edit_disabled16x16.png","isDivider":false,"tooltip":"Edit the Experience Editor options for the component.","type":"common"},{"click":"chrome:rendering:properties","header":"Edit component properties","icon":"/temp/iconcache/office/16x16/elements_branch.png","disabledIcon":"/temp/elements_branch_disabled16x16.png","isDivider":false,"tooltip":"Edit the properties for the component.","type":"common"},{"click":"javascript:Sitecore.PageModes.PageEditor.postRequest('webedit:setdatasource(referenceId={2339622D-093B-4258-8334-95979E41EFA6},renderingId={6CAAAD00-D87A-4B71-BA0E-763BA7003FE5},id={F142E1B0-EFD1-4730-BBC5-C30064AD19D9})',null,false)","header":"{dsHeader}","icon":"/temp/iconcache/office/16x16/data.png","disabledIcon":"/temp/data_disabled16x16.png","isDivider":false,"tooltip":"{dsTooltip}","type":"datasourcesmenu"},{"click":"chrome:rendering:personalize({command:\\"webedit:personalize\\"})","header":"Personalize","icon":"/temp/iconcache/office/16x16/users_family.png","disabledIcon":"/temp/users_family_disabled16x16.png","isDivider":false,"tooltip":"Create or edit personalization for this component.","type":"sticky"},{"click":"chrome:rendering:editvariations({command:\\"webedit:editvariations\\"})","header":"Edit variations","icon":"/temp/iconcache/office/16x16/windows.png","disabledIcon":"/temp/windows_disabled16x16.png","isDivider":false,"tooltip":"Test the component.","type":"sticky"},{"click":"chrome:common:edititem({command:\\"webedit:open\\"})","header":"Edit the related item","icon":"/temp/iconcache/office/16x16/cubes.png","disabledIcon":"/temp/cubes_disabled16x16.png","isDivider":false,"tooltip":"Edit the related item in the Content Editor.","type":"datasourcesmenu"},{"click":"chrome:rendering:delete","header":"Delete","icon":"/temp/iconcache/office/16x16/delete.png","disabledIcon":"/temp/delete_disabled16x16.png","isDivider":false,"tooltip":"Remove component.","type":"sticky"}],"contextItemUri":"sitecore://master/{F142E1B0-EFD1-4730-BBC5-C30064AD19D9}?lang=en&amp;ver=1","custom":{"renderingID":"6CAAAD00D87A4B71BA0E763BA7003FE5","editable":"true"},"displayName":"HomeRendering","expandedDisplayName":null}
+      </code>
+    </li>
     <li>
       <div class="home-mock">
         <code type="text/sitecore"
@@ -439,6 +448,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should render component
               id="page_header"
               class="scpm"
               data-selectable="true"
+              key="page-header"
         >
           {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"page-header","expandedDisplayName":null}
         </code>
@@ -476,6 +486,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should render component
               id="page_content"
               class="scpm"
               data-selectable="true"
+              key="page-content"
         >
           {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"page-content","expandedDisplayName":null}
         </code>
@@ -518,22 +529,26 @@ exports[`<Placeholder /> with LayoutService data - EE on should render component
         </code>
       </div>
     </li>
-    <code type="text/sitecore"
-          id="scEnclosingTag_r_"
-          chrometype="rendering"
-          kind="close"
-          hintkey="HomeRendering"
-          class="scpm"
-    >
-    </code>
-    <code type="text/sitecore"
-          id="scEnclosingTag_"
-          chrometype="placeholder"
-          kind="close"
-          hintname="main"
-          class="scpm"
-    >
-    </code>
+    <li>
+      <code type="text/sitecore"
+            id="scEnclosingTag_r_"
+            chrometype="rendering"
+            kind="close"
+            hintkey="HomeRendering"
+            class="scpm"
+      >
+      </code>
+    </li>
+    <li>
+      <code type="text/sitecore"
+            id="scEnclosingTag_"
+            chrometype="placeholder"
+            kind="close"
+            hintname="main"
+            class="scpm"
+      >
+      </code>
+    </li>
   </ul>
 </div>
 `;
@@ -545,6 +560,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should render nested pl
       id="main"
       class="scpm"
       data-selectable="true"
+      key="main"
 >
   {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"main","expandedDisplayName":null}
 </code>
@@ -565,6 +581,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should render nested pl
         id="page_header"
         class="scpm"
         data-selectable="true"
+        key="page-header"
   >
     {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"page-header","expandedDisplayName":null}
   </code>
@@ -602,6 +619,7 @@ exports[`<Placeholder /> with LayoutService data - EE on should render nested pl
         id="page_content"
         class="scpm"
         data-selectable="true"
+        key="page-content"
   >
     {"commands":[{"click":"chrome:placeholder:addControl","header":"Add to here","icon":"/temp/iconcache/office/16x16/add.png","disabledIcon":"/temp/add_disabled16x16.png","isDivider":false,"tooltip":"Add a new rendering to the '{0}' placeholder.","type":""},{"click":"chrome:placeholder:editSettings","header":"","icon":"/temp/iconcache/office/16x16/window_gear.png","disabledIcon":"/temp/window_gear_disabled16x16.png","isDivider":false,"tooltip":"Edit the placeholder settings.","type":""}],"contextItemUri":"sitecore://master/{9BCF4A17-2EC7-4160-9504-5ABD096B46AE}?lang=en&amp;ver=1","custom":{"allowedRenderings":[],"editable":"true"},"displayName":"page-content","expandedDisplayName":null}
   </code>
