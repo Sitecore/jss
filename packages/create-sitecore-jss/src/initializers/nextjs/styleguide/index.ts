@@ -21,8 +21,8 @@ export class NextjsStyleguideInitializer implements Initializer {
 
     // derive variables from package.json
     // read the package.json to get the appName
-    args.appName = pkg?.config.appName || 'default';
-    args.appPrefix = pkg?.config.prefix || args.appPrefix || false;
+    args.appName = args.appName || pkg?.config.appName || 'default';
+    args.appPrefix = args.appPrefix || pkg?.config?.prefix || false;
     const templatePath = path.resolve(__dirname, '../../../templates/nextjs/styleguide');
     await transform(templatePath, (args as unknown) as Answer);
 
