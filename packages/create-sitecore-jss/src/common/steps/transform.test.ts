@@ -33,8 +33,8 @@ describe('merge', () => {
   it('should merge the contents of a partial package.json with the target package.json', () => {
     const expected = {
       name: 'test',
-      version: '1.0.0',
-      description: 'Test package.json',
+      version: '2.0.0',
+      description: 'Updated package.json',
       scripts: {
         start:
           'cross-env-shell JSS_MODE=disconnected "npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components"',
@@ -50,6 +50,17 @@ describe('merge', () => {
         '@sitecore-jss/sitecore-jss-dev-tools': '^20.0.0-canary',
         '@types/node': '^16.11.7',
         typescript: '~4.3.5',
+      },
+      foo: {
+        bar: [4, 5, 6, 1, 2, 3],
+        x: {
+          y: {
+            bar: [1, 2, 3, 7, 8, 9],
+            x: '20',
+            y: 15,
+            z: ['1', '2', '3', '9', '10', '11'],
+          },
+        },
       },
     };
 

@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
+import { JsonObjectType } from '../steps/transform';
 
 export const isJssApp = (
   template: string,
@@ -57,8 +58,7 @@ export const openPackageJson = (pkgPath?: string) => {
   }
 };
 
-// TODO: replace any with proper types
-export const sortKeys = (obj: any) => {
+export const sortKeys = (obj: JsonObjectType) => {
   const sorted: any = {};
   Object.keys(obj)
     .sort()

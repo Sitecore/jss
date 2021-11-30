@@ -14484,6 +14484,7 @@ __metadata:
     inquirer: ^8.2.0
     minimist: ^1.2.5
     mocha: ^9.1.3
+    nyc: ^15.1.0
     sinon: ^12.0.1
     ts-node: ^10.4.0
     typescript: ~4.3.5

@@ -1,0 +1,18 @@
+{
+  "extension": [
+    ".ts"
+  ],
+  "exclude": [
+    "**/*.d.ts",
+    "**/*.test.ts",
+    "src/templates/**/*",
+    "src/common/test-data",
+    "dist"
+  ],
+  "all": true,
+  "reporter": [
+    "json-summary",
+    "text"
+  ],
+  "require": ["ts-node/register"]
+}

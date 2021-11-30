@@ -8,7 +8,8 @@
     "clean": "npx rimraf -rf dist types",
     "lint": "eslint --no-eslintrc -c .eslintrc ./src/**/*.ts",
     "watch": "ts-node ./scripts/watch-templates.ts",
-    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\""
+    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
+    "coverage": "nyc npm test"
   },
   "repository": {
     "type": "git",
@@ -53,6 +54,7 @@
     "chokidar": "^3.5.2",
     "eslint": "^7.15.0",
     "mocha": "^9.1.3",
+    "nyc": "^15.1.0",
     "ts-node": "^10.4.0",
     "typescript": "~4.3.5"
   }

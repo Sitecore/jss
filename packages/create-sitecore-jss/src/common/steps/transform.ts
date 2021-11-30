@@ -5,16 +5,18 @@ import path from 'path';
 import { renderFile } from 'ejs';
 import { prompt } from 'inquirer';
 import { Answer } from '../Answer';
-import { getPascalCaseName, sortKeys, openPackageJson } from '../utils/helpers';
+import { getPascalCaseName, openPackageJson, sortKeys } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 
-export interface PackageJsonProperty {
-  [key: string]:
-    | string
-    | string[]
-    | {
-        [key: string]: string | string[];
-      };
+export type JsonPropertyType =
+  | number
+  | string
+  | (number | string)[]
+  | {
+      [key: string]: JsonPropertyType;
+    };
+export interface JsonObjectType {
+  [key: string]: JsonPropertyType;
 }
 
 export const transformFilename = (file: string, answers: Answer): string => {
@@ -25,14 +27,30 @@ export const transformFilename = (file: string, answers: Answer): string => {
   return file;
 };
 
-export const merge = (
-  currentPkg: PackageJsonProperty,
-  templatePkg: PackageJsonProperty
-): string => {
-  for (const key of Object.keys(templatePkg)) {
-    currentPkg[key] = sortKeys(Object.assign(currentPkg[key], templatePkg[key]));
-  }
-  return JSON.stringify(currentPkg, null, 2);
+export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): string => {
+  const mergeObject = (target: JsonObjectType, source: JsonObjectType) => {
+    for (const key of Object.keys(source)) {
+      const sourceVal = source[key];
+      const targetVal = target[key];
+
+      if (Array.isArray(targetVal) && Array.isArray(sourceVal)) {
+        target[key] = targetVal.concat(sourceVal);
+      } else if (
+        !Array.isArray(targetVal) &&
+        !Array.isArray(sourceVal) &&
+        typeof targetVal === 'object' &&
+        typeof sourceVal === 'object'
+      ) {
+        target[key] = sortKeys(mergeObject(targetVal, sourceVal));
+      } else {
+        target[key] = sourceVal;
+      }
+    }
+
+    return target;
+  };
+
+  return JSON.stringify(mergeObject(targetObj, sourceObj), null, 2);
 };
 
 export const diffFiles = async (
