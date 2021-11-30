@@ -34,6 +34,6 @@ generateConfig(configOverride);
 */
 import './generate-component-factory';
 /*
-  PAGE PROPS FACTORY PLUGINS GENERATION
+   PLUGINS GENERATION
 */
-import './generate-page-props-factory-plugins';
+import './generate-plugin';
