@@ -1,7 +1,11 @@
 import path from 'path';
+import { expect } from 'chai';
+import chalk from 'chalk';
 import sinon from 'sinon';
-import { expect, assert } from 'chai';
-import { getPascalCaseName, openPackageJson, sortKeys } from './helpers';
+import { getPascalCaseName, openPackageJson, sortKeys, isJssApp } from './helpers';
+import { JsonObjectType } from '../steps/transform';
+import testPackage from '../test-data/test.package.json';
+import rootPackage from '../../../package.json';
 
 describe('getPascalCaseName', () => {
   it('should reformat kebab-case to PascalCase', () => {
@@ -24,47 +28,43 @@ describe('getPascalCaseName', () => {
 });
 
 describe('openPackageJson', () => {
-  const obj = {
-    method: openPackageJson(),
-  };
+  it('should return package.json data using provided path', () => {
+    const filePath = path.resolve('src', 'common', 'test-data', 'test.package.json');
 
-  const testData = {
-    name: 'test',
-    version: '1.0.0',
-    description: 'Test package.json',
-    scripts: {
-      test: 'tests are good',
-    },
-    files: ['dist'],
-    dependencies: {
-      chalk: '^4.1.2',
-    },
-    devDependencies: {
-      '@types/node': '^16.11.7',
-      typescript: '~4.3.5',
-    },
-  };
-  it('should return package.json data as an object', () => {
-    // TODO: rewrite with strings, not reading from file system??
-    const result = openPackageJson(path.resolve('src', 'common', 'test-data', 'test.package.json'));
-    assert.typeOf(result, 'Object');
-    expect(JSON.stringify(result, null, 2)).to.equal(JSON.stringify(testData, null, 2));
+    const result = openPackageJson(filePath);
+
+    expect(result).to.deep.equal(testPackage);
   });
 
-  // it should throw an error if there is no package.json at the path provided
-  // eslint-disable-next-line quotes
-  xit("should throw an error when the path to the package doesn't exist", () => {
-    // TODO: stub openPackageJson and force error, check error message.
-    const stubFunc = sinon.stub(obj, 'method').throws();
-    expect(stubFunc);
+  it('should throw an error when the path to the package does not exist', () => {
+    const log = sinon.stub(console, 'log');
+
+    const filePath = path.resolve('not', 'existing', 'path', 'package.json');
+
+    const result = openPackageJson(filePath);
+
+    expect(result).to.equal(undefined);
+    expect(log.calledTwice).to.equal(true);
+    expect(log.getCall(0).args[0]).to.equal(
+      chalk.red(`The following error occurred while trying to read ${filePath}:`)
+    );
+    expect(log.getCall(1).args[0]).to.equal(
+      chalk.red(`Error: ENOENT: no such file or directory, open '${filePath}'`)
+    );
+
+    log.restore();
   });
-  // it should find the package.json if not provided on the path
+
+  it('should return package.json data from the root when path is not provided', () => {
+    const result = openPackageJson();
+
+    expect(result).to.deep.equal(rootPackage);
+  });
 });
 
 describe('sortKeys', () => {
   it('should sort the keys of an object alphabetically', () => {
-    // TODO: use proper types
-    const obj: any = {
+    const obj: JsonObjectType = {
       dependencies: {
         d: '0.0',
         b: '0.0',
@@ -78,7 +78,7 @@ describe('sortKeys', () => {
         a: '',
       },
     };
-    const expected: any = {
+    const expected: JsonObjectType = {
       dependencies: {
         a: '0.0',
         b: '0.0',
@@ -93,11 +93,42 @@ describe('sortKeys', () => {
       },
     };
 
-    const result: any = {};
+    const result: JsonObjectType = {};
+
     for (const key of Object.keys(obj)) {
-      result[key] = sortKeys(obj[key]);
+      result[key] = sortKeys(obj[key] as JsonObjectType);
     }
 
     expect(JSON.stringify(result)).to.equal(JSON.stringify(expected));
+  });
+});
+
+describe('isJssApp', () => {
+  it('should log error when sitecoreConfigPath is not provided', () => {
+    const log = sinon.stub(console, 'log');
+
+    isJssApp('nextjs', {});
+
+    expect(log.getCalls().length).to.equal(3);
+
+    expect(log.getCall(0).args[0]).to.equal(
+      chalk.red('Error: Could not add nextjs to the current project because it is not a JSS app.')
+    );
+    expect(log.getCall(1).args[0]).to.equal(
+      chalk.magenta(
+        `${chalk.yellow('*')} Make sure the path to your JSS app is passed in with the ${chalk.cyan(
+          '--destination flag'
+        )}, or is the cwd.`
+      )
+    );
+    expect(log.getCall(2).args[0]).to.equal(
+      chalk.magenta(
+        `${chalk.yellow('*')} Check that the ${chalk.cyan(
+          'sitecoreConfigPath'
+        )} property exists in the ${chalk.cyan('package.json')}`
+      )
+    );
+
+    log.restore();
   });
 });

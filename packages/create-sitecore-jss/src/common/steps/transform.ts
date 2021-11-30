@@ -8,13 +8,7 @@ import { Answer } from '../Answer';
 import { getPascalCaseName, openPackageJson, sortKeys } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 
-export type JsonPropertyType =
-  | number
-  | string
-  | (number | string)[]
-  | {
-      [key: string]: JsonPropertyType;
-    };
+export type JsonPropertyType = number | string | (number | string)[] | JsonObjectType;
 export interface JsonObjectType {
   [key: string]: JsonPropertyType;
 }
