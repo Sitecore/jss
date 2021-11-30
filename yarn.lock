@@ -7641,7 +7641,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sinon@npm:^10.0.6":
+"@types/sinon-chai@npm:^3.2.5":
+  version: 3.2.6
+  resolution: "@types/sinon-chai@npm:3.2.6"
+  dependencies:
+    "@types/chai": "*"
+    "@types/sinon": "*"
+  checksum: 0613ee8eafd59abb9f8fb4c01f8aa1244fe44735050fb233fadba3ebcccf84920f93c67ef8b9f6e22bab78b0e6a1edc49d7b1b86de6bb4adaca2d6c4736bddc3
+  languageName: node
+  linkType: hard
+
+"@types/sinon@npm:*, @types/sinon@npm:^10.0.6":
   version: 10.0.6
   resolution: "@types/sinon@npm:10.0.6"
   dependencies:
@@ -26328,7 +26338,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.20, nanoid@npm:^3.1.22, nanoid@npm:^3.1.23, nanoid@npm:^3.1.30":
+"nanoid@npm:^3.1.20, nanoid@npm:^3.1.23, nanoid@npm:^3.1.30":
   version: 3.1.30
   resolution: "nanoid@npm:3.1.30"
   bin:
@@ -32843,6 +32853,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sinon-chai@npm:^3.7.0":
+  version: 3.7.0
+  resolution: "sinon-chai@npm:3.7.0"
+  peerDependencies:
+    chai: ^4.0.0
+    sinon: ">=4.0.0"
+  checksum: 49a353d8eb66cc6db35ac452f6965c72778aa090d1f036dd1e54ba88594b1c3f314b1a403eaff22a4e314f94dc92d9c7d03cbb88c21d89e814293bf5b299964d
+  languageName: node
+  linkType: hard
+
 "sinon@npm:^12.0.1":
   version: 12.0.1
   resolution: "sinon@npm:12.0.1"
@@ -32857,7 +32877,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sinon@npm:^7.0.0, sinon@npm:^7.4.2, sinon@npm:^7.5.0":
+"sinon@npm:^7.5.0":
   version: 7.5.0
   resolution: "sinon@npm:7.5.0"
   dependencies:
