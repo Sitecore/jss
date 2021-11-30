@@ -106,13 +106,17 @@ describe('sortKeys', () => {
 describe('isJssApp', () => {
   it('should log error when sitecoreConfigPath is not provided', () => {
     const log = sinon.stub(console, 'log');
-
+    const exit = sinon.stub(process, 'exit');
     isJssApp('nextjs', {});
 
     expect(log.getCalls().length).to.equal(3);
 
     expect(log.getCall(0).args[0]).to.equal(
-      chalk.red('Error: Could not add nextjs to the current project because it is not a JSS app.')
+      chalk.red(
+        `Error: Could not add ${chalk.yellow(
+          'nextjs'
+        )} to the current project because it is not a JSS app.`
+      )
     );
     expect(log.getCall(1).args[0]).to.equal(
       chalk.magenta(
@@ -128,6 +132,9 @@ describe('isJssApp', () => {
         )} property exists in the ${chalk.cyan('package.json')}`
       )
     );
+
+    expect(exit.getCalls().length).to.equal(1);
+    expect(exit.getCall(0).args[0]).to.equal(1);
 
     log.restore();
   });
