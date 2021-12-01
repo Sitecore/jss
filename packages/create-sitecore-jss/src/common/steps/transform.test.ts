@@ -1,11 +1,13 @@
-import fs from 'fs';
+import fs from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { expect } from 'chai';
 import sinon, { SinonStub } from 'sinon';
 import { currentPkg, partialPkg } from '../test-data/pkg';
-import { transformFilename, merge, diffFiles } from './transform';
+import * as transform from './transform';
+
+const { transformFilename, merge, diffFiles, transformPostInitializer } = transform;
 
 let answers;
 
@@ -203,6 +205,160 @@ describe('transform', () => {
       ).to.equal(true);
 
       expect(result).equal(true);
+    });
+  });
+
+  describe('transform', () => {
+    let diffFilesStub: SinonStub;
+    let transformFilenameStub: SinonStub;
+    let writeFileStub: SinonStub;
+
+    afterEach(() => {
+      diffFilesStub?.restore();
+      transformFilenameStub?.restore();
+      writeFileStub?.restore();
+    });
+
+    describe('transformPostInitializer', () => {
+      it('should overwrite a single file', async () => {
+        diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('yes'));
+        transformFilenameStub = sinon
+          .stub(transform, 'transformFilename')
+          .returns('transformed-path');
+        writeFileStub = sinon.stub(fs, 'writeFileSync');
+
+        const answers = {
+          appName: 'JssNextWeb',
+          hostName: 'http://jssnextweb',
+          destination: 'samples/next',
+          fetchWith: 'REST',
+          yes: false,
+        };
+
+        await transformPostInitializer({
+          rendered: 'test',
+          pathToNewFile: 'new/file/path',
+          file: 'path/to/file',
+          destinationPath: 'samples\\next',
+          answers,
+        });
+
+        expect(
+          writeFileStub.calledOnceWith('samples\\next\\transformed-path', 'test', 'utf-8')
+        ).to.equal(true);
+
+        expect(transformFilenameStub.calledTwice).to.equal(true);
+
+        expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
+        expect(transformFilenameStub.getCall(1).args).to.deep.equal(['path/to/file', answers]);
+
+        expect(answers.yes).to.equal(false);
+      });
+
+      it('should overwrite a single file and later do not ask the same question', async () => {
+        diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('yes to all'));
+        transformFilenameStub = sinon
+          .stub(transform, 'transformFilename')
+          .returns('transformed-path');
+        writeFileStub = sinon.stub(fs, 'writeFileSync');
+
+        const answers = {
+          appName: 'JssNextWeb',
+          hostName: 'http://jssnextweb',
+          destination: 'samples/next',
+          fetchWith: 'REST',
+          yes: false,
+        };
+
+        await transformPostInitializer({
+          rendered: 'test',
+          pathToNewFile: 'new/file/path',
+          file: 'path/to/file',
+          destinationPath: 'samples\\next',
+          answers,
+        });
+
+        expect(
+          writeFileStub.calledOnceWith('samples\\next\\transformed-path', 'test', 'utf-8')
+        ).to.equal(true);
+
+        expect(transformFilenameStub.calledTwice).to.equal(true);
+
+        expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
+        expect(transformFilenameStub.getCall(1).args).to.deep.equal(['path/to/file', answers]);
+
+        expect(answers.yes).to.equal(true);
+      });
+
+      it('should skip file', async () => {
+        diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('skip'));
+        transformFilenameStub = sinon
+          .stub(transform, 'transformFilename')
+          .returns('transformed-path');
+        writeFileStub = sinon.stub(fs, 'writeFileSync');
+
+        const answers = {
+          appName: 'JssNextWeb',
+          hostName: 'http://jssnextweb',
+          destination: 'samples/next',
+          fetchWith: 'REST',
+          yes: false,
+        };
+
+        await transformPostInitializer({
+          rendered: 'test',
+          pathToNewFile: 'new/file/path',
+          file: 'path/to/file',
+          destinationPath: 'samples\\next',
+          answers,
+        });
+
+        expect(writeFileStub.notCalled).to.equal(true);
+
+        expect(transformFilenameStub.calledOnce).to.equal(true);
+
+        expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
+
+        expect(answers.yes).to.equal(false);
+      });
+
+      it('should abort a process', async () => {
+        diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('abort'));
+        transformFilenameStub = sinon
+          .stub(transform, 'transformFilename')
+          .returns('transformed-path');
+        writeFileStub = sinon.stub(fs, 'writeFileSync');
+
+        const processExitStub = sinon.stub(process, 'exit');
+
+        const answers = {
+          appName: 'JssNextWeb',
+          hostName: 'http://jssnextweb',
+          destination: 'samples/next',
+          fetchWith: 'REST',
+          yes: false,
+        };
+
+        await transformPostInitializer({
+          rendered: 'test',
+          pathToNewFile: 'new/file/path',
+          file: 'path/to/file',
+          destinationPath: 'samples\\next',
+          answers,
+        });
+
+        expect(writeFileStub.notCalled).to.equal(true);
+
+        expect(transformFilenameStub.calledOnce).to.equal(true);
+
+        expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
+
+        expect(processExitStub.calledOnce).to.equal(true);
+
+        expect(answers.yes).to.equal(false);
+
+        processExitStub.restore();
+      });
     });
   });
 });
