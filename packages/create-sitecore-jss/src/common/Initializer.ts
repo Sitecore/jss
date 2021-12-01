@@ -1,5 +1,8 @@
 import { ParsedArgs } from 'minimist';
 
+export interface InitializerResults {
+  nextSteps: string[];
+}
 export interface Initializer {
-  init: (args: ParsedArgs) => void; // tbd
+  init: (args: ParsedArgs) => Promise<InitializerResults>;
 }

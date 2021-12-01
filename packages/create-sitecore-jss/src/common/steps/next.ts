@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 
-export const nextSteps = (appName: string) => {
+export const nextSteps = async (appName: string, nextStepsArr: string[]) => {
   console.log(chalk.red('                 -/oyhdmNNNNmdhyo/-                '));
   console.log(chalk.red('             :sdMMMMMMMMMMMMMMMMMMMMds:            '));
   console.log(chalk.red('          :yNMMMMMMMMMMMMMMMMMMMMMMMMMMNy:         '));
@@ -35,9 +35,12 @@ export const nextSteps = (appName: string) => {
   console.log(`JSS application ${chalk.green(appName)} is ready!`);
   console.log();
   console.log(chalk.yellow('Next steps:'));
-  console.log('* npm install (or yarn install, etc)');
-  console.log(`* Try out your application with ${chalk.green('jss start')}`);
-  console.log(`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`);
+  // console.log('* npm install (or yarn install, etc)');
+  // console.log(`* Try out your application with ${chalk.green('jss start')}`);
+  // console.log(`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`);
+  nextStepsArr.forEach((step) => {
+    console.log(step);
+  });
   console.log('* Enable source control (i.e. git init) (optional)');
   console.log('* Check out the JSS documentation at https://jss.sitecore.com');
   console.log();

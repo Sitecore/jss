@@ -1,5 +1,5 @@
 import { Initializer } from './common/Initializer';
-import { NextjsInitializer, NextjsStyleguideInitializer } from './initializers/nextjs';
+import { NextjsInitializer, NextjsStyleguideInitializer } from './initializers';
 
 export class InitializerFactory {
   create(name: string): Initializer | undefined {

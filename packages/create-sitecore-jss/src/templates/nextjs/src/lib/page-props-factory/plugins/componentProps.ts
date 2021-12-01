@@ -2,7 +2,7 @@ import { ComponentPropsService } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { componentModule } from 'temp/componentFactory';
-import { Plugin, isServerSidePropsContext } from '../';
+import { Plugin, isServerSidePropsContext } from '..';
 
 class ComponentPropsPlugin implements Plugin {
   private componentPropsService: ComponentPropsService;

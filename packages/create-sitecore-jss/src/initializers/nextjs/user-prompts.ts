@@ -21,13 +21,13 @@ export const userPrompts: QuestionCollection<NextjsAnswer> = [
       return true;
     },
   },
-  // destination path
-  {
-    type: 'input',
-    name: 'destination',
-    message: 'Where would you like your new app created?',
-    default: (answers: NextjsAnswer) => `${process.cwd()}\\${answers.appName}`,
-  },
+  // // destination path
+  // {
+  //   type: 'input',
+  //   name: 'destination',
+  //   message: 'Where would you like your new app created?',
+  //   default: (answers: NextjsAnswer) => `${process.cwd()}\\${answers.appName}`,
+  // },
   // fetchWith
   {
     type: 'list',

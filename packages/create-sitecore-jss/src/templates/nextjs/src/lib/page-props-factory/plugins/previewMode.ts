@@ -1,7 +1,7 @@
 import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
-import { Plugin } from '../';
+import { Plugin } from '..';
 
 class PreviewModePlugin implements Plugin {
   order = 0;

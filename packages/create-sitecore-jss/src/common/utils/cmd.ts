@@ -41,5 +41,7 @@ export const spawnFunc = (
     );
   }
 
-  process.exit(result.status && result.status > 0 ? result.status : 1);
+  if (result.status && result.status > 0) {
+    process.exit(result.status);
+  }
 };

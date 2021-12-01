@@ -117,7 +117,7 @@ export const transformPostInitializer = async ({
       );
       return;
     case 'yes to all':
-      // empty answers so diffFiles() won't be run again
+      // set yes to true so diff is not run again
       answers.yes = true;
       fs.writeFileSync(
         `${destinationPath}\\${transformFilename(file, answers)}`,
@@ -192,8 +192,8 @@ export const transform = async (templatePath: string, answers: Answer) => {
       if (!str) str = '';
 
       // if it's a post-initializer, run diffFiles()
-      if (answers.post && !answers.yes) {
-        transformPostInitializer({
+      if (!answers.yes) {
+        await transformPostInitializer({
           rendered: str,
           pathToNewFile,
           destinationPath,
