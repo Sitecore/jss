@@ -94,6 +94,48 @@ export const diffFiles = async (
   return answer.choice;
 };
 
+export const transformPostInitializer = async ({
+  rendered,
+  pathToNewFile,
+  destinationPath,
+  answers,
+  file,
+}: {
+  rendered: string;
+  pathToNewFile: string;
+  destinationPath: string;
+  answers: Answer;
+  file: string;
+}) => {
+  const choice = await diffFiles(rendered, transformFilename(pathToNewFile, answers));
+  switch (choice) {
+    case 'yes':
+      fs.writeFileSync(
+        `${destinationPath}\\${transformFilename(file, answers)}`,
+        rendered,
+        'utf-8'
+      );
+      return;
+    case 'yes to all':
+      // set yes to true so diff is not run again
+      answers.yes = true;
+      fs.writeFileSync(
+        `${destinationPath}\\${transformFilename(file, answers)}`,
+        rendered,
+        'utf-8'
+      );
+      return;
+    case 'skip':
+      return;
+    case 'abort':
+      console.log(chalk.yellow('Goodbye!'));
+      process.exit();
+    // eslint-disable no-fallthrough
+    default:
+      return;
+  }
+};
+
 export const transform = async (templatePath: string, answers: Answer) => {
   // get absolute path for destination of app
   const destinationPath = path.resolve(answers.destination);
@@ -147,40 +189,17 @@ export const transform = async (templatePath: string, answers: Answer) => {
 
       str = str ? str : await renderFile(path.resolve(pathToTemplate), ejsData);
 
+      if (!str) str = '';
+
       // if it's a post-initializer, run diffFiles()
-      if (answers.post && !answers.yes) {
-        const choice = await diffFiles(str, transformFilename(pathToNewFile, answers));
-        switch (choice) {
-          case 'yes':
-            fs.writeFileSync(
-              `${destinationPath}\\${transformFilename(file, answers)}`,
-              str,
-              'utf-8'
-            );
-            continue;
-          case 'yes to all':
-            // empty answers so diffFiles() won't be run again
-            answers.yes = true;
-            fs.writeFileSync(
-              `${destinationPath}\\${transformFilename(file, answers)}`,
-              str,
-              'utf-8'
-            );
-            continue;
-          case 'skip':
-            continue;
-          case 'abort':
-            console.log(chalk.yellow('Goodbye!'));
-            process.exit();
-          // eslint-disable no-fallthrough
-          default:
-            fs.writeFileSync(
-              `${destinationPath}\\${transformFilename(file, answers)}`,
-              str,
-              'utf-8'
-            );
-            continue;
-        }
+      if (!answers.yes) {
+        await transformPostInitializer({
+          rendered: str,
+          pathToNewFile,
+          destinationPath,
+          answers,
+          file,
+        });
       } else {
         fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
       }

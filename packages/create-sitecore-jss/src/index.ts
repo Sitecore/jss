@@ -1,8 +1,7 @@
 #!/usr/bin/env node
-import chalk from 'chalk';
 import { prompt } from 'inquirer';
 import parseArgs, { ParsedArgs } from 'minimist';
-import { InitializerFactory } from './InitializerFactory';
+import { initRunner } from './init-runner';
 
 // parse any command line arguments passed into `init sitecore-jss`
 // to pass to the generator prompts and skip them.
@@ -10,38 +9,48 @@ import { InitializerFactory } from './InitializerFactory';
 const argv: ParsedArgs = parseArgs(process.argv.slice(2), { boolean: ['appPrefix', 'yes'] });
 
 const main = async () => {
-  let template = '';
-
+  const templates = argv.templates?.trim().split(',') || [];
   // ------------------------------
   // the below has moved into InitializerFactory
   // TODOS: Figure out how post-initalizers will be... initalized.
   // how will the CLI flow?
   // -------------------------------
 
-  if (!argv.template) {
+  if (!templates.length) {
     const answer = await prompt({
+      // enable selecting post initializers
       type: 'list',
-      name: 'template',
+      name: 'templates',
       // eslint-disable-next-line quotes
-      message: "Select the template you'd like to create?",
+      message: "Select the template(s) you'd like to create?",
       choices: ['nextjs'],
       default: 'nextjs',
     });
-    template = answer.template;
-  } else {
-    template = argv.template;
+    templates.push(answer.templates);
+    const { postInitializers } = await prompt({
+      type: 'checkbox',
+      name: 'postInitializers',
+      message: 'Would you like to add any post-initializers?',
+      choices: ['nextjs-styleguide', 'none'],
+      default: 'none',
+    });
+    postInitializers !== 'none' && postInitializers.forEach((init: string) => templates.push(init));
   }
 
-  const initializer = new InitializerFactory().create(template);
-  if (!initializer) {
-    console.error(chalk.red(`Unsupported template '${template}'`));
-    process.exit(1);
+  if (!argv.destination) {
+    const answer = await prompt(
+      // wouldn't ask this for post-init if it's being run alone,
+      {
+        type: 'input',
+        name: 'destination',
+        message: 'Where would you like your new app created?',
+        default: () => `${process.cwd()}\\${argv.appName || ''}`,
+      }
+    );
+    argv.destination = answer.destination;
   }
-  try {
-    initializer?.init(argv);
-  } catch (error) {
-    console.log(chalk.red('An error occurred: ', error));
-  }
+
+  initRunner(templates, argv);
 };
 
 main();

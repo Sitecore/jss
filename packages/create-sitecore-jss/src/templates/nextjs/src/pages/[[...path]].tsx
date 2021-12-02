@@ -14,6 +14,7 @@ import {
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
+import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
 <% if (prerender === 'SSG') { %>
   import { sitemapFetcher } from 'lib/sitemap-fetcher';

@@ -1,10 +1,9 @@
 import chalk from 'chalk';
 import chokidar from 'chokidar';
-import fs from 'fs';
 import path from 'path';
 import watch from '../watch.json';
 import { ParsedArgs } from 'minimist';
-import { InitializerFactory } from '../src/InitializerFactory';
+import { initRunner } from '../src/init-runner';
 
 chokidar
   .watch(path.join(process.cwd(), '.\\src\\templates'), { ignoreInitial: true })
@@ -16,8 +15,7 @@ chokidar
  */
 async function ready() {
   console.log(chalk.green('Initializing app...'));
-  await initializeApps();
-  watch.args.initialized = true;
+  await initializeApps(false);
   console.log(chalk.green('Initializing app complete. Watching for changes...'));
 }
 
@@ -28,28 +26,21 @@ async function ready() {
 async function callback(event?: string, path?: string) {
   const color = event === 'add' ? chalk.green : event === 'unlink' ? chalk.red : chalk.white;
   console.table(color(`${event} ${path}`));
-  await initializeApps();
+  await initializeApps(true, event, path);
 }
 
 /**
  *
  */
-async function initializeApps() {
+const initializeApps = async (initialized: boolean, event?: string, path?: string) => {
   const args: ParsedArgs = { ...watch.args, '--': undefined, _: [] };
   const initializers = watch.initializers || [];
-  if (fs.existsSync(path.resolve(args.destination, 'node_modules'))) {
-    args.initialized = true;
+  args.initialized = initialized;
+  // only run the initializer where the file was changed WIP 🧪🥼
+  if (event !== undefined) {
+    const init = path?.split('/').filter((x) => watch.initializers.forEach((y) => y === x));
+    if (init) await initRunner(init, args);
+  } else {
+    await initRunner(initializers, args);
   }
-  for (const initializer of initializers) {
-    const init = new InitializerFactory().create(initializer);
-    if (!init) {
-      console.error(chalk.red(`Unsupported template '${initializer}'`));
-      process.exit(1);
-    }
-    try {
-      init?.init(args);
-    } catch (error) {
-      console.log(chalk.red('An error occurred: ', error));
-    }
-  }
-}
+};

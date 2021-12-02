@@ -4,7 +4,7 @@ import { DictionaryService, LayoutService } from '@sitecore-jss/sitecore-jss-nex
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { SitecorePageProps } from 'lib/page-props';
-import { Plugin, isServerSidePropsContext } from '../';
+import { Plugin, isServerSidePropsContext } from '..';
 import pkg from '../../../../package.json';
 
 /**

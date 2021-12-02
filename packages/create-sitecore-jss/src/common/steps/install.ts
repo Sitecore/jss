@@ -6,7 +6,7 @@ import { run } from '../utils/cmd';
 /**
  * @param {string} projectFolder
  */
-export function installPackages(projectFolder: string) {
+export const installPackages = (projectFolder: string) => {
   console.log(chalk.cyan('Installing packages...'));
 
   const lernaPath = path.join(projectFolder, '..', '..');
@@ -24,4 +24,9 @@ export function installPackages(projectFolder: string) {
       encoding: 'utf8',
     });
   }
-}
+};
+
+export const lintFix = (projectFolder: string) => {
+  console.log(chalk.cyan('Linting app...'));
+  run('npm', ['run', 'lint', '--', '--fix'], { cwd: projectFolder, encoding: 'utf8' });
+};

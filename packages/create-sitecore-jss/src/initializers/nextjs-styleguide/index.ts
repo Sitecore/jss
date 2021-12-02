@@ -1,10 +1,10 @@
 import chalk from 'chalk';
 import path from 'path';
 import { ParsedArgs } from 'minimist';
-import { Initializer } from '../../../common/Initializer';
-import { Answer } from '../../../common/Answer';
-import { isJssApp, openPackageJson } from '../../../common/utils/helpers';
-import { transform } from '../../../common/steps/index';
+import { Initializer } from '../../common/Initializer';
+import { Answer } from '../../common/Answer';
+import { isJssApp, openPackageJson } from '../../common/utils/helpers';
+import { transform } from '../../common/steps/index';
 
 export class NextjsStyleguideInitializer implements Initializer {
   async init(args: ParsedArgs) {
@@ -23,11 +23,22 @@ export class NextjsStyleguideInitializer implements Initializer {
     // read the package.json to get the appName
     args.appName = args.appName || pkg?.config.appName || 'default';
     args.appPrefix = args.appPrefix || pkg?.config?.prefix || false;
-    const templatePath = path.resolve(__dirname, '../../../templates/nextjs/styleguide');
+    const templatePath = path.resolve(__dirname, '../../templates/nextjs-styleguide');
     await transform(templatePath, (args as unknown) as Answer);
 
-    if (!args.silent) {
-      console.log(chalk.green(`Successfully added styleguide to ${args.appName}!`));
-    }
+    const response = {
+      nextSteps: [`* Try out your application with ${chalk.green('jss start')}`],
+    };
+
+    return response;
+    // if (!args.initialized || !args.more) {
+    //   console.log('styleguide install', args.initialized, args.more);
+    //   installPackages(args.destination);
+    //   lintFix(args.destination);
+    // }
+
+    // if (!args.silent) {
+    //   console.log(chalk.green(`Successfully added styleguide to ${args.appName}!`));
+    // }
   }
 }

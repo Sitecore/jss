@@ -7,5 +7,7 @@ export interface Answer extends Answers {
   destination: string;
   fetchWith: string;
   hostName: string;
-  prefix?: boolean;
+  appPrefix?: boolean;
+  yes?: boolean;
+  post?: string;
 }
