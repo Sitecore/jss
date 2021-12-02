@@ -35,7 +35,7 @@
     "@sitecore-jss/sitecore-jss": "^20.0.0-canary.76",
     "axios": "^0.21.1",
     "chokidar": "^3.2.1",
-    "del": "^5.1.0",
+    "del": "^6.0.0",
     "express": "^4.17.1",
     "form-data": "^3.0.0",
     "fs-extra": "^8.1.0",
@@ -50,7 +50,7 @@
     "ts-node": "^8.4.1",
     "url-join": "^4.0.1",
     "uuid": "^8.3.2",
-    "yargs": "^14.0.0"
+    "yargs": "^17.3.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.3",
@@ -69,7 +69,7 @@
     "@types/sinon": "^7.5.0",
     "@types/url-join": "^4.0.0",
     "@types/uuid": "^8.3.3",
-    "@types/yargs": "^12.0.1",
+    "@types/yargs": "^17.0.7",
     "babel-core": "^6.26.3",
     "chai": "^4.2.0",
     "chalk": "^2.4.1",
