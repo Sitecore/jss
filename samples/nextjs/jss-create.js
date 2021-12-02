@@ -45,7 +45,6 @@ module.exports = function createJssProject(argv, nextSteps) {
   setEmpty(argv.empty);
   setFetchWith(argv.fetchWith);
   setPrerender(argv.prerender);
-  setNextConfig();
   removeDependencies();
 
   return nextSteps;
@@ -63,12 +62,14 @@ function setEmpty(empty) {
   if (!empty) return;
 
   const dataDir = getPath('data');
+  const disconnectedPlugin = getPath('src/lib/next-config/plugins/disconnected.js');
   const disconnectedProxyScript = getPath('scripts/disconnected-mode-proxy.ts');
   const manifestTemplate = getPath('scripts/templates/component-manifest.ts');
   const definitionsDir = getPath('sitecore/definitions');
   const componentsDir = getPath('src/components');
 
   fs.rmdirSync(dataDir, { recursive: true });
+  fs.unlinkSync(disconnectedPlugin);
   fs.unlinkSync(disconnectedProxyScript);
   fs.unlinkSync(manifestTemplate);
   fs.rmdirSync(definitionsDir, { recursive: true });
@@ -160,23 +161,13 @@ function setPrerender(prerender) {
 }
 
 /**
- * Switch development next.config.js to production config
- */
-function setNextConfig() {
-  const nextConfig = getPath('next.config.js');
-  const baseConfig = getPath('next.config.base.js');
-
-  console.log(chalk.cyan('Replacing next.config...'));
-
-  fs.unlinkSync(nextConfig);
-  fs.renameSync(baseConfig, nextConfig);
-}
-
-/**
  * Remove dependencies which are not used in production environment
  */
 function removeDependencies() {
+  const monorepoPlugin = getPath('src/lib/next-config/plugins/monorepo.js');
+
   console.log(chalk.cyan('Removing unused dependencies...'));
 
+  fs.unlinkSync(monorepoPlugin);
   execSync(`cd ${__dirname} && npm un --save-dev next-transpile-modules`);
 }

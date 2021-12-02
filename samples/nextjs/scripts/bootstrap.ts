@@ -36,4 +36,4 @@ import './generate-component-factory';
 /*
    PLUGINS GENERATION
 */
-import './generate-plugin';
+import './generate-plugins';
