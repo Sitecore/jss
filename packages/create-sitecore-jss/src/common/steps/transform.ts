@@ -132,6 +132,14 @@ export const transformPostInitializer = async ({
       process.exit();
     // eslint-disable no-fallthrough
     default:
+      // writeFile to default case so that when an initializer is
+      // run for the first time, it will still copy files that
+      // do not return a diff.
+      fs.writeFileSync(
+        `${destinationPath}\\${transformFilename(file, answers)}`,
+        rendered,
+        'utf-8'
+      );
       return;
   }
 };
@@ -191,7 +199,7 @@ export const transform = async (templatePath: string, answers: Answer) => {
 
       if (!str) str = '';
 
-      // if it's a post-initializer, run diffFiles()
+      // if there's no yes flag, run diffFiles()
       if (!answers.yes) {
         await transformPostInitializer({
           rendered: str,

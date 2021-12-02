@@ -28,17 +28,9 @@ export class NextjsStyleguideInitializer implements Initializer {
 
     const response = {
       nextSteps: [`* Try out your application with ${chalk.green('jss start')}`],
+      appName: args.appName,
     };
 
     return response;
-    // if (!args.initialized || !args.more) {
-    //   console.log('styleguide install', args.initialized, args.more);
-    //   installPackages(args.destination);
-    //   lintFix(args.destination);
-    // }
-
-    // if (!args.silent) {
-    //   console.log(chalk.green(`Successfully added styleguide to ${args.appName}!`));
-    // }
   }
 }
