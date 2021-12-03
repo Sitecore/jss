@@ -7,7 +7,7 @@ import sinon, { SinonStub } from 'sinon';
 import { currentPkg, partialPkg } from '../test-data/pkg';
 import * as transform from './transform';
 
-const { transformFilename, merge, diffFiles, transformPostInitializer } = transform;
+const { transformFilename, merge, diffFiles, writeFiles } = transform;
 
 let answers;
 
@@ -212,11 +212,13 @@ describe('transform', () => {
     let diffFilesStub: SinonStub;
     let transformFilenameStub: SinonStub;
     let writeFileStub: SinonStub;
+    let processExitStub: SinonStub;
 
     afterEach(() => {
       diffFilesStub?.restore();
       transformFilenameStub?.restore();
       writeFileStub?.restore();
+      processExitStub?.restore();
     });
 
     describe('transformPostInitializer', () => {
@@ -235,7 +237,7 @@ describe('transform', () => {
           yes: false,
         };
 
-        await transformPostInitializer({
+        await writeFiles({
           rendered: 'test',
           pathToNewFile: 'new/file/path',
           file: 'path/to/file',
@@ -270,7 +272,7 @@ describe('transform', () => {
           yes: false,
         };
 
-        await transformPostInitializer({
+        await writeFiles({
           rendered: 'test',
           pathToNewFile: 'new/file/path',
           file: 'path/to/file',
@@ -305,7 +307,7 @@ describe('transform', () => {
           yes: false,
         };
 
-        await transformPostInitializer({
+        await writeFiles({
           rendered: 'test',
           pathToNewFile: 'new/file/path',
           file: 'path/to/file',
@@ -329,7 +331,7 @@ describe('transform', () => {
           .returns('transformed-path');
         writeFileStub = sinon.stub(fs, 'writeFileSync');
 
-        const processExitStub = sinon.stub(process, 'exit');
+        processExitStub = sinon.stub(process, 'exit');
 
         const answers = {
           appName: 'JssNextWeb',
@@ -339,7 +341,7 @@ describe('transform', () => {
           yes: false,
         };
 
-        await transformPostInitializer({
+        await writeFiles({
           rendered: 'test',
           pathToNewFile: 'new/file/path',
           file: 'path/to/file',
@@ -356,8 +358,6 @@ describe('transform', () => {
         expect(processExitStub.calledOnce).to.equal(true);
 
         expect(answers.yes).to.equal(false);
-
-        processExitStub.restore();
       });
     });
   });
