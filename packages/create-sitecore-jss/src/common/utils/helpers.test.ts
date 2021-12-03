@@ -1,8 +1,15 @@
 import path from 'path';
+import fs from 'fs';
 import { expect } from 'chai';
 import chalk from 'chalk';
 import sinon, { SinonStub } from 'sinon';
-import { getPascalCaseName, openPackageJson, sortKeys, isJssApp } from './helpers';
+import {
+  getPascalCaseName,
+  openPackageJson,
+  writePackageJson,
+  sortKeys,
+  isJssApp,
+} from './helpers';
 import { JsonObjectType } from '../steps/transform';
 import testPackage from '../test-data/test.package.json';
 import rootPackage from '../../../package.json';
@@ -64,6 +71,68 @@ describe('helpers', () => {
       const result = openPackageJson();
 
       expect(result).to.deep.equal(rootPackage);
+    });
+  });
+
+  describe('writePackageJson', () => {
+    let log: SinonStub;
+    let writeFileSync: SinonStub;
+
+    afterEach(() => {
+      log?.restore();
+      writeFileSync?.restore();
+    });
+
+    it('should format data', () => {
+      writeFileSync = sinon.stub(fs, 'writeFileSync');
+
+      const data = {
+        foo: 'foo',
+        bar: { baz: 'baz' },
+      };
+
+      writePackageJson(data);
+
+      expect(writeFileSync.calledOnce).to.equal(true);
+      expect(writeFileSync.getCall(0).args[1]).to.equal(JSON.stringify(data, null, 2));
+    });
+
+    it('should use default path when path is not provided', () => {
+      writeFileSync = sinon.stub(fs, 'writeFileSync');
+
+      writePackageJson({});
+
+      expect(writeFileSync.calledOnce).to.equal(true);
+      expect(writeFileSync.getCall(0).args[0]).to.equal(path.resolve('./package.json'));
+    });
+
+    it('should use provided path', () => {
+      writeFileSync = sinon.stub(fs, 'writeFileSync');
+
+      const filePath = path.resolve('src', 'common', 'test-data', 'test.package.json');
+
+      writePackageJson({}, filePath);
+
+      expect(writeFileSync.calledOnce).to.equal(true);
+      expect(writeFileSync.getCall(0).args[0]).to.equal(filePath);
+    });
+
+    it('should throw an error when the path to the package does not exist', () => {
+      log = sinon.stub(console, 'log');
+
+      const filePath = path.resolve('not', 'existing', 'path', 'package.json');
+
+      writePackageJson({}, filePath);
+
+      expect(log.calledTwice).to.equal(true);
+      expect(log.getCall(0).args[0]).to.equal(
+        chalk.red(`The following error occurred while trying to write ${filePath}:`)
+      );
+      expect(log.getCall(1).args[0]).to.equal(
+        chalk.red(`Error: ENOENT: no such file or directory, open '${filePath}'`)
+      );
+
+      log.restore();
     });
   });
 
