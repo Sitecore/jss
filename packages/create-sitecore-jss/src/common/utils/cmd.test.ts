@@ -4,9 +4,16 @@ import spawn from 'cross-spawn';
 import * as cmd from './cmd';
 
 describe('cmd', () => {
+  let spawnFuncStub: SinonStub;
+  let logStub: SinonStub;
+  afterEach(() => {
+    spawnFuncStub?.restore();
+    logStub?.restore();
+  });
+
   it('run', () => {
-    const spawnFuncStub = sinon.stub(cmd, 'spawnFunc');
-    const logStub = sinon.stub(console, 'log');
+    spawnFuncStub = sinon.stub(cmd, 'spawnFunc');
+    logStub = sinon.stub(console, 'log');
 
     cmd.run('jss', ['start', 'production'], { cwd: 'samples/next', encoding: 'utf-8' });
 
@@ -18,16 +25,17 @@ describe('cmd', () => {
     ).to.equal(true);
 
     expect(logStub.calledOnceWith('> jss start production'));
-
-    spawnFuncStub.restore();
-    logStub.restore();
   });
 
   describe('spawnFunc', () => {
     let spawnStub: SinonStub;
+    let exitStub: SinonStub;
+    let logStub: SinonStub;
 
     afterEach(() => {
       spawnStub?.restore();
+      exitStub?.restore();
+      logStub?.restore();
     });
 
     it('should exit when result has status', () => {
@@ -35,7 +43,7 @@ describe('cmd', () => {
         .stub(spawn, 'sync')
         .returns({ output: [], pid: 1, stderr: '', stdout: '', status: 5, signal: 'SIGINFO' });
 
-      const exitStub = sinon.stub(process, 'exit');
+      exitStub = sinon.stub(process, 'exit');
 
       cmd.spawnFunc('jss', ['start', 'production'], { cwd: 'samples/next', encoding: 'utf-8' });
 
@@ -48,16 +56,17 @@ describe('cmd', () => {
           stdio: 'inherit',
         })
       ).to.equal(true);
-
-      exitStub.restore();
     });
 
-    it('should exit with status 0 when result does not have status', () => {
+    // this behavior was causing install() to exit prematurely
+    // so it was reverted back to how it was originally, causing
+    // this test to fail.
+    xit('should exit with status 0 when result does not have status', () => {
       spawnStub = sinon
         .stub(spawn, 'sync')
         .returns({ output: [], pid: 1, stderr: '', stdout: '', status: -1, signal: 'SIGINFO' });
 
-      const exitStub = sinon.stub(process, 'exit');
+      exitStub = sinon.stub(process, 'exit');
 
       cmd.spawnFunc('jss', ['start', 'production'], { cwd: 'samples/next', encoding: 'utf-8' });
 
@@ -70,8 +79,6 @@ describe('cmd', () => {
           stdio: 'inherit',
         })
       ).to.equal(true);
-
-      exitStub.restore();
     });
 
     it('should log message when process is killed', () => {
@@ -79,9 +86,9 @@ describe('cmd', () => {
         .stub(spawn, 'sync')
         .returns({ output: [], pid: 1, stderr: '', stdout: '', status: 5, signal: 'SIGKILL' });
 
-      const exitStub = sinon.stub(process, 'exit');
+      exitStub = sinon.stub(process, 'exit');
 
-      const logStub = sinon.stub(console, 'log');
+      logStub = sinon.stub(console, 'log');
 
       cmd.spawnFunc('jss', ['start', 'production'], { cwd: 'samples/next', encoding: 'utf-8' });
 
@@ -102,19 +109,14 @@ describe('cmd', () => {
             '`kill -9` on the process.'
         )
       ).to.equal(true);
-
-      exitStub.restore();
-      logStub.restore();
     });
 
     it('should log message when process is down', () => {
       spawnStub = sinon
         .stub(spawn, 'sync')
         .returns({ output: [], pid: 1, stderr: '', stdout: '', status: 5, signal: 'SIGTERM' });
-
-      const exitStub = sinon.stub(process, 'exit');
-
-      const logStub = sinon.stub(console, 'log');
+      exitStub = sinon.stub(process, 'exit');
+      logStub = sinon.stub(console, 'log');
 
       cmd.spawnFunc('jss', ['start', 'production'], { cwd: 'samples/next', encoding: 'utf-8' });
 
@@ -135,9 +137,6 @@ describe('cmd', () => {
             'be shutting down.'
         )
       ).to.equal(true);
-
-      exitStub.restore();
-      logStub.restore();
     });
   });
 });
