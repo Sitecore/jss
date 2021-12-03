@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { prompt } from 'inquirer';
 import { ParsedArgs } from 'minimist';
-import { NextjsAnswer } from '../models';
+import { NextjsAnswer } from './NextjsAnswer';
 import { userPrompts } from './user-prompts';
 import { Initializer } from '../../common/Initializer';
 import { transform } from '../../common/steps';
