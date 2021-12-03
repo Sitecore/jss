@@ -23432,7 +23432,7 @@ __metadata:
     graphql-tag: ^2.11.0
     next: ^12.0.4
     next-localization: ^0.11.0
-    next-transpile-modules: ^8.0.0
+    next-transpile-modules: ^9.0.0
     npm-run-all: ~4.1.5
     nprogress: ~0.2.0
     prettier: ^2.1.2
@@ -26317,13 +26317,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-transpile-modules@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "next-transpile-modules@npm:8.0.0"
+"next-transpile-modules@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "next-transpile-modules@npm:9.0.0"
   dependencies:
     enhanced-resolve: ^5.7.0
     escalade: ^3.1.1
-  checksum: 5535e385fd3a4efa25c46b472b2555436c9f3c0fa27f1a80f0c84f5d4c419981ded6896b03d0b418e7476d30bb41714ca0657204daa7c257a002b77a02b7783a
+  checksum: 9a5d86d80cedc2404b2b1d5bd4994f2f7bf60e5e20f24e8cc5cfec34da1418b4a439916f37a95ca336bcf6d81094c3647354ac6a0c6737b3df59e62b6380507d
   languageName: node
   linkType: hard
 
