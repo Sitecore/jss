@@ -7,6 +7,8 @@ import { NextjsAnswer } from './NextjsAnswer';
 import { userPrompts } from './user-prompts';
 import { Initializer } from '../../common/Initializer';
 import { transform } from '../../common/steps';
+import { isDevEnvironment } from '../../common/utils/helpers';
+import { removeDevDependencies } from './remove-dev-dependencies';
 
 export class NextjsInitializer implements Initializer {
   async init(args: ParsedArgs) {
@@ -42,21 +44,15 @@ export class NextjsInitializer implements Initializer {
     const templatePath = path.resolve(__dirname, '../../templates/nextjs');
     await transform(templatePath, answers);
 
+    if (isDevEnvironment(destination)) {
+      removeDevDependencies(destination);
+    }
+
     const response = {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
       appName: answers.appName,
     };
 
     return response;
-    // if (!answers.initialized || !answers.more) {
-    //   console.log('nextjs install', answers.initialized, answers.more);
-
-    //   installPackages(answers.destination);
-    //   lintFix(answers.destination);
-    // }
-
-    // if (!answers.silent) {
-    //   nextSteps(answers.appName);
-    // }
   }
 }
