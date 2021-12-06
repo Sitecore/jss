@@ -14,11 +14,11 @@ export const initRunner = async (initializers: string[], args: ParsedArgs) => {
     }
     try {
       response = await init.init(args);
-      // remember their "yes" answer for any subsequent initializers
-      args.yes = response.yes;
       if (response.nextSteps) {
         response.nextSteps.forEach((step) => nextStepsArr.push(step));
       }
+      // pass a "yes" answer to subsequent initializers
+      args.yes = response.yes || args.yes;
     } catch (error) {
       console.log(chalk.red('An error occurred: ', error));
     }
