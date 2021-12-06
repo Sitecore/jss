@@ -7,6 +7,7 @@
     "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary"
   },
   "scripts": {
+    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let",
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
     "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts"
   }

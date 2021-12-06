@@ -3,7 +3,7 @@ const styleguidePlugin = (nextConfig = {}) => {
 		i18n: {
 			...nextConfig.i18n,
 
-			locales: [<%- language ? ['en', language] : 'en' %>],
+			locales: ['en'<%- language ? `, '${language}'` : ''%>],
 		},
 	})
 };
