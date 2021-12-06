@@ -1,4 +1,4 @@
-import { NextjsStyleguideAnswer } from './models';
+import { NextjsStyleguideAnswer } from './NextjsStyleguideAnswer';
 import { QuestionCollection } from 'inquirer';
 
 export const userPrompts: QuestionCollection<NextjsStyleguideAnswer> = [
