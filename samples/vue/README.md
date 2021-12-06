@@ -1,4 +1,4 @@
-# vue
+# Sitecore JSS Vue.js Sample Application
 
 ## Project setup
 ```
