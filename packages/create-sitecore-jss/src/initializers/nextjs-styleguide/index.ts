@@ -6,7 +6,7 @@ import { Initializer } from '../../common/Initializer';
 import { userPrompts } from './user-prompts';
 import { isJssApp, openPackageJson } from '../../common/utils/helpers';
 import { transform } from '../../common/steps/index';
-import { NextjsStyleguideAnswer } from './models';
+import { NextjsStyleguideAnswer } from './NextjsStyleguideAnswer';
 
 export class NextjsStyleguideInitializer implements Initializer {
   async init(args: ParsedArgs) {
