@@ -14,25 +14,15 @@ import { getItems } from './utils';
   This can be customized in writePlugins().
 */
 
-const sitemapFetcherPluginListPath = path.resolve('src/temp/sitemap-fetcher-plugins.ts');
-const pagePropsFactoryPluginListPath = path.resolve('src/temp/page-props-factory-plugins.ts');
-const sitemapFetcherPluginsRootPath = 'src/lib/sitemap-fetcher/plugins';
-const pagePropsFactoryPluginsRootPath = 'src/lib/page-props-factory/plugins';
+enum ModuleType {
+  CJS,
+  ESM,
+}
 
-const paths = [
-  {
-    pluginListPath: sitemapFetcherPluginListPath,
-    pluginsRootPath: sitemapFetcherPluginsRootPath,
-  },
-  {
-    pluginListPath: pagePropsFactoryPluginListPath,
-    pluginsRootPath: pagePropsFactoryPluginsRootPath,
-  },
-];
-
-interface Paths {
-  pluginListPath: string;
-  pluginsRootPath: string;
+interface PluginDefinition {
+  listPath: string;
+  rootPath: string;
+  moduleType: ModuleType;
 }
 
 interface PluginFile {
@@ -40,11 +30,29 @@ interface PluginFile {
   name: string;
 }
 
-run(paths);
+const pluginDefinitions = [
+  {
+    listPath: 'src/temp/sitemap-fetcher-plugins.ts',
+    rootPath: 'src/lib/sitemap-fetcher/plugins',
+    moduleType: ModuleType.ESM,
+  },
+  {
+    listPath: 'src/temp/page-props-factory-plugins.ts',
+    rootPath: 'src/lib/page-props-factory/plugins',
+    moduleType: ModuleType.ESM,
+  },
+  {
+    listPath: 'src/temp/next-config-plugins.js',
+    rootPath: 'src/lib/next-config/plugins',
+    moduleType: ModuleType.CJS,
+  },
+];
 
-function run(paths: Paths[]) {
-  paths.forEach((path) => {
-    writePlugins(path.pluginListPath, path.pluginsRootPath);
+run(pluginDefinitions);
+
+function run(definitions: PluginDefinition[]) {
+  definitions.forEach((definition) => {
+    writePlugins(definition.listPath, definition.rootPath, definition.moduleType);
   });
 }
 
@@ -56,19 +64,22 @@ function run(paths: Paths[]) {
  * new plugin to the factory).
  * Modify this function to use a different convention.
  */
-function writePlugins(pluginListPath: string, pluginsRootPath: string) {
-  const pluginName = pluginsRootPath.split('/')[2];
-  const plugins = getPluginList(pluginsRootPath, pluginName);
+function writePlugins(listPath: string, rootPath: string, moduleType: ModuleType) {
+  const pluginName = rootPath.split('/')[2];
+  const plugins = getPluginList(rootPath, pluginName);
 
   const fileContent = plugins
     .map((plugin) => {
-      return `export { ${plugin.name} } from '${plugin.path}';`;
+      return moduleType === ModuleType.CJS
+        ? `exports.${plugin.name} = require('${plugin.path.replace('src/', '../')}');`
+        : `export { ${plugin.name} } from '${plugin.path}';`;
     })
     .join('\r\n')
     .concat('\r\n');
 
-  console.log(`Writing ${pluginName} plugins to ${pluginListPath}`);
-  fs.writeFileSync(pluginListPath, fileContent, {
+  const filePath = path.resolve(listPath);
+  console.log(`Writing ${pluginName} plugins to ${filePath}`);
+  fs.writeFileSync(filePath, fileContent, {
     encoding: 'utf8',
   });
 }

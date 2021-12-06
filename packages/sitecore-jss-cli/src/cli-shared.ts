@@ -10,7 +10,7 @@ process.on('unhandledRejection', (err) => {
 /**
  * @param {any} commands
  */
-export default function cli(commands: {
+export default async function cli(commands: {
   [key: string]: CommandModule & { disableStrictArgs?: boolean };
 }) {
   let appCommands = yargs.usage('$0 <command>');
@@ -26,7 +26,7 @@ export default function cli(commands: {
     // command is a yargs builder function that takes a yargs and returns a yargs
     // YARRRRRGS :D
     if (typeof commandObject.builder === 'function') {
-      appCommands = commandObject.builder(appCommands);
+      appCommands = await commandObject.builder(appCommands);
     }
 
     // command is a yargs 'command module' (https://github.com/yargs/yargs/blob/master/docs/advanced.md#providing-a-command-module)
@@ -44,7 +44,7 @@ export default function cli(commands: {
     }
   }
 
-  const argv = appCommands.demandCommand(1).help().argv;
+  const argv = await appCommands.demandCommand(1).help().argv;
 
   if (!argv._[0]) {
     console.log('Missing command. Use --help to see all available options.');

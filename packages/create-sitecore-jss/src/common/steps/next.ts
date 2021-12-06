@@ -35,9 +35,6 @@ export const nextSteps = async (appName: string, nextStepsArr: string[]) => {
   console.log(`JSS application ${chalk.green(appName)} is ready!`);
   console.log();
   console.log(chalk.yellow('Next steps:'));
-  // console.log('* npm install (or yarn install, etc)');
-  // console.log(`* Try out your application with ${chalk.green('jss start')}`);
-  // console.log(`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`);
   nextStepsArr.forEach((step) => {
     console.log(step);
   });

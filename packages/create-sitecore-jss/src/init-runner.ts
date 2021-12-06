@@ -25,6 +25,6 @@ export const initRunner = async (initializers: string[], args: ParsedArgs) => {
   if (!args.initialized) {
     installPackages(args.destination);
     lintFix(args.destination);
-    !args.silent && nextSteps(args.appName, nextStepsArr);
+    !args.silent && nextSteps(response?.appName || '', nextStepsArr);
   }
 };

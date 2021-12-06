@@ -11,9 +11,6 @@ export const isJssApp = (
     };
   }
 ) => {
-  // TODO: check if styleguide is a jss app
-  // check if current project is a JSS project
-  // TODO: move to helpers
   if (pkg?.config?.sitecoreConfigPath === undefined) {
     console.log(
       chalk.red(
@@ -40,6 +37,14 @@ export const isJssApp = (
   }
 };
 
+export const isDevEnvironment = (cwd?: string): boolean => {
+  const currentPath = path.resolve(cwd || process.cwd());
+  // TODO: is there a better way to detect this?
+  const lernaPath = path.join(currentPath, '..', '..');
+
+  return fs.existsSync(path.join(lernaPath, 'lerna.json'));
+};
+
 export const getPascalCaseName = (name: string): string => {
   // handle underscores by converting them to hyphens
   const temp: string[] = name.replace(/_/g, '-').split('-');
@@ -48,12 +53,22 @@ export const getPascalCaseName = (name: string): string => {
 };
 
 export const openPackageJson = (pkgPath?: string) => {
-  const filePath = path.resolve(pkgPath ? `${pkgPath}` : './package.json');
+  const filePath = path.resolve(pkgPath ?? './package.json');
   try {
     const data = fs.readFileSync(filePath, 'utf8');
     return data ? JSON.parse(data) : undefined;
   } catch (error) {
     console.log(chalk.red(`The following error occurred while trying to read ${filePath}:`));
+    console.log(chalk.red(error));
+  }
+};
+
+export const writePackageJson = (object: unknown, pkgPath?: string) => {
+  const filePath = path.resolve(pkgPath ?? './package.json');
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(object, null, 2), { encoding: 'utf8' });
+  } catch (error) {
+    console.log(chalk.red(`The following error occurred while trying to write ${filePath}:`));
     console.log(chalk.red(error));
   }
 };

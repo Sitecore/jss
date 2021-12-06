@@ -94,7 +94,7 @@ export const diffFiles = async (
   return answer.choice;
 };
 
-export const transformPostInitializer = async ({
+export const writeFiles = async ({
   rendered,
   pathToNewFile,
   destinationPath,
@@ -129,8 +129,18 @@ export const transformPostInitializer = async ({
       return;
     case 'abort':
       console.log(chalk.yellow('Goodbye!'));
-      process.exit();
+      return process.exit(1);
     // eslint-disable no-fallthrough
+    case '':
+      // writeFile to default case so that when an initializer is
+      // run for the first time, it will still copy files that
+      // do not return a diff.
+      fs.writeFileSync(
+        `${destinationPath}\\${transformFilename(file, answers)}`,
+        rendered,
+        'utf-8'
+      );
+      return;
     default:
       return;
   }
@@ -172,6 +182,7 @@ export const transform = async (templatePath: string, answers: Answer) => {
         continue;
       }
 
+      // TODO: no more answers.post, run package.json through ejs renderer even when combining partials
       if (
         file.endsWith('package.json') &&
         fs.existsSync(pathToNewFile) &&
@@ -191,9 +202,9 @@ export const transform = async (templatePath: string, answers: Answer) => {
 
       if (!str) str = '';
 
-      // if it's a post-initializer, run diffFiles()
+      // if there's no yes flag, run diffFiles()
       if (!answers.yes) {
-        await transformPostInitializer({
+        await writeFiles({
           rendered: str,
           pathToNewFile,
           destinationPath,

@@ -12,7 +12,7 @@ const main = async () => {
   const templates = argv.templates?.trim().split(',') || [];
   // ------------------------------
   // the below has moved into InitializerFactory
-  // TODOS: Figure out how post-initalizers will be... initalized.
+  // TODOS: Figure out how post-initializers will be... initialized.
   // how will the CLI flow?
   // -------------------------------
 
@@ -27,14 +27,17 @@ const main = async () => {
       default: 'nextjs',
     });
     templates.push(answer.templates);
-    const { postInitializers } = await prompt({
+
+    const postInitAnswer = await prompt({
       type: 'checkbox',
       name: 'postInitializers',
       message: 'Would you like to add any post-initializers?',
       choices: ['nextjs-styleguide', 'none'],
       default: 'none',
     });
-    postInitializers !== 'none' && postInitializers.forEach((init: string) => templates.push(init));
+    postInitAnswer.postInitializers.forEach(
+      (init: string) => init !== 'none' && templates.push(init)
+    );
   }
 
   if (!argv.destination) {
@@ -43,8 +46,12 @@ const main = async () => {
       {
         type: 'input',
         name: 'destination',
-        message: 'Where would you like your new app created?',
-        default: () => `${process.cwd()}\\${argv.appName || ''}`,
+        message: () =>
+          !templates.includes('styleguide')
+            ? 'Where would you like your new app created?'
+            : 'Destination for the post initializer?',
+        default: () =>
+          `${process.cwd()}${argv.appName ? '\\' + argv.appName : '\\sitecore-jss-nextjs'}`,
       }
     );
     argv.destination = answer.destination;
