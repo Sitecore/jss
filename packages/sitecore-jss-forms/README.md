@@ -1,4 +1,4 @@
-# Sitecore JavaScript Services Forms
+# Sitecore JavaScript Rendering SDK Forms
 
 This module is provided as a part of Sitecore JavaScript Services. It contains the APIs for Sitecore Forms integration.
 

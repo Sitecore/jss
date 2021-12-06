@@ -1,4 +1,4 @@
-# Sitecore JavaScript Services Proxy
+# Sitecore JavaScript Rendering SDK Proxy
 
 This module is provided as a part of Sitecore JavaScript Services. It contains the headless-mode SSR proxy implementation.
 

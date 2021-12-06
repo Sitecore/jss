@@ -1,4 +1,4 @@
-# Sitecore JavaScript Services Angular Schematics
+# Sitecore JavaScript Rendering SDK Angular Schematics
 
 This module is provided as a part of Sitecore JavaScript Services. It contains Angular developer code generation schematics.
 

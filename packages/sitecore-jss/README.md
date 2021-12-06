@@ -1,4 +1,4 @@
-# Sitecore JavaScript Rendering SDK 
+# Sitecore JavaScript Rendering SDK
 
 This module is provided as a part of Sitecore JavaScript Rendering SDK. It contains the core JSS APIs (layout service) and utilities.
 

@@ -1,4 +1,4 @@
-# Sitecore JavaScript Services developer tools
+# Sitecore JavaScript Rendering SDK Developer Tools
 
 This module is provided as a part of Sitecore JavaScript Services. It contains developer tooling, such as development proxies and deployment scripts.
 

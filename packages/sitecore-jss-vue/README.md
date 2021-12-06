@@ -1,4 +1,4 @@
-# Sitecore JavaScript Services for Vue
+# Sitecore JavaScript Rendering SDK for Vue
 
 This module is provided as a part of Sitecore JavaScript Services. It contains Vue integration and components for JSS.
 

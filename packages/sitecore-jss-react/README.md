@@ -1,4 +1,4 @@
-# Sitecore JavaScript Services for React
+# Sitecore JavaScript Rendering SDK for React
 
 This module is provided as a part of Sitecore JavaScript Services. It contains React components and integration for JSS.
 
