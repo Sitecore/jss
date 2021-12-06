@@ -172,12 +172,7 @@ export const transform = async (templatePath: string, answers: Answer) => {
         continue;
       }
 
-      if (
-        file.endsWith('package.json') &&
-        fs.existsSync(pathToNewFile) &&
-        // check if it is a post initializer
-        answers.post
-      ) {
+      if (file.endsWith('package.json') && fs.existsSync(pathToNewFile)) {
         // we treat package.json a bit differently
         // read the current package.json and the partial (templatePkg)
         // merge them and set the result to str which will then go through diff
