@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-rendering-host",
-  "version": "20.0.0-canary.75",
+  "version": "20.0.0-canary.77",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -28,7 +28,7 @@
   "dependencies": {
     "del": "^5.1.0",
     "import-fresh": "^3.1.0",
-    "ngrok": "^3.2.5",
+    "ngrok": "^4.2.2",
     "opn": "^6.0.0",
     "webpack": "4.41.0",
     "webpack-dev-server": "3.11.0"

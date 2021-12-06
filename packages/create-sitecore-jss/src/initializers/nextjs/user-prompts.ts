@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { NextjsAnswer } from '../models';
+import { NextjsAnswer } from './NextjsAnswer';
 import { QuestionCollection } from 'inquirer';
 
 export const userPrompts: QuestionCollection<NextjsAnswer> = [
