@@ -20,7 +20,7 @@ export class NextjsStyleguideInitializer implements Initializer {
     const answers: NextjsStyleguideAnswer = {
       destination: args.destination || path.resolve(process.cwd()),
       appName: args.appName || pkg?.config.appName || 'default',
-      appPrefix: args.appPrefix || pkg?.config?.prefix || true,
+      appPrefix: args.appPrefix || pkg?.config?.prefix || false,
     };
 
     const styleguideAnswers = await prompt<NextjsStyleguideAnswer>(userPrompts);
