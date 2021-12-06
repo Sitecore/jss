@@ -27,18 +27,23 @@ export class NextjsInitializer implements Initializer {
     // override defaults with passed in args (if any)
     defaults = Object.assign(defaults, args);
 
+    // run args through prompt to provide answers
     const answers = await prompt<NextjsAnswer>(userPrompts, defaults);
 
     const destination = path.resolve(answers.destination);
-    if (!args.yes && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
-      const answer = await prompt({
-        type: 'confirm',
-        name: 'continue',
-        message: `Directory '${answers.destination}' not empty. Are you sure you want to continue?`,
-      });
-      if (!answer.continue) {
-        process.exit();
+    if (fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
+      if (!answers.yes) {
+        const answer = await prompt({
+          type: 'confirm',
+          name: 'continue',
+          message: `Directory '${answers.destination}' not empty. Are you sure you want to continue?`,
+        });
+        if (!answer.continue) {
+          process.exit();
+        }
       }
+    } else {
+      answers.yes = true; // ensure we don't prompt for subsequent initializers
     }
 
     const templatePath = path.resolve(__dirname, '../../templates/nextjs');
@@ -51,6 +56,7 @@ export class NextjsInitializer implements Initializer {
     const response = {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
       appName: answers.appName,
+      yes: answers.yes,
     };
 
     return response;
