@@ -7,6 +7,5 @@ export const userPrompts: QuestionCollection<NextjsStyleguideAnswer> = [
     name: 'language',
     message:
       'Which additional language do you want to support (en is default)? Leave empty if not needed',
-    default: '',
   },
 ];
