@@ -1,6 +1,9 @@
 # Sitecore JSS React Sample Application
 
-Consult the primary JSS documentation at https://jss.sitecore.com for the latest documentation on JSS.
+<!---
+@TODO: Update to version 20.0.0 docs before release
+-->
+[Documentation](https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-react.html)
 
 ## Disconnected Sitecore-less Development
 
