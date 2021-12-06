@@ -44,7 +44,7 @@ export class NextjsInitializer implements Initializer {
     const templatePath = path.resolve(__dirname, '../../templates/nextjs');
     await transform(templatePath, answers);
 
-    if (isDevEnvironment(destination)) {
+    if (!isDevEnvironment(destination)) {
       removeDevDependencies(destination);
     }
 
