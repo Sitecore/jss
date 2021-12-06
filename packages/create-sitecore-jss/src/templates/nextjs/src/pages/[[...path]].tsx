@@ -14,14 +14,13 @@ import {
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
-import { sitemapFetcher } from 'lib/sitemap-fetcher';
-
 <% if (prerender === 'SSG') { %>
   import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
   const SitecorePage = (props: SitecorePageProps): JSX.Element => {
     const { notFound, layoutData, componentProps } = props;
 <% } else if (prerender === 'SSR') { %>
+
   const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
 <% } %>
 
