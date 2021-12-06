@@ -1,0 +1,33 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "importHelpers": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "target": "es5",
+    "module": "es2020",
+    "newLine": "LF",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom",
+      "esnext.asynciterable"
+    ],
+    "paths": {
+      "@angular/*": ["../node_modules/@angular/*"],
+      "rxjs": ["node_modules/rxjs", "../node_modules/rxjs"]
+    },
+    "baseUrl": "./"
+  }
+}

@@ -1,0 +1,34 @@
+<app-styleguide-specimen [rendering]="rendering" e2eId="styleguide-layout-tabs">
+  <!--
+    When the page is editing, we hide the tab headings, because they are not updated when xEditor adds or removes a tab rendering.
+    Instead, we show the tab header inline with the tab contents (see styleguide-layout-tabs-tab).
+  -->
+  <ul class="nav nav-tabs" *ngIf="!isEditing">
+    <li class="nav-item" *ngFor="let tab of tabs">
+      <a
+        [ngClass]="{'nav-link': true, 'active': tab === activeTab }"
+        (click)="activeTab = tab; false"
+        href="#"
+      >
+        <span *scText="tab.fields.title"></span>
+      </a>
+    </li>
+  </ul>
+  <div class="p-3 border-left border-right border-bottom">
+    <ng-container *ngIf="isEditing">
+      <!--
+        When experience editor is active we want to render all tabs in a stack,
+        to simplify editing.
+      -->
+      <sc-placeholder name="<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>-jss-tabs" [rendering]="rendering"></sc-placeholder>
+    </ng-container>
+    <ng-container *ngIf="!isEditing">
+      <!--
+        We only want to render the _active_ tab when we're not editing.
+        sc-render-component renders a _single_ component given its data,
+        allowing us to partially render the placeholder contents.
+      -->
+      <sc-render-component [rendering]="activeTab"></sc-render-component>
+    </ng-container>
+  </div>
+</app-styleguide-specimen>

@@ -23,21 +23,23 @@ const main = async () => {
       name: 'templates',
       // eslint-disable-next-line quotes
       message: "Select the template(s) you'd like to create?",
-      choices: ['nextjs'],
+      choices: ['nextjs', 'angular'],
       default: 'nextjs',
     });
     templates.push(answer.templates);
 
-    const postInitAnswer = await prompt({
-      type: 'checkbox',
-      name: 'postInitializers',
-      message: 'Would you like to add any post-initializers?',
-      choices: ['nextjs-styleguide', 'none'],
-      default: 'none',
-    });
-    postInitAnswer.postInitializers.forEach(
-      (init: string) => init !== 'none' && templates.push(init)
-    );
+    if (answer.templates === 'nextjs') {
+      const postInitAnswer = await prompt({
+        type: 'checkbox',
+        name: 'postInitializers',
+        message: 'Would you like to add any post-initializers?',
+        choices: ['nextjs-styleguide', 'none'],
+        default: 'none',
+      });
+      postInitAnswer.postInitializers.forEach(
+        (init: string) => init !== 'none' && templates.push(init)
+      );
+    }
   }
 
   if (!argv.destination) {
@@ -51,7 +53,7 @@ const main = async () => {
             ? 'Where would you like your new app created?'
             : 'Destination for the post initializer?',
         default: () =>
-          `${process.cwd()}${argv.appName ? '\\' + argv.appName : '\\sitecore-jss-nextjs'}`,
+          `${process.cwd()}${argv.appName ? '\\' + argv.appName : '\\sitecore-jss-app'}`,
       }
     );
     argv.destination = answer.destination;

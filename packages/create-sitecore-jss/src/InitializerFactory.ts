@@ -1,5 +1,5 @@
 import { Initializer } from './common/Initializer';
-import { NextjsInitializer, NextjsStyleguideInitializer } from './initializers';
+import { AngularInitializer, NextjsInitializer, NextjsStyleguideInitializer } from './initializers';
 
 export class InitializerFactory {
   create(name: string): Initializer | undefined {
@@ -8,6 +8,8 @@ export class InitializerFactory {
         return new NextjsInitializer();
       case 'nextjs-styleguide':
         return new NextjsStyleguideInitializer();
+      case 'angular':
+        return new AngularInitializer();
       default:
         return undefined;
     }

@@ -1,0 +1,4 @@
+styleguide-sample: '[<%- language %>] This is a dictionary entry in English as a demonstration'
+Documentation: '[<%- language %>] Documentation'
+Styleguide: '[<%- language %>] Styleguide'
+GraphQL: '[<%- language %>] GraphQL'

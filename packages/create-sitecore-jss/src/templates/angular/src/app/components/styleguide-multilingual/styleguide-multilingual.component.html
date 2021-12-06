@@ -1,0 +1,15 @@
+<app-styleguide-specimen [rendering]="rendering" e2eId="styleguide-multilingual">
+  <p *scText="rendering.fields.sample; encode: false;"></p>
+
+  <p>
+    This is a static dictionary entry from <code>/data/dictionary</code>: {{ 'styleguide-sample' | translate }}
+  </p>
+
+  <p>
+    <a routerLink="/en/styleguide" (click)="switchLanguage($event)">Show in English</a>
+    <br />
+    <a routerLink="/da-DK/styleguide" (click)="switchLanguage($event)">Show in Danish</a>
+  </p>
+
+  <p>The current language is: {{ translate.currentLang }}</p>
+</app-styleguide-specimen>

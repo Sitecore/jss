@@ -1,0 +1,24 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec",
+    "baseUrl": "./",
+    "target": "es5",
+    "newLine": "LF",
+    "types": [
+      "jasmine",
+      "node"
+    ]
+  },
+  "lib": [
+    "esnext.asynciterable"
+  ],
+  "files": [
+    "test.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ]
+}
