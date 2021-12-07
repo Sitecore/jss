@@ -68,6 +68,7 @@
     "npm-run-all": "~4.1.5",
     "prettier": "^2.1.2",
     "ts-node": "^9.0.0",
+    "tsconfig-paths": "^3.12.0",
     "typescript": "~4.3.5",
     "yaml-loader": "^0.6.0"
   },
@@ -80,7 +81,7 @@
     "next:build": "next build",
     "next:dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "next:start": "next start",
-    "scaffold": "ts-node --project tsconfig.scripts.json scripts/scaffold-component.ts",
+    "scaffold": "jss bootstrap --silent && ts-node -r tsconfig-paths/register --project tsconfig.scripts.json scripts/scaffold-component/index.ts",
     "start:connected": "npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
     "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch"

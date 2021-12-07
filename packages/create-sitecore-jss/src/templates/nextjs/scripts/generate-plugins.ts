@@ -1,6 +1,6 @@
 ﻿import fs from 'fs';
 import path from 'path';
-import { getItems } from './utils';
+import { getItems, isSilent } from './utils';
 
 /*
   PLUGINS GENERATION
@@ -46,6 +46,11 @@ const pluginDefinitions = [
     rootPath: 'src/lib/next-config/plugins',
     moduleType: ModuleType.CJS,
   },
+  {
+    listPath: 'src/temp/scaffold-component-plugins.ts',
+    rootPath: 'scripts/scaffold-component/plugins',
+    moduleType: ModuleType.ESM,
+  },
 ];
 
 run(pluginDefinitions);
@@ -67,8 +72,9 @@ function run(definitions: PluginDefinition[]) {
 function writePlugins(listPath: string, rootPath: string, moduleType: ModuleType) {
   const pluginName = rootPath.split('/')[2];
   const plugins = getPluginList(rootPath, pluginName);
+  let fileContent = '';
 
-  const fileContent = plugins
+  fileContent = plugins
     .map((plugin) => {
       return moduleType === ModuleType.CJS
         ? `exports.${plugin.name} = require('${plugin.path.replace('src/', '../')}');`
@@ -77,8 +83,12 @@ function writePlugins(listPath: string, rootPath: string, moduleType: ModuleType
     .join('\r\n')
     .concat('\r\n');
 
+  if (!plugins.length) {
+    fileContent = moduleType === ModuleType.CJS ? 'module.exports = {};\r\n' : 'export {};\r\n';
+  }
+
   const filePath = path.resolve(listPath);
-  console.log(`Writing ${pluginName} plugins to ${filePath}`);
+  !isSilent() && console.log(`Writing ${pluginName} plugins to ${filePath}`);
   fs.writeFileSync(filePath, fileContent, {
     encoding: 'utf8',
   });
@@ -91,7 +101,7 @@ function getPluginList(path: string, pluginName: string): PluginFile[] {
       path: `${path}/${name}`,
       name: `${name.replace(/[^\w]+/g, '')}Plugin`,
     }),
-    cb: (name) => console.debug(`Registering ${pluginName} plugin ${name}`),
+    cb: (name) => !isSilent() && console.debug(`Registering ${pluginName} plugin ${name}`),
   });
 
   return plugins;

@@ -1,6 +1,8 @@
 import fs from 'fs';
 import chokidar from 'chokidar';
 
+export const isSilent = () => process.argv.some((arg) => arg === '--silent');
+
 /**
  * Run watch mode, watching on @var rootPath
  */
@@ -28,6 +30,8 @@ export function getItems<Item>(settings: {
   const { path, resolveItem, cb, fileFormat = new RegExp(/(.+)(?<!\.d)\.[jt]sx?$/) } = settings;
   const items: Item[] = [];
   const folders: fs.Dirent[] = [];
+
+  if (!fs.existsSync(path)) return [];
 
   fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {
     if (item.isDirectory()) {
