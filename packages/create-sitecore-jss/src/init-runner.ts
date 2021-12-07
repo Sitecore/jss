@@ -17,6 +17,8 @@ export const initRunner = async (initializers: string[], args: ParsedArgs) => {
       if (response.nextSteps) {
         response.nextSteps.forEach((step) => nextStepsArr.push(step));
       }
+      // pass a "yes" answer to subsequent initializers
+      args.yes = response.yes || args.yes;
     } catch (error) {
       console.log(chalk.red('An error occurred: ', error));
     }
