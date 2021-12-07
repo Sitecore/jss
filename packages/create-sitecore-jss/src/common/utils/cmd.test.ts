@@ -58,29 +58,6 @@ describe('cmd', () => {
       ).to.equal(true);
     });
 
-    // this behavior was causing install() to exit prematurely
-    // so it was reverted back to how it was originally, causing
-    // this test to fail.
-    xit('should exit with status 0 when result does not have status', () => {
-      spawnStub = sinon
-        .stub(spawn, 'sync')
-        .returns({ output: [], pid: 1, stderr: '', stdout: '', status: -1, signal: 'SIGINFO' });
-
-      exitStub = sinon.stub(process, 'exit');
-
-      cmd.spawnFunc('jss', ['start', 'production'], { cwd: 'samples/next', encoding: 'utf-8' });
-
-      expect(exitStub.getCall(0).args[0]).to.equal(1);
-
-      expect(
-        spawnStub.calledOnceWith('jss', ['start', 'production'], {
-          cwd: 'samples/next',
-          encoding: 'utf-8',
-          stdio: 'inherit',
-        })
-      ).to.equal(true);
-    });
-
     it('should log message when process is killed', () => {
       spawnStub = sinon
         .stub(spawn, 'sync')

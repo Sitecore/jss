@@ -1,30 +1,39 @@
 import chalk from 'chalk';
 import path from 'path';
+import { prompt } from 'inquirer';
 import { ParsedArgs } from 'minimist';
 import { Initializer } from '../../common/Initializer';
-import { Answer } from '../../common/Answer';
+import { userPrompts } from './user-prompts';
 import { isJssApp, openPackageJson } from '../../common/utils/helpers';
 import { transform } from '../../common/steps/index';
+import { NextjsStyleguideAnswer } from './NextjsStyleguideAnswer';
 
 export class NextjsStyleguideInitializer implements Initializer {
   async init(args: ParsedArgs) {
-    // set destination to cwd, or read from args
-    args.destination = args.destination || path.resolve(process.cwd());
-    args.post = true;
-
     let pkg;
-    // read package.json in target destination, check if app is JSS app
+
     if (!args.yes) {
       pkg = openPackageJson(`${args.destination}\\package.json`);
       isJssApp('nextjs-styleguide', pkg);
     }
 
-    // derive variables from package.json
-    // read the package.json to get the appName
-    args.appName = args.appName || pkg?.config.appName || 'default';
-    args.appPrefix = args.appPrefix || pkg?.config?.prefix || false;
+    const answers: NextjsStyleguideAnswer = {
+      destination: args.destination,
+      appName: args.appName || pkg?.config?.appName || 'default',
+      appPrefix: args.appPrefix || pkg?.config?.prefix || false,
+    };
+
+    const styleguideAnswers = await prompt<NextjsStyleguideAnswer>(userPrompts);
+
+    answers.language = styleguideAnswers.language;
+
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-styleguide');
-    await transform(templatePath, (args as unknown) as Answer);
+
+    await transform(templatePath, answers, {
+      filter: (filePath) => {
+        return !!answers.language || !filePath.endsWith('{{language}}.yml');
+      },
+    });
 
     const response = {
       nextSteps: [`* Try out your application with ${chalk.green('jss start')}`],
