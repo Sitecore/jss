@@ -29,7 +29,7 @@ class FieldFactory {
     this._defaultComponent = component;
   }
 
-  setComponent<TProps extends FieldProps>(type: FieldTypes, component: FormFieldComponent<TProps>) {
+  setComponent<TProps extends FieldProps>(type: FieldTypes | string, component: FormFieldComponent<TProps>) {
     this._fieldMap.set(type, component);
   }
 
