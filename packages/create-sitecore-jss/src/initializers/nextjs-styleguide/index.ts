@@ -18,8 +18,8 @@ export class NextjsStyleguideInitializer implements Initializer {
     }
 
     const answers: NextjsStyleguideAnswer = {
-      destination: args.destination || path.resolve(process.cwd()),
-      appName: args.appName || pkg?.config.appName || 'default',
+      destination: args.destination,
+      appName: args.appName || pkg?.config?.appName || 'default',
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
     };
 
@@ -28,7 +28,12 @@ export class NextjsStyleguideInitializer implements Initializer {
     answers.language = styleguideAnswers.language;
 
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-styleguide');
-    await transform(templatePath, answers);
+
+    await transform(templatePath, answers, {
+      filter: (filePath) => {
+        return !!answers.language || !filePath.endsWith('{{language}}.yml');
+      },
+    });
 
     const response = {
       nextSteps: [`* Try out your application with ${chalk.green('jss start')}`],

@@ -146,7 +146,11 @@ export const writeFiles = async ({
   }
 };
 
-export const transform = async (templatePath: string, answers: Answer) => {
+export const transform = async (
+  templatePath: string,
+  answers: Answer,
+  options: { filter?: (filePath: string) => boolean } = {}
+) => {
   // get absolute path for destination of app
   const destinationPath = path.resolve(answers.destination);
 
@@ -169,6 +173,10 @@ export const transform = async (templatePath: string, answers: Answer) => {
     try {
       const pathToNewFile = `${destinationPath}\\${file}`;
       const pathToTemplate = path.join(templatePath, file);
+
+      if (options.filter && !options.filter(pathToTemplate)) {
+        continue;
+      }
       // holds the content to be written to the new file
       let str: string | undefined;
 
