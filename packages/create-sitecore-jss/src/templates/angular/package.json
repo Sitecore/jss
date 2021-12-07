@@ -20,7 +20,7 @@
   "scripts": {
     "ng": "ng",
     "lint:yml": "ts-node ./scripts/lint-yml.ts",
-    "lint": "ng lint <%- appName %> && npm run lint:yml",
+    "lint": "ng lint <%- appName %> --fix && npm run lint:yml",
     "e2e": "ng e2e",
     "jss": "jss",
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel start:angular start:proxy start:watch-components\"",
