@@ -7,13 +7,13 @@
 				"componentName": "Styleguide-FieldUsage-Text",
 				"fields": {
 					"heading": {
-						"value": "Enkeltlinjetekst"
+						"value": "[<%- language %>] Single-Line Text"
 					},
 					"sample": {
-						"value": "Dette er et eksempel på tekstfelt."
+						"value": "[<%- language %>] This is a sample text field."
 					},
 					"sample2": {
-						"value": "Dette er et andet eksempel på tekstfelt ved hjælp af gengivelsesindstillinger. Kan ikke redigere, fordi redigerbar = falsk."
+						"value": "[<%- language %>] This is another sample text field using rendering options. Cannot edit because editable=false."
 					}
 				}
 			},
@@ -21,9 +21,9 @@
         "componentName": "Styleguide-Multilingual",
         "fields": {
           "heading": {
-            "value": "Oversættelsesmønstre da-DK"
+            "value": "Sample translation for <%- language %>"
           },
-          "sample": "Denne tekst kan oversættes til da-DK.yml"
+          "sample": "This text can be translated in <%- language %>.yml"
         }
       }
     ]

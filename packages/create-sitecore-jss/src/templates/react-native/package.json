@@ -1,14 +1,14 @@
 {
-  "name": "jss-sample-reactnative",
+  "name": "<%- appName %>",
   "version": "20.0.0-canary.77",
   "description": "A basic React Native app utilizing Sitecore JavaScript Services",
   "config": {
-    "appName": "JssReactNative",
+    "appName": "<%- helper.getPascalCaseName(appName) %>",
     "rootPlaceholders": [
       "jss-main"
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
-    "language": "en"
+    "language": "<%- language %>"
   },
   "engines": {
     "node": ">=8.1",

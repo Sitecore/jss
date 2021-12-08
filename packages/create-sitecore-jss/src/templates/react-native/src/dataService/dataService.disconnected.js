@@ -5,7 +5,7 @@
 // eslint-disable-next-line
 import { images } from 'static-assets';
 import styleguideEnData from '../../data/routes/styleguide/en.json';
-import styleguideDaDkData from '../../data/routes/styleguide/da-DK.json';
+import styleguide<%- language.replace('-', '') %>Data from '../../data/routes/styleguide/<%- language %>.json';
 import homeDataEn from '../../data/routes/en.json';
 import { mapNestedJson } from './util';
 
@@ -14,9 +14,9 @@ const data = {
     '/': homeDataEn,
     '/styleguide': styleguideEnData,
   },
-  'da-DK': {
+  '<%- language %>': {
     '/': null,
-    '/styleguide': styleguideDaDkData,
+    '/styleguide': styleguide<%- language.replace('-', '') %>Data,
   },
 };
 
