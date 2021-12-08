@@ -1,5 +1,5 @@
 import { Text, Link, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import NextLink from 'next/link';
 
 type DataSource = {
@@ -48,7 +48,7 @@ type ItemSearchResults = {
   results: Item[];
 };
 
-type GraphQlIntegratedDemoProps = StyleguideComponentProps & {
+type GraphQlIntegratedDemoProps = ComponentProps & {
   fields: {
     data: {
       datasource: DataSource;

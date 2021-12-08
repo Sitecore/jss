@@ -2,9 +2,10 @@ import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nex
 import Link from 'next/link';
 import { useI18n } from 'next-localization';
 import StyleguideSpecimen from './Styleguide-Specimen';
-import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { ComponentWithContextProps } from 'lib/component-props';
+import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideMultilingualProps = StyleguideComponentWithContextProps &
+type StyleguideMultilingualProps = ComponentWithContextProps &
   StyleguideSpecimenFields & {
     fields: {
       sample: Field<string>;
@@ -34,9 +35,11 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
           <a>Show in English</a>
         </Link>
         <br />
-        <Link href="/styleguide" locale="da-DK">
-          <a>Show in Danish</a>
+        <% if (language) { %>
+        <Link href="/styleguide" locale="<%- language %>">
+          <a>Show in <%- language %></a>
         </Link>
+        <% } %>
       </p>
 
       <p>The current language is: {locale()}</p>
