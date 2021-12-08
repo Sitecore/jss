@@ -15,6 +15,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
         process.exit(1);
       }
       try {
+        args.silent || console.log(chalk.cyan(`Initializing '${init}'...`));
         const response = await initializer.init(args);
 
         appName = response.appName;
@@ -37,8 +38,8 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
 
   // final steps (install, lint, etc)
   if (!args.noInstall) {
-    installPackages(args.destination);
-    lintFix(args.destination);
+    installPackages(args.destination, args.silent);
+    lintFix(args.destination, args.silent);
   }
   if (!args.silent) {
     nextSteps(appName || '', nextStepsArr);
