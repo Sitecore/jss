@@ -1,9 +1,9 @@
 import chalk from 'chalk';
 import { installPackages, lintFix, nextSteps } from './common/steps';
-import { ParsedArgs } from 'minimist';
+import { BaseArgs } from './common/args/base';
 import { InitializerFactory } from './InitializerFactory';
 
-export const initRunner = async (initializers: string[], args: ParsedArgs) => {
+export const initRunner = async (initializers: string[], args: BaseArgs) => {
   const nextStepsArr: string[] = [];
   let response;
   for (const initializer of initializers) {
@@ -23,7 +23,7 @@ export const initRunner = async (initializers: string[], args: ParsedArgs) => {
       console.log(chalk.red('An error occurred: ', error));
     }
   }
-  // final steps (install, lint, etc)
+
   if (!args.initialized) {
     installPackages(args.destination);
     lintFix(args.destination);

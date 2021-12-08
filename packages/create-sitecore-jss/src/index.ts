@@ -40,7 +40,9 @@ const main = async () => {
     );
   }
 
-  if (!argv.destination) {
+  let destination = argv.destination;
+
+  if (!destination) {
     const answer = await prompt(
       // wouldn't ask this for post-init if it's being run alone,
       {
@@ -54,10 +56,10 @@ const main = async () => {
           `${process.cwd()}${argv.appName ? '\\' + argv.appName : '\\sitecore-jss-nextjs'}`,
       }
     );
-    argv.destination = answer.destination;
+    destination = answer.destination;
   }
 
-  initRunner(templates, argv);
+  initRunner(templates, { ...argv, destination });
 };
 
 main();
