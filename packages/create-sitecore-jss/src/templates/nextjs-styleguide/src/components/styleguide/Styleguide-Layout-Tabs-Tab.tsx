@@ -5,9 +5,9 @@ import {
   useSitecoreContext,
   withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 
-type StyleguideLayoutTabsTabProps = StyleguideComponentProps & {
+type StyleguideLayoutTabsTabProps = ComponentProps & {
   fields: {
     content: Field<string>;
     title: Field<string>;

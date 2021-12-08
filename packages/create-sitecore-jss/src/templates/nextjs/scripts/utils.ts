@@ -29,6 +29,8 @@ export function getItems<Item>(settings: {
   const items: Item[] = [];
   const folders: fs.Dirent[] = [];
 
+  if (!fs.existsSync(path)) return [];
+
   fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {
     if (item.isDirectory()) {
       folders.push(item);

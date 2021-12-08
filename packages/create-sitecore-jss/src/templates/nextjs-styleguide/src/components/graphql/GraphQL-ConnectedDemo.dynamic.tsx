@@ -17,7 +17,7 @@ import {
   Item,
   <%- appPrefix ? `${helper.getPascalCaseName(appName)}` : "" %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
 } from './GraphQL-ConnectedDemo.dynamic.graphql';
-import { StyleguideComponentProps } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 
 type RouteItem = AppRoute & Item;
@@ -27,7 +27,7 @@ type GraphQLConnectedDemoData = {
   contextItem: RouteItem;
 };
 
-const GraphQLConnectedDemo = (props: StyleguideComponentProps): JSX.Element => {
+const GraphQLConnectedDemo = (props: ComponentProps): JSX.Element => {
   const data = useComponentProps<GraphQLConnectedDemoData>(props.rendering.uid);
 
   useEffect(() => {
@@ -145,4 +145,4 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
   return result;
 };
 
-export default withDatasourceCheck()<StyleguideComponentProps>(GraphQLConnectedDemo);
+export default withDatasourceCheck()<ComponentProps>(GraphQLConnectedDemo);

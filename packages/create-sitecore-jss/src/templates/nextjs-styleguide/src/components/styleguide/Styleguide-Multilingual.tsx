@@ -2,9 +2,10 @@ import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nex
 import Link from 'next/link';
 import { useI18n } from 'next-localization';
 import StyleguideSpecimen from './Styleguide-Specimen';
-import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { ComponentWithContextProps } from 'lib/component-props';
+import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideMultilingualProps = StyleguideComponentWithContextProps &
+type StyleguideMultilingualProps = ComponentWithContextProps &
   StyleguideSpecimenFields & {
     fields: {
       sample: Field<string>;
