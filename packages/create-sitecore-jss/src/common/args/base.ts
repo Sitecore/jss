@@ -4,6 +4,7 @@ type Arg = string | number | boolean;
 
 export interface BaseArgs {
   [key: string]: Arg | Arg[] | undefined;
+  templates: string[];
   destination: string;
   silent?: boolean;
   force?: boolean;

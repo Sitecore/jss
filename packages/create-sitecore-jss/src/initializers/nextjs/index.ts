@@ -48,8 +48,10 @@ export class NextjsInitializer implements Initializer {
     }
 
     let postInitializers: string[] = [];
-    // don't prompt for post-initializers if they've already specified multiple (assume they know what they're doing)
-    if (!args.templates || args.templates.indexOf(',') === -1) {
+
+    // don't prompt for post-initializers if they've already specified
+    // multiple via --templates (assume they know what they're doing)
+    if (args.templates.length === 1) {
       const postInitAnswer = await prompt({
         type: 'checkbox',
         name: 'postInitializers',

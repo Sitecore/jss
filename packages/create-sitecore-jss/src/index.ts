@@ -49,7 +49,7 @@ const main = async () => {
     destination = answer.destination;
   }
 
-  initRunner(templates, { ...argv, destination });
+  initRunner(templates, { ...argv, destination, templates });
 };
 
 main();
