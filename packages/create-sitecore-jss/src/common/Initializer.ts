@@ -1,8 +1,9 @@
 import { ParsedArgs } from 'minimist';
 
 export interface InitializerResults {
-  nextSteps: string[];
   appName: string;
+  initializers?: string[];
+  nextSteps?: string[];
   yes?: boolean;
 }
 export interface Initializer {

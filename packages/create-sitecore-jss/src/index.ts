@@ -8,52 +8,43 @@ import { initRunner } from './init-runner';
 // useful for CI and testing purposes
 const argv: ParsedArgs = parseArgs(process.argv.slice(2), { boolean: ['appPrefix', 'yes'] });
 
-const main = async () => {
-  const templates = argv.templates?.trim().split(',') || [];
-  // ------------------------------
-  // the below has moved into InitializerFactory
-  // TODOS: Figure out how post-initializers will be... initialized.
-  // how will the CLI flow?
-  // -------------------------------
+// set of base templates (any post-initializers should be prompted in respective base template)
+const BASE_TEMPLATES = ['nextjs'];
 
+const main = async () => {
+  let templates: string[] = [];
+
+  // check if templates were provided
+  if (argv._.length > 0 && argv._[0] !== undefined) {
+    // use positional parameter
+    templates = [argv._[0]];
+  } else {
+    // use --templates arg
+    templates = argv.templates?.trim().split(',') || [];
+  }
+
+  // validate/gather templates
   if (!templates.length) {
     const answer = await prompt({
       // enable selecting post initializers
       type: 'list',
-      name: 'templates',
+      name: 'template',
       // eslint-disable-next-line quotes
-      message: "Select the template(s) you'd like to create?",
-      choices: ['nextjs'],
+      message: "Select the template you'd like to create?",
+      choices: BASE_TEMPLATES,
       default: 'nextjs',
     });
-    templates.push(answer.templates);
-
-    const postInitAnswer = await prompt({
-      type: 'checkbox',
-      name: 'postInitializers',
-      message: 'Would you like to add any post-initializers?',
-      choices: ['nextjs-styleguide', 'none'],
-      default: 'none',
-    });
-    postInitAnswer.postInitializers.forEach(
-      (init: string) => init !== 'none' && templates.push(init)
-    );
+    templates.push(answer.template);
   }
 
+  // validate/gather destination
   if (!argv.destination) {
-    const answer = await prompt(
-      // wouldn't ask this for post-init if it's being run alone,
-      {
-        type: 'input',
-        name: 'destination',
-        message: () =>
-          !templates.includes('styleguide')
-            ? 'Where would you like your new app created?'
-            : 'Destination for the post initializer?',
-        default: () =>
-          `${process.cwd()}${argv.appName ? '\\' + argv.appName : '\\sitecore-jss-nextjs'}`,
-      }
-    );
+    const answer = await prompt({
+      type: 'input',
+      name: 'destination',
+      message: 'Where would you like your new app created?',
+      default: () => `${process.cwd()}${argv.appName ? '\\' + argv.appName : '\\sitecore-jss-app'}`,
+    });
     argv.destination = answer.destination;
   }
 

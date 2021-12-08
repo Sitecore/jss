@@ -19,8 +19,9 @@ export class NextjsStyleguideInitializer implements Initializer {
 
     const answers: NextjsStyleguideAnswer = {
       destination: args.destination,
-      appName: args.appName || pkg?.config?.appName || 'default',
+      appName: args.appName || pkg?.config?.appName || 'sitecore-jss-app',
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
+      yes: args.yes,
     };
 
     const styleguideAnswers = await prompt<NextjsStyleguideAnswer>(userPrompts);

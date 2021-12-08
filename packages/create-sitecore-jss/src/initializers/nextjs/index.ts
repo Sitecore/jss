@@ -43,7 +43,7 @@ export class NextjsInitializer implements Initializer {
         }
       }
     } else {
-      answers.yes = true; // ensure we don't prompt for subsequent initializers
+      answers.yes = true; // ensure we don't diff prompt for subsequent initializers
     }
 
     const templatePath = path.resolve(__dirname, '../../templates/nextjs');
@@ -53,9 +53,22 @@ export class NextjsInitializer implements Initializer {
       removeDevDependencies(destination);
     }
 
+    let postInitializers: string[] = [];
+    // don't prompt for post-initializers if they've already specified multiple (assume they know what they're doing)
+    if (!args.templates || args.templates.indexOf(',') === -1) {
+      const postInitAnswer = await prompt({
+        type: 'checkbox',
+        name: 'postInitializers',
+        message: 'Would you like to add any post-initializers?',
+        choices: ['nextjs-styleguide'],
+      });
+      postInitializers = postInitAnswer.postInitializers;
+    }
+
     const response = {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
       appName: answers.appName,
+      initializers: postInitializers,
       yes: answers.yes,
     };
 
