@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { Text, Field, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from './Styleguide-Specimen';
-import { ComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
+import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
 type StyleguideRouteFieldsProps = ComponentProps & StyleguideSpecimenFields;
 

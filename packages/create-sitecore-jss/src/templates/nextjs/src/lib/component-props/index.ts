@@ -1,19 +1,8 @@
 import {
-  Field,
   ComponentParams,
   ComponentRendering,
   SitecoreContextValue,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-
-/**
- * Shared styleguide specimen fields
- */
-export type StyleguideSpecimenFields = {
-  fields: {
-    description: Field<string>;
-    heading: Field<string>;
-  };
-};
 
 /**
  * Shared component props
@@ -24,11 +13,11 @@ export type ComponentProps = {
 };
 
 /**
- * Styleguide component props with context
+ * Component props with context
  * You can access `sitecoreContext` by withSitecoreContext/useSitecoreContext
  * @example withSitecoreContext()(ContentBlock)
  * @example const { sitecoreContext } = useSitecoreContext()
  */
-export type StyleguideComponentWithContextProps = ComponentProps & {
+ export type ComponentWithContextProps = ComponentProps & {
   sitecoreContext: SitecoreContextValue;
 };

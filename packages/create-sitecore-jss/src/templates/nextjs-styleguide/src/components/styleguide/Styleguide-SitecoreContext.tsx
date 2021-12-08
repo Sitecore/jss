@@ -1,6 +1,7 @@
 import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from './Styleguide-Specimen';
-import { StyleguideSpecimenFields, ComponentProps } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
+import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
 type StyleguideSitecoreContextProps = ComponentProps & StyleguideSpecimenFields;
 

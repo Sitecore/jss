@@ -1,5 +1,6 @@
 import { Text, RichText, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
+import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
 type StyleguideSpecimenProps = ComponentProps &
   StyleguideSpecimenFields & {
