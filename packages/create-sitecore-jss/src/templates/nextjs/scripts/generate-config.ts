@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import { constantCase } from 'constant-case';
 import packageConfig from '../package.json';
-import { isSilent } from './utils';
 
 /* eslint-disable no-console */
 
@@ -53,7 +52,7 @@ const config = {};\n`;
   configText += `module.exports = config;`;
 
   const configPath = path.resolve('src/temp/config.js');
-  !isSilent() && console.log(`Writing runtime config to ${configPath}`);
+  console.log(`Writing runtime config to ${configPath}`);
   fs.writeFileSync(configPath, configText, { encoding: 'utf8' });
 }
 

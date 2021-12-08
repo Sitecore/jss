@@ -4,7 +4,7 @@ import generateComponentFactory, {
   ComponentFile,
   PackageDefinition,
 } from './templates/component-factory';
-import { getItems, isSilent, watchItems } from './utils';
+import { getItems, watchItems } from './utils';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -75,7 +75,7 @@ function writeComponentFactory() {
 
   const fileContent = generateComponentFactory(components);
 
-  !isSilent() && console.log(`Writing component factory to ${componentFactoryPath}`);
+  console.log(`Writing component factory to ${componentFactoryPath}`);
 
   fs.writeFileSync(componentFactoryPath, fileContent, {
     encoding: 'utf8',
@@ -90,7 +90,7 @@ function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
       componentName: name,
       moduleName: name.replace(/[^\w]+/g, ''),
     }),
-    cb: name => !isSilent() && console.debug(`Registering JSS component ${name}`),
+    cb: name => console.debug(`Registering JSS component ${name}`),
   });
 
   return components;

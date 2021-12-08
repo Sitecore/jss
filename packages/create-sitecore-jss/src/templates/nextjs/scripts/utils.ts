@@ -1,8 +1,6 @@
 import fs from 'fs';
 import chokidar from 'chokidar';
 
-export const isSilent = () => process.argv.some((arg) => arg === '--silent');
-
 /**
  * Run watch mode, watching on @var rootPath
  */
