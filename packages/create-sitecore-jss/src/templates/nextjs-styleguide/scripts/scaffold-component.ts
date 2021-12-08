@@ -8,6 +8,7 @@
   For example, `jss scaffold search/SearchBox` will create a component called `SearchBox` in
   `src/components/search/SearchBox.tsx`. Specifying a relative path is optional, and just providing
   the name is ok.
+
   Edit this script if you wish to use your own conventions for component storage in your JSS app.
 */
 

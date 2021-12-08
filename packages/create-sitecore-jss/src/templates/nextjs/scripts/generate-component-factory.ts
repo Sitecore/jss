@@ -74,9 +74,7 @@ function writeComponentFactory() {
   components.unshift(...packages);
 
   const fileContent = generateComponentFactory(components);
-
   console.log(`Writing component factory to ${componentFactoryPath}`);
-
   fs.writeFileSync(componentFactoryPath, fileContent, {
     encoding: 'utf8',
   });
@@ -90,7 +88,7 @@ function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
       componentName: name,
       moduleName: name.replace(/[^\w]+/g, ''),
     }),
-    cb: name => console.debug(`Registering JSS component ${name}`),
+    cb: (name) => console.debug(`Registering JSS component ${name}`),
   });
 
   return components;
