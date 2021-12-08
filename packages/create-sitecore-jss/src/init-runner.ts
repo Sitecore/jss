@@ -1,9 +1,9 @@
 import chalk from 'chalk';
 import { installPackages, lintFix, nextSteps } from './common/steps';
-import { ParsedArgs } from 'minimist';
+import { BaseArgs } from './common/args/base';
 import { InitializerFactory } from './InitializerFactory';
 
-export const initRunner = async (initializers: string[], args: ParsedArgs) => {
+export const initRunner = async (initializers: string[], args: BaseArgs) => {
   let nextStepsArr: string[] = [];
   let appName;
 

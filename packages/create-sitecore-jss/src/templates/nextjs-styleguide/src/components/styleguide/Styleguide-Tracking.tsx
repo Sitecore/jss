@@ -7,11 +7,12 @@ import {
 import { dataFetcher } from 'lib/data-fetcher';
 import config from 'temp/config';
 import StyleguideSpecimen from './Styleguide-Specimen';
-import { StyleguideComponentWithContextProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { ComponentWithContextProps } from 'lib/component-props';
+import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
 /* eslint-disable no-alert,no-undef */
 
-type StyleguideTrackingProps = StyleguideComponentWithContextProps & StyleguideSpecimenFields;
+type StyleguideTrackingProps = ComponentWithContextProps & StyleguideSpecimenFields;
 
 /**
  * Demonstrates analytics tracking patterns (xDB)

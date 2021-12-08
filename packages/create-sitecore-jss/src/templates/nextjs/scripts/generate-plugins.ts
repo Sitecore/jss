@@ -67,8 +67,9 @@ function run(definitions: PluginDefinition[]) {
 function writePlugins(listPath: string, rootPath: string, moduleType: ModuleType) {
   const pluginName = rootPath.split('/')[2];
   const plugins = getPluginList(rootPath, pluginName);
+  let fileContent = '';
 
-  const fileContent = plugins
+  fileContent = plugins
     .map((plugin) => {
       return moduleType === ModuleType.CJS
         ? `exports.${plugin.name} = require('${plugin.path.replace('src/', '../')}');`
@@ -76,6 +77,10 @@ function writePlugins(listPath: string, rootPath: string, moduleType: ModuleType
     })
     .join('\r\n')
     .concat('\r\n');
+
+  if (!plugins.length) {
+    fileContent = moduleType === ModuleType.CJS ? 'module.exports = {};\r\n' : 'export {};\r\n';
+  }
 
   const filePath = path.resolve(listPath);
   console.log(`Writing ${pluginName} plugins to ${filePath}`);

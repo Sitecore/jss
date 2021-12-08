@@ -38,17 +38,18 @@ const main = async () => {
   }
 
   // validate/gather destination
-  if (!argv.destination) {
+  let destination = argv.destination;
+  if (!destination) {
     const answer = await prompt({
       type: 'input',
       name: 'destination',
       message: 'Where would you like your new app created?',
       default: () => `${process.cwd()}${argv.appName ? '\\' + argv.appName : '\\sitecore-jss-app'}`,
     });
-    argv.destination = answer.destination;
+    destination = answer.destination;
   }
 
-  initRunner(templates, argv);
+  initRunner(templates, { ...argv, destination });
 };
 
 main();
