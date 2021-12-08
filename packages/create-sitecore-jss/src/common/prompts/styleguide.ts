@@ -13,7 +13,6 @@ export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
     name: 'language',
     message:
       'Which additional language do you want to support (en is default and required)? Leave empty if not needed',
-    default: '',
     validate: (input: string): boolean => {
       if (!input) return true;
 
