@@ -2,7 +2,6 @@ import chalk from 'chalk';
 import chokidar from 'chokidar';
 import path from 'path';
 import watch from '../watch.json';
-import { ParsedArgs } from 'minimist';
 import { initRunner } from '../src/init-runner';
 
 chokidar
@@ -23,8 +22,6 @@ async function callback(event?: string, path?: string) {
 }
 
 const initializeApps = async (noInstall: boolean) => {
-  const args: ParsedArgs = { ...watch.args, '--': undefined, _: [] };
   const initializers = watch.initializers || [];
-  args.noInstall = noInstall;
-  await initRunner(initializers, args);
+  await initRunner(initializers, { ...watch.args, templates: initializers, noInstall });
 };

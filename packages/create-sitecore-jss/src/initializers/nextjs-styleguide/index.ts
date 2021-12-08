@@ -16,7 +16,9 @@ export class NextjsStyleguideInitializer implements Initializer {
       isJssApp('nextjs-styleguide', pkg);
     }
 
-    const styleguideAnswers = await prompt<StyleguideAnswer>(styleguidePrompts);
+    const defaults = args.yes ? { language: '' } : {};
+
+    const styleguideAnswers = await prompt<StyleguideAnswer>(styleguidePrompts, defaults);
 
     const mergedArgs = {
       ...args,
