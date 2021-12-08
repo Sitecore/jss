@@ -146,7 +146,11 @@ export const writeFiles = async ({
   }
 };
 
-export const transform = async (templatePath: string, answers: Answer) => {
+export const transform = async (
+  templatePath: string,
+  answers: Answer,
+  options: { filter?: (filePath: string) => boolean } = {}
+) => {
   // get absolute path for destination of app
   const destinationPath = path.resolve(answers.destination);
 
@@ -169,6 +173,10 @@ export const transform = async (templatePath: string, answers: Answer) => {
     try {
       const pathToNewFile = `${destinationPath}\\${file}`;
       const pathToTemplate = path.join(templatePath, file);
+
+      if (options.filter && !options.filter(pathToTemplate)) {
+        continue;
+      }
       // holds the content to be written to the new file
       let str: string | undefined;
 
@@ -182,13 +190,7 @@ export const transform = async (templatePath: string, answers: Answer) => {
         continue;
       }
 
-      // TODO: no more answers.post, run package.json through ejs renderer even when combining partials
-      if (
-        file.endsWith('package.json') &&
-        fs.existsSync(pathToNewFile) &&
-        // check if it is a post initializer
-        answers.post
-      ) {
+      if (file.endsWith('package.json') && fs.existsSync(pathToNewFile)) {
         // we treat package.json a bit differently
         // read the current package.json and the partial (templatePkg)
         // merge them and set the result to str which will then go through diff
