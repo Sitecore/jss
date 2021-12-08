@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'BasicSampleReactNative' do
-  # Pods for BasicSampleReactNative
+target '<%- helper.getPascalCaseName(appName) %>' do
+  # Pods for <%- helper.getPascalCaseName(appName) %>
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -34,7 +34,7 @@ target 'BasicSampleReactNative' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'BasicSampleReactNativeTests' do
+  target '<%- helper.getPascalCaseName(appName) %>Tests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -42,10 +42,10 @@ target 'BasicSampleReactNative' do
   use_native_modules!
 end
 
-target 'BasicSampleReactNative-tvOS' do
-  # Pods for BasicSampleReactNative-tvOS
+target '<%- helper.getPascalCaseName(appName) %>-tvOS' do
+  # Pods for <%- helper.getPascalCaseName(appName) %>-tvOS
 
-  target 'BasicSampleReactNative-tvOSTests' do
+  target '<%- helper.getPascalCaseName(appName) %>-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

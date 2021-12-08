@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "BasicSampleReactNative.app"
-               BlueprintName = "BasicSampleReactNative"
-               ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+               BuildableName = "<%- helper.getPascalCaseName(appName) %>.app"
+               BlueprintName = "<%- helper.getPascalCaseName(appName) %>"
+               ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "BasicSampleReactNativeTests.xctest"
-               BlueprintName = "BasicSampleReactNativeTests"
-               ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+               BuildableName = "<%- helper.getPascalCaseName(appName) %>Tests.xctest"
+               BlueprintName = "<%- helper.getPascalCaseName(appName) %>Tests"
+               ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "BasicSampleReactNativeTests.xctest"
-               BlueprintName = "BasicSampleReactNativeTests"
-               ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+               BuildableName = "<%- helper.getPascalCaseName(appName) %>Tests.xctest"
+               BlueprintName = "<%- helper.getPascalCaseName(appName) %>Tests"
+               ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BasicSampleReactNative.app"
-            BlueprintName = "BasicSampleReactNative"
-            ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+            BuildableName = "<%- helper.getPascalCaseName(appName) %>.app"
+            BlueprintName = "<%- helper.getPascalCaseName(appName) %>"
+            ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BasicSampleReactNative.app"
-            BlueprintName = "BasicSampleReactNative"
-            ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+            BuildableName = "<%- helper.getPascalCaseName(appName) %>.app"
+            BlueprintName = "<%- helper.getPascalCaseName(appName) %>"
+            ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BasicSampleReactNative.app"
-            BlueprintName = "BasicSampleReactNative"
-            ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+            BuildableName = "<%- helper.getPascalCaseName(appName) %>.app"
+            BlueprintName = "<%- helper.getPascalCaseName(appName) %>"
+            ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

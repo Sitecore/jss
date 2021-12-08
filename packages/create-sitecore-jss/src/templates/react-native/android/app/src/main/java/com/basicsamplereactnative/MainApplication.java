@@ -1,4 +1,4 @@
-package com.basicsamplereactnative;
+package com.<%- appName %>;
 
 import android.app.Application;
 import android.content.Context;

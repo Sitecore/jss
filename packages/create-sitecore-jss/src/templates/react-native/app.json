@@ -1,4 +1,4 @@
 {
-  "name": "BasicSampleReactNative",
-  "displayName": "BasicSampleReactNative"
+  "name": "<%- helper.getPascalCaseName(appName) %>",
+  "displayName": "<%- helper.getPascalCaseName(appName) %>"
 }

@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "BasicSampleReactNative-tvOS.app"
-               BlueprintName = "BasicSampleReactNative-tvOS"
-               ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+               BuildableName = "<%- helper.getPascalCaseName(appName) %>-tvOS.app"
+               BlueprintName = "<%- helper.getPascalCaseName(appName) %>-tvOS"
+               ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "BasicSampleReactNative-tvOSTests.xctest"
-               BlueprintName = "BasicSampleReactNative-tvOSTests"
-               ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+               BuildableName = "<%- helper.getPascalCaseName(appName) %>-tvOSTests.xctest"
+               BlueprintName = "<%- helper.getPascalCaseName(appName) %>-tvOSTests"
+               ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "BasicSampleReactNative-tvOSTests.xctest"
-               BlueprintName = "BasicSampleReactNative-tvOSTests"
-               ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+               BuildableName = "<%- helper.getPascalCaseName(appName) %>-tvOSTests.xctest"
+               BlueprintName = "<%- helper.getPascalCaseName(appName) %>-tvOSTests"
+               ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "BasicSampleReactNative-tvOS.app"
-            BlueprintName = "BasicSampleReactNative-tvOS"
-            ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+            BuildableName = "<%- helper.getPascalCaseName(appName) %>-tvOS.app"
+            BlueprintName = "<%- helper.getPascalCaseName(appName) %>-tvOS"
+            ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "BasicSampleReactNative-tvOS.app"
-            BlueprintName = "BasicSampleReactNative-tvOS"
-            ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+            BuildableName = "<%- helper.getPascalCaseName(appName) %>-tvOS.app"
+            BlueprintName = "<%- helper.getPascalCaseName(appName) %>-tvOS"
+            ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "BasicSampleReactNative-tvOS.app"
-            BlueprintName = "BasicSampleReactNative-tvOS"
-            ReferencedContainer = "container:BasicSampleReactNative.xcodeproj">
+            BuildableName = "<%- helper.getPascalCaseName(appName) %>-tvOS.app"
+            BlueprintName = "<%- helper.getPascalCaseName(appName) %>-tvOS"
+            ReferencedContainer = "container:<%- helper.getPascalCaseName(appName) %>.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
