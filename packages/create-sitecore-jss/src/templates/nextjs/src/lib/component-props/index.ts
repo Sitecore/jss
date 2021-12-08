@@ -18,6 +18,6 @@ export type ComponentProps = {
  * @example withSitecoreContext()(ContentBlock)
  * @example const { sitecoreContext } = useSitecoreContext()
  */
- export type ComponentWithContextProps = ComponentProps & {
+export type ComponentWithContextProps = ComponentProps & {
   sitecoreContext: SitecoreContextValue;
 };
