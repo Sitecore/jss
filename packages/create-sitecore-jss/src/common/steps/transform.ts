@@ -4,19 +4,22 @@ import glob from 'glob';
 import path from 'path';
 import { renderFile } from 'ejs';
 import { prompt } from 'inquirer';
-import { Answer } from '../Answer';
 import { getPascalCaseName, openPackageJson, sortKeys } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
+import { BaseArgs } from '../args/base';
 
 export type JsonPropertyType = number | string | (number | string)[] | JsonObjectType;
 export interface JsonObjectType {
   [key: string]: JsonPropertyType;
 }
 
-export const transformFilename = (file: string, answers: Answer): string => {
+export const transformFilename = (file: string, args: BaseArgs): string => {
   // eslint-disable-next-line guard-for-in
-  for (const key in answers) {
-    file = file.replace(`{{${key}}}`, answers[key]);
+  for (const key in args) {
+    const value = args[key];
+    if (typeof value !== 'string') continue;
+
+    file = file.replace(`{{${key}}}`, value);
   }
   return file;
 };
@@ -104,7 +107,7 @@ export const writeFiles = async ({
   rendered: string;
   pathToNewFile: string;
   destinationPath: string;
-  answers: Answer;
+  answers: BaseArgs;
   file: string;
 }) => {
   const choice = await diffFiles(rendered, transformFilename(pathToNewFile, answers));
@@ -148,7 +151,7 @@ export const writeFiles = async ({
 
 export const transform = async (
   templatePath: string,
-  answers: Answer,
+  answers: BaseArgs,
   options: { filter?: (filePath: string) => boolean } = {}
 ) => {
   // get absolute path for destination of app
