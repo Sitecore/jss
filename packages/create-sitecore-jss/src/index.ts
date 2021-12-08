@@ -53,7 +53,7 @@ const main = async () => {
             ? 'Where would you like your new app created?'
             : 'Destination for the post initializer?',
         default: () =>
-          `${process.cwd()}${argv.appName ? '\\' + argv.appName : '\\sitecore-jss-nextjs'}`,
+          `${process.cwd()}${argv.appName ? '\\' + argv.appName : '\\sitecore-jss-app'}`,
       }
     );
     destination = answer.destination;
