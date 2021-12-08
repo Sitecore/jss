@@ -1,15 +1,14 @@
 import chalk from 'chalk';
 import path from 'path';
 import { prompt } from 'inquirer';
-import { ParsedArgs } from 'minimist';
 import { Initializer } from '../../common/Initializer';
-import { userPrompts } from './user-prompts';
 import { isJssApp, openPackageJson } from '../../common/utils/helpers';
 import { transform } from '../../common/steps/index';
-import { NextjsStyleguideAnswer } from './NextjsStyleguideAnswer';
+import { styleguidePrompts, StyleguideAnswer } from '../../common/prompts/styleguide';
+import { StyleguideArgs } from '../../common/args/styleguide';
 
 export class NextjsStyleguideInitializer implements Initializer {
-  async init(args: ParsedArgs) {
+  async init(args: StyleguideArgs) {
     let pkg;
 
     if (!args.yes) {
@@ -17,28 +16,27 @@ export class NextjsStyleguideInitializer implements Initializer {
       isJssApp('nextjs-styleguide', pkg);
     }
 
-    const answers: NextjsStyleguideAnswer = {
-      destination: args.destination,
+    const styleguideAnswers = await prompt<StyleguideAnswer>(styleguidePrompts);
+
+    const mergedArgs = {
+      ...args,
       appName: args.appName || pkg?.config?.appName || 'default',
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
+      ...styleguideAnswers,
     };
-
-    const styleguideAnswers = await prompt<NextjsStyleguideAnswer>(userPrompts);
-
-    answers.language = styleguideAnswers.language;
 
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-styleguide');
 
-    await transform(templatePath, answers, {
+    await transform(templatePath, mergedArgs, {
       filter: (filePath) => {
-        return !!answers.language || !filePath.endsWith('{{language}}.yml');
+        return !!mergedArgs.language || !filePath.endsWith('{{language}}.yml');
       },
     });
 
     const response = {
       nextSteps: [`* Try out your application with ${chalk.green('jss start')}`],
-      appName: args.appName,
-      yes: args.yes,
+      appName: mergedArgs.appName,
+      yes: mergedArgs.yes,
     };
 
     return response;

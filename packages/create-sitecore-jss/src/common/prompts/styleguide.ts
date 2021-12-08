@@ -1,11 +1,13 @@
+import { Answers, DistinctQuestion } from 'inquirer';
 import chalk from 'chalk';
 
-import { NextjsStyleguideAnswer } from './NextjsStyleguideAnswer';
-import { QuestionCollection } from 'inquirer';
+export interface StyleguideAnswer extends Answers {
+  language?: string;
+}
 
 const LANGUAGE_REGEXP = /^(([a-z]{2}-[A-Z]{2})|([a-z]{2}))$/;
 
-export const userPrompts: QuestionCollection<NextjsStyleguideAnswer> = [
+export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
   {
     type: 'input',
     name: 'language',

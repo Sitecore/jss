@@ -1,14 +1,23 @@
 import chalk from 'chalk';
-import { NextjsAnswer } from './NextjsAnswer';
-import { QuestionCollection } from 'inquirer';
+import { DistinctQuestion } from 'inquirer';
 
-export const userPrompts: QuestionCollection<NextjsAnswer> = [
-  // App name
+export enum FetchWith {
+  GraphQL = 'GraphQL',
+  REST = 'REST',
+}
+
+export interface ClientAppAnswer {
+  appName: string;
+  fetchWith: FetchWith;
+  hostName: string;
+}
+
+export const clientAppPrompts: DistinctQuestion[] = [
   {
     type: 'input',
     name: 'appName',
     message: 'What is the name of your app?',
-    default: 'sitecore-jss-nextjs',
+    default: 'sitecore-jss-app',
     validate: (input: string): boolean => {
       if (!/^[a-z\-_.]+$/.test(input)) {
         console.error(
@@ -21,23 +30,13 @@ export const userPrompts: QuestionCollection<NextjsAnswer> = [
       return true;
     },
   },
-  // fetchWith
   {
     type: 'list',
     name: 'fetchWith',
     message: 'How would you like to fetch Layout and Dictionary data?',
-    choices: ['GraphQL', 'REST'],
-    default: 'GraphQL',
+    choices: Object.values(FetchWith),
+    default: FetchWith.GraphQL,
   },
-  // prerender
-  {
-    type: 'list',
-    name: 'prerender',
-    message: 'How would you like to prerender your application?',
-    choices: ['SSG', 'SSR'],
-    default: 'SSG',
-  },
-  // hostName
   {
     type: 'input',
     name: 'hostName',
@@ -45,3 +44,6 @@ export const userPrompts: QuestionCollection<NextjsAnswer> = [
     default: 'https://cm.jss.localhost',
   },
 ];
+
+// node-headless-proxy, headless-ssr-exp-edge
+export const nodeAppPrompts: { [key: string]: unknown }[] = [];

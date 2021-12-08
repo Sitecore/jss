@@ -1,4 +1,4 @@
-import { ParsedArgs } from 'minimist';
+import { BaseArgs } from './args/base';
 
 export interface InitializerResults {
   nextSteps: string[];
@@ -6,5 +6,5 @@ export interface InitializerResults {
   yes?: boolean;
 }
 export interface Initializer {
-  init: (args: ParsedArgs) => Promise<InitializerResults>;
+  init: (args: BaseArgs) => Promise<InitializerResults>;
 }
