@@ -1,7 +1,7 @@
 import { Field, Placeholder, Text, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 
-type StyleguideSectionProps = StyleguideComponentProps & {
+type StyleguideSectionProps = ComponentProps & {
   fields: {
     heading: Field<string>;
   };

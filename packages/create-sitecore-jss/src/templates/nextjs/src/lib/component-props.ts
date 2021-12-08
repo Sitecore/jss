@@ -16,9 +16,9 @@ export type StyleguideSpecimenFields = {
 };
 
 /**
- * Shared styleguide component props
+ * Shared component props
  */
-export type StyleguideComponentProps = {
+export type ComponentProps = {
   rendering: ComponentRendering;
   params: ComponentParams;
 };
@@ -29,6 +29,6 @@ export type StyleguideComponentProps = {
  * @example withSitecoreContext()(ContentBlock)
  * @example const { sitecoreContext } = useSitecoreContext()
  */
-export type StyleguideComponentWithContextProps = StyleguideComponentProps & {
+export type StyleguideComponentWithContextProps = ComponentProps & {
   sitecoreContext: SitecoreContextValue;
 };

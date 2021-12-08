@@ -1,8 +1,8 @@
 import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from './Styleguide-Specimen';
-import { StyleguideSpecimenFields, StyleguideComponentProps } from 'lib/component-props';
+import { StyleguideSpecimenFields, ComponentProps } from 'lib/component-props';
 
-type StyleguideSitecoreContextProps = StyleguideComponentProps & StyleguideSpecimenFields;
+type StyleguideSitecoreContextProps = ComponentProps & StyleguideSpecimenFields;
 
 /**
  * Demonstrates gaining access to the route-level Sitecore Context from

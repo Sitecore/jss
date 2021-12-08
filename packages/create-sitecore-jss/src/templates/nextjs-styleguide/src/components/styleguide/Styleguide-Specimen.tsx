@@ -1,7 +1,7 @@
 import { Text, RichText, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
+import { ComponentProps, StyleguideSpecimenFields } from 'lib/component-props';
 
-type StyleguideSpecimenProps = StyleguideComponentProps &
+type StyleguideSpecimenProps = ComponentProps &
   StyleguideSpecimenFields & {
     e2eId: string;
     children: React.ReactNode;
