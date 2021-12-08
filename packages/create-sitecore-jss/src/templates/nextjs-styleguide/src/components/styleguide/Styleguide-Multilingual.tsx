@@ -35,11 +35,11 @@ const StyleguideMultilingual = (props: StyleguideMultilingualProps): JSX.Element
           <a>Show in English</a>
         </Link>
         <br />
-        <% if (language) { %>
+        <% if (language) { -%>
         <Link href="/styleguide" locale="<%- language %>">
           <a>Show in <%- language %></a>
         </Link>
-        <% } %>
+        <% } -%>
       </p>
 
       <p>The current language is: {locale()}</p>
