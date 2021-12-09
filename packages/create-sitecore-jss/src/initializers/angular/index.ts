@@ -27,15 +27,11 @@ export class AngularInitializer implements Initializer {
       ...answers,
     };
     const templatePath = path.resolve(__dirname, '../../templates/angular');
-    await transform(
-      templatePath,
-      { ...args, ...answers },
-      {
-        filter: (filePath) => {
-          return !!mergedArgs.language || !filePath.endsWith('{{language}}.yml');
-        },
-      }
-    );
+    await transform(templatePath, mergedArgs, {
+      filter: (filePath) => {
+        return !!mergedArgs.language || !filePath.endsWith('{{language}}.yml');
+      },
+    });
 
     const response = {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
