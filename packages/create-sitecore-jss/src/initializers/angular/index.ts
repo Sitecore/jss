@@ -7,7 +7,11 @@ import { FetchWith } from '../../common/prompts/base';
 import { Initializer } from '../../common/Initializer';
 import { transform } from '../../common/steps/transform';
 
-export class AngularInitializer implements Initializer {
+export default class AngularInitializer implements Initializer {
+  get isBase() {
+    return true;
+  }
+
   async init(args: AngularArgs) {
     // identify defaults
     const defaults = args.yes
