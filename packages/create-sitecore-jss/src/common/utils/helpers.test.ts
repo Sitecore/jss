@@ -186,10 +186,22 @@ describe('helpers', () => {
       exit?.restore();
     });
 
-    it('should log error when sitecoreConfigPath is not provided', () => {
+    it('should return true when sitecoreConfigPath is provided', () => {
       log = sinon.stub(console, 'log');
-      exit = sinon.stub(process, 'exit');
-      isJssApp('nextjs', {});
+      const result = isJssApp('nextjs', {
+        config: {
+          sitecoreConfigPath: 'test',
+        },
+      });
+
+      expect(log.getCalls().length).to.equal(0);
+
+      expect(result).to.equal(true);
+    });
+
+    it('should return false when sitecoreConfigPath is not provided', () => {
+      log = sinon.stub(console, 'log');
+      const result = isJssApp('nextjs', {});
 
       expect(log.getCalls().length).to.equal(3);
 
@@ -217,8 +229,7 @@ describe('helpers', () => {
         )
       );
 
-      expect(exit.getCalls().length).to.equal(1);
-      expect(exit.getCall(0).args[0]).to.equal(1);
+      expect(result).to.equal(false);
     });
   });
 });

@@ -1,8 +1,9 @@
 import { BaseArgs } from './args/base';
 
 export interface InitializerResults {
-  nextSteps: string[];
   appName: string;
+  initializers?: string[];
+  nextSteps?: string[];
   yes?: boolean;
 }
 export interface Initializer {

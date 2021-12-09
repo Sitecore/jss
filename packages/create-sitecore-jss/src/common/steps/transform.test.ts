@@ -14,7 +14,6 @@ let answers;
 const getAnswers = () => {
   answers = {
     yes: true,
-    initialized: false,
     silent: true,
     appPrefix: true,
     appName: 'test',
@@ -22,6 +21,7 @@ const getAnswers = () => {
     fetchWith: 'GraphQL',
     prerender: 'SSG',
     hostName: 'https://cm.jss.localhost',
+    templates: [],
   };
   return answers;
 };
@@ -235,6 +235,7 @@ describe('transform', () => {
           destination: 'samples/next',
           fetchWith: 'REST',
           yes: false,
+          templates: [],
         };
 
         await writeFiles({
@@ -270,6 +271,7 @@ describe('transform', () => {
           destination: 'samples/next',
           fetchWith: 'REST',
           yes: false,
+          templates: [],
         };
 
         await writeFiles({
@@ -305,6 +307,7 @@ describe('transform', () => {
           destination: 'samples/next',
           fetchWith: 'REST',
           yes: false,
+          templates: [],
         };
 
         await writeFiles({
@@ -339,6 +342,7 @@ describe('transform', () => {
           destination: 'samples/next',
           fetchWith: 'REST',
           yes: false,
+          templates: [],
         };
 
         await writeFiles({

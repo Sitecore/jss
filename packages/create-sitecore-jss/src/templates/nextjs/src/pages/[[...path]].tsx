@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-<% if (prerender === 'SSG') { %>
+<% if (prerender === 'SSG') { -%>
 import { GetStaticPaths, GetStaticProps } from 'next';
-<% } else if (prerender === 'SSR') { %>
+<% } else if (prerender === 'SSR') { -%>
 import { GetServerSideProps } from 'next';
-<% } %>
+<% } -%>
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
 import {
@@ -14,9 +14,9 @@ import {
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
-<% if (prerender === 'SSG') { %>
+<% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
-<% } %>
+<% } -%>
 
 const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
@@ -38,7 +38,7 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
   );
 };
 
-<% if (prerender === 'SSG') { %>
+<% if (prerender === 'SSG') { -%>
 // This function gets called at build and export time to determine
 // pages for SSG ("paths", as tokenized array).
 export const getStaticPaths: GetStaticPaths = async (context) => {
@@ -70,20 +70,20 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 // It may be called again, on a serverless function, if
 // revalidation (or fallback) is enabled and a new request comes in.
 export const getStaticProps: GetStaticProps = async (context) => {
-<% } else if (prerender === 'SSR') { %>
+<% } else if (prerender === 'SSR') { -%>
 // This function gets called at request time on server-side.
 export const getServerSideProps: GetServerSideProps = async (context) => {
-<% } %>
+<% } -%>
   const props = await sitecorePagePropsFactory.create(context);
 
   return {
     props,
-    <% if (prerender === 'SSG') { %>
+    <% if (prerender === 'SSG') { -%>
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 5 seconds
     revalidate: 5, // In seconds
-    <% } %>
+    <% } -%>
     notFound: props.notFound, // Returns custom 404 page with a status code of 404 when true
   };
 };
