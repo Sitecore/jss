@@ -5,7 +5,11 @@ import { Initializer } from '../../common/Initializer';
 import { transform } from '../../common/steps';
 import { ReactNativeArgs } from './args';
 
-export class ReactNativeInitializer implements Initializer {
+export default class ReactNativeInitializer implements Initializer {
+  get isBase() {
+    return true;
+  }
+
   async init(args: ReactNativeArgs) {
     const defaults = args.yes
       ? {
