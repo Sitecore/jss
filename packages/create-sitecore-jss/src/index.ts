@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { prompt } from 'inquirer';
 import parseArgs, { ParsedArgs } from 'minimist';
+import fs from 'fs';
 import { initRunner } from './init-runner';
 
 // parse any command line arguments passed into `init sitecore-jss`
@@ -26,7 +27,6 @@ const main = async () => {
   // validate/gather templates
   if (!templates.length) {
     const answer = await prompt({
-      // enable selecting post initializers
       type: 'list',
       name: 'template',
       // eslint-disable-next-line quotes
@@ -38,15 +38,38 @@ const main = async () => {
   }
 
   // validate/gather destination
+  const defaultDestination = `${process.cwd()}${
+    argv.appName ? '\\' + argv.appName : '\\sitecore-jss-app'
+  }`;
+
   let destination = argv.destination;
+
   if (!destination) {
+    if (argv.yes) {
+      destination = defaultDestination;
+    } else {
+      const answer = await prompt({
+        type: 'input',
+        name: 'destination',
+        message: 'Where would you like your new app created?',
+        default: () => defaultDestination,
+      });
+
+      destination = answer.destination;
+    }
+  }
+
+  if (!argv.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
     const answer = await prompt({
-      type: 'input',
-      name: 'destination',
-      message: 'Where would you like your new app created?',
-      default: () => `${process.cwd()}${argv.appName ? '\\' + argv.appName : '\\sitecore-jss-app'}`,
+      type: 'confirm',
+      name: 'continue',
+      message: `Directory '${destination}' not empty. Are you sure you want to continue?`,
     });
-    destination = answer.destination;
+    if (!answer.continue) {
+      process.exit();
+    }
+  } else {
+    argv.force = true;
   }
 
   initRunner(templates, { ...argv, destination, templates });
