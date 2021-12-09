@@ -184,7 +184,7 @@ export const transform = async (
       let str: string | undefined;
 
       // if the directory doesn't exist, create it
-      fs.mkdirsSync(path.dirname(pathToNewFile));
+      fs.mkdirsSync(path.dirname(transformFilename(pathToNewFile, answers)));
 
       if (file.endsWith('.pdf') || file.endsWith('.png')) {
         // pdfs may have <% encoded, which throws an error for ejs.
