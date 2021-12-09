@@ -42,17 +42,21 @@ const main = async () => {
     argv.appName ? '\\' + argv.appName : '\\sitecore-jss-app'
   }`;
 
-  let destination = argv.yes ? defaultDestination : argv.destination;
+  let destination = argv.destination;
 
   if (!destination) {
-    const answer = await prompt({
-      type: 'input',
-      name: 'destination',
-      message: 'Where would you like your new app created?',
-      default: () => defaultDestination,
-    });
+    if (argv.yes) {
+      destination = defaultDestination;
+    } else {
+      const answer = await prompt({
+        type: 'input',
+        name: 'destination',
+        message: 'Where would you like your new app created?',
+        default: () => defaultDestination,
+      });
 
-    destination = answer.destination;
+      destination = answer.destination;
+    }
   }
 
   if (!argv.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
