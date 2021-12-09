@@ -11,12 +11,8 @@ export class NextjsStyleguideInitializer implements Initializer {
   async init(args: StyleguideArgs) {
     const pkg = openPackageJson(`${args.destination}\\package.json`);
 
-    // TODO: switch to use --force
-    if (!args.yes) {
-      // if not forcing, then make sure it's a JSS app
-      if (!isJssApp('nextjs-styleguide', pkg)) {
-        process.exit(1);
-      }
+    if (!args.force && !isJssApp('nextjs-styleguide', pkg)) {
+      process.exit(1);
     }
 
     const defaults = args.yes ? { language: '' } : {};
