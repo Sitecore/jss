@@ -7,7 +7,11 @@ import { transform } from '../../common/steps/index';
 import { styleguidePrompts, StyleguideAnswer } from '../../common/prompts/styleguide';
 import { StyleguideArgs } from '../../common/args/styleguide';
 
-export class NextjsStyleguideInitializer implements Initializer {
+export default class NextjsStyleguideInitializer implements Initializer {
+  get isBase(): boolean {
+    return false;
+  }
+
   async init(args: StyleguideArgs) {
     const pkg = openPackageJson(`${args.destination}\\package.json`);
 
