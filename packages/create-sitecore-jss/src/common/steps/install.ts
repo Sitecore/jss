@@ -13,15 +13,25 @@ export const installPackages = (projectFolder: string, silent?: boolean) => {
   if (isDevEnvironment(projectFolder)) {
     silent || console.log(chalk.yellow('Detected development environment.'));
 
-    run('yarn', ['workspaces', 'focus', '--all'], {
-      cwd: projectFolder,
-      encoding: 'utf8',
-    });
+    run(
+      'yarn',
+      ['install'],
+      {
+        cwd: projectFolder,
+        encoding: 'utf8',
+      },
+      silent
+    );
   } else {
-    run('npm', ['install'], {
-      cwd: projectFolder,
-      encoding: 'utf8',
-    });
+    run(
+      'npm',
+      ['install'],
+      {
+        cwd: projectFolder,
+        encoding: 'utf8',
+      },
+      silent
+    );
   }
 };
 
