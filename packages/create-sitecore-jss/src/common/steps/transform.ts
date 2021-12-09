@@ -2,26 +2,35 @@ import chalk from 'chalk';
 import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
-import { renderFile } from 'ejs';
+import { Data, renderFile, render } from 'ejs';
 import { prompt } from 'inquirer';
-import { Answer } from '../Answer';
 import { getPascalCaseName, openPackageJson, sortKeys } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
+import { BaseArgs } from '../args/base';
+
+const ASSET_REGEX = /\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf)$/;
 
 export type JsonPropertyType = number | string | (number | string)[] | JsonObjectType;
 export interface JsonObjectType {
   [key: string]: JsonPropertyType;
 }
 
-export const transformFilename = (file: string, answers: Answer): string => {
+export const transformFilename = (file: string, args: BaseArgs): string => {
   // eslint-disable-next-line guard-for-in
-  for (const key in answers) {
-    file = file.replace(`{{${key}}}`, answers[key]);
+  for (const key in args) {
+    const value = args[key];
+    if (typeof value !== 'string') continue;
+
+    file = file.replace(`{{${key}}}`, value);
   }
   return file;
 };
 
-export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): string => {
+export const merge = (
+  targetObj: JsonObjectType,
+  sourceObj: JsonObjectType,
+  data?: Data
+): string => {
   const mergeObject = (target: JsonObjectType, source: JsonObjectType) => {
     for (const key of Object.keys(source)) {
       const sourceVal = source[key];
@@ -44,7 +53,8 @@ export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): str
     return target;
   };
 
-  return JSON.stringify(mergeObject(targetObj, sourceObj), null, 2);
+  const result = JSON.stringify(mergeObject(targetObj, sourceObj), null, 2);
+  return render(result, data);
 };
 
 /**
@@ -104,7 +114,7 @@ export const writeFiles = async ({
   rendered: string;
   pathToNewFile: string;
   destinationPath: string;
-  answers: Answer;
+  answers: BaseArgs;
   file: string;
 }) => {
   const choice = await diffFiles(rendered, transformFilename(pathToNewFile, answers));
@@ -117,8 +127,8 @@ export const writeFiles = async ({
       );
       return;
     case 'yes to all':
-      // set yes to true so diff is not run again
-      answers.yes = true;
+      // set force to true so diff is not run again
+      answers.force = true;
       fs.writeFileSync(
         `${destinationPath}\\${transformFilename(file, answers)}`,
         rendered,
@@ -146,7 +156,11 @@ export const writeFiles = async ({
   }
 };
 
-export const transform = async (templatePath: string, answers: Answer) => {
+export const transform = async (
+  templatePath: string,
+  answers: BaseArgs,
+  options: { filter?: (filePath: string) => boolean } = {}
+) => {
   // get absolute path for destination of app
   const destinationPath = path.resolve(answers.destination);
 
@@ -169,41 +183,38 @@ export const transform = async (templatePath: string, answers: Answer) => {
     try {
       const pathToNewFile = `${destinationPath}\\${file}`;
       const pathToTemplate = path.join(templatePath, file);
+
+      if (options.filter && !options.filter(pathToTemplate)) {
+        continue;
+      }
       // holds the content to be written to the new file
       let str: string | undefined;
 
       // if the directory doesn't exist, create it
-      fs.mkdirsSync(path.dirname(pathToNewFile));
+      fs.mkdirsSync(path.dirname(transformFilename(pathToNewFile, answers)));
 
-      if (file.endsWith('.pdf') || file.endsWith('.png')) {
+      if (file.match(ASSET_REGEX)) {
         // pdfs may have <% encoded, which throws an error for ejs.
         // we simply want to copy file if it's a pdf, not render it with ejs.
         fs.copySync(pathToTemplate, pathToNewFile);
         continue;
       }
 
-      // TODO: no more answers.post, run package.json through ejs renderer even when combining partials
-      if (
-        file.endsWith('package.json') &&
-        fs.existsSync(pathToNewFile) &&
-        // check if it is a post initializer
-        answers.post
-      ) {
+      if (file.endsWith('package.json') && fs.existsSync(pathToNewFile)) {
         // we treat package.json a bit differently
         // read the current package.json and the partial (templatePkg)
         // merge them and set the result to str which will then go through diff
         // and avoid the ejs renderFile()
         const currentPkg = openPackageJson(pathToNewFile);
         const templatePkg = openPackageJson(pathToTemplate);
-        str = merge(currentPkg, templatePkg);
+        str = merge(currentPkg, templatePkg, ejsData);
       }
 
       str = str ? str : await renderFile(path.resolve(pathToTemplate), ejsData);
 
       if (!str) str = '';
 
-      // if there's no yes flag, run diffFiles()
-      if (!answers.yes) {
+      if (!answers.force) {
         await writeFiles({
           rendered: str,
           pathToNewFile,

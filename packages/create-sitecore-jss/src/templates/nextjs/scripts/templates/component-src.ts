@@ -5,9 +5,9 @@
  */
 function generateComponentSrc(componentName: string): string {
   return `import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 
-type ${componentName}Props = StyleguideComponentProps & {
+type ${componentName}Props = ComponentProps & {
   fields: {
     heading: Field<string>;
   };

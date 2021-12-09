@@ -13,8 +13,7 @@ let answers;
 
 const getAnswers = () => {
   answers = {
-    yes: true,
-    initialized: false,
+    force: true,
     silent: true,
     appPrefix: true,
     appName: 'test',
@@ -22,6 +21,7 @@ const getAnswers = () => {
     fetchWith: 'GraphQL',
     prerender: 'SSG',
     hostName: 'https://cm.jss.localhost',
+    templates: [],
   };
   return answers;
 };
@@ -234,7 +234,8 @@ describe('transform', () => {
           hostName: 'http://jssnextweb',
           destination: 'samples/next',
           fetchWith: 'REST',
-          yes: false,
+          force: false,
+          templates: [],
         };
 
         await writeFiles({
@@ -254,7 +255,7 @@ describe('transform', () => {
         expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
         expect(transformFilenameStub.getCall(1).args).to.deep.equal(['path/to/file', answers]);
 
-        expect(answers.yes).to.equal(false);
+        expect(answers.force).to.equal(false);
       });
 
       it('should overwrite a single file and later do not ask the same question', async () => {
@@ -269,7 +270,8 @@ describe('transform', () => {
           hostName: 'http://jssnextweb',
           destination: 'samples/next',
           fetchWith: 'REST',
-          yes: false,
+          force: false,
+          templates: [],
         };
 
         await writeFiles({
@@ -289,7 +291,7 @@ describe('transform', () => {
         expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
         expect(transformFilenameStub.getCall(1).args).to.deep.equal(['path/to/file', answers]);
 
-        expect(answers.yes).to.equal(true);
+        expect(answers.force).to.equal(true);
       });
 
       it('should skip file', async () => {
@@ -304,7 +306,8 @@ describe('transform', () => {
           hostName: 'http://jssnextweb',
           destination: 'samples/next',
           fetchWith: 'REST',
-          yes: false,
+          force: false,
+          templates: [],
         };
 
         await writeFiles({
@@ -321,7 +324,7 @@ describe('transform', () => {
 
         expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
 
-        expect(answers.yes).to.equal(false);
+        expect(answers.force).to.equal(false);
       });
 
       it('should abort a process', async () => {
@@ -338,7 +341,8 @@ describe('transform', () => {
           hostName: 'http://jssnextweb',
           destination: 'samples/next',
           fetchWith: 'REST',
-          yes: false,
+          force: false,
+          templates: [],
         };
 
         await writeFiles({
@@ -357,7 +361,7 @@ describe('transform', () => {
 
         expect(processExitStub.calledOnce).to.equal(true);
 
-        expect(answers.yes).to.equal(false);
+        expect(answers.force).to.equal(false);
       });
     });
   });

@@ -1,34 +1,43 @@
 import chalk from 'chalk';
 import path from 'path';
-import { ParsedArgs } from 'minimist';
+import { prompt } from 'inquirer';
 import { Initializer } from '../../common/Initializer';
-import { Answer } from '../../common/Answer';
 import { isJssApp, openPackageJson } from '../../common/utils/helpers';
 import { transform } from '../../common/steps/index';
+import { styleguidePrompts, StyleguideAnswer } from '../../common/prompts/styleguide';
+import { StyleguideArgs } from '../../common/args/styleguide';
 
 export class NextjsStyleguideInitializer implements Initializer {
-  async init(args: ParsedArgs) {
-    // set destination to cwd, or read from args
-    args.destination = args.destination || path.resolve(process.cwd());
-    args.post = true;
+  async init(args: StyleguideArgs) {
+    const pkg = openPackageJson(`${args.destination}\\package.json`);
 
-    let pkg;
-    // read package.json in target destination, check if app is JSS app
-    if (!args.yes) {
-      pkg = openPackageJson(`${args.destination}\\package.json`);
-      isJssApp('nextjs-styleguide', pkg);
+    if (!args.force && !isJssApp('nextjs-styleguide', pkg)) {
+      process.exit(1);
     }
 
-    // derive variables from package.json
-    // read the package.json to get the appName
-    args.appName = args.appName || pkg?.config.appName || 'default';
-    args.appPrefix = args.appPrefix || pkg?.config?.prefix || false;
+    const defaults = args.yes ? { language: '' } : {};
+
+    const styleguideAnswers = await prompt<StyleguideAnswer>(styleguidePrompts, defaults);
+
+    const mergedArgs = {
+      ...args,
+      appName: args.appName || pkg?.config?.appName || 'default',
+      appPrefix: args.appPrefix || pkg?.config?.prefix || false,
+      ...styleguideAnswers,
+    };
+
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-styleguide');
-    await transform(templatePath, (args as unknown) as Answer);
+
+    await transform(templatePath, mergedArgs, {
+      filter: (filePath) => {
+        return !!mergedArgs.language || !filePath.endsWith('{{language}}.yml');
+      },
+    });
 
     const response = {
       nextSteps: [`* Try out your application with ${chalk.green('jss start')}`],
-      appName: args.appName,
+      appName: mergedArgs.appName,
+      yes: mergedArgs.yes,
     };
 
     return response;

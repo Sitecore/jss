@@ -5,14 +5,14 @@ import {
   ComponentRendering,
   HtmlElementRendering,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { StyleguideComponentProps } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 
 /**
  * The main layout (columns) of the styleguide.
  * Navigation is automatically generated based on the components added to the layout,
  * and does not need to be manually maintained.
  */
-const StyleguideLayout = (props: StyleguideComponentProps): JSX.Element => {
+const StyleguideLayout = (props: ComponentProps): JSX.Element => {
   const getRendering = (section: ComponentRendering | HtmlElementRendering) =>
     section as ComponentRendering;
 
