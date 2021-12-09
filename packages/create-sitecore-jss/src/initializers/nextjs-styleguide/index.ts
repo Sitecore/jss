@@ -9,14 +9,19 @@ import { StyleguideArgs } from '../../common/args/styleguide';
 
 export class NextjsStyleguideInitializer implements Initializer {
   async init(args: StyleguideArgs) {
-    let pkg;
+    const pkg = openPackageJson(`${args.destination}\\package.json`);
 
+    // TODO: switch to use --force
     if (!args.yes) {
-      pkg = openPackageJson(`${args.destination}\\package.json`);
-      isJssApp('nextjs-styleguide', pkg);
+      // if not forcing, then make sure it's a JSS app
+      if (!isJssApp('nextjs-styleguide', pkg)) {
+        process.exit(1);
+      }
     }
 
-    const styleguideAnswers = await prompt<StyleguideAnswer>(styleguidePrompts);
+    const defaults = args.yes ? { language: '' } : {};
+
+    const styleguideAnswers = await prompt<StyleguideAnswer>(styleguidePrompts, defaults);
 
     const mergedArgs = {
       ...args,

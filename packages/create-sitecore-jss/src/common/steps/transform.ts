@@ -2,11 +2,13 @@ import chalk from 'chalk';
 import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
-import { renderFile } from 'ejs';
+import { Data, renderFile, render } from 'ejs';
 import { prompt } from 'inquirer';
 import { getPascalCaseName, openPackageJson, sortKeys } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
+
+const ASSET_REGEX = /\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf)$/;
 
 export type JsonPropertyType = number | string | (number | string)[] | JsonObjectType;
 export interface JsonObjectType {
@@ -24,7 +26,11 @@ export const transformFilename = (file: string, args: BaseArgs): string => {
   return file;
 };
 
-export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): string => {
+export const merge = (
+  targetObj: JsonObjectType,
+  sourceObj: JsonObjectType,
+  data?: Data
+): string => {
   const mergeObject = (target: JsonObjectType, source: JsonObjectType) => {
     for (const key of Object.keys(source)) {
       const sourceVal = source[key];
@@ -47,7 +53,8 @@ export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): str
     return target;
   };
 
-  return JSON.stringify(mergeObject(targetObj, sourceObj), null, 2);
+  const result = JSON.stringify(mergeObject(targetObj, sourceObj), null, 2);
+  return render(result, data);
 };
 
 /**
@@ -186,7 +193,7 @@ export const transform = async (
       // if the directory doesn't exist, create it
       fs.mkdirsSync(path.dirname(transformFilename(pathToNewFile, answers)));
 
-      if (file.endsWith('.pdf') || file.endsWith('.png')) {
+      if (file.match(ASSET_REGEX)) {
         // pdfs may have <% encoded, which throws an error for ejs.
         // we simply want to copy file if it's a pdf, not render it with ejs.
         fs.copySync(pathToTemplate, pathToNewFile);
@@ -200,7 +207,7 @@ export const transform = async (
         // and avoid the ejs renderFile()
         const currentPkg = openPackageJson(pathToNewFile);
         const templatePkg = openPackageJson(pathToTemplate);
-        str = merge(currentPkg, templatePkg);
+        str = merge(currentPkg, templatePkg, ejsData);
       }
 
       str = str ? str : await renderFile(path.resolve(pathToTemplate), ejsData);

@@ -11,6 +11,7 @@ export class ReactNativeInitializer implements Initializer {
       ? {
           appName: 'sitecore-jss-react-native',
           hostName: 'https://cm.jss.localhost',
+          language: '',
         }
       : {};
 
@@ -21,24 +22,15 @@ export class ReactNativeInitializer implements Initializer {
       ...answers,
     };
 
-    const FILTER_REGEXP = /.(jpg|jar)$/;
+    const FILTER_REGEXP = /.(jar)$/;
     const templatePath = path.resolve(__dirname, '../../templates/react-native');
     await transform(templatePath, mergedArgs, {
-      filter: (filePath: string) => {
-        console.log(
-          !FILTER_REGEXP.test(filePath) ||
-            !filePath.endsWith('{{language}}.yml') ||
-            !!mergedArgs.language
-        );
-        return (
-          !FILTER_REGEXP.test(filePath) ??
-          (!filePath.endsWith('{{language}}.yml') || !!mergedArgs.language)
-        );
-      },
+      filter: (filePath: string) =>
+        !FILTER_REGEXP.test(filePath) &&
+        (!!mergedArgs.language || !filePath.endsWith('{{language}}.json')),
     });
 
     const response = {
-      nextSteps: [],
       appName: answers.appName,
       yes: args.yes,
     };

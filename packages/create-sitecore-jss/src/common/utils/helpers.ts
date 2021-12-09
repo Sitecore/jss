@@ -10,7 +10,7 @@ export const isJssApp = (
       sitecoreConfigPath: string;
     };
   }
-) => {
+): boolean => {
   if (pkg?.config?.sitecoreConfigPath === undefined) {
     console.log(
       chalk.red(
@@ -33,8 +33,9 @@ export const isJssApp = (
         )} property exists in the ${chalk.cyan('package.json')}`
       )
     );
-    process.exit(1);
+    return false;
   }
+  return true;
 };
 
 export const isDevEnvironment = (cwd?: string): boolean => {
