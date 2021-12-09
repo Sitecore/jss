@@ -10,7 +10,7 @@ import { initRunner } from './init-runner';
 const argv: ParsedArgs = parseArgs(process.argv.slice(2), { boolean: ['appPrefix', 'yes'] });
 
 // set of base templates (any post-initializers should be prompted in respective base template)
-const BASE_TEMPLATES = ['nextjs'];
+const BASE_TEMPLATES = ['nextjs', 'angular'];
 
 const main = async () => {
   let templates: string[] = [];
