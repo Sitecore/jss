@@ -9,7 +9,11 @@ import { removeDevDependencies } from './remove-dev-dependencies';
 import { NextjsArgs } from './args';
 import { FetchWith } from '../../common/prompts/base';
 
-export class NextjsInitializer implements Initializer {
+export default class NextjsInitializer implements Initializer {
+  get isBase(): boolean {
+    return true;
+  }
+
   async init(args: NextjsArgs) {
     const defaults = args.yes
       ? {
