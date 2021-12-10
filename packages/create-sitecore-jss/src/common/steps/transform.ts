@@ -2,9 +2,15 @@ import chalk from 'chalk';
 import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
-import { Data, renderFile, render } from 'ejs';
+import { Data, render, renderFile } from 'ejs';
 import { prompt } from 'inquirer';
-import { getPascalCaseName, getAppPrefix, openPackageJson, sortKeys } from '../utils/helpers';
+import {
+  getPascalCaseName,
+  getAppPrefix,
+  openPackageJson,
+  sortKeys,
+  writeFileToPath,
+} from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
 
@@ -26,18 +32,15 @@ export const transformFilename = (file: string, args: BaseArgs): string => {
   return file;
 };
 
-export const merge = (
-  targetObj: JsonObjectType,
-  sourceObj: JsonObjectType,
-  data?: Data
-): string => {
+export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): string => {
   const mergeObject = (target: JsonObjectType, source: JsonObjectType) => {
     for (const key of Object.keys(source)) {
       const sourceVal = source[key];
       const targetVal = target[key];
 
       if (Array.isArray(targetVal) && Array.isArray(sourceVal)) {
-        target[key] = targetVal.concat(sourceVal);
+        // use Set to remove duplicates from arrays
+        target[key] = [...new Set([...targetVal, ...sourceVal])];
       } else if (
         !Array.isArray(targetVal) &&
         !Array.isArray(sourceVal) &&
@@ -54,7 +57,7 @@ export const merge = (
   };
 
   const result = JSON.stringify(mergeObject(targetObj, sourceObj), null, 2);
-  return render(result, data);
+  return result;
 };
 
 /**
@@ -104,7 +107,7 @@ export const diffFiles = async (
   return answer.choice;
 };
 
-export const writeFiles = async ({
+export const diffAndWriteFiles = async ({
   rendered,
   pathToNewFile,
   destinationPath,
@@ -118,22 +121,15 @@ export const writeFiles = async ({
   file: string;
 }) => {
   const choice = await diffFiles(rendered, transformFilename(pathToNewFile, answers));
+  const destination = `${destinationPath}\\${transformFilename(file, answers)}`;
   switch (choice) {
     case 'yes':
-      fs.writeFileSync(
-        `${destinationPath}\\${transformFilename(file, answers)}`,
-        rendered,
-        'utf-8'
-      );
+      writeFileToPath(destination, rendered);
       return;
     case 'yes to all':
       // set force to true so diff is not run again
       answers.force = true;
-      fs.writeFileSync(
-        `${destinationPath}\\${transformFilename(file, answers)}`,
-        rendered,
-        'utf-8'
-      );
+      writeFileToPath(destination, rendered);
       return;
     case 'skip':
       return;
@@ -145,11 +141,7 @@ export const writeFiles = async ({
       // writeFile to default case so that when an initializer is
       // run for the first time, it will still copy files that
       // do not return a diff.
-      fs.writeFileSync(
-        `${destinationPath}\\${transformFilename(file, answers)}`,
-        rendered,
-        'utf-8'
-      );
+      writeFileToPath(destination, rendered);
       return;
     default:
       return;
@@ -168,7 +160,7 @@ export const transform = async (
   }
 
   // pass in helper to answers object
-  const ejsData = {
+  const ejsData: Data = {
     ...answers,
     helper: {
       getPascalCaseName: getPascalCaseName,
@@ -205,18 +197,16 @@ export const transform = async (
         // we treat package.json a bit differently
         // read the current package.json and the partial (templatePkg)
         // merge them and set the result to str which will then go through diff
-        // and avoid the ejs renderFile()
+        // and use ejs render instead of renderFile
         const currentPkg = openPackageJson(pathToNewFile);
         const templatePkg = openPackageJson(pathToTemplate);
-        str = merge(currentPkg, templatePkg, ejsData);
+        str = merge(currentPkg, templatePkg);
       }
 
-      str = str ? str : await renderFile(path.resolve(pathToTemplate), ejsData);
-
-      if (!str) str = '';
+      str = str ? render(str, ejsData) : await renderFile(path.resolve(pathToTemplate), ejsData);
 
       if (!answers.force) {
-        await writeFiles({
+        await diffAndWriteFiles({
           rendered: str,
           pathToNewFile,
           destinationPath,
@@ -224,7 +214,7 @@ export const transform = async (
           file,
         });
       } else {
-        fs.writeFileSync(`${destinationPath}\\${transformFilename(file, answers)}`, str, 'utf-8');
+        writeFileToPath(`${destinationPath}\\${transformFilename(file, answers)}`, str);
       }
     } catch (error) {
       console.log(chalk.red(error));

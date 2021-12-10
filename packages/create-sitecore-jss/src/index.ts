@@ -10,7 +10,9 @@ import { getBaseTemplates } from './common/utils/helpers';
 // parse any command line arguments passed into `init sitecore-jss`
 // to pass to the generator prompts and skip them.
 // useful for CI and testing purposes
-const argv: ParsedArgs = parseArgs(process.argv.slice(2), { boolean: ['appPrefix', 'yes'] });
+const argv: ParsedArgs = parseArgs(process.argv.slice(2), {
+  boolean: ['appPrefix', 'yes', 'force', 'noInstall'],
+});
 
 const main = async () => {
   let templates: string[] = [];
@@ -21,7 +23,7 @@ const main = async () => {
     templates = [argv._[0]];
   } else {
     // use --templates arg
-    templates = argv.templates?.trim().split(',') || [];
+    templates = argv.templates?.split(',') || [];
   }
   const baseTemplates = await getBaseTemplates(path.resolve(__dirname, 'templates'));
   // validate/gather templates

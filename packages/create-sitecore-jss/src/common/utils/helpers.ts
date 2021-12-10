@@ -102,3 +102,7 @@ export const getBaseTemplates = async (templatePath: string) => {
 
 export const getAppPrefix = (appPrefix: boolean, appName: string) =>
   appPrefix ? `${getPascalCaseName(appName)}-` : '';
+
+export const writeFileToPath = (destinationPath: string, content: string) => {
+  fs.writeFileSync(destinationPath, content, 'utf8');
+};
