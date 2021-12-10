@@ -18,8 +18,6 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
 
         appName = response.appName;
         nextStepsArr = [...nextStepsArr, ...(response.nextSteps ?? [])];
-        // pass a "yes" answer to subsequent initializers
-        args.yes = response.yes || args.yes;
 
         // process any (post) initializers
         if (response.initializers && response.initializers.length > 0) {
