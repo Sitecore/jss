@@ -38,7 +38,7 @@ const main = async () => {
 
   // validate/gather destination
   const defaultDestination = `${process.cwd()}${
-    argv.appName ? '\\' + argv.appName : '\\sitecore-jss-app'
+    argv.appName ? '\\' + argv.appName : `\\${templates[0]}`
   }`;
 
   let destination = argv.destination;
