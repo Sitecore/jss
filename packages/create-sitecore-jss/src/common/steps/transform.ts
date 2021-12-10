@@ -75,7 +75,7 @@ export const diffFiles = async (
     ? diffJson(JSON.parse(targetFileContents), JSON.parse(sourceFileContent))
     : diffLines(targetFileContents, sourceFileContent);
 
-  diff.forEach(async (change: Change) => {
+  diff.forEach((change: Change) => {
     const color = change.added ? chalk.green : change.removed ? chalk.red : chalk.gray;
     const prefix = change.added ? '+' : change.removed ? '-' : '=';
 

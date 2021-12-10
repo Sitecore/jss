@@ -7,14 +7,12 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
   let nextStepsArr: string[] = [];
   let appName;
 
+  const initFactory = await new InitializerFactory();
   const runner = async (inits: string[]) => {
     for (const init of inits) {
-      const initializer = new InitializerFactory().create(init);
-      if (!initializer) {
-        console.error(chalk.red(`Unsupported template '${init}'`));
-        process.exit(1);
-      }
       try {
+        const initializer = await initFactory.create(init);
+
         args.silent || console.log(chalk.cyan(`Initializing '${init}'...`));
         const response = await initializer.init(args);
 

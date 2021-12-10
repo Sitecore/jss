@@ -1,16 +1,15 @@
 #!/usr/bin/env node
-import { prompt } from 'inquirer';
-import parseArgs, { ParsedArgs } from 'minimist';
 import fs from 'fs';
+import path from 'path';
+import { prompt } from 'inquirer';
 import { initRunner } from './init-runner';
+import parseArgs, { ParsedArgs } from 'minimist';
+import { getBaseTemplates } from './common/utils/helpers';
 
 // parse any command line arguments passed into `init sitecore-jss`
 // to pass to the generator prompts and skip them.
 // useful for CI and testing purposes
 const argv: ParsedArgs = parseArgs(process.argv.slice(2), { boolean: ['appPrefix', 'yes'] });
-
-// set of base templates (any post-initializers should be prompted in respective base template)
-const BASE_TEMPLATES = ['nextjs'];
 
 const main = async () => {
   let templates: string[] = [];
@@ -23,7 +22,7 @@ const main = async () => {
     // use --templates arg
     templates = argv.templates?.trim().split(',') || [];
   }
-
+  const baseTemplates = await getBaseTemplates(path.resolve(__dirname, 'templates'));
   // validate/gather templates
   if (!templates.length) {
     const answer = await prompt({
@@ -31,7 +30,7 @@ const main = async () => {
       name: 'template',
       // eslint-disable-next-line quotes
       message: "Select the template you'd like to create?",
-      choices: BASE_TEMPLATES,
+      choices: baseTemplates,
       default: 'nextjs',
     });
     templates.push(answer.template);

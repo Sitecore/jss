@@ -4,6 +4,7 @@
   ],
   "args": {
     "yes": true,
+    "force": true,
     "silent": true,
     "appPrefix": true,
     "appName": "test",
