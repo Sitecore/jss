@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
+import { InitializerFactory } from '../../InitializerFactory';
 import { JsonObjectType } from '../steps/transform';
 
 export const isJssApp = (
@@ -81,4 +82,20 @@ export const sortKeys = (obj: JsonObjectType) => {
     .forEach((key: string) => (sorted[key] = obj[key]));
 
   return sorted;
+};
+
+export const getBaseTemplates = async (templatePath: string) => {
+  const templates = fs.readdirSync(templatePath, 'utf8');
+  const initFactory = new InitializerFactory();
+  const baseTemplates = [];
+
+  for (const template of templates) {
+    try {
+      const res = await initFactory.create(template);
+      res.isBase && baseTemplates.push(template);
+
+      // eslint-disable-next-line no-empty
+    } catch (error) {}
+  }
+  return baseTemplates;
 };

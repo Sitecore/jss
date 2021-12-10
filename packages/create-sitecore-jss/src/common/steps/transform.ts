@@ -75,7 +75,7 @@ export const diffFiles = async (
     ? diffJson(JSON.parse(targetFileContents), JSON.parse(sourceFileContent))
     : diffLines(targetFileContents, sourceFileContent);
 
-  diff.forEach(async (change: Change) => {
+  diff.forEach((change: Change) => {
     const color = change.added ? chalk.green : change.removed ? chalk.red : chalk.gray;
     const prefix = change.added ? '+' : change.removed ? '-' : '=';
 
@@ -127,8 +127,8 @@ export const writeFiles = async ({
       );
       return;
     case 'yes to all':
-      // set yes to true so diff is not run again
-      answers.yes = true;
+      // set force to true so diff is not run again
+      answers.force = true;
       fs.writeFileSync(
         `${destinationPath}\\${transformFilename(file, answers)}`,
         rendered,
@@ -214,8 +214,7 @@ export const transform = async (
 
       if (!str) str = '';
 
-      // if there's no yes flag, run diffFiles()
-      if (!answers.yes) {
+      if (!answers.force) {
         await writeFiles({
           rendered: str,
           pathToNewFile,

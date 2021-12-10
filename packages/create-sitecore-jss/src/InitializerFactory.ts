@@ -1,21 +1,17 @@
+import path from 'path';
+import chalk from 'chalk';
 import { Initializer } from './common/Initializer';
-import {
-  NextjsInitializer,
-  NextjsStyleguideInitializer,
-  NodeHeadlessSsrExperienceEdgeInitializer,
-} from './initializers';
 
 export class InitializerFactory {
-  create(name: string): Initializer | undefined {
-    switch (name) {
-      case 'nextjs':
-        return new NextjsInitializer();
-      case 'nextjs-styleguide':
-        return new NextjsStyleguideInitializer();
-      case 'node-headless-ssr-experience-edge':
-        return new NodeHeadlessSsrExperienceEdgeInitializer();
-      default:
-        return undefined;
+  async create(name: string): Promise<Initializer> {
+    try {
+      const { default: Initializer } = await import(
+        path.resolve(__dirname, 'initializers', name, 'index')
+      );
+      return new Initializer();
+    } catch (error) {
+      console.error(chalk.red(`Unsupported template '${name}'`));
+      throw error;
     }
   }
 }
