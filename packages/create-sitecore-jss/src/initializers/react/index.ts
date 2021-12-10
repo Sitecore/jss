@@ -7,7 +7,7 @@ import { FetchWith } from '../../common/prompts/base';
 import { prompts, ReactAnswer } from './prompts';
 import { ReactArgs } from './args';
 
-export class ReactInitializer implements Initializer {
+export default class ReactInitializer implements Initializer {
   get isBase() {
     return true;
   }
@@ -25,16 +25,8 @@ export class ReactInitializer implements Initializer {
 
     const answers = await prompt<ReactAnswer>(prompts, { ...defaults, ...args });
 
-    const mergedArgs = {
-      ...args,
-      ...answers,
-    };
-    const templatePath = path.resolve(__dirname, '../../templates/angular');
-    await transform(templatePath, mergedArgs, {
-      filter: (filePath) => {
-        return !!mergedArgs.language || !filePath.endsWith('{{language}}.yml');
-      },
-    });
+    const templatePath = path.resolve(__dirname, '../../templates/react');
+    await transform(templatePath, { ...args, ...answers });
 
     const response = {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],

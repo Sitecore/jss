@@ -9,9 +9,10 @@ import { SpawnSyncOptionsWithStringEncoding } from 'child_process';
 export const run = (
   command: string,
   args: string[],
-  options?: SpawnSyncOptionsWithStringEncoding
+  options?: SpawnSyncOptionsWithStringEncoding,
+  silent?: boolean
 ) => {
-  console.log(`> ${command} ${args.join(' ')}`);
+  silent || console.log(`> ${command} ${args.join(' ')}`);
   spawnFunc(command, args, options);
 };
 

@@ -7,5 +7,6 @@ export interface InitializerResults {
   yes?: boolean;
 }
 export interface Initializer {
+  isBase: boolean;
   init: (args: BaseArgs) => Promise<InitializerResults>;
 }

@@ -7,16 +7,16 @@ import { transform } from '../../common/steps/index';
 import { styleguidePrompts, StyleguideAnswer } from '../../common/prompts/styleguide';
 import { StyleguideArgs } from '../../common/args/styleguide';
 
-export class NextjsStyleguideInitializer implements Initializer {
+export default class NextjsStyleguideInitializer implements Initializer {
+  get isBase(): boolean {
+    return false;
+  }
+
   async init(args: StyleguideArgs) {
     const pkg = openPackageJson(`${args.destination}\\package.json`);
 
-    // TODO: switch to use --force
-    if (!args.yes) {
-      // if not forcing, then make sure it's a JSS app
-      if (!isJssApp('nextjs-styleguide', pkg)) {
-        process.exit(1);
-      }
+    if (!args.force && !isJssApp('nextjs-styleguide', pkg)) {
+      process.exit(1);
     }
 
     const defaults = args.yes ? { language: '' } : {};
