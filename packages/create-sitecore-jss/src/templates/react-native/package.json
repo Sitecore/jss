@@ -3,12 +3,12 @@
   "version": "20.0.0-canary.77",
   "description": "A basic React Native app utilizing Sitecore JavaScript Services",
   "config": {
-    "appName": "<%- helper.getPascalCaseName(appName) %>",
+    "appName": "<%- appName %>",
     "rootPlaceholders": [
       "jss-main"
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
-    "language": "<%- language %>"
+    "language": "en"
   },
   "engines": {
     "node": ">=8.1",

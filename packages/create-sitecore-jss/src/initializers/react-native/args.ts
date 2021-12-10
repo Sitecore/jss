@@ -1,4 +1,8 @@
 import { ClientAppArgs } from '../../common/args/base';
-import { ReactNativeAnswer } from './prompts';
+import { FetchWith } from '../../common/prompts/base';
+import { StyleguideArgs } from '../../common/args/styleguide';
 
-export interface ReactNativeArgs extends ClientAppArgs, Partial<ReactNativeAnswer> {}
+export interface ReactNativeArgs
+  extends StyleguideArgs,
+    ClientAppArgs,
+    Omit<ClientAppArgs, FetchWith> {}
