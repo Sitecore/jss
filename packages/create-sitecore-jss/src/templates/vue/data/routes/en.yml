@@ -1,0 +1,63 @@
+# This is a route layout definition.
+# The route definition defines which Sitecore components are present on a route,
+# what their content data is, and which _placeholder_ they are placed in.
+
+# This particular route definition is for the home route - '/', so it defines the
+# components shown on the initial page of the app.
+
+# You may use equivalent JSON files instead of YAML if you prefer;
+# however YAML is simpler to read and allows comments like this one :)
+
+# Setting an ID is optional, but it will allow referring to this item in internal links
+# the ID can be a app-wide-unique string, or a GUID value.
+id: home-page
+
+# Route-level fields are appropriate for page level data like <title> contents
+# Define route level fields in /sitecore/definitions/routes.sitecore
+fields:
+  pageTitle: Welcome to Sitecore JSS
+# Define the page layout starting at the root placeholder - in this case, 'JssVueWeb-jss-main'
+# root placeholder names are defined in the package.json config section (required for Sitecore deployment)
+placeholders:
+  JssVueWeb-jss-main:
+  - componentName: ContentBlock
+    fields:
+      heading: Welcome to Sitecore JSS
+      # to author content in YAML, use _multi-line values_ (prefixed with | + endline)
+      # as long as the same indent is preserved at the beginning of each line, no escaping
+      # is required at all in the value, making it easy to read
+      content: |
+          <p>Thanks for using JSS. Here are some resources to get you started:</p>
+
+          <h3><a href="https://jss.sitecore.com" rel="noopener noreferrer">Documentation</a></h3>
+          <p>The official JSS documentation can help you with any JSS task from getting started to advanced techniques.</p>
+
+          <h3><a href="/styleguide">Styleguide</a></h3>
+          <p>The JSS styleguide is a living example of how to use JSS, hosted right in this app.
+          It demonstrates most of the common patterns that JSS implementations may need to use,
+          as well as useful architectural patterns.</p>
+
+          <h3><a href="/graphql">GraphQL</a></h3>
+          <p>JSS features integration with the Sitecore GraphQL API to enable fetching non-route data from Sitecore - or from other internal backends as an API aggregator or proxy.
+          This route is a living example of how to use an integrate with GraphQL data in a JSS app.</p>
+
+          <div class="alert alert-dark">
+            <h4>This app is a boilerplate</h4>
+            <p>The JSS samples are a boilerplate, not a library. That means that any code in this app is meant for you to own and customize to your own requirements.</p>
+            <p>Want to get change the lint settings? Do it. Want to read manifest data from a MongoDB database? Go for it. This app is yours.</p>
+          </div>
+
+          <div class="alert alert-dark">
+            <h4>How to start with an empty app</h4>
+            <p>To remove all of the default sample content (the Styleguide and GraphQL routes) and start out with an empty JSS app:</p>
+            <ol>
+              <li>Delete <code>/src/components/Styleguide*</code> and <code>/src/components/GraphQL*</code></li>
+              <li>Delete <code>/sitecore/definitions/components/Styleguide*</code>, <code>/sitecore/definitions/templates/Styleguide*</code>, and <code>/sitecore/definitions/components/GraphQL*</code></li>
+              <li>Delete <code>/data/component-content/Styleguide</code></li>
+              <li>Delete <code>/data/content/Styleguide</code></li>
+              <li>Delete <code>/data/routes/styleguide</code> and <code>/data/routes/graphql</code></li>
+              <li>Delete <code>/data/dictionary/*.yml</code></li>
+            </ol>
+          </div>
+
+
