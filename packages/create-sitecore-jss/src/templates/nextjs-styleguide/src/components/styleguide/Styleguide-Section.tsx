@@ -15,7 +15,7 @@ type StyleguideSectionProps = ComponentProps & {
 const StyleguideSection = (props: StyleguideSectionProps): JSX.Element => (
   <div className="pt-3" id={`i${props.rendering.uid && props.rendering.uid.replace(/[{}]/g, '')}`}>
     <Text className="border-bottom" field={props.fields.heading} tag="h3" />
-    <Placeholder name="<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-styleguide-section" rendering={props.rendering} />
+    <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section" rendering={props.rendering} />
   </div>
 );
 

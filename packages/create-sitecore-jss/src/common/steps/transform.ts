@@ -4,7 +4,7 @@ import glob from 'glob';
 import path from 'path';
 import { Data, renderFile, render } from 'ejs';
 import { prompt } from 'inquirer';
-import { getPascalCaseName, openPackageJson, sortKeys } from '../utils/helpers';
+import { getPascalCaseName, getAppPrefix, openPackageJson, sortKeys } from '../utils/helpers';
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
 
@@ -161,7 +161,6 @@ export const transform = async (
   answers: BaseArgs,
   options: { filter?: (filePath: string) => boolean } = {}
 ) => {
-  // get absolute path for destination of app
   const destinationPath = path.resolve(answers.destination);
 
   if (!answers.appPrefix) {
@@ -173,10 +172,12 @@ export const transform = async (
     ...answers,
     helper: {
       getPascalCaseName: getPascalCaseName,
+      getAppPrefix: getAppPrefix,
     },
   };
 
-  // the templates to be run through ejs render
+  // the templates to be run through ejs render or copied directly
+  // depending on the options.filter
   const files = glob.sync('**/*', { cwd: templatePath, dot: true, nodir: true });
 
   for (const file of files) {

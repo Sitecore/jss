@@ -99,3 +99,6 @@ export const getBaseTemplates = async (templatePath: string) => {
   }
   return baseTemplates;
 };
+
+export const getAppPrefix = (appPrefix: boolean, appName: string) =>
+  appPrefix ? `${getPascalCaseName(appName)}-` : '';

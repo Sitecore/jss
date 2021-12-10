@@ -30,7 +30,7 @@ const StyleguideLayoutReuse = (props: StyleguideLayoutReuseProps): JSX.Element =
        */}
       <Placeholder
         rendering={props.rendering}
-        name="<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-reuse-example"
+        name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-reuse-example"
         renderEach={(component, index) => (
           <div className="col-sm" key={index}>
             {component}
