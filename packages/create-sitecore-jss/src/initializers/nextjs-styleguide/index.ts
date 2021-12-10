@@ -41,7 +41,6 @@ export default class NextjsStyleguideInitializer implements Initializer {
     const response = {
       nextSteps: [`* Try out your application with ${chalk.green('jss start')}`],
       appName: mergedArgs.appName,
-      yes: mergedArgs.yes,
     };
 
     return response;

@@ -4,7 +4,6 @@ export interface InitializerResults {
   appName: string;
   initializers?: string[];
   nextSteps?: string[];
-  yes?: boolean;
 }
 export interface Initializer {
   isBase: boolean;

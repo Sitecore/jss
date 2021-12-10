@@ -139,7 +139,7 @@ export const writeFiles = async ({
       return;
     case 'abort':
       console.log(chalk.yellow('Goodbye!'));
-      return process.exit(1);
+      return process.exit();
     // eslint-disable no-fallthrough
     case '':
       // writeFile to default case so that when an initializer is

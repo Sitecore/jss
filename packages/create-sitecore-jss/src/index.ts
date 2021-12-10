@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'fs';
 import path from 'path';
+import chalk from 'chalk';
 import { prompt } from 'inquirer';
 import { initRunner } from './init-runner';
 import parseArgs, { ParsedArgs } from 'minimist';
@@ -28,8 +29,7 @@ const main = async () => {
     const answer = await prompt({
       type: 'list',
       name: 'template',
-      // eslint-disable-next-line quotes
-      message: "Select the template you'd like to create?",
+      message: 'Which templates would you like to create?',
       choices: baseTemplates,
       default: 'nextjs',
     });
@@ -71,7 +71,12 @@ const main = async () => {
     argv.force = true;
   }
 
-  initRunner(templates, { ...argv, destination, templates });
+  try {
+    initRunner(templates, { ...argv, destination, templates });
+  } catch (error) {
+    console.log(chalk.red('An error occurred: ', error));
+    process.exit(1);
+  }
 };
 
 main();
