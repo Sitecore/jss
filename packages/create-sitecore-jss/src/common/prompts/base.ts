@@ -31,17 +31,17 @@ export const clientAppPrompts: DistinctQuestion[] = [
     },
   },
   {
+    type: 'input',
+    name: 'hostName',
+    message: 'What is your Sitecore hostname?',
+    default: 'https://cm.jss.localhost',
+  },
+  {
     type: 'list',
     name: 'fetchWith',
     message: 'How would you like to fetch Layout and Dictionary data?',
     choices: Object.values(FetchWith),
     default: FetchWith.GraphQL,
-  },
-  {
-    type: 'input',
-    name: 'hostName',
-    message: 'What is your Sitecore hostname?',
-    default: 'https://cm.jss.localhost',
   },
 ];
 
