@@ -21,7 +21,7 @@ export default class NextjsInitializer implements Initializer {
           fetchWith: FetchWith.GraphQL,
           prerender: Prerender.SSG,
           hostName: 'https://cm.jss.localhost',
-          appPrefix: true,
+          appPrefix: false,
         }
       : {};
 

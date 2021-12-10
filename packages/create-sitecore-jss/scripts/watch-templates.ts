@@ -23,5 +23,9 @@ async function callback(event?: string, path?: string) {
 
 const initializeApps = async (noInstall: boolean) => {
   const initializers = watch.initializers || [];
-  await initRunner(initializers, { ...watch.args, templates: initializers, noInstall });
+  try {
+    await initRunner(initializers, { ...watch.args, templates: initializers, noInstall });
+  } catch (error) {
+    console.log(chalk.red('An error occurred: ', error));
+  }
 };
