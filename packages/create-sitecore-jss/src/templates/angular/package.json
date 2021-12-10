@@ -5,13 +5,13 @@
   "config": {
     "appName": "<%- appName %>",
     "rootPlaceholders": [
-      "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : '' %>jss-main-jss-main"
+      "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : '' %>jss-main"
     ],
     "sitecoreDistPath": "/dist/<%- appName %>",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "buildArtifactsPath": "./dist",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
-    "language": "<%- language %>"
+    "language": "en"
   },
   "engines": {
     "node": ">=8.1",

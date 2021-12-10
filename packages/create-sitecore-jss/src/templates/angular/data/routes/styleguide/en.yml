@@ -1,7 +1,7 @@
 fields:
   pageTitle: Styleguide | Sitecore JSS
 placeholders:
-  <%- appPrefix ? `${appName}-` : '' %>jss-main:
+  <%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : '' %>jss-main:
   - componentName: ContentBlock
     fields:
       heading: JSS Styleguide
@@ -10,12 +10,12 @@ placeholders:
         <p>The content and layout of this page is defined in <code>/data/routes/styleguide/en.yml</code></p>
   - componentName: StyleguideLayout
     placeholders:
-      <%- appPrefix ? `${appName}-` : '' %>jss-styleguide-layout:
+      <%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : '' %>jss-styleguide-layout:
       - componentName: StyleguideSection
         fields:
           heading: Content Data
         placeholders:
-          <%- appPrefix ? `${appName}-` : '' %>jss-styleguide-section:
+          <%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : '' %>jss-styleguide-section:
           - componentName: StyleguideFieldUsageText
             fields:
               heading: Single-Line Text

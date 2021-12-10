@@ -13,7 +13,6 @@ export default class AngularInitializer implements Initializer {
   }
 
   async init(args: AngularArgs) {
-    // identify defaults
     const defaults = args.yes
       ? {
           appName: 'sitecore-jss-angular',

@@ -4,5 +4,5 @@
 console.log('Enabling TypeScript transpilation for the manifest...');
 
 require('ts-node').register({
-	project: 'src/tsconfig.webpack-server.json'
+  project: 'src/tsconfig.webpack-server.json',
 });
