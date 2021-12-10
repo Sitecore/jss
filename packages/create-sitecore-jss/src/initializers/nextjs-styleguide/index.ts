@@ -6,13 +6,16 @@ import { isJssApp, openPackageJson } from '../../common/utils/helpers';
 import { transform } from '../../common/steps/index';
 import { styleguidePrompts, StyleguideAnswer } from '../../common/prompts/styleguide';
 import { StyleguideArgs } from '../../common/args/styleguide';
+import { ClientAppArgs } from '../../common/args/base';
+
+interface NextjsStyleguideArgs extends ClientAppArgs, StyleguideArgs {}
 
 export default class NextjsStyleguideInitializer implements Initializer {
   get isBase(): boolean {
     return false;
   }
 
-  async init(args: StyleguideArgs) {
+  async init(args: NextjsStyleguideArgs) {
     const pkg = openPackageJson(`${args.destination}\\package.json`);
 
     if (!args.force && !isJssApp('nextjs-styleguide', pkg)) {

@@ -44,6 +44,3 @@ export const clientAppPrompts: DistinctQuestion[] = [
     default: 'https://cm.jss.localhost',
   },
 ];
-
-// node-headless-proxy, headless-ssr-exp-edge
-export const nodeAppPrompts: { [key: string]: unknown }[] = [];
