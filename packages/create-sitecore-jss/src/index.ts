@@ -11,7 +11,7 @@ import { getBaseTemplates } from './common/utils/helpers';
 // to pass to the generator prompts and skip them.
 // useful for CI and testing purposes
 const argv: ParsedArgs = parseArgs(process.argv.slice(2), {
-  boolean: ['appPrefix', 'yes', 'force', 'noInstall'],
+  boolean: ['appPrefix', 'force', 'noInstall', 'yes'],
 });
 
 const main = async () => {
