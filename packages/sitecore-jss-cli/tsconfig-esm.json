@@ -6,7 +6,6 @@
   },
   "exclude": [
     "src/bin",
-    "types",
     "node_modules",
     "types",
     "dist",

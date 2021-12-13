@@ -1,0 +1,17 @@
+﻿{
+  "initializers": [
+    "nextjs", "nextjs-styleguide"
+  ],
+  "args": {
+    "yes": true,
+    "force": true,
+    "silent": true,
+    "appPrefix": true,
+    "appName": "test",
+    "destination": "..\\..\\samples\\test",
+    "language": "da-DK",
+    "fetchWith": "GraphQL",
+    "prerender": "SSG",
+    "hostName": "https://cm.jss.localhost"
+  }
+}
