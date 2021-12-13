@@ -50,6 +50,8 @@ export interface PlaceholderProps {
   /**
    * Modify final props of component (before render) provided by rendering data.
    * Can be used in case when you need to insert additional data into the component.
+   * @param {ComponentProps} componentProps component props to be modified
+   * @returns {ComponentProps} modified or initial props
    */
   modifyComponentProps?: (componentProps: ComponentProps) => ComponentProps;
   /**
