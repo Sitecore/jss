@@ -16,6 +16,12 @@ type ErrorComponentProps = {
   [prop: string]: unknown;
 };
 
+/** Provided for the component which represents rendering data */
+type ComponentProps = {
+  [key: string]: unknown;
+  rendering: ComponentRendering;
+};
+
 export interface PlaceholderProps {
   [key: string]: unknown;
   /** Name of the placeholder to render. */
@@ -41,9 +47,11 @@ export interface PlaceholderProps {
   params?: {
     [name: string]: string;
   };
-
-  modifyComponentProps?: (componentProps: { [key: string]: unknown, rendering: ComponentRendering }) => ({ [key: string]: unknown, rendering: ComponentRendering });
-
+  /**
+   * Modify final props of component (before render) provided by rendering data.
+   * Can be used in case when you need to insert additional data into the component.
+   */
+  modifyComponentProps?: (componentProps: ComponentProps) => ComponentProps;
   /**
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
