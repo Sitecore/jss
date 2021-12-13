@@ -28,7 +28,7 @@ const GraphQLLayout = ({ rendering }: ComponentProps): JSX.Element => {
         </>
       )}
       {!disconnectedMode && (
-        <Placeholder name="<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-graphql-layout" rendering={rendering} />
+        <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-graphql-layout" rendering={rendering} />
       )}
     </div>
   );

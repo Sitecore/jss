@@ -6,7 +6,7 @@
   "config": {
     "appName": "<%- appName %>",
     "rootPlaceholders": [
-      "<%- appPrefix ? `${appName}-` : '' %>jss-main"
+      "<%- helper.getAppPrefix(appPrefix, appName) %>jss-main"
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",

@@ -5,6 +5,9 @@ export const currentPkg = {
   scripts: {
     test: 'tests are good',
   },
+  config: {
+    rootPlaceholders: ['jss-main']
+  },
   files: ['dist'],
   dependencies: {
     chalk: '^4.1.2',
