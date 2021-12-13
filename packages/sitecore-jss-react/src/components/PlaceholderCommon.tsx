@@ -42,6 +42,8 @@ export interface PlaceholderProps {
     [name: string]: string;
   };
 
+  modifyComponentProps?: (componentProps: { [key: string]: unknown, rendering: ComponentRendering }) => ({ [key: string]: unknown, rendering: ComponentRendering });
+
   /**
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
@@ -85,6 +87,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       PropTypes.object as Requireable<React.ComponentClass<unknown>>,
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
+    modifyComponentProps: PropTypes.func,
   };
 
   nodeRefs: Element[];
@@ -191,7 +194,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         return React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
-          finalProps
+          this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
       })
       .filter((element) => element); // remove nulls
