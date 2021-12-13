@@ -6,32 +6,28 @@ import { expect } from 'chai';
 import sinon, { SinonStub } from 'sinon';
 import { currentPkg, partialPkg } from '../test-data/pkg';
 import * as transform from './transform';
+import * as helpers from '../utils/helpers';
 
-const { transformFilename, merge, diffFiles, writeFiles } = transform;
-
-let answers;
-
-const getAnswers = () => {
-  answers = {
-    force: true,
-    silent: true,
-    appPrefix: true,
-    appName: 'test',
-    destination: '.\\test-data\\test',
-    fetchWith: 'GraphQL',
-    prerender: 'SSG',
-    hostName: 'https://cm.jss.localhost',
-    templates: [],
-  };
-  return answers;
-};
+const { transformFilename, merge, diffFiles, diffAndWriteFiles } = transform;
+// const { writeFileToPath } = helpers;
 
 describe('transform', () => {
   describe('transformFilename', () => {
     it('should replace placeholder filename with appropriate key', () => {
       const fileName = '{{appName}}.config';
+      const answers = {
+        force: true,
+        silent: true,
+        appPrefix: true,
+        appName: 'test',
+        destination: '.\\test-data\\test',
+        fetchWith: 'GraphQL',
+        prerender: 'SSG',
+        hostName: 'https://cm.jss.localhost',
+        templates: [],
+      };
 
-      const transformedFileName = transformFilename(fileName, getAnswers());
+      const transformedFileName = transformFilename(fileName, answers);
 
       expect(transformedFileName).to.equal('test.config');
     });
@@ -47,6 +43,9 @@ describe('transform', () => {
           start:
             'cross-env-shell JSS_MODE=disconnected "npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components"',
           test: 'tests are good',
+        },
+        config: {
+          rootPlaceholders: ['jss-main'],
         },
         files: ['dist'],
         dependencies: {
@@ -211,14 +210,14 @@ describe('transform', () => {
   describe('transform', () => {
     let diffFilesStub: SinonStub;
     let transformFilenameStub: SinonStub;
-    let writeFileStub: SinonStub;
     let processExitStub: SinonStub;
+    let writeFileToPathStub: SinonStub;
 
     afterEach(() => {
       diffFilesStub?.restore();
       transformFilenameStub?.restore();
-      writeFileStub?.restore();
       processExitStub?.restore();
+      writeFileToPathStub?.restore();
     });
 
     describe('transformPostInitializer', () => {
@@ -227,7 +226,7 @@ describe('transform', () => {
         transformFilenameStub = sinon
           .stub(transform, 'transformFilename')
           .returns('transformed-path');
-        writeFileStub = sinon.stub(fs, 'writeFileSync');
+        writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
         const answers = {
           appName: 'JssNextWeb',
@@ -238,7 +237,7 @@ describe('transform', () => {
           templates: [],
         };
 
-        await writeFiles({
+        await diffAndWriteFiles({
           rendered: 'test',
           pathToNewFile: 'new/file/path',
           file: 'path/to/file',
@@ -247,7 +246,7 @@ describe('transform', () => {
         });
 
         expect(
-          writeFileStub.calledOnceWith('samples\\next\\transformed-path', 'test', 'utf-8')
+          writeFileToPathStub.calledOnceWith('samples\\next\\transformed-path', 'test')
         ).to.equal(true);
 
         expect(transformFilenameStub.calledTwice).to.equal(true);
@@ -263,7 +262,7 @@ describe('transform', () => {
         transformFilenameStub = sinon
           .stub(transform, 'transformFilename')
           .returns('transformed-path');
-        writeFileStub = sinon.stub(fs, 'writeFileSync');
+        writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
         const answers = {
           appName: 'JssNextWeb',
@@ -274,7 +273,7 @@ describe('transform', () => {
           templates: [],
         };
 
-        await writeFiles({
+        await diffAndWriteFiles({
           rendered: 'test',
           pathToNewFile: 'new/file/path',
           file: 'path/to/file',
@@ -283,7 +282,7 @@ describe('transform', () => {
         });
 
         expect(
-          writeFileStub.calledOnceWith('samples\\next\\transformed-path', 'test', 'utf-8')
+          writeFileToPathStub.calledOnceWith('samples\\next\\transformed-path', 'test')
         ).to.equal(true);
 
         expect(transformFilenameStub.calledTwice).to.equal(true);
@@ -299,7 +298,7 @@ describe('transform', () => {
         transformFilenameStub = sinon
           .stub(transform, 'transformFilename')
           .returns('transformed-path');
-        writeFileStub = sinon.stub(fs, 'writeFileSync');
+        writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
         const answers = {
           appName: 'JssNextWeb',
@@ -310,7 +309,7 @@ describe('transform', () => {
           templates: [],
         };
 
-        await writeFiles({
+        await diffAndWriteFiles({
           rendered: 'test',
           pathToNewFile: 'new/file/path',
           file: 'path/to/file',
@@ -318,9 +317,9 @@ describe('transform', () => {
           answers,
         });
 
-        expect(writeFileStub.notCalled).to.equal(true);
+        expect(writeFileToPathStub.notCalled).to.equal(true);
 
-        expect(transformFilenameStub.calledOnce).to.equal(true);
+        expect(transformFilenameStub.calledTwice).to.equal(true);
 
         expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
 
@@ -332,7 +331,7 @@ describe('transform', () => {
         transformFilenameStub = sinon
           .stub(transform, 'transformFilename')
           .returns('transformed-path');
-        writeFileStub = sinon.stub(fs, 'writeFileSync');
+        writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
         processExitStub = sinon.stub(process, 'exit');
 
@@ -345,7 +344,7 @@ describe('transform', () => {
           templates: [],
         };
 
-        await writeFiles({
+        await diffAndWriteFiles({
           rendered: 'test',
           pathToNewFile: 'new/file/path',
           file: 'path/to/file',
@@ -353,9 +352,9 @@ describe('transform', () => {
           answers,
         });
 
-        expect(writeFileStub.notCalled).to.equal(true);
+        expect(writeFileToPathStub.notCalled).to.equal(true);
 
-        expect(transformFilenameStub.calledOnce).to.equal(true);
+        expect(transformFilenameStub.calledTwice).to.equal(true);
 
         expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
 

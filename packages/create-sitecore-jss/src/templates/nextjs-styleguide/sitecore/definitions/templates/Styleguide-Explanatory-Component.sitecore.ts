@@ -10,8 +10,8 @@ import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools
  */
 export default function StyleguideExplanatoryComponent(manifest: Manifest): void {
   manifest.addTemplate({
-    name: '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>Styleguide-Explanatory-Component',
-    id: '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>styleguide-explanatory-component-template',
+    name: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-Explanatory-Component',
+    id: '<%- helper.getAppPrefix(appPrefix, appName) %>styleguide-explanatory-component-template',
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },
       { name: 'description', type: CommonFieldTypes.RichText },

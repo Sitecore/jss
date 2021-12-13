@@ -97,7 +97,7 @@ class StyleguideLayoutTabs extends React.Component<
 // in this case, chosen because we primarily need access to the _data_
 // of the placeholder.
 const tabsComponentWithPlaceholderInjected = withPlaceholder({
-  placeholder: '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-tabs',
+  placeholder: '<%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs',
   prop: 'tabsPlaceholder',
 })(StyleguideLayoutTabs);
 

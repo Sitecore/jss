@@ -23,12 +23,12 @@ const StyleguideLayout = (props: ComponentProps): JSX.Element => {
 
   // this code reads the components in the child placeholders of this component,
   // and projects them into the left navigation column for the styleguide
-  const sections = getChildPlaceholder(props.rendering, '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-styleguide-layout')
+  const sections = getChildPlaceholder(props.rendering, '<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-layout')
     .filter((section) => getFieldValue(getRendering(section), 'heading'))
     .map((section) => ({
       heading: getFieldValue<string>(getRendering(section), 'heading'),
       id: `i${convertUID(getRendering(section).uid)}`,
-      children: getChildPlaceholder(getRendering(section), '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-styleguide-section')
+      children: getChildPlaceholder(getRendering(section), '<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section')
         .filter((component) => getFieldValue(getRendering(component), 'heading'))
         .map((component) => ({
           heading: getFieldValue<string>(getRendering(component), 'heading'),
@@ -58,7 +58,7 @@ const StyleguideLayout = (props: ComponentProps): JSX.Element => {
   return (
     <div className="row">
       <div className="col-sm-8 col-lg-10">
-        <Placeholder name="<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-styleguide-layout" rendering={props.rendering} />
+        <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-layout" rendering={props.rendering} />
       </div>
       <div className="col-sm-4 col-lg-2 order-sm-first pt-2">{sections}</div>
     </div>

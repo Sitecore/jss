@@ -13,7 +13,7 @@ export default function StyleguideCustomRouteType(manifest: Manifest): void {
   // article sections, where you may wish to use route-level fields for
   // _sorting and filtering_ (it's difficult to query on component-level field data).
   manifest.addRouteType({
-    name: '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>ExampleCustomRouteType',
+    name: '<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType',
     fields: [
       { name: 'headline', type: CommonFieldTypes.SingleLineText },
       { name: 'author', type: CommonFieldTypes.SingleLineText },
@@ -25,7 +25,7 @@ export default function StyleguideCustomRouteType(manifest: Manifest): void {
   // This component will display the route level fields on the custom route type.
   manifest.addComponent({
     name: 'Styleguide-CustomRouteType',
-    templateName: '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>Styleguide-CustomRouteType',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-CustomRouteType',
     icon: SitecoreIcon.DocumentTag,
   });
 }
