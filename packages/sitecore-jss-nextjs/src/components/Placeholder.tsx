@@ -14,7 +14,9 @@ export const Placeholder = (props: PlaceholderComponentProps) => {
       modifyComponentProps={(initialProps) => {
         if (!initialProps.rendering.uid) return initialProps;
 
-        const data = componentPropsContext[initialProps.rendering.uid] as { [key: string]: unknown };
+        const data = componentPropsContext[initialProps.rendering.uid] as {
+          [key: string]: unknown;
+        };
 
         return { ...initialProps, ...data };
       }}
