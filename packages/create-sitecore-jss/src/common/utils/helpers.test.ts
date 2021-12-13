@@ -9,10 +9,13 @@ import {
   writePackageJson,
   sortKeys,
   isJssApp,
+  getBaseTemplates,
 } from './helpers';
 import { JsonObjectType } from '../steps/transform';
 import testPackage from '../test-data/test.package.json';
 import rootPackage from '../../../package.json';
+import { Initializer } from '../Initializer';
+import { InitializerFactory } from '../../InitializerFactory';
 
 describe('helpers', () => {
   describe('getPascalCaseName', () => {
@@ -230,6 +233,54 @@ describe('helpers', () => {
       );
 
       expect(result).to.equal(false);
+    });
+  });
+
+  describe('getBaseTemplates', () => {
+    let readdirSync: SinonStub;
+    let createStub: SinonStub;
+
+    const mockInitializer = (isBase: boolean) => {
+      const mock = <Initializer>{};
+      mock.init = sinon.stub();
+      mock.isBase = isBase;
+      return mock;
+    };
+
+    afterEach(() => {
+      readdirSync?.restore();
+      createStub?.restore();
+    });
+
+    it('should only return base templates', async () => {
+      readdirSync = sinon.stub(fs, 'readdirSync');
+      readdirSync.returns(['foo', 'bar', 'baz']);
+
+      createStub = sinon.stub(InitializerFactory.prototype, 'create');
+      createStub.withArgs('foo').returns(mockInitializer(false));
+      createStub.withArgs('bar').returns(mockInitializer(true));
+      createStub.withArgs('baz').returns(mockInitializer(true));
+
+      const templates = await getBaseTemplates('./mock/path');
+
+      expect(readdirSync.calledOnce).to.equal(true);
+      expect(readdirSync.getCall(0).args[0]).to.equal('./mock/path');
+      expect(templates).to.deep.equal(['bar', 'baz']);
+    });
+
+    it('should not include unkown templates', async () => {
+      readdirSync = sinon.stub(fs, 'readdirSync');
+      readdirSync.returns(['foo', 'bar']);
+
+      createStub = sinon.stub(InitializerFactory.prototype, 'create');
+      createStub.withArgs('foo').returns(mockInitializer(true));
+      createStub.withArgs('bar').returns(undefined);
+
+      const templates = await getBaseTemplates('./mock/path');
+
+      expect(readdirSync.calledOnce).to.equal(true);
+      expect(readdirSync.getCall(0).args[0]).to.equal('./mock/path');
+      expect(templates).to.deep.equal(['foo']);
     });
   });
 });
