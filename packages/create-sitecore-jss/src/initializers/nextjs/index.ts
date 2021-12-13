@@ -21,7 +21,7 @@ export default class NextjsInitializer implements Initializer {
           fetchWith: FetchWith.GraphQL,
           prerender: Prerender.SSG,
           hostName: 'https://cm.jss.localhost',
-          appPrefix: true,
+          appPrefix: false,
         }
       : {};
 
@@ -52,7 +52,6 @@ export default class NextjsInitializer implements Initializer {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
       appName: answers.appName,
       initializers: postInitializers,
-      yes: args.yes,
     };
 
     return response;
