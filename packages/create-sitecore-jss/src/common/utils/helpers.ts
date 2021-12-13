@@ -84,23 +84,19 @@ export const sortKeys = (obj: JsonObjectType) => {
   return sorted;
 };
 
-export const getBaseTemplates = async (templatePath: string) => {
+export const getBaseTemplates = async (templatePath: string): Promise<string[]> => {
   const templates = fs.readdirSync(templatePath, 'utf8');
   const initFactory = new InitializerFactory();
   const baseTemplates = [];
 
   for (const template of templates) {
-    try {
-      const res = await initFactory.create(template);
-      res.isBase && baseTemplates.push(template);
-
-      // eslint-disable-next-line no-empty
-    } catch (error) {}
+    const res = await initFactory.create(template);
+    res?.isBase && baseTemplates.push(template);
   }
   return baseTemplates;
 };
 
-export const getAppPrefix = (appPrefix: boolean, appName: string) =>
+export const getAppPrefix = (appPrefix: boolean, appName: string): string =>
   appPrefix ? `${getPascalCaseName(appName)}-` : '';
 
 export const writeFileToPath = (destinationPath: string, content: string) => {
