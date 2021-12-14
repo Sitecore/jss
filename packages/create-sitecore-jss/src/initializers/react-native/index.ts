@@ -3,7 +3,7 @@ import { prompt } from 'inquirer';
 import { prompts, ReactNativeAnswer } from './prompts';
 import { Initializer } from '../../common/Initializer';
 import { transform } from '../../common/steps';
-import { ReactNativeArgs } from '../../common/args/base';
+import { ReactNativeArgs } from './args';
 
 export default class ReactNativeInitializer implements Initializer {
   get isBase() {
