@@ -7,8 +7,13 @@
         in its own column of a flexbox layout - giving an n-up columnar layout. The component itself does not need to know that
         it's living in a columnar layout.
     -->
-  <div class="row" sc-placeholder name="<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-reuse-example" [rendering]="rendering">
-      <!--
+  <div
+    class="row"
+    sc-placeholder
+    name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-reuse-example"
+    [rendering]="rendering"
+  >
+    <!--
         Customized component rendering
         You can customize the rendering of each component in this placeholder using the renderEach template.
         This technique is useful for things like flexible column layouts (like this one), or to wrap each component
@@ -17,13 +22,13 @@
         If you need to know the index of the rendering, you can add 'let-index="index"' to the ng-template
         Remove the template entirely to use default component rendering (no wrappers, etc)
       -->
-      <ng-template renderEach let-rendering="rendering">
-        <div class="col-sm">
-          <!-- renders a single component like a placeholder does, based on the component data -->
-          <sc-render-component [rendering]="rendering"></sc-render-component>
-        </div>
-      </ng-template>
-      <!--
+    <ng-template renderEach let-rendering="rendering">
+      <div class="col-sm">
+        <!-- renders a single component like a placeholder does, based on the component data -->
+        <sc-render-component [rendering]="rendering"></sc-render-component>
+      </div>
+    </ng-template>
+    <!--
         Customized empty placeholder rendering
         When using renderEach, in some situations an _empty placeholder_ (with no components in it)
         may not be editable in the Sitecore Experience Editor. In this example, because of the use
@@ -33,15 +38,15 @@
         Using the renderEmpty template allows us to customize the rendering of an empty placeholder
         and place it within a column div so that we can select it correctly.
       -->
-      <ng-template renderEmpty let-renderings="renderings">
-        <div class="col-sm">
-          <!--
+    <ng-template renderEmpty let-renderings="renderings">
+      <div class="col-sm">
+        <!--
             The empty placeholder is rendered with another sc-placeholder, but using the
             renderings (plural) input instead of rendering. In this mode, it accepts a
             raw component data array, and name is unnecessary.
           -->
-          <sc-placeholder [renderings]="renderings"></sc-placeholder>
-        </div>
-      </ng-template>
+        <sc-placeholder [renderings]="renderings"></sc-placeholder>
+      </div>
+    </ng-template>
   </div>
 </app-styleguide-specimen>

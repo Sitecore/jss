@@ -1,25 +1,25 @@
 fields:
   pageTitle: Styleguide | Sitecore JSS
 placeholders:
-  <%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-main:
-  - componentName: ContentBlock
-    fields:
-      heading: JSS Styleguide
-      content: |
-        <div class="alert alert-primary">
-          This is a partial <%- language %> translation of the JSS Styleguide to demonstrate translation functionality.
-          Use the <a href="/en/styleguide">English version</a> for full content.
-        </div>
-        <p>The content and layout of this page is defined in <code>/data/routes/styleguide/<%- language %>.yml</code></p>
-  - componentName: Styleguide-Layout
-    placeholders:
-     <%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-styleguide-layout:
-      - componentName: Styleguide-Section
-        fields:
-          heading: Multilingual Patterns
-        placeholders:
-         <%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-styleguide-section:
-          - componentName: Styleguide-Multilingual
+  <%- helper.getAppPrefix(appPrefix, appName) %>jss-main:
+    - componentName: ContentBlock
+      fields:
+        heading: JSS Styleguide
+        content: |
+          <div class="alert alert-primary">
+            This is a partial <%- language %> translation of the JSS Styleguide to demonstrate translation functionality.
+            Use the <a href="/en/styleguide">English version</a> for full content.
+          </div>
+          <p>The content and layout of this page is defined in <code>/data/routes/styleguide/<%- language %>.yml</code></p>
+    - componentName: Styleguide-Layout
+      placeholders:
+        <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-layout:
+          - componentName: Styleguide-Section
             fields:
-              heading: Translation Patterns
-              sample: This text can be translated in <%- language %>.yml
+              heading: Multilingual Patterns
+            placeholders:
+              <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
+                - componentName: Styleguide-Multilingual
+                  fields:
+                    heading: Translation Patterns
+                    sample: This text can be translated in <%- language %>.yml

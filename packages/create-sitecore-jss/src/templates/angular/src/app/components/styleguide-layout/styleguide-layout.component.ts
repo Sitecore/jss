@@ -31,7 +31,7 @@ export class StyleguideLayoutComponent implements OnInit {
     // and projects them into the left navigation column for the styleguide
     this.navigation = getChildPlaceholder(
       this.rendering,
-      '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-styleguide-layout'
+      '<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-layout'
     )
       .filter((section: ComponentRendering) => getFieldValue(section, 'heading'))
       .map((section: ComponentRendering) => ({
@@ -39,7 +39,7 @@ export class StyleguideLayoutComponent implements OnInit {
         id: `i${section.uid.replace(/[{}]/g, '')}`,
         children: getChildPlaceholder(
           section,
-          '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-styleguide-section'
+          '<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section'
         )
           .filter((component: ComponentRendering) => getFieldValue(component, 'heading'))
           .map((component: ComponentRendering) => ({

@@ -7,7 +7,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function ContentBlock(manifest: Manifest) {
   manifest.addComponent({
     name: 'ContentBlock',
-    templateName: '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>ContentBlock',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>ContentBlock',
     icon: SitecoreIcon.DocumentTag,
     fields: [
       { name: 'heading', type: CommonFieldTypes.SingleLineText },

@@ -46,7 +46,7 @@ export class StyleguideLayoutTabsComponent implements OnInit, OnDestroy {
   update() {
     this.tabs = getChildPlaceholder(
       this.rendering,
-      '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-tabs'
+      '<%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs'
     ).filter((tab: ComponentRendering) => tab.fields) as ComponentRendering[];
 
     if (!this.activeTab && this.tabs.length > 0) {

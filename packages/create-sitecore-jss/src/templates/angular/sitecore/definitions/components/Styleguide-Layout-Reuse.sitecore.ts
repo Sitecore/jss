@@ -7,16 +7,13 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 export default function StyleguideLayoutReuse(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideLayoutReuse',
-    templateName:
-      '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideLayoutReuse',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutReuse',
     icon: SitecoreIcon.DocumentsExchange,
-    placeholders: [
-      '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-reuse-example',
-    ],
+    placeholders: ['<%- helper.getAppPrefix(appPrefix, appName) %>jss-reuse-example'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
     inherits: [
-      '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>styleguide-explanatory-component-template',
+      '<%- helper.getAppPrefix(appPrefix, appName) %>styleguide-explanatory-component-template',
     ],
   });
 }

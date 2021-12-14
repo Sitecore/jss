@@ -7,8 +7,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function StyleguideFieldUsageDate(manifest: Manifest) {
   manifest.addComponent({
     name: 'StyleguideFieldUsageDate',
-    templateName:
-      '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageDate',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageDate',
     icon: SitecoreIcon.Clock,
     fields: [
       { name: 'date', type: CommonFieldTypes.Date },
@@ -17,7 +16,7 @@ export default function StyleguideFieldUsageDate(manifest: Manifest) {
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
     inherits: [
-      '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>styleguide-explanatory-component-template',
+      '<%- helper.getAppPrefix(appPrefix, appName) %>styleguide-explanatory-component-template',
     ],
   });
 }

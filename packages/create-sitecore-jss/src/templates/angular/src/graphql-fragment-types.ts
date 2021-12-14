@@ -1,211 +1,211 @@
 /* eslint-disable */
 export default {
-  "__schema": {
-    "types": [
+  __schema: {
+    types: [
       {
-        "kind": "INTERFACE",
-        "name": "ItemField",
-        "possibleTypes": [
+        kind: 'INTERFACE',
+        name: 'ItemField',
+        possibleTypes: [
           {
-            "name": "RichTextField"
+            name: 'RichTextField',
           },
           {
-            "name": "NumberField"
+            name: 'NumberField',
           },
           {
-            "name": "MultilistField"
+            name: 'MultilistField',
           },
           {
-            "name": "LookupField"
+            name: 'LookupField',
           },
           {
-            "name": "LinkField"
+            name: 'LinkField',
           },
           {
-            "name": "TextField"
+            name: 'TextField',
           },
           {
-            "name": "IntegerField"
+            name: 'IntegerField',
           },
           {
-            "name": "ImageField"
+            name: 'ImageField',
           },
           {
-            "name": "DateField"
+            name: 'DateField',
           },
           {
-            "name": "CheckboxField"
+            name: 'CheckboxField',
           },
           {
-            "name": "NameValueListField"
-          }
-        ]
+            name: 'NameValueListField',
+          },
+        ],
       },
       {
-        "kind": "INTERFACE",
-        "name": "Item",
-        "possibleTypes": [
+        kind: 'INTERFACE',
+        name: 'Item',
+        possibleTypes: [
           {
-            "name": "UnknownItem"
+            name: 'UnknownItem',
           },
           {
-            "name": "StyleguideComponentParamsRenderingParameters"
+            name: 'StyleguideComponentParamsRenderingParameters',
           },
           {
-            "name": "C__StandardTemplate"
+            name: 'C__StandardTemplate',
           },
           {
-            "name": "C__Route"
+            name: 'C__Route',
           },
           {
-            "name": "RenderEngineType"
+            name: 'RenderEngineType',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideTracking"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideTracking',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideSitecoreContext"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSitecoreContext',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideSection"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSection',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideRouteFields"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideRouteFields',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideMultilingual"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideMultilingual',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideLayoutTabsTab"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabsTab',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideLayoutTabs"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabs',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideLayoutReuse"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutReuse',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideItemLinkItemTemplate"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideItemLinkItemTemplate',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageText"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageText',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageRichText"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageRichText',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageNumber"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageNumber',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageLink"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageLink',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageItemLink"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageItemLink',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageImage"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageImage',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageFile"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageFile',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageDate"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageDate',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageCustom"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCustom',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageContentList"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageContentList',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideFieldUsageCheckbox"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCheckbox',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideExplanatoryComponent"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideContentListItemTemplate"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideContentListItemTemplate',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideComponentParams"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideComponentParams',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>StyleguideAngularLazyLoading"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideAngularLazyLoading',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>GraphQLIntegratedDemo"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLIntegratedDemo',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>GraphQLConnectedDemo"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLConnectedDemo',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>ExampleCustomRouteType"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType',
           },
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>ContentBlock"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>ContentBlock',
           },
           {
-            "name": "C__<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>AppRoute"
+            name: 'C__<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute',
           },
           {
-            "name": "JsonRendering"
+            name: 'JsonRendering',
           },
           {
-            "name": "JavaScriptRendering"
+            name: 'JavaScriptRendering',
           },
           {
-            "name": "JSSLayout"
+            name: 'JSSLayout',
           },
           {
-            "name": "App"
-          }
-        ]
+            name: 'App',
+          },
+        ],
       },
       {
-        "kind": "INTERFACE",
-        "name": "RenderingOptions",
-        "possibleTypes": [
+        kind: 'INTERFACE',
+        name: 'RenderingOptions',
+        possibleTypes: [
           {
-            "name": "JsonRendering"
+            name: 'JsonRendering',
           },
           {
-            "name": "JavaScriptRendering"
-          }
-        ]
+            name: 'JavaScriptRendering',
+          },
+        ],
       },
       {
-        "kind": "INTERFACE",
-        "name": "Layout",
-        "possibleTypes": [
+        kind: 'INTERFACE',
+        name: 'Layout',
+        possibleTypes: [
           {
-            "name": "JSSLayout"
-          }
-        ]
+            name: 'JSSLayout',
+          },
+        ],
       },
       {
-        "kind": "INTERFACE",
-        "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>AppRoute",
-        "possibleTypes": [
+        kind: 'INTERFACE',
+        name: '<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute',
+        possibleTypes: [
           {
-            "name": "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>ExampleCustomRouteType"
+            name: '<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType',
           },
           {
-            "name": "C__<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>AppRoute"
-          }
-        ]
+            name: 'C__<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute',
+          },
+        ],
       },
       {
-        "kind": "INTERFACE",
-        "name": "Caching",
-        "possibleTypes": [
+        kind: 'INTERFACE',
+        name: 'Caching',
+        possibleTypes: [
           {
-            "name": "JsonRendering"
+            name: 'JsonRendering',
           },
           {
-            "name": "JavaScriptRendering"
-          }
-        ]
-      }
-    ]
-  }
-}
+            name: 'JavaScriptRendering',
+          },
+        ],
+      },
+    ],
+  },
+};

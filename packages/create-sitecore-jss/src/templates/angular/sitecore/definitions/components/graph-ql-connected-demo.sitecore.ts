@@ -7,8 +7,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function GraphQLConnectedDemo(manifest: Manifest) {
   manifest.addComponent({
     name: 'GraphQLConnectedDemo',
-    templateName:
-      '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>GraphQLConnectedDemo',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLConnectedDemo',
     icon: SitecoreIcon.GraphConnection_directed,
     fields: [
       { name: 'sample1', type: CommonFieldTypes.SingleLineText },

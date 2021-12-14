@@ -6,8 +6,7 @@ import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools
  */
 export default function StyleguideContentListItemTemplate(manifest: Manifest) {
   manifest.addTemplate({
-    name:
-      '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>Styleguide-ContentList-Item-Template',
+    name: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-ContentList-Item-Template',
     fields: [{ name: 'textField', type: CommonFieldTypes.SingleLineText }],
   });
 }

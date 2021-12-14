@@ -1,7 +1,6 @@
 import { constants } from '@sitecore-jss/sitecore-jss-angular';
 import { generateConfig } from './generate-config';
 const projects = require('../angular.json').projects;
-import pkg from '../package.json';
 
 /*
   BOOTSTRAPPING
@@ -22,7 +21,7 @@ const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
 */
 function writeConfig(configOverride: { production: boolean, sitecoreApiHost?: string }, outputPath?: string) {
   if (disconnected) {
-    configOverride.sitecoreApiHost = `http://localhost:${projects[pkg.config.appName].architect.serve.options.port}`;
+    configOverride.sitecoreApiHost = `http://localhost:${projects[projects.config.appName].architect.serve.options.port}`;
   }
 
   generateConfig(configOverride, outputPath);

@@ -6,8 +6,8 @@
   <ul class="nav nav-tabs" *ngIf="!isEditing">
     <li class="nav-item" *ngFor="let tab of tabs">
       <a
-        [ngClass]="{'nav-link': true, 'active': tab === activeTab }"
-        (click)="activeTab = tab; false"
+        [ngClass]="{ 'nav-link': true, active: tab === activeTab }"
+        (click)="activeTab = tab; (false)"
         href="#"
       >
         <span *scText="tab.fields.title"></span>
@@ -20,7 +20,10 @@
         When experience editor is active we want to render all tabs in a stack,
         to simplify editing.
       -->
-      <sc-placeholder name="<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>jss-tabs" [rendering]="rendering"></sc-placeholder>
+      <sc-placeholder
+        name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs"
+        [rendering]="rendering"
+      ></sc-placeholder>
     </ng-container>
     <ng-container *ngIf="!isEditing">
       <!--
