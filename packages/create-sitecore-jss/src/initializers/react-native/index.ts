@@ -26,12 +26,10 @@ export default class ReactNativeInitializer implements Initializer {
       ...answers,
     };
 
-    const FILTER_REGEXP = /.(jar)$/;
     const templatePath = path.resolve(__dirname, '../../templates/react-native');
     await transform(templatePath, mergedArgs, {
       filter: (filePath: string) =>
-        !FILTER_REGEXP.test(filePath) &&
-        (!!mergedArgs.language || !filePath.endsWith('{{language}}.json')),
+        !!mergedArgs.language || !filePath.endsWith('{{language}}.json'),
     });
 
     const response = {
