@@ -36,7 +36,6 @@ export default class ReactNativeInitializer implements Initializer {
 
     const response = {
       appName: answers.appName,
-      yes: args.yes,
     };
 
     return response;
