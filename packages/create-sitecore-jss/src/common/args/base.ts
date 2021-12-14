@@ -14,3 +14,5 @@ export interface BaseArgs {
 export interface ClientAppArgs extends BaseArgs, Partial<ClientAppAnswer> {
   appPrefix?: boolean;
 }
+
+export interface ReactNativeArgs extends BaseArgs, Partial<Omit<ClientAppAnswer, 'fetchWith'>> {}
