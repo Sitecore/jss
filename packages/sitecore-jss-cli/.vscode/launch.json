@@ -16,13 +16,6 @@
       ],
       "cwd": "${workspaceRoot}",
       "runtimeExecutable": null
-    },
-    {
-      "name": "Attach to Process",
-      "type": "node",
-      "request": "attach",
-      "skipFiles": ["<node_internals>/**"],
-      "port": 9229
     }
   ]
 }
