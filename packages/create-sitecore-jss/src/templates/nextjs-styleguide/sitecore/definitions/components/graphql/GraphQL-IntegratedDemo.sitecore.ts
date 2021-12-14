@@ -14,7 +14,7 @@ const query = fs.readFileSync(
 export default function GraphQLIntegratedDemo(manifest: Manifest): void {
   manifest.addComponent({
     name: 'GraphQL-IntegratedDemo',
-    templateName: '<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : "" %>GraphQL-IntegratedDemo',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>GraphQL-IntegratedDemo',
     icon: SitecoreIcon.GraphConnection_directed,
     graphQLQuery: query,
     fields: [

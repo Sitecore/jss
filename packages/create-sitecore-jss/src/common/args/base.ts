@@ -14,5 +14,3 @@ export interface BaseArgs {
 export interface ClientAppArgs extends BaseArgs, Partial<ClientAppAnswer> {
   appPrefix?: boolean;
 }
-
-export type NodeAppArgs = BaseArgs;

@@ -40,7 +40,7 @@ export {
 } from '@sitecore-jss/sitecore-jss/i18n';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { ComponentFactory } from './components/sharedTypes';
-export { Placeholder } from './components/Placeholder';
+export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
 export { Image, ImageField } from './components/Image';
 export { RichText, RichTextProps, RichTextPropTypes, RichTextField } from './components/RichText';
 export { Text, TextField } from './components/Text';
