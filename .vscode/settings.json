@@ -6,6 +6,5 @@
         "request": "launch",
         "cwd": "${workspaceFolder}/",
         "runtimeArgs": ["run-script", "debug"],
-        at
       }
 }
