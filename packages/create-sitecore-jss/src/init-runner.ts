@@ -7,10 +7,13 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
   let nextStepsArr: string[] = [];
   let appName;
 
-  const initFactory = await new InitializerFactory();
+  const initFactory = new InitializerFactory();
   const runner = async (inits: string[]) => {
     for (const init of inits) {
       const initializer = await initFactory.create(init);
+      if (!initializer) {
+        throw new RangeError(`Unknown template '${init}'`);
+      }
 
       args.silent || console.log(chalk.cyan(`Initializing '${init}'...`));
       const response = await initializer.init(args);
