@@ -90,10 +90,10 @@ export {
 
 export { Link } from './components/Link';
 export { RichText } from './components/RichText';
+export { Placeholder } from './components/Placeholder';
 
 export {
   ComponentFactory,
-  Placeholder,
   Image,
   ImageField,
   LinkField,

@@ -19,7 +19,16 @@ export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
       if (!LANGUAGE_REGEXP.test(input)) {
         console.error(
           chalk.red(
-            `${input} is not a valid code; you may use language identifier, for example 'en',\nor you can add country code, for example 'US'. The language code is then 'en-US'.`
+            `\n${input} is not a valid code; you may use language identifier, for example 'en',\nor you can add country code, for example 'US'. The language code is then 'en-US'.`
+          )
+        );
+        return false;
+      } else if (input === 'en') {
+        console.error(
+          chalk.red(
+            `\nen is included in the Styleguide by default. \nYou ${chalk.italic(
+              'may'
+            )} however add an en-* locale, for example 'en-UK'.`
           )
         );
         return false;
