@@ -12,9 +12,9 @@ import {
 import NextLink from 'next/link';
 import {
   ConnectedDemoQueryDocument,
-  <%- appPrefix ? `${helper.getPascalCaseName(appName)}` : "" %>AppRoute as AppRoute,
+  <%- helper.getAppPrefix(appPrefix, appName).replace('-', '') %>AppRoute as AppRoute,
   Item,
-  <%- appPrefix ? `${helper.getPascalCaseName(appName)}` : "" %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
+  <%- helper.getAppPrefix(appPrefix, appName).replace('-', '') %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
 } from './GraphQL-ConnectedDemo.dynamic.graphql';
 import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
