@@ -14,7 +14,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-rendering-host src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=12"
   },
   "author": {
     "name": "Sitecore Corporation",

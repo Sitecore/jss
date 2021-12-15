@@ -10,6 +10,9 @@
     "coverage": "npm test",
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-angular src/public_api.ts --githubPages false"
   },
+  "engines": {
+    "node": ">=12"
+  },
   "author": {
     "name": "Sitecore Corporation",
     "url": "https://jss.sitecore.com"

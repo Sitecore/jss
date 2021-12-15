@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "engines": {
-    "node": ">=8.1",
+    "node": ">=12",
     "npm": ">=5.6.0"
   },
   "author": {
