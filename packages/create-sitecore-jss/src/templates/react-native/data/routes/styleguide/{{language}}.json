@@ -4,19 +4,19 @@
   "placeholders": {
     "jss-main": [
       {
-				"componentName": "Styleguide-FieldUsage-Text",
-				"fields": {
-					"heading": {
-						"value": "[<%- language %>] Single-Line Text"
-					},
-					"sample": {
-						"value": "[<%- language %>] This is a sample text field."
-					},
-					"sample2": {
-						"value": "[<%- language %>] This is another sample text field using rendering options. Cannot edit because editable=false."
-					}
-				}
-			},
+        "componentName": "Styleguide-FieldUsage-Text",
+        "fields": {
+          "heading": {
+            "value": "[<%- language %>] Single-Line Text"
+          },
+          "sample": {
+            "value": "[<%- language %>] This is a sample text field."
+          },
+          "sample2": {
+            "value": "[<%- language %>] This is another sample text field using rendering options. Cannot edit because editable=false."
+          }
+        }
+      },
       {
         "componentName": "Styleguide-Multilingual",
         "fields": {
