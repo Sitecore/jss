@@ -61,91 +61,99 @@ export default {
             name: 'RenderEngineType',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideTracking',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideTracking',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSitecoreContext',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideSitecoreContext',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSection',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideSection',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideRouteFields',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideRouteFields',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideMultilingual',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideMultilingual',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabsTab',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutTabsTab',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabs',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutTabs',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutReuse',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutReuse',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideItemLinkItemTemplate',
+            name:
+              '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideItemLinkItemTemplate',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageText',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageText',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageRichText',
+            name:
+              '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageRichText',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageNumber',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageNumber',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageLink',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageLink',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageItemLink',
+            name:
+              '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageItemLink',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageImage',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageImage',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageFile',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageFile',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageDate',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageDate',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCustom',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageCustom',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageContentList',
+            name:
+              '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageContentList',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCheckbox',
+            name:
+              '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageCheckbox',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent',
+            name:
+              '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideContentListItemTemplate',
+            name:
+              '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideContentListItemTemplate',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideComponentParams',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideComponentParams',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideAngularLazyLoading',
+            name:
+              '<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideAngularLazyLoading',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLIntegratedDemo',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQLIntegratedDemo',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLConnectedDemo',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQLConnectedDemo',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>ExampleCustomRouteType',
           },
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>ContentBlock',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>ContentBlock',
           },
           {
-            name: 'C__<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute',
+            name: 'C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute',
           },
           {
             name: 'JsonRendering',
@@ -184,13 +192,13 @@ export default {
       },
       {
         kind: 'INTERFACE',
-        name: '<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute',
+        name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute',
         possibleTypes: [
           {
-            name: '<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType',
+            name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>ExampleCustomRouteType',
           },
           {
-            name: 'C__<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute',
+            name: 'C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute',
           },
         ],
       },
