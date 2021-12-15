@@ -2,7 +2,6 @@
   "name": "home",
   "displayName": "Home",
   "placeholders": {
-    "jss-main": [
-    ]
+    "jss-main": []
   }
 }
