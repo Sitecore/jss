@@ -9,11 +9,11 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-Layout-Reuse',
-    templateName: 'JssReactWeb-Styleguide-Layout-Reuse',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-Layout-Reuse',
     icon: SitecoreIcon.DocumentsExchange,
-    placeholders: ['JssReactWeb-jss-reuse-example'],
+    placeholders: ['<%- helper.getAppPrefix(appPrefix, appName) %>jss-reuse-example'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['JssReactWeb-styleguide-explanatory-component-template'],
+    inherits: ['<%- helper.getAppPrefix(appPrefix, appName) %>styleguide-explanatory-component-template'],
   });
 }

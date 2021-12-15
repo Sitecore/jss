@@ -9,11 +9,11 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-ComponentParams',
-    templateName: 'JssReactWeb-Styleguide-ComponentParams',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-ComponentParams',
     icon: SitecoreIcon.WindowDialog,
     params: ['cssClass', 'columns', 'useCallToAction'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['JssReactWeb-styleguide-explanatory-component-template'],
+    inherits: ['<%- helper.getAppPrefix(appPrefix, appName) %>styleguide-explanatory-component-template'],
   });
 }

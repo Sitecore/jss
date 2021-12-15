@@ -1,14 +1,14 @@
 {
-  "name": "jss-sample-react",
+  "name": "<%- appName %>",
   "description": "Application utilizing Sitecore JavaScript Services and React (create-react-app).",
-  "version": "20.0.0-canary.77",
+  "version": "20.0.0-canary",
   "private": true,
   "config": {
-    "appName": "JssReactWeb",
+    "appName": "<%- appName %>",
     "rootPlaceholders": [
-      "JssReactWeb-jss-main"
+      "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : '' %>jss-main"
     ],
-    "sitecoreDistPath": "/dist/JssReactWeb",
+    "sitecoreDistPath": "/dist/<%- appName %>",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
     "language": "en",

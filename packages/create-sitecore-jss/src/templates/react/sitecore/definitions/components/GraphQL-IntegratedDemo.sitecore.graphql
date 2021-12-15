@@ -13,7 +13,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language
     id
     name
     # Strongly-typed querying on known templates is possible!
-    ...on JssReactWebGraphQLIntegratedDemo {
+    ...on <%- appPrefix ? `${helper.getPascalCaseName(appName)}` : "" %>GraphQLIntegratedDemo {
       # Single-line text field
       sample1 {
         # the 'jsonValue' field is a JSON blob that represents the object that
@@ -43,7 +43,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language
   contextItem: item(path: $contextItem, language: $language) {
     id
     # Get the page title from the app route template
-    ...on JssReactWebAppRoute {
+    ...on <%- appPrefix ? `${helper.getPascalCaseName(appName)}` : "" %>WebAppRoute {
       pageTitle {
         value
       }
