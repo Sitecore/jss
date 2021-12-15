@@ -15,8 +15,8 @@
     "language": "en"
   },
   "engines": {
-    "node": ">=8.1",
-    "npm": ">=5.6.0"
+    "node": ">= 12",
+    "npm": ">= 6"
   },
   "author": {
     "name": "Sitecore Corporation",
