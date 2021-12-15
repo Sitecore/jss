@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import deepEqual from 'deep-equal';
 import {
   Placeholder,
   VisitorIdentification,
@@ -50,11 +49,4 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   );
 };
 
-const propsAreEqual = (prevProps: LayoutProps, nextProps: LayoutProps) => {
-  if (deepEqual(prevProps.layoutData.sitecore.route, nextProps.layoutData.sitecore.route))
-    return true;
-
-  return false;
-};
-
-export default React.memo(Layout, propsAreEqual);
+export default Layout;
