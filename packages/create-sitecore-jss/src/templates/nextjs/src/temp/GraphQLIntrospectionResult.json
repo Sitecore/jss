@@ -2044,142 +2044,142 @@
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideTracking",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideTracking",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSitecoreContext",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideSitecoreContext",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSection",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideSection",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideRouteFields",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideRouteFields",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideMultilingual",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideMultilingual",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabsTab",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutTabsTab",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabs",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutTabs",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutReuse",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutReuse",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideItemLinkItemTemplate",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideItemLinkItemTemplate",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageText",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageText",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageRichText",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageRichText",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageNumber",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageNumber",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageLink",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageLink",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageItemLink",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageItemLink",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageImage",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageImage",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageFile",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageFile",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageDate",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageDate",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCustom",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageCustom",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageContentList",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageContentList",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCheckbox",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageCheckbox",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "C__<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideContentListItemTemplate",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideContentListItemTemplate",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideComponentParams",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideComponentParams",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLIntegratedDemo",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQLIntegratedDemo",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLConnectedDemo",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQLConnectedDemo",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>ExampleCustomRouteType",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>ContentBlock",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>ContentBlock",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "C__<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute",
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
             "ofType": null
           },
           {
@@ -4121,7 +4121,7 @@
       {
         "kind": "OBJECT",
         "name": "StyleguideComponentParamsRenderingParameters",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/Styleguide-ComponentParams Rendering Parameters template (ID: {57F1C4D3-6494-5339-A7DD-C67586B5CE4F}).",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/Styleguide-ComponentParams Rendering Parameters template (ID: {57F1C4D3-6494-5339-A7DD-C67586B5CE4F}).",
         "fields": [
           {
             "name": "ancestors",
@@ -5852,8 +5852,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideTracking",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-Tracking template (ID: {06A0F451-50F5-57BC-BC7C-02CED260FF55}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideTracking",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-Tracking template (ID: {06A0F451-50F5-57BC-BC7C-02CED260FF55}).",
         "fields": [
           {
             "name": "ancestors",
@@ -6288,7 +6288,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -6302,8 +6302,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSitecoreContext",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-SitecoreContext template (ID: {9896119B-75EF-5E12-A7F2-A67DBA5B59B1}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideSitecoreContext",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-SitecoreContext template (ID: {9896119B-75EF-5E12-A7F2-A67DBA5B59B1}).",
         "fields": [
           {
             "name": "ancestors",
@@ -6738,7 +6738,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -6752,8 +6752,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSection",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-Section template (ID: {8A6F9728-6099-5F93-B782-078C0BF4D968}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideSection",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-Section template (ID: {8A6F9728-6099-5F93-B782-078C0BF4D968}).",
         "fields": [
           {
             "name": "ancestors",
@@ -7185,8 +7185,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideRouteFields",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-RouteFields template (ID: {DDEDAFB7-128D-5E06-8196-FAA170B3D03C}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideRouteFields",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-RouteFields template (ID: {DDEDAFB7-128D-5E06-8196-FAA170B3D03C}).",
         "fields": [
           {
             "name": "ancestors",
@@ -7621,7 +7621,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -7635,8 +7635,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideMultilingual",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-Multilingual template (ID: {CFBD0888-3BC0-575A-8EBE-7D9CEDD341C0}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideMultilingual",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-Multilingual template (ID: {CFBD0888-3BC0-575A-8EBE-7D9CEDD341C0}).",
         "fields": [
           {
             "name": "ancestors",
@@ -8083,7 +8083,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -8097,8 +8097,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabsTab",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-Layout-Tabs-Tab template (ID: {2DF24150-746E-538F-9B5A-8525A4CCFDEC}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutTabsTab",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-Layout-Tabs-Tab template (ID: {2DF24150-746E-538F-9B5A-8525A4CCFDEC}).",
         "fields": [
           {
             "name": "ancestors",
@@ -8542,8 +8542,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabs",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-Layout-Tabs template (ID: {5EC1815B-EA00-5E25-AFE0-DD92D2302EC2}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutTabs",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-Layout-Tabs template (ID: {5EC1815B-EA00-5E25-AFE0-DD92D2302EC2}).",
         "fields": [
           {
             "name": "ancestors",
@@ -8978,7 +8978,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -8992,8 +8992,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutReuse",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-Layout-Reuse template (ID: {251DE221-673B-5F04-B617-D8D1A020DFDD}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutReuse",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-Layout-Reuse template (ID: {251DE221-673B-5F04-B617-D8D1A020DFDD}).",
         "fields": [
           {
             "name": "ancestors",
@@ -9428,7 +9428,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -9442,8 +9442,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideItemLinkItemTemplate",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-ItemLink-Item-Template template (ID: {ED79C212-F8D4-5762-B160-769427A8570B}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideItemLinkItemTemplate",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-ItemLink-Item-Template template (ID: {ED79C212-F8D4-5762-B160-769427A8570B}).",
         "fields": [
           {
             "name": "ancestors",
@@ -9875,8 +9875,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageText",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-Text template (ID: {004A5769-7C65-5E5A-8375-4311BC50481F}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageText",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-Text template (ID: {004A5769-7C65-5E5A-8375-4311BC50481F}).",
         "fields": [
           {
             "name": "ancestors",
@@ -10335,7 +10335,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -10349,8 +10349,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageRichText",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-RichText template (ID: {E1AD788D-5496-573C-AC80-D7692143816C}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageRichText",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-RichText template (ID: {E1AD788D-5496-573C-AC80-D7692143816C}).",
         "fields": [
           {
             "name": "ancestors",
@@ -10809,7 +10809,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -10823,8 +10823,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageNumber",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-Number template (ID: {B0681769-342B-505E-8392-9C0A3BBDC0B0}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageNumber",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-Number template (ID: {B0681769-342B-505E-8392-9C0A3BBDC0B0}).",
         "fields": [
           {
             "name": "ancestors",
@@ -11271,7 +11271,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -11285,8 +11285,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageLink",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-Link template (ID: {8CFE0D37-E726-59CD-821C-6839BF2CE36D}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageLink",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-Link template (ID: {8CFE0D37-E726-59CD-821C-6839BF2CE36D}).",
         "fields": [
           {
             "name": "ancestors",
@@ -11769,7 +11769,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -11783,8 +11783,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageItemLink",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-ItemLink template (ID: {8EF4CB39-9119-5153-A002-161B89E56347}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageItemLink",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-ItemLink template (ID: {8EF4CB39-9119-5153-A002-161B89E56347}).",
         "fields": [
           {
             "name": "ancestors",
@@ -12243,7 +12243,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -12257,8 +12257,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageImage",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-Image template (ID: {5FF73BC4-BB50-5B16-BC22-B6244CFB5A73}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageImage",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-Image template (ID: {5FF73BC4-BB50-5B16-BC22-B6244CFB5A73}).",
         "fields": [
           {
             "name": "ancestors",
@@ -12717,7 +12717,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -12731,8 +12731,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageFile",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-File template (ID: {1564AFF5-19A9-56ED-9D73-C55F40D574FD}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageFile",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-File template (ID: {1564AFF5-19A9-56ED-9D73-C55F40D574FD}).",
         "fields": [
           {
             "name": "ancestors",
@@ -13179,7 +13179,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -13193,8 +13193,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageDate",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-Date template (ID: {1847C9C2-9B05-5860-8207-B240D7A5B820}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageDate",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-Date template (ID: {1847C9C2-9B05-5860-8207-B240D7A5B820}).",
         "fields": [
           {
             "name": "ancestors",
@@ -13653,7 +13653,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -13667,8 +13667,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCustom",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-Custom template (ID: {EEA463CD-9696-5BDA-83E2-043A32DEA7D4}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageCustom",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-Custom template (ID: {EEA463CD-9696-5BDA-83E2-043A32DEA7D4}).",
         "fields": [
           {
             "name": "ancestors",
@@ -14115,7 +14115,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -14129,8 +14129,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageContentList",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-ContentList template (ID: {CB2CFFE6-5481-541C-8F0C-25F248FDEB22}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageContentList",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-ContentList template (ID: {CB2CFFE6-5481-541C-8F0C-25F248FDEB22}).",
         "fields": [
           {
             "name": "ancestors",
@@ -14589,7 +14589,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -14603,8 +14603,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCheckbox",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-FieldUsage-Checkbox template (ID: {41A681D2-0725-5987-ADD5-6D51CAC9F548}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageCheckbox",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-FieldUsage-Checkbox template (ID: {41A681D2-0725-5987-ADD5-6D51CAC9F548}).",
         "fields": [
           {
             "name": "ancestors",
@@ -15063,7 +15063,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -15077,8 +15077,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "C__<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-Explanatory-Component template (ID: {02DBD562-2D01-5472-A7B0-54A6508AC665}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. <%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent) for reliable querying.",
+        "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-Explanatory-Component template (ID: {02DBD562-2D01-5472-A7B0-54A6508AC665}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. <%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent) for reliable querying.",
         "fields": [
           {
             "name": "ancestors",
@@ -15513,7 +15513,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -15527,8 +15527,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideContentListItemTemplate",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-ContentList-Item-Template template (ID: {783417BF-451E-5AB1-AD45-EF26DCBAEC53}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideContentListItemTemplate",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-ContentList-Item-Template template (ID: {783417BF-451E-5AB1-AD45-EF26DCBAEC53}).",
         "fields": [
           {
             "name": "ancestors",
@@ -15960,8 +15960,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideComponentParams",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-ComponentParams template (ID: {A724031B-12A6-5E05-A249-B2F0F017F5EF}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideComponentParams",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-ComponentParams template (ID: {A724031B-12A6-5E05-A249-B2F0F017F5EF}).",
         "fields": [
           {
             "name": "ancestors",
@@ -16396,7 +16396,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
@@ -16410,8 +16410,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLIntegratedDemo",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-GraphQL-IntegratedDemo template (ID: {C23F5BA8-08EA-57CC-BC17-39ECF5B512E5}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQLIntegratedDemo",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-GraphQL-IntegratedDemo template (ID: {C23F5BA8-08EA-57CC-BC17-39ECF5B512E5}).",
         "fields": [
           {
             "name": "ancestors",
@@ -16855,8 +16855,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLConnectedDemo",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-GraphQL-ConnectedDemo template (ID: {2C3D6270-6FBC-519C-8404-E92CDAD92FF5}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQLConnectedDemo",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-GraphQL-ConnectedDemo template (ID: {2C3D6270-6FBC-519C-8404-E92CDAD92FF5}).",
         "fields": [
           {
             "name": "ancestors",
@@ -17300,8 +17300,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-ExampleCustomRouteType template (ID: {F15CE080-38CE-5A69-BF36-6F5A50D84DBD}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>ExampleCustomRouteType",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-ExampleCustomRouteType template (ID: {F15CE080-38CE-5A69-BF36-6F5A50D84DBD}).",
         "fields": [
           {
             "name": "ancestors",
@@ -17760,7 +17760,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
             "ofType": null
           },
           {
@@ -17774,8 +17774,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>ContentBlock",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-ContentBlock template (ID: {1AEE8B0E-8DB8-58A3-805F-0092B5582459}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>ContentBlock",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-ContentBlock template (ID: {1AEE8B0E-8DB8-58A3-805F-0092B5582459}).",
         "fields": [
           {
             "name": "ancestors",
@@ -18219,8 +18219,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "C__<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-App Route template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. <%- helper.getAppPrefix(appPrefix, appName) %>AppRoute) for reliable querying.",
+        "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-App Route template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute) for reliable querying.",
         "fields": [
           {
             "name": "ancestors",
@@ -18643,7 +18643,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
             "ofType": null
           },
           {
@@ -21365,8 +21365,8 @@
       },
       {
         "kind": "INTERFACE",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-Styleguide-Explanatory-Component template (ID: {02DBD562-2D01-5472-A7B0-54A6508AC665}).",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Styleguide-Explanatory-Component template (ID: {02DBD562-2D01-5472-A7B0-54A6508AC665}).",
         "fields": [
           {
             "name": "description",
@@ -21399,105 +21399,105 @@
         "possibleTypes": [
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideTracking",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideTracking",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSitecoreContext",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideSitecoreContext",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideRouteFields",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideRouteFields",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideMultilingual",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideMultilingual",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabs",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutTabs",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutReuse",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutReuse",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageText",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageText",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageRichText",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageRichText",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageNumber",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageNumber",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageLink",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageLink",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageItemLink",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageItemLink",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageImage",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageImage",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageFile",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageFile",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageDate",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageDate",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCustom",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageCustom",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageContentList",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageContentList",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCheckbox",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageCheckbox",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "C__<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideComponentParams",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideComponentParams",
             "ofType": null
           }
         ]
       },
       {
         "kind": "INTERFACE",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName) %>/<%- helper.getAppPrefix(appPrefix, appName) %>-App Route template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). Also implements Route.",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-App Route template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). Also implements Route.",
         "fields": [
           {
             "name": "pageTitle",
@@ -21518,12 +21518,12 @@
         "possibleTypes": [
           {
             "kind": "OBJECT",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>ExampleCustomRouteType",
             "ofType": null
           },
           {
             "kind": "OBJECT",
-            "name": "C__<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute",
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
             "ofType": null
           }
         ]
