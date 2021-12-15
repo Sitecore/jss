@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import path from 'path';
 import fs from 'fs';
 import { expect } from 'chai';
@@ -10,6 +11,7 @@ import {
   sortKeys,
   isJssApp,
   getBaseTemplates,
+  getAppPrefix,
 } from './helpers';
 import { JsonObjectType } from '../steps/transform';
 import testPackage from '../test-data/test.package.json';
@@ -281,6 +283,32 @@ describe('helpers', () => {
       expect(readdirSync.calledOnce).to.equal(true);
       expect(readdirSync.getCall(0).args[0]).to.equal('./mock/path');
       expect(templates).to.deep.equal(['foo']);
+    });
+  });
+
+  describe('getAppPrefix', () => {
+    it('should return value when appPrefix is true', () => {
+      const result = getAppPrefix(true, 'test');
+
+      expect(result).to.not.be.empty;
+    });
+
+    it('should return empty when appPrefix is false', () => {
+      const result = getAppPrefix(false, 'test');
+
+      expect(result).to.be.empty;
+    });
+
+    it('should return pascal name plus hyphen by default', () => {
+      const result = getAppPrefix(true, 'Foo-Bar');
+
+      expect(result).to.equal('FooBar-');
+    });
+
+    it('should return pascal name without hyphen', () => {
+      const result = getAppPrefix(true, 'Foo-Bar', false);
+
+      expect(result).to.equal('FooBar');
     });
   });
 });
