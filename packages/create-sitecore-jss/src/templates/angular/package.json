@@ -5,7 +5,7 @@
   "config": {
     "appName": "<%- appName %>",
     "rootPlaceholders": [
-      "<%- appPrefix ? `${helper.getPascalCaseName(appName)}-` : '' %>jss-main"
+      "<%- helper.getAppPrefix(appPrefix, appName) %>jss-main"
     ],
     "sitecoreDistPath": "/dist/<%- appName %>",
     "sitecoreConfigPath": "/App_Config/Include/zzz",
