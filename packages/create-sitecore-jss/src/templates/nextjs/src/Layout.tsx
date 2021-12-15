@@ -4,9 +4,8 @@ import deepEqual from 'deep-equal';
 import {
   Placeholder,
   VisitorIdentification,
-  withSitecoreContext,
   getPublicUrl,
-  SitecoreContextValue,
+  LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import Navigation from 'src/Navigation';
 
@@ -15,14 +14,14 @@ import Navigation from 'src/Navigation';
 const publicUrl = getPublicUrl();
 
 interface LayoutProps {
-  sitecoreContext: SitecoreContextValue;
+  layoutData: LayoutServiceData;
 }
 
-const Layout = ({ sitecoreContext: { route } }: LayoutProps): JSX.Element => {
+const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
-        <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
+        <title>{layoutData.sitecore.route?.fields?.pageTitle?.value || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
@@ -38,16 +37,22 @@ const Layout = ({ sitecoreContext: { route } }: LayoutProps): JSX.Element => {
       <Navigation />
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
-        {route && <Placeholder name="<%- appPrefix ? `${appName}-` : '' %>jss-main" rendering={route} />}
+        {layoutData.sitecore.route && (
+          <Placeholder
+            name="<%- appPrefix ? `${appName}-` : '' %>jss-main"
+            rendering={layoutData.sitecore.route}
+          />
+        )}
       </div>
     </>
   );
 };
 
 const propsAreEqual = (prevProps: LayoutProps, nextProps: LayoutProps) => {
-  if (deepEqual(prevProps.sitecoreContext.route, nextProps.sitecoreContext.route)) return true;
+  if (deepEqual(prevProps.layoutData.sitecore.route, nextProps.layoutData.sitecore.route))
+    return true;
 
   return false;
 };
 
-export default withSitecoreContext()(React.memo(Layout, propsAreEqual));
+export default React.memo(Layout, propsAreEqual);
