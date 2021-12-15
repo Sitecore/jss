@@ -14,7 +14,7 @@ export default class ReactNativeInitializer implements Initializer {
     const defaults = args.yes
       ? {
           appName: 'sitecore-jss-react-native',
-          hostName: 'https://cm.jss.localhost',
+          hostName: 'sitecore-jss-react-native.dev.local',
           language: '',
         }
       : {};
