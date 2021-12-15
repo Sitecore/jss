@@ -1,12 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
-import deepEqual from 'deep-equal';
 import {
   Placeholder,
   VisitorIdentification,
-  withSitecoreContext,
   getPublicUrl,
-  SitecoreContextValue,
+  LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import Navigation from 'src/Navigation';
 
@@ -15,10 +13,12 @@ import Navigation from 'src/Navigation';
 const publicUrl = getPublicUrl();
 
 interface LayoutProps {
-  sitecoreContext: SitecoreContextValue;
+  layoutData: LayoutServiceData;
 }
 
-const Layout = ({ sitecoreContext: { route } }: LayoutProps): JSX.Element => {
+const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
+  const { route } = layoutData.sitecore;
+
   return (
     <>
       <Head>
@@ -44,10 +44,4 @@ const Layout = ({ sitecoreContext: { route } }: LayoutProps): JSX.Element => {
   );
 };
 
-const propsAreEqual = (prevProps: LayoutProps, nextProps: LayoutProps) => {
-  if (deepEqual(prevProps.sitecoreContext.route, nextProps.sitecoreContext.route)) return true;
-
-  return false;
-};
-
-export default withSitecoreContext()(React.memo(Layout, propsAreEqual));
+export default Layout;
