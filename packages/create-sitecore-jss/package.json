@@ -11,6 +11,10 @@
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "coverage": "nyc npm test"
   },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Sitecore/jss.git",
