@@ -18,10 +18,12 @@ interface LayoutProps {
 }
 
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
+  const { route } = layoutData.sitecore;
+
   return (
     <>
       <Head>
-        <title>{layoutData.sitecore.route?.fields?.pageTitle?.value || 'Page'}</title>
+        <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
@@ -37,10 +39,10 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <Navigation />
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
-        {layoutData.sitecore.route && (
+        {route && (
           <Placeholder
             name="<%- appPrefix ? `${appName}-` : '' %>jss-main"
-            rendering={layoutData.sitecore.route}
+            rendering={route}
           />
         )}
       </div>
