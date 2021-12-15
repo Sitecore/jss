@@ -14,7 +14,7 @@
   },
   "engines": {
     "node": ">=12",
-    "npm": ">=5.6.0"
+    "npm": ">=6"
   },
   "author": {
     "name": "Sitecore Corporation",

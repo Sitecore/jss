@@ -16,7 +16,8 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-dev-tools src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=12",
+    "npm": ">=6"
   },
   "bin": {
     "scjss-deploy": "./dist/cjs/bin/deploy.js",

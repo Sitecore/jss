@@ -16,7 +16,8 @@
     "coverage": "nyc npm test"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=12",
+    "npm": ">=6"
   },
   "preferGlobal": true,
   "bin": {
