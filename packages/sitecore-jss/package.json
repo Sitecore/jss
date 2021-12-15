@@ -14,7 +14,8 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss --entryPoints src/index.ts --entryPoints src/utils/index.ts  --entryPoints src/media/index.ts  --entryPoints src/tracking/index.ts  --entryPoints src/layout/index.ts --entryPoints src/graphql/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=8.1"
+    "node": ">=12",
+    "npm": ">=6"
   },
   "author": {
     "name": "Sitecore Corporation",
