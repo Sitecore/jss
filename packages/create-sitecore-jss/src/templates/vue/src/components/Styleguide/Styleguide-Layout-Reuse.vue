@@ -36,7 +36,10 @@
       Using a separate template when the `isEmpty` scoped property is true allows us to customize the rendering of an empty placeholder
       and place it within a column div so that we can select it correctly.
     -->
-    <sc-placeholder :rendering="rendering" name="JssVueWeb-jss-reuse-example">
+    <sc-placeholder
+      :rendering="rendering"
+      name=" <%- helper.getAppPrefix(appPrefix, appName) %>Web-jss-reuse-example"
+    >
       <template v-slot="{ components, isEmpty }">
         <div class="row">
           <template v-if="!isEmpty">

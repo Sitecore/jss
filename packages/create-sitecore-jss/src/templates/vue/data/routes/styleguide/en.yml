@@ -1,7 +1,7 @@
 fields:
   pageTitle: Styleguide | Sitecore JSS
 placeholders:
-  JssVueWeb-jss-main:
+  <%- helper.getAppPrefix(appPrefix, appName) %>jss-main:
     - componentName: ContentBlock
       fields:
         heading: JSS Styleguide
@@ -10,12 +10,12 @@ placeholders:
           <p>The content and layout of this page is defined in <code>/data/routes/styleguide/en.yml</code></p>
     - componentName: Styleguide-Layout
       placeholders:
-        JssVueWeb-jss-styleguide-layout:
+        <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-layout:
           - componentName: Styleguide-Section
             fields:
               heading: Content Data
             placeholders:
-              JssVueWeb-jss-styleguide-section:
+              <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
                 - componentName: Styleguide-FieldUsage-Text
                   fields:
                     heading: Single-Line Text
@@ -121,7 +121,7 @@ placeholders:
                       # see /data/content/Styleguide/ItemLinkField for definition of this IDs
                       id: styleguide-item-link-field-shared-1
                     localItemLink:
-                      template: JssVueWeb-Styleguide-ItemLink-Item-Template
+                      template: <%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-ItemLink-Item-Template
                       fields:
                         textField: Referenced item textField
                 - componentName: Styleguide-FieldUsage-ContentList
@@ -149,10 +149,10 @@ placeholders:
                       # note that names are default auto-generated to be unique. Explicitly specified names must be unique.
                       # NOTE: local item definitions cannot be shared with other content list fields, and are
                       # generally not preferable compared to using shared definitions.
-                      - template: JssVueWeb-Styleguide-ContentList-Item-Template
+                      - template: <%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-ContentList-Item-Template
                         fields:
                           textField: Hello World Item 1
-                      - template: JssVueWeb-Styleguide-ContentList-Item-Template
+                      - template: <%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-ContentList-Item-Template
                         fields:
                           textField: Hello World Item 2
                 - componentName: Styleguide-FieldUsage-Custom
@@ -171,15 +171,15 @@ placeholders:
             fields:
               heading: Layout Patterns
             placeholders:
-              JssVueWeb-jss-header:
+              <%- helper.getAppPrefix(appPrefix, appName) %>jss-header:
                 - componentName: Styleguide-Layout-Reuse
-              JssVueWeb-jss-styleguide-section:
+              <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
                 - componentName: Styleguide-Layout-Reuse
                   fields:
                     heading: Reusing Content
                     description: <p>JSS provides powerful options to reuse content, whether it's sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>
                   placeholders:
-                    JssVueWeb-jss-reuse-example:
+                    <%- helper.getAppPrefix(appPrefix, appName) %>jss-reuse-example:
                       # Reference shared content using its ID (this is defined in /data/component/content/Styleguide/ContentReuse/LoremIpsumContentBlock/en.yml)
                       # Shared content is an 'edit once, reflected everywhere' operation for a content author.
                       - id: lorem-ipsum-content-block
@@ -196,7 +196,7 @@ placeholders:
                     heading: Tabs
                     description: <p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>
                   placeholders:
-                    JssVueWeb-jss-tabs:
+                    <%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs:
                       - componentName: Styleguide-Layout-Tabs-Tab
                         fields:
                           title: Tab 1
@@ -213,7 +213,7 @@ placeholders:
             fields:
               heading: Sitecore Patterns
             placeholders:
-              JssVueWeb-jss-styleguide-section:
+              <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
                 - componentName: Styleguide-SitecoreContext
                   fields:
                     heading: Sitecore Context
@@ -240,7 +240,7 @@ placeholders:
             fields:
               heading: Multilingual Patterns
             placeholders:
-              JssVueWeb-jss-styleguide-section:
+              <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
                 - componentName: Styleguide-Multilingual
                   fields:
                     heading: Translation Patterns

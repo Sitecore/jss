@@ -9,7 +9,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function (manifest) {
   manifest.addComponent({
     name: 'GraphQL-SSRDemo',
-    templateName: 'JssVueWeb-GraphQL-SSRDemo',
+    templateName: ' <%- helper.getAppPrefix(appPrefix, appName) %>Web-GraphQL-SSRDemo',
     icon: SitecoreIcon.GraphConnection_directed,
     fields: [
       { name: 'sample1', type: CommonFieldTypes.SingleLineText },

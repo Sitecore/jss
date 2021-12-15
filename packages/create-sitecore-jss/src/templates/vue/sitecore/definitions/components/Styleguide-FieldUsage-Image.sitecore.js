@@ -9,7 +9,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-FieldUsage-Image',
-    templateName: 'JssVueWeb-Styleguide-FieldUsage-Image',
+    templateName: ' <%- helper.getAppPrefix(appPrefix, appName) %>Web-Styleguide-FieldUsage-Image',
     icon: SitecoreIcon.PhotoPortrait,
     fields: [
       { name: 'sample1', type: CommonFieldTypes.Image },
@@ -17,6 +17,6 @@ export default function (manifest) {
     ],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['JssVueWeb-styleguide-explanatory-component-template'],
+    inherits: [' <%- helper.getAppPrefix(appPrefix, appName) %>Web-styleguide-explanatory-component-template'],
   });
 }

@@ -19,7 +19,7 @@ fields:
 # Define the page layout starting at the root placeholder - in this case, 'JssVueWeb-jss-main'
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
-  JssVueWeb-jss-main:
+  <%- helper.getAppPrefix(appPrefix, appName) %>jss-main:
   - componentName: ContentBlock
     fields:
       heading: Welcome to Sitecore JSS

@@ -9,8 +9,8 @@ import { SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-Layout',
-    templateName: 'JssVueWeb-Styleguide-Layout',
+    templateName: ' <%- helper.getAppPrefix(appPrefix, appName) %>Web-Styleguide-Layout',
     icon: SitecoreIcon.Layout,
-    placeholders: ['JssVueWeb-jss-styleguide-layout'],
+    placeholders: [' <%- helper.getAppPrefix(appPrefix, appName) %>Web-jss-styleguide-layout'],
   });
 }

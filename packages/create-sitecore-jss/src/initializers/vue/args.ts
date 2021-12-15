@@ -1,4 +1,4 @@
-﻿import { BaseArgs } from './../../common/args/base';
-import { ClientAppAnswer } from './../../common/prompts/base';
+﻿import { ClientAppArgs } from './../../common/args/base';
+import { VueAnswer } from './prompts';
 
-export interface VueArgs extends BaseArgs, Partial<Omit<ClientAppAnswer, 'fetchWith'>> {}
+export interface VueArgs extends ClientAppArgs, Partial<VueAnswer> {}

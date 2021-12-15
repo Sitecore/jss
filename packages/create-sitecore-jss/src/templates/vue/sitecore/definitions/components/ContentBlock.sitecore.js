@@ -9,7 +9,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function (manifest) {
   manifest.addComponent({
     name: 'ContentBlock',
-    templateName: 'JssVueWeb-ContentBlock',
+    templateName: ' <%- helper.getAppPrefix(appPrefix, appName) %>Web-ContentBlock',
     // totally optional, but fun
     icon: SitecoreIcon.DocumentTag,
     fields: [

@@ -83,7 +83,7 @@ export default {
     return {
       placeholders: [
         {
-          placeholder: 'JssVueWeb-jss-tabs',
+          placeholder: ' <%- helper.getAppPrefix(appPrefix, appName) %>Web-jss-tabs',
           computedPropName: 'tabsPlaceholder',
         },
       ],
