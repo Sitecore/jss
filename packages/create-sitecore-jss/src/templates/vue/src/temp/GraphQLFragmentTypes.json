@@ -60,91 +60,91 @@
             "name": "RenderEngineType"
           },
           {
-            "name": "JssVueWebStyleguideTracking"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideTracking"
           },
           {
-            "name": "JssVueWebStyleguideSitecoreContext"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSitecoreContext"
           },
           {
-            "name": "JssVueWebStyleguideSection"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSection"
           },
           {
-            "name": "JssVueWebStyleguideRouteFields"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideRouteFields"
           },
           {
-            "name": "JssVueWebStyleguideMultilingual"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideMultilingual"
           },
           {
-            "name": "JssVueWebStyleguideLayoutTabsTab"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabsTab"
           },
           {
-            "name": "JssVueWebStyleguideLayoutTabs"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabs"
           },
           {
-            "name": "JssVueWebStyleguideLayoutReuse"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutReuse"
           },
           {
-            "name": "JssVueWebStyleguideItemLinkItemTemplate"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideItemLinkItemTemplate"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageText"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageText"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageRichText"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageRichText"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageNumber"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageNumber"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageLink"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageLink"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageItemLink"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageItemLink"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageImage"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageImage"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageFile"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageFile"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageDate"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageDate"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageCustom"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCustom"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageContentList"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageContentList"
           },
           {
-            "name": "C__JssVueWebStyleguideExplanatoryComponent"
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent"
           },
           {
-            "name": "JssVueWebStyleguideContentListItemTemplate"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideContentListItemTemplate"
           },
           {
-            "name": "JssVueWebStyleguideComponentParams"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideComponentParams"
           },
           {
-            "name": "JssVueWebGraphQLSSRDemo"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLSSRDemo"
           },
           {
-            "name": "JssVueWebGraphQLIntegratedDemo"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLIntegratedDemo"
           },
           {
-            "name": "JssVueWebGraphQLConnectedDemo"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>GraphQLConnectedDemo"
           },
           {
-            "name": "JssVueWebFieldUsageCheckbox"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>FieldUsageCheckbox"
           },
           {
-            "name": "JssVueWebExampleCustomRouteType"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType"
           },
           {
-            "name": "JssVueWebContentBlock"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>ContentBlock"
           },
           {
-            "name": "C__JssVueWebAppRoute"
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute"
           },
           {
             "name": "JsonRendering"
@@ -183,76 +183,76 @@
       },
       {
         "kind": "INTERFACE",
-        "name": "JssVueWebStyleguideExplanatoryComponent",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent",
         "possibleTypes": [
           {
-            "name": "JssVueWebStyleguideTracking"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideTracking"
           },
           {
-            "name": "JssVueWebStyleguideSitecoreContext"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideSitecoreContext"
           },
           {
-            "name": "JssVueWebStyleguideRouteFields"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideRouteFields"
           },
           {
-            "name": "JssVueWebStyleguideMultilingual"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideMultilingual"
           },
           {
-            "name": "JssVueWebStyleguideLayoutTabs"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutTabs"
           },
           {
-            "name": "JssVueWebStyleguideLayoutReuse"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideLayoutReuse"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageText"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageText"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageRichText"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageRichText"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageNumber"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageNumber"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageLink"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageLink"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageItemLink"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageItemLink"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageImage"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageImage"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageFile"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageFile"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageDate"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageDate"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageCustom"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageCustom"
           },
           {
-            "name": "JssVueWebStyleguideFieldUsageContentList"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideFieldUsageContentList"
           },
           {
-            "name": "C__JssVueWebStyleguideExplanatoryComponent"
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideExplanatoryComponent"
           },
           {
-            "name": "JssVueWebStyleguideComponentParams"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>StyleguideComponentParams"
           },
           {
-            "name": "JssVueWebFieldUsageCheckbox"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>FieldUsageCheckbox"
           }
         ]
       },
       {
         "kind": "INTERFACE",
-        "name": "JssVueWebAppRoute",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute",
         "possibleTypes": [
           {
-            "name": "JssVueWebExampleCustomRouteType"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType"
           },
           {
-            "name": "C__JssVueWebAppRoute"
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName) %>AppRoute"
           }
         ]
       },

@@ -22,7 +22,7 @@ export default function addRoutesToManifest(manifest) {
   const appTemplateSection = 'Page Metadata';
 
   manifest.setDefaultRouteType({
-    name: 'JssVueWeb-App Route',
+    name: '<%- helper.getAppPrefix(appPrefix, appName) %>App Route',
     fields: [
       {
         name: 'pageTitle',
@@ -31,7 +31,7 @@ export default function addRoutesToManifest(manifest) {
         type: CommonFieldTypes.SingleLineText,
       },
     ],
-    insertOptions: ['JssVueWeb-App Route'],
+    insertOptions: ['<%- helper.getAppPrefix(appPrefix, appName) %>App Route'],
   });
 
   return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)

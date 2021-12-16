@@ -16,7 +16,7 @@
     <p>
       <router-link to="/en/styleguide">Show in English</router-link>
       <br />
-      <router-link to="/da-DK/styleguide">Show in Danish</router-link>
+       <router-link to="/<%- language %>/styleguide">Show in <%- language %></router-link>
     </p>
 
     <!-- $i18n is attached to the App instance by the vue-i18n plugin -->

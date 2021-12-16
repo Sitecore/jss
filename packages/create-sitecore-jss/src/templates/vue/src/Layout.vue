@@ -6,7 +6,7 @@
     <visitor-identification />
     <navigation />
     <div class="container">
-      <placeholder name="JssVueWeb-jss-main" :rendering="route" />
+      <placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" :rendering="route" />
     </div>
   </div>
 </template>
