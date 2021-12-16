@@ -1,5 +1,0 @@
-<app-styleguide-specimen [rendering]="rendering">
-  <p>JSS can <em>lazy-load</em> Angular components. This removes them from the main app JS bundle, reducing its size. Lazy-loading is very good for components that are used on few routes, since they are not downloaded until used on a route. This can greatly improve initial page load times.</p>
-  <p>This works very similarly to route-based Angular lazy-loading, but for an individual component. The component has its own Angular module defined for it, and the loader is added as lazy instead.</p>
-  <p>To see this lazy loading working, inspect network traffic in your browser's dev tools, and look for <code>styleguide-angular-lazy-loading-styleguide-angular-lazy-loading-module.js</code> (in production mode, the file name will be hash value), which is the request that loads this component's JS.</p>
-</app-styleguide-specimen>
