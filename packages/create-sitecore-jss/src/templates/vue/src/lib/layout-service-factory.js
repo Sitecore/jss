@@ -2,11 +2,11 @@ import {
   LayoutService,
 <% if (fetchWith.toUpperCase() === 'GRAPHQL') {
   -%>
-    GraphQLLayoutService
-    <% } else if (fetchWith.toUpperCase() === 'REST') {
-      -%>
-      RestLayoutService
-      <% } -%> 
+  GraphQLLayoutService
+  <% } else if (fetchWith.toUpperCase() === 'REST') {
+    -%>
+    RestLayoutService
+    <% } -%> 
 } from '@sitecore-jss/sitecore-jss-angular';
 import config from '../temp/config';
 
