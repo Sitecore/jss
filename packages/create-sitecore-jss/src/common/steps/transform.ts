@@ -14,7 +14,7 @@ import {
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
 
-const ASSET_REGEX = /\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf)$/;
+const COPY_ONLY_REGEX = /\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar)$/;
 
 export type JsonPropertyType = number | string | (number | string)[] | JsonObjectType;
 export interface JsonObjectType {
@@ -186,7 +186,7 @@ export const transform = async (
       // if the directory doesn't exist, create it
       fs.mkdirsSync(path.dirname(transformFilename(pathToNewFile, answers)));
 
-      if (file.match(ASSET_REGEX)) {
+      if (file.match(COPY_ONLY_REGEX)) {
         // pdfs may have <% encoded, which throws an error for ejs.
         // we simply want to copy file if it's a pdf, not render it with ejs.
         fs.copySync(pathToTemplate, pathToNewFile);

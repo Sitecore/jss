@@ -7,11 +7,11 @@
     "force": true,
     "silent": true,
     "appPrefix": true,
-    "appName": "test",
-    "destination": "..\\..\\samples\\test",
+    "appName": "sitecore-jss-nextjs",
+    "destination": "..\\..\\samples\\sitecore-jss-nextjs",
     "language": "da-DK",
     "fetchWith": "GraphQL",
     "prerender": "SSG",
-    "hostName": "https://cm.jss.localhost"
+    "hostName": "sitecore-jss-nextjs.dev.local"
   }
 }

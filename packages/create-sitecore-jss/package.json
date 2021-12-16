@@ -1,6 +1,6 @@
 {
   "name": "create-sitecore-jss",
-  "version": "20.0.0-canary.84",
+  "version": "20.0.0-canary.89",
   "description": "Sitecore JSS initializer",
   "bin": "./dist/index.js",
   "scripts": {
@@ -10,6 +10,10 @@
     "watch": "ts-node ./scripts/watch-templates.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "coverage": "nyc npm test"
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
   },
   "repository": {
     "type": "git",

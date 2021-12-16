@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-dev-tools",
-  "version": "20.0.0-canary.84",
+  "version": "20.0.0-canary.89",
   "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -16,7 +16,8 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-dev-tools src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=8.1"
+    "node": ">=12",
+    "npm": ">=6"
   },
   "bin": {
     "scjss-deploy": "./dist/cjs/bin/deploy.js",
@@ -32,7 +33,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.84",
+    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.89",
     "axios": "^0.21.1",
     "chokidar": "^3.2.1",
     "del": "^6.0.0",
