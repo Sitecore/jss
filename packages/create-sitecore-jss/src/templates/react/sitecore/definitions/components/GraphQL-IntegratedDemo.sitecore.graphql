@@ -43,7 +43,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language
   contextItem: item(path: $contextItem, language: $language) {
     id
     # Get the page title from the app route template
-    ...on <%- appPrefix ? `${helper.getPascalCaseName(appName)}` : "" %>WebAppRoute {
+    ...on <%- helper.getAppPrefix(appPrefix, appName, false) %>WebAppRoute {
       pageTitle {
         value
       }
