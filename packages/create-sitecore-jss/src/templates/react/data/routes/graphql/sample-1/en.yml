@@ -1,7 +1,7 @@
 fields:
   pageTitle: Sample 1 Page Title
 placeholders:
-  <%- helper.getAppPrefix(appPrefix, appName)%>Web-jss-main:
+  <%- helper.getAppPrefix(appPrefix, appName) %>jss-main:
   - componentName: ContentBlock
     fields:
       heading: GraphQL Sample 1

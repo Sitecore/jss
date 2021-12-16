@@ -9,10 +9,10 @@ import { Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
  */
 export default function addPlaceholdersToManifest(manifest) {
   manifest.addPlaceholder(
-    { name: 'JssReactWeb-jss-main', displayName: 'Main' },
+    { name: '<%- helper.getAppPrefix(appPrefix, appName) %>jss-main', displayName: 'Main' },
     // you can optionally pass a GUID or unique (app-wide) string as an ID
     // this will inform the ID that is set when imported into Sitecore.
     // If the ID is not set, an ID is created based on the placeholder name.
-    { name: 'JssReactWeb-jss-tabs', displayName: 'Tabs', id: 'tabs-placeholder' }
+    { name: '<%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs', displayName: 'Tabs', id: 'tabs-placeholder' }
   );
 }

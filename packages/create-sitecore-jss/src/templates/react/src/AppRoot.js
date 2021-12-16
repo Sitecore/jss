@@ -9,7 +9,7 @@ import RouteHandler from './RouteHandler';
 // By default the app's normal rendering is delegated to <RouteHandler> that handles the loading of JSS route data.
 
 // support languages in the URL prefix
-// e.g. /da-DK/path, or /en/path, or /path
+// e.g. /<%- language %>/path, or /en/path, or /path
 export const routePatterns = [
   '/:lang([a-z]{2}-[A-Z]{2})/:sitecoreRoute*',
   '/:lang([a-z]{2})/:sitecoreRoute*',

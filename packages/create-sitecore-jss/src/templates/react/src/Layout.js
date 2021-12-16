@@ -74,7 +74,7 @@ const Layout = ({ route }) => (
 
     {/* root placeholder for the app, which we add components to using route data */}
     <div className="container">
-      <Placeholder name="JssReactWeb-jss-main" rendering={route} />
+      <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={route} />
     </div>
   </React.Fragment>
 );
