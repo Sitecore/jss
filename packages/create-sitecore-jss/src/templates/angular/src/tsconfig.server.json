@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "target": "es2016",
+    "module": "commonjs",
+    "newLine": "LF",
+    "types": []
+  },
+  "lib": [
+    "esnext.asynciterable"
+  ],
+  "files": [
+    "main.server.ts",
+    "../server.bundle.ts"
+  ],
+  "angularCompilerOptions": {
+    "entryModule": "app/app.server.module#AppServerModule"
+  }
+}
