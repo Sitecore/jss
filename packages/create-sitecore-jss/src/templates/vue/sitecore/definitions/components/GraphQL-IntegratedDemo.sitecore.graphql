@@ -13,7 +13,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language
     id
     name
     # Strongly-typed querying on known templates is possible!
-    ...on  <%- helper.getAppPrefix(appPrefix, appName) %>WebGraphQLIntegratedDemo {
+    ...on  <%- helper.getAppPrefix(appPrefix, appName) %>GraphQLIntegratedDemo {
       # Single-line text field
       sample1 {
         # the 'jsonValue' field is a JSON blob that represents the object that
@@ -43,7 +43,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language
   contextItem: item(path: $contextItem, language: $language) {
     id
     # Get the page title from the app route template
-    ...on  <%- helper.getAppPrefix(appPrefix, appName) %>WebAppRoute {
+    ...on  <%- helper.getAppPrefix(appPrefix, appName) %>AppRoute {
       pageTitle {
         value
       }
@@ -56,7 +56,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language
         # typing fragments can be used anywhere!
         # so in this case, we're grabbing the 'pageTitle'
         # field on all child route items.
-        ...on  <%- helper.getAppPrefix(appPrefix, appName) %>WebAppRoute {
+        ...on  <%- helper.getAppPrefix(appPrefix, appName) %>AppRoute {
           pageTitle {
             jsonValue
             value

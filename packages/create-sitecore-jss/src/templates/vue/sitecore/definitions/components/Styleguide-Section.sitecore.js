@@ -9,9 +9,9 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-Section',
-    templateName: ' <%- helper.getAppPrefix(appPrefix, appName) %>Web-Styleguide-Section',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-Section',
     icon: SitecoreIcon.DocumentTag,
     fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
-    placeholders: [' <%- helper.getAppPrefix(appPrefix, appName) %>Web-jss-styleguide-section'],
+    placeholders: ['<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section'],
   });
 }
