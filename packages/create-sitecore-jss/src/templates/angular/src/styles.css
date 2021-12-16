@@ -1,0 +1,17 @@
+a[target='_blank']:after {
+  content: '\1F5D7'
+}
+
+.logo {
+  background-image: url('assets/images/sc_logo.svg');
+  display: block;
+  height: 48px;
+  width: 221px;
+}
+
+/*
+  Hides Sitecore Experience Editor markup,
+  if you run the app in connected mode while the Sitecore cookies
+  are set to edit mode.
+*/
+.scChromeData, .scpm { display: none !important; }

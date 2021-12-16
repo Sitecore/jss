@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-8 col-lg-10">
+    <sc-placeholder
+      name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-layout"
+      [rendering]="rendering"
+    ></sc-placeholder>
+  </div>
+  <div class="col-sm-4 col-lg-2 order-sm-first pt-2">
+    <nav *ngFor="let section of navigation" class="nav flex-column pt-2">
+      <a [href]="'/styleguide#' + section.id" class="nav-item font-weight-bold">
+        {{ section.heading }}
+      </a>
+      <nav *ngFor="let topic of section.children" class="nav flex-column">
+        <a [href]="'/styleguide#' + topic.id">
+          {{ topic.heading }}
+        </a>
+      </nav>
+    </nav>
+  </div>
+</div>

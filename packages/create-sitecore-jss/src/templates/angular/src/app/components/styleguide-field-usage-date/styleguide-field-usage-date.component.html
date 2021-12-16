@@ -1,0 +1,27 @@
+<app-styleguide-specimen [rendering]="rendering" e2eId="styleguide-fieldusage-date">
+  <ul>
+    <li>
+      <!--
+        The format and timezone here give us an identical output to React and Vue JSS apps;
+        Angular defaults to a local date format in the current timezone if no format/timezone is set,
+        which makes testing unpredictable.
+      -->
+      Date directive (date field): <span *scDate="rendering.fields.date; format: isoDateFormat; timezone: utcTimezone;"></span>
+    </li>
+    <li>
+      Date directive (dateTime field): <span *scDate="rendering.fields.dateTime; format: isoDateFormat; timezone: utcTimezone;"></span>
+    </li>
+    <li>
+      <!--
+        IMPORTANT: When editing the date in Experience Editor, the format, timezone, and locale options are ignored.
+        The formatting options only apply when previewing or viewing the page in normal mode.
+      -->
+      Date formatting (same parameters as <a href="https://angular.io/api/common/DatePipe">date pipe</a>):&nbsp;
+      <span *scDate="rendering.fields.date; format: 'full'"></span>
+    </li>
+    <li>
+      Time zones and locales:&nbsp;
+      <span *scDate="rendering.fields.date; format: 'full'; timezone: '-0400'; locale: 'en-US'"></span>
+    </li>
+  </ul>
+</app-styleguide-specimen>
