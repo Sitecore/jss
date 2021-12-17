@@ -43,7 +43,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language
   contextItem: item(path: $contextItem, language: $language) {
     id
     # Get the page title from the app route template
-    ...on <%- helper.getAppPrefix(appPrefix, appName, false) %>WebAppRoute {
+    ...on <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute {
       pageTitle {
         value
       }
@@ -56,7 +56,7 @@ query IntegratedDemoQuery($datasource: String!, $contextItem: String!, $language
         # typing fragments can be used anywhere!
         # so in this case, we're grabbing the 'pageTitle'
         # field on all child route items.
-        ...on <%- helper.getAppPrefix(appPrefix, appName, false) %> {
+        ...on <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute {
           pageTitle {
             jsonValue
             value

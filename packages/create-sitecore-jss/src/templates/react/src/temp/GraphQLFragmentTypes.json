@@ -60,88 +60,88 @@
             "name": "RenderEngineType"
           },
           {
-            "name": "JssReactWebStyleguideTracking"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideTracking"
           },
           {
-            "name": "JssReactWebStyleguideSitecoreContext"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideSitecoreContext"
           },
           {
-            "name": "JssReactWebStyleguideSection"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideSection"
           },
           {
-            "name": "JssReactWebStyleguideRouteFields"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideRouteFields"
           },
           {
-            "name": "JssReactWebStyleguideMultilingual"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideMultilingual"
           },
           {
-            "name": "JssReactWebStyleguideLayoutTabsTab"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutTabsTab"
           },
           {
-            "name": "JssReactWebStyleguideLayoutTabs"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutTabs"
           },
           {
-            "name": "JssReactWebStyleguideLayoutReuse"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideLayoutReuse"
           },
           {
-            "name": "JssReactWebStyleguideItemLinkItemTemplate"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideItemLinkItemTemplate"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageText"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageText"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageRichText"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageRichText"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageNumber"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageNumber"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageLink"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageLink"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageItemLink"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageItemLink"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageImage"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageImage"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageFile"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageFile"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageDate"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageDate"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageCustom"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageCustom"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageContentList"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageContentList"
           },
           {
-            "name": "JssReactWebStyleguideFieldUsageCheckbox"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideFieldUsageCheckbox"
           },
           {
-            "name": "JssReactWebStyleguideExplanatoryComponent"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideExplanatoryComponent"
           },
           {
-            "name": "JssReactWebStyleguideContentListItemTemplate"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideContentListItemTemplate"
           },
           {
-            "name": "JssReactWebStyleguideComponentParams"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>StyleguideComponentParams"
           },
           {
-            "name": "JssReactWebGraphQLIntegratedDemo"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQLIntegratedDemo"
           },
           {
-            "name": "JssReactWebGraphQLConnectedDemo"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQLConnectedDemo"
           },
           {
-            "name": "JssReactWebExampleCustomRouteType"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>ExampleCustomRouteType"
           },
           {
-            "name": "JssReactWebContentBlock"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>ContentBlock"
           },
           {
-            "name": "C__JssReactWebAppRoute"
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute"
           },
           {
             "name": "JsonRendering"
@@ -180,13 +180,13 @@
       },
       {
         "kind": "INTERFACE",
-        "name": "JssReactWebAppRoute",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
         "possibleTypes": [
           {
-            "name": "JssReactWebExampleCustomRouteType"
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>ExampleCustomRouteType"
           },
           {
-            "name": "C__JssReactWebAppRoute"
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute"
           }
         ]
       },
