@@ -33,10 +33,7 @@ export default class VueInitializer implements Initializer {
     const templatePath = path.resolve(__dirname, '../../templates/vue');
     await transform(templatePath, mergedArgs, {
       filter: (filePath) => {
-        return (
-          !filePath.endsWith('index.html') &&
-          (!!mergedArgs.language || !filePath.endsWith('{{language}}.yml'))
-        );
+        return !!mergedArgs.language || !filePath.endsWith('{{language}}.yml');
       },
     });
 
