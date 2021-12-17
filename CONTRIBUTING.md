@@ -20,14 +20,14 @@ See Branching overview below - We use `dev` for our current development.
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
 2. Create a new branch e.g. `git switch -c feature/my-jss-feature`
 3. When you're happy with your changes, open a Pull Request targeting the `dev` branch of the `sitecore/jss` repository. You may add the JSS Dev Reviewers group as Reviewers for potentially expedited initial PR review.
-4. Note: CI will run lint for all packages and samples, as well as tests for all packages. Please make sure these pass or your PR can not be merged.
+4. Note: CI will run lint for all packages, as well as tests for all packages. Please make sure these pass or your PR can not be merged.
 
 ## Setting up
 
 In your fork from the root of the monorepo:
 
-- `yarn install` - this will install Lerna at the root, packages, samples and will link them and allow the remaining scripts to be called.
-- (optional) `yarn install-git-hooks` - installs a pre-push hook that will lint all samples and apps before a `git-push`. Opt out per-push with the `--no-verify` flag.
+- `yarn install` - this will install Lerna at the root, packages and will link them and allow the remaining scripts to be called.
+- (optional) `yarn install-git-hooks` - installs a pre-push hook that will lint all packages before a `git-push`. Opt out per-push with the `--no-verify` flag.
 - `yarn build` - will build all JSS packages.
 
 In our terms `workspace` - it's a sample or package.
@@ -50,6 +50,26 @@ yarn workspaces foreach -Rt --no-private run build
 ```
 
 - `yarn reset` - will clean all `node_modules`, re-install dependencies and link them, and then build all JSS packages.
+
+## Developing sample
+
+For the creation of the samples we are using `initializers` approach. 
+
+- `initializer` - the process for handling the creation of the appropriate template. See [initializers](https://github.com/Sitecore/jss/tree/dev/packages/create-sitecore-jss/src/initializers).
+- `template` - the sample populated by [ejs](https://ejs.co/) tokens. See [templates](https://github.com/Sitecore/jss/tree/dev/packages/create-sitecore-jss/src/templates). Templates can be:
+	- `base` - the template that contains foundation for the application (e.g. *nextjs*).
+	- `feature` - the template that provides specific feature for the base template. Multiple *feature* templates can be applied to the *base* (e.g. *nextjs-styleguide*).
+
+If you want to use [*create-sitecore-jss*](https://github.com/Sitecore/jss/tree/dev/packages/create-sitecore-jss) from your local repository, run:
+
+```
+cd ./packages/create-sitecore-jss
+npm i -g
+```
+
+To start developing the sample you have to do next:
+* enable [watch.json](https://github.com/Sitecore/jss/blob/dev/packages/create-sitecore-jss/watch.json.example) file. You have to set up appropriate arguments for the sample which you want to start to develop
+* run `yarn watch`. A new sample will be created in the specified `destination` path. You can modify any file related to your sample under `src/templates` folder, and changed files will be automatically copied into your sample.
 
 ## Linting and Code Style guidelines
 
