@@ -59,6 +59,7 @@ placeholders:
                     heading: Number
                     description: '<small>Number tells Sitecore to use a number entry for editing.</small>'
                     sample: 1.21
+                    sample2: 71
                 - componentName: Styleguide-FieldUsage-Checkbox
                   fields:
                     heading: Checkbox
@@ -244,11 +245,3 @@ placeholders:
                   fields:
                     heading: Translation Patterns
                     sample: This text can be translated in en.yml
-                              - componentName: Styleguide-Section
-            fields:
-              heading: Angular Patterns
-            placeholders:
-              <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
-                - componentName: Styleguide-Angular-LazyLoading
-                  fields:
-                    heading: Lazy Loading
