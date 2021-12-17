@@ -2,9 +2,9 @@ import {
   DictionaryService,
 <% if (fetchWith.toUpperCase() === 'GRAPHQL') { -%>
   GraphQLDictionaryService
-  <% } else if (fetchWith.toUpperCase() === 'REST') { -%>
+<% } else if (fetchWith.toUpperCase() === 'REST') { -%>
       RestDictionaryService
-      <% } -%>
+<% } -%>
 } from '@sitecore-jss/sitecore-jss-angular';
 import config from '../temp/config';
 
