@@ -9,21 +9,23 @@ import StyleguideSpecimen from '../Styleguide-Specimen';
  * multiple languages.
  */
 const StyleguideMultilingual = (props) => (
-  <StyleguideSpecimen {...props} e2eId="styleguide-multilingual">
-    <Text field={props.fields.sample} encode={false} tag="p" />
+  <StyleguideSpecimen { ...props } e2eId="styleguide-multilingual">
+    <Text field={ props.fields.sample } encode={ false } tag="p" />
 
     <p>
       This is a static dictionary entry from <code>/data/dictionary</code>:&nbsp;
-      {props.t('styleguide-sample')}
+      { props.t('styleguide-sample') }
     </p>
 
     <p>
       <Link to="/en/styleguide">Show in English</Link>
       <br />
-      <Link to="/da-DK/styleguide">Show in Danish</Link>
+      <% if (language)  { -%>
+        <><Link to="/<%- language %>/styleguide">Show in < />%- language %></Link>< /></> % } -%>
+
     </p>
 
-    <p>The current language is: {props.i18n.language}</p>
+    <p>The current language is: { props.i18n.language }</p>
   </StyleguideSpecimen>
 );
 
