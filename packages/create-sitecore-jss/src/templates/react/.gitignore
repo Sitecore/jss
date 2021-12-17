@@ -1,0 +1,25 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+/scripts-copy
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+*.log
+
+scjssconfig.json
+*.deploysecret.config
+/build-rendering-host
