@@ -1,19 +1,16 @@
 import {
-  DictionaryService, 
-<% if (fetchWith.toUpperCase() === 'GRAPHQL') {
-  -%>
-    GraphQLDictionaryService
-    <% } else if (fetchWith.toUpperCase() === 'REST') {
-      -%>
-        RestDictionaryService
-        <% } -%>  
+  DictionaryService,
+<% if (fetchWith.toUpperCase() === 'GRAPHQL') {-%>
+  GraphQLDictionaryService
+  <% } else if (fetchWith.toUpperCase() === 'REST') {-%>
+      RestDictionaryService
+      <% } -%>
 } from '@sitecore-jss/sitecore-jss-angular';
 import config from '../temp/config';
 
 export class DictionaryServiceFactory {
   create() {
-  <% if (fetchWith.toUpperCase() === 'GRAPHQL') {
-      -%>
+  <% if (fetchWith.toUpperCase() === 'GRAPHQL') {-%>
   return new GraphQLDictionaryService({
         endpoint: config.graphQLEndpoint,
         apiKey: config.sitecoreApiKey,
@@ -25,8 +22,7 @@ export class DictionaryServiceFactory {
         rootItemId: '{GUID}'
         */
       });
-  <% } else if (fetchWith.toUpperCase() === 'REST') {
-      -%>
+  <% } else if (fetchWith.toUpperCase() === 'REST') {-%>
   return new RestDictionaryService({
         apiHost: config.sitecoreApiHost,
         apiKey: config.sitecoreApiKey,
