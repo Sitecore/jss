@@ -1,5 +1,8 @@
+import chalk from 'chalk';
+
 const getDeprecationMessage = (argv: { [key: string]: unknown } = {}) =>
   [
+    chalk.red('**DEPRECATED**'),
     'jss create is not supported from JSS CLI 20.0.0',
     // TODO: add (link to docs: https://doc.sitecore.net/<officialLink> ) when article will be created
     'Please use npm init',
