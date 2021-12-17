@@ -12,9 +12,7 @@ const installHooks = () => {
 #
 
 echo "Linting packages..."
-npm run lint-packages;
-echo "Linting samples..."
-npm run lint-apps;`;
+npm run lint-packages;`;
 
   // \x1b[32m%s\x1b[0m - set color to green, insert the string, reset color after string is logged to console
   console.log('\x1b[32m%s\x1b[0m', 'Writing to local .git folder...');

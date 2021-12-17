@@ -22,4 +22,3 @@ lerna-debug.log
 coverage/
 /badges
 packages/*/*.tgz
-/samples/react/profiling

@@ -48,9 +48,6 @@ steps:
     yarn lint-packages
   displayName: 'linting packages'
 - script: |
-    yarn lint-apps
-  displayName: 'linting apps'
-- script: |
     yarn coverage-packages
   displayName: 'running tests'
   env: {
