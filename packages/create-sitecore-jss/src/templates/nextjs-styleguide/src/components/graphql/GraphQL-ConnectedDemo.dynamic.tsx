@@ -26,7 +26,7 @@ type GraphQLConnectedDemoData = {
   contextItem: RouteItem;
 };
 
-type GraphQLConnectedDemoProps = StyleguideComponentProps & GraphQLConnectedDemoData;
+type GraphQLConnectedDemoProps = ComponentProps & GraphQLConnectedDemoData;
 
 const GraphQLConnectedDemo = (props: GraphQLConnectedDemoProps): JSX.Element => {
   useEffect(() => {
