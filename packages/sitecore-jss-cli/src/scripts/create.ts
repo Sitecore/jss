@@ -13,7 +13,7 @@ const getDeprecationMessage = (argv: { [key: string]: unknown } = {}) =>
 
 export const command = 'create <name> <template>';
 
-export const describe = false;
+export const describe = getDeprecationMessage();
 
 export const builder = {};
 
