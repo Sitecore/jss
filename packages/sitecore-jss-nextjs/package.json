@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "20.0.0-canary.78",
+  "version": "20.0.0-canary.89",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -14,7 +14,8 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=8.1"
+    "node": ">=12",
+    "npm": ">=6"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -67,9 +68,9 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.78",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.78",
-    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.78",
+    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.89",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary.89",
+    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary.89",
     "prop-types": "^15.7.2",
     "sync-disk-cache": "^2.1.0"
   },

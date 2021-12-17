@@ -24,13 +24,16 @@ export default class NextjsStyleguideInitializer implements Initializer {
 
     const defaults = args.yes ? { language: '' } : {};
 
-    const styleguideAnswers = await prompt<StyleguideAnswer>(styleguidePrompts, defaults);
+    const answers = await prompt<StyleguideAnswer>(styleguidePrompts, {
+      ...defaults,
+      ...args,
+    });
 
     const mergedArgs = {
       ...args,
       appName: args.appName || pkg?.config?.appName || 'default',
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
-      ...styleguideAnswers,
+      ...answers,
     };
 
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-styleguide');

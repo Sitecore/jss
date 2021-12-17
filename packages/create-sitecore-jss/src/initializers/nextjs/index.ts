@@ -20,7 +20,7 @@ export default class NextjsInitializer implements Initializer {
           appName: 'sitecore-jss-nextjs',
           fetchWith: FetchWith.GraphQL,
           prerender: Prerender.SSG,
-          hostName: 'https://cm.jss.localhost',
+          hostName: 'sitecore-jss-nextjs.dev.local',
           appPrefix: false,
         }
       : {};

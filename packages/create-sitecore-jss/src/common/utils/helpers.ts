@@ -96,8 +96,8 @@ export const getBaseTemplates = async (templatePath: string): Promise<string[]> 
   return baseTemplates;
 };
 
-export const getAppPrefix = (appPrefix: boolean, appName: string): string =>
-  appPrefix ? `${getPascalCaseName(appName)}-` : '';
+export const getAppPrefix = (appPrefix: boolean, appName: string, includeHyphen = true): string =>
+  appPrefix ? `${getPascalCaseName(appName)}${includeHyphen ? '-' : ''}` : '';
 
 export const writeFileToPath = (destinationPath: string, content: string) => {
   fs.writeFileSync(destinationPath, content, 'utf8');

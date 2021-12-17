@@ -4,7 +4,6 @@ import {
   Link,
   GetServerSideComponentProps,
   GetStaticComponentProps,
-  useComponentProps,
   constants,
   GraphQLRequestClient,
   withDatasourceCheck,
@@ -13,9 +12,9 @@ import {
 import NextLink from 'next/link';
 import {
   ConnectedDemoQueryDocument,
-  <%- appPrefix ? `${helper.getPascalCaseName(appName)}` : "" %>AppRoute as AppRoute,
+  <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute as AppRoute,
   Item,
-  <%- appPrefix ? `${helper.getPascalCaseName(appName)}` : "" %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
+  <%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
 } from './GraphQL-ConnectedDemo.dynamic.graphql';
 import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
@@ -27,9 +26,9 @@ type GraphQLConnectedDemoData = {
   contextItem: RouteItem;
 };
 
-const GraphQLConnectedDemo = (props: ComponentProps): JSX.Element => {
-  const data = useComponentProps<GraphQLConnectedDemoData>(props.rendering.uid);
+type GraphQLConnectedDemoProps = StyleguideComponentProps & GraphQLConnectedDemoData;
 
+const GraphQLConnectedDemo = (props: GraphQLConnectedDemoProps): JSX.Element => {
   useEffect(() => {
     resetEditorChromes();
   }, []);
@@ -46,41 +45,41 @@ const GraphQLConnectedDemo = (props: ComponentProps): JSX.Element => {
         <code>getServerSideProps</code> execution.
       </p>
 
-      {data && data.datasource && (
+      {props.datasource && (
         <div>
           <h4>Datasource Item (via Connected GraphQL)</h4>
-          id: {data.datasource.id}
+          id: {props.datasource.id}
           <br />
-          name: {data.datasource.name}
+          name: {props.datasource.name}
           <br />
-          sample1: {data.datasource.sample1?.value}
+          sample1: {props.datasource.sample1?.value}
           <br />
-          sample1 (editable): <Text field={data.datasource.sample1?.jsonValue} />
+          sample1 (editable): <Text field={props.datasource.sample1?.jsonValue} />
           <br />
           sample2:
           <br />
           <ul>
-            <li>text: {data.datasource.sample2?.text}</li>
-            <li>url: {data.datasource.sample2?.url}</li>
-            <li>target: {data.datasource.sample2?.target}</li>
+            <li>text: {props.datasource.sample2?.text}</li>
+            <li>url: {props.datasource.sample2?.url}</li>
+            <li>target: {props.datasource.sample2?.target}</li>
             <li>
-              editable: <Link field={data.datasource.sample2?.jsonValue} />
+              editable: <Link field={props.datasource.sample2?.jsonValue} />
             </li>
-            <li>field type: {data.datasource.sample2?.definition?.type}</li>
-            <li>field is shared?: {data.datasource.sample2?.definition?.shared.toString()}</li>
+            <li>field type: {props.datasource.sample2?.definition?.type}</li>
+            <li>field is shared?: {props.datasource.sample2?.definition?.shared.toString()}</li>
           </ul>
         </div>
       )}
-      {data && data.contextItem && (
+      {props.contextItem && (
         <div>
           <h4>Route Item (via Connected GraphQL)</h4>
-          id: {data.contextItem.id}
+          id: {props.contextItem.id}
           <br />
-          page title: {data.contextItem.pageTitle?.value}
+          page title: {props.contextItem.pageTitle?.value}
           <br />
           children:
           <ul>
-            {data.contextItem.children.results.map((child) => {
+            {props.contextItem.children.results.map((child) => {
               const routeItem = child as RouteItem;
 
               return (

@@ -33,8 +33,8 @@ export const clientAppPrompts: DistinctQuestion[] = [
   {
     type: 'input',
     name: 'hostName',
-    message: 'What is your Sitecore hostname?',
-    default: 'https://cm.jss.localhost',
+    message: 'What is your Sitecore hostname (used if deployed to Sitecore)?',
+    default: (answers: ClientAppAnswer) => `${answers.appName}.dev.local`,
   },
   {
     type: 'list',

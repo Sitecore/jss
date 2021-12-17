@@ -16,6 +16,12 @@ type ErrorComponentProps = {
   [prop: string]: unknown;
 };
 
+/** Provided for the component which represents rendering data */
+type ComponentProps = {
+  [key: string]: unknown;
+  rendering: ComponentRendering;
+};
+
 export interface PlaceholderProps {
   [key: string]: unknown;
   /** Name of the placeholder to render. */
@@ -41,7 +47,13 @@ export interface PlaceholderProps {
   params?: {
     [name: string]: string;
   };
-
+  /**
+   * Modify final props of component (before render) provided by rendering data.
+   * Can be used in case when you need to insert additional data into the component.
+   * @param {ComponentProps} componentProps component props to be modified
+   * @returns {ComponentProps} modified or initial props
+   */
+  modifyComponentProps?: (componentProps: ComponentProps) => ComponentProps;
   /**
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
@@ -85,6 +97,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       PropTypes.object as Requireable<React.ComponentClass<unknown>>,
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
+    modifyComponentProps: PropTypes.func,
   };
 
   nodeRefs: Element[];
@@ -191,7 +204,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         return React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
-          finalProps
+          this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
       })
       .filter((element) => element); // remove nulls

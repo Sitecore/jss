@@ -226,6 +226,47 @@ describe('<Placeholder />', () => {
             .indexOf(expectedMessage.value) !== -1
         ).to.be.true;
       });
+
+      it('should apply modifyComponentProps to the final props', () => {
+        const component = dataSet.data.sitecore.route as any;
+        const phKey = 'main';
+        const expectedMessage = (component.placeholders.main as any[]).find((c) => c.componentName)
+          .fields.message;
+
+        const modifyComponentProps = (props) => {
+          if (props.rendering?.componentName === 'DownloadCallout') {
+            return {
+              ...props,
+              extraData: {
+                x: true,
+              },
+            };
+          }
+
+          return props;
+        };
+
+        const renderedComponent = mount(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder
+              name={phKey}
+              rendering={component}
+              modifyComponentProps={modifyComponentProps}
+            />
+          </SitecoreContext>
+        );
+
+        expect(
+          renderedComponent
+            .find('.download-callout-mock')
+            .html()
+            .indexOf(expectedMessage.value) !== -1
+        ).to.be.true;
+
+        expect(renderedComponent.find('DownloadCallout').prop('extraData')).to.deep.equal({
+          x: true,
+        });
+      });
     });
   });
 
