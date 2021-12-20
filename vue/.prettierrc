@@ -1,9 +1,0 @@
-{
-  "endOfLine": "crlf",
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "tabWidth": 2,
-  "arrowParens": "always",
-  "printWidth": 100,
-  "useTabs": "false"
-}
