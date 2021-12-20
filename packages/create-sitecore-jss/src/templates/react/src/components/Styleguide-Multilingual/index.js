@@ -21,7 +21,7 @@ const StyleguideMultilingual = (props) => (
       <Link to="/en/styleguide">Show in English</Link>
       <br />
       <% if (language)  { -%>
-        <Link to="/<%- language %>/styleguide">Show in < />%- language %></Link>
+        <Link to="/<%- language %>/styleguide">Show in <%- language %></Link>
       <% } -%>
     </p>
     <p>The current language is: { props.i18n.language }</p>
