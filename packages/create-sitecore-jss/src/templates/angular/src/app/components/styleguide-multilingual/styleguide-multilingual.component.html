@@ -8,9 +8,7 @@
   <p>
     <a routerLink="/en/styleguide" (click)="switchLanguage($event)">Show in English</a>
     <br />
-    <% if (language)  {-%>
     <a routerLink="/<%- language %>/styleguide" (click)="switchLanguage($event)">Show in <%- language %></a>
-    <% } -%>
   </p>
 
   <p>The current language is: {{ translate.currentLang }}</p>

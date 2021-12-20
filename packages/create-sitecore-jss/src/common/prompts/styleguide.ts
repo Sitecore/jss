@@ -12,10 +12,9 @@ export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
     type: 'input',
     name: 'language',
     message:
-      'Which additional language do you want to support (en is default and required)? Leave empty if not needed',
+      'Which additional language do you want to support (en is already included and required)?',
+    default: 'da-DK',
     validate: (input: string): boolean => {
-      if (!input) return true;
-
       if (!LANGUAGE_REGEXP.test(input)) {
         console.error(
           chalk.red(
@@ -26,7 +25,7 @@ export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
       } else if (input === 'en') {
         console.error(
           chalk.red(
-            `\nen is included in the Styleguide by default. \nYou ${chalk.italic(
+            `\nen is included by default. \nYou ${chalk.italic(
               'may'
             )} however add an en-* locale, for example 'en-UK'.`
           )
