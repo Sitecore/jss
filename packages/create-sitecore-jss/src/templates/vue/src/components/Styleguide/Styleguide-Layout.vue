@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-sm-8 col-lg-10">
       <sc-placeholder
-        name=" <%- helper.getAppPrefix(appPrefix, appName) %>Web-jss-styleguide-layout"
+        name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-layout"
         :rendering="rendering"
       />
     </div>
@@ -43,7 +43,7 @@ export default {
       // and the template projects them into the left navigation column for the styleguide
       return getChildPlaceholder(
         this.rendering,
-        ' <%- helper.getAppPrefix(appPrefix, appName) %>Web-jss-styleguide-layout'
+        '<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-layout'
       )
         .filter((section) => getFieldValue(section, 'heading'))
         .map((section) => ({
@@ -51,7 +51,7 @@ export default {
           id: `i${section.uid.replace(/[{}]/g, '')}`,
           children: getChildPlaceholder(
             section,
-            ' <%- helper.getAppPrefix(appPrefix, appName) %>Web-jss-styleguide-section'
+            '<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section'
           )
             .filter((component) => getFieldValue(component, 'heading'))
             .map((component) => ({

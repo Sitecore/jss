@@ -14,7 +14,7 @@ export default function (manifest) {
   // article sections, where you may wish to use route-level fields for
   // _sorting and filtering_ (it's difficult to query on component-level field data).
   manifest.addRouteType({
-    name: ' <%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType',
+    name: '<%- helper.getAppPrefix(appPrefix, appName) %>ExampleCustomRouteType',
     fields: [
       { name: 'headline', type: CommonFieldTypes.SingleLineText },
       { name: 'author', type: CommonFieldTypes.SingleLineText },

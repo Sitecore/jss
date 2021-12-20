@@ -5,7 +5,7 @@ import {
 <% } else if (fetchWith.toUpperCase() === 'REST') { -%>
       RestDictionaryService
 <% } -%>
-} from '@sitecore-jss/sitecore-jss-angular';
+} from '@sitecore-jss/sitecore-jss-vue';
 import config from '../temp/config';
 
 export class DictionaryServiceFactory {

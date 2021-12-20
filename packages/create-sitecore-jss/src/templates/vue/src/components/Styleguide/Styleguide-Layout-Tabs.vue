@@ -83,7 +83,7 @@ export default {
     return {
       placeholders: [
         {
-          placeholder: ' <%- helper.getAppPrefix(appPrefix, appName) %>Web-jss-tabs',
+          placeholder: '<%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs',
           computedPropName: 'tabsPlaceholder',
         },
       ],
