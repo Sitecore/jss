@@ -1,5 +1,4 @@
 import {
-  DictionaryService,
 <% if (fetchWith.toUpperCase() === 'GRAPHQL') { -%>
   GraphQLDictionaryService
 <% } else if (fetchWith.toUpperCase() === 'REST') { -%>

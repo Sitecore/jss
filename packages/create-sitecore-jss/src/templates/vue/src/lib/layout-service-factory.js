@@ -1,5 +1,4 @@
 import {
-  LayoutService,
 <% if (fetchWith.toUpperCase() === 'GRAPHQL') {-%>
   GraphQLLayoutService
 <% } else if (fetchWith.toUpperCase() === 'REST') {-%>
