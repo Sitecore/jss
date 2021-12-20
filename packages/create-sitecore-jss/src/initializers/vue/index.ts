@@ -17,8 +17,8 @@ export default class VueInitializer implements Initializer {
       ? {
           appName: 'sitecore-jss-vue',
           hostName: 'sitecore-jss-vue.dev.local',
-          fetchWith: FetchWith.GraphQL,
-          appPrefix: true,
+          fetchWith: FetchWith.REST,
+          appPrefix: false,
           language: '',
         }
       : {};

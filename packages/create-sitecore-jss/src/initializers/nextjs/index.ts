@@ -18,7 +18,7 @@ export default class NextjsInitializer implements Initializer {
     const defaults = args.yes
       ? {
           appName: 'sitecore-jss-nextjs',
-          fetchWith: FetchWith.GraphQL,
+          fetchWith: FetchWith.REST,
           prerender: Prerender.SSG,
           hostName: 'sitecore-jss-nextjs.dev.local',
           appPrefix: false,

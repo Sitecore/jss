@@ -16,9 +16,9 @@ export default class AngularInitializer implements Initializer {
     const defaults = args.yes
       ? {
           appName: 'sitecore-jss-angular',
-          fetchWith: FetchWith.GraphQL,
+          fetchWith: FetchWith.REST,
           hostName: 'sitecore-jss-angular.dev.local',
-          appPrefix: true,
+          appPrefix: false,
           language: '',
         }
       : {};
