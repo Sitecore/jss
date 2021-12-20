@@ -3,7 +3,7 @@ import { Initializer } from '../../common/Initializer';
 import { transform } from '../../common/steps/index';
 import { BaseArgs } from '../../common/args/base';
 
-export class NodeHeadlessSsrExperienceEdgeInitializer implements Initializer {
+export default class NodeHeadlessSsrExperienceEdgeInitializer implements Initializer {
   get isBase(): boolean {
     return true;
   }
