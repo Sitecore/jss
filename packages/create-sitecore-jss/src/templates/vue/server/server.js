@@ -95,7 +95,7 @@ export function renderView(callback, path, data, viewBag) {
         // or else you're vulnerable to XSS.
         let html = indexTemplate;
         // write the Vue app
-        html = assertReplace(html, '<div id="root"></div>', `${renderedApp}`);
+        html = assertReplace(html, '<div id="root"></div>', `<div id="root">${renderedApp}</div>`);
         // write the string version of our state
         html = assertReplace(
           html,

@@ -6,6 +6,7 @@ import {
   Item,
   RouteData,
 } from '@sitecore-jss/sitecore-jss/layout';
+import { HorizonEditor, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
 import { Component, h, VNode, DefineComponent, ref, watchEffect } from 'vue';
 import { MissingComponent } from './MissingComponent';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
@@ -211,12 +212,13 @@ function createRawElement(elem: any) {
         elem.attributes.chrometype === 'placeholder' &&
         elem.attributes.key
       ) {
-        watchEffect(
-          () => {
-            elRef.value.setAttribute('key', elem.attributes.key);
-          },
-          { flush: 'post' }
-        );
+        watchEffect(() => {
+          elRef.value && elRef.value.setAttribute('key', elem.attributes.key);
+
+          if (elRef && HorizonEditor.isActive()) {
+            resetEditorChromes();
+          }
+        });
       }
 
       return () =>
