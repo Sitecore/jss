@@ -68,8 +68,8 @@ npm i -g
 ```
 
 To start developing the sample you have to do next:
-* enable [watch.json](https://github.com/Sitecore/jss/blob/dev/packages/create-sitecore-jss/watch.json.example) file. You have to set up appropriate arguments for the sample which you want to start to develop
-* run `yarn watch`. A new sample will be created in the specified `destination` path. You can modify any file related to your sample under `src/templates` folder, and changed files will be automatically copied into your sample.
+* copy [watch.json.example](https://github.com/Sitecore/jss/blob/dev/packages/create-sitecore-jss/watch.json.example) file and name it **watch.json**. You have to set up appropriate arguments for the sample which you want to start to develop
+* run `yarn watch`. A new sample will be created in the specified `destination` path. Monorepo symlinking will work if you create the sample within the repository source root. You can modify any file related to your sample under `src/templates` folder, and changed files will be automatically copied into your sample.
 
 ## Linting and Code Style guidelines
 
