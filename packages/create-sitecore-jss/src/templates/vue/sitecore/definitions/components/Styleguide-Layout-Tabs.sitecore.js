@@ -11,7 +11,7 @@ export default function (manifest) {
     name: 'Styleguide-Layout-Tabs',
     templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-Layout-Tabs',
     icon: SitecoreIcon.DocumentTag,
-    placeholders: [' <%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs'],
+    placeholders: ['<%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
     inherits: ['<%- helper.getAppPrefix(appPrefix, appName) %>styleguide-explanatory-component-template'],

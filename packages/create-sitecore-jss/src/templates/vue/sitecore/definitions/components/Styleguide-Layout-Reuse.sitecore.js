@@ -11,7 +11,7 @@ export default function (manifest) {
     name: 'Styleguide-Layout-Reuse',
     templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-Layout-Reuse',
     icon: SitecoreIcon.DocumentsExchange,
-    placeholders: [' <%- helper.getAppPrefix(appPrefix, appName) %>jss-reuse-example'],
+    placeholders: ['<%- helper.getAppPrefix(appPrefix, appName) %>jss-reuse-example'],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
     inherits: ['<%- helper.getAppPrefix(appPrefix, appName) %>styleguide-explanatory-component-template'],

@@ -1,10 +1,9 @@
 import {
-  DictionaryService,
 <% if (fetchWith.toUpperCase() === 'GRAPHQL') {-%>
     GraphQLDictionaryService
-    <% } else if (fetchWith.toUpperCase() === 'REST') {-%>
-        RestDictionaryService
-        <% }-%>
+<% } else if (fetchWith.toUpperCase() === 'REST') {-%>
+      RestDictionaryService
+<% }-%>
 } from '@sitecore-jss/sitecore-jss-react';
 import config from '../temp/config';
 export class DictionaryServiceFactory {

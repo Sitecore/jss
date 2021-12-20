@@ -38,7 +38,7 @@
     -->
     <sc-placeholder
       :rendering="rendering"
-      name=" <%- helper.getAppPrefix(appPrefix, appName) %>Web-jss-reuse-example"
+      name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-reuse-example"
     >
       <template v-slot="{ components, isEmpty }">
         <div class="row">

@@ -17,7 +17,7 @@
       </p>
     </template>
     <sc-placeholder
-      name=" <%- helper.getAppPrefix(appPrefix, appName) %>Web-jss-graphql-layout"
+      name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-graphql-layout"
       :rendering="rendering"
       v-else
     />
