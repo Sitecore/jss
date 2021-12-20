@@ -1,0 +1,78 @@
+{
+  "root": true,
+  "extends": [
+    "prettier",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended",
+    "plugin:yaml/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "import",
+    "react",
+    "yaml"
+  ],
+  "settings": {
+    "import/ignore": [
+      "node_modules",
+      ".png$",
+      ".jpg$"
+    ],
+    "react": {
+      "version": "detect"
+    }
+  },
+  "globals": {
+    "window": true,
+    "document": true
+  },
+  "rules": {
+    "import/no-unresolved": "off",
+    "import/no-duplicates": "off",
+    "import/no-named-as-default": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": true
+      }
+    ],
+    "linebreak-style": "off",
+    "react/jsx-filename-extension": 0,
+    "jsx-quotes": ["error", "prefer-double"],
+    "import/prefer-default-export": "off",
+    "react/forbid-prop-types": "off",
+    "react/prop-types": 0,
+    "react/no-danger": "off",
+    "react/require-default-props": "off",
+    "react/no-array-index-key": "off",
+    "no-use-before-define": 0,
+    "global-require": 0,
+    "no-param-reassign": 0,
+    "no-useless-escape": "off",
+    "spaced-comment": "error",
+    "curly": ["error", "multi-line"],
+    "eol-last": ["error", "always"],
+    "guard-for-in": "error",
+    "no-unused-labels": "error",
+    "no-caller": "error",
+    "no-bitwise": "error",
+    "no-multiple-empty-lines": "error",
+    "no-new-wrappers": "error",
+    "no-eval": "error",
+    "dot-notation": "error",
+    "no-trailing-spaces": "error",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "brace-style": "error",
+    "quotes": ["error", "single"],
+    "default-case": "error",
+    "eqeqeq": "error"
+  }
+}
