@@ -16,9 +16,9 @@ export default class ReactInitializer implements Initializer {
     const defaults = args.yes
       ? {
           appName: 'sitecore-jss-react',
-          fetchWith: FetchWith.GraphQL,
+          fetchWith: FetchWith.REST,
           hostName: 'sitecore-jss-react.dev.local',
-          appPrefix: true,
+          appPrefix: false,
           language: '',
         }
       : {};
