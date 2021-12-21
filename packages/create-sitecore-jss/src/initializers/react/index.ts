@@ -19,7 +19,6 @@ export default class ReactInitializer implements Initializer {
           fetchWith: FetchWith.REST,
           hostName: 'sitecore-jss-react.dev.local',
           appPrefix: false,
-          language: '',
         }
       : {};
 
@@ -31,11 +30,7 @@ export default class ReactInitializer implements Initializer {
     };
 
     const templatePath = path.resolve(__dirname, '../../templates/react');
-    await transform(templatePath, mergedArgs, {
-      filter: (filePath) => {
-        return !!mergedArgs.language || !filePath.endsWith('{{language}}.yml');
-      },
-    });
+    await transform(templatePath, mergedArgs);
 
     const response = {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],

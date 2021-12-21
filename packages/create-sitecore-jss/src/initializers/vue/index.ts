@@ -19,7 +19,6 @@ export default class VueInitializer implements Initializer {
           hostName: 'sitecore-jss-vue.dev.local',
           fetchWith: FetchWith.REST,
           appPrefix: false,
-          language: '',
         }
       : {};
 
@@ -31,11 +30,7 @@ export default class VueInitializer implements Initializer {
     };
 
     const templatePath = path.resolve(__dirname, '../../templates/vue');
-    await transform(templatePath, mergedArgs, {
-      filter: (filePath) => {
-        return !!mergedArgs.language || !filePath.endsWith('{{language}}.yml');
-      },
-    });
+    await transform(templatePath, mergedArgs);
 
     const response = {
       appName: answers.appName,

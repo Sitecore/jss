@@ -16,9 +16,7 @@
     <p>
       <router-link to="/en/styleguide">Show in English</router-link>
       <br />
-      <% if (language)  {-%>
-       <router-link to="/<%- language %>/styleguide">Show in <%- language %></router-link>
-      <% } -%>
+      <router-link to="/<%- language %>/styleguide">Show in <%- language %></router-link>
     </p>
 
     <!-- $i18n is attached to the App instance by the vue-i18n plugin -->
