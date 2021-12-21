@@ -58,3 +58,4 @@ export { withSitecoreContext, useSitecoreContext } from './enhancers/withSitecor
 export { withEditorChromes, withExperienceEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';
+export { convertAttributesToReactProps } from './utils';

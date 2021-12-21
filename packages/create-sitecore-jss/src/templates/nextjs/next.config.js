@@ -29,6 +29,13 @@ const nextConfig = {
   // Enable React Strict Mode
   reactStrictMode: true,
 
+  // enable image provider domains and device sizes
+  images: {
+    domains: ['cm.jss.localhost', 'nextjs.jss.localhost'],
+    deviceSizes: [100, 300, 960],
+    imageSizes: [100, 300],
+  },
+
   async rewrites() {
     // When in connected mode we want to proxy Sitecore paths off to Sitecore
     return [

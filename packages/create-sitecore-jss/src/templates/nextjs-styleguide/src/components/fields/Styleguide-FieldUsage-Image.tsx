@@ -18,7 +18,7 @@ type StyleguideFieldUsageImageProps = ComponentProps &
 const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-image">
     <p>Plain image</p>
-    <Image media={props.fields.sample1} />
+    <Image media={props.fields.sample1} layout='fixed' quality={75} width={100} height={50}/>
 
     {/*
       Advanced image usage example
@@ -32,10 +32,11 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     <Image
       field={props.fields.sample2}
       editable={false}
-      imageParams={{ mw: 100, mh: 50 }}
       height="50"
-      width="94"
+      width={150}
       data-sample="other-attributes-pass-through"
+      quality={100}
+      layout='fixed'
     />
 
     {/*
@@ -48,7 +49,8 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     <p>Srcset responsive image</p>
     <Image
       field={props.fields.sample2}
-      srcSet={[{ mw: 300 }, { mw: 100 }]}
+      // srcSet={[{ mw: 300 }, { mw: 100 }]}
+      layout='responsive'
       sizes="(min-width: 960px) 300px, 100px"
       className="img-fluid"
     />
