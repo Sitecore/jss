@@ -70,6 +70,21 @@ export interface ImageProps extends NextImageProps {
   /** HTML attributes that will be appended to the rendered <img /> tag. */
 }
 
+// TODO: Finalize loader for XM - export it? we need imageParams but also would
+// like the decouple this function.
+// TODO: unit tests fo xmLoader and this component :)
+export const xmLoader: ImageLoader = ({ src, width }: ImageLoaderProps): string => {
+  const url = new URL(`https://cm.jss.localhost${src}`);
+  const params = url.searchParams;
+  params.set('mw', params.get('mw') || width.toString());
+
+  // TODO:
+  // hardcoded hostname at the moment to get around a  bug.
+  // image loaders inside Next's repo like Cloudinary
+  // have access to a root prop. We want to access root also if we need to inject the hostname.
+  return url.href;
+};
+
 const getEditableWrapper = (editableMarkup: string, ...otherProps: unknown[]) => (
   // create an inline wrapper and use dangerouslySetInnerHTML.
   // if we try to parse the EE value, the parser will strip invalid or disallowed attributes from html elements - and EE uses several
@@ -148,25 +163,11 @@ export const Image: React.SFC<ImageProps> = ({
       'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
   }
   const attrs = { ...img, ...otherProps };
+  attrs.src = mediaApi.updateImageUrl(attrs.src, imageParams, mediaUrlPrefix);
 
   if (attrs) {
-    attrs.src = img;
-    // TODO: Finalize loader for XM - export it? we need imageParams but also would
-    // like the decouple this function.
-    const xmLoader: ImageLoader = ({ src, width }: ImageLoaderProps): string => {
-      const loaderProps = { mw: width };
-      const mergedProps = { ...imageParams, ...loaderProps };
-      // TODO:
-      // hardcoded hostname at the moment to get around a  bug.
-      // image loaders inside Next's repo like Cloudinary
-      // have access to a root prop. We want to access root also if we need to inject the hostname.
-      return `$https://cm.jss.localhost${mediaApi.updateImageUrl(
-        src,
-        mergedProps,
-        mediaUrlPrefix
-      )}`;
-    };
-    // TODO?: Create a loader for edge
+    // TODO?: Create a loader for edge - we probably don't need to do this as
+    // edge is modeled on XM.
     // TODO: export - do we need to do anything special for it? (we don't think so)
 
     return <NextImage loader={xmLoader} {...attrs} />;
