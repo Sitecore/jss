@@ -31,9 +31,11 @@ const nextConfig = {
 
   // enable image provider domains and device sizes
   images: {
-    domains: ['cm.jss.localhost', 'nextjs.jss.localhost'],
-    deviceSizes: [100, 300, 960],
-    imageSizes: [100, 300],
+    domains: ['cm.jss.localhost'],
+    loader: 'custom',
+    path: 'https://cm.jss.localhost',
+    // deviceSizes: [100, 300, 960],
+    // imageSizes: [100, 300],
   },
 
   async rewrites() {

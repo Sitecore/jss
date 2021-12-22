@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -9,7 +7,7 @@ import {
   default as NextImage,
   ImageLoader,
   ImageLoaderProps,
-  ImageProps as NextImgProps,
+  ImageProps as NextImageProps,
 } from 'next/image';
 // import { getPublicUrl } from '../utils';
 export interface ImageFieldValue {
@@ -41,14 +39,8 @@ export interface ImageSizeParameters {
   sc?: number;
 }
 
-export type ImageProps = NextImgProps & {
+export interface ImageProps extends NextImageProps {
   [attributeName: string]: unknown;
-  /**
-   * The image field data.
-   * @deprecated use field property instead
-   */
-  media?: ImageField | ImageFieldValue;
-
   /** Image field data (consistent with other field types) */
   field?: ImageField | ImageFieldValue;
 
@@ -66,8 +58,6 @@ export type ImageProps = NextImgProps & {
     [paramName: string]: string | number;
   };
 
-  srcSet?: ImageSizeParameters[];
-
   /**
    * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
    * @example
@@ -78,23 +68,7 @@ export type ImageProps = NextImgProps & {
   mediaUrlPrefix?: RegExp;
 
   /** HTML attributes that will be appended to the rendered <img /> tag. */
-};
-
-enum Layout {
-  Fill = 'fill',
-  Responsive = 'responsive',
-  Intrinsic = 'intrinsic',
-  Fixed = 'fixed',
 }
-
-// export interface NextImageProps extends ImageProps {
-//   loader: ImageLoader;
-//   src: string;
-//   height?: number;
-//   width?: number;
-//   responsive: Responsive;
-//   quality?: number;
-// }
 
 const getEditableWrapper = (editableMarkup: string, ...otherProps: unknown[]) => (
   // create an inline wrapper and use dangerouslySetInnerHTML.
@@ -106,55 +80,33 @@ const getEditableWrapper = (editableMarkup: string, ...otherProps: unknown[]) =>
   />
 );
 
-const getImageAttrs = (
-  {
-    src,
-    srcSet,
-    ...otherAttrs
-  }: {
-    [key: string]: unknown;
-    src?: string;
-    srcSet?: ImageSizeParameters[];
-  },
-  imageParams?: { [paramName: string]: string | number },
-  mediaUrlPrefix?: RegExp
-) => {
-  if (!src) {
-    return null;
-  }
-
-  const newAttrs: { [attr: string]: unknown } = {
-    ...otherAttrs,
-  };
-
-  // update image URL for jss handler and image rendering params
-  const resolvedSrc = mediaApi.updateImageUrl(src, imageParams, mediaUrlPrefix);
-  if (srcSet) {
-    // replace with HTML-formatted srcset, including updated image URLs
-    newAttrs.srcSet = mediaApi.getSrcSet(resolvedSrc, srcSet, imageParams, mediaUrlPrefix);
-  }
-  // always output original src as fallback for older browsers
-  newAttrs.src = resolvedSrc;
-  return newAttrs;
-};
-
 export const Image: React.SFC<ImageProps> = ({
-  media,
   editable,
   imageParams,
   field,
   mediaUrlPrefix,
   ...otherProps
 }) => {
-  // allows the mistake of using 'field' prop instead of 'media' (consistent with other helpers)
-  if (field && !media) {
-    media = field;
+  // next handles srcSet, throw error if srcSet is present
+  if (otherProps.srcSet) {
+    throw new Error(
+      'srcSet not supported on Nextjs Image component. Use deviceSizes in nextjs.config: https://nextjs.org/docs/api-reference/next/image#device-sizes'
+    );
   }
 
-  const dynamicMedia = media as ImageField | ImageFieldValue;
+  // next handles src and we use a custom loader,
+  // throw error if these are present
+  if (otherProps.src || otherProps.loader) {
+    // TODO: Refine error message
+    throw new Error(
+      'Detected conflicting props src or loader. If you wish to use these props, use next/image directly.'
+    );
+  }
+
+  const dynamicMedia = field as ImageField | ImageFieldValue;
 
   if (
-    !media ||
+    !field ||
     (!dynamicMedia.editable && !dynamicMedia.value && !(dynamicMedia as ImageFieldValue).src)
   ) {
     return null;
@@ -172,11 +124,8 @@ export const Image: React.SFC<ImageProps> = ({
     const foundImgProps = convertAttributesToReactProps(foundImg.attrs);
     // Note: otherProps may override values from foundImgProps, e.g. `style`, `className` prop
     // We do not attempt to merge.
-    const imgAttrs = getImageAttrs(
-      { ...foundImgProps, ...otherProps },
-      imageParams,
-      mediaUrlPrefix
-    );
+    const imgAttrs = { ...foundImgProps, ...otherProps };
+
     if (!imgAttrs) {
       return getEditableWrapper(imageField.editable);
     }
@@ -188,56 +137,54 @@ export const Image: React.SFC<ImageProps> = ({
 
   // some wise-guy/gal is passing in a 'raw' image object value
   const img = (dynamicMedia as ImageFieldValue).src
-    ? media
+    ? field
     : (dynamicMedia.value as ImageFieldValue);
   if (!img) {
     return null;
   }
+  // this prop is needed for non-static images - set it to 1x1 transparent pixel base64 encoded if not supplied by user.
+  if (!otherProps.blurDataURL) {
+    otherProps.blurDataURL =
+      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+  }
+  const attrs = { ...img, ...otherProps };
 
-  const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);
   if (attrs) {
     attrs.src = img;
-    const scLoader: ImageLoader = ({ src, width, quality }: ImageLoaderProps) => {
-      // const url = getPublicUrl();
-      src = src.split('?')[0];
-      return `https://cm.jss.localhost${src}?mw=${width}&q=${quality}`;
+    // TODO: Finalize loader for XM - export it? we need imageParams but also would
+    // like the decouple this function.
+    const xmLoader: ImageLoader = ({ src, width }: ImageLoaderProps): string => {
+      const loaderProps = { mw: width };
+      const mergedProps = { ...imageParams, ...loaderProps };
+      // TODO:
+      // hardcoded hostname at the moment to get around a  bug.
+      // image loaders inside Next's repo like Cloudinary
+      // have access to a root prop. We want to access root also if we need to inject the hostname.
+      return `$https://cm.jss.localhost${mediaApi.updateImageUrl(
+        src,
+        mergedProps,
+        mediaUrlPrefix
+      )}`;
     };
+    // TODO?: Create a loader for edge
+    // TODO: export - do we need to do anything special for it? (we don't think so)
 
-    return (
-      <NextImage
-        src={attrs.src}
-        loader={scLoader}
-        layout={attrs?.layout as Layout}
-        blurDataURL={
-          'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
-        }
-        {...attrs}
-      />
-    );
+    return <NextImage loader={xmLoader} {...attrs} />;
   }
 
   return null; // we can't handle the truth
 };
 
 Image.propTypes = {
-  // media: PropTypes.oneOfType([
-  //   PropTypes.shape({
-  //     src: PropTypes.string,
-  //   }),
-  //   PropTypes.shape({
-  //     value: PropTypes.object,
-  //     editable: PropTypes.string,
-  //   }),
-  // ]),
-  // field: PropTypes.oneOfType([
-  //   PropTypes.shape({
-  //     src: PropTypes.string,
-  //   }),
-  //   PropTypes.shape({
-  //     value: PropTypes.object,
-  //     editable: PropTypes.string,
-  //   }),
-  // ]),
+  field: PropTypes.oneOfType([
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+    }),
+    PropTypes.shape({
+      value: PropTypes.object,
+      editable: PropTypes.string,
+    }),
+  ]),
   editable: PropTypes.bool,
   mediaUrlPrefix: PropTypes.instanceOf(RegExp),
   imageParams: PropTypes.objectOf(

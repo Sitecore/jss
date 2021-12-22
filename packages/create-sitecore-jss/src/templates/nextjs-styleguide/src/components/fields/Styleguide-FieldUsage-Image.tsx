@@ -18,7 +18,7 @@ type StyleguideFieldUsageImageProps = ComponentProps &
 const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-image">
     <p>Plain image</p>
-    <Image media={props.fields.sample1} layout='fixed' quality={75} width={100} height={50}/>
+    <Image field={props.fields.sample1} />
 
     {/*
       Advanced image usage example
@@ -32,27 +32,31 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     <Image
       field={props.fields.sample2}
       editable={false}
+      imageParams={{ mw: 100, mh: 50 }}
       height="50"
-      width={150}
+      width="94"
       data-sample="other-attributes-pass-through"
-      quality={100}
       layout='fixed'
     />
 
     {/*
-      Srcset adaptive image usage example
-      Adaptive srcsets are supported using Sitecore server-side resizing.
-      The `srcSet` can use Sitecore image resizing parameters (i.e. w, h, mw, mh).
-      Sample create a srcset using two sizes (server resizing), 300 and 100px max widths, respecting aspect ratio.
-      IMPORTANT: srcSet params must be whitelisted for adaptive resizing to occur. See /sitecore/config/*.config (search for 'allowedMediaParams')
+      srcSet in Nextjs Image is set inside of the next.config by setting an array of deviceSizes inside the images option. See here: https://nextjs.org/docs/api-reference/next/image#device-sizes
+      These sizes should match your Sitecore server-side allowlist.
+      See /sitecore/config/*.config (search for 'allowedMediaParams')
+       image sizes are set similarly: https://nextjs.org/docs/api-reference/next/image#image-sizes
+
+      placeholder='blur' blurs the image while loading with a transparent pixel provided in blurDataUrl. You can also provide a color pixel for this functionality. See here: https://nextjs.org/docs/api-reference/next/image#placeholder
     */}
     <p>Srcset responsive image</p>
     <Image
       field={props.fields.sample2}
-      // srcSet={[{ mw: 300 }, { mw: 100 }]}
-      layout='responsive'
       sizes="(min-width: 960px) 300px, 100px"
       className="img-fluid"
+      placeholder='blur'
+      // transparent pixel for blur placeholder
+      blurDataURL={
+        'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
+      }
     />
   </StyleguideSpecimen>
 );
