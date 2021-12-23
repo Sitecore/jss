@@ -41,7 +41,7 @@ export {
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { ComponentFactory } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
-export { Image, ImageField } from './components/Image';
+export { Image, ImageField, getEEMarkup } from './components/Image';
 export { RichText, RichTextProps, RichTextPropTypes, RichTextField } from './components/RichText';
 export { Text, TextField } from './components/Text';
 export { DateField } from './components/Date';
