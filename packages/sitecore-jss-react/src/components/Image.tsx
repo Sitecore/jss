@@ -117,15 +117,15 @@ const getImageAttrs = (
 /**
  * @param imageField {ImageField} dynamicMedia typecasted to ImageField
  * @param imageParams {ImageProp['imageParams']}} the imageParams prop
- * @param mediaUrlPrefix {RegExp}the url prefix regex used in the mediaApi
+ * @param mediaUrlPrefix {RegExp} the url prefix regex used in the mediaApi
  * @param otherProps {ImageProps} all other props included on the image component
  * @returns Experience Editor Markup
  */
 export const getEEMarkup = (
   imageField: ImageField,
-  imageParams: ImageProps['imageParams'],
-  mediaUrlPrefix: RegExp,
-  otherProps: ImageProps
+  imageParams?: ImageProps['imageParams'],
+  mediaUrlPrefix?: RegExp,
+  otherProps?: ImageProps
 ) => {
   // we likely have an experience editor value, should be a string
   const foundImg = mediaApi.findEditorImageTag(imageField.editable);

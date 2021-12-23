@@ -36,7 +36,7 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       height="50"
       width="94"
       data-sample="other-attributes-pass-through"
-      layout='fixed'
+      layout="fixed"
     />
 
     {/*
@@ -51,8 +51,9 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     <Image
       field={props.fields.sample2}
       sizes="(min-width: 960px) 300px, 100px"
+      layout="responsive"
       className="img-fluid"
-      placeholder='blur'
+      placeholder="blur"
       // transparent pixel for blur placeholder
       blurDataURL={
         'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='

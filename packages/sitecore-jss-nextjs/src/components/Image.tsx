@@ -1,8 +1,7 @@
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import { convertAttributesToReactProps } from '@sitecore-jss/sitecore-jss-react';
+import { getEEMarkup } from '@sitecore-jss/sitecore-jss-react';
 import {
   default as NextImage,
   ImageLoader,
@@ -57,7 +56,6 @@ export interface ImageProps extends NextImageProps {
   imageParams?: {
     [paramName: string]: string | number;
   };
-
   /**
    * Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
    * @example
@@ -77,23 +75,14 @@ export const xmLoader: ImageLoader = ({ src, width }: ImageLoaderProps): string 
   const url = new URL(`https://cm.jss.localhost${src}`);
   const params = url.searchParams;
   params.set('mw', params.get('mw') || width.toString());
+  params.delete('w');
 
   // TODO:
   // hardcoded hostname at the moment to get around a  bug.
   // image loaders inside Next's repo like Cloudinary
-  // have access to a root prop. We want to access root also if we need to inject the hostname.
+  // have access to a root prop? or env variable. We want to access root also if we need to inject the hostname.
   return url.href;
 };
-
-const getEditableWrapper = (editableMarkup: string, ...otherProps: unknown[]) => (
-  // create an inline wrapper and use dangerouslySetInnerHTML.
-  // if we try to parse the EE value, the parser will strip invalid or disallowed attributes from html elements - and EE uses several
-  <span
-    className="sc-image-wrapper"
-    {...otherProps}
-    dangerouslySetInnerHTML={{ __html: editableMarkup }}
-  />
-);
 
 export const Image: React.SFC<ImageProps> = ({
   editable,
@@ -129,25 +118,10 @@ export const Image: React.SFC<ImageProps> = ({
 
   const imageField = dynamicMedia as ImageField;
 
+  // TODO: break this out into function getEEMarkup or something
   // we likely have an experience editor value, should be a string
   if (editable && imageField.editable) {
-    const foundImg = mediaApi.findEditorImageTag(imageField.editable);
-    if (!foundImg) {
-      return getEditableWrapper(imageField.editable);
-    }
-
-    const foundImgProps = convertAttributesToReactProps(foundImg.attrs);
-    // Note: otherProps may override values from foundImgProps, e.g. `style`, `className` prop
-    // We do not attempt to merge.
-    const imgAttrs = { ...foundImgProps, ...otherProps };
-
-    if (!imgAttrs) {
-      return getEditableWrapper(imageField.editable);
-    }
-
-    const imgHtml = ReactDOMServer.renderToStaticMarkup(<img {...imgAttrs} />);
-    const editableMarkup = imageField.editable.replace(foundImg.imgTag, imgHtml);
-    return getEditableWrapper(editableMarkup);
+    return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
   }
 
   // some wise-guy/gal is passing in a 'raw' image object value
