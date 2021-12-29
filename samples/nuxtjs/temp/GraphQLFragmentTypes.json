@@ -1,0 +1,273 @@
+{
+  "__schema": {
+    "types": [
+      {
+        "kind": "INTERFACE",
+        "name": "ItemField",
+        "possibleTypes": [
+          {
+            "name": "RichTextField"
+          },
+          {
+            "name": "NumberField"
+          },
+          {
+            "name": "MultilistField"
+          },
+          {
+            "name": "LookupField"
+          },
+          {
+            "name": "LinkField"
+          },
+          {
+            "name": "TextField"
+          },
+          {
+            "name": "IntegerField"
+          },
+          {
+            "name": "ImageField"
+          },
+          {
+            "name": "DateField"
+          },
+          {
+            "name": "CheckboxField"
+          },
+          {
+            "name": "NameValueListField"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "Item",
+        "possibleTypes": [
+          {
+            "name": "UnknownItem"
+          },
+          {
+            "name": "StyleguideComponentParamsRenderingParameters"
+          },
+          {
+            "name": "C__StandardTemplate"
+          },
+          {
+            "name": "C__Route"
+          },
+          {
+            "name": "RenderEngineType"
+          },
+          {
+            "name": "NuxtjsStyleguideTracking"
+          },
+          {
+            "name": "NuxtjsStyleguideSitecoreContext"
+          },
+          {
+            "name": "NuxtjsStyleguideSection"
+          },
+          {
+            "name": "NuxtjsStyleguideRouteFields"
+          },
+          {
+            "name": "NuxtjsStyleguideMultilingual"
+          },
+          {
+            "name": "NuxtjsStyleguideLayoutTabsTab"
+          },
+          {
+            "name": "NuxtjsStyleguideLayoutTabs"
+          },
+          {
+            "name": "NuxtjsStyleguideLayoutReuse"
+          },
+          {
+            "name": "NuxtjsStyleguideItemLinkItemTemplate"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageText"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageRichText"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageNumber"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageLink"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageItemLink"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageImage"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageFile"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageDate"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageCustom"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageContentList"
+          },
+          {
+            "name": "C__NuxtjsStyleguideExplanatoryComponent"
+          },
+          {
+            "name": "NuxtjsStyleguideContentListItemTemplate"
+          },
+          {
+            "name": "NuxtjsStyleguideComponentParams"
+          },
+          {
+            "name": "NuxtjsGraphQLSSRDemo"
+          },
+          {
+            "name": "NuxtjsGraphQLIntegratedDemo"
+          },
+          {
+            "name": "NuxtjsGraphQLConnectedDemo"
+          },
+          {
+            "name": "NuxtjsFieldUsageCheckbox"
+          },
+          {
+            "name": "NuxtjsExampleCustomRouteType"
+          },
+          {
+            "name": "NuxtjsContentBlock"
+          },
+          {
+            "name": "C__NuxtjsAppRoute"
+          },
+          {
+            "name": "JsonRendering"
+          },
+          {
+            "name": "JavaScriptRendering"
+          },
+          {
+            "name": "JSSLayout"
+          },
+          {
+            "name": "App"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "RenderingOptions",
+        "possibleTypes": [
+          {
+            "name": "JsonRendering"
+          },
+          {
+            "name": "JavaScriptRendering"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "Layout",
+        "possibleTypes": [
+          {
+            "name": "JSSLayout"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "NuxtjsStyleguideExplanatoryComponent",
+        "possibleTypes": [
+          {
+            "name": "NuxtjsStyleguideTracking"
+          },
+          {
+            "name": "NuxtjsStyleguideSitecoreContext"
+          },
+          {
+            "name": "NuxtjsStyleguideRouteFields"
+          },
+          {
+            "name": "NuxtjsStyleguideMultilingual"
+          },
+          {
+            "name": "NuxtjsStyleguideLayoutTabs"
+          },
+          {
+            "name": "NuxtjsStyleguideLayoutReuse"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageText"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageRichText"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageNumber"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageLink"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageItemLink"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageImage"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageFile"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageDate"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageCustom"
+          },
+          {
+            "name": "NuxtjsStyleguideFieldUsageContentList"
+          },
+          {
+            "name": "C__NuxtjsStyleguideExplanatoryComponent"
+          },
+          {
+            "name": "NuxtjsStyleguideComponentParams"
+          },
+          {
+            "name": "NuxtjsFieldUsageCheckbox"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "NuxtjsAppRoute",
+        "possibleTypes": [
+          {
+            "name": "NuxtjsExampleCustomRouteType"
+          },
+          {
+            "name": "C__NuxtjsAppRoute"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "Caching",
+        "possibleTypes": [
+          {
+            "name": "JsonRendering"
+          },
+          {
+            "name": "JavaScriptRendering"
+          }
+        ]
+      }
+    ]
+  }
+}
