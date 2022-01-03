@@ -1,0 +1,26 @@
+fields:
+  pageTitle: Styleguide | Sitecore JSS
+placeholders:
+  Nuxtjs-jss-main:
+  - componentName: ContentBlock
+    fields:
+      heading: JSS Styleguide
+      content: |
+        <div class="alert alert-primary">
+            This is a partial da-DK translation of the JSS Styleguide to demonstrate translation functionality.
+            Use the <a href="/en/styleguide">English version</a> for full content.
+          </div>
+          <p>The content and layout of this page is defined in <code>/data/routes/styleguide/da-DK.yml</code></p>
+  - componentName: Styleguide-Layout
+    placeholders:
+      Nuxtjs-jss-styleguide-layout:
+      - componentName: Styleguide-Section
+        fields:
+          heading: Multilingual Patterns
+        placeholders:
+          Nuxtjs-jss-styleguide-section:
+          - componentName: Styleguide-Multilingual
+            fields:
+              heading: Translation Patterns
+              sample: This text can be translated in da-DK.yml
+

@@ -1,4 +1,4 @@
-import { defineComponent, provide, PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { ComponentFactory } from './sharedTypes';
 
 export interface SitecoreContextProps {
@@ -13,8 +13,13 @@ export const SitecoreContext = defineComponent({
     },
   },
 
-  setup(props, context) {
-    provide('injectedComponentFactory', props.componentFactory);
+  setup(_props, context) {
     return () => context.slots && context.slots.default();
   },
+
+  provide() {
+    return {
+      injectedComponentFactory: this.componentFactory
+    }
+  }
 });

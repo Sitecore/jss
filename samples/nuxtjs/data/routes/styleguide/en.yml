@@ -1,0 +1,247 @@
+fields:
+  pageTitle: Styleguide | Sitecore JSS
+placeholders:
+  Nuxtjs-jss-main:
+    - componentName: ContentBlock
+      fields:
+        heading: JSS Styleguide
+        content: |
+          <p>This is a live set of examples of how to use JSS. For more information on using JSS, please see <a href="https://jss.sitecore.com" target="_blank" rel="noopener noreferrer">the documentation</a>.</p>
+          <p>The content and layout of this page is defined in <code>/data/routes/styleguide/en.yml</code></p>
+    - componentName: Styleguide-Layout
+      placeholders:
+        Nuxtjs-jss-styleguide-layout:
+          - componentName: Styleguide-Section
+            fields:
+              heading: Content Data
+            placeholders:
+              Nuxtjs-jss-styleguide-section:
+                - componentName: Styleguide-FieldUsage-Text
+                  fields:
+                    heading: Single-Line Text
+                    sample: This is a sample text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see a <input type="text">.
+                    sample2: This is another sample text field using rendering options. <mark>HTML supported with encode=false.</mark> Cannot edit because editable=false.
+                - componentName: Styleguide-FieldUsage-Text
+                  fields:
+                    heading: Multi-Line Text
+                    description: '<small>Multi-line text tells Sitecore to use a <code>textarea</code> for editing; consumption in JSS is the same as single-line text.</small>'
+                    sample: This is a sample multi-line text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see a textarea.
+                    sample2: This is another sample multi-line text field using rendering options. <mark>HTML supported with encode=false.</mark>
+                - componentName: Styleguide-FieldUsage-RichText
+                  fields:
+                    heading: Rich Text
+                    sample: <p>This is a sample rich text field. <mark>HTML is always supported.</mark> In Sitecore, editors will see a WYSIWYG editor for these fields.</p>
+                    # YAML can use multiline definitions (a pipe followed by an indented block) to make writing rich text content easier.
+                    # As long as the indent remains consistent, no escaping is required.
+                    sample2: |
+                      <p>Another sample rich text field, using options. Keep markup entered in rich text fields as simple as possible - ideally bare tags only (no classes). Adding a wrapping class can help with styling within rich text blocks.</p>
+                      <marquee>But you can use any valid HTML in a rich text field!</marquee>
+                - componentName: Styleguide-FieldUsage-Image
+                  fields:
+                    heading: Image
+                    sample1:
+                      src: /data/media/img/sc_logo.png
+                      alt: Sitecore Logo
+                    sample2:
+                      src: /data/media/img/jss_logo.png
+                      alt: Sitecore JSS Logo
+                - componentName: Styleguide-FieldUsage-File
+                  fields:
+                    heading: File
+                    description: |
+                      <small>Note: Sitecore does not support inline editing of File fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.</small>
+                    file:
+                      src: /data/media/files/jss.pdf
+                      title: Example File
+                      description: This data will be added to the Sitecore Media Library on import
+                - componentName: Styleguide-FieldUsage-Number
+                  fields:
+                    heading: Number
+                    description: '<small>Number tells Sitecore to use a number entry for editing.</small>'
+                    sample: 1.21
+                    sample2: 71
+                - componentName: Styleguide-FieldUsage-Checkbox
+                  fields:
+                    heading: Checkbox
+                    description: |
+                      <small>Note: Sitecore does not support inline editing of Checkbox fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.</small>
+                    checkbox: true
+                    checkbox2: false
+                - componentName: Styleguide-FieldUsage-Date
+                  fields:
+                    heading: Date
+                    description: |
+                      <p><small>Both <code>Date</code> and <code>DateTime</code> field types are available. Choosing <code>DateTime</code> will make Sitecore show editing UI for time; both types store complete date and time values internally. Date values in JSS are formatted using <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" target="_blank">ISO 8601 formatted strings</a>, for example <code>2012-04-23T18:25:43.511Z</code>.</small></p>
+                      <div class="alert alert-warning"><small>Note: this is a JavaScript date format (e.g. <code>new Date().toISOString()</code>), and is different from how Sitecore stores date field values internally. Sitecore-formatted dates will not work.</small></div>
+                    date: '2012-05-04T00:00:00Z'
+                    dateTime: '2018-03-14T15:00:00Z'
+                - componentName: Styleguide-FieldUsage-Link
+                  fields:
+                    heading: General Link
+                    description: <p>A <em>General Link</em> is a field that represents an <code>&lt;a&gt;</code> tag.</p>
+                    externalLink:
+                      href: https://www.sitecore.com
+                      text: Link to Sitecore
+                    # absolute URLs to known routes are converted into 'internal links'
+                    # when imported to Sitecore. Note: target route must have an explicitly specified ID value.
+                    internalLink:
+                      href: /
+                      # 'text' is optional if the link is rendered with a custom body (e.g. child HTML)
+
+                    # Will be linked to Sitecore media item on import
+                    mediaLink:
+                      href: /data/media/files/jss.pdf
+                      text: Link to PDF
+                    emailLink:
+                      href: mailto:foo@bar.com
+                      text: Send an Email
+                    # All possible link parameters
+                    paramsLink:
+                      href: https://dev.sitecore.net
+                      text: Sitecore Dev Site
+                      target: _blank
+                      class: font-weight-bold
+                      title: <a> title attribute
+                - componentName: Styleguide-FieldUsage-ItemLink
+                  fields:
+                    heading: Item Link
+                    description: |
+                      <p>
+                        <small>
+                          Item Links are a way to reference another content item to use data from it.
+                          Referenced items may be shared.
+                          To reference multiple content items, use a <em>Content List</em> field.<br />
+                          <strong>Note:</strong> Sitecore does not support inline editing of Item Link fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
+                        </small>
+                      </p>
+                    # A shared item link gets its available items from a folder of shared content items.
+                    # Common usages for such a field might be choosing from a controlled list of options,
+                    # perhaps theme colors, alignment options, or switchable shared content blocks (author bios, for example)
+                    sharedItemLink:
+                      # see /data/content/Styleguide/ItemLinkField for definition of this IDs
+                      id: styleguide-item-link-field-shared-1
+                    localItemLink:
+                      template: Nuxtjs-Styleguide-ItemLink-Item-Template
+                      fields:
+                        textField: Referenced item textField
+                - componentName: Styleguide-FieldUsage-ContentList
+                  fields:
+                    heading: Content List
+                    description: |
+                      <p>
+                        <small>
+                          Content Lists are a way to reference zero or more other content items.
+                          Referenced items may be shared.
+                          To reference a single content item, use an <em>Item Link</em> field.<br />
+                          <strong>Note:</strong> Sitecore does not support inline editing of Content List fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
+                        </small>
+                      </p>
+                    # A shared content list gets its available items from a folder of shared content items.
+                    # NOTE: items referenced here are only the _selected items_, not the whole corpus of available options.
+                    # Common usages for such a field might be choosing data items for repeating structures like
+                    # multicolumnar promos or tabs, or shared content pieces like linking one or more authors to an article.
+                    sharedContentList:
+                      # see /data/content/Styleguide/ContentListField for definitions of these IDs
+                      - id: styleguide-content-list-field-shared-1
+                      - id: styleguide-content-list-field-shared-2
+                    localContentList:
+                      # You can also define content lists using an _array of local item definitions_
+                      # note that names are default auto-generated to be unique. Explicitly specified names must be unique.
+                      # NOTE: local item definitions cannot be shared with other content list fields, and are
+                      # generally not preferable compared to using shared definitions.
+                      - template: Nuxtjs-Styleguide-ContentList-Item-Template
+                        fields:
+                          textField: Hello World Item 1
+                      - template: Nuxtjs-Styleguide-ContentList-Item-Template
+                        fields:
+                          textField: Hello World Item 2
+                - componentName: Styleguide-FieldUsage-Custom
+                  fields:
+                    heading: Custom Fields
+                    description: |
+                      <p>
+                        <small>
+                          Any Sitecore field type can be consumed by JSS.
+                          In this sample we consume the <em>Integer</em> field type.<br />
+                          <strong>Note:</strong> For field types with complex data, custom <code>FieldSerializer</code>s may need to be implemented on the Sitecore side.
+                        </small>
+                      </p>
+                    customIntField: 31337
+          - componentName: Styleguide-Section
+            fields:
+              heading: Layout Patterns
+            placeholders:
+              Nuxtjs-jss-header:
+                - componentName: Styleguide-Layout-Reuse
+              Nuxtjs-jss-styleguide-section:
+                - componentName: Styleguide-Layout-Reuse
+                  fields:
+                    heading: Reusing Content
+                    description: <p>JSS provides powerful options to reuse content, whether it's sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>
+                  placeholders:
+                    Nuxtjs-jss-reuse-example:
+                      # Reference shared content using its ID (this is defined in /data/component/content/Styleguide/ContentReuse/LoremIpsumContentBlock/en.yml)
+                      # Shared content is an 'edit once, reflected everywhere' operation for a content author.
+                      - id: lorem-ipsum-content-block
+                      - id: lorem-ipsum-content-block
+                      # Referencing shared content with `copy: true` will cause it to be shared while disconnected, but _copied on import_.
+                      # Use this for quickly comping layouts with FPO content that will not be shared once actual content is entered.
+                      - id: lorem-ipsum-content-block
+                        copy: true
+                      - componentName: ContentBlock
+                        fields:
+                          content: <p>Mix and match reused and local content. Check out <code>/data/routes/styleguide/en.yml</code> to see how.</p>
+                - componentName: Styleguide-Layout-Tabs
+                  fields:
+                    heading: Tabs
+                    description: <p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>
+                  placeholders:
+                    Nuxtjs-jss-tabs:
+                      - componentName: Styleguide-Layout-Tabs-Tab
+                        fields:
+                          title: Tab 1
+                          content: <p>Tab 1 contents!</p>
+                      - componentName: Styleguide-Layout-Tabs-Tab
+                        fields:
+                          title: Tab 2
+                          content: <p>Tab 2 contents!</p>
+                      - componentName: Styleguide-Layout-Tabs-Tab
+                        fields:
+                          title: Tab 3
+                          content: <p>Tab 3 contents!</p>
+          - componentName: Styleguide-Section
+            fields:
+              heading: Sitecore Patterns
+            placeholders:
+              Nuxtjs-jss-styleguide-section:
+                - componentName: Styleguide-SitecoreContext
+                  fields:
+                    heading: Sitecore Context
+                    description: <p><small>The Sitecore Context contains route-level data about the current context - for example, <code>pageState</code> enables conditionally executing code based on whether Sitecore is in Experience Editor or not.</small></p>
+                - componentName: Styleguide-RouteFields
+                  fields:
+                    heading: Route-level Fields
+                    description: <p><small>Route-level content fields are defined on the <em>route</em> instead of on a <em>component</em>. This allows multiple components to share the field data on the same route - and querying is much easier on route level fields, making <em>custom route types</em> ideal for filterable/queryable data such as articles.</small></p>
+                - componentName: Styleguide-ComponentParams
+                  fields:
+                    heading: Component Params
+                    description: <p><small>Component params (also called Rendering Parameters) allow storing non-content parameters for a component. These params should be used for more technical options such as CSS class names or structural settings.</small></p>
+                  params:
+                    cssClass: alert alert-success
+                    # IMPORTANT: while params can be defined in the manifest as non-string types,
+                    # they are always sent to the component as strings.
+                    columns: 5
+                    useCallToAction: true
+                - componentName: Styleguide-Tracking
+                  fields:
+                    heading: Tracking
+                    description: <p><small>JSS supports tracking Sitecore analytics events from within apps. Give it a try with this handy interactive demo.</small></p>
+          - componentName: Styleguide-Section
+            fields:
+              heading: Multilingual Patterns
+            placeholders:
+              Nuxtjs-jss-styleguide-section:
+                - componentName: Styleguide-Multilingual
+                  fields:
+                    heading: Translation Patterns
+                    sample: This text can be translated in en.yml
