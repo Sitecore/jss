@@ -36,9 +36,9 @@ export default class NextjsInitializer implements Initializer {
 
     let featureInitializers: string[] = [];
 
-    // don't prompt for feature initializers if they've already specified
+    // don't prompt for feature initializers if --yes or they've already specified
     // multiple via --templates (assume they know what they're doing)
-    if (args.templates.length === 1) {
+    if (!args.yes && args.templates.length === 1) {
       const featureInitAnswer = await prompt({
         type: 'checkbox',
         name: 'featureInitializers',
