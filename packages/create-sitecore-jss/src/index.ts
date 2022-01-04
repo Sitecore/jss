@@ -23,10 +23,22 @@ const main = async () => {
     templates = [argv._[0]];
   } else {
     // use --templates arg
-    templates = argv.templates?.split(',') || [];
+    templates = (argv.templates && argv.templates.split(/[\s,]+/)) || [];
   }
-  const baseTemplates = await getBaseTemplates(path.resolve(__dirname, 'templates'));
+
   // validate/gather templates
+  const baseTemplates = await getBaseTemplates(path.resolve(__dirname, 'templates'));
+  if (templates.length > 0) {
+    const validTemplates: string[] = [];
+    templates.forEach((template) => {
+      if (baseTemplates.includes(template)) {
+        validTemplates.push(template);
+      } else {
+        console.log(chalk.yellow(`Ignoring uknown template '${template}'...`));
+      }
+    });
+    templates = validTemplates;
+  }
   if (!templates.length) {
     const answer = await prompt({
       type: 'list',
