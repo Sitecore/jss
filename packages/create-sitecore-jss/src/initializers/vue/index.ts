@@ -19,6 +19,7 @@ export default class VueInitializer implements Initializer {
           hostName: 'sitecore-jss-vue.dev.local',
           fetchWith: FetchWith.REST,
           appPrefix: false,
+          language: 'da-DK',
         }
       : {};
 

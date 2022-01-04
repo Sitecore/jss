@@ -19,6 +19,7 @@ export default class ReactInitializer implements Initializer {
           fetchWith: FetchWith.REST,
           hostName: 'sitecore-jss-react.dev.local',
           appPrefix: false,
+          language: 'da-DK',
         }
       : {};
 

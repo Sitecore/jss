@@ -19,6 +19,7 @@ export default class AngularInitializer implements Initializer {
           fetchWith: FetchWith.REST,
           hostName: 'sitecore-jss-angular.dev.local',
           appPrefix: false,
+          language: 'da-DK',
         }
       : {};
 
