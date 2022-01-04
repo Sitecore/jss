@@ -31,7 +31,7 @@ const main = async () => {
     const answer = await prompt({
       type: 'list',
       name: 'template',
-      message: 'Which templates would you like to create?',
+      message: 'Which template would you like to create?',
       choices: baseTemplates,
       default: 'nextjs',
     });
