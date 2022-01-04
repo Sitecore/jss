@@ -36,11 +36,12 @@ const main = async () => {
   }
 
   // validate/gather templates
-  const baseTemplates = await getBaseTemplates(path.resolve(__dirname, 'templates'));
+  const templatePath = path.resolve(__dirname, 'templates');
   if (templates.length > 0) {
+    const allTemplates = fs.readdirSync(templatePath, 'utf8');
     const validTemplates: string[] = [];
     templates.forEach((template) => {
-      if (baseTemplates.includes(template)) {
+      if (allTemplates.includes(template)) {
         validTemplates.push(template);
       } else {
         console.log(chalk.yellow(`Ignoring uknown template '${template}'...`));
@@ -49,6 +50,7 @@ const main = async () => {
     templates = validTemplates;
   }
   if (!templates.length) {
+    const baseTemplates = await getBaseTemplates(templatePath);
     const answer = await prompt({
       type: 'list',
       name: 'template',
