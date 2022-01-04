@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-rendering-host",
-  "version": "20.0.0-canary.77",
+  "version": "20.0.0-canary.103",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -14,7 +14,8 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-rendering-host src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=12",
+    "npm": ">=6"
   },
   "author": {
     "name": "Sitecore Corporation",
