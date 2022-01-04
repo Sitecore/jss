@@ -23,7 +23,7 @@ export default class AngularInitializer implements Initializer {
         }
       : {};
 
-    const answers = await prompt<AngularAnswer>(prompts, { ...args, ...defaults });
+    const answers = await prompt<AngularAnswer>(prompts, { ...defaults, ...args });
 
     const mergedArgs = {
       ...args,
