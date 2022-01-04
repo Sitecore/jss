@@ -1,10 +1,10 @@
-# JSS Application Demo with Angular
+# Sitecore JSS Angular Sample Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
+<!---
+@TODO: Update to version 20.0.0 docs before release
+-->
+[Documentation](https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-angular.html)
 
-## Sitecore JavaScript Services documentation
-
-Check [JSS documentation](https://jss.sitecore.com/) for how to install JSS Server and configure Sitecore.
 
 ## App setup
 

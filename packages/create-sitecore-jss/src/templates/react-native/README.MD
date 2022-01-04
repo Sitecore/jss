@@ -1,8 +1,15 @@
-# Note
+# Sitecore JSS React Native Sample Application
+
+<!---
+@TODO: Update to version 20.0.0 docs before release
+-->
+[Documentation](https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-react-native.html)
+
+## Note
 
 Sitecore JSS for React Native is considered highly experimental. It is strongly recommended that you have prior experience working with JSS, React Native, the toolchain that React Native requires, and have some exposure to native app development.
 
-# Prerequisites
+## Prerequisites
 
 The basic sample for React Native is based on a project created via the React Native CLI, e.g. `react-native init`
 Your first step will be to follow the instructions on this page: https://reactnative.dev/docs/environment-setup
@@ -16,7 +23,7 @@ Choose the `React Native CLI Quickstart` tab, then choose your Development OS an
 
 The installation process for all the necessary Android/iOS dependencies and tools can take a significant amount of time - plan accordingly.
 
-# Getting Started
+## Getting Started
 
 1. Ensure you have completed the Prerequisites section and have confirmed you're able to run the `AwesomeProject` sample that the instructions direct you to create.
 
@@ -40,7 +47,7 @@ Once the build process completes, you should see the basic sample app in the sim
 
 The app will be running in `disconnected` application mode. This means data and assets are embedded statically within the app.
 
-# Build customizations
+## Build customizations
 
 Although the build process is largely the same as "normal" React Native, we've customized the invocation of the process a bit. In particular:
 
@@ -50,15 +57,15 @@ Although the build process is largely the same as "normal" React Native, we've c
 
 - One other customization to build invocation is the addition of the `--reset-cache` argument to the metro bundler `start` script. This argument instructs the bundler to ignore its dependency cache during the build process, which ensures that the `babel` customizations mentioned earlier are invoked and allows you to easily switch between application modes at build time.
 
-# Deployment to Sitecore
+## Deployment to Sitecore
 
 All of the standard Sitecore JSS manifest generation and deployment processes are available for this project. You can follow the official guides for [setting up the Sitecore server](https://jss.sitecore.com/docs/getting-started/jss-server-install) and subsequently [deploying your app](https://jss.sitecore.com/docs/getting-started/app-deployment). Once setup and deployment are complete, you will be able to run your JSS app in `connected` or `connected-tunnel` modes.
 
-# Connecting to Sitecore
+## Connecting to Sitecore
 
 When you're ready to connect to Sitecore for data, you have two application mode options: `connected` and `connected-tunnel`.
 
-## Connected Mode
+### Connected Mode
 
 Connected mode essentially means that all route data and network images for your app are retrieved from a remote Sitecore instance. Each target app OS has a npm script for starting connected mode:
 
@@ -68,7 +75,7 @@ Connected mode essentially means that all route data and network images for your
 
 For more information on Connected mode, please refer to the official Sitecore JSS documentation: https://jss.sitecore.com/#/application-modes?id=connected-developer-mode
 
-## Connected Tunnel Mode
+### Connected Tunnel Mode
 
 Connected tunnel mode is similar to connected mode in that you are connecting to a Sitecore instance for route data and network images, but the Sitecore instance is on your local machine or otherwise unavailable via public DNS.
 
@@ -85,7 +92,7 @@ Each target app OS has a npm script for starting connected tunnel mode:
 
 `start-ios:connected-tunnel`
 
-# Assets
+## Assets
 
 Your app may have two types of assets: `static` and `network`. Static assets are those that are embedded as resources in your app. Network assets are those that are retrieved from a remote URL.
 
@@ -101,7 +108,7 @@ Then, in the `/src/dataService/dataService.disconnected.js` file, when the disco
 
 When working in `connected` or `connected-tunnel` mode, we can use the `/assets/images.connected.js` map, which removes references to images that are retrieved via http.
 
-# Known limitations
+## Known limitations
 
 - For MacOS, `ttab` dependency doesn't work in VS Code Powershell terminal.
 
