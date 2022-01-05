@@ -60,7 +60,7 @@ const vueConfig = {
     */
 
     config.module.rules.unshift({
-      test: /\.(?!js|vue|ts|html|graphql|gql|png|jpe?g|gif|webp|svg|woff2?|eot|ttf|otf$)[^.]+$/,
+      test: /\.(?!js|cjs|vue|ts|html|graphql|gql|png|jpe?g|gif|webp|svg|woff2?|eot|ttf|otf$)[^.]+$/,
       use: {
         loader: 'null-loader',
       },
