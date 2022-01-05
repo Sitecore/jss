@@ -21,7 +21,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       appName = response.appName;
       nextStepsArr = [...nextStepsArr, ...(response.nextSteps ?? [])];
 
-      // process any (feature) initializers
+      // process any returned initializers
       if (response.initializers && response.initializers.length > 0) {
         await runner(response.initializers);
       }

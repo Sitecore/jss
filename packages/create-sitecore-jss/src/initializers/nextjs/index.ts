@@ -34,24 +34,24 @@ export default class NextjsInitializer implements Initializer {
       removeDevDependencies(args.destination);
     }
 
-    let featureInitializers: string[] = [];
+    let addInitializers: string[] = [];
 
-    // don't prompt for feature initializers if --yes or they've already specified
+    // don't prompt for add-on initializers if --yes or they've already specified
     // multiple via --templates (assume they know what they're doing)
     if (!args.yes && args.templates.length === 1) {
-      const featureInitAnswer = await prompt({
+      const addInitAnswer = await prompt({
         type: 'checkbox',
-        name: 'featureInitializers',
-        message: 'Would you like to add any feature initializers?',
+        name: 'addInitializers',
+        message: 'Would you like to include any add-on initializers?',
         choices: ['nextjs-styleguide'],
       });
-      featureInitializers = featureInitAnswer.featureInitializers;
+      addInitializers = addInitAnswer.addInitializers;
     }
 
     const response = {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
       appName: answers.appName,
-      initializers: featureInitializers,
+      initializers: addInitializers,
     };
 
     return response;
