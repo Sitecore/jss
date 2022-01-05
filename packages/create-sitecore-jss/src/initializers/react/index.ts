@@ -3,7 +3,6 @@ import path from 'path';
 import { prompt } from 'inquirer';
 import { Initializer } from '../../common/Initializer';
 import { transform } from '../../common/steps';
-import { FetchWith } from '../../common/prompts/base';
 import { prompts, ReactAnswer } from './prompts';
 import { ReactArgs } from './args';
 
@@ -13,17 +12,7 @@ export default class ReactInitializer implements Initializer {
   }
 
   async init(args: ReactArgs) {
-    const defaults = args.yes
-      ? {
-          appName: 'sitecore-jss-react',
-          fetchWith: FetchWith.REST,
-          hostName: 'sitecore-jss-react.dev.local',
-          appPrefix: false,
-          language: 'da-DK',
-        }
-      : {};
-
-    const answers = await prompt<ReactAnswer>(prompts, { ...defaults, ...args });
+    const answers = await prompt<ReactAnswer>(prompts, args);
 
     const mergedArgs = {
       ...args,

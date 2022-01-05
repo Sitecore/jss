@@ -6,6 +6,7 @@ export interface StyleguideAnswer extends Answers {
 }
 
 const LANGUAGE_REGEXP = /^(([a-z]{2}-[A-Z]{2})|([a-z]{2}))$/;
+const DEFAULT_LANGUAGE = 'da-DK';
 
 export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
   {
@@ -13,7 +14,7 @@ export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
     name: 'language',
     message:
       'Which additional language do you want to support (en is already included and required)?',
-    default: 'da-DK',
+    default: DEFAULT_LANGUAGE,
     validate: (input: string): boolean => {
       if (!LANGUAGE_REGEXP.test(input)) {
         console.error(
@@ -34,6 +35,12 @@ export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
       }
 
       return true;
+    },
+    when: (answers: StyleguideAnswer): boolean => {
+      if (answers.yes && !answers.language) {
+        answers.language = DEFAULT_LANGUAGE;
+      }
+      return !answers.language;
     },
   },
 ];
