@@ -44,7 +44,7 @@ const main = async () => {
       if (allTemplates.includes(template)) {
         validTemplates.push(template);
       } else {
-        console.log(chalk.yellow(`Ignoring uknown template '${template}'...`));
+        console.log(chalk.yellow(`Ignoring unknown template '${template}'...`));
       }
     });
     templates = validTemplates;
