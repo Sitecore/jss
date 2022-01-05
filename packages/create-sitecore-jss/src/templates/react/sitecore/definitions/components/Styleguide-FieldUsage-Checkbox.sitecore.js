@@ -9,7 +9,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 export default function (manifest) {
   manifest.addComponent({
     name: 'Styleguide-FieldUsage-Checkbox',
-    templateName: '<%- helper.getAppPrefix(appPrefix, appName, false) %>Styleguide-FieldUsage-Checkbox',
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-FieldUsage-Checkbox',
     icon: SitecoreIcon.CheckboxSelected,
     fields: [
       { name: 'checkbox', type: CommonFieldTypes.Checkbox },

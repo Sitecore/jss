@@ -22,7 +22,14 @@ export default class NextjsStyleguideInitializer implements Initializer {
       process.exit(1);
     }
 
+    const defaults = args.yes
+      ? {
+          language: 'da-DK',
+        }
+      : {};
+
     const answers = await prompt<StyleguideAnswer>(styleguidePrompts, {
+      ...defaults,
       ...args,
     });
 

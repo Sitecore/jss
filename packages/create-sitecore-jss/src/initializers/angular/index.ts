@@ -19,10 +19,11 @@ export default class AngularInitializer implements Initializer {
           fetchWith: FetchWith.REST,
           hostName: 'sitecore-jss-angular.dev.local',
           appPrefix: false,
+          language: 'da-DK',
         }
       : {};
 
-    const answers = await prompt<AngularAnswer>(prompts, { ...args, ...defaults });
+    const answers = await prompt<AngularAnswer>(prompts, { ...defaults, ...args });
 
     const mergedArgs = {
       ...args,

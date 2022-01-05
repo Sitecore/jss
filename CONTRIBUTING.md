@@ -57,8 +57,8 @@ For the creation of the samples we are using `initializers` approach.
 
 - `initializer` - the process for handling the creation of the appropriate template. See [initializers](https://github.com/Sitecore/jss/tree/dev/packages/create-sitecore-jss/src/initializers).
 - `template` - the sample populated by [ejs](https://ejs.co/) tokens. See [templates](https://github.com/Sitecore/jss/tree/dev/packages/create-sitecore-jss/src/templates). Templates can be:
-	- `base` - the template that contains foundation for the application (e.g. *nextjs*).
-	- `feature` - the template that provides specific feature for the base template. Multiple *feature* templates can be applied to the *base* (e.g. *nextjs-styleguide*).
+	- `base` - contains foundation for the application (e.g. *nextjs*).
+	- `add-on` - provides additional features for the base template. Multiple *add-on* templates can be applied to the *base* (e.g. *nextjs-styleguide*).
 
 If you want to use [*create-sitecore-jss*](https://github.com/Sitecore/jss/tree/dev/packages/create-sitecore-jss) from your local repository, run:
 
