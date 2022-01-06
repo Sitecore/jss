@@ -14,7 +14,7 @@ import {
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
 
-const COPY_ONLY_REGEX = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar)$/;
+const FILE_FOR_COPY_REGEXP = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar)$/;
 
 export type JsonPropertyType = number | string | (number | string)[] | JsonObjectType;
 export interface JsonObjectType {
@@ -150,8 +150,14 @@ export const diffAndWriteFiles = async ({
 export const transform = async (
   templatePath: string,
   answers: BaseArgs,
-  options: { filter?: (filePath: string) => boolean } = {}
+  options: {
+    isFileForCopy?: (file: string) => boolean;
+    isFileForSkip?: (file: string) => boolean;
+    fileForCopyRegExp?: RegExp;
+  } = {}
 ) => {
+  const { isFileForCopy, isFileForSkip, fileForCopyRegExp = FILE_FOR_COPY_REGEXP } = options;
+
   const destinationPath = path.resolve(answers.destination);
 
   if (!answers.appPrefix) {
@@ -176,16 +182,17 @@ export const transform = async (
       const pathToNewFile = `${destinationPath}\\${file}`;
       const pathToTemplate = path.join(templatePath, file);
 
-      if (options.filter && !options.filter(pathToTemplate)) {
+      if (isFileForSkip && isFileForSkip(file)) {
         continue;
       }
+
       // holds the content to be written to the new file
       let str: string | undefined;
 
       // if the directory doesn't exist, create it
       fs.mkdirsSync(path.dirname(transformFilename(pathToNewFile, answers)));
 
-      if (file.match(COPY_ONLY_REGEX)) {
+      if (isFileForCopy ? isFileForCopy(file) : file.match(fileForCopyRegExp)) {
         // pdfs may have <% encoded, which throws an error for ejs.
         // we simply want to copy file if it's a pdf, not render it with ejs.
         fs.copySync(pathToTemplate, pathToNewFile);

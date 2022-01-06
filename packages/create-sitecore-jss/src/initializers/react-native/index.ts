@@ -1,8 +1,7 @@
 import path from 'path';
 import { prompt } from 'inquirer';
 import { prompts, ReactNativeAnswer } from './prompts';
-import { Initializer } from '../../common/Initializer';
-import { transform } from '../../common/steps';
+import { Initializer, transform } from '../../common';
 import { ReactNativeArgs } from './args';
 
 export default class ReactNativeInitializer implements Initializer {

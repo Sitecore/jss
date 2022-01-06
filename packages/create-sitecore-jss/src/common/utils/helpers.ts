@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 import { InitializerFactory } from '../../InitializerFactory';
-import { JsonObjectType } from '../steps/transform';
+import { JsonObjectType } from '../processes/transform';
 
 export const isJssApp = (
   template: string,

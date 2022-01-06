@@ -1,6 +1,6 @@
 import { QuestionCollection } from 'inquirer';
 
-import { clientAppPrompts, ClientAppAnswer } from '../../common/prompts/base';
+import { clientAppPrompts, ClientAppAnswer } from '../../common';
 
 export enum Prerender {
   SSG = 'SSG',

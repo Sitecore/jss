@@ -1,5 +1,6 @@
 import chalk from 'chalk';
-import { installPackages, lintFix, nextSteps } from './common/steps';
+import { installPackages, lintFix } from './common/processes/install';
+import { nextSteps } from './common/processes/next';
 import { BaseArgs } from './common/args/base';
 import { InitializerFactory } from './InitializerFactory';
 

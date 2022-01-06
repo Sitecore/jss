@@ -1,8 +1,7 @@
 ﻿import chalk from 'chalk';
 import path from 'path';
 import { prompt } from 'inquirer';
-import { Initializer } from '../../common/Initializer';
-import { transform } from '../../common/steps';
+import { Initializer, transform } from '../../common';
 import { prompts, ReactAnswer } from './prompts';
 import { ReactArgs } from './args';
 

@@ -1,8 +1,7 @@
 ﻿import path from 'path';
 import { prompt } from 'inquirer';
 import { prompts, VueAnswer } from './prompts';
-import { Initializer } from '../../common/Initializer';
-import { transform } from '../../common/steps';
+import { Initializer, transform } from '../../common';
 import { VueArgs } from './args';
 import chalk from 'chalk';
 

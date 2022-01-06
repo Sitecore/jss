@@ -1,5 +1,9 @@
-﻿import { ClientAppAnswer, clientAppPrompts } from '../../common/prompts/base';
-import { StyleguideAnswer, styleguidePrompts } from '../../common/prompts/styleguide';
+﻿import {
+  ClientAppAnswer,
+  clientAppPrompts,
+  StyleguideAnswer,
+  styleguidePrompts,
+} from '../../common';
 
 export interface VueAnswer extends ClientAppAnswer, StyleguideAnswer {}
 

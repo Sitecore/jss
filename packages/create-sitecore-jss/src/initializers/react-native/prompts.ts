@@ -1,6 +1,10 @@
 import { DistinctQuestion, QuestionCollection } from 'inquirer';
-import { styleguidePrompts, StyleguideAnswer } from '../../common/prompts/styleguide';
-import { clientAppPrompts, ClientAppAnswer } from '../../common/prompts/base';
+import {
+  styleguidePrompts,
+  StyleguideAnswer,
+  clientAppPrompts,
+  ClientAppAnswer,
+} from '../../common';
 
 export interface ReactNativeAnswer extends Omit<ClientAppAnswer, 'fetchWith'>, StyleguideAnswer {}
 

@@ -1,5 +1,4 @@
-﻿import { StyleguideArgs } from './../../common/args/styleguide';
-import { ClientAppArgs } from './../../common/args/base';
+﻿import { StyleguideArgs, ClientAppArgs } from './../../common';
 import { ReactAnswer } from './prompts';
 
 export interface ReactArgs extends ClientAppArgs, StyleguideArgs, Partial<ReactAnswer> {}
