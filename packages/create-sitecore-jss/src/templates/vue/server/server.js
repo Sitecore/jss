@@ -115,6 +115,8 @@ export function renderView(callback, path, data, viewBag) {
           html = assertReplace(html, '<body>', `<body ${meta.teleports.bodyAttrs || ''}>`);
         }
 
+        html = html.replace(new RegExp('phkey', 'g'), 'key');
+
         callback(null, {
           html,
         });
