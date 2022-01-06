@@ -29,7 +29,7 @@ const main = async () => {
   // check if templates were provided
   if (argv._.length > 0 && argv._[0] !== undefined) {
     // use positional parameter
-    templates = [argv._[0]];
+    templates = (argv._[0] && argv._[0].split(/[\s,]+/)) || [];
   } else {
     // use --templates arg
     templates = (argv.templates && argv.templates.split(/[\s,]+/)) || [];

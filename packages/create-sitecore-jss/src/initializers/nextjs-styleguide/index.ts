@@ -4,6 +4,7 @@ import { prompt } from 'inquirer';
 import { Initializer } from '../../common/Initializer';
 import { isJssApp, openPackageJson } from '../../common/utils/helpers';
 import { transform } from '../../common/steps/index';
+import { DEFAULT_APPNAME } from '../../common/prompts/base';
 import { styleguidePrompts, StyleguideAnswer } from '../../common/prompts/styleguide';
 import { StyleguideArgs } from '../../common/args/styleguide';
 import { ClientAppArgs } from '../../common/args/base';
@@ -22,20 +23,11 @@ export default class NextjsStyleguideInitializer implements Initializer {
       process.exit(1);
     }
 
-    const defaults = args.yes
-      ? {
-          language: 'da-DK',
-        }
-      : {};
-
-    const answers = await prompt<StyleguideAnswer>(styleguidePrompts, {
-      ...defaults,
-      ...args,
-    });
+    const answers = await prompt<StyleguideAnswer>(styleguidePrompts, args);
 
     const mergedArgs = {
       ...args,
-      appName: args.appName || pkg?.config?.appName || 'default',
+      appName: args.appName || pkg?.config?.appName || DEFAULT_APPNAME,
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
       ...answers,
     };

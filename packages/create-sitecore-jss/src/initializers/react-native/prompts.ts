@@ -5,6 +5,6 @@ import { clientAppPrompts, ClientAppAnswer } from '../../common/prompts/base';
 export interface ReactNativeAnswer extends Omit<ClientAppAnswer, 'fetchWith'>, StyleguideAnswer {}
 
 export const prompts: QuestionCollection<ReactNativeAnswer> = [
-  ...clientAppPrompts.filter((p: DistinctQuestion) => p.name !== 'fetchWith'),
+  ...clientAppPrompts.filter((p: DistinctQuestion<ClientAppAnswer>) => p.name !== 'fetchWith'),
   ...styleguidePrompts,
 ];

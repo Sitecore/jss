@@ -3,7 +3,6 @@ import chalk from 'chalk';
 import { prompt } from 'inquirer';
 import { AngularArgs } from './args';
 import { AngularAnswer, prompts } from './prompts';
-import { FetchWith } from '../../common/prompts/base';
 import { Initializer } from '../../common/Initializer';
 import { transform } from '../../common/steps/transform';
 
@@ -13,17 +12,7 @@ export default class AngularInitializer implements Initializer {
   }
 
   async init(args: AngularArgs) {
-    const defaults = args.yes
-      ? {
-          appName: 'sitecore-jss-angular',
-          fetchWith: FetchWith.REST,
-          hostName: 'sitecore-jss-angular.dev.local',
-          appPrefix: false,
-          language: 'da-DK',
-        }
-      : {};
-
-    const answers = await prompt<AngularAnswer>(prompts, { ...defaults, ...args });
+    const answers = await prompt<AngularAnswer>(prompts, args);
 
     const mergedArgs = {
       ...args,

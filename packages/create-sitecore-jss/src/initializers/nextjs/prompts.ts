@@ -11,6 +11,8 @@ export interface NextjsAnswer extends ClientAppAnswer {
   prerender: Prerender;
 }
 
+const DEFAULT_PRERENDER = Prerender.SSG;
+
 export const prompts: QuestionCollection<NextjsAnswer> = [
   ...clientAppPrompts,
   {
@@ -18,6 +20,12 @@ export const prompts: QuestionCollection<NextjsAnswer> = [
     name: 'prerender',
     message: 'How would you like to prerender your application?',
     choices: Object.values(Prerender),
-    default: Prerender.SSG,
+    default: DEFAULT_PRERENDER,
+    when: (answers: NextjsAnswer): boolean => {
+      if (answers.yes && !answers.prerender) {
+        answers.prerender = DEFAULT_PRERENDER;
+      }
+      return !answers.prerender;
+    },
   },
 ];
