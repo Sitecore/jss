@@ -9,11 +9,9 @@ const StyleguideMultilingual = ({ rendering, fields, switchLanguage }) => (
       <Text style={styles.lang} onPress={() => switchLanguage('en')}>
         Switch to en
       </Text>
-    <% if (language) { -%>
       <Text style={styles.lang} onPress={() => switchLanguage('<%- language %>')}>
         Switch to <%- language %>
       </Text>
-    <% } -%>
     </View>
   </StyleguideSpecimen>
 );

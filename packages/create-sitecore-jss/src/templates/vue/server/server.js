@@ -95,7 +95,7 @@ export function renderView(callback, path, data, viewBag) {
         // or else you're vulnerable to XSS.
         let html = indexTemplate;
         // write the Vue app
-        html = assertReplace(html, '<div id="root"></div>', `${renderedApp}`);
+        html = assertReplace(html, '<div id="root"></div>', `<div id="root">${renderedApp}</div>`);
         // write the string version of our state
         html = assertReplace(
           html,
@@ -114,6 +114,8 @@ export function renderView(callback, path, data, viewBag) {
           html = assertReplace(html, '<head>', `<head>${meta.teleports.head || ''}`);
           html = assertReplace(html, '<body>', `<body ${meta.teleports.bodyAttrs || ''}>`);
         }
+
+        html = html.replace(new RegExp('phkey', 'g'), 'key');
 
         callback(null, {
           html,

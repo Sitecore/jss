@@ -6,16 +6,16 @@ export interface StyleguideAnswer extends Answers {
 }
 
 const LANGUAGE_REGEXP = /^(([a-z]{2}-[A-Z]{2})|([a-z]{2}))$/;
+const DEFAULT_LANGUAGE = 'da-DK';
 
 export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
   {
     type: 'input',
     name: 'language',
     message:
-      'Which additional language do you want to support (en is default and required)? Leave empty if not needed',
+      'Which additional language do you want to support (en is already included and required)?',
+    default: DEFAULT_LANGUAGE,
     validate: (input: string): boolean => {
-      if (!input) return true;
-
       if (!LANGUAGE_REGEXP.test(input)) {
         console.error(
           chalk.red(
@@ -26,7 +26,7 @@ export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
       } else if (input === 'en') {
         console.error(
           chalk.red(
-            `\nen is included in the Styleguide by default. \nYou ${chalk.italic(
+            `\nen is included by default. \nYou ${chalk.italic(
               'may'
             )} however add an en-* locale, for example 'en-UK'.`
           )
@@ -35,6 +35,12 @@ export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
       }
 
       return true;
+    },
+    when: (answers: StyleguideAnswer): boolean => {
+      if (answers.yes && !answers.language) {
+        answers.language = DEFAULT_LANGUAGE;
+      }
+      return !answers.language;
     },
   },
 ];

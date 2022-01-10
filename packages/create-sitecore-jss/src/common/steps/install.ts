@@ -25,7 +25,8 @@ export const installPackages = (projectFolder: string, silent?: boolean) => {
   } else {
     run(
       'npm',
-      ['install'],
+      // TODO: remove `--legacy-peer-deps` when our samples have upgraded peer dependencies (strict since npm 7)
+      ['install', '--legacy-peer-deps'],
       {
         cwd: projectFolder,
         encoding: 'utf8',

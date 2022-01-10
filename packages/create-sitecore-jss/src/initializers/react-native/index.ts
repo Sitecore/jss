@@ -11,15 +11,7 @@ export default class ReactNativeInitializer implements Initializer {
   }
 
   async init(args: ReactNativeArgs) {
-    const defaults = args.yes
-      ? {
-          appName: 'sitecore-jss-react-native',
-          hostName: 'sitecore-jss-react-native.dev.local',
-          language: '',
-        }
-      : {};
-
-    const answers = await prompt<ReactNativeAnswer>(prompts, { ...defaults, ...args });
+    const answers = await prompt<ReactNativeAnswer>(prompts, args);
 
     const mergedArgs = {
       ...args,
@@ -27,10 +19,7 @@ export default class ReactNativeInitializer implements Initializer {
     };
 
     const templatePath = path.resolve(__dirname, '../../templates/react-native');
-    await transform(templatePath, mergedArgs, {
-      filter: (filePath: string) =>
-        !!mergedArgs.language || !filePath.endsWith('{{language}}.json'),
-    });
+    await transform(templatePath, mergedArgs);
 
     const response = {
       appName: answers.appName,

@@ -10,8 +10,17 @@ import { getBaseTemplates } from './common/utils/helpers';
 // parse any command line arguments passed into `init sitecore-jss`
 // to pass to the generator prompts and skip them.
 // useful for CI and testing purposes
-const argv: ParsedArgs = parseArgs(process.argv.slice(2), {
-  boolean: ['appPrefix', 'force', 'noInstall', 'yes'],
+const options = {
+  boolean: ['appPrefix', 'force', 'noInstall', 'yes', 'silent'],
+  string: ['appName', 'destination', 'templates', 'hostName', 'fetchWith', 'language'],
+};
+const argv: ParsedArgs = parseArgs(process.argv.slice(2), options);
+
+// we need to coerce string parameters in minimist above (to prevent string options without a value e.g. `--appName` from coming in as a boolean `true`).
+// however, coersion will result in an empty string and inquirer will treat this as a valid answer value (and not prompt!).
+// we need to go back through and remove these to prevent this.
+options.string.forEach((key) => {
+  argv[key] === '' && delete argv[key];
 });
 
 const main = async () => {
@@ -20,18 +29,32 @@ const main = async () => {
   // check if templates were provided
   if (argv._.length > 0 && argv._[0] !== undefined) {
     // use positional parameter
-    templates = [argv._[0]];
+    templates = (argv._[0] && argv._[0].split(/[\s,]+/)) || [];
   } else {
     // use --templates arg
-    templates = argv.templates?.split(',') || [];
+    templates = (argv.templates && argv.templates.split(/[\s,]+/)) || [];
   }
-  const baseTemplates = await getBaseTemplates(path.resolve(__dirname, 'templates'));
+
   // validate/gather templates
+  const templatePath = path.resolve(__dirname, 'templates');
+  if (templates.length > 0) {
+    const allTemplates = fs.readdirSync(templatePath, 'utf8');
+    const validTemplates: string[] = [];
+    templates.forEach((template) => {
+      if (allTemplates.includes(template)) {
+        validTemplates.push(template);
+      } else {
+        console.log(chalk.yellow(`Ignoring unknown template '${template}'...`));
+      }
+    });
+    templates = validTemplates;
+  }
   if (!templates.length) {
+    const baseTemplates = await getBaseTemplates(templatePath);
     const answer = await prompt({
       type: 'list',
       name: 'template',
-      message: 'Which templates would you like to create?',
+      message: 'Which template would you like to create?',
       choices: baseTemplates,
       default: 'nextjs',
     });

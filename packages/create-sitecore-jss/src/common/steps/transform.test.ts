@@ -45,7 +45,7 @@ describe('transform', () => {
           test: 'tests are good',
         },
         config: {
-          rootPlaceholders: ['jss-main'],
+          rootPlaceholders: ['jss-main', 'jss-test'],
         },
         files: ['dist'],
         dependencies: {
@@ -73,7 +73,7 @@ describe('transform', () => {
 
       const result = merge(currentPkg, partialPkg);
 
-      expect(result).to.equal(JSON.stringify(expected, null, 2));
+      expect(result).to.deep.equal(expected);
     });
   });
 

@@ -1,13 +1,12 @@
 import chalk from 'chalk';
 import path from 'path';
 import { prompt } from 'inquirer';
-import { prompts, NextjsAnswer, Prerender } from './prompts';
+import { prompts, NextjsAnswer } from './prompts';
 import { Initializer } from '../../common/Initializer';
 import { transform } from '../../common/steps';
 import { isDevEnvironment } from '../../common/utils/helpers';
 import { removeDevDependencies } from './remove-dev-dependencies';
 import { NextjsArgs } from './args';
-import { FetchWith } from '../../common/prompts/base';
 
 export default class NextjsInitializer implements Initializer {
   get isBase(): boolean {
@@ -15,17 +14,7 @@ export default class NextjsInitializer implements Initializer {
   }
 
   async init(args: NextjsArgs) {
-    const defaults = args.yes
-      ? {
-          appName: 'sitecore-jss-nextjs',
-          fetchWith: FetchWith.REST,
-          prerender: Prerender.SSG,
-          hostName: 'sitecore-jss-nextjs.dev.local',
-          appPrefix: false,
-        }
-      : {};
-
-    const answers = await prompt<NextjsAnswer>(prompts, { ...defaults, ...args });
+    const answers = await prompt<NextjsAnswer>(prompts, args);
 
     const templatePath = path.resolve(__dirname, '../../templates/nextjs');
     await transform(templatePath, { ...args, ...answers });
@@ -34,24 +23,24 @@ export default class NextjsInitializer implements Initializer {
       removeDevDependencies(args.destination);
     }
 
-    let postInitializers: string[] = [];
+    let addInitializers: string[] = [];
 
-    // don't prompt for post-initializers if they've already specified
+    // don't prompt for add-on initializers if --yes or they've already specified
     // multiple via --templates (assume they know what they're doing)
-    if (args.templates.length === 1) {
-      const postInitAnswer = await prompt({
+    if (!args.yes && args.templates.length === 1) {
+      const addInitAnswer = await prompt({
         type: 'checkbox',
-        name: 'postInitializers',
-        message: 'Would you like to add any post-initializers?',
+        name: 'addInitializers',
+        message: 'Would you like to include any add-on initializers?',
         choices: ['nextjs-styleguide'],
       });
-      postInitializers = postInitAnswer.postInitializers;
+      addInitializers = addInitAnswer.addInitializers;
     }
 
     const response = {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
       appName: answers.appName,
-      initializers: postInitializers,
+      initializers: addInitializers,
     };
 
     return response;

@@ -8,26 +8,26 @@ placeholders:
         content: |
           <p>This is a live set of examples of how to use JSS. For more information on using JSS, please see <a href="https://jss.sitecore.com" target="_blank" rel="noopener noreferrer">the documentation</a>.</p>
           <p>The content and layout of this page is defined in <code>/data/routes/styleguide/en.yml</code></p>
-    - componentName: Styleguide-Layout
+    - componentName: StyleguideLayout
       placeholders:
         <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-layout:
-          - componentName: Styleguide-Section
+          - componentName: StyleguideSection
             fields:
               heading: Content Data
             placeholders:
               <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
-                - componentName: Styleguide-FieldUsage-Text
+                - componentName: StyleguideFieldUsageText
                   fields:
                     heading: Single-Line Text
                     sample: This is a sample text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see a <input type="text">.
                     sample2: This is another sample text field using rendering options. <mark>HTML supported with encode=false.</mark> Cannot edit because editable=false.
-                - componentName: Styleguide-FieldUsage-Text
+                - componentName: StyleguideFieldUsageText
                   fields:
                     heading: Multi-Line Text
                     description: '<small>Multi-line text tells Sitecore to use a <code>textarea</code> for editing; consumption in JSS is the same as single-line text.</small>'
                     sample: This is a sample multi-line text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see a textarea.
                     sample2: This is another sample multi-line text field using rendering options. <mark>HTML supported with encode=false.</mark>
-                - componentName: Styleguide-FieldUsage-RichText
+                - componentName: StyleguideFieldUsageRichText
                   fields:
                     heading: Rich Text
                     sample: <p>This is a sample rich text field. <mark>HTML is always supported.</mark> In Sitecore, editors will see a WYSIWYG editor for these fields.</p>
@@ -36,7 +36,7 @@ placeholders:
                     sample2: |
                       <p>Another sample rich text field, using options. Keep markup entered in rich text fields as simple as possible - ideally bare tags only (no classes). Adding a wrapping class can help with styling within rich text blocks.</p>
                       <marquee>But you can use any valid HTML in a rich text field!</marquee>
-                - componentName: Styleguide-FieldUsage-Image
+                - componentName: StyleguideFieldUsageImage
                   fields:
                     heading: Image
                     sample1:
@@ -45,7 +45,7 @@ placeholders:
                     sample2:
                       src: /data/media/img/jss_logo.png
                       alt: Sitecore JSS Logo
-                - componentName: Styleguide-FieldUsage-File
+                - componentName: StyleguideFieldUsageFile
                   fields:
                     heading: File
                     description: |
@@ -54,27 +54,28 @@ placeholders:
                       src: /data/media/files/jss.pdf
                       title: Example File
                       description: This data will be added to the Sitecore Media Library on import
-                - componentName: Styleguide-FieldUsage-Number
+                - componentName: StyleguideFieldUsageNumber
                   fields:
                     heading: Number
                     description: '<small>Number tells Sitecore to use a number entry for editing.</small>'
                     sample: 1.21
-                - componentName: Styleguide-FieldUsage-Checkbox
+                    sample2: 71
+                - componentName: StyleguideFieldUsageCheckbox
                   fields:
                     heading: Checkbox
                     description: |
                       <small>Note: Sitecore does not support inline editing of Checkbox fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.</small>
                     checkbox: true
                     checkbox2: false
-                - componentName: Styleguide-FieldUsage-Date
+                - componentName: StyleguideFieldUsageDate
                   fields:
                     heading: Date
                     description: |
                       <p><small>Both <code>Date</code> and <code>DateTime</code> field types are available. Choosing <code>DateTime</code> will make Sitecore show editing UI for time; both types store complete date and time values internally. Date values in JSS are formatted using <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" target="_blank">ISO 8601 formatted strings</a>, for example <code>2012-04-23T18:25:43.511Z</code>.</small></p>
                       <div class="alert alert-warning"><small>Note: this is a JavaScript date format (e.g. <code>new Date().toISOString()</code>), and is different from how Sitecore stores date field values internally. Sitecore-formatted dates will not work.</small></div>
-                    date: '2012-05-04T00:00:00Z'
-                    dateTime: '2018-03-14T15:00:00Z'
-                - componentName: Styleguide-FieldUsage-Link
+                    date: '2012-05-04T00:00:00.000Z'
+                    dateTime: '2018-03-14T15:00:00.000Z'
+                - componentName: StyleguideFieldUsageLink
                   fields:
                     heading: General Link
                     description: <p>A <em>General Link</em> is a field that represents an <code>&lt;a&gt;</code> tag.</p>
@@ -101,7 +102,7 @@ placeholders:
                       target: _blank
                       class: font-weight-bold
                       title: <a> title attribute
-                - componentName: Styleguide-FieldUsage-ItemLink
+                - componentName: StyleguideFieldUsageItemLink
                   fields:
                     heading: Item Link
                     description: |
@@ -123,7 +124,7 @@ placeholders:
                       template: <%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-ItemLink-Item-Template
                       fields:
                         textField: Referenced item textField
-                - componentName: Styleguide-FieldUsage-ContentList
+                - componentName: StyleguideFieldUsageContentList
                   fields:
                     heading: Content List
                     description: |
@@ -154,7 +155,7 @@ placeholders:
                       - template: <%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-ContentList-Item-Template
                         fields:
                           textField: Hello World Item 2
-                - componentName: Styleguide-FieldUsage-Custom
+                - componentName: StyleguideFieldUsageCustom
                   fields:
                     heading: Custom Fields
                     description: |
@@ -166,14 +167,12 @@ placeholders:
                         </small>
                       </p>
                     customIntField: 31337
-          - componentName: Styleguide-Section
+          - componentName: StyleguideSection
             fields:
               heading: Layout Patterns
             placeholders:
-              <%- helper.getAppPrefix(appPrefix, appName) %>jss-header:
-                - componentName: Styleguide-Layout-Reuse
               <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
-                - componentName: Styleguide-Layout-Reuse
+                - componentName: StyleguideLayoutReuse
                   fields:
                     heading: Reusing Content
                     description: <p>JSS provides powerful options to reuse content, whether it's sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>
@@ -190,38 +189,38 @@ placeholders:
                       - componentName: ContentBlock
                         fields:
                           content: <p>Mix and match reused and local content. Check out <code>/data/routes/styleguide/en.yml</code> to see how.</p>
-                - componentName: Styleguide-Layout-Tabs
+                - componentName: StyleguideLayoutTabs
                   fields:
                     heading: Tabs
                     description: <p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>
                   placeholders:
                     <%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs:
-                      - componentName: Styleguide-Layout-Tabs-Tab
+                      - componentName: StyleguideLayoutTabsTab
                         fields:
                           title: Tab 1
                           content: <p>Tab 1 contents!</p>
-                      - componentName: Styleguide-Layout-Tabs-Tab
+                      - componentName: StyleguideLayoutTabsTab
                         fields:
                           title: Tab 2
                           content: <p>Tab 2 contents!</p>
-                      - componentName: Styleguide-Layout-Tabs-Tab
+                      - componentName: StyleguideLayoutTabsTab
                         fields:
                           title: Tab 3
                           content: <p>Tab 3 contents!</p>
-          - componentName: Styleguide-Section
+          - componentName: StyleguideSection
             fields:
               heading: Sitecore Patterns
             placeholders:
               <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
-                - componentName: Styleguide-SitecoreContext
+                - componentName: StyleguideSitecoreContext
                   fields:
                     heading: Sitecore Context
                     description: <p><small>The Sitecore Context contains route-level data about the current context - for example, <code>pageState</code> enables conditionally executing code based on whether Sitecore is in Experience Editor or not.</small></p>
-                - componentName: Styleguide-RouteFields
+                - componentName: StyleguideRouteFields
                   fields:
                     heading: Route-level Fields
                     description: <p><small>Route-level content fields are defined on the <em>route</em> instead of on a <em>component</em>. This allows multiple components to share the field data on the same route - and querying is much easier on route level fields, making <em>custom route types</em> ideal for filterable/queryable data such as articles.</small></p>
-                - componentName: Styleguide-ComponentParams
+                - componentName: StyleguideComponentParams
                   fields:
                     heading: Component Params
                     description: <p><small>Component params (also called Rendering Parameters) allow storing non-content parameters for a component. These params should be used for more technical options such as CSS class names or structural settings.</small></p>
@@ -231,24 +230,24 @@ placeholders:
                     # they are always sent to the component as strings.
                     columns: 5
                     useCallToAction: true
-                - componentName: Styleguide-Tracking
+                - componentName: StyleguideTracking
                   fields:
                     heading: Tracking
                     description: <p><small>JSS supports tracking Sitecore analytics events from within apps. Give it a try with this handy interactive demo.</small></p>
-          - componentName: Styleguide-Section
+          - componentName: StyleguideSection
             fields:
               heading: Multilingual Patterns
             placeholders:
               <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
-                - componentName: Styleguide-Multilingual
+                - componentName: StyleguideMultilingual
                   fields:
                     heading: Translation Patterns
                     sample: This text can be translated in en.yml
-                              - componentName: Styleguide-Section
+          - componentName: StyleguideSection
             fields:
               heading: Angular Patterns
             placeholders:
               <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
-                - componentName: Styleguide-Angular-LazyLoading
+                - componentName: StyleguideAngularLazyLoading
                   fields:
                     heading: Lazy Loading

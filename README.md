@@ -6,7 +6,10 @@ This repository contains source code for all Sitecore JSS packages and templates
 
 ## Getting started with JSS
 
-- [Official JSS documentation](https://jss.sitecore.com/)
+  <!---
+   @TODO: Update to version 20.0.0 docs before release
+   -->
+- [Official JSS documentation](https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/sitecore-javascript-rendering-sdks--jss-.html)
 - [StackExchange](https://sitecore.stackexchange.com/)
 - [Community Slack](https://sitecorechat.slack.com/messages/jss)
 - [Sitecore Community Forum](https://community.sitecore.net/developers/f/40)

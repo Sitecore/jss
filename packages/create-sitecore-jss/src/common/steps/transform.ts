@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
-import { Data, render, renderFile } from 'ejs';
+import { Data, renderFile } from 'ejs';
 import { prompt } from 'inquirer';
 import {
   getPascalCaseName,
@@ -32,7 +32,7 @@ export const transformFilename = (file: string, args: BaseArgs): string => {
   return file;
 };
 
-export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): string => {
+export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): JsonObjectType => {
   const mergeObject = (target: JsonObjectType, source: JsonObjectType) => {
     for (const key of Object.keys(source)) {
       const sourceVal = source[key];
@@ -56,8 +56,7 @@ export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): str
     return target;
   };
 
-  const result = JSON.stringify(mergeObject(targetObj, sourceObj), null, 2);
-  return result;
+  return mergeObject(targetObj, sourceObj);
 };
 
 /**
@@ -195,15 +194,15 @@ export const transform = async (
 
       if (file.endsWith('package.json') && fs.existsSync(pathToNewFile)) {
         // we treat package.json a bit differently
-        // read the current package.json and the partial (templatePkg)
-        // merge them and set the result to str which will then go through diff
-        // and use ejs render instead of renderFile
+        // read the current package.json and the template package.json (rendered with ejs)
         const currentPkg = openPackageJson(pathToNewFile);
-        const templatePkg = openPackageJson(pathToTemplate);
-        str = merge(currentPkg, templatePkg);
+        const templatePkg = JSON.parse(await renderFile(path.resolve(pathToTemplate), ejsData));
+        // merge them and set the result to str which will then go through diff
+        const merged = merge(currentPkg, templatePkg);
+        str = JSON.stringify(merged, null, 2);
       }
 
-      str = str ? render(str, ejsData) : await renderFile(path.resolve(pathToTemplate), ejsData);
+      str = str ?? (await renderFile(path.resolve(pathToTemplate), ejsData));
 
       if (!answers.force) {
         await diffAndWriteFiles({
