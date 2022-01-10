@@ -1,3 +1,3 @@
 import { BaseArgs, ClientAppAnswer } from '../../common';
 
-export interface ReactNativeArgs extends BaseArgs, Partial<Omit<ClientAppAnswer, 'fetchWith'>> {}
+export type ReactNativeArgs = BaseArgs & Partial<Omit<ClientAppAnswer, 'fetchWith'>>;

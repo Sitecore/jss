@@ -9,7 +9,7 @@ export enum FetchWith {
 /**
  * Set of CLI answers for the client-side app
  */
-export interface ClientAppAnswer extends Answers {
+export type ClientAppAnswer = Answers & {
   /**
    * Application name
    */
@@ -23,7 +23,7 @@ export interface ClientAppAnswer extends Answers {
    * Application host name
    */
   hostName: string;
-}
+};
 
 /**
  * Default app name for the new app

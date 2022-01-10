@@ -17,9 +17,9 @@ import { BaseArgs } from '../args/base';
 const FILE_FOR_COPY_REGEXP = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar)$/;
 
 export type JsonPropertyType = number | string | (number | string)[] | JsonObjectType;
-export interface JsonObjectType {
+export type JsonObjectType = {
   [key: string]: JsonPropertyType;
-}
+};
 
 export const transformFilename = (file: string, args: BaseArgs): string => {
   // eslint-disable-next-line guard-for-in
@@ -147,7 +147,7 @@ export const diffAndWriteFiles = async ({
   }
 };
 
-interface TransformOptions {
+type TransformOptions = {
   /**
    * Determines whether a file should be copied
    * @param {string} file path to a file

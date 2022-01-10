@@ -5,7 +5,7 @@ type Arg = string | number | boolean;
 /**
  * A base set of arguments used by CLI
  */
-export interface BaseArgs {
+export type BaseArgs = {
   [key: string]: Arg | Arg[] | undefined;
   /**
    * Array of templates to be used
@@ -34,6 +34,7 @@ export interface BaseArgs {
 /**
  * Set of arguments for the client-side app
  */
-export interface ClientAppArgs extends BaseArgs, Partial<ClientAppAnswer> {
-  appPrefix?: boolean;
-}
+export type ClientAppArgs = BaseArgs &
+  Partial<ClientAppAnswer> & {
+    appPrefix?: boolean;
+  };

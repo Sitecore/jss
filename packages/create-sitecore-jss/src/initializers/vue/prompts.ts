@@ -5,6 +5,6 @@
   styleguidePrompts,
 } from '../../common';
 
-export interface VueAnswer extends ClientAppAnswer, StyleguideAnswer {}
+export type VueAnswer = ClientAppAnswer & StyleguideAnswer;
 
 export const prompts = [...clientAppPrompts, ...styleguidePrompts];

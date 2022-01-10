@@ -5,6 +5,6 @@
   styleguidePrompts,
 } from '../../common';
 
-export interface ReactAnswer extends ClientAppAnswer, StyleguideAnswer {}
+export type ReactAnswer = ClientAppAnswer & StyleguideAnswer;
 
 export const prompts = [...clientAppPrompts, ...styleguidePrompts];

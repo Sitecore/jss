@@ -7,9 +7,9 @@ export enum Prerender {
   SSR = 'SSR',
 }
 
-export interface NextjsAnswer extends ClientAppAnswer {
+export type NextjsAnswer = ClientAppAnswer & {
   prerender: Prerender;
-}
+};
 
 const DEFAULT_PRERENDER = Prerender.SSG;
 

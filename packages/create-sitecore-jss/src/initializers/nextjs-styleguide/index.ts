@@ -13,7 +13,7 @@ import {
   ClientAppArgs,
 } from '../../common';
 
-interface NextjsStyleguideArgs extends ClientAppArgs, StyleguideArgs {}
+type NextjsStyleguideArgs = ClientAppArgs & StyleguideArgs;
 
 export default class NextjsStyleguideInitializer implements Initializer {
   get isBase(): boolean {

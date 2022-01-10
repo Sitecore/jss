@@ -5,6 +5,6 @@ import {
   styleguidePrompts,
 } from '../../common';
 
-export interface AngularAnswer extends ClientAppAnswer, StyleguideAnswer {}
+export type AngularAnswer = ClientAppAnswer & StyleguideAnswer;
 
 export const prompts = [...clientAppPrompts, ...styleguidePrompts];
