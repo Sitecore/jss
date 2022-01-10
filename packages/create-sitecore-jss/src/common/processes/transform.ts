@@ -151,7 +151,7 @@ export const transform = async (
   templatePath: string,
   answers: BaseArgs,
   options: {
-    isFileForCopy?: (file: string) => boolean;
+    isFileForCopy?: (file: string, fileForCopyRegExp: RegExp) => boolean;
     isFileForSkip?: (file: string) => boolean;
     fileForCopyRegExp?: RegExp;
   } = {}
@@ -192,7 +192,7 @@ export const transform = async (
       // if the directory doesn't exist, create it
       fs.mkdirsSync(path.dirname(transformFilename(pathToNewFile, answers)));
 
-      if (isFileForCopy ? isFileForCopy(file) : file.match(fileForCopyRegExp)) {
+      if (isFileForCopy ? isFileForCopy(file, fileForCopyRegExp) : file.match(fileForCopyRegExp)) {
         // pdfs may have <% encoded, which throws an error for ejs.
         // we simply want to copy file if it's a pdf, not render it with ejs.
         fs.copySync(pathToTemplate, pathToNewFile);

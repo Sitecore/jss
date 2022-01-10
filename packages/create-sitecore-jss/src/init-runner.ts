@@ -1,7 +1,5 @@
 import chalk from 'chalk';
-import { installPackages, lintFix } from './common/processes/install';
-import { nextSteps } from './common/processes/next';
-import { BaseArgs } from './common/args/base';
+import { installPackages, lintFix, nextSteps, BaseArgs } from './common';
 import { InitializerFactory } from './InitializerFactory';
 
 export const initRunner = async (initializers: string[], args: BaseArgs) => {

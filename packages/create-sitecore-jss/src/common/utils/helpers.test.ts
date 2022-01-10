@@ -13,7 +13,7 @@ import {
   getBaseTemplates,
   getAppPrefix,
 } from './helpers';
-import { JsonObjectType } from '../steps/transform';
+import { JsonObjectType } from '../processes/transform';
 import testPackage from '../test-data/test.package.json';
 import rootPackage from '../../../package.json';
 import { Initializer } from '../Initializer';

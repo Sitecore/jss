@@ -4,7 +4,16 @@ export { StyleguideArgs } from './args/styleguide';
 export { ClientAppAnswer, clientAppPrompts, DEFAULT_APPNAME } from './prompts/base';
 export { StyleguideAnswer, styleguidePrompts } from './prompts/styleguide';
 
-export { isDevEnvironment, openPackageJson, writePackageJson, isJssApp } from './utils/helpers';
+export {
+  isDevEnvironment,
+  openPackageJson,
+  writePackageJson,
+  isJssApp,
+  getBaseTemplates,
+} from './utils/helpers';
 
 export { Initializer } from './Initializer';
+
 export { transform } from './processes/transform';
+export { nextSteps } from './processes/next';
+export { installPackages, lintFix } from './processes/install';

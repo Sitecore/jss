@@ -10,7 +10,7 @@ import {
   styleguidePrompts,
   StyleguideAnswer,
   StyleguideArgs,
-  ClientAppArgs
+  ClientAppArgs,
 } from '../../common';
 
 interface NextjsStyleguideArgs extends ClientAppArgs, StyleguideArgs {}
