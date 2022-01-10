@@ -4,41 +4,6 @@ import path from 'path';
 import { InitializerFactory } from '../../InitializerFactory';
 import { JsonObjectType } from '../processes/transform';
 
-export const isJssApp = (
-  template: string,
-  pkg: {
-    config?: {
-      sitecoreConfigPath: string;
-    };
-  }
-): boolean => {
-  if (pkg?.config?.sitecoreConfigPath === undefined) {
-    console.log(
-      chalk.red(
-        `Error: Could not add ${chalk.yellow(
-          template
-        )} to the current project because it is not a JSS app.`
-      )
-    );
-    console.log(
-      chalk.magenta(
-        `${chalk.yellow('*')} Make sure the path to your JSS app is passed in with the ${chalk.cyan(
-          '--destination flag'
-        )}, or is the cwd.`
-      )
-    );
-    console.log(
-      chalk.magenta(
-        `${chalk.yellow('*')} Check that the ${chalk.cyan(
-          'sitecoreConfigPath'
-        )} property exists in the ${chalk.cyan('package.json')}`
-      )
-    );
-    return false;
-  }
-  return true;
-};
-
 /**
  * Determines whether you are in a dev environment.
  * It's `true` if you are inside the monorepo

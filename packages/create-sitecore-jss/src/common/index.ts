@@ -8,7 +8,6 @@ export {
   isDevEnvironment,
   openPackageJson,
   writePackageJson,
-  isJssApp,
   getBaseTemplates,
 } from './utils/helpers';
 

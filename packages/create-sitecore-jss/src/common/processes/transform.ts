@@ -163,7 +163,7 @@ type TransformOptions = {
    * Custom RegExp to determine which files should be copied without render
    */
   fileForCopyRegExp?: RegExp;
-}
+};
 
 /**
  * Handles each template file and applies ejs renderer, also:

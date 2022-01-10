@@ -3,7 +3,6 @@ import path from 'path';
 import { prompt } from 'inquirer';
 import {
   Initializer,
-  isJssApp,
   openPackageJson,
   transform,
   DEFAULT_APPNAME,
@@ -22,10 +21,6 @@ export default class NextjsStyleguideInitializer implements Initializer {
 
   async init(args: NextjsStyleguideArgs) {
     const pkg = openPackageJson(`${args.destination}\\package.json`);
-
-    if (!args.force && !isJssApp('nextjs-styleguide', pkg)) {
-      process.exit(1);
-    }
 
     const answers = await prompt<StyleguideAnswer>(styleguidePrompts, args);
 

@@ -29,7 +29,7 @@ export type BaseArgs = {
    * Default values will be used
    */
   yes?: boolean;
-}
+};
 
 /**
  * Set of arguments for the client-side app
