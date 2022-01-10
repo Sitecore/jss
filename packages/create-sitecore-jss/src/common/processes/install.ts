@@ -4,8 +4,9 @@ import { run } from '../utils/cmd';
 import { isDevEnvironment, openPackageJson } from '../utils/helpers';
 
 /**
- * @param {string} projectFolder
- * @param {boolean} [silent]
+ * Executes packages installation, depending on the environment
+ * @param {string} projectFolder path to the app folder
+ * @param {boolean} [silent] suppress logs
  */
 export const installPackages = (projectFolder: string, silent?: boolean) => {
   silent || console.log(chalk.cyan('Installing packages...'));
@@ -37,8 +38,9 @@ export const installPackages = (projectFolder: string, silent?: boolean) => {
 };
 
 /**
- * @param {string} projectFolder
- * @param {boolean} [silent]
+ * Fixes possible linting issues
+ * @param {string} projectFolder path to the app folder
+ * @param {boolean} [silent] suppress logs
  */
 export const lintFix = (projectFolder: string, silent?: boolean) => {
   const packagePath = path.join(projectFolder, 'package.json');

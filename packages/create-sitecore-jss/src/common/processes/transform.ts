@@ -147,14 +147,39 @@ export const diffAndWriteFiles = async ({
   }
 };
 
+interface TransformOptions {
+  /**
+   * Determines whether a file should be copied
+   * @param {string} file path to a file
+   * @param {RegExp} fileForCopyRegExp default RegExp used for determination
+   */
+  isFileForCopy?: (file: string, fileForCopyRegExp: RegExp) => boolean;
+  /**
+   * Determines whether a file should be skiped (not copied/rendered).
+   * @param {string} file path to a file
+   */
+  isFileForSkip?: (file: string) => boolean;
+  /**
+   * Custom RegExp to determine which files should be copied without render
+   */
+  fileForCopyRegExp?: RegExp;
+}
+
+/**
+ * Handles each template file and applies ejs renderer, also:
+ * * determines files for copy
+ * * determines files for skip
+ * * if some files already exist:
+ *   * merges package.json's
+ *   * compares diffs
+ * @param {string} templatePath path to the template
+ * @param {BaseArgs} answers CLI arguments
+ * @param {TransformOptions} options custom options
+ */
 export const transform = async (
   templatePath: string,
   answers: BaseArgs,
-  options: {
-    isFileForCopy?: (file: string, fileForCopyRegExp: RegExp) => boolean;
-    isFileForSkip?: (file: string) => boolean;
-    fileForCopyRegExp?: RegExp;
-  } = {}
+  options: TransformOptions = {}
 ) => {
   const { isFileForCopy, isFileForSkip, fileForCopyRegExp = FILE_FOR_COPY_REGEXP } = options;
 
@@ -174,7 +199,6 @@ export const transform = async (
   };
 
   // the templates to be run through ejs render or copied directly
-  // depending on the options.filter
   const files = glob.sync('**/*', { cwd: templatePath, dot: true, nodir: true });
 
   for (const file of files) {

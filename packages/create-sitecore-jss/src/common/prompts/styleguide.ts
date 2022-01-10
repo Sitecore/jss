@@ -1,13 +1,22 @@
 import { Answers, DistinctQuestion } from 'inquirer';
 import chalk from 'chalk';
 
+/**
+ * The subset of CLI answers for the styleguide app
+ */
 export interface StyleguideAnswer extends Answers {
+  /**
+   * Second language to be supported by the app
+   */
   language?: string;
 }
 
 const LANGUAGE_REGEXP = /^(([a-z]{2}-[A-Z]{2})|([a-z]{2}))$/;
 const DEFAULT_LANGUAGE = 'da-DK';
 
+/**
+ * The subset of CLI prompts for the styleguide app
+ */
 export const styleguidePrompts: DistinctQuestion<StyleguideAnswer>[] = [
   {
     type: 'input',

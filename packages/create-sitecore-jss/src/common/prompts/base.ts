@@ -6,15 +6,34 @@ export enum FetchWith {
   REST = 'REST',
 }
 
+/**
+ * Set of CLI answers for the client-side app
+ */
 export interface ClientAppAnswer extends Answers {
+  /**
+   * Application name
+   */
   appName: string;
+  /**
+   * Determines which request method should be used.
+   * Default is @type {DEFAULT_FETCHWITH}
+   */
   fetchWith: FetchWith;
+  /**
+   * Application host name
+   */
   hostName: string;
 }
 
+/**
+ * Default app name for the new app
+ */
 export const DEFAULT_APPNAME = 'sitecore-jss-app';
 export const DEFAULT_FETCHWITH = FetchWith.GraphQL;
 
+/**
+ * Set of CLI prompts for the client-side app
+ */
 export const clientAppPrompts: DistinctQuestion<ClientAppAnswer>[] = [
   {
     type: 'input',
