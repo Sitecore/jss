@@ -160,7 +160,7 @@ type TransformOptions = {
    */
   isFileForSkip?: (file: string) => boolean;
   /**
-   * Custom RegExp to determine which files should be copied without render
+   * Custom RegExp to determine which files should be copied only (not rendered through ejs)
    */
   fileForCopyRegExp?: RegExp;
 };
