@@ -6,7 +6,7 @@ import {
   Item,
   RouteData,
 } from '@sitecore-jss/sitecore-jss';
-import { Component, h, VNode, DefineComponent, ref, watchEffect } from 'vue';
+import { Component, h, VNode, DefineComponent, ref, onMounted } from 'vue';
 import { MissingComponent } from './MissingComponent';
 import { ComponentFactory } from './sharedTypes';
 
@@ -187,27 +187,29 @@ function createRawElement(elem: any) {
     setup() {
       const elRef = ref(null);
 
-      /*
-       * Since we can't set the "key" via Vue attributes
-       * so we can set in the DOM after render.
-       */
-      if (
-        !Array.isArray(elem.attributes) &&
-        elem.attributes &&
-        elem.attributes.chrometype === 'placeholder' &&
-        elem.attributes.key
-      ) {
-        watchEffect(
-          () => {
-            elRef.value.setAttribute('key', elem.attributes.key);
-          },
-          { flush: 'post' }
-        );
-      }
+      onMounted(() => {
+        /*
+         * Since we can't set the "key" via Vue attributes
+         * so we can set in the DOM after render.
+         * onMounted is called when the initial page load is happening
+         * onMounted is not called when we add new rendering on the page,
+         * so we will replace phkey by key
+         */
+        if (
+          !Array.isArray(elem.attributes) &&
+          elem.attributes &&
+          elem.attributes.chrometype === 'placeholder' &&
+          elem.attributes.key
+        ) {
+          elRef.value.setAttribute('key', elem.attributes.key);
+        }
+      });
+
       return () =>
         h(elem.name, {
           ...elem.attributes,
           innerHTML: elem.contents,
+          phkey: elem.attributes?.key,
           ref: elRef,
         });
     },
