@@ -14,12 +14,12 @@ import {
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
 
-const COPY_ONLY_REGEX = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar)$/;
+const FILE_FOR_COPY_REGEXP = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar)$/;
 
 export type JsonPropertyType = number | string | (number | string)[] | JsonObjectType;
-export interface JsonObjectType {
+export type JsonObjectType = {
   [key: string]: JsonPropertyType;
-}
+};
 
 export const transformFilename = (file: string, args: BaseArgs): string => {
   // eslint-disable-next-line guard-for-in
@@ -147,11 +147,44 @@ export const diffAndWriteFiles = async ({
   }
 };
 
+type TransformOptions = {
+  /**
+   * Determines whether a file should be copied only (not rendered through ejs)
+   * Can be used if you need additional logic instead of just using `fileForCopyRegExp`
+   * @param {string} file path to a file
+   * @param {RegExp} fileForCopyRegExp default RegExp used for determination
+   */
+  isFileForCopy?: (file: string, fileForCopyRegExp: RegExp) => boolean;
+  /**
+   * Determines whether a file should be skiped (not copied/rendered).
+   * @param {string} file path to a file
+   */
+  isFileForSkip?: (file: string) => boolean;
+  /**
+   * Custom RegExp to determine which files should be copied only (not rendered through ejs)
+   * @default FILE_FOR_COPY_REGEXP
+   */
+  fileForCopyRegExp?: RegExp;
+};
+
+/**
+ * Handles each template file and applies ejs renderer, also:
+ * * determines files for copy
+ * * determines files for skip
+ * * if some files already exist:
+ *   * merges package.json's
+ *   * compares diffs
+ * @param {string} templatePath path to the template
+ * @param {BaseArgs} answers CLI arguments
+ * @param {TransformOptions} options custom options
+ */
 export const transform = async (
   templatePath: string,
   answers: BaseArgs,
-  options: { filter?: (filePath: string) => boolean } = {}
+  options: TransformOptions = {}
 ) => {
+  const { isFileForCopy, isFileForSkip, fileForCopyRegExp = FILE_FOR_COPY_REGEXP } = options;
+
   const destinationPath = path.resolve(answers.destination);
 
   if (!answers.appPrefix) {
@@ -168,7 +201,6 @@ export const transform = async (
   };
 
   // the templates to be run through ejs render or copied directly
-  // depending on the options.filter
   const files = glob.sync('**/*', { cwd: templatePath, dot: true, nodir: true });
 
   for (const file of files) {
@@ -176,16 +208,17 @@ export const transform = async (
       const pathToNewFile = `${destinationPath}\\${file}`;
       const pathToTemplate = path.join(templatePath, file);
 
-      if (options.filter && !options.filter(pathToTemplate)) {
+      if (isFileForSkip && isFileForSkip(file)) {
         continue;
       }
+
       // holds the content to be written to the new file
       let str: string | undefined;
 
       // if the directory doesn't exist, create it
       fs.mkdirsSync(path.dirname(transformFilename(pathToNewFile, answers)));
 
-      if (file.match(COPY_ONLY_REGEX)) {
+      if (isFileForCopy ? isFileForCopy(file, fileForCopyRegExp) : file.match(fileForCopyRegExp)) {
         // pdfs may have <% encoded, which throws an error for ejs.
         // we simply want to copy file if it's a pdf, not render it with ejs.
         fs.copySync(pathToTemplate, pathToNewFile);

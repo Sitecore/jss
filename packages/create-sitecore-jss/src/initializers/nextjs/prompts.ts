@@ -1,15 +1,15 @@
 import { QuestionCollection } from 'inquirer';
 
-import { clientAppPrompts, ClientAppAnswer } from '../../common/prompts/base';
+import { clientAppPrompts, ClientAppAnswer } from '../../common';
 
 export enum Prerender {
   SSG = 'SSG',
   SSR = 'SSR',
 }
 
-export interface NextjsAnswer extends ClientAppAnswer {
+export type NextjsAnswer = ClientAppAnswer & {
   prerender: Prerender;
-}
+};
 
 const DEFAULT_PRERENDER = Prerender.SSG;
 

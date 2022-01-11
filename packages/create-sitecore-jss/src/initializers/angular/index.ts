@@ -3,8 +3,7 @@ import chalk from 'chalk';
 import { prompt } from 'inquirer';
 import { AngularArgs } from './args';
 import { AngularAnswer, prompts } from './prompts';
-import { Initializer } from '../../common/Initializer';
-import { transform } from '../../common/steps/transform';
+import { Initializer, transform } from '../../common';
 
 export default class AngularInitializer implements Initializer {
   get isBase() {

@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import { prompt } from 'inquirer';
 import { initRunner } from './init-runner';
 import parseArgs, { ParsedArgs } from 'minimist';
-import { getBaseTemplates } from './common/utils/helpers';
+import { getBaseTemplates } from './common';
 
 // parse any command line arguments passed into `init sitecore-jss`
 // to pass to the generator prompts and skip them.

@@ -9,11 +9,10 @@ import {
   openPackageJson,
   writePackageJson,
   sortKeys,
-  isJssApp,
   getBaseTemplates,
   getAppPrefix,
 } from './helpers';
-import { JsonObjectType } from '../steps/transform';
+import { JsonObjectType } from '../processes/transform';
 import testPackage from '../test-data/test.package.json';
 import rootPackage from '../../../package.json';
 import { Initializer } from '../Initializer';
@@ -179,62 +178,6 @@ describe('helpers', () => {
       }
 
       expect(JSON.stringify(result)).to.equal(JSON.stringify(expected));
-    });
-  });
-
-  describe('isJssApp', () => {
-    let log: SinonStub;
-    let exit: SinonStub;
-
-    afterEach(() => {
-      log?.restore();
-      exit?.restore();
-    });
-
-    it('should return true when sitecoreConfigPath is provided', () => {
-      log = sinon.stub(console, 'log');
-      const result = isJssApp('nextjs', {
-        config: {
-          sitecoreConfigPath: 'test',
-        },
-      });
-
-      expect(log.getCalls().length).to.equal(0);
-
-      expect(result).to.equal(true);
-    });
-
-    it('should return false when sitecoreConfigPath is not provided', () => {
-      log = sinon.stub(console, 'log');
-      const result = isJssApp('nextjs', {});
-
-      expect(log.getCalls().length).to.equal(3);
-
-      expect(log.getCall(0).args[0]).to.equal(
-        chalk.red(
-          `Error: Could not add ${chalk.yellow(
-            'nextjs'
-          )} to the current project because it is not a JSS app.`
-        )
-      );
-      expect(log.getCall(1).args[0]).to.equal(
-        chalk.magenta(
-          `${chalk.yellow(
-            '*'
-          )} Make sure the path to your JSS app is passed in with the ${chalk.cyan(
-            '--destination flag'
-          )}, or is the cwd.`
-        )
-      );
-      expect(log.getCall(2).args[0]).to.equal(
-        chalk.magenta(
-          `${chalk.yellow('*')} Check that the ${chalk.cyan(
-            'sitecoreConfigPath'
-          )} property exists in the ${chalk.cyan('package.json')}`
-        )
-      );
-
-      expect(result).to.equal(false);
     });
   });
 

@@ -2,9 +2,10 @@ import spawn from 'cross-spawn';
 import { SpawnSyncOptionsWithStringEncoding } from 'child_process';
 
 /**
- * @param command
- * @param args
- * @param options
+ * @param {string} command
+ * @param {string[]} args
+ * @param {SpawnSyncOptionsWithStringEncoding} options
+ * @param {boolean} silent
  */
 export const run = (
   command: string,

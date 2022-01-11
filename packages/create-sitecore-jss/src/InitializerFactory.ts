@@ -1,5 +1,5 @@
 import path from 'path';
-import { Initializer } from './common/Initializer';
+import { Initializer } from './common';
 
 export class InitializerFactory {
   async create(name: string): Promise<Initializer | undefined> {
