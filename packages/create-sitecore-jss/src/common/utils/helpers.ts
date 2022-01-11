@@ -27,7 +27,7 @@ export const getPascalCaseName = (name: string): string => {
 
 /**
  * Provides `package.json` data
- * @param {string} [pkgPath] path to `package.json`
+ * @param {string} [pkgPath] path to `package.json`. Default is './package.json'.
  * @returns `package.json` data
  */
 export const openPackageJson = (pkgPath?: string) => {
@@ -44,7 +44,7 @@ export const openPackageJson = (pkgPath?: string) => {
 /**
  * Creates `package.json` file and inserts provided data
  * @param {Object} data data to be written into package.json
- * @param {string} [pkgPath] a path to a file
+ * @param {string} [pkgPath] a path to a file. Default is './package.json'.
  */
 export const writePackageJson = (data: { [key: string]: unknown }, pkgPath?: string) => {
   const filePath = path.resolve(pkgPath ?? './package.json');

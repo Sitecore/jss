@@ -149,7 +149,7 @@ export const diffAndWriteFiles = async ({
 
 type TransformOptions = {
   /**
-   * Determines whether a file should be copied
+   * Determines whether a file should be copied only (not rendered through ejs)
    * @param {string} file path to a file
    * @param {RegExp} fileForCopyRegExp default RegExp used for determination
    */

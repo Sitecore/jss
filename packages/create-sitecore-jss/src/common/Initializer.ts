@@ -9,7 +9,7 @@ export type InitializerResults = {
 /**
  * Initializer base type
  */
-export type Initializer = {
+export interface Initializer {
   /**
    * The initializer is base if the app can't be started without an appropriate template
    */
@@ -19,4 +19,4 @@ export type Initializer = {
    * @param {BaseArgs} args CLI arguments
    */
   init: (args: BaseArgs) => Promise<InitializerResults>;
-};
+}
