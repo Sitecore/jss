@@ -150,6 +150,7 @@ export const diffAndWriteFiles = async ({
 type TransformOptions = {
   /**
    * Determines whether a file should be copied only (not rendered through ejs)
+   * Can be used if you need additional logic instead of just using `fileForCopyRegExp`
    * @param {string} file path to a file
    * @param {RegExp} fileForCopyRegExp default RegExp used for determination
    */
@@ -161,6 +162,7 @@ type TransformOptions = {
   isFileForSkip?: (file: string) => boolean;
   /**
    * Custom RegExp to determine which files should be copied only (not rendered through ejs)
+   * @default FILE_FOR_COPY_REGEXP
    */
   fileForCopyRegExp?: RegExp;
 };
