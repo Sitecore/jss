@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular",
-  "version": "19.0.1",
+  "version": "19.0.2",
   "description": "",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
@@ -52,7 +52,7 @@
     "rxjs": "~6.6.6"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^19.0.1"
+    "@sitecore-jss/sitecore-jss": "^19.0.2"
   },
   "main": "dist/bundles/sitecore-jss-sitecore-jss-angular.umd.js",
   "module": "dist/fesm2015/sitecore-jss-sitecore-jss-angular.js",
