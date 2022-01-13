@@ -33,15 +33,15 @@ export class JssRouteBuilderService {
     let languageSegment = url[0].toString();
 
     if (languageSegment.match(languageRegex)) {
-      if (languageSegment.includes("-")) {
-        languageSegment = languageSegment.replace(
-          languageRegex,
-          function (_v, p1, p2) {
-            // DA-dk -> da-DK
-            return p1.toLowerCase() + p2.toUpperCase();
-          }
-        );
-      }
+      languageSegment = languageSegment.replace(languageRegex, function(_v, p1, p2) {
+        if (languageSegment.includes('-')) {
+          // DA-dk -> da-DK
+          return p1.toLowerCase() + p2.toUpperCase();
+        }
+
+        // EN -> en
+        return p1.toLowerCase();
+      });
 
       route.language = languageSegment;
       route.serverRoute = url.length > 1 ? url.slice(1).join('/') : env.defaultServerRoute;
