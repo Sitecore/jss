@@ -29,12 +29,12 @@ export class JssRouteBuilderService {
       return route;
     }
 
-    const languageRegex = /^([a-zA-Z]{2})(-([a-zA-Z]{2}))?$/; // e.g. 'en' or 'en-GB'
+    const languageRegex = /^([a-zA-Z]{2})(-[a-zA-Z]{2})?$/; // e.g. 'en' or 'en-GB'
     let languageSegment = url[0].toString();
 
     if (languageSegment.match(languageRegex)) {
       languageSegment = languageSegment.replace(languageRegex, function(_v, p1, p2) {
-        if (languageSegment.includes('-')) {
+        if (p2) {
           // DA-dk -> da-DK
           return p1.toLowerCase() + p2.toUpperCase();
         }
