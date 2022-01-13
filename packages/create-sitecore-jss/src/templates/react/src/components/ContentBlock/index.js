@@ -8,7 +8,7 @@ import { Text, RichText } from '@sitecore-jss/sitecore-jss-react';
  */
 const ContentBlock = ({ fields }) => (
   <div className="contentBlock">
-    <Text tag="h2" className="display-4" field={fields.heading} />
+    <Text tag="h2" className="contentTitle" field={fields.heading} />
 
     <RichText className="contentDescription" field={fields.content} />
   </div>
