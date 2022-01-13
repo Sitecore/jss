@@ -29,10 +29,20 @@ export class JssRouteBuilderService {
       return route;
     }
 
-    const languageRegex = /^[a-zA-Z]{2}(-[a-zA-Z]{2})?$/; // e.g. 'en' or 'en-GB'
-    const languageSegment = url[0].toString();
+    const languageRegex = /^([a-zA-Z]{2})(-([a-zA-Z]{2}))?$/; // e.g. 'en' or 'en-GB'
+    let languageSegment = url[0].toString();
 
     if (languageSegment.match(languageRegex)) {
+      if (languageSegment.includes("-")) {
+        languageSegment = languageSegment.replace(
+          languageRegex,
+          function (_v, p1, p2) {
+            // DA-dk -> da-DK
+            return p1.toLowerCase() + p2.toUpperCase();
+          }
+        );
+      }
+
       route.language = languageSegment;
       route.serverRoute = url.length > 1 ? url.slice(1).join('/') : env.defaultServerRoute;
     } else {
