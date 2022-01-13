@@ -7,4 +7,5 @@ export {
   resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  handleEditorAnchors,
 } from './editing';

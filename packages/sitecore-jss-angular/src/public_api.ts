@@ -19,7 +19,6 @@ export { RichTextDirective } from './components/rich-text.directive';
 export { TextDirective } from './components/text.directive';
 export { JssModule } from './lib.module';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
-export { handleEditorAnchors } from './utils';
 export {
   DictionaryService,
   GraphQLDictionaryService,
@@ -48,4 +47,5 @@ export {
   resetExperienceEditorChromes,
   isEditorActive,
   resetEditorChromes,
+  handleEditorAnchors,
 } from '@sitecore-jss/sitecore-jss/utils';

@@ -1,3 +1,4 @@
+import { handleEditorAnchors } from '@sitecore-jss/sitecore-jss-vue';
 import i18ninit from './i18n';
 import { createApp } from './createApp';
 import config from './temp/config';
@@ -36,4 +37,6 @@ i18ninit(initLanguage).then((i18n) => {
 
   const { app } = createApp(initialState, i18n);
   app.mount(rootElement);
+
+  handleEditorAnchors();
 });
