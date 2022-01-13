@@ -11,3 +11,12 @@ a[target='_blank']:after {
 .scpm {
   display: none !important;
 }
+
+/* 
+  Style for default content block
+*/
+.contentTitle {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
