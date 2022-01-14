@@ -1,17 +1,17 @@
 import React from 'react';
-import { graphql } from 'react-apollo';
+import { graphql } from '@apollo/client/react/hoc';
 import { withSitecoreContext, resetEditorChromes } from '@sitecore-jss/sitecore-jss-react';
 
 /**
  * Higher order component that abstracts common JSS + Apollo integration needs.
  *
- * This component works similar to react-apollo's graphql() HOC, but:
+ * This component works similar to @apollo/client's graphql() HOC, but:
  * * Automatically injects $contextItem and $datasource GraphQL variable values, if the GraphQL declares usage of them
  * * Automatically disables execution of subscription queries when doing SSR
  * * Passes through any other props to its wrapped component
  *
  * @param {*} query The GraphQL AST to execute (should go through graphql-tag, no strings)
- * @param {*} configuration Values passed in are shipped to react-apollo configuration (https://www.apollographql.com/docs/react/basics/setup.html#graphql-config)
+ * @param {*} configuration Values passed in are shipped to @apollo/client configuration (https://www.apollographql.com/docs/react/basics/setup.html#graphql-config)
  */
 function GraphQLData(query, configuration = {}) {
   return function wrapComponent(Component) {
@@ -90,7 +90,7 @@ function GraphQLData(query, configuration = {}) {
 
           return resultProps;
         };
-
+        console.log(variableNames, this.props.sitecoreContext, newConfiguration);
         const GQL = graphql(query, newConfiguration)(Component);
         return <GQL {...this.props} />;
       }

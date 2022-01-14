@@ -33,7 +33,6 @@
   "dependencies": {
     "@apollo/client": "^3.5.6",
     "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary",
-    "apollo-client": "^2.6.10",
     "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "cross-fetch": "^3.0.6",
@@ -43,7 +42,6 @@
     "i18next": "^19.9.2",
     "js-sha256": "^0.9.0",
     "react": "^17.0.2",
-    "react-apollo": "~3.1.1",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^17.0.2",
     "react-helmet": "~5.2.1",
