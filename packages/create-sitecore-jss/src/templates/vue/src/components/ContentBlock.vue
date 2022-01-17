@@ -1,6 +1,6 @@
 <template>
   <div class="contentBlock">
-    <sc-text tag="h2" class="display-4" :field="fields.heading" />
+    <sc-text tag="h2" class="contentTitle" :field="fields.heading" />
     <sc-rich-text class="contentDescription" :field="fields.content" />
   </div>
 </template>

@@ -3,6 +3,7 @@ export {
   resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  handleEditorAnchors,
 } from '@sitecore-jss/sitecore-jss/utils';
 export { constants } from '@sitecore-jss/sitecore-jss';
 export {

@@ -2,9 +2,7 @@ import chalk from 'chalk';
 import path from 'path';
 import { prompt } from 'inquirer';
 import { prompts, NextjsAnswer } from './prompts';
-import { Initializer } from '../../common/Initializer';
-import { transform } from '../../common/steps';
-import { isDevEnvironment } from '../../common/utils/helpers';
+import { Initializer, transform, isDevEnvironment } from '../../common';
 import { removeDevDependencies } from './remove-dev-dependencies';
 import { NextjsArgs } from './args';
 

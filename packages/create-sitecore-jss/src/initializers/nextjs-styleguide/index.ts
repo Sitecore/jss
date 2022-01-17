@@ -1,15 +1,18 @@
 import chalk from 'chalk';
 import path from 'path';
 import { prompt } from 'inquirer';
-import { Initializer } from '../../common/Initializer';
-import { isJssApp, openPackageJson } from '../../common/utils/helpers';
-import { transform } from '../../common/steps/index';
-import { DEFAULT_APPNAME } from '../../common/prompts/base';
-import { styleguidePrompts, StyleguideAnswer } from '../../common/prompts/styleguide';
-import { StyleguideArgs } from '../../common/args/styleguide';
-import { ClientAppArgs } from '../../common/args/base';
+import {
+  Initializer,
+  openPackageJson,
+  transform,
+  DEFAULT_APPNAME,
+  styleguidePrompts,
+  StyleguideAnswer,
+  StyleguideArgs,
+  ClientAppArgs,
+} from '../../common';
 
-interface NextjsStyleguideArgs extends ClientAppArgs, StyleguideArgs {}
+type NextjsStyleguideArgs = ClientAppArgs & StyleguideArgs;
 
 export default class NextjsStyleguideInitializer implements Initializer {
   get isBase(): boolean {
@@ -18,10 +21,6 @@ export default class NextjsStyleguideInitializer implements Initializer {
 
   async init(args: NextjsStyleguideArgs) {
     const pkg = openPackageJson(`${args.destination}\\package.json`);
-
-    if (!args.force && !isJssApp('nextjs-styleguide', pkg)) {
-      process.exit(1);
-    }
 
     const answers = await prompt<StyleguideAnswer>(styleguidePrompts, args);
 
