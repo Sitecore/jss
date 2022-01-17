@@ -34,8 +34,7 @@ const nextConfig = {
     domains: ['cm.jss.localhost'],
     loader: 'custom',
     path: 'https://cm.jss.localhost',
-    deviceSizes: [960],
-    imageSizes: [100, 300],
+    deviceSizes: [100, 300],
   },
 
   async rewrites() {

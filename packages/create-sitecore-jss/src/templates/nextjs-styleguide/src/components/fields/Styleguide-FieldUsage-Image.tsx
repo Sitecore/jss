@@ -1,4 +1,4 @@
-import { Image, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { NextImage, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
@@ -6,7 +6,7 @@ import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 type StyleguideFieldUsageImageProps = ComponentProps &
   StyleguideSpecimenFields & {
     fields: {
-      sample1: ImageField;
+      sample1: ImageField;P
       sample2: ImageField;
     };
   };
@@ -18,7 +18,8 @@ type StyleguideFieldUsageImageProps = ComponentProps &
 const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-image">
     <p>Plain image</p>
-    <Image field={props.fields.sample1} />
+    <NextImage field={props.fields.sample1} height="51" 
+      width="204" />
 
     {/*
       Advanced image usage example
@@ -29,14 +30,13 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       any other attributes: pass through to img tag
     */}
     <p>Advanced image (not editable)</p>
-    <Image
+    <NextImage
       field={props.fields.sample2}
       editable={false}
       imageParams={{ mw: 100, mh: 50 }}
       height="50"
       width="94"
       data-sample="other-attributes-pass-through"
-      layout="fixed"
     />
 
     {/*
@@ -48,11 +48,11 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       placeholder='blur' blurs the image while loading with a transparent pixel provided in blurDataUrl. You can also provide a color pixel for this functionality. See here: https://nextjs.org/docs/api-reference/next/image#placeholder
     */}
     <p>Srcset responsive image</p>
-    <Image
+      <NextImage
       field={props.fields.sample2}
-      sizes="(min-width: 960px) 300px, 100px"
+      height="105"
+      width="200"
       layout="responsive"
-      className="img-fluid"
       placeholder="blur"
       // transparent pixel for blur placeholder
       blurDataURL={

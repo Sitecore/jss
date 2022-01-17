@@ -2,13 +2,7 @@ import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { getEEMarkup } from '@sitecore-jss/sitecore-jss-react';
-import {
-  default as NextImage,
-  ImageLoader,
-  ImageLoaderProps,
-  ImageProps as NextImageProps,
-} from 'next/image';
-// import { getPublicUrl } from '../utils';
+import Image, { ImageLoader, ImageLoaderProps, ImageProps as NextImageProps } from 'next/image';
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
   src?: string;
@@ -38,7 +32,7 @@ export interface ImageSizeParameters {
   sc?: number;
 }
 
-export interface ImageProps extends NextImageProps {
+export interface ImageProps extends Partial<NextImageProps> {
   [attributeName: string]: unknown;
   /** Image field data (consistent with other field types) */
   field?: ImageField | ImageFieldValue;
@@ -68,10 +62,7 @@ export interface ImageProps extends NextImageProps {
   /** HTML attributes that will be appended to the rendered <img /> tag. */
 }
 
-// TODO: Finalize loader for XM - export it? we need imageParams but also would
-// like the decouple this function.
-// TODO: unit tests fo xmLoader and this component :)
-export const xmLoader: ImageLoader = ({ src, width }: ImageLoaderProps): string => {
+export const loader: ImageLoader = ({ src, width }: ImageLoaderProps): string => {
   const url = new URL(`https://cm.jss.localhost${src}`);
   const params = url.searchParams;
   params.set('mw', params.get('mw') || width.toString());
@@ -84,7 +75,7 @@ export const xmLoader: ImageLoader = ({ src, width }: ImageLoaderProps): string 
   return url.href;
 };
 
-export const Image: React.SFC<ImageProps> = ({
+export const NextImage: React.SFC<ImageProps> = ({
   editable,
   imageParams,
   field,
@@ -101,7 +92,6 @@ export const Image: React.SFC<ImageProps> = ({
   // next handles src and we use a custom loader,
   // throw error if these are present
   if (otherProps.src || otherProps.loader) {
-    // TODO: Refine error message
     throw new Error(
       'Detected conflicting props src or loader. If you wish to use these props, use next/image directly.'
     );
@@ -118,15 +108,14 @@ export const Image: React.SFC<ImageProps> = ({
 
   const imageField = dynamicMedia as ImageField;
 
-  // TODO: break this out into function getEEMarkup or something
   // we likely have an experience editor value, should be a string
   if (editable && imageField.editable) {
     return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
   }
 
   // some wise-guy/gal is passing in a 'raw' image object value
-  const img = (dynamicMedia as ImageFieldValue).src
-    ? field
+  const img: ImageFieldValue = (dynamicMedia as ImageFieldValue).src
+    ? (field as ImageFieldValue)
     : (dynamicMedia.value as ImageFieldValue);
   if (!img) {
     return null;
@@ -136,21 +125,22 @@ export const Image: React.SFC<ImageProps> = ({
     otherProps.blurDataURL =
       'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
   }
-  const attrs = { ...img, ...otherProps };
-  attrs.src = mediaApi.updateImageUrl(attrs.src, imageParams, mediaUrlPrefix);
+
+  const attrs: NextImageProps = {
+    ...img,
+    ...otherProps,
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    src: mediaApi.updateImageUrl(img.src!, imageParams, mediaUrlPrefix),
+  };
 
   if (attrs) {
-    // TODO?: Create a loader for edge - we probably don't need to do this as
-    // edge is modeled on XM.
-    // TODO: export - do we need to do anything special for it? (we don't think so)
-
-    return <NextImage loader={xmLoader} {...attrs} />;
+    return <Image loader={loader} {...attrs} />;
   }
 
   return null; // we can't handle the truth
 };
 
-Image.propTypes = {
+NextImage.propTypes = {
   field: PropTypes.oneOfType([
     PropTypes.shape({
       src: PropTypes.string.isRequired,
@@ -167,8 +157,8 @@ Image.propTypes = {
   ),
 };
 
-Image.defaultProps = {
+NextImage.defaultProps = {
   editable: true,
 };
 
-Image.displayName = 'Image';
+NextImage.displayName = 'Image';

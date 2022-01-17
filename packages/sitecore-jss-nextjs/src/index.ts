@@ -91,7 +91,7 @@ export {
 export { Link } from './components/Link';
 export { RichText } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
-export { Image } from './components/Image';
+export { NextImage } from './components/NextImage';
 
 export {
   ComponentFactory,
