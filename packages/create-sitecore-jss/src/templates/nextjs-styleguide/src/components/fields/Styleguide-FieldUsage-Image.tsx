@@ -6,7 +6,7 @@ import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 type StyleguideFieldUsageImageProps = ComponentProps &
   StyleguideSpecimenFields & {
     fields: {
-      sample1: ImageField;P
+      sample1: ImageField;
       sample2: ImageField;
     };
   };
@@ -18,7 +18,7 @@ type StyleguideFieldUsageImageProps = ComponentProps &
 const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-image">
     <p>Plain image</p>
-    <NextImage field={props.fields.sample1} height="51" 
+    <NextImage field={props.fields.sample1} height="51"
       width="204" />
 
     {/*
