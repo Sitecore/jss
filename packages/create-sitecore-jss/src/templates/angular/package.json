@@ -61,7 +61,6 @@
     "@angular/platform-server": "~11.2.6",
     "@angular/router": "~11.2.6",
     "@apollo/client": "^3.3.12",
-    "@ngx-meta/core": "~9.0.0",
     "@ngx-translate/core": "~13.0.0",
     "@ngx-translate/http-loader": "~6.0.0",
     "@sitecore-jss/sitecore-jss": "^20.0.0-canary",
