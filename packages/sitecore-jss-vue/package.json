@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-vue",
-  "version": "20.0.0-canary.110",
+  "version": "20.0.0-canary.111",
   "description": "A library for building Sitecore JSS apps using Vue.js",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -49,7 +49,7 @@
     "vue": "^v3.1.0-beta.6"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.110",
+    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.111",
     "@vue/compiler-sfc": "^3.0.11"
   },
   "types": "./types/index.d.ts",
