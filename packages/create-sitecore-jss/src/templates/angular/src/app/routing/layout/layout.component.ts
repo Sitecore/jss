@@ -1,10 +1,10 @@
 /* eslint-disable no-shadow, no-console */
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { JssState } from '../../JssState';
-import { ActivatedRoute } from '@angular/router';
-import { MetaService } from '@ngx-meta/core';
 import { RouteData, Field, LayoutServiceContextData } from '@sitecore-jss/sitecore-jss-angular';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { JssState } from '../../JssState';
+import { JssMetaService } from '../../jss-meta.service';
 
 enum LayoutState {
   Layout,
@@ -25,7 +25,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private readonly meta: MetaService,
+    private readonly meta: JssMetaService,
   ) { }
 
   ngOnInit() {
