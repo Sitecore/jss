@@ -76,6 +76,7 @@
     "@vue/eslint-config-prettier": "~5.0.0",
     "babel-eslint": "~10.0.3",
     "chokidar": "~3.1.1",
+    "constant-case": "^3.0.4",
     "cross-env": "~6.0.0",
     "eslint": "^7.4.0",
     "eslint-plugin-prettier": "^3.1.3",
