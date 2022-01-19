@@ -90,7 +90,7 @@ function GraphQLData(query, configuration = {}) {
 
           return resultProps;
         };
-        console.log(variableNames, this.props.sitecoreContext, newConfiguration);
+
         const GQL = graphql(query, newConfiguration)(Component);
         return <GQL {...this.props} />;
       }
