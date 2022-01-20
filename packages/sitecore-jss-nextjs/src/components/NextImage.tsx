@@ -1,36 +1,8 @@
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { getEEMarkup } from '@sitecore-jss/sitecore-jss-react';
+import { getEEMarkup, ImageField, ImageFieldValue } from '@sitecore-jss/sitecore-jss-react';
 import Image, { ImageLoader, ImageLoaderProps, ImageProps as NextImageProps } from 'next/image';
-export interface ImageFieldValue {
-  [attributeName: string]: unknown;
-  src?: string;
-  /** HTML attributes that will be appended to the rendered <img /> tag. */
-}
-
-export interface ImageField {
-  value?: ImageFieldValue;
-  editable?: string;
-}
-
-export interface ImageSizeParameters {
-  [attr: string]: string | number | undefined;
-  /** Fixed width of the image */
-  w?: number;
-  /** Fixed height of the image */
-  h?: number;
-  /** Max width of the image */
-  mw?: number;
-  /** Max height of the image */
-  mh?: number;
-  /** Ignore aspect ratio */
-  iar?: 1 | 0;
-  /** Allow stretch */
-  as?: 1 | 0;
-  /** Image scale. Defaults to 1.0 */
-  sc?: number;
-}
 
 export interface ImageProps extends Partial<NextImageProps> {
   [attributeName: string]: unknown;
