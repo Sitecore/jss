@@ -11,6 +11,7 @@ type StyleguideFieldUsageImageProps = ComponentProps &
     };
   };
 
+  const BLUR_DATA_URL = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
 /**
  * Demonstrates usage of an Image content field within JSS.
  * Image field data is uploaded into the Sitecore Media Library.
@@ -25,8 +26,8 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       Advanced image usage example
       editable: controls whether image can be edited in Sitecore Experience Editor
       imageParams: parameters that are passed to Sitecore to perform server-side resizing of the image.
-        Sample rescales image to max 100x50 dimensions on the server, respecting aspect ratio
-        IMPORTANT: imageParams must be whitelisted for resizing to occur. See /sitecore/config/*.config (search for 'allowedMediaParams')
+      Sample rescales image to max 100x50 dimensions on the server, respecting aspect ratio
+      IMPORTANT: imageParams must be whitelisted for resizing to occur. See /sitecore/config/*.config (search for 'allowedMediaParams')
       any other attributes: pass through to img tag
     */}
     <p>Advanced image (not editable)</p>
@@ -40,12 +41,15 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     />
 
     {/*
-      srcSet in Nextjs Image is set inside of the next.config by setting an array of deviceSizes inside the images option. See here: https://nextjs.org/docs/api-reference/next/image#device-sizes
+      srcSet in Nextjs Image is set inside of the next.config by setting an array of deviceSizes inside the images option. 
+      See here: https://nextjs.org/docs/api-reference/next/image#device-sizes
       These sizes should match your Sitecore server-side allowlist.
       See /sitecore/config/*.config (search for 'allowedMediaParams')
-       image sizes are set similarly: https://nextjs.org/docs/api-reference/next/image#image-sizes
+      image sizes are set similarly: https://nextjs.org/docs/api-reference/next/image#image-sizes
 
-      placeholder='blur' blurs the image while loading with a transparent pixel provided in blurDataUrl. You can also provide a color pixel for this functionality. See here: https://nextjs.org/docs/api-reference/next/image#placeholder
+      placeholder='blur' blurs the image while loading with a transparent pixel provided in blurDataUrl.
+      You can also provide a color pixel for this functionality.
+      See here: https://nextjs.org/docs/api-reference/next/image#placeholder
     */}
     <p>Srcset responsive image</p>
       <NextImage
@@ -55,9 +59,7 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       layout="responsive"
       placeholder="blur"
       // transparent pixel for blur placeholder
-      blurDataURL={
-        'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
-      }
+      blurDataURL={BLUR_DATA_URL}
     />
   </StyleguideSpecimen>
 );

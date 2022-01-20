@@ -115,8 +115,8 @@ const getImageAttrs = (
 };
 
 /**
- * @param imageField {ImageField} dynamicMedia typecasted to ImageField
- * @param imageParams {ImageProp['imageParams']}} the imageParams prop
+ * @param imageField {ImageField} provides the dynamicMedia which is used to render the image
+ * @param imageParams {ImageProp['imageParams']}} provides the image parameters that will be attached to the image URL
  * @param mediaUrlPrefix {RegExp} the url prefix regex used in the mediaApi
  * @param otherProps {ImageProps} all other props included on the image component
  * @returns Experience Editor Markup

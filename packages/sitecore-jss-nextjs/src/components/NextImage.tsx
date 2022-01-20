@@ -85,7 +85,7 @@ export const NextImage: React.SFC<ImageProps> = ({
   // next handles srcSet, throw error if srcSet is present
   if (otherProps.srcSet) {
     throw new Error(
-      'srcSet not supported on Nextjs Image component. Use deviceSizes in nextjs.config: https://nextjs.org/docs/api-reference/next/image#device-sizes'
+      'srcSet not supported on Nextjs Image component. Use deviceSizes in next.config.js: https://nextjs.org/docs/api-reference/next/image#device-sizes'
     );
   }
 
@@ -161,4 +161,4 @@ NextImage.defaultProps = {
   editable: true,
 };
 
-NextImage.displayName = 'Image';
+NextImage.displayName = 'NextImage';

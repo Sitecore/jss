@@ -31,9 +31,11 @@ const nextConfig = {
 
   // enable image provider domains and device sizes
   images: {
-    domains: ['cm.jss.localhost'],
+    domains: ['jssConfig.sitecoreApiHost'],
     loader: 'custom',
     path: 'https://cm.jss.localhost',
+    // This array corresponds to the `sizes` property in the react Image.
+    // It is used to generate the srcset attribute for the image.
     deviceSizes: [100, 300],
   },
 

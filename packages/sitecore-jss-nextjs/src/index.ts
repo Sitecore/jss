@@ -95,7 +95,7 @@ export { NextImage } from './components/NextImage';
 
 export {
   ComponentFactory,
-  // Image,
+  Image,
   ImageField,
   LinkField,
   LinkFieldValue,

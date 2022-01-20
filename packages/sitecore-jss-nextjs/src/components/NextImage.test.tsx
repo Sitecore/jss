@@ -23,22 +23,18 @@ describe('<NextImage />', () => {
     });
   });
 
-  // TODO: test error cases
   describe('error cases', () => {
-    const props = {
-      src: '/assets/img/test0.png',
-      loader: () => new URL('test').href,
-    };
+    const src = '/assets/img/test0.png';
+    const loader = () => new URL('test').href;
 
     it('should throw an error if src is present', () => {
-      expect(() => mount(<NextImage {...props} />)).throws(
-        'Detected conflicting props src or loader. If you wish to use these props, use next/image directly.'
+      expect(() => mount(<NextImage src={src} />)).throws(
+        'Detected conflicting props src. If you wish to use these props, use next/image directly.'
       );
     });
 
     it('should throw an error if loader is present', () => {
-      expect(() => mount(<NextImage {...props} />)).to.have.length(0);
-      expect(() => mount(<NextImage {...props} />)).throws(
+      expect(() => mount(<NextImage loader={loader} />)).throws(
         'Detected conflicting props src or loader. If you wish to use these props, use next/image directly.'
       );
     });
@@ -57,18 +53,18 @@ describe('<NextImage />', () => {
         .find('Image')
         .at(1);
 
-      it('should render Next/Image with url', () => {
+      it('should render image with url', () => {
         expect(rendered).to.have.lengthOf(1);
         expect(rendered.prop('src')).to.equal(props.field.src);
         expect(rendered.prop('width')).to.equal(props.width);
         expect(rendered.prop('height')).to.equal(props.height);
       });
 
-      it('should render Next/Image with non-media props', () => {
+      it('should render image with non-media props', () => {
         expect(rendered.prop('id')).to.equal(props.id);
       });
 
-      it('should render Next/Image with style and className props', () => {
+      it('should render image className prop', () => {
         expect(rendered.prop('className')).to.eql(props.className);
       });
     });
@@ -91,7 +87,7 @@ describe('<NextImage />', () => {
         .find('Image')
         .at(1);
 
-      it('should render Next/Image with needed props', () => {
+      it('should render image with needed props', () => {
         expect(rendered).to.have.length(1);
         expect(rendered.prop('src')).to.equal(props.field.value.src);
         expect(rendered.prop('placeholder')).to.equal(props.placeholder);
@@ -100,11 +96,11 @@ describe('<NextImage />', () => {
         expect(rendered.prop('blurDataURL')).to.equal(props.blurDataURL);
       });
 
-      it('should render Next/Image with non-media props', () => {
+      it('should render image with non-media props', () => {
         expect(rendered.prop('id')).to.equal(props.id);
       });
 
-      it('should render Next/Image with style and className props', () => {
+      it('should render image with className prop', () => {
         expect(rendered.prop('className')).to.eql(props.className);
       });
     });
@@ -121,17 +117,17 @@ describe('<NextImage />', () => {
         .find('Image')
         .at(1);
 
-      it('should render Next/Image component with "value" properties', () => {
+      it('should render image component with "value" properties', () => {
         expect(rendered).to.have.length(1);
         expect(rendered.prop('src')).to.eql(props.field.value.src);
         expect(rendered.prop('alt')).to.eql(props.field.value.alt);
       });
 
-      it('should render Next/Image with non-media props', () => {
+      it('should render image with non-media props', () => {
         expect(rendered.prop('id')).to.equal(props.id);
       });
 
-      it('should render Next/Image with style and className props', () => {
+      it('should render image with className prop', () => {
         expect(rendered.prop('className')).to.eql(props.className);
       });
     });
@@ -149,13 +145,13 @@ describe('<NextImage />', () => {
         .find('Image')
         .at(1);
 
-      it('should render Next/Image component with "value" properties', () => {
+      it('should render image component with "value" properties', () => {
         expect(rendered).to.have.length(1);
         expect(rendered.prop('src')).to.eql(props.field.value.src);
         expect(rendered.prop('alt')).to.eql(props.field.value.alt);
       });
 
-      it('should render Next/Image with style and className props', () => {
+      it('should render image with className prop', () => {
         expect(rendered.prop('className')).to.eql(props.className);
       });
     });
@@ -221,7 +217,7 @@ describe('<NextImage />', () => {
       });
     });
 
-    it('should render no Next/Image when field prop is empty', () => {
+    it('should render no image when field prop is empty', () => {
       const img = '' as ImageField;
       const rendered = mount(<NextImage field={img} />)
         .find('Image')
