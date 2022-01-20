@@ -4,7 +4,7 @@
     "packages/*",
     "samples/*"
   ],
-  "version": "20.0.0-canary.112",
+  "version": "20.0.0-canary.113",
   "npmClient": "yarn",
   "useWorkspaces": true
 }
