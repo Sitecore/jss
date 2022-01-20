@@ -29,7 +29,7 @@ describe('<NextImage />', () => {
 
     it('should throw an error if src is present', () => {
       expect(() => mount(<NextImage src={src} />)).throws(
-        'Detected conflicting props src. If you wish to use these props, use next/image directly.'
+        'Detected conflicting props src or loader. If you wish to use these props, use next/image directly.'
       );
     });
 
@@ -49,9 +49,9 @@ describe('<NextImage />', () => {
         id: 'some-id',
         className: 'w-100',
       };
-      const rendered = mount(<NextImage {...props} />)
-        .find('Image')
-        .at(1);
+      const rendered = mount(<NextImage {...props} />).find('Image');
+
+      console.debug(rendered);
 
       it('should render image with url', () => {
         expect(rendered).to.have.lengthOf(1);
@@ -83,9 +83,7 @@ describe('<NextImage />', () => {
           'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
       };
 
-      const rendered = mount(<NextImage {...props} />)
-        .find('Image')
-        .at(1);
+      const rendered = mount(<NextImage {...props} />).find('Image');
 
       it('should render image with needed props', () => {
         expect(rendered).to.have.length(1);
@@ -113,9 +111,7 @@ describe('<NextImage />', () => {
         id: 'some-id',
         className: 'the-dude-abides',
       };
-      const rendered = mount(<NextImage {...props} />)
-        .find('Image')
-        .at(1);
+      const rendered = mount(<NextImage {...props} />).find('Image');
 
       it('should render image component with "value" properties', () => {
         expect(rendered).to.have.length(1);
@@ -141,9 +137,7 @@ describe('<NextImage />', () => {
         editable: false,
         className: 'the-dude-abides w-100',
       };
-      const rendered = mount(<NextImage {...props} />)
-        .find('Image')
-        .at(1);
+      const rendered = mount(<NextImage {...props} />).find('Image');
 
       it('should render image component with "value" properties', () => {
         expect(rendered).to.have.length(1);
@@ -168,22 +162,12 @@ describe('<NextImage />', () => {
         };
         const rendered = mount(<NextImage {...props} />);
 
-        expect(
-          rendered
-            .find('Image')
-            .at(1)
-            .prop('src')
-        ).to.equal('/~/jssmedia/img/test0.png?foo=bar');
+        expect(rendered.find('Image').prop('src')).to.equal('/~/jssmedia/img/test0.png?foo=bar');
         rendered.setProps({
           ...props,
           field: { src: '/-assets/img/test0.png' },
         });
-        expect(
-          rendered
-            .find('Image')
-            .at(1)
-            .prop('src')
-        ).to.equal('/-/jssmedia/img/test0.png?foo=bar');
+        expect(rendered.find('Image').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
       });
 
       it('should transform url with direct image object, no value/editable', () => {
@@ -196,32 +180,20 @@ describe('<NextImage />', () => {
           mediaUrlPrefix: /\/([-~]{1})assets\//i,
         };
         const rendered = mount(<NextImage {...props} />);
-        expect(
-          rendered
-            .find('Image')
-            .at(1)
-            .prop('src')
-        ).to.equal('/~/jssmedia/img/test0.png?foo=bar');
+        expect(rendered.find('Image').prop('src')).to.equal('/~/jssmedia/img/test0.png?foo=bar');
         rendered.setProps({
           ...props,
           field: { src: '/-assets/img/test0.png' },
           width: 8,
           height: 10,
         });
-        expect(
-          rendered
-            .find('Image')
-            .at(1)
-            .prop('src')
-        ).to.equal('/-/jssmedia/img/test0.png?foo=bar');
+        expect(rendered.find('Image').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
       });
     });
 
     it('should render no image when field prop is empty', () => {
       const img = '' as ImageField;
-      const rendered = mount(<NextImage field={img} />)
-        .find('Image')
-        .at(1);
+      const rendered = mount(<NextImage field={img} />).find('Image');
       expect(rendered).to.have.length(0);
     });
   });
