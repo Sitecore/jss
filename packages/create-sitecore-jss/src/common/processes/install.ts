@@ -30,6 +30,7 @@ export const installPackages = (projectFolder: string, silent?: boolean) => {
       {
         cwd: projectFolder,
         encoding: 'utf8',
+        stdio: 'pipe',
       },
       silent
     );
