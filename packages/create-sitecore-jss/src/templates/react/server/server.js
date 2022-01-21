@@ -1,7 +1,7 @@
 import serializeJavascript from 'serialize-javascript';
 import React from 'react';
 import { StaticRouter, matchPath } from 'react-router-dom';
-import { renderToStringWithData } from 'react-apollo';
+import { renderToStringWithData } from '@apollo/client/react/ssr';
 import Helmet from 'react-helmet';
 import axios from 'axios';
 import http from 'http';

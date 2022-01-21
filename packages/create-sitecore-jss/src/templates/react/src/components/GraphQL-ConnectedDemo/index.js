@@ -80,6 +80,6 @@ const GraphQLConnectedDemo = (props) => {
   );
 };
 
-// compose() (from react-apollo) can be used when you need more than one GraphQL query
+// compose() (from @apollo/client/react/hoc) can be used when you need more than one GraphQL query
 // for a single query, e.g. `compose(GraphQLData(q1), GraphQLData(q2))(component)`
 export default GraphQLData(ConnectedDemoQuery, { name: 'connectedQuery' })(GraphQLConnectedDemo);

@@ -46,6 +46,9 @@ import 'core-js/es/reflect';
  **/
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
+/** Polyfill for node.js process **/
+(window as any).process = { env: { DEBUG: undefined }, };
+
 
 
 /***************************************************************************************************
