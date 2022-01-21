@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { getEEMarkup, ImageField, ImageFieldValue } from '@sitecore-jss/sitecore-jss-react';
 import Image, { ImageLoader, ImageLoaderProps, ImageProps as NextImageProps } from 'next/image';
-
 export interface ImageProps extends Partial<NextImageProps> {
   [attributeName: string]: unknown;
   /** Image field data (consistent with other field types) */
@@ -40,10 +39,6 @@ export const loader: ImageLoader = ({ src, width }: ImageLoaderProps): string =>
   params.set('mw', params.get('mw') || width.toString());
   params.delete('w');
 
-  // TODO:
-  // hardcoded hostname at the moment to get around a  bug.
-  // image loaders inside Next's repo like Cloudinary
-  // have access to a root prop? or env variable. We want to access root also if we need to inject the hostname.
   return url.href;
 };
 

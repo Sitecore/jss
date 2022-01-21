@@ -3,8 +3,8 @@ import chai from 'chai';
 import chaiString from 'chai-string';
 import { mount } from 'enzyme';
 import React from 'react';
-import { imageField as eeImageData } from '../testData/ee-data';
-import { NextImage, ImageField, loader } from './NextImage';
+import { NextImage, loader } from './NextImage';
+import { ImageField } from '@sitecore-jss/sitecore-jss-react';
 
 const expect = chai.use(chaiString).expect;
 
