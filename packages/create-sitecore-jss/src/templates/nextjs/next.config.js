@@ -32,8 +32,11 @@ const nextConfig = {
   // enable image provider domains and device sizes
   images: {
     domains: ['jssConfig.sitecoreApiHost'],
+    // deviceSizes - If you know the expected device widths of your users, you can specify a list of device width breakpoints.
+    // These widths are used when the next/image component uses layout="responsive" or layout="fill" to ensure the correct image is served for user's device.
     // This array corresponds to the `sizes` property in the react Image.
-    // It is used to generate the srcset attribute for the image.
+    // It is used to generate the srcset attribute for the image, using two sizes 300 and 100px max widths, respecting aspect ratio.
+   //  IMPORTANT: This method is similar to how we whitelisted secSet in react image for adaptive resizing to occur.
     deviceSizes: [100, 300],
   },
 
