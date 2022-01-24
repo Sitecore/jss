@@ -3971,6 +3971,7 @@ __metadata:
     "@types/node": ^10.12.0
     axios: ^0.21.1
     chai: ^4.2.0
+    chai-string: ^1.5.0
     del-cli: ^1.1.0
     eslint: ^7.15.0
     mocha: ^8.1.3
