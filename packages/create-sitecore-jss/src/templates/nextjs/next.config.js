@@ -32,8 +32,6 @@ const nextConfig = {
   // enable image provider domains and device sizes
   images: {
     domains: getHostName([jssConfig.sitecoreApiHost]),
-    loader: 'custom',
-    path: 'https://cm.jss.localhost',
     // deviceSizes - If you know the expected device widths of your users, you can specify a list of device width breakpoints.
     // These widths are used when the next/image component uses layout="responsive" or layout="fill" to ensure the correct image is served for user's device.
     // This array corresponds to the `sizes` property in the react Image.
