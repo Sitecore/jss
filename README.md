@@ -75,7 +75,7 @@ To create a JSS project for an older version of JSS and Sitecore:
   <!---
    @TODO: Update to version 20.0.0 docs before release
    -->
-- [Official JSS documentation](https://doc.sitecore.com/xp/en/developers/hd/200/sitecore-headless-development/sitecore-javascript-rendering-sdks--jss-.html)
+- [Official JSS documentation](https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/sitecore-javascript-rendering-sdks--jss-.html)
 - [StackExchange](https://sitecore.stackexchange.com/)
 - [Community Slack](https://sitecorechat.slack.com/messages/jss)
 - [Sitecore Community Forum](https://community.sitecore.net/developers/f/40)
