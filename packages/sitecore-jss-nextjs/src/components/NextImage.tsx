@@ -19,14 +19,27 @@ type NextImageProps = Pick<
 > &
   Partial<NextImageProperties>;
 
+export type ImageConfigComplete = {
+  path: string;
+};
+
+export type ImageConfig = Partial<ImageConfigComplete>;
+
+const { path: configPath } = (process.env.__NEXT_IMAGE_OPTS as any) as ImageConfigComplete;
+
 export const loader: ImageLoader = ({ src, width }: ImageLoaderProps): string => {
-  const url = new URL(`https://cm.jss.localhost${src}`);
+  try {
+    const url = new URL(`${configPath}${src}`);
+    const params = url.searchParams;
+    params.set('mw', params.get('mw') || width.toString());
+    params.delete('w');
 
-  const params = url.searchParams;
-  params.set('mw', params.get('mw') || width.toString());
-  params.delete('w');
-
-  return url.href;
+    return url.href;
+  } catch (err) {
+    throw new Error(
+      'Failed to load image. Please make sure configPath is configured correctly in next.config.js'
+    );
+  }
 };
 
 export const NextImage: React.SFC<NextImageProps> = ({

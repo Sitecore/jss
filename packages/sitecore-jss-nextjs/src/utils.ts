@@ -31,15 +31,6 @@ export const getPublicUrl = (): string => {
 };
 
 /**
- * Get hostname from from the provided URL.
- * @param {Array} [urls] - The URL to parse
- */
-export const getHostName = (urls: [string]): Array<string> => {
-  const hostName = urls ? urls.map((url) => new URL(url).hostname) : [];
-  return hostName;
-};
-
-/**
  * Since Sitecore editors do not support Fast Refresh:
  * 1. Subscribe on events provided by webpack.
  * 2. Reset editor chromes when build is finished
