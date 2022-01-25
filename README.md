@@ -21,6 +21,9 @@ To identify the correct JSS version for your Sitecore XP version:
 - For Sitecore XP 10.0 and later, in the [Sitecore modules compatibility table for Sitecore XP 10.0 and later versions](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1000576), in the section *Headless Services*, identify the correct JavaScript Services version for your Sitecore version.
 
 ### Getting started with the latest version of JSS
+  <!---
+   @TODO: Update to version 20.0.0 docs before release
+   -->
 To create a JSS project, perform the following steps:
 1. Install the JSS CLI:   
 	```
