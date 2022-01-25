@@ -46,7 +46,7 @@ To create a JSS project, perform the following steps:
 	```
 
 ### Working with older versions
-If you need to use an older version of JSS, you must install the JSS CLI version 19.x or older (JSS CLI version 20.0.0 and newer deprecated the `jss create` command).
+If you need to use an older version of JSS, you must install the JSS CLI version 19.x or older.
 
 To create a JSS project for an older version of JSS and Sitecore:   
 1. [Identify the correct JSS version for your Sitecore XP version](#identify-the-jss-version-for-your-sitecore-version).
