@@ -79,7 +79,12 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { handleEditorFastRefresh, handleExperienceEditorFastRefresh, getPublicUrl } from './utils';
+export {
+  handleEditorFastRefresh,
+  handleExperienceEditorFastRefresh,
+  getPublicUrl,
+  getHostName,
+} from './utils';
 
 export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
 export {

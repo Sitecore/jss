@@ -41,11 +41,10 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     />
 
     {/*
-      srcSet in Nextjs Image is set inside of the next.config by setting an array of deviceSizes inside the images option. 
+      srcSet in Nextjs Image is set inside of the next.config by setting an array of deviceSizes and imageSizes inside the images option.
       See here: https://nextjs.org/docs/api-reference/next/image#device-sizes
       These sizes should match your Sitecore server-side allowlist.
       See /sitecore/config/*.config (search for 'allowedMediaParams')
-      image sizes are set similarly: https://nextjs.org/docs/api-reference/next/image#image-sizes
 
       placeholder='blur' blurs the image while loading with a transparent pixel provided in blurDataUrl.
       You can also provide a color pixel for this functionality.
