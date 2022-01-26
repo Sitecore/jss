@@ -13,17 +13,11 @@ import Image, {
   ImageProps as NextImageProperties,
 } from 'next/image';
 
-type NextImageProps = Pick<
-  ImageProps,
-  'editable' | 'imageParams' | 'field' | 'mediaUrlPrefix' | 'srcSet'
-> &
-  Partial<NextImageProperties>;
+type NextImageProps = Omit<ImageProps, 'media'> & Partial<NextImageProperties>;
 
 export type ImageConfigComplete = {
   path: string;
 };
-
-export type ImageConfig = Partial<ImageConfigComplete>;
 
 const { path: configPath } = (process.env.__NEXT_IMAGE_OPTS as any) as ImageConfigComplete;
 
@@ -37,7 +31,7 @@ export const loader: ImageLoader = ({ src, width }: ImageLoaderProps): string =>
     return url.href;
   } catch (err) {
     throw new Error(
-      'Failed to load image. Please make sure configPath is configured correctly in next.config.js'
+      'Failed to load image. Please make sure images path is configured correctly in next.config.js'
     );
   }
 };
@@ -70,7 +64,12 @@ export const NextImage: React.SFC<NextImageProps> = ({
 
   // we likely have an experience editor value, should be a string
   if (editable && imageField.editable) {
-    return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps as { src: string });
+    return getEEMarkup(
+      imageField,
+      imageParams as { [paramName: string]: string | number },
+      mediaUrlPrefix as RegExp,
+      otherProps as { src: string }
+    );
   }
 
   // some wise-guy/gal is passing in a 'raw' image object value
@@ -89,7 +88,11 @@ export const NextImage: React.SFC<NextImageProps> = ({
   const attrs = {
     ...img,
     ...otherProps,
-    src: mediaApi.updateImageUrl(img.src as string, imageParams, mediaUrlPrefix),
+    src: mediaApi.updateImageUrl(
+      img.src as string,
+      imageParams as { [paramName: string]: string | number },
+      mediaUrlPrefix as RegExp
+    ),
   };
 
   if (attrs) {
