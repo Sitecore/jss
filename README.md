@@ -1,6 +1,6 @@
 # Sitecore JavaScript Rendering SDK (JSS)
 
-[![Build Status](https://dev.azure.com/sitecorejss/sitecore-jss-ci/_apis/build/status/Sitecore.jss?branchName=master)](https://dev.azure.com/sitecorejss/sitecore-jss-ci/_build/latest?definitionId=1?branchName=master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Build Status](https://dev.azure.com/sitecore-devex/headless-javascript/_apis/build/status/Sitecore.jss?branchName=dev)](https://dev.azure.com/sitecore-devex/headless-javascript/_build/latest?definitionId=8&branchName=dev) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 This repository contains source code for all Sitecore JSS packages and templates to help you get started using Sitecore JSS.
 
