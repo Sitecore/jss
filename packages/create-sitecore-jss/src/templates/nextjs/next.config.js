@@ -31,7 +31,10 @@ const nextConfig = {
 
   // enable image provider domains and device sizes
   images: {
-    domains: [new URL(jssConfig.sitecoreApiHost).hostname],
+    // We use a custom loader function in the NextImage component which is required to be passed as a prop to the Image(next/image) component.
+    // See: https://nextjs.org/docs/api-reference/next/image#loader
+    // the config here is more of a vanity configuration as it does not affect the functionality.
+    loader: 'custom',
     //IMPORTANT: 'path' is required to set to a appropriate value for the image to work.
     path: jssConfig.sitecoreApiHost,
     // deviceSizes - If you know the expected device widths of your users, you can specify a list of device width breakpoints.
