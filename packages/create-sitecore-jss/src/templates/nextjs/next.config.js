@@ -35,7 +35,7 @@ const nextConfig = {
     // See: https://nextjs.org/docs/api-reference/next/image#loader
     // the config here is more of a vanity configuration as it does not affect the functionality.
     loader: 'custom',
-    //IMPORTANT: 'path' is required to set to a appropriate value for the image to work.
+    //IMPORTANT: 'path' is required to set to an appropriate value for the next/image to work.
     path: jssConfig.sitecoreApiHost,
     // deviceSizes - If you know the expected device widths of your users, you can specify a list of device width breakpoints.
     // These widths are used when the next/image component uses layout="responsive" or layout="fill" to ensure the correct image is served for user's device.
