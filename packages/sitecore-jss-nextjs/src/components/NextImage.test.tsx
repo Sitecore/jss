@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { NextImage, loader } from './NextImage';
 import { ImageField } from '@sitecore-jss/sitecore-jss-react';
-require('./../tests/nextSetup.js').setupFile;
+require('./../tests/next-setup.js').setupFile;
 
 const expect = chai.use(chaiString).expect;
 describe('<NextImage />', () => {
