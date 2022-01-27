@@ -20,23 +20,14 @@ export type ImageConfigComplete = {
 };
 
 export const loader: ImageLoader = ({ src, width }: ImageLoaderProps): string => {
-  const { path: configPath } = (process.env.__NEXT_IMAGE_OPTS as any) as ImageConfigComplete;
-
   try {
+    const { path: configPath } = (process.env.__NEXT_IMAGE_OPTS as any) as ImageConfigComplete;
     const r = /^(?:[a-z]+:)?\/\//i;
-    if (r.test(src)) {
-      const url = new URL(`${src}`);
-      const params = url.searchParams;
-      params.set('mw', params.get('mw') || width.toString());
-      params.delete('w');
-      return url.href;
-    } else {
-      const url = new URL(`${configPath}${src}`);
-      const params = url.searchParams;
-      params.set('mw', params.get('mw') || width.toString());
-      params.delete('w');
-      return url.href;
-    }
+    const url = r.test(src) ? new URL(`${src}`) : new URL(`${configPath}${src}`);
+    const params = url.searchParams;
+    params.set('mw', params.get('mw') || width.toString());
+    params.delete('w');
+    return url.href;
   } catch (err) {
     throw new Error(
       'Failed to load image. Please make sure images path is configured correctly in next.config.js'

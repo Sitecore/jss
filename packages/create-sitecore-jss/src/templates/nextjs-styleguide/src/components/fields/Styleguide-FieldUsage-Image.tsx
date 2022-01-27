@@ -50,7 +50,7 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       See here: https://nextjs.org/docs/api-reference/next/image#placeholder
     */}
     <p>Srcset responsive image</p>
-      <NextImage
+    <NextImage
       field={props.fields.sample2}
       height="105"
       width="200"
