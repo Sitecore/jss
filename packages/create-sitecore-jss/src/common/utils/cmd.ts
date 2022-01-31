@@ -27,7 +27,7 @@ export const spawnFunc = (
   args: string[],
   options?: SpawnSyncOptionsWithStringEncoding
 ) => {
-  const result = spawn.sync(command, args, Object.assign({ stdio: 'inherit' }, options));
+  const result = spawn.sync(command, args, Object.assign({}, options));
 
   if (result.signal === 'SIGKILL') {
     console.log(

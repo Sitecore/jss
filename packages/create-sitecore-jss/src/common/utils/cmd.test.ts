@@ -53,7 +53,6 @@ describe('cmd', () => {
         spawnStub.calledOnceWith('jss', ['start', 'production'], {
           cwd: 'samples/next',
           encoding: 'utf-8',
-          stdio: 'inherit',
         })
       ).to.equal(true);
     });
@@ -75,7 +74,6 @@ describe('cmd', () => {
         spawnStub.calledOnceWith('jss', ['start', 'production'], {
           cwd: 'samples/next',
           encoding: 'utf-8',
-          stdio: 'inherit',
         })
       ).to.equal(true);
 
@@ -103,7 +101,6 @@ describe('cmd', () => {
         spawnStub.calledOnceWith('jss', ['start', 'production'], {
           cwd: 'samples/next',
           encoding: 'utf-8',
-          stdio: 'inherit',
         })
       ).to.equal(true);
 
