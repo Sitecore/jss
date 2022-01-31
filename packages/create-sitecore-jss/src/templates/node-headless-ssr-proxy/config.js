@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { RestDictionaryService } = require('@sitecore-jss/sitecore-jss');
+const { RestDictionaryService } = require('@sitecore-jss/sitecore-jss/i18n');
 const httpAgents = require("./httpAgents");
 
 /**
