@@ -7,6 +7,7 @@
 ### Namespaces
 
 - [Link](modules/Link.md)
+- [NextImage](modules/NextImage.md)
 - [RichText](modules/RichText.md)
 - [constants](modules/constants.md)
 - [mediaApi](modules/mediaApi.md)
@@ -77,6 +78,7 @@
 - [PlaceholdersData](README.md#placeholdersdata)
 - [RestDictionaryServiceConfig](README.md#restdictionaryserviceconfig)
 - [RestLayoutServiceConfig](README.md#restlayoutserviceconfig)
+- [SitecoreContextValue](README.md#sitecorecontextvalue)
 - [StaticPath](README.md#staticpath)
 
 ### Variables
@@ -86,6 +88,7 @@
 - [File](README.md#file)
 - [Image](README.md#image)
 - [Link](README.md#link)
+- [NextImage](README.md#nextimage)
 - [RichText](README.md#richtext)
 - [SitecoreContextReactContext](README.md#sitecorecontextreactcontext)
 - [Text](README.md#text)
@@ -172,7 +175,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-module.ts:14](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L14)
+[sitecore-jss-nextjs/src/sharedTypes/component-module.ts:14](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L14)
 
 ___
 
@@ -188,7 +191,7 @@ Shape of component props storage
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:7](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L7)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:7](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L7)
 
 ___
 
@@ -205,7 +208,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
 
 ___
 
@@ -226,7 +229,7 @@ Data sent from Experience Editor
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/editing-data.ts:7](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L7)
+[sitecore-jss-nextjs/src/sharedTypes/editing-data.ts:7](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L7)
 
 ___
 
@@ -238,7 +241,7 @@ Shape of getServerSideProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:23](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L23)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:23](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L23)
 
 ___
 
@@ -250,7 +253,7 @@ Shape of getStaticProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:28](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L28)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:28](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L28)
 
 ___
 
@@ -362,6 +365,16 @@ sitecore-jss/types/layout/rest-layout-service.d.ts:14
 
 ___
 
+### SitecoreContextValue
+
+Ƭ **SitecoreContextValue**: [`LayoutServiceContext`](interfaces/LayoutServiceContext.md) & { `itemId?`: `string` ; `route?`: [`RouteData`](interfaces/RouteData.md)  }
+
+#### Defined in
+
+sitecore-jss-react/types/components/SitecoreContext.d.ts:15
+
+___
+
 ### StaticPath
 
 Ƭ **StaticPath**: `Object`
@@ -378,7 +391,7 @@ Object model of a site page item.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:59](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L59)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:59](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L59)
 
 ## Variables
 
@@ -390,7 +403,7 @@ Component props context which we are using in order to store data fetched on com
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
 
 ___
 
@@ -420,7 +433,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/Image.d.ts:58
+sitecore-jss-react/types/components/Image.d.ts:66
 
 ___
 
@@ -458,7 +471,17 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/components/Link.tsx#L20)
+[sitecore-jss-nextjs/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/components/Link.tsx#L20)
+
+___
+
+### NextImage
+
+• **NextImage**: `React.SFC`<`NextImageProps`\>
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/components/NextImage.tsx:38](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L38)
 
 ___
 
@@ -496,17 +519,17 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:20](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L20)
+[sitecore-jss-nextjs/src/components/RichText.tsx:20](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L20)
 
 ___
 
 ### SitecoreContextReactContext
 
-• **SitecoreContextReactContext**: `React.Context`<[`SitecoreContextState`](interfaces/SitecoreContextState.md)<`any`\>\>
+• **SitecoreContextReactContext**: `React.Context`<[`SitecoreContextState`](interfaces/SitecoreContextState.md)\>
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:12
+sitecore-jss-react/types/components/SitecoreContext.d.ts:13
 
 ___
 
@@ -528,7 +551,7 @@ EditingDataService singleton (with default values)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/editing-data-service.ts:104](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L104)
+[sitecore-jss-nextjs/src/services/editing-data-service.ts:104](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L104)
 
 ## Functions
 
@@ -548,7 +571,7 @@ EditingDataService singleton (with default values)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
 
 ___
 
@@ -568,7 +591,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/Placeholder.d.ts:21
+[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
 
 ___
 
@@ -588,7 +611,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/VisitorIdentification.d.ts:7
+sitecore-jss-react/types/components/VisitorIdentification.d.ts:6
 
 ___
 
@@ -687,7 +710,7 @@ preview deployment has unique url, we don't know exact url.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils.ts:11](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/utils.ts#L11)
+[sitecore-jss-nextjs/src/utils.ts:11](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/utils.ts#L11)
 
 ___
 
@@ -713,7 +736,7 @@ Since Sitecore editors do not support Fast Refresh:
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils.ts:40](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/utils.ts#L40)
+[sitecore-jss-nextjs/src/utils.ts:40](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/utils.ts#L40)
 
 ___
 
@@ -741,7 +764,7 @@ Since Sitecore editors do not support Fast Refresh:
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils.ts:79](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/utils.ts#L79)
+[sitecore-jss-nextjs/src/utils.ts:79](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/utils.ts#L79)
 
 ___
 
@@ -761,7 +784,7 @@ data is EditingData
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/editing-data.ts:17](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L17)
+[sitecore-jss-nextjs/src/sharedTypes/editing-data.ts:17](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L17)
 
 ___
 
@@ -799,7 +822,7 @@ true if executing within the Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:35
+sitecore-jss/types/utils/editing.d.ts:45
 
 ___
 
@@ -833,7 +856,7 @@ Resets Sitecore Experience Editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:40
+sitecore-jss/types/utils/editing.d.ts:50
 
 ___
 
@@ -865,13 +888,13 @@ component props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
 
 ___
 
 ### useSitecoreContext
 
-▸ **useSitecoreContext**<`Context`\>(`options?`): `Object`
+▸ **useSitecoreContext**(`options?`): `Object`
 
 This hook grants acсess to the current SiteCore page context
 by default JSS includes the following properties in this context:
@@ -894,12 +917,6 @@ const EditMode = () => {
    return <span onClick={onClick}>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
 }
 
-#### Type parameters
-
-| Name |
-| :------ |
-| `Context` |
-
 #### Parameters
 
 | Name | Type |
@@ -914,12 +931,12 @@ const EditMode = () => {
 
 | Name | Type |
 | :------ | :------ |
-| `sitecoreContext` | `Context` |
-| `updateSitecoreContext` | (`value`: `any`) => `void` |
+| `sitecoreContext` | [`SitecoreContextValue`](README.md#sitecorecontextvalue) |
+| `updateSitecoreContext` | (`value`: [`LayoutServiceData`](interfaces/LayoutServiceData.md) \| [`SitecoreContextValue`](README.md#sitecorecontextvalue)) => `void` |
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:42
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:43
 
 ___
 
@@ -1116,4 +1133,4 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:16
+sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:17

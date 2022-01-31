@@ -25,7 +25,7 @@ GUID of Sitecore page item to track (i.e. context item ID)
 
 #### Defined in
 
-[tracking/dataModels.ts:32](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/tracking/dataModels.ts#L32)
+[tracking/dataModels.ts:32](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/tracking/dataModels.ts#L32)
 
 ___
 
@@ -37,4 +37,4 @@ URL of page to track - should be absolute route path but can accept any value
 
 #### Defined in
 
-[tracking/dataModels.ts:34](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/tracking/dataModels.ts#L34)
+[tracking/dataModels.ts:34](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/tracking/dataModels.ts#L34)

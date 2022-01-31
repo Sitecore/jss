@@ -41,6 +41,8 @@
 - [GoalInstance](interfaces/GoalInstance.md)
 - [HtmlElementRendering](interfaces/HtmlElementRendering.md)
 - [ImageField](interfaces/ImageField.md)
+- [ImageFieldValue](interfaces/ImageFieldValue.md)
+- [ImageProps](interfaces/ImageProps.md)
 - [Item](interfaces/Item.md)
 - [LayoutService](interfaces/LayoutService.md)
 - [LayoutServiceContext](interfaces/LayoutServiceContext.md)
@@ -50,6 +52,7 @@
 - [LinkFieldValue](interfaces/LinkFieldValue.md)
 - [OutcomeInstance](interfaces/OutcomeInstance.md)
 - [PageViewInstance](interfaces/PageViewInstance.md)
+- [PlaceholderComponentProps](interfaces/PlaceholderComponentProps.md)
 - [RichTextField](interfaces/RichTextField.md)
 - [RichTextProps](interfaces/RichTextProps.md)
 - [RouteData](interfaces/RouteData.md)
@@ -61,6 +64,7 @@
 
 - [ComponentFactory](README.md#componentfactory)
 - [LinkProps](README.md#linkprops)
+- [SitecoreContextValue](README.md#sitecorecontextvalue)
 
 ### Variables
 
@@ -79,6 +83,7 @@
 - [Placeholder](README.md#placeholder)
 - [VisitorIdentification](README.md#visitoridentification)
 - [getChildPlaceholder](README.md#getchildplaceholder)
+- [getEEMarkup](README.md#geteemarkup)
 - [getFieldValue](README.md#getfieldvalue)
 - [isEditorActive](README.md#iseditoractive)
 - [isExperienceEditorActive](README.md#isexperienceeditoractive)
@@ -113,7 +118,7 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/sharedTypes.ts:3](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/sharedTypes.ts#L3)
+[sitecore-jss-react/src/components/sharedTypes.ts:3](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/sharedTypes.ts#L3)
 
 ___
 
@@ -123,7 +128,17 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/Link.tsx#L20)
+[sitecore-jss-react/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Link.tsx#L20)
+
+___
+
+### SitecoreContextValue
+
+Ƭ **SitecoreContextValue**: [`LayoutServiceContext`](interfaces/LayoutServiceContext.md) & { `itemId?`: `string` ; `route?`: [`RouteData`](interfaces/RouteData.md)  }
+
+#### Defined in
+
+[sitecore-jss-react/src/components/SitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L25)
 
 ## Variables
 
@@ -133,7 +148,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Date.tsx:26](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/Date.tsx#L26)
+[sitecore-jss-react/src/components/Date.tsx:26](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Date.tsx#L26)
 
 ___
 
@@ -143,17 +158,17 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/File.tsx:23](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/File.tsx#L23)
+[sitecore-jss-react/src/components/File.tsx:23](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/File.tsx#L23)
 
 ___
 
 ### Image
 
-• **Image**: `React.SFC`<`ImageProps`\>
+• **Image**: `React.SFC`<[`ImageProps`](interfaces/ImageProps.md)\>
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Image.tsx:117](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/Image.tsx#L117)
+[sitecore-jss-react/src/components/Image.tsx:149](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Image.tsx#L149)
 
 ___
 
@@ -163,7 +178,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:40](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/Link.tsx#L40)
+[sitecore-jss-react/src/components/Link.tsx:40](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Link.tsx#L40)
 
 ___
 
@@ -182,7 +197,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:117](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/Link.tsx#L117)
+[sitecore-jss-react/src/components/Link.tsx:117](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Link.tsx#L117)
 
 ___
 
@@ -192,7 +207,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/RichText.tsx:26](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/RichText.tsx#L26)
+[sitecore-jss-react/src/components/RichText.tsx:26](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/RichText.tsx#L26)
 
 ___
 
@@ -210,17 +225,17 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/RichText.tsx:44](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/RichText.tsx#L44)
+[sitecore-jss-react/src/components/RichText.tsx:44](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/RichText.tsx#L44)
 
 ___
 
 ### SitecoreContextReactContext
 
-• **SitecoreContextReactContext**: `Context`<[`SitecoreContextState`](interfaces/SitecoreContextState.md)<`any`\>\>
+• **SitecoreContextReactContext**: `Context`<[`SitecoreContextState`](interfaces/SitecoreContextState.md)\>
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L17)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:18](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L18)
 
 ___
 
@@ -230,7 +245,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Text.tsx:29](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/Text.tsx#L29)
+[sitecore-jss-react/src/components/Text.tsx:29](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Text.tsx#L29)
 
 ## Functions
 
@@ -242,7 +257,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `PlaceholderComponentProps` |
+| `props` | [`PlaceholderComponentProps`](interfaces/PlaceholderComponentProps.md) |
 
 #### Returns
 
@@ -250,7 +265,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Placeholder.tsx:126](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/Placeholder.tsx#L126)
+[sitecore-jss-react/src/components/Placeholder.tsx:126](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Placeholder.tsx#L126)
 
 ___
 
@@ -270,7 +285,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/VisitorIdentification.tsx:40](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/VisitorIdentification.tsx#L40)
+[sitecore-jss-react/src/components/VisitorIdentification.tsx:39](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/VisitorIdentification.tsx#L39)
 
 ___
 
@@ -296,6 +311,31 @@ child placeholder
 #### Defined in
 
 sitecore-jss/types/layout/utils.d.ts:17
+
+___
+
+### getEEMarkup
+
+▸ `Const` **getEEMarkup**(`imageField`, `imageParams?`, `mediaUrlPrefix?`, `otherProps?`): `Element`
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `imageField` | [`ImageField`](interfaces/ImageField.md) | provides the dynamicMedia which is used to render the image |
+| `imageParams?` | `Object` | provides the image parameters that will be attached to the image URL |
+| `mediaUrlPrefix?` | `RegExp` | the url prefix regex used in the mediaApi |
+| `otherProps?` | [`ImageProps`](interfaces/ImageProps.md) | all other props included on the image component |
+
+#### Returns
+
+`Element`
+
+Experience Editor Markup
+
+#### Defined in
+
+[sitecore-jss-react/src/components/Image.tsx:124](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Image.tsx#L124)
 
 ___
 
@@ -387,7 +427,7 @@ true if executing within the Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:35
+sitecore-jss/types/utils/editing.d.ts:45
 
 ___
 
@@ -421,13 +461,13 @@ Resets Sitecore Experience Editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:40
+sitecore-jss/types/utils/editing.d.ts:50
 
 ___
 
 ### useSitecoreContext
 
-▸ **useSitecoreContext**<`Context`\>(`options?`): `Object`
+▸ **useSitecoreContext**(`options?`): `Object`
 
 This hook grants acсess to the current SiteCore page context
 by default JSS includes the following properties in this context:
@@ -450,12 +490,6 @@ const EditMode = () => {
    return <span onClick={onClick}>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
 }
 
-#### Type parameters
-
-| Name |
-| :------ |
-| `Context` |
-
 #### Parameters
 
 | Name | Type |
@@ -470,12 +504,12 @@ const EditMode = () => {
 
 | Name | Type |
 | :------ | :------ |
-| `sitecoreContext` | `Context` |
-| `updateSitecoreContext` | (`value`: `any`) => `void` |
+| `sitecoreContext` | [`SitecoreContextValue`](README.md#sitecorecontextvalue) |
+| `updateSitecoreContext` | (`value`: [`LayoutServiceData`](interfaces/LayoutServiceData.md) \| [`SitecoreContextValue`](README.md#sitecorecontextvalue)) => `void` |
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L70)
+[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L70)
 
 ___
 
@@ -530,7 +564,7 @@ Checks whether a Sitecore datasource is present and renders appropriately depend
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
+[sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
 
 ___
 
@@ -550,7 +584,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
+[sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
 
 ___
 
@@ -572,7 +606,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withEditorChromes.tsx:26](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L26)
+[sitecore-jss-react/src/enhancers/withEditorChromes.tsx:26](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L26)
 
 ___
 
@@ -617,7 +651,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withPlaceholder.tsx:45](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L45)
+[sitecore-jss-react/src/enhancers/withPlaceholder.tsx:45](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L45)
 
 ___
 
@@ -667,4 +701,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L25)
+[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L25)

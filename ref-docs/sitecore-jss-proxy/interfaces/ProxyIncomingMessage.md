@@ -14,6 +14,7 @@ Extends IncomingMessage as it should contain these properties but they are not p
 
 ### Properties
 
+- [aborted](ProxyIncomingMessage.md#aborted)
 - [complete](ProxyIncomingMessage.md#complete)
 - [connection](ProxyIncomingMessage.md#connection)
 - [destroyed](ProxyIncomingMessage.md#destroyed)
@@ -27,6 +28,9 @@ Extends IncomingMessage as it should contain these properties but they are not p
 - [rawHeaders](ProxyIncomingMessage.md#rawheaders)
 - [rawTrailers](ProxyIncomingMessage.md#rawtrailers)
 - [readable](ProxyIncomingMessage.md#readable)
+- [readableEncoding](ProxyIncomingMessage.md#readableencoding)
+- [readableEnded](ProxyIncomingMessage.md#readableended)
+- [readableFlowing](ProxyIncomingMessage.md#readableflowing)
 - [readableHighWaterMark](ProxyIncomingMessage.md#readablehighwatermark)
 - [readableLength](ProxyIncomingMessage.md#readablelength)
 - [readableObjectMode](ProxyIncomingMessage.md#readableobjectmode)
@@ -71,6 +75,20 @@ Extends IncomingMessage as it should contain these properties but they are not p
 
 ## Properties
 
+### aborted
+
+• **aborted**: `boolean`
+
+#### Inherited from
+
+IncomingMessage.aborted
+
+#### Defined in
+
+node_modules/@types/node/http.d.ts:345
+
+___
+
 ### complete
 
 • **complete**: `boolean`
@@ -81,7 +99,7 @@ IncomingMessage.complete
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:275
+node_modules/@types/node/http.d.ts:349
 
 ___
 
@@ -95,7 +113,7 @@ IncomingMessage.connection
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:276
+node_modules/@types/node/http.d.ts:350
 
 ___
 
@@ -109,7 +127,7 @@ IncomingMessage.destroyed
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:30
+node_modules/@types/node/stream.d.ts:33
 
 ___
 
@@ -123,7 +141,7 @@ IncomingMessage.headers
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:277
+node_modules/@types/node/http.d.ts:351
 
 ___
 
@@ -137,7 +155,7 @@ IncomingMessage.httpVersion
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:272
+node_modules/@types/node/http.d.ts:346
 
 ___
 
@@ -151,7 +169,7 @@ IncomingMessage.httpVersionMajor
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:273
+node_modules/@types/node/http.d.ts:347
 
 ___
 
@@ -165,7 +183,7 @@ IncomingMessage.httpVersionMinor
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:274
+node_modules/@types/node/http.d.ts:348
 
 ___
 
@@ -181,7 +199,7 @@ IncomingMessage.method
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:285
+node_modules/@types/node/http.d.ts:359
 
 ___
 
@@ -191,7 +209,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:16](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-proxy/src/index.ts#L16)
+[src/index.ts:16](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-proxy/src/index.ts#L16)
 
 ___
 
@@ -205,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/index.ts:17](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-proxy/src/index.ts#L17)
+[src/index.ts:17](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-proxy/src/index.ts#L17)
 
 ___
 
@@ -219,7 +237,7 @@ IncomingMessage.rawHeaders
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:278
+node_modules/@types/node/http.d.ts:352
 
 ___
 
@@ -233,7 +251,7 @@ IncomingMessage.rawTrailers
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:280
+node_modules/@types/node/http.d.ts:354
 
 ___
 
@@ -251,6 +269,48 @@ node_modules/@types/node/stream.d.ts:26
 
 ___
 
+### readableEncoding
+
+• `Readonly` **readableEncoding**: ``null`` \| `BufferEncoding`
+
+#### Inherited from
+
+IncomingMessage.readableEncoding
+
+#### Defined in
+
+node_modules/@types/node/stream.d.ts:27
+
+___
+
+### readableEnded
+
+• `Readonly` **readableEnded**: `boolean`
+
+#### Inherited from
+
+IncomingMessage.readableEnded
+
+#### Defined in
+
+node_modules/@types/node/stream.d.ts:28
+
+___
+
+### readableFlowing
+
+• `Readonly` **readableFlowing**: ``null`` \| `boolean`
+
+#### Inherited from
+
+IncomingMessage.readableFlowing
+
+#### Defined in
+
+node_modules/@types/node/stream.d.ts:29
+
+___
+
 ### readableHighWaterMark
 
 • `Readonly` **readableHighWaterMark**: `number`
@@ -261,7 +321,7 @@ IncomingMessage.readableHighWaterMark
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:27
+node_modules/@types/node/stream.d.ts:30
 
 ___
 
@@ -275,7 +335,7 @@ IncomingMessage.readableLength
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:28
+node_modules/@types/node/stream.d.ts:31
 
 ___
 
@@ -289,7 +349,7 @@ IncomingMessage.readableObjectMode
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:29
+node_modules/@types/node/stream.d.ts:32
 
 ___
 
@@ -303,7 +363,7 @@ IncomingMessage.socket
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:298
+node_modules/@types/node/http.d.ts:372
 
 ___
 
@@ -319,7 +379,7 @@ IncomingMessage.statusCode
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:293
+node_modules/@types/node/http.d.ts:367
 
 ___
 
@@ -335,7 +395,7 @@ IncomingMessage.statusMessage
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:297
+node_modules/@types/node/http.d.ts:371
 
 ___
 
@@ -353,7 +413,7 @@ IncomingMessage.trailers
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:279
+node_modules/@types/node/http.d.ts:353
 
 ___
 
@@ -369,7 +429,7 @@ IncomingMessage.url
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:289
+node_modules/@types/node/http.d.ts:363
 
 ## Methods
 
@@ -383,11 +443,11 @@ node_modules/@types/node/http.d.ts:289
 
 #### Inherited from
 
-IncomingMessage.\_\_@asyncIterator@21781
+IncomingMessage.\_\_@asyncIterator@21783
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:103
+node_modules/@types/node/stream.d.ts:106
 
 ___
 
@@ -412,7 +472,7 @@ IncomingMessage.\_destroy
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:42
+node_modules/@types/node/stream.d.ts:45
 
 ___
 
@@ -436,7 +496,7 @@ IncomingMessage.\_read
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:32
+node_modules/@types/node/stream.d.ts:35
 
 ___
 
@@ -469,7 +529,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:54
+node_modules/@types/node/stream.d.ts:57
 
 ▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -490,7 +550,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:55
+node_modules/@types/node/stream.d.ts:58
 
 ▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -511,7 +571,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:56
+node_modules/@types/node/stream.d.ts:59
 
 ▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -532,7 +592,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:57
+node_modules/@types/node/stream.d.ts:60
 
 ▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -553,7 +613,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:58
+node_modules/@types/node/stream.d.ts:61
 
 ▸ **addListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -574,7 +634,7 @@ IncomingMessage.addListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:59
+node_modules/@types/node/stream.d.ts:62
 
 ___
 
@@ -598,7 +658,7 @@ IncomingMessage.destroy
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:299
+node_modules/@types/node/http.d.ts:373
 
 ___
 
@@ -622,7 +682,7 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:61
+node_modules/@types/node/stream.d.ts:64
 
 ▸ **emit**(`event`, `chunk`): `boolean`
 
@@ -643,7 +703,7 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:62
+node_modules/@types/node/stream.d.ts:65
 
 ▸ **emit**(`event`): `boolean`
 
@@ -663,7 +723,7 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:63
+node_modules/@types/node/stream.d.ts:66
 
 ▸ **emit**(`event`): `boolean`
 
@@ -683,7 +743,7 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:64
+node_modules/@types/node/stream.d.ts:67
 
 ▸ **emit**(`event`, `err`): `boolean`
 
@@ -704,7 +764,7 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:65
+node_modules/@types/node/stream.d.ts:68
 
 ▸ **emit**(`event`, ...`args`): `boolean`
 
@@ -725,7 +785,7 @@ IncomingMessage.emit
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:66
+node_modules/@types/node/stream.d.ts:69
 
 ___
 
@@ -743,7 +803,7 @@ IncomingMessage.eventNames
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:33
+node_modules/@types/node/globals.d.ts:655
 
 ___
 
@@ -761,7 +821,7 @@ IncomingMessage.getMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:29
+node_modules/@types/node/globals.d.ts:647
 
 ___
 
@@ -779,7 +839,7 @@ IncomingMessage.isPaused
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:37
+node_modules/@types/node/stream.d.ts:40
 
 ___
 
@@ -803,7 +863,7 @@ IncomingMessage.listenerCount
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:34
+node_modules/@types/node/globals.d.ts:651
 
 ___
 
@@ -827,7 +887,7 @@ IncomingMessage.listeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:30
+node_modules/@types/node/globals.d.ts:648
 
 ___
 
@@ -852,7 +912,7 @@ IncomingMessage.off
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:26
+node_modules/@types/node/globals.d.ts:644
 
 ___
 
@@ -877,7 +937,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:68
+node_modules/@types/node/stream.d.ts:71
 
 ▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -898,7 +958,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:69
+node_modules/@types/node/stream.d.ts:72
 
 ▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -919,7 +979,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:70
+node_modules/@types/node/stream.d.ts:73
 
 ▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -940,7 +1000,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:71
+node_modules/@types/node/stream.d.ts:74
 
 ▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -961,7 +1021,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:72
+node_modules/@types/node/stream.d.ts:75
 
 ▸ **on**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -982,7 +1042,7 @@ IncomingMessage.on
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:73
+node_modules/@types/node/stream.d.ts:76
 
 ___
 
@@ -1007,7 +1067,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:75
+node_modules/@types/node/stream.d.ts:78
 
 ▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1028,7 +1088,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:76
+node_modules/@types/node/stream.d.ts:79
 
 ▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1049,7 +1109,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:77
+node_modules/@types/node/stream.d.ts:80
 
 ▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1070,7 +1130,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:78
+node_modules/@types/node/stream.d.ts:81
 
 ▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1091,7 +1151,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:79
+node_modules/@types/node/stream.d.ts:82
 
 ▸ **once**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1112,7 +1172,7 @@ IncomingMessage.once
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:80
+node_modules/@types/node/stream.d.ts:83
 
 ___
 
@@ -1130,7 +1190,7 @@ IncomingMessage.pause
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:35
+node_modules/@types/node/stream.d.ts:38
 
 ___
 
@@ -1187,7 +1247,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:82
+node_modules/@types/node/stream.d.ts:85
 
 ▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1208,7 +1268,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:83
+node_modules/@types/node/stream.d.ts:86
 
 ▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1229,7 +1289,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:84
+node_modules/@types/node/stream.d.ts:87
 
 ▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1250,7 +1310,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:85
+node_modules/@types/node/stream.d.ts:88
 
 ▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1271,7 +1331,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:86
+node_modules/@types/node/stream.d.ts:89
 
 ▸ **prependListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1292,7 +1352,7 @@ IncomingMessage.prependListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:87
+node_modules/@types/node/stream.d.ts:90
 
 ___
 
@@ -1317,7 +1377,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:89
+node_modules/@types/node/stream.d.ts:92
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1338,7 +1398,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:90
+node_modules/@types/node/stream.d.ts:93
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1359,7 +1419,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:91
+node_modules/@types/node/stream.d.ts:94
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1380,7 +1440,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:92
+node_modules/@types/node/stream.d.ts:95
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1401,7 +1461,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:93
+node_modules/@types/node/stream.d.ts:96
 
 ▸ **prependOnceListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1422,7 +1482,7 @@ IncomingMessage.prependOnceListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:94
+node_modules/@types/node/stream.d.ts:97
 
 ___
 
@@ -1447,7 +1507,7 @@ IncomingMessage.push
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:41
+node_modules/@types/node/stream.d.ts:44
 
 ___
 
@@ -1471,7 +1531,7 @@ IncomingMessage.rawListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:31
+node_modules/@types/node/globals.d.ts:649
 
 ___
 
@@ -1495,7 +1555,7 @@ IncomingMessage.read
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:33
+node_modules/@types/node/stream.d.ts:36
 
 ___
 
@@ -1519,7 +1579,7 @@ IncomingMessage.removeAllListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:27
+node_modules/@types/node/globals.d.ts:645
 
 ___
 
@@ -1544,7 +1604,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:96
+node_modules/@types/node/stream.d.ts:99
 
 ▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1565,7 +1625,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:97
+node_modules/@types/node/stream.d.ts:100
 
 ▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1586,7 +1646,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:98
+node_modules/@types/node/stream.d.ts:101
 
 ▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1607,7 +1667,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:99
+node_modules/@types/node/stream.d.ts:102
 
 ▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1628,7 +1688,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:100
+node_modules/@types/node/stream.d.ts:103
 
 ▸ **removeListener**(`event`, `listener`): [`ProxyIncomingMessage`](ProxyIncomingMessage.md)
 
@@ -1649,7 +1709,7 @@ IncomingMessage.removeListener
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:101
+node_modules/@types/node/stream.d.ts:104
 
 ___
 
@@ -1667,7 +1727,7 @@ IncomingMessage.resume
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:36
+node_modules/@types/node/stream.d.ts:39
 
 ___
 
@@ -1691,7 +1751,7 @@ IncomingMessage.setEncoding
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:34
+node_modules/@types/node/stream.d.ts:37
 
 ___
 
@@ -1715,7 +1775,7 @@ IncomingMessage.setMaxListeners
 
 #### Defined in
 
-node_modules/@types/node/events.d.ts:28
+node_modules/@types/node/globals.d.ts:646
 
 ___
 
@@ -1740,7 +1800,7 @@ IncomingMessage.setTimeout
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:281
+node_modules/@types/node/http.d.ts:355
 
 ___
 
@@ -1764,7 +1824,7 @@ IncomingMessage.unpipe
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:38
+node_modules/@types/node/stream.d.ts:41
 
 ___
 
@@ -1789,7 +1849,7 @@ IncomingMessage.unshift
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:39
+node_modules/@types/node/stream.d.ts:42
 
 ___
 
@@ -1813,4 +1873,4 @@ IncomingMessage.wrap
 
 #### Defined in
 
-node_modules/@types/node/stream.d.ts:40
+node_modules/@types/node/stream.d.ts:43

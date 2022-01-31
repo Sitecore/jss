@@ -1,12 +1,6 @@
 [@sitecore-jss/sitecore-jss-nextjs](../README.md) / SitecoreContextState
 
-# Interface: SitecoreContextState<ContextType\>
-
-## Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ContextType` | `any` |
+# Interface: SitecoreContextState
 
 ## Table of contents
 
@@ -22,11 +16,11 @@
 
 ### context
 
-• **context**: `ContextType`
+• **context**: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:10
+sitecore-jss-react/types/components/SitecoreContext.d.ts:11
 
 ## Methods
 
@@ -38,7 +32,7 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:10
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `ContextType` |
+| `value` | [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue) |
 
 #### Returns
 
@@ -46,4 +40,4 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:10
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:9
+sitecore-jss-react/types/components/SitecoreContext.d.ts:10

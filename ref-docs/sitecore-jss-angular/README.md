@@ -134,7 +134,7 @@ sitecore-jss/types/layout/models.d.ts:59
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:48](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L48)
+[sitecore-jss-angular/src/components/placeholder.token.ts:48](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L48)
 
 ## Functions
 
@@ -221,9 +221,9 @@ ___
 
 ▸ `Const` **handleEditorAnchors**(): `void`
 
-**`description`** in Experience Editor with an Angular sample app, anchor tags
+**`description`** in Experience Editor, anchor tags
 with both onclick and href attributes will use the href, blocking the onclick from firing.
-This function makes it so the anchor tags function as intended in an Angular sample when using Experience Editor
+This function makes it so the anchor tags function as intended in the sample when using Experience Editor
 
 The Mutation Observer API is used to observe changes to the body, then select all elements with href="#" and an onclick,
 and replaces the # value with javascript:void(0); which prevents the anchor tag from blocking the onclick event handler.
@@ -236,7 +236,7 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 
 #### Defined in
 
-[sitecore-jss-angular/src/utils.ts:12](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/utils.ts#L12)
+sitecore-jss/types/utils/editing.d.ts:39
 
 ___
 
@@ -274,7 +274,7 @@ true if executing within the Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:35
+sitecore-jss/types/utils/editing.d.ts:45
 
 ___
 
@@ -294,7 +294,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
@@ -346,4 +346,4 @@ Resets Sitecore Experience Editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:40
+sitecore-jss/types/utils/editing.d.ts:50
