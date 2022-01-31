@@ -1,6 +1,7 @@
 const express = require('express');
 const compression = require('compression');
-const { GraphQLLayoutService, GraphQLDictionaryService } = require('@sitecore-jss/sitecore-jss');
+const { GraphQLLayoutService } = require('@sitecore-jss/sitecore-jss/layout');
+const { GraphQLDictionaryService} = require('@sitecore-jss/sitecore-jss/i18n');
 const config = require('./config');
 
 const server = express();
