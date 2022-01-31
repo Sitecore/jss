@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "20.0.0-canary.118",
+  "version": "20.0.0-canary.119",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
