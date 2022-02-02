@@ -41,7 +41,7 @@
     "start:watch-components": "node scripts/generate-component-factory.js --watch",
     "build:client": "cross-env-shell BUILD_TARGET_ENV=client PUBLIC_URL=$npm_package_config_sitecoreDistPath \"vue-cli-service build\"",
     "build:server": "cross-env-shell BUILD_TARGET_ENV=server \"vue-cli-service build --no-clean\"",
-    "bootstrap": "node scripts/bootstrap.js",
+    "bootstrap": "set \"FETCH_WITH=<%- fetchWith %>\" && node scripts/bootstrap.js",
     "graphql:update": "cross-env-shell VUE_CLI_BABEL_TRANSPILE_MODULES=true VUE_CLI_BABEL_TARGET_NODE=true \"node -r @babel/register ./scripts/update-graphql-fragment-data.js\"",
     "lint": "vue-cli-service lint ./src/**/*.vue ./src/**/*.js ./sitecore/definitions/**/*.js ./scripts/**/*.js ./server/**/*.js ./data/**/*.yml"
   },

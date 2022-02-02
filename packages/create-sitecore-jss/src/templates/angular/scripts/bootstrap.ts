@@ -11,6 +11,10 @@ const projects = require('../angular.json').projects;
 
 const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
 
+if (disconnected && process.env.FETCH_WITH === 'GraphQL') {
+  throw new Error("GraphQL requests to Dictionary and Layout service are not supported in disconnected mode.")
+}
+
 /*
   CONFIG GENERATION
   Generates the /src/environments/environment.ts file which contains runtime configuration

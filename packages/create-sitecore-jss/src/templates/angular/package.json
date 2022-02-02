@@ -33,7 +33,7 @@
     "build:client": "cross-env-shell ng build --prod --deploy-url $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
     "build:server": "cross-env-shell ng run <%- appName %>:server:production --output-path=$npm_package_config_buildArtifactsPath/server --output-hashing=none --bundle-dependencies true",
     "postbuild:server": "move-cli ./dist/server/main.js ./dist/server.bundle.js && del-cli ./dist/server",
-    "bootstrap": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
+    "bootstrap": "set \"FETCH_WITH=<%- fetchWith %>\" && ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
     "graphql:update": "ts-node --project src/tsconfig.webpack-server.json ./scripts/update-graphql-fragment-data.ts"
   },
   "private": true,
