@@ -16,6 +16,9 @@ const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
 const port = process.env.PORT || 3000;
 const configOverride: { [key: string]: string } = {};
 if (disconnected) {
+  if (process.env.FETCH_WITH === 'GraphQL') {
+    throw new Error('GraphQL requests to Dictionary and Layout service are not supported in disconnected mode.')
+  }
   configOverride.sitecoreApiHost = `http://localhost:${port}`;
 }
 
