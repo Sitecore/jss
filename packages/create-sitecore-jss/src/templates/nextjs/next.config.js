@@ -47,9 +47,10 @@ const nextConfig = {
   async rewrites() {
     // When in connected mode we want to proxy Sitecore paths off to Sitecore
     return [
+      // API endpoints
       {
-        source: '/sitecore/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
+        source: '/sitecore/api/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/sitecore/api/:path*`,
       },
       // media items
       {
@@ -58,8 +59,8 @@ const nextConfig = {
       },
       // visitor identification
       {
-        source: '/layouts/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
+        source: '/layouts/system/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/layouts/system/:path*`,
       },
     ];
   },
