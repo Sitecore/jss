@@ -102,7 +102,7 @@
     "build:client": "cross-env-shell PUBLIC_URL=$npm_package_config_sitecoreDistPath \"react-scripts build\"",
     "build:client:rendering-host": "cross-env-shell PUBLIC_URL=$npm_package_config_tunnelUrl \"react-scripts build\"",
     "build:server": "cross-env-shell NODE_ENV=production \"webpack --config server/server.webpack.config.js\"",
-    "bootstrap": "set \"FETCH_WITH=<%- fetchWith %>\" && node scripts/bootstrap.js",
+    "bootstrap": "cross-env-shell FETCH_WITH=<%- fetchWith %> \"node scripts/bootstrap.js\"",
     "graphql:update": "node -r @babel/register ./scripts/update-graphql-fragment-data.js",
     "test": "react-scripts test --env=jsdom",
     "lint": "eslint ./src/**/*.js ./sitecore/definitions/**/*.js ./scripts/**/*.js ./server/**/*.js ./data/**/*.yml",
