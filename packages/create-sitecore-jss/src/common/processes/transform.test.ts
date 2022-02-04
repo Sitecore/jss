@@ -209,13 +209,11 @@ describe('transform', () => {
 
   describe('transform', () => {
     let diffFilesStub: SinonStub;
-    let transformFilenameStub: SinonStub;
     let processExitStub: SinonStub;
     let writeFileToPathStub: SinonStub;
 
     afterEach(() => {
       diffFilesStub?.restore();
-      transformFilenameStub?.restore();
       processExitStub?.restore();
       writeFileToPathStub?.restore();
     });
@@ -223,9 +221,6 @@ describe('transform', () => {
     describe('transformPostInitializer', () => {
       it('should overwrite a single file', async () => {
         diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('yes'));
-        transformFilenameStub = sinon
-          .stub(transform, 'transformFilename')
-          .returns('transformed-path');
         writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
         const answers = {
@@ -235,33 +230,22 @@ describe('transform', () => {
           fetchWith: 'REST',
           force: false,
           templates: [],
+          language: 'en',
         };
 
         await diffAndWriteFiles({
           rendered: 'test',
-          pathToNewFile: 'new/file/path',
-          file: 'path/to/file',
-          destinationPath: 'samples\\next',
+          pathToNewFile: 'samples/next/{{language}}.txt',
           answers,
         });
 
-        expect(
-          writeFileToPathStub.calledOnceWith('samples\\next\\transformed-path', 'test')
-        ).to.equal(true);
-
-        expect(transformFilenameStub.calledTwice).to.equal(true);
-
-        expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
-        expect(transformFilenameStub.getCall(1).args).to.deep.equal(['path/to/file', answers]);
+        expect(writeFileToPathStub.calledOnceWith('samples/next/en.txt', 'test')).to.equal(true);
 
         expect(answers.force).to.equal(false);
       });
 
       it('should overwrite a single file and later do not ask the same question', async () => {
         diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('yes to all'));
-        transformFilenameStub = sinon
-          .stub(transform, 'transformFilename')
-          .returns('transformed-path');
         writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
         const answers = {
@@ -271,33 +255,22 @@ describe('transform', () => {
           fetchWith: 'REST',
           force: false,
           templates: [],
+          language: 'en',
         };
 
         await diffAndWriteFiles({
           rendered: 'test',
-          pathToNewFile: 'new/file/path',
-          file: 'path/to/file',
-          destinationPath: 'samples\\next',
+          pathToNewFile: 'samples/next/{{language}}.txt',
           answers,
         });
 
-        expect(
-          writeFileToPathStub.calledOnceWith('samples\\next\\transformed-path', 'test')
-        ).to.equal(true);
-
-        expect(transformFilenameStub.calledTwice).to.equal(true);
-
-        expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
-        expect(transformFilenameStub.getCall(1).args).to.deep.equal(['path/to/file', answers]);
+        expect(writeFileToPathStub.calledOnceWith('samples/next/en.txt', 'test')).to.equal(true);
 
         expect(answers.force).to.equal(true);
       });
 
       it('should skip file', async () => {
         diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('skip'));
-        transformFilenameStub = sinon
-          .stub(transform, 'transformFilename')
-          .returns('transformed-path');
         writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
         const answers = {
@@ -307,30 +280,22 @@ describe('transform', () => {
           fetchWith: 'REST',
           force: false,
           templates: [],
+          language: 'en',
         };
 
         await diffAndWriteFiles({
           rendered: 'test',
-          pathToNewFile: 'new/file/path',
-          file: 'path/to/file',
-          destinationPath: 'samples\\next',
+          pathToNewFile: 'samples/next/{{language}}.txt',
           answers,
         });
 
         expect(writeFileToPathStub.notCalled).to.equal(true);
-
-        expect(transformFilenameStub.calledTwice).to.equal(true);
-
-        expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
 
         expect(answers.force).to.equal(false);
       });
 
       it('should abort a process', async () => {
         diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('abort'));
-        transformFilenameStub = sinon
-          .stub(transform, 'transformFilename')
-          .returns('transformed-path');
         writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
         processExitStub = sinon.stub(process, 'exit');
@@ -342,21 +307,16 @@ describe('transform', () => {
           fetchWith: 'REST',
           force: false,
           templates: [],
+          language: 'en',
         };
 
         await diffAndWriteFiles({
           rendered: 'test',
-          pathToNewFile: 'new/file/path',
-          file: 'path/to/file',
-          destinationPath: 'samples\\next',
+          pathToNewFile: 'samples/next/{{language}}.txt',
           answers,
         });
 
         expect(writeFileToPathStub.notCalled).to.equal(true);
-
-        expect(transformFilenameStub.calledTwice).to.equal(true);
-
-        expect(transformFilenameStub.getCall(0).args).to.deep.equal(['new/file/path', answers]);
 
         expect(processExitStub.calledOnce).to.equal(true);
 
