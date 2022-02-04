@@ -6,6 +6,11 @@ export enum SitecoreTemplateId {
   DictionaryEntry = '6d1cd89719364a3aa511289a94c2a7b1',
 }
 
+export const FETCH_WITH = {
+  GRAPHQL: 'GraphQL',
+  REST: 'Rest',
+};
+
 export const JSS_MODE = {
   CONNECTED: 'connected',
   DISCONNECTED: 'disconnected',
