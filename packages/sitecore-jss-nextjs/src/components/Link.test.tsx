@@ -41,6 +41,7 @@ describe('<Link />', () => {
         class: 'my-link',
         title: 'My Link',
         target: '_blank',
+        querystring: 'foo=bar',
       },
     };
 
@@ -52,7 +53,7 @@ describe('<Link />', () => {
 
     const link = c.find('a');
 
-    expect(link.html()).to.contain(`href="${field.value.href}"`);
+    expect(link.html()).to.contain(`href="${field.value.href}?${field.value.querystring}"`);
     expect(link.html()).to.contain(`class="${field.value.class}"`);
     expect(link.html()).to.contain(`title="${field.value.title}"`);
     expect(link.html()).to.contain(`target="${field.value.target}"`);
