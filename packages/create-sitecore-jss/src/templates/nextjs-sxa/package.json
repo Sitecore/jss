@@ -1,0 +1,15 @@
+﻿{
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "nprogress": "~0.2.0"
+  },
+  "devDependencies": {
+    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary",
+    "@sitecore-jss/sitecore-jss-nextjs": "^20.0.0-canary",
+    "@types/nprogress": "^0.2.0"
+  },
+  "scripts": {
+    "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
+    "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts"
+  }
+}
