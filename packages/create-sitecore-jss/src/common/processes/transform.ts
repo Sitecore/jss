@@ -207,7 +207,7 @@ export const transform = async (
 
       // Rename gitignore after the fact to prevent npm from renaming it to .npmignore
       // See: https://github.com/npm/npm/issues/1862
-      if (file.endsWith('gitignore')) {
+      if (!file.endsWith('.gitignore') && file.endsWith('gitignore')) {
         pathToNewFile = pathToNewFile.replace(/\gitignore$/, '.gitignore');
       }
 
