@@ -1,7 +1,7 @@
 const { constants } = require('@sitecore-jss/sitecore-jss-vue');
 const configGenerator = require('./generate-config');
 const vueConfig = require('../vue.config');
-import chalk from 'chalk';
+const chalk = require('chalk');
 
 /*
   BOOTSTRAPPING

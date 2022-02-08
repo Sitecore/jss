@@ -1,6 +1,6 @@
 const { constants } = require('@sitecore-jss/sitecore-jss-react');
 const configGenerator = require('./generate-config');
-import chalk from 'chalk';
+const chalk = require('chalk');
 
 /*
   BOOTSTRAPPING
