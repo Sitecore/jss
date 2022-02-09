@@ -62,7 +62,7 @@ React.Component&lt;SitecoreContextProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
 
 ## Properties
 
@@ -72,7 +72,7 @@ React.Component&lt;SitecoreContextProps\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
 
 ___
 
@@ -100,7 +100,7 @@ React.Component.context
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:447
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:472
 
 ___
 
@@ -114,7 +114,7 @@ React.Component.props
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:472
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:497
 
 ___
 
@@ -135,7 +135,7 @@ React.Component.refs
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:478
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:503
 
 ___
 
@@ -149,7 +149,7 @@ React.Component.state
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:473
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:498
 
 ___
 
@@ -182,7 +182,7 @@ React.Component.contextType
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:429
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:454
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
 
 ## Methods
 
@@ -241,7 +241,7 @@ React.Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:660
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:708
 
 ___
 
@@ -283,7 +283,7 @@ React.Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:692
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:740
 
 ___
 
@@ -324,7 +324,7 @@ React.Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:720
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:768
 
 ___
 
@@ -352,7 +352,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:589
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:637
 
 ___
 
@@ -372,7 +372,7 @@ React.Component.componentDidMount
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:568
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:616
 
 ___
 
@@ -402,7 +402,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:631
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:679
 
 ___
 
@@ -432,7 +432,7 @@ React.Component.componentWillMount
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:646
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:694
 
 ___
 
@@ -472,7 +472,7 @@ React.Component.componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:675
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:723
 
 ___
 
@@ -493,7 +493,7 @@ React.Component.componentWillUnmount
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:584
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:632
 
 ___
 
@@ -532,7 +532,7 @@ React.Component.componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:705
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:753
 
 ___
 
@@ -556,7 +556,7 @@ React.Component.forceUpdate
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:464
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:489
 
 ___
 
@@ -588,7 +588,7 @@ React.Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:625
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:673
 
 ___
 
@@ -606,7 +606,7 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
+[sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
 
 ___
 
@@ -637,7 +637,7 @@ React.Component.setState
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:459
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:484
 
 ___
 
@@ -672,4 +672,4 @@ React.Component.shouldComponentUpdate
 
 #### Defined in
 
-sitecore-jss-react-native/node_modules/@types/react/index.d.ts:579
+sitecore-jss-react-native/node_modules/@types/react/index.d.ts:627

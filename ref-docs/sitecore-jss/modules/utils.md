@@ -11,6 +11,7 @@
 
 ### Functions
 
+- [handleEditorAnchors](utils.md#handleeditoranchors)
 - [isEditorActive](utils.md#iseditoractive)
 - [isExperienceEditorActive](utils.md#isexperienceeditoractive)
 - [isServer](utils.md#isserver)
@@ -19,6 +20,29 @@
 - [resolveUrl](utils.md#resolveurl)
 
 ## Functions
+
+### handleEditorAnchors
+
+▸ `Const` **handleEditorAnchors**(): `void`
+
+**`description`** in Experience Editor, anchor tags
+with both onclick and href attributes will use the href, blocking the onclick from firing.
+This function makes it so the anchor tags function as intended in the sample when using Experience Editor
+
+The Mutation Observer API is used to observe changes to the body, then select all elements with href="#" and an onclick,
+and replaces the # value with javascript:void(0); which prevents the anchor tag from blocking the onclick event handler.
+
+**`see`** Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/MutationObserver
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[utils/editing.ts:91](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L91)
+
+___
 
 ### isEditorActive
 
@@ -34,7 +58,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-[utils/editing.ts:67](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L67)
+[utils/editing.ts:67](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L67)
 
 ___
 
@@ -54,7 +78,7 @@ true if executing within the Sitecore Experience Editor
 
 #### Defined in
 
-[utils/editing.ts:87](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L87)
+[utils/editing.ts:126](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L126)
 
 ___
 
@@ -72,7 +96,7 @@ true if executing server-side
 
 #### Defined in
 
-[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/is-server.ts#L5)
 
 ___
 
@@ -88,7 +112,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-[utils/editing.ts:74](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L74)
+[utils/editing.ts:74](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L74)
 
 ___
 
@@ -106,7 +130,7 @@ Resets Sitecore Experience Editor "chromes"
 
 #### Defined in
 
-[utils/editing.ts:93](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L93)
+[utils/editing.ts:132](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L132)
 
 ___
 
@@ -134,4 +158,4 @@ a URL string
 
 #### Defined in
 
-[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/resolve-url.ts#L24)
+[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/resolve-url.ts#L24)

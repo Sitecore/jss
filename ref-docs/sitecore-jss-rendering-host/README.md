@@ -42,7 +42,7 @@ resolver
 
 #### Defined in
 
-[defaultAppInvocationInfoResolver.ts:19](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L19)
+[defaultAppInvocationInfoResolver.ts:19](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L19)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[ssrMiddleware.ts:45](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L45)
+[ssrMiddleware.ts:45](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/ssrMiddleware.ts#L45)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[devServer.ts:76](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-rendering-host/src/devServer.ts#L76)
+[devServer.ts:77](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/devServer.ts#L77)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `renderHostname` | `string` |
-| `options` | `INgrokOptions` |
+| `options` | `Options` |
 
 #### Returns
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[tunnel.ts:12](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
+[tunnel.ts:12](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
 
 ___
 
@@ -123,4 +123,4 @@ ___
 
 #### Defined in
 
-[renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)
+[renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)

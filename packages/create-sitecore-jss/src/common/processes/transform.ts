@@ -109,26 +109,23 @@ export const diffFiles = async (
 export const diffAndWriteFiles = async ({
   rendered,
   pathToNewFile,
-  destinationPath,
   answers,
-  file,
 }: {
   rendered: string;
   pathToNewFile: string;
-  destinationPath: string;
   answers: BaseArgs;
-  file: string;
 }) => {
-  const choice = await diffFiles(rendered, transformFilename(pathToNewFile, answers));
-  const destination = `${destinationPath}\\${transformFilename(file, answers)}`;
+  const targetFilePath = transformFilename(pathToNewFile, answers);
+  const choice = await diffFiles(rendered, targetFilePath);
+
   switch (choice) {
     case 'yes':
-      writeFileToPath(destination, rendered);
+      writeFileToPath(targetFilePath, rendered);
       return;
     case 'yes to all':
       // set force to true so diff is not run again
       answers.force = true;
-      writeFileToPath(destination, rendered);
+      writeFileToPath(targetFilePath, rendered);
       return;
     case 'skip':
       return;
@@ -140,7 +137,7 @@ export const diffAndWriteFiles = async ({
       // writeFile to default case so that when an initializer is
       // run for the first time, it will still copy files that
       // do not return a diff.
-      writeFileToPath(destination, rendered);
+      writeFileToPath(targetFilePath, rendered);
       return;
     default:
       return;
@@ -205,8 +202,14 @@ export const transform = async (
 
   for (const file of files) {
     try {
-      const pathToNewFile = `${destinationPath}\\${file}`;
+      let pathToNewFile = `${destinationPath}\\${file}`;
       const pathToTemplate = path.join(templatePath, file);
+
+      // Rename gitignore after the fact to prevent npm from renaming it to .npmignore
+      // See: https://github.com/npm/npm/issues/1862
+      if (!file.endsWith('.gitignore') && file.endsWith('gitignore')) {
+        pathToNewFile = pathToNewFile.replace(/\gitignore$/, '.gitignore');
+      }
 
       if (isFileForSkip && isFileForSkip(file)) {
         continue;
@@ -241,12 +244,10 @@ export const transform = async (
         await diffAndWriteFiles({
           rendered: str,
           pathToNewFile,
-          destinationPath,
           answers,
-          file,
         });
       } else {
-        writeFileToPath(`${destinationPath}\\${transformFilename(file, answers)}`, str);
+        writeFileToPath(transformFilename(pathToNewFile, answers), str);
       }
     } catch (error) {
       console.log(chalk.red(error));

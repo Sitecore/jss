@@ -35,7 +35,7 @@ Static utility class for Sitecore Horizon Editor
 
 #### Defined in
 
-[utils/editing.ts:46](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L46)
+[utils/editing.ts:46](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L46)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[utils/editing.ts:53](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/utils/editing.ts#L53)
+[utils/editing.ts:53](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L53)

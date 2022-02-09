@@ -35,7 +35,7 @@ found image tag
 
 #### Defined in
 
-[media/media-api.ts:18](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/media/media-api.ts#L18)
+[media/media-api.ts:18](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/media/media-api.ts#L18)
 
 ___
 
@@ -67,7 +67,7 @@ requiredParams
 
 #### Defined in
 
-[media/media-api.ts:44](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/media/media-api.ts#L44)
+[media/media-api.ts:44](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/media/media-api.ts#L44)
 
 ___
 
@@ -102,7 +102,7 @@ src set
 
 #### Defined in
 
-[media/media-api.ts:113](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/media/media-api.ts#L113)
+[media/media-api.ts:113](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/media/media-api.ts#L113)
 
 ___
 
@@ -118,11 +118,11 @@ If no `params` are sent, the original media URL is returned.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `params?` | ``null`` \| { [key: string]: `string` \| `number` \| `undefined`;  } |
-| `mediaUrlPrefix` | `RegExp` |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `url` | `string` | `undefined` |
+| `params?` | ``null`` \| { [key: string]: `string` \| `number` \| `undefined`;  } | `undefined` |
+| `mediaUrlPrefix` | `RegExp` | `mediaUrlPrefixRegex` |
 
 #### Returns
 
@@ -132,4 +132,4 @@ url
 
 #### Defined in
 
-[media/media-api.ts:61](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss/src/media/media-api.ts#L61)
+[media/media-api.ts:61](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/media/media-api.ts#L61)

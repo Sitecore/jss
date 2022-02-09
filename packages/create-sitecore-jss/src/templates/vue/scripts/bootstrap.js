@@ -1,6 +1,7 @@
 const { constants } = require('@sitecore-jss/sitecore-jss-vue');
 const configGenerator = require('./generate-config');
 const vueConfig = require('../vue.config');
+const chalk = require('chalk');
 
 /*
   BOOTSTRAPPING
@@ -10,6 +11,10 @@ const vueConfig = require('../vue.config');
 */
 
 const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
+
+if (disconnected && process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL) {
+  throw new Error(chalk.red("GraphQL requests to Dictionary and Layout service are not supported in disconnected mode."))
+}
 
 /*
   CONFIG GENERATION

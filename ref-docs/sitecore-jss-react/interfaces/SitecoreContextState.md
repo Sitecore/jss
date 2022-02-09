@@ -1,12 +1,6 @@
 [@sitecore-jss/sitecore-jss-react](../README.md) / SitecoreContextState
 
-# Interface: SitecoreContextState<ContextType\>
-
-## Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ContextType` | `any` |
+# Interface: SitecoreContextState
 
 ## Table of contents
 
@@ -22,11 +16,11 @@
 
 ### context
 
-• **context**: `ContextType`
+• **context**: [`SitecoreContextValue`](../README.md#sitecorecontextvalue)
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L14)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)
 
 ## Methods
 
@@ -38,7 +32,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `ContextType` |
+| `value` | [`LayoutServiceData`](LayoutServiceData.md) \| [`SitecoreContextValue`](../README.md#sitecorecontextvalue) |
 
 #### Returns
 
@@ -46,4 +40,4 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:13](https://github.com/Sitecore/jss/blob/3d7cb1a8/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L13)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L14)
