@@ -1,5 +1,6 @@
 import { generateConfig } from './generate-config';
 import { constants } from '@sitecore-jss/sitecore-jss-nextjs';
+import chalk from 'chalk';
 /*
   BOOTSTRAPPING
   The bootstrap process runs before build, and generates JS that needs to be
@@ -17,7 +18,7 @@ const port = process.env.PORT || 3000;
 const configOverride: { [key: string]: string } = {};
 if (disconnected) {
   if (process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL) {
-    throw new Error('GraphQL requests to Dictionary and Layout service are not supported in disconnected mode.')
+    throw new Error(chalk.red('GraphQL requests to Dictionary and Layout service are not supported in disconnected mode.'))
   }
   configOverride.sitecoreApiHost = `http://localhost:${port}`;
 }
