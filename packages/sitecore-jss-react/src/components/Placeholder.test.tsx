@@ -13,8 +13,10 @@ import { SitecoreContext } from './SitecoreContext';
 import {
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
+  sxaRenderingVariantData,
 } from '../testData/non-ee-data';
 import { convertedData as eeData, emptyPlaceholderData } from '../testData/ee-data';
+import * as SxaRichText from '../testData/sxa-rich-text';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { HiddenRendering } from './HiddenRendering';
 
@@ -269,6 +271,47 @@ describe('<Placeholder />', () => {
       });
     });
   });
+
+  describe('SXA rendering variants', () => {
+    const componentFactory: ComponentFactory = (componentName: string, exportName?: string) => {
+      const components = new Map();
+    
+      components.set('RichText', SxaRichText);
+
+      if (exportName) return components.get(componentName)[exportName];
+    
+      return components.get(componentName) || null;
+    };
+
+    it('should render', () => {
+      const component = sxaRenderingVariantData.sitecore.route as RouteData;
+      const phKey = 'main';
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
+      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal('rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-x');
+      expect(renderedComponent.find('.title').length).to.equal(1);
+      expect(renderedComponent.find('.title').text()).to.equal('Rich Text Rendering Variant');
+      expect(renderedComponent.find('.text').length).to.equal(1);
+      expect(renderedComponent.find('.text').text()).to.equal('Test RichText');
+    })
+
+    it('should render another rendering varint', () => {
+      const component = sxaRenderingVariantData.sitecore.route as RouteData;
+      const phKey = 'main-second';
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
+      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal('rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-y');
+      expect(renderedComponent.find('.default').length).to.equal(1);
+    })
+  })
 
   it('should populate the "key" attribute of placeholder chrome', () => {
     const component: any = eeData.sitecore.route;
