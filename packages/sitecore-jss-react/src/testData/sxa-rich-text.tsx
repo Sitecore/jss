@@ -7,7 +7,7 @@ interface Fields {
 }
 
 type RichTextProps = {
-	params: { [key: string]: string }
+  params: { [key: string]: string }
   fields: Fields;
 };
 
