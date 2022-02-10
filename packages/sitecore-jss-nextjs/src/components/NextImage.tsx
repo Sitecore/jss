@@ -15,15 +15,10 @@ import Image, {
 
 type NextImageProps = Omit<ImageProps, 'media'> & Partial<NextImageProperties>;
 
-export type ImageConfigComplete = {
-  path: string;
-};
-
-export const loader: ImageLoader = ({ src, width }: ImageLoaderProps): string => {
+export const loader: ImageLoader = ({ config, src, width }: ImageLoaderProps): string => {
   try {
-    const { path: configPath } = (process.env.__NEXT_IMAGE_OPTS as any) as ImageConfigComplete;
     const r = /^(?:[a-z]+:)?\/\//i;
-    const url = r.test(src) ? new URL(`${src}`) : new URL(`${configPath}${src}`);
+    const url = r.test(src) ? new URL(`${src}`) : new URL(`${config.path}${src}`);
     const params = url.searchParams;
     params.set('mw', params.get('mw') || width.toString());
     params.delete('w');
