@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import path from 'path';
+import path, { sep } from 'path';
 import { prompt } from 'inquirer';
 import {
   Initializer,
@@ -20,7 +20,7 @@ export default class NextjsStyleguideInitializer implements Initializer {
   }
 
   async init(args: NextjsStyleguideArgs) {
-    const pkg = openPackageJson(`${args.destination}\\package.json`);
+    const pkg = openPackageJson(`${args.destination}${sep}package.json`);
 
     const answers = await prompt<StyleguideAnswer>(styleguidePrompts, args);
 
