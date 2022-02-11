@@ -63,7 +63,7 @@ const main = async () => {
 
   // validate/gather destination
   const defaultDestination = `${process.cwd()}${
-    argv.appName ? `${sep}` + argv.appName : `${sep}${templates[0]}`
+    argv.appName ? sep + argv.appName : `${sep}${templates[0]}`
   }`;
 
   let destination = argv.destination;
