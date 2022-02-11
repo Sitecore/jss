@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import fs from 'fs';
-import path from 'path';
+import path, { sep } from 'path';
 import { InitializerFactory } from '../../InitializerFactory';
 import { JsonObjectType } from '../processes/transform';
 
@@ -31,7 +31,7 @@ export const getPascalCaseName = (name: string): string => {
  * @returns `package.json` data
  */
 export const openPackageJson = (pkgPath?: string) => {
-  const filePath = path.resolve(pkgPath ?? './package.json');
+  const filePath = path.resolve(pkgPath ?? `.${sep}package.json`);
   try {
     const data = fs.readFileSync(filePath, 'utf8');
     return data ? JSON.parse(data) : undefined;
@@ -47,7 +47,7 @@ export const openPackageJson = (pkgPath?: string) => {
  * @param {string} [pkgPath] a path to a file. Default is './package.json'.
  */
 export const writePackageJson = (data: { [key: string]: unknown }, pkgPath?: string) => {
-  const filePath = path.resolve(pkgPath ?? './package.json');
+  const filePath = path.resolve(pkgPath ?? `.${sep}package.json`);
   try {
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), { encoding: 'utf8' });
   } catch (error) {

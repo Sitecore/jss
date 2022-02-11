@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import fs from 'fs';
-import path from 'path';
+import path, { sep } from 'path';
 import chalk from 'chalk';
 import { prompt } from 'inquirer';
 import { initRunner } from './init-runner';
@@ -63,7 +63,7 @@ const main = async () => {
 
   // validate/gather destination
   const defaultDestination = `${process.cwd()}${
-    argv.appName ? '\\' + argv.appName : `\\${templates[0]}`
+    argv.appName ? sep + argv.appName : `${sep}${templates[0]}`
   }`;
 
   let destination = argv.destination;
