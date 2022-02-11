@@ -139,53 +139,53 @@ export const sxaRenderingVariantData = {
       pageEditing: false,
     },
     route: {
-      name: "Home",
-      displayName: "Home",
+      name: 'Home',
+      displayName: 'Home',
       fields: {
         key: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
       },
       placeholders: {
         main: [
           {
-            uid: "c4d5d43b-5aa8-4e03-8f16-9428f3e02d5c",
-            componentName: "RichText",
-            dataSource: "/sitecore/content/SxaSample/SxaSampleSite/Home/Data/RichText",
+            uid: 'c4d5d43b-5aa8-4e03-8f16-9428f3e02d5c',
+            componentName: 'RichText',
+            dataSource: '/sitecore/content/SxaSample/SxaSampleSite/Home/Data/RichText',
             params: {
-              GridParameters: "col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8",
-              FieldNames: "WithTitle",
-              Styles: "test-css-class-x"
+              GridParameters: 'col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8',
+              FieldNames: 'WithTitle',
+              Styles: 'test-css-class-x',
             },
             fields: {
               Text: {
-                value: "Test RichText"
+                value: 'Test RichText',
               },
               Title: {
-                value: "Rich Text Rendering Variant"
-              }
-            }
-          }
+                value: 'Rich Text Rendering Variant',
+              },
+            },
+          },
         ],
         'main-second': [
           {
-            uid: "c4d5d43b-5aa8-4e03-8f16-9428f3e02d5c",
-            componentName: "RichText",
-            dataSource: "/sitecore/content/SxaSample/SxaSampleSite/Home/Data/RichText",
+            uid: 'c4d5d43b-5aa8-4e03-8f16-9428f3e02d5c',
+            componentName: 'RichText',
+            dataSource: '/sitecore/content/SxaSample/SxaSampleSite/Home/Data/RichText',
             params: {
-              GridParameters: "col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8",
-              FieldNames: "Default",
-              Styles: "test-css-class-y"
+              GridParameters: 'col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8',
+              FieldNames: 'Default',
+              Styles: 'test-css-class-y',
             },
             fields: {
               Text: {
-                value: "Test RichText"
+                value: 'Test RichText',
               },
               Title: {
-                value: "Rich Text Rendering Variant"
-              }
-            }
-          }
-        ]
-      }
-    }
-  }
-}
+                value: 'Rich Text Rendering Variant',
+              },
+            },
+          },
+        ],
+      },
+    },
+  },
+};

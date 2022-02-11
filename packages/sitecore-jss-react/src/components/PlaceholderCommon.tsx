@@ -197,11 +197,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
             fields: { ...placeholderFields, ...componentRendering.fields },
           }),
           ...((placeholderParams || componentRendering.params) && {
-            params: { 
+            params: {
               ...placeholderParams,
               ...componentRendering.params,
               // Provide SXA styles
-              ...(componentRendering.params.FieldNames && { styles: `${componentRendering.params.GridParameters || ''} ${componentRendering.params.Styles || ''}`})
+              ...(componentRendering.params.FieldNames && {
+                styles: `${componentRendering.params.GridParameters || ''} ${componentRendering
+                  .params.Styles || ''}`,
+              }),
             },
           }),
           rendering: componentRendering,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field } from "..";
+import { Field } from '..';
 
 interface Fields {
   Text: Field<string>;
@@ -7,7 +7,7 @@ interface Fields {
 }
 
 type RichTextProps = {
-  params: { [key: string]: string }
+  params: { [key: string]: string };
   fields: Fields;
 };
 
@@ -22,12 +22,8 @@ export const Default = (props: RichTextProps): JSX.Element => {
 export const WithTitle = (props: RichTextProps): JSX.Element => {
   return (
     <div className={`rendering-variant ${props.params.styles}`}>
-      <div className="title">
-        {props.fields.Title.value}
-      </div>
-      <span className="text">
-        {props.fields.Text.value}
-      </span>
+      <div className="title">{props.fields.Title.value}</div>
+      <span className="text">{props.fields.Text.value}</span>
     </div>
   );
 };
