@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs-extra';
 import glob from 'glob';
-import path from 'path';
+import path, { sep } from 'path';
 import { Data, renderFile } from 'ejs';
 import { prompt } from 'inquirer';
 import {
@@ -202,7 +202,7 @@ export const transform = async (
 
   for (const file of files) {
     try {
-      let pathToNewFile = `${destinationPath}\\${file}`;
+      let pathToNewFile = `${destinationPath}${sep}${file}`;
       const pathToTemplate = path.join(templatePath, file);
 
       // Rename gitignore after the fact to prevent npm from renaming it to .npmignore
