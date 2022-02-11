@@ -1,7 +1,7 @@
 import { constants } from '@sitecore-jss/sitecore-jss-angular';
 import { generateConfig } from './generate-config';
 const projects = require('../angular.json').projects;
-import chalk from 'chalk';
+const chalk = require('chalk');
 
 /*
   BOOTSTRAPPING
