@@ -147,6 +147,13 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     this.setState({ error });
   }
 
+  getSXAParams(rendering: ComponentRendering) {
+    return (rendering.params.FieldNames && {
+      styles: `${rendering.params.GridParameters || ''} ${rendering
+        .params.Styles || ''}`,
+    });
+  }
+
   getComponentsForRenderingData(placeholderData: (ComponentRendering | HtmlElementRendering)[]) {
     const {
       name,
@@ -201,10 +208,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               ...placeholderParams,
               ...componentRendering.params,
               // Provide SXA styles
-              ...(componentRendering.params.FieldNames && {
-                styles: `${componentRendering.params.GridParameters || ''} ${componentRendering
-                  .params.Styles || ''}`,
-              }),
+              ...this.getSXAParams(componentRendering)
             },
           }),
           rendering: componentRendering,
