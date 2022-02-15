@@ -147,6 +147,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     this.setState({ error });
   }
 
+  getSXAParams(rendering: ComponentRendering) {
+    return (
+      rendering.params.FieldNames && {
+        styles: `${rendering.params.GridParameters || ''} ${rendering.params.Styles || ''}`,
+      }
+    );
+  }
+
   getComponentsForRenderingData(placeholderData: (ComponentRendering | HtmlElementRendering)[]) {
     const {
       name,
@@ -197,7 +205,12 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
             fields: { ...placeholderFields, ...componentRendering.fields },
           }),
           ...((placeholderParams || componentRendering.params) && {
-            params: { ...placeholderParams, ...componentRendering.params },
+            params: {
+              ...placeholderParams,
+              ...componentRendering.params,
+              // Provide SXA styles
+              ...this.getSXAParams(componentRendering),
+            },
           }),
           rendering: componentRendering,
         };
@@ -210,7 +223,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       .filter((element) => element); // remove nulls
   }
 
-  getComponentForRendering(renderingDefinition: { componentName: string }): ComponentType | null {
+  getComponentForRendering(renderingDefinition: ComponentRendering): ComponentType | null {
     const componentFactory = this.props.componentFactory;
 
     if (!componentFactory || typeof componentFactory !== 'function') {
@@ -218,6 +231,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         `No componentFactory was available to service request for component ${renderingDefinition}`
       );
       return null;
+    }
+
+    // Render SXA Rendering Variant
+    if (renderingDefinition.params?.FieldNames) {
+      return componentFactory(
+        renderingDefinition.componentName,
+        renderingDefinition.params.FieldNames
+      );
     }
 
     return componentFactory(renderingDefinition.componentName);
