@@ -30,7 +30,7 @@ export default class NextjsInitializer implements Initializer {
         type: 'checkbox',
         name: 'addInitializers',
         message: 'Would you like to include any add-on initializers?',
-        choices: ['nextjs-styleguide'],
+        choices: ['nextjs-styleguide', 'nextjs-sxa'],
       });
       addInitializers = addInitAnswer.addInitializers;
     }
