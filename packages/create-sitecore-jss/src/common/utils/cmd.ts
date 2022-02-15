@@ -27,7 +27,18 @@ export const spawnFunc = (
   args: string[],
   options?: SpawnSyncOptionsWithStringEncoding
 ) => {
-  const result = spawn.sync(command, args, Object.assign({}, options));
+  // Use 'inherit' (better UX) when being run within a TTY context, use 'pipe' otherwise.
+  // In most cases, TTY will be the case. However, when running inside of our dotnet template,
+  // stderr is not TTY (will be a socket instead of a WriteStream) and commands such as
+  // `npm install` will error out if using 'inherit' (and ultimately hang the parent process).
+  const defaults = {
+    stdio: [
+      process.stdin.isTTY ? 'inherit' : 'pipe',
+      process.stdout.isTTY ? 'inherit' : 'pipe',
+      process.stderr.isTTY ? 'inherit' : 'pipe',
+    ],
+  };
+  const result = spawn.sync(command, args, Object.assign(defaults, options));
 
   if (result.signal === 'SIGKILL') {
     console.log(

@@ -31,11 +31,13 @@ describe('cmd', () => {
     let spawnStub: SinonStub;
     let exitStub: SinonStub;
     let logStub: SinonStub;
+    let stderrTTYStub: SinonStub;
 
     afterEach(() => {
       spawnStub?.restore();
       exitStub?.restore();
       logStub?.restore();
+      stderrTTYStub?.restore();
     });
 
     it('should exit when result has status', () => {
@@ -53,6 +55,7 @@ describe('cmd', () => {
         spawnStub.calledOnceWith('jss', ['start', 'production'], {
           cwd: 'samples/next',
           encoding: 'utf-8',
+          stdio: ['inherit', 'inherit', 'inherit'],
         })
       ).to.equal(true);
     });
@@ -74,6 +77,7 @@ describe('cmd', () => {
         spawnStub.calledOnceWith('jss', ['start', 'production'], {
           cwd: 'samples/next',
           encoding: 'utf-8',
+          stdio: ['inherit', 'inherit', 'inherit'],
         })
       ).to.equal(true);
 
@@ -101,6 +105,7 @@ describe('cmd', () => {
         spawnStub.calledOnceWith('jss', ['start', 'production'], {
           cwd: 'samples/next',
           encoding: 'utf-8',
+          stdio: ['inherit', 'inherit', 'inherit'],
         })
       ).to.equal(true);
 
@@ -110,6 +115,25 @@ describe('cmd', () => {
             'Someone might have called `kill` or `killall`, or the system could ' +
             'be shutting down.'
         )
+      ).to.equal(true);
+    });
+
+    it('should use pipe for stdio if not tty', () => {
+      spawnStub = sinon
+        .stub(spawn, 'sync')
+        .returns({ output: [], pid: 1, stderr: '', stdout: '', status: 1, signal: 'SIGINFO' });
+      exitStub = sinon.stub(process, 'exit');
+
+      stderrTTYStub = sinon.stub(process.stderr, 'isTTY').value(false);
+
+      cmd.spawnFunc('npm', ['install'], { cwd: 'samples/next', encoding: 'utf-8' });
+
+      expect(
+        spawnStub.calledOnceWith('npm', ['install'], {
+          cwd: 'samples/next',
+          encoding: 'utf-8',
+          stdio: ['inherit', 'inherit', 'pipe'],
+        })
       ).to.equal(true);
     });
   });
