@@ -1,7 +1,7 @@
 {
   "name": "<%- appName %>",
   "description": "Application utilizing Sitecore JavaScript Services and React (create-react-app).",
-  "version": "20.0.0-canary",
+  "version": "21.0.0-canary",
   "private": true,
   "config": {
     "appName": "<%- appName %>",
@@ -32,7 +32,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@apollo/client": "^3.5.6",
-    "@sitecore-jss/sitecore-jss-react": "^20.0.0-canary",
+    "@sitecore-jss/sitecore-jss-react": "^21.0.0-canary",
     "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "cross-fetch": "^3.0.6",
@@ -54,9 +54,9 @@
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.10.4",
     "@babel/register": "~7.6.2",
-    "@sitecore-jss/sitecore-jss-cli": "^20.0.0-canary",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.0-canary",
-    "@sitecore-jss/sitecore-jss-rendering-host": "^20.0.0-canary",
+    "@sitecore-jss/sitecore-jss-cli": "^21.0.0-canary",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^21.0.0-canary",
+    "@sitecore-jss/sitecore-jss-rendering-host": "^21.0.0-canary",
     "babel-eslint": "^10.1.0",
     "babel-loader": "8.1.0",
     "babel-preset-react-app": "~9.0.2",
