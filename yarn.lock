@@ -5095,6 +5095,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/sinon-chai@npm:^3.2.8":
+  version: 3.2.8
+  resolution: "@types/sinon-chai@npm:3.2.8"
+  dependencies:
+    "@types/chai": "*"
+    "@types/sinon": "*"
+  checksum: a0f7a8cef24904db25a695f3c3adcc03ae72bab89a954c9b6e23fe7e541228e67fe4119cec069e8b36c80e9af33102b626129ff538efade9391cc0f65f1d4933
+  languageName: node
+  linkType: hard
+
 "@types/sinon@npm:*, @types/sinon@npm:^10.0.6":
   version: 10.0.6
   resolution: "@types/sinon@npm:10.0.6"
@@ -9781,6 +9791,7 @@ __metadata:
     "@types/mocha": ^9.0.0
     "@types/node": ^16.11.7
     "@types/sinon": ^10.0.6
+    "@types/sinon-chai": ^3.2.8
     chai: ^4.3.4
     chalk: ^4.1.2
     chokidar: ^3.5.2
@@ -9796,6 +9807,7 @@ __metadata:
     mocha: ^9.1.3
     nyc: ^15.1.0
     sinon: ^12.0.1
+    sinon-chai: ^3.7.0
     ts-node: ^10.4.0
     typescript: ~4.3.5
   bin:
