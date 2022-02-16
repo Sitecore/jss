@@ -49,5 +49,13 @@ export const lintFix = (projectFolder: string, silent?: boolean) => {
   }
 
   silent || console.log(chalk.cyan('Linting app...'));
-  run('npm', ['run', 'lint', '--', '--fix'], { cwd: projectFolder, encoding: 'utf8' });
+  run(
+    'npm',
+    ['run', 'lint', '--', '--fix'],
+    {
+      cwd: projectFolder,
+      encoding: 'utf8',
+    },
+    silent
+  );
 };
