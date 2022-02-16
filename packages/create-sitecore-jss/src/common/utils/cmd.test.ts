@@ -31,12 +31,24 @@ describe('cmd', () => {
     let spawnStub: SinonStub;
     let exitStub: SinonStub;
     let logStub: SinonStub;
+    let stdinTTYStub: SinonStub;
+    let stdoutTTYStub: SinonStub;
     let stderrTTYStub: SinonStub;
+
+    beforeEach(() => {
+      exitStub = sinon.stub(process, 'exit');
+      logStub = sinon.stub(console, 'log');
+      stdinTTYStub = sinon.stub(process.stdin, 'isTTY').value(true);
+      stdoutTTYStub = sinon.stub(process.stdout, 'isTTY').value(true);
+      stderrTTYStub = sinon.stub(process.stderr, 'isTTY').value(true);
+    });
 
     afterEach(() => {
       spawnStub?.restore();
       exitStub?.restore();
       logStub?.restore();
+      stdinTTYStub?.restore();
+      stdoutTTYStub?.restore();
       stderrTTYStub?.restore();
     });
 
@@ -44,8 +56,6 @@ describe('cmd', () => {
       spawnStub = sinon
         .stub(spawn, 'sync')
         .returns({ output: [], pid: 1, stderr: '', stdout: '', status: 5, signal: 'SIGINFO' });
-
-      exitStub = sinon.stub(process, 'exit');
 
       cmd.spawnFunc('jss', ['start', 'production'], { cwd: 'samples/next', encoding: 'utf-8' });
 
@@ -64,10 +74,6 @@ describe('cmd', () => {
       spawnStub = sinon
         .stub(spawn, 'sync')
         .returns({ output: [], pid: 1, stderr: '', stdout: '', status: 5, signal: 'SIGKILL' });
-
-      exitStub = sinon.stub(process, 'exit');
-
-      logStub = sinon.stub(console, 'log');
 
       cmd.spawnFunc('jss', ['start', 'production'], { cwd: 'samples/next', encoding: 'utf-8' });
 
@@ -94,8 +100,6 @@ describe('cmd', () => {
       spawnStub = sinon
         .stub(spawn, 'sync')
         .returns({ output: [], pid: 1, stderr: '', stdout: '', status: 5, signal: 'SIGTERM' });
-      exitStub = sinon.stub(process, 'exit');
-      logStub = sinon.stub(console, 'log');
 
       cmd.spawnFunc('jss', ['start', 'production'], { cwd: 'samples/next', encoding: 'utf-8' });
 
@@ -122,7 +126,6 @@ describe('cmd', () => {
       spawnStub = sinon
         .stub(spawn, 'sync')
         .returns({ output: [], pid: 1, stderr: '', stdout: '', status: 1, signal: 'SIGINFO' });
-      exitStub = sinon.stub(process, 'exit');
 
       stderrTTYStub = sinon.stub(process.stderr, 'isTTY').value(false);
 
