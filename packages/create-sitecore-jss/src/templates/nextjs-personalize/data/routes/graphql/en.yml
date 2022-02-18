@@ -1,0 +1,27 @@
+fields:
+  pageTitle: GraphQL | Sitecore JSS
+placeholders:
+  jss-main:
+  - componentName: ContentBlock
+    fields:
+      heading: Using GraphQL with JSS
+      content: |
+        <p>This is a live example of using Integrated GraphQL and Connected GraphQL with a JSS app.
+        For more information on GraphQL use in JSS, please see <a href="https://jss.sitecore.com" target="_blank" rel="noopener noreferrer">the documentation</a>.</p>
+  - componentName: GraphQL-Layout
+    placeholders:
+      jss-graphql-layout:
+      - componentName: GraphQL-IntegratedDemo
+        fields:
+          sample1: Hello integrated GraphQL world!
+          sample2:
+            href: https://www.sitecore.com
+            target: _blank
+            text: GraphQL lets you get structured field data too
+      - componentName: GraphQL-ConnectedDemo
+        fields:
+          sample1: Hello connected GraphQL world!
+          sample2:
+            href: https://www.sitecore.com
+            target: _blank
+            text: GraphQL lets you get structured field data too
