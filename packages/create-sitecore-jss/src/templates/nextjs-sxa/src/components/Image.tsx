@@ -60,5 +60,5 @@ export const Link = (props: ImageProps): JSX.Element => {
         </div>
       </div>
     )
-  }  
+  }
 };

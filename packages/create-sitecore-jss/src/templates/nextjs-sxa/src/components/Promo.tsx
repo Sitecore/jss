@@ -24,7 +24,7 @@ type PromoProps = {
 
 export const Default = (props: PromoProps): JSX.Element => {
   if (props.fields) {
-    return (    
+    return (
       <div className={`component promo ${props.params.styles?.replace(/\|/g, ' ')}`}>
         <div className="component-content">        
           <div className="field-promoicon">

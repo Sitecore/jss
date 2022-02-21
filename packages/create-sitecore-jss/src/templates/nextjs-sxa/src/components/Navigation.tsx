@@ -54,7 +54,7 @@ const Navigation = (props: NavigationProps): JSX.Element => {
     );
   }  
 
-  const list = [];  
+  const list = [];
   for (let i = 0; i < Object.values(props.fields).length; i++) {
     const element = props.fields[i]; 
     if (element) {
@@ -66,10 +66,10 @@ const Navigation = (props: NavigationProps): JSX.Element => {
     <div className={`component navigation`}>
       <div className="component-content">
         <nav>
-          <ul className="clearfix">      
+          <ul className="clearfix">
             {list}
-          </ul>                                  
-        </nav>        
+          </ul>
+        </nav>
       </div>
     </div>
   );
@@ -82,9 +82,9 @@ const NavigationList = (props: any) => {
 
     props.fields.Children.map((element:Fields, index:Number) => {
       children.push(<NavigationList key={index} fields={element} />);
-    });    
+    });
 
-    return (            
+    return (
       <li className={props.fields.Styles.join(" ")} key={props.fields.Id}>
           <div className="navigation-title">
             <Link field={getLinkField(props)}>{getNavigationText(props)}</Link>
@@ -92,15 +92,15 @@ const NavigationList = (props: any) => {
           <ul className="clearfix">
             {children}
           </ul>
-      </li>     
+      </li>
     )
-  } else { 
+  } else {
     return (
       <li className={props.fields.Styles.join(" ")} key={props.fields.Id}>
           <div className="navigation-title">
           <Link field={getLinkField(props)}>{getNavigationText(props)}</Link>
           </div>
-      </li>     
+      </li>
     )
   }
 }

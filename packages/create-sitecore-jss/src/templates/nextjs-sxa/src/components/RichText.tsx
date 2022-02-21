@@ -27,5 +27,5 @@ export const RichText = (props: RichTextProps): JSX.Element => {
         </div>
       </div>
     )
-  }    
+  }
 };

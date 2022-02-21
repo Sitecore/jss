@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  RenderingVariantParameters,
+  ComponentParams,
   ComponentRendering,
   Placeholder,
   useSitecoreContext,
@@ -10,15 +10,15 @@ interface Fields {
 }
 
 interface ComponentProps {
-  rendering: ComponentRendering & { params: RenderingVariantParameters };
-  params: RenderingVariantParameters;
+  rendering: ComponentRendering & { params: ComponentParams };
+  params: ComponentParams;
   fields: Fields;
 }
 
 const Container = (props: ComponentProps): JSX.Element => {
   var styles = `${props.params.GridParameters} ${props.params.Styles}`.replace(/\|/g, ' ');
   var phKey = `container-${props.params.DynamicPlaceholderId}`;
-  var backgroundStyle;
+  var backgroundStyle:  { [key: string]: string; } ;
   var backgroundImage = props.params.BackgroundImage as string;
   if (backgroundImage) {
     var prefix = `${useSitecoreContext().sitecoreContext.pageState !== 'normal' ? '/sitecore/shell' : ''}/-/media/`
@@ -35,7 +35,7 @@ const Container = (props: ComponentProps): JSX.Element => {
           <Placeholder name={phKey} rendering={props.rendering} />
         </div>
       </div>
-    </div>  
+    </div>
   )
 };
 
