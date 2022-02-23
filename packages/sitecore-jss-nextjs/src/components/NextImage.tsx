@@ -39,7 +39,7 @@ export const NextImage: React.SFC<NextImageProps> = ({
 }) => {
   // next handles src and we use a custom loader,
   // throw error if these are present
-  if (otherProps.src || otherProps.loader) {
+  if (otherProps.src) {
     throw new Error(
       'Detected conflicting props src or loader. If you wish to use these props, use next/image directly.'
     );
@@ -73,11 +73,6 @@ export const NextImage: React.SFC<NextImageProps> = ({
   if (!img) {
     return null;
   }
-  // this prop is needed for non-static images - set it to 1x1 transparent pixel base64 encoded if not supplied by user.
-  if (!otherProps.blurDataURL) {
-    otherProps.blurDataURL =
-      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
-  }
 
   const attrs = {
     ...img,
@@ -89,8 +84,10 @@ export const NextImage: React.SFC<NextImageProps> = ({
     ),
   };
 
+  const customLoader = (otherProps.loader ? otherProps.loader : loader) as ImageLoader;
+
   if (attrs) {
-    return <Image loader={loader} {...attrs} />;
+    return <Image loader={customLoader} {...attrs} />;
   }
 
   return null; // we can't handle the truth
