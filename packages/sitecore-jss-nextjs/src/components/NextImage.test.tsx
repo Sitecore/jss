@@ -8,7 +8,7 @@ import { ImageField } from '@sitecore-jss/sitecore-jss-react';
 import { ImageLoader, ImageLoaderProps } from 'next/image';
 import { stub } from 'sinon';
 
-const customLoader = () => new URL('https://example.com').href;
+const customLoader = () => new URL('https://cm.jss.localhost').href;
 const mockLoader = (stub(customLoader) as unknown) as ImageLoader;
 
 const expect = chai.use(chaiString).expect;
@@ -38,12 +38,12 @@ describe('<NextImage />', () => {
       expect(result).to.equal(`${params.config.path}/assets/img/test0.png?mw=100`);
     });
 
-    it('should not append configPath when src is absolute', () => {
+    it('should not require config path when src is absolute', () => {
       const params: ImageLoaderProps = {
         config: {
           deviceSizes: [],
           imageSizes: [],
-          path: null,
+          path: 'https://cm.jss.localhost/',
           allSizes: [],
           loader: 'default',
           domains: [],
@@ -90,7 +90,7 @@ describe('<NextImage />', () => {
 
     it('should throw an error if src is present', () => {
       expect(() => mount(<NextImage src={src} />)).to.throw(
-        'Detected conflicting props src or loader. If you wish to use these props, use next/image directly.'
+        'Detected src prop. If you wish to use src, use next/image directly.'
       );
     });
   });

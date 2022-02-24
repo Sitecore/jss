@@ -40,9 +40,7 @@ export const NextImage: React.SFC<NextImageProps> = ({
   // next handles src and we use a custom loader,
   // throw error if these are present
   if (otherProps.src) {
-    throw new Error(
-      'Detected conflicting props src or loader. If you wish to use these props, use next/image directly.'
-    );
+    throw new Error('Detected src prop. If you wish to use src, use next/image directly.');
   }
 
   const dynamicMedia = field as ImageField | ImageFieldValue;
