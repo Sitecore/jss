@@ -114,6 +114,28 @@ describe('<NextImage />', () => {
     });
   });
 
+  describe('With loader function passed by the user', () => {
+    const userCustomLoader = () => new URL('https://cm.jss.localhost').href;
+    const userMockLoader = (stub(userCustomLoader) as unknown) as ImageLoader;
+    const props = {
+      field: {
+        src: '/assets/img/test0.png',
+      },
+      width: 8,
+      height: 10,
+      loader: userMockLoader,
+    };
+
+    const rendered = mount(<NextImage {...props} />).find('Image');
+
+    it('should render image with url', () => {
+      expect(rendered).to.have.lengthOf(1);
+      expect(rendered.prop('src')).to.equal(props.field.src);
+      expect(rendered.prop('width')).to.equal(props.width);
+      expect(rendered.prop('loader')).to.equal(props.loader);
+    });
+  });
+
   describe('with responsive image object', () => {
     const props = {
       field: { value: { src: '/assets/img/test0.png', alt: 'my image' } },
