@@ -132,6 +132,7 @@ describe('<NextImage />', () => {
       expect(rendered).to.have.lengthOf(1);
       expect(rendered.prop('src')).to.equal(props.field.src);
       expect(rendered.prop('width')).to.equal(props.width);
+      expect(rendered.prop('height')).to.equal(props.height);
       expect(rendered.prop('loader')).to.equal(props.loader);
     });
   });
