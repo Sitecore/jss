@@ -1,15 +1,40 @@
 /* eslint-disable no-unused-expressions */
-import chai from 'chai';
+import chai, { use } from 'chai';
 import chaiString from 'chai-string';
 import { mount } from 'enzyme';
 import React from 'react';
 import { NextImage, loader } from './NextImage';
 import { ImageField } from '@sitecore-jss/sitecore-jss-react';
 import { ImageLoader, ImageLoaderProps } from 'next/image';
-import { stub } from 'sinon';
+import { stub, spy } from 'sinon';
+import sinonChai from 'sinon-chai';
+import { SinonSpy } from 'sinon';
 
-const customLoader = () => new URL('https://cm.jss.localhost').href;
-const mockLoader = (stub(customLoader) as unknown) as ImageLoader;
+use(sinonChai);
+
+type MockLoaderType = ImageLoader extends SinonSpy ? SinonSpy : SinonSpy<any, any>;
+const customLoader = ({ src }) => new URL(`https://cm.jss.localhost${src}`).href;
+const mockLoader = (spy(customLoader) as unknown) as MockLoaderType;
+
+const loaderParams = {
+  config: {
+    allSizes: [16, 32, 48, 64, 96, 128, 256, 384, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    // eslint-disable-next-line quotes
+    contentSecurityPolicy: "script-src 'none'; frame-src 'none'; sandbox;",
+    dangerouslyAllowSVG: false,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    disableStaticImages: false,
+    domains: [],
+    formats: ['image/webp'],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    loader: 'default',
+    minimumCacheTTL: 60,
+    path: '/_next/image',
+  },
+  quality: 75 || undefined,
+  src: '/assets/img/test0.png',
+  width: 8,
+};
 
 const expect = chai.use(chaiString).expect;
 describe('<NextImage />', () => {
@@ -32,13 +57,35 @@ describe('<NextImage />', () => {
         src: '/assets/img/test0.png',
         width: 100,
       };
-
       const result = loader(params);
       expect(result).to.be.a('string');
       expect(result).to.equal(`${params.config.path}/assets/img/test0.png?mw=100`);
     });
 
     it('should not require config path when src is absolute', () => {
+      const params: ImageLoaderProps = {
+        config: {
+          deviceSizes: [],
+          imageSizes: [],
+          path: undefined,
+          allSizes: [],
+          loader: 'default',
+          domains: [],
+          disableStaticImages: false,
+          minimumCacheTTL: 1,
+          formats: [],
+          dangerouslyAllowSVG: false,
+          contentSecurityPolicy: 'test',
+        },
+        src: 'https://cm.jss.localhost/assets/img/test0.png?mw=100',
+        width: 100,
+      };
+      const result = loader(params);
+      expect(result).to.be.a('string');
+      expect(result).to.equal('https://cm.jss.localhost/assets/img/test0.png?mw=100');
+    });
+
+    it('should not append config path when src is absolute', () => {
       const params: ImageLoaderProps = {
         config: {
           deviceSizes: [],
@@ -87,7 +134,6 @@ describe('<NextImage />', () => {
 
   describe('error cases', () => {
     const src = '/assets/img/test0.png';
-
     it('should throw an error if src is present', () => {
       expect(() => mount(<NextImage src={src} />)).to.throw(
         'Detected src prop. If you wish to use src, use next/image directly.'
@@ -105,158 +151,171 @@ describe('<NextImage />', () => {
     };
 
     const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('Image');
-
     it('should render image with url', () => {
+      rendered.render();
       expect(rendered).to.have.lengthOf(1);
       expect(rendered.prop('src')).to.equal(props.field.src);
       expect(rendered.prop('width')).to.equal(props.width);
       expect(rendered.prop('height')).to.equal(props.height);
+
+      expect(mockLoader.called).to.be.true;
+      expect(mockLoader).to.have.been.calledWith(loaderParams);
     });
   });
+});
 
-  describe('With loader function passed by the user', () => {
-    const userCustomLoader = () => new URL('https://cm.jss.localhost').href;
-    const userMockLoader = (stub(userCustomLoader) as unknown) as ImageLoader;
+describe('With loader function passed by the user', () => {
+  const userCustomLoader = () => new URL('https://cm.jss.localhost').href;
+  const userMockLoader = (stub(userCustomLoader) as unknown) as ImageLoader;
+  const props = {
+    field: {
+      src: '/assets/img/test0.png',
+    },
+    width: 8,
+    height: 10,
+    loader: userMockLoader,
+  };
+
+  const rendered = mount(<NextImage {...props} />).find('Image');
+
+  it('should render image with url', () => {
+    expect(rendered).to.have.lengthOf(1);
+    expect(rendered.prop('src')).to.equal(props.field.src);
+    expect(rendered.prop('width')).to.equal(props.width);
+    expect(rendered.prop('height')).to.equal(props.height);
+    expect(rendered.prop('loader')).to.equal(props.loader);
+  });
+});
+
+describe('with responsive image object', () => {
+  const props = {
+    field: { value: { src: '/assets/img/test0.png', alt: 'my image' } },
+    layout: 'responsive' as const,
+    sizes: '(min-width: 960px) 300px, 100px',
+    width: 8,
+    height: 10,
+    id: 'some-id',
+    className: 'the-dude-abides',
+  };
+
+  const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('Image');
+
+  it('should render image with needed props', () => {
+    expect(rendered).to.have.length(1);
+    expect(rendered.prop('src')).to.equal(props.field.value.src);
+    expect(rendered.prop('sizes')).to.equal('(min-width: 960px) 300px, 100px');
+    expect(rendered.prop('layout')).to.equal(props.layout);
+    expect(mockLoader.called).to.be.true;
+    expect(mockLoader).to.have.been.calledWith(loaderParams);
+  });
+
+  it('should render image with non-media props', () => {
+    expect(rendered.prop('id')).to.equal(props.id);
+  });
+
+  it('should render image with className prop', () => {
+    expect(rendered.prop('className')).to.eql(props.className);
+  });
+});
+
+describe('with "value" property value', () => {
+  const props = {
+    field: { value: { src: '/assets/img/test0.png', alt: 'my image' } },
+    width: 8,
+    height: 10,
+    id: 'some-id',
+    className: 'the-dude-abides',
+  };
+  const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('Image');
+
+  it('should render image component with "value" properties', () => {
+    expect(rendered).to.have.length(1);
+    expect(rendered.prop('src')).to.eql(props.field.value.src);
+    expect(rendered.prop('alt')).to.eql(props.field.value.alt);
+    expect(mockLoader.called).to.be.true;
+    expect(mockLoader).to.have.been.calledWith(loaderParams);
+  });
+
+  it('should render image with non-media props', () => {
+    expect(rendered.prop('id')).to.equal(props.id);
+  });
+
+  it('should render image with className prop', () => {
+    expect(rendered.prop('className')).to.eql(props.className);
+  });
+});
+
+describe('with "editable" property value but editing disabled', () => {
+  const props = {
+    field: { value: { src: '/assets/img/test0.png', alt: 'my image' } },
+    width: 8,
+    height: 10,
+    alt: 'my image',
+    editable: false,
+    className: 'the-dude-abides w-100',
+  };
+  const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('Image');
+
+  it('should render image component with "value" properties', () => {
+    expect(rendered).to.have.length(1);
+    expect(rendered.prop('src')).to.eql(props.field.value.src);
+    expect(rendered.prop('alt')).to.eql(props.field.value.alt);
+    expect(mockLoader.called).to.be.true;
+    expect(mockLoader).to.have.been.calledWith(loaderParams);
+  });
+
+  it('should render image with className prop', () => {
+    expect(rendered.prop('className')).to.eql(props.className);
+  });
+});
+
+describe('with "mediaUrlPrefix" property', () => {
+  it('should transform url with "value" property value', () => {
     const props = {
-      field: {
-        src: '/assets/img/test0.png',
-      },
-      width: 8,
-      height: 10,
-      loader: userMockLoader,
+      field: { value: { src: '/~assets/img/test0.png', alt: 'my image' } },
+      id: 'some-id',
+      width: 100,
+      height: 50,
+      imageParams: { foo: 'bar' },
+      mediaUrlPrefix: /\/([-~]{1})assets\//i,
     };
+    const rendered = mount(<NextImage loader={mockLoader} {...props} />);
 
-    const rendered = mount(<NextImage {...props} />).find('Image');
-
-    it('should render image with url', () => {
-      expect(rendered).to.have.lengthOf(1);
-      expect(rendered.prop('src')).to.equal(props.field.src);
-      expect(rendered.prop('width')).to.equal(props.width);
-      expect(rendered.prop('height')).to.equal(props.height);
-      expect(rendered.prop('loader')).to.equal(props.loader);
+    expect(rendered.find('Image').prop('src')).to.equal('/~/jssmedia/img/test0.png?foo=bar');
+    rendered.setProps({
+      ...props,
+      field: { src: '/-assets/img/test0.png' },
     });
+    expect(rendered.find('Image').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
+    expect(mockLoader.called).to.be.true;
+    expect(mockLoader).to.have.been.calledWith(loaderParams);
   });
 
-  describe('with responsive image object', () => {
+  it('should transform url with direct image object, no value/editable', () => {
     const props = {
-      field: { value: { src: '/assets/img/test0.png', alt: 'my image' } },
-      layout: 'responsive' as const,
-      sizes: '(min-width: 960px) 300px, 100px',
+      field: { value: { src: '/~assets/img/test0.png', alt: 'my image' } },
       width: 8,
       height: 10,
       id: 'some-id',
-      className: 'the-dude-abides',
+      imageParams: { foo: 'bar' },
+      mediaUrlPrefix: /\/([-~]{1})assets\//i,
     };
-
-    const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('Image');
-
-    it('should render image with needed props', () => {
-      expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.equal(props.field.value.src);
-      expect(rendered.prop('sizes')).to.equal('(min-width: 960px) 300px, 100px');
-      expect(rendered.prop('layout')).to.equal(props.layout);
-    });
-
-    it('should render image with non-media props', () => {
-      expect(rendered.prop('id')).to.equal(props.id);
-    });
-
-    it('should render image with className prop', () => {
-      expect(rendered.prop('className')).to.eql(props.className);
-    });
-  });
-
-  describe('with "value" property value', () => {
-    const props = {
-      field: { value: { src: '/assets/img/test0.png', alt: 'my image' } },
+    const rendered = mount(<NextImage loader={mockLoader} {...props} />);
+    expect(rendered.find('Image').prop('src')).to.equal('/~/jssmedia/img/test0.png?foo=bar');
+    rendered.setProps({
+      ...props,
+      field: { src: '/-assets/img/test0.png' },
       width: 8,
       height: 10,
-      id: 'some-id',
-      className: 'the-dude-abides',
-    };
-    const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('Image');
-
-    it('should render image component with "value" properties', () => {
-      expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.eql(props.field.value.src);
-      expect(rendered.prop('alt')).to.eql(props.field.value.alt);
     });
-
-    it('should render image with non-media props', () => {
-      expect(rendered.prop('id')).to.equal(props.id);
-    });
-
-    it('should render image with className prop', () => {
-      expect(rendered.prop('className')).to.eql(props.className);
-    });
+    expect(rendered.find('Image').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
+    expect(mockLoader.called).to.be.true;
+    expect(mockLoader).to.have.been.calledWith(loaderParams);
   });
+});
 
-  describe('with "editable" property value but editing disabled', () => {
-    const props = {
-      field: { value: { src: '/assets/img/test0.png', alt: 'my image' } },
-      width: 8,
-      height: 10,
-      alt: 'my image',
-      editable: false,
-      className: 'the-dude-abides w-100',
-    };
-    const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('Image');
-
-    it('should render image component with "value" properties', () => {
-      expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.eql(props.field.value.src);
-      expect(rendered.prop('alt')).to.eql(props.field.value.alt);
-    });
-
-    it('should render image with className prop', () => {
-      expect(rendered.prop('className')).to.eql(props.className);
-    });
-  });
-
-  describe('with "mediaUrlPrefix" property', () => {
-    it('should transform url with "value" property value', () => {
-      const props = {
-        field: { value: { src: '/~assets/img/test0.png', alt: 'my image' } },
-        id: 'some-id',
-        width: 100,
-        height: 50,
-        imageParams: { foo: 'bar' },
-        mediaUrlPrefix: /\/([-~]{1})assets\//i,
-      };
-      const rendered = mount(<NextImage loader={mockLoader} {...props} />);
-
-      expect(rendered.find('Image').prop('src')).to.equal('/~/jssmedia/img/test0.png?foo=bar');
-      rendered.setProps({
-        ...props,
-        field: { src: '/-assets/img/test0.png' },
-      });
-      expect(rendered.find('Image').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
-    });
-
-    it('should transform url with direct image object, no value/editable', () => {
-      const props = {
-        field: { value: { src: '/~assets/img/test0.png', alt: 'my image' } },
-        width: 8,
-        height: 10,
-        id: 'some-id',
-        imageParams: { foo: 'bar' },
-        mediaUrlPrefix: /\/([-~]{1})assets\//i,
-      };
-      const rendered = mount(<NextImage loader={mockLoader} {...props} />);
-      expect(rendered.find('Image').prop('src')).to.equal('/~/jssmedia/img/test0.png?foo=bar');
-      rendered.setProps({
-        ...props,
-        field: { src: '/-assets/img/test0.png' },
-        width: 8,
-        height: 10,
-      });
-      expect(rendered.find('Image').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
-    });
-  });
-
-  it('should render no image when field prop is empty', () => {
-    const img = '' as ImageField;
-    const rendered = mount(<NextImage field={img} />).find('Image');
-    expect(rendered).to.have.length(0);
-  });
+it('should render no image when field prop is empty', () => {
+  const img = '' as ImageField;
+  const rendered = mount(<NextImage field={img} />).find('Image');
+  expect(rendered).to.have.length(0);
 });
