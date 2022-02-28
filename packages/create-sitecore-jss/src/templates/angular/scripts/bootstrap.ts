@@ -1,7 +1,7 @@
 import { constants } from '@sitecore-jss/sitecore-jss-angular';
 import { generateConfig } from './generate-config';
 const projects = require('../angular.json').projects;
-import chalk from 'chalk';
+const chalk = require('chalk');
 
 /*
   BOOTSTRAPPING
@@ -13,7 +13,7 @@ import chalk from 'chalk';
 const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
 
 if (disconnected && process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL) {
-  throw new Error(chalk.red("GraphQL requests to Dictionary and Layout service are not supported in disconnected mode."))
+  throw new Error(chalk.red("GraphQL requests to Dictionary and Layout services are not supported in disconnected mode."))
 }
 
 /*

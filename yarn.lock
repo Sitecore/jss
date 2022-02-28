@@ -3736,7 +3736,7 @@ __metadata:
     "@angular/platform-browser": ~11.2.6
     "@angular/platform-browser-dynamic": ~11.2.6
     "@angular/router": ~11.2.6
-    "@sitecore-jss/sitecore-jss": ^20.0.0-canary.127
+    "@sitecore-jss/sitecore-jss": ^21.0.0-canary.4
     "@types/jasmine": ^3.4.1
     "@types/node": ^14.14.35
     codelyzer: ^6.0.1
@@ -3767,7 +3767,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
-    "@sitecore-jss/sitecore-jss-dev-tools": ^20.0.0-canary.127
+    "@sitecore-jss/sitecore-jss-dev-tools": ^21.0.0-canary.4
     "@types/chai": ^4.2.3
     "@types/cross-spawn": ^6.0.0
     "@types/mocha": ^5.2.7
@@ -3799,11 +3799,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-dev-tools@^20.0.0-canary.127, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
+"@sitecore-jss/sitecore-jss-dev-tools@^21.0.0-canary.4, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^20.0.0-canary.127
+    "@sitecore-jss/sitecore-jss": ^21.0.0-canary.4
     "@types/chai": ^4.2.3
     "@types/chokidar": ^2.1.3
     "@types/del": ^4.0.0
@@ -3857,11 +3857,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-forms@^20.0.0-canary.127, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
+"@sitecore-jss/sitecore-jss-forms@^21.0.0-canary.4, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^20.0.0-canary.127
+    "@sitecore-jss/sitecore-jss": ^21.0.0-canary.4
     "@types/chai": ^4.1.6
     "@types/chai-string": ^1.4.1
     "@types/lodash.unescape": ^4.0.4
@@ -3884,9 +3884,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^20.0.0-canary.127
-    "@sitecore-jss/sitecore-jss-dev-tools": ^20.0.0-canary.127
-    "@sitecore-jss/sitecore-jss-react": ^20.0.0-canary.127
+    "@sitecore-jss/sitecore-jss": ^21.0.0-canary.4
+    "@sitecore-jss/sitecore-jss-dev-tools": ^21.0.0-canary.4
+    "@sitecore-jss/sitecore-jss-react": ^21.0.0-canary.4
     "@types/chai": ^4.2.2
     "@types/chai-as-promised": ^7.1.3
     "@types/chai-string": ^1.4.2
@@ -3954,7 +3954,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss-forms": ^20.0.0-canary.127
+    "@sitecore-jss/sitecore-jss-forms": ^21.0.0-canary.4
     "@types/chai": ^4.2.11
     "@types/enzyme": ^3.10.5
     "@types/mocha": ^7.0.2
@@ -3994,7 +3994,7 @@ __metadata:
     "@babel/plugin-proposal-export-default-from": ^7.5.2
     "@babel/preset-env": ^7.6.2
     "@babel/preset-typescript": ^7.6.0
-    "@sitecore-jss/sitecore-jss": ^20.0.0-canary.127
+    "@sitecore-jss/sitecore-jss": ^21.0.0-canary.4
     "@types/jest": ^24.0.18
     "@types/prop-types": ^15.7.3
     "@types/react": ^16.9.5
@@ -4013,7 +4013,7 @@ __metadata:
     react: 16.13.1
     react-native: ^0.63.4
     react-native-htmlview: ^0.15.0
-    react-native-svg: ^12.1.0
+    react-native-svg: ^5.3.0
     react-native-svg-uri: ^1.2.3
     react-test-renderer: ^16.9.0
     ts-jest: ~26.0.0
@@ -4024,11 +4024,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-react@^20.0.0-canary.127, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
+"@sitecore-jss/sitecore-jss-react@^21.0.0-canary.4, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^20.0.0-canary.127
+    "@sitecore-jss/sitecore-jss": ^21.0.0-canary.4
     "@types/chai": ^4.2.2
     "@types/chai-string": ^1.4.2
     "@types/deep-equal": ^1.0.1
@@ -4101,7 +4101,7 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-vue@workspace:packages/sitecore-jss-vue"
   dependencies:
     "@babel/core": ^7.16.0
-    "@sitecore-jss/sitecore-jss": ^20.0.0-canary.127
+    "@sitecore-jss/sitecore-jss": ^21.0.0-canary.4
     "@types/jest": ^26.0.23
     "@vue/compiler-dom": ^3.2.21
     "@vue/compiler-sfc": ^3.0.11
@@ -4123,7 +4123,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss@^20.0.0-canary.127, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
+"@sitecore-jss/sitecore-jss@^21.0.0-canary.4, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss"
   dependencies:
@@ -4991,6 +4991,16 @@ __metadata:
     "@types/chai": "*"
     "@types/sinon": "*"
   checksum: 0613ee8eafd59abb9f8fb4c01f8aa1244fe44735050fb233fadba3ebcccf84920f93c67ef8b9f6e22bab78b0e6a1edc49d7b1b86de6bb4adaca2d6c4736bddc3
+  languageName: node
+  linkType: hard
+
+"@types/sinon-chai@npm:^3.2.8":
+  version: 3.2.8
+  resolution: "@types/sinon-chai@npm:3.2.8"
+  dependencies:
+    "@types/chai": "*"
+    "@types/sinon": "*"
+  checksum: a0f7a8cef24904db25a695f3c3adcc03ae72bab89a954c9b6e23fe7e541228e67fe4119cec069e8b36c80e9af33102b626129ff538efade9391cc0f65f1d4933
   languageName: node
   linkType: hard
 
@@ -9012,7 +9022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-convert@npm:^1.9.0, color-convert@npm:^1.9.3":
+"color-convert@npm:^1.3.0, color-convert@npm:^1.9.0, color-convert@npm:^1.9.3":
   version: 1.9.3
   resolution: "color-convert@npm:1.9.3"
   dependencies:
@@ -9044,6 +9054,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"color-string@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "color-string@npm:0.3.0"
+  dependencies:
+    color-name: ^1.0.0
+  checksum: cc65013a94d399ddcb81b3b4b6e0d2166cbaa77311260ff6271f215a286d3db58ab3a217bdb175f8b9dd95f9ea7ac94f71a595af6bcd3b6a02fea6e75ddaf5fb
+  languageName: node
+  linkType: hard
+
 "color-string@npm:^1.6.0":
   version: 1.6.0
   resolution: "color-string@npm:1.6.0"
@@ -9060,6 +9079,17 @@ __metadata:
   bin:
     color-support: bin.js
   checksum: 9b7356817670b9a13a26ca5af1c21615463b500783b739b7634a0c2047c16cef4b2865d7576875c31c3cddf9dd621fa19285e628f20198b233a5cfdda6d0793b
+  languageName: node
+  linkType: hard
+
+"color@npm:^0.11.1":
+  version: 0.11.4
+  resolution: "color@npm:0.11.4"
+  dependencies:
+    clone: ^1.0.2
+    color-convert: ^1.3.0
+    color-string: ^0.3.0
+  checksum: a6f624fd159e9311a6c1c86ac05b5b550c98e2d1e5646e032b8481e5e113127c06a84678b91c89c96b11b58c1c723dd9766b1b02cb2d441c6212a0f7cb3dad73
   languageName: node
   linkType: hard
 
@@ -9609,6 +9639,7 @@ __metadata:
     "@types/mocha": ^9.0.0
     "@types/node": ^16.11.7
     "@types/sinon": ^10.0.6
+    "@types/sinon-chai": ^3.2.8
     chai: ^4.3.4
     chalk: ^4.1.2
     chokidar: ^3.5.2
@@ -9624,6 +9655,7 @@ __metadata:
     mocha: ^9.1.3
     nyc: ^15.1.0
     sinon: ^12.0.1
+    sinon-chai: ^3.7.0
     ts-node: ^10.4.0
     typescript: ~4.3.5
   bin:
@@ -9746,7 +9778,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-select@npm:^2.0.0, css-select@npm:^2.1.0":
+"css-select@npm:^2.0.0":
   version: 2.1.0
   resolution: "css-select@npm:2.1.0"
   dependencies:
@@ -9791,7 +9823,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-tree@npm:^1.0.0-alpha.39, css-tree@npm:^1.1.2":
+"css-tree@npm:^1.1.2":
   version: 1.1.3
   resolution: "css-tree@npm:1.1.3"
   dependencies:
@@ -16949,7 +16981,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.x, lodash@npm:^4.17.11, lodash@npm:^4.17.12, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.2.1, lodash@npm:^4.3.0, lodash@npm:^4.7.0":
+"lodash@npm:4.x, lodash@npm:^4.16.6, lodash@npm:^4.17.11, lodash@npm:^4.17.12, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.2.1, lodash@npm:^4.3.0, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -21054,16 +21086,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-svg@npm:^12.1.0":
-  version: 12.2.0
-  resolution: "react-native-svg@npm:12.2.0"
+"react-native-svg@npm:^5.3.0":
+  version: 5.5.1
+  resolution: "react-native-svg@npm:5.5.1"
   dependencies:
-    css-select: ^2.1.0
-    css-tree: ^1.0.0-alpha.39
+    color: ^0.11.1
+    lodash: ^4.16.6
   peerDependencies:
+    prop-types: ^15.5.8
     react: "*"
     react-native: ">=0.50.0"
-  checksum: 9099e5775fa03f2c6c49d65afc3a67cf9b98e0829c06bcf117c8dc02b4b2ab6ce26eac1152d2b25fc66cc62eb86d661b7dc871390e88e24df9eff67b188b948a
+  checksum: fc361514871aec4ee424c20130bd88040fbc5e30bc6240e8073e29b03853cce7090ad2847dde49593eee0d974cd404ea200ecf1ced2e0c9d7dbc520bc446474c
   languageName: node
   linkType: hard
 

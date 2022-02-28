@@ -7,11 +7,137 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### New Features & Improvements
 
-`[sitecore-jss-*]` Consolidated tightly coupled packages together and refactored the sitecore base package into submodules.  ([#824](https://github.com/Sitecore/jss/pull/824))
+## 20.0.0
 
-`[samples/angular]` Language is now preserved when navigating to another page ([#793](https://github.com/Sitecore/jss/pull/793))
+### New Features & Improvements
 
-`[samples/nextjs][samples/react][samples/vue][samples/angular][sitecore-jss-cli]` Prefix added to templates which is replaced on jss create ([#800](https://github.com/Sitecore/jss/pull/800), [#811](https://github.com/Sitecore/jss/pull/811), [#813](https://github.com/Sitecore/jss/pull/813), [#814](https://github.com/Sitecore/jss/pull/814), [#816](https://github.com/Sitecore/jss/pull/816))
+`[initializers]`
+* Initializers for samples (npm init sitecore-jss) ([#881](https://github.com/Sitecore/jss/pull/881))
+* Initializer for Vue sample ([#883](https://github.com/Sitecore/jss/pull/883))
+* Initializer for React sample ([#882](https://github.com/Sitecore/jss/pull/882))
+* Initializer for Angular sample ([#880](https://github.com/Sitecore/jss/pull/880))
+* Initializer for react-native sample ([#879](https://github.com/Sitecore/jss/pull/879))
+* Initializer for node-headless-ssr-experience-edge sample ([#878](https://github.com/Sitecore/jss/pull/878))
+* Initializer for node-headless-ssr-proxy sample ([#876](https://github.com/Sitecore/jss/pull/876))
+
+`[templates]`
+* Throw error when run jss start using FETCH_WITH=GraphQL ([#920](https://github.com/Sitecore/jss/pull/920))
+* Bring environment variable support to config generation ([#911](https://github.com/Sitecore/jss/pull/911), [#commit](https://github.com/Sitecore/jss/commit/dcacaccccc77add195458a552f0b061d381e29ef))
+* Change the classname of ContentBlock from display-4 to contentTitle ([#908](https://github.com/Sitecore/jss/pull/908))
+
+`[nextjs]`
+* Remove withSitecoreContext HOC from Layout.tsx ([#887](https://github.com/Sitecore/jss/pull/887))
+* Component props auto-injection by Placeholder ([#884](https://github.com/Sitecore/jss/pull/884))
+* Plugins for next.config.js ([#867](https://github.com/Sitecore/jss/pull/867))
+* Refactor sitemap-fetcher to make it extendable ([#865](https://github.com/Sitecore/jss/pull/865))
+* Upgrade to Next.js 12 ([#860](https://github.com/Sitecore/jss/pull/860))
+* Refactor PagePropsFactory to make it extendable ([#857](https://github.com/Sitecore/jss/pull/857))
+* Remove locale variants from default rewrites ([#832](https://github.com/Sitecore/jss/pull/832))
+* Use the app name as the prefix value for templates ([#800](https://github.com/Sitecore/jss/pull/800))
+
+`[react]` Use the app name as the prefix value for templates ([#811](https://github.com/Sitecore/jss/pull/811))
+
+`[angular]`
+* Use the app name as prefix value for templates ([#813](https://github.com/Sitecore/jss/pull/813))
+* Language is not preserved when navigating to another page ([#793](https://github.com/Sitecore/jss/pull/793))
+
+`[vue]` Use the app name as prefix value for templates ([#814](https://github.com/Sitecore/jss/pull/814))
+
+`[all frameworks]`
+* Hidden renderings do not have implementation and result in console error message ([#834](https://github.com/Sitecore/jss/pull/834))
+* Use the app name as the prefix value for placeholders ([#830](https://github.com/Sitecore/jss/pull/830))
+
+`[nextjs]` `[react]` Handle Sitecore querystring property in Link component ([#929](https://github.com/Sitecore/jss/pull/929))
+
+`[Maintenance]` Generate API reference docs ([#840](https://github.com/Sitecore/jss/pull/840))
+
+`[sitecore-jss-manifest]` `[nextjs]` Allow component manifest definitions to define a template name ([#810](https://github.com/Sitecore/jss/pull/810))
+
+### Bug Fixes
+
+`[initializers]`
+* Destination is not applied correctly for different OS ([#932](https://github.com/Sitecore/jss/pull/932))
+* .gitignore is not published to npm ([#924](https://github.com/Sitecore/jss/pull/924))
+* Initializer Improvements ([#905](https://github.com/Sitecore/jss/pull/905))
+* Initializer fixes ([#901](https://github.com/Sitecore/jss/pull/901), [#899](https://github.com/Sitecore/jss/pull/899))
+* Use --legacy-peer-deps flag on npm install to solve peer dependency issues in RAV templates (temporary workaround) ([#commit](https://github.com/Sitecore/jss/commit/5d652a683752fe62642d852599f71ed84bae2fd7))
+* Make sure a template's package.json is sent through ejs _before_ merge. Fixes duplicate rootPlaceholder values in package.json. ([#commit](https://github.com/Sitecore/jss/commit/5b995c0e8b625b1b7558395325c92dfa78d2b839))
+* fixed missing @types/nprogress dev dependency for nextjs-styleguide template. Also, added samples to gitignore ([#commit](https://github.com/Sitecore/jss/commit/f358e289e5eebd6a0954e7c33d319f093797ded8))
+* node-headless-ssr-experience-edge not showing in list of available templates ([#commit](https://github.com/Sitecore/jss/commit/8de22a5dc2b7ef07428865ba20bd76f83615e594))
+* Require additional language for all initializers and default to da-DK ([#897](https://github.com/Sitecore/jss/pull/897))
+* Switch Initializer defaults to fetchWith: REST and appPrefix: false ([#896](https://github.com/Sitecore/jss/pull/896))
+* Fix Incorrect hostName usage ([#890](https://github.com/Sitecore/jss/pull/890))
+* Added option to exclude hyphen in getAppPrefix helper. Use for GraphQL prefixes ([#889](https://github.com/Sitecore/jss/pull/889))
+
+`[templates]`
+* Highlight error message for fetchWith=GraphQL ([#930](https://github.com/Sitecore/jss/pull/930))
+* Fix peer dependency errors ([#910](https://github.com/Sitecore/jss/pull/910))
+
+`[nextjs]`
+* Use more focused paths for Sitecore rewrites ([#921](https://github.com/Sitecore/jss/pull/921)
+* Add .babelrc to Next.js template to disable SWC compilation ([#918](https://github.com/Sitecore/jss/pull/918))
+* Can't start app in disconnected mode, throws webpack fallback option error ([#913](https://github.com/Sitecore/jss/pull/913))
+* Add .gitattributes to Next.js sample app with CRLF line endings ([#855](https://github.com/Sitecore/jss/pull/855))
+* Prevent passing internalLinkMatcher prop ([#847](https://github.com/Sitecore/jss/pull/847))
+* Preview Mode doesn't work with _fallback: false_ on Vercel ([#846](https://github.com/Sitecore/jss/pull/846))
+* TypeError: Only absolute URLs are supported ([#826](https://github.com/Sitecore/jss/pull/826))
+* `[Horizon]` Custom components cannot be added ([#807](https://github.com/Sitecore/jss/pull/807))
+* `[caching]` Make _tmpDir_ a configurable parameter ([#839](https://github.com/Sitecore/jss/pull/839))
+
+`[angular]`
+* Update angular-devkit/build-angular to fix deprecation error ([#917](https://github.com/Sitecore/jss/pull/917))
+* Convert language to the sitecore compatible format ([#906](https://github.com/Sitecore/jss/pull/906))
+* Fix issues with Angular in disconnected mode (incorrect componentName + reverts changes ([#commit](https://github.com/Sitecore/jss/commit/4698d9735cf4062e8208d399146b927b1496d811))
+* Opt out of angular telemetry by default ([#commit](https://github.com/Sitecore/jss/commit/d37f651cb872cd71bdb3e067f804d022a9b99ff8))
+* Fix handling of not found layout service requests in Angular sample ([#809](https://github.com/Sitecore/jss/pull/809))
+* Console error when /graphql requested in EE, localhost or horizon ([#803](https://github.com/Sitecore/jss/pull/803))
+
+`[vue]`
+* The page is redirected to the home page of the website after clicking the "Change associated content" button in the Experience Editor ([#907](https://github.com/Sitecore/jss/pull/907))
+* Cannot add a new rendering to the newly created ([#903](https://github.com/Sitecore/jss/pull/903))
+* `[Horizon]` Cannot add a new rendering or highlight existing ([#895](https://github.com/Sitecore/jss/pull/895))
+* `[Authoring]` 'Add here' modal does not show allowed items on placeholder ([#859](https://github.com/Sitecore/jss/pull/859))
+* Server error for Vue + --fetchWith GraphQL + node-headless-SSR-Experience-Edge ([#812](https://github.com/Sitecore/jss/pull/812))
+* Fix Vue sample RestLayoutService config (use 'apiHost', not 'endpoint') ([#804](https://github.com/Sitecore/jss/pull/804))
+
+`[node-headless-ssr-proxy]` `[node-headless-ssr-experience-edge]` Added submodules import ([#916](https://github.com/Sitecore/jss/pull/916))
+
+`[vue]` `[react]` Exception while rendering GraphQL page ([#900](https://github.com/Sitecore/jss/pull/900))
+
+`[nextjs]` `[react]` Attributes of an empty placeholder are applied to the next sibling `<div>` tag in Experience Editor of JSS item ([#833](https://github.com/Sitecore/jss/pull/833))
+
+`[sitecore-jss-dev-tools]` Fix circular dependencies ([#843](https://github.com/Sitecore/jss/pull/843))
+
+`[react]` `[angular]` `[vue]` Fix Template id for styleguide-explanatory-component-template & vue graphql fragment data ([#816](https://github.com/Sitecore/jss/pull/816))
+
+`[react]` Set _changeOrigin: true_ for proxied Sitecore requests in connected mode ([#808](https://github.com/Sitecore/jss/pull/808))
+
+`[react]` `[angular]` `[vue]` jss graphql:update throws errors ([#806](https://github.com/Sitecore/jss/pull/806))
+
+`[react]` `[angular]` `[vue]` Include Sitecore server URL in media URLs by default ([#802](https://github.com/Sitecore/jss/pull/802))
+
+`[sitecore-jss-cli]`
+* Ignore pdf and images when replacing or stripping prefix ([#818](https://github.com/Sitecore/jss/pull/818))
+* Handle underscores in app name when replacing prefix ([#817](https://github.com/Sitecore/jss/pull/817))
+
+`[Maintenance]`
+* Upgrade security vulnerable packages ([#866](https://github.com/Sitecore/jss/pull/866))
+* Node 16 upgrade ([#863](https://github.com/Sitecore/jss/pull/863))
+* Resolve deprecated dependencies in sitecore-jss-cli package ([#864](https://github.com/Sitecore/jss/pull/864))
+* The page is redirected to the home page of the website after clicking the "Change associated content" button in the Experience Editor in angular application ([#835](https://github.com/Sitecore/jss/pull/835))
+* *scRouterLink breaks link generation ([#815](https://github.com/Sitecore/jss/pull/815))
+
+### Breaking Changes
+
+`[Maintenance]`
+* Removed sitecore-embedded-jss-app (migrated to https://github.com/Sitecore/headless-examples) and sitecore-javascript-renderings (deprecated) ([#commit](https://github.com/Sitecore/jss/commit/09656bea220166669e781f16c95d823caddb928d))
+* Consolidated tightly coupled packages together and refactored the sitecore base package into submodules. ([#824](https://github.com/Sitecore/jss/pull/824), [#commit](https://github.com/Sitecore/jss/commit/6fed8cc044c2ef21905c776ce213dbac8ae6ac66), [#commit](https://github.com/Sitecore/jss/commit/ae33d336de817211e5ec2005b0364f9f69d9ca21))
+
+`[sitecore-jss-cli]` Error handling for someone trying to run _jss create_ ([#893](https://github.com/Sitecore/jss/pull/893))
+
+`[samples]` Retire samples ([#891](https://github.com/Sitecore/jss/pull/891))
+
+`[nextjs]` `[react]` Strongly typed SitecoreContext value ([#841](https://github.com/Sitecore/jss/pull/841))
 
 ## 19.0.0
 
