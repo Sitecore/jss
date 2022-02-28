@@ -184,6 +184,8 @@ describe('With loader function passed by the user', () => {
     expect(rendered.prop('width')).to.equal(props.width);
     expect(rendered.prop('height')).to.equal(props.height);
     expect(rendered.prop('loader')).to.equal(props.loader);
+    expect(mockLoader.called).to.be.true;
+    expect(mockLoader).to.have.been.calledWith(loaderParams);
   });
 });
 
