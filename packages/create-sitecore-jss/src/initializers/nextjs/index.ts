@@ -33,11 +33,11 @@ export default class NextjsInitializer implements Initializer {
         choices: [
           {
             name:
-              'nextjs-styleguide Includes example components and setup for working disconnected',
+              'nextjs-styleguide - Includes example components and setup for working disconnected',
             value: 'nextjs-styleguide',
           },
           {
-            name: 'nextjs-sxa Includes example components and setup for working using sxa',
+            name: 'nextjs-sxa - Includes example components and setup for working using sxa',
             value: 'nextjs-sxa',
           },
         ],
