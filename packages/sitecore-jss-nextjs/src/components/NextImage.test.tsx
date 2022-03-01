@@ -12,7 +12,7 @@ import { SinonSpy } from 'sinon';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
-describe('<NextImage - tests the render / mount />', () => {
+describe('Next Loader function', () => {
   it('should append configPath and query string params when src is relative', () => {
     const params: ImageLoaderProps = {
       config: {
@@ -107,43 +107,7 @@ describe('<NextImage - tests the render / mount />', () => {
   });
 });
 
-describe('error cases', () => {
-  const src = '/assets/img/test0.png';
-  it('should throw an error if src is present', () => {
-    expect(() => mount(<NextImage src={src} />)).to.throw(
-      'Detected src prop. If you wish to use src, use next/image directly.'
-    );
-  });
-});
-
-describe('With loader function passed by the user', () => {
-  const userCustomLoader = ({ src }) => new URL(`https://cm.jss.localhost${src}`).href;
-  const userMockLoader = (spy(userCustomLoader) as unknown) as ImageLoader;
-  const props = {
-    field: {
-      src: '/assets/img/test0.png',
-    },
-    width: 8,
-    height: 10,
-    loader: userMockLoader,
-  };
-
-  const rendered = mount(<NextImage {...props} />).find('Image');
-
-  it('should render image with url', () => {
-    expect(rendered).to.have.lengthOf(1);
-    expect(rendered.prop('src')).to.equal(props.field.src);
-    expect(rendered.prop('width')).to.equal(props.width);
-    expect(rendered.prop('height')).to.equal(props.height);
-    expect(rendered.prop('loader')).to.equal(props.loader);
-    expect(userMockLoader).to.have.been.called;
-    expect(userMockLoader).to.have.been.calledWith(
-      match({ src: props.field.src, width: props.width })
-    );
-  });
-});
-
-describe('Next Loader function', () => {
+describe('<NextImage />', () => {
   type MockLoaderType = ImageLoader extends SinonSpy ? SinonSpy : SinonSpy<any, any>;
   const customLoader = ({ src }) => new URL(`https://cm.jss.localhost${src}`).href;
   const mockLoader = (spy(customLoader) as unknown) as MockLoaderType;
@@ -314,6 +278,42 @@ describe('Next Loader function', () => {
       const img = '' as ImageField;
       const rendered = mount(<NextImage field={img} />).find('Image');
       expect(rendered).to.have.length(0);
+    });
+  });
+
+  describe('error cases', () => {
+    const src = '/assets/img/test0.png';
+    it('should throw an error if src is present', () => {
+      expect(() => mount(<NextImage src={src} />)).to.throw(
+        'Detected src prop. If you wish to use src, use next/image directly.'
+      );
+    });
+  });
+
+  describe('With loader function passed by the user', () => {
+    const userCustomLoader = ({ src }) => new URL(`https://cm.jss.localhost${src}`).href;
+    const userMockLoader = (spy(userCustomLoader) as unknown) as ImageLoader;
+    const props = {
+      field: {
+        src: '/assets/img/test0.png',
+      },
+      width: 8,
+      height: 10,
+      loader: userMockLoader,
+    };
+
+    const rendered = mount(<NextImage {...props} />).find('Image');
+
+    it('should render image with url', () => {
+      expect(rendered).to.have.lengthOf(1);
+      expect(rendered.prop('src')).to.equal(props.field.src);
+      expect(rendered.prop('width')).to.equal(props.width);
+      expect(rendered.prop('height')).to.equal(props.height);
+      expect(rendered.prop('loader')).to.equal(props.loader);
+      expect(userMockLoader).to.have.been.called;
+      expect(userMockLoader).to.have.been.calledWith(
+        match({ src: props.field.src, width: props.width })
+      );
     });
   });
 });
