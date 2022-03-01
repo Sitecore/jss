@@ -12,136 +12,134 @@ import { SinonSpy } from 'sinon';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
-describe('<NextImage />', () => {
-  describe('Next loader function', () => {
-    it('should append configPath and query string params when src is relative', () => {
-      const params: ImageLoaderProps = {
-        config: {
-          deviceSizes: [],
-          imageSizes: [],
-          path: 'https://cm.jss.localhost',
-          allSizes: [],
-          loader: 'default',
-          domains: [],
-          disableStaticImages: false,
-          minimumCacheTTL: 1,
-          formats: [],
-          dangerouslyAllowSVG: false,
-          contentSecurityPolicy: 'test',
-        },
-        src: '/assets/img/test0.png',
-        width: 100,
-      };
-      const result = loader(params);
-      expect(result).to.be.a('string');
-      expect(result).to.equal(`${params.config.path}/assets/img/test0.png?mw=100`);
-    });
-
-    it('should not require config path when src is absolute', () => {
-      const params: ImageLoaderProps = {
-        config: {
-          deviceSizes: [],
-          imageSizes: [],
-          path: undefined,
-          allSizes: [],
-          loader: 'default',
-          domains: [],
-          disableStaticImages: false,
-          minimumCacheTTL: 1,
-          formats: [],
-          dangerouslyAllowSVG: false,
-          contentSecurityPolicy: 'test',
-        },
-        src: 'https://cm.jss.localhost/assets/img/test0.png',
-        width: 100,
-      };
-      const result = loader(params);
-      expect(result).to.be.a('string');
-      expect(result).to.equal('https://cm.jss.localhost/assets/img/test0.png?mw=100');
-    });
-
-    it('should not append config path when src is absolute', () => {
-      const params: ImageLoaderProps = {
-        config: {
-          deviceSizes: [],
-          imageSizes: [],
-          path: 'https://cm.jss.localhost/',
-          allSizes: [],
-          loader: 'default',
-          domains: [],
-          disableStaticImages: false,
-          minimumCacheTTL: 1,
-          formats: [],
-          dangerouslyAllowSVG: false,
-          contentSecurityPolicy: 'test',
-        },
-        src: 'https://cm.jss.localhost/assets/img/test0.png',
-        width: 100,
-      };
-      const result = loader(params);
-      console.log(result);
-      expect(result).to.be.a('string');
-      expect(result).to.equal('https://cm.jss.localhost/assets/img/test0.png?mw=100');
-    });
-
-    it('should throw an error if path is not configured', () => {
-      const params: ImageLoaderProps = {
-        config: {
-          deviceSizes: [],
-          imageSizes: [],
-          path: undefined,
-          allSizes: [],
-          loader: 'default',
-          domains: [],
-          disableStaticImages: false,
-          minimumCacheTTL: 1,
-          formats: [],
-          dangerouslyAllowSVG: false,
-          contentSecurityPolicy: 'test',
-        },
-        src: '/assets/img/test0.png?mw=100',
-        width: 100,
-      };
-      expect(() => loader(params)).to.throw(
-        'Failed to load image. Please make sure images path is configured correctly in next.config.js'
-      );
-    });
-  });
-
-  describe('error cases', () => {
-    const src = '/assets/img/test0.png';
-    it('should throw an error if src is present', () => {
-      expect(() => mount(<NextImage src={src} />)).to.throw(
-        'Detected src prop. If you wish to use src, use next/image directly.'
-      );
-    });
-  });
-
-  describe('With loader function passed by the user', () => {
-    const userCustomLoader = ({ src }) => new URL(`https://cm.jss.localhost${src}`).href;
-    const userMockLoader = (spy(userCustomLoader) as unknown) as ImageLoader;
-    const props = {
-      field: {
-        src: '/assets/img/test0.png',
+describe('<NextImage - tests the render / mount />', () => {
+  it('should append configPath and query string params when src is relative', () => {
+    const params: ImageLoaderProps = {
+      config: {
+        deviceSizes: [],
+        imageSizes: [],
+        path: 'https://cm.jss.localhost',
+        allSizes: [],
+        loader: 'default',
+        domains: [],
+        disableStaticImages: false,
+        minimumCacheTTL: 1,
+        formats: [],
+        dangerouslyAllowSVG: false,
+        contentSecurityPolicy: 'test',
       },
-      width: 8,
-      height: 10,
-      loader: userMockLoader,
+      src: '/assets/img/test0.png',
+      width: 100,
     };
+    const result = loader(params);
+    expect(result).to.be.a('string');
+    expect(result).to.equal(`${params.config.path}/assets/img/test0.png?mw=100`);
+  });
 
-    const rendered = mount(<NextImage {...props} />).find('Image');
+  it('should not require config path when src is absolute', () => {
+    const params: ImageLoaderProps = {
+      config: {
+        deviceSizes: [],
+        imageSizes: [],
+        path: undefined,
+        allSizes: [],
+        loader: 'default',
+        domains: [],
+        disableStaticImages: false,
+        minimumCacheTTL: 1,
+        formats: [],
+        dangerouslyAllowSVG: false,
+        contentSecurityPolicy: 'test',
+      },
+      src: 'https://cm.jss.localhost/assets/img/test0.png',
+      width: 100,
+    };
+    const result = loader(params);
+    expect(result).to.be.a('string');
+    expect(result).to.equal('https://cm.jss.localhost/assets/img/test0.png?mw=100');
+  });
 
-    it('should render image with url', () => {
-      expect(rendered).to.have.lengthOf(1);
-      expect(rendered.prop('src')).to.equal(props.field.src);
-      expect(rendered.prop('width')).to.equal(props.width);
-      expect(rendered.prop('height')).to.equal(props.height);
-      expect(rendered.prop('loader')).to.equal(props.loader);
-      expect(userMockLoader).to.have.been.called;
-      expect(userMockLoader).to.have.been.calledWith(
-        match({ src: props.field.src, width: props.width })
-      );
-    });
+  it('should not append config path when src is absolute', () => {
+    const params: ImageLoaderProps = {
+      config: {
+        deviceSizes: [],
+        imageSizes: [],
+        path: 'https://cm.jss.localhost/',
+        allSizes: [],
+        loader: 'default',
+        domains: [],
+        disableStaticImages: false,
+        minimumCacheTTL: 1,
+        formats: [],
+        dangerouslyAllowSVG: false,
+        contentSecurityPolicy: 'test',
+      },
+      src: 'https://cm.jss.localhost/assets/img/test0.png',
+      width: 100,
+    };
+    const result = loader(params);
+    console.log(result);
+    expect(result).to.be.a('string');
+    expect(result).to.equal('https://cm.jss.localhost/assets/img/test0.png?mw=100');
+  });
+
+  it('should throw an error if path is not configured', () => {
+    const params: ImageLoaderProps = {
+      config: {
+        deviceSizes: [],
+        imageSizes: [],
+        path: undefined,
+        allSizes: [],
+        loader: 'default',
+        domains: [],
+        disableStaticImages: false,
+        minimumCacheTTL: 1,
+        formats: [],
+        dangerouslyAllowSVG: false,
+        contentSecurityPolicy: 'test',
+      },
+      src: '/assets/img/test0.png?mw=100',
+      width: 100,
+    };
+    expect(() => loader(params)).to.throw(
+      'Failed to load image. Please make sure images path is configured correctly in next.config.js'
+    );
+  });
+});
+
+describe('error cases', () => {
+  const src = '/assets/img/test0.png';
+  it('should throw an error if src is present', () => {
+    expect(() => mount(<NextImage src={src} />)).to.throw(
+      'Detected src prop. If you wish to use src, use next/image directly.'
+    );
+  });
+});
+
+describe('With loader function passed by the user', () => {
+  const userCustomLoader = ({ src }) => new URL(`https://cm.jss.localhost${src}`).href;
+  const userMockLoader = (spy(userCustomLoader) as unknown) as ImageLoader;
+  const props = {
+    field: {
+      src: '/assets/img/test0.png',
+    },
+    width: 8,
+    height: 10,
+    loader: userMockLoader,
+  };
+
+  const rendered = mount(<NextImage {...props} />).find('Image');
+
+  it('should render image with url', () => {
+    expect(rendered).to.have.lengthOf(1);
+    expect(rendered.prop('src')).to.equal(props.field.src);
+    expect(rendered.prop('width')).to.equal(props.width);
+    expect(rendered.prop('height')).to.equal(props.height);
+    expect(rendered.prop('loader')).to.equal(props.loader);
+    expect(userMockLoader).to.have.been.called;
+    expect(userMockLoader).to.have.been.calledWith(
+      match({ src: props.field.src, width: props.width })
+    );
   });
 });
 
