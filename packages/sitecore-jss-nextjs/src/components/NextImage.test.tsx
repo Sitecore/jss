@@ -19,9 +19,7 @@ const mockLoader = (spy(customLoader) as unknown) as MockLoaderType;
 
 describe('<NextImage />', () => {
   afterEach(() => {
-    () => {
-      mockLoader.resetHistory();
-    };
+    mockLoader.resetHistory();
   });
 });
 describe('Next loader function', () => {
