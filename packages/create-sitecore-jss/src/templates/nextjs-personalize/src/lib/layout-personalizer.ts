@@ -1,4 +1,4 @@
-import { LayoutServiceData } from '@sitecore-jss/sitecore-jss';
+import { LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss-nextjs';
 import type { ComponentRenderingWithExpiriences } from './component-props';
 

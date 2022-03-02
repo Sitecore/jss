@@ -35,13 +35,13 @@ export default async function (req: NextRequest) {
       // _segmentId_ is just special word to distinguish path with segment code
       // without local rewrite will not work, see bug: https://github.com/vercel-customer-feedback/edge-functions/issues/85
       const rewriteTo =
-        `http://localhost:3000/${req.nextUrl.locale || 'en'}/_segmentId_${segment}` + pathname;
+        `/${req.nextUrl.locale || 'en'}/_segmentId_${segment}` + pathname;
 
       const nextResponse = NextResponse.rewrite(rewriteTo);
       // set Boxever identification cookie
       // had better set boxeverid cookie on server, read https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/
       if (cdpBrowserId) {
-        const boxeverClientKey = 'pqsTELpfrXBzxKozB0IoL4xuAT0s7WrH';
+        const boxeverClientKey = process.env.BOXEVER_CLIENT_KEY;
         const browserIdCookieName = `bid_${boxeverClientKey}`;
         SetCookie(nextResponse, cdpBrowserId, browserIdCookieName);
       }
@@ -55,8 +55,8 @@ export default async function (req: NextRequest) {
 
 async function getSegmentForCurrentUser(req: NextRequest) {
   // ALL THOSE KEYS ALL PUBLIC, move to env variables in production implementation
-  const boxeverApi = 'https://dev-api.boxever.com/v2/callFlows/getSegments';
-  const boxeverClientKey = 'pqsTELpfrXBzxKozB0IoL4xuAT0s7WrH';
+  const boxeverApi = process.env.BOXEVER_API;
+  const boxeverClientKey = process.env.BOXEVER_CLIENT_KEY;
   const expEdgeGraphql =
     process.env.GRAPH_QL_ENDPOINT ||
     (process.env.SITECORE_API_HOST || 'http://nextjsedge102') + '/sitecore/api/graph/edge';

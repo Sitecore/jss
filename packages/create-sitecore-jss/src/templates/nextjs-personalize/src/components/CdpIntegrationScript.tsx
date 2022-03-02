@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { RouteData } from '@sitecore-jss/sitecore-jss';
+import { RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
@@ -34,8 +34,8 @@ const CdpIntegrationScript = ({
   route: { itemLanguage, name },
   pageEditing,
 }: CdpIntegrationProps): JSX.Element => {
-  const clientKey = 'pqsTELpfrXBzxKozB0IoL4xuAT0s7WrH';
-  const targetUrl = 'https://dev-api.boxever.com/v1.2';
+  const clientKey = process.env.BOXEVER_CLIENT_KEY
+  const targetUrl = process.env.BOXEVER_TARGET_URL
 
   useEffect(() => {
     // Do not create events in editing mode
