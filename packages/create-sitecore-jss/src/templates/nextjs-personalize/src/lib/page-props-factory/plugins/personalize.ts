@@ -1,6 +1,6 @@
 ﻿import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { Plugin } from '..';
-import { personalizeLayout } from './../../layout-personalizer';
+import { personalizeLayout } from 'lib/layout-personalizer';
 import { SitecorePageProps } from 'lib/page-props';
 
 class PersonalizePlugin implements Plugin {
