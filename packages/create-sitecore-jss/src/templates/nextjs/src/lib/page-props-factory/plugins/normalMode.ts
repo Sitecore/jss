@@ -6,7 +6,6 @@ import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { SitecorePageProps } from 'lib/page-props';
 import { Plugin, isServerSidePropsContext } from '..';
 import pkg from '../../../../package.json';
-import { personalizeLayout } from './../../layout-personalizer';
 
 /**
  * Extract normalized Sitecore item path from query
@@ -74,23 +73,6 @@ class NormalModePlugin implements Plugin {
 
     // Fetch dictionary data
     props.dictionary = await this.dictionaryService.fetchDictionaryData(props.locale);
-
-    // Get segment for personalization (from path)
-    let filtered = null;
-    if (context !== null) {
-      // temporery disable null assertion
-      if (Array.isArray(context!.params!.path)) {
-        filtered = context!.params!.path.filter((e) => e.includes('_segmentId_'));
-      }
-    }
-
-    const segment =
-      filtered === null || filtered.length == 0
-        ? '_default'
-        : filtered[0].replace('_segmentId_', '');
-
-    // modify layoutData to use specific segment instead of default
-    personalizeLayout(props.layoutData, segment);
 
     return props;
   }
