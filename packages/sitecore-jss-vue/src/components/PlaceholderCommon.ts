@@ -179,7 +179,7 @@ export function convertVNodesToDynamicComponents(vnodes: VNode[]) {
       },
     } as JssDynamicComponent;
 
-    if (vnode.props.data?.name === 'code' && vnode.props.data?.type === 'text/sitecore') {
+    if (vnode.props.elem?.name === 'code' && vnode.props.elem?.type === 'text/sitecore') {
       component.isxEditorComponent = true;
     }
     return component;
@@ -234,7 +234,7 @@ function createRawElement(elem: any) {
     },
   };
 
-  return h(component, { data: elem });
+  return h(component, { elem });
 }
 
 /**
