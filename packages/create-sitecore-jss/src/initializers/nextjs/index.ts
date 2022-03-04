@@ -40,6 +40,11 @@ export default class NextjsInitializer implements Initializer {
             name: 'nextjs-sxa - Includes example components and setup for working using SXA',
             value: 'nextjs-sxa',
           },
+          {
+            name:
+              'nextjs-personalize - Includes example components and setup for working using Personalize',
+            value: 'nextjs-personalize',
+          },
         ],
       });
       addInitializers = addInitAnswer.addInitializers;
