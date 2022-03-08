@@ -1,6 +1,6 @@
-import { LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
+import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss-nextjs';
-import type { ComponentRenderingWithExpiriences } from './component-props';
+import type { ComponentRenderingWithExpiriences } from './component-props/personalize';
 
 // recursive go through all placeholders/components and check expirinces node, replace default with object from specific experience
 export function personalizeLayout(layout: LayoutServiceData, segment: string): void {
