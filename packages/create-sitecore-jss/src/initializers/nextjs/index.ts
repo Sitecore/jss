@@ -1,8 +1,14 @@
 import chalk from 'chalk';
-import path from 'path';
+import path, { sep } from 'path';
 import { prompt } from 'inquirer';
 import { prompts, NextjsAnswer } from './prompts';
-import { Initializer, transform, isDevEnvironment } from '../../common';
+import {
+  Initializer,
+  transform,
+  isDevEnvironment,
+  openPackageJson,
+  writeFileToPath,
+} from '../../common';
 import { removeDevDependencies } from './remove-dev-dependencies';
 import { NextjsArgs } from './args';
 
@@ -48,6 +54,15 @@ export default class NextjsInitializer implements Initializer {
         ],
       });
       addInitializers = addInitAnswer.addInitializers;
+    }
+
+    if (!addInitializers.includes('nextjs-styleguide')) {
+      const pkgPath = path.resolve(`${answers.destination}${sep}package.json`);
+      const pkg = openPackageJson(pkgPath);
+
+      pkg.scripts.bootstrap = pkg.scripts.bootstrap.replace(' && graphql-let', '');
+
+      writeFileToPath(pkgPath, JSON.stringify(pkg, null, 2));
     }
 
     const response = {
