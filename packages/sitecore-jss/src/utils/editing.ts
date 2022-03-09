@@ -98,7 +98,7 @@ export const handleEditorAnchors = () => {
   const callback = (mutationList: MutationRecord[]) => {
     mutationList.forEach((mutation: MutationRecord) => {
       const btns: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(
-        '.scChromeDropDown > a[href="#"], a[onclick]'
+        '.scChromeDropDown > a[href="#"], .scChromeDropDown > a[href="#!"], a[onclick]'
       );
       if (mutation.type === 'childList') {
         btns.forEach((link: HTMLAnchorElement) => {
