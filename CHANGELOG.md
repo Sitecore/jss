@@ -26,7 +26,6 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Change the classname of ContentBlock from display-4 to contentTitle ([#908](https://github.com/Sitecore/jss/pull/908))
 
 `[nextjs]`
-* graphql-let error when bootstrapping empty Nextjs app ([#942](https://github.com/Sitecore/jss/pull/942))
 * Remove withSitecoreContext HOC from Layout.tsx ([#887](https://github.com/Sitecore/jss/pull/887))
 * Component props auto-injection by Placeholder ([#884](https://github.com/Sitecore/jss/pull/884))
 * Plugins for next.config.js ([#867](https://github.com/Sitecore/jss/pull/867))
@@ -75,6 +74,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Fix peer dependency errors ([#910](https://github.com/Sitecore/jss/pull/910))
 
 `[nextjs]`
+* graphql-let error when bootstrapping empty Nextjs app ([#942](https://github.com/Sitecore/jss/pull/942))
 * Use more focused paths for Sitecore rewrites ([#921](https://github.com/Sitecore/jss/pull/921)
 * Add .babelrc to Next.js template to disable SWC compilation ([#918](https://github.com/Sitecore/jss/pull/918))
 * Can't start app in disconnected mode, throws webpack fallback option error ([#913](https://github.com/Sitecore/jss/pull/913))
