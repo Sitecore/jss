@@ -85,6 +85,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * `[caching]` Make _tmpDir_ a configurable parameter ([#839](https://github.com/Sitecore/jss/pull/839))
 
 `[angular]`
+* [10.3] "Edit related item" button redirects to home ([#944](https://github.com/Sitecore/jss/pull/944))
 * Update angular-devkit/build-angular to fix deprecation error ([#917](https://github.com/Sitecore/jss/pull/917))
 * Convert language to the sitecore compatible format ([#906](https://github.com/Sitecore/jss/pull/906))
 * Fix issues with Angular in disconnected mode (incorrect componentName + reverts changes ([#commit](https://github.com/Sitecore/jss/commit/4698d9735cf4062e8208d399146b927b1496d811))
