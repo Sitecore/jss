@@ -7,7 +7,7 @@ import {
   transform,
   isDevEnvironment,
   openPackageJson,
-  writeFileToPath,
+  writePackageJson,
 } from '../../common';
 import { removeDevDependencies } from './remove-dev-dependencies';
 import { NextjsArgs } from './args';
@@ -47,13 +47,16 @@ export default class NextjsInitializer implements Initializer {
       addInitializers = addInitAnswer.addInitializers;
     }
 
-    if (!addInitializers.includes('nextjs-styleguide')) {
+    if (
+      !addInitializers.includes('nextjs-styleguide') &&
+      !args.templates.includes('nextjs-styleguide')
+    ) {
       const pkgPath = path.resolve(`${answers.destination}${sep}package.json`);
       const pkg = openPackageJson(pkgPath);
 
       pkg.scripts.bootstrap = pkg.scripts.bootstrap.replace(' && graphql-let', '');
 
-      writeFileToPath(pkgPath, JSON.stringify(pkg, null, 2));
+      writePackageJson(pkg, pkgPath);
     }
 
     const response = {
