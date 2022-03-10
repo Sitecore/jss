@@ -1,9 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { MiddlewarePlugin } from '..';
 
-// eslint-disable-next-line import/no-anonymous-default-export, @typescript-eslint/explicit-module-boundary-types
-export default async function (req: NextRequest) {
+export const personalizePlugin: MiddlewarePlugin = async function (
+  req: NextRequest,
+  res: NextResponse
+) {
   // no need to personalize for preview, layout data already prepared on XM Cloud for preview,
   // personalizeLayout function will not perform any transformation if pass not existing segment code: e.g. _default
   const isPreview = req.cookies['__prerender_bypass'] || req.cookies['__next_preview_data'];
@@ -34,8 +37,7 @@ export default async function (req: NextRequest) {
     if (pathname) {
       // _segmentId_ is just special word to distinguish path with segment code
       // without local rewrite will not work, see bug: https://github.com/vercel-customer-feedback/edge-functions/issues/85
-      const rewriteTo =
-        `/${req.nextUrl.locale || 'en'}/_segmentId_${segment}` + pathname;
+      const rewriteTo = `/${req.nextUrl.locale || 'en'}/_segmentId_${segment}` + pathname;
 
       const nextResponse = NextResponse.rewrite(rewriteTo);
       // set Boxever identification cookie
@@ -50,8 +52,10 @@ export default async function (req: NextRequest) {
     }
   }
 
-  return;
-}
+  return res;
+};
+
+personalizePlugin.order = 0;
 
 async function getSegmentForCurrentUser(req: NextRequest) {
   // ALL THOSE KEYS ALL PUBLIC, move to env variables in production implementation
