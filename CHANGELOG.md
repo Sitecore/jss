@@ -75,6 +75,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Fix peer dependency errors ([#910](https://github.com/Sitecore/jss/pull/910))
 
 `[nextjs]`
+* graphql-let error when bootstrapping empty Nextjs app ([#942](https://github.com/Sitecore/jss/pull/942))
 * Use more focused paths for Sitecore rewrites ([#921](https://github.com/Sitecore/jss/pull/921)
 * Add .babelrc to Next.js template to disable SWC compilation ([#918](https://github.com/Sitecore/jss/pull/918))
 * Can't start app in disconnected mode, throws webpack fallback option error ([#913](https://github.com/Sitecore/jss/pull/913))
