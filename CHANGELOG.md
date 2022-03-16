@@ -94,6 +94,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Console error when /graphql requested in EE, localhost or horizon ([#803](https://github.com/Sitecore/jss/pull/803))
 
 `[vue]`
+* Experience Editor controls does not work until hard reload is done ([#950](https://github.com/Sitecore/jss/pull/950))
 * Styleguide-Layout-Reuse breaks EE ([#938](https://github.com/Sitecore/jss/pull/938))
 * The page is redirected to the home page of the website after clicking the "Change associated content" button in the Experience Editor ([#907](https://github.com/Sitecore/jss/pull/907))
 * Cannot add a new rendering to the newly created ([#903](https://github.com/Sitecore/jss/pull/903))
