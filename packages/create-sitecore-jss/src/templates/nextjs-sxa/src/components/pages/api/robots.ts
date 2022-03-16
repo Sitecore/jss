@@ -3,11 +3,10 @@ import config from 'temp/config';
 import { GraphQLRobotsService } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const robotsApi = async (_req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-  // Ensure response is text/plain & gzip encoded
-  res.setHeader('Content-Type', 'text/plain;charset=utf-8');
-  res.setHeader('Content-Encoding', 'gzip');
+  // Ensure response is text/html
+  res.setHeader('Content-Type', 'text/html;charset=utf-8');
 
-  // Get all dynamic URLs from Sitecore for configured languages
+  // create robots graphql service
   const robotsService = new GraphQLRobotsService({
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,

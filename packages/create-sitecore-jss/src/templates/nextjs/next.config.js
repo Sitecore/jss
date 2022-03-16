@@ -47,11 +47,6 @@ const nextConfig = {
         source: '/layouts/system/:path*',
         destination: `${jssConfig.sitecoreApiHost}/layouts/system/:path*`,
       },
-      // robots.txt route
-      {
-        source: '/robots.txt',
-        destination: '/api/robots',
-      },
     ];
   },
 };

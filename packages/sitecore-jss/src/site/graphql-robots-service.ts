@@ -1,9 +1,8 @@
 import {
   GraphQLClient,
   GraphQLRequestClient,
-  SearchServiceConfig,
-} from '@sitecore-jss/sitecore-jss/graphql';
-import { debug } from '@sitecore-jss/sitecore-jss';
+} from '../graphql';
+import debug from '../debug';
 
 // The default query for request robots.txt
 const defaultQuery = /* GraphQL */ `
@@ -16,33 +15,34 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
+/** @private */
+export const siteNameError = 'The jssAppName cannot be empty';
+
+export type GraphQLRobotsServiceConfig = {
+  /**
+   * Your Graphql endpoint
+   */
+  endpoint: string;
+  /**
+   * The API key to use for authentication
+   */
+  apiKey: string;
+  /**
+   * The JSS application name
+   */
+  siteName: string;
+};
+
 /**
  * The schema of data returned in response to robots.txt request
  */
 export type RobotsQueryResult = { site: { siteInfo: { robots: string } } };
 
 /**
- * Configuration options for @see GraphQLRobotsService instances
- */
-export interface GraphQLRobotsServiceConfig extends SearchServiceConfig {
-  /**
-   * Your Graphql endpoint
-   */
-  endpoint: string;
-
-  /**
-   * The API key to use for authentication.
-   */
-  apiKey: string;
-}
-
-/**
  * Service that fetch the robots.txt data using Sitecore's GraphQL API.
- * @mixes Promise<String>
  */
 export class GraphQLRobotsService {
   private graphQLClient: GraphQLClient;
-  private robotsResult: Promise<RobotsQueryResult>;
 
   protected get query(): string {
     return defaultQuery;
@@ -53,20 +53,26 @@ export class GraphQLRobotsService {
    * @param {GraphQLRobotsServiceConfig} options instance
    */
   constructor(public options: GraphQLRobotsServiceConfig) {
-    const siteName = this.options.siteName;
     this.graphQLClient = this.getGraphQLClient();
-    this.robotsResult = this.graphQLClient.request(this.query, {
-      siteName,
-    });
   }
 
   /**
    * Fetch a data of robots.txt from API
    * @returns text of robots.txt
+   * @throws {Error} if the jssAppName is empty.
    */
   async fetchRobots(): Promise<string> {
+    const siteName: string = this.options.siteName;
+
+    if (!siteName) {
+      throw new Error(siteNameError);
+    }
+
+    const robotsResult: Promise<RobotsQueryResult> = this.graphQLClient.request(this.query, {
+      siteName,
+    });
     try {
-      return this.robotsResult.then((result: RobotsQueryResult) => {
+      return robotsResult.then((result: RobotsQueryResult) => {
         return result?.site?.siteInfo?.robots;
       });
     } catch (e) {
@@ -83,7 +89,7 @@ export class GraphQLRobotsService {
   protected getGraphQLClient(): GraphQLClient {
     return new GraphQLRequestClient(this.options.endpoint, {
       apiKey: this.options.apiKey,
-      debugger: debug.sitemap,
+      debugger: debug.robots,
     });
   }
 }
