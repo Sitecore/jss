@@ -16,7 +16,7 @@ const defaultQuery = /* GraphQL */ `
 `;
 
 /** @private */
-export const siteNameError = 'The jssAppName cannot be empty';
+export const siteNameError = 'The siteName cannot be empty';
 
 export type GraphQLRobotsServiceConfig = {
   /**
