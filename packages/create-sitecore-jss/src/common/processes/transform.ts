@@ -59,6 +59,12 @@ export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): Jso
   return mergeObject(targetObj, sourceObj);
 };
 
+export const concat = (targetContent: string, sourceContent: string): string => {
+  // NOTE we are enforcing CRLF for the repo in .gitattributes, so match it here
+  const eol = '\r\n';
+  return targetContent + eol + sourceContent;
+};
+
 /**
  * @param {string} sourceFileContent transformed version of our template
  * @param {string} targetFilePath user's file path
@@ -169,7 +175,8 @@ type TransformOptions = {
  * * determines files for copy
  * * determines files for skip
  * * if some files already exist:
- *   * merges package.json's
+ *   * merges package.json files
+ *   * concatenates .env files
  *   * compares diffs
  * @param {string} templatePath path to the template
  * @param {BaseArgs} answers CLI arguments
@@ -236,6 +243,15 @@ export const transform = async (
         // merge them and set the result to str which will then go through diff
         const merged = merge(currentPkg, templatePkg);
         str = JSON.stringify(merged, null, 2);
+      }
+
+      if (file.endsWith('.env') && fs.existsSync(pathToNewFile)) {
+        // we treat .env files a bit differently
+        // read the current .env and the template .env (rendered with ejs)
+        const currentDotEnv = fs.readFileSync(path.resolve(process.cwd(), pathToNewFile), 'utf8');
+        const templateDotEnv = await renderFile(path.resolve(pathToTemplate), ejsData);
+        // concatenate them and set the result to str which will then go through diff
+        str = concat(currentDotEnv, templateDotEnv);
       }
 
       str = str ?? (await renderFile(path.resolve(pathToTemplate), ejsData));
