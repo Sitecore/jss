@@ -1,29 +1,11 @@
-import { ParsedUrlQuery } from 'querystring';
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { DictionaryService, LayoutService } from '@sitecore-jss/sitecore-jss-nextjs';
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { SitecorePageProps } from 'lib/page-props';
 import { Plugin, isServerSidePropsContext } from '..';
+import { extractPath } from '../extractPath';
 import pkg from '../../../../package.json';
-
-/**
- * Extract normalized Sitecore item path from query
- * @param {ParsedUrlQuery | undefined} params
- */
-function extractPath(params: ParsedUrlQuery | undefined): string {
-  if (params === undefined) {
-    return '/';
-  }
-  let path = Array.isArray(params.path) ? params.path.join('/') : params.path ?? '/';
-
-  // Ensure leading '/'
-  if (!path.startsWith('/')) {
-    path = '/' + path;
-  }
-
-  return path;
-}
 
 class NormalModePlugin implements Plugin {
   private dictionaryService: DictionaryService;
