@@ -1,7 +1,4 @@
-import {
-  GraphQLClient,
-  GraphQLRequestClient,
-} from '../graphql';
+import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import debug from '../debug';
 
 // The default query for request robots.txt

@@ -1,9 +1,6 @@
 import { expect } from 'chai';
 import nock from 'nock';
-import {
-  GraphQLRobotsService,
-  siteNameError,
-} from './graphql-robots-service';
+import { GraphQLRobotsService, siteNameError } from './graphql-robots-service';
 
 const robotsQueryResultNull = {
   site: {
