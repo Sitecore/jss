@@ -37,6 +37,7 @@
     "graphql.d.ts",
     "i18n.d.ts",
     "tracking.d.ts",
+    "site.d.ts",
     "src/**/*.test.ts",
     "src/testData/*",
   ]
