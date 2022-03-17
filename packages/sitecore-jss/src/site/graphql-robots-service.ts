@@ -59,7 +59,7 @@ export class GraphQLRobotsService {
   /**
    * Fetch a data of robots.txt from API
    * @returns text of robots.txt
-   * @throws {Error} if the jssAppName is empty.
+   * @throws {Error} if the siteName is empty.
    */
   async fetchRobots(): Promise<string> {
     const siteName: string = this.options.siteName;
