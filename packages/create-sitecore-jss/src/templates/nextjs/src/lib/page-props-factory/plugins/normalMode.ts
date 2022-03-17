@@ -4,7 +4,7 @@ import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { SitecorePageProps } from 'lib/page-props';
 import { Plugin, isServerSidePropsContext } from '..';
-import { extractPath } from '../extractPath';
+import { extractPath } from '../extract-path';
 import pkg from '../../../../package.json';
 
 class NormalModePlugin implements Plugin {
