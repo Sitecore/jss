@@ -2,6 +2,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { MiddlewarePlugin } from '..';
+import config from 'temp/config';
 
 export const personalizePlugin: MiddlewarePlugin = async function (
   req: NextRequest,
@@ -61,11 +62,9 @@ async function getSegmentForCurrentUser(req: NextRequest) {
   // ALL THOSE KEYS ALL PUBLIC, move to env variables in production implementation
   const boxeverApi = process.env.BOXEVER_API;
   const boxeverClientKey = process.env.BOXEVER_CLIENT_KEY;
-  const expEdgeGraphql =
-    process.env.GRAPH_QL_ENDPOINT ||
-    (process.env.SITECORE_API_HOST || 'http://nextjsedge102') + '/sitecore/api/graph/edge';
-  const sc_apikey = process.env.SITECORE_API_KEY || '24B40E6D-B002-465B-91CF-A3EE37E584E2';
-  const site = process.env.JSS_APP_NAME || 'JssNextWeb';
+  const expEdgeGraphql = config.graphQLEndpoint;
+  const sc_apikey = config.sitecoreApiKey;
+  const site = config.jssAppName;
   const routePath = req.nextUrl?.pathname;
   const language = req.nextUrl.locale || 'en';
   let friendlyId = '';
