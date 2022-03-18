@@ -1,8 +1,8 @@
 const robotsPlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
     async rewrites() {
-      // When disconnected we proxy to the local faux layout service host, see scripts/disconnected-mode-proxy.ts
       return [
+        ...await nextConfig.rewrites(),
         // robots route
         {
           source: '/robots.txt',
