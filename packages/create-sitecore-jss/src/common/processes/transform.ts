@@ -2,6 +2,7 @@ import chalk from 'chalk';
 import fs from 'fs-extra';
 import glob from 'glob';
 import path, { sep } from 'path';
+import { parse } from 'dotenv';
 import { Data, renderFile } from 'ejs';
 import { prompt } from 'inquirer';
 import {
@@ -59,7 +60,16 @@ export const merge = (targetObj: JsonObjectType, sourceObj: JsonObjectType): Jso
   return mergeObject(targetObj, sourceObj);
 };
 
-export const concat = (targetContent: string, sourceContent: string): string => {
+export const concatEnv = (targetContent: string, sourceContent: string): string => {
+  const env = parse(sourceContent);
+  if (
+    env &&
+    Object.keys(env).length > 0 &&
+    Object.keys(env).every((value) => targetContent.includes(value))
+  ) {
+    // Don't add if the target already contains every .env value
+    return targetContent;
+  }
   // NOTE we are enforcing CRLF for the repo in .gitattributes, so match it here
   const eol = '\r\n';
   return targetContent + eol + sourceContent;
@@ -251,7 +261,7 @@ export const transform = async (
         const currentDotEnv = fs.readFileSync(path.resolve(process.cwd(), pathToNewFile), 'utf8');
         const templateDotEnv = await renderFile(path.resolve(pathToTemplate), ejsData);
         // concatenate them and set the result to str which will then go through diff
-        str = concat(currentDotEnv, templateDotEnv);
+        str = concatEnv(currentDotEnv, templateDotEnv);
       }
 
       str = str ?? (await renderFile(path.resolve(pathToTemplate), ejsData));
