@@ -94,7 +94,7 @@ function getPluginList(path: string, pluginName: string): PluginFile[] {
     path,
     resolveItem: (path, name) => ({
       path: `${path}/${name}`,
-      name: `${name.replace(/[^\w]+/g, '')}Plugin`,
+      name: `${name.replace(/-./g, (x) => x[1].toUpperCase())}Plugin`,
     }),
     cb: (name) => console.debug(`Registering ${pluginName} plugin ${name}`),
   });
