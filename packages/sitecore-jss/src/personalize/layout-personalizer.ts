@@ -1,8 +1,15 @@
-import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss-nextjs';
-import type { ComponentRenderingWithExpiriences } from './component-props/personalize';
+import { LayoutServiceData, ComponentRendering, HtmlElementRendering } from './../layout/models';
 
-// recursive go through all placeholders/components and check expirinces node, replace default with object from specific experience
+// NULL means Hidden by this experience
+export type ComponentRenderingWithExpiriences = ComponentRendering & {
+  experiences: { [name: string]: ComponentRenderingWithExpiriences | null };
+};
+
+// recursive go through all placeholders/components and check experiences node, replace default with object from specific experience
+/**
+ * @param {LayoutServiceData} layout
+ * @param {string} segment
+ */
 export function personalizeLayout(layout: LayoutServiceData, segment: string): void {
   const placeholders = layout.sitecore.route?.placeholders;
   if (!placeholders) {
@@ -13,6 +20,11 @@ export function personalizeLayout(layout: LayoutServiceData, segment: string): v
   });
 }
 
+/**
+ * @param {Array} components
+ * @param {string} segment
+ * @returns {Array} new components
+ */
 function personalizePlaceholder(
   components: Array<ComponentRendering | HtmlElementRendering>,
   segment: string
@@ -34,6 +46,10 @@ function personalizePlaceholder(
   return newComponents;
 }
 
+/**
+ * @param {ComponentRenderingWithExpiriences} component
+ * @param {string} segment
+ */
 function personalizeComponent(
   component: ComponentRenderingWithExpiriences,
   segment: string
