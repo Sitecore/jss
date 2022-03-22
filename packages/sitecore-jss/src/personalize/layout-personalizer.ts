@@ -25,7 +25,7 @@ export function personalizeLayout(layout: LayoutServiceData, segment: string): v
  * @param {string} segment
  * @returns {Array} new components
  */
-function personalizePlaceholder(
+export function personalizePlaceholder(
   components: Array<ComponentRendering | HtmlElementRendering>,
   segment: string
 ): Array<ComponentRendering | HtmlElementRendering> {
@@ -50,7 +50,7 @@ function personalizePlaceholder(
  * @param {ComponentRenderingWithExpiriences} component
  * @param {string} segment
  */
-function personalizeComponent(
+export function personalizeComponent(
   component: ComponentRenderingWithExpiriences,
   segment: string
 ): ComponentRendering | null {
