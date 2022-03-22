@@ -8,7 +8,7 @@ import { currentPkg, partialPkg } from '../test-data/pkg';
 import * as transform from './transform';
 import * as helpers from '../utils/helpers';
 
-const { transformFilename, merge, concat, diffFiles, diffAndWriteFiles } = transform;
+const { transformFilename, merge, concatEnv, diffFiles, diffAndWriteFiles } = transform;
 
 describe('transform', () => {
   describe('transformFilename', () => {
@@ -76,7 +76,7 @@ describe('transform', () => {
     });
   });
 
-  describe('concat', () => {
+  describe('concatEnv', () => {
     it('should combine content', () => {
       const target = `VAL1=ONE
                       VAL2=TWO`;
@@ -84,7 +84,7 @@ describe('transform', () => {
                       # Comment
                       VAL4=four`;
 
-      const result = concat(target, source);
+      const result = concatEnv(target, source);
 
       expect(result).to.contain(`VAL1=ONE
                       VAL2=TWO`);
@@ -97,9 +97,44 @@ describe('transform', () => {
       const target = 'foo';
       const source = 'bar';
 
-      const result = concat(target, source);
+      const result = concatEnv(target, source);
 
       expect(result).to.equal('foo\r\nbar');
+    });
+
+    it('should not add if all values exist', () => {
+      const target = `VAL1=ONE
+                      VAL2=TWO
+                      VAL3=three
+                      VAL4=four`;
+      const source = `VAL3=three
+                      # Comment
+                      VAL4=four`;
+
+      const result = concatEnv(target, source);
+
+      expect(result).to.contain(`VAL1=ONE
+                      VAL2=TWO`);
+      expect(result).to.not.contain(`VAL3=three
+                      # Comment
+                      VAL4=four`);
+    });
+
+    it('should add if some values exist', () => {
+      const target = `VAL1=ONE
+                      VAL2=TWO
+                      VAL3=three`;
+      const source = `VAL3=three
+                      # Comment
+                      VAL4=four`;
+
+      const result = concatEnv(target, source);
+
+      expect(result).to.contain(`VAL1=ONE
+                      VAL2=TWO`);
+      expect(result).to.contain(`VAL3=three
+                      # Comment
+                      VAL4=four`);
     });
   });
 

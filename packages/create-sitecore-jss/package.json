@@ -1,6 +1,6 @@
 {
   "name": "create-sitecore-jss",
-  "version": "21.0.0-canary.16",
+  "version": "21.0.0-canary.18",
   "description": "Sitecore JSS initializer",
   "bin": "./dist/index.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "chalk": "^4.1.2",
     "cross-spawn": "^7.0.0",
     "diff": "^5.0.0",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "fs-extra": "^10.0.0",
     "glob": "^7.2.0",
