@@ -26,7 +26,6 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></link>
-        <link type="text/css" rel="stylesheet" href={`${publicUrl}/styles.css`} />
       </Head>
 
       {/*

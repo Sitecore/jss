@@ -11,21 +11,13 @@ type RichTextProps = {
 };
 
 export const RichText = (props: RichTextProps): JSX.Element => {
-  if (props.fields) {
-    return (
-      <div className={`component rich-text ${props.params.styles?.replace(/\|/g, ' ')}`}>
-        <div className="component-content">
-          <JssRichText field={props.fields.Text} />
-        </div>
+  const text = props.fields ? <JssRichText field={props.fields.Text} /> : <span className="is-empty-hint">Rich text</span>;
+
+  return (
+    <div className={`component rich-text ${props.params.styles?.replace(/\|/g, ' ')}`}>
+      <div className="component-content">
+        {text}
       </div>
-    );
-  } else {
-    return (
-      <div className={`component rich-text ${props.params.styles?.replace(/\|/g, ' ')}`}>
-        <div className="component-content"> 
-          <span className="is-empty-hint">Rich text</span>
-        </div>
-      </div>
-    )
-  }
+    </div>
+  );
 };

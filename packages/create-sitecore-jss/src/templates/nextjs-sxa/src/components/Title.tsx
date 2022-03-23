@@ -54,12 +54,12 @@ const ComponentContent = (props: any) => {
 };
 
 export const Title = (props: TitleProps): JSX.Element => {
-  let datasource = props.fields?.data?.datasource || props.fields?.data?.contextItem;
-  let text: TextField = {
+  const datasource = props.fields?.data?.datasource || props.fields?.data?.contextItem;
+  const text: TextField = {
     value: datasource?.field?.jsonValue?.value,
     editable: datasource?.field?.jsonValue?.editable,
   };
-  let link: LinkField = {
+  const link: LinkField = {
     value: {
       href: datasource?.url?.path,
       title: datasource?.field?.jsonValue?.value,

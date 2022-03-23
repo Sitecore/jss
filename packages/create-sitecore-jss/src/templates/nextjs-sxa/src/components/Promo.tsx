@@ -6,7 +6,6 @@ import {
   Field,
   LinkField,
   Text,
-  ComponentRendering,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
@@ -21,12 +20,19 @@ type PromoProps = {
   fields: Fields;
 };
 
+const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
+  <div className={`component promo ${props.params.styles?.replace(/\|/g, ' ')}`}>
+    <div className="component-content"> 
+      <span className="is-empty-hint">Promo</span>
+    </div>
+  </div>
+);
 
 export const Default = (props: PromoProps): JSX.Element => {
   if (props.fields) {
     return (
       <div className={`component promo ${props.params.styles?.replace(/\|/g, ' ')}`}>
-        <div className="component-content">        
+        <div className="component-content">
           <div className="field-promoicon">
             <JssImage field={props.fields.PromoIcon} />
           </div>
@@ -44,13 +50,7 @@ export const Default = (props: PromoProps): JSX.Element => {
       </div>
     );
   } else {
-    return (
-      <div className={`component promo ${props.params.styles?.replace(/\|/g, ' ')}`}>
-        <div className="component-content"> 
-          <span className="is-empty-hint">Promo</span>
-        </div>
-      </div>
-    )
+    return <PromoDefaultComponent {...props} />
   }
 };
 
@@ -76,12 +76,6 @@ export const WithText = (props: PromoProps): JSX.Element => {
       </div>
     );
   } else {
-    return (
-      <div className={`component promo ${props.params.styles?.replace(/\|/g, ' ')}`}>
-        <div className="component-content"> 
-          <span className="is-empty-hint">Promo</span>
-        </div>
-      </div>
-    )
+    return <PromoDefaultComponent {...props} />
   }
 };

@@ -25,3 +25,4 @@ packages/*/*.tgz
 samples/
 
 .idea
+.next
