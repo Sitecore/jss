@@ -7,8 +7,8 @@ export type ComponentRenderingWithExpiriences = ComponentRendering & {
 
 // recursive go through all placeholders/components and check experiences node, replace default with object from specific experience
 /**
- * @param {LayoutServiceData} layout
- * @param {string} segment
+ * @param {LayoutServiceData} layout Layout data
+ * @param {string} segment segmentId
  */
 export function personalizeLayout(layout: LayoutServiceData, segment: string): void {
   const placeholders = layout.sitecore.route?.placeholders;
@@ -21,9 +21,8 @@ export function personalizeLayout(layout: LayoutServiceData, segment: string): v
 }
 
 /**
- * @param {Array} components
- * @param {string} segment
- * @returns {Array} new components
+ * @param {Array} components components within placeholder
+ * @param {string} segment segmentId
  */
 export function personalizePlaceholder(
   components: Array<ComponentRendering | HtmlElementRendering>,
@@ -47,8 +46,8 @@ export function personalizePlaceholder(
 }
 
 /**
- * @param {ComponentRenderingWithExpiriences} component
- * @param {string} segment
+ * @param {ComponentRenderingWithExpiriences} component component with experiences
+ * @param {string} segment segmentId
  */
 export function personalizeComponent(
   component: ComponentRenderingWithExpiriences,
