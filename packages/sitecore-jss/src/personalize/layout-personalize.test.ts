@@ -2,10 +2,10 @@
 import * as personalize from './layout-personalizer';
 import { ComponentRenderingWithExpiriences } from './layout-personalizer';
 import {
-  layout,
-  componentArr,
+  layoutData,
+  componentsArray,
   component,
-  componentArrWithExperiences,
+  componentsWithExperiencesArray,
   componentWithExperiences,
 } from '../test-data/personalizeData';
 
@@ -15,7 +15,7 @@ describe('layout-personalizer', () => {
   describe('personalizeLayout', () => {
     it('should not return anything', () => {
       const segment = 'default';
-      const personalizedLayoutResult = personalizeLayout(layout, segment);
+      const personalizedLayoutResult = personalizeLayout(layoutData, segment);
       expect(personalizedLayoutResult).to.equal(undefined);
     });
   });
@@ -23,9 +23,9 @@ describe('layout-personalizer', () => {
   describe('When segment is default', () => {
     describe('personalizePlaceholder', () => {
       const segment = 'default';
-      const personalizedPlaceholderResult = personalizePlaceholder(componentArr, segment);
+      const personalizedPlaceholderResult = personalizePlaceholder(componentsArray, segment);
       it('should return array of personalized components when segment is default', () => {
-        expect(personalizedPlaceholderResult).to.deep.equal(componentArr);
+        expect(personalizedPlaceholderResult).to.deep.equal(componentsArray);
       });
     });
 
@@ -44,9 +44,9 @@ describe('layout-personalizer', () => {
   describe('When segment is not default', () => {
     describe('personalizePlaceholder', () => {
       const segment = 'mountain_bike_audirnce';
-      const personalizedPlaceholderResult = personalizePlaceholder(componentArr, segment);
+      const personalizedPlaceholderResult = personalizePlaceholder(componentsArray, segment);
       it('should return array of personalized components when segment is not default', () => {
-        expect(personalizedPlaceholderResult).to.deep.equal(componentArrWithExperiences);
+        expect(personalizedPlaceholderResult).to.deep.equal(componentsWithExperiencesArray);
       });
     });
 
