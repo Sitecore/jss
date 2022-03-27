@@ -142,7 +142,9 @@ export const sxaRenderingVariantData = {
       name: 'Home',
       displayName: 'Home',
       fields: {
-        key: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
+        key: {
+          value: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
+        },
       },
       placeholders: {
         main: [

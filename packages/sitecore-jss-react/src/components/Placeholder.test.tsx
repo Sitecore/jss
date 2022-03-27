@@ -6,10 +6,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
-import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { ComponentFactory } from './sharedTypes';
 import { Placeholder } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
+import { ComponentProps } from './PlaceholderCommon';
 import {
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
@@ -199,7 +200,7 @@ describe('<Placeholder />', () => {
             <Placeholder
               name={phKey}
               rendering={route}
-              renderEmpty={(comp) => <span>My name is empty placeholder</span>}
+              renderEmpty={() => <span>My name is empty placeholder</span>}
             />
           </SitecoreContext>
         );
@@ -235,7 +236,7 @@ describe('<Placeholder />', () => {
         const expectedMessage = (component.placeholders.main as any[]).find((c) => c.componentName)
           .fields.message;
 
-        const modifyComponentProps = (props) => {
+        const modifyComponentProps = (props: ComponentProps) => {
           if (props.rendering?.componentName === 'DownloadCallout') {
             return {
               ...props,

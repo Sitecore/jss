@@ -17,7 +17,7 @@ type ErrorComponentProps = {
 };
 
 /** Provided for the component which represents rendering data */
-type ComponentProps = {
+export type ComponentProps = {
   [key: string]: unknown;
   rendering: ComponentRendering;
 };
