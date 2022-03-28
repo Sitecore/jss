@@ -1,7 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server';
-
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
-import debug from '@sitecore-jss/sitecore-jss';
+import { debug } from '@sitecore-jss/sitecore-jss';
+
+export const PREFIX_REDIRECT_TYPE = 'REDIRECT_';
+
+export type RedirectType = {
+  pattern: string;
+  target: string;
+  redirectType: string;
+};
+
+export const siteNameError = 'The siteName cannot be empty';
 
 // The default query for request redirects of site
 const defaultQuery = /* GraphQL */ `
@@ -18,9 +26,6 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
-/** @private */
-export const siteNameError = 'The siteName cannot be empty';
-
 export type GraphQLRobotsServiceConfig = {
   /**
    * Your Graphql endpoint
@@ -36,12 +41,6 @@ export type GraphQLRobotsServiceConfig = {
   siteName: string;
 };
 
-export type RedirectType = {
-  pattern: string;
-  target: string;
-  redirectType: string;
-};
-
 /**
  * The schema of data returned in response to robots.txt request
  */
@@ -49,7 +48,7 @@ export type RedirectsQueryResult = {
   site: { siteInfo: { redirects: RedirectType[] } };
 };
 
-export class RedirectService {
+export class GraphQLRedirectService {
   private graphQLClient: GraphQLClient;
 
   protected get query(): string {
@@ -65,45 +64,21 @@ export class RedirectService {
   }
 
   /**
-   * redirect async method - to find coincidence in url.pathname and redirects of site
-   * @param req 
-   * @returns Promise<NextResponse>
-   */
-  public redirect = async (req: NextRequest): Promise<NextResponse> => {
-    const url = req.nextUrl.clone();
-    let existsRedirect: RedirectType | undefined;
-    let redirectType: number | undefined;
-
-    // Find the redirect from graphql
-    const redirects = await this.fetchRedirects();
-    if(redirects?.length) {
-      existsRedirect = redirects.find((redirect: RedirectType) => redirect.pattern === url.pathname);
-    }
-
-    if (existsRedirect) {
-      url.pathname = existsRedirect.target;
-      redirectType = Number(existsRedirect.redirectType.substring("REDIRECT_".length)); // http code of redirect type
-
-      return NextResponse.redirect(url, redirectType);
-    }
-
-    return NextResponse.next();
-  };
-
-  /**
    * Fetch a data of robots.txt from API
    * @returns text of robots.txt
    * @throws {Error} if the siteName is empty.
    */
-  private async fetchRedirects(): Promise<RedirectType[]> {
+  async fetchRedirects(): Promise<RedirectType[]> {
     const siteName: string = this.options.siteName;
 
     if (!siteName) {
       throw new Error(siteNameError);
     }
+
     const redirectsResult: Promise<RedirectsQueryResult> = this.graphQLClient.request(this.query, {
       siteName,
     });
+
     try {
       return redirectsResult.then((result: RedirectsQueryResult) => {
         return result?.site?.siteInfo?.redirects;
@@ -122,7 +97,7 @@ export class RedirectService {
   protected getGraphQLClient(): GraphQLClient {
     return new GraphQLRequestClient(this.options.endpoint, {
       apiKey: this.options.apiKey,
-      debugger: debug.redirects,
+      debugger: debug.sitemap,
     });
   }
 }
