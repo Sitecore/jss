@@ -1,7 +1,7 @@
 import React, { ComponentType } from 'react';
 import PropTypes, { Requireable } from 'prop-types';
-import { MissingComponent } from '../components/MissingComponent';
-import { ComponentFactory } from '../components/sharedTypes';
+import { MissingComponent } from './MissingComponent';
+import { ComponentFactory } from './sharedTypes';
 import {
   ComponentRendering,
   RouteData,
@@ -11,6 +11,9 @@ import {
 } from '@sitecore-jss/sitecore-jss/layout';
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
+
+/** [SXA] common marker by which we find container fo replacing **/
+const PREFIX_PLACEHOLDER = 'container-{*}';
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
@@ -117,6 +120,13 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     name: string
   ) {
     let result;
+    /** [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
+    from backend side we get common name of placeholder is called 'container-{*}' where '{*}' marker for replacing **/
+    if (rendering && rendering.placeholders && rendering.placeholders[PREFIX_PLACEHOLDER]) {
+      rendering.placeholders[name] = rendering.placeholders[PREFIX_PLACEHOLDER];
+      delete rendering.placeholders[PREFIX_PLACEHOLDER];
+    }
+
     if (rendering && rendering.placeholders && Object.keys(rendering.placeholders).length > 0) {
       result = rendering.placeholders[name];
     } else {

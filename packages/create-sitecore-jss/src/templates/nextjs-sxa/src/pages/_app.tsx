@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import { I18nProvider } from 'next-localization';
 
-import 'assets/style.css';
+import 'assets/sxa-styles.css';
 import 'assets/app.css';
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
