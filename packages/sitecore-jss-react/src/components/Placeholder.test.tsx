@@ -15,6 +15,8 @@ import {
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
   sxaRenderingVariantData,
+  sxaRenderingVariantDataWithCommonContainerName as sxaRenderingCommonContainerName,
+  sxaRenderingVariantDataWithoutCommonContainerName as sxaRenderingWithoutContainerName,
 } from '../testData/non-ee-data';
 import { convertedData as eeData, emptyPlaceholderData } from '../testData/ee-data';
 import * as SxaRichText from '../testData/sxa-rich-text';
@@ -302,7 +304,35 @@ describe('<Placeholder />', () => {
       expect(renderedComponent.find('.text').text()).to.equal('Test RichText');
     });
 
-    it('should render another rendering varint', () => {
+    it('should render with container-{*} type dynamic placeholder', () => {
+      const component = sxaRenderingCommonContainerName.sitecore.route as RouteData;
+      const phKey = 'richText';
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
+      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal(
+        'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-x'
+      );
+      expect(renderedComponent.find('.title').length).to.equal(1);
+      expect(renderedComponent.find('.title').text()).to.equal('Rich Text Rendering Variant');
+    });
+
+    it('should not render without container-{*} type dynamic placeholder', () => {
+      const component = sxaRenderingWithoutContainerName.sitecore.route as RouteData;
+      const phKey = 'richText';
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.rendering-variant').length).to.equal(0);
+      expect(renderedComponent.find('.title').length).to.equal(0);
+    });
+
+    it('should render another rendering variant', () => {
       const component = sxaRenderingVariantData.sitecore.route as RouteData;
       const phKey = 'main-second';
 
