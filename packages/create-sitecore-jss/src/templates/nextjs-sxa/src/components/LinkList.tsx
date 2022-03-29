@@ -1,22 +1,19 @@
 import React from 'react';
-import {
-  Link as JssLink,
-  Text,
-  LinkField,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { TextField } from '@sitecore-jss/sitecore-jss-react';
+import { Link as JssLink, Text, LinkField, TextField } from '@sitecore-jss/sitecore-jss-nextjs';
+
+type ResultsFieldLink = {
+  field: {
+    link: LinkField;
+  };
+};
 
 interface Fields {
-  data: Object & {
-    datasource: Object & {
-      children: Object & {
-        results: Array<any> & {
-          field: Object & {
-            link: LinkField;
-          };
-        };
+  data: {
+    datasource: {
+      children: {
+        results: ResultsFieldLink[];
       };
-      field: Object & {
+      field: {
         title: TextField;
       };
     };
@@ -28,9 +25,16 @@ type LinkListProps = {
   fields: Fields;
 };
 
-const LinkListItem = (props: any) => {
+type LinkListItemProps = {
+  key: string;
+  index: number;
+  total: number;
+  field: ResultsFieldLink;
+};
+
+const LinkListItem = (props: LinkListItemProps) => {
   let className = `item${props.index}`;
-  (props.index + 1) % 2 == 0 ? (className += ' odd') : (className += ' even');
+  className += (props.index + 1) % 2 == 0 ? ' odd' : ' even';
   if (props.index == 0) {
     className += ' first';
   }
@@ -47,37 +51,35 @@ const LinkListItem = (props: any) => {
 };
 
 export const Default = (props: LinkListProps): JSX.Element => {
-  let datasource = props.fields?.data?.datasource;
+  const datasource = props.fields?.data?.datasource;
+
   if (datasource) {
-    let list = [];
-    for (let i = 0; i < datasource.children.results.length; i++) {
-      let element = datasource.children.results[i].field.link;
-      if (element) {
-        list.push(
-          <LinkListItem
-            index={i}
-            key={i}
-            total={datasource.children.results.length}
-            field={element}
-          />
-        );
-      }
-    }
+    const list = datasource.children.results
+      .filter((element: ResultsFieldLink) => element?.field?.link)
+      .map((element: ResultsFieldLink, key: number) => (
+        <LinkListItem
+          index={key}
+          key={`${key}${element.field.link}`}
+          total={datasource.children.results.length}
+          field={element}
+        />
+      ));
+
     return (
-      <div className={`component link-list ${props.params.styles?.replace(/\|/g, ' ')}`}>
+      <div className={`component link-list ${props.params.styles}`}>
         <div className="component-content">
           <Text tag="h3" field={datasource?.field?.title} />
           <ul>{list}</ul>
         </div>
       </div>
     );
-  } else {
-    return (
-      <div className={`component link-list ${props.params.styles?.replace(/\|/g, ' ')}`}>
-        <div className="component-content">
-          <h3>Link List</h3>
-        </div>
-      </div>
-    );
   }
+
+  return (
+    <div className={`component link-list ${props.params.styles}`}>
+      <div className="component-content">
+        <h3>Link List</h3>
+      </div>
+    </div>
+  );
 };

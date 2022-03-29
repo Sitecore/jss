@@ -5,7 +5,7 @@ import {
   ImageField,
   Field,
   LinkField,
-  Text
+  Text,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
@@ -19,46 +19,46 @@ type ImageProps = {
   fields: Fields;
 };
 
+const ImageDefault = (props: ImageProps): JSX.Element => (
+  <div className={`component image ${props.params.styles}`}>
+    <div className="component-content">
+      <span className="is-empty-hint">Image</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: ImageProps): JSX.Element => {
   if (props.fields) {
     return (
-      <div className={`component image ${props.params.styles?.replace(/\|/g, ' ')}`}>
+      <div className={`component image ${props.params.styles}`}>
         <div className="component-content">
           <JssImage field={props.fields.Image} />
           <Text className="image-caption field-imagecaption" field={props.fields.ImageCaption} />
         </div>
       </div>
     );
-  } else {
-    return (
-      <div className={`component image ${props.params.styles?.replace(/\|/g, ' ')}`}>
-        <div className="component-content"> 
-          <span className="is-empty-hint">Image</span>
-        </div>
-      </div>
-    )
-  }  
+  }
+
+  return <ImageDefault {...props} />;
 };
 
 export const Link = (props: ImageProps): JSX.Element => {
   if (props.fields) {
-    return (  
-      <div className={`component image ${props.params.styles?.replace(/\|/g, ' ')}`}>
+    return (
+      <div className={`component image ${props.params.styles}`}>
         <div className="component-content">
           <JssLink field={props.fields.Link}>
             <JssImage field={props.fields.Image} />
-            <Text tag="span" className="image-caption field-imagecaption" field={props.fields.ImageCaption} />
+            <Text
+              tag="span"
+              className="image-caption field-imagecaption"
+              field={props.fields.ImageCaption}
+            />
           </JssLink>
         </div>
       </div>
     );
-  } else {
-    return (
-      <div className={`component image ${props.params.styles?.replace(/\|/g, ' ')}`}>
-        <div className="component-content"> 
-          <span className="is-empty-hint">Image</span>
-        </div>
-      </div>
-    )
   }
+
+  return <ImageDefault {...props} />;
 };

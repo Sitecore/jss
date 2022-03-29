@@ -21,8 +21,8 @@ type PromoProps = {
 };
 
 const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
-  <div className={`component promo ${props.params.styles?.replace(/\|/g, ' ')}`}>
-    <div className="component-content"> 
+  <div className={`component promo ${props.params.styles}`}>
+    <div className="component-content">
       <span className="is-empty-hint">Promo</span>
     </div>
   </div>
@@ -31,7 +31,7 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
 export const Default = (props: PromoProps): JSX.Element => {
   if (props.fields) {
     return (
-      <div className={`component promo ${props.params.styles?.replace(/\|/g, ' ')}`}>
+      <div className={`component promo ${props.params.styles}`}>
         <div className="component-content">
           <div className="field-promoicon">
             <JssImage field={props.fields.PromoIcon} />
@@ -49,15 +49,15 @@ export const Default = (props: PromoProps): JSX.Element => {
         </div>
       </div>
     );
-  } else {
-    return <PromoDefaultComponent {...props} />
   }
+
+  return <PromoDefaultComponent {...props} />;
 };
 
 export const WithText = (props: PromoProps): JSX.Element => {
   if (props.fields) {
     return (
-      <div className={`component promo ${props.params.tyles?.replace(/\|/g, ' ')}`}>
+      <div className={`component promo ${props.params.styles}`}>
         <div className="component-content">
           <div className="field-promoicon">
             <JssImage field={props.fields.PromoIcon} />
@@ -69,13 +69,13 @@ export const WithText = (props: PromoProps): JSX.Element => {
               </div>
             </div>
             <div className="field-promotext">
-                <Text className="promo-text" field={props.fields.PromoText2} />
-              </div>
+              <Text className="promo-text" field={props.fields.PromoText2} />
+            </div>
           </div>
         </div>
       </div>
     );
-  } else {
-    return <PromoDefaultComponent {...props} />
   }
+
+  return <PromoDefaultComponent {...props} />;
 };

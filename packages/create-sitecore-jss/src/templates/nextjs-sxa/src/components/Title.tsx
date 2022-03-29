@@ -1,38 +1,30 @@
 import React from 'react';
-import {
-  Link,
-  Text,
-  useSitecoreContext,
-  LinkField,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import {
-  TextField,
-} from '@sitecore-jss/sitecore-jss-react';  
+import { Link, Text, useSitecoreContext, LinkField, TextField } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
-  data: Object & {
-    datasource: Object & {
-      url: Object & {
+  data: {
+    datasource: {
+      url: {
         path: string;
         siteName: string;
       };
-      field: Object & {
-        jsonValue: Object & {
+      field: {
+        jsonValue: {
           value: string;
           editable: string;
-        }
+        };
       };
     };
-    contextItem: Object & {
-      url: Object & {
+    contextItem: {
+      url: {
         path: string;
         siteName: string;
       };
-      field: Object & {
-        jsonValue: Object & {
+      field: {
+        jsonValue: {
           value: string;
           editable: string;
-        }
+        };
       };
     };
   };
@@ -43,9 +35,14 @@ type TitleProps = {
   fields: Fields;
 };
 
-const ComponentContent = (props: any) => {
+type ComponentContentProps = {
+  styles: string;
+  children: JSX.Element;
+};
+
+const ComponentContent = (props: ComponentContentProps) => {
   return (
-    <div className={`component title ${props.styles?.replace(/\|/g, ' ')}`}>
+    <div className={`component title ${props.styles}`}>
       <div className="component-content">
         <div className="field-title">{props.children}</div>
       </div>
@@ -69,10 +66,11 @@ export const Title = (props: TitleProps): JSX.Element => {
   if (useSitecoreContext().sitecoreContext.pageState !== 'normal') {
     link.value.href += `?sc_site=${datasource?.url?.siteName}`;
     if (!text.value) {
-      text.value = "Title field";
-      link.value.href = "#";
+      text.value = 'Title field';
+      link.value.href = '#';
     }
   }
+
   return (
     <ComponentContent styles={props.params.styles}>
       <Link field={link}>
