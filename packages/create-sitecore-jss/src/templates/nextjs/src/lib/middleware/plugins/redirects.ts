@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { RedirectService, RedirectType } from '@sitecore-jss/sitecore-jss-nextjs';
+import { RedirectType, RedirectService } from '@sitecore-jss/sitecore-jss';
 import config from 'temp/config';
 import { MiddlewarePlugin } from '..';
 

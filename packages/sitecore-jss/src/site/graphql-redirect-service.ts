@@ -1,5 +1,5 @@
-import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
-import { debug } from '@sitecore-jss/sitecore-jss';
+import { GraphQLClient, GraphQLRequestClient } from '../graphql';
+import debug from '../debug';
 
 export const PREFIX_REDIRECT_TYPE = 'REDIRECT_';
 
@@ -26,7 +26,7 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
-export type GraphQLRobotsServiceConfig = {
+export type GraphQLRedirectsServiceConfig = {
   /**
    * Your Graphql endpoint
    */
@@ -42,7 +42,7 @@ export type GraphQLRobotsServiceConfig = {
 };
 
 /**
- * The schema of data returned in response to robots.txt request
+ * The schema of data returned in response to redirects array request
  */
 export type RedirectsQueryResult = {
   site: { siteInfo: { redirects: RedirectType[] } };
@@ -56,16 +56,16 @@ export class GraphQLRedirectService {
   }
 
   /**
-   * Creates an instance of graphQL robots.txt service with the provided options
-   * @param {GraphQLRobotsServiceConfig} options instance
+   * Creates an instance of graphQL redirects service with the provided options
+   * @param {GraphQLRedirectsServiceConfig} options instance
    */
-  constructor(private options: GraphQLRobotsServiceConfig) {
+  constructor(private options: GraphQLRedirectsServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
   }
 
   /**
-   * Fetch a data of robots.txt from API
-   * @returns text of robots.txt
+   * Fetch an array of redirects from API
+   * @returns Promise<RedirectType[]>
    * @throws {Error} if the siteName is empty.
    */
   async fetchRedirects(): Promise<RedirectType[]> {
@@ -97,7 +97,7 @@ export class GraphQLRedirectService {
   protected getGraphQLClient(): GraphQLClient {
     return new GraphQLRequestClient(this.options.endpoint, {
       apiKey: this.options.apiKey,
-      debugger: debug.sitemap,
+      debugger: debug.redirects,
     });
   }
 }

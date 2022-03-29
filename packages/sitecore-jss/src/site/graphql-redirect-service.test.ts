@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import nock from 'nock';
-import { GraphQLRedirectService, RedirectsQueryResult, siteNameError } from './redirect-service';
+import { GraphQLRedirectService, RedirectsQueryResult, siteNameError } from './graphql-redirect-service';
 
 const redirectsQueryResultNull = {
   site: {

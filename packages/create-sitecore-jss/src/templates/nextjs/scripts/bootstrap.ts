@@ -18,7 +18,11 @@ const port = process.env.PORT || 3000;
 const configOverride: { [key: string]: string } = {};
 if (disconnected) {
   if (process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL) {
-    throw new Error(chalk.red('GraphQL requests to Dictionary and Layout services are not supported in disconnected mode.'))
+    throw new Error(
+      chalk.red(
+        'GraphQL requests to Dictionary and Layout services are not supported in disconnected mode.'
+      )
+    );
   }
   configOverride.sitecoreApiHost = `http://localhost:${port}`;
 }
