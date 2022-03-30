@@ -1,8 +1,8 @@
 import { LayoutServiceData, ComponentRendering, HtmlElementRendering } from './../layout/models';
 
 // NULL means Hidden by this experience
-export type ComponentRenderingWithExpiriences = ComponentRendering & {
-  experiences: { [name: string]: ComponentRenderingWithExpiriences | null };
+export type ComponentRenderingWithExperiences = ComponentRendering & {
+  experiences: { [name: string]: ComponentRenderingWithExperiences | null };
 };
 
 // recursive go through all placeholders/components and check experiences node, replace default with object from specific experience
@@ -12,12 +12,14 @@ export type ComponentRenderingWithExpiriences = ComponentRendering & {
  */
 export function personalizeLayout(layout: LayoutServiceData, segment: string): void {
   const placeholders = layout.sitecore.route?.placeholders;
-  if (!placeholders) {
+  if (Object.keys(placeholders ?? {}).length === 0) {
     return;
   }
-  Object.keys(placeholders).forEach((placeholder) => {
-    placeholders[placeholder] = personalizePlaceholder(placeholders[placeholder], segment);
-  });
+  if (placeholders) {
+    Object.keys(placeholders).forEach((placeholder) => {
+      placeholders[placeholder] = personalizePlaceholder(placeholders[placeholder], segment);
+    });
+  }
 }
 
 /**
@@ -28,52 +30,44 @@ export function personalizePlaceholder(
   components: Array<ComponentRendering | HtmlElementRendering>,
   segment: string
 ): Array<ComponentRendering | HtmlElementRendering> {
-  const newComponents = new Array<ComponentRendering | HtmlElementRendering>();
-  for (let i = 0; i < components.length; i++) {
-    if ((<ComponentRenderingWithExpiriences>components[i]).experiences !== undefined) {
-      const personalizedComponent = personalizeComponent(
-        <ComponentRenderingWithExpiriences>components[i],
-        segment
-      );
-      if (personalizedComponent) {
-        newComponents.push(personalizedComponent);
-      }
-    } else {
-      newComponents.push(components[i]);
-    }
-  }
-  return newComponents;
+  return components.map((_, i) =>
+    (<ComponentRenderingWithExperiences>components[i]).experiences !== undefined
+      ? (personalizeComponent(<ComponentRenderingWithExperiences>components[i], segment) as
+          | ComponentRendering
+          | HtmlElementRendering)
+      : components[i]
+  );
 }
 
 /**
- * @param {ComponentRenderingWithExpiriences} component component with experiences
+ * @param {ComponentRenderingWithExperiences} component component with experiences
  * @param {string} segment segmentId
  */
 export function personalizeComponent(
-  component: ComponentRenderingWithExpiriences,
+  component: ComponentRenderingWithExperiences,
   segment: string
 ): ComponentRendering | null {
   const segmentVariant = component.experiences[segment];
-  if (segmentVariant === null) {
-    // HIDDEN
-    return null;
-  } else if (segmentVariant === undefined && component.componentName === undefined) {
+  if (segmentVariant === undefined && component.componentName === undefined) {
     // DEFAULT IS HIDDEN
+    return null;
+  } else if (Object.keys(segmentVariant ?? {}).length === 0) {
+    // HIDDEN
     return null;
   } else if (segmentVariant) {
     component = segmentVariant;
   }
 
-  if (component.placeholders) {
-    Object.keys(component.placeholders).forEach((placeholder) => {
-      if (component.placeholders) {
-        component.placeholders[placeholder] = personalizePlaceholder(
-          component.placeholders[placeholder],
-          segment
-        );
-      }
-    });
-  }
+  if (!component.placeholders) return component;
+
+  Object.keys(component?.placeholders).forEach((placeholder) => {
+    if (component.placeholders) {
+      component.placeholders[placeholder] = personalizePlaceholder(
+        component.placeholders[placeholder],
+        segment
+      );
+    }
+  });
 
   return component;
 }
