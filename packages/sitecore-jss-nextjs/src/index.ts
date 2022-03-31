@@ -104,6 +104,7 @@ export {
   LinkField,
   LinkFieldValue,
   Text,
+  TextField,
   DateField,
   File,
   FileField,
