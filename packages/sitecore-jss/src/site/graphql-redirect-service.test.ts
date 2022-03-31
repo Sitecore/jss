@@ -37,7 +37,7 @@ describe('GraphQLRedirectsService', () => {
     nock.cleanAll();
   });
 
-  const mockRobotsRequest = (siteName?: string) => {
+  const mockRedirectsRequest = (siteName?: string) => {
     nock(endpoint)
       .post('/')
       .reply(
@@ -54,7 +54,7 @@ describe('GraphQLRedirectsService', () => {
 
   describe('fetch redirects from site by graphql', () => {
     it('should get error if redirects has empty siteName', async () => {
-      mockRobotsRequest();
+      mockRedirectsRequest();
 
       const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName: '' });
       await service.fetchRedirects().catch((error: Error) => {
@@ -65,7 +65,7 @@ describe('GraphQLRedirectsService', () => {
     });
 
     it('should get redirects', async () => {
-      mockRobotsRequest(siteName);
+      mockRedirectsRequest(siteName);
 
       const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName });
       const result = await service.fetchRedirects();
@@ -76,7 +76,7 @@ describe('GraphQLRedirectsService', () => {
     });
 
     it('should get no redirects', async () => {
-      mockRobotsRequest();
+      mockRedirectsRequest();
 
       const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName });
       const result = await service.fetchRedirects();

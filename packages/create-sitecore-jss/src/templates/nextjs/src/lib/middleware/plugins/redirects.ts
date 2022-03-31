@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { RedirectType, GraphQLRedirectsService } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  RedirectType,
+  GraphQLRedirectsService,
+  REDIRECT_TYPE_PREFIX,
+  REDIRECT_TYPE_DEFAULT,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 import { MiddlewarePlugin } from '..';
-
-const REDIRECT_TYPE_PREFIX = 'REDIRECT_';
-const REDIRECT_TYPE_DEFAULT = 301;
 
 class RedirectsPlugin implements MiddlewarePlugin {
   private redirectsService: GraphQLRedirectsService;

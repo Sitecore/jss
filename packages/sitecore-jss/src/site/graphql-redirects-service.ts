@@ -1,7 +1,8 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import debug from '../debug';
 
-export const PREFIX_REDIRECT_TYPE = 'REDIRECT_';
+export const REDIRECT_TYPE_PREFIX = 'REDIRECT_';
+export const REDIRECT_TYPE_DEFAULT = 301;
 
 export type RedirectType = {
   pattern: string;
