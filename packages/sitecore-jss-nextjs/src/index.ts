@@ -56,6 +56,10 @@ export {
   RobotsQueryResult,
   GraphQLRobotsService,
   GraphQLRobotsServiceConfig,
+  RedirectType,
+  RedirectsQueryResult,
+  GraphQLRedirectsService,
+  GraphQLRedirectsServiceConfig,
 } from '@sitecore-jss/sitecore-jss/site';
 export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 

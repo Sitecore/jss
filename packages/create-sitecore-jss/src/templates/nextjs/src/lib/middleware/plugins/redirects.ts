@@ -1,14 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { RedirectType, RedirectService } from '@sitecore-jss/sitecore-jss';
+import { RedirectType, GraphQLRedirectsService } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 import { MiddlewarePlugin } from '..';
 
-class RedirectPlugin implements MiddlewarePlugin {
-  private redirectService: RedirectService;
+const REDIRECT_TYPE_PREFIX = 'REDIRECT_';
+const REDIRECT_TYPE_DEFAULT = 301;
+
+class RedirectsPlugin implements MiddlewarePlugin {
+  private redirectsService: GraphQLRedirectsService;
   order = 0;
 
   constructor() {
-    this.redirectService = new RedirectService({
+    this.redirectsService = new GraphQLRedirectsService({
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
@@ -25,7 +28,7 @@ class RedirectPlugin implements MiddlewarePlugin {
     let redirectType: number | undefined;
     const url = req.nextUrl.clone();
     // Find the redirect from result of RedirectService
-    const redirects = await RedirectService.fetchRedirects();
+    const redirects = await this.redirectsService.fetchRedirects();
 
     if (redirects?.length) {
       existsRedirect = redirects.find(
@@ -35,7 +38,10 @@ class RedirectPlugin implements MiddlewarePlugin {
 
     if (existsRedirect) {
       url.pathname = existsRedirect.target;
-      redirectType = Number(existsRedirect.redirectType.substring('REDIRECT_'.length)); // http code of redirect type
+      /** http code of redirect type **/
+      redirectType = existsRedirect.redirectType.includes(REDIRECT_TYPE_PREFIX)
+        ? Number(existsRedirect.redirectType.substring(REDIRECT_TYPE_PREFIX.length))
+        : REDIRECT_TYPE_DEFAULT;
 
       return NextResponse.redirect(url, redirectType);
     }
@@ -44,4 +50,4 @@ class RedirectPlugin implements MiddlewarePlugin {
   }
 }
 
-export const redirectPlugin = new RedirectPlugin();
+export const redirectsPlugin = new RedirectsPlugin();

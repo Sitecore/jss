@@ -48,7 +48,7 @@ export type RedirectsQueryResult = {
   site: { siteInfo: { redirects: RedirectType[] } };
 };
 
-export class GraphQLRedirectService {
+export class GraphQLRedirectsService {
   private graphQLClient: GraphQLClient;
 
   protected get query(): string {

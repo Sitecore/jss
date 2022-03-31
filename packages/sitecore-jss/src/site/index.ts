@@ -6,6 +6,6 @@ export {
 export {
   RedirectType,
   RedirectsQueryResult,
-  GraphQLRedirectService,
+  GraphQLRedirectsService,
   GraphQLRedirectsServiceConfig,
-} from './graphql-redirect-service';
+} from './graphql-redirects-service';
