@@ -6,7 +6,7 @@ export type ComponentRenderingWithExperiences = ComponentRendering & {
 };
 
 /**
- * recursively go through all placeholders/components, check experiences nodes and replace default with object from specific experience
+ * Apply personalization to layout data. This will recursively go through all placeholders/components, check experiences nodes and replace default with object from specific experience.
  * @param {LayoutServiceData} layout Layout data
  * @param {string} segment segmentId
  */
@@ -23,6 +23,7 @@ export function personalizeLayout(layout: LayoutServiceData, segment: string): v
 }
 
 /**
+
  * @param {Array} components components within placeholder
  * @param {string} segment segmentId
  */
@@ -30,14 +31,15 @@ export function personalizePlaceholder(
   components: Array<ComponentRendering | HtmlElementRendering>,
   segment: string
 ): Array<ComponentRendering | HtmlElementRendering> {
-  return components.map((component) =>
-    ((component as unknown) as ComponentRenderingWithExperiences).experiences !== undefined
-      ? (personalizeComponent(
-          (component as unknown) as ComponentRenderingWithExperiences,
-          segment
-        ) as ComponentRendering | HtmlElementRendering)
-      : ((component as unknown) as ComponentRenderingWithExperiences)
-  );
+  return components
+    .map((component) =>
+      (component as ComponentRenderingWithExperiences).experiences !== undefined
+        ? (personalizeComponent(component as ComponentRenderingWithExperiences, segment) as
+            | ComponentRendering
+            | HtmlElementRendering)
+        : component
+    )
+    .filter(Boolean);
 }
 
 /**
