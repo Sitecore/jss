@@ -5,8 +5,8 @@ export type ComponentRenderingWithExperiences = ComponentRendering & {
   experiences: { [name: string]: ComponentRenderingWithExperiences | null };
 };
 
-// recursive go through all placeholders/components and check experiences node, replace default with object from specific experience
 /**
+ * recursively go through all placeholders/components, check experiences nodes and replace default with object from specific experience
  * @param {LayoutServiceData} layout Layout data
  * @param {string} segment segmentId
  */
@@ -30,12 +30,13 @@ export function personalizePlaceholder(
   components: Array<ComponentRendering | HtmlElementRendering>,
   segment: string
 ): Array<ComponentRendering | HtmlElementRendering> {
-  return components.map((_, i) =>
-    (<ComponentRenderingWithExperiences>components[i]).experiences !== undefined
-      ? (personalizeComponent(<ComponentRenderingWithExperiences>components[i], segment) as
-          | ComponentRendering
-          | HtmlElementRendering)
-      : components[i]
+  return components.map((component) =>
+    ((component as unknown) as ComponentRenderingWithExperiences).experiences !== undefined
+      ? (personalizeComponent(
+          (component as unknown) as ComponentRenderingWithExperiences,
+          segment
+        ) as ComponentRendering | HtmlElementRendering)
+      : ((component as unknown) as ComponentRenderingWithExperiences)
   );
 }
 

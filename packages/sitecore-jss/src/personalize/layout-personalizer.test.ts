@@ -31,7 +31,7 @@ describe('layout-personalizer', () => {
 
   describe('personalizePlaceholder', () => {
     it('should return array of personalized components', () => {
-      const segment = 'mountain_bike_audirnce';
+      const segment = 'mountain_bike_audience';
       const personalizedPlaceholderResult = personalizePlaceholder(componentsArray, segment);
       expect(personalizedPlaceholderResult).to.deep.equal(componentsWithExperiencesArray);
     });
@@ -39,7 +39,7 @@ describe('layout-personalizer', () => {
 
   describe('personalizeComponent', () => {
     it('should return personalized component', () => {
-      const segment = 'mountain_bike_audirnce';
+      const segment = 'mountain_bike_audience';
       const personalizedComponentResult = personalizeComponent(
         (component as unknown) as ComponentRenderingWithExperiences,
         segment
@@ -48,7 +48,7 @@ describe('layout-personalizer', () => {
     });
 
     it('should return null when segmentVariant is null', () => {
-      const segment = 'mountain_bike_audirnce';
+      const segment = 'mountain_bike_audience';
       const personalizedComponentResult = personalizeComponent(
         (segmentIsNull as unknown) as ComponentRenderingWithExperiences,
         segment
