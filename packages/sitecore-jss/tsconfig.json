@@ -38,6 +38,7 @@
     "i18n.d.ts",
     "tracking.d.ts",
     "site.d.ts",
+    "personalize.d.ts",
     "src/**/*.test.ts",
     "src/testData/*",
   ]
