@@ -8,6 +8,8 @@ export const personalizePlugin: MiddlewarePlugin = async function (
   req: NextRequest,
   res: NextResponse
 ) {
+  //TODO: check if current response is a redirect/rewrite, and skip?
+
   // no need to personalize for preview, layout data already prepared on XM Cloud for preview,
   // personalizeLayout function will not perform any transformation if pass not existing segment code: e.g. _default
   const isPreview = req.cookies['__prerender_bypass'] || req.cookies['__next_preview_data'];
@@ -56,7 +58,8 @@ export const personalizePlugin: MiddlewarePlugin = async function (
   return res;
 };
 
-personalizePlugin.order = 0;
+// Using 1 to leave room for things like redirects to occur first
+personalizePlugin.order = 1;
 
 async function getSegmentForCurrentUser(req: NextRequest) {
   // ALL THOSE KEYS ALL PUBLIC, move to env variables in production implementation
