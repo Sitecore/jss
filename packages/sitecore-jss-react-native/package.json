@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-native",
-  "version": "21.0.0-canary.22",
+  "version": "21.0.0-canary.23",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -28,7 +28,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^21.0.0-canary.22",
+    "@sitecore-jss/sitecore-jss": "^21.0.0-canary.23",
     "prop-types": "^15.7.2",
     "react-native-htmlview": "^0.15.0",
     "react-native-svg": "^5.3.0",
