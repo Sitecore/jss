@@ -157,7 +157,7 @@ describe('<Image />', () => {
       media: { editable: eeImageData, value: { src: '/assets/img/test0.png', alt: 'my image' } },
       editable: false,
       style: { width: '100%' },
-      className: 'the-dude-abides'
+      className: 'the-dude-abides',
     };
     const rendered = mount(<Image {...props} />).find('img');
 
@@ -184,10 +184,9 @@ describe('<Image />', () => {
 
     const rendered = mount(<Image {...props} />).find('img');
 
-    it('should attach "class" value at the end of class attribute', ()=> {
+    it('should attach "class" value at the end of class attribute', () => {
       expect(rendered.prop('className')).to.eql(`${props.className} ${props.class}`);
     });
-
   });
 
   describe('with "mediaUrlPrefix" property', () => {

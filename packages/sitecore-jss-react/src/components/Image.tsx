@@ -103,12 +103,12 @@ const getImageAttrs = (
   if (otherAttrs.class) {
     // if any classes are defined properly already
     if (otherAttrs.className) {
-      let className:string = otherAttrs.className as string;
+      let className: string = otherAttrs.className as string;
       className += ` ${otherAttrs.class}`;
       otherAttrs.className = className;
-    }
-    else
+    } else {
       otherAttrs.className = otherAttrs.class;
+    }
     delete otherAttrs.class;
   }
 
