@@ -50,7 +50,7 @@ const ComponentContent = (props: ComponentContentProps) => {
   );
 };
 
-export const Title = (props: TitleProps): JSX.Element => {
+export const Default = (props: TitleProps): JSX.Element => {
   const datasource = props.fields?.data?.datasource || props.fields?.data?.contextItem;
   const text: TextField = {
     value: datasource?.field?.jsonValue?.value,
