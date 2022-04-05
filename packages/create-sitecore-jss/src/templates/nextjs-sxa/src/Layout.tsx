@@ -1,5 +1,5 @@
 /**
- * This Layout needs for SXA example. Task where it needed https://dev.azure.com/Sitecore-PD/Products/_workitems/edit/526100
+ * This Layout needs for SXA example.
  */
 import React from 'react';
 import Head from 'next/head';
@@ -42,7 +42,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
         <div className="row">
-          {route && <Placeholder name="jss-main" rendering={route} />}
+          {route && <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={route} />}
         </div>
       </div>
     </>

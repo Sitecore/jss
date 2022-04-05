@@ -7921,6 +7921,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bootstrap@npm:^5.1.3":
+  version: 5.1.3
+  resolution: "bootstrap@npm:5.1.3"
+  peerDependencies:
+    "@popperjs/core": ^2.10.2
+  checksum: 301b5ed872efba061104cf22ac93568e3837867fb5527ab9326a51510fb752bd4883e1d488225c8be72f86d9d3a55ef5b166aa7fa62c2fdd077c3f05b65752f8
+  languageName: node
+  linkType: hard
+
 "boxen@npm:^1.2.1":
   version: 1.3.0
   resolution: "boxen@npm:1.3.0"
@@ -9639,6 +9648,7 @@ __metadata:
     "@types/node": ^16.11.7
     "@types/sinon": ^10.0.6
     "@types/sinon-chai": ^3.2.8
+    bootstrap: ^5.1.3
     chai: ^4.3.4
     chalk: ^4.1.2
     chokidar: ^3.5.2
