@@ -106,7 +106,7 @@ export class GraphQLRedirectsService {
     return new GraphQLRequestClient(this.options.endpoint, {
       apiKey: this.options.apiKey,
       debugger: debug.redirects,
-      fetch: this.options.fetch
+      fetch: this.options.fetch,
     });
   }
 }
