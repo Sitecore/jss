@@ -1,22 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
-import {
-  RedirectType,
-  GraphQLRedirectsService,
-  REDIRECT_TYPE_PREFIX,
-  REDIRECT_TYPE_DEFAULT,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { RedirectsMiddleware } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 import { MiddlewarePlugin } from '..';
 
 class RedirectsPlugin implements MiddlewarePlugin {
-  private redirectsService: GraphQLRedirectsService;
+  private redirectsMiddleware: RedirectsMiddleware;
   order = 0;
 
   constructor() {
-    this.redirectsService = new GraphQLRedirectsService({
+    this.redirectsMiddleware = new RedirectsMiddleware({
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
+      fetch: fetch, // TODO: temporary solutions. We're waiting when will be fixed bug https://github.com/lquixada/cross-fetch/issues/78
     });
   }
 
@@ -26,29 +22,7 @@ class RedirectsPlugin implements MiddlewarePlugin {
    * @returns Promise<NextResponse>
    */
   async exec(req: NextRequest): Promise<NextResponse> {
-    let existsRedirect: RedirectType | undefined;
-    let redirectType: number | undefined;
-    const url = req.nextUrl.clone();
-    // Find the redirect from result of RedirectService
-    const redirects = await this.redirectsService.fetchRedirects();
-
-    if (redirects?.length) {
-      existsRedirect = redirects.find(
-        (redirect: RedirectType) => redirect.pattern === url.pathname
-      );
-    }
-
-    if (existsRedirect) {
-      url.pathname = existsRedirect.target;
-      /** http code of redirect type **/
-      redirectType = existsRedirect.redirectType.includes(REDIRECT_TYPE_PREFIX)
-        ? Number(existsRedirect.redirectType.substring(REDIRECT_TYPE_PREFIX.length))
-        : REDIRECT_TYPE_DEFAULT;
-
-      return NextResponse.redirect(url, redirectType);
-    }
-
-    return NextResponse.next();
+    return this.redirectsMiddleware.getHandler(req);
   }
 }
 

@@ -1,10 +1,7 @@
 import { expect } from 'chai';
 import nock from 'nock';
-import {
-  GraphQLRedirectsService,
-  RedirectsQueryResult,
-  siteNameError,
-} from './graphql-redirects-service';
+import { GraphQLRedirectsService, RedirectsQueryResult } from './graphql-redirects-service';
+import { siteNameError } from '../constants';
 
 const redirectsQueryResultNull = {
   site: {
@@ -22,6 +19,7 @@ const redirectsQueryResult = {
           pattern: '/notfound',
           target: '/404',
           redirectType: 'REDIRECT_301',
+          isQueryStringPreserved: true,
         },
       ],
     },

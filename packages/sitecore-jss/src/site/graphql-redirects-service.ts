@@ -1,16 +1,17 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql';
+import { siteNameError } from '../constants';
 import debug from '../debug';
 
-export const REDIRECT_TYPE_PREFIX = 'REDIRECT_';
-export const REDIRECT_TYPE_DEFAULT = 301;
+export const REDIRECT_TYPE_301 = 'REDIRECT_301';
+export const REDIRECT_TYPE_302 = 'REDIRECT_302';
+export const REDIRECT_TYPE_SERVER_TRANSFER = 'SERVER_TRANSFER';
 
-export type RedirectType = {
+export type RedirectInfo = {
   pattern: string;
   target: string;
   redirectType: string;
+  isQueryStringPreserved: boolean;
 };
-
-export const siteNameError = 'The siteName cannot be empty';
 
 // The default query for request redirects of site
 const defaultQuery = /* GraphQL */ `
@@ -21,6 +22,7 @@ const defaultQuery = /* GraphQL */ `
           pattern
           target
           redirectType
+          isQueryStringPreserved
         }
       }
     }
@@ -40,13 +42,18 @@ export type GraphQLRedirectsServiceConfig = {
    * The JSS application name
    */
   siteName: string;
+  /**
+   * Override the fetch options for graphql-request library. It's temporary solutions.
+   *  We're waiting when this bug was fixed https://github.com/lquixada/cross-fetch/issues/78
+   */
+  fetch?: typeof fetch;
 };
 
 /**
  * The schema of data returned in response to redirects array request
  */
 export type RedirectsQueryResult = {
-  site: { siteInfo: { redirects: RedirectType[] } };
+  site: { siteInfo: { redirects: RedirectInfo[] } };
 };
 
 export class GraphQLRedirectsService {
@@ -66,10 +73,10 @@ export class GraphQLRedirectsService {
 
   /**
    * Fetch an array of redirects from API
-   * @returns Promise<RedirectType[]>
+   * @returns Promise<RedirectInfo[]>
    * @throws {Error} if the siteName is empty.
    */
-  async fetchRedirects(): Promise<RedirectType[]> {
+  async fetchRedirects(): Promise<RedirectInfo[]> {
     const siteName: string = this.options.siteName;
 
     if (!siteName) {
@@ -99,6 +106,7 @@ export class GraphQLRedirectsService {
     return new GraphQLRequestClient(this.options.endpoint, {
       apiKey: this.options.apiKey,
       debugger: debug.redirects,
+      fetch: this.options.fetch
     });
   }
 }
