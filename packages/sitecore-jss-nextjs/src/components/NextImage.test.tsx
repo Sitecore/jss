@@ -3,7 +3,7 @@ import chai, { use } from 'chai';
 import chaiString from 'chai-string';
 import { mount } from 'enzyme';
 import React from 'react';
-import { NextImage, loader } from './NextImage';
+import { NextImage, sitecoreLoader } from './NextImage';
 import { ImageField } from '@sitecore-jss/sitecore-jss-react';
 import { ImageLoader, ImageLoaderProps } from 'next/image';
 import { spy, match } from 'sinon';
@@ -12,98 +12,48 @@ import { SinonSpy } from 'sinon';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
-describe('Next Loader function', () => {
-  it('should append configPath and query string params when src is relative', () => {
-    const params: ImageLoaderProps = {
-      config: {
-        deviceSizes: [],
-        imageSizes: [],
-        path: 'https://cm.jss.localhost',
-        allSizes: [],
-        loader: 'default',
-        domains: [],
-        disableStaticImages: false,
-        minimumCacheTTL: 1,
-        formats: [],
-        dangerouslyAllowSVG: false,
-        contentSecurityPolicy: 'test',
-      },
-      src: '/assets/img/test0.png',
-      width: 100,
-    };
-    const result = loader(params);
-    expect(result).to.be.a('string');
-    expect(result).to.equal(`${params.config.path}/assets/img/test0.png?mw=100`);
-  });
+describe('sitecoreLoader', () => {
+  [
+    {
+      description: 'relative URL',
+      root: '/assets/img/test0.png',
+    },
+    {
+      description: 'absolute URL',
+      root: 'https://cm.jss.localhost/assets/img/test0.png',
+    },
+  ].forEach((value) => {
+    describe(value.description, () => {
+      it('should append mw query string param', () => {
+        const params: Partial<ImageLoaderProps> = {
+          src: value.root,
+          width: 100,
+        };
+        const result = sitecoreLoader(params as ImageLoaderProps);
+        expect(result).to.be.a('string');
+        expect(result).to.equal(`${value.root}?mw=100`);
+      });
 
-  it('should not require config path when src is absolute', () => {
-    const params: ImageLoaderProps = {
-      config: {
-        deviceSizes: [],
-        imageSizes: [],
-        path: undefined,
-        allSizes: [],
-        loader: 'default',
-        domains: [],
-        disableStaticImages: false,
-        minimumCacheTTL: 1,
-        formats: [],
-        dangerouslyAllowSVG: false,
-        contentSecurityPolicy: 'test',
-      },
-      src: 'https://cm.jss.localhost/assets/img/test0.png',
-      width: 100,
-    };
-    const result = loader(params);
-    expect(result).to.be.a('string');
-    expect(result).to.equal('https://cm.jss.localhost/assets/img/test0.png?mw=100');
-  });
+      it('should override existing mw query string param', () => {
+        const params: Partial<ImageLoaderProps> = {
+          src: `${value.root}?mw=400`,
+          width: 100,
+        };
+        const result = sitecoreLoader(params as ImageLoaderProps);
+        expect(result).to.be.a('string');
+        expect(result).to.equal(`${value.root}?mw=100`);
+      });
 
-  it('should not append config path when src is absolute', () => {
-    const params: ImageLoaderProps = {
-      config: {
-        deviceSizes: [],
-        imageSizes: [],
-        path: 'https://cm.jss.localhost/',
-        allSizes: [],
-        loader: 'default',
-        domains: [],
-        disableStaticImages: false,
-        minimumCacheTTL: 1,
-        formats: [],
-        dangerouslyAllowSVG: false,
-        contentSecurityPolicy: 'test',
-      },
-      src: 'https://cm.jss.localhost/assets/img/test0.png',
-      width: 100,
-    };
-    const result = loader(params);
-    console.log(result);
-    expect(result).to.be.a('string');
-    expect(result).to.equal('https://cm.jss.localhost/assets/img/test0.png?mw=100');
-  });
-
-  it('should throw an error if path is not configured', () => {
-    const params: ImageLoaderProps = {
-      config: {
-        deviceSizes: [],
-        imageSizes: [],
-        path: undefined,
-        allSizes: [],
-        loader: 'default',
-        domains: [],
-        disableStaticImages: false,
-        minimumCacheTTL: 1,
-        formats: [],
-        dangerouslyAllowSVG: false,
-        contentSecurityPolicy: 'test',
-      },
-      src: '/assets/img/test0.png?mw=100',
-      width: 100,
-    };
-    expect(() => loader(params)).to.throw(
-      'Failed to load image. Please make sure images path is configured correctly in next.config.js'
-    );
+      it('should preserve existing query string params', () => {
+        const params: Partial<ImageLoaderProps> = {
+          src: `${value.root}?mw=400&mh=100&q=50`,
+          width: 100,
+        };
+        const result = sitecoreLoader(params as ImageLoaderProps);
+        expect(result).to.be.a('string');
+        expect(result).to.equal(`${value.root}?mw=100&mh=100&q=50`);
+      });
+    });
   });
 });
 

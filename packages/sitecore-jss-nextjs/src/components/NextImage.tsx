@@ -15,19 +15,11 @@ import Image, {
 
 type NextImageProps = Omit<ImageProps, 'media'> & Partial<NextImageProperties>;
 
-export const loader: ImageLoader = ({ config, src, width }: ImageLoaderProps): string => {
-  try {
-    const r = /^(?:[a-z]+:)?\/\//i;
-    const url = r.test(src) ? new URL(`${src}`) : new URL(`${config.path}${src}`);
-    const params = url.searchParams;
-    params.set('mw', params.get('mw') || width.toString());
-    params.delete('w');
-    return url.href;
-  } catch (err) {
-    throw new Error(
-      'Failed to load image. Please make sure images path is configured correctly in next.config.js'
-    );
-  }
+export const sitecoreLoader: ImageLoader = ({ src, width }: ImageLoaderProps): string => {
+  const [root, paramString] = src.split('?');
+  const params = new URLSearchParams(paramString);
+  params.set('mw', width.toString());
+  return `${root}?${params}`;
 };
 
 export const NextImage: React.SFC<NextImageProps> = ({
@@ -82,10 +74,10 @@ export const NextImage: React.SFC<NextImageProps> = ({
     ),
   };
 
-  const customLoader = (otherProps.loader ? otherProps.loader : loader) as ImageLoader;
+  const loader = (otherProps.loader ? otherProps.loader : sitecoreLoader) as ImageLoader;
 
   if (attrs) {
-    return <Image loader={customLoader} {...attrs} />;
+    return <Image loader={loader} {...attrs} />;
   }
 
   return null; // we can't handle the truth
