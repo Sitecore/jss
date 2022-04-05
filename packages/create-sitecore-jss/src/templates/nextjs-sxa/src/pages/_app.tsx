@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { I18nProvider } from 'next-localization';
 
+import 'assets/bootstrap.min.css';
 import 'assets/sxa-styles.css';
 import 'assets/app.css';
 
