@@ -9,11 +9,25 @@ import {
   REDIRECT_TYPE_SERVER_TRANSFER,
 } from '@sitecore-jss/sitecore-jss/site';
 
+/**
+ * extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
+ */
+export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'>;
+
+/**
+ * Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
+ * compares with current url and redirects to target url
+ */
 export class RedirectsMiddleware {
   private redirectsService: GraphQLRedirectsService;
 
-  constructor(config: GraphQLRedirectsServiceConfig) {
-    this.redirectsService = new GraphQLRedirectsService(config);
+  /**
+   * NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
+   * (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
+   * @param config
+   */
+  constructor(config: RedirectsMiddlewareConfig) {
+    this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
   }
 
   public getHandler(): (req: NextRequest) => Promise<NextResponse> {
@@ -45,6 +59,12 @@ export class RedirectsMiddleware {
     }
   }
 
+  /**
+   * Method returns RedirectInfo when matches
+   * @param url
+   * @return Promise<RedirectInfo>
+   * @private
+   */
   private async getExistsRedirect(url: URL): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects();
 

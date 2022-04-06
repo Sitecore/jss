@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-expressions */
-
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
@@ -117,5 +116,22 @@ describe('GraphQLRequestClient', () => {
         `Error: Invalid GraphQL endpoint '${endpoint}'. Verify that 'layoutServiceHost' property in 'scjssconfig.json' file or appropriate environment variable is set`
       );
     }
+  });
+
+  it('should use fetch override', async () => {
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .reply(200, {
+        data: {
+          result: 'Hello world...',
+        },
+      });
+
+    const graphQLClient = new GraphQLRequestClient(endpoint, {
+      fetch,
+    });
+    const data = await graphQLClient.request('test');
+
+    expect(data).to.deep.equal({ result: 'Hello world...' });
   });
 });

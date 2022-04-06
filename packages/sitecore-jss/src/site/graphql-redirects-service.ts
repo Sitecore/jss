@@ -43,8 +43,7 @@ export type GraphQLRedirectsServiceConfig = {
    */
   siteName: string;
   /**
-   * Override the fetch options for graphql-request library. It's temporary solutions.
-   *  We're waiting when this bug was fixed https://github.com/lquixada/cross-fetch/issues/78
+   * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
   fetch?: typeof fetch;
 };

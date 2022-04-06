@@ -28,7 +28,7 @@ export type GraphQLRequestClientConfig = {
    */
   debugger?: Debugger;
   /**
-   * Override cross-fetch library in the Client class of graphql-request library
+   * Override fetch method. Uses 'graphql-request' library default otherwise ('cross-fetch').
    */
   fetch?: typeof fetch;
 };
@@ -58,9 +58,6 @@ export class GraphQLRequestClient implements GraphQLClient {
       );
     }
 
-    /** Fetch uses in options here. It makes middleware of NextJS work in a right way.
-     *  Graphql-request uses cross-fetch by default which doesn't work correctly.
-     *  More information is here https://nextjs.org/docs/api-reference/edge-runtime **/
     this.client = new Client(endpoint, { headers: this.headers, fetch: clientConfig.fetch });
     this.debug = clientConfig.debugger || debuggers.http;
   }

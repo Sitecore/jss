@@ -12,7 +12,6 @@ class RedirectsPlugin implements MiddlewarePlugin {
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
-      fetch: fetch, // TODO: temporary solutions. We're waiting when will be fixed bug https://github.com/lquixada/cross-fetch/issues/78
     });
   }
 
