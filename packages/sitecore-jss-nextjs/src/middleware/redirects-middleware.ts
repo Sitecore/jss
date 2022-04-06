@@ -34,9 +34,10 @@ export class RedirectsMiddleware {
     return this.handler;
   }
 
-  private async handler(req: NextRequest) {
+  private handler = async (req: NextRequest): Promise<NextResponse> => {
     const url = req.nextUrl.clone();
     // Find the redirect from result of RedirectService
+
     const existsRedirect = await this.getExistsRedirect(url);
 
     if (!existsRedirect) {
@@ -57,7 +58,7 @@ export class RedirectsMiddleware {
       default:
         return NextResponse.next();
     }
-  }
+  };
 
   /**
    * Method returns RedirectInfo when matches
@@ -65,7 +66,7 @@ export class RedirectsMiddleware {
    * @return Promise<RedirectInfo>
    * @private
    */
-  private async getExistsRedirect(url: URL): Promise<RedirectInfo | undefined> {
+  public async getExistsRedirect(url: URL): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects();
 
     return redirects.find((redirect: RedirectInfo) =>
