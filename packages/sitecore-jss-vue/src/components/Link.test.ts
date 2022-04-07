@@ -91,13 +91,19 @@ describe('<Link />', () => {
           class: 'my-link',
           title: 'My Link',
           target: '_blank',
+          querystring: 'foo=bar',
         },
       },
     };
     const rendered = mount(Link, { props }).find('a');
-    const renderedAttrs = rendered.attributes();
+    // const renderedAttrs = rendered.attributes();
     // note: order of comparison is important for `toMatchObject` as renderedAttrs won't fully match props.field.value
-    expect(props.field.value).toMatchObject(renderedAttrs);
+    expect(rendered.html()).toContain(
+      `href="${props.field.value.href}?${props.field.value.querystring}"`
+    );
+    expect(rendered.html()).toContain(`class="${props.field.value.class}"`);
+    expect(rendered.html()).toContain(`title="${props.field.value.title}"`);
+    expect(rendered.html()).toContain(`target="${props.field.value.target}"`);
   });
 
   it('should render other attributes with other props provided', () => {
