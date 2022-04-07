@@ -24,12 +24,16 @@ export class RedirectsMiddleware {
   /**
    * NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
    * (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
-   * @param config
+   * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
    */
   constructor(config: RedirectsMiddlewareConfig) {
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
   }
 
+  /**
+   * Gets the Next.js API route handler
+   * @returns route handler
+   */
   public getHandler(): (req: NextRequest) => Promise<NextResponse> {
     return this.handler;
   }
@@ -66,7 +70,7 @@ export class RedirectsMiddleware {
    * @return Promise<RedirectInfo>
    * @private
    */
-  public async getExistsRedirect(url: URL): Promise<RedirectInfo | undefined> {
+  private async getExistsRedirect(url: URL): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects();
 
     return redirects.find((redirect: RedirectInfo) =>
