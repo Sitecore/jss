@@ -96,8 +96,6 @@ describe('<Link />', () => {
       },
     };
     const rendered = mount(Link, { props }).find('a');
-    // const renderedAttrs = rendered.attributes();
-    // note: order of comparison is important for `toMatchObject` as renderedAttrs won't fully match props.field.value
     expect(rendered.html()).toContain(
       `href="${props.field.value.href}?${props.field.value.querystring}"`
     );
