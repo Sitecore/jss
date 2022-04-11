@@ -29,19 +29,6 @@ const nextConfig = {
   // Enable React Strict Mode
   reactStrictMode: true,
 
-  images: {
-    // We use a custom loader function in the NextImage component (passed to next/image).
-    // See: https://nextjs.org/docs/api-reference/next/image#loader
-    // The config here is more of a vanity configuration as it does not affect the functionality, but is recommended by Vercel.
-    loader: 'custom',
-    // IMPORTANT: 'path' is required as this drives our custom loader when media URLs are relative.
-    path: jssConfig.sitecoreApiHost,
-    // These widths are used when the next/image component uses layout="responsive" or layout="fill" to ensure the correct image is served for user's device.
-    // It is used to generate the srcset attribute for the image, using two sizes 300 and 100px max widths, respecting aspect ratio.
-    // IMPORTANT: These sizes should match your Sitecore server-side allowlist. See /sitecore/config/*.config (search for 'allowedMediaParams')
-    deviceSizes: [100, 300],
-  },
-
   async rewrites() {
     // When in connected mode we want to proxy Sitecore paths off to Sitecore
     return [

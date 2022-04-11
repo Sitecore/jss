@@ -29,15 +29,17 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     {/*
       Advanced image usage example
       editable: controls whether image can be edited in Sitecore Experience Editor
-      imageParams: parameters that are passed to Sitecore to perform server-side resizing of the image.
-      Sample rescales image to max 100x50 dimensions on the server, respecting aspect ratio
-      IMPORTANT: imageParams must be whitelisted for resizing to occur. See /sitecore/config/*.config (search for 'allowedMediaParams')
+      unoptimized: disables next/image source optimization in favor of imageParams
+      imageParams: parameters that are passed to Sitecore to perform server-side resizing of the image
+        Sample rescales image to max 100x50 dimensions on the server, respecting aspect ratio
+        IMPORTANT: imageParams must be whitelisted for resizing to occur. See /sitecore/config/*.config (search for 'allowedMediaParams')
       any other attributes: pass through to img tag
     */}
     <p>Advanced image (not editable)</p>
     <NextImage
       field={props.fields.sample2}
       editable={false}
+      unoptimized={true}
       imageParams={{ mw: 100, mh: 50 }}
       height="50"
       width="94"
@@ -45,11 +47,17 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     />
 
     {/*
-      srcSet in Nextjs Image is set inside of the next.config by setting an array of deviceSizes and imageSizes inside the images option. 
-      IMPORTANT: These sizes should match your Sitecore server-side allowlist. See /sitecore/config/*.config (search for 'allowedMediaParams')
+      next/image generates responsive srcSet automatically based on layout. See https://nextjs.org/docs/api-reference/next/image#layout.
+      IMPORTANT: The generated sizes should match your Sitecore server-side allowlist. See /sitecore/config/*.config (search for 'allowedMediaParams')
     */}
     <p>Srcset responsive image</p>
-    <NextImage field={props.fields.sample2} height="105" width="200" layout="responsive" />
+    <NextImage
+      field={props.fields.sample2}
+      height="105"
+      width="200"
+      sizes="50vw"
+      layout="responsive"
+    />
   </StyleguideSpecimen>
 );
 
