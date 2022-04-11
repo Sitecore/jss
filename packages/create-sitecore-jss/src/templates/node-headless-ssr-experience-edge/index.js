@@ -1,7 +1,8 @@
 const express = require('express');
 const compression = require('compression');
+require('dotenv').config();
 const { GraphQLLayoutService } = require('@sitecore-jss/sitecore-jss/layout');
-const { GraphQLDictionaryService} = require('@sitecore-jss/sitecore-jss/i18n');
+const { GraphQLDictionaryService } = require('@sitecore-jss/sitecore-jss/i18n');
 const config = require('./config');
 
 const server = express();
@@ -89,7 +90,9 @@ server.use(async (req, res) => {
 
     const viewBag = { dictionary: {} };
 
-    viewBag.dictionary = await dictionaryService.fetchDictionaryData(layoutData.sitecore.context.language);
+    viewBag.dictionary = await dictionaryService.fetchDictionaryData(
+      layoutData.sitecore.context.language
+    );
 
     renderView(
       (err, result) => {
