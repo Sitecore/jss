@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { RestDictionaryService } = require('@sitecore-jss/sitecore-jss/i18n');
-const httpAgents = require("./httpAgents");
+const httpAgents = require('./httpAgents');
 
 /**
  * The JSS application name defaults to providing part of the bundle path as well as the dictionary service endpoint.
@@ -17,7 +17,7 @@ const serverBundle = require(bundlePath);
 
 httpAgents.setUpDefaultAgents(serverBundle);
 
-const apiHost = process.env.SITECORE_API_HOST || 'http://my.sitecore.host'
+const apiHost = process.env.SITECORE_API_HOST || 'http://my.sitecore.host';
 
 appName = appName || serverBundle.appName;
 
@@ -96,16 +96,16 @@ const config = {
     // when proxying to a SSL Sitecore instance.
     // This is a major security issue, so NEVER EVER set this to false
     // outside local development. Use a real CA-issued certificate.
-		secure: true,
-		xfwd: true
-	},
-	/**
-	 * Custom headers handling.
-	 * You can remove different headers from proxy response.
-	*/
-	setHeaders: (req, serverRes, proxyRes) => {
-		delete proxyRes.headers['content-security-policy'];
-	},
+    secure: true,
+    xfwd: true,
+  },
+  /**
+   * Custom headers handling.
+   * You can remove different headers from proxy response.
+   */
+  setHeaders: (req, serverRes, proxyRes) => {
+    delete proxyRes.headers['content-security-policy'];
+  },
   /**
    * Custom error handling in case our app fails to render.
    * Return null to pass through server response, or { content, statusCode }
@@ -139,7 +139,7 @@ const config = {
       return {};
     }
 
-    return dictionaryService.fetchDictionaryData(language).then(phrases => {
+    return dictionaryService.fetchDictionaryData(language).then((phrases) => {
       const viewBag = {
         dictionary: phrases,
       };

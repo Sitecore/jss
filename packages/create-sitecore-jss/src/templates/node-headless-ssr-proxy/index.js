@@ -1,5 +1,6 @@
 const express = require('express');
 const compression = require('compression');
+require('dotenv').config();
 const scProxy = require('@sitecore-jss/sitecore-jss-proxy').default;
 const config = require('./config');
 const cacheMiddleware = require('./cacheMiddleware');
@@ -38,7 +39,7 @@ server.use((req, res, next) => {
   }
 
   next();
-})
+});
 
 // For any other requests, we render app routes server-side and return them
 server.use('*', scProxy(config.serverBundle.renderView, config, config.serverBundle.parseRouteUrl));
