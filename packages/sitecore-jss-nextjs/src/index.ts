@@ -51,6 +51,12 @@ export {
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';
+export { personalizeLayout } from '@sitecore-jss/sitecore-jss/personalize';
+export {
+  RobotsQueryResult,
+  GraphQLRobotsService,
+  GraphQLRobotsServiceConfig,
+} from '@sitecore-jss/sitecore-jss/site';
 export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export {
@@ -100,6 +106,7 @@ export {
   LinkField,
   LinkFieldValue,
   Text,
+  TextField,
   DateField,
   File,
   FileField,

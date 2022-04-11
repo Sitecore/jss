@@ -1,8 +1,14 @@
 import chalk from 'chalk';
-import path from 'path';
+import path, { sep } from 'path';
 import { prompt } from 'inquirer';
 import { prompts, NextjsAnswer } from './prompts';
-import { Initializer, transform, isDevEnvironment } from '../../common';
+import {
+  Initializer,
+  transform,
+  isDevEnvironment,
+  openPackageJson,
+  writePackageJson,
+} from '../../common';
 import { removeDevDependencies } from './remove-dev-dependencies';
 import { NextjsArgs } from './args';
 
@@ -40,9 +46,26 @@ export default class NextjsInitializer implements Initializer {
             name: 'nextjs-sxa - Includes example components and setup for working using SXA',
             value: 'nextjs-sxa',
           },
+          {
+            name:
+              'nextjs-personalize - Includes example components and setup for working using Personalize',
+            value: 'nextjs-personalize',
+          },
         ],
       });
       addInitializers = addInitAnswer.addInitializers;
+    }
+
+    if (
+      !addInitializers.includes('nextjs-styleguide') &&
+      !args.templates.includes('nextjs-styleguide')
+    ) {
+      const pkgPath = path.resolve(`${answers.destination}${sep}package.json`);
+      const pkg = openPackageJson(pkgPath);
+
+      pkg.scripts.bootstrap = pkg.scripts.bootstrap.replace(' && graphql-let', '');
+
+      writePackageJson(pkg, pkgPath);
     }
 
     const response = {

@@ -6,7 +6,7 @@ import {
   Item,
   RouteData,
 } from '@sitecore-jss/sitecore-jss/layout';
-import { HorizonEditor, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
+import { resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
 import { Component, h, VNode, DefineComponent, ref, onMounted } from 'vue';
 import { MissingComponent } from './MissingComponent';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
@@ -179,7 +179,7 @@ export function convertVNodesToDynamicComponents(vnodes: VNode[]) {
       },
     } as JssDynamicComponent;
 
-    if (vnode.type === 'code' && vnode.props.type === 'text/sitecore') {
+    if (vnode.props.elem?.name === 'code' && vnode.props.elem?.type === 'text/sitecore') {
       component.isxEditorComponent = true;
     }
     return component;
@@ -218,9 +218,10 @@ function createRawElement(elem: any) {
         ) {
           elRef.value.setAttribute('key', elem.attributes.key);
 
-          if (elRef && HorizonEditor.isActive()) {
-            resetEditorChromes();
-          }
+          // Reset chromes since sometimes experience editor script is executed earlier
+          // than Vue script and EE can't set required attributes and chromes aren't visible
+          // Also required for Horizon
+          resetEditorChromes();
         }
       });
 
@@ -234,7 +235,7 @@ function createRawElement(elem: any) {
     },
   };
 
-  return h(component);
+  return h(component, { elem });
 }
 
 /**

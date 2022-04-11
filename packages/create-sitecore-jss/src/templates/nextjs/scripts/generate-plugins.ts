@@ -37,6 +37,11 @@ const pluginDefinitions = [
     moduleType: ModuleType.ESM,
   },
   {
+    listPath: 'src/temp/middleware-plugins.ts',
+    rootPath: 'src/lib/middleware/plugins',
+    moduleType: ModuleType.ESM,
+  },
+  {
     listPath: 'src/temp/page-props-factory-plugins.ts',
     rootPath: 'src/lib/page-props-factory/plugins',
     moduleType: ModuleType.ESM,
@@ -94,7 +99,7 @@ function getPluginList(path: string, pluginName: string): PluginFile[] {
     path,
     resolveItem: (path, name) => ({
       path: `${path}/${name}`,
-      name: `${name.replace(/[^\w]+/g, '')}Plugin`,
+      name: `${name.replace(/-./g, (x) => x[1].toUpperCase())}Plugin`,
     }),
     cb: (name) => console.debug(`Registering ${pluginName} plugin ${name}`),
   });
