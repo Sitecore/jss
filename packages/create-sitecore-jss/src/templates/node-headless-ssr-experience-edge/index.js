@@ -1,13 +1,6 @@
 const express = require('express');
 const compression = require('compression');
-
-/**
- * Usage of .env file can be enabled here by
- * uncommenting the next require and
- * creating a .env file based on .env.example
- */
-//require('dotenv').config();
-
+require('dotenv').config();
 const { GraphQLLayoutService } = require('@sitecore-jss/sitecore-jss/layout');
 const { GraphQLDictionaryService } = require('@sitecore-jss/sitecore-jss/i18n');
 const config = require('./config');
