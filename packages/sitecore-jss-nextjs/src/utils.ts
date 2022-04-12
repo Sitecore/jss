@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
+import URL from 'url-parse';
 
 /**
  * Get the publicUrl.
@@ -84,4 +85,26 @@ export const getJssEditingSecret = (): string => {
     throw new Error('The JSS_EDITING_SECRET environment variable is missing or invalid.');
   }
   return secret;
+};
+
+/**
+ * Replace `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
+ * Can use `mediaUrlPrefix` in order to use a custom prefix.
+ * @param {string} url
+ * @param {RegExp} [mediaUrlPrefix=mediaUrlPrefixRegex]
+ * @returns {string} url
+ */
+export const transformImageUrl = (url: string, mediaUrlPrefix: RegExp): string => {
+  const parsed = URL(url, {}, true);
+
+  const match = (mediaUrlPrefix as RegExp).exec(parsed.pathname);
+  if (match && match.length > 1) {
+    // regex will provide us with /-/ or /~/ type
+    parsed.set(
+      'pathname',
+      parsed.pathname.replace(mediaUrlPrefix as RegExp, `/${match[1]}/jssmedia/`)
+    );
+  }
+
+  return parsed.toString();
 };

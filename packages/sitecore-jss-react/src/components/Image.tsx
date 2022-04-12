@@ -99,19 +99,6 @@ const getImageAttrs = (
     return null;
   }
 
-  // we want to get rid of class prop in compliance with JSX
-  if (otherAttrs.class) {
-    // if any classes are defined properly already
-    if (otherAttrs.className) {
-      let className: string = otherAttrs.className as string;
-      className += ` ${otherAttrs.class}`;
-      otherAttrs.className = className;
-    } else {
-      otherAttrs.className = otherAttrs.class;
-    }
-    delete otherAttrs.class;
-  }
-
   const newAttrs: { [attr: string]: unknown } = {
     ...otherAttrs,
   };
@@ -140,6 +127,18 @@ export const getEEMarkup = (
   mediaUrlPrefix?: RegExp,
   otherProps?: ImageProps
 ) => {
+  // we want to get rid of class prop in compliance with JSX
+  if (otherProps.class) {
+    // if any classes are defined properly already
+    if (otherProps.className) {
+      let className: string = otherProps.className as string;
+      className += ` ${otherProps.class}`;
+      otherProps.className = className;
+    } else {
+      otherProps.className = otherProps.class;
+    }
+    delete otherProps.class;
+  }
   // we likely have an experience editor value, should be a string
   const foundImg = mediaApi.findEditorImageTag(imageField.editable);
   if (!foundImg) {

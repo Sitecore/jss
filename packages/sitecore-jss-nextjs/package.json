@@ -41,6 +41,7 @@
     "@types/react-dom": "^17.0.9",
     "@types/sinon": "^7.5.0",
     "@types/sinon-chai": "^3.2.5",
+    "@types/url-parse": "^1.4.8",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
@@ -73,7 +74,8 @@
     "@sitecore-jss/sitecore-jss-dev-tools": "^21.0.0-canary.26",
     "@sitecore-jss/sitecore-jss-react": "^21.0.0-canary.26",
     "prop-types": "^15.7.2",
-    "sync-disk-cache": "^2.1.0"
+    "sync-disk-cache": "^2.1.0",
+    "url-parse": "^1.5.10"
   },
   "description": "",
   "types": "types/index.d.ts",
