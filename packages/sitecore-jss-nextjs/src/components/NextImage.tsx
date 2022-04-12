@@ -82,8 +82,6 @@ export const NextImage: React.SFC<NextImageProps> = ({
     src: transformImageUrl(attrs.src, mediaUrlPrefix as RegExp),
   };
 
-  console.log(imageProps.src);
-
   const loader = (otherProps.loader ? otherProps.loader : sitecoreLoader) as ImageLoader;
 
   if (attrs) {
