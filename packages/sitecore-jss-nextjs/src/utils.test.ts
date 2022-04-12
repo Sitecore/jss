@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { getPublicUrl, getJssEditingSecret } from './utils';
+import URL from 'url-parse';
+import { getPublicUrl, getJssEditingSecret, transformImageUrl } from './utils';
 
 describe('utils', () => {
   describe('getPublicUrl', () => {
@@ -53,6 +54,22 @@ describe('utils', () => {
       process.env.JSS_EDITING_SECRET = secret;
       const result = getJssEditingSecret();
       expect(result).to.equal(secret);
+    });
+  });
+
+  describe('transformImageUrl', () => {
+    it('should replace /-/media/ with /-/jssmedia/', () => {
+      const original = 'http://sitecore/-/media/lorem/ipsum.jpg';
+      const updated = transformImageUrl(original);
+      const url = URL(updated);
+      expect(url.pathname).to.startsWith('/-/jssmedia/');
+    });
+
+    it('should replace /~/media/ with /~/jssmedia/', () => {
+      const original = 'http://sitecore/~/media/lorem/ipsum.jpg';
+      const updated = transformImageUrl(original);
+      const url = URL(updated);
+      expect(url.pathname).to.startsWith('/~/jssmedia/');
     });
   });
 });

@@ -78,7 +78,7 @@ export const NextImage: React.SFC<NextImageProps> = ({
 
   const imageProps = {
     ...attrs,
-    // force replace /media with /jssmedia on src
+    // force replace /media with /jssmedia in src
     src: transformImageUrl(attrs.src, mediaUrlPrefix as RegExp),
   };
 
