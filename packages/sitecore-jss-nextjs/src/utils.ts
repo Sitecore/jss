@@ -89,25 +89,3 @@ export const getJssEditingSecret = (): string => {
   }
   return secret;
 };
-
-/**
- * Replace `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
- * Can use `mediaUrlPrefix` in order to use a custom prefix.
- * @param {string} url
- * @param {RegExp} [mediaUrlPrefix=mediaUrlPrefixRegex]
- * @returns {string} url
- */
-export const transformImageUrl = (
-  url: string,
-  mediaUrlPrefix: RegExp = mediaUrlPrefixRegex
-): string => {
-  const parsed = Url(url, {}, true);
-
-  const match = mediaUrlPrefix.exec(parsed.pathname);
-  if (match && match.length > 1) {
-    // regex will provide us with /-/ or /~/ type
-    parsed.set('pathname', parsed.pathname.replace(mediaUrlPrefix, `/${match[1]}/jssmedia/`));
-  }
-
-  return parsed.toString();
-};

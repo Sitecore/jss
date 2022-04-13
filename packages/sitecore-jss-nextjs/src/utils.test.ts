@@ -56,20 +56,4 @@ describe('utils', () => {
       expect(result).to.equal(secret);
     });
   });
-
-  describe('transformImageUrl', () => {
-    it('should replace /-/media/ with /-/jssmedia/', () => {
-      const original = 'http://sitecore/-/media/lorem/ipsum.jpg';
-      const updated = transformImageUrl(original);
-      const url = URL(updated);
-      expect(url.pathname).to.startsWith('/-/jssmedia/');
-    });
-
-    it('should replace /~/media/ with /~/jssmedia/', () => {
-      const original = 'http://sitecore/~/media/lorem/ipsum.jpg';
-      const updated = transformImageUrl(original);
-      const url = URL(updated);
-      expect(url.pathname).to.startsWith('/~/jssmedia/');
-    });
-  });
 });

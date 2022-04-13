@@ -78,7 +78,8 @@ export const NextImage: React.SFC<NextImageProps> = ({
 
   const imageProps = {
     ...attrs,
-    // force replace /media with /jssmedia in src
+    // force replace /media with /jssmedia in src since we _know_ we will be adding a 'mw' query string parameter
+    // this is required for Sitecore media API resizing to work properly
     src: transformImageUrl(attrs.src, mediaUrlPrefix as RegExp),
   };
 

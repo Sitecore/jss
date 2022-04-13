@@ -2,7 +2,7 @@ import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { convertAttributesToReactProps } from '../utils';
+import { addClassName, convertAttributesToReactProps } from '../utils';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -98,6 +98,7 @@ const getImageAttrs = (
   if (!src) {
     return null;
   }
+  addClassName(otherAttrs);
 
   const newAttrs: { [attr: string]: unknown } = {
     ...otherAttrs,
@@ -127,18 +128,6 @@ export const getEEMarkup = (
   mediaUrlPrefix?: RegExp,
   otherProps?: ImageProps
 ) => {
-  // we want to get rid of class prop in compliance with JSX
-  if (otherProps.class) {
-    // if any classes are defined properly already
-    if (otherProps.className) {
-      let className: string = otherProps.className as string;
-      className += ` ${otherProps.class}`;
-      otherProps.className = className;
-    } else {
-      otherProps.className = otherProps.class;
-    }
-    delete otherProps.class;
-  }
   // we likely have an experience editor value, should be a string
   const foundImg = mediaApi.findEditorImageTag(imageField.editable);
   if (!foundImg) {
@@ -149,6 +138,7 @@ export const getEEMarkup = (
   // Note: otherProps may override values from foundImgProps, e.g. `style`, `className` prop
   // We do not attempt to merge.
   const imgAttrs = getImageAttrs({ ...foundImgProps, ...otherProps }, imageParams, mediaUrlPrefix);
+
   if (!imgAttrs) {
     return getEditableWrapper(imageField.editable);
   }
