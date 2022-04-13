@@ -117,21 +117,4 @@ describe('GraphQLRequestClient', () => {
       );
     }
   });
-
-  it('should use fetch override', async () => {
-    nock('http://jssnextweb')
-      .post('/graphql')
-      .reply(200, {
-        data: {
-          result: 'Hello world...',
-        },
-      });
-
-    const graphQLClient = new GraphQLRequestClient(endpoint, {
-      fetch,
-    });
-    const data = await graphQLClient.request('test');
-
-    expect(data).to.deep.equal({ result: 'Hello world...' });
-  });
 });
