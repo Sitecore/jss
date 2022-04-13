@@ -1,3 +1,6 @@
+/**
+ * This Layout needs for SXA example.
+ */
 import React from 'react';
 import Head from 'next/head';
 import {
@@ -38,12 +41,9 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <Navigation />
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
-        {route && (
-          <Placeholder
-            name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main"
-            rendering={route}
-          />
-        )}
+        <div className="row">
+          {route && <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={route} />}
+        </div>
       </div>
     </>
   );

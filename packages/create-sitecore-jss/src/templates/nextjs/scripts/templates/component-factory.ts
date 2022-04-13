@@ -1,7 +1,7 @@
 /**
  * Describes a file that represents a component definition
  */
- export interface ComponentFile {
+export interface ComponentFile {
   path: string;
   moduleName: string;
   componentName: string;
