@@ -32,11 +32,11 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Hidden renderings do not have implementation and result in console error message ([#834](https://github.com/Sitecore/jss/pull/834))
 * Use the app name as the prefix value for placeholders ([#830](https://github.com/Sitecore/jss/pull/830))
 
-`[nextjs]` `[react]` Handle Sitecore querystring property in Link component ([#929](https://github.com/Sitecore/jss/pull/929))
+`[sitecore-jss-nextjs]` `[sitecore-jss-react]` Handle Sitecore querystring property in Link component ([#929](https://github.com/Sitecore/jss/pull/929))
 
 `[Maintenance]` Generate API reference docs ([#840](https://github.com/Sitecore/jss/pull/840))
 
-`[sitecore-jss-manifest]` `[nextjs]` Allow component manifest definitions to define a template name ([#810](https://github.com/Sitecore/jss/pull/810))
+`[sitecore-jss-manifest]` `[template/nextjs]` Allow component manifest definitions to define a template name ([#810](https://github.com/Sitecore/jss/pull/810))
 
 ### Bug Fixes
 
@@ -44,19 +44,15 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Highlight error message for fetchWith=GraphQL ([#930](https://github.com/Sitecore/jss/pull/930))
 * Fix peer dependency errors ([#910](https://github.com/Sitecore/jss/pull/910))
 
-`[nextjs]`
+`[template/nextjs]`
 * graphql-let error when bootstrapping empty Nextjs app ([#942](https://github.com/Sitecore/jss/pull/942))
 * Use more focused paths for Sitecore rewrites ([#921](https://github.com/Sitecore/jss/pull/921)
 * Add .babelrc to Next.js template to disable SWC compilation ([#918](https://github.com/Sitecore/jss/pull/918))
 * Can't start app in disconnected mode, throws webpack fallback option error ([#913](https://github.com/Sitecore/jss/pull/913))
 * Add .gitattributes to Next.js sample app with CRLF line endings ([#855](https://github.com/Sitecore/jss/pull/855))
-* Prevent passing internalLinkMatcher prop ([#847](https://github.com/Sitecore/jss/pull/847))
-* Preview Mode doesn't work with _fallback: false_ on Vercel ([#846](https://github.com/Sitecore/jss/pull/846))
-* TypeError: Only absolute URLs are supported ([#826](https://github.com/Sitecore/jss/pull/826))
 * `[Horizon]` Custom components cannot be added ([#807](https://github.com/Sitecore/jss/pull/807))
-* `[caching]` Make _tmpDir_ a configurable parameter ([#839](https://github.com/Sitecore/jss/pull/839))
 
-`[angular]`
+`[template/angular]`
 * [10.3] "Edit related item" button redirects to home ([#944](https://github.com/Sitecore/jss/pull/944))
 * Update angular-devkit/build-angular to fix deprecation error ([#917](https://github.com/Sitecore/jss/pull/917))
 * Convert language to the sitecore compatible format ([#906](https://github.com/Sitecore/jss/pull/906))
@@ -65,9 +61,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Fix handling of not found layout service requests in Angular sample ([#809](https://github.com/Sitecore/jss/pull/809))
 * Console error when /graphql requested in EE, localhost or horizon ([#803](https://github.com/Sitecore/jss/pull/803))
 
-`[vue]`
-* Experience Editor controls does not work until hard reload is done ([#950](https://github.com/Sitecore/jss/pull/950))
-* Styleguide-Layout-Reuse breaks EE ([#938](https://github.com/Sitecore/jss/pull/938))
+`[template/vue]`
 * The page is redirected to the home page of the website after clicking the "Change associated content" button in the Experience Editor ([#907](https://github.com/Sitecore/jss/pull/907))
 * Cannot add a new rendering to the newly created ([#903](https://github.com/Sitecore/jss/pull/903))
 * `[Horizon]` Cannot add a new rendering or highlight existing ([#895](https://github.com/Sitecore/jss/pull/895))
@@ -75,21 +69,33 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Server error for Vue + --fetchWith GraphQL + node-headless-SSR-Experience-Edge ([#812](https://github.com/Sitecore/jss/pull/812))
 * Fix Vue sample RestLayoutService config (use 'apiHost', not 'endpoint') ([#804](https://github.com/Sitecore/jss/pull/804))
 
+`[template/react]` Set _changeOrigin: true_ for proxied Sitecore requests in connected mode ([#808](https://github.com/Sitecore/jss/pull/808))
+
+`[template/vue]` `[template/react]` Exception while rendering GraphQL page ([#900](https://github.com/Sitecore/jss/pull/900))
+
+`[template/react]` `[template/angular]` `[template/vue]` Fix Template id for styleguide-explanatory-component-template & vue graphql fragment data ([#816](https://github.com/Sitecore/jss/pull/816))
+
+`[template/react]` `[template/angular]` `[template/vue]` jss graphql:update throws errors ([#806](https://github.com/Sitecore/jss/pull/806))
+
+`[template/react]` `[template/angular]` `[template/vue]` Include Sitecore server URL in media URLs by default ([#802](https://github.com/Sitecore/jss/pull/802))
+
+`[sitecore-jss]`
+* TypeError: Only absolute URLs are supported ([#826](https://github.com/Sitecore/jss/pull/826))
+
+`[sitecore-jss-vue]`
+* Experience Editor controls does not work until hard reload is done ([#950](https://github.com/Sitecore/jss/pull/950))
+* Styleguide-Layout-Reuse breaks EE ([#938](https://github.com/Sitecore/jss/pull/938))
+
+`[sitecore-jss-nextjs]`
+* Prevent passing internalLinkMatcher prop ([#847](https://github.com/Sitecore/jss/pull/847))
+* Preview Mode doesn't work with _fallback: false_ on Vercel ([#846](https://github.com/Sitecore/jss/pull/846))
+* `[caching]` Make _tmpDir_ a configurable parameter ([#839](https://github.com/Sitecore/jss/pull/839))
+
 `[node-headless-ssr-proxy]` `[node-headless-ssr-experience-edge]` Added submodules import ([#916](https://github.com/Sitecore/jss/pull/916))
 
-`[vue]` `[react]` Exception while rendering GraphQL page ([#900](https://github.com/Sitecore/jss/pull/900))
-
-`[nextjs]` `[react]` Attributes of an empty placeholder are applied to the next sibling `<div>` tag in Experience Editor of JSS item ([#833](https://github.com/Sitecore/jss/pull/833))
+`[sitecore-jss-nextjs]` `[sitecore-jss-react]` Attributes of an empty placeholder are applied to the next sibling `<div>` tag in Experience Editor of JSS item ([#833](https://github.com/Sitecore/jss/pull/833))
 
 `[sitecore-jss-dev-tools]` Fix circular dependencies ([#843](https://github.com/Sitecore/jss/pull/843))
-
-`[react]` `[angular]` `[vue]` Fix Template id for styleguide-explanatory-component-template & vue graphql fragment data ([#816](https://github.com/Sitecore/jss/pull/816))
-
-`[react]` Set _changeOrigin: true_ for proxied Sitecore requests in connected mode ([#808](https://github.com/Sitecore/jss/pull/808))
-
-`[react]` `[angular]` `[vue]` jss graphql:update throws errors ([#806](https://github.com/Sitecore/jss/pull/806))
-
-`[react]` `[angular]` `[vue]` Include Sitecore server URL in media URLs by default ([#802](https://github.com/Sitecore/jss/pull/802))
 
 `[sitecore-jss-cli]`
 * Ignore pdf and images when replacing or stripping prefix ([#818](https://github.com/Sitecore/jss/pull/818))
@@ -112,7 +118,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 `[samples]` Retire samples ([#891](https://github.com/Sitecore/jss/pull/891))
 
-`[nextjs]` `[react]` Strongly typed SitecoreContext value ([#841](https://github.com/Sitecore/jss/pull/841))
+`[template/nextjs]` `[template/react]` Strongly typed SitecoreContext value ([#841](https://github.com/Sitecore/jss/pull/841))
 
 ## 19.0.0
 
