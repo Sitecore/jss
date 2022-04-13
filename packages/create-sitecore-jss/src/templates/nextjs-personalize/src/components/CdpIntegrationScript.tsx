@@ -5,10 +5,11 @@ import { useEffect } from 'react';
 
 declare const _boxeverq: any;
 declare const Boxever: any;
+declare const currentHostname : any;
 
 function createPageView(locale: string | undefined, routeName: string) {
   // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const pos = 'spintel.com';
+  const pos = process.env.CDP_POS || currentHostname;
 
   _boxeverq.push(function () {
     const pageViewEvent = {
@@ -34,8 +35,8 @@ const CdpIntegrationScript = ({
   route: { itemLanguage, name },
   pageEditing,
 }: CdpIntegrationProps): JSX.Element => {
-  const clientKey = process.env.BOXEVER_CLIENT_KEY
-  const targetUrl = process.env.BOXEVER_TARGET_URL
+  const clientKey = process.env.BOXEVER_CLIENT_KEY;
+  const targetUrl = process.env.BOXEVER_TARGET_URL;
 
   useEffect(() => {
     // Do not create events in editing mode
@@ -60,6 +61,11 @@ const CdpIntegrationScript = ({
           __html: `
               var _boxeverq = _boxeverq || [];
 
+              var currentHostname = window.location.hostname.substring(
+                4, 
+                window.location.hostname.length
+              );
+
               var _boxever_settings = {
                   client_key: '${clientKey}',
                   target: '${targetUrl}',
@@ -68,7 +74,7 @@ const CdpIntegrationScript = ({
             `,
         }}
       />
-      <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js" />
+      <Script src={process.env.BOXEVER_SCRIPT_URL} />
     </>
   );
 };
