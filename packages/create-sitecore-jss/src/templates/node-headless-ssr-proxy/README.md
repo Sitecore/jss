@@ -7,6 +7,7 @@ The setup is using `sitecore-jss-proxy` that enables request proxying to Sitecor
 <!---
 @TODO: Update to version 20.0.0 docs before release
 -->
+
 [Documentation](https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/server-side-render-jss-apps-headlessly-using-the-jss-proxy.html)
 
 > This is a sample setup that is not officially supported by Sitecore.
@@ -44,6 +45,8 @@ The following environment variables can be set to configure the proxy instead of
 | `SITECORE_API_KEY`                     | The Sitecore SSC API key your app uses.                                                                                                    |
 | `SITECORE_PATH_REWRITE_EXCLUDE_ROUTES` | Optional. Pipe-separated list of absolute paths that should not be rendered through SSR. Defaults can be seen in [config.js](./config.js). |
 | `SITECORE_ENABLE_DEBUG`                | Optional. Writes verbose request info to stdout for debugging. Defaults to `false`.                                                        |
+
+These environment variables can be set in the .env file located in the root of the app.
 
 ## Build & run
 
