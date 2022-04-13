@@ -74,9 +74,9 @@
     "@sitecore-jss/sitecore-jss-dev-tools": "^21.0.0-canary.30",
     "@sitecore-jss/sitecore-jss-react": "^21.0.0-canary.30",
     "prop-types": "^15.7.2",
+    "regex-parser": "^2.2.11",
     "sync-disk-cache": "^2.1.0",
-    "url-parse": "^1.5.10",
-    "regex-parser": "^2.2.11"
+    "url-parse": "^1.5.10"
   },
   "description": "",
   "types": "types/index.d.ts",

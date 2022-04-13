@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import URL from 'url-parse';
-import { getPublicUrl, getJssEditingSecret, transformImageUrl } from './utils';
+import { getPublicUrl, getJssEditingSecret } from './utils';
 
 describe('utils', () => {
   describe('getPublicUrl', () => {

@@ -1,9 +1,5 @@
 import chalk from 'chalk';
 import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
-import Url from 'url-parse';
-
-// finds the Sitecore media URL prefix
-const mediaUrlPrefixRegex = /\/([-~]{1})\/media\//i;
 
 /**
  * Get the publicUrl.
