@@ -3,15 +3,11 @@ All notable changes to this project will be documented in this file. The format 
 
 This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
 
-## Unreleased
-
-### New Features & Improvements
-
 ## 20.0.0
 
 ### New Features & Improvements
 
-`[create-sitecore-jss]` `[initializers]` Initializers ([#881](https://github.com/Sitecore/jss/pull/881)), ([#883](https://github.com/Sitecore/jss/pull/883)), ([#882](https://github.com/Sitecore/jss/pull/882)), ([#880](https://github.com/Sitecore/jss/pull/880)), ([#879](https://github.com/Sitecore/jss/pull/879)), ([#878](https://github.com/Sitecore/jss/pull/878)), ([#876](https://github.com/Sitecore/jss/pull/876))
+`[create-sitecore-jss]` `[initializers]` Initializers - `npm init` replace `jss-create` ([#881](https://github.com/Sitecore/jss/pull/881)), ([#883](https://github.com/Sitecore/jss/pull/883)), ([#882](https://github.com/Sitecore/jss/pull/882)), ([#880](https://github.com/Sitecore/jss/pull/880)), ([#879](https://github.com/Sitecore/jss/pull/879)), ([#878](https://github.com/Sitecore/jss/pull/878)), ([#876](https://github.com/Sitecore/jss/pull/876))
 
 `[templates]`
 * Throw error when run jss start using `FETCH_WITH=GraphQL` ([#920](https://github.com/Sitecore/jss/pull/920))
@@ -19,15 +15,14 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Change the classname of `ContentBlock` from display-4 to contentTitle ([#908](https://github.com/Sitecore/jss/pull/908))
 
 `[template/nextjs]`
-* Bump Nextjs version to `12.1.0` ([#948](https://github.com/Sitecore/jss/pull/948))
 * Remove `withSitecoreContext` HOC from Layout.tsx ([#887](https://github.com/Sitecore/jss/pull/887))
 * Component props auto-injection by Placeholder ([#884](https://github.com/Sitecore/jss/pull/884))
 * Plugins for next.config.js ([#867](https://github.com/Sitecore/jss/pull/867))
 * Refactor `sitemap-fetcher` to make it extendable ([#865](https://github.com/Sitecore/jss/pull/865))
-* Upgrade to Next.js 12 ([#860](https://github.com/Sitecore/jss/pull/860))
+* Upgrade to Next.js 12 ([#860](https://github.com/Sitecore/jss/pull/860)), ([#948](https://github.com/Sitecore/jss/pull/948))
 * Refactor `PagePropsFactory` to make it extendable ([#857](https://github.com/Sitecore/jss/pull/857))
 * Remove locale variants from default rewrites ([#832](https://github.com/Sitecore/jss/pull/832))
- 
+
 `[template/angular]` Language is not preserved when navigating to another page ([#793](https://github.com/Sitecore/jss/pull/793))
 
 `[template/nextjs]` `[template/react]` `[template/angular]` `[template/vue]` Use the app name as the prefix value for templates
@@ -45,26 +40,9 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### Bug Fixes
 
-`[create-sitecore-jss]` `[initializers]` 
-* Destination is not applied correctly for different OS ([#932](https://github.com/Sitecore/jss/pull/932))
-* .gitignore is not published to npm ([#924](https://github.com/Sitecore/jss/pull/924))
-* Initializer Improvements ([#905](https://github.com/Sitecore/jss/pull/905))
-* Initializer fixes ([#901](https://github.com/Sitecore/jss/pull/901), [#899](https://github.com/Sitecore/jss/pull/899))
-* Make sure a template's package.json is sent through ejs _before_ merge. Fixes duplicate rootPlaceholder values in package.json. ([#commit](https://github.com/Sitecore/jss/commit/5b995c0e8b625b1b7558395325c92dfa78d2b839))
-* fixed missing @types/nprogress dev dependency for nextjs-styleguide template. Also, added samples to gitignore ([#commit](https://github.com/Sitecore/jss/commit/f358e289e5eebd6a0954e7c33d319f093797ded8))
-* Require additional language for all initializers and default to da-DK ([#897](https://github.com/Sitecore/jss/pull/897))
-* Switch Initializer defaults to fetchWith: REST and appPrefix: false ([#896](https://github.com/Sitecore/jss/pull/896))
-* Fix Incorrect hostName usage ([#890](https://github.com/Sitecore/jss/pull/890))
-* Added option to exclude hyphen in getAppPrefix helper. Use for GraphQL prefixes ([#889](https://github.com/Sitecore/jss/pull/889))
-
 `[templates]`
 * Highlight error message for fetchWith=GraphQL ([#930](https://github.com/Sitecore/jss/pull/930))
 * Fix peer dependency errors ([#910](https://github.com/Sitecore/jss/pull/910))
-
- `[template/node-headless-ssr-experience-edge]` node-headless-ssr-experience-edge not showing in list of available templates ([#commit](https://github.com/Sitecore/jss/commit/8de22a5dc2b7ef07428865ba20bd76f83615e594))
-
-`[template/react]` `[template/angular]` `[template/vue]` Use --legacy-peer-deps flag on npm install to solve peer dependency issues in RAV templates (temporary workaround) ([#commit](https://github.com/Sitecore/jss/commit/5d652a683752fe62642d852599f71ed84bae2fd7))
-
 
 `[nextjs]`
 * graphql-let error when bootstrapping empty Nextjs app ([#942](https://github.com/Sitecore/jss/pull/942))
