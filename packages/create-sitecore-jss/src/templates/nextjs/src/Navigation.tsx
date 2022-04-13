@@ -9,7 +9,7 @@ const Navigation = (): JSX.Element => (
     <nav>
       <ul>
         <li>
-        <a href="https://sitecore.com">
+          <a href="https://sitecore.com">
             <img src={`${publicUrl}/sc_logo.svg`} alt="Sitecore" />
           </a>
         </li>

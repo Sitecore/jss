@@ -10,13 +10,16 @@ export interface MiddlewarePlugin {
   /**
    * A middleware to be called, it's required to return @type {NextResponse} for other middlewares
    */
-  (req: NextRequest, res: NextResponse, ev: NextFetchEvent): Promise<NextResponse>;
+  exec(req: NextRequest, res?: NextResponse, ev?: NextFetchEvent): Promise<NextResponse>;
 }
 
-export default async function middleware(req: NextRequest, ev: NextFetchEvent): Promise<NextResponse> {
+export default async function middleware(
+  req: NextRequest,
+  ev: NextFetchEvent
+): Promise<NextResponse> {
   const response = NextResponse.next();
 
   return (Object.values(plugins) as MiddlewarePlugin[])
     .sort((p1, p2) => p1.order - p2.order)
-    .reduce((p, plugin) => p.then((res) => plugin(req, res, ev)), Promise.resolve(response));
+    .reduce((p, plugin) => p.then((res) => plugin.exec(req, res, ev)), Promise.resolve(response));
 }

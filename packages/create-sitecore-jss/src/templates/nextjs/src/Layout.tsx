@@ -38,7 +38,12 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <Navigation />
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
-        {route && <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={route} />}
+        {route && (
+          <Placeholder
+            name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main"
+            rendering={route}
+          />
+        )}
       </div>
     </>
   );
