@@ -1,4 +1,5 @@
 import { QuestionCollection } from 'inquirer';
+import CheckboxPrompt from 'inquirer/lib/prompts/checkbox';
 
 import { clientAppPrompts, ClientAppAnswer } from '../../common';
 
@@ -29,3 +30,28 @@ export const prompts: QuestionCollection<NextjsAnswer> = [
     },
   },
 ];
+
+/**
+ * Custom `inquirer` control to support error messages
+ */
+export class NextjsCheckbox extends CheckboxPrompt {
+  onSpaceKey() {
+    super.onSpaceKey();
+
+    const isSelected = (initializer: string) =>
+      this.opt.choices.choices.find((ch) => {
+        const { value, checked } = ch as { [key: string]: unknown };
+
+        return value === initializer && checked;
+      });
+
+    const isPersonalizeSelected = isSelected('nextjs-personalize');
+    const isTrackingSelected = isSelected('nextjs-styleguide-tracking');
+
+    if (isPersonalizeSelected && isTrackingSelected) {
+      this.onError({
+        isValid: 'nextjs-personalize and nextjs-styleguide-tracking addons are not compatible!',
+      });
+    }
+  }
+}

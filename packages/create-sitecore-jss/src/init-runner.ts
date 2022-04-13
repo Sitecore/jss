@@ -22,6 +22,9 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
 
       // process any returned initializers
       if (response.initializers && response.initializers.length > 0) {
+        // provide info for addons to see other addons used
+        args.templates.push(...response.initializers);
+
         await runner(response.initializers);
       }
     }

@@ -9,6 +9,7 @@ export {
   openPackageJson,
   writePackageJson,
   getBaseTemplates,
+  saveConfiguration,
 } from './utils/helpers';
 
 export { Initializer } from './Initializer';

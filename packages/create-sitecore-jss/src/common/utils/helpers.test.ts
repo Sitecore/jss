@@ -11,6 +11,7 @@ import {
   sortKeys,
   getBaseTemplates,
   getAppPrefix,
+  saveConfiguration,
 } from './helpers';
 import { JsonObjectType } from '../processes/transform';
 import testPackage from '../test-data/test.package.json';
@@ -137,6 +138,30 @@ describe('helpers', () => {
       );
 
       log.restore();
+    });
+  });
+
+  describe('saveConfiguration', () => {
+    let log: SinonStub;
+    let writeFileSync: SinonStub;
+
+    afterEach(() => {
+      log?.restore();
+      writeFileSync?.restore();
+    });
+
+    it('should save configuration', () => {
+      writeFileSync = sinon.stub(fs, 'writeFileSync');
+      const pkgPath = path.resolve('src', 'common', 'test-data', 'test.package.json');
+      const pkg = openPackageJson(pkgPath);
+      const templates = ['nextjs', 'nextjs-styleguide'];
+
+      saveConfiguration(templates, pkgPath);
+
+      expect(writeFileSync.calledOnce).to.equal(true);
+      expect(writeFileSync.getCall(0).args[1]).to.equal(
+        JSON.stringify({ ...pkg, config: { ...pkg.config, templates } }, null, 2)
+      );
     });
   });
 

@@ -1,4 +1,5 @@
-﻿import path, { sep } from 'path';
+﻿import chalk from 'chalk';
+import path, { sep } from 'path';
 import {
   Initializer,
   openPackageJson,
@@ -27,6 +28,17 @@ export default class NextjsPersonalizeInitializer implements Initializer {
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-personalize');
 
     await transform(templatePath, mergedArgs);
+
+    if (
+      args.templates.includes('nextjs-styleguide-tracking') ||
+      pkg.config?.templates?.includes('nextjs-styleguide-tracking')
+    ) {
+      console.log(
+        chalk.yellow(
+          'nextjs-personalize addon is not compatible with nextjs-styleguide-tracking addon!'
+        )
+      );
+    }
 
     const response = {
       nextSteps: [],
