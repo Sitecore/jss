@@ -4,7 +4,7 @@ import HttpStatus from 'http-status-codes';
 import setCookieParser, { Cookie } from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
 import { AppRenderer } from './AppRenderer';
-import { ProxyConfig } from './ProxyConfig';
+import { ProxyConfig, LayoutServiceData } from './ProxyConfig';
 import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
 import { buildQueryString, tryParseJson } from './util';
@@ -257,7 +257,7 @@ async function renderAppToResponse(
   /**
    * @param {object} layoutServiceData
    */
-  async function createViewBag(layoutServiceData: { [key: string]: unknown }) {
+  async function createViewBag(layoutServiceData: LayoutServiceData) {
     let viewBag = {
       statusCode: proxyResponse.statusCode,
       dictionary: {},
@@ -300,7 +300,7 @@ async function renderAppToResponse(
         viewBag
       );
     } catch (error) {
-      return replyWithError(error);
+      return replyWithError(error as Error);
     }
   };
 }
