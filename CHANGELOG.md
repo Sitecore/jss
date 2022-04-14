@@ -7,12 +7,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### New Features & Improvements
 
-`[create-sitecore-jss]` `[initializers]` Initializers - `npm init` replace `jss-create` ([#881](https://github.com/Sitecore/jss/pull/881)), ([#883](https://github.com/Sitecore/jss/pull/883)), ([#882](https://github.com/Sitecore/jss/pull/882)), ([#880](https://github.com/Sitecore/jss/pull/880)), ([#879](https://github.com/Sitecore/jss/pull/879)), ([#878](https://github.com/Sitecore/jss/pull/878)), ([#876](https://github.com/Sitecore/jss/pull/876))
-
-`[templates]`
-* Throw error when run jss start using `FETCH_WITH=GraphQL` ([#920](https://github.com/Sitecore/jss/pull/920))
-* Bring environment variable support to config generation ([#911](https://github.com/Sitecore/jss/pull/911), [#commit](https://github.com/Sitecore/jss/commit/dcacaccccc77add195458a552f0b061d381e29ef))
-* Change the classname of `ContentBlock` from display-4 to contentTitle ([#908](https://github.com/Sitecore/jss/pull/908))
+`[create-sitecore-jss]` New package containing initializers / templates for JSS sample applications. This replaces `jss create` with initializer of choice (`npx create-sitecore-jss`, `npm init sitecore-jss`) ([#881](https://github.com/Sitecore/jss/pull/881)), ([#883](https://github.com/Sitecore/jss/pull/883)), ([#882](https://github.com/Sitecore/jss/pull/882)), ([#880](https://github.com/Sitecore/jss/pull/880)), ([#879](https://github.com/Sitecore/jss/pull/879)), ([#878](https://github.com/Sitecore/jss/pull/878)), ([#876](https://github.com/Sitecore/jss/pull/876))
 
 `[template/nextjs]`
 * Remove `withSitecoreContext` HOC from Layout.tsx ([#887](https://github.com/Sitecore/jss/pull/887))
@@ -25,10 +20,11 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 `[template/angular]` Language is not preserved when navigating to another page ([#793](https://github.com/Sitecore/jss/pull/793))
 
-`[template/nextjs]` `[template/react]` `[template/angular]` `[template/vue]` Use the app name as the prefix value for templates
-([#800](https://github.com/Sitecore/jss/pull/800)), ([#811](https://github.com/Sitecore/jss/pull/811)), ([#813](https://github.com/Sitecore/jss/pull/813)), ([#814](https://github.com/Sitecore/jss/pull/814))
-
-`[all frameworks]`
+`[template/nextjs]` `[template/react]` `[template/angular]` `[template/vue]` 
+* Use the app name as the prefix value for templates ([#800](https://github.com/Sitecore/jss/pull/800)), ([#811](https://github.com/Sitecore/jss/pull/811)), ([#813](https://github.com/Sitecore/jss/pull/813)), ([#814](https://github.com/Sitecore/jss/pull/814))
+* Throw error when run jss start using `FETCH_WITH=GraphQL` ([#920](https://github.com/Sitecore/jss/pull/920))
+* Bring environment variable support to config generation ([#911](https://github.com/Sitecore/jss/pull/911), [#commit](https://github.com/Sitecore/jss/commit/dcacaccccc77add195458a552f0b061d381e29ef))
+* Change the classname of `ContentBlock` from display-4 to contentTitle ([#908](https://github.com/Sitecore/jss/pull/908))
 * Hidden renderings do not have implementation and result in console error message ([#834](https://github.com/Sitecore/jss/pull/834))
 * Use the app name as the prefix value for placeholders ([#830](https://github.com/Sitecore/jss/pull/830))
 
@@ -40,7 +36,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### Bug Fixes
 
-`[templates]`
+`[template/*]`
 * Highlight error message for fetchWith=GraphQL ([#930](https://github.com/Sitecore/jss/pull/930))
 * Fix peer dependency errors ([#910](https://github.com/Sitecore/jss/pull/910))
 
