@@ -5,3 +5,4 @@ export {
   EditingRenderMiddlewareConfig,
 } from './editing-render-middleware';
 export { PersonalizeMiddleware, PersonalizeMiddlewareConfig } from './personalize-middleware';
+export { RedirectsMiddleware } from './redirects-middleware';

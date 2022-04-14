@@ -29,7 +29,7 @@ type LinkListItemProps = {
   key: string;
   index: number;
   total: number;
-  field: ResultsFieldLink;
+  field: LinkField;
 };
 
 const LinkListItem = (props: LinkListItemProps) => {
@@ -61,7 +61,7 @@ export const Default = (props: LinkListProps): JSX.Element => {
           index={key}
           key={`${key}${element.field.link}`}
           total={datasource.children.results.length}
-          field={element}
+          field={element.field.link}
         />
       ));
 

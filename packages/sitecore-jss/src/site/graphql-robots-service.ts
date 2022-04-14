@@ -1,4 +1,5 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql';
+import { siteNameError } from '../constants';
 import debug from '../debug';
 
 // The default query for request robots.txt
@@ -11,9 +12,6 @@ const defaultQuery = /* GraphQL */ `
     }
   }
 `;
-
-/** @private */
-export const siteNameError = 'The siteName cannot be empty';
 
 export type GraphQLRobotsServiceConfig = {
   /**
