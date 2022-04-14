@@ -78,12 +78,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return {
     props,
-    <% if (prerender === 'SSG') { -%>
+<% if (prerender === 'SSG') { -%>
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 5 seconds
     revalidate: 5, // In seconds
-    <% } -%>
+<% } -%>
     notFound: props.notFound, // Returns custom 404 page with a status code of 404 when true
   };
 };

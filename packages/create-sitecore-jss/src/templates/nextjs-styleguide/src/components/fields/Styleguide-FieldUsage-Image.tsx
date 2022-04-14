@@ -1,4 +1,4 @@
-import { Image, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { NextImage, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
@@ -17,21 +17,29 @@ type StyleguideFieldUsageImageProps = ComponentProps &
  */
 const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-image">
+    {/*
+      You can use any of the props available in the next/image.
+      E.g. we have used 'priority' to demonstrate how an image could be considered high priority and preload.
+      Lazy loading is automatically disabled for images using priority.
+      See here for all the features provided by next/image: https://nextjs.org/docs/api-reference/next/image
+    */}
     <p>Plain image</p>
-    <Image media={props.fields.sample1} />
+    <NextImage field={props.fields.sample1} priority height="51" width="204" />
 
     {/*
       Advanced image usage example
       editable: controls whether image can be edited in Sitecore Experience Editor
-      imageParams: parameters that are passed to Sitecore to perform server-side resizing of the image.
+      unoptimized: disables next/image source optimization in favor of imageParams
+      imageParams: parameters that are passed to Sitecore to perform server-side resizing of the image
         Sample rescales image to max 100x50 dimensions on the server, respecting aspect ratio
         IMPORTANT: imageParams must be whitelisted for resizing to occur. See /sitecore/config/*.config (search for 'allowedMediaParams')
       any other attributes: pass through to img tag
     */}
     <p>Advanced image (not editable)</p>
-    <Image
+    <NextImage
       field={props.fields.sample2}
       editable={false}
+      unoptimized={true}
       imageParams={{ mw: 100, mh: 50 }}
       height="50"
       width="94"
@@ -39,18 +47,16 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     />
 
     {/*
-      Srcset adaptive image usage example
-      Adaptive srcsets are supported using Sitecore server-side resizing.
-      The `srcSet` can use Sitecore image resizing parameters (i.e. w, h, mw, mh).
-      Sample create a srcset using two sizes (server resizing), 300 and 100px max widths, respecting aspect ratio.
-      IMPORTANT: srcSet params must be whitelisted for adaptive resizing to occur. See /sitecore/config/*.config (search for 'allowedMediaParams')
+      next/image generates responsive srcSet automatically based on layout. See https://nextjs.org/docs/api-reference/next/image#layout.
+      IMPORTANT: The generated sizes should match your Sitecore server-side allowlist. See /sitecore/config/*.config (search for 'allowedMediaParams')
     */}
     <p>Srcset responsive image</p>
-    <Image
+    <NextImage
       field={props.fields.sample2}
-      srcSet={[{ mw: 300 }, { mw: 100 }]}
-      sizes="(min-width: 960px) 300px, 100px"
-      className="img-fluid"
+      height="105"
+      width="200"
+      sizes="50vw"
+      layout="responsive"
     />
   </StyleguideSpecimen>
 );
