@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 declare const _boxeverq: any;
 declare const Boxever: any;
-declare const currentHostname : any;
+declare const currentHostname : string;
 
 function createPageView(locale: string | undefined, routeName: string) {
   // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
@@ -21,7 +21,6 @@ function createPageView(locale: string | undefined, routeName: string) {
       pos: pos,
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     Boxever.eventCreate(pageViewEvent, function () {}, 'json');
   });
 }
@@ -35,8 +34,6 @@ const CdpIntegrationScript = ({
   route: { itemLanguage, name },
   pageEditing,
 }: CdpIntegrationProps): JSX.Element => {
-  const clientKey = process.env.BOXEVER_CLIENT_KEY;
-  const targetUrl = process.env.BOXEVER_TARGET_URL;
 
   useEffect(() => {
     // Do not create events in editing mode
@@ -61,14 +58,11 @@ const CdpIntegrationScript = ({
           __html: `
               var _boxeverq = _boxeverq || [];
 
-              var currentHostname = window.location.hostname.substring(
-                4, 
-                window.location.hostname.length
-              );
+              var currentHostname = window.location.host.replace(/^www\./,'');
 
               var _boxever_settings = {
-                  client_key: '${clientKey}',
-                  target: '${targetUrl}',
+                  client_key: '${process.env.BOXEVER_CLIENT_KEY}',
+                  target: '${process.env.BOXEVER_TARGET_URL}',
                   cookie_domain: ''
               };
             `,
