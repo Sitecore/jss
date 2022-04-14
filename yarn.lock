@@ -3898,7 +3898,6 @@ __metadata:
     "@types/react-dom": ^17.0.9
     "@types/sinon": ^7.5.0
     "@types/sinon-chai": ^3.2.5
-    "@types/url-parse": ^1.4.8
     "@wojtekmaj/enzyme-adapter-react-17": ^0.6.3
     chai: ^4.2.0
     chai-as-promised: ^7.1.1
@@ -3923,7 +3922,6 @@ __metadata:
     sync-disk-cache: ^2.1.0
     ts-node: ^9.0.0
     typescript: ~4.3.5
-    url-parse: ^1.5.10
   peerDependencies:
     next: ^12.1.0
     react: ^17.0.2
@@ -5119,13 +5117,6 @@ __metadata:
   version: 1.4.3
   resolution: "@types/url-parse@npm:1.4.3"
   checksum: d8e8c3219cb7ce5d275b2b93751494ddce9ee9038021f98c1e8e24fe5523b553faae5de2bcc3523d586d8dadc5d259c8e53a74f004f517de32fb53c1280426ff
-  languageName: node
-  linkType: hard
-
-"@types/url-parse@npm:^1.4.8":
-  version: 1.4.8
-  resolution: "@types/url-parse@npm:1.4.8"
-  checksum: 44a5e96ed4b579c43750f3578bfa9165f97a359c3b2a85ee126e9c16db964f6ea105e152afd3d1adbd15850a8b812043215f3820112177bb4255a60b432dbd85
   languageName: node
   linkType: hard
 
@@ -24959,16 +24950,6 @@ __metadata:
     querystringify: ^2.1.1
     requires-port: ^1.0.0
   checksum: c6b32fff835e43f3b1b4150239f459744f0ab1a908841dbfecbfc79bf67f4d6c8d9af1841d0c6d814d45bfa08525cc29312a0bef31db7aa894306b3db07e4ee0
-  languageName: node
-  linkType: hard
-
-"url-parse@npm:^1.5.10":
-  version: 1.5.10
-  resolution: "url-parse@npm:1.5.10"
-  dependencies:
-    querystringify: ^2.1.1
-    requires-port: ^1.0.0
-  checksum: fbdba6b1d83336aca2216bbdc38ba658d9cfb8fc7f665eb8b17852de638ff7d1a162c198a8e4ed66001ddbf6c9888d41e4798912c62b4fd777a31657989f7bdf
   languageName: node
   linkType: hard
 
