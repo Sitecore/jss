@@ -75,7 +75,7 @@ export interface ProxyConfig {
   /** Responses from the proxy greater than this size (in bytes) are rejected. */
   maxResponseSizeBytes?: number;
   /** The require'd server.bundle.js file from your pre-built JSS app */
-  serverBundle?: {
+  serverBundle: {
     [key: string]: unknown;
     renderView: AppRenderer;
     parseRouteUrl: RouteUrlParser;

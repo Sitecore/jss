@@ -34,7 +34,7 @@ Open `config.js` and specify your application bundle and connection settings.
 
 ### Environment Variables
 
-The following environment variables can be set to configure the SSR sample instead of modifying `config.js`, for environments where this is more desirable like containers:
+The following environment variables can be set to configure the SSR sample instead of modifying `config.js`. You can use the `.env` file located in the root of the app or set these directly in the environment (for example, in containers).
 
 | Parameter                           | Description                                                                                                                                                 |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -44,8 +44,6 @@ The following environment variables can be set to configure the SSR sample inste
 | `SITECORE_EXPERIENCE_EDGE_ENDPOINT` | Sitecore Experience Edge endpoint.                                                                                                                          |
 | `DEFAULT_LANGUAGE`                  | The JSS app's default language. Used to determine language context in case language is not specified in request URL.                                        |
 | `PORT`                              | Optional. Port which will be used when start sample. Default can be seen in [config.js](./config.js).                                                       |
-
-These environment variables can be set in the .env file located in the root of the app.
 
 ## Build & run
 

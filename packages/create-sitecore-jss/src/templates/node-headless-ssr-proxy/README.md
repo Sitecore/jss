@@ -34,7 +34,7 @@ Open `config.js` and specify your application bundle and connection settings to 
 
 ### Environment Variables
 
-The following environment variables can be set to configure the proxy instead of modifying `config.js`, for environments where this is more desirable like containers:
+The following environment variables can be set to configure the proxy instead of modifying `config.js`. You can use the `.env` file located in the root of the app or set these directly in the environment (for example, in containers).
 
 | Parameter                              | Description                                                                                                                                |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -45,8 +45,6 @@ The following environment variables can be set to configure the proxy instead of
 | `SITECORE_API_KEY`                     | The Sitecore SSC API key your app uses.                                                                                                    |
 | `SITECORE_PATH_REWRITE_EXCLUDE_ROUTES` | Optional. Pipe-separated list of absolute paths that should not be rendered through SSR. Defaults can be seen in [config.js](./config.js). |
 | `SITECORE_ENABLE_DEBUG`                | Optional. Writes verbose request info to stdout for debugging. Defaults to `false`.                                                        |
-
-These environment variables can be set in the .env file located in the root of the app.
 
 ## Build & run
 
