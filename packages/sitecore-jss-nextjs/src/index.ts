@@ -122,3 +122,5 @@ export {
   withPlaceholder,
   withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-react';
+
+export { RedirectsMiddleware } from './middleware/redirects-middleware';
