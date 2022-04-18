@@ -1,4 +1,4 @@
-const Scripts = () => {
+const Scripts = (): JSX.Element => {
 	return null;
 };
 

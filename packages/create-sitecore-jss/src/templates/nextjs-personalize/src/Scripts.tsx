@@ -1,6 +1,6 @@
 import CdpIntegrationScript from 'components/CdpIntegrationScript';
 
-const Scripts = () => {
+const Scripts = (): JSX.Element => {
   return (
     <>
       <CdpIntegrationScript />

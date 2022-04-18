@@ -1,6 +1,6 @@
 import { VisitorIdentification } from '@sitecore-jss/sitecore-jss-nextjs';
 
-const Scripts = () => {
+const Scripts = (): JSX.Element => {
   return (
     <>
       {/*
