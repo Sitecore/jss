@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
+import { RouteData, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
 declare const _boxeverq: any;
 declare const Boxever: any;
-declare const currentHostname : string;
 
 function createPageView(locale: string | undefined, routeName: string) {
   // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const pos = process.env.CDP_POS || currentHostname;
+  const pos = process.env.CDP_POS || window.location.host.replace(/^www\./,'');
 
   _boxeverq.push(function () {
     const pageViewEvent = {
@@ -25,27 +24,21 @@ function createPageView(locale: string | undefined, routeName: string) {
   });
 }
 
-interface CdpIntegrationProps {
-  pageEditing: boolean | undefined;
-  route: RouteData;
-}
+const CdpIntegrationScript = (): JSX.Element => {
 
-const CdpIntegrationScript = ({
-  route: { itemLanguage, name },
-  pageEditing,
-}: CdpIntegrationProps): JSX.Element => {
-
+  const { sitecoreContext } = useSitecoreContext();
+  const isEditing = sitecoreContext && sitecoreContext.pageEditing;
   useEffect(() => {
     // Do not create events in editing mode
-    if (pageEditing) {
+    if (isEditing) {
       return;
     }
 
-    createPageView(itemLanguage, name);
+    createPageView(sitecoreContext.route.itemLanguage, sitecoreContext.route.name);
   }, []);
 
   // Boxever is not needed during page editing
-  if (pageEditing) {
+  if (isEditing) {
     return null as any;
   }
 
@@ -57,8 +50,6 @@ const CdpIntegrationScript = ({
         dangerouslySetInnerHTML={{
           __html: `
               var _boxeverq = _boxeverq || [];
-
-              var currentHostname = window.location.host.replace(/^www\./,'');
 
               var _boxever_settings = {
                   client_key: '${process.env.BOXEVER_CLIENT_KEY}',

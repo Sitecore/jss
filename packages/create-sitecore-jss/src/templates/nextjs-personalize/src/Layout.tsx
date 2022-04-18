@@ -23,7 +23,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   return (
     <>
       {route && (
-        <CdpIntegrationScript pageEditing={layoutData.sitecore.context.pageEditing} route={route} />
+        <CdpIntegrationScript />
       )}
       <Head>
         <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
