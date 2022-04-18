@@ -4,7 +4,7 @@ import HttpStatus from 'http-status-codes';
 import setCookieParser, { Cookie } from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
 import { AppRenderer } from './AppRenderer';
-import { ProxyConfig } from './ProxyConfig';
+import { ProxyConfig, LayoutServiceData } from './ProxyConfig';
 import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
 import { buildQueryString, tryParseJson } from './util';
@@ -152,7 +152,7 @@ async function renderAppToResponse(
    * function replies with HTTP 500 when an error occurs
    * @param {Error} error
    */
-  async function replyWithError(error: Error) {
+  async function replyWithError(error: Error): Promise<void> {
     console.error(error);
 
     let errorResponse = {
@@ -257,7 +257,7 @@ async function renderAppToResponse(
   /**
    * @param {object} layoutServiceData
    */
-  async function createViewBag(layoutServiceData: { [key: string]: unknown }) {
+  async function createViewBag(layoutServiceData: LayoutServiceData) {
     let viewBag = {
       statusCode: proxyResponse.statusCode,
       dictionary: {},
@@ -279,6 +279,8 @@ async function renderAppToResponse(
 
   // as the response is ending, we parse the current response body which is JSON, then
   // render the app using that JSON, but return HTML to the final response.
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   serverResponse.end = async () => {
     try {
       const layoutServiceData = await extractLayoutServiceDataFromProxyResponse();
@@ -298,7 +300,7 @@ async function renderAppToResponse(
         viewBag
       );
     } catch (error) {
-      return replyWithError(error);
+      return replyWithError(error as Error);
     }
   };
 }

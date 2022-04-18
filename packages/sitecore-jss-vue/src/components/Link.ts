@@ -6,6 +6,7 @@ export interface LinkFieldValue {
   className?: string;
   title?: string;
   target?: string;
+  querystring?: string;
 }
 
 export interface LinkField {
@@ -105,7 +106,7 @@ export const Link = defineComponent({
       ...this.$data,
       class: link.class,
       ...this.$attrs,
-      href: link.href,
+      href: link.querystring ? `${link.href}?${link.querystring}` : link.href,
       title: link.title,
       target: link.target,
     };

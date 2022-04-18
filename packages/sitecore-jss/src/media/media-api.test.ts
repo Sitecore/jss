@@ -4,7 +4,13 @@
 import chai = require('chai');
 import chaiString = require('chai-string');
 import URL = require('url-parse');
-import { findEditorImageTag, getSrcSet, updateImageUrl, getRequiredParams } from './media-api';
+import {
+  replaceMediaUrlPrefix,
+  findEditorImageTag,
+  getSrcSet,
+  updateImageUrl,
+  getRequiredParams,
+} from './media-api';
 
 // chai.should();
 const expect = chai.use(chaiString).expect;
@@ -235,6 +241,22 @@ describe('getSrcSet', () => {
       const mediaUrlPrefix = /\/([-~]{1})\/assets\//i;
       const srcSet = getSrcSet(original, params, undefined, mediaUrlPrefix);
       expect(srcSet).to.equal(expected);
+    });
+  });
+
+  describe('replaceMediaUrlPrefix', () => {
+    it('should replace /-/media/ with /-/jssmedia/', () => {
+      const original = 'http://sitecore/-/media/lorem/ipsum.jpg';
+      const updated = replaceMediaUrlPrefix(original);
+      const url = URL(updated);
+      expect(url.pathname).to.startsWith('/-/jssmedia/');
+    });
+
+    it('should replace /~/media/ with /~/jssmedia/', () => {
+      const original = 'http://sitecore/~/media/lorem/ipsum.jpg';
+      const updated = replaceMediaUrlPrefix(original);
+      const url = URL(updated);
+      expect(url.pathname).to.startsWith('/~/jssmedia/');
     });
   });
 });
