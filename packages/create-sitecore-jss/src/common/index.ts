@@ -1,7 +1,13 @@
 export { ClientAppArgs, BaseArgs } from './args/base';
 export { StyleguideArgs } from './args/styleguide';
 
-export { ClientAppAnswer, clientAppPrompts, DEFAULT_APPNAME } from './prompts/base';
+export {
+  ClientAppAnswer,
+  clientAppPrompts,
+  DEFAULT_APPNAME,
+  incompatibleAddonsMsg,
+  missingAddonMsg,
+} from './prompts/base';
 export { StyleguideAnswer, styleguidePrompts } from './prompts/styleguide';
 
 export {

@@ -8,7 +8,6 @@ import {
   isDevEnvironment,
   openPackageJson,
   writePackageJson,
-  saveConfiguration,
 } from '../../common';
 import { removeDevDependencies } from './remove-dev-dependencies';
 import { NextjsArgs } from './args';
@@ -64,8 +63,6 @@ export default class NextjsInitializer implements Initializer {
       });
       addInitializers = addInitAnswer.addInitializers;
     }
-
-    saveConfiguration([...addInitializers, ...args.templates], pkgPath);
 
     if (
       !addInitializers.includes('nextjs-styleguide') &&

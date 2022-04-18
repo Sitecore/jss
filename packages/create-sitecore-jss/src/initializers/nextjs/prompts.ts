@@ -50,7 +50,8 @@ export class NextjsCheckbox extends CheckboxPrompt {
 
     if (isPersonalizeSelected && isTrackingSelected) {
       this.onError({
-        isValid: 'nextjs-personalize and nextjs-styleguide-tracking addons are not compatible!',
+        isValid:
+          'nextjs-styleguide-tracking add-on is not compatible with nextjs-personalize add-on',
       });
     }
   }

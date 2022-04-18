@@ -6,6 +6,7 @@ import {
   transform,
   DEFAULT_APPNAME,
   ClientAppArgs,
+  incompatibleAddonsMsg,
 } from '../../common';
 
 export default class NextjsPersonalizeInitializer implements Initializer {
@@ -33,11 +34,7 @@ export default class NextjsPersonalizeInitializer implements Initializer {
       args.templates.includes('nextjs-styleguide-tracking') ||
       pkg.config?.templates?.includes('nextjs-styleguide-tracking')
     ) {
-      console.log(
-        chalk.yellow(
-          'nextjs-personalize addon is not compatible with nextjs-styleguide-tracking addon!'
-        )
-      );
+      console.log(incompatibleAddonsMsg('nextjs-personalize', 'nextjs-styleguide-tracking'));
     }
 
     const response = {
