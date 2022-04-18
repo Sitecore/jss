@@ -1,5 +1,4 @@
-﻿import chalk from 'chalk';
-import path, { sep } from 'path';
+﻿import path, { sep } from 'path';
 import {
   Initializer,
   openPackageJson,
