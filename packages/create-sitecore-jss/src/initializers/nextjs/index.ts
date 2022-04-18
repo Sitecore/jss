@@ -47,7 +47,7 @@ export default class NextjsInitializer implements Initializer {
             value: 'nextjs-styleguide',
           },
           {
-            name: 'nextjs-styleguide-tracking - Includes example tracking component',
+            name: 'nextjs-styleguide-tracking - Includes example (Sitecore XP) tracking component',
             value: 'nextjs-styleguide-tracking',
           },
           {
