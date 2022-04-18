@@ -1,7 +1,7 @@
 fields:
   pageTitle: Styleguide Tracking | Sitecore JSS
 placeholders:
-  <%- helper.getAppPrefix(appPrefix, appName) %>jss-main:                     
+  <%- helper.getAppPrefix(appPrefix, appName) %>jss-main:
     - componentName: Styleguide-Tracking
       fields:
         heading: Tracking
