@@ -35,7 +35,12 @@ export class PersonalizeMiddleware {
    * @param {PersonalizeMiddlewareConfig} [config] Personalize middleware config
    */
   constructor(protected config: PersonalizeMiddlewareConfig) {
-    this.personalizeService = new GraphQLPersonalizeService(config.graphQLConfig);
+    // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
+    // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
+    this.personalizeService = new GraphQLPersonalizeService({
+      ...config.graphQLConfig,
+      fetch: fetch,
+    });
     this.cdpService = new CdpService(config.cdpConfig);
   }
 

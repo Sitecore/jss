@@ -22,11 +22,11 @@ export class RedirectsMiddleware {
   private redirectsService: GraphQLRedirectsService;
 
   /**
-   * NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
-   * (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
    */
   constructor(config: RedirectsMiddlewareConfig) {
+    // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
+    // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
   }
 
