@@ -231,10 +231,6 @@ placeholders:
                     # they are always sent to the component as strings.
                     columns: 5
                     useCallToAction: true
-                - componentName: Styleguide-Tracking
-                  fields:
-                    heading: Tracking
-                    description: <p><small>JSS supports tracking Sitecore analytics events from within apps. Give it a try with this handy interactive demo.</small></p>
           - componentName: Styleguide-Section
             fields:
               heading: Multilingual Patterns
