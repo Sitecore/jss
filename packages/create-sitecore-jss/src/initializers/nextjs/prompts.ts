@@ -1,7 +1,7 @@
 import { QuestionCollection } from 'inquirer';
 import CheckboxPrompt from 'inquirer/lib/prompts/checkbox';
 
-import { clientAppPrompts, ClientAppAnswer } from '../../common';
+import { clientAppPrompts, ClientAppAnswer, incompatibleAddonsMsg } from '../../common';
 
 export enum Prerender {
   SSG = 'SSG',
@@ -50,8 +50,7 @@ export class NextjsCheckbox extends CheckboxPrompt {
 
     if (isPersonalizeSelected && isTrackingSelected) {
       this.onError({
-        isValid:
-          'nextjs-styleguide-tracking add-on is not compatible with nextjs-personalize add-on',
+        isValid: incompatibleAddonsMsg('nextjs-styleguide-tracking', 'nextjs-personalize'),
       });
     }
   }
