@@ -575,3 +575,5 @@ export default function scProxy(
   const options = createOptions(renderer, config, parseRouteUrl);
   return proxy(options);
 }
+
+export { ProxyConfig };
