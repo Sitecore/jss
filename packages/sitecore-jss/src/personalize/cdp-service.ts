@@ -55,6 +55,8 @@ export class CdpService {
   }
 
   // TODO: move this out to shared fetch wrapper??
+  //  the main goal here is to provide consistent debug logging and error handling
+  //  as we do in AxiosDataFetcher and GraphQLRequestClient
   protected async doFetch(
     request: Request,
     options?: { fetch?: typeof fetch; debugger?: Debugger }

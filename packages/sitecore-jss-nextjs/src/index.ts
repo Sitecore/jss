@@ -51,7 +51,13 @@ export {
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';
-export { personalizeLayout } from '@sitecore-jss/sitecore-jss/personalize';
+export {
+  personalizeLayout,
+  PersonalizedRewriteData,
+  getPersonalizedRewrite,
+  getPersonalizedRewriteData,
+  normalizePersonalizedRewrite
+} from '@sitecore-jss/sitecore-jss/personalize';
 export {
   RobotsQueryResult,
   GraphQLRobotsService,

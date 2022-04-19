@@ -4,24 +4,15 @@ import {
   GraphQLPersonalizeServiceConfig,
   CdpService,
   CdpServiceConfig,
+  getPersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
-// TODO: combine/flatten the config type?
+// TODO: comments and maybe combine/flatten the config type?
 export type PersonalizeMiddlewareConfig = {
   excludeRoute?: (pathname: string) => boolean;
-  graphQLConfig: Omit<GraphQLPersonalizeServiceConfig, 'fetch'>;
+  edgeConfig: Omit<GraphQLPersonalizeServiceConfig, 'fetch'>;
   cdpConfig: Omit<CdpServiceConfig, 'fetch'>;
-};
-
-export const excludeRoute = (pathname: string) => {
-  if (
-    pathname.includes('.') || // Ignore files
-    pathname.startsWith('/api') // Ignore API calls
-  ) {
-    return true;
-  }
-  return false;
 };
 
 /**
@@ -38,7 +29,7 @@ export class PersonalizeMiddleware {
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.personalizeService = new GraphQLPersonalizeService({
-      ...config.graphQLConfig,
+      ...config.edgeConfig,
       fetch: fetch,
     });
     this.cdpService = new CdpService(config.cdpConfig);
@@ -48,7 +39,7 @@ export class PersonalizeMiddleware {
    * Gets the Next.js middleware handler
    * @returns middleware handler
    */
-  public getHandler(): (req: NextRequest) => Promise<NextResponse> {
+  public getHandler(): (req: NextRequest, res?: NextResponse) => Promise<NextResponse> {
     return this.handler;
   }
 
@@ -79,18 +70,24 @@ export class PersonalizeMiddleware {
     return false;
   }
 
-  private async handler(req: NextRequest) {
+  private isPreview(req: NextRequest) {
+    return req.cookies.__prerender_bypass || req.cookies.__next_preview_data;
+  }
+
+  private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
     let browserId = this.getBrowserId(req);
     let segment = undefined;
-    let response = NextResponse.next();
 
-    // No need to personalize for preview, layout data already prepared on XM Cloud for preview
-    const isPreview = req.cookies.__prerender_bypass || req.cookies.__next_preview_data;
-    const isExcluded = (this.config.excludeRoute || this.excludeRoute)(pathname);
+    // Response will be provided if other middleware is run before us (e.g. redirects)
+    let response = res || NextResponse.next();
 
-    if (isPreview || isExcluded) {
+    if (
+      response.redirected || // Don't attempt to personalize a redirect
+      this.isPreview(req) || // No need to personalize for preview (layout data is already prepared for preview)
+      (this.config.excludeRoute || this.excludeRoute)(pathname)
+    ) {
       return response;
     }
 
@@ -118,10 +115,13 @@ export class PersonalizeMiddleware {
       // No segment identified
       return response;
     }
-
-    // TODO: move '_segmentId_' to const or new function in sitecore-jss/personalize
-    const rewrite = `/_segmentId_${segment}` + pathname;
+    // Rewrite to persononalized path
+    const rewrite = getPersonalizedRewrite(pathname, { segmentId: segment });
     response = NextResponse.rewrite(rewrite);
+
+    // Disable preflight caching to force revalidation on client-side navigation (personalization may be influenced)
+    // See https://github.com/vercel/next.js/issues/32727
+    response.headers.set('x-middleware-cache', 'no-cache');
 
     // Set browserId cookie on the response
     if (browserId) {
@@ -129,5 +129,5 @@ export class PersonalizeMiddleware {
     }
 
     return response;
-  }
+  };
 }
