@@ -7,6 +7,7 @@ The setup is using `sitecore-jss-proxy` that enables request proxying to Sitecor
 <!---
 @TODO: Update to version 20.0.0 docs before release
 -->
+
 [Documentation](https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/server-side-render-jss-apps-headlessly-using-the-jss-proxy.html)
 
 > This is a sample setup that is not officially supported by Sitecore.
@@ -33,7 +34,7 @@ Open `config.js` and specify your application bundle and connection settings to 
 
 ### Environment Variables
 
-The following environment variables can be set to configure the proxy instead of modifying `config.js`, for environments where this is more desirable like containers:
+The following environment variables can be set to configure the proxy instead of modifying `config.js`. You can use the `.env` file located in the root of the app or set these directly in the environment (for example, in containers).
 
 | Parameter                              | Description                                                                                                                                |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |

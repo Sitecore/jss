@@ -1,8 +1,9 @@
 const express = require('express');
 const compression = require('compression');
+require('dotenv').config();
 const scProxy = require('@sitecore-jss/sitecore-jss-proxy').default;
 const config = require('./config');
-const cacheMiddleware = require('./cacheMiddleware');
+// const cacheMiddleware = require('./cacheMiddleware');
 
 const server = express();
 const port = process.env.PORT || 3000;
@@ -23,7 +24,7 @@ server.use(
 
 /**
  * Output caching, can be enabled,
- * Read about restrictions here: {@link https://jss.sitecore.com/docs/techniques/performance/caching}
+ * Read about restrictions here: {@link https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/caching-in-headless-server-side-rendering-mode.html}
  */
 // server.use(cacheMiddleware());
 
@@ -38,7 +39,7 @@ server.use((req, res, next) => {
   }
 
   next();
-})
+});
 
 // For any other requests, we render app routes server-side and return them
 server.use('*', scProxy(config.serverBundle.renderView, config, config.serverBundle.parseRouteUrl));

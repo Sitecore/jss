@@ -15,3 +15,5 @@ export const JSS_MODE = {
   CONNECTED: 'connected',
   DISCONNECTED: 'disconnected',
 };
+
+export const siteNameError = 'The siteName cannot be empty';

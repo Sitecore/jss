@@ -1,5 +1,6 @@
 import chalk from 'chalk';
-import { installPackages, lintFix, nextSteps, BaseArgs } from './common';
+import path, { sep } from 'path';
+import { installPackages, lintFix, nextSteps, BaseArgs, saveConfiguration } from './common';
 import { InitializerFactory } from './InitializerFactory';
 
 export const initRunner = async (initializers: string[], args: BaseArgs) => {
@@ -22,12 +23,19 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
 
       // process any returned initializers
       if (response.initializers && response.initializers.length > 0) {
+        // provide info for addons to see other addons used.
+        // add-ons will not have information about the initial
+        // list of templates, as it has `nextjs` initializer for example
+        args.templates.push(...response.initializers);
+
         await runner(response.initializers);
       }
     }
   };
 
   await runner(initializers);
+
+  saveConfiguration(args.templates, path.resolve(`${args.destination}${sep}package.json`));
 
   // final steps (install, lint, etc)
   if (!args.noInstall) {

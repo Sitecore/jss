@@ -48,6 +48,28 @@ export const getRequiredParams = (qs: { [key: string]: string | undefined }) => 
 };
 
 /**
+ * Replace `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
+ * Can use `mediaUrlPrefix` in order to use a custom prefix.
+ * @param {string} url
+ * @param {RegExp} [mediaUrlPrefix=mediaUrlPrefixRegex]
+ * @returns {string} url
+ */
+export const replaceMediaUrlPrefix = (
+  url: string,
+  mediaUrlPrefix: RegExp = mediaUrlPrefixRegex
+): string => {
+  const parsed = URL(url, {}, true);
+
+  const match = mediaUrlPrefix.exec(parsed.pathname);
+  if (match && match.length > 1) {
+    // regex will provide us with /-/ or /~/ type
+    parsed.set('pathname', parsed.pathname.replace(mediaUrlPrefix, `/${match[1]}/jssmedia/`));
+  }
+
+  return parsed.toString();
+};
+
+/**
  * Prepares a Sitecore media URL with `params` for use by the JSS media handler.
  * This is done by replacing `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
  * Provided `params` are used as the querystring parameters for the media URL.
@@ -71,11 +93,13 @@ export const updateImageUrl = (
   if (typeof window !== 'undefined' && !window.global) {
     window.global = {} as typeof globalThis;
   }
-  const parsed = URL(url, {}, true);
+
+  const parsed = URL(replaceMediaUrlPrefix(url, mediaUrlPrefix), {}, true);
 
   const requiredParams = getRequiredParams(parsed.query);
 
   const query = { ...params };
+
   Object.entries(requiredParams).forEach(([key, param]) => {
     if (param) {
       query[key] = param;
@@ -83,12 +107,6 @@ export const updateImageUrl = (
   });
 
   parsed.set('query', query);
-
-  const match = mediaUrlPrefix.exec(parsed.pathname);
-  if (match && match.length > 1) {
-    // regex will provide us with /-/ or /~/ type
-    parsed.set('pathname', parsed.pathname.replace(mediaUrlPrefix, `/${match[1]}/jssmedia/`));
-  }
 
   return parsed.toString();
 };
