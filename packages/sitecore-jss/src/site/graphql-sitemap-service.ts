@@ -27,9 +27,13 @@ export type GraphQLSitemapServiceConfig = {
    */
   siteName: string;
   /**
-     * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
-     */
-   fetch?: typeof fetch;
+   * The sitecore api host
+   */
+  sitecoreApiHost: string;
+  /**
+   * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
+   */
+  fetch?: typeof fetch;
 };
 
 /**
@@ -89,6 +93,7 @@ export class GraphQLSitemapService {
     return new GraphQLRequestClient(this.options.endpoint, {
       apiKey: this.options.apiKey,
       debugger: debug.sitemap,
+      fetch: this.options.fetch,
     });
   }
 }
