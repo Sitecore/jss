@@ -8,10 +8,22 @@ import {
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
-// TODO: comments and maybe combine/flatten the config type?
 export type PersonalizeMiddlewareConfig = {
+  /**
+   * Function used to determine if route should be excluded from personalization.
+   * By default, files (pathname.includes('.')) and API routes (pathname.startsWith('/api')) are ignored.
+   * This is an important performance consideration since Next.js Edge middleware runs on every request.
+   * @param {string} pathname The pathname
+   * @returns {boolean} Whether to exclude the route from personalization
+   */
   excludeRoute?: (pathname: string) => boolean;
+  /**
+   * Configuration for your Sitecore Experience Edge endpoint
+   */
   edgeConfig: Omit<GraphQLPersonalizeServiceConfig, 'fetch'>;
+  /**
+   * Configuration for your Sitecore CDP endpoint
+   */
   cdpConfig: Omit<CdpServiceConfig, 'fetch'>;
 };
 
