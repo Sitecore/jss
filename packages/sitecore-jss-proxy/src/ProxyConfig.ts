@@ -64,8 +64,7 @@ export interface ProxyConfig {
     response: ServerResponse,
     proxyResponse: IncomingMessage,
     layoutServiceData: LayoutServiceData
-  ) => // eslint-disable-next-line @typescript-eslint/ban-types
-  Promise<object>;
+  ) => Promise<{ [key: string]: unknown }> | { [key: string]: unknown };
   /** Hook to alter HTTP headers in a custom way. */
   setHeaders?: (
     request: IncomingMessage,
