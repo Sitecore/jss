@@ -101,8 +101,7 @@ export class GraphQLPersonalizeService {
     return new GraphQLRequestClient(this.config.endpoint, {
       apiKey: this.config.apiKey,
       debugger: debug.personalize,
-      // TODO: enable once redirects PR merged
-      // fetch: this.config.fetch,
+      fetch: this.config.fetch,
     });
   }
 }
