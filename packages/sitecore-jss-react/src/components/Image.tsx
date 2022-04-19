@@ -97,9 +97,9 @@ const getImageAttrs = (
   if (srcSet) {
     // replace with HTML-formatted srcset, including updated image URLs
     newAttrs.srcSet = mediaApi.getSrcSet(resolvedSrc, srcSet, imageParams);
-  } else {
-    newAttrs.src = resolvedSrc;
   }
+  // always output original src as fallback for older browsers
+  newAttrs.src = resolvedSrc;
   return newAttrs;
 };
 

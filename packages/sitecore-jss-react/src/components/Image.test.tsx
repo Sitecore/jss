@@ -42,6 +42,37 @@ describe('<Image />', () => {
     });
   });
 
+  describe('with responsive image object', () => {
+    const props = {
+      media: {
+        src: '/assets/img/test0.png',
+      },
+      srcSet: [{ mw: 100 }, { mw: 300 }],
+      sizes: '(min-width: 960px) 300px, 100px',
+      id: 'some-id',
+      className: 'the-dude-abides',
+    };
+
+    const rendered = mount(<Image {...props} />).find('img');
+
+    it('should render <img /> with needed img tags', () => {
+      expect(rendered).to.have.length(1);
+      expect(rendered.prop('src')).to.equal(props.media.src);
+      expect(rendered.prop('srcSet')).to.equal(
+        '/assets/img/test0.png?mw=100 100w, /assets/img/test0.png?mw=300 300w'
+      );
+      expect(rendered.prop('sizes')).to.equal('(min-width: 960px) 300px, 100px');
+    });
+
+    it('should render <img /> with non-media props', () => {
+      expect(rendered.prop('id')).to.equal(props.id);
+    });
+
+    it('should render <img /> with style and className props', () => {
+      expect(rendered.prop('className')).to.eql(props.className);
+    });
+  });
+
   describe('with "value" property value', () => {
     const props = {
       media: { value: { src: '/assets/img/test0.png', alt: 'my image' } },
