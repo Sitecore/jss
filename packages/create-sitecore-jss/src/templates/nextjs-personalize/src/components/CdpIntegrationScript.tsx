@@ -1,33 +1,49 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { RouteData, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
-declare const _boxeverq: any;
-declare const Boxever: any;
+declare const _boxeverq: {():void}[];
+declare const Boxever: Boxever;
+
+interface Boxever{
+  getID(): string;
+  eventCreate(data: BoxeverViewEventArgs, callback:{():void}, format: string): void;
+}
+
+interface BoxeverViewEventArgs {
+  browser_id: string;
+  channel: string;
+  type: string;
+  language: string;
+  page: string;
+  pos: string;
+}
 
 function createPageView(locale: string | undefined, routeName: string) {
   // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const pos = process.env.CDP_POS || window.location.host.replace(/^www\./,'');
+  const pointOfSale = process.env.CDP_POINTOFSALE || window.location.host.replace(/^www\./,'');
 
   _boxeverq.push(function () {
-    const pageViewEvent = {
+    const pageViewEvent : BoxeverViewEventArgs = {
       browser_id: Boxever.getID(),
       channel: 'WEB',
       type: 'VIEW',
       language: locale,
       page: routeName,
-      pos: pos,
+      pos: pointOfSale,
     };
 
-    Boxever.eventCreate(pageViewEvent, function () {}, 'json');
+    Boxever.eventCreate(
+      pageViewEvent, 
+      function () {/*empty callback*/}, 
+      'json');
   });
 }
 
 const CdpIntegrationScript = (): JSX.Element => {
 
   const { sitecoreContext } = useSitecoreContext();
-  const isEditing = sitecoreContext && sitecoreContext.pageEditing;
+  const isEditing = sitecoreContext.pageEditing === true;
   useEffect(() => {
     // Do not create events in editing mode
     if (isEditing) {
@@ -39,7 +55,7 @@ const CdpIntegrationScript = (): JSX.Element => {
 
   // Boxever is not needed during page editing
   if (isEditing) {
-    return null as any;
+    return null;
   }
 
   return (
