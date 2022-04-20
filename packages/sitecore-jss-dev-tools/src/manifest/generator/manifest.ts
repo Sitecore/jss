@@ -1,5 +1,4 @@
 import { runPipeline } from '../../pipelines';
-import fieldTypes from './fieldTypes';
 import {
   ComponentDefinition,
   CreateManifestInstanceArgs,
@@ -165,7 +164,6 @@ export const createManifestInstance = ({
     addRoute,
     addContent,
     addDictionary,
-    fieldTypes,
     language,
   } as Manifest;
 };
