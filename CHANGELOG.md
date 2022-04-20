@@ -51,6 +51,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Can't start app in disconnected mode, throws webpack fallback option error ([#913](https://github.com/Sitecore/jss/pull/913))
 * Add .gitattributes to Next.js sample app with CRLF line endings ([#855](https://github.com/Sitecore/jss/pull/855))
 * `[Horizon]` Custom components cannot be added ([#807](https://github.com/Sitecore/jss/pull/807))
+* Add gitignore ([#993](https://github.com/Sitecore/jss/pull/993))
 
 `[template/angular]`
 * [10.3] "Edit related item" button redirects to home ([#944](https://github.com/Sitecore/jss/pull/944))
