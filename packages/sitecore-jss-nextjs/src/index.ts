@@ -56,7 +56,7 @@ export {
   PersonalizedRewriteData,
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
-  normalizePersonalizedRewrite
+  normalizePersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
 export {
   RobotsQueryResult,

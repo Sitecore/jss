@@ -66,8 +66,8 @@ export class RedirectsMiddleware {
 
   /**
    * Method returns RedirectInfo when matches
-   * @param url
-   * @return Promise<RedirectInfo>
+   * @param {URL} url
+   * @returns Promise<RedirectInfo>
    * @private
    */
   private async getExistsRedirect(url: URL): Promise<RedirectInfo | undefined> {
