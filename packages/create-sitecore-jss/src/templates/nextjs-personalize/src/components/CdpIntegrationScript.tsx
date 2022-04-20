@@ -2,12 +2,12 @@ import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
-declare const _boxeverq: {():void}[];
+declare const _boxeverq: { ():void }[];
 declare const Boxever: Boxever;
 
 interface Boxever{
   getID(): string;
-  eventCreate(data: BoxeverViewEventArgs, callback:{():void}, format: string): void;
+  eventCreate(data: BoxeverViewEventArgs, callback: () => void, format: string): void;
 }
 
 interface BoxeverViewEventArgs {
@@ -42,19 +42,18 @@ function createPageView(locale: string | undefined, routeName: string) {
 
 const CdpIntegrationScript = (): JSX.Element => {
 
-  const { sitecoreContext } = useSitecoreContext();
-  const isEditing = sitecoreContext.pageEditing === true;
-  useEffect(() => {
+  const { pageEditing, route } = useSitecoreContext();
+  useEffect( () => {
     // Do not create events in editing mode
-    if (isEditing) {
+    if (pageEditing) {
       return;
     }
 
-    createPageView(sitecoreContext.route.itemLanguage, sitecoreContext.route.name);
+    createPageView(route.itemLanguage, route.name);
   }, []);
 
   // Boxever is not needed during page editing
-  if (isEditing) {
+  if (pageEditing) {
     return null;
   }
 
