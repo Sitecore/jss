@@ -34,8 +34,8 @@ const CdpIntegrationScript = ({
   route: { itemLanguage, name },
   pageEditing,
 }: CdpIntegrationProps): JSX.Element => {
-  const clientKey = process.env.BOXEVER_CLIENT_KEY
-  const targetUrl = process.env.BOXEVER_TARGET_URL
+  const clientKey = process.env.CDP_CLIENT_KEY
+  const targetUrl = process.env.CDP_TARGET_URL
 
   useEffect(() => {
     // Do not create events in editing mode

@@ -17,8 +17,8 @@ class PersonalizePlugin implements MiddlewarePlugin {
         siteName: config.jssAppName,
       },
       cdpConfig: {
-        endpoint: process.env.BOXEVER_API,
-        clientKey: process.env.BOXEVER_CLIENT_KEY,
+        endpoint: process.env.CDP_API_URL || '',
+        clientKey: process.env.CDP_CLIENT_KEY || '',
       },
     });
   }

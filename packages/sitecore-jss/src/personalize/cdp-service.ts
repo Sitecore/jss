@@ -77,6 +77,6 @@ export class CdpService {
   }
 
   protected getSegmentsUrl(contentId: string) {
-    return `${this.config.endpoint}/v2/callFlows/getSegments/${contentId}`;
+    return `${this.config.endpoint}/callFlows/getSegments/${contentId}`;
   }
 }
