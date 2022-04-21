@@ -2,10 +2,10 @@ import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
-declare const _boxeverq: { ():void }[];
+declare const _boxeverq: { (): void }[];
 declare const Boxever: Boxever;
 
-interface Boxever{
+interface Boxever {
   getID(): string;
   eventCreate(data: BoxeverViewEventArgs, callback: () => void, format: string): void;
 }
@@ -19,12 +19,12 @@ interface BoxeverViewEventArgs {
   pos: string;
 }
 
-function createPageView(locale: string | undefined, routeName: string) {
+function createPageView(locale: string, routeName: string) {
   // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const pointOfSale = process.env.CDP_POINTOFSALE || window.location.host.replace(/^www\./,'');
+  const pointOfSale = process.env.CDP_POINTOFSALE || window.location.host.replace(/^www\./, '');
 
   _boxeverq.push(function () {
-    const pageViewEvent : BoxeverViewEventArgs = {
+    const pageViewEvent: BoxeverViewEventArgs = {
       browser_id: Boxever.getID(),
       channel: 'WEB',
       type: 'VIEW',
@@ -34,23 +34,26 @@ function createPageView(locale: string | undefined, routeName: string) {
     };
 
     Boxever.eventCreate(
-      pageViewEvent, 
-      function () {/*empty callback*/}, 
-      'json');
+      pageViewEvent,
+      function () {
+        /*empty callback*/
+      },
+      'json'
+    );
   });
 }
 
 const CdpIntegrationScript = (): JSX.Element => {
-
   const { pageEditing, route } = useSitecoreContext();
-  useEffect( () => {
+
+  useEffect(() => {
     // Do not create events in editing mode
     if (pageEditing) {
       return;
     }
 
     createPageView(route.itemLanguage, route.name);
-  }, []);
+  });
 
   // Boxever is not needed during page editing
   if (pageEditing) {
