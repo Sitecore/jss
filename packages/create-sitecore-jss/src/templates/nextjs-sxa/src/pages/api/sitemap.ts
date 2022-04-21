@@ -14,12 +14,11 @@ const sitemapApi = async (req: NextApiRequest, res: NextApiResponse): Promise<Ne
     siteName: config.jssAppName,
   });
 
-  const existSitemap = await sitemapService.getSitemap(id as string);
+  const sitemapPath = await sitemapService.getSitemap(id as string);
 
-  if (existSitemap) {
-    const isAbsoluteUrl = existSitemap.match(ABSOLUTE_URL_REGEXP);
-    const sitemapUrl = isAbsoluteUrl ? existSitemap : `${config.sitecoreApiHost}${existSitemap}`;
-    res.setHeader('Content-Encoding', 'gzip');
+  if (sitemapPath) {
+    const isAbsoluteUrl = sitemapPath.match(ABSOLUTE_URL_REGEXP);
+    const sitemapUrl = isAbsoluteUrl ? sitemapPath : `${config.sitecoreApiHost}${sitemapPath}`;
     res.setHeader('Content-Type', 'text/xml;charset=utf-8');
 
     return request(sitemapUrl).pipe(res);

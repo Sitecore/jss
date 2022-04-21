@@ -34,8 +34,8 @@ export class RedirectsMiddleware {
    * Gets the Next.js API route handler
    * @returns route handler
    */
-  public getHandler(req: NextRequest): Promise<NextResponse> {
-    return this.handler(req);
+  public getHandler(): (req: NextRequest) => Promise<NextResponse> {
+    return this.handler;
   }
 
   private handler = async (req: NextRequest): Promise<NextResponse> => {

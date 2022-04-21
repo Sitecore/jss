@@ -54,8 +54,8 @@ export class GraphQLSitemapService {
   }
 
   /**
-   * Fetch a data of sitemap from API
-   * @returns text of sitemap
+   * Fetch list of sitemaps for the site
+   * @returns {string[]} list of sitemap paths
    * @throws {Error} if the siteName is empty.
    */
   async fetchSitemaps(): Promise<string[]> {

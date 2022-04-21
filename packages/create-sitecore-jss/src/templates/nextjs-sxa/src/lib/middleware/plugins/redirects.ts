@@ -21,7 +21,7 @@ class RedirectsPlugin implements MiddlewarePlugin {
    * @returns Promise<NextResponse>
    */
   async exec(req: NextRequest): Promise<NextResponse> {
-    return this.redirectsMiddleware.getHandler(req);
+    return this.redirectsMiddleware.getHandler()(req);
   }
 }
 

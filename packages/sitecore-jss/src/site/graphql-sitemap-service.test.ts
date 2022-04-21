@@ -96,6 +96,7 @@ describe('GraphQLSitemapService', () => {
       const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
       const sitemap = await service.getSitemap(mockIdSitemap);
 
+      // eslint-disable-next-line no-unused-expressions
       expect(sitemap).to.be.undefined;
 
       return expect(nock.isDone()).to.be.true;
