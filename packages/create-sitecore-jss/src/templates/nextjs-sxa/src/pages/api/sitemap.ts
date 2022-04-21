@@ -1,10 +1,12 @@
+import request from 'request';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import config from 'temp/config';
 import { GraphQLSitemapService } from '@sitecore-jss/sitecore-jss/site';
 
-const sitemapApi = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+const ABSOLUTE_URL_REGEXP = '^(?:[a-z]+:)?//';
+
+const sitemapApi = async (req: NextApiRequest, res: NextApiResponse): Promise<NextApiResponse | void> => {
   const { query: { id } } = req;
-  const currentUrl = process.env.PUBLIC_URL;
   // create sitemap graphql service
   const sitemapService = new GraphQLSitemapService({
     endpoint: config.graphQLEndpoint,
@@ -12,20 +14,15 @@ const sitemapApi = async (req: NextApiRequest, res: NextApiResponse): Promise<vo
     siteName: config.jssAppName,
   });
 
-  const existSitemap = await sitemapService.getExistsSitemap(id as string);
+  const existSitemap = await sitemapService.getSitemap(id as string);
+
   if (existSitemap) {
-    const sitemapResult = await fetch(`${currentUrl}${existSitemap}` as string, {
-      method: 'GET'
-    }).then(result => {
-      if (result.status === 200) {
-        return result.text();
-      }
-      return;
-    });
-  
-    if (sitemapResult) {
-      return res.status(200).send(sitemapResult);
-    }
+    const isAbsoluteUrl = existSitemap.match(ABSOLUTE_URL_REGEXP);
+    const sitemapUrl = isAbsoluteUrl ? existSitemap : `${config.sitecoreApiHost}${existSitemap}`;
+    res.setHeader('Content-Encoding', 'gzip');
+    res.setHeader('Content-Type', 'text/xml;charset=utf-8');
+
+    return request(sitemapUrl).pipe(res);
   }
 
   res.redirect('/404');

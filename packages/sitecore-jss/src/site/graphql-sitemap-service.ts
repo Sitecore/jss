@@ -58,7 +58,7 @@ export class GraphQLSitemapService {
    * @returns text of sitemap
    * @throws {Error} if the siteName is empty.
    */
-  async fetchSitemap(): Promise<string[]> {
+  async fetchSitemaps(): Promise<string[]> {
     const siteName: string = this.options.siteName;
 
     if (!siteName) {
@@ -76,16 +76,15 @@ export class GraphQLSitemapService {
   }
 
   /**
-   * return exists sitemap
-   * @param idSitemap{string}
-   * @returns Promise{string | undefined}
+   * Get sitemap file path for sitemap id
+   * @param {string} id the sitemap id (can be empty for default 'sitemap.xml' file)
+   * @returns {string | undefined} the sitemap file path or undefined if one doesn't exist
    */
-  async getExistsSitemap(idSitemap: string): Promise<string | undefined> {
-    const searchSitemap = `${PREFIX_NAME_SITEMAP}${idSitemap}.xml`;
-    const sitemaps = await this.fetchSitemap();
-    const existsSitemap = sitemaps.find((sitemap: string) => sitemap.includes(searchSitemap));
+  async getSitemap(id: string): Promise<string | undefined> {
+    const searchSitemap = `${PREFIX_NAME_SITEMAP}${id}.xml`;
+    const sitemaps = await this.fetchSitemaps();
 
-    return existsSitemap;
+    return sitemaps.find((sitemap: string) => sitemap.includes(searchSitemap));
   }
 
   /**
