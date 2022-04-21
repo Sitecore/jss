@@ -2,6 +2,8 @@ import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import { siteNameError } from '../constants';
 import debug from '../debug';
 
+const PREFIX_NAME_SITEMAP = 'sitemap';
+
 // The default query for request sitemaps
 const defaultQuery = /* GraphQL */ `
   query SitemapQuery($siteName: String!) {
@@ -26,14 +28,6 @@ export type GraphQLSitemapServiceConfig = {
    * The JSS application name
    */
   siteName: string;
-  /**
-   * The sitecore api host
-   */
-  sitecoreApiHost: string;
-  /**
-   * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
-   */
-  fetch?: typeof fetch;
 };
 
 /**
@@ -75,12 +69,23 @@ export class GraphQLSitemapService {
       siteName,
     });
     try {
-      return sitemapResult.then((result: SitemapQueryResult) => {
-        return result?.site?.siteInfo?.sitemap;
-      });
+      return sitemapResult.then((result: SitemapQueryResult) => result.site.siteInfo.sitemap);
     } catch (e) {
       return Promise.reject(e);
     }
+  }
+
+  /**
+   * return exists sitemap
+   * @param idSitemap{string}
+   * @returns Promise{string | undefined}
+   */
+  async getExistsSitemap(idSitemap: string): Promise<string | undefined> {
+    const searchSitemap = `${PREFIX_NAME_SITEMAP}${idSitemap}.xml`;
+    const sitemaps = await this.fetchSitemap();
+    const existsSitemap = sitemaps.find((sitemap: string) => sitemap.includes(searchSitemap));
+
+    return existsSitemap;
   }
 
   /**
@@ -93,7 +98,6 @@ export class GraphQLSitemapService {
     return new GraphQLRequestClient(this.options.endpoint, {
       apiKey: this.options.apiKey,
       debugger: debug.sitemap,
-      fetch: this.options.fetch,
     });
   }
 }
