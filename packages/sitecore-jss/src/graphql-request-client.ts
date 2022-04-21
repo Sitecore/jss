@@ -27,6 +27,10 @@ export type GraphQLRequestClientConfig = {
    * Override debugger for logging. Uses 'sitecore-jss:http' by default.
    */
   debugger?: Debugger;
+  /**
+   * Override fetch method. Uses 'graphql-request' library default otherwise ('cross-fetch').
+   */
+  fetch?: typeof fetch;
 };
 
 /**
@@ -54,7 +58,7 @@ export class GraphQLRequestClient implements GraphQLClient {
       );
     }
 
-    this.client = new Client(endpoint, { headers: this.headers });
+    this.client = new Client(endpoint, { headers: this.headers, fetch: clientConfig.fetch });
     this.debug = clientConfig.debugger || debuggers.http;
   }
 

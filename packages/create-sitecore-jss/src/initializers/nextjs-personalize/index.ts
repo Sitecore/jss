@@ -5,6 +5,7 @@ import {
   transform,
   DEFAULT_APPNAME,
   ClientAppArgs,
+  incompatibleAddonsMsg,
 } from '../../common';
 
 export default class NextjsPersonalizeInitializer implements Initializer {
@@ -27,6 +28,13 @@ export default class NextjsPersonalizeInitializer implements Initializer {
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-personalize');
 
     await transform(templatePath, mergedArgs);
+
+    if (
+      args.templates.includes('nextjs-styleguide-tracking') ||
+      pkg.config?.templates?.includes('nextjs-styleguide-tracking')
+    ) {
+      console.log(incompatibleAddonsMsg('nextjs-personalize', 'nextjs-styleguide-tracking'));
+    }
 
     const response = {
       nextSteps: [],

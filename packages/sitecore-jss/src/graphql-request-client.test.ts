@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-expressions */
-
 import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';

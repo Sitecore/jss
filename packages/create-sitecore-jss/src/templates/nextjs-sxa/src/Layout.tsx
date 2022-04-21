@@ -1,3 +1,6 @@
+/**
+ * This Layout needs for SXA example.
+ */
 import React from 'react';
 import Head from 'next/head';
 import {
@@ -7,7 +10,6 @@ import {
   LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import Navigation from 'src/Navigation';
-import CdpIntegrationScript from 'components/CdpIntegrationScript';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -22,9 +24,6 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
 
   return (
     <>
-      {route && (
-        <CdpIntegrationScript />
-      )}
       <Head>
         <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
@@ -42,7 +41,9 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <Navigation />
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
-        {route && <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={route} />}
+        <div className="row">
+          {route && <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={route} />}
+        </div>
       </div>
     </>
   );
