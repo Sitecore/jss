@@ -3853,7 +3853,7 @@ __metadata:
     resolve: ^1.12.0
     sinon: ^7.5.0
     ts-node: ^8.4.1
-    tsconfig-paths: ^3.11.0
+    tsconfig-paths: ^3.14.0
     typescript: ~4.3.5
     url-join: ^4.0.1
     uuid: ^8.3.2
@@ -4143,7 +4143,7 @@ __metadata:
     "@types/memory-cache": ^0.2.1
     "@types/mocha": ^9.0.0
     "@types/node": ^16.11.6
-    "@types/url-parse": 1.4.3
+    "@types/url-parse": 1.4.8
     axios: ^0.21.1
     chai: ^4.2.0
     chai-spies: ^1.0.0
@@ -4162,7 +4162,7 @@ __metadata:
     ts-node: ^8.4.1
     tslib: ^1.10.0
     typescript: ~4.3.5
-    url-parse: ^1.5.8
+    url-parse: ^1.5.9
   languageName: unknown
   linkType: soft
 
@@ -5106,10 +5106,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/url-parse@npm:1.4.3":
-  version: 1.4.3
-  resolution: "@types/url-parse@npm:1.4.3"
-  checksum: d8e8c3219cb7ce5d275b2b93751494ddce9ee9038021f98c1e8e24fe5523b553faae5de2bcc3523d586d8dadc5d259c8e53a74f004f517de32fb53c1280426ff
+"@types/url-parse@npm:1.4.8":
+  version: 1.4.8
+  resolution: "@types/url-parse@npm:1.4.8"
+  checksum: 44a5e96ed4b579c43750f3578bfa9165f97a359c3b2a85ee126e9c16db964f6ea105e152afd3d1adbd15850a8b812043215f3820112177bb4255a60b432dbd85
   languageName: node
   linkType: hard
 
@@ -24102,15 +24102,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfig-paths@npm:^3.11.0":
-  version: 3.11.0
-  resolution: "tsconfig-paths@npm:3.11.0"
+"tsconfig-paths@npm:^3.14.0":
+  version: 3.14.1
+  resolution: "tsconfig-paths@npm:3.14.1"
   dependencies:
     "@types/json5": ^0.0.29
     json5: ^1.0.1
-    minimist: ^1.2.0
+    minimist: ^1.2.6
     strip-bom: ^3.0.0
-  checksum: e14aaa6883f316d611db41cbb0fc8779b59c66b31d1e045565ad4540c77ccd3d2bb66f7c261b74ff535d3cc6b4a1ce21dc84774bf2a2a603ed6b0fb96f7e0cc7
+  checksum: 8afa01c673ebb4782ba53d3a12df97fa837ce524f8ad38ee4e2b2fd57f5ac79abc21c574e9e9eb014d93efe7fe8214001b96233b5c6ea75bd1ea82afe17a4c6d
   languageName: node
   linkType: hard
 
@@ -24652,7 +24652,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"url-parse@npm:^1.5.8":
+"url-parse@npm:^1.5.9":
   version: 1.5.10
   resolution: "url-parse@npm:1.5.10"
   dependencies:
