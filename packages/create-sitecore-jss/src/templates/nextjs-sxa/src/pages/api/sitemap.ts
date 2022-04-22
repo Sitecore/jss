@@ -1,21 +1,20 @@
 import { AxiosResponse } from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import config from 'temp/config';
-import { GraphQLSitemapService } from '@sitecore-jss/sitecore-jss/site';
-import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { AxiosDataFetcher, GraphQLSitemapXmlService } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const ABSOLUTE_URL_REGEXP = '^(?:[a-z]+:)?//';
 
 const sitemapApi = async (req: NextApiRequest, res: NextApiResponse): Promise<NextApiResponse | void> => {
   const { query: { id } } = req;
   // create sitemap graphql service
-  const sitemapService = new GraphQLSitemapService({
+  const sitemapXmlService = new GraphQLSitemapXmlService({
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
     siteName: config.jssAppName,
   });
 
-  const sitemapPath = await sitemapService.getSitemap(id as string);
+  const sitemapPath = await sitemapXmlService.getSitemap(id as string);
 
   if (sitemapPath) {
     const isAbsoluteUrl = sitemapPath.match(ABSOLUTE_URL_REGEXP);

@@ -15,6 +15,6 @@ export {
 
 export {
   SitemapQueryResult,
-  GraphQLSitemapService,
-  GraphQLSitemapServiceConfig,
+  GraphQLSitemapXmlService,
+  GraphQLSitemapXmlServiceConfig,
 } from './graphql-sitemap-service';

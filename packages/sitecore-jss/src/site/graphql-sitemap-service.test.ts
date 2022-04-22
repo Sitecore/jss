@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import nock from 'nock';
-import { GraphQLSitemapService } from './graphql-sitemap-service';
+import { GraphQLSitemapXmlService } from './graphql-sitemap-service';
 import { siteNameError } from '../constants';
 
 const sitemapQueryResultNull = {
@@ -9,7 +9,7 @@ const sitemapQueryResultNull = {
   },
 };
 
-describe('GraphQLSitemapService', () => {
+describe('GraphQLSitemapXmlService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
   const siteName = 'site-name';
@@ -45,7 +45,7 @@ describe('GraphQLSitemapService', () => {
     it('should get error if sitemap has empty sitename', async () => {
       mockSitemapRequest();
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName: '' });
+      const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName: '' });
       await service.fetchSitemaps().catch((error: Error) => {
         expect(error.message).to.equal(siteNameError);
       });
@@ -56,7 +56,7 @@ describe('GraphQLSitemapService', () => {
     it('should fetch sitemap', async () => {
       mockSitemapRequest(mockSitemap);
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName });
       const sitemaps = await service.fetchSitemaps();
 
       expect(sitemaps.length).to.equal(1);
@@ -68,7 +68,7 @@ describe('GraphQLSitemapService', () => {
     it('should fetch sitemaps', async () => {
       mockSitemapRequest(mockSitemaps);
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName });
       const sitemaps = await service.fetchSitemaps();
 
       expect(sitemaps.length).to.equal(3);
@@ -81,7 +81,7 @@ describe('GraphQLSitemapService', () => {
       const mockIdSitemap = '-3';
       mockSitemapRequest(mockSitemaps);
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName });
       const sitemap = await service.getSitemap(mockIdSitemap);
 
       expect(sitemap).to.deep.equal(mockSitemaps[2]);
@@ -93,7 +93,7 @@ describe('GraphQLSitemapService', () => {
       const mockIdSitemap = '-5';
       mockSitemapRequest(mockSitemaps);
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const service = new GraphQLSitemapXmlService({ endpoint, apiKey, siteName });
       const sitemap = await service.getSitemap(mockIdSitemap);
 
       // eslint-disable-next-line no-unused-expressions
