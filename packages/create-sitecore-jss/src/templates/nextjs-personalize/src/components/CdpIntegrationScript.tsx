@@ -1,41 +1,50 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
+import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
-declare const _boxeverq: any;
-declare const Boxever: any;
+declare const _boxeverq: { (): void }[];
+declare const Boxever: Boxever;
 
-function createPageView(locale: string | undefined, routeName: string) {
+interface Boxever {
+  getID(): string;
+  eventCreate(data: BoxeverViewEventArgs, callback: () => void, format: string): void;
+}
+
+interface BoxeverViewEventArgs {
+  browser_id: string;
+  channel: string;
+  type: string;
+  language: string;
+  page: string;
+  pos: string;
+}
+
+function createPageView(locale: string, routeName: string) {
   // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const pos = 'spintel.com';
+  const pointOfSale = process.env.CDP_POINTOFSALE || window.location.host.replace(/^www\./, '');
 
   _boxeverq.push(function () {
-    const pageViewEvent = {
+    const pageViewEvent: BoxeverViewEventArgs = {
       browser_id: Boxever.getID(),
       channel: 'WEB',
       type: 'VIEW',
       language: locale,
       page: routeName,
-      pos: pos,
+      pos: pointOfSale,
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    Boxever.eventCreate(pageViewEvent, function () {}, 'json');
+    Boxever.eventCreate(
+      pageViewEvent,
+      function () {
+        /*empty callback*/
+      },
+      'json'
+    );
   });
 }
 
-interface CdpIntegrationProps {
-  pageEditing: boolean | undefined;
-  route: RouteData;
-}
-
-const CdpIntegrationScript = ({
-  route: { itemLanguage, name },
-  pageEditing,
-}: CdpIntegrationProps): JSX.Element => {
-  const clientKey = process.env.BOXEVER_CLIENT_KEY
-  const targetUrl = process.env.BOXEVER_TARGET_URL
+const CdpIntegrationScript = (): JSX.Element => {
+  const { pageEditing, route } = useSitecoreContext();
 
   useEffect(() => {
     // Do not create events in editing mode
@@ -43,12 +52,12 @@ const CdpIntegrationScript = ({
       return;
     }
 
-    createPageView(itemLanguage, name);
-  }, []);
+    createPageView(route.itemLanguage, route.name);
+  });
 
   // Boxever is not needed during page editing
   if (pageEditing) {
-    return null as any;
+    return null;
   }
 
   return (
@@ -61,14 +70,14 @@ const CdpIntegrationScript = ({
               var _boxeverq = _boxeverq || [];
 
               var _boxever_settings = {
-                  client_key: '${clientKey}',
-                  target: '${targetUrl}',
+                  client_key: '${process.env.BOXEVER_CLIENT_KEY}',
+                  target: '${process.env.BOXEVER_TARGET_URL}',
                   cookie_domain: ''
               };
             `,
         }}
       />
-      <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js" />
+      <Script src={process.env.BOXEVER_SCRIPT_URL} />
     </>
   );
 };
