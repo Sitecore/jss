@@ -2,7 +2,6 @@
 import spies from 'chai-spies';
 import nock from 'nock';
 import { GraphQLPersonalizeService } from './graphql-personalize-service';
-import debugApi from 'debug';
 
 use(spies);
 
@@ -47,12 +46,7 @@ describe('GraphQLPersonalizeService', () => {
     },
   };
 
-  beforeEach(() => {
-    debugApi.enable('*');
-  });
-
   afterEach(() => {
-    debugApi.disable();
     nock.cleanAll();
   });
 
@@ -111,11 +105,13 @@ describe('GraphQLPersonalizeService', () => {
     })
       .post('/graphql')
       .reply(200, {
-        data: personalizeQueryResult,
+        data: {
+          layout: {},
+        },
       });
 
     const service = new GraphQLPersonalizeService(config);
-    const personalizeData = await service.getPersonalizeInfo('not-found', 'not-found');
+    const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', '');
 
     expect(personalizeData).to.eql(undefined);
   });
