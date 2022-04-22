@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-cli",
-  "version": "21.0.0-canary.43",
+  "version": "21.0.0-canary.44",
   "description": "Sitecore JSS command-line",
   "main": "dist/cjs/cli.js",
   "module": "dist/esm/cli.js",
@@ -33,7 +33,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^21.0.0-canary.43",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^21.0.0-canary.44",
     "chalk": "^2.4.2",
     "cross-spawn": "^7.0.0",
     "dotenv": "^8.2.0",
