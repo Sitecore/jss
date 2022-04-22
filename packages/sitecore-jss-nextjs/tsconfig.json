@@ -30,6 +30,7 @@
     "typings",
     "dist",
     "middleware.d.ts",
+    "edge.d.ts",
     "src/tests/*",
     "src/testData/*",
     "**/*.test.ts",

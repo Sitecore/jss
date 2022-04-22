@@ -4,4 +4,3 @@ export {
   EditingRenderMiddleware,
   EditingRenderMiddlewareConfig,
 } from './editing-render-middleware';
-export { RedirectsMiddleware } from './redirects-middleware';
