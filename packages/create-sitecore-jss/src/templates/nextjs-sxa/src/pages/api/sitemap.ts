@@ -1,7 +1,8 @@
-import request from 'request';
+import { AxiosResponse } from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import config from 'temp/config';
 import { GraphQLSitemapService } from '@sitecore-jss/sitecore-jss/site';
+import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 const ABSOLUTE_URL_REGEXP = '^(?:[a-z]+:)?//';
 
@@ -21,7 +22,13 @@ const sitemapApi = async (req: NextApiRequest, res: NextApiResponse): Promise<Ne
     const sitemapUrl = isAbsoluteUrl ? sitemapPath : `${config.sitecoreApiHost}${sitemapPath}`;
     res.setHeader('Content-Type', 'text/xml;charset=utf-8');
 
-    return request(sitemapUrl).pipe(res);
+    return new AxiosDataFetcher().get(sitemapUrl, {
+      responseType: 'stream',
+    })
+    .then((response: AxiosResponse) => {
+      response.data.pipe(res);
+    })
+    .catch(() => res.redirect('/404'));
   }
 
   res.redirect('/404');
