@@ -12,3 +12,9 @@ export {
   GraphQLRedirectsService,
   GraphQLRedirectsServiceConfig,
 } from './graphql-redirects-service';
+
+export {
+  SitemapQueryResult,
+  GraphQLSitemapService,
+  GraphQLSitemapServiceConfig,
+} from './graphql-sitemap-service';
