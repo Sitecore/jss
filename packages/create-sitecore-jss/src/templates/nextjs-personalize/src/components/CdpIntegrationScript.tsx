@@ -77,7 +77,7 @@ const CdpIntegrationScript = (): JSX.Element => {
             `,
         }}
       />
-      <Script src={process.env.BOXEVER_SCRIPT_URL} />
+      <Script src={process.env.CDP_SCRIPT_URL} />
     </>
   );
 };
