@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/edge';
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
 
