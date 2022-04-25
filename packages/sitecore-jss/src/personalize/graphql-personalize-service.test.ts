@@ -87,14 +87,14 @@ describe('GraphQLPersonalizeService', () => {
     })
       .post('/graphql')
       .reply(401, {
-        error: 'whoops',
+        error: 'error',
       });
 
     const service = new GraphQLPersonalizeService(config);
 
     await service.getPersonalizeInfo(variables.itemPath, variables.language).catch((error) => {
       expect(error.response.status).to.equal(401);
-      expect(error.response.error).to.equal('whoops');
+      expect(error.response.error).to.equal('error');
     });
   });
 });
