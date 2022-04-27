@@ -1,29 +1,13 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "newLine": "LF",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "es2017",
-    ],
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
+    "lib": ["es2017"],
     "noUnusedParameters": true,
-    "strict": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "typeRoots": ["node_modules/@types"],
     "outDir": "dist",
-    "declaration": true,
-    "declarationDir": "./types",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true
+    "declarationDir": "./types"
   },
   "exclude": [
     "node_modules",
@@ -33,6 +17,6 @@
     "src/templates/**/*",
     "src/test",
     "src/**/*.test.ts",
-    "src/**/test-data/**/*",
+    "src/**/test-data/**/*"
   ]
 }

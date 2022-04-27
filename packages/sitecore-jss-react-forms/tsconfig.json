@@ -1,31 +1,13 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "newLine": "LF",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
     "jsx": "react",
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": false,
-    "noImplicitAny": true,
     "noUnusedParameters": true,
-    "strict": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
     "outDir": "dist/cjs",
-    "declaration": true,
-    "declarationDir": "./types",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "typeRoots": ["node_modules/@types"],
+    "declarationDir": "./types"
   },
   "exclude": [
     "node_modules",

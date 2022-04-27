@@ -1,4 +1,4 @@
-import { Plugin } from 'vue';
+import { Plugin, App } from 'vue';
 import { ComponentFactory } from '../components/sharedTypes';
 import { providePlaceholders } from '../enhancers/providePlaceholders';
 
@@ -12,7 +12,7 @@ export interface SitecoreJssPlaceholderPluginOptions {
  * @param {App} app
  * @param {SitecoreJssPlaceholderPluginOptions} options
  */
-function install(app, options?: SitecoreJssPlaceholderPluginOptions) {
+function install(app: App, options?: SitecoreJssPlaceholderPluginOptions) {
   // eslint-disable-next-line no-param-reassign
   app.config.globalProperties.$jss = {
     // there may be other JSS plugins installed
