@@ -19,7 +19,7 @@ if (
 
 /**
  * Enable debug logging dynamically
- * @param {string} namespaces 
+ * @param {string} namespaces
  */
 export const enableDebug = (namespaces: string) => debug.enable(namespaces);
 
