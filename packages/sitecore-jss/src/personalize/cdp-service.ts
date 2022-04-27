@@ -1,4 +1,5 @@
-import debug, { Debugger } from '../debug';
+import debug from '../debug';
+import { AxiosDataFetcher } from '../axios-fetcher';
 
 export type SegmentData = {
   segments: string[];
@@ -15,13 +16,22 @@ export type CdpServiceConfig = {
    */
   clientKey: string;
   /**
-   * Override fetch method. Uses native fetch by default.
+   * The `AxiosDataFetcher` instance to use for API requests.
+   * @default new AxiosDataFetcher()
+   * @see AxiosDataFetcher
    */
-  fetch?: typeof fetch;
+  dataFetcher?: AxiosDataFetcher;
 };
 
 export class CdpService {
-  constructor(protected config: CdpServiceConfig) {}
+  private dataFetcher: AxiosDataFetcher;
+
+  /**
+   * @param {CdpServiceConfig} [config] CDP service config
+   */
+  constructor(protected config: CdpServiceConfig) {
+    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.personalize });
+  }
 
   /**
    * Returns a list of segments to determine which variant of a page to render.
@@ -31,49 +41,17 @@ export class CdpService {
    */
   async getSegments(contentId: string, browserId = ''): Promise<SegmentData> {
     const endpoint = this.getSegmentsUrl(contentId);
-    const payload = { clientKey: this.config.clientKey, browserId };
+    // TODO: params (TBD)
+    const params = {};
 
-    debug.personalize('fetching segment data for %s %s', contentId, browserId);
+    debug.personalize('fetching segment data for %s %s %o', contentId, browserId, params);
 
-    const request = new Request(endpoint, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(payload),
+    const response = await this.dataFetcher.fetch<SegmentData>(endpoint, {
+      clientKey: this.config.clientKey,
+      browserId,
+      params,
     });
-    const response = await this.doFetch(request, {
-      fetch: this.config.fetch,
-      debugger: debug.personalize,
-    });
-    const data = await response.json();
-
-    return {
-      segments: data?.segments || [],
-      browserId: data?.browserId,
-    };
-  }
-
-  // TODO: move this out to shared fetch wrapper??
-  //  the main goal here is to provide consistent debug logging and error handling
-  //  as we do in AxiosDataFetcher and GraphQLRequestClient
-  protected async doFetch(
-    request: Request,
-    options?: { fetch?: typeof fetch; debugger?: Debugger }
-  ): Promise<Response> {
-    const fetchImpl = options?.fetch || fetch;
-    const debugImpl = options?.debugger || debug.http;
-
-    debugImpl('request: %o', request);
-    const response = await fetchImpl(request).catch((error) => {
-      debugImpl('request error: %o', error);
-      throw error;
-    });
-    debugImpl('response: %o', response);
-    if (!response.ok) {
-      throw new Error(`HTTP error ${response.status} ${response.statusText}`);
-    }
-    return response;
+    return response.data;
   }
 
   protected getSegmentsUrl(contentId: string) {

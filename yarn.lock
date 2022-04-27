@@ -3905,6 +3905,7 @@ __metadata:
     "@types/react-dom": ^17.0.9
     "@types/sinon": ^7.5.0
     "@types/sinon-chai": ^3.2.5
+    "@vespaiach/axios-fetch-adapter": ^0.2.2
     "@wojtekmaj/enzyme-adapter-react-17": ^0.6.3
     chai: ^4.2.0
     chai-as-promised: ^7.1.1
@@ -5388,6 +5389,15 @@ __metadata:
   version: 1.1.2
   resolution: "@ungap/promise-all-settled@npm:1.1.2"
   checksum: 08d37fdfa23a6fe8139f1305313562ebad973f3fac01bcce2773b2bda5bcb0146dfdcf3cb6a722cf0a5f2ca0bc56a827eac8f1e7b3beddc548f654addf1fc34c
+  languageName: node
+  linkType: hard
+
+"@vespaiach/axios-fetch-adapter@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "@vespaiach/axios-fetch-adapter@npm:0.2.2"
+  peerDependencies:
+    axios: ^0.26.1
+  checksum: 195a54bc3e8c368f8322669021bcaba9b012dc230655a5af66478abfc1f2e95272fdcd7faaee9216800d1d27a779531ccad62a1e5363947272cea6676d142d3e
   languageName: node
   linkType: hard
 
