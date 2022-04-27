@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "21.0.0-canary.38",
+  "version": "21.0.0-canary.48",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -39,7 +39,7 @@
     "@types/memory-cache": "^0.2.1",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.6",
-    "@types/url-parse": "1.4.3",
+    "@types/url-parse": "1.4.8",
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
     "chai-string": "^1.5.0",
@@ -60,7 +60,7 @@
     "graphql-request": "^4.2.0",
     "lodash.unescape": "^4.0.1",
     "memory-cache": "^0.2.0",
-    "url-parse": "^1.5.8"
+    "url-parse": "^1.5.9"
   },
   "description": "",
   "types": "types/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "21.0.0-canary.38",
+  "version": "21.0.0-canary.48",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -11,7 +11,7 @@
     "test": "mocha --require ./test/setup.js \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\" --exit",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs src/index.ts --githubPages false"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs --entryPoints src/index.ts --entryPoints src/middleware/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=12",
@@ -69,9 +69,9 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^21.0.0-canary.38",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^21.0.0-canary.38",
-    "@sitecore-jss/sitecore-jss-react": "^21.0.0-canary.38",
+    "@sitecore-jss/sitecore-jss": "^21.0.0-canary.48",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^21.0.0-canary.48",
+    "@sitecore-jss/sitecore-jss-react": "^21.0.0-canary.48",
     "prop-types": "^15.7.2",
     "regex-parser": "^2.2.11",
     "sync-disk-cache": "^2.1.0"
