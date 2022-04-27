@@ -18,6 +18,12 @@ if (
 }
 
 /**
+ * Enable debug logging dynamically
+ * @param {string} namespaces 
+ */
+export const enableDebug = (namespaces: string) => debug.enable(namespaces);
+
+/**
  * Default Sitecore JSS 'debug' module debuggers. Uses namespace prefix 'sitecore-jss:'.
  * See {@link https://www.npmjs.com/package/debug} for details.
  */

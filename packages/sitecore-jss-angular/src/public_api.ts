@@ -40,7 +40,7 @@ export {
   ComponentFields,
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss/layout';
-export { constants, HttpDataFetcher, HttpResponse } from '@sitecore-jss/sitecore-jss';
+export { constants, HttpDataFetcher, HttpResponse, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
   isServer,
   isExperienceEditorActive,

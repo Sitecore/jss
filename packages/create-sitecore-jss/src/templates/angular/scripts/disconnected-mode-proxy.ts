@@ -11,20 +11,21 @@ import * as fs from 'fs';
 import { join } from 'path';
 import { createDefaultDisconnectedServer, DisconnectedServerOptions } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { ManifestInstance } from '@sitecore-jss/sitecore-jss-dev-tools';
-const packageJson = require('../package.json');
+import { environment } from '../src/environments/environment';
 
-const config = (packageJson as {
+const config = (environment as {
   [key: string]: unknown;
-  config: { [key: string]: unknown; appName: string; language: string };
-}).config;
+  jssAppName: string;
+  defaultLanguage: string
+});
 
 const touchToReloadFilePath = 'src/environments/environment.ts';
 
 const proxyOptions: DisconnectedServerOptions = {
   appRoot: join(__dirname, '..'),
-  appName: config.appName,
+  appName: config.jssAppName,
   watchPaths: ['./data'],
-  language: config.language,
+  language: config.defaultLanguage,
   // Additional transpilation is not needed
   requireArg: null,
   port: 3043,
