@@ -62,7 +62,7 @@ React.Component&lt;SitecoreContextProps, SitecoreContextState\&gt;.constructor
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:44](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L44)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:44](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L44)
 
 ## Properties
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:42](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L42)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:42](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L42)
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:31](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L31)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:31](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L31)
 
 ## Methods
 
@@ -387,7 +387,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:69](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L69)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:69](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L69)
 
 ___
 
@@ -537,7 +537,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:55](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L55)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:55](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L55)
 
 ___
 
@@ -611,7 +611,7 @@ React.Component.render
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:92](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L92)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:92](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L92)
 
 ___
 
@@ -634,7 +634,7 @@ or you can provide exact @type {SitecoreContextValue}
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:84](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L84)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:84](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L84)
 
 ___
 

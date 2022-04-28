@@ -17,14 +17,14 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Image.tsx:15](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Image.tsx#L15)
+[sitecore-jss-react/src/components/Image.tsx:15](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/Image.tsx#L15)
 
 ___
 
 ### value
 
-• `Optional` **value**: [`ImageFieldValue`](ImageFieldValue.md)
+• `Optional` **value**: `ImageFieldValue`
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Image.tsx:14](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Image.tsx#L14)
+[sitecore-jss-react/src/components/Image.tsx:14](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/Image.tsx#L14)

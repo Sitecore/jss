@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
+[disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
 
 ## Methods
 
@@ -45,7 +45,7 @@
 
 #### Defined in
 
-[disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
+[disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
 
 ___
 
@@ -65,4 +65,4 @@ ___
 
 #### Defined in
 
-[disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)
+[disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)
