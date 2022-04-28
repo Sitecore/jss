@@ -16,7 +16,7 @@ export const languageError = 'The list of languages cannot be empty';
 
 // Even though _hasLayout should always be "true" in this query, using a variable is necessary for compatibility with Edge
 const defaultQuery = /* GraphQL */ `
-query Sitemap(
+query SitemapQuery(
   $siteName: String!,
   $language: String!,
   $pageSize: Int = 10,
@@ -34,8 +34,8 @@ query Sitemap(
           endCursor
           hasNext
         }
-        routesResult{
-          routePath 
+        results: routesResult{
+          path: routePath 
         }
       }
     }
@@ -47,7 +47,7 @@ query Sitemap(
  * The schema of data returned in response to a pages list query request
  */
 export type PageListQueryResult = { 
-  routePath: string 
+  path: string 
 };
 
 /**
@@ -55,7 +55,7 @@ export type PageListQueryResult = {
  */
 export type StaticPath = {
   params: {
-    routePath: string[];
+    path: string[];
   };
   locale?: string;
 };
@@ -114,9 +114,9 @@ export class GraphQLSitemapService {
    * @returns an array of @see StaticPath objects
    */
   async fetchExportSitemap(locale: string): Promise<StaticPath[]> {
-    const formatPath = (routePath: string[]) => ({
+    const formatPath = (path: string[]) => ({
       params: {
-        routePath,
+        path,
       },
     });
 
@@ -129,9 +129,9 @@ export class GraphQLSitemapService {
    * @returns an array of @see StaticPath objects
    */
   async fetchSSGSitemap(locales: string[]): Promise<StaticPath[]> {
-    const formatPath = (routePath: string[], locale: string) => ({
+    const formatPath = (path: string[], locale: string) => ({
       params: {
-        routePath,
+        path,
       },
       locale,
     });
@@ -181,9 +181,9 @@ export class GraphQLSitemapService {
             language,
             pageSize: this.options.pageSize,
           })
-          .then((routesResult) => {
-            return routesResult.map((item) =>
-              formatStaticPath(item.routePath.replace(/^\/|\/$/g, '').split('/'), language)
+          .then((results) => {
+            return results.map((item) =>
+              formatStaticPath(item.path.replace(/^\/|\/$/g, '').split('/'), language)
             );
           });
       })

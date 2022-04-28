@@ -10,23 +10,25 @@ import { BaseQueryService, BaseQueryVariables } from './base-query-service';
 export type SiteQueryResult<T> = {
   site: {
     siteInfo: {
-      /**
-       * Data needed to paginate the site results
-       */
-      pageInfo: {
+      routes: {
         /**
-         * string token that can be used to fetch the next page of results
+         * Data needed to paginate the site results
          */
-        endCursor: string;
-        /**
-         * a value that indicates whether more pages of results are available
+        pageInfo: {
+          /**
+           * string token that can be used to fetch the next page of results
+           */
+          endCursor: string;
+          /**
+           * a value that indicates whether more pages of results are available
+           */
+          hasNext: boolean;
+        };
+        /*
+         * the type of data querying about items matching the search criteria
          */
-        hasNext: boolean;
+        results: T[];
       };
-      /*
-       * the type of data querying about items matching the search criteria
-       */
-      routesResult: T[];
     };
   };
 };
@@ -86,9 +88,9 @@ export class SiteQueryService<T> extends BaseQueryService<T> {
         after,
       });
 
-      results = results.concat(fetchResponse?.site?.siteInfo?.routesResult);
-      hasNext = fetchResponse.site.siteInfo.pageInfo.hasNext;
-      after = fetchResponse.site.siteInfo.pageInfo.endCursor;
+      results = results.concat(fetchResponse?.site?.siteInfo?.routes?.results);
+      hasNext = fetchResponse.site.siteInfo.routes.pageInfo.hasNext;
+      after = fetchResponse.site.siteInfo.routes.pageInfo.endCursor;
     }
 
     return results;
