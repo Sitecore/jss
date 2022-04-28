@@ -1,0 +1,16 @@
+﻿# Number of days of inactivity before an issue or PR becomes stale
+daysUntilStale: 365
+# Number of days of inactivity before a stale issue or PR is closed
+daysUntilClose: 30
+# Issues or PR's with these labels will never be considered stale
+exemptLabels:
+  - keep
+# Label to use when marking issues or PR's as stale
+staleLabel: stale
+# Comment to post when marking an issue or PR as stale. Set to `false` to disable
+markComment: >
+ This has been automatically marked as stale because it has not had recent activity.
+ It will be closed if there is no further activity within 30 days.
+ You may add comments or the 'keep' label to prevent it from closing. Thank you for your contributions.
+# Comment to post when closing a stale issue or PR. Set to `false` to disable
+closeComment: false
