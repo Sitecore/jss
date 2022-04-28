@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[axios-fetcher.ts:53](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/axios-fetcher.ts#L53)
+[axios-fetcher.ts:53](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/axios-fetcher.ts#L53)
 
 ## Properties
 
@@ -47,7 +47,7 @@
 
 #### Defined in
 
-[axios-fetcher.ts:46](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/axios-fetcher.ts#L46)
+[axios-fetcher.ts:46](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/axios-fetcher.ts#L46)
 
 ## Methods
 
@@ -72,7 +72,7 @@ response
 
 #### Defined in
 
-[axios-fetcher.ts:163](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/axios-fetcher.ts#L163)
+[axios-fetcher.ts:163](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/axios-fetcher.ts#L163)
 
 ___
 
@@ -103,7 +103,7 @@ response
 
 #### Defined in
 
-[axios-fetcher.ts:107](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/axios-fetcher.ts#L107)
+[axios-fetcher.ts:107](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/axios-fetcher.ts#L107)
 
 ___
 
@@ -134,7 +134,7 @@ response
 
 #### Defined in
 
-[axios-fetcher.ts:121](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/axios-fetcher.ts#L121)
+[axios-fetcher.ts:121](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/axios-fetcher.ts#L121)
 
 ___
 
@@ -159,7 +159,7 @@ response
 
 #### Defined in
 
-[axios-fetcher.ts:131](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/axios-fetcher.ts#L131)
+[axios-fetcher.ts:131](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/axios-fetcher.ts#L131)
 
 ___
 
@@ -185,7 +185,7 @@ response
 
 #### Defined in
 
-[axios-fetcher.ts:142](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/axios-fetcher.ts#L142)
+[axios-fetcher.ts:142](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/axios-fetcher.ts#L142)
 
 ___
 
@@ -211,4 +211,4 @@ response
 
 #### Defined in
 
-[axios-fetcher.ts:153](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/axios-fetcher.ts#L153)
+[axios-fetcher.ts:153](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/axios-fetcher.ts#L153)

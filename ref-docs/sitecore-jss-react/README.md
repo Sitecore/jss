@@ -41,8 +41,6 @@
 - [GoalInstance](interfaces/GoalInstance.md)
 - [HtmlElementRendering](interfaces/HtmlElementRendering.md)
 - [ImageField](interfaces/ImageField.md)
-- [ImageFieldValue](interfaces/ImageFieldValue.md)
-- [ImageProps](interfaces/ImageProps.md)
 - [Item](interfaces/Item.md)
 - [LayoutService](interfaces/LayoutService.md)
 - [LayoutServiceContext](interfaces/LayoutServiceContext.md)
@@ -83,7 +81,6 @@
 - [Placeholder](README.md#placeholder)
 - [VisitorIdentification](README.md#visitoridentification)
 - [getChildPlaceholder](README.md#getchildplaceholder)
-- [getEEMarkup](README.md#geteemarkup)
 - [getFieldValue](README.md#getfieldvalue)
 - [isEditorActive](README.md#iseditoractive)
 - [isExperienceEditorActive](README.md#isexperienceeditoractive)
@@ -118,7 +115,7 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/sharedTypes.ts:3](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/sharedTypes.ts#L3)
+[sitecore-jss-react/src/components/sharedTypes.ts:3](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/sharedTypes.ts#L3)
 
 ___
 
@@ -128,7 +125,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Link.tsx#L20)
+[sitecore-jss-react/src/components/Link.tsx:21](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/Link.tsx#L21)
 
 ___
 
@@ -138,7 +135,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L25)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L25)
 
 ## Variables
 
@@ -148,7 +145,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Date.tsx:26](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Date.tsx#L26)
+[sitecore-jss-react/src/components/Date.tsx:26](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/Date.tsx#L26)
 
 ___
 
@@ -158,17 +155,17 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/File.tsx:23](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/File.tsx#L23)
+[sitecore-jss-react/src/components/File.tsx:23](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/File.tsx#L23)
 
 ___
 
 ### Image
 
-• **Image**: `React.SFC`<[`ImageProps`](interfaces/ImageProps.md)\>
+• **Image**: `React.SFC`<`ImageProps`\>
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Image.tsx:149](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Image.tsx#L149)
+[sitecore-jss-react/src/components/Image.tsx:117](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/Image.tsx#L117)
 
 ___
 
@@ -178,7 +175,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:40](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Link.tsx#L40)
+[sitecore-jss-react/src/components/Link.tsx:41](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/Link.tsx#L41)
 
 ___
 
@@ -197,7 +194,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Link.tsx:117](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Link.tsx#L117)
+[sitecore-jss-react/src/components/Link.tsx:118](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/Link.tsx#L118)
 
 ___
 
@@ -207,7 +204,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/RichText.tsx:26](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/RichText.tsx#L26)
+[sitecore-jss-react/src/components/RichText.tsx:26](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/RichText.tsx#L26)
 
 ___
 
@@ -225,7 +222,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/RichText.tsx:44](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/RichText.tsx#L44)
+[sitecore-jss-react/src/components/RichText.tsx:44](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/RichText.tsx#L44)
 
 ___
 
@@ -235,7 +232,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:18](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L18)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:18](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L18)
 
 ___
 
@@ -245,7 +242,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Text.tsx:29](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Text.tsx#L29)
+[sitecore-jss-react/src/components/Text.tsx:29](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/Text.tsx#L29)
 
 ## Functions
 
@@ -265,7 +262,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/Placeholder.tsx:126](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Placeholder.tsx#L126)
+[sitecore-jss-react/src/components/Placeholder.tsx:126](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/Placeholder.tsx#L126)
 
 ___
 
@@ -285,7 +282,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/components/VisitorIdentification.tsx:39](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/VisitorIdentification.tsx#L39)
+[sitecore-jss-react/src/components/VisitorIdentification.tsx:39](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/components/VisitorIdentification.tsx#L39)
 
 ___
 
@@ -311,31 +308,6 @@ child placeholder
 #### Defined in
 
 sitecore-jss/types/layout/utils.d.ts:17
-
-___
-
-### getEEMarkup
-
-▸ `Const` **getEEMarkup**(`imageField`, `imageParams?`, `mediaUrlPrefix?`, `otherProps?`): `Element`
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `imageField` | [`ImageField`](interfaces/ImageField.md) | provides the dynamicMedia which is used to render the image |
-| `imageParams?` | `Object` | provides the image parameters that will be attached to the image URL |
-| `mediaUrlPrefix?` | `RegExp` | the url prefix regex used in the mediaApi |
-| `otherProps?` | [`ImageProps`](interfaces/ImageProps.md) | all other props included on the image component |
-
-#### Returns
-
-`Element`
-
-Experience Editor Markup
-
-#### Defined in
-
-[sitecore-jss-react/src/components/Image.tsx:124](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/components/Image.tsx#L124)
 
 ___
 
@@ -509,7 +481,7 @@ const EditMode = () => {
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L70)
+[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:70](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L70)
 
 ___
 
@@ -564,7 +536,7 @@ Checks whether a Sitecore datasource is present and renders appropriately depend
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
+[sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
 
 ___
 
@@ -584,7 +556,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
+[sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
 
 ___
 
@@ -606,7 +578,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withEditorChromes.tsx:26](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L26)
+[sitecore-jss-react/src/enhancers/withEditorChromes.tsx:26](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L26)
 
 ___
 
@@ -651,7 +623,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withPlaceholder.tsx:45](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L45)
+[sitecore-jss-react/src/enhancers/withPlaceholder.tsx:45](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L45)
 
 ___
 
@@ -701,4 +673,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L25)
+[sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:25](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L25)

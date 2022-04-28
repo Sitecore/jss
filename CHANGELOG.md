@@ -117,6 +117,20 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 `[template/nextjs]` `[template/react]` Strongly typed SitecoreContext value ([#841](https://github.com/Sitecore/jss/pull/841))
 
+## 19.0.2
+
+## Bug Fixes
+
+`[sitecore-jss-vue]`
+* [EE] Cannot add a new rendering to the newly created ([#902](https://github.com/Sitecore/jss/pull/902))
+
+## 19.0.1
+
+## Bug Fixes
+
+`[sitecore-jss-vue]`
+* [EE] Cannot add a new rendering in Experience Editor ([commit](https://github.com/Sitecore/jss/commit/2dbd4673ddb9eea817659d5e86931739b255b742))
+
 ## 19.0.0
 
 ### New Features & Improvements

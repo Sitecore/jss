@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-dev-tools",
-  "version": "20.0.0-canary.144",
+  "version": "20.0.0",
   "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -33,7 +33,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.144",
+    "@sitecore-jss/sitecore-jss": "^20.0.0",
     "axios": "^0.21.1",
     "chalk": "^2.4.1",
     "chokidar": "^3.2.1",
