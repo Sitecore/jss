@@ -17,7 +17,7 @@ export class DisconnectedSitemapService {
   fetchExportSitemap(): StaticPath[] {
     const sitemap: {
       params: {
-        path: string[];
+        routePath: string[];
       };
     }[] = [];
 
@@ -30,7 +30,7 @@ export class DisconnectedSitemapService {
         if (renderings && renderings.length) {
           sitemap.push({
             params: {
-              path: routePath,
+              routePath: routePath,
             },
           });
         }

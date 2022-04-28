@@ -10,3 +10,4 @@ export {
   SearchServiceConfig,
   SearchQueryService,
 } from './search-service';
+export { SiteQueryResult, SiteQueryService, SiteQueryVariables } from './site-query-service';

@@ -1,6 +1,5 @@
-import { GraphQLClient } from './../graphql-request-client';
 import { DocumentNode } from 'graphql';
-
+import { BaseQueryService, BaseQueryVariables } from './base-query-service';
 /**
  * Schema of data returned in response to a "search" query request
  * @template T The type of objects being requested.
@@ -31,7 +30,7 @@ export type SearchQueryResult<T> = {
  * Describes the variables used by the 'search' query. Language should always be specified.
  * The other predicates are optional.
  */
-export type SearchQueryVariables = {
+export interface SearchQueryVariables extends BaseQueryVariables {
   /**
    * Required. The language versions to search for. Fetch pages that have versions in this language.
    */
@@ -43,16 +42,10 @@ export type SearchQueryVariables = {
   rootItemId?: string;
 
   /**
-   * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
-   * @default 10
-   */
-  pageSize?: number;
-
-  /**
    * Optional. Sitecore template ID(s). Fetch items that inherit from this template(s).
    */
   templates?: string;
-};
+}
 
 /**
  * Configuration options for service classes that extend @see SearchQueryService.
@@ -75,13 +68,7 @@ export interface SearchServiceConfig extends Omit<SearchQueryVariables, 'languag
  * @template T The type of objects being requested.
  * @mixin
  */
-export class SearchQueryService<T> {
-  /**
-   * Creates an instance of search query service.
-   * @param {GraphQLClient} client that fetches data from a GraphQL endpoint.
-   */
-  constructor(protected client: GraphQLClient) {}
-
+export class SearchQueryService<T> extends BaseQueryService<T> {
   /**
    * 1. Validates mandatory search query arguments
    * 2. Executes search query with pagination
