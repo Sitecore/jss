@@ -1,0 +1,17 @@
+﻿{
+  "initializers": [
+    "nextjs", "nextjs-styleguide"
+  ],
+  "args": {
+    "yes": true,
+    "force": true,
+    "silent": true,
+    "appPrefix": true,
+    "appName": "sitecore-jss-nextjs",
+    "destination": "..\\..\\samples\\sitecore-jss-nextjs",
+    "language": "da-DK",
+    "fetchWith": "GraphQL",
+    "prerender": "SSG",
+    "hostName": "sitecore-jss-nextjs.dev.local"
+  }
+}

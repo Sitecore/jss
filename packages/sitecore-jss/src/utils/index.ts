@@ -1,6 +1,5 @@
-import isServer from './is-server';
-import resolveUrl from './resolve-url';
-export { isServer, resolveUrl };
+export { default as isServer } from './is-server';
+export { default as resolveUrl } from './resolve-url';
 export {
   ExperienceEditor,
   HorizonEditor,
@@ -8,4 +7,5 @@ export {
   resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  handleEditorAnchors,
 } from './editing';

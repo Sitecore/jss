@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / RestLayoutService
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / RestLayoutService
 
 # Class: RestLayoutService
 
@@ -49,7 +49,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/rest-layout-service.d.ts:55
+sitecore-jss/types/layout/rest-layout-service.d.ts:55
 
 ## Properties
 
@@ -97,7 +97,7 @@ default fetcher
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/rest-layout-service.d.ts:95
+sitecore-jss/types/layout/rest-layout-service.d.ts:95
 
 ___
 
@@ -125,7 +125,7 @@ fetch options
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/rest-layout-service.d.ts:82
+sitecore-jss/types/layout/rest-layout-service.d.ts:82
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/rest-layout-service.d.ts:54
+sitecore-jss/types/layout/rest-layout-service.d.ts:54
 
 ## Methods
 
@@ -166,7 +166,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/rest-layout-service.d.ts:64
+sitecore-jss/types/layout/rest-layout-service.d.ts:64
 
 ___
 
@@ -196,7 +196,7 @@ placeholder data
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/rest-layout-service.d.ts:76
+sitecore-jss/types/layout/rest-layout-service.d.ts:76
 
 ___
 
@@ -220,7 +220,7 @@ the layout service url
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/rest-layout-service.d.ts:88
+sitecore-jss/types/layout/rest-layout-service.d.ts:88
 
 ___
 
@@ -260,7 +260,7 @@ axios request config
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/rest-layout-service.d.ts:101
+sitecore-jss/types/layout/rest-layout-service.d.ts:101
 
 ___
 
@@ -300,4 +300,4 @@ response
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/rest-layout-service.d.ts:107
+sitecore-jss/types/layout/rest-layout-service.d.ts:107

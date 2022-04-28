@@ -19,9 +19,12 @@ export interface EditingDataCache {
 export class EditingDataDiskCache implements EditingDataCache {
   private cache: CacheInstance;
 
-  constructor() {
+  /**
+   * @param {string} [tmpDir] Temp directory to use. Default is the OS temp directory (os.tmpdir()).
+   */
+  constructor(tmpDir: string = os.tmpdir()) {
     // Use gzip compression and store using the OS temp directory (Vercel Serverless Functions have temp directory access)
-    this.cache = new Cache('editing-data', { compression: 'gzip', location: os.tmpdir() });
+    this.cache = new Cache('editing-data', { compression: 'gzip', location: tmpDir });
   }
 
   set(key: string, editingData: EditingData): void {

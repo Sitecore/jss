@@ -5,9 +5,11 @@ import {
   HtmlElementRendering,
   Item,
   RouteData,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/layout';
+import { resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
 import { Component, h, VNode, DefineComponent, ref, onMounted } from 'vue';
 import { MissingComponent } from './MissingComponent';
+import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
 import { ComponentFactory } from './sharedTypes';
 
 export interface PlaceholderProps {
@@ -41,6 +43,11 @@ export interface PlaceholderProps {
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
    */
   missingComponentComponent?: DefineComponent;
+
+  /**
+   * A component that is rendered in place of any components that are hidden.
+   */
+  hiddenRenderingComponent?: DefineComponent;
 
   /**
    * A component that is rendered in place of the placeholder when an error occurs rendering
@@ -94,6 +101,7 @@ export function getVNodesForRenderingData(
     fields: placeholderFields,
     params: placeholderParams,
     missingComponentComponent,
+    hiddenRenderingComponent,
     ...unmappedPlaceholderProps
   } = placeholderProps;
 
@@ -106,7 +114,14 @@ export function getVNodesForRenderingData(
         return createRawElement(rendering);
       }
 
-      let component: any = getComponentForRendering(rendering, componentFactory);
+      let component: any;
+
+      if (rendering.componentName === HIDDEN_RENDERING_NAME) {
+        component = hiddenRenderingComponent || HiddenRendering;
+      } else {
+        component = getComponentForRendering(rendering, componentFactory);
+      }
+
       if (!component) {
         console.error(
           `Placeholder ${placeholderName} contains unknown component ${rendering.componentName}. Ensure that a Vue component exists for it, and that it is mapped in your component factory.`
@@ -164,7 +179,7 @@ export function convertVNodesToDynamicComponents(vnodes: VNode[]) {
       },
     } as JssDynamicComponent;
 
-    if (vnode.type === 'code' && vnode.props.type === 'text/sitecore') {
+    if (vnode.props.elem?.name === 'code' && vnode.props.elem?.type === 'text/sitecore') {
       component.isxEditorComponent = true;
     }
     return component;
@@ -202,6 +217,11 @@ function createRawElement(elem: any) {
           elem.attributes.key
         ) {
           elRef.value.setAttribute('key', elem.attributes.key);
+
+          // Reset chromes since sometimes experience editor script is executed earlier
+          // than Vue script and EE can't set required attributes and chromes aren't visible
+          // Also required for Horizon
+          resetEditorChromes();
         }
       });
 
@@ -215,7 +235,7 @@ function createRawElement(elem: any) {
     },
   };
 
-  return h(component);
+  return h(component, { elem });
 }
 
 /**

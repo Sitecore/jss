@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / HttpResponse
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / HttpResponse
 
 # Interface: HttpResponse<T\>
 
@@ -28,7 +28,7 @@ Response content
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/data-fetcher.d.ts:13
+sitecore-jss/types/data-fetcher.d.ts:13
 
 ___
 
@@ -40,7 +40,7 @@ HTTP status code of the response (i.e. 200, 404)
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/data-fetcher.d.ts:9
+sitecore-jss/types/data-fetcher.d.ts:9
 
 ___
 
@@ -52,4 +52,4 @@ HTTP status text of the response (i.e. 'OK', 'Bad Request')
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/data-fetcher.d.ts:11
+sitecore-jss/types/data-fetcher.d.ts:11

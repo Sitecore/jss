@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-dev-tools",
-  "version": "19.0.2",
+  "version": "20.0.0-canary.144",
   "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -10,16 +10,18 @@
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
-    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
+    "test": "mocha --require ts-node/register -r tsconfig-paths/register  \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
-    "coverage": "nyc npm test"
+    "coverage": "nyc npm test",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-dev-tools src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=8.1"
+    "node": ">=12",
+    "npm": ">=6"
   },
   "bin": {
-    "scjss-verify-setup": "./dist/cjs/bin/verify-setup.js",
-    "scjss-deploy": "./dist/cjs/bin/deploy.js"
+    "scjss-deploy": "./dist/cjs/bin/deploy.js",
+    "scjss-verify-setup": "./dist/cjs/bin/verify-setup.js"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -31,20 +33,26 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^19.0.2",
-    "@sitecore-jss/sitecore-jss-manifest": "^19.0.2",
-    "@sitecore-jss/sitecore-jss-update-package": "^19.0.2",
+    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.144",
     "axios": "^0.21.1",
+    "chalk": "^2.4.1",
     "chokidar": "^3.2.1",
-    "del": "^5.1.0",
+    "del": "^6.0.0",
     "express": "^4.17.1",
     "form-data": "^3.0.0",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.4",
+    "import-fresh": "^3.1.0",
+    "joi": "^17.4.2",
     "js-yaml": "^3.13.1",
+    "jszip": "^3.7.1",
+    "module-alias": "^2.2.2",
     "readline-sync": "^1.4.10",
     "resolve": "^1.12.0",
-    "url-join": "^4.0.1"
+    "ts-node": "^8.4.1",
+    "url-join": "^4.0.1",
+    "uuid": "^8.3.2",
+    "yargs": "^17.3.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.3",
@@ -52,15 +60,22 @@
     "@types/del": "^4.0.0",
     "@types/express": "^4.17.1",
     "@types/fs-extra": "^8.0.0",
+    "@types/glob": "^7.1.1",
+    "@types/joi": "^17.2.3",
     "@types/js-yaml": "^3.12.1",
+    "@types/jszip": "^3.1.6",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.11",
     "@types/readline-sync": "^1.4.3",
     "@types/resolve": "^0.0.8",
     "@types/sinon": "^7.5.0",
     "@types/url-join": "^4.0.0",
+    "@types/uuid": "^8.3.3",
+    "@types/yargs": "^17.0.7",
+    "babel-core": "^6.26.3",
     "chai": "^4.2.0",
     "cross-env": "^6.0.3",
+    "del": "^3.0.0",
     "del-cli": "^3.0.1",
     "eslint": "^7.15.0",
     "mocha": "^8.1.3",
@@ -68,10 +83,8 @@
     "nyc": "^15.1.0",
     "sinon": "^7.5.0",
     "ts-node": "^8.4.1",
+    "tsconfig-paths": "^3.11.0",
     "typescript": "~4.3.5"
-  },
-  "peerDependencies": {
-    "chalk": "^2.1.0"
   },
   "types": "types/index.d.ts",
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"

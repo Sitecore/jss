@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / GraphQLLayoutService
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / GraphQLLayoutService
 
 # Class: GraphQLLayoutService
 
@@ -45,7 +45,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/graphql-layout-service.d.ts:37
+sitecore-jss/types/layout/graphql-layout-service.d.ts:37
 
 ## Properties
 
@@ -55,7 +55,7 @@ node_modules/@sitecore-jss/sitecore-jss/types/layout/graphql-layout-service.d.ts
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/graphql-layout-service.d.ts:32
+sitecore-jss/types/layout/graphql-layout-service.d.ts:32
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/graphql-layout-service.d.ts:31
+sitecore-jss/types/layout/graphql-layout-service.d.ts:31
 
 ## Methods
 
@@ -94,7 +94,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/graphql-layout-service.d.ts:44
+sitecore-jss/types/layout/graphql-layout-service.d.ts:44
 
 ___
 
@@ -114,7 +114,7 @@ implementation
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/graphql-layout-service.d.ts:51
+sitecore-jss/types/layout/graphql-layout-service.d.ts:51
 
 ___
 
@@ -137,4 +137,4 @@ Returns GraphQL Layout query
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/graphql-layout-service.d.ts:57
+sitecore-jss/types/layout/graphql-layout-service.d.ts:57

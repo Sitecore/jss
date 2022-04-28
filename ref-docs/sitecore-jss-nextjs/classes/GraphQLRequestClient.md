@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / GraphQLRequestClient
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / GraphQLRequestClient
 
 # Class: GraphQLRequestClient
 
@@ -43,7 +43,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/graphql-request-client.d.ts:43
+sitecore-jss/types/graphql-request-client.d.ts:43
 
 ## Properties
 
@@ -53,7 +53,7 @@ node_modules/@sitecore-jss/sitecore-jss/types/graphql-request-client.d.ts:43
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/graphql-request-client.d.ts:35
+sitecore-jss/types/graphql-request-client.d.ts:35
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/graphql-request-client.d.ts:37
+sitecore-jss/types/graphql-request-client.d.ts:37
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/graphql-request-client.d.ts:34
+sitecore-jss/types/graphql-request-client.d.ts:34
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/graphql-request-client.d.ts:36
+sitecore-jss/types/graphql-request-client.d.ts:36
 
 ## Methods
 
@@ -116,4 +116,4 @@ GraphQLClient.request
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/graphql-request-client.d.ts:49
+sitecore-jss/types/graphql-request-client.d.ts:49

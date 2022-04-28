@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { getAppRootId, siteNameError, languageError } from './app-root-query';
-import { GraphQLRequestClient } from '../graphql-request-client';
-import appRootQueryResponse from '../testData/mockAppRootQueryResponse.json';
+import { GraphQLRequestClient } from './../graphql-request-client';
+import appRootQueryResponse from '../test-data/mockAppRootQueryResponse.json';
 import nock from 'nock';
 import { SitecoreTemplateId } from '../constants';
 

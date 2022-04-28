@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
-import { expect, use, spy } from 'chai';
-import spies from 'chai-spies';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
+import { expect } from 'chai';
 import { IncomingMessage, ServerResponse } from 'http';
 import { ParsedUrlQuery } from 'querystring';
 import { ComponentModule, Module } from '../sharedTypes/component-module';
@@ -10,8 +9,7 @@ import {
   GetStaticComponentProps,
 } from '../sharedTypes/component-props';
 import { ComponentPropsService } from './component-props-service';
-
-use(spies);
+import { spy } from 'sinon';
 
 describe('ComponentPropsService', () => {
   const service = new ComponentPropsService();

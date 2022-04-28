@@ -1,9 +1,11 @@
 export {
-  mediaApi,
   isEditorActive,
   resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+} from '@sitecore-jss/sitecore-jss/utils';
+export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
+export {
   RestLayoutService,
   LayoutService,
   LayoutServiceData,
@@ -16,7 +18,7 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/layout';
 
 export { Placeholder } from './components/Placeholder';
 export { SitecoreContext } from './components/SitecoreContext';

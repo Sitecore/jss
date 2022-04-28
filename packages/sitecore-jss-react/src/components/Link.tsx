@@ -9,6 +9,7 @@ export interface LinkFieldValue {
   title?: string;
   target?: string;
   text?: string;
+  querystring?: string;
 }
 
 export interface LinkField {
@@ -94,7 +95,7 @@ export const Link: React.SFC<LinkProps> = ({
   }
 
   const anchorAttrs: { [attr: string]: unknown } = {
-    href: link.href,
+    href: link.querystring ? `${link.href}?${link.querystring}` : link.href,
     className: link.class,
     title: link.title,
     target: link.target,

@@ -1,4 +1,6 @@
 import chalk from 'chalk';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import del from 'del';
 import fsExtra, { CopyOptionsSync } from 'fs-extra';
 import path from 'path';

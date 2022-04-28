@@ -1,14 +1,15 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { expect, use, spy } from 'chai';
-import spies from 'chai-spies';
+import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
 import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataCache } from './editing-data-cache';
 import { EditingDataMiddleware } from './editing-data-middleware';
+import { spy } from 'sinon';
+import sinonChai from 'sinon-chai';
 
-use(spies);
+use(sinonChai);
 
 type Query = {
   [key: string]: string;
@@ -77,11 +78,11 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.set).to.have.been.called.once;
-    expect(cache.set).to.have.been.called.with.exactly(key, mockEditingData);
-    expect(res.status).to.have.been.called.once;
-    expect(res.status).to.have.been.called.with(200);
-    expect(res.end).to.have.been.called.once;
+    expect(cache.set).to.have.been.calledOnce;
+    expect(cache.set).to.have.been.calledWithExactly(key, mockEditingData);
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.end).to.have.been.calledOnce;
   });
 
   it('should handle GET request', async () => {
@@ -97,12 +98,12 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.get).to.have.been.called.once;
-    expect(cache.get).to.have.been.called.with(key);
-    expect(res.status).to.have.been.called.once;
-    expect(res.status).to.have.been.called.with(200);
-    expect(res.json).to.have.been.called.once;
-    expect(res.json).to.have.been.called.with(mockEditingData);
+    expect(cache.get).to.have.been.calledOnce;
+    expect(cache.get).to.have.been.calledWith(key);
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledWith(mockEditingData);
   });
 
   it('should use dynamicRouteKey if set', async () => {
@@ -123,12 +124,12 @@ describe('EditingDataMiddleware', () => {
 
     await handler(req, res);
 
-    expect(cache.get).to.have.been.called.once;
-    expect(cache.get).to.have.been.called.with(key);
-    expect(res.status).to.have.been.called.once;
-    expect(res.status).to.have.been.called.with(200);
-    expect(res.json).to.have.been.called.once;
-    expect(res.json).to.have.been.called.with(mockEditingData);
+    expect(cache.get).to.have.been.calledOnce;
+    expect(cache.get).to.have.been.calledWith(key);
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledWith(mockEditingData);
   });
 
   it('should respond with 400 for invalid editing data', async () => {
@@ -145,9 +146,9 @@ describe('EditingDataMiddleware', () => {
     await handler(req, res);
 
     expect(cache.set).to.not.have.been.called;
-    expect(res.status).to.have.been.called.once;
-    expect(res.status).to.have.been.called.with(400);
-    expect(res.end).to.have.been.called.once;
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(400);
+    expect(res.end).to.have.been.calledOnce;
   });
 
   it('should respond with 401 for missing secret', async () => {
@@ -163,9 +164,9 @@ describe('EditingDataMiddleware', () => {
     await handler(req, res);
 
     expect(cache.get).to.not.have.been.called;
-    expect(res.status).to.have.been.called.once;
-    expect(res.status).to.have.been.called.with(401);
-    expect(res.end).to.have.been.called.once;
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(401);
+    expect(res.end).to.have.been.calledOnce;
   });
 
   it('should respond with 401 for invalid secret', async () => {
@@ -182,9 +183,9 @@ describe('EditingDataMiddleware', () => {
     await handler(req, res);
 
     expect(cache.get).to.not.have.been.called;
-    expect(res.status).to.have.been.called.once;
-    expect(res.status).to.have.been.called.with(401);
-    expect(res.end).to.have.been.called.once;
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(401);
+    expect(res.end).to.have.been.calledOnce;
   });
 
   it('should respond with 405 for unsupported method', async () => {
@@ -202,9 +203,9 @@ describe('EditingDataMiddleware', () => {
 
     expect(cache.get).to.not.have.been.called;
     expect(cache.set).to.not.have.been.called;
-    expect(res.setHeader).to.have.been.called.with.exactly('Allow', ['GET', 'PUT']);
-    expect(res.status).to.have.been.called.once;
-    expect(res.status).to.have.been.called.with(405);
-    expect(res.end).to.have.been.called.once;
+    expect(res.setHeader).to.have.been.calledWithExactly('Allow', ['GET', 'PUT']);
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(405);
+    expect(res.end).to.have.been.calledOnce;
   });
 });

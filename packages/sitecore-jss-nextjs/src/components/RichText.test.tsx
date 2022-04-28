@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { ReactNode } from 'react';
-import { use, expect, spy } from 'chai';
+import { use, expect } from 'chai';
 import { RichText as ReactRichText } from '@sitecore-jss/sitecore-jss-react';
 import { NextRouter } from 'next/router';
 import { mount } from 'enzyme';
-import spies from 'chai-spies';
-import { RouterContext } from 'next/dist/next-server/lib/router-context';
+import { RouterContext } from 'next/dist/shared/lib/router-context';
 import { RichText } from './RichText';
+import { spy } from 'sinon';
+import sinonChai from 'sinon-chai';
 
-use(spies);
+use(sinonChai);
 
 const Router = (): NextRouter => ({
   pathname: '/',
@@ -61,7 +62,7 @@ describe('RichText', () => {
     expect(c.html()).contains('<a href="/t10">1</a>');
     expect(c.html()).contains('<a href="/t10">2</a>');
 
-    expect(router.prefetch).called.exactly(1);
+    expect(router.prefetch).callCount(1);
 
     const main = document.querySelector('main');
 
@@ -75,11 +76,11 @@ describe('RichText', () => {
 
     link1 && link1.click();
 
-    expect(router.push).called.exactly(1);
+    expect(router.push).callCount(1);
 
     link2 && link2.click();
 
-    expect(router.push).called.exactly(2);
+    expect(router.push).callCount(2);
 
     expect(c.find(ReactRichText).length).to.equal(1);
 
@@ -123,12 +124,12 @@ describe('RichText', () => {
 
     link1 && link1.click();
 
-    expect(router.push).called.exactly(1);
+    expect(router.push).callCount(1);
 
     link2 && link2.click();
 
     // Check that push not invoked, because second link don't have event listener
-    expect(router.push).called.exactly(1);
+    expect(router.push).callCount(1);
 
     expect(c.find(ReactRichText).length).to.equal(1);
 
@@ -148,7 +149,7 @@ describe('RichText', () => {
       </Page>
     );
 
-    expect(router.prefetch).called.exactly(0);
+    expect(router.prefetch).callCount(0);
 
     expect(c.find(ReactRichText).length).to.equal(1);
   });
@@ -171,7 +172,7 @@ describe('RichText', () => {
     expect(c.html()).contains('<div id="test">');
     expect(c.html()).contains('<h1>Hello!</h1>');
 
-    expect(router.prefetch).called.exactly(0);
+    expect(router.prefetch).callCount(0);
 
     expect(c.find(ReactRichText).length).to.equal(1);
   });
@@ -196,7 +197,7 @@ describe('RichText', () => {
     expect(c.html()).contains('<a href="/t1">t1</a>');
     expect(c.html()).contains('<a href="/t2">t2</a>');
 
-    expect(router.prefetch).called.exactly(0);
+    expect(router.prefetch).callCount(0);
 
     expect(c.find(ReactRichText).length).to.equal(1);
   });

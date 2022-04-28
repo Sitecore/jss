@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import chalk from 'chalk';
-import { Argv } from '../../node_modules/@types/yargs';
+import { Argv } from 'yargs';
 import microManifest from '../micro-manifest';
 
 /**

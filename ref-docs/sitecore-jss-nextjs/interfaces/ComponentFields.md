@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / ComponentFields
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / ComponentFields
 
 # Interface: ComponentFields
 

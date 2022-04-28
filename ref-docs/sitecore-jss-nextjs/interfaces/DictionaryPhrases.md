@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / DictionaryPhrases
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / DictionaryPhrases
 
 # Interface: DictionaryPhrases
 

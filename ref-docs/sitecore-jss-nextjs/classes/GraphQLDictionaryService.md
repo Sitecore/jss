@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / GraphQLDictionaryService
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / GraphQLDictionaryService
 
 # Class: GraphQLDictionaryService
 
@@ -52,7 +52,7 @@ DictionaryServiceBase.constructor
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:54
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:54
 
 ## Properties
 
@@ -62,7 +62,7 @@ node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:48
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:48
 
 ___
 
@@ -76,7 +76,7 @@ DictionaryServiceBase.options
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:47
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:47
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:49
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:49
 
 ## Methods
 
@@ -118,7 +118,7 @@ DictionaryServiceBase.fetchDictionaryData
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:62
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:62
 
 ___
 
@@ -142,7 +142,7 @@ DictionaryServiceBase.getCacheClient
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/dictionary-service.d.ts:49
+sitecore-jss/types/i18n/dictionary-service.d.ts:49
 
 ___
 
@@ -170,7 +170,7 @@ DictionaryServiceBase.getCacheValue
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/dictionary-service.d.ts:42
+sitecore-jss/types/i18n/dictionary-service.d.ts:42
 
 ___
 
@@ -190,7 +190,7 @@ implementation
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:69
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:69
 
 ___
 
@@ -221,4 +221,4 @@ DictionaryServiceBase.setCacheValue
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/dictionary-service.d.ts:36
+sitecore-jss/types/i18n/dictionary-service.d.ts:36

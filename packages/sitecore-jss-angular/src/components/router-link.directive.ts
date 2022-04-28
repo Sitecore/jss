@@ -37,7 +37,7 @@ export class RouterLinkDirective extends LinkDirective {
 
         if (key === 'href') {
           this.renderer.listen(node, 'click', (event) => {
-            this.router.navigate([propValue]);
+            this.router.navigateByUrl(propValue);
             event.preventDefault();
           });
         }

@@ -1,4 +1,4 @@
-import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 
 /**
  * @param {HtmlElementRendering | ComponentRendering} rendering

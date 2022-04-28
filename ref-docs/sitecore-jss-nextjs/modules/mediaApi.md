@@ -1,4 +1,8 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / mediaApi
+<<<<<<< HEAD:ref-docs/sitecore-jss/modules/mediaApi.md
+[Sitecore JavaScript Rendering SDK (JSS)](../README.md) / mediaApi
+=======
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / mediaApi
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/modules/mediaApi.md
 
 # Namespace: mediaApi
 
@@ -33,7 +37,11 @@ found image tag
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/media-api.d.ts:6
+<<<<<<< HEAD:ref-docs/sitecore-jss/modules/mediaApi.md
+[media-api.ts:18](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/media-api.ts#L18)
+=======
+sitecore-jss/types/media/media-api.d.ts:6
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/modules/mediaApi.md
 
 ___
 
@@ -65,7 +73,11 @@ requiredParams
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/media-api.d.ts:17
+<<<<<<< HEAD:ref-docs/sitecore-jss/modules/mediaApi.md
+[media-api.ts:44](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/media-api.ts#L44)
+=======
+sitecore-jss/types/media/media-api.d.ts:17
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/modules/mediaApi.md
 
 ___
 
@@ -100,7 +112,11 @@ src set
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/media-api.d.ts:57
+<<<<<<< HEAD:ref-docs/sitecore-jss/modules/mediaApi.md
+[media-api.ts:113](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/media-api.ts#L113)
+=======
+sitecore-jss/types/media/media-api.d.ts:57
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/modules/mediaApi.md
 
 ___
 
@@ -130,4 +146,8 @@ url
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/media-api.d.ts:37
+<<<<<<< HEAD:ref-docs/sitecore-jss/modules/mediaApi.md
+[media-api.ts:61](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/media-api.ts#L61)
+=======
+sitecore-jss/types/media/media-api.d.ts:37
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/modules/mediaApi.md

@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / RichText
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / RichText
 
 # Namespace: RichText
 

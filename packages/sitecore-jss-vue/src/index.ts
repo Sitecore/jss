@@ -1,18 +1,26 @@
 export {
-  mediaApi,
   isEditorActive,
   resetEditorChromes,
-  constants,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
-  DictionaryService,
-  RestDictionaryService,
-  GraphQLDictionaryService,
+  handleEditorAnchors,
+} from '@sitecore-jss/sitecore-jss/utils';
+export { constants } from '@sitecore-jss/sitecore-jss';
+export {
+  trackingApi,
+  TrackingRequestOptions,
+  CampaignInstance,
+  GoalInstance,
+  OutcomeInstance,
+  EventInstance,
+  PageViewInstance,
+} from '@sitecore-jss/sitecore-jss/tracking';
+export {
   LayoutService,
-  RestLayoutService,
-  GraphQLLayoutService,
   LayoutServiceData,
   LayoutServiceContextData,
+  GraphQLLayoutService,
+  RestLayoutService,
   RouteData,
   Field,
   HtmlElementRendering,
@@ -21,8 +29,13 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-} from '@sitecore-jss/sitecore-jss';
-
+} from '@sitecore-jss/sitecore-jss/layout';
+export {
+  DictionaryService,
+  GraphQLDictionaryService,
+  RestDictionaryService,
+} from '@sitecore-jss/sitecore-jss/i18n';
+export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { Placeholder } from './components/Placeholder';
 export { Image } from './components/Image';
 export { RichText } from './components/RichText';

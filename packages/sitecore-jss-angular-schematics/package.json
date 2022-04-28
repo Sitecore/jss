@@ -1,15 +1,17 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular-schematics",
-  "version": "19.0.2",
+  "version": "20.0.0-canary.144",
   "description": "Scaffolding schematics for Sitecore JSS Angular apps",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test-package": "jasmine src/**/*_spec.js",
     "test": "npm run build && npm run test-package",
-    "coverage": "nyc npm run test-package"
+    "coverage": "nyc npm run test-package",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-angular-schematics src/jss-component/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=8.1"
+    "node": ">=12",
+    "npm": ">=6"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -22,6 +24,7 @@
   },
   "schematics": "./src/collection.json",
   "dependencies": {
+    "@angular-devkit/core": "^11.2.5",
     "@angular-devkit/schematics": "^11.2.5",
     "@schematics/angular": "^11.2.5",
     "chalk": "^2.4.2"

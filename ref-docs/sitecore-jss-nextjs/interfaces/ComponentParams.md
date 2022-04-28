@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / ComponentParams
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / ComponentParams
 
 # Interface: ComponentParams
 

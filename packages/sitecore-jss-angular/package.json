@@ -1,13 +1,18 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular",
-  "version": "19.0.2",
+  "version": "20.0.0-canary.144",
   "description": "",
   "scripts": {
     "build": "ng-packagr -p ng-package.json",
     "lint": "eslint ./src/**/*.ts",
     "test": "karma start",
     "test:watch": "karma start --no-single-run --browsers Chrome",
-    "coverage": "npm test"
+    "coverage": "npm test",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-angular src/public_api.ts --githubPages false"
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -42,6 +47,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.6",
     "tsickle": "^0.39.1",
+    "tslib": "^2.3.1",
     "typescript": "~4.1.5",
     "zone.js": "~0.11.4"
   },
@@ -52,7 +58,7 @@
     "rxjs": "~6.6.6"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^19.0.2"
+    "@sitecore-jss/sitecore-jss": "^20.0.0-canary.144"
   },
   "main": "dist/bundles/sitecore-jss-sitecore-jss-angular.umd.js",
   "module": "dist/fesm2015/sitecore-jss-sitecore-jss-angular.js",

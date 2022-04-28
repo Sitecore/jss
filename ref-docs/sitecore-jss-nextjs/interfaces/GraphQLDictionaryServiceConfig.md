@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / GraphQLDictionaryServiceConfig
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / GraphQLDictionaryServiceConfig
 
 # Interface: GraphQLDictionaryServiceConfig
 
@@ -37,7 +37,7 @@ The API key to use for authentication.
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:18
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:18
 
 ___
 
@@ -55,7 +55,7 @@ CacheOptions.cacheEnabled
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/cache-client.d.ts:28
+sitecore-jss/types/cache-client.d.ts:28
 
 ___
 
@@ -73,7 +73,7 @@ CacheOptions.cacheTimeout
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/cache-client.d.ts:33
+sitecore-jss/types/cache-client.d.ts:33
 
 ___
 
@@ -87,7 +87,7 @@ Optional. The template ID to use when searching for dictionary entries.
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:23
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:23
 
 ___
 
@@ -99,7 +99,7 @@ The URL of the graphQL endpoint.
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:14
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:14
 
 ___
 
@@ -113,7 +113,7 @@ Optional. The template ID of a JSS App to use when searching for the appRootId.
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:28
+sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:28
 
 ___
 
@@ -131,7 +131,7 @@ SearchServiceConfig.pageSize
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/graphql/search-service.d.ts:42
+sitecore-jss/types/graphql/search-service.d.ts:42
 
 ___
 
@@ -147,7 +147,7 @@ SearchServiceConfig.rootItemId
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/graphql/search-service.d.ts:37
+sitecore-jss/types/graphql/search-service.d.ts:37
 
 ___
 
@@ -164,7 +164,7 @@ SearchServiceConfig.siteName
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/graphql/search-service.d.ts:60
+sitecore-jss/types/graphql/search-service.d.ts:60
 
 ___
 
@@ -180,4 +180,4 @@ SearchServiceConfig.templates
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/graphql/search-service.d.ts:46
+sitecore-jss/types/graphql/search-service.d.ts:46

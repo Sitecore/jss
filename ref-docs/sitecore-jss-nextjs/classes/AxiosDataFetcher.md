@@ -1,4 +1,8 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / AxiosDataFetcher
+<<<<<<< HEAD:ref-docs/sitecore-jss/classes/AxiosDataFetcher.md
+[Sitecore JavaScript Rendering SDK (JSS)](../README.md) / AxiosDataFetcher
+=======
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / AxiosDataFetcher
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/classes/AxiosDataFetcher.md
 
 # Class: AxiosDataFetcher
 
@@ -31,11 +35,19 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
+<<<<<<< HEAD:ref-docs/sitecore-jss/classes/AxiosDataFetcher.md
+| `dataFetcherConfig` | [`AxiosDataFetcherConfig`](../README.md#axiosdatafetcherconfig) | Axios data fetcher configuration. Note `withCredentials` is set to `true` by default in order for Sitecore cookies to be included in CORS requests (which is necessary for analytics and such). |
+
+#### Defined in
+
+[axios-fetcher.ts:53](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/axios-fetcher.ts#L53)
+=======
 | `dataFetcherConfig?` | [`AxiosDataFetcherConfig`](../README.md#axiosdatafetcherconfig) | Axios data fetcher configuration. Note `withCredentials` is set to `true` by default in order for Sitecore cookies to be included in CORS requests (which is necessary for analytics and such). |
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/axios-fetcher.d.ts:41
+sitecore-jss/types/axios-fetcher.d.ts:41
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/classes/AxiosDataFetcher.md
 
 ## Properties
 
@@ -45,7 +57,11 @@ node_modules/@sitecore-jss/sitecore-jss/types/axios-fetcher.d.ts:41
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/axios-fetcher.d.ts:35
+<<<<<<< HEAD:ref-docs/sitecore-jss/classes/AxiosDataFetcher.md
+[axios-fetcher.ts:46](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/axios-fetcher.ts#L46)
+=======
+sitecore-jss/types/axios-fetcher.d.ts:35
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/classes/AxiosDataFetcher.md
 
 ## Methods
 
@@ -70,7 +86,11 @@ response
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/axios-fetcher.d.ts:85
+<<<<<<< HEAD:ref-docs/sitecore-jss/classes/AxiosDataFetcher.md
+[axios-fetcher.ts:163](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/axios-fetcher.ts#L163)
+=======
+sitecore-jss/types/axios-fetcher.d.ts:85
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/classes/AxiosDataFetcher.md
 
 ___
 
@@ -101,7 +121,11 @@ response
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/axios-fetcher.d.ts:48
+<<<<<<< HEAD:ref-docs/sitecore-jss/classes/AxiosDataFetcher.md
+[axios-fetcher.ts:107](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/axios-fetcher.ts#L107)
+=======
+sitecore-jss/types/axios-fetcher.d.ts:48
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/classes/AxiosDataFetcher.md
 
 ___
 
@@ -132,7 +156,11 @@ response
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/axios-fetcher.d.ts:55
+<<<<<<< HEAD:ref-docs/sitecore-jss/classes/AxiosDataFetcher.md
+[axios-fetcher.ts:121](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/axios-fetcher.ts#L121)
+=======
+sitecore-jss/types/axios-fetcher.d.ts:55
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/classes/AxiosDataFetcher.md
 
 ___
 
@@ -157,7 +185,11 @@ response
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/axios-fetcher.d.ts:62
+<<<<<<< HEAD:ref-docs/sitecore-jss/classes/AxiosDataFetcher.md
+[axios-fetcher.ts:131](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/axios-fetcher.ts#L131)
+=======
+sitecore-jss/types/axios-fetcher.d.ts:62
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/classes/AxiosDataFetcher.md
 
 ___
 
@@ -183,7 +215,11 @@ response
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/axios-fetcher.d.ts:70
+<<<<<<< HEAD:ref-docs/sitecore-jss/classes/AxiosDataFetcher.md
+[axios-fetcher.ts:142](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/axios-fetcher.ts#L142)
+=======
+sitecore-jss/types/axios-fetcher.d.ts:70
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/classes/AxiosDataFetcher.md
 
 ___
 
@@ -209,4 +245,8 @@ response
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/axios-fetcher.d.ts:78
+<<<<<<< HEAD:ref-docs/sitecore-jss/classes/AxiosDataFetcher.md
+[axios-fetcher.ts:153](https://github.com/Sitecore/jss/blob/release/19.0.0/packages/sitecore-jss/src/axios-fetcher.ts#L153)
+=======
+sitecore-jss/types/axios-fetcher.d.ts:78
+>>>>>>> release/20.0.0:ref-docs/sitecore-jss-nextjs/classes/AxiosDataFetcher.md

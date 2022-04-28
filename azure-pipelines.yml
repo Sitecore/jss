@@ -12,12 +12,8 @@ trigger:
   paths:
     include:
     - /
-    exclude:
-    - docs/*
 
 # should trigger builds for PRs targeting any of the listed branches
-# should _not_ trigger builds for PRs that _only_ have changes in the docs folder
-# should trigger builds for PRs that have changes in both docs folder _and_ any other folder besides docs
 pr:
   branches:
     include:
@@ -27,8 +23,6 @@ pr:
   paths:
     include:
     - /
-    exclude:
-    - docs/*
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -41,29 +35,26 @@ variables:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
 
 steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
 - script: |
-    npm ci
-  displayName: 'npm ci'
+    yarn cache clean --all && yarn install --immutable
+  displayName: 'yarn install'
 - script: |
-    npm run bootstrap:ci
-  displayName: 'bootstrapping packages'
-- script: |
-    npm run build-packages
+    yarn build
   displayName: 'building packages'
 - script: |
-    npm run lint-packages
+    yarn lint-packages
   displayName: 'linting packages'
 - script: |
-    npm run lint-apps
-  displayName: 'linting apps'
-- script: |
-    npm run coverage-packages
+    yarn coverage-packages
   displayName: 'running tests'
   env: {
     testEnv: 'ci'
   }
   #
-  # LERNA VERSION 
+  # LERNA VERSION
   # * Configure git with a commit user
   # * Update git remote to include a Personal Access Token, so lerna can push
   # * Explicitly check out the current branch since Pipelines will use disconnected HEAD by default
@@ -92,7 +83,11 @@ steps:
   #
 - script: |
     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-    $(npm bin)/lerna publish from-git --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
+    $(npm bin)/lerna publish from-git --canary --pre-dist-tag ver20 --preid canary --no-verify-access --yes
+    yarn install --no-immutable --mode=update-lockfile
+    git add yarn.lock
+    git commit -m "update yarn.lock [skip ci]"
+    git push
   displayName: 'pre-release canary publish'
   condition: and(succeeded(), eq(variables.shouldPublish, true))
   env:

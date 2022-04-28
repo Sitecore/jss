@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / RestDictionaryService
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / RestDictionaryService
 
 # Class: RestDictionaryService
 
@@ -51,7 +51,7 @@ DictionaryServiceBase.constructor
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:39
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:39
 
 ## Properties
 
@@ -65,7 +65,7 @@ DictionaryServiceBase.options
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:34
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:34
 
 ## Accessors
 
@@ -81,7 +81,7 @@ Provides default @see AxiosDataFetcher data fetcher
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:38
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:38
 
 ## Methods
 
@@ -107,7 +107,7 @@ DictionaryServiceBase.fetchDictionaryData
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:44
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:44
 
 ___
 
@@ -131,7 +131,7 @@ DictionaryServiceBase.getCacheClient
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/dictionary-service.d.ts:49
+sitecore-jss/types/i18n/dictionary-service.d.ts:49
 
 ___
 
@@ -159,7 +159,7 @@ DictionaryServiceBase.getCacheValue
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/dictionary-service.d.ts:42
+sitecore-jss/types/i18n/dictionary-service.d.ts:42
 
 ___
 
@@ -181,7 +181,7 @@ Generate dictionary service url
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/rest-dictionary-service.d.ts:49
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:49
 
 ___
 
@@ -212,4 +212,4 @@ DictionaryServiceBase.setCacheValue
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/i18n/dictionary-service.d.ts:36
+sitecore-jss/types/i18n/dictionary-service.d.ts:36

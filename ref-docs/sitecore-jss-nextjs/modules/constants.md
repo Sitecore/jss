@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / constants
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / constants
 
 # Namespace: constants
 
@@ -27,4 +27,4 @@
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/constants.d.ts:5
+sitecore-jss/types/constants.d.ts:5

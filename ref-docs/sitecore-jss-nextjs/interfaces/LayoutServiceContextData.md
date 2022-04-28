@@ -1,4 +1,4 @@
-[Sitecore JavaScript Rendering SDK (JSS) for Next.js](../README.md) / LayoutServiceContextData
+[@sitecore-jss/sitecore-jss-nextjs](../README.md) / LayoutServiceContextData
 
 # Interface: LayoutServiceContextData
 
@@ -18,4 +18,4 @@ Context information from the Sitecore Layout Service
 
 #### Defined in
 
-node_modules/@sitecore-jss/sitecore-jss/types/layout/models.d.ts:34
+sitecore-jss/types/layout/models.d.ts:34

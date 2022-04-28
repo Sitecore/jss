@@ -7,7 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { By } from '@angular/platform-browser';
 import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
 

@@ -20,6 +20,7 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "skipLibCheck": true,
     "outDir": "dist/cjs",
     "declaration": true,
     "declarationDir": "./types",

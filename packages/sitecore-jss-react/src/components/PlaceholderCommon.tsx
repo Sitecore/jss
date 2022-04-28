@@ -8,11 +8,18 @@ import {
   Field,
   Item,
   HtmlElementRendering,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/layout';
 import { convertAttributesToReactProps } from '../utils';
+import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
 
 type ErrorComponentProps = {
   [prop: string]: unknown;
+};
+
+/** Provided for the component which represents rendering data */
+type ComponentProps = {
+  [key: string]: unknown;
+  rendering: ComponentRendering;
 };
 
 export interface PlaceholderProps {
@@ -40,12 +47,23 @@ export interface PlaceholderProps {
   params?: {
     [name: string]: string;
   };
-
+  /**
+   * Modify final props of component (before render) provided by rendering data.
+   * Can be used in case when you need to insert additional data into the component.
+   * @param {ComponentProps} componentProps component props to be modified
+   * @returns {ComponentProps} modified or initial props
+   */
+  modifyComponentProps?: (componentProps: ComponentProps) => ComponentProps;
   /**
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
    */
   missingComponentComponent?: React.ComponentClass<unknown> | React.FC<unknown>;
+
+  /**
+   * A component that is rendered in place of any components that are hidden
+   */
+  hiddenRenderingComponent?: React.ComponentClass<unknown> | React.FC<unknown>;
 
   /**
    * A component that is rendered in place of the placeholder when an error occurs rendering
@@ -71,10 +89,15 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       PropTypes.object as Requireable<React.ComponentClass<unknown>>,
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
+    hiddenRenderingComponent: PropTypes.oneOfType([
+      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
+      PropTypes.func as Requireable<React.FC<unknown>>,
+    ]),
     errorComponent: PropTypes.oneOfType([
       PropTypes.object as Requireable<React.ComponentClass<unknown>>,
       PropTypes.func as Requireable<React.FC<unknown>>,
     ]),
+    modifyComponentProps: PropTypes.func,
   };
 
   nodeRefs: Element[];
@@ -130,6 +153,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       fields: placeholderFields,
       params: placeholderParams,
       missingComponentComponent,
+      hiddenRenderingComponent,
       ...placeholderProps
     } = this.props;
 
@@ -150,7 +174,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         const componentRendering = rendering as ComponentRendering;
 
-        let component = this.getComponentForRendering(componentRendering);
+        let component;
+
+        if (componentRendering.componentName === HIDDEN_RENDERING_NAME) {
+          component = hiddenRenderingComponent ?? HiddenRendering;
+        } else {
+          component = this.getComponentForRendering(componentRendering);
+        }
+
         if (!component) {
           console.error(
             `Placeholder ${name} contains unknown component ${componentRendering.componentName}. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
@@ -173,7 +204,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
         return React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
-          finalProps
+          this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
         );
       })
       .filter((element) => element); // remove nulls

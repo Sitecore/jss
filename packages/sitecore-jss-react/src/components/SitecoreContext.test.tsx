@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
 import { withSitecoreContext, ComponentConsumerProps } from '../enhancers/withSitecoreContext';
+import { LayoutServiceData } from '../index';
 
 interface NestedComponentProps extends ComponentConsumerProps {
   anotherProperty?: string;
@@ -17,32 +18,116 @@ const NestedComponentWithContext = withSitecoreContext()(NestedComponent);
 const components = new Map();
 const mockComponentFactory: ComponentFactory = (name) => components.get(name);
 
-const mockSitecoreContext = {
-  x: 'test1',
-  y: 'test2',
+const mockLayoutData: LayoutServiceData = {
+  sitecore: {
+    context: {
+      pageEditing: false,
+      site: {
+        name: 'JssTestWeb',
+      },
+      language: 'en',
+    },
+    route: {
+      name: 'styleguide',
+      placeholders: {
+        'JssTestWeb-jss-main': [],
+      },
+      itemId: 'testitemid',
+    },
+  },
 };
 
 describe('SitecoreContext', () => {
   it('should update context', () => {
     const component = shallow<SitecoreContext>(
-      <SitecoreContext componentFactory={mockComponentFactory} context={mockSitecoreContext}>
+      <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockLayoutData}>
         <NestedComponentWithContext />
       </SitecoreContext>
     );
 
     expect(component.state().context).deep.equal({
-      x: 'test1',
-      y: 'test2',
+      pageEditing: false,
+      itemId: 'testitemid',
+      language: 'en',
+      route: {
+        itemId: 'testitemid',
+        name: 'styleguide',
+        placeholders: {
+          'JssTestWeb-jss-main': [],
+        },
+      },
+      site: {
+        name: 'JssTestWeb',
+      },
     });
 
+    // provide LayoutServiceData type
     component.instance().setContext({
-      x: 'test11',
-      y: 'test22',
+      sitecore: {
+        context: {
+          pageEditing: false,
+          site: {
+            name: 'JssTestWeb',
+          },
+          language: 'en',
+        },
+        route: {
+          name: 'home',
+          placeholders: {
+            'JssTestWeb-jss-main': [],
+          },
+          itemId: 'homeid',
+        },
+      },
     });
 
     expect(component.state().context).deep.equal({
-      x: 'test11',
-      y: 'test22',
+      pageEditing: false,
+      itemId: 'homeid',
+      language: 'en',
+      route: {
+        itemId: 'homeid',
+        name: 'home',
+        placeholders: {
+          'JssTestWeb-jss-main': [],
+        },
+      },
+      site: {
+        name: 'JssTestWeb',
+      },
+    });
+
+    // Provide SitecoreContextValue type
+    component.instance().setContext({
+      pageEditing: false,
+      itemId: 'graphqlid',
+      language: 'en',
+      route: {
+        itemId: 'graphqlid',
+        name: 'graphql',
+        placeholders: {
+          'JssTestWeb-jss-main-graphql': [],
+        },
+      },
+      site: {
+        name: 'JssTestWeb',
+      },
+    });
+
+    expect(component.state().context).deep.equal({
+      pageEditing: false,
+      itemId: 'graphqlid',
+      language: 'en',
+      route: {
+        itemId: 'graphqlid',
+        name: 'graphql',
+        placeholders: {
+          'JssTestWeb-jss-main-graphql': [],
+        },
+      },
+      site: {
+        name: 'JssTestWeb',
+      },
     });
   });
 
@@ -70,15 +155,23 @@ describe('SitecoreContext', () => {
     });
 
     component.setProps({
-      context: {
-        v1: 10,
-        v2: 20,
-      },
+      layoutData: mockLayoutData,
     });
 
     expect(component.state().context).to.deep.equal({
-      v1: 10,
-      v2: 20,
+      pageEditing: false,
+      itemId: 'testitemid',
+      language: 'en',
+      route: {
+        itemId: 'testitemid',
+        name: 'styleguide',
+        placeholders: {
+          'JssTestWeb-jss-main': [],
+        },
+      },
+      site: {
+        name: 'JssTestWeb',
+      },
     });
   });
 });

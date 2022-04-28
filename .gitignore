@@ -1,3 +1,11 @@
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
 scjssconfig.json
 scjssconfig.bak
 
@@ -14,4 +22,4 @@ lerna-debug.log
 coverage/
 /badges
 packages/*/*.tgz
-/samples/react/profiling
+samples/
