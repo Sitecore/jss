@@ -7,7 +7,7 @@ import { BaseQueryService, BaseQueryVariables } from './base-query-service';
  * Schema of data returned in response to a "site" query request
  * @template T The type of objects being requested.
  */
-export type SiteQueryResult<T> = {
+export interface SiteQueryResult<T> {
   site: {
     siteInfo: {
       routes: {
@@ -31,10 +31,10 @@ export type SiteQueryResult<T> = {
       };
     };
   };
-};
+}
 
 /**
- * Describes the variables used by the 'search' query. Language should always be specified.
+ * Describes the variables used by the 'site' query. Language and siteName should always be specified.
  * The other predicates are optional.
  */
 export declare interface SiteQueryVariables extends BaseQueryVariables {
@@ -42,17 +42,22 @@ export declare interface SiteQueryVariables extends BaseQueryVariables {
    * Required. The name of the site being queried.
    */
   siteName: string;
-
+  /**
+   * Required. The language to return routes/pages for.
+   */
   language: string;
-
+  /**
+   * Optional. Only paths starting with these provided prefixes will be returned.
+   */
   includedPaths?: string[];
-
+  /**
+   * Optional. Paths starting with these provided prefixes will be excluded from returned results.
+   */
   excludedPaths?: string[];
 }
 
 /**
- * Provides functionality for performing GraphQL 'search' operations, including handling pagination.
- * This class is meant to be extended or used as a mixin; it's not meant to be used directly.
+ * Provides functionality for performing GraphQL 'site' operations, including handling pagination.
  * @template T The type of objects being requested.
  * @mixin
  */
@@ -64,7 +69,7 @@ export class SiteQueryService<T> extends BaseQueryService<T> {
 
   /**
    * 1. Validates mandatory search query arguments
-   * 2. Executes search query with pagination
+   * 2. Executes site query with pagination
    * 3. Aggregates pagination results into a single result-set.
    * @template T The type of objects being requested.
    * @param {string | DocumentNode} query the search query.
@@ -76,6 +81,10 @@ export class SiteQueryService<T> extends BaseQueryService<T> {
   async fetch(query: string | DocumentNode, args: SiteQueryVariables): Promise<T[]> {
     if (!args.siteName) {
       throw new RangeError('"siteName" must a be non-empty string');
+    }
+
+    if (!args.language) {
+      throw new RangeError('"rootItemId" and "language" must be non-empty strings');
     }
 
     let results: T[] = [];

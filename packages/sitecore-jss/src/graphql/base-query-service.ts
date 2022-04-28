@@ -1,6 +1,10 @@
 import { DocumentNode } from 'graphql';
 import { GraphQLClient } from '../graphql-request-client';
 
+/**
+ * This file contains base types for GraphQL services within sitecore-jss
+ */
+
 export interface BaseQueryVariables {
   /** common variable for all GraphQL queries
    * it will be used for every type of query to regulate result batch size

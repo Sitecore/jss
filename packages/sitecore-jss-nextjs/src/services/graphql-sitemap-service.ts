@@ -1,24 +1,22 @@
 import {
   GraphQLClient,
   GraphQLRequestClient,
-  getAppRootId,
-  SearchServiceConfig,
+  SiteQueryVariables,
   SiteQueryService,
 } from '@sitecore-jss/sitecore-jss/graphql';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
 /** @private */
-export const queryError =
-  'Valid value for rootItemId not provided and failed to auto-resolve app root item.';
-
-/** @private */
 export const languageError = 'The list of languages cannot be empty';
 
-// Even though _hasLayout should always be "true" in this query, using a variable is necessary for compatibility with Edge
+const languageEmptyError = 'The language must be a non-empty string';
+
 const defaultQuery = /* GraphQL */ `
 query SitemapQuery(
   $siteName: String!,
   $language: String!,
+  $includedPaths: String[],
+  $excludedPaths: String[],
   $pageSize: Int = 10,
   $after: String
 ) {
@@ -26,6 +24,8 @@ query SitemapQuery(
     siteInfo(site: $siteName) {
       routes(
         language: $language
+        includedPaths: $includedPaths
+        excludedPaths: $excludedPaths
         first: $pageSize
         after: $after
       ){
@@ -44,10 +44,10 @@ query SitemapQuery(
 `;
 
 /**
- * The schema of data returned in response to a pages list query request
+ * The schema of data returned in response to a routes list query request
  */
-export type PageListQueryResult = { 
-  path: string 
+export type RouteListQueryResult = {
+  path: string;
 };
 
 /**
@@ -63,7 +63,7 @@ export type StaticPath = {
 /**
  * Configuration options for @see GraphQLSitemapService instances
  */
-export interface GraphQLSitemapServiceConfig extends SearchServiceConfig {
+export interface GraphQLSitemapServiceConfig extends Omit<SiteQueryVariables, 'language'> {
   /**
    * Your Graphql endpoint
    */
@@ -73,12 +73,6 @@ export interface GraphQLSitemapServiceConfig extends SearchServiceConfig {
    * The API key to use for authentication.
    */
   apiKey: string;
-
-  /**
-   * Optional. The template ID of a JSS App to use when searching for the appRootId.
-   * @default '061cba1554744b918a0617903b102b82' (/sitecore/templates/Foundation/JavaScript Services/App)
-   */
-  jssAppTemplateId?: string;
 }
 
 /**
@@ -88,7 +82,7 @@ export interface GraphQLSitemapServiceConfig extends SearchServiceConfig {
  */
 export class GraphQLSitemapService {
   private graphQLClient: GraphQLClient;
-  private siteService: SiteQueryService<PageListQueryResult>;
+  private siteService: SiteQueryService<RouteListQueryResult>;
 
   /**
    * Gets the default query used for fetching the list of site pages
@@ -103,7 +97,7 @@ export class GraphQLSitemapService {
    */
   constructor(public options: GraphQLSitemapServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
-    this.siteService = new SiteQueryService<PageListQueryResult>(this.graphQLClient);
+    this.siteService = new SiteQueryService<RouteListQueryResult>(this.graphQLClient);
   }
 
   /**
@@ -146,6 +140,7 @@ export class GraphQLSitemapService {
    * @param {Function} formatStaticPath Function for transforming the raw search results into (@see StaticPath) types.
    * @returns list of pages
    * @throws {RangeError} if the list of languages is empty.
+   * @throws {RangeError} if the any of the languages is an empty string.
    * @throws {Error} if the app root was not found for the specified site and language.
    */
   protected async fetchSitemap(
@@ -155,31 +150,22 @@ export class GraphQLSitemapService {
     if (!languages.length) {
       throw new RangeError(languageError);
     }
-
-    // If the caller does not specify a root item ID, then we try to figure it out
-    const rootItemId = 
-      this.options.rootItemId ||
-      (await getAppRootId(
-        this.graphQLClient,
-        this.options.siteName,
-        languages[0],
-        this.options.jssAppTemplateId
-      ));
     const siteName = this.options.siteName;
-
-    if (!rootItemId) {
-      throw new Error(queryError);
-    }
 
     // Fetch paths using all locales
     const paths = await Promise.all(
       languages.map((language) => {
+        if (language === '') {
+          throw new RangeError(languageEmptyError);
+        }
         debug.sitemap('fetching sitemap data for %s', language);
         return this.siteService
           .fetch(this.query, {
             siteName,
             language,
             pageSize: this.options.pageSize,
+            includedPaths: this.options.includedPaths,
+            excludedPaths: this.options.excludedPaths,
           })
           .then((results) => {
             return results.map((item) =>
@@ -210,7 +196,7 @@ export class GraphQLSitemapService {
    * Gets a service that can perform GraphQL "search" queries to fetch @see PageListQueryResult
    * @returns {SearchQueryService<PageListQueryResult>} the search query service
    */
-  protected getSearchService(): SiteQueryService<PageListQueryResult> {
-    return new SiteQueryService<PageListQueryResult>(this.graphQLClient);
+  protected getSearchService(): SiteQueryService<RouteListQueryResult> {
+    return new SiteQueryService<RouteListQueryResult>(this.graphQLClient);
   }
 }
