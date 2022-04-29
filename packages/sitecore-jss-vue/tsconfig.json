@@ -3,8 +3,6 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "skipLibCheck": true,
-    "noUnusedParameters": true,
     "strictNullChecks": false,
     "outDir": "dist/cjs",
     "typeRoots": ["node_modules/@types"],

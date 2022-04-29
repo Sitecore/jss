@@ -5,7 +5,6 @@
     "baseUrl": "tsconfig",
     "module": "commonjs",
     "noEmitOnError": true,
-    "noUnusedParameters": true,
     "rootDir": "src/",
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,

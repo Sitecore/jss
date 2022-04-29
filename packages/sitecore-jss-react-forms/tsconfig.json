@@ -4,7 +4,6 @@
     "target": "es6",
     "module": "commonjs",
     "jsx": "react",
-    "noUnusedParameters": true,
     "outDir": "dist/cjs",
     "typeRoots": ["node_modules/@types"],
     "declarationDir": "./types"

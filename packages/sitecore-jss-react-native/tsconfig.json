@@ -4,7 +4,6 @@
     "emitDeclarationOnly": true,
     "pretty": true,
     "jsx": "react",
-    "noUnusedParameters": true,
     "skipLibCheck": true,
     "outDir": "dist",
     "strictNullChecks": false,

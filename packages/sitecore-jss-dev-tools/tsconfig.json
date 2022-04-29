@@ -3,11 +3,9 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "noUnusedParameters": true,
     "outDir": "dist/cjs",
     "typeRoots": ["node_modules/@types"],
     "declarationDir": "./types",
-    "declaration": true
   },
   "exclude": ["node_modules", "types", "dist", "src/test", "src/**/*.test.ts"]
 }

@@ -4,7 +4,6 @@
     "target": "es6",
     "module": "commonjs",
     "lib": ["es2017"],
-    "noUnusedParameters": true,
     "typeRoots": ["node_modules/@types"],
     "outDir": "dist",
     "declarationDir": "./types"
