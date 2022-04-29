@@ -134,14 +134,13 @@ export class GraphQLSitemapService {
   }
 
   /**
-   * Fetch a flat list of all pages that are descendants of the specified root item and have a
+   * Fetch a flat list of all pages that belong to the specificed site and have a
    * version in the specified language(s).
    * @param {string[]} languages Fetch pages that have versions in this language(s).
    * @param {Function} formatStaticPath Function for transforming the raw search results into (@see StaticPath) types.
    * @returns list of pages
    * @throws {RangeError} if the list of languages is empty.
    * @throws {RangeError} if the any of the languages is an empty string.
-   * @throws {Error} if the app root was not found for the specified site and language.
    */
   protected async fetchSitemap(
     languages: string[],

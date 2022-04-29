@@ -354,79 +354,6 @@ describe('GraphQLSitemapService', () => {
       return expect(nock.isDone()).to.be.true;
     });
 
-    /* TODO: cleanup these tests or replace
-    it('should attempt to fetch the rootItemId, if rootItemId not provided', async () => {
-      mockRootItemIdRequest();
-
-      nock(endpoint)
-        .post('/', (body) => body.variables.rootItemId === 'GUIDGUIDGUID')
-        .reply(200, sitemapQueryResult);
-
-      const service = new GraphQLSitemapService({
-        endpoint,
-        apiKey,
-        siteName,
-      });
-
-      const sitemap = await service.fetchSSGSitemap(['ua']);
-      expect(sitemap).to.deep.equal(sitemapServiceResult);
-    });
-
-    it('should use a custom rootItemId, if provided', async () => {
-      const customRootId = 'cats';
-
-      nock(endpoint)
-        .post('/', (body) => body.variables.rootItemId === customRootId)
-        .reply(200, sitemapQueryResult);
-
-      const service = new GraphQLSitemapService({
-        endpoint,
-        apiKey,
-        siteName,
-        rootItemId: customRootId,
-      });
-
-      const sitemap = await service.fetchSSGSitemap(['ua']);
-      expect(sitemap).to.deep.equal(sitemapServiceResult);
-    });
-
-
-    it('should use a jssTemplateId, if provided', async () => {
-      const jssAppTemplateId = '{de397294-cfcc-4795-847e-442416d0617b}';
-      const randomId = '{5a4e6edc-4518-4afb-afdc-9fa22ec4eb91}';
-
-      nock(endpoint)
-        .post('/', (body) => body.variables.jssAppTemplateId === jssAppTemplateId)
-        .reply(200, {
-          data: {
-            layout: {
-              homePage: {
-                rootItem: [
-                  {
-                    id: randomId,
-                  },
-                ],
-              },
-            },
-          },
-        });
-
-      nock(endpoint)
-        .post('/', (body) => body.variables.rootItemId === randomId)
-        .reply(200, sitemapQueryResult);
-
-      const service = new GraphQLSitemapService({
-        endpoint,
-        apiKey,
-        siteName,
-        jssAppTemplateId,
-      });
-
-      const sitemap = await service.fetchSSGSitemap(['ua']);
-      expect(sitemap).to.deep.equal(sitemapServiceResult);
-    });
-    */
-
     it('should throw error if SitemapQuery fails', async () => {
       nock(endpoint)
         .post('/', /SitemapQuery/gi)
@@ -439,20 +366,6 @@ describe('GraphQLSitemapService', () => {
       });
       return expect(nock.isDone()).to.be.true;
     });
-    /* TODO: consider cleanup
-    it('should throw error if AppRootQuery fails', async () => {
-      nock(endpoint)
-        .post('/', /AppRootQuery/gi)
-        .reply(500, 'Error 😥');
-
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
-      await service.fetchSSGSitemap(['ua']).catch((error: RangeError) => {
-        expect(error.message).to.contain('AppRootQuery');
-        expect(error.message).to.contain('Error 😥');
-      });
-      return expect(nock.isDone()).to.be.true;
-    });
-    */
   });
 
   const expectedExportSitemap = [
@@ -511,20 +424,6 @@ describe('GraphQLSitemapService', () => {
       });
       return expect(nock.isDone()).to.be.true;
     });
-    /* TODO: consider cleanup
-    it('should throw error if AppRootQuery fails', async () => {
-      nock(endpoint)
-        .post('/', /AppRootQuery/gi)
-        .reply(500, 'Error 😥');
-
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
-      await service.fetchExportSitemap('ua').catch((error: RangeError) => {
-        expect(error.message).to.contain('AppRootQuery');
-        expect(error.message).to.contain('Error 😥');
-      });
-      return expect(nock.isDone()).to.be.true;
-    });
-    */
 
     it('should throw error if language is not provided', async () => {
       mockPathsRequest();
