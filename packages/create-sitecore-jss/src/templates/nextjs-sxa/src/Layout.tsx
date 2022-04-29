@@ -40,11 +40,21 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
 
       <Navigation />
       {/* root placeholder for the app, which we add components to using route data */}
-      <div className="container">
-        <div className="row">
-          {route && <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={route} />}
+      <header>
+        <div id="header" className="container">
+          <div className="row">{route && <Placeholder name="headless-header" rendering={route} />}</div>
         </div>
-      </div>
+      </header>
+      <main>
+        <div id="content" className="container">
+          <div className="row">{route && <Placeholder name="headless-main" rendering={route} />}</div>
+        </div>
+      </main>
+      <footer>
+        <div id="footer" className="container">
+          <div className="row">{route && <Placeholder name="headless-footer" rendering={route} />}</div>
+        </div>
+      </footer>
     </>
   );
 };
