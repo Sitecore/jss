@@ -7,7 +7,7 @@ const config: ProxyConfig = {
   pathRewriteExcludeRoutes: ['/SITECORE/CONTENTSVC', '/SITECORE/LAYOUTSVC', '/SITECORE MODULES'],
   debug: true,
   serverBundle: {
-    renderView: (callback, path, data, viewBag) => {
+    renderView: (callback, _path, _data, _viewBag) => {
       callback(null, { html: '<p>Test HTML</p>' });
     },
     parseRouteUrl: (url) => {
