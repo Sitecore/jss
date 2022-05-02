@@ -68,9 +68,9 @@ export class GraphQLPersonalizeService {
   ): Promise<PersonalizeInfo | undefined> {
     debug.personalize(
       'fetching personalize info for %s %s %s',
+      this.config.siteName,
       itemPath,
-      language,
-      this.config.siteName
+      language
     );
 
     const data = await this.graphQLClient.request<PersonalizeQueryResult>(this.query, {

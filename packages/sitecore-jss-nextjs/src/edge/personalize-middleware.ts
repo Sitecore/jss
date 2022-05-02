@@ -100,6 +100,16 @@ export class PersonalizeMiddleware {
     let browserId = this.getBrowserId(req);
     let segment = undefined;
 
+    debug.personalize('personalize middleware start: %o', {
+      pathname,
+      language,
+      browserId,
+      ip: req.ip,
+      ua: req.ua,
+      geo: req.geo,
+      headers: req.headers,
+    });
+
     // Response will be provided if other middleware is run before us (e.g. redirects)
     let response = res || NextResponse.next();
 
@@ -108,6 +118,10 @@ export class PersonalizeMiddleware {
       this.isPreview(req) || // No need to personalize for preview (layout data is already prepared for preview)
       (this.config.excludeRoute || this.excludeRoute)(pathname)
     ) {
+      debug.personalize(
+        'skipped (%s)',
+        response.redirected ? 'redirected' : this.isPreview(req) ? 'preview' : 'route excluded'
+      );
       return response;
     }
 
@@ -116,12 +130,13 @@ export class PersonalizeMiddleware {
 
     if (!personalizeInfo) {
       // Likely an invalid route / language
-      debug.personalize('personalize info for %s %s not found', pathname, language);
+      debug.personalize('skipped (personalize info not found)');
       return response;
     }
 
     if (personalizeInfo.segments.length === 0) {
       // No personalization configured
+      debug.personalize('skipped (no personalization configured)');
       return response;
     }
 
@@ -132,7 +147,7 @@ export class PersonalizeMiddleware {
     segment = segmentData.segments.length ? segmentData.segments[0] : undefined;
 
     if (!segment) {
-      // No segment identified
+      debug.personalize('skipped (no segment identified)');
       return response;
     }
     // Rewrite to persononalized path
@@ -147,6 +162,12 @@ export class PersonalizeMiddleware {
     if (browserId) {
       this.setBrowserId(response, browserId);
     }
+
+    debug.personalize('personalize middleware end: %o', {
+      rewrite,
+      browserId,
+      headers: response.headers,
+    });
 
     return response;
   };
