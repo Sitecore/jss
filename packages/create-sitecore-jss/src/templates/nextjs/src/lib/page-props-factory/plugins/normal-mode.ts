@@ -3,9 +3,9 @@ import { DictionaryService, LayoutService } from '@sitecore-jss/sitecore-jss-nex
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { SitecorePageProps } from 'lib/page-props';
+import config from 'temp/config';
 import { Plugin, isServerSidePropsContext } from '..';
 import { extractPath } from '../extract-path';
-import pkg from '../../../../package.json';
 
 class NormalModePlugin implements Plugin {
   private dictionaryService: DictionaryService;
@@ -27,8 +27,8 @@ class NormalModePlugin implements Plugin {
     // Get normalized Sitecore item path
     const path = extractPath(context.params);
 
-    // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
-    props.locale = context.locale ?? pkg.config.language;
+    // Use context locale if Next.js i18n is configured, otherwise use default language
+    props.locale = context.locale ?? config.defaultLanguage;
 
     // Fetch layout data, passing on req/res for SSR
     props.layoutData = await this.layoutService.fetchLayoutData(

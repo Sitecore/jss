@@ -2,7 +2,6 @@
 import config from 'temp/config';
 import { SitemapFetcherPlugin } from '..';
 import { GetStaticPathsContext } from 'next';
-import pkg from '../../../../package.json';
 import { StaticPath, constants } from '@sitecore-jss/sitecore-jss-nextjs';
 
 class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
@@ -26,7 +25,7 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
     if (process.env.EXPORT_MODE) {
       // Disconnected Export mode
       if (process.env.JSS_MODE !== constants.JSS_MODE.DISCONNECTED) {
-        return this._graphqlSitemapService.fetchExportSitemap(pkg.config.language);
+        return this._graphqlSitemapService.fetchExportSitemap(config.defaultLanguage);
       }
     }
     return this._graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
