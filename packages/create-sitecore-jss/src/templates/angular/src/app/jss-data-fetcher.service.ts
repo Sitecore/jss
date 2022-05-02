@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { HttpResponse } from '@sitecore-jss/sitecore-jss';
+import { HttpResponse } from '@sitecore-jss/sitecore-jss-angular';
 import { Observable } from 'rxjs';
 
 @Injectable()

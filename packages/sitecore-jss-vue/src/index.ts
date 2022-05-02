@@ -5,7 +5,7 @@ export {
   resetExperienceEditorChromes,
   handleEditorAnchors,
 } from '@sitecore-jss/sitecore-jss/utils';
-export { constants } from '@sitecore-jss/sitecore-jss';
+export { constants, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
   trackingApi,
   TrackingRequestOptions,

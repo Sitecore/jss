@@ -1,4 +1,4 @@
-export { constants } from '@sitecore-jss/sitecore-jss';
+export { constants, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
   isExperienceEditorActive,
   resetExperienceEditorChromes,

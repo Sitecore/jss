@@ -4,10 +4,15 @@ import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { enableDebug } from '@sitecore-jss/sitecore-jss-react';
 import AppRoot from './AppRoot';
 import GraphQLClientFactory from './lib/GraphQLClientFactory';
 import config from './temp/config';
 import i18ninit from './i18n';
+
+if (process.env.REACT_APP_DEBUG) {
+  enableDebug(process.env.REACT_APP_DEBUG);
+}
 
 /* eslint-disable no-underscore-dangle */
 
