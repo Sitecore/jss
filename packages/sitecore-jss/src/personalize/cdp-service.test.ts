@@ -6,7 +6,7 @@ import nock from 'nock';
 use(spies);
 
 describe('CdpService', () => {
-  const endpoint = 'http://sctest/cdp';
+  const endpoint = 'http://sctest';
   const clientKey = 'client-key';
   const contentId = 'content-id';
   const segments = ['segment-1', 'segment-2'];
@@ -22,12 +22,12 @@ describe('CdpService', () => {
   });
 
   it('should return segment data for a route', async () => {
-    nock('http://sctest', {
-      reqheaders: {
-        'x-sc-client-key': clientKey,
-      },
-    })
-      .post('/cdp/segments')
+    nock(endpoint)
+      .post(`/callFlows/getSegments/${contentId}`, {
+        clientKey: clientKey,
+        browserId: browserId,
+        params: {},
+      })
       .reply(200, {
         segments,
         browserId,
@@ -43,12 +43,12 @@ describe('CdpService', () => {
   });
 
   it('should return empty segments array when no response', async () => {
-    nock('http://sctest', {
-      reqheaders: {
-        'x-sc-client-key': clientKey,
-      },
-    })
-      .post('/cdp/segments')
+    nock(endpoint)
+      .post(`/callFlows/getSegments/${contentId}`, {
+        clientKey: clientKey,
+        browserId: browserId,
+        params: {},
+      })
       .reply(200, {
         segments: [],
         browserId: '',

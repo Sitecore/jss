@@ -9,14 +9,10 @@ describe('GraphQLPersonalizeService', () => {
   const endpoint = 'http://sctest/graphql';
   const siteName = 'sitecore';
   const apiKey = 'api-key';
-  const contentId = 'content-id';
+  const id = 'item-id';
+  const version = '1';
   const segments = ['segment-1', 'segment-2'];
 
-  const variables = {
-    siteName,
-    language: 'en',
-    itemPath: '/sitecore/content/home',
-  };
   const config = {
     endpoint,
     siteName,
@@ -25,10 +21,10 @@ describe('GraphQLPersonalizeService', () => {
   const personalizeQueryResult = {
     layout: {
       item: {
-        id: contentId,
-        version: '1',
+        id,
+        version,
         personalization: {
-          segmentIds: segments,
+          variantIds: segments,
         },
       },
     },
@@ -50,16 +46,14 @@ describe('GraphQLPersonalizeService', () => {
       });
 
     const service = new GraphQLPersonalizeService(config);
-    const personalizeData = await service.getPersonalizeInfo(
-      variables.itemPath,
-      variables.language
-    );
+    const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
 
     expect(personalizeData).to.deep.equal({
-      contentId: 'content-id_en_1',
-      segments: ['segment-1', 'segment-2'],
+      contentId: `${id}_en_${version}`.toLowerCase(),
+      segments,
     });
   });
+
   it('should return undefined if itemPath / language not found', async () => {
     nock('http://sctest', {
       reqheaders: {
@@ -92,7 +86,7 @@ describe('GraphQLPersonalizeService', () => {
 
     const service = new GraphQLPersonalizeService(config);
 
-    await service.getPersonalizeInfo(variables.itemPath, variables.language).catch((error) => {
+    await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
       expect(error.response.status).to.equal(401);
       expect(error.response.error).to.equal('error');
     });

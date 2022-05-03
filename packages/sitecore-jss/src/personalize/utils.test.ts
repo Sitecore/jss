@@ -17,12 +17,17 @@ describe('utils', () => {
     it('should return the path with the segment id when pathname starts with "/"', () => {
       const pathname = '/some/path';
       const result = getPersonalizedRewrite(pathname, data);
-      expect(result).to.equal(`/${SEGMENT_PREFIX}segment-id/some/path`);
+      expect(result).to.equal(`/${SEGMENT_PREFIX}${data.segmentId}/some/path`);
     });
-    it('should return the path with the segment id when path ', () => {
+    it('should return the path with the segment id when pathname not starts with "/"', () => {
       const pathname = 'some/path';
       const result = getPersonalizedRewrite(pathname, data);
-      expect(result).to.equal(`/${SEGMENT_PREFIX}segment-id/some/path`);
+      expect(result).to.equal(`/${SEGMENT_PREFIX}${data.segmentId}/some/path`);
+    });
+    it('should return the root path with the segment id', () => {
+      const pathname = '/';
+      const result = getPersonalizedRewrite(pathname, data);
+      expect(result).to.equal(`/${SEGMENT_PREFIX}${data.segmentId}/`);
     });
   });
 
@@ -52,9 +57,19 @@ describe('utils', () => {
       expect(result).to.equal(pathname);
     });
     it('should return the pathname without the segment id', () => {
-      const pathname = '/some/path/_segmentId_/';
+      const pathname = '/_segmentId_foo/some/path';
       const result = normalizePersonalizedRewrite(pathname);
-      expect(result).to.equal('/some/path/');
+      expect(result).to.equal('/some/path');
+    });
+    it('should return the root pathname without the segment id', () => {
+      const pathname = '/_segmentId_foo/';
+      const result = normalizePersonalizedRewrite(pathname);
+      expect(result).to.equal('/');
+    });
+    it('should return the root pathname without the segment id when pathname not ends with "/"', () => {
+      const pathname = '/_segmentId_foo';
+      const result = normalizePersonalizedRewrite(pathname);
+      expect(result).to.equal('/');
     });
   });
 });

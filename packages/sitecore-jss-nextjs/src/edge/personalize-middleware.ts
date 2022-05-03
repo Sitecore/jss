@@ -151,8 +151,11 @@ export class PersonalizeMiddleware {
       return response;
     }
     // Rewrite to persononalized path
-    const rewrite = getPersonalizedRewrite(pathname, { segmentId: segment });
-    response = NextResponse.rewrite(rewrite);
+    const rewritePath = getPersonalizedRewrite(pathname, { segmentId: segment });
+    // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
+    const rewriteUrl = req.nextUrl.clone();
+    rewriteUrl.pathname = rewritePath;
+    response = NextResponse.rewrite(rewriteUrl);
 
     // Disable preflight caching to force revalidation on client-side navigation (personalization may be influenced)
     // See https://github.com/vercel/next.js/issues/32727
@@ -164,7 +167,7 @@ export class PersonalizeMiddleware {
     }
 
     debug.personalize('personalize middleware end: %o', {
-      rewrite,
+      rewriteUrl,
       browserId,
       headers: response.headers,
     });

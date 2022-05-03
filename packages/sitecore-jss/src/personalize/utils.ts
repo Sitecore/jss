@@ -42,6 +42,6 @@ export function normalizePersonalizedRewrite(pathname: string): string {
   if (!pathname.includes(SEGMENT_PREFIX)) {
     return pathname;
   }
-  const result = pathname.match(`${SEGMENT_PREFIX}.*?\\/`);
+  const result = pathname.match(`${SEGMENT_PREFIX}.*?(?:\\/|$)`);
   return result === null ? pathname : pathname.replace(result[0], '');
 }
