@@ -40,7 +40,7 @@ query SitemapQuery(
 /**
  * type for input variables for the site routes query
  */
-interface SiteQueryVariables {
+interface SiteRouteQueryVariables {
   /**
    * Required. The name of the site being queried.
    */
@@ -94,7 +94,7 @@ export type RouteListQueryResult = {
 /**
  * Configuration options for @see GraphQLSitemapService instances
  */
-export interface GraphQLSitemapServiceConfig extends Omit<SiteQueryVariables, 'language'> {
+export interface GraphQLSitemapServiceConfig extends Omit<SiteRouteQueryVariables, 'language'> {
   /**
    * Your Graphql endpoint
    */
@@ -190,7 +190,7 @@ export class GraphQLSitemapService {
     }
     const siteName = this.options.siteName;
 
-    const args: SiteQueryVariables = {
+    const args: SiteRouteQueryVariables = {
       siteName,
       language: '',
       pageSize: this.options.pageSize,
@@ -221,7 +221,7 @@ export class GraphQLSitemapService {
 
   protected async fetchLanguageSitePaths(
     query: string,
-    args: SiteQueryVariables
+    args: SiteRouteQueryVariables
   ): Promise<RouteListQueryResult[]> {
     let results: RouteListQueryResult[] = [];
     let hasNext = true;

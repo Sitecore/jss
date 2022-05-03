@@ -2,7 +2,7 @@ import { DocumentNode } from 'graphql';
 import { GraphQLClient } from '../graphql-request-client';
 
 /**
- * Data needed to paginate the site results
+ * Data needed to paginate results
  */
 export interface PageInfo {
   /**
