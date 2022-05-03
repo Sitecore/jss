@@ -5,7 +5,6 @@ import {
   GraphQLSitemapServiceConfig,
   languageError,
 } from './graphql-sitemap-service';
-import appRootQueryResponse from '../testData/mockAppRootQueryResponse.json';
 import sitemapQueryResult from '../testData/sitemapQueryResult.json';
 import sitemapServiceResult from '../testData/sitemapServiceResult';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss/graphql';
@@ -303,6 +302,17 @@ describe('GraphQLSitemapService', () => {
       await service.fetchSSGSitemap([]).catch((error: RangeError) => {
         expect(error.message).to.equal(languageError);
       });
+    });
+
+    it('should throw error if empty language is provided', async () => {
+      mockPathsRequest();
+
+      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      await service.fetchExportSitemap('').catch((error: RangeError) => {
+        expect(error.message).to.equal('The language must be a non-empty string');
+      });
+
+      return expect(nock.isDone()).to.be.false;
     });
 
     it('should use a custom pageSize, if provided', async () => {

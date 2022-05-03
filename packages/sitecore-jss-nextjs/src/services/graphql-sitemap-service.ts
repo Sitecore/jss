@@ -1,9 +1,4 @@
-import {
-  GraphQLClient,
-  GraphQLRequestClient,
-  SiteQueryVariables,
-  SiteQueryService,
-} from '@sitecore-jss/sitecore-jss/graphql';
+import { GraphQLClient, GraphQLRequestClient, PageInfo } from '@sitecore-jss/sitecore-jss/graphql';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
 /** @private */
@@ -42,22 +37,58 @@ query SitemapQuery(
   }
 } 
 `;
+/**
+ * type for input variables for the site routes query
+ */
+interface SiteQueryVariables {
+  /**
+   * Required. The name of the site being queried.
+   */
+  siteName: string;
+  /**
+   * Required. The language to return routes/pages for.
+   */
+  language: string;
+  /**
+   * Optional. Only paths starting with these provided prefixes will be returned.
+   */
+  includedPaths?: string[];
+  /**
+   * Optional. Paths starting with these provided prefixes will be excluded from returned results.
+   */
+  excludedPaths?: string[];
+
+  /** common variable for all GraphQL queries
+   * it will be used for every type of query to regulate result batch size
+   * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
+   * @default 10
+   */
+  pageSize?: number;
+}
+
+/**
+ * Schema of data returned in response to a "site" query request
+ * @template T The type of objects being requested.
+ */
+export interface SiteRouteQueryResult<T> {
+  site: {
+    siteInfo: {
+      routes: {
+        /**
+         * Data needed to paginate the site results
+         */
+        pageInfo: PageInfo;
+        results: T[];
+      };
+    };
+  };
+}
 
 /**
  * The schema of data returned in response to a routes list query request
  */
 export type RouteListQueryResult = {
   path: string;
-};
-
-/**
- * Object model of a site page item.
- */
-export type StaticPath = {
-  params: {
-    path: string[];
-  };
-  locale?: string;
 };
 
 /**
@@ -76,13 +107,22 @@ export interface GraphQLSitemapServiceConfig extends Omit<SiteQueryVariables, 'l
 }
 
 /**
+ * Object model of a site page item.
+ */
+export type StaticPath = {
+  params: {
+    path: string[];
+  };
+  locale?: string;
+};
+
+/**
  * Service that fetches the list of site pages using Sitecore's GraphQL API.
  * This list is used for SSG and Export functionality.
  * @mixes SearchQueryService<PageListQueryResult>
  */
 export class GraphQLSitemapService {
   private graphQLClient: GraphQLClient;
-  private siteService: SiteQueryService<RouteListQueryResult>;
 
   /**
    * Gets the default query used for fetching the list of site pages
@@ -97,7 +137,6 @@ export class GraphQLSitemapService {
    */
   constructor(public options: GraphQLSitemapServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
-    this.siteService = new SiteQueryService<RouteListQueryResult>(this.graphQLClient);
   }
 
   /**
@@ -151,31 +190,56 @@ export class GraphQLSitemapService {
     }
     const siteName = this.options.siteName;
 
+    const args: SiteQueryVariables = {
+      siteName,
+      language: '',
+      pageSize: this.options.pageSize,
+      includedPaths: this.options.includedPaths,
+      excludedPaths: this.options.excludedPaths,
+    };
+
     // Fetch paths using all locales
     const paths = await Promise.all(
       languages.map((language) => {
         if (language === '') {
           throw new RangeError(languageEmptyError);
         }
+        args.language = language;
         debug.sitemap('fetching sitemap data for %s', language);
-        return this.siteService
-          .fetch(this.query, {
-            siteName,
-            language,
-            pageSize: this.options.pageSize,
-            includedPaths: this.options.includedPaths,
-            excludedPaths: this.options.excludedPaths,
-          })
-          .then((results) => {
-            return results.map((item) =>
-              formatStaticPath(item.path.replace(/^\/|\/$/g, '').split('/'), language)
-            );
-          });
+
+        return this.fetchLanguageSitePaths(this.query, args).then((results) => {
+          return results.map((item) =>
+            formatStaticPath(item.path.replace(/^\/|\/$/g, '').split('/'), language)
+          );
+        });
       })
     );
 
     // merge promises results into single result
     return ([] as StaticPath[]).concat(...paths);
+  }
+
+  protected async fetchLanguageSitePaths(
+    query: string,
+    args: SiteQueryVariables
+  ): Promise<RouteListQueryResult[]> {
+    let results: RouteListQueryResult[] = [];
+    let hasNext = true;
+    let after = '';
+
+    while (hasNext) {
+      const fetchResponse = await this.graphQLClient.request<
+        SiteRouteQueryResult<RouteListQueryResult>
+      >(query, {
+        ...args,
+        after,
+      });
+
+      results = results.concat(fetchResponse?.site?.siteInfo?.routes?.results);
+      hasNext = fetchResponse.site.siteInfo.routes.pageInfo.hasNext;
+      after = fetchResponse.site.siteInfo.routes.pageInfo.endCursor;
+    }
+    return results;
   }
 
   /**
@@ -189,13 +253,5 @@ export class GraphQLSitemapService {
       apiKey: this.options.apiKey,
       debugger: debug.sitemap,
     });
-  }
-
-  /**
-   * Gets a service that can perform GraphQL "search" queries to fetch @see PageListQueryResult
-   * @returns {SearchQueryService<PageListQueryResult>} the search query service
-   */
-  protected getSearchService(): SiteQueryService<RouteListQueryResult> {
-    return new SiteQueryService<RouteListQueryResult>(this.graphQLClient);
   }
 }
