@@ -22,7 +22,7 @@ interface BoxeverViewEventArgs {
 
 function createPageView(locale: string, routeName: string) {
   // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const pointOfSale = process.env.CDP_POINTOFSALE || window.location.host.replace(/^www\./, '');
+  const pointOfSale = process.env.NEXT_PUBLIC_CDP_POINTOFSALE || window.location.host.replace(/^www\./, '');
 
   _boxeverq.push(function () {
     const pageViewEvent: BoxeverViewEventArgs = {
@@ -73,14 +73,14 @@ const CdpIntegrationScript = (): JSX.Element => {
               var _boxeverq = _boxeverq || [];
 
               var _boxever_settings = {
-                  client_key: '${process.env.CDP_CLIENT_KEY}',
-                  target: '${process.env.CDP_TARGET_URL}',
+                  client_key: '${process.env.NEXT_PUBLIC_CDP_CLIENT_KEY}',
+                  target: '${process.env.NEXT_PUBLIC_CDP_TARGET_URL}',
                   cookie_domain: ''
               };
             `,
         }}
       />
-      <Script src={process.env.CDP_SCRIPT_URL} />
+      <Script src={process.env.NEXT_PUBLIC_CDP_SCRIPT_URL} />
     </>
   );
 };
