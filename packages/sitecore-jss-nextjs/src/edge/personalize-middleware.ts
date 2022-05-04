@@ -98,7 +98,7 @@ export class PersonalizeMiddleware {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
     let browserId = this.getBrowserId(req);
-    let segment = undefined;
+    let segment: string | undefined = undefined;
 
     debug.personalize('personalize middleware start: %o', {
       pathname,
@@ -135,7 +135,6 @@ export class PersonalizeMiddleware {
     }
 
     if (personalizeInfo.segments.length === 0) {
-      // No personalization configured
       debug.personalize('skipped (no personalization configured)');
       return response;
     }
@@ -144,12 +143,19 @@ export class PersonalizeMiddleware {
     const segmentData = await this.cdpService.getSegments(personalizeInfo.contentId, browserId);
     // If a browserId was not passed in (new session), a new browserId will be returned
     browserId = segmentData.browserId;
+    // This may change, but for now we are only expected to use the first segment if there are multiple
     segment = segmentData.segments.length ? segmentData.segments[0] : undefined;
 
     if (!segment) {
       debug.personalize('skipped (no segment identified)');
       return response;
     }
+
+    if (!personalizeInfo.segments.includes(segment)) {
+      debug.personalize('skipped (invalid segment)');
+      return response;
+    }
+
     // Rewrite to persononalized path
     const rewritePath = getPersonalizedRewrite(pathname, { segmentId: segment });
     // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
