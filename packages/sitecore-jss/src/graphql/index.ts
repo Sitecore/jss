@@ -9,4 +9,5 @@ export {
   SearchQueryVariables,
   SearchServiceConfig,
   SearchQueryService,
+  PageInfo,
 } from './search-service';
