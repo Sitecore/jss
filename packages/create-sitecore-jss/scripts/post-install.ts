@@ -1,6 +1,7 @@
 ﻿const execSync = require('child_process').execSync;
 
-// restore yarn.lock file post initializing a sample app using watch script.
+// restore dependencies added to yarn.lock file post initializing a sample app using the watch script.
+// this is necessary so that these dependencies dont get committed to the source control.
 export const postInstall = () => {
   const output = execSync('git status', { encoding: 'utf-8' });
   if (output.includes('yarn.lock')) {

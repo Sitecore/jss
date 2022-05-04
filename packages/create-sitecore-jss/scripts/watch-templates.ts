@@ -10,7 +10,7 @@ chokidar
   .on('all', (event, path) => callback(event, path));
 
 /**
- *
+ * Initializes the apps.
  */
 async function ready() {
   console.log(chalk.green('Initializing app...'));
@@ -20,8 +20,9 @@ async function ready() {
 }
 
 /**
- * @param event
- * @param path
+ * Callback for chokidar.
+ * @param {string} event - The event that occurred.
+ * @param {string} path - The path of the file that was changed.
  */
 async function callback(event?: string, path?: string) {
   const color = event === 'add' ? chalk.green : event === 'unlink' ? chalk.red : chalk.white;
