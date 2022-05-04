@@ -23,7 +23,7 @@ describe('CdpService', () => {
 
   it('should return segment data for a route', async () => {
     nock(endpoint)
-      .post(`/callFlows/getSegments/${contentId}`, {
+      .post(`/v2/callFlows/getSegments/${contentId}`, {
         clientKey: clientKey,
         browserId: browserId,
         params: {},
@@ -44,7 +44,7 @@ describe('CdpService', () => {
 
   it('should return empty segments array when no response', async () => {
     nock(endpoint)
-      .post(`/callFlows/getSegments/${contentId}`, {
+      .post(`/v2/callFlows/getSegments/${contentId}`, {
         clientKey: clientKey,
         browserId: browserId,
         params: {},
