@@ -31,6 +31,9 @@ query SitemapQuery(
         }
         results: routesResult{
           path: routePath 
+          personalize: {
+            variantIds
+          }
         }
       }
     }
@@ -89,6 +92,10 @@ export interface SiteRouteQueryResult<T> {
  */
 export type RouteListQueryResult = {
   path: string;
+
+  personalize: {
+    variantIds: string[];
+  };
 };
 
 /**
@@ -208,8 +215,18 @@ export class GraphQLSitemapService {
         debug.sitemap('fetching sitemap data for %s', language);
 
         return this.fetchLanguageSitePaths(this.query, args).then((results) => {
-          return results.map((item) =>
-            formatStaticPath(item.path.replace(/^\/|\/$/g, '').split('/'), language)
+          const aggregatedPaths: string[] = [];
+          results.forEach((item) => {
+            aggregatedPaths.push(item.path);
+            if (item.personalize?.variantIds.length) {
+              aggregatedPaths.push(
+                ...item.personalize?.variantIds.map((varId) => `/${varId}${item.path}`)
+              );
+            }
+          });
+
+          return aggregatedPaths.map((item) =>
+            formatStaticPath(item.replace(/^\/|\/$/g, '').split('/'), language)
           );
         });
       })

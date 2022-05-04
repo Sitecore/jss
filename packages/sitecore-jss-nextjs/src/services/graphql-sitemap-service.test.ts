@@ -170,6 +170,84 @@ describe('GraphQLSitemapService', () => {
       ]);
     });
 
+    it('should return personalized paths when personalize data is returned', async () => {
+      const lang1 = 'ua';
+
+      nock(endpoint)
+        .post('/')
+        .reply(200, {
+          data: {
+            site: {
+              siteInfo: {
+                routes: {
+                  total: 4,
+                  pageInfo: {
+                    hasNext: false,
+                  },
+                  results: [
+                    {
+                      path: '/',
+                      personalize: {
+                        variantIds: ['green'],
+                      },
+                    },
+                    {
+                      path: '/y1/y2/y3/y4',
+                      personalize: {
+                        variantIds: ['green', 'red', 'purple'],
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        });
+
+      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const sitemap = await service.fetchSSGSitemap([lang1]);
+
+      expect(sitemap).to.deep.equal([
+        {
+          params: {
+            path: [''],
+          },
+          locale: 'ua',
+        },
+        {
+          params: {
+            path: ['green'],
+          },
+          locale: 'ua',
+        },
+        {
+          params: {
+            path: ['y1', 'y2', 'y3', 'y4'],
+          },
+          locale: 'ua',
+        },
+        {
+          params: {
+            path: ['green', 'y1', 'y2', 'y3', 'y4'],
+          },
+          locale: 'ua',
+        },
+        {
+          params: {
+            path: ['red', 'y1', 'y2', 'y3', 'y4'],
+          },
+          locale: 'ua',
+        },
+        {
+          params: {
+            path: ['purple', 'y1', 'y2', 'y3', 'y4'],
+          },
+          locale: 'ua',
+        },
+      ]);
+      return expect(nock.isDone()).to.be.true;
+    });
+
     it('should work when multiple languages are requested', async () => {
       const lang1 = 'ua';
       const lang2 = 'da-DK';
