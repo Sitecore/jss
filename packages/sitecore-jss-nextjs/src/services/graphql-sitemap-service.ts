@@ -29,8 +29,8 @@ query SitemapQuery(
           endCursor
           hasNext
         }
-        results: routesResult{
-          path: routePath 
+       	results{
+          path: routePath
         }
       }
     }
