@@ -13,8 +13,8 @@
     "fetchWith": "GraphQL",
     "prerender": "SSG",
     "hostName": "sitecore-jss-nextjs.dev.local",
-    // if you're developing packages i.e install dependencies before initializing an app.
-    // Set devTemplates to false or else your yarn.lock will get restored.
-    "devTemplates": true
+    // if you're developing packages i.e installing dependencies in packages before initializing an app.
+    // Set 'restoreLockfile' to false or else your yarn.lock will get restored.
+    "restoreLockfile": true
   }
 }

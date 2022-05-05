@@ -33,7 +33,7 @@ async function callback(event?: string, path?: string) {
  * restore dependencies added to yarn.lock file post initializing a sample app using the watch script.
  * this is necessary so that these dependencies dont get committed to the source control.
  */
-function postInstall() {
+function restoreLockfile() {
   const output = execSync('git status', { encoding: 'utf-8' });
   if (output.includes('yarn.lock')) {
     execSync('git restore ../../yarn.lock', { encoding: 'utf-8' });
@@ -46,8 +46,8 @@ const initializeApps = async (noInstall: boolean) => {
     watch = await import(path.resolve('watch.json'));
     const initializers = watch.initializers || [];
     await initRunner(initializers, { ...watch.args, templates: initializers, noInstall });
-    if (watch.args.devTemplates) {
-      postInstall();
+    if (watch.args.restoreLockfile) {
+      restoreLockfile();
     }
   } catch (error) {
     console.log(chalk.red('An error occurred: ', error));
