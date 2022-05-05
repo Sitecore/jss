@@ -15,6 +15,6 @@
     "hostName": "sitecore-jss-nextjs.dev.local",
     // if you're developing packages i.e install dependencies before initializing an app.
     // Set devTemplates to false.
-    "devTemplates": false
+    "devTemplates": true
   }
 }
