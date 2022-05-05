@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import chokidar from 'chokidar';
 import path from 'path';
 import { initRunner } from '../src/init-runner';
-import { postInstall } from './post-install';
+const execSync = require('child_process').execSync;
 
 chokidar
   .watch(path.join(process.cwd(), '.\\src\\templates'), { ignoreInitial: true })
@@ -29,6 +29,15 @@ async function callback(event?: string, path?: string) {
   console.table(color(`${event} ${path}`));
   await initializeApps(true);
 }
+
+// restore dependencies added to yarn.lock file post initializing a sample app using the watch script.
+// this is necessary so that these dependencies dont get committed to the source control.
+export const postInstall = () => {
+  const output = execSync('git status', { encoding: 'utf-8' });
+  if (output.includes('yarn.lock')) {
+    execSync('git restore ../../yarn.lock', { encoding: 'utf-8' });
+  }
+};
 
 const initializeApps = async (noInstall: boolean) => {
   let watch;
