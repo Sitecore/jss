@@ -1,7 +1,7 @@
 import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { useEffect } from 'react';
-import pkg from '../../package.json';
+import config from 'temp/config';
 
 declare const _boxeverq: { (): void }[];
 declare const Boxever: Boxever;
@@ -22,7 +22,8 @@ interface BoxeverViewEventArgs {
 
 function createPageView(locale: string, routeName: string) {
   // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const pointOfSale = process.env.NEXT_PUBLIC_CDP_POINTOFSALE || window.location.host.replace(/^www\./, '');
+  const pointOfSale =
+    process.env.NEXT_PUBLIC_CDP_POINTOFSALE || window.location.host.replace(/^www\./, '');
 
   _boxeverq.push(function () {
     const pageViewEvent: BoxeverViewEventArgs = {
@@ -55,7 +56,7 @@ const CdpIntegrationScript = (): JSX.Element => {
       return;
     }
 
-    route && createPageView(route.itemLanguage || pkg.config.language, route.name);
+    route && createPageView(route.itemLanguage || config.defaultLanguage, route.name);
   });
 
   // Boxever is not needed during page editing
