@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
-import packageJson from '../../../package.json';
+import config from '../../../src/temp/config';
 
 /**
  * Adds the Styleguide-FieldUsage-ItemLink component to the disconnected manifest.
@@ -20,7 +20,7 @@ export default function (manifest) {
         // the path is based on the path the shared items are defined in, under /data/content.
         // Using 'source' is recommended to help content editors find the correct items to refer to,
         // unless they can refer to any item in the whole site.
-        source: `dataSource=/sitecore/content/${packageJson.config.appName}/Content/Styleguide/ItemLinkField`,
+        source: `dataSource=/sitecore/content/${config.appName}/Content/Styleguide/ItemLinkField`,
       },
       { name: 'localItemLink', type: CommonFieldTypes.ItemLink },
     ],

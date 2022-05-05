@@ -180,7 +180,7 @@ placeholders:
                     description: <p>JSS provides powerful options to reuse content, whether it's sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>
                   placeholders:
                     <%- helper.getAppPrefix(appPrefix, appName) %>jss-reuse-example:
-                      # Reference shared content using its ID (this is defined in /data/component/content/Styleguide/ContentReuse/LoremIpsumContentBlock/en.yml)
+                      # Reference shared content using its ID (this is defined in /data/component-content/Styleguide/ContentReuse/LoremIpsumContentBlock/en.yml)
                       # Shared content is an 'edit once, reflected everywhere' operation for a content author.
                       - id: lorem-ipsum-content-block
                       - id: lorem-ipsum-content-block

@@ -33,7 +33,7 @@
     "build:client": "cross-env-shell ng build --prod --deploy-url $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
     "build:server": "cross-env-shell ng run <%- appName %>:server:production --output-path=$npm_package_config_buildArtifactsPath/server --output-hashing=none --bundle-dependencies true",
     "postbuild:server": "move-cli ./dist/server/main.js ./dist/server.bundle.js && del-cli ./dist/server",
-    "bootstrap": "cross-env-shell FETCH_WITH=<%- fetchWith %> \"ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts\"",
+    "bootstrap": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
     "graphql:update": "ts-node --project src/tsconfig.webpack-server.json ./scripts/update-graphql-fragment-data.ts"
   },
   "private": true,
@@ -63,7 +63,6 @@
     "@apollo/client": "^3.3.12",
     "@ngx-translate/core": "~13.0.0",
     "@ngx-translate/http-loader": "~6.0.0",
-    "@sitecore-jss/sitecore-jss": "^21.0.0-canary",
     "@sitecore-jss/sitecore-jss-angular": "^21.0.0-canary",
     "apollo-angular": "~2.4.0",
     "bootstrap": "^4.3.1",
@@ -77,6 +76,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^11.1.1",
     "@angular-devkit/build-angular": "0.1102.18",
     "@angular-eslint/builder": "2.0.2",
     "@angular-eslint/eslint-plugin": "2.0.2",
@@ -103,6 +103,8 @@
     "cookie-parser": "~1.4.5",
     "cross-env": "~7.0.3",
     "del-cli": "^3.0.1",
+    "dotenv": "^16.0.0",
+    "dotenv-webpack": "^7.1.0",
     "enhanced-resolve": "5.7.0",
     "eslint": "^7.22.0",
     "eslint-plugin-import": "2.22.1",
