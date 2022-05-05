@@ -20,8 +20,17 @@ export type GraphQLPersonalizeServiceConfig = {
   fetch?: typeof fetch;
 };
 
+/**
+ * Object model of personlize info
+ */
 export type PersonalizeInfo = {
+  /**
+   * The (CDP-friendly) content id
+   */
   contentId: string;
+  /**
+   * The configured segments
+   */
   segments: string[];
 };
 

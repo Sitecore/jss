@@ -1,8 +1,17 @@
 import debug from '../debug';
 import { AxiosDataFetcher } from '../axios-fetcher';
 
+/**
+ * Object model of CDP segment data
+ */
 export type SegmentData = {
+  /**
+   * The identified segments
+   */
   segments: string[];
+  /**
+   * The browser id
+   */
   browserId?: string;
 };
 
