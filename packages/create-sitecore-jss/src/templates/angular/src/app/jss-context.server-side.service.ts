@@ -18,12 +18,11 @@ export class JssContextServerSideService extends JssContextService {
     protected layoutService: JssLayoutService,
     protected dataFetcher: JssDataFetcherService,
     // this initial state from sitecore is injected by server.bundle for "integrated" mode
-    @Inject('JSS_SERVER_LAYOUT_DATA') private serverToSsrState: JssState,
+    @Inject('JSS_SERVER_LAYOUT_DATA') private serverToSsrState: JssState
   ) {
     super(transferState, layoutService);
   }
-
-  changeRoute(route: string, language: string): Observable<JssState> {
+  changeRoute(_route: string, _language: string): Observable<JssState> {
     // console.log('Server route change to ' + route);
 
     // if the route is null we signal the JSS routing setup that a 'fetch error'

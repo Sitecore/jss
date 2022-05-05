@@ -1,5 +1,19 @@
-import { GraphQLClient } from './../graphql-request-client';
 import { DocumentNode } from 'graphql';
+import { GraphQLClient } from '../graphql-request-client';
+
+/**
+ * Data needed to paginate results
+ */
+export interface PageInfo {
+  /**
+   * string token that can be used to fetch the next page of results
+   */
+  endCursor: string;
+  /**
+   * a value that indicates whether more pages of results are available
+   */
+  hasNext: boolean;
+}
 
 /**
  * Schema of data returned in response to a "search" query request
@@ -10,16 +24,7 @@ export type SearchQueryResult<T> = {
     /**
      * Data needed to paginate the search results
      */
-    pageInfo: {
-      /**
-       * string token that can be used to fetch the next page of results
-       */
-      endCursor: string;
-      /**
-       * a value that indicates whether more pages of results are available
-       */
-      hasNext: boolean;
-    };
+    pageInfo: PageInfo;
     /*
      * the type of data querying about items matching the search criteria
      */
@@ -31,7 +36,7 @@ export type SearchQueryResult<T> = {
  * Describes the variables used by the 'search' query. Language should always be specified.
  * The other predicates are optional.
  */
-export type SearchQueryVariables = {
+export interface SearchQueryVariables {
   /**
    * Required. The language versions to search for. Fetch pages that have versions in this language.
    */
@@ -43,16 +48,17 @@ export type SearchQueryVariables = {
   rootItemId?: string;
 
   /**
+   * Optional. Sitecore template ID(s). Fetch items that inherit from this template(s).
+   */
+  templates?: string;
+
+  /** common variable for all GraphQL queries
+   * it will be used for every type of query to regulate result batch size
    * Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
    * @default 10
    */
   pageSize?: number;
-
-  /**
-   * Optional. Sitecore template ID(s). Fetch items that inherit from this template(s).
-   */
-  templates?: string;
-};
+}
 
 /**
  * Configuration options for service classes that extend @see SearchQueryService.

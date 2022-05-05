@@ -11,24 +11,25 @@ import * as fs from 'fs';
 import { join } from 'path';
 import { createDefaultDisconnectedServer, DisconnectedServerOptions } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { ManifestInstance } from '@sitecore-jss/sitecore-jss-dev-tools';
-const packageJson = require('../package.json');
+import { environment } from '../src/environments/environment';
 
-const config = (packageJson as {
+const config = (environment as {
   [key: string]: unknown;
-  config: { [key: string]: unknown; appName: string; language: string };
-}).config;
+  jssAppName: string;
+  defaultLanguage: string
+});
 
 const touchToReloadFilePath = 'src/environments/environment.ts';
 
 const proxyOptions: DisconnectedServerOptions = {
   appRoot: join(__dirname, '..'),
-  appName: config.appName,
+  appName: config.jssAppName,
   watchPaths: ['./data'],
-  language: config.language,
+  language: config.defaultLanguage,
   // Additional transpilation is not needed
   requireArg: null,
   port: 3043,
-  onManifestUpdated: (manifest: ManifestInstance) => {
+  onManifestUpdated: (_manifest: ManifestInstance) => {
     // if we can resolve the config file, we can alter it to force reloading the app automatically
     // instead of waiting for a manual reload. We must materially alter the _contents_ of the file to trigger
     // an actual reload, so we append "// reloadnow" to the file each time. This will not cause a problem,

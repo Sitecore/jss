@@ -44,11 +44,11 @@ const config = {};\n`;
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
-    configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]}",\n`;
+    configText += `config.${prop} = process.env.REACT_APP_${constantCase(prop)} || "${config[prop]}",\n`;
   });
   // Set computed values, allowing override with environment variables
   Object.keys(computedConfig).forEach((prop) => {
-    configText += `config.${prop} = process.env.${constantCase(prop)} || ${
+    configText += `config.${prop} = process.env.REACT_APP_${constantCase(prop)} || ${
       computedConfig[prop]
     };\n`;
   });

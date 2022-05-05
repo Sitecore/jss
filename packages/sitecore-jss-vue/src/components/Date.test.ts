@@ -56,7 +56,7 @@ describe('<Date />', () => {
   it('should render null value with formatter', () => {
     const formatter: FormatterFunction = (value) => 'rendered val ' + value;
     const props = {
-      field: { value: undefined, editable: 'xxx' },
+      field: { editable: 'xxx' },
       formatter,
       editable: false,
     };

@@ -1,10 +1,10 @@
 {
-  "lerna": "3.4.0",
+  "lerna": "3.22.1",
   "packages": [
     "packages/*",
     "samples/*"
   ],
-  "version": "21.0.0-canary.46",
+  "version": "21.0.0-canary.58",
   "npmClient": "yarn",
   "useWorkspaces": true
 }

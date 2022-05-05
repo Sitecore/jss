@@ -6,7 +6,8 @@
     "lint-packages": "lerna run lint",
     "coverage-packages": "lerna run coverage",
     "install-git-hooks": "node ./scripts/install-hooks.js",
-    "generate-docs": "lerna run generate-docs"
+    "generate-docs": "lerna run generate-docs",
+    "version": "yarn install && git stage yarn.lock"
   },
   "author": {
     "name": "Sitecore Corporation",
