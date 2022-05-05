@@ -10,8 +10,8 @@ const defaultQuery = /* GraphQL */ `
 query SitemapQuery(
   $siteName: String!,
   $language: String!,
-  $includedPaths: String[],
-  $excludedPaths: String[],
+  $includedPaths: [String],
+  $excludedPaths: [String],
   $pageSize: Int = 10,
   $after: String
 ) {
