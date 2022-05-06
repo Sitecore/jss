@@ -7,35 +7,35 @@ export const languageError = 'The list of languages cannot be empty';
 const languageEmptyError = 'The language must be a non-empty string';
 
 const defaultQuery = /* GraphQL */ `
-query SitemapQuery(
-  $siteName: String!,
-  $language: String!,
-  $includedPaths: [String],
-  $excludedPaths: [String],
-  $pageSize: Int = 10,
-  $after: String
-) {
-  site {
-    siteInfo(site: $siteName) {
-      routes(
-        language: $language
-        includedPaths: $includedPaths
-        excludedPaths: $excludedPaths
-        first: $pageSize
-        after: $after
-      ){
-        total
-        pageInfo {
-          endCursor
-          hasNext
-        }
-       	results{
-          path: routePath
+  query SitemapQuery(
+    $siteName: String!
+    $language: String!
+    $includedPaths: [String]
+    $excludedPaths: [String]
+    $pageSize: Int = 10
+    $after: String
+  ) {
+    site {
+      siteInfo(site: $siteName) {
+        routes(
+          language: $language
+          includedPaths: $includedPaths
+          excludedPaths: $excludedPaths
+          first: $pageSize
+          after: $after
+        ) {
+          total
+          pageInfo {
+            endCursor
+            hasNext
+          }
+          results {
+            path: routePath
+          }
         }
       }
     }
   }
-} 
 `;
 /**
  * type for input variables for the site routes query
