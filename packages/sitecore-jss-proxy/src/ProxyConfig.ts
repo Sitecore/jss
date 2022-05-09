@@ -1,9 +1,9 @@
-import { IncomingMessage, ServerResponse } from 'http';
+import { IncomingMessage, ServerResponse, Agent } from 'http';
+import { Agent as HttpsAgent } from 'https';
 import { Config as HttpProxyConfig } from 'http-proxy-middleware';
 import { AppRenderer } from './AppRenderer';
 import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
-
 /** A reply from the Sitecore Layout Service */
 export interface LayoutServiceData {
   sitecore: {
@@ -16,7 +16,12 @@ export interface LayoutServiceData {
     };
   };
 }
-
+export interface ServerBundle {
+  [key: string]: unknown;
+  renderView: AppRenderer;
+  parseRouteUrl: RouteUrlParser;
+  setUpDefaultAgents?: (httpAgent: Agent, httpsAgent: HttpsAgent) => void;
+}
 export interface ProxyConfig {
   /** Hostname to proxy to (i.e. Sitecore CD server 'http://siteco.re') */
   apiHost: string;
@@ -74,9 +79,5 @@ export interface ProxyConfig {
   /** Responses from the proxy greater than this size (in bytes) are rejected. */
   maxResponseSizeBytes?: number;
   /** The require'd server.bundle.js file from your pre-built JSS app */
-  serverBundle: {
-    [key: string]: unknown;
-    renderView: AppRenderer;
-    parseRouteUrl: RouteUrlParser;
-  };
+  serverBundle: ServerBundle;
 }

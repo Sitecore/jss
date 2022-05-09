@@ -6,7 +6,7 @@
   "module": "dist/esm/index.js",
   "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
