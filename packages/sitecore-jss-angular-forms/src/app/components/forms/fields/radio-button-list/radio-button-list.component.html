@@ -1,0 +1,14 @@
+<app-label [title]="field.model.title" [class]="field.model.labelCssClass"></app-label>
+
+<div aria-label="Select an option">
+  <input *ngFor="let option of items; let idx = index;"
+    type="radio"
+    [ngClass]="field.model.cssClass" 
+    [id]="field.valueField.id + idx" 
+    [name]="field.valueField.name"
+    [value]="option.value"
+    [checked]="option.selected"
+    (change)="onChange($event)"
+    (focus)="onFocus($event)"
+    (blur)="onBlur($event)" />{{option.text}}
+</div>

@@ -1,0 +1,15 @@
+<app-label [title]="field.model.title" [class]="field.model.labelCssClass"></app-label>
+<select
+  [ngClass]="field.model.cssClass" 
+  [id]="field.valueField.id" 
+  [name]="field.valueField.name"
+  [value]="field.model.value"
+  [size]="field.model.rows"
+  [multiple]="field.model.multipleSelection"
+  (change)="onChange($event)"
+  (focus)="onFocus($event)"
+  (blur)="onBlur($event)">
+  <option *ngFor="let option of items;" [value]="option.value">
+    {{option.text}}
+  </option>
+</select>
