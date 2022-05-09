@@ -16,6 +16,7 @@ export interface LayoutServiceData {
     };
   };
 }
+/** Interface for the server.bundle.js file */
 export interface ServerBundle {
   [key: string]: unknown;
   renderView: AppRenderer;
