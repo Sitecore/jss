@@ -64,7 +64,7 @@ export const Default = (props: TitleProps): JSX.Element => {
     },
   };
   if (useSitecoreContext().sitecoreContext.pageState !== 'normal') {
-    link.value.href += `?sc_site=${datasource?.url?.siteName}`;
+    link.value.querystring = `sc_site=${datasource?.url?.siteName}`;
     if (!text.value) {
       text.value = 'Title field';
       link.value.href = '#';

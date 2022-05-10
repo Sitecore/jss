@@ -7,6 +7,7 @@ interface Fields {
   Title: TextField;
   NavigationTitle: TextField;
   Href: string;
+  Querystring: string;
   Children: Array<Fields>;
   Styles: string[];
 }
@@ -34,6 +35,7 @@ const getLinkField = (props: NavigationProps): LinkField => ({
   value: {
     href: props.fields.Href,
     title: props.fields.DisplayName,
+    querystring: props.fields.Querystring
   },
 });
 
