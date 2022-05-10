@@ -1,4 +1,4 @@
-import { ProxyConfig } from '@sitecore-jss/sitecore-jss-proxy';
+import { ProxyConfig, ServerBundle } from '@sitecore-jss/sitecore-jss-proxy';
 import fs from 'fs';
 import { RestDictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 import { httpAgentsConfig } from './httpAgents';
@@ -14,13 +14,13 @@ let appName = process.env.SITECORE_JSS_APP_NAME || 'YOUR APP NAME';
  */
 const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/server.bundle`;
 
-const serverBundle = require(bundlePath);
+const serverBundle = require(bundlePath) as ServerBundle;
 
 httpAgentsConfig.setUpDefaultAgents(serverBundle);
 
 const apiHost = process.env.SITECORE_API_HOST || 'http://my.sitecore.host';
 
-appName = appName || (serverBundle.appName as string);
+appName = appName || serverBundle.appName;
 
 const apiKey = process.env.SITECORE_API_KEY || serverBundle.apiKey || '{YOUR API KEY HERE}';
 

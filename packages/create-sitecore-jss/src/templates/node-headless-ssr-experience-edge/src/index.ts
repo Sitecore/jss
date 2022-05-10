@@ -22,7 +22,7 @@ const dictionaryService = new GraphQLDictionaryService({
 const { renderView, parseRouteUrl } = config.serverBundle;
 
 if (!renderView || !parseRouteUrl) {
-  console.error(
+  throw new Error(
     'ERROR: The serverBundle should export `renderView` and `parseRouteUrl`, please check your server bundle.'
   );
 }
@@ -84,10 +84,7 @@ server.use(async (req, res) => {
     }
 
     // Language is required. In case it's not specified in the requested URL, fallback to the default language from the app configuration.
-    const layoutData = await layoutService.fetchLayoutData(
-      route,
-      lang || config.defaultLanguage
-    );
+    const layoutData = await layoutService.fetchLayoutData(route, lang || config.defaultLanguage);
 
     const viewBag = { dictionary: {} };
 

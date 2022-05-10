@@ -1,6 +1,6 @@
 import { LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
 
-interface RenderResponse {
+interface ServerResponse {
   /**
    * The rendered HTML to return to the client
    */
@@ -17,10 +17,7 @@ interface RenderResponse {
 }
 
 declare type AppRenderer = (
-  callback: (
-    error: Error | null,
-    result: RenderResponse | null
-  ) => void,
+  callback: (error: Error | null, result: ServerResponse | null) => void,
   path: string,
   /**
    * Data returned by Layout Service. If the route does not exist, null.
@@ -28,18 +25,23 @@ declare type AppRenderer = (
   layoutData: LayoutServiceData,
   viewBag: {
     [key: string]: unknown;
+    dictionary: { [key: string]: string };
   }
 ) => void;
 
-declare type RouteUrlParser = (url: string) => {
+declare type RouteUrlParser = (
+  url: string
+) => {
   sitecoreRoute?: string;
   lang?: string;
   qsParams?: string;
 };
 
-interface ServerBundle {
+export interface ServerBundle {
   renderView: AppRenderer;
   parseRouteUrl: RouteUrlParser;
+  appName: string;
+  apiKey?: string;
 }
 
 export interface Config {
@@ -47,7 +49,7 @@ export interface Config {
   endpoint: string;
   apiKey: string;
   appName: string;
-  port: number | undefined;
+  port: string | number;
   defaultLanguage: string;
   serverBundle: ServerBundle;
 }
