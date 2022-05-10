@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Link,
-  Text,
-  useSitecoreContext,
-  LinkField,
-  TextField,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Link, Text, useSitecoreContext, LinkField, TextField } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
   data: {
@@ -72,7 +66,7 @@ export const Default = (props: TitleProps): JSX.Element => {
     },
   };
   if (sitecoreContext.pageState !== 'normal') {
-    link.value.href += `?sc_site=${datasource?.url?.siteName}`;
+    link.value.querystring = `sc_site=${datasource?.url?.siteName}`;
     if (!text.value) {
       text.value = 'Title field';
       link.value.href = '#';
