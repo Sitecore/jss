@@ -20,6 +20,7 @@ export interface LayoutServiceData {
 export interface ServerBundle {
   [key: string]: unknown;
   appName: string;
+  apiKey: string;
   renderView: AppRenderer;
   parseRouteUrl: RouteUrlParser;
   setUpDefaultAgents?: (httpAgent: Agent, httpsAgent: HttpsAgent) => void;
