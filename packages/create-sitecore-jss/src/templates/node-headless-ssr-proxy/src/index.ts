@@ -1,9 +1,9 @@
-const express = require('express');
-const compression = require('compression');
-require('dotenv').config();
-const scProxy = require('@sitecore-jss/sitecore-jss-proxy').default;
-const config = require('./config');
-// const cacheMiddleware = require('./cacheMiddleware');
+import express from 'express';
+import compression from 'compression';
+import 'dotenv/config';
+import scProxy from '@sitecore-jss/sitecore-jss-proxy';
+import { config } from './config';
+//import { cacheMiddleware } from './cacheMiddleware';
 
 const server = express();
 const port = process.env.PORT || 3000;
@@ -26,9 +26,9 @@ server.use(
  * Output caching, can be enabled,
  * Read about restrictions here: {@link https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/caching-in-headless-server-side-rendering-mode.html}
  */
-// server.use(cacheMiddleware());
+//server.use(cacheMiddleware());
 
-server.use((req, res, next) => {
+server.use((req, _res, next) => {
   // because this is a proxy, all headers are forwarded on to the Sitecore server
   // but, if we SSR we only understand how to decompress gzip and deflate. Some
   // modern browsers would send 'br' (brotli) as well, and if the Sitecore server

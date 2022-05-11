@@ -1,6 +1,7 @@
-const keepAlive = require('agentkeepalive');
-const http = require('http');
-const https = require('https');
+import { ServerBundle } from '@sitecore-jss/sitecore-jss-proxy';
+import keepAlive from 'agentkeepalive';
+import http from 'http';
+import https from 'https';
 
 const keepAliveConfig = {
   maxSockets: 200,
@@ -10,9 +11,14 @@ const keepAliveConfig = {
 };
 
 const httpAgent = new keepAlive(keepAliveConfig);
-const httpsAgent = new keepAlive.HttpsAgent(keepAliveConfig);
+const httpsAgent = (new keepAlive.HttpsAgent(keepAliveConfig) as unknown) as https.Agent;
 
-module.exports = {
+interface HttpAgentsConfig {
+  setUpDefaultAgents: (serverBundle: ServerBundle) => void;
+  getAgent: (url: string) => http.Agent | https.Agent;
+}
+
+export const httpAgentsConfig: HttpAgentsConfig = {
   setUpDefaultAgents: (serverBundle) => {
     http.globalAgent = httpAgent;
     https.globalAgent = httpsAgent;
@@ -25,7 +31,7 @@ module.exports = {
    * Enable connection pooling. Adds `connection: keep-alive` header
    * @param {string} url api host
    */
-  getAgent: (url) => {
+  getAgent: (url: string) => {
     if (!url) {
       throw new Error('[KEEP-ALIVE-CONFIG] SITECORE_API_HOST value is required, but was undefined');
     }
