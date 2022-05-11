@@ -6,12 +6,13 @@ import {
   Field,
   LinkField,
   Text,
+  useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
   Image: ImageField;
   ImageCaption: Field<string>;
-  Link: LinkField;
+  TargetUrl: LinkField;
 }
 
 type ImageProps = {
@@ -20,7 +21,7 @@ type ImageProps = {
 };
 
 const ImageDefault = (props: ImageProps): JSX.Element => (
-  <div className={`component image ${props.params.styles}`}>
+  <div className={`component image ${props.params.styles}`.trimEnd()}>
     <div className="component-content">
       <span className="is-empty-hint">Image</span>
     </div>
@@ -28,33 +29,26 @@ const ImageDefault = (props: ImageProps): JSX.Element => (
 );
 
 export const Default = (props: ImageProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext();
+
   if (props.fields) {
+    const Image = () => <JssImage field={props.fields.Image} />;
+
     return (
       <div className={`component image ${props.params.styles}`}>
         <div className="component-content">
-          <JssImage field={props.fields.Image} />
-          <Text className="image-caption field-imagecaption" field={props.fields.ImageCaption} />
-        </div>
-      </div>
-    );
-  }
-
-  return <ImageDefault {...props} />;
-};
-
-export const Link = (props: ImageProps): JSX.Element => {
-  if (props.fields) {
-    return (
-      <div className={`component image ${props.params.styles}`}>
-        <div className="component-content">
-          <JssLink field={props.fields.Link}>
-            <JssImage field={props.fields.Image} />
-            <Text
-              tag="span"
-              className="image-caption field-imagecaption"
-              field={props.fields.ImageCaption}
-            />
-          </JssLink>
+          {sitecoreContext.pageState === 'edit' ? (
+            <Image />
+          ) : (
+            <JssLink field={props.fields.TargetUrl}>
+              <Image />
+            </JssLink>
+          )}
+          <Text
+            tag="span"
+            className="image-caption field-imagecaption"
+            field={props.fields.ImageCaption}
+          />
         </div>
       </div>
     );

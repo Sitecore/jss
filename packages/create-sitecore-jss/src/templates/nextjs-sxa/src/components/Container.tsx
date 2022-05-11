@@ -17,7 +17,7 @@ interface ComponentProps {
 
 const Container = (props: ComponentProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
-  const styles = `${props.params.GridParameters} ${props.params.Styles}`;
+  const styles = `${props.params.GridParameters} ${props.params.Styles}`.trimEnd();
   const phKey = `container-${props.params.DynamicPlaceholderId}`;
   const backgroundImage = props.params.BackgroundImage as string;
   let backgroundStyle: { [key: string]: string };
