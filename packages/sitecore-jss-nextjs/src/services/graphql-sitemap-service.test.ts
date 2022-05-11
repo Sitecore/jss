@@ -174,10 +174,15 @@ describe('GraphQLSitemapService', () => {
       const lang = 'ua';
 
       nock(endpoint)
-        .post('/',/PersonalizeSitemapQuery/gi)
+        .post('/', /PersonalizeSitemapQuery/gi)
         .reply(200, sitemapPersonalizeQueryResult);
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName, includePersonalizedRoutes:true });
+      const service = new GraphQLSitemapService({
+        endpoint,
+        apiKey,
+        siteName,
+        includePersonalizedRoutes: true,
+      });
       const sitemap = await service.fetchSSGSitemap([lang]);
 
       expect(sitemap).to.deep.equal([

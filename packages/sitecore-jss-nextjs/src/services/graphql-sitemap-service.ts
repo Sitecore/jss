@@ -229,7 +229,7 @@ export class GraphQLSitemapService {
     languages: string[],
     formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
-    const segmentPrefix = "_segmentId_";
+    const segmentPrefix = '_segmentId_';
 
     if (!languages.length) {
       throw new RangeError(languageError);
@@ -262,7 +262,9 @@ export class GraphQLSitemapService {
             // check for type safety's sake - personalize may be empty depending on query type
             if (item.personalize?.variantIds.length) {
               aggregatedPaths.push(
-                ...item.personalize?.variantIds.map((varId) => formatPath(`/${segmentPrefix}${varId}${item.path}`))
+                ...item.personalize?.variantIds.map((varId) =>
+                  formatPath(`/${segmentPrefix}${varId}${item.path}`)
+                )
               );
             }
           });
