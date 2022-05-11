@@ -1,5 +1,11 @@
 import React from 'react';
-import { Link, Text, useSitecoreContext, LinkField, TextField } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Link,
+  Text,
+  useSitecoreContext,
+  LinkField,
+  TextField,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
   data: {
@@ -52,6 +58,8 @@ const ComponentContent = (props: ComponentContentProps) => {
 
 export const Default = (props: TitleProps): JSX.Element => {
   const datasource = props.fields?.data?.datasource || props.fields?.data?.contextItem;
+  const { sitecoreContext } = useSitecoreContext();
+
   const text: TextField = {
     value: datasource?.field?.jsonValue?.value,
     editable: datasource?.field?.jsonValue?.editable,
@@ -63,7 +71,7 @@ export const Default = (props: TitleProps): JSX.Element => {
       editable: true,
     },
   };
-  if (useSitecoreContext().sitecoreContext.pageState !== 'normal') {
+  if (sitecoreContext.pageState !== 'normal') {
     link.value.href += `?sc_site=${datasource?.url?.siteName}`;
     if (!text.value) {
       text.value = 'Title field';
@@ -73,9 +81,15 @@ export const Default = (props: TitleProps): JSX.Element => {
 
   return (
     <ComponentContent styles={props.params.styles}>
-      <Link field={link}>
-        <Text field={text} />
-      </Link>
+      <>
+        {sitecoreContext.pageState === 'edit' ? (
+          <Text field={text} />
+        ) : (
+          <Link field={link}>
+            <Text field={text} />
+          </Link>
+        )}
+      </>
     </ComponentContent>
   );
 };

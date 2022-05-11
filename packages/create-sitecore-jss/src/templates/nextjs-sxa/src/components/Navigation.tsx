@@ -52,8 +52,11 @@ const Navigation = (props: NavigationProps): JSX.Element => {
       <NavigationList key={`${key}${element.Id}`} fields={element} />
     ));
 
+  const styles =
+    props.params != null ? `${props.params.GridParameters} ${props.params.Styles}` : null;
+
   return (
-    <div className={`component navigation`}>
+    <div className={`component navigation ${styles}`}>
       <div className="component-content">
         <nav>
           <ul className="clearfix">{list}</ul>
@@ -64,26 +67,30 @@ const Navigation = (props: NavigationProps): JSX.Element => {
 };
 
 const NavigationList = (props: NavigationProps) => {
+  let title;
+  if (props.fields.NavigationTitle) {
+    title = props.fields.NavigationTitle.value?.toString();
+  } else if (props.fields.Title) {
+    title = props.fields.Title.value?.toString();
+  } else {
+    title = props.fields.DisplayName;
+  }
+
+  let children: JSX.Element[] = [];
   if (props.fields.Children && props.fields.Children.length) {
-    const children: JSX.Element[] = props.fields.Children.map((element: Fields, index: number) => (
+    children = props.fields.Children.map((element: Fields, index: number) => (
       <NavigationList key={`${index}${element.Id}`} fields={element} />
     ));
-
-    return (
-      <li className={props.fields.Styles.join(' ')} key={props.fields.Id}>
-        <div className="navigation-title">
-          <Link field={getLinkField(props)}>{getNavigationText(props)}</Link>
-        </div>
-        <ul className="clearfix">{children}</ul>
-      </li>
-    );
   }
 
   return (
     <li className={props.fields.Styles.join(' ')} key={props.fields.Id}>
       <div className="navigation-title">
-        <Link field={getLinkField(props)}>{getNavigationText(props)}</Link>
+        <Link field={getLinkField(props)} title={title}>
+          {getNavigationText(props)}
+        </Link>
       </div>
+      {children.length > 0 ? <ul className="clearfix">{children}</ul> : null}
     </li>
   );
 };
