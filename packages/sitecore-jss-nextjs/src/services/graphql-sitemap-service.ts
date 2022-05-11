@@ -6,8 +6,13 @@ export const languageError = 'The list of languages cannot be empty';
 
 const languageEmptyError = 'The language must be a non-empty string';
 
-const defaultQuery = /* GraphQL site path query without personalization (works on sxp and xm cloud) */ `
-query DefaultSitemapQuery(
+/**
+ * GQL query made dynamic based on schema differences between SXP and XM Cloud
+ * @param {boolean} usesPersonalize flag to detrmine which variation of a query to run
+ * @returns GraphQL query to fetch site paths with
+ */
+const defaultQuery = (usesPersonalize: boolean) => /* GraphQL */ `
+query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
   $siteName: String!,
   $language: String!,
   $includedPaths: String[],
@@ -31,40 +36,12 @@ query DefaultSitemapQuery(
         }
         results: routesResult{
           path: routePath 
-        }
-      }
-    }
-  }
-} 
-`;
-
-const personalizeQuery = /* GraphQL site path query with personalization (xm cloud only)*/ `
-query PersonalizeSitemapQuery(
-  $siteName: String!,
-  $language: String!,
-  $includedPaths: String[],
-  $excludedPaths: String[],
-  $pageSize: Int = 10,
-  $after: String
-) {
-  site {
-    siteInfo(site: $siteName) {
-      routes(
-        language: $language
-        includedPaths: $includedPaths
-        excludedPaths: $excludedPaths
-        first: $pageSize
-        after: $after
-      ){
-        total
-        pageInfo {
-          endCursor
-          hasNext
-        }
-        results: routesResult{
-          path: routePath 
-          personalize: {
+          ${
+            usesPersonalize
+              ? `personalize: {
             variantIds
+          }`
+              : ''
           }
         }
       }
@@ -172,7 +149,7 @@ export class GraphQLSitemapService {
    * Gets the default query used for fetching the list of site pages
    */
   protected get query(): string {
-    return this.options.includePersonalizedRoutes ? personalizeQuery : defaultQuery;
+    return defaultQuery(this.options.includePersonalizedRoutes === true);
   }
 
   /**
