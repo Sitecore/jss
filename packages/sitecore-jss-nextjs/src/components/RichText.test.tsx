@@ -97,7 +97,7 @@ describe('RichText', () => {
     const props = {
       field: {
         value:
-          '<div id="test"><h1>Hello!</h1><a href="/testpath/t1">t1</a><a href="/t2">t2</a></div>',
+          '<div id="test"><h1>Hello!</h1><a href="/testpath/t1?test=sample1">t1</a><a href="/t2">t2</a></div>',
       },
       internalLinksSelector: 'a[href^="/testpath"]',
     };
@@ -119,7 +119,7 @@ describe('RichText', () => {
     const link1 = links && links[0];
     const link2 = links && links[1];
 
-    expect(link1!.href).to.equal('/testpath/t1');
+    expect(link1!.href).to.equal('/testpath/t1?test=sample1');
     expect(link2!.href).to.equal('/t2');
 
     link1 && link1.click();

@@ -29,7 +29,7 @@ const proxyOptions: DisconnectedServerOptions = {
   // Additional transpilation is not needed
   requireArg: null,
   port: 3043,
-  onManifestUpdated: (manifest: ManifestInstance) => {
+  onManifestUpdated: (_manifest: ManifestInstance) => {
     // if we can resolve the config file, we can alter it to force reloading the app automatically
     // instead of waiting for a manual reload. We must materially alter the _contents_ of the file to trigger
     // an actual reload, so we append "// reloadnow" to the file each time. This will not cause a problem,

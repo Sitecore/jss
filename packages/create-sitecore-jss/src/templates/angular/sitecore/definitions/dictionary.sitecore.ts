@@ -11,7 +11,7 @@ export default function addDictionaryToManifest(manifest: Manifest): Promise<voi
   const startPath = './data/dictionary'; // relative to process invocation (i.e. where package.json lives)
 
   if (!fileExistsSync(startPath)) {
-    return;
+    return undefined;
   }
 
   // eslint-disable-next-line consistent-return
