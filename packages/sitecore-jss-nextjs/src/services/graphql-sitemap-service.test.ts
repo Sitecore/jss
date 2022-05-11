@@ -5,7 +5,8 @@ import {
   GraphQLSitemapServiceConfig,
   languageError,
 } from './graphql-sitemap-service';
-import sitemapQueryResult from '../testData/sitemapQueryResult.json';
+import sitemapDefaultQueryResult from '../testData/sitemapDefaultQueryResult.json';
+import sitemapPersonalizeQueryResult from '../testData/sitemapPersonalizeQueryResult.json';
 import sitemapServiceResult from '../testData/sitemapServiceResult';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss/graphql';
 
@@ -47,7 +48,6 @@ it('should return null if no app root found', async () => {
 });
 */
 describe('GraphQLSitemapService', () => {
-  const rootItemId = '{GUID}';
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
   const siteName = 'site-name';
@@ -58,11 +58,11 @@ describe('GraphQLSitemapService', () => {
 
   const mockPathsRequest = (results?: { url: { path: string } }[]) => {
     nock(endpoint)
-      .post('/', /SitemapQuery/gi)
+      .post('/', /DefaultSitemapQuery/gi)
       .reply(
         200,
         results === undefined
-          ? sitemapQueryResult
+          ? sitemapDefaultQueryResult
           : {
               data: {
                 site: {
@@ -85,7 +85,7 @@ describe('GraphQLSitemapService', () => {
     it('should work when 1 language is requested', async () => {
       mockPathsRequest();
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName, rootItemId });
+      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
       const sitemap = await service.fetchSSGSitemap(['ua']);
       expect(sitemap).to.deep.equal(sitemapServiceResult);
 
@@ -170,79 +170,52 @@ describe('GraphQLSitemapService', () => {
       ]);
     });
 
-    it('should return personalized paths when personalize data is returned', async () => {
-      const lang1 = 'ua';
+    it('should return personalized paths when personalize data is requested and returned', async () => {
+      const lang = 'ua';
 
       nock(endpoint)
-        .post('/')
-        .reply(200, {
-          data: {
-            site: {
-              siteInfo: {
-                routes: {
-                  total: 4,
-                  pageInfo: {
-                    hasNext: false,
-                  },
-                  results: [
-                    {
-                      path: '/',
-                      personalize: {
-                        variantIds: ['green'],
-                      },
-                    },
-                    {
-                      path: '/y1/y2/y3/y4',
-                      personalize: {
-                        variantIds: ['green', 'red', 'purple'],
-                      },
-                    },
-                  ],
-                },
-              },
-            },
-          },
-        });
+        .post('/',/PersonalizeSitemapQuery/gi)
+        .reply(200, sitemapPersonalizeQueryResult);
 
-      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
-      const sitemap = await service.fetchSSGSitemap([lang1]);
+      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName, includePersonalizedRoutes:true });
+      const sitemap = await service.fetchSSGSitemap([lang]);
 
       expect(sitemap).to.deep.equal([
         {
           params: {
             path: [''],
           },
-          locale: 'ua',
+          locale: lang,
         },
         {
           params: {
-            path: ['green'],
+            path: ['_segmentId_green'],
           },
-          locale: 'ua',
+          locale: lang,
         },
         {
           params: {
             path: ['y1', 'y2', 'y3', 'y4'],
           },
-          locale: 'ua',
+          locale: lang,
         },
         {
           params: {
-            path: ['green', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_segmentId_green', 'y1', 'y2', 'y3', 'y4'],
           },
-          locale: 'ua',
+          locale: lang,
         },
         {
           params: {
-            path: ['red', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_segmentId_red', 'y1', 'y2', 'y3', 'y4'],
           },
-          locale: 'ua',
+          locale: lang,
         },
         {
           params: {
-            path: ['purple', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_segmentId_purple', 'y1', 'y2', 'y3', 'y4'],
           },
-          locale: 'ua',
+          locale: lang,
         },
       ]);
       return expect(nock.isDone()).to.be.true;
@@ -398,7 +371,7 @@ describe('GraphQLSitemapService', () => {
 
       nock(endpoint)
         .post('/', (body) => body.variables.pageSize === customPageSize)
-        .reply(200, sitemapQueryResult);
+        .reply(200, sitemapDefaultQueryResult);
 
       const service = new GraphQLSitemapService({
         endpoint,
@@ -419,7 +392,7 @@ describe('GraphQLSitemapService', () => {
           (body) =>
             body.query.indexOf('$pageSize: Int = 10') > 0 && body.variables.pageSize === undefined
         )
-        .reply(200, sitemapQueryResult);
+        .reply(200, sitemapDefaultQueryResult);
 
       const service = new GraphQLSitemapService({
         endpoint,
@@ -444,7 +417,7 @@ describe('GraphQLSitemapService', () => {
 
     it('should throw error if SitemapQuery fails', async () => {
       nock(endpoint)
-        .post('/', /SitemapQuery/gi)
+        .post('/', /DefaultSitemapQuery/gi)
         .reply(500, 'Error 😥');
 
       const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
@@ -502,7 +475,7 @@ describe('GraphQLSitemapService', () => {
 
     it('should throw error if SitemapQuery fails', async () => {
       nock(endpoint)
-        .post('/', /SitemapQuery/gi)
+        .post('/', /DefaultSitemapQuery/gi)
         .reply(500, 'Error 😥');
 
       const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
