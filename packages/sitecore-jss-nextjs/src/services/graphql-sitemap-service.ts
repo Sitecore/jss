@@ -11,7 +11,7 @@ const languageEmptyError = 'The language must be a non-empty string';
  * @param {boolean} usesPersonalize flag to detrmine which variation of a query to run
  * @returns GraphQL query to fetch site paths with
  */
-const defaultQuery = (usesPersonalize: boolean) => /* GraphQL */ `
+const defaultQuery = (usesPersonalize?: boolean) => /* GraphQL */ `
 query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
   $siteName: String!,
   $language: String!,
@@ -149,7 +149,7 @@ export class GraphQLSitemapService {
    * Gets the default query used for fetching the list of site pages
    */
   protected get query(): string {
-    return defaultQuery(this.options.includePersonalizedRoutes === true);
+    return defaultQuery(this.options.includePersonalizedRoutes);
   }
 
   /**
