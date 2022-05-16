@@ -14,7 +14,7 @@ import {
   saveConfiguration,
 } from './helpers';
 import { JsonObjectType } from '../processes/transform';
-import testPackage from '../test-data/test.package.json';
+import testPackage from '../testData/test.package.json';
 import rootPackage from '../../../package.json';
 import { Initializer } from '../Initializer';
 import { InitializerFactory } from '../../InitializerFactory';
@@ -46,7 +46,7 @@ describe('helpers', () => {
     afterEach(() => log?.restore());
 
     it('should return package.json data using provided path', () => {
-      const filePath = path.resolve('src', 'common', 'test-data', 'test.package.json');
+      const filePath = path.resolve('src', 'common', 'testData', 'test.package.json');
 
       const result = openPackageJson(filePath);
 
@@ -114,7 +114,7 @@ describe('helpers', () => {
     it('should use provided path', () => {
       writeFileSync = sinon.stub(fs, 'writeFileSync');
 
-      const filePath = path.resolve('src', 'common', 'test-data', 'test.package.json');
+      const filePath = path.resolve('src', 'common', 'testData', 'test.package.json');
 
       writePackageJson({}, filePath);
 
@@ -152,7 +152,7 @@ describe('helpers', () => {
 
     it('should save configuration', () => {
       writeFileSync = sinon.stub(fs, 'writeFileSync');
-      const pkgPath = path.resolve('src', 'common', 'test-data', 'test.package.json');
+      const pkgPath = path.resolve('src', 'common', 'testData', 'test.package.json');
       const pkg = openPackageJson(pkgPath);
       const templates = ['nextjs', 'nextjs-styleguide'];
 

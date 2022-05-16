@@ -71,5 +71,9 @@
   "es2015_ivy_ngcc": "dist/__ivy_ngcc__/fesm2015/sitecore-jss-sitecore-jss-angular.js",
   "fesm2015_ivy_ngcc": "dist/__ivy_ngcc__/fesm2015/sitecore-jss-sitecore-jss-angular.js",
   "sideEffects": false,
-  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+  "files": [
+    "dist",
+    "typings"
+  ]
 }

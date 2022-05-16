@@ -10,7 +10,7 @@ import {
   layoutDataWithoutPlaceholder,
   withoutComponentName,
   segmentIsNull,
-} from '../test-data/personalizeData';
+} from '../testData/personalizeData';
 
 const { personalizeLayout, personalizePlaceholder, personalizeComponent } = personalize;
 
