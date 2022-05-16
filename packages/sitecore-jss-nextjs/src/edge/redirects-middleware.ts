@@ -50,15 +50,16 @@ export class RedirectsMiddleware {
 
     url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
     url.pathname = existsRedirect.target;
+    const redirectUrl = decodeURIComponent(url.href);
 
     /** return Response redirect with http code of redirect type **/
     switch (existsRedirect.redirectType) {
       case REDIRECT_TYPE_301:
-        return NextResponse.redirect(url, 301);
+        return NextResponse.redirect(redirectUrl, 301);
       case REDIRECT_TYPE_302:
-        return NextResponse.redirect(url, 302);
+        return NextResponse.redirect(redirectUrl, 302);
       case REDIRECT_TYPE_SERVER_TRANSFER:
-        return NextResponse.rewrite(url);
+        return NextResponse.rewrite(redirectUrl);
       default:
         return NextResponse.next();
     }
