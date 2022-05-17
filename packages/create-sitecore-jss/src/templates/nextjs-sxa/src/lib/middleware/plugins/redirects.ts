@@ -2,9 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { RedirectsMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/edge';
 import config from 'temp/config';
 import { MiddlewarePlugin } from '..';
+import nextConfig from '../../../../next.config';
 
 class RedirectsPlugin implements MiddlewarePlugin {
   private redirectsMiddleware: RedirectsMiddleware;
+  private locales: string[];
   order = 0;
 
   constructor() {
@@ -13,6 +15,7 @@ class RedirectsPlugin implements MiddlewarePlugin {
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
     });
+    this.locales = nextConfig().i18n.locales;
   }
 
   /**
@@ -21,7 +24,7 @@ class RedirectsPlugin implements MiddlewarePlugin {
    * @returns Promise<NextResponse>
    */
   async exec(req: NextRequest): Promise<NextResponse> {
-    return this.redirectsMiddleware.getHandler()(req);
+    return this.redirectsMiddleware.getHandler()(req, this.locales);
   }
 }
 

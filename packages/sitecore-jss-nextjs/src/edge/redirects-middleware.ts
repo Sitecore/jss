@@ -8,6 +8,7 @@ import {
   REDIRECT_TYPE_302,
   REDIRECT_TYPE_SERVER_TRANSFER,
 } from '@sitecore-jss/sitecore-jss/site';
+import { NextURL } from 'next/dist/server/web/next-url';
 
 /**
  * extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
@@ -34,11 +35,11 @@ export class RedirectsMiddleware {
    * Gets the Next.js API route handler
    * @returns route handler
    */
-  public getHandler(): (req: NextRequest) => Promise<NextResponse> {
+  public getHandler(): (req: NextRequest, locales: string[]) => Promise<NextResponse> {
     return this.handler;
   }
 
-  private handler = async (req: NextRequest): Promise<NextResponse> => {
+  private handler = async (req: NextRequest, locales: string[]): Promise<NextResponse> => {
     const url = req.nextUrl.clone();
     // Find the redirect from result of RedirectService
 
@@ -49,7 +50,13 @@ export class RedirectsMiddleware {
     }
 
     url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
-    url.pathname = existsRedirect.target;
+    const urlFirstPart = existsRedirect.target.split('/')[1];
+    if (locales.includes(urlFirstPart)) {
+      url.locale = urlFirstPart;
+      url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
+    } else {
+      url.pathname = existsRedirect.target;
+    }
     const redirectUrl = decodeURIComponent(url.href);
 
     /** return Response redirect with http code of redirect type **/
@@ -71,11 +78,13 @@ export class RedirectsMiddleware {
    * @returns Promise<RedirectInfo>
    * @private
    */
-  private async getExistsRedirect(url: URL): Promise<RedirectInfo | undefined> {
+  private async getExistsRedirect(url: NextURL): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects();
 
-    return redirects.find((redirect: RedirectInfo) =>
-      regexParser(redirect.pattern).test(url.pathname)
+    return redirects.find(
+      (redirect: RedirectInfo) =>
+        regexParser(redirect.pattern).test(url.pathname) ||
+        regexParser(redirect.pattern).test(`/${url.locale}${url.pathname}`)
     );
   }
 }
