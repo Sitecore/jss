@@ -13,11 +13,11 @@ const languageEmptyError = 'The language must be a non-empty string';
  */
 const defaultQuery = (usesPersonalize?: boolean) => /* GraphQL */ `
 query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
-  $siteName: String!,
-  $language: String!,
-  $includedPaths: String[],
-  $excludedPaths: String[],
-  $pageSize: Int = 10,
+  $siteName: String!
+  $language: String!
+  $includedPaths: [String]
+  $excludedPaths: [String]
+  $pageSize: Int = 10
   $after: String
 ) {
   site {
