@@ -24,7 +24,7 @@
     "e2e": "ng e2e",
     "jss": "jss",
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel start:angular start:proxy start:watch-components\"",
-    "start:connected": "scjss-verify-setup && npm-run-all --serial bootstrap start:angular start:watch-components",
+    "start:connected": "npm-run-all --serial bootstrap start:angular start:watch-components",
     "build": "npm-run-all --serial bootstrap --serial build:client build:server",
     "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component",
     "start:angular": "ng serve -o",
