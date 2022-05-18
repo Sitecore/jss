@@ -8,7 +8,6 @@ import {
   REDIRECT_TYPE_302,
   REDIRECT_TYPE_SERVER_TRANSFER,
 } from '@sitecore-jss/sitecore-jss/site';
-import { NextURL } from 'next/dist/server/web/next-url';
 
 /**
  * extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
@@ -40,15 +39,14 @@ export class RedirectsMiddleware {
   }
 
   private handler = async (req: NextRequest, locales: string[]): Promise<NextResponse> => {
-    const url = req.nextUrl.clone();
     // Find the redirect from result of RedirectService
-
-    const existsRedirect = await this.getExistsRedirect(url);
-
+    const existsRedirect = await this.getExistsRedirect(req);
+    
     if (!existsRedirect) {
       return NextResponse.next();
     }
-
+    
+    const url = req.nextUrl.clone();
     url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
     const urlFirstPart = existsRedirect.target.split('/')[1];
     if (locales.includes(urlFirstPart)) {
@@ -78,13 +76,13 @@ export class RedirectsMiddleware {
    * @returns Promise<RedirectInfo>
    * @private
    */
-  private async getExistsRedirect(url: NextURL): Promise<RedirectInfo | undefined> {
+  private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects();
 
     return redirects.find(
       (redirect: RedirectInfo) =>
-        regexParser(redirect.pattern).test(url.pathname) ||
-        regexParser(redirect.pattern).test(`/${url.locale}${url.pathname}`)
+        regexParser(redirect.pattern).test(req.nextUrl.pathname) ||
+        regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${req.nextUrl.pathname}`)
     );
   }
 }
