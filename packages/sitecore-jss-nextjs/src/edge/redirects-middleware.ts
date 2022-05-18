@@ -20,25 +20,27 @@ export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fet
  */
 export class RedirectsMiddleware {
   private redirectsService: GraphQLRedirectsService;
+  private locales: string[];
 
   /**
    * NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
    * (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
    */
-  constructor(config: RedirectsMiddlewareConfig) {
+  constructor(config: RedirectsMiddlewareConfig, locales: string[]) {
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
+    this.locales = locales;
   }
 
   /**
    * Gets the Next.js API route handler
    * @returns route handler
    */
-  public getHandler(): (req: NextRequest, locales: string[]) => Promise<NextResponse> {
+  public getHandler(): (req: NextRequest) => Promise<NextResponse> {
     return this.handler;
   }
 
-  private handler = async (req: NextRequest, locales: string[]): Promise<NextResponse> => {
+  private handler = async (req: NextRequest): Promise<NextResponse> => {
     // Find the redirect from result of RedirectService
     const existsRedirect = await this.getExistsRedirect(req);
     
@@ -49,7 +51,7 @@ export class RedirectsMiddleware {
     const url = req.nextUrl.clone();
     url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
     const urlFirstPart = existsRedirect.target.split('/')[1];
-    if (locales.includes(urlFirstPart)) {
+    if (this.locales.includes(urlFirstPart)) {
       url.locale = urlFirstPart;
       url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
     } else {

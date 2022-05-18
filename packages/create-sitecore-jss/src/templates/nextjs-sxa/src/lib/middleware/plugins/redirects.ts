@@ -6,16 +6,17 @@ import nextConfig from '../../../../next.config';
 
 class RedirectsPlugin implements MiddlewarePlugin {
   private redirectsMiddleware: RedirectsMiddleware;
-  private locales: string[];
   order = 0;
 
   constructor() {
-    this.redirectsMiddleware = new RedirectsMiddleware({
-      endpoint: config.graphQLEndpoint,
-      apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
-    });
-    this.locales = nextConfig().i18n.locales;
+    this.redirectsMiddleware = new RedirectsMiddleware(
+      {
+        endpoint: config.graphQLEndpoint,
+        apiKey: config.sitecoreApiKey,
+        siteName: config.jssAppName,
+      },
+      nextConfig().i18n.locales
+    );
   }
 
   /**
@@ -24,7 +25,7 @@ class RedirectsPlugin implements MiddlewarePlugin {
    * @returns Promise<NextResponse>
    */
   async exec(req: NextRequest): Promise<NextResponse> {
-    return this.redirectsMiddleware.getHandler()(req, this.locales);
+    return this.redirectsMiddleware.getHandler()(req);
   }
 }
 
