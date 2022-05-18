@@ -52,8 +52,7 @@ ${componentFiles
       const moduleName = removeDynamicModuleNameEnding(component.moduleName);
       return `const ${moduleName} = {
   module: () => import('${component.path}'),
-  element: () => dynamic(${moduleName}.module),
-  elementEditingMode: () => require('${component.path}')
+  element: (isEditing?:boolean) => isEditing ? require('${component.path}')?.default : dynamic(${moduleName}.module)
 }`;
     }
 
@@ -90,7 +89,9 @@ ${componentFiles
 // componentFactory uses 'dynamic(...)' because primary usage of it to render 'React Component' (default export).
 // See https://nextjs.org/docs/advanced-features/dynamic-import
 // At the end you will have single preloaded script for each lazy loading module.
-// Editing mode doesn't work well with dynamic components in nextjs so we add an extra way to obtain them via elementEditingMode
+// Editing mode doesn't work well with dynamic components in nextjs: dynamic components are not displayed without refresh after a rendering is added. 
+// This happens beacuse Experience Editor simply inserts updated HTML generated on server side. This conflicts with nextjs dynamic logic as no HTML gets rendered for dynamic component
+// So we use require() to obtain dynamic components in editing mode while preserving dynamic logic for non-editing scenarios
 // As we need to be able to seamlessly work with dynamic components in both editing and normal modes, different componentFactory functions will be passed to app
 
 export function componentModule(componentName: string) {
@@ -111,7 +112,7 @@ function baseComponentFactory(componentName: string, exportName?: string, isEdit
   // check that component should be dynamically imported
   if (component?.element) {
     // return next.js dynamic import
-    return isEditing ? component.elementEditingMode()?.default : component.element();
+    return component.element(isEditing);
   }
 
   if (exportName) {

@@ -34,7 +34,10 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
 
   return (
     <ComponentPropsContext value={componentProps}>
-      <SitecoreContext componentFactory={isEditing? editingComponentFactory:componentFactory} layoutData={layoutData}>
+      <SitecoreContext
+        componentFactory={isEditing ? editingComponentFactory : componentFactory}
+        layoutData={layoutData}
+      >
         <Layout layoutData={layoutData} />
       </SitecoreContext>
     </ComponentPropsContext>
