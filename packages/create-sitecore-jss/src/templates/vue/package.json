@@ -33,7 +33,7 @@
   "scripts": {
     "jss": "jss",
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel start:vue start:proxy start:watch-components\"",
-    "start:connected": "scjss-verify-setup && npm-run-all --serial bootstrap start:vue start:watch-components",
+    "start:connected": "npm-run-all --serial bootstrap start:vue start:watch-components",
     "build": "npm-run-all --serial bootstrap build:client build:server",
     "scaffold": "node scripts/scaffold-component.js",
     "start:vue": "vue-cli-service serve --open",

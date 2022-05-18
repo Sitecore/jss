@@ -18,7 +18,7 @@ export const Default = (props: RichTextProps): JSX.Element => {
   );
 
   return (
-    <div className={`component rich-text ${props.params.styles}`}>
+    <div className={`component rich-text ${props.params.styles.trimEnd()}`}>
       <div className="component-content">{text}</div>
     </div>
   );

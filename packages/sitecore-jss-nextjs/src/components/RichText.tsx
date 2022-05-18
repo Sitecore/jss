@@ -37,7 +37,7 @@ export const RichText = (props: RichTextProps): JSX.Element => {
 
     ev.preventDefault();
 
-    const pathname = (ev.target as HTMLAnchorElement).pathname;
+    const pathname = (ev.target as HTMLAnchorElement).href;
 
     router.push(pathname, pathname, { locale: false });
   };

@@ -12,6 +12,7 @@ let appName = process.env.SITECORE_JSS_APP_NAME || 'YOUR APP NAME';
 /**
  * The server.bundle.js file from your pre-built JSS app
  */
+
 const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `../dist/${appName}/server.bundle`;
 
 const serverBundle = require(bundlePath) as ServerBundle;
