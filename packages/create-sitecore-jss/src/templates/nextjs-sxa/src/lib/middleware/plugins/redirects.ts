@@ -9,14 +9,12 @@ class RedirectsPlugin implements MiddlewarePlugin {
   order = 0;
 
   constructor() {
-    this.redirectsMiddleware = new RedirectsMiddleware(
-      {
-        endpoint: config.graphQLEndpoint,
-        apiKey: config.sitecoreApiKey,
-        siteName: config.jssAppName,
-      },
-      nextConfig().i18n.locales
-    );
+    this.redirectsMiddleware = new RedirectsMiddleware({
+      endpoint: config.graphQLEndpoint,
+      apiKey: config.sitecoreApiKey,
+      siteName: config.jssAppName,
+      locales: nextConfig().i18n.locales,
+    });
   }
 
   /**

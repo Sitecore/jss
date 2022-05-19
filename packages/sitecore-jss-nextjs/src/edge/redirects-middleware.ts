@@ -12,8 +12,9 @@ import {
 /**
  * extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
  */
-export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'>;
-
+export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'> & {
+  locales: string[];
+};
 /**
  * Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
  * compares with current url and redirects to target url
@@ -27,9 +28,9 @@ export class RedirectsMiddleware {
    * (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
    */
-  constructor(config: RedirectsMiddlewareConfig, locales: string[]) {
+  constructor(config: RedirectsMiddlewareConfig) {
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
-    this.locales = locales;
+    this.locales = config.locales;
   }
 
   /**
@@ -43,11 +44,11 @@ export class RedirectsMiddleware {
   private handler = async (req: NextRequest): Promise<NextResponse> => {
     // Find the redirect from result of RedirectService
     const existsRedirect = await this.getExistsRedirect(req);
-    
+
     if (!existsRedirect) {
       return NextResponse.next();
     }
-    
+
     const url = req.nextUrl.clone();
     url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
     const urlFirstPart = existsRedirect.target.split('/')[1];
