@@ -1,9 +1,9 @@
-const express = require('express');
-const compression = require('compression');
-require('dotenv').config();
-const { GraphQLLayoutService } = require('@sitecore-jss/sitecore-jss/layout');
-const { GraphQLDictionaryService } = require('@sitecore-jss/sitecore-jss/i18n');
-const config = require('./config');
+import express, { Response } from 'express';
+import compression from 'compression';
+import 'dotenv/config';
+import { GraphQLLayoutService } from '@sitecore-jss/sitecore-jss/layout';
+import { GraphQLDictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
+import { config } from './config';
 
 const server = express();
 
@@ -22,18 +22,16 @@ const dictionaryService = new GraphQLDictionaryService({
 const { renderView, parseRouteUrl } = config.serverBundle;
 
 if (!renderView || !parseRouteUrl) {
-  console.error(
+  throw new Error(
     'ERROR: The serverBundle should export `renderView` and `parseRouteUrl`, please check your server bundle.'
   );
-
-  return;
 }
 
 /**
  * Parse requested url in order to detect current route and language
  * @param {string} reqRoute requested route
  */
-const getRouteParams = (reqRoute) => {
+const getRouteParams = (reqRoute: string) => {
   const routeParams = parseRouteUrl(reqRoute);
   let lang;
   let route;
@@ -45,7 +43,7 @@ const getRouteParams = (reqRoute) => {
       route = `/${route}`;
     }
 
-    lang = routeParams.lang;
+    lang = routeParams.lang || '';
   }
 
   return { route, lang };
@@ -54,9 +52,9 @@ const getRouteParams = (reqRoute) => {
 /**
  * Handle unexpected error
  * @param {Response} res server response
- * @param {any} err error
+ * @param {Error} err error
  */
-const handleError = (res, err) => {
+const handleError = (res: Response, err: unknown) => {
   console.error(err);
   res.status(500).send('Internal Server Error');
 };
@@ -91,14 +89,18 @@ server.use(async (req, res) => {
     const viewBag = { dictionary: {} };
 
     viewBag.dictionary = await dictionaryService.fetchDictionaryData(
-      layoutData.sitecore.context.language
+      layoutData.sitecore.context.language || config.defaultLanguage
     );
 
     renderView(
       (err, result) => {
         if (err) {
           handleError(res, err);
+          return;
+        }
 
+        if (!result) {
+          res.status(204).send();
           return;
         }
 

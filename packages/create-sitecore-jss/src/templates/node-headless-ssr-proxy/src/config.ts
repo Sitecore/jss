@@ -1,21 +1,23 @@
-const fs = require('fs');
-const { RestDictionaryService } = require('@sitecore-jss/sitecore-jss/i18n');
-const httpAgents = require('./httpAgents');
+import { ProxyConfig, ServerBundle } from '@sitecore-jss/sitecore-jss-proxy';
+import fs from 'fs';
+import { RestDictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
+import { httpAgentsConfig } from './httpAgents';
 
 /**
  * The JSS application name defaults to providing part of the bundle path as well as the dictionary service endpoint.
  * If not passed as an environment variable or set here, any application name exported from the bundle will be used instead.
  */
-let appName = process.env.SITECORE_JSS_APP_NAME;
+let appName = process.env.SITECORE_JSS_APP_NAME || 'YOUR APP NAME';
 
 /**
  * The server.bundle.js file from your pre-built JSS app
  */
-const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/server.bundle`;
 
-const serverBundle = require(bundlePath);
+const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `../dist/${appName}/server.bundle`;
 
-httpAgents.setUpDefaultAgents(serverBundle);
+const serverBundle = require(bundlePath) as ServerBundle;
+
+httpAgentsConfig.setUpDefaultAgents(serverBundle);
 
 const apiHost = process.env.SITECORE_API_HOST || 'http://my.sitecore.host';
 
@@ -33,7 +35,7 @@ const dictionaryService = new RestDictionaryService({
 /**
  * @type {ProxyConfig}
  */
-const config = {
+export const config: ProxyConfig = {
   /**
    * The require'd server.bundle.js file from your pre-built JSS app
    */
@@ -79,7 +81,7 @@ const config = {
    * Writes verbose request info to stdout for debugging.
    * Must be disabled in production for reasonable performance.
    */
-  debug: ((process.env.SITECORE_ENABLE_DEBUG || '').toLowerCase() === 'true') || false,
+  debug: (process.env.SITECORE_ENABLE_DEBUG || '').toLowerCase() === 'true' || false,
   /**
    * Maximum allowed proxy reply size in bytes. Replies larger than this are not sent.
    * Avoids starving the proxy of memory if large requests are proxied.
@@ -91,7 +93,7 @@ const config = {
    */
   proxyOptions: {
     // Enable connection pooling
-    agent: httpAgents.getAgent(apiHost),
+    agent: httpAgentsConfig.getAgent(apiHost),
     // Setting this to false will disable SSL certificate validation
     // when proxying to a SSL Sitecore instance.
     // This is a major security issue, so NEVER EVER set this to false
@@ -103,7 +105,7 @@ const config = {
    * Custom headers handling.
    * You can remove different headers from proxy response.
    */
-  setHeaders: (req, serverRes, proxyRes) => {
+  setHeaders: (_req, _serverRes, proxyRes) => {
     delete proxyRes.headers['content-security-policy'];
   },
   /**
@@ -114,7 +116,7 @@ const config = {
    * Note: 404s are not errors, and will have null route data + context sent to the JSS app,
    * so the app can render a 404 route.
    */
-  onError: (err, response) => {
+  onError: (_err, response) => {
     // http 200 = an error in rendering; http 500 = an error on layout service
     if (response.statusCode !== 500 && response.statusCode !== 200) return null;
 
@@ -123,7 +125,7 @@ const config = {
       content: fs.readFileSync('error.html', 'utf8'),
     };
   },
-  createViewBag: (request, response, proxyResponse, layoutServiceData) => {
+  createViewBag: (_request, _response, _proxyResponse, layoutServiceData) => {
     // fetches the dictionary from the Sitecore server for the current language so it can be SSR'ed
     // has a default cache applied since dictionary data is quite static and it helps rendering performance a lot
     if (!layoutServiceData || !layoutServiceData.sitecore || !layoutServiceData.sitecore.context) {
@@ -148,5 +150,3 @@ const config = {
     });
   },
 };
-
-module.exports = config;

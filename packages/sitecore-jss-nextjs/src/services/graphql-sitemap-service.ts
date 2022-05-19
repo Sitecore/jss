@@ -6,13 +6,18 @@ export const languageError = 'The list of languages cannot be empty';
 
 const languageEmptyError = 'The language must be a non-empty string';
 
-const defaultQuery = /* GraphQL */ `
-query SitemapQuery(
-  $siteName: String!,
-  $language: String!,
-  $includedPaths: String[],
-  $excludedPaths: String[],
-  $pageSize: Int = 10,
+/**
+ * GQL query made dynamic based on schema differences between SXP and XM Cloud
+ * @param {boolean} usesPersonalize flag to detrmine which variation of a query to run
+ * @returns GraphQL query to fetch site paths with
+ */
+const defaultQuery = (usesPersonalize?: boolean) => /* GraphQL */ `
+query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
+  $siteName: String!
+  $language: String!
+  $includedPaths: [String]
+  $excludedPaths: [String]
+  $pageSize: Int = 10
   $after: String
 ) {
   site {
@@ -31,6 +36,13 @@ query SitemapQuery(
         }
         results: routesResult{
           path: routePath 
+          ${
+            usesPersonalize
+              ? `personalize: {
+            variantIds
+          }`
+              : ''
+          }
         }
       }
     }
@@ -89,6 +101,9 @@ export interface SiteRouteQueryResult<T> {
  */
 export type RouteListQueryResult = {
   path: string;
+  personalize?: {
+    variantIds: string[];
+  };
 };
 
 /**
@@ -104,6 +119,12 @@ export interface GraphQLSitemapServiceConfig extends Omit<SiteRouteQueryVariable
    * The API key to use for authentication.
    */
   apiKey: string;
+
+  /**
+   * A flag for whether to include personalized routes in service output - only works on XM Cloud
+   * turned off by default
+   */
+  includePersonalizedRoutes?: boolean;
 }
 
 /**
@@ -128,7 +149,7 @@ export class GraphQLSitemapService {
    * Gets the default query used for fetching the list of site pages
    */
   protected get query(): string {
-    return defaultQuery;
+    return defaultQuery(this.options.includePersonalizedRoutes);
   }
 
   /**
@@ -185,6 +206,8 @@ export class GraphQLSitemapService {
     languages: string[],
     formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
+    const segmentPrefix = '_segmentId_';
+
     if (!languages.length) {
       throw new RangeError(languageError);
     }
@@ -208,9 +231,22 @@ export class GraphQLSitemapService {
         debug.sitemap('fetching sitemap data for %s', language);
 
         return this.fetchLanguageSitePaths(this.query, args).then((results) => {
-          return results.map((item) =>
-            formatStaticPath(item.path.replace(/^\/|\/$/g, '').split('/'), language)
-          );
+          const formatPath = (path: string) =>
+            formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);
+          const aggregatedPaths: StaticPath[] = [];
+          results.forEach((item) => {
+            aggregatedPaths.push(formatPath(item.path));
+            // check for type safety's sake - personalize may be empty depending on query type
+            if (item.personalize?.variantIds.length) {
+              aggregatedPaths.push(
+                ...item.personalize?.variantIds.map((varId) =>
+                  formatPath(`/${segmentPrefix}${varId}${item.path}`)
+                )
+              );
+            }
+          });
+
+          return aggregatedPaths;
         });
       })
     );

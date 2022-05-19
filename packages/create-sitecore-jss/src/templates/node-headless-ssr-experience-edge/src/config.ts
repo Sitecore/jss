@@ -1,13 +1,15 @@
+import { Config, ServerBundle } from './types';
 const appName = process.env.SITECORE_JSS_APP_NAME;
 
 /**
  * The server.bundle.js file from your pre-built JSS app
  */
-const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/server.bundle`;
 
-const serverBundle = require(bundlePath);
+const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `../dist/${appName}/server.bundle`;
 
-const config = {
+const serverBundle: ServerBundle = require(bundlePath);
+
+export const config: Config = {
   /**
    * The require'd server.bundle.js file from your pre-built JSS app
    */
@@ -38,5 +40,3 @@ const config = {
    */
   defaultLanguage: process.env.DEFAULT_LANGUAGE || 'en',
 };
-
-module.exports = config;
