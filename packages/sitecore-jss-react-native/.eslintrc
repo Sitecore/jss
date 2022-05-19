@@ -1,17 +1,8 @@
 {
-  "extends": [
-    "../../.eslintrc",
-    "../../eslint-configs/typescript"
-  ],
-  "plugins": [
-    "react-native"
-  ],
+  "extends": ["../../.eslintrc", "../../eslint-configs/typescript"],
+  "plugins": ["react-native"],
   "env": {
     "jest": true
   },
-  "ignorePatterns": [
-    "src/**/*.test.*",
-    "src/tests/*",
-    "src/testData/*"
-  ]
+  "ignorePatterns": ["src/**/*.test.*", "src/tests/*", "test-data/*"]
 }

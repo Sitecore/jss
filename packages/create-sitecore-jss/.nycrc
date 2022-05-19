@@ -6,7 +6,7 @@
     "**/*.d.ts",
     "**/*.test.ts",
     "src/templates/**/*",
-    "src/common/testData",
+    "src/common/test-data",
     "dist"
   ],
   "all": true,

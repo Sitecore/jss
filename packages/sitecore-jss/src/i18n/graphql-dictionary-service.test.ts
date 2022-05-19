@@ -4,8 +4,8 @@ import { SitecoreTemplateId } from '../constants';
 import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import { queryError, GraphQLDictionaryServiceConfig } from './graphql-dictionary-service';
 import { GraphQLDictionaryService } from '.';
-import dictionaryQueryResponse from '../testData/mockDictionaryQueryResponse.json';
-import appRootQueryResponse from '../testData/mockAppRootQueryResponse.json';
+import dictionaryQueryResponse from '../test-data/mockDictionaryQueryResponse.json';
+import appRootQueryResponse from '../test-data/mockAppRootQueryResponse.json';
 
 class TestService extends GraphQLDictionaryService {
   public client: GraphQLClient;

@@ -4,7 +4,7 @@ import { digest, hmac } from './digest';
 describe('digest', () => {
   describe('digest', () => {
     it('should generate expected file hash', () => {
-      const inputPath = './src/testData/digest/hello.txt';
+      const inputPath = './src/test-data/digest/hello.txt';
       return digest(inputPath).then((result) =>
         expect(result).to.equal('uU0nuZNNPgilLlLX2n2r+sSE7+N6U4DukIj3rOLvzek=')
       );

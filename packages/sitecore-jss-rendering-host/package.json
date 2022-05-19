@@ -64,6 +64,7 @@
   },
   "files": [
     "dist",
-    "types"
+    "types",
+    "global.d.ts"
   ]
 }

@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { expect } from 'chai';
 import sinon, { SinonStub } from 'sinon';
-import { currentPkg, partialPkg } from '../testData/pkg';
+import { currentPkg, partialPkg } from '../test-data/pkg';
 import * as transform from './transform';
 import * as helpers from '../utils/helpers';
 
@@ -19,7 +19,7 @@ describe('transform', () => {
         silent: true,
         appPrefix: true,
         appName: 'test',
-        destination: '.\\testData\\test',
+        destination: '.\\test-data\\test',
         fetchWith: 'GraphQL',
         prerender: 'SSG',
         hostName: 'https://cm.jss.localhost',
@@ -155,12 +155,12 @@ describe('transform', () => {
 
     it('should return empty string when source and target files are equal', async () => {
       const source = fs.readFileSync(
-        path.resolve('src', 'common', 'testData', 'transform', 'source.ts'),
+        path.resolve('src', 'common', 'test-data', 'transform', 'source.ts'),
         'utf-8'
       );
       const result = await diffFiles(
         source,
-        path.resolve('src', 'common', 'testData', 'transform', 'source.ts')
+        path.resolve('src', 'common', 'test-data', 'transform', 'source.ts')
       );
 
       expect(result).to.equal('');
@@ -169,10 +169,10 @@ describe('transform', () => {
     it('should show diff using text regular file', async () => {
       log = sinon.stub(console, 'log');
       prompt = sinon.stub(inquirer, 'prompt').returns({ choice: true } as any);
-      const targetFilePath = path.resolve('src', 'common', 'testData', 'transform', 'target.ts');
+      const targetFilePath = path.resolve('src', 'common', 'test-data', 'transform', 'target.ts');
 
       const source = fs.readFileSync(
-        path.resolve('src', 'common', 'testData', 'transform', 'source.ts'),
+        path.resolve('src', 'common', 'test-data', 'transform', 'source.ts'),
         'utf-8'
       );
       const result = await diffFiles(source, targetFilePath);
@@ -217,10 +217,10 @@ describe('transform', () => {
     it('should show diff using json file', async () => {
       log = sinon.stub(console, 'log');
       prompt = sinon.stub(inquirer, 'prompt').returns({ choice: true } as any);
-      const targetFilePath = path.resolve('src', 'common', 'testData', 'transform', 'target.json');
+      const targetFilePath = path.resolve('src', 'common', 'test-data', 'transform', 'target.json');
 
       const source = fs.readFileSync(
-        path.resolve('src', 'common', 'testData', 'transform', 'source.json'),
+        path.resolve('src', 'common', 'test-data', 'transform', 'source.json'),
         'utf-8'
       );
       const result = await diffFiles(source, targetFilePath);

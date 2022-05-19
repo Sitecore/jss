@@ -5,7 +5,7 @@
   "exclude": [
     "**/*.d.ts",
     "**/*.test.ts",
-    "src/**/testData",
+    "src/**/test-data",
     "src/pipelines/test",
     "dist",
     "types"
@@ -15,5 +15,7 @@
     "json-summary",
     "text"
   ],
-  "require": ["ts-node/register"]
+  "require": [
+    "ts-node/register"
+  ]
 }

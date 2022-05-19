@@ -15,7 +15,7 @@
     "types",
     "typings",
     "dist",
-    "testData/*",
+    "test-data/*",
     "**/*.test.ts",
     "**/*.test.tsx",
     "__snapshots__"

@@ -16,6 +16,6 @@
     "src/templates/**/*",
     "src/test",
     "src/**/*.test.ts",
-    "src/**/testData/**/*"
+    "src/**/test-data/**/*"
   ]
 }

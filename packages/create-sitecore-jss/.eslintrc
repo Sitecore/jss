@@ -1,4 +1,4 @@
 {
   "extends": ["../../.eslintrc", "../../eslint-configs/typescript"],
-  "ignorePatterns": ["src/templates/**/*", "src/common/testData/**/*"]
+  "ignorePatterns": ["src/templates/**/*", "src/common/test-data/**/*"]
 }

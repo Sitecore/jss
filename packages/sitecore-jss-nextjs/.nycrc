@@ -8,7 +8,7 @@
     "**/*.test.tsx",
     "**/*.test.ts",
     "src/tests",
-    "src/testData",
+    "src/test-data",
     "dist",
     "**/sharedTypes.ts"
   ],
@@ -17,5 +17,7 @@
     "json-summary",
     "text"
   ],
-  "require": ["ts-node/register/transpile-only"]
+  "require": [
+    "ts-node/register/transpile-only"
+  ]
 }
