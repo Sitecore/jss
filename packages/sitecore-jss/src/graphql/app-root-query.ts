@@ -46,7 +46,7 @@ export type AppRootQueryResult = {
  * @returns the root item ID of the JSS App in Sitecore. Returns null if the app root item is not found.
  * @throws {RangeError} if a valid site name value is not provided.
  * @throws {RangeError} if a valid language value is not provided.
- * This function intentionally avoids throwing an error if a root item is not found,
+ * @summary This function intentionally avoids throwing an error if a root item is not found,
  * leaving that decision up to implementations.
  */
 export async function getAppRootId(

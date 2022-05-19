@@ -58,6 +58,8 @@ export type DataFetcherResolver = <T>(
 /**
  * Fetch layout data using the Sitecore Layout Service REST API.
  * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
+ * @augments LayoutServiceBase
+ *
  */
 export class RestLayoutService extends LayoutServiceBase {
   constructor(private serviceConfig: RestLayoutServiceConfig) {
@@ -66,11 +68,12 @@ export class RestLayoutService extends LayoutServiceBase {
 
   /**
    * Fetch layout data for an item.
-   * @param {string} itemPath
-   * @param {string} [language]
+   * @param {string} itemPath The path to the item to fetch data for.
+   * @param {string} [language] The language to fetch data for.
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
    * @returns {Promise<LayoutServiceData>} layout service data
+   * @throws {Error} if the item path is not specified
    */
   fetchLayoutData(
     itemPath: string,
@@ -120,9 +123,9 @@ export class RestLayoutService extends LayoutServiceBase {
    * Fetch layout data for a particular placeholder.
    * Makes a request to Sitecore Layout Service for the specified placeholder in
    * a specific route item. Allows you to retrieve rendered data for individual placeholders instead of entire routes.
-   * @param {string} placeholderName
-   * @param {string} itemPath
-   * @param {string} [language]
+   * @param {string} placeholderName The name of the placeholder to fetch data for.
+   * @param {string} itemPath The path to the route item to fetch data for.
+   * @param {string} [language] The language to fetch data for.
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
    * @returns {Promise<PlaceholderData>} placeholder data
@@ -206,7 +209,7 @@ export class RestLayoutService extends LayoutServiceBase {
 
   /**
    * Setup request headers
-   * @param {IncomingMessage} req
+   * @param {IncomingMessage}  req Request instance
    * @returns {AxiosRequestConfig} axios request config
    */
   protected setupReqHeaders(req: IncomingMessage) {
@@ -225,7 +228,7 @@ export class RestLayoutService extends LayoutServiceBase {
 
   /**
    * Setup response headers based on response from layout service
-   * @param {ServerResponse} res
+   * @param {ServerResponse} res  Response instance
    * @returns {AxiosResponse} response
    */
   protected setupResHeaders(res: ServerResponse) {

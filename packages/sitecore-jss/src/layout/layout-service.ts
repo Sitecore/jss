@@ -18,6 +18,9 @@ export interface LayoutService {
   ): Promise<models.LayoutServiceData>;
 }
 
+/**
+ * Fetch layout data for an item.
+ */
 export abstract class LayoutServiceBase implements LayoutService {
   abstract fetchLayoutData(
     itemPath: string,

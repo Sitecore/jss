@@ -26,6 +26,7 @@ export function personalizeLayout(layout: LayoutServiceData, segment: string): v
 
  * @param {Array} components components within placeholder
  * @param {string} segment segmentId
+ * @returns {Array} components with personalization applied
  */
 export function personalizePlaceholder(
   components: Array<ComponentRendering | HtmlElementRendering>,
@@ -45,6 +46,7 @@ export function personalizePlaceholder(
 /**
  * @param {ComponentRenderingWithExperiences} component component with experiences
  * @param {string} segment segmentId
+ * @returns {ComponentRenderingWithExperiences} component with personalization applied
  */
 export function personalizeComponent(
   component: ComponentRenderingWithExperiences,

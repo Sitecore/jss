@@ -66,6 +66,7 @@ export abstract class DictionaryServiceBase
   /**
    * Fetch dictionary data for a language.
    * @param {string} language
+   * @returns {Promise<DictionaryPhrases>}
    */
   abstract fetchDictionaryData(language: string): Promise<DictionaryPhrases>;
 }

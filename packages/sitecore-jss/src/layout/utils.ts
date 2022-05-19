@@ -5,6 +5,9 @@ type Fields = { [name: string]: Field | Item[] };
 /**
  * Safely extracts a field value from a rendering or fields object.
  * Null will be returned if the field is not defined.
+ * @param {ComponentRendering | Fields} renderingOrFields The rendering or fields object to extract the field from
+ * @param {string} fieldName The name of the field to extract
+ * @returns {(Field | Item[])} The field value or null if the field is not defined
  */
 export function getFieldValue<T>(
   renderingOrFields: ComponentRendering | Fields,
@@ -17,9 +20,10 @@ export function getFieldValue<T>(
   defaultValue: T
 ): T;
 /**
- * @param {ComponentRendering | Fields} renderingOrFields
- * @param {string} fieldName
- * @param {T} [defaultValue]
+ * @param {ComponentRendering | Fields} renderingOrFields The rendering or fields object to extract the field from
+ * @param {string} fieldName The name of the field to extract
+ * @param {T} defaultValue The default value to return if the field is not defined
+ * @returns {(Field | Item[])} The field value or null if the field is not defined
  */
 // eslint-disable-next-line no-redeclare
 export function getFieldValue<T>(

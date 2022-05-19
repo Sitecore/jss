@@ -37,7 +37,7 @@ class ResponseError extends Error {
 }
 
 /**
- * @param {HttpResponse<T>} response
+ * @param {HttpResponse<T>} response the response to check
  * @throws {ResponseError} if response code is not ok
  */
 function checkStatus<T>(response: HttpResponse<T>) {
@@ -50,9 +50,9 @@ function checkStatus<T>(response: HttpResponse<T>) {
 }
 
 /**
- * @param {string} url
- * @param {HttpDataFetcher} fetcher
- * @param {Object} params
+ * @param {string} url the URL to request; may include query string
+ * @param {HttpDataFetcher} fetcher the fetcher to use to perform the request
+ * @param {Object} params the query string parameters to send with the request
  */
 export function fetchData<T>(
   url: string,
