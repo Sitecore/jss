@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { RedirectsMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/edge';
 import config from 'temp/config';
 import { MiddlewarePlugin } from '..';
+import nextConfig from '../../../../next.config';
 
 class RedirectsPlugin implements MiddlewarePlugin {
   private redirectsMiddleware: RedirectsMiddleware;
@@ -12,6 +13,7 @@ class RedirectsPlugin implements MiddlewarePlugin {
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,
+      locales: nextConfig().i18n.locales,
     });
   }
 
