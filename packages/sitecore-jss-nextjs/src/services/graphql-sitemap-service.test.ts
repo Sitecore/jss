@@ -8,6 +8,8 @@ import {
 
 import sitemapQueryResult from '../test-data/sitemapQueryResult.json';
 import sitemapServiceResult from '../test-data/sitemapServiceResult';
+import sitemapDefaultQueryResult from '../test-data/sitemapDefaultQueryResult.json';
+import sitemapPersonalizeQueryResult from '../test-data/sitemapPersonalizeQueryResult.json';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss/graphql';
 
 class TestService extends GraphQLSitemapService {
