@@ -1,10 +1,13 @@
 export {
   constants,
   // generic data access
+  DataFetcher,
   HttpDataFetcher,
   HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
+  NativeDataFetcher,
+  NativeDataFetcherConfig,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
 export {

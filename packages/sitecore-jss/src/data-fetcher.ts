@@ -4,7 +4,7 @@ import { ParsedUrlQueryInput } from 'querystring';
 export interface DataFetcher {
   /**
    * Execute fetch request.
-   * This implements @see HttpDataFetcher<T> type (see for implementation details/notes).
+   * This implements @see HttpDataFetcher<T> type for backwards compatibility.
    * @param {string} url The URL to request; may include query string
    * @param {unknown} [data] Optional data to POST with the request.
    * @returns {Promise<HttpResponse<T>>} response

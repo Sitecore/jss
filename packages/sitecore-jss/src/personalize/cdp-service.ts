@@ -26,9 +26,8 @@ export type CdpServiceConfig = {
    */
   clientKey: string;
   /**
-   * Custom data fetcher. Uses AxiosDataFetcher by default.
+   * Custom data fetcher. Uses @see AxiosDataFetcher by default.
    * @see DataFetcher
-   * @see AxiosDataFetcher
    */
   dataFetcher?: DataFetcher;
 };
