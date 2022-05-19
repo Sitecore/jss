@@ -52,7 +52,7 @@ ${componentFiles
       const moduleName = removeDynamicModuleNameEnding(component.moduleName);
       return `const ${moduleName} = {
   module: () => import('${component.path}'),
-  element: (isEditing?:boolean) => isEditing ? require('${component.path}')?.default : dynamic(${moduleName}.module)
+  element: (isEditing?: boolean) => isEditing ? require('${component.path}')?.default : dynamic(${moduleName}.module)
 }`;
     }
 
