@@ -19,15 +19,8 @@ type StyleguideFieldUsageImageProps = ComponentProps &
  */
 const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.Element => (
   <StyleguideSpecimen {...props} e2eId="styleguide-fieldusage-image">
-    {/*
-      You can use any of the props available in the next/image.
-      E.g. we have used 'priority' to demonstrate how an image could be considered high priority and preload.
-      Lazy loading is automatically disabled for images using priority.
-      See here for all the features provided by next/image: https://nextjs.org/docs/api-reference/next/image
-
-    */}
     <p>Plain image</p>
-    <NextImage field={props.fields.sample1} priority height="51" width="204" />
+    <NextImage field={props.fields.sample1} height="51" width="204" />
 
     {/*
       Advanced image usage example
@@ -50,6 +43,10 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
     />
 
     {/*
+      You can use any of the props available in the next/image.
+      E.g. we have used 'priority' to demonstrate how an image could be considered high priority and preload.
+      Lazy loading is automatically disabled for images using priority.
+      See here for all the features provided by next/image: https://nextjs.org/docs/api-reference/next/image
       next/image generates responsive srcSet automatically based on layout. See https://nextjs.org/docs/api-reference/next/image#layout.
       IMPORTANT: The generated sizes should match your Sitecore server-side allowlist. See /sitecore/config/*.config (search for 'allowedMediaParams')
     */}
@@ -60,6 +57,7 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       width="200"
       sizes="50vw"
       layout="responsive"
+      priority
     />
   </StyleguideSpecimen>
 );
