@@ -1,4 +1,5 @@
 import debug from '../debug';
+import { DataFetcher } from '../data-fetcher';
 import { AxiosDataFetcher } from '../axios-fetcher';
 
 /**
@@ -25,15 +26,15 @@ export type CdpServiceConfig = {
    */
   clientKey: string;
   /**
-   * The `AxiosDataFetcher` instance to use for API requests.
-   * @default new AxiosDataFetcher()
+   * Custom data fetcher. Uses AxiosDataFetcher by default.
+   * @see DataFetcher
    * @see AxiosDataFetcher
    */
-  dataFetcher?: AxiosDataFetcher;
+  dataFetcher?: DataFetcher;
 };
 
 export class CdpService {
-  private dataFetcher: AxiosDataFetcher;
+  private dataFetcher: DataFetcher;
 
   /**
    * @param {CdpServiceConfig} [config] CDP service config

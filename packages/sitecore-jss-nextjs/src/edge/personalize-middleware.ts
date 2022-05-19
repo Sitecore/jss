@@ -1,5 +1,4 @@
 import { NextResponse, NextRequest } from 'next/server';
-import fetchAdapter from '@vespaiach/axios-fetch-adapter';
 import {
   GraphQLPersonalizeService,
   GraphQLPersonalizeServiceConfig,
@@ -7,7 +6,7 @@ import {
   CdpServiceConfig,
   getPersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
-import { debug, AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 export type PersonalizeMiddlewareConfig = {
   /**
@@ -45,12 +44,11 @@ export class PersonalizeMiddleware {
       ...config.edgeConfig,
       fetch: fetch,
     });
-    // NOTE: same here, we provide Axios fetch adapter for compatibility on Next.js Edge Runtime
+    // NOTE: same here, we provide NativeDataFetcher for compatibility on Next.js Edge Runtime
     this.cdpService = new CdpService({
       ...config.cdpConfig,
-      dataFetcher: new AxiosDataFetcher({
+      dataFetcher: new NativeDataFetcher({
         debugger: debug.personalize,
-        adapter: fetchAdapter,
       }),
     });
   }

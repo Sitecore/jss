@@ -72,7 +72,6 @@
     "@sitecore-jss/sitecore-jss": "^21.0.0-canary.58",
     "@sitecore-jss/sitecore-jss-dev-tools": "^21.0.0-canary.58",
     "@sitecore-jss/sitecore-jss-react": "^21.0.0-canary.58",
-    "@vespaiach/axios-fetch-adapter": "^0.2.2",
     "prop-types": "^15.7.2",
     "regex-parser": "^2.2.11",
     "sync-disk-cache": "^2.1.0"

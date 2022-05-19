@@ -1,6 +1,17 @@
 import resolveUrl from './utils/resolve-url';
 import { ParsedUrlQueryInput } from 'querystring';
 
+export interface DataFetcher {
+  /**
+   * Execute fetch request.
+   * This implements @see HttpDataFetcher<T> type (see for implementation details/notes).
+   * @param {string} url The URL to request; may include query string
+   * @param {unknown} [data] Optional data to POST with the request.
+   * @returns {Promise<HttpResponse<T>>} response
+   */
+  fetch<T>(url: string, data?: unknown): Promise<HttpResponse<T>>;
+}
+
 /**
  * Response data for an HTTP request sent to an API
  * @template T the type of data model requested
