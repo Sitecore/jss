@@ -61,5 +61,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sitecore/jss.git"
-  }
+  },
+  "files": [
+    "dist",
+    "types",
+    "global.d.ts"
+  ]
 }

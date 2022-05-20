@@ -2,7 +2,7 @@ import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { richTextField as eeRichTextData } from '../testData/ee-data';
+import { richTextField as eeRichTextData } from '../test-data/ee-data';
 import { RichTextField } from './rendering-field';
 import { RichTextDirective } from './rich-text.directive';
 

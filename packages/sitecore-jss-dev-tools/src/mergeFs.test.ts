@@ -7,14 +7,14 @@ describe('merge files', () => {
 
   describe('merge route data', () => {
     it('should generate data without error', () => {
-      const inputPath = './src/testData/mergeFs/routes';
+      const inputPath = './src/test-data/mergeFs/routes';
       return mergeFs(inputPath).then((result) => expect(result).to.not.be.undefined);
     });
   });
 
   describe('merge non-route data', () => {
     it('should generate data without error', () => {
-      const inputPath = './src/testData/mergeFs/non-routes';
+      const inputPath = './src/test-data/mergeFs/non-routes';
       return mergeFs(inputPath).then((result) => expect(result).to.not.be.undefined);
     });
   });

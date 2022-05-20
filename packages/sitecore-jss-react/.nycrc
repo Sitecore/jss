@@ -8,7 +8,7 @@
     "**/*.test.tsx",
     "**/*.test.ts",
     "src/tests",
-    "src/testData",
+    "src/test-data",
     "dist",
     "**/sharedTypes.ts"
   ],

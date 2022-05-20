@@ -7,7 +7,7 @@ const coverageConfig = {
   coveragePathIgnorePatterns: [
     '/node_modules/',
     '/dist/',
-    '/testData/',
+    '/test-data/',
     '/types/',
     '.snap',
     '.test.js',

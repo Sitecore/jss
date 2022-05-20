@@ -17,9 +17,9 @@ import {
   sxaRenderingVariantData,
   sxaRenderingVariantDataWithCommonContainerName as sxaRenderingCommonContainerName,
   sxaRenderingVariantDataWithoutCommonContainerName as sxaRenderingWithoutContainerName,
-} from '../testData/non-ee-data';
-import { convertedData as eeData, emptyPlaceholderData } from '../testData/ee-data';
-import * as SxaRichText from '../testData/sxa-rich-text';
+} from '../test-data/non-ee-data';
+import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
+import * as SxaRichText from '../test-data/sxa-rich-text';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { HiddenRendering } from './HiddenRendering';
 
