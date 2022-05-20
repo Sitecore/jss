@@ -34,13 +34,16 @@ query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
           endCursor
           hasNext
         }
-        results: routesResult{
+        results {
           path: routePath 
           ${
             usesPersonalize
-              ? `personalize: {
-            variantIds
-          }`
+              ? `
+              route {
+                personalization {
+                  variantIds
+                }
+              }`
               : ''
           }
         }
@@ -101,9 +104,11 @@ export interface SiteRouteQueryResult<T> {
  */
 export type RouteListQueryResult = {
   path: string;
-  personalize?: {
-    variantIds: string[];
-  };
+  route?: {
+    personalization?: {
+      variantIds: string[];
+    };
+  }
 };
 
 /**
@@ -204,7 +209,9 @@ export class GraphQLSitemapService {
    */
   protected async fetchSitemap(
     languages: string[],
-    formatStaticPath: (path: string[], language: string) => StaticPath
+    formatStaticPath: (path: string[], language: string) => StaticPath,
+    includedPaths?: string[],
+    excludedPaths?: string[]
   ): Promise<StaticPath[]> {
     const segmentPrefix = '_segmentId_';
 
@@ -217,8 +224,8 @@ export class GraphQLSitemapService {
       siteName,
       language: '',
       pageSize: this.options.pageSize,
-      includedPaths: this.options.includedPaths,
-      excludedPaths: this.options.excludedPaths,
+      includedPaths: includedPaths ?? this.options.includedPaths,
+      excludedPaths: excludedPaths ?? this.options.excludedPaths,
     };
 
     // Fetch paths using all locales
@@ -237,9 +244,9 @@ export class GraphQLSitemapService {
           results.forEach((item) => {
             aggregatedPaths.push(formatPath(item.path));
             // check for type safety's sake - personalize may be empty depending on query type
-            if (item.personalize?.variantIds.length) {
+            if (item.route?.personalization?.variantIds.length) {
               aggregatedPaths.push(
-                ...item.personalize?.variantIds.map((varId) =>
+                ...item.route?.personalization?.variantIds.map((varId) =>
                   formatPath(`/${segmentPrefix}${varId}${item.path}`)
                 )
               );
