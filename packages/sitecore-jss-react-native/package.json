@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm run clean && npm run typecheck && babel src --out-dir dist --extensions \".ts,.tsx\" --ignore \"*.test.ts,*.test.js,testData,tests,__snapshots__\"",
+    "build": "npm run clean && npm run typecheck && babel src --out-dir dist --extensions \".ts,.tsx\" --ignore \"*.test.ts,*.test.js,test-data,tests,__snapshots__\"",
     "clean": "del-cli dist types",
     "typecheck": "tsc",
     "fixcrlf": "eslint --rule 'linebreak-style: [\"error\", \"unix\"]' --ext .ts --no-eslintrc --fix ./dist",
