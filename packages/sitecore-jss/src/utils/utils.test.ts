@@ -151,5 +151,9 @@ describe('utils', () => {
         expect(result).to.equal(expected);
       });
     });
+
+    it('should throw an error when url is empty', () => {
+      expect(() => resolveUrl('')).to.throw('url must be a non-empty string');
+    });
   });
 });
