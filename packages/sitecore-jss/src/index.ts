@@ -3,7 +3,7 @@
 
 import * as constants from './constants';
 export { default as debug, Debugger, enableDebug } from './debug';
-export { DataFetcher, HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
+export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
 export {
   GraphQLClient,
   GraphQLRequestClient,

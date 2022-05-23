@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 import debuggers, { Debugger } from './debug';
-import { DataFetcher } from './data-fetcher';
 
 type AxiosDataFetcherOptions = {
   /**
@@ -43,7 +42,7 @@ const isAxiosError = (error: unknown): error is AxiosError => {
   return (error as AxiosError).isAxiosError !== undefined;
 };
 
-export class AxiosDataFetcher implements DataFetcher {
+export class AxiosDataFetcher {
   private instance: AxiosInstance;
 
   /**

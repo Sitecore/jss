@@ -1,7 +1,6 @@
 export {
   constants,
   // generic data access
-  DataFetcher,
   HttpDataFetcher,
   HttpResponse,
   AxiosDataFetcher,

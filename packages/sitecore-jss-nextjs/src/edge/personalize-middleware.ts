@@ -47,9 +47,12 @@ export class PersonalizeMiddleware {
     // NOTE: same here, we provide NativeDataFetcher for compatibility on Next.js Edge Runtime
     this.cdpService = new CdpService({
       ...config.cdpConfig,
-      dataFetcher: new NativeDataFetcher({
-        debugger: debug.personalize,
-      }),
+      dataFetcherResolver: <T>() => {
+        const fetcher = new NativeDataFetcher({
+          debugger: debug.personalize,
+        });
+        return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
+      },
     });
   }
 
