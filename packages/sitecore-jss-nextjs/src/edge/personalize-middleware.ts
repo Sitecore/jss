@@ -24,7 +24,7 @@ export type PersonalizeMiddlewareConfig = {
   /**
    * Configuration for your Sitecore CDP endpoint
    */
-  cdpConfig: Omit<CdpServiceConfig, 'dataFetcher'>;
+  cdpConfig: Omit<CdpServiceConfig, 'dataFetcherResolver'>;
 };
 
 /**
