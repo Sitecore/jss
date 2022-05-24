@@ -15,7 +15,7 @@ type NativeDataFetcherOptions = {
 export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;
 
 export class NativeDataFetcher {
-  constructor(protected config: NativeDataFetcherConfig) {}
+  constructor(protected config: NativeDataFetcherConfig = {}) {}
 
   /**
    * Implements a data fetcher. @see HttpDataFetcher<T> type for implementation details/notes.
@@ -39,7 +39,7 @@ export class NativeDataFetcher {
     });
 
     const isJson = response.headers.get('Content-Type')?.includes('application/json');
-    const respData = isJson ? await response.json() : null;
+    const respData = isJson ? await response.json() : undefined;
     const debugResponse = {
       status: response.status,
       statusText: response.statusText,
