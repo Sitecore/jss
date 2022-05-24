@@ -108,7 +108,7 @@ export type RouteListQueryResult = {
     personalization?: {
       variantIds: string[];
     };
-  }
+  };
 };
 
 /**
@@ -209,9 +209,7 @@ export class GraphQLSitemapService {
    */
   protected async fetchSitemap(
     languages: string[],
-    formatStaticPath: (path: string[], language: string) => StaticPath,
-    includedPaths?: string[],
-    excludedPaths?: string[]
+    formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
     const segmentPrefix = '_segmentId_';
 
@@ -224,8 +222,8 @@ export class GraphQLSitemapService {
       siteName,
       language: '',
       pageSize: this.options.pageSize,
-      includedPaths: includedPaths ?? this.options.includedPaths,
-      excludedPaths: excludedPaths ?? this.options.excludedPaths,
+      includedPaths: this.options.includedPaths,
+      excludedPaths: this.options.excludedPaths,
     };
 
     // Fetch paths using all locales
