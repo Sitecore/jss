@@ -69,7 +69,7 @@ export class GraphQLPersonalizeService {
    * Get personalize information for a route
    * @param {string} itemPath page route
    * @param {string} language language
-   * @returns {PersonalizeInfo | undefined} the personalize information or undefined (if itemPath / language not found)
+   * @returns {Promise<PersonalizeInfo | undefined>} the personalize information or undefined (if itemPath / language not found)
    */
   async getPersonalizeInfo(
     itemPath: string,
@@ -96,7 +96,7 @@ export class GraphQLPersonalizeService {
     return {
       // CDP expects content id format `<id>_<language>_<version>` (lowercase)
       contentId: `${data.layout.item.id}_${language}_${data.layout.item.version}`.toLowerCase(),
-      segments: data.layout.item.personalization?.variantIds || [],
+      segments: data.layout.item.personalization.variantIds,
     };
   }
 

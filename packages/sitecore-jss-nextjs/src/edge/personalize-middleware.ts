@@ -11,7 +11,7 @@ import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 export type PersonalizeMiddlewareConfig = {
   /**
    * Function used to determine if route should be excluded from personalization.
-   * By default, files (pathname.includes('.')) and API routes (pathname.startsWith('/api')) are ignored.
+   * By default, files (pathname.includes('.')) and API routes (pathname.startsWith('/api/')) are ignored.
    * This is an important performance consideration since Next.js Edge middleware runs on every request.
    * @param {string} pathname The pathname
    * @returns {boolean} Whether to exclude the route from personalization
@@ -84,7 +84,7 @@ export class PersonalizeMiddleware {
   private excludeRoute(pathname: string) {
     if (
       pathname.includes('.') || // Ignore files
-      pathname.startsWith('/api') // Ignore API calls
+      pathname.startsWith('/api/') // Ignore API calls
     ) {
       return true;
     }
