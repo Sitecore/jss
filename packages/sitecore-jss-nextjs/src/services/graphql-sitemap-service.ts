@@ -1,5 +1,6 @@
 import { GraphQLClient, GraphQLRequestClient, PageInfo } from '@sitecore-jss/sitecore-jss/graphql';
 import { debug } from '@sitecore-jss/sitecore-jss';
+import { getPersonalizedRewrite } from '@sitecore-jss/sitecore-jss/personalize';
 
 /** @private */
 export const languageError = 'The list of languages cannot be empty';
@@ -206,8 +207,6 @@ export class GraphQLSitemapService {
     languages: string[],
     formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
-    const segmentPrefix = '_segmentId_';
-
     if (!languages.length) {
       throw new RangeError(languageError);
     }
@@ -240,7 +239,7 @@ export class GraphQLSitemapService {
             if (item.personalize?.variantIds.length) {
               aggregatedPaths.push(
                 ...item.personalize?.variantIds.map((varId) =>
-                  formatPath(`/${segmentPrefix}${varId}${item.path}`)
+                  formatPath(getPersonalizedRewrite(item.path, { segmentId: varId }))
                 )
               );
             }
