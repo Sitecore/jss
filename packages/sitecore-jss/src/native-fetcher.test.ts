@@ -10,7 +10,7 @@ use(spies);
 let fetchInput: RequestInfo | undefined;
 let fetchInit: RequestInit | undefined;
 
-const mockFetch = (status: number, response: unknown = {}) => {
+const mockFetch = (status: number, response: unknown = {}, jsonError?: string) => {
   return (input: RequestInfo, init?: RequestInit) => {
     fetchInput = input;
     fetchInit = init;
@@ -25,7 +25,9 @@ const mockFetch = (status: number, response: unknown = {}) => {
           return name === 'Content-Type' ? 'application/json' : '';
         },
       } as Headers,
-      json: () => Promise.resolve(response),
+      json: () => {
+        return jsonError ? Promise.reject(jsonError) : Promise.resolve(response);
+      },
     } as Response);
   };
 };
@@ -158,6 +160,20 @@ describe('NativeDataFetcher', () => {
 
       await fetcher.fetch('http://test.com/api');
       expect(fetchOverride).to.be.called;
+    });
+
+    it('should handle response.json() error', async () => {
+      const fetcher = new NativeDataFetcher();
+
+      spy.on(global, 'fetch', mockFetch(200, {}, 'ERROR'));
+
+      const response = await fetcher.fetch('http://test.com/api');
+      expect(response.status).to.equal(200);
+      expect(response.data).to.be.undefined;
+      expect(
+        debug.http.log,
+        'request and response.json() error and response log'
+      ).to.be.called.exactly(3);
     });
   });
 });

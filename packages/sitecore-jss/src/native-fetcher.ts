@@ -38,8 +38,14 @@ export class NativeDataFetcher {
       throw error;
     });
 
+    // Note even an error status may send useful json data in response (which we want for logging)
+    let respData: unknown = undefined;
     const isJson = response.headers.get('Content-Type')?.includes('application/json');
-    const respData = isJson ? await response.json() : undefined;
+    if (isJson) {
+      respData = await response.json().catch((error) => {
+        debug('response.json() error: %o', error);
+      });
+    }
     const debugResponse = {
       status: response.status,
       statusText: response.statusText,
