@@ -3,6 +3,7 @@
 import { mount } from '@vue/test-utils';
 import { richTextField as eeRichTextData } from '../test/data/field-data-EE-on';
 import { RichText } from './RichText';
+import { describe, it, expect } from '@jest/globals';
 
 describe('<RichText />', () => {
   it('should render nothing with missing field', () => {
@@ -110,5 +111,86 @@ describe('<RichText />', () => {
     expect(rendered.element.tagName).toBe(props.tag.toUpperCase());
     expect(rendered.attributes()).toMatchObject(attrs);
     expect(rendered.element.innerHTML).toBe(props.field.value);
+  });
+
+  it('should initialize links', () => {
+    const props = {
+      field: {
+        value: '<div id="test"><h1>Hello!</h1><a href="/t10">1</a><a href="/t10">2</a></div>',
+      },
+    };
+    const rendered = mount(RichText, { props });
+    expect(rendered.element.innerHTML).toContain('<div id="test">');
+    expect(rendered.element.innerHTML).toContain('<h1>Hello!</h1>');
+    expect(rendered.element.innerHTML).toContain('<a href="/t10">1</a>');
+    expect(rendered.element.innerHTML).toContain('<a href="/t10">2</a>');
+  });
+
+  it('should not initialize links when does not have value', () => {
+    const props = {
+      field: {
+        value: '',
+      },
+    };
+    const rendered = mount(RichText, { props });
+    const hasChildNodes = rendered.element.hasChildNodes();
+    expect(hasChildNodes).toBe(false);
+  });
+  it('should not initialize links if no links in markup', () => {
+    const props = {
+      field: {
+        value: '<div id="test"><h1>Hello!</h1></div>',
+      },
+    };
+    const rendered = mount(RichText, { props });
+    expect(rendered.element.innerHTML).toContain('<div id="test">');
+    expect(rendered.element.innerHTML).toContain('<h1>Hello!</h1>');
+    expect(rendered.element.innerHTML).not.toContain('<a href=');
+  });
+  it('should navigate if anchor element clicked', async () => {
+    const mockRouter = {
+      push: jest.fn(),
+    };
+
+    const props = {
+      field: {
+        value: '<div id="test"><a href="/styleguide">1</a><h1>Hello!</h1></div>',
+      },
+    };
+    const rendered = mount(RichText, {
+      props,
+      global: {
+        mocks: {
+          $router: mockRouter,
+        },
+      },
+    });
+
+    await rendered.find('a').trigger('click');
+    expect(mockRouter.push).toHaveBeenCalledTimes(1);
+    expect(mockRouter.push).toHaveBeenCalledWith('/styleguide');
+  });
+  it('should navigate if nested element clicked', async () => {
+    const mockRouter = {
+      push: jest.fn(),
+    };
+
+    const props = {
+      field: {
+        value: '<div id="test"><a href="/styleguide"><span>nested</span></a><h1>Hello!</h1></div>',
+      },
+    };
+    const rendered = mount(RichText, {
+      props,
+      global: {
+        mocks: {
+          $router: mockRouter,
+        },
+      },
+    });
+
+    await rendered.find('span').trigger('click');
+    expect(mockRouter.push).toHaveBeenCalledTimes(1);
+    expect(mockRouter.push).toHaveBeenCalledWith('/styleguide');
   });
 });

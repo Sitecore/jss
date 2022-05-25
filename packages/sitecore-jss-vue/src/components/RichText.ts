@@ -28,6 +28,51 @@ export const RichText = defineComponent({
      */
     editable: { type: Boolean, default: true },
   },
+  mounted() {
+    this.bindRouteLinks();
+  },
+  methods: {
+    /**
+     * Click handler for links.
+     * @param {MouseEvent} event - event emmited by clicking the link
+     */
+    routeHandler(event: MouseEvent): void {
+      event.preventDefault();
+      let target = event.target as HTMLAnchorElement;
+      /**
+       * If the target is not the anchor itself we set the target
+       * to be the closest anchor parent element
+       */
+      if (!target.pathname) {
+        target = target.closest('a') as HTMLAnchorElement;
+      }
+
+      const destination = target.hash ? `${target.pathname}${target.hash}` : target.pathname;
+
+      this.$router.push(destination);
+    },
+    /**
+     * Extracts anchor elements and adds a custom click event
+     * listener to prevent page refresh.
+     */
+    bindRouteLinks() {
+      const hasText = this.$props.field && this.$props.field?.value;
+      const isEditing = this.$props.editable && this.$props.field?.editable;
+
+      if (hasText && !isEditing) {
+        // selects all links that start with '/'
+        const internalLinks = this.$el.querySelectorAll('a[href^="/"]') as NodeListOf<
+          HTMLAnchorElement
+        >;
+
+        // Remove old and add new click event listener
+        internalLinks.forEach((link) => {
+          link.removeEventListener('click', this.routeHandler, false);
+          link.addEventListener('click', this.routeHandler, false);
+        });
+      }
+    },
+  },
   render() {
     const { field, tag, editable } = this.$props;
     if (!field || (!field.editable && !field.value)) {
