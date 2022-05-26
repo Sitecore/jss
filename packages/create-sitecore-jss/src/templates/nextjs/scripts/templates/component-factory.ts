@@ -106,7 +106,7 @@ export function componentModule(componentName: string) {
   return component;
 }
 
-function baseComponentFactory(componentName: string, exportName?: string, isEditing: boolean) {
+function baseComponentFactory(componentName: string, exportName?: string, isEditing?: boolean) {
   const component = components.get(componentName);
 
   // check that component should be dynamically imported
