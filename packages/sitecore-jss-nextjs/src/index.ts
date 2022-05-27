@@ -14,6 +14,7 @@ export {
   resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  resolveUrl,
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
@@ -25,6 +26,7 @@ export {
   GraphQLLayoutServiceConfig,
   RestLayoutService,
   RestLayoutServiceConfig,
+  PlaceholderData,
   PlaceholdersData,
   RouteData,
   Field,
@@ -107,8 +109,8 @@ export {
   editingDataService,
 } from './services/editing-data-service';
 
-export { Link } from './components/Link';
-export { RichText } from './components/RichText';
+export { Link, LinkProps } from './components/Link';
+export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { NextImage } from './components/NextImage';
 
@@ -116,6 +118,8 @@ export {
   ComponentFactory,
   Image,
   ImageField,
+  ImageFieldValue,
+  ImageProps,
   LinkField,
   LinkFieldValue,
   Text,
@@ -124,6 +128,7 @@ export {
   File,
   FileField,
   VisitorIdentification,
+  PlaceholderComponentProps,
   SitecoreContext,
   SitecoreContextState,
   SitecoreContextValue,
@@ -135,3 +140,11 @@ export {
   withPlaceholder,
   withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-react';
+
+export { ImageSizeParameters } from '@sitecore-jss/sitecore-jss-react/types/components/Image';
+
+export {
+  ComponentConsumerProps,
+  WithSitecoreContextOptions,
+  WithSitecoreContextProps,
+} from '@sitecore-jss/sitecore-jss-react/types/enhancers/withSitecoreContext';
