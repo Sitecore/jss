@@ -11,14 +11,18 @@
           "results": [
             {
               "path": "/",
-              "personalize": {
-                "variantIds": ["green"]
-              }
+              "route": {
+                "personalization": {
+                  "variantIds": ["green"]
+                }
+              }              
             },
             {
               "path": "/y1/y2/y3/y4",
-              "personalize": {
-                "variantIds": ["green", "red", "purple"]
+              "route": {
+                "personalization": {
+                  "variantIds": ["green", "red", "purple"]
+                }
               }
             }
           ]
