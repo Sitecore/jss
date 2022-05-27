@@ -126,7 +126,7 @@ export const Image: React.SFC<ImageProps> = ({ media, imageUrlParams, field, ...
     const uri = (attrs.source as ImageURISource).uri || (attrs.source as string);
 
     return <SvgUri {...attrs} uri={uri} />;
-  };
+  }
 
   if (attrs) return <NativeImage {...attrs} source={attrs.source as ImageSourcePropType} />;
 
