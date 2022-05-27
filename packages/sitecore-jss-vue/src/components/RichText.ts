@@ -29,7 +29,13 @@ export const RichText = defineComponent({
     editable: { type: Boolean, default: true },
   },
   mounted() {
-    this.bindRouteLinks();
+    const hasText = this.$props.field?.value;
+    const isEditing = this.$props.field && this.$props.field.editable && this.$props.editable;
+
+    if (hasText && !isEditing) {
+      // NOT IN EXPERIENCE EDITOR
+      this.bindRouteLinks();
+    }
   },
   methods: {
     /**
@@ -56,21 +62,16 @@ export const RichText = defineComponent({
      * listener to prevent page refresh.
      */
     bindRouteLinks() {
-      const hasText = this.$props.field && this.$props.field?.value;
-      const isEditing = this.$props.editable && this.$props.field?.editable;
+      // selects all links that start with '/'
+      const internalLinks = this.$el.querySelectorAll('a[href^="/"]') as NodeListOf<
+        HTMLAnchorElement
+      >;
 
-      if (hasText && !isEditing) {
-        // selects all links that start with '/'
-        const internalLinks = this.$el.querySelectorAll('a[href^="/"]') as NodeListOf<
-          HTMLAnchorElement
-        >;
-
-        // Remove old and add new click event listener
-        internalLinks.forEach((link) => {
-          link.removeEventListener('click', this.routeHandler, false);
-          link.addEventListener('click', this.routeHandler, false);
-        });
-      }
+      // Remove old and add new click event listener
+      internalLinks.forEach((link) => {
+        link.removeEventListener('click', this.routeHandler, false);
+        link.addEventListener('click', this.routeHandler, false);
+      });
     },
   },
   render() {
@@ -87,6 +88,6 @@ export const RichText = defineComponent({
       innerHTML: field.editable && editable ? field.editable : field.value,
     };
 
-    return h(tag || 'div', data);
+    return h(tag, data);
   },
 });
