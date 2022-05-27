@@ -6,7 +6,7 @@ import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingDataService } from '../services/editing-data-service';
 import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
 import { EditingPreviewData } from '../sharedTypes/editing-data';
-import { EE_PATH, EE_LANGUAGE, EE_LAYOUT, EE_DICTIONARY, EE_BODY } from '../testData/ee-data';
+import { EE_PATH, EE_LANGUAGE, EE_LAYOUT, EE_DICTIONARY, EE_BODY } from '../test-data/ee-data';
 import { EditingRenderMiddleware, extractEditingData } from './editing-render-middleware';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';

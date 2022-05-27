@@ -3,7 +3,7 @@ import chai from 'chai';
 import chaiString from 'chai-string';
 import { mount } from 'enzyme';
 import React from 'react';
-import { imageField as eeImageData } from '../testData/ee-data';
+import { imageField as eeImageData } from '../test-data/ee-data';
 import { Image, ImageField } from './Image';
 
 const expect = chai.use(chaiString).expect;

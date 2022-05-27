@@ -12,22 +12,25 @@ import {
 /**
  * extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
  */
-export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'>;
-
+export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'> & {
+  locales: string[];
+};
 /**
  * Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
  * compares with current url and redirects to target url
  */
 export class RedirectsMiddleware {
   private redirectsService: GraphQLRedirectsService;
+  private locales: string[];
 
   /**
-   * NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
-   * (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
    */
   constructor(config: RedirectsMiddlewareConfig) {
+    // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
+    // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
+    this.locales = config.locales;
   }
 
   /**
@@ -39,17 +42,22 @@ export class RedirectsMiddleware {
   }
 
   private handler = async (req: NextRequest): Promise<NextResponse> => {
-    const url = req.nextUrl.clone();
     // Find the redirect from result of RedirectService
-
-    const existsRedirect = await this.getExistsRedirect(url);
+    const existsRedirect = await this.getExistsRedirect(req);
 
     if (!existsRedirect) {
       return NextResponse.next();
     }
 
+    const url = req.nextUrl.clone();
     url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
-    url.pathname = existsRedirect.target;
+    const urlFirstPart = existsRedirect.target.split('/')[1];
+    if (this.locales.includes(urlFirstPart)) {
+      url.locale = urlFirstPart;
+      url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
+    } else {
+      url.pathname = existsRedirect.target;
+    }
     const redirectUrl = decodeURIComponent(url.href);
 
     /** return Response redirect with http code of redirect type **/
@@ -67,15 +75,17 @@ export class RedirectsMiddleware {
 
   /**
    * Method returns RedirectInfo when matches
-   * @param url
-   * @returns Promise<RedirectInfo>
+   * @param {NextRequest} req
+   * @returns Promise<RedirectInfo | undefined>
    * @private
    */
-  private async getExistsRedirect(url: URL): Promise<RedirectInfo | undefined> {
+  private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects();
 
-    return redirects.find((redirect: RedirectInfo) =>
-      regexParser(redirect.pattern).test(url.pathname)
+    return redirects.find(
+      (redirect: RedirectInfo) =>
+        regexParser(redirect.pattern).test(req.nextUrl.pathname) ||
+        regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${req.nextUrl.pathname}`)
     );
   }
 }

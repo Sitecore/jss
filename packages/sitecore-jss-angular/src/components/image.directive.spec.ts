@@ -2,7 +2,7 @@ import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { imageField as eeImageData } from '../testData/ee-data';
+import { imageField as eeImageData } from '../test-data/ee-data';
 import { ImageDirective } from './image.directive';
 import { ImageField } from './rendering-field';
 

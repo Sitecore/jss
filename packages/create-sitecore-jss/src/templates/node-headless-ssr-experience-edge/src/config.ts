@@ -4,7 +4,8 @@ const appName = process.env.SITECORE_JSS_APP_NAME;
 /**
  * The server.bundle.js file from your pre-built JSS app
  */
-const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `./dist/${appName}/server.bundle`;
+
+const bundlePath = process.env.SITECORE_JSS_SERVER_BUNDLE || `../dist/${appName}/server.bundle`;
 
 const serverBundle: ServerBundle = require(bundlePath);
 

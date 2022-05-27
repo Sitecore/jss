@@ -5,6 +5,8 @@ export {
   HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
+  NativeDataFetcher,
+  NativeDataFetcherConfig,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
 export {
@@ -52,7 +54,12 @@ export {
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';
-export { personalizeLayout } from '@sitecore-jss/sitecore-jss/personalize';
+export {
+  personalizeLayout,
+  getPersonalizedRewrite,
+  getPersonalizedRewriteData,
+  normalizePersonalizedRewrite,
+} from '@sitecore-jss/sitecore-jss/personalize';
 export {
   RobotsQueryResult,
   GraphQLRobotsService,

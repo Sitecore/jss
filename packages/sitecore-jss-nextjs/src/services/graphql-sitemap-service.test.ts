@@ -5,9 +5,9 @@ import {
   GraphQLSitemapServiceConfig,
   languageError,
 } from './graphql-sitemap-service';
-import sitemapDefaultQueryResult from '../testData/sitemapDefaultQueryResult.json';
-import sitemapPersonalizeQueryResult from '../testData/sitemapPersonalizeQueryResult.json';
-import sitemapServiceResult from '../testData/sitemapServiceResult';
+import sitemapDefaultQueryResult from '../test-data/sitemapDefaultQueryResult.json';
+import sitemapPersonalizeQueryResult from '../test-data/sitemapPersonalizeQueryResult.json';
+import sitemapServiceResult from '../test-data/sitemapServiceResult';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss/graphql';
 
 class TestService extends GraphQLSitemapService {
