@@ -1,19 +1,18 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import Styleguide from './screens/Styleguide';
-import Home from './screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-react-native';
+import componentFactory from './temp/componentFactory';
+import Screen from './Screen';
 
-const Navigator = createStackNavigator(
-  {
-    Home: { screen: Home },
-    Styleguide: { screen: Styleguide },
-  },
-  {
-    initialRouteName: 'Home',
-    headerMode: 'none',
-  }
+const Stack = createStackNavigator();
+
+export default () => (
+  <SitecoreContext componentFactory={componentFactory}>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="/" component={Screen} options={{ headerShown: false }} />
+        <Stack.Screen name="/styleguide" component={Screen} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  </SitecoreContext>
 );
-
-const AppNavigator = createAppContainer(Navigator);
-
-export default AppNavigator;

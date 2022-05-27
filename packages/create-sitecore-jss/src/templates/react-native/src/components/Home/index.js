@@ -9,9 +9,9 @@ const Home = ({ fields, copyright, navigation }) => (
     <View style={styles.body}>
       <Text style={styles.title} field={fields.title} />
       <Text
-        onPress={() => navigation.navigate('Styleguide')}
+        onPress={() => navigation.navigate(fields.styleguideLink.value)}
         style={styles.styleguideLink}
-        field={fields.styleguideLink}
+        field={fields.styleguideLinkTitle}
       />
       <RichText field={fields.text} stylesheet={richTextStyles}>
         {fields.text.editable}

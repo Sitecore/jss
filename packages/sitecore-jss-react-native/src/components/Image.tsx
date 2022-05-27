@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image as NativeImage, ImageSourcePropType } from 'react-native';
-import SvgUri from 'react-native-svg-uri';
+import { Image as NativeImage, ImageSourcePropType, ImageURISource } from 'react-native';
+import { SvgUri } from 'react-native-svg';
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
-
 export interface ImageFieldValue {
   /** HTML attributes that will be appended to the rendered <img /> tag. */
   [attributeName: string]: unknown;
@@ -123,7 +122,11 @@ export const Image: React.SFC<ImageProps> = ({ media, imageUrlParams, field, ...
 
   const attrs = getImageAttrs({ ...(img as ImageFieldValue), ...otherProps }, imageUrlParams);
 
-  if (attrs && isSvgImage(attrs.source as ImageSourcePropType)) return <SvgUri {...attrs} />;
+  if (attrs && isSvgImage(attrs.source as ImageSourcePropType)) {
+    const uri = (attrs.source as ImageURISource).uri || (attrs.source as string);
+
+    return <SvgUri {...attrs} uri={uri} />;
+  };
 
   if (attrs) return <NativeImage {...attrs} source={attrs.source as ImageSourcePropType} />;
 

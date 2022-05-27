@@ -1,0 +1,1061 @@
+{
+  "templates": [
+    {
+      "name": "<%- helper.getAppPrefix(appPrefix, appName) %>App Route",
+      "fields": [
+        {
+          "name": "pageTitle",
+          "displayName": "Page Title",
+          "section": "Page Metadata",
+          "type": "Single-Line Text"
+        }
+      ],
+      "insertOptions": [
+        "<%- helper.getAppPrefix(appPrefix, appName) %>App Route"
+      ],
+      "route": false,
+      "defaultRoute": true
+    },
+    {
+      "name": "Styleguide-ContentList-Item-Template",
+      "fields": [
+        {
+          "name": "textField",
+          "type": "Single-Line Text"
+        }
+      ],
+      "route": false,
+      "defaultRoute": false
+    },
+    {
+      "name": "Styleguide-Explanatory-Component",
+      "id": "styleguide-explanatory-component-template",
+      "fields": [
+        {
+          "name": "heading",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "description",
+          "type": "Rich Text"
+        }
+      ],
+      "route": false,
+      "defaultRoute": false
+    },
+    {
+      "name": "Styleguide-ItemLink-Item-Template",
+      "fields": [
+        {
+          "name": "textField",
+          "type": "Single-Line Text"
+        }
+      ],
+      "route": false,
+      "defaultRoute": false,
+      "allFields": [
+        {
+          "name": "textField",
+          "type": "Single-Line Text"
+        }
+      ]
+    },
+    {
+      "name": "Home",
+      "displayName": "Home",
+      "fields": [
+        {
+          "name": "styleguideLink",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "styleguideLinkTitle",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "title",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "text",
+          "type": "Rich Text"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "styleguideLink",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "styleguideLinkTitle",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "title",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "text",
+          "type": "Rich Text"
+        }
+      ]
+    },
+    {
+      "name": "Styleguide-ComponentParams",
+      "icon": "Office/16x16/window_dialog.png",
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": []
+    },
+    {
+      "name": "Styleguide-FieldUsage-Checkbox",
+      "icon": "Office/16x16/checkbox_selected.png",
+      "fields": [
+        {
+          "name": "checkbox",
+          "type": "Checkbox"
+        },
+        {
+          "name": "checkbox2",
+          "type": "Checkbox"
+        }
+      ],
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "checkbox",
+          "type": "Checkbox"
+        },
+        {
+          "name": "checkbox2",
+          "type": "Checkbox"
+        }
+      ]
+    },
+    {
+      "name": "Styleguide-FieldUsage-Custom",
+      "icon": "Office/16x16/gearwheel.png",
+      "fields": [
+        {
+          "name": "customIntField",
+          "type": "Integer"
+        }
+      ],
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "customIntField",
+          "type": "Integer"
+        }
+      ]
+    },
+    {
+      "name": "Styleguide-FieldUsage-Date",
+      "icon": "Office/16x16/clock.png",
+      "fields": [
+        {
+          "name": "date",
+          "type": "Date"
+        },
+        {
+          "name": "dateTime",
+          "type": "Datetime"
+        }
+      ],
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "date",
+          "type": "Date"
+        },
+        {
+          "name": "dateTime",
+          "type": "Datetime"
+        }
+      ]
+    },
+    {
+      "name": "Styleguide-FieldUsage-Image",
+      "icon": "Office/16x16/photo_portrait.png",
+      "fields": [
+        {
+          "name": "sample1",
+          "type": "Image"
+        },
+        {
+          "name": "sample2",
+          "type": "Image"
+        }
+      ],
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sample1",
+          "type": "Image"
+        },
+        {
+          "name": "sample2",
+          "type": "Image"
+        }
+      ]
+    },
+    {
+      "name": "Styleguide-FieldUsage-ItemLink",
+      "icon": "Office/16x16/link.png",
+      "fields": [
+        {
+          "name": "sharedItemLink",
+          "type": "Droptree",
+          "source": "dataSource=/sitecore/content/react-native-app/Content/Styleguide/ItemLinkField"
+        },
+        {
+          "name": "localItemLink",
+          "type": "Droptree"
+        }
+      ],
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ]
+    },
+    {
+      "name": "Styleguide-FieldUsage-Link",
+      "icon": "Office/16x16/link.png",
+      "fields": [
+        {
+          "name": "externalLink",
+          "type": "General Link"
+        },
+        {
+          "name": "emailLink",
+          "type": "General Link"
+        }
+      ],
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "externalLink",
+          "type": "General Link"
+        },
+        {
+          "name": "emailLink",
+          "type": "General Link"
+        }
+      ]
+    },
+    {
+      "name": "Styleguide-FieldUsage-Number",
+      "icon": "Office/16x16/numbers_field.png",
+      "fields": [
+        {
+          "name": "sample1",
+          "type": "Number"
+        },
+        {
+          "name": "sample2",
+          "type": "Number"
+        }
+      ],
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sample1",
+          "type": "Number"
+        },
+        {
+          "name": "sample2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "name": "Styleguide-FieldUsage-RichText",
+      "icon": "Office/16x16/text_field.png",
+      "fields": [
+        {
+          "name": "sample",
+          "type": "Rich Text"
+        },
+        {
+          "name": "sample2",
+          "displayName": "Customize Name Shown in Sitecore",
+          "required": true,
+          "type": "Rich Text"
+        }
+      ],
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sample",
+          "type": "Rich Text"
+        },
+        {
+          "name": "sample2",
+          "displayName": "Customize Name Shown in Sitecore",
+          "required": true,
+          "type": "Rich Text"
+        }
+      ]
+    },
+    {
+      "name": "Styleguide-FieldUsage-Text",
+      "icon": "Office/16x16/text.png",
+      "fields": [
+        {
+          "name": "sample",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "displayName": "Customize Name Shown in Sitecore",
+          "required": true,
+          "type": "Single-Line Text"
+        }
+      ],
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sample",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "sample2",
+          "displayName": "Customize Name Shown in Sitecore",
+          "required": true,
+          "type": "Single-Line Text"
+        }
+      ]
+    },
+    {
+      "name": "Styleguide-Layout-Tabs-Tab",
+      "icon": "Office/16x16/tab_pane.png",
+      "fields": [
+        {
+          "name": "title",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "content",
+          "type": "Rich Text"
+        }
+      ],
+      "allFields": [
+        {
+          "name": "title",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "content",
+          "type": "Rich Text"
+        }
+      ]
+    },
+    {
+      "name": "Styleguide-Layout-Tabs",
+      "icon": "Office/16x16/document_tag.png",
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": []
+    },
+    {
+      "name": "Styleguide-Multilingual",
+      "icon": "Office/16x16/flag_generic.png",
+      "fields": [
+        {
+          "name": "sample",
+          "type": "Single-Line Text",
+          "displayName": "This field has a translated value"
+        }
+      ],
+      "inherits": [
+        "styleguide-explanatory-component-template"
+      ],
+      "allFields": [
+        {
+          "name": "sample",
+          "type": "Single-Line Text",
+          "displayName": "This field has a translated value"
+        }
+      ]
+    },
+    {
+      "name": "Welcome",
+      "displayName": "Welcome",
+      "fields": [
+        {
+          "name": "title",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "text",
+          "type": "Rich Text"
+        },
+        {
+          "name": "logoImage",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "placeholders": [
+    {
+      "name": "<%- helper.getAppPrefix(appPrefix, appName) %>jss-main",
+      "displayName": "Main"
+    },
+    {
+      "name": "<%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs",
+      "displayName": "Tabs",
+      "id": "tabs-placeholder"
+    },
+    {
+      "name": "jss-main"
+    },
+    {
+      "name": "jss-tabs"
+    },
+    {}
+  ],
+  "appName": "react-native-app",
+  "language": "en",
+  "renderings": [
+    {
+      "name": "Home",
+      "displayName": "Home",
+      "exposedPlaceholders": [
+        "jss-main"
+      ],
+      "dataSourceTemplate": "Home"
+    },
+    {
+      "name": "Styleguide-ComponentParams",
+      "icon": "Office/16x16/window_dialog.png",
+      "params": [
+        {
+          "name": "cssClass",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "columns",
+          "type": "Single-Line Text"
+        },
+        {
+          "name": "useCallToAction",
+          "type": "Single-Line Text"
+        }
+      ],
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-ComponentParams"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Checkbox",
+      "icon": "Office/16x16/checkbox_selected.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-FieldUsage-Checkbox"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Custom",
+      "icon": "Office/16x16/gearwheel.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-FieldUsage-Custom"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Date",
+      "icon": "Office/16x16/clock.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-FieldUsage-Date"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Image",
+      "icon": "Office/16x16/photo_portrait.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-FieldUsage-Image"
+    },
+    {
+      "name": "Styleguide-FieldUsage-ItemLink",
+      "icon": "Office/16x16/link.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-FieldUsage-ItemLink"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Link",
+      "icon": "Office/16x16/link.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-FieldUsage-Link"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Number",
+      "icon": "Office/16x16/numbers_field.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-FieldUsage-Number"
+    },
+    {
+      "name": "Styleguide-FieldUsage-RichText",
+      "icon": "Office/16x16/text_field.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-FieldUsage-RichText"
+    },
+    {
+      "name": "Styleguide-FieldUsage-Text",
+      "icon": "Office/16x16/text.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-FieldUsage-Text"
+    },
+    {
+      "name": "Styleguide-Layout-Tabs-Tab",
+      "icon": "Office/16x16/tab_pane.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-Layout-Tabs-Tab"
+    },
+    {
+      "name": "Styleguide-Layout-Tabs",
+      "icon": "Office/16x16/document_tag.png",
+      "exposedPlaceholders": [
+        "jss-tabs"
+      ],
+      "dataSourceTemplate": "Styleguide-Layout-Tabs"
+    },
+    {
+      "name": "Styleguide-Multilingual",
+      "icon": "Office/16x16/flag_generic.png",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Styleguide-Multilingual"
+    },
+    {
+      "name": "Welcome",
+      "displayName": "Welcome",
+      "exposedPlaceholders": [],
+      "dataSourceTemplate": "Welcome"
+    }
+  ],
+  "wipeExisting": false,
+  "items": {
+    "routes": [
+      {
+        "id": "home",
+        "name": "home",
+        "layout": {
+          "renderings": [
+            {
+              "renderingName": "Home",
+              "placeholderKey": "/jss-main",
+              "placeholderName": "jss-main",
+              "dataSource": {
+                "name": "home-jss-main-Home-1",
+                "displayName": "Home-1",
+                "template": "Home",
+                "fields": [
+                  {
+                    "name": "title",
+                    "value": "Welcome to Sitecore JSS"
+                  },
+                  {
+                    "name": "styleguideLinkTitle",
+                    "value": "Styleguide"
+                  },
+                  {
+                    "name": "styleguideLink",
+                    "value": "/styleguide"
+                  },
+                  {
+                    "name": "text",
+                    "value": "<p>From a single connected platform that also integrates with other customer-facing platforms, to a single view of the customer in a big data marketing repository, to completely eliminating much of the complexity that has previously held marketers back, the latest version of Sitecore makes customer experience highly achievable. Learn how the latest version of Sitecore gives marketers the complete data, integrated tools, and automation capabilities to engage customers throughout an iterative lifecycle – the technology foundation absolutely necessary to win customers for life.</p><p>For further information, please go to the <a href=\\\"https://doc.sitecore.net/\\\" target=\\\"_blank\\\" title=\\\"Sitecore Documentation site\\\">Sitecore Documentation site</a></p>"
+                  }
+                ]
+              },
+              "renderingParams": [],
+              "uid": "{D959A638-FC08-5986-B2B7-81B22EAB4ED9}"
+            }
+          ],
+          "placeholders": [
+            "jss-main"
+          ]
+        },
+        "fields": [
+          {
+            "name": "pageTitle",
+            "value": "Welcome to Sitecore JSS"
+          }
+        ],
+        "children": [
+          {
+            "name": "styleguide",
+            "layout": {
+              "renderings": [
+                {
+                  "renderingName": "Styleguide-FieldUsage-Text",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-FieldUsage-Text-1",
+                    "displayName": "Styleguide-FieldUsage-Text-1",
+                    "template": "Styleguide-FieldUsage-Text",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Single-Line Text"
+                      },
+                      {
+                        "name": "sample",
+                        "value": "This is a sample text field."
+                      },
+                      {
+                        "name": "sample2",
+                        "value": "This is another sample text field using rendering options. Cannot edit because editable=false."
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{5E1011F2-370A-56E8-9BC9-477471F86398}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Text",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-FieldUsage-Text-2",
+                    "displayName": "Styleguide-FieldUsage-Text-2",
+                    "template": "Styleguide-FieldUsage-Text",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Multi-Line Text"
+                      },
+                      {
+                        "name": "sample",
+                        "value": "This is a sample text field."
+                      },
+                      {
+                        "name": "sample2",
+                        "value": "This is another sample text field using rendering options. Cannot edit because editable=false."
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{D38B737C-D785-5956-B6D6-746B1BF4AFCE}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-RichText",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-FieldUsage-RichText-3",
+                    "displayName": "Styleguide-FieldUsage-RichText-3",
+                    "template": "Styleguide-FieldUsage-RichText",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Rich Text"
+                      },
+                      {
+                        "name": "sample",
+                        "value": "<p>This is a sample rich text field. <mark>HTML is always supported.</mark> In Sitecore, editors will see a WYSIWYG editor for these fields.</p>"
+                      },
+                      {
+                        "name": "sample2",
+                        "value": "<p>Another sample rich text field, using options. Keep markup entered in rich text fields as simple as possible - ideally bare tags only (no classes). Adding a wrapping class can help with styling within rich text blocks.</p><p>But you can use any valid HTML in a rich text field!</p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{0DBF7766-07E9-5952-8B76-48C56CC82C7C}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Image",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-FieldUsage-Image-4",
+                    "displayName": "Styleguide-FieldUsage-Image-4",
+                    "template": "Styleguide-FieldUsage-Image",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Image"
+                      },
+                      {
+                        "name": "sample1",
+                        "value": {
+                          "src": "/data/media/img/sc_logo.png",
+                          "alt": "Sitecore Logo"
+                        }
+                      },
+                      {
+                        "name": "sample2",
+                        "value": {
+                          "src": "/data/media/img/jss_logo.png",
+                          "alt": "Sitecore JSS Logo"
+                        }
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{788C9291-49C0-5603-968D-666B8A4C7BE3}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Number",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-FieldUsage-Number-5",
+                    "displayName": "Styleguide-FieldUsage-Number-5",
+                    "template": "Styleguide-FieldUsage-Number",
+                    "fields": [
+                      {
+                        "name": "description",
+                        "value": "Number tells Sitecore to use a number entry for editing."
+                      },
+                      {
+                        "name": "heading",
+                        "value": "Number"
+                      },
+                      {
+                        "name": "sample1",
+                        "value": 1.2
+                      },
+                      {
+                        "name": "sample2",
+                        "value": 23
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{D98B247D-0A98-5D3B-9312-AC09D21D44D8}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Checkbox",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-FieldUsage-Checkbox-6",
+                    "displayName": "Styleguide-FieldUsage-Checkbox-6",
+                    "template": "Styleguide-FieldUsage-Checkbox",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Checkbox"
+                      },
+                      {
+                        "name": "description",
+                        "value": "Note: Sitecore does not support inline editing of Checkbox fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected."
+                      },
+                      {
+                        "name": "checkbox",
+                        "value": true
+                      },
+                      {
+                        "name": "checkbox2",
+                        "value": false
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{1A41151E-3B69-5058-8F08-53535535F9F3}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Date",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-FieldUsage-Date-7",
+                    "displayName": "Styleguide-FieldUsage-Date-7",
+                    "template": "Styleguide-FieldUsage-Date",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Date"
+                      },
+                      {
+                        "name": "description",
+                        "value": "Both Date and DateTime field types are available. Choosing DateTime will make Sitecore show editing UI for time; both types store complete date and time values internally. Date values in JSS are formatted using<a href=\"https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations\" target=\"_blank\">ISO 8601 formatted strings</a>for example 2012-04-23T18: 25: 43.511Z. Note: this is a JavaScript date format(e.g. new Date().toISOString()), and is different from how Sitecore stores date field values internally. Sitecore-formatted dates will not work."
+                      },
+                      {
+                        "name": "date",
+                        "value": "2012-05-04T00:00:00Z"
+                      },
+                      {
+                        "name": "dateTime",
+                        "value": "2018-03-14T15:00:00Z"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{1916836B-9D57-5B4A-BA84-C2F9DDD62C1E}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Link",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-FieldUsage-Link-8",
+                    "displayName": "Styleguide-FieldUsage-Link-8",
+                    "template": "Styleguide-FieldUsage-Link",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "General Link"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p>A <em>General Link</em> is a field that represents a Link tag.</p>"
+                      },
+                      {
+                        "name": "externalLink",
+                        "value": {
+                          "href": "https://www.sitecore.com",
+                          "text": "Link to Sitecore"
+                        }
+                      },
+                      {
+                        "name": "emailLink",
+                        "value": {
+                          "href": "mailto:foo@bar.com",
+                          "text": "Send an Email"
+                        }
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{00DE27CE-57AA-5345-B74B-1D1719486386}"
+                },
+                {
+                  "renderingName": "Styleguide-FieldUsage-Custom",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-FieldUsage-Custom-9",
+                    "displayName": "Styleguide-FieldUsage-Custom-9",
+                    "template": "Styleguide-FieldUsage-Custom",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Custom Fields"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p><small>Any Sitecore field type can be consumed by JSS. In this sample we consume the <em>Integer</em> field type.<br /><strong>Note:</strong> For field types with complex data, custom <code>FieldSerializer</code>s may need to be implemented on the Sitecore side.</small></p>"
+                      },
+                      {
+                        "name": "customIntField",
+                        "value": 31337
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{9EF26EA3-71F6-54C1-A5EC-BC990179C8CC}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout-Tabs",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-Layout-Tabs-10",
+                    "displayName": "Styleguide-Layout-Tabs-10",
+                    "template": "Styleguide-Layout-Tabs",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Tabs"
+                      },
+                      {
+                        "name": "description",
+                        "value": "<p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{686A3C89-896B-52E3-9F53-DCDF07969006}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout-Tabs-Tab",
+                  "placeholderKey": "/jss-main/jss-tabs-{686A3C89-896B-52E3-9F53-DCDF07969006}-0",
+                  "placeholderName": "jss-tabs",
+                  "dataSource": {
+                    "name": "styleguide-jss-tabs-686A3C89-896B-52E3-9F53-DCDF07969006-0-Styleguide-Layout-Tabs-Tab-1",
+                    "displayName": "Styleguide-Layout-Tabs-Tab-1",
+                    "template": "Styleguide-Layout-Tabs-Tab",
+                    "fields": [
+                      {
+                        "name": "title",
+                        "value": "Tab 1"
+                      },
+                      {
+                        "name": "content",
+                        "value": "Tab 1 super content!"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{B7D31FEF-6B52-5EA7-B8EC-EB55177242D5}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout-Tabs-Tab",
+                  "placeholderKey": "/jss-main/jss-tabs-{686A3C89-896B-52E3-9F53-DCDF07969006}-0",
+                  "placeholderName": "jss-tabs",
+                  "dataSource": {
+                    "name": "styleguide-jss-tabs-686A3C89-896B-52E3-9F53-DCDF07969006-0-Styleguide-Layout-Tabs-Tab-2",
+                    "displayName": "Styleguide-Layout-Tabs-Tab-2",
+                    "template": "Styleguide-Layout-Tabs-Tab",
+                    "fields": [
+                      {
+                        "name": "title",
+                        "value": "Tab 2"
+                      },
+                      {
+                        "name": "content",
+                        "value": "Tab 2 low content!"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{E7246CF0-F257-586C-9D50-C8F7110CE5C2}"
+                },
+                {
+                  "renderingName": "Styleguide-Layout-Tabs-Tab",
+                  "placeholderKey": "/jss-main/jss-tabs-{686A3C89-896B-52E3-9F53-DCDF07969006}-0",
+                  "placeholderName": "jss-tabs",
+                  "dataSource": {
+                    "name": "styleguide-jss-tabs-686A3C89-896B-52E3-9F53-DCDF07969006-0-Styleguide-Layout-Tabs-Tab-3",
+                    "displayName": "Styleguide-Layout-Tabs-Tab-3",
+                    "template": "Styleguide-Layout-Tabs-Tab",
+                    "fields": [
+                      {
+                        "name": "title",
+                        "value": "Tab 3"
+                      },
+                      {
+                        "name": "content",
+                        "value": "Tab 3 medium content!"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{A27BF1CC-A0A4-50E9-B20C-EA7B025950C8}"
+                },
+                {
+                  "renderingName": "Styleguide-ComponentParams",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-ComponentParams-11",
+                    "displayName": "Styleguide-ComponentParams-11",
+                    "template": "Styleguide-ComponentParams",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Component Params"
+                      },
+                      {
+                        "name": "description",
+                        "value": "Component params (also called Rendering Parameters) allow storing non-content parameters for a component. These params should be used for more technical options such as CSS class names or structural settings."
+                      }
+                    ]
+                  },
+                  "renderingParams": [
+                    {
+                      "name": "cssClass",
+                      "value": "firstParagraph"
+                    },
+                    {
+                      "name": "columns",
+                      "value": 5
+                    },
+                    {
+                      "name": "useCallToAction",
+                      "value": true
+                    }
+                  ],
+                  "uid": "{45033E04-BA89-584E-A0EB-119D8D172D18}"
+                },
+                {
+                  "renderingName": "Styleguide-Multilingual",
+                  "placeholderKey": "/jss-main",
+                  "placeholderName": "jss-main",
+                  "dataSource": {
+                    "name": "styleguide-jss-main-Styleguide-Multilingual-12",
+                    "displayName": "Styleguide-Multilingual-12",
+                    "template": "Styleguide-Multilingual",
+                    "fields": [
+                      {
+                        "name": "heading",
+                        "value": "Translation Patterns"
+                      },
+                      {
+                        "name": "sample",
+                        "value": "This text can be translated in en.yml"
+                      }
+                    ]
+                  },
+                  "renderingParams": [],
+                  "uid": "{AF03EAA5-BA8A-595C-B872-C051579BA926}"
+                }
+              ],
+              "placeholders": [
+                "jss-main",
+                "jss-tabs"
+              ]
+            },
+            "fields": [
+              {
+                "name": "pageTitle",
+                "value": "Styleguide | Sitecore JSS"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nonRoutes": [
+      {
+        "name": "Content",
+        "displayName": "Content",
+        "template": "Folder",
+        "children": [
+          {
+            "name": "Styleguide",
+            "displayName": "Styleguide",
+            "template": "Folder",
+            "children": [
+              {
+                "name": "ItemLinkField",
+                "displayName": "ItemLinkField",
+                "template": "Folder",
+                "children": [
+                  {
+                    "id": "styleguide-item-link-field-shared-1",
+                    "displayName": "Styleguide Item Link Item 1 (Shared)",
+                    "template": "Styleguide-ItemLink-Item-Template",
+                    "fields": [
+                      {
+                        "name": "textField",
+                        "value": "ItemLink Demo (Shared) Item 1 Text Field"
+                      }
+                    ],
+                    "name": "Item1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "dictionary": []
+}

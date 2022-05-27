@@ -18,6 +18,10 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
     // Don't use babel-jest here, related issue:
     // https://github.com/facebook/react-native/issues/19859#issuecomment-407748189
-    '^.+\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js',
+    '^.+\\.js?$': 'babel-jest',
+  },
+  moduleNameMapper: {
+    // Jest can't resolve `@babel/runtime` when use linked packages
+    '^@babel/runtime/(.*)$': '<rootDir>/node_modules/@babel/runtime/$1',
   },
 };

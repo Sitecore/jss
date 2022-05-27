@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import PropTypes from 'prop-types';
-import HtmlView from 'react-native-htmlview';
+import { Dimensions } from 'react-native';
+import RenderHtml from 'react-native-render-html';
 import { Text, View, Linking, TouchableWithoutFeedback } from 'react-native';
 
 export interface LinkFieldValue {
@@ -68,7 +69,13 @@ export const Link: React.FunctionComponent<LinkProps> = ({
     // because the innerHTML is not parsed - it'd make a discontinuous vDOM. So, we'll go for the next best compromise of rendering the link field and children separately
     // as siblings. Should be "good enough" for most cases - and write your own helper if it isn't. Or bring xEditor out of 2006.
 
-    resultTags.push(<HtmlView value={markup} />);
+    resultTags.push(
+      <RenderHtml
+        contentWidth={Dimensions.get('window').width}
+        source={{ html: markup }}
+        {...otherProps}
+      />
+    );
 
     // don't render normal link tag when editing, if no children exist
     // this preserves normal-ish behavior if not using a link body (no hacks required)

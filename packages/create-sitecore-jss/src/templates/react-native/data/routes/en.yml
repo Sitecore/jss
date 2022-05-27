@@ -1,0 +1,31 @@
+# This is a route layout definition.
+# The route definition defines which Sitecore components are present on a route,
+# what their content data is, and which _placeholder_ they are placed in.
+
+# This particular route definition is for the home route - '/', so it defines the
+# components shown on the initial page of the app.
+
+# You may use equivalent JSON files instead of YAML if you prefer;
+# however YAML is simpler to read and allows comments like this one :)
+
+# Setting an ID is optional, but it will allow referring to this item in internal links
+# the ID can be a app-wide-unique string, or a GUID value.
+id: home
+
+# Route-level fields are appropriate for page level data like <title> contents
+# Define route level fields in /sitecore/definitions/routes.sitecore
+fields:
+  pageTitle: Welcome to Sitecore JSS
+# Define the page layout starting at the root placeholder - in this case, '<%- helper.getAppPrefix(appPrefix, appName) %>main'
+# root placeholder names are defined in the package.json config section (required for Sitecore deployment)
+placeholders:
+  <%- helper.getAppPrefix(appPrefix, appName) %>jss-main:
+    - componentName: Home
+      fields:
+        title: Welcome to Sitecore JSS
+        styleguideLinkTitle: Styleguide
+        styleguideLink: /styleguide
+        # to author content in YAML, use _multi-line values_ (prefixed with | + endline)
+        # as long as the same indent is preserved at the beginning of each line, no escaping
+        # is required at all in the value, making it easy to read
+        text: <p>From a single connected platform that also integrates with other customer-facing platforms, to a single view of the customer in a big data marketing repository, to completely eliminating much of the complexity that has previously held marketers back, the latest version of Sitecore makes customer experience highly achievable. Learn how the latest version of Sitecore gives marketers the complete data, integrated tools, and automation capabilities to engage customers throughout an iterative lifecycle – the technology foundation absolutely necessary to win customers for life.</p><p>For further information, please go to the <a href=\"https://doc.sitecore.net/\" target=\"_blank\" title=\"Sitecore Documentation site\">Sitecore Documentation site</a></p>

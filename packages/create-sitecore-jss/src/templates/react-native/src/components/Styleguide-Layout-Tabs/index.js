@@ -32,7 +32,7 @@ const StyleguideLayoutTabs = ({ rendering, fields }) => {
     <StyleguideSpecimen rendering={rendering} fields={fields}>
       <Placeholder
         rendering={rendering}
-        name="jss-tabs"
+        name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs"
         render={render}
         renderEmpty={renderEmpty}
       />

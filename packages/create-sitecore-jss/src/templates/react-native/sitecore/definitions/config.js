@@ -3,11 +3,10 @@
 
 console.log('Enabling Babel transpilation for the manifest...');
 
-require('babel-core/register')({
+require('@babel/register')({
   presets: [
     [
-      // eslint-disable-next-line global-require
-      require('babel-preset-env'),
+      '@babel/preset-env',
       {
         targets: {
           node: 'current',
@@ -15,5 +14,4 @@ require('babel-core/register')({
       },
     ],
   ],
-  babelrc: false,
 });

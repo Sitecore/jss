@@ -1,3 +1,4 @@
+export { constants, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
   isEditorActive,
   resetEditorChromes,

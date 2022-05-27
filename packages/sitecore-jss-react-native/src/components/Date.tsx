@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text } from 'react-native';
-import HtmlView from 'react-native-htmlview';
+import { Dimensions } from 'react-native';
+import RenderHtml from 'react-native-render-html';
 
 export interface DateFieldProps {
   [htmlAttributes: string]: unknown;
@@ -30,7 +31,13 @@ export const DateField: React.FunctionComponent<DateFieldProps> = ({
   }
 
   if (field.editable && editable) {
-    return <HtmlView value={field.editable} {...otherProps} />;
+    return (
+      <RenderHtml
+        contentWidth={Dimensions.get('window').width}
+        source={{ html: field.editable }}
+        {...otherProps}
+      />
+    );
   }
 
   let children;

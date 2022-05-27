@@ -1,44 +1,91 @@
-import { addRoute, mergeFs } from '@sitecore-jss/sitecore-jss-dev-tools';
+/* eslint-disable no-unused-vars */
+import path from 'path';
+import {
+  Manifest,
+  RouteDefinition,
+  CommonFieldTypes,
+  mergeFs,
+  MergeFsResult,
+} from '@sitecore-jss/sitecore-jss-dev-tools';
 
-// Collects the disconnected routes defined in data/routes into the manifest.
-// This file may be extended if you wish to store disconnected route data in some way other than the default,
-// or to preprocess the route data before it is sent to Sitecore to be ingested - for example to add fields to the route type.
+/* eslint-enable no-unused-vars */
+/* eslint-disable no-console */
 
-const convertToRoutes = ({ data, language }) => {
-  let result;
+/**
+ * Collects the disconnected routes defined in data/routes into the manifest.
+ * Invoked by convention (*.sitecore.js) when `jss manifest` is run.
+ * Alter this method if you wish to store disconnected route data in some way other than the default,
+ * or to preprocess the route data before it is sent to Sitecore to be ingested - for example to add fields to the route type.
+ * @param {Manifest} manifest The manifest instance to add routes to
+ * @returns {Promise}
+ */
+export default function addRoutesToManifest(manifest) {
+  // Configure the default route type for the app
+  // this lets us enable route-level data fields,
+  // which most apps will want for metadata like page titles, SEO metas, or OpenGraph.
+  // You can add additional non-default route types using `manifest.addRouteType()`,
+  // which routes can use by setting `template: YourCustomRouteTypeName` in their definition.
+  const appTemplateSection = 'Page Metadata';
 
-  const match = new RegExp(`^${language}\\.(yaml|yml|json)$`, 'i');
-  const file = data.files.find((f) => match.test(f.filename));
-  if (file && file.contents) {
-    // optional, for custom template: result.template = "Name Of Route Type Registered";
-    result = file.contents;
+  manifest.setDefaultRouteType({
+    name: '<%- helper.getAppPrefix(appPrefix, appName) %>App Route',
+    fields: [
+      {
+        name: 'pageTitle',
+        displayName: 'Page Title',
+        section: appTemplateSection,
+        type: CommonFieldTypes.SingleLineText,
+      },
+    ],
+    insertOptions: ['<%- helper.getAppPrefix(appPrefix, appName) %>App Route'],
+  });
+
+  return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)
+    .then((result) => convertToRoutes(result, manifest.language))
+    .then((routeData) => {
+      manifest.addRoute(routeData);
+    });
+}
+
+/**
+ * Maps filesystem data into manifest route data.
+ * This is where custom conventions regarding route data would go.
+ * @param {MergeFsResult} data Filesystem data (files and folders under current path)
+ * @param {string} language Language the manifest is being created in. Conventionally affects the expected filename.
+ * @returns {RouteDefinition}
+ */
+function convertToRoutes(data, language) {
+  let routeData;
+
+  // regex that matches the expected route file name
+  const routeFilePattern = new RegExp(`^${language}\\.(yaml|yml|json)$`, 'i');
+
+  // find the expected file in the list of files in the current folder
+  const routeFileData = data.files.find((f) => routeFilePattern.test(f.filename));
+
+  // parse the route data file contents
+  if (routeFileData && routeFileData.contents) {
+    routeData = routeFileData.contents;
+
+    if (!routeData.name) {
+      // no name = imply one from parent folder name
+      routeData.name = path.basename(path.dirname(routeFileData.path));
+      // special case for the home route item as its parent folder is 'routes'
+      if (routeData.name === 'routes') routeData.name = 'home';
+    }
   } else {
-    throw new Error(`Route data file not found: ${data.path}\\${language}.(yaml|yml|json)`);
+    console.warn(
+      `Route data file not found: ${data.path}\\${language}.(yaml|yml|json).
+The route will not be added to the manifest. Empty folders can cause this warning.`
+    );
   }
 
-  if (result && data.folders.length > 0) {
-    result.children = data.folders
-      .map((folder) => convertToRoutes({ data: folder, language }))
+  // recursively crawl child routes (folders)
+  if (routeData && data.folders.length > 0) {
+    routeData.children = data.folders
+      .map((folder) => convertToRoutes(folder, language))
       .filter((route) => route); // remove null results
   }
 
-  return result;
-};
-
-export default function(manifest) {
-  /*
-  optional: to add a custom route type with fields
-  manifest.addRouteType({
-    name: "My Special Route Type",
-    fields: [
-      { name: 'metaTitle', displayName: 'Meta Title', type: manifest.fieldTypes.singleLineText }
-    ]
-  });
-  then, set `result.template = "My Special Route Type"` in convertToRoutes() below
-  */
-  return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)
-    .then((result) => convertToRoutes({ data: result, language: manifest.language }))
-    .then((routeData) => {
-      addRoute(manifest, routeData);
-    });
+  return routeData;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
-import HtmlView from 'react-native-htmlview';
 import PropTypes from 'prop-types';
+import { Dimensions } from 'react-native';
+import RenderHtml from 'react-native-render-html';
 
 export interface RichTextProps {
   [htmlViewProps: string]: unknown;
@@ -18,7 +19,13 @@ export const RichText: React.SFC<RichTextProps> = ({ field, ...otherProps }) => 
 
   const htmlValue = field.editable ? field.editable : field.value;
 
-  return <HtmlView value={htmlValue as string} {...otherProps} />;
+  return (
+    <RenderHtml
+      contentWidth={Dimensions.get('window').width}
+      source={{ html: htmlValue }}
+      {...otherProps}
+    />
+  );
 };
 
 RichText.propTypes = {

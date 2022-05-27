@@ -10,12 +10,13 @@ export default function(manifest) {
   manifest.addComponent({
     name: 'Styleguide-FieldUsage-Checkbox',
     icon: SitecoreIcon.CheckboxSelected,
+    templateName: '<%- helper.getAppPrefix(appPrefix, appName) %>Styleguide-FieldUsage-Checkbox',
     fields: [
       { name: 'checkbox', type: CommonFieldTypes.Checkbox },
       { name: 'checkbox2', type: CommonFieldTypes.Checkbox },
     ],
     // inherit fields from another template (../templates/Styleguide-Explanatory-Component)
     // inheritance adds fields defined on the base template(s) implicitly to this component
-    inherits: ['styleguide-explanatory-component-template'],
+    inherits: ['<%- helper.getAppPrefix(appPrefix, appName) %>styleguide-explanatory-component-template'],
   });
 }

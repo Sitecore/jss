@@ -1,22 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<RichText /> should render editable value if present 1`] = `
-<View>
-  <Text
-    onLongPress={null}
-    onPress={null}
+<View
+  style={
+    Array [
+      Object {},
+      undefined,
+      undefined,
+    ]
+  }
+  testID="html"
+>
+  <View
+    style={
+      Array [
+        Object {},
+        undefined,
+        undefined,
+      ]
+    }
+    testID="body"
   >
-    <Text
+    <View
       style={
         Array [
-          null,
-          Object {},
+          Object {
+            "marginBottom": 14,
+            "marginTop": 14,
+          },
+          undefined,
+          undefined,
         ]
       }
+      testID="p"
     >
-      this value should be rendered ©
-    </Text>
-  </Text>
+      <Text
+        allowFontScaling={true}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "fontSize": 14,
+            },
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        this value should be rendered ©
+      </Text>
+    </View>
+  </View>
 </View>
 `;
 
@@ -27,63 +61,110 @@ exports[`<RichText /> should render nothing with missing field 1`] = `null`;
 exports[`<RichText /> should render other attributes with other props provided 1`] = `
 <View
   style={
-    Object {
-      "flex": 1,
-    }
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+      undefined,
+    ]
   }
+  testID="html"
 >
-  <Text
+  <View
     style={
       Array [
-        Object {
-          "fontSize": 22,
-        },
-        null,
+        Object {},
+        undefined,
+        undefined,
       ]
     }
-  >
-    value with 
-  </Text>
-  <Text
-    onLongPress={null}
-    onPress={null}
-    style={
-      Object {
-        "fontSize": 16,
-        "marginBottom": 10,
-      }
-    }
+    testID="body"
   >
     <Text
+      allowFontScaling={true}
+      selectable={false}
       style={
         Array [
           Object {
-            "fontSize": 22,
+            "fontSize": 14,
           },
-          Object {
-            "fontSize": 16,
-            "marginBottom": 10,
-          },
+          undefined,
+          undefined,
         ]
       }
     >
-      markup
+      value with
     </Text>
-  </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "marginBottom": 14,
+            "marginTop": 14,
+          },
+          undefined,
+          undefined,
+        ]
+      }
+      testID="p"
+    >
+      <Text
+        allowFontScaling={true}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "fontSize": 14,
+            },
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        markup
+      </Text>
+    </View>
+  </View>
 </View>
 `;
 
 exports[`<RichText /> should render value if editable is undefined 1`] = `
-<View>
-  <Text
+<View
+  style={
+    Array [
+      Object {},
+      undefined,
+      undefined,
+    ]
+  }
+  testID="html"
+>
+  <View
     style={
       Array [
-        null,
-        null,
+        Object {},
+        undefined,
+        undefined,
       ]
     }
+    testID="body"
   >
-    this value should be rendered
-  </Text>
+    <Text
+      allowFontScaling={true}
+      selectable={false}
+      style={
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      this value should be rendered
+    </Text>
+  </View>
 </View>
 `;

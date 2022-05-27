@@ -1,31 +1,31 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import { Image, Placeholder } from '@sitecore-jss/sitecore-jss-react-native';
-// eslint-disable-next-line
-import { images } from 'static-assets';
+import Constants from 'expo-constants';
+import { images } from '../assets/images';
 
 const styles = StyleSheet.create({
-  bgImage: {
-    width: null,
-  },
   logoImage: {
     margin: 20,
+    flex: 1,
+  },
+  layout: {
+    marginTop: Constants.statusBarHeight,
+    flex: 1,
   },
 });
 
-const Layout = ({ rendering, navigation, ...otherProps }) => (
-  <>
-    <ImageBackground
-      source={images['/assets/img/banner.jpg']}
-      style={styles.bgImage}
-      resizeMode="cover"
-    >
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Image media={{ src: images['/assets/img/sc_logo.svg'] }} style={styles.logoImage} />
-      </TouchableOpacity>
-    </ImageBackground>
-    <Placeholder name="jss-main" rendering={rendering} navigation={navigation} {...otherProps} />
-  </>
-);
+const Layout = ({ rendering, navigation, ...otherProps }) => {
+  return (
+    <View style={styles.layout}>
+      <ImageBackground source={images['/assets/img/banner.jpg']} resizeMode="cover">
+        <TouchableOpacity onPress={() => navigation.navigate('/')}>
+          <Image media={{ src: images['/assets/img/sc_logo.png'] }} style={styles.logoImage} />
+        </TouchableOpacity>
+      </ImageBackground>
+      <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={rendering} navigation={navigation} {...otherProps} />
+    </View>
+  );
+};
 
 export default Layout;
