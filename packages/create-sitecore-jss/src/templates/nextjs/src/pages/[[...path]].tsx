@@ -13,7 +13,8 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
-import { componentFactory } from 'temp/componentFactory';
+// different componentFactory method will be used based on whether page is being edited
+import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 <% } -%>
@@ -29,9 +30,14 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
     return <NotFound />;
   }
 
+  const isEditing = layoutData.sitecore.context.pageEditing;
+
   return (
     <ComponentPropsContext value={componentProps}>
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+      <SitecoreContext
+        componentFactory={isEditing ? editingComponentFactory : componentFactory}
+        layoutData={layoutData}
+      >
         <Layout layoutData={layoutData} />
       </SitecoreContext>
     </ComponentPropsContext>

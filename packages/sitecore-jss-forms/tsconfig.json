@@ -13,6 +13,6 @@
     "dist",
     "src/customTypes",
     "src/**/*.test.ts",
-    "src/testData/*.ts"
+    "src/test-data/*.ts"
   ]
 }

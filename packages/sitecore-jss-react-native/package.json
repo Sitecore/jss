@@ -1,10 +1,10 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react-native",
-  "version": "21.0.0-canary.74",
+  "version": "21.0.0-canary.83",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm run clean && npm run typecheck && babel src --out-dir dist --extensions \".ts,.tsx\" --ignore \"*.test.ts,*.test.js,testData,tests,__snapshots__\"",
+    "build": "npm run clean && npm run typecheck && babel src --out-dir dist --extensions \".ts,.tsx\" --ignore \"*.test.ts,*.test.js,test-data,tests,__snapshots__\"",
     "clean": "del-cli dist types",
     "typecheck": "tsc",
     "fixcrlf": "eslint --rule 'linebreak-style: [\"error\", \"unix\"]' --ext .ts --no-eslintrc --fix ./dist",
@@ -28,7 +28,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^21.0.0-canary.74",
+    "@sitecore-jss/sitecore-jss": "^21.0.0-canary.83",
     "prop-types": "^15.7.2",
     "react-native-htmlview": "^0.15.0",
     "react-native-svg": "^5.3.0",
@@ -69,5 +69,8 @@
     "babel-core": "6.26.3"
   },
   "types": "./types/index.d.ts",
-  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
+  "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
+  "files": [
+    "dist"
+  ]
 }

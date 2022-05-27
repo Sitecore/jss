@@ -1,6 +1,7 @@
 import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { useEffect } from 'react';
+import config from 'temp/config';
 
 declare const _boxeverq: { (): void }[];
 declare const Boxever: Boxever;
@@ -21,7 +22,8 @@ interface BoxeverViewEventArgs {
 
 function createPageView(locale: string, routeName: string) {
   // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const pointOfSale = process.env.CDP_POINTOFSALE || window.location.host.replace(/^www\./, '');
+  const pointOfSale =
+    process.env.NEXT_PUBLIC_CDP_POINTOFSALE || window.location.host.replace(/^www\./, '');
 
   _boxeverq.push(function () {
     const pageViewEvent: BoxeverViewEventArgs = {
@@ -44,7 +46,9 @@ function createPageView(locale: string, routeName: string) {
 }
 
 const CdpIntegrationScript = (): JSX.Element => {
-  const { pageEditing, route } = useSitecoreContext();
+  const {
+    sitecoreContext: { pageEditing, route },
+  } = useSitecoreContext();
 
   useEffect(() => {
     // Do not create events in editing mode
@@ -52,12 +56,12 @@ const CdpIntegrationScript = (): JSX.Element => {
       return;
     }
 
-    createPageView(route.itemLanguage, route.name);
+    route && createPageView(route.itemLanguage || config.defaultLanguage, route.name);
   });
 
   // Boxever is not needed during page editing
   if (pageEditing) {
-    return null;
+    <></>;
   }
 
   return (
@@ -70,14 +74,14 @@ const CdpIntegrationScript = (): JSX.Element => {
               var _boxeverq = _boxeverq || [];
 
               var _boxever_settings = {
-                  client_key: '${process.env.BOXEVER_CLIENT_KEY}',
-                  target: '${process.env.BOXEVER_TARGET_URL}',
+                  client_key: '${process.env.NEXT_PUBLIC_CDP_CLIENT_KEY}',
+                  target: '${process.env.NEXT_PUBLIC_CDP_TARGET_URL}',
                   cookie_domain: ''
               };
             `,
         }}
       />
-      <Script src={process.env.BOXEVER_SCRIPT_URL} />
+      <Script src={process.env.NEXT_PUBLIC_CDP_SCRIPT_URL} />
     </>
   );
 };

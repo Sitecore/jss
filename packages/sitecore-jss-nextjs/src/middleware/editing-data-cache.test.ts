@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { EditingData } from '../sharedTypes/editing-data';
 import { EditingDataDiskCache } from './editing-data-cache';
-import { data } from '../testData/editing-data';
+import { data } from '../test-data/editing-data';
 
 describe('EditingDataDiskCache', () => {
   it('should write/read editing data', () => {

@@ -9,5 +9,5 @@
     "declarationDir": "./types"
   },
   "exclude": ["src/test/*", "**/*.test.ts", "**/*.snap"],
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts", "global.d.ts"]
 }

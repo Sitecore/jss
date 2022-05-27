@@ -2,7 +2,7 @@ import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { generalLinkField as eeLinkData } from '../testData/ee-data';
+import { generalLinkField as eeLinkData } from '../test-data/ee-data';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
 

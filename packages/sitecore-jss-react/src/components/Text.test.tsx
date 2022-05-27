@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import { mount } from 'enzyme';
 
 import { Text, TextField } from './Text';
-import { textField as eeTextData } from '../testData/ee-data';
+import { textField as eeTextData } from '../test-data/ee-data';
 
 describe('<Text />', () => {
   it('should render nothing with missing field', () => {
