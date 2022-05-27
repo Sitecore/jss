@@ -3,6 +3,9 @@ const { constants } = require('@sitecore-jss/sitecore-jss-nextjs');
 const disconnectedServerUrl = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
 const isDisconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
 
+/**
+ * @param {import('next').NextConfig} nextConfig
+ */
 const disconnectedPlugin = (nextConfig = {}) => {
   if (!isDisconnected) {
     return nextConfig;
