@@ -139,12 +139,8 @@ export {
   withExperienceEditorChromes,
   withPlaceholder,
   withDatasourceCheck,
-} from '@sitecore-jss/sitecore-jss-react';
-
-export { ImageSizeParameters } from '@sitecore-jss/sitecore-jss-react/types/components/Image';
-
-export {
+  ImageSizeParameters,
   ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
-} from '@sitecore-jss/sitecore-jss-react/types/enhancers/withSitecoreContext';
+} from '@sitecore-jss/sitecore-jss-react';
