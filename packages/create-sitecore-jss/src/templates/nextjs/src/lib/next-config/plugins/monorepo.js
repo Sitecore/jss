@@ -5,6 +5,9 @@ const path = require('path');
 
 const CWD = process.cwd();
 
+/**
+ * @param {import('next').NextConfig} nextConfig
+ */
 const monorepoPlugin = (nextConfig = {}) => {
   return withTM(Object.assign({}, nextConfig, {
     webpack: (config, options) => {

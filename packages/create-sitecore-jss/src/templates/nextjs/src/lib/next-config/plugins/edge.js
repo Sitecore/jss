@@ -1,3 +1,6 @@
+/**
+ * @param {import('next').NextConfig} nextConfig
+ */
 const edgePlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
     webpack: (config, options) => {
@@ -6,7 +9,7 @@ const edgePlugin = (nextConfig = {}) => {
         // Point the Edge compiler in the right direction for 3rd-party module browser bundles.
 
         // debug
-        config.resolve.alias.debug = require.resolve('debug/src/browser');
+        config.resolve.alias['debug'] = require.resolve('debug/src/browser');
         
         // graphql-request
         config.resolve.alias['cross-fetch'] = require.resolve('cross-fetch/dist/browser-ponyfill');

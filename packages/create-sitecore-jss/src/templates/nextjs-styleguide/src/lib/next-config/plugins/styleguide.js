@@ -1,3 +1,6 @@
+/**
+ * @param {import('next').NextConfig} nextConfig
+ */
 const styleguidePlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
     i18n: {
