@@ -25,7 +25,7 @@ class ResponseError extends Error {
  * @param {HttpResponse<unknown>} response response from fetch
  * @returns {HttpResponse<unknown>} response
  */
-function checkStatus<T>(response: HttpResponse<T>) {
+export function checkStatus<T>(response: HttpResponse<T>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
