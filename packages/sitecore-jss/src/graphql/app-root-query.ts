@@ -40,7 +40,7 @@ export type AppRootQueryResult = {
  * @param {GraphQLClient} client that fetches data from a GraphQL endpoint.
  * @param {string} siteName the name of the Sitecore site.
  * @param {string} language the item language version.
- * @param {string} jssAppTemplateId optional template ID of the app root item. If not
+ * @param {string} [jssAppTemplateId] optional template ID of the app root item. If not
  * specified, the ID of the "/sitecore/templates/Foundation/JavaScript Services/App"
  * item is used.
  * @returns the root item ID of the JSS App in Sitecore. Returns null if the app root item is not found.

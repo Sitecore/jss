@@ -12,8 +12,8 @@ const mediaUrlPrefixRegex = /\/([-~]{1})\/media\//i;
 
 /**
  * Makes a request to Sitecore Content Service for the specified item path.
- * @param {string} editorMarkup The markup to parse
- * @returns {Object | null} found image tag
+ * @param {string} editorMarkup the markup to parse
+ * @returns {Object | null} found image tag; null in case if not found
  */
 export const findEditorImageTag = (editorMarkup: string) => {
   // match the tag

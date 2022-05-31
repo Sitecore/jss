@@ -22,7 +22,7 @@ class ResponseError extends Error {
 }
 
 /**
- * @param {HttpResponse<unknown>} response response from fetch
+ * @param {HttpResponse<T>} response response from fetch
  * @returns {HttpResponse<unknown>} response
  */
 export function checkStatus<T>(response: HttpResponse<T>) {
@@ -40,7 +40,7 @@ export function checkStatus<T>(response: HttpResponse<T>) {
  * @param {string} url url to fetch
  * @param {unknown[]} data data to send
  * @param {HttpDataFetcher<T>} fetcher data fetcher
- * @param {Object} params additional params to send
+ * @param {querystring.ParsedUrlQueryInput} params additional params to send
  */
 function fetchData<T>(
   url: string,
@@ -57,9 +57,9 @@ function fetchData<T>(
 }
 
 /**
- * resolve tracking endpoint url
- * @param {TrackingRequestOptions } options  options for the tracking service
- * @returns {string} url
+ * Resolve tracking endpoint url
+ * @param {TrackingRequestOptions} options options for the tracking service
+ * @returns {string} tracking api url
  */
 function resolveTrackingUrl(options: TrackingRequestOptions) {
   const { host = '', serviceUrl = '/sitecore/api/jss/track', action = 'event' } = options;
@@ -69,7 +69,7 @@ function resolveTrackingUrl(options: TrackingRequestOptions) {
 
 /**
  * Makes a request to Sitecore Layout Service for the specified route item path.
- * @param {Array<EventInstance | GoalInstance | OutcomeInstance | CampaignInstance | PageViewInstance>} events  events to send
+ * @param {Array<EventInstance | GoalInstance | OutcomeInstance | CampaignInstance | PageViewInstance>} events events to send
  * @param {TrackingRequestOptions} options options for the tracking service
  * @returns {Promise<void>} void
  */

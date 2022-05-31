@@ -19,7 +19,7 @@ export interface LayoutService {
 }
 
 /**
- * Fetch layout data for an item.
+ * Base abstraction to implement custom layout service
  */
 export abstract class LayoutServiceBase implements LayoutService {
   abstract fetchLayoutData(

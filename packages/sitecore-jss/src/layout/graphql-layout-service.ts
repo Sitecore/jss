@@ -49,8 +49,8 @@ export class GraphQLLayoutService extends LayoutServiceBase {
 
   /**
    * Fetch layout data for an item.
-   * @param {string} itemPath page route
-   * @param {string} [language] language code
+   * @param {string} itemPath item path to fetch layout data for.
+   * @param {string} [language] the language to fetch layout data for.
    * @returns {Promise<LayoutServiceData>} layout service data
    */
   async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {

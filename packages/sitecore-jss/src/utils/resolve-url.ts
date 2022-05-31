@@ -5,7 +5,7 @@ import { ParsedUrlQueryInput } from 'querystring';
  * note: encodeURIComponent is available via browser (window) or natively in node.js
  * if you use another js engine for server-side rendering you may not have native encodeURIComponent
  * and would then need to install a package for that functionality
- * @param {Object} params query string parameters
+ * @param {ParsedUrlQueryInput} params query string parameters
  * @returns {string} query string
  */
 function getQueryString(params: ParsedUrlQueryInput) {
@@ -18,7 +18,7 @@ function getQueryString(params: ParsedUrlQueryInput) {
  * Resolves a base URL that may contain query string parameters and an additional set of query
  * string parameters into a unified string representation.
  * @param {string} urlBase the base URL that may contain query string parameters
- * @param {Object} params query string parameters
+ * @param {ParsedUrlQueryInput} params query string parameters
  * @returns a URL string
  * @throws {RangeError} if the provided url is an empty string
  */

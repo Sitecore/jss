@@ -55,7 +55,7 @@ export class RestDictionaryService extends DictionaryServiceBase {
 
   /**
    * Fetch dictionary data for a language.
-   * @param {string} language the language to fetch
+   * @param {string} language the language to be used to fetch the dictionary
    * @returns {Promise<DictionaryPhrases>} dictionary phrases
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
@@ -77,8 +77,8 @@ export class RestDictionaryService extends DictionaryServiceBase {
 
   /**
    * Generate dictionary service url
-   * @param {string} language the language to fetch
-   * @returns {string} url
+   * @param {string} language the language to be used to fetch the dictionary
+   * @returns {string} dictionary service url
    */
   protected getUrl(language: string): string {
     return `${this.options.apiHost}/sitecore/api/jss/dictionary/${this.options.siteName}/${language}`;

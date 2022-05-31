@@ -52,7 +52,7 @@ export function checkStatus<T>(response: HttpResponse<T>) {
 /**
  * @param {string} url the URL to request; may include query string
  * @param {HttpDataFetcher} fetcher the fetcher to use to perform the request
- * @param {Object} params the query string parameters to send with the request
+ * @param {ParsedUrlQueryInput} params the query string parameters to send with the request
  */
 export function fetchData<T>(
   url: string,
