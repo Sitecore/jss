@@ -39,10 +39,12 @@ export const Default = (props: PageContentProps): JSX.Element => {
     );
   }
 
-  const field =
+  const field = (
     props.fields && props.fields.Content
       ? props.fields.Content
-      : sitecoreContext?.route?.fields?.Content;
+      : sitecoreContext?.route?.fields?.Content
+  ) as RichTextField;
+
   return (
     <ComponentContent styles={props.params.styles}>
       <JssRichText field={field} />
