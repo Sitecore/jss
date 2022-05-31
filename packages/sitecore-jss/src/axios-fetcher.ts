@@ -42,6 +42,9 @@ const isAxiosError = (error: unknown): error is AxiosError => {
   return (error as AxiosError).isAxiosError !== undefined;
 };
 
+/**
+ *  AxisoDataFetcher is a wrapper for axios library.
+ */
 export class AxiosDataFetcher {
   private instance: AxiosInstance;
 

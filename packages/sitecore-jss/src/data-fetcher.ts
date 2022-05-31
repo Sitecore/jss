@@ -25,7 +25,7 @@ export interface HttpResponse<T> {
  */
 export type HttpDataFetcher<T> = (url: string, data?: unknown) => Promise<HttpResponse<T>>;
 
-class ResponseError extends Error {
+export class ResponseError extends Error {
   response: HttpResponse<unknown>;
 
   constructor(message: string, response: HttpResponse<unknown>) {
@@ -37,10 +37,10 @@ class ResponseError extends Error {
 }
 
 /**
- * @param {HttpResponse<T>} response
+ * @param {HttpResponse<T>} response the response to check
  * @throws {ResponseError} if response code is not ok
  */
-function checkStatus<T>(response: HttpResponse<T>) {
+export function checkStatus<T>(response: HttpResponse<T>) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -50,9 +50,9 @@ function checkStatus<T>(response: HttpResponse<T>) {
 }
 
 /**
- * @param {string} url
- * @param {HttpDataFetcher} fetcher
- * @param {Object} params
+ * @param {string} url the URL to request; may include query string
+ * @param {HttpDataFetcher} fetcher the fetcher to use to perform the request
+ * @param {ParsedUrlQueryInput} params the query string parameters to send with the request
  */
 export function fetchData<T>(
   url: string,

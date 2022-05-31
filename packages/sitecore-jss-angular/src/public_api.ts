@@ -49,3 +49,12 @@ export {
   resetEditorChromes,
   handleEditorAnchors,
 } from '@sitecore-jss/sitecore-jss/utils';
+export {
+  trackingApi,
+  TrackingRequestOptions,
+  CampaignInstance,
+  GoalInstance,
+  OutcomeInstance,
+  EventInstance,
+  PageViewInstance,
+} from '@sitecore-jss/sitecore-jss/tracking';

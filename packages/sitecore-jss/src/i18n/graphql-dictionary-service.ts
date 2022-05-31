@@ -103,7 +103,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
    * Fetches dictionary data for internalization.
    * @param {string} language the language to fetch
    * @default query (@see query)
-   * @returns dictionary phrases
+   * @returns {Promise<DictionaryPhrases>} dictionary phrases
    * @throws {Error} if the app root was not found for the specified site and language.
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {

@@ -43,6 +43,12 @@ describe('findEditorImageTag', () => {
     const imgMatch = findEditorImageTag(editableField);
     expect(imgMatch?.attrs.lorem).to.equal('&><');
   });
+
+  it('should return null if no img tag is found', () => {
+    const editableField = '<input><code>no img tag</code></input>';
+    const imgMatch = findEditorImageTag(editableField);
+    expect(imgMatch).to.be.null;
+  });
 });
 
 describe('getRequiredParams', () => {

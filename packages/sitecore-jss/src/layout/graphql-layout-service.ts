@@ -30,12 +30,17 @@ export type GraphQLLayoutServiceConfig = {
   formatLayoutQuery?: (siteName: string, itemPath: string, locale?: string) => string;
 };
 
+/**
+ * Service that fetch layout data using Sitecore's GraphQL API.
+ * @augments LayoutServiceBase
+ * @mixes GraphQLRequestClient
+ */
 export class GraphQLLayoutService extends LayoutServiceBase {
   private graphQLClient: GraphQLClient;
 
   /**
    * Fetch layout data using the Sitecore GraphQL endpoint.
-   * @param {GraphQLLayoutServiceConfig} serviceConfig
+   * @param {GraphQLLayoutServiceConfig} serviceConfig configuration
    */
   constructor(public serviceConfig: GraphQLLayoutServiceConfig) {
     super();
@@ -44,8 +49,8 @@ export class GraphQLLayoutService extends LayoutServiceBase {
 
   /**
    * Fetch layout data for an item.
-   * @param {string} itemPath
-   * @param {string} [language]
+   * @param {string} itemPath item path to fetch layout data for.
+   * @param {string} [language] the language to fetch layout data for.
    * @returns {Promise<LayoutServiceData>} layout service data
    */
   async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
@@ -86,8 +91,9 @@ export class GraphQLLayoutService extends LayoutServiceBase {
    * Returns GraphQL Layout query
    * @param {string} itemPath page route
    * @param {string} [language] language
+   * @returns {string} GraphQL query
    */
-  protected getLayoutQuery(itemPath: string, language?: string) {
+  protected getLayoutQuery(itemPath: string, language?: string): string {
     const languageVariable = language ? `, language:"${language}"` : '';
 
     const layoutQuery = this.serviceConfig.formatLayoutQuery
