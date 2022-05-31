@@ -74,6 +74,13 @@
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
   "files": [
     "dist",
-    "typings"
+    "typings",
+    "/*.json",
+    "/*.d.ts",
+    "/*.js",
+    "/fesm2015",
+    "/esm2015",
+    "/bundles",
+    "/components"
   ]
 }
