@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ComponentRendering, trackingApi, TrackingRequestOptions } from '@sitecore-jss/sitecore-jss-angular';
+import {
+  ComponentRendering,
+  trackingApi,
+  TrackingRequestOptions,
+} from '@sitecore-jss/sitecore-jss-angular';
 import { environment } from '../../../environments/environment';
 import { JssDataFetcherService } from '../../jss-data-fetcher.service';
 
