@@ -23,7 +23,7 @@ export function getFieldValue<T>(
  * @param {ComponentRendering | Fields} renderingOrFields the rendering or fields object to extract the field from
  * @param {string} fieldName the name of the field to extract
  * @param {T} [defaultValue] the default value to return if the field is not defined
- * @returns {Field | Item[]} the field value or null if the field is not defined
+ * @returns {Field | T} the field value or the default value if the field is not defined
  */
 // eslint-disable-next-line no-redeclare
 export function getFieldValue<T>(
