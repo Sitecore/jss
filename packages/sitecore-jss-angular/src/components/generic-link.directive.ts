@@ -7,6 +7,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { isAbsoluteUrl } from '@sitecore-jss/sitecore-jss/utils';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
 
@@ -35,15 +36,15 @@ export class GenericLinkDirective extends LinkDirective {
 
     viewRef.rootNodes.forEach((node) => {
       Object.entries(props).forEach(([key, propValue]: [string, string]) => {
-        if (key === 'href' && !this.isAbsoluteUrl(propValue)) {
+        if (key === 'href' && !isAbsoluteUrl(propValue)) {
           const urlTree = this.router.createUrlTree([propValue], this.extras);
-          this.renderer.setAttribute(node, key, this.router.serializeUrl(urlTree));
+          this.updateAttribute(node, key, this.router.serializeUrl(urlTree));
           this.renderer.listen(node, 'click', (event) => {
             this.router.navigate([propValue], this.extras);
             event.preventDefault();
           });
         } else {
-          this.renderer.setAttribute(node, key, propValue);
+          this.updateAttribute(node, key, propValue);
         }
       });
 
@@ -51,16 +52,5 @@ export class GenericLinkDirective extends LinkDirective {
         node.textContent = linkText;
       }
     });
-  }
-
-  private isAbsoluteUrl(url?: unknown) {
-    if (url === null) {
-      return false;
-    }
-    if (typeof url !== 'string') {
-      throw new TypeError('Expected a string');
-    }
-
-    return /^[a-z][a-z0-9+.-]*:/.test(url);
   }
 }

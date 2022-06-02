@@ -341,3 +341,58 @@ describe('<a *scLink>children</a>', () => {
     });
   });
 });
+
+@Component({
+  selector: 'test-link-children',
+  template: `
+    <a *scLink="field" class="initialClass" id="my-link"></a>
+  `,
+})
+class TestWithClassComponent {
+  @Input() field: any;
+  @Input() editable = true;
+  @Input() attrs = {};
+}
+describe('<a *scLink class="class"></a>', () => {
+  let fixture: ComponentFixture<TestComponent>;
+  let de: DebugElement;
+  let comp: TestComponent;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [LinkDirective, TestWithClassComponent],
+    });
+
+    fixture = TestBed.createComponent(TestWithClassComponent);
+    de = fixture.debugElement;
+
+    comp = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should maintain the class when generating the link and class is not overwritten', () => {
+    const field = {
+      class: '',
+      href: '/lorem',
+      text: 'ipsum',
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.query(By.css('a'));
+    expect(rendered.nativeElement.getAttribute('class')).toBe('initialClass');
+  });
+
+  it('should merge the class when generating the link', () => {
+    const field = {
+      class: 'additionalClass',
+      href: '/lorem',
+      text: 'ipsum',
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.query(By.css('a'));
+    expect(rendered.nativeElement.getAttribute('class')).toBe('initialClass additionalClass');
+  });
+});
