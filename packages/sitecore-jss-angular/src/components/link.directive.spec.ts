@@ -385,7 +385,7 @@ describe('<a *scLink class="class"></a>', () => {
 
   it('should merge the class when generating the link', () => {
     const field = {
-      class: 'additionalClass',
+      class: 'extraClass',
       href: '/lorem',
       text: 'ipsum',
     };
@@ -393,6 +393,6 @@ describe('<a *scLink class="class"></a>', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.getAttribute('class')).toBe('initialClass additionalClass');
+    expect(rendered.nativeElement.getAttribute('class')).toBe('initialClass extraClass');
   });
 });
