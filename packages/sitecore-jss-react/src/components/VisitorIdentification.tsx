@@ -1,13 +1,10 @@
 import React from 'react';
-import { withSitecoreContext } from '../enhancers/withSitecoreContext';
-import { SitecoreContextValue } from './SitecoreContext';
-
-interface VIProps {
-  sitecoreContext: SitecoreContextValue;
-}
+import { useSitecoreContext } from '../enhancers/withSitecoreContext';
 
 let emittedVI = false;
-const VIComponent: React.FC<VIProps> = ({ sitecoreContext }) => {
+const VIComponent: React.FC = () => {
+  const { sitecoreContext } = useSitecoreContext();
+
   if (
     emittedVI ||
     typeof document === 'undefined' ||
@@ -36,4 +33,4 @@ const VIComponent: React.FC<VIProps> = ({ sitecoreContext }) => {
 
 VIComponent.displayName = 'VisitorIdentification';
 
-export const VisitorIdentification = withSitecoreContext()(VIComponent);
+export const VisitorIdentification = VIComponent;
