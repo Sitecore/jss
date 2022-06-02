@@ -24,12 +24,6 @@ describe('<div *scRichText />', () => {
   let de: DebugElement;
   let comp: TestComponent;
 
-  beforeAll(() => {
-    // prevent page reload when click on external link
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    window.onbeforeunload = () => {};
-  });
-
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [RichTextDirective, TestComponent],
@@ -117,22 +111,6 @@ describe('<div *scRichText />', () => {
     renderedLink.click();
     fixture.detectChanges();
     expect(router.navigateByUrl).toHaveBeenCalledWith('/lorem');
-  });
-
-  it('should not use routerLink if link is external', () => {
-    const field = {
-      value: '<a href="https://test">Click Me!</a>',
-    };
-    comp.field = field;
-    fixture.detectChanges();
-    const router: Router = TestBed.inject(Router);
-    spyOn(router, 'navigateByUrl');
-
-    const renderedLink = de.nativeElement.querySelector('a[href]');
-    expect(renderedLink.getAttribute('href')).toBe('https://test');
-    renderedLink.click();
-    fixture.detectChanges();
-    expect(router.navigateByUrl).not.toHaveBeenCalled();
   });
 
   it('should render ee HTML', () => {
