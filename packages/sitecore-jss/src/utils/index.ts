@@ -1,5 +1,5 @@
 export { default as isServer } from './is-server';
-export { default as resolveUrl, isAbsoluteUrl } from './resolve-url';
+export { resolveUrl, isAbsoluteUrl } from './utils';
 export {
   ExperienceEditor,
   HorizonEditor,

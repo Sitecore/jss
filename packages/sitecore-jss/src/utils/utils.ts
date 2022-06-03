@@ -22,7 +22,7 @@ function getQueryString(params: ParsedUrlQueryInput) {
  * @returns a URL string
  * @throws {RangeError} if the provided url is an empty string
  */
-function resolveUrl(urlBase: string, params: ParsedUrlQueryInput = {}): string {
+export function resolveUrl(urlBase: string, params: ParsedUrlQueryInput = {}): string {
   if (!urlBase) {
     throw new RangeError('url must be a non-empty string');
   }
@@ -58,5 +58,3 @@ export const isAbsoluteUrl = (url: string) => {
 
   return /^[a-z][a-z0-9+.-]*:/.test(url);
 };
-
-export default resolveUrl;

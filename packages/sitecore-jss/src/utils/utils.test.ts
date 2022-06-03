@@ -2,7 +2,7 @@
 import { expect, spy } from 'chai';
 import { isEditorActive, resetEditorChromes, isServer, resolveUrl } from '.';
 import { ChromeRediscoveryGlobalFunctionName } from './editing';
-import { isAbsoluteUrl } from './resolve-url';
+import { isAbsoluteUrl } from './utils';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
