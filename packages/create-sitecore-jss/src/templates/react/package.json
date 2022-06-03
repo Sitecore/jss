@@ -1,7 +1,7 @@
 {
   "name": "<%- appName %>",
   "description": "Application utilizing Sitecore JavaScript Services and React (create-react-app).",
-  "version": "20.0.1",
+  "version": "20.0.3",
   "private": true,
   "config": {
     "appName": "<%- appName %>",
