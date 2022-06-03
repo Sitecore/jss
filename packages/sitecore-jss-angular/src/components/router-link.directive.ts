@@ -33,7 +33,7 @@ export class RouterLinkDirective extends LinkDirective {
 
     viewRef.rootNodes.forEach((node) => {
       Object.entries(props).forEach(([key, propValue]) => {
-        this.renderer.setAttribute(node, key, propValue);
+        this.updateAttribute(node, key, propValue);
 
         if (key === 'href') {
           this.renderer.listen(node, 'click', (event) => {

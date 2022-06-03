@@ -2,6 +2,7 @@
 import { expect, spy } from 'chai';
 import { isEditorActive, resetEditorChromes, isServer, resolveUrl } from '.';
 import { ChromeRediscoveryGlobalFunctionName } from './editing';
+import { isAbsoluteUrl } from './utils';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
@@ -154,6 +155,20 @@ describe('utils', () => {
 
     it('should throw an error when url is empty', () => {
       expect(() => resolveUrl('')).to.throw('url must be a non-empty string');
+    });
+  });
+
+  describe('isAbsoluteUrl', () => {
+    it('should match absolute urls', () => {
+      expect(isAbsoluteUrl('http://foobar.com')).to.be.true;
+      expect(isAbsoluteUrl('https://foobar.com')).to.be.true;
+      expect(isAbsoluteUrl('file://foobar.com')).to.be.true;
+      expect(isAbsoluteUrl('mailto:someone@example.com')).to.be.true;
+      expect(isAbsoluteUrl('data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D')).to.be.true;
+      expect(isAbsoluteUrl('//foobar.com')).to.be.false;
+      expect(isAbsoluteUrl('/foo/bar')).to.be.false;
+      expect(isAbsoluteUrl('foo/bar')).to.be.false;
+      expect(isAbsoluteUrl('foo')).to.be.false;
     });
   });
 });
