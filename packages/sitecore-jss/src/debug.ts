@@ -36,4 +36,5 @@ export default Object.freeze({
   robots: debug(`${rootNamespace}:robots`),
   redirects: debug(`${rootNamespace}:redirects`),
   personalize: debug(`${rootNamespace}:personalize`),
+  errohandling: debug(`${rootNamespace}:errohandling`),
 });

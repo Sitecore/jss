@@ -18,6 +18,10 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       args.silent || console.log(chalk.cyan(`Initializing '${init}'...`));
       const response = await initializer.init(args);
 
+      if (response.prerender) {
+        args.prerender = response.prerender;
+      }
+
       appName = response.appName;
       nextStepsArr = [...nextStepsArr, ...(response.nextSteps ?? [])];
 

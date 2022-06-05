@@ -18,3 +18,9 @@ export {
   GraphQLSitemapXmlService,
   GraphQLSitemapXmlServiceConfig,
 } from './graphql-sitemap-service';
+
+export {
+  ErrorHandlingType,
+  GraphQLErrorHandlingService,
+  GraphQLErrorHandlingServiceConfig,
+} from './graphql-error-handling-service';

@@ -78,6 +78,7 @@ export default class NextjsInitializer implements Initializer {
     const response = {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
       appName: answers.appName,
+      prerender: answers.prerender,
       initializers: addInitializers,
     };
 
