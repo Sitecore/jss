@@ -8,7 +8,7 @@ const defaultQuery = /* GraphQL */ `
     site {
       siteInfo(site: $siteName) {
         errorHandling(language: $language) {
-          notFoundPagePath,
+          notFoundPagePath
           serverErrorPagePath
         }
       }
@@ -35,7 +35,7 @@ export type GraphQLErrorHandlingServiceConfig = {
   language: string;
 };
 
-export type ErrorHandlingType = { notFoundPagePath: string; serverErrorPagePath: string; };
+export type ErrorHandlingType = { notFoundPagePath: string; serverErrorPagePath: string };
 
 /**
  * The schema of data returned in response to error pages link request
@@ -73,12 +73,17 @@ export class GraphQLErrorHandlingService {
       throw new Error(siteNameError);
     }
 
-    const errorHandlingResult: Promise<ErrorHandlingQueryResult> = this.graphQLClient.request(this.query, {
-      siteName,
-      language,
-    });
+    const errorHandlingResult: Promise<ErrorHandlingQueryResult> = this.graphQLClient.request(
+      this.query,
+      {
+        siteName,
+        language,
+      }
+    );
     try {
-      return errorHandlingResult.then((result: ErrorHandlingQueryResult) => result.site.siteInfo.errorHandling);
+      return errorHandlingResult.then(
+        (result: ErrorHandlingQueryResult) => result.site.siteInfo.errorHandling
+      );
     } catch (e) {
       return Promise.reject(e);
     }
