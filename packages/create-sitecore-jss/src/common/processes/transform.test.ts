@@ -7,6 +7,7 @@ import sinon, { SinonStub } from 'sinon';
 import { currentPkg, partialPkg } from '../test-data/pkg';
 import * as transform from './transform';
 import * as helpers from '../utils/helpers';
+import { Prerender } from '../../initializers/nextjs/prompts';
 
 const { transformFilename, merge, concatEnv, diffFiles, diffAndWriteFiles } = transform;
 
@@ -21,7 +22,7 @@ describe('transform', () => {
         appName: 'test',
         destination: '.\\test-data\\test',
         fetchWith: 'GraphQL',
-        prerender: 'SSG',
+        prerender: 'SSG' as Prerender,
         hostName: 'https://cm.jss.localhost',
         templates: [],
       };
