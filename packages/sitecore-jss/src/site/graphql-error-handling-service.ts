@@ -65,7 +65,7 @@ export class GraphQLErrorHandlingService {
    * @returns {errorHandlingType} list of url's error pages
    * @throws {Error} if the siteName is empty.
    */
-  async fetchErrorHandling(): Promise<ErrorHandlingType> {
+  async fetchErrorHandling(): Promise<ErrorHandlingType | null> {
     const siteName: string = this.options.siteName;
     const language: string = this.options.language;
 
@@ -82,7 +82,7 @@ export class GraphQLErrorHandlingService {
     );
     try {
       return errorHandlingResult.then(
-        (result: ErrorHandlingQueryResult) => result.site.siteInfo.errorHandling
+        (result: ErrorHandlingQueryResult) => result.site.siteInfo ? result.site.siteInfo.errorHandling : null
       );
     } catch (e) {
       return Promise.reject(e);
