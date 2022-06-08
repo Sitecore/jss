@@ -1,4 +1,3 @@
-import { Prerender } from '../../initializers/nextjs/prompts';
 import { ClientAppAnswer } from '../prompts/base';
 
 type Arg = string | number | boolean;
@@ -30,11 +29,6 @@ export type BaseArgs = {
    * Default values will be used
    */
   yes?: boolean;
-  /**
-   * Use to prevent any questions related to the CLI argument values.
-   * Default values will be used
-   */
-  prerender?: Prerender;
 };
 
 /**

@@ -1,13 +1,13 @@
 import { SitecorePageProps } from 'lib/page-props';
-import { GraphQLErrorHandlingService } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Plugin } from 'lib/page-props-factory';
+import { GraphQLErrorHandlingPagesService } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
-import { Plugin } from '../../../../../nextjs/src/lib/page-props-factory';
 
 class ErrorHandlingPagesPlugin implements Plugin {
   order = 2;
 
   async exec(props: SitecorePageProps) {
-    const errorHandlingService = new GraphQLErrorHandlingService({
+    const errorHandlingService = new GraphQLErrorHandlingPagesService({
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
       siteName: config.jssAppName,

@@ -1,6 +1,9 @@
 import { expect } from 'chai';
 import nock from 'nock';
-import { ErrorHandlingType, GraphQLErrorHandlingService } from './graphql-error-handling-service';
+import {
+  ErrorHandlingPagesType,
+  GraphQLErrorHandlingPagesService,
+} from './graphql-error-handling-pages-service';
 import { siteNameError } from '../constants';
 
 const errorHandlingQueryResultNull = {
@@ -9,7 +12,7 @@ const errorHandlingQueryResultNull = {
   },
 };
 
-describe('GraphQLErrorHandlingService', () => {
+describe('GraphQLErrorHandlingPagesService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
   const siteName = 'site-name';
@@ -23,7 +26,7 @@ describe('GraphQLErrorHandlingService', () => {
     nock.cleanAll();
   });
 
-  const mockErrorHandlingPagesRequest = (errorHandling?: ErrorHandlingType | null) => {
+  const mockErrorHandlingPagesRequest = (errorHandling?: ErrorHandlingPagesType | null) => {
     nock(endpoint)
       .post('/')
       .reply(
@@ -48,7 +51,7 @@ describe('GraphQLErrorHandlingService', () => {
     it('should get error if sitename is empty', async () => {
       mockErrorHandlingPagesRequest();
 
-      const service = new GraphQLErrorHandlingService({ endpoint, apiKey, siteName: '', language });
+      const service = new GraphQLErrorHandlingPagesService({ endpoint, apiKey, siteName: '', language });
       await service.fetchErrorHandling().catch((error: Error) => {
         expect(error.message).to.equal(siteNameError);
       });
@@ -59,7 +62,12 @@ describe('GraphQLErrorHandlingService', () => {
     it('should fetch error handling pages', async () => {
       mockErrorHandlingPagesRequest(mockErrorHandlingPages);
 
-      const service = new GraphQLErrorHandlingService({ endpoint, apiKey, siteName, language });
+      const service = new GraphQLErrorHandlingPagesService({
+        endpoint,
+        apiKey,
+        siteName,
+        language,
+      });
       const errorHandlingPages = await service.fetchErrorHandling();
 
       expect(errorHandlingPages).to.deep.equal(mockErrorHandlingPages);
@@ -70,7 +78,12 @@ describe('GraphQLErrorHandlingService', () => {
     it('should get null if error handling not exists', async () => {
       mockErrorHandlingPagesRequest();
 
-      const service = new GraphQLErrorHandlingService({ endpoint, apiKey, siteName, language});
+      const service = new GraphQLErrorHandlingPagesService({
+        endpoint,
+        apiKey,
+        siteName,
+        language,
+      });
       const errorHandling = await service.fetchErrorHandling();
       console.log(errorHandling, 'error handling');
 

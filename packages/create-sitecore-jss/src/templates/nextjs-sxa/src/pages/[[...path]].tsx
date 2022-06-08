@@ -82,8 +82,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 <% } -%>
   const props = await sitecorePagePropsFactory.create(context);
 
-<% if (templates.includes('nextjs-sxa')) { -%>
-  if ((context.res.statusCode >= 500 || context.res.statusCode <= 511) && props.errorHandlingPages.serverErrorPagePath) {
+<% if (prerender === 'SSR') { -%>
+  if ((context.res.statusCode >= 500 && context.res.statusCode <= 511) && props?.errorHandlingPages?.serverErrorPagePath) {
     return {
       redirect: {
         destination: props.errorHandlingPages.serverErrorPagePath,
@@ -91,8 +91,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       }
     }
   }
+<% } -%>
 
-  if (props.notFound && props.errorHandlingPages.notFoundPagePath) {
+  if (props.notFound && props?.errorHandlingPages?.notFoundPagePath) {
     return {
       redirect: {
         destination: props.errorHandlingPages.notFoundPagePath,
@@ -100,7 +101,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       },
     }
   }
-<% } -%>
 
   return {
     props,

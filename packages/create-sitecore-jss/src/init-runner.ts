@@ -5,7 +5,7 @@ import { InitializerFactory } from './InitializerFactory';
 
 export const initRunner = async (initializers: string[], args: BaseArgs) => {
   let nextStepsArr: string[] = [];
-  let appName;
+  let nextAppName;
 
   const initFactory = new InitializerFactory();
   const runner = async (inits: string[]) => {
@@ -16,23 +16,22 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       }
 
       args.silent || console.log(chalk.cyan(`Initializing '${init}'...`));
-      const response = await initializer.init(args);
+      const { appName, nextSteps, initializers, ...rest } = await initializer.init(args);
 
-      if (response.prerender) {
-        args.prerender = response.prerender;
-      }
+      args = { ...args, ...rest };
 
-      appName = response.appName;
-      nextStepsArr = [...nextStepsArr, ...(response.nextSteps ?? [])];
+      nextAppName = appName;
+
+      nextStepsArr = [...nextStepsArr, ...(nextSteps ?? [])];
 
       // process any returned initializers
-      if (response.initializers && response.initializers.length > 0) {
+      if (initializers && initializers.length > 0) {
         // provide info for addons to see other addons used.
         // add-ons will not have information about the initial
         // list of templates, as it has `nextjs` initializer for example
-        args.templates.push(...response.initializers);
+        args.templates.push(...initializers);
 
-        await runner(response.initializers);
+        await runner(initializers);
       }
     }
   };
@@ -47,6 +46,6 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
     lintFix(args.destination, args.silent);
   }
   if (!args.silent) {
-    nextSteps(appName || '', nextStepsArr);
+    nextSteps(nextAppName || '', nextStepsArr);
   }
 };
