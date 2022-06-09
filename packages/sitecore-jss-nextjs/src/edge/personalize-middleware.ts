@@ -4,6 +4,7 @@ import {
   GraphQLPersonalizeServiceConfig,
   CdpService,
   CdpServiceConfig,
+  ExperienceContext,
   getPersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
@@ -11,7 +12,7 @@ import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 export type PersonalizeMiddlewareConfig = {
   /**
    * Function used to determine if route should be excluded from personalization.
-   * By default, files (pathname.includes('.')) and API routes (pathname.startsWith('/api/')) are ignored.
+   * By default, files (pathname.includes('.')), Next.js API routes (pathname.startsWith('/api/')), and Sitecore API routes (pathname.startsWith('/sitecore/')) are ignored.
    * This is an important performance consideration since Next.js Edge middleware runs on every request.
    * @param {string} pathname The pathname
    * @returns {boolean} Whether to exclude the route from personalization
@@ -81,10 +82,31 @@ export class PersonalizeMiddleware {
     }
   }
 
+  protected getExperienceContext(req: NextRequest): ExperienceContext {
+    return {
+      geo: {
+        city: req.geo?.city ?? null,
+        country: req.geo?.country ?? null,
+        latitude: req.geo?.latitude ?? null,
+        longitude: req.geo?.longitude ?? null,
+        region: req.geo?.region ?? null,
+      },
+      referrer: req.referrer,
+      ua: req.ua?.ua ?? null,
+      utm: {
+        utm_campaign: req.nextUrl.searchParams.get('utm_campaign'),
+        utm_content: req.nextUrl.searchParams.get('utm_content'),
+        utm_medium: req.nextUrl.searchParams.get('utm_medium'),
+        utm_source: req.nextUrl.searchParams.get('utm_source'),
+      },
+    };
+  }
+
   private excludeRoute(pathname: string) {
     if (
       pathname.includes('.') || // Ignore files
-      pathname.startsWith('/api/') // Ignore API calls
+      pathname.startsWith('/api/') || // Ignore Next.js API calls
+      pathname.startsWith('/sitecore/') // Ignore Sitecore API calls
     ) {
       return true;
     }
@@ -98,17 +120,15 @@ export class PersonalizeMiddleware {
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
+    const context = this.getExperienceContext(req);
     let browserId = this.getBrowserId(req);
-    let segment: string | undefined = undefined;
+    let variantId: string | undefined = undefined;
 
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
+      context,
       browserId,
-      ip: req.ip,
-      ua: req.ua,
-      geo: req.geo,
-      headers: req.headers,
     });
 
     // Response will be provided if other middleware is run before us (e.g. redirects)
@@ -135,30 +155,33 @@ export class PersonalizeMiddleware {
       return response;
     }
 
-    if (personalizeInfo.segments.length === 0) {
+    if (personalizeInfo.variantIds.length === 0) {
       debug.personalize('skipped (no personalization configured)');
       return response;
     }
 
-    // Get segment data from CDP
-    const segmentData = await this.cdpService.getSegments(personalizeInfo.contentId, browserId);
+    // Get variant data from CDP
+    const variantData = await this.cdpService.executeExperience(
+      personalizeInfo.contentId,
+      context,
+      browserId
+    );
     // If a browserId was not passed in (new session), a new browserId will be returned
-    browserId = segmentData.browserId;
-    // This may change, but for now we are only expected to use the first segment if there are multiple
-    segment = segmentData.segments.length ? segmentData.segments[0] : undefined;
+    browserId = variantData.browserId;
+    variantId = variantData.variantId;
 
-    if (!segment) {
-      debug.personalize('skipped (no segment identified)');
+    if (!variantId) {
+      debug.personalize('skipped (no variant identified)');
       return response;
     }
 
-    if (!personalizeInfo.segments.includes(segment)) {
-      debug.personalize('skipped (invalid segment)');
+    if (!personalizeInfo.variantIds.includes(variantId)) {
+      debug.personalize('skipped (invalid variant)');
       return response;
     }
 
     // Rewrite to persononalized path
-    const rewritePath = getPersonalizedRewrite(pathname, { segmentId: segment });
+    const rewritePath = getPersonalizedRewrite(pathname, { variantId });
     // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
     const rewriteUrl = req.nextUrl.clone();
     rewriteUrl.pathname = rewritePath;

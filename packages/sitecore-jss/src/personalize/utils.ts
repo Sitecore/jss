@@ -1,8 +1,8 @@
-export const DEFAULT_SEGMENT = '_default';
-export const SEGMENT_PREFIX = '_segmentId_';
+export const DEFAULT_VARIANT = '_default';
+export const VARIANT_PREFIX = '_variantId_';
 
 export type PersonalizedRewriteData = {
-  segmentId: string;
+  variantId: string;
 };
 
 /**
@@ -13,7 +13,7 @@ export type PersonalizedRewriteData = {
  */
 export function getPersonalizedRewrite(pathname: string, data: PersonalizedRewriteData): string {
   const path = pathname.startsWith('/') ? pathname : '/' + pathname;
-  return `/${SEGMENT_PREFIX}${data.segmentId}${path}`;
+  return `/${VARIANT_PREFIX}${data.variantId}${path}`;
 }
 
 /**
@@ -23,12 +23,12 @@ export function getPersonalizedRewrite(pathname: string, data: PersonalizedRewri
  */
 export function getPersonalizedRewriteData(pathname: string): PersonalizedRewriteData {
   const data: PersonalizedRewriteData = {
-    segmentId: DEFAULT_SEGMENT,
+    variantId: DEFAULT_VARIANT,
   };
   const path = pathname.endsWith('/') ? pathname : pathname + '/';
-  const result = path.match(`${SEGMENT_PREFIX}(.*?)\\/`);
+  const result = path.match(`${VARIANT_PREFIX}(.*?)\\/`);
   if (result) {
-    data.segmentId = result[1];
+    data.variantId = result[1];
   }
   return data;
 }
@@ -39,9 +39,9 @@ export function getPersonalizedRewriteData(pathname: string): PersonalizedRewrit
  * @returns {string} the pathname with personalize data removed
  */
 export function normalizePersonalizedRewrite(pathname: string): string {
-  if (!pathname.includes(SEGMENT_PREFIX)) {
+  if (!pathname.includes(VARIANT_PREFIX)) {
     return pathname;
   }
-  const result = pathname.match(`${SEGMENT_PREFIX}.*?(?:\\/|$)`);
+  const result = pathname.match(`${VARIANT_PREFIX}.*?(?:\\/|$)`);
   return result === null ? pathname : pathname.replace(result[0], '');
 }
