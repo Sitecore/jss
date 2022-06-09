@@ -53,7 +53,8 @@ export class EditingDataMiddleware {
 
     // Validate secret
     if (secret !== getJssEditingSecret()) {
-      return res.status(401).end('Missing or invalid secret');
+      res.status(401).end('Missing or invalid secret');
+      return;
     }
 
     switch (method) {

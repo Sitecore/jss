@@ -8,6 +8,7 @@ import { LayoutServiceContext, LayoutServiceData, RouteData } from '../index';
 export interface SitecoreContextProps {
   componentFactory: ComponentFactory;
   layoutData?: LayoutServiceData;
+  children: React.ReactNode;
 }
 
 export interface SitecoreContextState {

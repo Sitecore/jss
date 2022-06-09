@@ -23,7 +23,7 @@ export const sitecoreLoader: ImageLoader = ({ src, width }: ImageLoaderProps): s
   return `${root}?${params}`;
 };
 
-export const NextImage: React.SFC<NextImageProps> = ({
+export const NextImage: React.FC<NextImageProps> = ({
   editable,
   imageParams,
   field,
