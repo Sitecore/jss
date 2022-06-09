@@ -295,5 +295,4 @@ describe('<Link />', () => {
     const link = c.find('a');
     expect(ref.current.id).to.equal(link.props().id);
   });
-
 });
