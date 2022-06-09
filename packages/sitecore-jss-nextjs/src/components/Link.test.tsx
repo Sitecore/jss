@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { createRef, ReactNode } from 'react';
 import { NextRouter } from 'next/router';
 import NextLink from 'next/link';
 import { Link as ReactLink } from '@sitecore-jss/sitecore-jss-react';
@@ -278,4 +278,22 @@ describe('<Link />', () => {
     expect(rendered.find(NextLink).length).to.equal(0);
     expect(rendered.find(ReactLink).length).to.equal(1);
   });
+
+  it.only('should render with a ref to the anchor', () => {
+    const field = {
+      href: '/lorem',
+      text: 'ipsum',
+    };
+    const ref = createRef<HTMLAnchorElement>();
+
+    const c = mount(
+      <Page>
+        <Link field={field} ref={ref} id="my-link" />
+      </Page>
+    );
+
+    const link = c.find('a');
+    expect(ref.current.id).to.equal(link.props().id);
+  });
+
 });
