@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';

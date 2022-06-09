@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import chai from 'chai';
 import chaiString from 'chai-string';
-import { mount } from 'enzyme';
+import { render, getByRole } from '@testing-library/react';
 import React from 'react';
 import { imageField as eeImageData } from '../test-data/ee-data';
 import { Image, ImageField } from './Image';
@@ -23,22 +23,22 @@ describe('<Image />', () => {
       className: 'the-dude-abides',
     };
 
-    const rendered = mount(<Image {...props} />).find('img');
+    const rendered = render(<Image {...props} />);
+    const image = getByRole<HTMLImageElement>(rendered.container, 'img');
 
     it('should render <img /> with url', () => {
-      expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.equal(props.media.src);
-      expect(rendered.prop('width')).to.equal(props.media.width);
-      expect(rendered.prop('height')).to.equal(props.media.height);
+      expect(image.src).to.equal(props.media.src);
+      expect(image.width).to.equal(props.media.width);
+      expect(image.height).to.equal(props.media.height);
     });
 
     it('should render <img /> with non-media props', () => {
-      expect(rendered.prop('id')).to.equal(props.id);
+      expect(image.id).to.equal(props.id);
     });
 
     it('should render <img /> with style and className props', () => {
-      expect(rendered.prop('style')).to.eql(props.style);
-      expect(rendered.prop('className')).to.eql(props.className);
+      expect(image.getAttribute('style')).to.eql('width: 100%;');
+      expect(image.className).to.eql(props.className);
     });
   });
 
@@ -53,23 +53,23 @@ describe('<Image />', () => {
       className: 'the-dude-abides',
     };
 
-    const rendered = mount(<Image {...props} />).find('img');
+    const rendered = render(<Image {...props} />);
+    const image = getByRole<HTMLImageElement>(rendered.container, 'img');
 
     it('should render <img /> with needed img tags', () => {
-      expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.equal(props.media.src);
-      expect(rendered.prop('srcSet')).to.equal(
+      expect(image.src).to.equal(props.media.src);
+      expect(image.srcset).to.equal(
         '/assets/img/test0.png?mw=100 100w, /assets/img/test0.png?mw=300 300w'
       );
-      expect(rendered.prop('sizes')).to.equal('(min-width: 960px) 300px, 100px');
+      expect(image.sizes).to.equal('(min-width: 960px) 300px, 100px');
     });
 
     it('should render <img /> with non-media props', () => {
-      expect(rendered.prop('id')).to.equal(props.id);
+      expect(image.id).to.equal(props.id);
     });
 
     it('should render <img /> with style and className props', () => {
-      expect(rendered.prop('className')).to.eql(props.className);
+      expect(image.className).to.eql(props.className);
     });
   });
 
@@ -80,21 +80,21 @@ describe('<Image />', () => {
       style: { width: '100%' },
       className: 'the-dude-abides',
     };
-    const rendered = mount(<Image {...props} />).find('img');
+    const rendered = render(<Image {...props} />);
+    const image = getByRole<HTMLImageElement>(rendered.container, 'img');
 
     it('should render <img /> component with "value" properties', () => {
-      expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.eql(props.media.value.src);
-      expect(rendered.prop('alt')).to.eql(props.media.value.alt);
+      expect(image.src).to.eql(props.media.value.src);
+      expect(image.alt).to.eql(props.media.value.alt);
     });
 
     it('should render <img /> with non-media props', () => {
-      expect(rendered.prop('id')).to.equal(props.id);
+      expect(image.id).to.equal(props.id);
     });
 
     it('should render <img /> with style and className props', () => {
-      expect(rendered.prop('style')).to.eql(props.style);
-      expect(rendered.prop('className')).to.eql(props.className);
+      expect(image.getAttribute('style')).to.eql('width: 100%;');
+      expect(image.className).to.eql(props.className);
     });
   });
 
@@ -104,18 +104,17 @@ describe('<Image />', () => {
       style: { width: '100%' },
       className: 'the-dude-abides',
     };
-    const rendered = mount(<Image {...props} />).find('.sc-image-wrapper');
-    const img = rendered.getDOMNode().getElementsByTagName('img')[0];
+    const rendered = render(<Image {...props} />).container.querySelectorAll('.sc-image-wrapper');
+    const image = rendered[0].getElementsByTagName('img')[0];
 
     it('should render wrapper containing experience editor value', () => {
       expect(rendered).to.have.length(1);
-      expect(img).to.not.be.undefined;
-      expect(rendered.html()).to.contain('<input');
+      expect(rendered[0].innerHTML).to.contain('<input');
     });
 
     it('should render <img /> with style and className props', () => {
-      expect(img.getAttribute('style')).to.equal('width:100%');
-      expect(img.getAttribute('class')).to.equal(props.className);
+      expect(image.getAttribute('style')).to.equal('width:100%');
+      expect(image.className).to.equal(props.className);
     });
   });
 
@@ -129,8 +128,8 @@ describe('<Image />', () => {
       style: { width: '100%' },
       className: 'the-dude-abides',
     };
-    const rendered = mount(<Image {...props} />).find('.sc-image-wrapper');
-    const img = rendered.getDOMNode().getElementsByTagName('img')[0];
+    const rendered = render(<Image {...props} />).container.querySelector('.sc-image-wrapper');
+    const img = rendered.getElementsByTagName('img')[0];
 
     it('should render img with additional props', () => {
       expect(img.getAttribute('id')).to.equal(props.id);
@@ -159,17 +158,16 @@ describe('<Image />', () => {
       style: { width: '100%' },
       className: 'the-dude-abides',
     };
-    const rendered = mount(<Image {...props} />).find('img');
+    const rendered = render(<Image {...props} />).container.querySelector('img');
 
     it('should render <img /> component with "value" properties', () => {
-      expect(rendered).to.have.length(1);
-      expect(rendered.prop('src')).to.eql(props.media.value.src);
-      expect(rendered.prop('alt')).to.eql(props.media.value.alt);
+      expect(rendered.src).to.eql(props.media.value.src);
+      expect(rendered.alt).to.eql(props.media.value.alt);
     });
 
     it('should render <img /> with style and className props', () => {
-      expect(rendered.prop('style')).to.eql(props.style);
-      expect(rendered.prop('className')).to.eql(props.className);
+      expect(rendered.getAttribute('style')).to.eql('width: 100%;');
+      expect(rendered.className).to.eql(props.className);
     });
   });
 
@@ -182,10 +180,10 @@ describe('<Image />', () => {
       class: 'abides',
     };
 
-    const rendered = mount(<Image {...props} />).find('img');
+    const rendered = render(<Image {...props} />).container.querySelector('img');
 
     it('should attach "class" value at the end of class attribute', () => {
-      expect(rendered.prop('className')).to.eql(`${props.className} ${props.class}`);
+      expect(rendered.className).to.eql(`${props.className} ${props.class}`);
     });
   });
 
@@ -199,16 +197,16 @@ describe('<Image />', () => {
         imageParams: { foo: 'bar' },
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
-      const rendered = mount(<Image {...props} />);
+      const rendered = render(<Image {...props} />);
+      const img = rendered.container.querySelector('img');
 
-      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png?foo=bar');
+      expect(img.src).to.equal('/~/jssmedia/img/test0.png?foo=bar');
 
-      rendered.setProps({
-        ...props,
-        media: { value: { src: '/-assets/img/test0.png', alt: 'my image' } },
-      });
+      rendered.rerender(
+        <Image {...props} media={{ value: { src: '/-assets/img/test0.png', alt: 'my image' } }} />
+      );
 
-      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
+      expect(img.src).to.equal('/-/jssmedia/img/test0.png?foo=bar');
     });
 
     it('should transform url with direct image object, no value/editable', () => {
@@ -226,20 +224,25 @@ describe('<Image />', () => {
         imageParams: { foo: 'bar' },
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
-      const rendered = mount(<Image {...props} />);
+      const rendered = render(<Image {...props} />);
+      const image = rendered.container.querySelector('img');
 
-      expect(rendered.find('img').prop('src')).to.equal('/~/jssmedia/img/test0.png?foo=bar');
+      expect(image.src).to.equal('/~/jssmedia/img/test0.png?foo=bar');
 
-      rendered.setProps({
-        ...props,
-        media: {
-          src: '/-assets/img/test0.png',
-          width: 8,
-          height: 10,
-        },
-      });
+      rendered.rerender(
+        <Image
+          {...{
+            ...props,
+            media: {
+              src: '/-assets/img/test0.png',
+              width: 8,
+              height: 10,
+            },
+          }}
+        />
+      );
 
-      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
+      expect(image.src).to.equal('/-/jssmedia/img/test0.png?foo=bar');
     });
 
     it('should transform url with responsive image object', () => {
@@ -254,25 +257,30 @@ describe('<Image />', () => {
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
 
-      const rendered = mount(<Image {...props} />);
+      const rendered = render(<Image {...props} />);
+      const image = rendered.container.querySelector('img');
 
-      expect(rendered.find('img').prop('src')).to.equal('/~assets/img/test0.png');
-      expect(rendered.find('img').prop('srcSet')).to.equal(
+      expect(image.src).to.equal('/~assets/img/test0.png');
+      expect(image.srcset).to.equal(
         '/~/jssmedia/img/test0.png?mw=100 100w, /~/jssmedia/img/test0.png?mw=300 300w'
       );
 
-      rendered.setProps({
-        ...props,
-        media: {
-          src: '/-assets/img/test0.png',
-          width: 8,
-          height: 10,
-        },
-        imageParams: { foo: 'bar' },
-      });
+      rendered.rerender(
+        <Image
+          {...{
+            ...props,
+            media: {
+              src: '/-assets/img/test0.png',
+              width: 8,
+              height: 10,
+            },
+            imageParams: { foo: 'bar' },
+          }}
+        />
+      );
 
-      expect(rendered.find('img').prop('src')).to.equal('/-/jssmedia/img/test0.png?foo=bar');
-      expect(rendered.find('img').prop('srcSet')).to.equal(
+      expect(image.src).to.equal('/-/jssmedia/img/test0.png?foo=bar');
+      expect(image.srcset).to.equal(
         '/-/jssmedia/img/test0.png?foo=bar&mw=100 100w, /-/jssmedia/img/test0.png?foo=bar&mw=300 300w'
       );
     });
@@ -280,7 +288,7 @@ describe('<Image />', () => {
 
   it('should render no <img /> when media prop is empty', () => {
     const img = '' as ImageField;
-    const rendered = mount(<Image media={img} />);
-    expect(rendered.find('img')).to.have.length(0);
+    const rendered = render(<Image media={img} />);
+    expect(rendered.container.querySelector('img')).to.equal(null);
   });
 });

@@ -5,7 +5,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { expect } from 'chai';
-import { shallow, mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { ComponentFactory } from './sharedTypes';
 import { Placeholder } from './Placeholder';
@@ -49,9 +49,10 @@ const componentFactory: ComponentFactory = (componentName: string) => {
   const DownloadCallout: React.FC<{
     [prop: string]: unknown;
     fields?: { message?: { value?: string } };
-  }> = (props) => (
-    <div className="download-callout-mock">
-      {props.fields.message ? props.fields.message.value : ''}
+  }> = ({ fields, ...rest }) => (
+    <div className="download-callout-mock" data-testid="DownloadCallout">
+      {fields.message ? fields.message.value : ''}
+      {JSON.stringify(rest)}
     </div>
   );
   DownloadCallout.propTypes = {
@@ -72,8 +73,8 @@ describe('<Placeholder />', () => {
   it('should render without required props', () => {
     const key: string = null;
     const rendering: RouteData = null;
-    const renderedComponent = shallow(<Placeholder name={key} rendering={rendering} />);
-    expect(renderedComponent.length).to.eql(1);
+    const renderedComponent = render(<Placeholder name={key} rendering={rendering} />);
+    expect(renderedComponent.container.innerHTML).to.equal('');
   });
 
   const testData = [
@@ -91,31 +92,31 @@ describe('<Placeholder />', () => {
         )[]).find((c) => (c as ComponentRendering).componentName);
         const phKey = 'page-content';
 
-        const renderedComponent = mount(
+        const c = render(
           <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
         );
 
-        expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
+        expect(c.container.querySelectorAll('.download-callout-mock').length).to.equal(1);
       });
 
       it('should render nested placeholders', () => {
         const component = dataSet.data.sitecore.route as RouteData;
         const phKey = 'main';
 
-        const renderedComponent = mount(
+        const c = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Placeholder name={phKey} rendering={component} />
           </SitecoreContext>
         );
 
-        expect(renderedComponent.find('.download-callout-mock').length).to.equal(1);
+        expect(c.container.querySelectorAll('.download-callout-mock').length).to.equal(1);
       });
 
       it('should render components based on the rendereach function', () => {
         const component = dataSet.data.sitecore.route as RouteData;
         const phKey = 'main';
 
-        const renderedComponent = mount(
+        const c = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Placeholder
               name={phKey}
@@ -125,14 +126,14 @@ describe('<Placeholder />', () => {
           </SitecoreContext>
         );
 
-        expect(renderedComponent.find('.wrapper').length).to.equal(1);
+        expect(c.container.querySelectorAll('.wrapper').length).to.equal(1);
       });
 
       it('should render components based on the render function', () => {
         const component = dataSet.data.sitecore.route as RouteData;
         const phKey = 'main';
 
-        const renderedComponent = mount(
+        const c = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Placeholder
               name={phKey}
@@ -142,7 +143,7 @@ describe('<Placeholder />', () => {
           </SitecoreContext>
         );
 
-        expect(renderedComponent.find('.wrapper').length).to.equal(1);
+        expect(c.container.querySelectorAll('.wrapper').length).to.equal(1);
       });
 
       it('when null passed to render function', () => {
@@ -150,15 +151,20 @@ describe('<Placeholder />', () => {
           const component = dataSet.data.sitecore.route as RouteData;
           const phKey = 'main';
 
-          const renderedComponent = mount(
+          const c = render(
             <SitecoreContext componentFactory={componentFactory}>
-              <Placeholder name={phKey} rendering={component} render={() => null} />
+              <Placeholder
+                data-testid="placeholder"
+                name={phKey}
+                rendering={component}
+                render={() => null}
+              />
             </SitecoreContext>
           );
 
-          const placeholder = renderedComponent.find(Placeholder);
+          const placeholder = c.getAllByTestId('placeholder');
           expect(placeholder.length).to.equal(1);
-          expect(placeholder.children()).to.be.empty;
+          expect(placeholder[0].innerHTML).to.equal('');
         });
       });
 
@@ -177,7 +183,7 @@ describe('<Placeholder />', () => {
 
         const phKey = 'main';
 
-        const renderedComponent = mount(
+        const c = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Placeholder
               name={phKey}
@@ -185,19 +191,19 @@ describe('<Placeholder />', () => {
               renderEmpty={(comp) => <div className="wrapper">{comp}</div>}
             />
           </SitecoreContext>
-        );
+        ).container;
 
-        expect(renderedComponent.find('.wrapper').length).to.equal(1);
-        expect(renderedComponent.find('.download-callout-mock').length).to.equal(0);
-        expect(renderedComponent.find('.home-mock').length).to.equal(0);
-        expect(renderedComponent.find('.jumbotron-mock').length).to.equal(0);
+        expect(c.querySelectorAll('.wrapper').length).to.equal(1);
+        expect(c.querySelectorAll('.download-callout-mock').length).to.equal(0);
+        expect(c.querySelectorAll('.home-mock').length).to.equal(0);
+        expect(c.querySelectorAll('.jumbotron-mock').length).to.equal(0);
       });
 
       it('should render output based on the renderEmpty function in case of empty placeholder', () => {
         const route = emptyPlaceholderData.sitecore.route as RouteData;
         const phKey = 'main';
 
-        const renderedComponent = mount(
+        const renderedComponent = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Placeholder
               name={phKey}
@@ -207,7 +213,7 @@ describe('<Placeholder />', () => {
           </SitecoreContext>
         );
 
-        expect(renderedComponent.html()).to.equal(
+        expect(renderedComponent.container.innerHTML).to.equal(
           '<div class="sc-jss-empty-placeholder"><span>My name is empty placeholder</span></div>'
         );
       });
@@ -218,17 +224,16 @@ describe('<Placeholder />', () => {
         const expectedMessage = (component.placeholders.main as any[]).find((c) => c.componentName)
           .fields.message;
 
-        const renderedComponent = mount(
+        const renderedComponent = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Placeholder name={phKey} rendering={component} />
           </SitecoreContext>
         );
 
         expect(
-          renderedComponent
-            .find('.download-callout-mock')
-            .html()
-            .indexOf(expectedMessage.value) !== -1
+          renderedComponent.container
+            .querySelector('.download-callout-mock')
+            .innerHTML.indexOf(expectedMessage.value) !== -1
         ).to.be.true;
       });
 
@@ -251,7 +256,7 @@ describe('<Placeholder />', () => {
           return props;
         };
 
-        const renderedComponent = mount(
+        const c = render(
           <SitecoreContext componentFactory={componentFactory}>
             <Placeholder
               name={phKey}
@@ -262,15 +267,11 @@ describe('<Placeholder />', () => {
         );
 
         expect(
-          renderedComponent
-            .find('.download-callout-mock')
-            .html()
-            .indexOf(expectedMessage.value) !== -1
+          c.container
+            .querySelector('.download-callout-mock')
+            .innerHTML.indexOf(expectedMessage.value) !== -1
         ).to.be.true;
-
-        expect(renderedComponent.find('DownloadCallout').prop('extraData')).to.deep.equal({
-          x: true,
-        });
+        expect(c.getByTestId('DownloadCallout').innerHTML).to.contain('"extraData":{"x":true}');
       });
     });
   });
@@ -290,61 +291,61 @@ describe('<Placeholder />', () => {
       const component = sxaRenderingVariantData.sitecore.route as RouteData;
       const phKey = 'main';
 
-      const renderedComponent = mount(
+      const c = render(
         <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
-      );
+      ).container;
 
-      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
-      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal(
+      expect(c.querySelectorAll('.rendering-variant').length).to.equal(1);
+      expect(c.querySelector('.rendering-variant').className).to.equal(
         'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-x'
       );
-      expect(renderedComponent.find('.title').length).to.equal(1);
-      expect(renderedComponent.find('.title').text()).to.equal('Rich Text Rendering Variant');
-      expect(renderedComponent.find('.text').length).to.equal(1);
-      expect(renderedComponent.find('.text').text()).to.equal('Test RichText');
+      expect(c.querySelectorAll('.title').length).to.equal(1);
+      expect(c.querySelector('.title').innerHTML).to.equal('Rich Text Rendering Variant');
+      expect(c.querySelectorAll('.text').length).to.equal(1);
+      expect(c.querySelector('.text').innerHTML).to.equal('Test RichText');
     });
 
     it('should render with container-{*} type dynamic placeholder', () => {
       const component = sxaRenderingCommonContainerName.sitecore.route as RouteData;
       const phKey = 'richText';
 
-      const renderedComponent = mount(
+      const c = render(
         <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
-      );
+      ).container;
 
-      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
-      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal(
+      expect(c.querySelectorAll('.rendering-variant').length).to.equal(1);
+      expect(c.querySelector('.rendering-variant').className).to.equal(
         'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-x'
       );
-      expect(renderedComponent.find('.title').length).to.equal(1);
-      expect(renderedComponent.find('.title').text()).to.equal('Rich Text Rendering Variant');
+      expect(c.querySelectorAll('.title').length).to.equal(1);
+      expect(c.querySelector('.title').innerHTML).to.equal('Rich Text Rendering Variant');
     });
 
     it('should not render without container-{*} type dynamic placeholder', () => {
       const component = sxaRenderingWithoutContainerName.sitecore.route as RouteData;
       const phKey = 'richText';
 
-      const renderedComponent = mount(
+      const c = render(
         <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
-      );
+      ).container;
 
-      expect(renderedComponent.find('.rendering-variant').length).to.equal(0);
-      expect(renderedComponent.find('.title').length).to.equal(0);
+      expect(c.querySelectorAll('.rendering-variant').length).to.equal(0);
+      expect(c.querySelectorAll('.title').length).to.equal(0);
     });
 
     it('should render another rendering variant', () => {
       const component = sxaRenderingVariantData.sitecore.route as RouteData;
       const phKey = 'main-second';
 
-      const renderedComponent = mount(
+      const c = render(
         <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
-      );
+      ).container;
 
-      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
-      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal(
+      expect(c.querySelectorAll('.rendering-variant').length).to.equal(1);
+      expect(c.querySelector('.rendering-variant').className).to.equal(
         'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-y'
       );
-      expect(renderedComponent.find('.default').length).to.equal(1);
+      expect(c.querySelectorAll('.default').length).to.equal(1);
     });
   });
 
@@ -352,13 +353,17 @@ describe('<Placeholder />', () => {
     const component: any = eeData.sitecore.route;
     const phKey = 'main';
 
-    const renderedComponent = mount(
+    const c = render(
       <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
     );
 
-    const eeChrome = renderedComponent.find({ chrometype: 'placeholder', kind: 'open', id: phKey });
+    const eeChrome = c.container.querySelectorAll(
+      `[chrometype="placeholder"][kind="open"][id="${phKey}"]`
+    );
+
+    // const eeChrome = c.find({ chrometype: 'placeholder', kind: 'open', id: phKey });
     expect(eeChrome.length).to.eq(1);
-    const keyAttribute = eeChrome.get(0).key;
+    const keyAttribute = eeChrome[0].getAttribute('key');
     expect(keyAttribute).to.not.be.undefined;
     expect(keyAttribute).to.eq(`${phKey}`);
   });
@@ -366,14 +371,14 @@ describe('<Placeholder />', () => {
   it('should render empty placeholder', () => {
     const phKey = 'main';
 
-    const renderedComponent = mount(
+    const c = render(
       <Placeholder
         name={phKey}
         rendering={emptyPlaceholderData.sitecore.route}
         componentFactory={componentFactory}
       />
     );
-    expect(renderedComponent.find('.sc-jss-empty-placeholder').length).to.equal(1);
+    expect(c.container.querySelectorAll('.sc-jss-empty-placeholder').length).to.equal(1);
   });
 
   it('should render null for unknown placeholder', () => {
@@ -388,10 +393,10 @@ describe('<Placeholder />', () => {
     } as unknown) as RouteData;
     const phKey = 'unknown';
 
-    const renderedComponent = mount(
+    const c = render(
       <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
     );
-    expect(renderedComponent.html()).to.be.empty;
+    expect(c.container.innerHTML).to.equal('');
   });
 
   it('should render error message on error', () => {
@@ -422,10 +427,10 @@ describe('<Placeholder />', () => {
     } as unknown) as RouteData;
     const phKey = 'main';
 
-    const renderedComponent = mount(
+    const c = render(
       <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
     );
-    expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
+    expect(c.container.querySelectorAll('.sc-jss-placeholder-error').length).to.equal(1);
   });
 
   it('should render custom errorComponent on error, if provided', () => {
@@ -458,7 +463,7 @@ describe('<Placeholder />', () => {
     } as unknown) as RouteData;
     const phKey = 'main';
 
-    const renderedComponent = mount(
+    const c = render(
       <Placeholder
         name={phKey}
         rendering={route}
@@ -466,7 +471,7 @@ describe('<Placeholder />', () => {
         errorComponent={CustomError}
       />
     );
-    expect(renderedComponent.find('.custom-error').length).to.equal(1);
+    expect(c.container.querySelectorAll('.custom-error').length).to.equal(1);
   });
 });
 
@@ -488,7 +493,7 @@ it('should render MissingComponent for unknown rendering', () => {
     </div>
   );
 
-  const renderedComponent = mount(
+  const c = render(
     <Placeholder
       name={phKey}
       rendering={route}
@@ -496,7 +501,7 @@ it('should render MissingComponent for unknown rendering', () => {
       missingComponentComponent={CustomMissingComponent}
     />
   );
-  expect(renderedComponent.find('.missing-component').length).to.equal(1);
+  expect(c.container.querySelectorAll('.missing-component').length).to.equal(1);
 });
 
 it('should render HiddenRendering when rendering is hidden', () => {
@@ -511,10 +516,10 @@ it('should render HiddenRendering when rendering is hidden', () => {
   };
   const phKey = 'main';
 
-  const renderedComponent = mount(
+  const c = render(
     <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
   );
-  expect(renderedComponent.find(HiddenRendering).length).to.equal(1);
+  expect(c.getAllByTestId('HiddenRendering').length).to.equal(1);
 });
 
 it('should render custom HiddenRendering when rendering is hidden', () => {
@@ -536,7 +541,7 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
     </div>
   );
 
-  const renderedComponent = mount(
+  const c = render(
     <Placeholder
       name={phKey}
       rendering={route}
@@ -544,9 +549,9 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
       hiddenRenderingComponent={CustomHiddenRendering}
     />
   );
-  expect(renderedComponent.find('.hidden-rendering').length).to.equal(1);
-  expect(renderedComponent.find(HiddenRendering).length).to.equal(1);
-  expect(renderedComponent.find('p').props().children).to.equal('Hidden Rendering');
+  expect(c.container.querySelectorAll('.hidden-rendering').length).to.equal(1);
+  expect(c.getAllByTestId('HiddenRendering').length).to.equal(1);
+  expect(c.container.querySelector('p').innerHTML).to.equal('Hidden Rendering');
 });
 
 after(() => {
