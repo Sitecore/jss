@@ -99,7 +99,7 @@ describe('<Link />', () => {
     expect(rendered.html()).to.contain('id="my-link"');
   });
 
-  it.only('should render with a ref to the anchor', () => {
+  it('should render with a ref to the anchor', () => {
     const field = {
       href: '/lorem',
       text: 'ipsum',

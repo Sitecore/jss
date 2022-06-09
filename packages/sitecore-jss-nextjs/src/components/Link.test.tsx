@@ -279,7 +279,7 @@ describe('<Link />', () => {
     expect(rendered.find(ReactLink).length).to.equal(1);
   });
 
-  it.only('should render with a ref to the anchor', () => {
+  it('should render with a ref to the anchor', () => {
     const field = {
       href: '/lorem',
       text: 'ipsum',
