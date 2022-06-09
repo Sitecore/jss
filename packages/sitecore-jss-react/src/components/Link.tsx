@@ -122,6 +122,9 @@ export const LinkPropTypes = {
       href: PropTypes.string,
     }),
     PropTypes.shape({
+      href: null,
+    }),
+    PropTypes.shape({
       value: PropTypes.object,
       editableFirstPart: PropTypes.string,
       editableLastPart: PropTypes.string,
