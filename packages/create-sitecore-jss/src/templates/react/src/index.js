@@ -42,7 +42,7 @@ if (ssrRawJson) {
   __JSS_STATE__ = JSON.parse(ssrRawJson.innerHTML);
 }
 if (__JSS_STATE__) {
-  // when React initializes from a SSR-based initial state, you need to render with `hydrate` instead of `render`
+  // when React initializes from a SSR-based initial state, you need to render with `hydrateRoot` instead of `render`
   renderFunction = hydrateRoot;
 
   // set i18n language SSR state language instead of static config default language
