@@ -55,7 +55,6 @@ File.propTypes = {
       value: PropTypes.object,
     }),
   ]).isRequired,
-  children: PropTypes.node,
 };
 
 File.displayName = 'File';

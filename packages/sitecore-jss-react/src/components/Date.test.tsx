@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { render } from '@testing-library/react';
+import { shallow } from 'enzyme';
 import React from 'react';
 import { DateField } from './Date';
 
@@ -9,9 +9,10 @@ describe('<DateField />', () => {
     const p = {
       field: {},
     };
-    const r = render(<DateField {...p} />);
 
-    expect(r.container.innerHTML).to.equal('');
+    const c = shallow(<DateField {...p} />);
+
+    expect(c.type()).to.be.null;
   });
 
   it('should render value', () => {
@@ -20,36 +21,39 @@ describe('<DateField />', () => {
         value: '23-11-2001',
       },
     };
-    const r = render(<DateField {...p} />);
 
-    expect(r.container.innerHTML).to.equal('23-11-2001');
+    const c = shallow(<DateField {...p} />);
+
+    expect(c.html()).equal('23-11-2001');
   });
 
   it('should render value using render prop function', () => {
-    const renderFn = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
+    const render = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
     const p = {
       field: {
         value: '11-23-2001',
       },
-      render: renderFn,
+      render,
     };
-    const r = render(<DateField {...p} />);
 
-    expect(r.container.innerHTML).equal('<p>Fri Nov 23 2001</p>');
+    const c = shallow(<DateField {...p} />);
+
+    expect(c.html()).equal('<p>Fri Nov 23 2001</p>');
   });
 
   it('should render null value using render prop function', () => {
-    const renderFn = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
+    const render = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
     const p = {
       field: {
         editable: 'xxx',
       },
       editable: false,
-      render: renderFn,
+      render,
     };
-    const r = render(<DateField {...p} />);
 
-    expect(r.container.innerHTML).equal('<p></p>');
+    const c = shallow(<DateField {...p} />);
+
+    expect(c.html()).equal('<p></p>');
   });
 
   it('should render value with provided tag', () => {
@@ -59,9 +63,10 @@ describe('<DateField />', () => {
       },
       tag: 'h3',
     };
-    const r = render(<DateField {...p} />);
 
-    expect(r.container.innerHTML).equal('<h3>11-23-2001</h3>');
+    const c = shallow(<DateField {...p} />);
+
+    expect(c.html()).equal('<h3>11-23-2001</h3>');
   });
 
   it('should render editable value', () => {
@@ -71,8 +76,9 @@ describe('<DateField />', () => {
       },
       editable: true,
     };
-    const r = render(<DateField {...p} />);
 
-    expect(r.container.innerHTML).equal('<span><h1 class="super">11-23-2001</h1></span>');
+    const c = shallow(<DateField {...p} />);
+
+    expect(c.html()).equal('<span><h1 class="super">11-23-2001</h1></span>');
   });
 });

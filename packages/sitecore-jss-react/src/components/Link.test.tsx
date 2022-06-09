@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import { expect } from 'chai';
+import { mount } from 'enzyme';
 
 import { Link, LinkField } from './Link';
 import { generalLinkField as eeLinkData } from '../test-data/ee-data';
@@ -8,14 +8,14 @@ import { generalLinkField as eeLinkData } from '../test-data/ee-data';
 describe('<Link />', () => {
   it('should render nothing with missing field', () => {
     const field = null as LinkField;
-    const rendered = render(<Link field={field} />);
-    expect(rendered.container.innerHTML).to.equal('');
+    const rendered = mount(<Link field={field} />).children();
+    expect(rendered).to.have.length(0);
   });
 
   it('should render nothing with missing editable and value', () => {
     const field = {};
-    const rendered = render(<Link field={field} />);
-    expect(rendered.container.innerHTML).to.have.length(0);
+    const rendered = mount(<Link field={field} />).children();
+    expect(rendered).to.have.length(0);
   });
 
   it('should render editable with an editable value', () => {
@@ -23,9 +23,9 @@ describe('<Link />', () => {
       editableFirstPart: '<a href="/services" class="yo">Lorem',
       editableLastPart: '</a>',
     };
-    const rendered = render(<Link field={field} />);
+    const rendered = mount(<Link field={field} />);
 
-    expect(rendered.container.innerHTML).to.contain(field.editableFirstPart);
+    expect(rendered.html()).to.contain(field.editableFirstPart);
   });
 
   it('should render value with editing explicitly disabled', () => {
@@ -36,9 +36,9 @@ describe('<Link />', () => {
       },
       editable: '<a href="/services" class="yo">Lorem</a>',
     };
-    const rendered = render(<Link field={field} editable={false} />).container.querySelector('a');
-    expect(rendered.outerHTML).to.contain(field.value.href);
-    expect(rendered.outerHTML).to.contain(field.value.text);
+    const rendered = mount(<Link field={field} editable={false} />).find('a');
+    expect(rendered.html()).to.contain(field.value.href);
+    expect(rendered.html()).to.contain(field.value.text);
   });
 
   it('should render with href directly on provided field', () => {
@@ -46,18 +46,18 @@ describe('<Link />', () => {
       href: '/lorem',
       text: 'ipsum',
     };
-    const rendered = render(<Link field={field} />).container.querySelector('a');
-    expect(rendered.outerHTML).to.contain(field.href);
-    expect(rendered.outerHTML).to.contain(field.text);
+    const rendered = mount(<Link field={field} />).find('a');
+    expect(rendered.html()).to.contain(field.href);
+    expect(rendered.html()).to.contain(field.text);
   });
 
   it('should render ee HTML', () => {
     const field = {
       editableFirstPart: eeLinkData,
     };
-    const rendered = render(<Link field={field} />);
-    expect(rendered.container.innerHTML).to.contain('<input');
-    expect(rendered.container.innerHTML).to.contain('chrometype="field"');
+    const rendered = mount(<Link field={field} />);
+    expect(rendered.html()).to.contain('<input');
+    expect(rendered.html()).to.contain('chrometype="field"');
   });
 
   it('should render all value attributes', () => {
@@ -71,11 +71,11 @@ describe('<Link />', () => {
         querystring: 'foo=bar',
       },
     };
-    const rendered = render(<Link field={field} />).container.querySelector('a');
-    expect(rendered.outerHTML).to.contain(`href="${field.value.href}?${field.value.querystring}"`);
-    expect(rendered.outerHTML).to.contain(`class="${field.value.class}"`);
-    expect(rendered.outerHTML).to.contain(`title="${field.value.title}"`);
-    expect(rendered.outerHTML).to.contain(`target="${field.value.target}"`);
+    const rendered = mount(<Link field={field} />).find('a');
+    expect(rendered.html()).to.contain(`href="${field.value.href}?${field.value.querystring}"`);
+    expect(rendered.html()).to.contain(`class="${field.value.class}"`);
+    expect(rendered.html()).to.contain(`title="${field.value.title}"`);
+    expect(rendered.html()).to.contain(`target="${field.value.target}"`);
   });
 
   it('should render other attributes with other props provided', () => {
@@ -85,11 +85,9 @@ describe('<Link />', () => {
         text: 'ipsum',
       },
     };
-    const rendered = render(
-      <Link field={field} id="my-link" accessKey="a" />
-    ).container.querySelector('a');
-    expect(rendered.outerHTML).to.contain('id="my-link"');
-    expect(rendered.outerHTML).to.contain('accesskey="a"');
+    const rendered = mount(<Link field={field} id="my-link" accessKey="a" />).find('a');
+    expect(rendered.html()).to.contain('id="my-link"');
+    expect(rendered.html()).to.contain('accesskey="a"');
   });
 
   it('should render other attributes on wrapper span with other props provided with editable', () => {
@@ -97,7 +95,7 @@ describe('<Link />', () => {
       editableFirstPart: '<a href="/services" class="yo">Lorem',
       editableLastPart: '</a>',
     };
-    const rendered = render(<Link field={field} id="my-link" />);
-    expect(rendered.container.innerHTML).to.contain('id="my-link"');
+    const rendered = mount(<Link field={field} id="my-link" />);
+    expect(rendered.html()).to.contain('id="my-link"');
   });
 });

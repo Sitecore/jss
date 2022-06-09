@@ -7,6 +7,6 @@ const styles = {
   backgroundSize: '3px 3px',
 };
 
-export const HiddenRendering = () => <div data-testid="HiddenRendering" style={styles} />;
+export const HiddenRendering = () => <div style={styles} />;
 
 export const HIDDEN_RENDERING_NAME = 'Hidden Rendering';

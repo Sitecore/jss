@@ -127,7 +127,6 @@ export const LinkPropTypes = {
     }),
   ]).isRequired,
   editable: PropTypes.bool,
-  children: PropTypes.node,
   showLinkTextWithChildrenPresent: PropTypes.bool,
 };
 
