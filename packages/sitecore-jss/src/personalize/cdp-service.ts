@@ -26,6 +26,10 @@ export type CdpServiceConfig = {
    */
   clientKey: string;
   /**
+   * Timeout for CDP request
+   */
+  timeout: number;
+  /**
    * Custom data fetcher resolver. Uses @see AxiosDataFetcher by default.
    */
   dataFetcherResolver?: DataFetcherResolver;
@@ -58,12 +62,20 @@ export class CdpService {
     const fetcher = this.config.dataFetcherResolver
       ? this.config.dataFetcherResolver<SegmentData>()
       : this.getDefaultFetcher<SegmentData>();
-    const response = await fetcher(endpoint, {
-      clientKey: this.config.clientKey,
-      browserId,
-      params,
-    });
-    return response.data;
+    try {
+      const response = await fetcher(endpoint, {
+        clientKey: this.config.clientKey,
+        browserId,
+        params,
+      });
+
+      return response.data;
+    } catch (error) {
+      return {
+        segments: [],
+        browserId,
+      };
+    }
   }
 
   /**
@@ -82,6 +94,7 @@ export class CdpService {
   protected getDefaultFetcher = <T>() => {
     const fetcher = new AxiosDataFetcher({
       debugger: debug.personalize,
+      timeout: this.config.timeout,
     });
     return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
   };

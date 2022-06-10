@@ -10,6 +10,10 @@ type NativeDataFetcherOptions = {
    * Override fetch method. Uses native (or polyfilled) fetch by default.
    */
   fetch?: typeof fetch;
+  /**
+   * Optional request timeout.
+   */
+  timeout?: number;
 };
 
 export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;

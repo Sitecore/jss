@@ -10,15 +10,20 @@ class PersonalizePlugin implements MiddlewarePlugin {
   order = 1;
 
   constructor() {
+    const timeout = process.env.NEXT_PUBLIC_PERSONALIZE_TIMEOUT
+      ? ((process.env.NEXT_PUBLIC_PERSONALIZE_TIMEOUT as unknown) as number)
+      : 170;
     this.personalizeMiddleware = new PersonalizeMiddleware({
       edgeConfig: {
         endpoint: config.graphQLEndpoint,
         apiKey: config.sitecoreApiKey,
         siteName: config.jssAppName,
+        timeout,
       },
       cdpConfig: {
         endpoint: process.env.NEXT_PUBLIC_CDP_API_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
+        timeout,
       },
     });
   }

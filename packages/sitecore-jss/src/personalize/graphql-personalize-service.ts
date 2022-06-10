@@ -15,6 +15,10 @@ export type GraphQLPersonalizeServiceConfig = {
    */
   apiKey: string;
   /**
+   * Request timeout for Experience Edge
+   */
+  timeout: number;
+  /**
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
   fetch?: typeof fetch;
@@ -82,22 +86,25 @@ export class GraphQLPersonalizeService {
       language
     );
 
-    const data = await this.graphQLClient.request<PersonalizeQueryResult>(this.query, {
-      siteName: this.config.siteName,
-      itemPath,
-      language,
-    });
+    try {
+      const data = await this.graphQLClient.request<PersonalizeQueryResult>(this.query, {
+        siteName: this.config.siteName,
+        itemPath,
+        language,
+      });
 
-    if (!data?.layout?.item) {
-      // Possible if itemPath / language doesn't exist
+      const personalizeInfo = !data?.layout?.item
+        ? undefined
+        : {
+            // CDP expects content id format `<id>_<language>_<version>` (lowercase)
+            contentId: `${data.layout.item.id}_${language}_${data.layout.item.version}`.toLowerCase(),
+            segments: data.layout.item.personalization.variantIds,
+          };
+
+      return personalizeInfo;
+    } catch (error) {
       return undefined;
     }
-
-    return {
-      // CDP expects content id format `<id>_<language>_<version>` (lowercase)
-      contentId: `${data.layout.item.id}_${language}_${data.layout.item.version}`.toLowerCase(),
-      segments: data.layout.item.personalization.variantIds,
-    };
   }
 
   /**
@@ -111,6 +118,7 @@ export class GraphQLPersonalizeService {
       apiKey: this.config.apiKey,
       debugger: debug.personalize,
       fetch: this.config.fetch,
+      timeout: this.config.timeout,
     });
   }
 }

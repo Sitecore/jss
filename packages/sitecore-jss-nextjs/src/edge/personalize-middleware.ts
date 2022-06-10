@@ -50,6 +50,7 @@ export class PersonalizeMiddleware {
       dataFetcherResolver: <T>() => {
         const fetcher = new NativeDataFetcher({
           debugger: debug.personalize,
+          timeout: config.cdpConfig.timeout,
         });
         return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
       },

@@ -1,4 +1,5 @@
 import { GraphQLClient as Client, ClientError } from 'graphql-request';
+import { RequestInit } from 'graphql-request/dist/types.dom';
 import parse from 'url-parse';
 import { DocumentNode } from 'graphql';
 import debuggers, { Debugger } from './debug';
@@ -31,6 +32,10 @@ export type GraphQLRequestClientConfig = {
    * Override fetch method. Uses 'graphql-request' library default otherwise ('cross-fetch').
    */
   fetch?: typeof fetch;
+  /**
+   * GraphQLClient request timeout
+   */
+  timeout?: number;
 };
 
 /**
@@ -41,6 +46,8 @@ export class GraphQLRequestClient implements GraphQLClient {
   private client: Client;
   private headers: Record<string, string> = {};
   private debug: Debugger;
+  private timeout: number | undefined;
+  private abortController: AbortController;
 
   /**
    * Provides ability to execute graphql query using given `endpoint`
@@ -58,7 +65,13 @@ export class GraphQLRequestClient implements GraphQLClient {
       );
     }
 
-    this.client = new Client(endpoint, { headers: this.headers, fetch: clientConfig.fetch });
+    clientConfig.timeout && (this.timeout = clientConfig.timeout);
+    this.abortController = new AbortController();
+    this.client = new Client(endpoint, {
+      headers: this.headers,
+      fetch: clientConfig.fetch,
+      signal: this.abortController.signal as RequestInit['signal'],
+    });
     this.debug = clientConfig.debugger || debuggers.http;
   }
 
@@ -81,6 +94,24 @@ export class GraphQLRequestClient implements GraphQLClient {
         variables,
       });
 
+      if (this.timeout) {
+        const abortTimeout = setTimeout(() => {
+          this.abortController.abort();
+        }, this.timeout);
+        this.client
+          .request(query, variables)
+          .then((data: T) => {
+            clearTimeout(abortTimeout);
+            this.debug('response: %o', data);
+            resolve(data);
+          })
+          .catch((error: ClientError) => {
+            this.debug('response error: %o', error.response);
+            reject(error);
+          });
+        return;
+      }
+
       this.client
         .request(query, variables)
         .then((data: T) => {
@@ -89,7 +120,7 @@ export class GraphQLRequestClient implements GraphQLClient {
         })
         .catch((error: ClientError) => {
           this.debug('response error: %o', error.response);
-          return reject(error);
+          reject(error);
         });
     });
   }

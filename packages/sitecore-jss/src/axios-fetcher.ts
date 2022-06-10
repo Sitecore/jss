@@ -30,6 +30,10 @@ type AxiosDataFetcherOptions = {
    * Override debugger for logging. Uses 'sitecore-jss:http' by default.
    */
   debugger?: Debugger;
+  /**
+   * Optional request timeout.
+   */
+  timeout?: number;
 };
 
 export type AxiosDataFetcherConfig = AxiosRequestConfig & AxiosDataFetcherOptions;

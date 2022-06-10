@@ -12,11 +12,13 @@ describe('GraphQLPersonalizeService', () => {
   const id = 'item-id';
   const version = '1';
   const segments = ['segment-1', 'segment-2'];
+  const timeout = 50;
 
   const config = {
     endpoint,
     siteName,
     apiKey,
+    timeout,
   };
   const personalizeQueryResult = {
     layout: {
@@ -89,6 +91,22 @@ describe('GraphQLPersonalizeService', () => {
     await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
       expect(error.response.status).to.equal(401);
       expect(error.response.error).to.equal('error');
+    });
+  });
+  it('should return undefined if response timeout', async () => {
+    nock('http://sctest', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .delay(100)
+      .reply(408);
+
+    const service = new GraphQLPersonalizeService(config);
+
+    await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
+      expect(error.response.status).to.equal(408);
     });
   });
 });

@@ -13,10 +13,12 @@ describe('CdpService', () => {
   const contentId = 'content-id';
   const segments = ['segment-1', 'segment-2'];
   const browserId = 'browser-id';
+  const timeout = 50;
 
   const config = {
     endpoint,
     clientKey,
+    timeout,
   };
 
   afterEach(() => {
@@ -90,5 +92,21 @@ describe('CdpService', () => {
     });
     expect(fetcherSpy).to.be.called.once;
     expect(fetcherSpy).to.be.called.with(`http://sctest/v2/callFlows/getSegments/${contentId}`);
+  });
+  it('should return empty segments array if request timeout', async () => {
+    nock(endpoint)
+      .post(`/v2/callFlows/getSegments/${contentId}`, {
+        clientKey,
+        browserId,
+        params: {},
+      })
+      .delay(100)
+      .reply(408);
+    const service = new CdpService(config);
+    const getSegmentDataResult = await service.getSegments(contentId, browserId).catch((error) => {
+      expect(error.response.status).to.equal(408);
+    });
+
+    expect(getSegmentDataResult).to.deep.equal({ segments: [], browserId });
   });
 });
