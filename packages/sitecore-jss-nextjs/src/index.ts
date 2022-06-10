@@ -127,6 +127,7 @@ export {
   DateField,
   File,
   FileField,
+  RichTextField,
   VisitorIdentification,
   PlaceholderComponentProps,
   SitecoreContext,
