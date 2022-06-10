@@ -7,10 +7,10 @@ export interface ComponentFactoryProps {
 }
 
 /**
- * @param {React.ComponentClass<T> | React.SFC<T>} Component
+ * @param {React.ComponentClass<T> | React.FC<T>} Component
  */
 export function withComponentFactory<T extends ComponentFactoryProps>(
-  Component: React.ComponentClass<T> | React.SFC<T>
+  Component: React.ComponentClass<T> | React.FC<T>
 ) {
   return function WithComponentFactory(props: T) {
     return (

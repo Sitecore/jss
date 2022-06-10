@@ -19,7 +19,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
     <>
       <Scripts />
       <Head>
-        <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
+        <title>{route?.fields?.pageTitle?.value.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
