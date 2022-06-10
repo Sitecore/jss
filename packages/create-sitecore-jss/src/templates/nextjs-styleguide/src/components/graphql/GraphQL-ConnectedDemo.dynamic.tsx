@@ -15,7 +15,7 @@ import {
   <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute as AppRoute,
   Item,
   <%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
-} from './GraphQL-ConnectedDemo.dynamic.graphql';
+} from 'generated-graphql';
 import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 

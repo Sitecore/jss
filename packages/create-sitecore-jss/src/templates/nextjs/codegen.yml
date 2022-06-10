@@ -1,0 +1,9 @@
+﻿overwrite: true
+documents: 'src/**/*.graphql'
+schema: 'src/temp/GraphQLIntrospectionResult.json'
+generates:
+  src/temp/generated-graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-query'
