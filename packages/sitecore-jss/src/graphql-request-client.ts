@@ -46,8 +46,8 @@ export class GraphQLRequestClient implements GraphQLClient {
   private client: Client;
   private headers: Record<string, string> = {};
   private debug: Debugger;
-  private timeout: number | undefined;
-  private abortController: AbortController;
+  private timeout?: number;
+  private abortController = new AbortController();
 
   /**
    * Provides ability to execute graphql query using given `endpoint`
@@ -65,8 +65,7 @@ export class GraphQLRequestClient implements GraphQLClient {
       );
     }
 
-    clientConfig.timeout && (this.timeout = clientConfig.timeout);
-    this.abortController = new AbortController();
+    this.timeout = clientConfig.timeout;
     this.client = new Client(endpoint, {
       headers: this.headers,
       fetch: clientConfig.fetch,
@@ -94,27 +93,18 @@ export class GraphQLRequestClient implements GraphQLClient {
         variables,
       });
 
+      let abortTimeout: NodeJS.Timeout;
+
       if (this.timeout) {
-        const abortTimeout = setTimeout(() => {
+        abortTimeout = setTimeout(() => {
           this.abortController.abort();
         }, this.timeout);
-        this.client
-          .request(query, variables)
-          .then((data: T) => {
-            clearTimeout(abortTimeout);
-            this.debug('response: %o', data);
-            resolve(data);
-          })
-          .catch((error: ClientError) => {
-            this.debug('response error: %o', error.response);
-            reject(error);
-          });
-        return;
       }
 
       this.client
         .request(query, variables)
         .then((data: T) => {
+          clearTimeout(abortTimeout);
           this.debug('response: %o', data);
           resolve(data);
         })

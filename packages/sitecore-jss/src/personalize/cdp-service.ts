@@ -1,7 +1,8 @@
 import debug from '../debug';
 import { HttpDataFetcher } from '../data-fetcher';
 import { AxiosDataFetcher } from '../axios-fetcher';
-
+import { AxiosError } from 'axios';
+import { ResponseError } from '../data-fetcher';
 /**
  * Object model of CDP segment data
  */
@@ -26,7 +27,7 @@ export type CdpServiceConfig = {
    */
   clientKey: string;
   /**
-   * Timeout for CDP request
+   * Timeout for CDP request. The default value will be returned as a fallback
    */
   timeout: number;
   /**
@@ -71,10 +72,16 @@ export class CdpService {
 
       return response.data;
     } catch (error) {
-      return {
-        segments: [],
-        browserId,
-      };
+      if (
+        (error as AxiosError).code === '408' ||
+        (error as ResponseError).response?.status === 408 ||
+        (error as Error).message === 'Error: The user aborted a request.' ||
+        /timeout/i.test((error as Error).message)
+      ) {
+        return { segments: [], browserId };
+      }
+
+      throw new Error((error as Error).message);
     }
   }
 

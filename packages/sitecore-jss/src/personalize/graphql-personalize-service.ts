@@ -1,5 +1,6 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import debug from '../debug';
+import { ResponseError } from '../data-fetcher';
 
 export type GraphQLPersonalizeServiceConfig = {
   /**
@@ -15,7 +16,7 @@ export type GraphQLPersonalizeServiceConfig = {
    */
   apiKey: string;
   /**
-   * Request timeout for Experience Edge
+   * Timeout for the Personalize request. The default value will be returned as a fallback
    */
   timeout: number;
   /**
@@ -103,7 +104,14 @@ export class GraphQLPersonalizeService {
 
       return personalizeInfo;
     } catch (error) {
-      return undefined;
+      if (
+        (error as ResponseError).response?.status === 408 ||
+        /timeout/i.test((error as Error).message)
+      ) {
+        return undefined;
+      }
+
+      throw new Error((error as Error).message);
     }
   }
 
