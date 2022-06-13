@@ -42,7 +42,7 @@ export class PersonalizeMiddleware {
    * @param {PersonalizeMiddlewareConfig} [config] Personalize middleware config
    */
   constructor(protected config: PersonalizeMiddlewareConfig) {
-    const timeout = config.timeout ? ((config.timeout as unknown) as number) : 170;
+    const timeout = config.timeout ? ((config.timeout as unknown) as number) : 250;
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.personalizeService = new GraphQLPersonalizeService({
