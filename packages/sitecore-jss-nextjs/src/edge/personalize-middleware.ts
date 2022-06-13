@@ -120,15 +120,11 @@ export class PersonalizeMiddleware {
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
-    const context = this.getExperienceContext(req);
     let browserId = this.getBrowserId(req);
-    let variantId: string | undefined = undefined;
 
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
-      context,
-      browserId,
     });
 
     // Response will be provided if other middleware is run before us (e.g. redirects)
@@ -160,28 +156,28 @@ export class PersonalizeMiddleware {
       return response;
     }
 
-    // Get variant data from CDP
-    const variantData = await this.cdpService.executeExperience(
+    // Execute targeted experience in CDP
+    const context = this.getExperienceContext(req);
+    const experienceResult = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
       context,
       browserId
     );
     // If a browserId was not passed in (new session), a new browserId will be returned
-    browserId = variantData.browserId;
-    variantId = variantData.variantId;
+    browserId = experienceResult.browserId;
 
-    if (!variantId) {
+    if (!experienceResult.variantId) {
       debug.personalize('skipped (no variant identified)');
       return response;
     }
 
-    if (!personalizeInfo.variantIds.includes(variantId)) {
+    if (!personalizeInfo.variantIds.includes(experienceResult.variantId)) {
       debug.personalize('skipped (invalid variant)');
       return response;
     }
 
     // Rewrite to persononalized path
-    const rewritePath = getPersonalizedRewrite(pathname, { variantId });
+    const rewritePath = getPersonalizedRewrite(pathname, { variantId: experienceResult.variantId });
     // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
     const rewriteUrl = req.nextUrl.clone();
     rewriteUrl.pathname = rewritePath;
@@ -197,7 +193,7 @@ export class PersonalizeMiddleware {
     }
 
     debug.personalize('personalize middleware end: %o', {
-      rewriteUrl,
+      rewritePath,
       browserId,
       headers: response.headers,
     });

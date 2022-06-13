@@ -3,9 +3,9 @@ import { HttpDataFetcher } from '../data-fetcher';
 import { AxiosDataFetcher } from '../axios-fetcher';
 
 /**
- * Object model of CDP variant data
+ * Object model of CDP execute experience result
  */
-export type VariantData = {
+export type ExecuteExperienceResult = {
   /**
    * The identified variant
    */
@@ -72,21 +72,21 @@ export class CdpService {
    * Executes targeted experience for a page and context to determine the variant to render.
    * @param {string} contentId the friendly content id of the page
    * @param {ExperienceContext} context the experience context for the user
-   * @param {string} [browserId] the browser id. If omitted, a browserId will be created and returned in the response.
-   * @returns {VariantData} the variant data
+   * @param {string} [browserId] the browser id. If omitted, a browserId will be created and returned in the result.
+   * @returns {ExecuteExperienceResult} the execute experience result
    */
   async executeExperience(
     contentId: string,
     context: ExperienceContext,
     browserId = ''
-  ): Promise<VariantData> {
+  ): Promise<ExecuteExperienceResult> {
     const endpoint = this.getExecuteExperienceUrl(contentId);
 
     debug.personalize('executing experience for %s %s %o', contentId, browserId, context);
 
     const fetcher = this.config.dataFetcherResolver
-      ? this.config.dataFetcherResolver<VariantData>()
-      : this.getDefaultFetcher<VariantData>();
+      ? this.config.dataFetcherResolver<ExecuteExperienceResult>()
+      : this.getDefaultFetcher<ExecuteExperienceResult>();
     const response = await fetcher(endpoint, {
       clientKey: this.config.clientKey,
       pointOfSale: this.config.pointOfSale,

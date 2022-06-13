@@ -3,7 +3,12 @@ export {
   GraphQLPersonalizeService,
   GraphQLPersonalizeServiceConfig,
 } from './graphql-personalize-service';
-export { CdpService, CdpServiceConfig, ExperienceContext, VariantData } from './cdp-service';
+export {
+  CdpService,
+  CdpServiceConfig,
+  ExperienceContext,
+  ExecuteExperienceResult,
+} from './cdp-service';
 export {
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
