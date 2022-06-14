@@ -244,7 +244,7 @@ export class GraphQLSitemapService {
             if (item.route?.personalization?.variantIds.length) {
               aggregatedPaths.push(
                 ...item.route?.personalization?.variantIds.map((varId) =>
-                  formatPath(getPersonalizedRewrite(item.path, { segmentId: varId }))
+                  formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
                 )
               );
             }

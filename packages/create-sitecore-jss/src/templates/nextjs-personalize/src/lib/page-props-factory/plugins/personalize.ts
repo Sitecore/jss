@@ -10,15 +10,15 @@ class PersonalizePlugin implements Plugin {
     if (!context?.params?.path) {
       return props;
     }
-    // Get segment for personalization (from path)
+    // Get variant for personalization (from path)
     const path = Array.isArray(context.params.path)
       ? context.params.path.join('/')
       : context.params.path ?? '/';
 
     const personalizeData = getPersonalizedRewriteData(path);
 
-    // Modify layoutData to use specific segment instead of default
-    personalizeLayout(props.layoutData, personalizeData.segmentId);
+    // Modify layoutData to use specific variant instead of default
+    personalizeLayout(props.layoutData, personalizeData.variantId);
 
     return props;
   }

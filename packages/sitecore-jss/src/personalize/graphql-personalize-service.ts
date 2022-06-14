@@ -29,9 +29,9 @@ export type PersonalizeInfo = {
    */
   contentId: string;
   /**
-   * The configured segments
+   * The configured variant ids
    */
-  segments: string[];
+  variantIds: string[];
 };
 
 type PersonalizeQueryResult = {
@@ -96,7 +96,7 @@ export class GraphQLPersonalizeService {
     return {
       // CDP expects content id format `<id>_<language>_<version>` (lowercase)
       contentId: `${data.layout.item.id}_${language}_${data.layout.item.version}`.toLowerCase(),
-      segments: data.layout.item.personalization.variantIds,
+      variantIds: data.layout.item.personalization.variantIds,
     };
   }
 

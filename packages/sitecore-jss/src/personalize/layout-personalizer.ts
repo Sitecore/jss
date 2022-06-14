@@ -8,16 +8,16 @@ export type ComponentRenderingWithExperiences = ComponentRendering & {
 /**
  * Apply personalization to layout data. This will recursively go through all placeholders/components, check experiences nodes and replace default with object from specific experience.
  * @param {LayoutServiceData} layout Layout data
- * @param {string} segment segmentId
+ * @param {string} variantId variant id
  */
-export function personalizeLayout(layout: LayoutServiceData, segment: string): void {
+export function personalizeLayout(layout: LayoutServiceData, variantId: string): void {
   const placeholders = layout.sitecore.route?.placeholders;
   if (Object.keys(placeholders ?? {}).length === 0) {
     return;
   }
   if (placeholders) {
     Object.keys(placeholders).forEach((placeholder) => {
-      placeholders[placeholder] = personalizePlaceholder(placeholders[placeholder], segment);
+      placeholders[placeholder] = personalizePlaceholder(placeholders[placeholder], variantId);
     });
   }
 }
@@ -25,17 +25,17 @@ export function personalizeLayout(layout: LayoutServiceData, segment: string): v
 /**
 
  * @param {Array} components components within placeholder
- * @param {string} segment segmentId
+ * @param {string} variantId variant id
  * @returns {Array<ComponentRendering | HtmlElementRendering>} components with personalization applied
  */
 export function personalizePlaceholder(
   components: Array<ComponentRendering | HtmlElementRendering>,
-  segment: string
+  variantId: string
 ): Array<ComponentRendering | HtmlElementRendering> {
   return components
     .map((component) =>
       (component as ComponentRenderingWithExperiences).experiences !== undefined
-        ? (personalizeComponent(component as ComponentRenderingWithExperiences, segment) as
+        ? (personalizeComponent(component as ComponentRenderingWithExperiences, variantId) as
             | ComponentRendering
             | HtmlElementRendering)
         : component
@@ -45,22 +45,22 @@ export function personalizePlaceholder(
 
 /**
  * @param {ComponentRenderingWithExperiences} component component with experiences
- * @param {string} segment segmentId
+ * @param {string} variantId variant id
  * @returns {ComponentRendering | null} component with personalization applied or null if hidden
  */
 export function personalizeComponent(
   component: ComponentRenderingWithExperiences,
-  segment: string
+  variantId: string
 ): ComponentRendering | null {
-  const segmentVariant = component.experiences[segment];
-  if (segmentVariant === undefined && component.componentName === undefined) {
+  const variant = component.experiences[variantId];
+  if (variant === undefined && component.componentName === undefined) {
     // DEFAULT IS HIDDEN
     return null;
-  } else if (Object.keys(segmentVariant ?? {}).length === 0) {
+  } else if (Object.keys(variant ?? {}).length === 0) {
     // HIDDEN
     return null;
-  } else if (segmentVariant) {
-    component = segmentVariant;
+  } else if (variant) {
+    component = variant;
   }
 
   if (!component.placeholders) return component;
@@ -69,7 +69,7 @@ export function personalizeComponent(
     if (component.placeholders) {
       component.placeholders[placeholder] = personalizePlaceholder(
         component.placeholders[placeholder],
-        segment
+        variantId
       );
     }
   });
