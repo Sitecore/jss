@@ -175,5 +175,16 @@ describe('NativeDataFetcher', () => {
         'request and response.json() error and response log'
       ).to.be.called.exactly(3);
     });
+
+    it('should return error upon request timeout', async () => {
+      const fetcher = new NativeDataFetcher({ timeout: 10 });
+
+      spy.on(global, 'fetch', mockFetch(200));
+
+      await fetcher.fetch('http://test.com/api').catch((error) => {
+        expect(error).to.be.instanceOf(Error);
+        expect(error.message).to.equal('HTTP 408 ERROR');
+      });
+    });
   });
 });

@@ -13,12 +13,10 @@ describe('CdpService', () => {
   const contentId = 'content-id';
   const segments = ['segment-1', 'segment-2'];
   const browserId = 'browser-id';
-  const timeout = 50;
 
   const config = {
     endpoint,
     clientKey,
-    timeout,
   };
 
   afterEach(() => {

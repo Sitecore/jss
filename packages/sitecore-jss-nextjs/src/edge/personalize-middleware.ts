@@ -25,16 +25,14 @@ export type PersonalizeMiddlewareConfig = {
    * Configuration for your Sitecore CDP endpoint
    */
   cdpConfig: Omit<CdpServiceConfig, 'dataFetcherResolver'>;
-  /**
-   * Timeout for the Personalization requests. Will be set to default if undefined.
-   */
-  timeout?: string;
 };
 
 /**
  * Middleware / handler to support Sitecore Personalize
  */
 export class PersonalizeMiddleware {
+  private edgeTimeout: number;
+  private cdpTimeout: number;
   private personalizeService: GraphQLPersonalizeService;
   private cdpService: CdpService;
 
@@ -42,22 +40,23 @@ export class PersonalizeMiddleware {
    * @param {PersonalizeMiddlewareConfig} [config] Personalize middleware config
    */
   constructor(protected config: PersonalizeMiddlewareConfig) {
-    const timeout = config.timeout ? ((config.timeout as unknown) as number) : 250;
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
+    this.edgeTimeout = config.edgeConfig.timeout || 70;
+    this.cdpTimeout = config.cdpConfig.timeout || 250;
     this.personalizeService = new GraphQLPersonalizeService({
       ...config.edgeConfig,
-      timeout,
       fetch: fetch,
+      timeout: this.edgeTimeout,
     });
     // NOTE: same here, we provide NativeDataFetcher for compatibility on Next.js Edge Runtime
     this.cdpService = new CdpService({
       ...config.cdpConfig,
-      timeout,
+      timeout: this.cdpTimeout,
       dataFetcherResolver: <T>() => {
         const fetcher = new NativeDataFetcher({
           debugger: debug.personalize,
-          timeout,
+          timeout: this.cdpTimeout,
         });
         return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
       },

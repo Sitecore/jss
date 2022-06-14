@@ -20,7 +20,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
         endpoint: process.env.NEXT_PUBLIC_CDP_API_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
       },
-      timeout: process.env.NEXT_PUBLIC_PERSONALIZE_TIMEOUT,
     });
   }
 

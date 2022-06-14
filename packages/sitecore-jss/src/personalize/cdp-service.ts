@@ -29,7 +29,7 @@ export type CdpServiceConfig = {
   /**
    * Timeout for CDP request. The default value will be returned as a fallback
    */
-  timeout: number;
+  timeout?: number;
   /**
    * Custom data fetcher resolver. Uses @see AxiosDataFetcher by default.
    */
@@ -45,7 +45,10 @@ export class CdpService {
   /**
    * @param {CdpServiceConfig} [config] CDP service config
    */
-  constructor(protected config: CdpServiceConfig) {}
+  private timeout?: number;
+  constructor(protected config: CdpServiceConfig) {
+    this.timeout = config.timeout;
+  }
 
   /**
    * Returns a list of segments to determine which variant of a page to render.
@@ -68,6 +71,7 @@ export class CdpService {
         clientKey: this.config.clientKey,
         browserId,
         params,
+        timeout: this.timeout,
       });
 
       return response.data;
@@ -75,7 +79,7 @@ export class CdpService {
       if (
         (error as AxiosError).code === '408' ||
         (error as ResponseError).response?.status === 408 ||
-        (error as Error).message === 'Error: The user aborted a request.' ||
+        (error as Error).name === 'AbortError' ||
         /timeout/i.test((error as Error).message)
       ) {
         return { segments: [], browserId };
@@ -101,7 +105,7 @@ export class CdpService {
   protected getDefaultFetcher = <T>() => {
     const fetcher = new AxiosDataFetcher({
       debugger: debug.personalize,
-      timeout: this.config.timeout,
+      timeout: this.timeout,
     });
     return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
   };

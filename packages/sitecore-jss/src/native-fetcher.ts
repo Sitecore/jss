@@ -19,7 +19,10 @@ type NativeDataFetcherOptions = {
 export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;
 
 export class NativeDataFetcher {
-  constructor(protected config: NativeDataFetcherConfig = {}) {}
+  private timeout?: number;
+  constructor(protected config: NativeDataFetcherConfig = {}) {
+    this.timeout = config.timeout;
+  }
 
   /**
    * Implements a data fetcher. @see HttpDataFetcher<T> type for implementation details/notes.
@@ -31,16 +34,30 @@ export class NativeDataFetcher {
     const { debugger: debugOverride, fetch: fetchOverride, ...init } = this.config;
 
     const fetchImpl = fetchOverride || fetch;
+    const abortController = new AbortController();
     const debug = debugOverride || debuggers.http;
     const requestInit = this.getRequestInit(init, data);
+    requestInit.signal = abortController.signal;
 
+    let abortTimeout: NodeJS.Timeout;
+
+    if (this.timeout) {
+      abortTimeout = setTimeout(() => {
+        abortController.abort();
+      }, this.timeout);
+    }
     // Note a goal here is to provide consistent debug logging and error handling
     // as we do in AxiosDataFetcher and GraphQLRequestClient
     debug('request: %o', { url, ...requestInit });
-    const response = await fetchImpl(url, requestInit).catch((error) => {
-      debug('request error: %o', error);
-      throw error;
-    });
+    const response = await fetchImpl(url, requestInit)
+      .then((res) => {
+        clearTimeout(abortTimeout);
+        return res;
+      })
+      .catch((error) => {
+        debug('request error: %o', error);
+        throw error;
+      });
 
     // Note even an error status may send useful json data in response (which we want for logging)
     let respData: unknown = undefined;
@@ -59,7 +76,7 @@ export class NativeDataFetcher {
       data: respData,
     };
 
-    if (!response.ok) {
+    if (!response.ok && !abortController.signal.aborted) {
       debug('response error: %o', debugResponse);
       throw new Error(`HTTP ${response.status} ${response.statusText}`);
     }
