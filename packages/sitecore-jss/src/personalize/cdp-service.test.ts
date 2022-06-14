@@ -1,5 +1,5 @@
 ﻿/* eslint-disable no-unused-expressions */
-import { CdpService } from './cdp-service';
+import { CdpService, ExperienceContext } from './cdp-service';
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
@@ -11,58 +11,77 @@ describe('CdpService', () => {
   const endpoint = 'http://sctest';
   const clientKey = 'client-key';
   const contentId = 'content-id';
-  const segments = ['segment-1', 'segment-2'];
+  const variantId = 'variant-1';
+  const pointOfSale = 'pos-1';
   const browserId = 'browser-id';
+  const context = {
+    geo: {
+      city: 'Testville',
+      country: 'US',
+      latitude: '43.1475',
+      longitude: '-87.905',
+      region: 'CA',
+    },
+    ua:
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+    referrer: 'about:client',
+    utm: {
+      utm_campaign: 'test',
+      utm_source: null,
+      utm_medium: null,
+      utm_content: null,
+    },
+  } as ExperienceContext;
 
   const config = {
     endpoint,
     clientKey,
+    pointOfSale,
   };
 
   afterEach(() => {
     nock.cleanAll();
   });
 
-  it('should return segment data for a route', async () => {
+  it('should return variant data for a route', async () => {
     nock(endpoint)
-      .post(`/v2/callFlows/getSegments/${contentId}`, {
+      .post(`/v2/callFlows/getAudience/${contentId}`, {
         clientKey,
+        pointOfSale,
+        context,
         browserId,
-        params: {},
       })
       .reply(200, {
-        segments,
+        variantId,
         browserId,
       });
 
     const service = new CdpService(config);
-    const getSegmentDataResult = await service.getSegments(contentId, browserId);
+    const result = await service.executeExperience(contentId, context, browserId);
 
-    expect(getSegmentDataResult).to.deep.equal({
-      segments,
+    expect(result).to.deep.equal({
+      variantId,
       browserId,
     });
   });
 
-  it('should return empty segments array when no response', async () => {
+  it('should return undefined variant when no response', async () => {
     nock(endpoint)
-      .post(`/v2/callFlows/getSegments/${contentId}`, {
+      .post(`/v2/callFlows/getAudience/${contentId}`, {
         clientKey,
+        pointOfSale,
+        context,
         browserId,
-        params: {},
       })
       .reply(200, {
-        segments: [],
+        variantId: '',
         browserId: '',
       });
 
     const service = new CdpService(config);
-    const getSegmentDataResult = await service.getSegments(contentId, browserId);
+    const result = await service.executeExperience(contentId, context, browserId);
 
-    expect(getSegmentDataResult).to.deep.equal({
-      segments: [],
-      browserId: '',
-    });
+    expect(result.variantId).to.be.undefined;
   });
 
   it('should fetch using custom fetcher resolver', async () => {
@@ -71,24 +90,25 @@ describe('CdpService', () => {
     });
 
     nock(endpoint)
-      .post(`/v2/callFlows/getSegments/${contentId}`, {
+      .post(`/v2/callFlows/getAudience/${contentId}`, {
         clientKey,
+        pointOfSale,
+        context,
         browserId,
-        params: {},
       })
       .reply(200, {
-        segments,
+        variantId,
         browserId,
       });
 
     const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
-    const getSegmentDataResult = await service.getSegments(contentId, browserId);
+    const result = await service.executeExperience(contentId, context, browserId);
 
-    expect(getSegmentDataResult).to.deep.equal({
-      segments,
+    expect(result).to.deep.equal({
+      variantId,
       browserId,
     });
     expect(fetcherSpy).to.be.called.once;
-    expect(fetcherSpy).to.be.called.with(`http://sctest/v2/callFlows/getSegments/${contentId}`);
+    expect(fetcherSpy).to.be.called.with(`http://sctest/v2/callFlows/getAudience/${contentId}`);
   });
 });

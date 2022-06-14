@@ -11,7 +11,7 @@ describe('GraphQLPersonalizeService', () => {
   const apiKey = 'api-key';
   const id = 'item-id';
   const version = '1';
-  const segments = ['segment-1', 'segment-2'];
+  const variantIds = ['variant-1', 'variant-2'];
 
   const config = {
     endpoint,
@@ -24,7 +24,7 @@ describe('GraphQLPersonalizeService', () => {
         id,
         version,
         personalization: {
-          variantIds: segments,
+          variantIds,
         },
       },
     },
@@ -50,7 +50,7 @@ describe('GraphQLPersonalizeService', () => {
 
     expect(personalizeData).to.deep.equal({
       contentId: `${id}_en_${version}`.toLowerCase(),
-      segments,
+      variantIds,
     });
   });
 
