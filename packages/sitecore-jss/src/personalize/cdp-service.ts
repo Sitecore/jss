@@ -4,13 +4,13 @@ import { AxiosDataFetcher } from '../axios-fetcher';
 import { AxiosError } from 'axios';
 import { ResponseError } from '../data-fetcher';
 /**
- * Object model of CDP segment data
+ * Object model of CDP execute experience result
  */
-export type SegmentData = {
+export type ExecuteExperienceResult = {
   /**
-   * The identified segments
+   * The identified variant
    */
-  segments: string[];
+  variantId?: string;
   /**
    * The browser id
    */
@@ -19,7 +19,7 @@ export type SegmentData = {
 
 export type CdpServiceConfig = {
   /**
-   * Your CDP API endpoint
+   * Your Sitecore CDP API endpoint
    */
   endpoint: string;
   /**
@@ -31,6 +31,10 @@ export type CdpServiceConfig = {
    */
   timeout?: number;
   /**
+   * Your Sitecore CDP point of sale
+   */
+  pointOfSale: string;
+  /**
    * Custom data fetcher resolver. Uses @see AxiosDataFetcher by default.
    */
   dataFetcherResolver?: DataFetcherResolver;
@@ -40,6 +44,28 @@ export type CdpServiceConfig = {
  * Data fetcher resolver in order to provide custom data fetcher
  */
 export type DataFetcherResolver = <T>() => HttpDataFetcher<T>;
+
+/**
+ * Object model of Experience Context data
+ */
+export type ExperienceContext = {
+  geo: {
+    city: string | null;
+    country: string | null;
+    latitude: string | null;
+    longitude: string | null;
+    region: string | null;
+  };
+  referrer: string;
+  ua: string | null;
+  utm: {
+    [key: string]: string | null;
+    utm_campaign: string | null;
+    utm_source: string | null;
+    utm_medium: string | null;
+    utm_content: string | null;
+  };
+};
 
 export class CdpService {
   /**
@@ -51,27 +77,31 @@ export class CdpService {
   }
 
   /**
-   * Returns a list of segments to determine which variant of a page to render.
-   * @param {string} contentId the friendly content id
-   * @param {string} [browserId] the browser id. If omitted, a browserId will be created and returned in the response.
-   * @returns {SegmentData} the segment data
+   * Executes targeted experience for a page and context to determine the variant to render.
+   * @param {string} contentId the friendly content id of the page
+   * @param {ExperienceContext} context the experience context for the user
+   * @param {string} [browserId] the browser id. If omitted, a browserId will be created and returned in the result.
+   * @returns {ExecuteExperienceResult} the execute experience result
    */
-  async getSegments(contentId: string, browserId = ''): Promise<SegmentData> {
-    const endpoint = this.getSegmentsUrl(contentId);
-    // TODO: params (TBD)
-    const params = {};
+  async executeExperience(
+    contentId: string,
+    context: ExperienceContext,
+    browserId = ''
+  ): Promise<ExecuteExperienceResult> {
+    const endpoint = this.getExecuteExperienceUrl(contentId);
 
-    debug.personalize('fetching segment data for %s %s %o', contentId, browserId, params);
+    debug.personalize('executing experience for %s %s %o', contentId, browserId, context);
 
     const fetcher = this.config.dataFetcherResolver
-      ? this.config.dataFetcherResolver<SegmentData>()
-      : this.getDefaultFetcher<SegmentData>();
+      ? this.config.dataFetcherResolver<ExecuteExperienceResult>()
+      : this.getDefaultFetcher<ExecuteExperienceResult>();
     try {
       const response = await fetcher(endpoint, {
         clientKey: this.config.clientKey,
+        pointOfSale: this.config.pointOfSale,
         browserId,
-        params,
         timeout: this.timeout,
+        context
       });
 
       return response.data;
@@ -82,7 +112,10 @@ export class CdpService {
         (error as Error).name === 'AbortError' ||
         /timeout/i.test((error as Error).message)
       ) {
-        return { segments: [], browserId };
+        return { 
+          variantId: undefined, // coerce empty strings to undefined  
+          browserId: undefined, 
+        };
       }
 
       throw new Error((error as Error).message);
@@ -90,12 +123,12 @@ export class CdpService {
   }
 
   /**
-   * Get formatted URL for getSegments call
+   * Get formatted URL for executeExperience call
    * @param {string} contentId friendly content id
    * @returns {string} formatted URL
    */
-  protected getSegmentsUrl(contentId: string) {
-    return `${this.config.endpoint}/v2/callFlows/getSegments/${contentId}`;
+  protected getExecuteExperienceUrl(contentId: string) {
+    return `${this.config.endpoint}/v2/callFlows/getAudience/${contentId}`;
   }
 
   /**

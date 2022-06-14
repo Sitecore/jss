@@ -100,7 +100,7 @@ export const withoutComponentName = {
   },
 };
 
-export const segmentIsNull = {
+export const variantIsNull = {
   uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
   componentName: undefined,
   dataSource: 'e020fb58-1be8-4537-aab8-67916452ecf2',

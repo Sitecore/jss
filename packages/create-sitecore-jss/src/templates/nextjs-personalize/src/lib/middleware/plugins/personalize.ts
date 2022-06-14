@@ -19,6 +19,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
       cdpConfig: {
         endpoint: process.env.NEXT_PUBLIC_CDP_API_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
+        pointOfSale: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '',
       },
     });
   }

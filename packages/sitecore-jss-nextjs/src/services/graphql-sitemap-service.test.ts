@@ -194,7 +194,7 @@ describe('GraphQLSitemapService', () => {
         },
         {
           params: {
-            path: ['_segmentId_green'],
+            path: ['_variantId_green'],
           },
           locale: lang,
         },
@@ -206,19 +206,19 @@ describe('GraphQLSitemapService', () => {
         },
         {
           params: {
-            path: ['_segmentId_green', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_variantId_green', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: lang,
         },
         {
           params: {
-            path: ['_segmentId_red', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_variantId_red', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: lang,
         },
         {
           params: {
-            path: ['_segmentId_purple', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_variantId_purple', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: lang,
         },
