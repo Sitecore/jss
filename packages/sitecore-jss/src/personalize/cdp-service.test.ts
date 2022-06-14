@@ -113,30 +113,30 @@ describe('CdpService', () => {
   });
   it('should throw error', async () => {
     nock(endpoint)
-      .post(`/v2/callFlows/getSegments/${contentId}`, {
+      .post(`/v2/callFlows/getAudience/${contentId}`, {
         clientKey,
         browserId,
-        params: {},
+        context,
+        pointOfSale,
       })
       .replyWithError('error_test');
     const service = new CdpService(config);
-    await service.getSegments(contentId, browserId).catch((error) => {
+    await service.executeExperience(contentId, context, browserId).catch((error) => {
       expect(error.message).to.contain('error_test');
     });
   });
-  it('should return empty segments array if request timeout', async () => {
+  it('should return undefined variantId and browserId if request timeout', async () => {
     nock(endpoint)
-      .post(`/v2/callFlows/getSegments/${contentId}`, {
+      .post(`/v2/callFlows/getAudience/${contentId}`, {
         clientKey,
         browserId,
-        params: {},
+        context,
+        pointOfSale,
       })
       .reply(408);
     const service = new CdpService(config);
-    const getSegmentDataResult = await service.getSegments(contentId, browserId).catch((error) => {
-      expect(error.response.status).to.equal(408);
-    });
+    const getSegmentDataResult = await service.executeExperience(contentId, context, browserId);
 
-    expect(getSegmentDataResult).to.deep.equal({ segments: [], browserId });
+    expect(getSegmentDataResult).to.deep.equal({ variantId: undefined, browserId: undefined });
   });
 });

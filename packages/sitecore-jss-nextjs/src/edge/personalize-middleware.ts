@@ -43,7 +43,7 @@ export class PersonalizeMiddleware {
   constructor(protected config: PersonalizeMiddlewareConfig) {
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
-    this.edgeTimeout = config.edgeConfig.timeout || 70;
+    this.edgeTimeout = config.edgeConfig.timeout || 250;
     this.cdpTimeout = config.cdpConfig.timeout || 250;
     this.personalizeService = new GraphQLPersonalizeService({
       ...config.edgeConfig,

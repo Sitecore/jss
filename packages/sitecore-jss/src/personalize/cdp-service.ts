@@ -101,9 +101,9 @@ export class CdpService {
         pointOfSale: this.config.pointOfSale,
         browserId,
         timeout: this.timeout,
-        context
+        context,
       });
-
+      response.data.variantId === '' && (response.data.variantId = undefined);
       return response.data;
     } catch (error) {
       if (
@@ -112,9 +112,9 @@ export class CdpService {
         (error as Error).name === 'AbortError' ||
         /timeout/i.test((error as Error).message)
       ) {
-        return { 
-          variantId: undefined, // coerce empty strings to undefined  
-          browserId: undefined, 
+        return {
+          variantId: undefined,
+          browserId: undefined,
         };
       }
 
