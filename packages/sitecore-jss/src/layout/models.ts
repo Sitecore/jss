@@ -44,7 +44,7 @@ export interface RouteData {
   name: string;
   displayName?: string;
   fields?: {
-    [name: string]: Field;
+    [name: string]: Field | Item | Item[];
   };
   databaseName?: string;
   deviceId?: string;

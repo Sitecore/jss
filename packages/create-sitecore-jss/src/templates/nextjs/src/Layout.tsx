@@ -1,6 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import { Placeholder, getPublicUrl, LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Placeholder,
+  getPublicUrl,
+  LayoutServiceData,
+  Field,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import Navigation from 'src/Navigation';
 import Scripts from 'src/Scripts';
 
@@ -12,14 +17,21 @@ interface LayoutProps {
   layoutData: LayoutServiceData;
 }
 
+interface RouteFields {
+  [key: string]: unknown;
+  pageTitle: Field;
+}
+
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
+
+  const fields = route?.fields as RouteFields;
 
   return (
     <>
       <Scripts />
       <Head>
-        <title>{route?.fields?.pageTitle?.value.toString() || 'Page'}</title>
+        <title>{fields.pageTitle.value.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
