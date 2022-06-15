@@ -114,6 +114,7 @@ export {
   DateField,
   File,
   FileField,
+  RichTextField,
   VisitorIdentification,
   SitecoreContext,
   SitecoreContextState,

@@ -35,7 +35,7 @@ const getLinkField = (props: NavigationProps): LinkField => ({
   value: {
     href: props.fields.Href,
     title: props.fields.DisplayName,
-    querystring: props.fields.Querystring
+    querystring: props.fields.Querystring,
   },
 });
 

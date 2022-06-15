@@ -5,7 +5,10 @@ import { AxiosDataFetcher, GraphQLSitemapXmlService } from '@sitecore-jss/siteco
 
 const ABSOLUTE_URL_REGEXP = '^(?:[a-z]+:)?//';
 
-const sitemapApi = async (req: NextApiRequest, res: NextApiResponse): Promise<NextApiResponse | void> => {
+const sitemapApi = async (
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<NextApiResponse | void> => {
   const {
     query: { id },
   } = req;
