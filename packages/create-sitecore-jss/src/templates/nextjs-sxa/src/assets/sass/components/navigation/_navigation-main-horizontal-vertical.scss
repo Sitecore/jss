@@ -1,6 +1,8 @@
 @import "@sass/abstracts/vars";
 @import "@sass/abstracts/mixins";
-@import "@sass/base/fontawesome/font-awesome-mix-var";
+@import '@fontawesome/scss/mixins';
+@import "@fontawesome/scss/variables";
+
 //Drop Down Navigation Common Part
 .navigation.navigation-main {
     .component-content>nav {

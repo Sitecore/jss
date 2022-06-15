@@ -1,6 +1,7 @@
-@import "@sass/abstracts/vars";
-@import "@sass/abstracts/mixins";
-@import "@sass/base/fontawesome/font-awesome-mix-var";
+@import '@sass/abstracts/vars';
+@import '@sass/abstracts/mixins';
+@import '@fontawesome/scss/mixins';
+@import '@fontawesome/scss/variables';
 
 .navigation.navigation-fat {
     background: $bg-basic-color;

@@ -1,6 +1,8 @@
 @import "@sass/abstracts/mixins";
 @import "@sass/abstracts/vars";
-@import "@sass/base/fontawesome/font-awesome-mix-var";
+@import '@fontawesome/scss/mixins';
+@import "@fontawesome/scss/variables";
+
 .link-list {
     background: $link-list-bg;
     h1, h2, h3, h4, h5, h6 {
