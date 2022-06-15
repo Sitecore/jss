@@ -76,4 +76,3 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
 };
 
 export default Layout;
- 
