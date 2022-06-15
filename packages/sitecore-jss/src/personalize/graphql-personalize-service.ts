@@ -45,7 +45,6 @@ type PersonalizeQueryResult = {
 
 export class GraphQLPersonalizeService {
   private graphQLClient: GraphQLClient;
-  private timeout?: number;
   protected get query(): string {
     return /* GraphQL */ `
       query($siteName: String!, $language: String!, $itemPath: String!) {
@@ -67,7 +66,6 @@ export class GraphQLPersonalizeService {
    * @param {GraphQLPersonalizeServiceConfig} config
    */
   constructor(protected config: GraphQLPersonalizeServiceConfig) {
-    this.timeout = this.config.timeout;
     this.graphQLClient = this.getGraphQLClient();
   }
 
@@ -127,7 +125,7 @@ export class GraphQLPersonalizeService {
       apiKey: this.config.apiKey,
       debugger: debug.personalize,
       fetch: this.config.fetch,
-      timeout: this.timeout,
+      timeout: this.config.timeout,
     });
   }
 }
