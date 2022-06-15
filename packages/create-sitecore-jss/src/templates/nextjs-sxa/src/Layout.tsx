@@ -33,7 +33,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
-        <title>{fields?.pageTitle?.value.toString() || 'Page'}</title>
+        <title>{fields?.pageTitle.value.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
