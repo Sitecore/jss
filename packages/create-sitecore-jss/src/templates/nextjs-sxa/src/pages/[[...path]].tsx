@@ -83,20 +83,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const props = await sitecorePagePropsFactory.create(context);
 
 <% if (prerender === 'SSR') { -%>
-  if ((context.res.statusCode >= 500 && context.res.statusCode <= 511) && props?.errorHandlingPages?.serverErrorPagePath) {
+  if ((context.res.statusCode >= 500 && context.res.statusCode <= 511) && props?.errorPages?.serverErrorPagePath) {
     return {
       redirect: {
-        destination: props.errorHandlingPages.serverErrorPagePath,
+        destination: props.errorPages.serverErrorPagePath,
         permanent: false,
       }
     }
   }
 <% } -%>
 
-  if (props.notFound && props?.errorHandlingPages?.notFoundPagePath) {
+  if (props.notFound && props?.errorPages?.notFoundPagePath) {
     return {
       redirect: {
-        destination: props.errorHandlingPages.notFoundPagePath,
+        destination: props.errorPages.notFoundPagePath,
         permanent: false,
       },
     }

@@ -20,7 +20,7 @@ export {
 } from './graphql-sitemap-service';
 
 export {
-  ErrorHandlingPagesType,
-  GraphQLErrorHandlingPagesService,
-  GraphQLErrorHandlingPagesServiceConfig,
-} from './graphql-error-handling-pages-service';
+  ErrorPagesType,
+  GraphQLErrorPagesService,
+  GraphQLErrorPagesServiceConfig,
+} from './graphql-error-pages-service';

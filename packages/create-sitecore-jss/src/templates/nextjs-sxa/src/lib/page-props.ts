@@ -2,7 +2,7 @@ import {
   DictionaryPhrases,
   ComponentPropsCollection,
   LayoutServiceData,
-  ErrorHandlingPagesType,
+  ErrorPagesType,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
@@ -14,5 +14,5 @@ export type SitecorePageProps = {
   componentProps: ComponentPropsCollection;
   notFound: boolean;
   layoutData: LayoutServiceData;
-  errorHandlingPages: ErrorHandlingPagesType;
+  errorPages: ErrorPagesType;
 };

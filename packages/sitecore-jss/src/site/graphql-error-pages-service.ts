@@ -4,7 +4,7 @@ import debug from '../debug';
 
 // The default query for request error handling
 const defaultQuery = /* GraphQL */ `
-  query ErrorHandlingPagesQuery($siteName: String!, $language: String!) {
+  query ErrorPagesQuery($siteName: String!, $language: String!) {
     site {
       siteInfo(site: $siteName) {
         errorHandling(language: $language) {
@@ -16,7 +16,7 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
-export type GraphQLErrorHandlingPagesServiceConfig = {
+export type GraphQLErrorPagesServiceConfig = {
   /**
    * Your Graphql endpoint
    */
@@ -35,19 +35,19 @@ export type GraphQLErrorHandlingPagesServiceConfig = {
   language: string;
 };
 
-export type ErrorHandlingPagesType = { notFoundPagePath: string; serverErrorPagePath: string };
+export type ErrorPagesType = { notFoundPagePath: string; serverErrorPagePath: string };
 
 /**
  * The schema of data returned in response to error pages link request
  */
-type ErrorHandlingPagesQueryResult = {
-  site:{ siteInfo: { errorHandling: ErrorHandlingPagesType } }
+type ErrorPagesQueryResult = {
+  site: { siteInfo: { errorHandling: ErrorPagesType } };
 };
 
 /**
  * Service that fetch the error handling data using Sitecore's GraphQL API.
  */
-export class GraphQLErrorHandlingPagesService {
+export class GraphQLErrorPagesService {
   private graphQLClient: GraphQLClient;
 
   protected get query(): string {
@@ -56,18 +56,18 @@ export class GraphQLErrorHandlingPagesService {
 
   /**
    * Creates an instance of graphQL error handling service with the provided options
-   * @param {GraphQLErrorHandlingPagesServiceConfig} options instance
+   * @param {GraphQLErrorPagesServiceConfig} options instance
    */
-  constructor(public options: GraphQLErrorHandlingPagesServiceConfig) {
+  constructor(public options: GraphQLErrorPagesServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
   }
 
   /**
    * Fetch list of error handling for the site
-   * @returns {ErrorHandlingPagesType} list of url's error pages
+   * @returns {ErrorPagesType} list of url's error pages
    * @throws {Error} if the siteName is empty.
    */
-  async fetchErrorHandling(): Promise<ErrorHandlingPagesType | null> {
+  async fetchErrorPages(): Promise<ErrorPagesType | null> {
     const siteName: string = this.options.siteName;
     const language: string = this.options.language;
 
@@ -75,11 +75,11 @@ export class GraphQLErrorHandlingPagesService {
       throw new Error(siteNameError);
     }
 
-    return (<Promise<ErrorHandlingPagesQueryResult>>this.graphQLClient.request(this.query, {
+    return (<Promise<ErrorPagesQueryResult>>this.graphQLClient.request(this.query, {
       siteName,
       language,
     }))
-      .then((result: ErrorHandlingPagesQueryResult) =>
+      .then((result: ErrorPagesQueryResult) =>
         result.site.siteInfo ? result.site.siteInfo.errorHandling : null
       )
       .catch((e) => Promise.reject(e));
