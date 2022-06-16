@@ -1,0 +1,16 @@
+@import "@sass/abstracts/mixins";
+
+footer {
+  .rich-text {
+    font-size: 14px;
+    color: $text-white;
+  }
+
+  .indent-inner {
+    padding: 3rem;
+
+    @include respond-to(all-mobile) {
+      padding: 25px 0;
+    }
+  }
+}

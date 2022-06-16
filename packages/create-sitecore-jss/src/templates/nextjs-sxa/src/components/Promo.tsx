@@ -39,7 +39,7 @@ export const Default = (props: PromoProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <Text className="image-caption" field={props.fields.PromoText} />
+                <Text className="image-caption" field={props.fields.PromoText} encode={false} />
               </div>
             </div>
             <div className="field-promolink">
@@ -65,11 +65,11 @@ export const WithText = (props: PromoProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <Text className="promo-text" field={props.fields.PromoText} />
+                <Text className="promo-text" field={props.fields.PromoText} encode={false} />
               </div>
             </div>
             <div className="field-promotext">
-              <Text className="promo-text" field={props.fields.PromoText2} />
+              <Text className="promo-text" field={props.fields.PromoText2} encode={false} />
             </div>
           </div>
         </div>
