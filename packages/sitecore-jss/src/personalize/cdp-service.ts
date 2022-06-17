@@ -1,8 +1,8 @@
 import debug from '../debug';
-import { HttpDataFetcher } from '../data-fetcher';
+import { HttpDataFetcher, ResponseError } from '../data-fetcher';
 import { AxiosDataFetcher } from '../axios-fetcher';
 import { AxiosError } from 'axios';
-import { ResponseError } from '../data-fetcher';
+
 /**
  * Object model of CDP execute experience result
  */
@@ -27,10 +27,6 @@ export type CdpServiceConfig = {
    */
   clientKey: string;
   /**
-   * Timeout for CDP request. The default value will be returned as a fallback
-   */
-  timeout?: number;
-  /**
    * Your Sitecore CDP point of sale
    */
   pointOfSale: string;
@@ -38,12 +34,16 @@ export type CdpServiceConfig = {
    * Custom data fetcher resolver. Uses @see AxiosDataFetcher by default.
    */
   dataFetcherResolver?: DataFetcherResolver;
+  /**
+   * Timeout for CDP request. The default value will be returned as a fallback
+   */
+  timeout?: number;
 };
 
 /**
  * Data fetcher resolver in order to provide custom data fetcher
  */
-export type DataFetcherResolver = <T>() => HttpDataFetcher<T>;
+export type DataFetcherResolver = <T>({ timeout }: { timeout: number }) => HttpDataFetcher<T>;
 
 /**
  * Object model of Experience Context data
@@ -71,9 +71,9 @@ export class CdpService {
   /**
    * @param {CdpServiceConfig} [config] CDP service config
    */
-  private timeout?: number;
+  private timeout: number;
   constructor(protected config: CdpServiceConfig) {
-    this.timeout = config.timeout;
+    this.timeout = config.timeout || 250;
   }
 
   /**
@@ -93,14 +93,14 @@ export class CdpService {
     debug.personalize('executing experience for %s %s %o', contentId, browserId, context);
 
     const fetcher = this.config.dataFetcherResolver
-      ? this.config.dataFetcherResolver<ExecuteExperienceResult>()
+      ? this.config.dataFetcherResolver<ExecuteExperienceResult>({ timeout: this.timeout })
       : this.getDefaultFetcher<ExecuteExperienceResult>();
+
     try {
       const response = await fetcher(endpoint, {
         clientKey: this.config.clientKey,
         pointOfSale: this.config.pointOfSale,
         browserId,
-        timeout: this.timeout,
         context,
       });
       response.data.variantId === '' && (response.data.variantId = undefined);
@@ -117,8 +117,7 @@ export class CdpService {
           browserId: undefined,
         };
       }
-
-      throw new Error((error as Error).message);
+      throw error;
     }
   }
 

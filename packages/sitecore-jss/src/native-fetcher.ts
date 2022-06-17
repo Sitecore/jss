@@ -19,10 +19,7 @@ type NativeDataFetcherOptions = {
 export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;
 
 export class NativeDataFetcher {
-  private timeout?: number;
-  constructor(protected config: NativeDataFetcherConfig = {}) {
-    this.timeout = config.timeout;
-  }
+  constructor(protected config: NativeDataFetcherConfig = {}) {}
 
   /**
    * Implements a data fetcher. @see HttpDataFetcher<T> type for implementation details/notes.
@@ -32,7 +29,6 @@ export class NativeDataFetcher {
    */
   async fetch<T>(url: string, data?: unknown): Promise<HttpResponse<T>> {
     const { debugger: debugOverride, fetch: fetchOverride, ...init } = this.config;
-
     const fetchImpl = fetchOverride || fetch;
     const abortController = new AbortController();
     const debug = debugOverride || debuggers.http;
@@ -40,12 +36,12 @@ export class NativeDataFetcher {
     requestInit.signal = abortController.signal;
 
     let abortTimeout: NodeJS.Timeout;
-
-    if (this.timeout) {
+    if (init.timeout) {
       abortTimeout = setTimeout(() => {
         abortController.abort();
-      }, this.timeout);
+      }, init.timeout);
     }
+
     // Note a goal here is to provide consistent debug logging and error handling
     // as we do in AxiosDataFetcher and GraphQLRequestClient
     debug('request: %o', { url, ...requestInit });

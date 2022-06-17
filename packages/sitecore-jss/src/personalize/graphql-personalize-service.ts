@@ -66,6 +66,7 @@ export class GraphQLPersonalizeService {
    * @param {GraphQLPersonalizeServiceConfig} config
    */
   constructor(protected config: GraphQLPersonalizeServiceConfig) {
+    this.config.timeout = config.timeout || 250;
     this.graphQLClient = this.getGraphQLClient();
   }
 
@@ -93,15 +94,13 @@ export class GraphQLPersonalizeService {
         language,
       });
 
-      const personalizeInfo = !data?.layout?.item
-        ? undefined
-        : {
+      return data?.layout?.item
+        ? {
             // CDP expects content id format `<id>_<language>_<version>` (lowercase)
             contentId: `${data.layout.item.id}_${language}_${data.layout.item.version}`.toLowerCase(),
             variantIds: data.layout.item.personalization.variantIds,
-          };
-
-      return personalizeInfo;
+          }
+        : undefined;
     } catch (error) {
       if (
         (error as ResponseError).response?.status === 408 ||
@@ -110,7 +109,7 @@ export class GraphQLPersonalizeService {
         return undefined;
       }
 
-      throw new Error((error as Error).message);
+      throw error;
     }
   }
 

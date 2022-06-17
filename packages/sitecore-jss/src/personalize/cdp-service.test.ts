@@ -65,7 +65,7 @@ describe('CdpService', () => {
     });
   });
 
-  it('should return undefined variant when no response', async () => {
+  it('should return fallback value when no response', async () => {
     nock(endpoint)
       .post(`/v2/callFlows/getAudience/${contentId}`, {
         clientKey,
@@ -84,7 +84,7 @@ describe('CdpService', () => {
     expect(result.variantId).to.be.undefined;
   });
 
-  it('should fetch using custom fetcher resolver', async () => {
+  it('should fetch using custom fetcher resolver and respond with data', async () => {
     const fetcherSpy = spy((url: string, data?: unknown) => {
       return new AxiosDataFetcher().fetch<never>(url, data);
     });
@@ -111,6 +111,28 @@ describe('CdpService', () => {
     expect(fetcherSpy).to.be.called.once;
     expect(fetcherSpy).to.be.called.with(`http://sctest/v2/callFlows/getAudience/${contentId}`);
   });
+  it('should use custom fetcher resolver and return undefined ids', async () => {
+    const fetcherSpy = spy((url: string, data?: any) => {
+      return new AxiosDataFetcher({ timeout: 30 }).fetch<never>(url, data);
+    });
+
+    nock(endpoint)
+      .post(`/v2/callFlows/getAudience/${contentId}`, {
+        clientKey,
+        pointOfSale,
+        context,
+        browserId,
+      })
+      .delay(50);
+
+    const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
+    const result = await service.executeExperience(contentId, context, browserId);
+
+    expect(result).to.deep.equal({
+      variantId: undefined,
+      browserId: undefined,
+    });
+  });
   it('should throw error', async () => {
     nock(endpoint)
       .post(`/v2/callFlows/getAudience/${contentId}`, {
@@ -125,18 +147,22 @@ describe('CdpService', () => {
       expect(error.message).to.contain('error_test');
     });
   });
-  it('should return undefined variantId and browserId if request timeout', async () => {
+  it('should return fallback value when api returns timeout error', async () => {
     nock(endpoint)
       .post(`/v2/callFlows/getAudience/${contentId}`, {
         clientKey,
-        browserId,
-        context,
         pointOfSale,
+        context,
+        browserId,
       })
       .reply(408);
-    const service = new CdpService(config);
-    const getSegmentDataResult = await service.executeExperience(contentId, context, browserId);
 
-    expect(getSegmentDataResult).to.deep.equal({ variantId: undefined, browserId: undefined });
+    const service = new CdpService(config);
+    const result = await service.executeExperience(contentId, context, browserId);
+
+    expect(result).to.deep.equal({
+      variantId: undefined,
+      browserId: undefined,
+    });
   });
 });

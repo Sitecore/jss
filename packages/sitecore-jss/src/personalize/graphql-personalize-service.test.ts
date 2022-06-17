@@ -12,12 +12,10 @@ describe('GraphQLPersonalizeService', () => {
   const id = 'item-id';
   const version = '1';
   const variantIds = ['variant-1', 'variant-2'];
-  const timeout = 50;
   const config = {
     endpoint,
     siteName,
     apiKey,
-    timeout,
   };
   const personalizeQueryResult = {
     layout: {
@@ -89,7 +87,37 @@ describe('GraphQLPersonalizeService', () => {
     });
   });
 
-  it('should return undefined if response timeout', async () => {
+  it('should return fallback value when timeout is exceeded using default timeout', async () => {
+    nock('http://sctest', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .delay(300);
+
+    const service = new GraphQLPersonalizeService(config);
+
+    await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
+      expect(error.response.status).to.equal(408);
+    });
+  });
+  it('should return fallback value when timeout is exceeded using provided timeout', async () => {
+    nock('http://sctest', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .delay(75);
+
+    const service = new GraphQLPersonalizeService({ ...config, timeout: 50 });
+
+    await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
+      expect(error.response.status).to.equal(408);
+    });
+  });
+  it('should return fallback value when api returns timeout error', async () => {
     nock('http://sctest', {
       reqheaders: {
         sc_apikey: apiKey,
@@ -98,10 +126,10 @@ describe('GraphQLPersonalizeService', () => {
       .post('/graphql')
       .reply(408);
 
-    const service = new GraphQLPersonalizeService(config);
+    const service = new GraphQLPersonalizeService({ ...config, timeout: 50 });
 
-    await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
-      expect(error.response.status).to.equal(408);
-    });
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+
+    expect(result).to.equal(undefined);
   });
 });
