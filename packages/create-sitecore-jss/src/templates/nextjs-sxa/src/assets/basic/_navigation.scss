@@ -1,0 +1,66 @@
+@import "@sass/abstracts/vars";
+
+$hamburger-width: 30px;
+$hamburger-height: 18px;
+$border-size: 6px;
+$hamburger-margin: 1.5rem;
+
+.navigation.navigation-horizontal {
+  width: 100%;
+  padding-right: 50px;
+  
+  @include respond-to(all-mobile) {
+    padding-right: 0;
+  }
+
+  .component-content {
+    display: inline-block;
+
+    @include respond-to(all-mobile) {
+      display: none;
+    }
+  }
+
+  @include respond-to(all-mobile) {
+    &::before {
+      content: "";
+      width: $hamburger-width;
+      height: $hamburger-height;
+      margin-right: $hamburger-margin;
+      margin-top: $hamburger-margin;
+      display: block;
+      border-top: 6px solid $bg-black;
+      border-bottom: 6px solid $bg-black;
+      float: right;
+      cursor: pointer;
+    }
+
+    &:active, &:hover {
+      &::before {
+        display: none;
+      }
+      .component-content {
+        display: inline-block;
+      }
+
+      .level0 {
+        display: block;
+      }
+    }
+  }
+
+  ul.clearfix {
+    list-style: none;
+  }
+  .level0 {
+    display: flex;
+  }
+
+  .level0, .level1 {
+    >.navigation-title {
+      >a {
+        border-width: 0;
+      }
+    }
+  }
+}

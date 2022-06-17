@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Image as JssImage,
   Link as JssLink,
+  RichText as JssRichText,
   ImageField,
   Field,
   LinkField,
@@ -39,7 +40,7 @@ export const Default = (props: PromoProps): JSX.Element => {
           <div className="promo-text">
             <div>
               <div className="field-promotext">
-                <Text className="image-caption" field={props.fields.PromoText} />
+                <JssRichText field={props.fields.PromoText} />
               </div>
             </div>
             <div className="field-promolink">
