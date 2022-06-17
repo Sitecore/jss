@@ -22,7 +22,7 @@ interface LayoutProps {
 
 interface RouteFields {
   [key: string]: unknown;
-  pageTitle: Field;
+  Title: Field;
 }
  
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
@@ -33,7 +33,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
-        <title>{fields?.pageTitle.value.toString() || 'Page'}</title>
+        <title>{fields?.Title.value.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
