@@ -15,7 +15,7 @@ import {
 import { diffLines, diffJson, Change } from 'diff';
 import { BaseArgs } from '../args/base';
 
-const FILE_FOR_COPY_REGEXP = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar)$/;
+const FILE_FOR_COPY_REGEXP = /(index\.html)$|\.(gif|jpg|jpeg|tiff|png|svg|ashx|ico|pdf|jar|eot|woff|ttf|woff2)$/;
 
 export type JsonPropertyType = number | string | (number | string)[] | JsonObjectType;
 export type JsonObjectType = {
