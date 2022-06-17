@@ -86,13 +86,9 @@ export class GraphQLRedirectsService {
       siteName,
     });
 
-    try {
-      return redirectsResult.then((result: RedirectsQueryResult) => {
-        return result?.site?.siteInfo?.redirects;
-      });
-    } catch (e) {
-      return Promise.reject(e);
-    }
+    return redirectsResult
+      .then((result: RedirectsQueryResult) => result.site.siteInfo.redirects)
+      .catch((e) => Promise.reject(e));
   }
 
   /**
