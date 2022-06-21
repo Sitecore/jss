@@ -15,7 +15,7 @@ interface Fields {
 type NavigationProps = {
   params?: { [key: string]: string };
   fields: Fields;
-  handleClick: Function;
+  handleClick: () => void;
 };
 
 const getNavigationText = function (props: NavigationProps): JSX.Element | string {
@@ -41,6 +41,8 @@ const getLinkField = (props: NavigationProps): LinkField => ({
 });
 
 const Navigation = (props: NavigationProps): JSX.Element => {
+  const [isOpenMenu, openMenu] = useState(false);
+
   if (!Object.values(props.fields).length) {
     return (
       <div className={`component navigation`}>
@@ -49,7 +51,6 @@ const Navigation = (props: NavigationProps): JSX.Element => {
     );
   }
 
-  const [isOpenMenu, openMenu] = useState(false);
   const handleToggleMenu = (flag?: boolean): void => {
     if (flag !== undefined) {
       return openMenu(flag);
@@ -60,7 +61,11 @@ const Navigation = (props: NavigationProps): JSX.Element => {
   const list = Object.values(props.fields)
     .filter((element) => element)
     .map((element: Fields, key: number) => (
-      <NavigationList key={`${key}${element.Id}`} fields={element} handleClick={() => handleToggleMenu(false)} />
+      <NavigationList
+        key={`${key}${element.Id}`}
+        fields={element}
+        handleClick={() => handleToggleMenu(false)}
+      />
     ));
   const styles =
     props.params != null ? `${props.params.GridParameters} ${props.params.Styles}` : null;
@@ -98,7 +103,11 @@ const NavigationList = (props: NavigationProps) => {
   let children: JSX.Element[] = [];
   if (props.fields.Children && props.fields.Children.length) {
     children = props.fields.Children.map((element: Fields, index: number) => (
-      <NavigationList key={`${index}${element.Id}`} fields={element} handleClick={props.handleClick} />
+      <NavigationList
+        key={`${index}${element.Id}`}
+        fields={element}
+        handleClick={props.handleClick}
+      />
     ));
   }
 
