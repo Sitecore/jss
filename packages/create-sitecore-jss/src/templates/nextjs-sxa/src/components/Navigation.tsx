@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, LinkField, Text, TextField } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
@@ -15,6 +15,7 @@ interface Fields {
 type NavigationProps = {
   params?: { [key: string]: string };
   fields: Fields;
+  handleClick: Function;
 };
 
 const getNavigationText = function (props: NavigationProps): JSX.Element | string {
@@ -35,7 +36,7 @@ const getLinkField = (props: NavigationProps): LinkField => ({
   value: {
     href: props.fields.Href,
     title: props.fields.DisplayName,
-    querystring: props.fields.Querystring
+    querystring: props.fields.Querystring,
   },
 });
 
@@ -48,22 +49,38 @@ const Navigation = (props: NavigationProps): JSX.Element => {
     );
   }
 
+  const [isOpenMenu, openMenu] = useState(false);
+  const handleToggleMenu = (flag?: boolean): void => {
+    if (flag !== undefined) {
+      return openMenu(flag);
+    }
+
+    openMenu(!isOpenMenu);
+  };
   const list = Object.values(props.fields)
     .filter((element) => element)
     .map((element: Fields, key: number) => (
-      <NavigationList key={`${key}${element.Id}`} fields={element} />
+      <NavigationList key={`${key}${element.Id}`} fields={element} handleClick={() => handleToggleMenu(false)} />
     ));
-
   const styles =
     props.params != null ? `${props.params.GridParameters} ${props.params.Styles}` : null;
 
   return (
     <div className={`component navigation ${styles}`}>
-      <div className="component-content">
-        <nav>
-          <ul className="clearfix">{list}</ul>
-        </nav>
-      </div>
+      <label className="menu-mobile-navigate-wrapper">
+        <input
+          type="checkbox"
+          className="menu-mobile-navigate"
+          checked={isOpenMenu}
+          onChange={() => handleToggleMenu()}
+        />
+        <div className="menu-humburger" />
+        <div className="component-content">
+          <nav>
+            <ul className="clearfix">{list}</ul>
+          </nav>
+        </div>
+      </label>
     </div>
   );
 };
@@ -81,14 +98,14 @@ const NavigationList = (props: NavigationProps) => {
   let children: JSX.Element[] = [];
   if (props.fields.Children && props.fields.Children.length) {
     children = props.fields.Children.map((element: Fields, index: number) => (
-      <NavigationList key={`${index}${element.Id}`} fields={element} />
+      <NavigationList key={`${index}${element.Id}`} fields={element} handleClick={props.handleClick} />
     ));
   }
 
   return (
     <li className={props.fields.Styles.join(' ')} key={props.fields.Id}>
       <div className="navigation-title">
-        <Link field={getLinkField(props)} title={title}>
+        <Link field={getLinkField(props)} title={title} onClick={props.handleClick}>
           {getNavigationText(props)}
         </Link>
       </div>

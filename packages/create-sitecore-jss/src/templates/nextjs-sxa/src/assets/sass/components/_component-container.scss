@@ -1,0 +1,8 @@
+@import "@sass/abstracts/mixins";
+
+.container {
+    padding: 0;
+	.component-content {
+        @include clearfix();
+    }
+}
