@@ -98,9 +98,8 @@ describe('GraphQLPersonalizeService', () => {
 
     const service = new GraphQLPersonalizeService(config);
 
-    await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
-      expect(error.response.status).to.equal(408);
-    });
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+    expect(result).to.equal(undefined);
   });
   it('should return fallback value when timeout is exceeded using provided timeout', async () => {
     nock('http://sctest', {
@@ -113,9 +112,8 @@ describe('GraphQLPersonalizeService', () => {
 
     const service = new GraphQLPersonalizeService({ ...config, timeout: 50 });
 
-    await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
-      expect(error.response.status).to.equal(408);
-    });
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+    expect(result).to.equal(undefined);
   });
   it('should return fallback value when api returns timeout error', async () => {
     nock('http://sctest', {
