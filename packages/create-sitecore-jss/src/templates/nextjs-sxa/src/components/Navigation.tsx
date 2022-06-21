@@ -105,7 +105,7 @@ const NavigationList = (props: NavigationProps) => {
   return (
     <li className={props.fields.Styles.join(' ')} key={props.fields.Id}>
       <div className="navigation-title">
-        <Link field={getLinkField(props)} title={title} onClick={() => props.handleClick(false)}>
+        <Link field={getLinkField(props)} title={title} onClick={props.handleClick}>
           {getNavigationText(props)}
         </Link>
       </div>

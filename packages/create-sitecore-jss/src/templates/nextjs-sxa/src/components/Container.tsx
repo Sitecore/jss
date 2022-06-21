@@ -12,7 +12,7 @@ const BACKGROUND_REG_EXP = new RegExp(
 
 interface ComponentProps {
   rendering: ComponentRendering & { params: ComponentParams };
-  params: ComponentParams;
+  params?: ComponentParams;
 }
 
 const Container = (props: ComponentProps): JSX.Element => {
