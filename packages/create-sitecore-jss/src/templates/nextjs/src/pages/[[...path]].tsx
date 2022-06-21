@@ -10,6 +10,9 @@ import {
   SitecoreContext,
   ComponentPropsContext,
   handleEditorFastRefresh,
+  <% if (prerender === 'SSG') { -%>
+  StaticPath,
+  <% } -%>
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
@@ -17,6 +20,7 @@ import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
+
 <% } -%>
 
 const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
@@ -56,19 +60,24 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   // ahead of time (non-development mode in this example).
   // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
 
-  if (process.env.NODE_ENV !== 'development') {
-    // Note: Next.js runs export in production mode
-    const paths = await sitemapFetcher.fetch(context);
+  let paths: StaticPath[] = [];
+  let fallback: boolean | 'blocking' = 'blocking';
 
-    return {
-      paths,
-      fallback: process.env.EXPORT_MODE ? false : 'blocking',
-    };
+  if (process.env.NODE_ENV !== 'development') {
+    try {
+      // Note: Next.js runs export in production mode
+      paths = await sitemapFetcher.fetch(context);
+    } catch (error) {
+      console.log('Error occurred while generating static paths');
+      console.log(error);
+    }
+
+    fallback = process.env.EXPORT_MODE ? false : fallback;
   }
 
   return {
-    paths: [],
-    fallback: 'blocking',
+    paths,
+    fallback,
   };
 };
 
