@@ -123,7 +123,8 @@ describe('CdpService', () => {
         context,
         browserId,
       })
-      .delay(50);
+      .delay(50)
+      .reply(408);
 
     const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
     const result = await service.executeExperience(contentId, context, browserId);

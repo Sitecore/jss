@@ -94,7 +94,8 @@ describe('GraphQLPersonalizeService', () => {
       },
     })
       .post('/graphql')
-      .delay(300);
+      .delay(300)
+      .reply(408);
 
     const service = new GraphQLPersonalizeService(config);
 
@@ -108,7 +109,8 @@ describe('GraphQLPersonalizeService', () => {
       },
     })
       .post('/graphql')
-      .delay(75);
+      .delay(75)
+      .reply(408);
 
     const service = new GraphQLPersonalizeService({ ...config, timeout: 50 });
 
