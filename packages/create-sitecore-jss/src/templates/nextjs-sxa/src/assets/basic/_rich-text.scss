@@ -1,0 +1,26 @@
+@import "@sass/abstracts/vars";
+
+.rich-text {
+  color: $text-gray;
+  @include respond-to(all-mobile) {
+    padding: 15px 10px 10px 25px;
+
+    h2 {
+      font-size: 18px;
+    }
+
+    h4 {
+      font-size: 18px;
+      line-height: 35px;
+      font-weight: 600;
+    }
+  
+    h6 {
+      font-size: 14px;
+      strong {
+        font-weight: normal;
+        line-height: 24px;
+      }
+    }
+  }
+}
