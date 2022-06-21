@@ -67,9 +67,9 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
     try {
       // Note: Next.js runs export in production mode
       paths = await sitemapFetcher.fetch(context);
-    } catch (rError) {
-      console.log('Error occurred while generating paths');
-      console.log(rError);
+    } catch (error) {
+      console.log('Error occurred while generating static paths');
+      console.log(error);
     }
 
     fallback = process.env.EXPORT_MODE ? false : fallback;

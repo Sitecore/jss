@@ -535,7 +535,7 @@ describe('GraphQLSitemapService', () => {
           },
         },
       });
-    await service.fetchSSGSitemap(['en']).catch((error: RangeError) => {
+    await service.fetchExportSitemap('en').catch((error: RangeError) => {
       expect(error.message).to.equal(getSiteEmptyError(siteName));
     });
   });

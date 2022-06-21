@@ -284,9 +284,9 @@ export class GraphQLSitemapService {
       if (!fetchResponse?.site?.siteInfo) {
         throw new RangeError(getSiteEmptyError(this.options.siteName));
       } else {
-        results = results.concat(fetchResponse?.site?.siteInfo?.routes?.results);
-        hasNext = fetchResponse.site?.siteInfo?.routes?.pageInfo.hasNext;
-        after = fetchResponse.site?.siteInfo?.routes?.pageInfo.endCursor;
+        results = results.concat(fetchResponse.site.siteInfo.routes?.results);
+        hasNext = fetchResponse.site.siteInfo.routes?.pageInfo.hasNext;
+        after = fetchResponse.site.siteInfo.routes?.pageInfo.endCursor;
       }
     }
     return results;
