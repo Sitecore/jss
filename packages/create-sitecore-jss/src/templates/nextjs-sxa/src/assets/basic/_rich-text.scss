@@ -1,4 +1,7 @@
+@import "@sass/abstracts/vars";
+
 .rich-text {
+  color: $text-gray;
   @include respond-to(all-mobile) {
     padding: 15px 10px 10px 25px;
 

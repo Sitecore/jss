@@ -8,6 +8,10 @@ $hamburger-margin: 1.5rem;
 .navigation.navigation-horizontal {
   width: 100%;
   padding-right: 50px;
+
+  .menu-mobile-navigate {
+    display: none;
+  }
   
   @include respond-to(all-mobile) {
     padding-right: 0;
@@ -22,29 +26,89 @@ $hamburger-margin: 1.5rem;
   }
 
   @include respond-to(all-mobile) {
-    &::before {
-      content: "";
-      width: $hamburger-width;
-      height: $hamburger-height;
-      margin-right: $hamburger-margin;
-      margin-top: $hamburger-margin;
-      display: block;
-      border-top: 6px solid $bg-black;
-      border-bottom: 6px solid $bg-black;
-      float: right;
-      cursor: pointer;
+    .component-content {
+      display: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: $bg-black-active;
+      z-index: 1;
+
+      * {
+        text-align: center !important;
+      }
+
+      nav {
+        padding-top: 110px;
+        
+        .level0 {
+          display: block;
+        }
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        a {
+          font-size: 30px;
+          color: $text-white;
+          line-height: 90px;
+        }
+      }
     }
 
-    &:active, &:hover {
-      &::before {
-        display: none;
-      }
-      .component-content {
+    .menu-mobile-navigate-wrapper {
+      width: 100%;
+  
+      .menu-mobile-navigate {
         display: inline-block;
+        z-index: 2;
+        position: absolute;
+        right: 1.5rem;
+        top: 1rem;
+        height: 30px;
+        width: 30px;
+        opacity: 0;
+
+        &:checked ~ {
+          .menu-humburger {
+            &::before {
+              content: "\00d7";
+              color: $text-basic-active;
+              font-size: 48px;
+              position: absolute;
+              top: 0;
+              right: 0;
+              margin-top: 2rem;
+              margin-right: 1.5rem;
+              line-height: 0;
+              border: 0;
+            }
+          }
+
+          .component-content {
+            display: inline-block;
+          }
+        }
       }
 
-      .level0 {
-        display: block;
+      .menu-humburger {
+        &::before {
+          content: "";
+          width: $hamburger-width;
+          height: $hamburger-height;
+          margin-right: $hamburger-margin;
+          margin-top: $hamburger-margin;
+          display: block;
+          border-top: 6px solid $bg-black;
+          border-bottom: 6px solid $bg-black;
+          float: right;
+          z-index: 99;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -60,6 +124,7 @@ $hamburger-margin: 1.5rem;
     >.navigation-title {
       >a {
         border-width: 0;
+        font-size: 14px;
       }
     }
   }
