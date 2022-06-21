@@ -7,6 +7,7 @@ export const languageError = 'The list of languages cannot be empty';
 /**
  * @param siteName
  */
+/** @private */
 export function getSiteEmptyError(siteName: string) {
   return `Site "${siteName}" does not exist or site item tree is missing`;
 }
