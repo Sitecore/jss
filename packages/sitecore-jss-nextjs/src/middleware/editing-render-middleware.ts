@@ -124,8 +124,9 @@ export class EditingRenderMiddleware {
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
       const requestUrl = this.resolvePageUrl(serverUrl, editingData.path);
       debug.experienceEditor('fetching page route for %s', editingData.path);
+      const queryStringCharacter = requestUrl.indexOf('?') === -1 ? '?' : '&';
       const pageRes = await this.dataFetcher
-        .get<string>(`${requestUrl}?timestamp=${Date.now()}`, {
+        .get<string>(`${requestUrl}${queryStringCharacter}timestamp=${Date.now()}`, {
           headers: {
             Cookie: cookies.join(';'),
           },
