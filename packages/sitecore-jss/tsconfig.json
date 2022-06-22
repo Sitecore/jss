@@ -20,6 +20,6 @@
     "site.d.ts",
     "personalize.d.ts",
     "src/**/*.test.ts",
-    "src/testData/*"
+    "src/test-data/*"
   ]
 }

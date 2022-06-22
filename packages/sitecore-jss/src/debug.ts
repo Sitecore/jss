@@ -19,7 +19,7 @@ if (
 
 /**
  * Enable debug logging dynamically
- * @param {string} namespaces
+ * @param {string} namespaces space-separated list of namespaces to enable
  */
 export const enableDebug = (namespaces: string) => debug.enable(namespaces);
 
@@ -35,4 +35,5 @@ export default Object.freeze({
   sitemap: debug(`${rootNamespace}:sitemap`),
   robots: debug(`${rootNamespace}:robots`),
   redirects: debug(`${rootNamespace}:redirects`),
+  personalize: debug(`${rootNamespace}:personalize`),
 });

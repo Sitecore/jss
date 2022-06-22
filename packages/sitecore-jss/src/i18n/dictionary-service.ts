@@ -13,7 +13,7 @@ export interface DictionaryPhrases {
 export interface DictionaryService {
   /**
    * Fetch dictionary data for a language.
-   * @param {string} language
+   * @param {string} language the language to be used to fetch the dictionary
    */
   fetchDictionaryData(language: string): Promise<DictionaryPhrases>;
 }
@@ -65,7 +65,8 @@ export abstract class DictionaryServiceBase
 
   /**
    * Fetch dictionary data for a language.
-   * @param {string} language
+   * @param {string} language the language to be used to fetch the dictionary
+   * @returns {Promise<DictionaryPhrases>}
    */
   abstract fetchDictionaryData(language: string): Promise<DictionaryPhrases>;
 }

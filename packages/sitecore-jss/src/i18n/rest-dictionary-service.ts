@@ -34,6 +34,7 @@ export type RestDictionaryServiceConfig = CacheOptions & {
 /**
  * Fetch dictionary data using the Sitecore Dictionary Service REST API.
  * Uses Axios as the default data fetcher (@see AxiosDataFetcher).
+ * @augments DictionaryServiceBase
  */
 export class RestDictionaryService extends DictionaryServiceBase {
   /**
@@ -54,7 +55,8 @@ export class RestDictionaryService extends DictionaryServiceBase {
 
   /**
    * Fetch dictionary data for a language.
-   * @param {string} language
+   * @param {string} language the language to be used to fetch the dictionary
+   * @returns {Promise<DictionaryPhrases>} dictionary phrases
    */
   async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
     const endpoint = this.getUrl(language);
@@ -75,9 +77,10 @@ export class RestDictionaryService extends DictionaryServiceBase {
 
   /**
    * Generate dictionary service url
-   * @param {string} language
+   * @param {string} language the language to be used to fetch the dictionary
+   * @returns {string} dictionary service url
    */
-  protected getUrl(language: string) {
+  protected getUrl(language: string): string {
     return `${this.options.apiHost}/sitecore/api/jss/dictionary/${this.options.siteName}/${language}`;
   }
 }

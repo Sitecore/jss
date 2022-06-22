@@ -1,4 +1,5 @@
 import { ParsedUrlQuery } from 'querystring';
+import { normalizePersonalizedRewrite } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
  * Extract normalized Sitecore item path from query
@@ -15,11 +16,8 @@ export function extractPath(params: ParsedUrlQuery | undefined): string {
     path = '/' + path;
   }
 
-  // Remove SegmentId part from path, otherwise layout service will not find layout data
-  if (path.includes('_segmentId_')) {
-    const result = path.match('_segmentId_.*?\\/');
-    path = result === null ? '/' : path.replace(result[0], '');
-  }
+  // Ensure personalized rewrite data is removed
+  path = normalizePersonalizedRewrite(path);
 
   return path;
 }

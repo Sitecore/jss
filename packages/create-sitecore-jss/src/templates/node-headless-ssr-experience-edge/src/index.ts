@@ -104,7 +104,9 @@ server.use(async (req, res) => {
           return;
         }
 
-        res.status(200).send(result.html);
+        const statusCode = layoutData.sitecore.route ? 200 : 404;
+
+        res.status(statusCode).send(result.html);
       },
       route,
       layoutData,

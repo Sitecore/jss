@@ -1,6 +1,5 @@
 import React from 'react';
-import { RichText as JssRichText, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { RichTextField } from '@sitecore-jss/sitecore-jss-react';
+import { RichText as JssRichText, useSitecoreContext, RichTextField } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
   Content: RichTextField;
@@ -39,10 +38,12 @@ export const Default = (props: PageContentProps): JSX.Element => {
     );
   }
 
-  const field =
+  const field = (
     props.fields && props.fields.Content
       ? props.fields.Content
-      : sitecoreContext?.route?.fields?.Content;
+      : sitecoreContext?.route?.fields?.Content
+  ) as RichTextField;
+
   return (
     <ComponentContent styles={props.params.styles}>
       <JssRichText field={field} />

@@ -7,7 +7,8 @@
     "outDir": "dist/cjs",
     "strictNullChecks": false,
     "typeRoots": ["node_modules/@types"],
-    "declarationDir": "./types"
+    "declarationDir": "./types",
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules",
@@ -15,7 +16,7 @@
     "typings",
     "dist",
     "src/tests/*",
-    "src/testData/*",
+    "src/test-data/*",
     "**/*.test.ts",
     "**/*.test.tsx"
   ]

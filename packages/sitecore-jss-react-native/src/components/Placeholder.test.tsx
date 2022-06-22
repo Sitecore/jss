@@ -5,9 +5,9 @@ import renderer from 'react-test-renderer';
 import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 import { Placeholder, PlaceholderComponentProps } from './Placeholder';
 import { SitecoreContext } from './SitecoreContext';
-import { devData } from '../../testData/dev-data';
-import { lsDataEeOff } from '../../testData/LS-data-EE-off';
-import {ComponentFactory} from './sharedTypes';
+import { devData } from '../../test-data/dev-data';
+import { lsDataEeOff } from '../../test-data/LS-data-EE-off';
+import { ComponentFactory } from './sharedTypes';
 
 const componentFactory = (componentName: string) => {
   const components = new Map();
@@ -30,9 +30,9 @@ const componentFactory = (componentName: string) => {
     fields: {
       message?: {
         value: string;
-      }
-    }
-  }
+      };
+    };
+  };
 
   const DownloadCallout: React.SFC<DownloadCalloutProps> = (props) => (
     <View testID="download-callout-mock">
@@ -40,7 +40,7 @@ const componentFactory = (componentName: string) => {
     </View>
   );
   DownloadCallout.propTypes = {
-    fields: PropTypes.any
+    fields: PropTypes.any,
   };
 
   components.set('DownloadCallout', DownloadCallout);
@@ -58,7 +58,8 @@ describe('<Placeholder />', () => {
   testData.forEach((dataSet) => {
     describe(`with ${dataSet.label}`, () => {
       test('should render a placeholder with given key', () => {
-        const phData = dataSet.data.sitecore.route.placeholders.main as unknown as ComponentRendering[];
+        const phData = (dataSet.data.sitecore.route.placeholders
+          .main as unknown) as ComponentRendering[];
         const component = phData.find((c: ComponentRendering) => c.componentName);
         const phKey = 'page-content';
 
@@ -66,7 +67,11 @@ describe('<Placeholder />', () => {
         // you'll need to visually inspect the snapshot to ensure expected rendering.
         const renderedComponent = renderer
           .create(
-            <Placeholder name={phKey} rendering={component as ComponentRendering} componentFactory={componentFactory} />
+            <Placeholder
+              name={phKey}
+              rendering={component as ComponentRendering}
+              componentFactory={componentFactory}
+            />
           )
           .toJSON();
 
@@ -75,7 +80,7 @@ describe('<Placeholder />', () => {
       });
 
       test('should render nested placeholders and props correctly', () => {
-        const component = dataSet.data.sitecore.route as unknown as RouteData;
+        const component = (dataSet.data.sitecore.route as unknown) as RouteData;
         const phKey = 'main';
 
         const renderedComponent = renderer
@@ -97,7 +102,8 @@ describe('<Placeholder />', () => {
 
     // use local mocks to avoid console warnings from Placeholder about unknown nested placeholders
     const Home = () => <View testID="home-mock" />;
-    const factory: ComponentFactory = (componentName: string) => (componentName === 'Home' ? Home : null);
+    const factory: ComponentFactory = (componentName: string) =>
+      componentName === 'Home' ? Home : null;
 
     const route = {
       placeholders: {
@@ -114,7 +120,13 @@ describe('<Placeholder />', () => {
     const phKey = 'main';
 
     const renderedComponent = renderer
-      .create(<Placeholder name={phKey} rendering={route as unknown as RouteData} componentFactory={factory} />)
+      .create(
+        <Placeholder
+          name={phKey}
+          rendering={(route as unknown) as RouteData}
+          componentFactory={factory}
+        />
+      )
       .toJSON();
 
     // placeholder should only render "Home" component

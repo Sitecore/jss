@@ -55,6 +55,9 @@ export type RedirectsQueryResult = {
   site: { siteInfo: { redirects: RedirectInfo[] } };
 };
 
+/**
+ *  The GraphQLRedirectsService class is used to query the JSS redirects using Graphql endpoint
+ */
 export class GraphQLRedirectsService {
   private graphQLClient: GraphQLClient;
 
@@ -86,13 +89,9 @@ export class GraphQLRedirectsService {
       siteName,
     });
 
-    try {
-      return redirectsResult.then((result: RedirectsQueryResult) => {
-        return result?.site?.siteInfo?.redirects;
-      });
-    } catch (e) {
-      return Promise.reject(e);
-    }
+    return redirectsResult
+      .then((result: RedirectsQueryResult) => result.site.siteInfo.redirects)
+      .catch((e) => Promise.reject(e));
   }
 
   /**

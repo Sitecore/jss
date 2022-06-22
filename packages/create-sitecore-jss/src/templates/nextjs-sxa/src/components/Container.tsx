@@ -12,15 +12,15 @@ const BACKGROUND_REG_EXP = new RegExp(
 
 interface ComponentProps {
   rendering: ComponentRendering & { params: ComponentParams };
-  params: ComponentParams;
+  params?: ComponentParams;
 }
 
 const Container = (props: ComponentProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
-  const styles = `${props.params.GridParameters} ${props.params.Styles}`.trimEnd();
+  const styles = `${props.params.GridParameters} ${props.params?.Styles}`.trimEnd();
   const phKey = `container-${props.params.DynamicPlaceholderId}`;
   const backgroundImage = props.params.BackgroundImage as string;
-  let backgroundStyle: { [key: string]: string };
+  let backgroundStyle: { [key: string]: string } = { backgroundImage: '' };
 
   if (backgroundImage) {
     const prefix = `${sitecoreContext.pageState !== 'normal' ? '/sitecore/shell' : ''}/-/media/`;

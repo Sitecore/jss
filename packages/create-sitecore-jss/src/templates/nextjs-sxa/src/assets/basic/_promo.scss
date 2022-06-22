@@ -1,0 +1,31 @@
+@import "@sass/abstracts/vars";
+@import "@sass/abstracts/mixins";
+/**PROMO**/
+
+.promo {
+  &.promo-no-border {
+    padding-left: 0;
+    padding-right: 0;
+
+    >.component-content {
+      @include border-basic(all, 'none', 0);
+      @include respond-to(all-mobile) {
+        > div {
+          padding: 0;
+        }
+  
+        .promo-text {
+          padding: 15px 10px 10px 25px;
+        }
+      }
+
+      .promo-text {
+        .field-promotext {
+          p {
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+  }
+}

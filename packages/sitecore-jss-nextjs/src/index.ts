@@ -5,6 +5,8 @@ export {
   HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
+  NativeDataFetcher,
+  NativeDataFetcherConfig,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
 export {
@@ -12,6 +14,7 @@ export {
   resetEditorChromes,
   isExperienceEditorActive,
   resetExperienceEditorChromes,
+  resolveUrl,
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
@@ -23,6 +26,7 @@ export {
   GraphQLLayoutServiceConfig,
   RestLayoutService,
   RestLayoutServiceConfig,
+  PlaceholderData,
   PlaceholdersData,
   RouteData,
   Field,
@@ -52,7 +56,12 @@ export {
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';
-export { personalizeLayout } from '@sitecore-jss/sitecore-jss/personalize';
+export {
+  personalizeLayout,
+  getPersonalizedRewrite,
+  getPersonalizedRewriteData,
+  normalizePersonalizedRewrite,
+} from '@sitecore-jss/sitecore-jss/personalize';
 export {
   RobotsQueryResult,
   GraphQLRobotsService,
@@ -100,8 +109,8 @@ export {
   editingDataService,
 } from './services/editing-data-service';
 
-export { Link } from './components/Link';
-export { RichText } from './components/RichText';
+export { Link, LinkProps } from './components/Link';
+export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { NextImage } from './components/NextImage';
 
@@ -109,6 +118,8 @@ export {
   ComponentFactory,
   Image,
   ImageField,
+  ImageFieldValue,
+  ImageProps,
   LinkField,
   LinkFieldValue,
   Text,
@@ -116,7 +127,9 @@ export {
   DateField,
   File,
   FileField,
+  RichTextField,
   VisitorIdentification,
+  PlaceholderComponentProps,
   SitecoreContext,
   SitecoreContextState,
   SitecoreContextValue,
@@ -127,4 +140,8 @@ export {
   withExperienceEditorChromes,
   withPlaceholder,
   withDatasourceCheck,
+  ImageSizeParameters,
+  ComponentConsumerProps,
+  WithSitecoreContextOptions,
+  WithSitecoreContextProps,
 } from '@sitecore-jss/sitecore-jss-react';

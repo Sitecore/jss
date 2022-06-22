@@ -1,0 +1,42 @@
+@import "@sass/abstracts/vars/colors";
+@import "@sass/abstracts/mixins";
+@import "variables";
+
+header {
+  .container {
+    .row {
+      display: flex;
+      flex-direction: column;
+
+      .rich-text {
+        padding-left: 50px;
+
+        h1 {
+          font-size: $text-size-24;
+          font-weight: 500;
+          line-height: 18px;
+          padding-top: 40px;
+          margin: 0;
+        }
+      }
+      
+      @include respond-to(all-mobile) {
+        padding-top: 0;
+        flex-direction: column-reverse;
+
+        .rich-text {
+          padding-left: 0;
+          text-align: center;
+  
+          h1 {
+            font-size: $text-size-24;
+            font-weight: 600;
+            line-height: 29px;
+            padding-top: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,13 +1,14 @@
 import { expect } from 'chai';
 import nock from 'nock';
 import {
+  getSiteEmptyError,
   GraphQLSitemapService,
   GraphQLSitemapServiceConfig,
   languageError,
 } from './graphql-sitemap-service';
-import sitemapDefaultQueryResult from '../testData/sitemapDefaultQueryResult.json';
-import sitemapPersonalizeQueryResult from '../testData/sitemapPersonalizeQueryResult.json';
-import sitemapServiceResult from '../testData/sitemapServiceResult';
+import sitemapDefaultQueryResult from '../test-data/sitemapDefaultQueryResult.json';
+import sitemapPersonalizeQueryResult from '../test-data/sitemapPersonalizeQueryResult.json';
+import sitemapServiceResult from '../test-data/sitemapServiceResult';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss/graphql';
 
 class TestService extends GraphQLSitemapService {
@@ -194,7 +195,7 @@ describe('GraphQLSitemapService', () => {
         },
         {
           params: {
-            path: ['_segmentId_green'],
+            path: ['_variantId_green'],
           },
           locale: lang,
         },
@@ -206,19 +207,19 @@ describe('GraphQLSitemapService', () => {
         },
         {
           params: {
-            path: ['_segmentId_green', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_variantId_green', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: lang,
         },
         {
           params: {
-            path: ['_segmentId_red', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_variantId_red', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: lang,
         },
         {
           params: {
-            path: ['_segmentId_purple', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_variantId_purple', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: lang,
         },
@@ -357,6 +358,24 @@ describe('GraphQLSitemapService', () => {
       const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
       await service.fetchSSGSitemap([]).catch((error: RangeError) => {
         expect(error.message).to.equal(languageError);
+      });
+    });
+
+    it('should throw error if query returns nothing for a provided site name', async () => {
+      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      nock(endpoint)
+        .post('/', (body) => {
+          return body.variables.siteName === siteName;
+        })
+        .reply(200, {
+          data: {
+            site: {
+              siteInfo: null,
+            },
+          },
+        });
+      await service.fetchSSGSitemap(['en']).catch((error: RangeError) => {
+        expect(error.message).to.equal(getSiteEmptyError(siteName));
       });
     });
 
@@ -500,6 +519,24 @@ describe('GraphQLSitemapService', () => {
       });
 
       return expect(nock.isDone()).to.be.false;
+    });
+  });
+
+  it('should throw error if query returns nothing for a provided site name', async () => {
+    const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+    nock(endpoint)
+      .post('/', (body) => {
+        return body.variables.siteName === siteName;
+      })
+      .reply(200, {
+        data: {
+          site: {
+            siteInfo: null,
+          },
+        },
+      });
+    await service.fetchExportSitemap('en').catch((error: RangeError) => {
+      expect(error.message).to.equal(getSiteEmptyError(siteName));
     });
   });
 

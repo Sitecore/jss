@@ -1,3 +1,6 @@
+/**
+ * @param {import('next').NextConfig} nextConfig
+ */
 const robotsPlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
     async rewrites() {

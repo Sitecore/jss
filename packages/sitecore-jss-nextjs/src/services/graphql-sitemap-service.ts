@@ -1,8 +1,16 @@
 import { GraphQLClient, GraphQLRequestClient, PageInfo } from '@sitecore-jss/sitecore-jss/graphql';
 import { debug } from '@sitecore-jss/sitecore-jss';
+import { getPersonalizedRewrite } from '@sitecore-jss/sitecore-jss/personalize';
 
 /** @private */
 export const languageError = 'The list of languages cannot be empty';
+/**
+ * @param siteName
+ */
+/** @private */
+export function getSiteEmptyError(siteName: string) {
+  return `Site "${siteName}" does not exist or site item tree is missing`;
+}
 
 const languageEmptyError = 'The language must be a non-empty string';
 
@@ -34,13 +42,16 @@ query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
           endCursor
           hasNext
         }
-        results: routesResult{
+        results {
           path: routePath 
           ${
             usesPersonalize
-              ? `personalize: {
-            variantIds
-          }`
+              ? `
+              route {
+                personalization {
+                  variantIds
+                }
+              }`
               : ''
           }
         }
@@ -101,8 +112,10 @@ export interface SiteRouteQueryResult<T> {
  */
 export type RouteListQueryResult = {
   path: string;
-  personalize?: {
-    variantIds: string[];
+  route?: {
+    personalization?: {
+      variantIds: string[];
+    };
   };
 };
 
@@ -206,8 +219,6 @@ export class GraphQLSitemapService {
     languages: string[],
     formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
-    const segmentPrefix = '_segmentId_';
-
     if (!languages.length) {
       throw new RangeError(languageError);
     }
@@ -237,10 +248,10 @@ export class GraphQLSitemapService {
           results.forEach((item) => {
             aggregatedPaths.push(formatPath(item.path));
             // check for type safety's sake - personalize may be empty depending on query type
-            if (item.personalize?.variantIds.length) {
+            if (item.route?.personalization?.variantIds.length) {
               aggregatedPaths.push(
-                ...item.personalize?.variantIds.map((varId) =>
-                  formatPath(`/${segmentPrefix}${varId}${item.path}`)
+                ...item.route?.personalization?.variantIds.map((varId) =>
+                  formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
                 )
               );
             }
@@ -271,9 +282,13 @@ export class GraphQLSitemapService {
         after,
       });
 
-      results = results.concat(fetchResponse?.site?.siteInfo?.routes?.results);
-      hasNext = fetchResponse.site.siteInfo.routes.pageInfo.hasNext;
-      after = fetchResponse.site.siteInfo.routes.pageInfo.endCursor;
+      if (!fetchResponse?.site?.siteInfo) {
+        throw new RangeError(getSiteEmptyError(this.options.siteName));
+      } else {
+        results = results.concat(fetchResponse.site.siteInfo.routes?.results);
+        hasNext = fetchResponse.site.siteInfo.routes?.pageInfo.hasNext;
+        after = fetchResponse.site.siteInfo.routes?.pageInfo.endCursor;
+      }
     }
     return results;
   }

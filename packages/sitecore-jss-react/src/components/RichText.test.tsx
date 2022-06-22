@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { mount } from 'enzyme';
 
 import { RichText, RichTextField } from './RichText';
-import { richTextField as eeRichTextData } from '../testData/ee-data';
+import { richTextField as eeRichTextData } from '../test-data/ee-data';
 
 describe('<RichText />', () => {
   it('should render nothing with missing field', () => {

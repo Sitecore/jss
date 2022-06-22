@@ -17,7 +17,7 @@
     "middleware.d.ts",
     "edge.d.ts",
     "src/tests/*",
-    "src/testData/*",
+    "src/test-data/*",
     "**/*.test.ts",
     "**/*.test.tsx"
   ]

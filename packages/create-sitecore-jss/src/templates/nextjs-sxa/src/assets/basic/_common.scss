@@ -1,0 +1,75 @@
+@import "@sass/abstracts/mixins";
+@import "variables";
+
+* {
+  font-family: Roboto;
+}
+
+main {
+  position: relative;
+  min-height: calc(100vh - 352px);
+  margin-bottom: 50px;
+  padding-top: 50px;
+
+  @include respond-to(all-mobile) {
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+
+  #container {
+    margin-top: 60px;
+  }
+
+  .rich-text {
+    .main-header {
+      margin-bottom: 30px;
+
+      @include respond-to(all-mobile) {
+        margin-bottom: 0px;
+      }
+
+      .title {
+        font-size: $text-size-24;
+        font-weight: 500;
+        line-height: 50px;
+        margin-bottom: 30px;
+
+        @include respond-to(all-mobile) {
+          font-size: $text-size-16;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+
+  .main-news {
+    padding-top: 50px;
+
+    @include respond-to(all-mobile) {
+      padding-top: 0;
+    }
+
+    .title {
+      display: block;
+      font-size: $text-size-36;
+      font-weight: 500;
+      line-height: 62px;
+
+      @include respond-to(all-mobile) {
+        font-size: $text-size-18;
+        line-height: 22px;
+      }
+    }
+
+    .text {
+      font-size: $text-size-16;
+      font-weight: 500;
+
+      @include respond-to(all-mobile) {
+        font-size: $text-size-14;
+        line-height: 24px;
+        font-weight: 400;
+      }
+    }
+  }
+}

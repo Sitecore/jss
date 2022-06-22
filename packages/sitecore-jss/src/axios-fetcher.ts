@@ -42,6 +42,9 @@ const isAxiosError = (error: unknown): error is AxiosError => {
   return (error as AxiosError).isAxiosError !== undefined;
 };
 
+/**
+ *  AxisoDataFetcher is a wrapper for axios library.
+ */
 export class AxiosDataFetcher {
   private instance: AxiosInstance;
 
@@ -51,13 +54,20 @@ export class AxiosDataFetcher {
    * be included in CORS requests (which is necessary for analytics and such).
    */
   constructor(dataFetcherConfig: AxiosDataFetcherConfig = {}) {
-    const { onReq, onRes, onReqError, onResError, ...axiosConfig } = dataFetcherConfig;
+    const {
+      onReq,
+      onRes,
+      onReqError,
+      onResError,
+      debugger: debuggerOverride,
+      ...axiosConfig
+    } = dataFetcherConfig;
     if (axiosConfig.withCredentials === undefined) {
       axiosConfig.withCredentials = true;
     }
     this.instance = axios.create(axiosConfig);
 
-    const debug = dataFetcherConfig.debugger || debuggers.http;
+    const debug = debuggerOverride || debuggers.http;
 
     // Note Axios response interceptors are applied in registered order;
     // however, request interceptors are REVERSED (https://github.com/axios/axios/issues/1663).

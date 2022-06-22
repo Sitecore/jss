@@ -56,25 +56,7 @@ export class LinkDirective implements OnChanges {
 
     viewRef.rootNodes.forEach((node) => {
       Object.entries(props).forEach(([key, propValue]) => {
-        if (typeof propValue !== 'string') return;
-
-        if (key === 'href') {
-          const isInvalidLink = !propValue || /^https?:\/\/$/.test(propValue);
-
-          if (isInvalidLink) {
-            if (!node.href) {
-              return;
-            }
-
-            propValue = node.href;
-          }
-        }
-
-        if (key === 'class' && node.className) {
-          propValue += ` ${node.className}`;
-        }
-
-        this.renderer.setAttribute(node, key, propValue as string);
+        this.updateAttribute(node, key, propValue);
       });
 
       if (node.childNodes && node.childNodes.length === 0 && linkText) {
@@ -93,9 +75,7 @@ export class LinkDirective implements OnChanges {
       ...this.getElementAttrs(),
       ...this.attrs,
     };
-    Object.entries(attrs).forEach(([key, attrValue]) =>
-      this.renderer.setAttribute(span, key, attrValue)
-    );
+    Object.entries(attrs).forEach(([key, attrValue]) => this.updateAttribute(span, key, attrValue));
 
     this.viewContainer.createEmbeddedView(this.templateRef);
 
@@ -119,5 +99,28 @@ export class LinkDirective implements OnChanges {
       }
     }
     return attrs;
+  }
+
+  protected updateAttribute(node: HTMLElement, key: string, propValue?: unknown) {
+    if (typeof propValue !== 'string' || !propValue || propValue === '') {
+      return;
+    }
+
+    if (key === 'href') {
+      const isInvalidLink = !propValue || /^https?:\/\/$/.test(propValue);
+
+      if (isInvalidLink) {
+        if (!(node as HTMLLinkElement).href) {
+          return;
+        }
+
+        propValue = (node as HTMLLinkElement).href as string;
+      }
+      this.renderer.setAttribute(node, key, propValue as string);
+    } else if (key === 'class' && node.className !== '') {
+      this.renderer.setAttribute(node, key, `${node.className} ${propValue}`);
+    } else {
+      this.renderer.setAttribute(node, key, propValue);
+    }
   }
 }
