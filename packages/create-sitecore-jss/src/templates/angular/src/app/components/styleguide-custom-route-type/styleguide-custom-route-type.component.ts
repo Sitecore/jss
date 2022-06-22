@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { JssContextService } from '../../jss-context.service';
-import { Field, ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 
 @Component({
   selector: 'app-styleguide-custom-route-type',
@@ -9,7 +9,7 @@ import { Field, ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 })
 export class StyleguideCustomRouteTypeComponent implements OnInit, OnDestroy {
   @Input() rendering: ComponentRendering;
-  contextFields: { [name: string]: Field };
+  contextFields: { [name: string]: unknown };
 
   private contextSubscription: Subscription;
 
