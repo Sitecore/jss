@@ -13,6 +13,7 @@ enum LayoutState {
 }
 
 interface RouteFields {
+  [name: string]: unknown;
   pageTitle: Field<string>;
 }
 
