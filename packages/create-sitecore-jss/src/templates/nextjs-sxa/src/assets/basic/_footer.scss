@@ -1,4 +1,5 @@
 @import "@sass/abstracts/mixins";
+@import "variables";
 
 footer {
     position: absolute;
@@ -6,7 +7,7 @@ footer {
     height: 231px;
 
   .rich-text {
-    font-size: 14px;
+    font-size: $text-size-14;
     color: $text-white;
   }
 
