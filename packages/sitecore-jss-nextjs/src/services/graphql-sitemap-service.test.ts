@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import nock from 'nock';
 import {
+  getSiteEmptyError,
   GraphQLSitemapService,
   GraphQLSitemapServiceConfig,
   languageError,
@@ -360,6 +361,24 @@ describe('GraphQLSitemapService', () => {
       });
     });
 
+    it('should throw error if query returns nothing for a provided site name', async () => {
+      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      nock(endpoint)
+        .post('/', (body) => {
+          return body.variables.siteName === siteName;
+        })
+        .reply(200, {
+          data: {
+            site: {
+              siteInfo: null,
+            },
+          },
+        });
+      await service.fetchSSGSitemap(['en']).catch((error: RangeError) => {
+        expect(error.message).to.equal(getSiteEmptyError(siteName));
+      });
+    });
+
     it('should throw error if empty language is provided', async () => {
       mockPathsRequest();
 
@@ -500,6 +519,24 @@ describe('GraphQLSitemapService', () => {
       });
 
       return expect(nock.isDone()).to.be.false;
+    });
+  });
+
+  it('should throw error if query returns nothing for a provided site name', async () => {
+    const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+    nock(endpoint)
+      .post('/', (body) => {
+        return body.variables.siteName === siteName;
+      })
+      .reply(200, {
+        data: {
+          site: {
+            siteInfo: null,
+          },
+        },
+      });
+    await service.fetchExportSitemap('en').catch((error: RangeError) => {
+      expect(error.message).to.equal(getSiteEmptyError(siteName));
     });
   });
 
