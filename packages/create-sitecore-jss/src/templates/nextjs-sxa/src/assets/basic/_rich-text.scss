@@ -3,8 +3,14 @@
 
 .rich-text {
   color: $text-gray;
+  font-size: 16px;
+  
+  h4 {
+    line-height: 50px;
+  }
+
   @include respond-to(all-mobile) {
-    padding: 17px 30px 10px 30px;
+    padding: 15px 30px 10px 25px;
 
     h2 {
       font-size: $text-size-18;

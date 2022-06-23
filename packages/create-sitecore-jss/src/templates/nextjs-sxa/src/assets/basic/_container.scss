@@ -1,0 +1,24 @@
+@import "@sass/abstracts/mixins";
+@import "variables";
+
+* {
+  font-family: Roboto;
+}
+h1 {
+  font-size: 36px;
+}
+.max-height {
+  .container {
+    margin-top: 60px;
+  }
+  position: relative;
+  min-height: calc(100vh - 388px);
+  margin-bottom: 50px;
+  padding-top: 50px;
+
+  @include respond-to(all-mobile) {
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+
+}

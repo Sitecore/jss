@@ -4,31 +4,22 @@
 footer {
     position: absolute;
     width: 100%;
-    height: 360px;
-    background-color: $bg-dark-gray;
+    height: 231px;
 
   .rich-text {
-    @include respond-to(all-mobile) {
-      padding: 0 30px;
-    }
+    font-size: $text-size-14;
+    color: $text-white;
 
-    p {
-      margin-bottom: 3px !important;
-    }
-    span {
-      font-size: $text-size-14;
-      color: $text-white !important;
-    }
     a {
       color: $text-white;
     }
   }
 
-  .row {
+  .indent-inner {
     padding: 3rem;
 
     @include respond-to(all-mobile) {
-      padding: 50px 0 0;
+      padding: 25px 0;
     }
   }
 }

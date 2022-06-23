@@ -11,7 +11,7 @@ header {
       .rich-text {
         padding-left: 50px;
 
-        h1 span {
+        h1 {
           font-size: $text-size-24;
           font-weight: 500;
           line-height: 18px;
@@ -26,17 +26,14 @@ header {
 
         .rich-text {
           padding-left: 0;
-          padding-top: 0;
           text-align: center;
   
-          h1{
+          h1 {
+            font-size: $text-size-24;
+            font-weight: 600;
+            line-height: 29px;
+            padding-top: 0;
             margin: 0;
-            span {
-              font-size: $text-size-24;
-              font-weight: 600;
-              line-height: 29px;
-              padding-top: 0;
-            }
           }
         }
       }
