@@ -10,7 +10,11 @@ import { LinkField } from './rendering-field';
 @Component({
   selector: 'test-router-link',
   template: `
-    <a *scRouterLink="field; editable: editable; attrs: attrs" id="my-link"></a>
+    <a
+      *scRouterLink="field; editable: editable; attrs: attrs"
+      class="external-css-class"
+      id="my-link"
+    ></a>
   `,
 })
 class TestComponent {
@@ -117,7 +121,7 @@ describe('<a *scRouterLink />', () => {
 
     const rendered = de.query(By.css('a'));
     expect(rendered.nativeElement.href).toContain(field.value.href);
-    expect(rendered.nativeElement.className).toContain(field.value.class);
+    expect(rendered.nativeElement.className).toBe('external-css-class my-link');
     expect(rendered.nativeElement.title).toContain(field.value.title);
     expect(rendered.nativeElement.target).toContain(field.value.target);
   });
@@ -164,6 +168,7 @@ describe('<a *scRouterLink />', () => {
     const rendered = de.query(By.css('a'));
     expect(rendered.nativeElement.target).toBe('_blank');
     expect(rendered.nativeElement.title).toBe('footip');
+    expect(rendered.nativeElement.className).toBe('external-css-class my-link');
   });
 });
 
