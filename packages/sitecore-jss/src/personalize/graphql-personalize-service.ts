@@ -1,5 +1,6 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import debug from '../debug';
+import { ResponseError } from '../data-fetcher';
 
 export type GraphQLPersonalizeServiceConfig = {
   /**
@@ -14,6 +15,10 @@ export type GraphQLPersonalizeServiceConfig = {
    * The API key to use for authentication
    */
   apiKey: string;
+  /**
+   * Timeout (ms) for the Personalize request. Default is 250.
+   */
+  timeout?: number;
   /**
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
@@ -40,7 +45,6 @@ type PersonalizeQueryResult = {
 
 export class GraphQLPersonalizeService {
   private graphQLClient: GraphQLClient;
-
   protected get query(): string {
     return /* GraphQL */ `
       query($siteName: String!, $language: String!, $itemPath: String!) {
@@ -62,6 +66,7 @@ export class GraphQLPersonalizeService {
    * @param {GraphQLPersonalizeServiceConfig} config
    */
   constructor(protected config: GraphQLPersonalizeServiceConfig) {
+    this.config.timeout = config.timeout || 250;
     this.graphQLClient = this.getGraphQLClient();
   }
 
@@ -82,22 +87,30 @@ export class GraphQLPersonalizeService {
       language
     );
 
-    const data = await this.graphQLClient.request<PersonalizeQueryResult>(this.query, {
-      siteName: this.config.siteName,
-      itemPath,
-      language,
-    });
+    try {
+      const data = await this.graphQLClient.request<PersonalizeQueryResult>(this.query, {
+        siteName: this.config.siteName,
+        itemPath,
+        language,
+      });
 
-    if (!data?.layout?.item) {
-      // Possible if itemPath / language doesn't exist
-      return undefined;
+      return data?.layout?.item
+        ? {
+            // CDP expects content id format `<id>_<language>_<version>` (lowercase)
+            contentId: `${data.layout.item.id}_${language}_${data.layout.item.version}`.toLowerCase(),
+            variantIds: data.layout.item.personalization.variantIds,
+          }
+        : undefined;
+    } catch (error) {
+      if (
+        (error as ResponseError).response?.status === 408 ||
+        (error as Error).name === 'AbortError'
+      ) {
+        return undefined;
+      }
+
+      throw error;
     }
-
-    return {
-      // CDP expects content id format `<id>_<language>_<version>` (lowercase)
-      contentId: `${data.layout.item.id}_${language}_${data.layout.item.version}`.toLowerCase(),
-      variantIds: data.layout.item.personalization.variantIds,
-    };
   }
 
   /**
@@ -111,6 +124,7 @@ export class GraphQLPersonalizeService {
       apiKey: this.config.apiKey,
       debugger: debug.personalize,
       fetch: this.config.fetch,
+      timeout: this.config.timeout,
     });
   }
 }
