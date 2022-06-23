@@ -109,9 +109,10 @@ export class CdpService {
     } catch (error) {
       if (
         (error as AxiosError).code === '408' ||
+        (error as AxiosError).code === 'ECONNABORTED' ||
+        (error as AxiosError).code === 'ETIMEDOUT' ||
         (error as ResponseError).response?.status === 408 ||
-        (error as Error).name === 'AbortError' ||
-        /timeout/i.test((error as Error).message)
+        (error as Error).name === 'AbortError'
       ) {
         return {
           variantId: undefined,
