@@ -12,7 +12,6 @@ describe('GraphQLPersonalizeService', () => {
   const id = 'item-id';
   const version = '1';
   const variantIds = ['variant-1', 'variant-2'];
-
   const config = {
     endpoint,
     siteName,
@@ -73,22 +72,64 @@ describe('GraphQLPersonalizeService', () => {
     expect(personalizeData).to.eql(undefined);
   });
 
-  it('shold return an error', async () => {
+  it('should throw an error', async () => {
     nock('http://sctest', {
       reqheaders: {
         sc_apikey: apiKey,
       },
     })
       .post('/graphql')
-      .reply(401, {
-        error: 'error',
-      });
-
+      .replyWithError('error_test');
     const service = new GraphQLPersonalizeService(config);
 
     await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
-      expect(error.response.status).to.equal(401);
-      expect(error.response.error).to.equal('error');
+      expect(error.message).to.contain('error_test');
     });
+  });
+
+  it('should return fallback value when timeout is exceeded using default timeout', async () => {
+    nock('http://sctest', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .delay(300)
+      .reply(408);
+
+    const service = new GraphQLPersonalizeService(config);
+
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+    expect(result).to.equal(undefined);
+  });
+  it('should return fallback value when timeout is exceeded using provided timeout', async () => {
+    nock('http://sctest', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .delay(75)
+      .reply(408);
+
+    const service = new GraphQLPersonalizeService({ ...config, timeout: 50 });
+
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+    expect(result).to.equal(undefined);
+  });
+  it('should return fallback value when api returns timeout error', async () => {
+    nock('http://sctest', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .reply(408);
+
+    const service = new GraphQLPersonalizeService({ ...config, timeout: 50 });
+
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+
+    expect(result).to.equal(undefined);
   });
 });

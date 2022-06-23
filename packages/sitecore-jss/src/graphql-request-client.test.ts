@@ -117,4 +117,36 @@ describe('GraphQLRequestClient', () => {
       );
     }
   });
+
+  it('should throw error when request is aborted with default timeout value', async () => {
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .delay(100)
+      .reply(200, {
+        data: {
+          result: 'Hello world...',
+        },
+      });
+
+    const graphQLClient = new GraphQLRequestClient(endpoint);
+    await graphQLClient.request('test').catch((error) => {
+      expect(error.name).to.equal('AbortError');
+    });
+  });
+
+  it('should throw error upon request timeout using provided timeout value', async () => {
+    nock('http://jssnextweb')
+      .post('/graphql')
+      .delay(30)
+      .reply(408, {
+        data: {
+          result: 'Hello world...',
+        },
+      });
+
+    const graphQLClient = new GraphQLRequestClient(endpoint, { timeout: 10 });
+    await graphQLClient.request('test').catch((error) => {
+      expect(error.name).to.equal('AbortError');
+    });
+  });
 });

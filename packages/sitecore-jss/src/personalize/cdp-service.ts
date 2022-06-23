@@ -1,6 +1,7 @@
 import debug from '../debug';
-import { HttpDataFetcher } from '../data-fetcher';
+import { HttpDataFetcher, ResponseError } from '../data-fetcher';
 import { AxiosDataFetcher } from '../axios-fetcher';
+import { AxiosError } from 'axios';
 
 /**
  * Object model of CDP execute experience result
@@ -33,12 +34,16 @@ export type CdpServiceConfig = {
    * Custom data fetcher resolver. Uses @see AxiosDataFetcher by default.
    */
   dataFetcherResolver?: DataFetcherResolver;
+  /**
+   * Timeout (ms) for CDP request. Default is 250.
+   */
+  timeout?: number;
 };
 
 /**
  * Data fetcher resolver in order to provide custom data fetcher
  */
-export type DataFetcherResolver = <T>() => HttpDataFetcher<T>;
+export type DataFetcherResolver = <T>({ timeout }: { timeout: number }) => HttpDataFetcher<T>;
 
 /**
  * Object model of Experience Context data
@@ -66,7 +71,10 @@ export class CdpService {
   /**
    * @param {CdpServiceConfig} [config] CDP service config
    */
-  constructor(protected config: CdpServiceConfig) {}
+  private timeout: number;
+  constructor(protected config: CdpServiceConfig) {
+    this.timeout = config.timeout || 250;
+  }
 
   /**
    * Executes targeted experience for a page and context to determine the variant to render.
@@ -85,18 +93,34 @@ export class CdpService {
     debug.personalize('executing experience for %s %s %o', contentId, browserId, context);
 
     const fetcher = this.config.dataFetcherResolver
-      ? this.config.dataFetcherResolver<ExecuteExperienceResult>()
+      ? this.config.dataFetcherResolver<ExecuteExperienceResult>({ timeout: this.timeout })
       : this.getDefaultFetcher<ExecuteExperienceResult>();
-    const response = await fetcher(endpoint, {
-      clientKey: this.config.clientKey,
-      pointOfSale: this.config.pointOfSale,
-      browserId,
-      context,
-    });
-    return {
-      variantId: response.data.variantId || undefined, // coerce empty strings to undefined
-      browserId: response.data.browserId || undefined,
-    };
+
+    try {
+      const response = await fetcher(endpoint, {
+        clientKey: this.config.clientKey,
+        pointOfSale: this.config.pointOfSale,
+        browserId,
+        context,
+      });
+      response.data.variantId === '' && (response.data.variantId = undefined);
+      response.data.browserId === '' && (response.data.browserId = undefined);
+      return response.data;
+    } catch (error) {
+      if (
+        (error as AxiosError).code === '408' ||
+        (error as AxiosError).code === 'ECONNABORTED' ||
+        (error as AxiosError).code === 'ETIMEDOUT' ||
+        (error as ResponseError).response?.status === 408 ||
+        (error as Error).name === 'AbortError'
+      ) {
+        return {
+          variantId: undefined,
+          browserId: undefined,
+        };
+      }
+      throw error;
+    }
   }
 
   /**
@@ -115,6 +139,7 @@ export class CdpService {
   protected getDefaultFetcher = <T>() => {
     const fetcher = new AxiosDataFetcher({
       debugger: debug.personalize,
+      timeout: this.timeout,
     });
     return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
   };

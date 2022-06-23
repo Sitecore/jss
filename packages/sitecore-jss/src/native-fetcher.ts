@@ -10,6 +10,10 @@ type NativeDataFetcherOptions = {
    * Override fetch method. Uses native (or polyfilled) fetch by default.
    */
   fetch?: typeof fetch;
+  /**
+   * Optional request timeout.
+   */
+  timeout?: number;
 };
 
 export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;
@@ -25,18 +29,31 @@ export class NativeDataFetcher {
    */
   async fetch<T>(url: string, data?: unknown): Promise<HttpResponse<T>> {
     const { debugger: debugOverride, fetch: fetchOverride, ...init } = this.config;
-
     const fetchImpl = fetchOverride || fetch;
+    const abortController = new AbortController();
     const debug = debugOverride || debuggers.http;
     const requestInit = this.getRequestInit(init, data);
+    requestInit.signal = abortController.signal;
+
+    let abortTimeout: NodeJS.Timeout;
+    if (init.timeout) {
+      abortTimeout = setTimeout(() => {
+        abortController.abort();
+      }, init.timeout);
+    }
 
     // Note a goal here is to provide consistent debug logging and error handling
     // as we do in AxiosDataFetcher and GraphQLRequestClient
     debug('request: %o', { url, ...requestInit });
-    const response = await fetchImpl(url, requestInit).catch((error) => {
-      debug('request error: %o', error);
-      throw error;
-    });
+    const response = await fetchImpl(url, requestInit)
+      .then((res) => {
+        clearTimeout(abortTimeout);
+        return res;
+      })
+      .catch((error) => {
+        debug('request error: %o', error);
+        throw error;
+      });
 
     // Note even an error status may send useful json data in response (which we want for logging)
     let respData: unknown = undefined;
