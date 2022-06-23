@@ -9,6 +9,10 @@ footer {
   .rich-text {
     font-size: $text-size-14;
     color: $text-white;
+
+    a {
+      color: $text-white;
+    }
   }
 
   .indent-inner {
