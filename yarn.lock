@@ -4152,7 +4152,7 @@ __metadata:
     debug: ^4.3.1
     del-cli: ^3.0.1
     eslint: ^7.15.0
-    graphql: ^15.4.0
+    graphql: ^16.5.0
     graphql-request: ^3.4.0
     lodash.unescape: ^4.0.1
     memory-cache: ^0.2.0
@@ -13130,10 +13130,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^15.4.0":
-  version: 15.7.2
-  resolution: "graphql@npm:15.7.2"
-  checksum: eacb746e2981d0c346ef7365601873963af5356f64ce4d890ab89d213c67bf5bc1ae957b93c3902198798774c842b55dff219f38bad858691765e4debc265750
+"graphql@npm:^16.5.0":
+  version: 16.5.0
+  resolution: "graphql@npm:16.5.0"
+  checksum: a82a926d085818934d04fdf303a269af170e79de943678bd2726370a96194f9454ade9d6d76c2de69afbd7b9f0b4f8061619baecbbddbe82125860e675ac219e
   languageName: node
   linkType: hard
 
