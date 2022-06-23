@@ -3,29 +3,40 @@
 /**PROMO**/
 
 .promo {
-  &.promo-no-border {
-    padding-left: 0;
-    padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 
-    >.component-content {
-      @include border-basic(all, 'none', 0);
-      @include respond-to(all-mobile) {
-        > div {
-          padding: 0;
+  >.component-content {
+    @include border-basic(all, 'none', 0);
+    
+    .promo-text {
+      max-width: 370px;
+
+      .field-promotext {
+        h3 {
+          font-size: $text-size-18;
+          margin-bottom: 14px;
         }
-  
-        .promo-text {
-          padding: 15px 10px 10px 25px;
+        div {
+          margin: 20px 0;
+          font-size: $text-size-14;
         }
+      }
+    }
+
+    @include respond-to(all-mobile) {
+      > div {
+        padding: 0;
       }
 
       .promo-text {
-        .field-promotext {
-          p {
-            margin: 10px 0;
-          }
-        }
+        padding: 0 30px;
+        max-width: 100%;
       }
+    }
+
+    img {
+      max-width: 580px;
     }
   }
 }

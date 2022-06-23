@@ -6,10 +6,11 @@ $hamburger-height: 18px;
 $border-size: 6px;
 $hamburger-margin: 18px;
 
-.navigation.navigation-horizontal {
+.navigation {
   width: 100%;
   padding-right: 70px;
   margin-top: -15px;
+  text-align: right;
 
   .menu-mobile-navigate {
     display: none;

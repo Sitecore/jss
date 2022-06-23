@@ -7,7 +7,7 @@
 
 main {
   position: relative;
-  min-height: calc(100vh - 352px);
+  min-height: calc(100vh - 421px);
   margin-bottom: 50px;
   padding-top: 50px;
 
@@ -21,54 +21,57 @@ main {
   }
 
   .rich-text {
-    .main-header {
+    margin-bottom: 30px;
+    margin-left: 100px;
+    max-width: 750px;
+
+    @include respond-to(all-mobile) {
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+
+    h2 {
+      font-size: $text-size-24;
+      font-weight: 500;
+      line-height: 50px;
       margin-bottom: 30px;
 
       @include respond-to(all-mobile) {
-        margin-bottom: 0px;
+        font-size: $text-size-16;
+        line-height: 32px;
+        margin-bottom: 0;
       }
+    }
 
-      .title {
-        font-size: $text-size-24;
+    &:nth-child(3) {
+      padding-top: 50px;
+  
+      @include respond-to(all-mobile) {
+        padding-top: 10px;
+      }
+  
+      h2 {
+        display: block;
+        font-size: $text-size-36;
         font-weight: 500;
-        line-height: 50px;
-        margin-bottom: 30px;
+        line-height: 62px;
+        margin-bottom: 10px;
 
         @include respond-to(all-mobile) {
-          font-size: $text-size-16;
-          line-height: 32px;
+          font-size: $text-size-18;
+          line-height: 22px;
         }
       }
-    }
-  }
-
-  .main-news {
-    padding-top: 50px;
-
-    @include respond-to(all-mobile) {
-      padding-top: 0;
-    }
-
-    .title {
-      display: block;
-      font-size: $text-size-36;
-      font-weight: 500;
-      line-height: 62px;
-
-      @include respond-to(all-mobile) {
-        font-size: $text-size-18;
-        line-height: 22px;
-      }
-    }
-
-    .text {
-      font-size: $text-size-16;
-      font-weight: 500;
-
-      @include respond-to(all-mobile) {
-        font-size: $text-size-14;
-        line-height: 24px;
-        font-weight: 400;
+  
+      div {
+        font-size: $text-size-16;
+        font-weight: 500;
+  
+        @include respond-to(all-mobile) {
+          font-size: $text-size-14;
+          line-height: 24px;
+          font-weight: 400;
+        }
       }
     }
   }
