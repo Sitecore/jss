@@ -1,4 +1,5 @@
 @import "@sass/abstracts/vars";
+@import "variables";
 
 .rich-text {
   color: $text-gray;
@@ -6,17 +7,17 @@
     padding: 15px 10px 10px 25px;
 
     h2 {
-      font-size: 18px;
+      font-size: $text-size-18;
     }
 
     h4 {
-      font-size: 18px;
+      font-size: $text-size-18;
       line-height: 35px;
       font-weight: 600;
     }
   
     h6 {
-      font-size: 14px;
+      font-size: $text-size-14;
       strong {
         font-weight: normal;
         line-height: 24px;

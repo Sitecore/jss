@@ -4,6 +4,13 @@ import { getPersonalizedRewrite } from '@sitecore-jss/sitecore-jss/personalize';
 
 /** @private */
 export const languageError = 'The list of languages cannot be empty';
+/**
+ * @param siteName
+ */
+/** @private */
+export function getSiteEmptyError(siteName: string) {
+  return `Site "${siteName}" does not exist or site item tree is missing`;
+}
 
 const languageEmptyError = 'The language must be a non-empty string';
 
@@ -275,9 +282,13 @@ export class GraphQLSitemapService {
         after,
       });
 
-      results = results.concat(fetchResponse?.site?.siteInfo?.routes?.results);
-      hasNext = fetchResponse.site.siteInfo.routes.pageInfo.hasNext;
-      after = fetchResponse.site.siteInfo.routes.pageInfo.endCursor;
+      if (!fetchResponse?.site?.siteInfo) {
+        throw new RangeError(getSiteEmptyError(this.options.siteName));
+      } else {
+        results = results.concat(fetchResponse.site.siteInfo.routes?.results);
+        hasNext = fetchResponse.site.siteInfo.routes?.pageInfo.hasNext;
+        after = fetchResponse.site.siteInfo.routes?.pageInfo.endCursor;
+      }
     }
     return results;
   }
