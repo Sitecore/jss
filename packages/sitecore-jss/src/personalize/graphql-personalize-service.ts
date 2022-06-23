@@ -16,7 +16,7 @@ export type GraphQLPersonalizeServiceConfig = {
    */
   apiKey: string;
   /**
-   * Timeout for the Personalize request. The default value will be returned as a fallback
+   * Timeout (ms) for the Personalize request. Default is 250.
    */
   timeout?: number;
   /**

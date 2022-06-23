@@ -35,7 +35,7 @@ export type CdpServiceConfig = {
    */
   dataFetcherResolver?: DataFetcherResolver;
   /**
-   * Timeout for CDP request. The default value will be returned as a fallback
+   * Timeout (ms) for CDP request. Default is 250.
    */
   timeout?: number;
 };
@@ -104,6 +104,7 @@ export class CdpService {
         context,
       });
       response.data.variantId === '' && (response.data.variantId = undefined);
+      response.data.browserId === '' && (response.data.browserId = undefined);
       return response.data;
     } catch (error) {
       if (

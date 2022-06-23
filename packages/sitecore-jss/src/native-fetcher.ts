@@ -72,7 +72,7 @@ export class NativeDataFetcher {
       data: respData,
     };
 
-    if (!response.ok && !abortController.signal.aborted) {
+    if (!response.ok) {
       debug('response error: %o', debugResponse);
       throw new Error(`HTTP ${response.status} ${response.statusText}`);
     }
