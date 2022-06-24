@@ -40,7 +40,7 @@ const getLinkField = (props: NavigationProps): LinkField => ({
   },
 });
 
-const Navigation = (props: NavigationProps): JSX.Element => {
+export const Default = (props: NavigationProps): JSX.Element => {
   const [isOpenMenu, openMenu] = useState(false);
 
   if (!Object.values(props.fields).length) {
@@ -123,4 +123,3 @@ const NavigationList = (props: NavigationProps) => {
   );
 };
 
-export default Navigation;
