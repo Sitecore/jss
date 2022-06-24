@@ -1,9 +1,7 @@
 import type { AppProps } from 'next/app';
 import { I18nProvider } from 'next-localization';
 
-// in the main.css is the list of used css
 import 'assets/main.scss';
-import 'assets/app.css';
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   const { dictionary, ...rest } = pageProps;
