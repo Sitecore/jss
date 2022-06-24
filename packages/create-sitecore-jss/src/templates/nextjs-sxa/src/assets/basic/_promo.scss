@@ -8,7 +8,7 @@
     padding-right: 0;
 
     >.component-content {
-      @include border-basic(all, 'none', 0);
+      border: 0;
       
       .promo-text {
         .field-promotext {
