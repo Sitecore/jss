@@ -1,5 +1,5 @@
 ﻿/* eslint-disable no-unused-expressions */
-import { CdpService, ExperienceContext } from './cdp-service';
+import { CdpService, ExperienceParams } from './cdp-service';
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
@@ -13,8 +13,11 @@ describe('CdpService', () => {
   const contentId = 'content-id';
   const variantId = 'variant-1';
   const pointOfSale = 'pos-1';
+  const friendlyId = contentId;
+  const channel = 'WEB';
   const browserId = 'browser-id';
-  const context = {
+  const ref = browserId;
+  const params = {
     geo: {
       city: 'Testville',
       country: 'US',
@@ -31,7 +34,7 @@ describe('CdpService', () => {
       utm_medium: null,
       utm_content: null,
     },
-  } as ExperienceContext;
+  } as ExperienceParams;
 
   const config = {
     endpoint,
@@ -43,127 +46,203 @@ describe('CdpService', () => {
     nock.cleanAll();
   });
 
-  it('should return variant data for a route', async () => {
-    nock(endpoint)
-      .post(`/v2/callFlows/getAudience/${contentId}`, {
-        clientKey,
-        pointOfSale,
-        context,
-        browserId,
-      })
-      .reply(200, {
-        variantId,
-        browserId,
+  describe('executeExperience', () => {
+    it('should return variant data for a route', async () => {
+      nock(endpoint)
+        .post('/v2/callFlows', {
+          clientKey,
+          pointOfSale,
+          params,
+          browserId,
+          friendlyId,
+          channel,
+        })
+        .reply(200, {
+          variantId,
+        });
+
+      const service = new CdpService(config);
+      const actualVariantId = await service.executeExperience(contentId, params, browserId);
+
+      expect(actualVariantId).to.deep.equal(variantId);
+    });
+
+    it('should return fallback value when no response', async () => {
+      nock(endpoint)
+        .post('/v2/callFlows', {
+          clientKey,
+          pointOfSale,
+          params,
+          browserId,
+          friendlyId,
+          channel,
+        })
+        .reply(200, {
+          variantId: '',
+        });
+
+      const service = new CdpService(config);
+      const variantId = await service.executeExperience(contentId, params, browserId);
+
+      expect(variantId).to.be.undefined;
+    });
+
+    it('should fetch using custom fetcher resolver and respond with data', async () => {
+      const fetcherSpy = spy((url: string, data?: unknown) => {
+        return new AxiosDataFetcher().fetch<never>(url, data);
       });
 
-    const service = new CdpService(config);
-    const result = await service.executeExperience(contentId, context, browserId);
+      nock(endpoint)
+        .post('/v2/callFlows', {
+          clientKey,
+          pointOfSale,
+          params,
+          browserId,
+          friendlyId,
+          channel,
+        })
+        .reply(200, {
+          variantId,
+        });
 
-    expect(result).to.deep.equal({
-      variantId,
-      browserId,
+      const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
+      const actualVariantId = await service.executeExperience(contentId, params, browserId);
+
+      expect(actualVariantId).to.deep.equal(variantId);
+      expect(fetcherSpy).to.be.called.once;
+      expect(fetcherSpy).to.be.called.with('http://sctest/v2/callFlows');
     });
-  });
 
-  it('should return fallback value when no response', async () => {
-    nock(endpoint)
-      .post(`/v2/callFlows/getAudience/${contentId}`, {
-        clientKey,
-        pointOfSale,
-        context,
-        browserId,
-      })
-      .reply(200, {
-        variantId: '',
-        browserId: '',
+    it('should use custom fetcher resolver and return undefined id when timeout is exceeded', async () => {
+      const fetcherSpy = spy((url: string, data?: any) => {
+        return new AxiosDataFetcher({ timeout: 30 }).fetch<never>(url, data);
       });
 
-    const service = new CdpService(config);
-    const result = await service.executeExperience(contentId, context, browserId);
+      nock(endpoint)
+        .post('/v2/callFlows', {
+          clientKey,
+          pointOfSale,
+          params,
+          browserId,
+          friendlyId,
+          channel,
+        })
+        .delay(50)
+        .reply(408);
 
-    expect(result.variantId).to.be.undefined;
-  });
+      const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
+      const actualVariantId = await service.executeExperience(contentId, params, browserId);
 
-  it('should fetch using custom fetcher resolver and respond with data', async () => {
-    const fetcherSpy = spy((url: string, data?: unknown) => {
-      return new AxiosDataFetcher().fetch<never>(url, data);
+      expect(actualVariantId).to.deep.equal(undefined);
     });
 
-    nock(endpoint)
-      .post(`/v2/callFlows/getAudience/${contentId}`, {
-        clientKey,
-        pointOfSale,
-        context,
-        browserId,
-      })
-      .reply(200, {
-        variantId,
-        browserId,
+    it('should throw error', async () => {
+      nock(endpoint)
+        .post('/v2/callFlows', {
+          clientKey,
+          browserId,
+          params,
+          pointOfSale,
+          friendlyId,
+          channel,
+        })
+        .replyWithError('error_test');
+      const service = new CdpService(config);
+      await service.executeExperience(contentId, params, browserId).catch((error) => {
+        expect(error.message).to.contain('error_test');
+      });
+    });
+
+    it('should return fallback value when api returns timeout error', async () => {
+      nock(endpoint)
+        .post('/v2/callFlows', {
+          clientKey,
+          pointOfSale,
+          params,
+          browserId,
+          friendlyId,
+          channel,
+        })
+        .reply(408);
+
+      const service = new CdpService(config);
+      const actualVariantId = await service.executeExperience(contentId, params, browserId);
+
+      expect(actualVariantId).to.deep.equal(undefined);
+    });
+  });
+
+  describe('generateBrowserId', () => {
+    it('should return browser id', async () => {
+      nock(endpoint)
+        .get(`/v1.2/browser/create.json?client_key=${clientKey}&message={}`)
+        .reply(200, {
+          ref,
+        });
+
+      const service = new CdpService(config);
+      const actualRef = await service.generateBrowserId();
+
+      expect(actualRef).to.deep.equal(ref);
+    });
+
+    it('should fetch using custom fetcher resolver and respond with data', async () => {
+      const fetcherSpy = spy((url: string, data?: unknown) => {
+        return new AxiosDataFetcher().fetch<never>(url, data);
       });
 
-    const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
-    const result = await service.executeExperience(contentId, context, browserId);
+      nock(endpoint)
+        .get(`/v1.2/browser/create.json?client_key=${clientKey}&message={}`)
+        .reply(200, {
+          ref,
+        });
 
-    expect(result).to.deep.equal({
-      variantId,
-      browserId,
+      const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
+      const actualRef = await service.generateBrowserId();
+
+      expect(actualRef).to.deep.equal(ref);
+      expect(fetcherSpy).to.be.called.once;
+      expect(fetcherSpy).to.be.called.with(
+        `http://sctest/v1.2/browser/create.json?client_key=${clientKey}&message={}`
+      );
     });
-    expect(fetcherSpy).to.be.called.once;
-    expect(fetcherSpy).to.be.called.with(`http://sctest/v2/callFlows/getAudience/${contentId}`);
-  });
-  it('should use custom fetcher resolver and return undefined ids', async () => {
-    const fetcherSpy = spy((url: string, data?: any) => {
-      return new AxiosDataFetcher({ timeout: 30 }).fetch<never>(url, data);
+
+    it('should use custom fetcher resolver and return undefined ref when timeout is exceeded', async () => {
+      const fetcherSpy = spy((url: string, data?: any) => {
+        return new AxiosDataFetcher({ timeout: 30 }).fetch<never>(url, data);
+      });
+
+      nock(endpoint)
+        .get(`/v1.2/browser/create.json?client_key=${clientKey}&message={}`)
+        .delay(50)
+        .reply(408);
+
+      const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
+      const actualRef = await service.generateBrowserId();
+
+      expect(actualRef).to.deep.equal(undefined);
     });
 
-    nock(endpoint)
-      .post(`/v2/callFlows/getAudience/${contentId}`, {
-        clientKey,
-        pointOfSale,
-        context,
-        browserId,
-      })
-      .delay(50)
-      .reply(408);
+    it('should throw error', async () => {
+      nock(endpoint)
+        .get(`/v1.2/browser/create.json?client_key=${clientKey}&message={}`)
+        .replyWithError('error_test');
 
-    const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
-    const result = await service.executeExperience(contentId, context, browserId);
-
-    expect(result).to.deep.equal({
-      variantId: undefined,
-      browserId: undefined,
+      const service = new CdpService(config);
+      await service.generateBrowserId().catch((error) => {
+        expect(error.message).to.contain('error_test');
+      });
     });
-  });
-  it('should throw error', async () => {
-    nock(endpoint)
-      .post(`/v2/callFlows/getAudience/${contentId}`, {
-        clientKey,
-        browserId,
-        context,
-        pointOfSale,
-      })
-      .replyWithError('error_test');
-    const service = new CdpService(config);
-    await service.executeExperience(contentId, context, browserId).catch((error) => {
-      expect(error.message).to.contain('error_test');
-    });
-  });
-  it('should return fallback value when api returns timeout error', async () => {
-    nock(endpoint)
-      .post(`/v2/callFlows/getAudience/${contentId}`, {
-        clientKey,
-        pointOfSale,
-        context,
-        browserId,
-      })
-      .reply(408);
 
-    const service = new CdpService(config);
-    const result = await service.executeExperience(contentId, context, browserId);
+    it('should return fallback value when api returns timeout error', async () => {
+      nock(endpoint)
+        .get(`/v1.2/browser/create.json?client_key=${clientKey}&message={}`)
+        .reply(408);
 
-    expect(result).to.deep.equal({
-      variantId: undefined,
-      browserId: undefined,
+      const service = new CdpService(config);
+      const actualRef = await service.generateBrowserId();
+
+      expect(actualRef).to.deep.equal(undefined);
     });
   });
 });

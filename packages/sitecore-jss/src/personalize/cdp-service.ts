@@ -11,10 +11,13 @@ export type ExecuteExperienceResult = {
    * The identified variant
    */
   variantId?: string;
+};
+
+export type GenerateBrowserIdResult = {
   /**
    * The browser id
    */
-  browserId?: string;
+  ref: string;
 };
 
 export type CdpServiceConfig = {
@@ -48,7 +51,7 @@ export type DataFetcherResolver = <T>({ timeout }: { timeout: number }) => HttpD
 /**
  * Object model of Experience Context data
  */
-export type ExperienceContext = {
+export type ExperienceParams = {
   geo: {
     city: string | null;
     country: string | null;
@@ -77,59 +80,91 @@ export class CdpService {
   }
 
   /**
-   * Executes targeted experience for a page and context to determine the variant to render.
+   * Executes targeted experience for a page and params to determine the variant to render.
    * @param {string} contentId the friendly content id of the page
-   * @param {ExperienceContext} context the experience context for the user
-   * @param {string} [browserId] the browser id. If omitted, a browserId will be created and returned in the result.
+   * @param {ExperienceParams} params the experience params for the user
+   * @param {string} browserId the browser id.
    * @returns {ExecuteExperienceResult} the execute experience result
    */
   async executeExperience(
     contentId: string,
-    context: ExperienceContext,
-    browserId = ''
-  ): Promise<ExecuteExperienceResult> {
-    const endpoint = this.getExecuteExperienceUrl(contentId);
+    params: ExperienceParams,
+    browserId: string
+  ): Promise<string | undefined> {
+    const endpoint = this.getExecuteExperienceUrl();
 
-    debug.personalize('executing experience for %s %s %o', contentId, browserId, context);
+    debug.personalize('executing experience for %s %s %o', contentId, browserId, params);
 
-    const fetcher = this.config.dataFetcherResolver
-      ? this.config.dataFetcherResolver<ExecuteExperienceResult>({ timeout: this.timeout })
-      : this.getDefaultFetcher<ExecuteExperienceResult>();
+    const fetcher = this.getFetcher<ExecuteExperienceResult>();
 
     try {
       const response = await fetcher(endpoint, {
         clientKey: this.config.clientKey,
         pointOfSale: this.config.pointOfSale,
         browserId,
-        context,
+        friendlyId: contentId,
+        channel: 'WEB',
+        params,
       });
       response.data.variantId === '' && (response.data.variantId = undefined);
-      response.data.browserId === '' && (response.data.browserId = undefined);
-      return response.data;
+      return response.data.variantId || undefined;
     } catch (error) {
-      if (
-        (error as AxiosError).code === '408' ||
-        (error as AxiosError).code === 'ECONNABORTED' ||
-        (error as AxiosError).code === 'ETIMEDOUT' ||
-        (error as ResponseError).response?.status === 408 ||
-        (error as Error).name === 'AbortError'
-      ) {
-        return {
-          variantId: undefined,
-          browserId: undefined,
-        };
+      if (this.isTimeoutError(error)) {
+        return;
       }
+
       throw error;
     }
   }
 
   /**
-   * Get formatted URL for executeExperience call
-   * @param {string} contentId friendly content id
+   * Generates a new browser id
+   * @returns {string} browser id
+   */
+  async generateBrowserId(): Promise<string | undefined> {
+    const endpoint = this.getGenerateBrowserIdUrl();
+
+    debug.personalize('generating browser id for %s', this.config.clientKey);
+
+    const fetcher = this.getFetcher<GenerateBrowserIdResult>();
+
+    try {
+      const response = await fetcher(endpoint);
+
+      return response.data.ref;
+    } catch (error) {
+      if (this.isTimeoutError(error)) {
+        return;
+      }
+
+      throw error;
+    }
+  }
+
+  /**
+   * Get formatted URL for generateBrowserId call
    * @returns {string} formatted URL
    */
-  protected getExecuteExperienceUrl(contentId: string) {
-    return `${this.config.endpoint}/v2/callFlows/getAudience/${contentId}`;
+  protected getGenerateBrowserIdUrl() {
+    return `${this.config.endpoint}/v1.2/browser/create.json?client_key=${this.config.clientKey}&message={}`;
+  }
+
+  /**
+   * Returns provided data fetcher otherwise default one
+   * @returns {HttpDataFetcher} data fetcher
+   */
+  protected getFetcher<Response>() {
+    return this.config.dataFetcherResolver
+      ? this.config.dataFetcherResolver<Response>({ timeout: this.timeout })
+      : this.getDefaultFetcher<Response>();
+  }
+
+  /**
+   * Get formatted URL for executeExperience call
+   * @returns {string} formatted URL
+   */
+  protected getExecuteExperienceUrl() {
+    return `${this.config.endpoint}/v2/callFlows`;
   }
 
   /**
@@ -143,4 +178,19 @@ export class CdpService {
     });
     return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
   };
+
+  /**
+   * Indicates whether the error is a timeout error
+   * @param {unknown} error error
+   * @returns {boolean} is timeout error
+   */
+  private isTimeoutError(error: unknown) {
+    return (
+      (error as AxiosError).code === '408' ||
+      (error as AxiosError).code === 'ECONNABORTED' ||
+      (error as AxiosError).code === 'ETIMEDOUT' ||
+      (error as ResponseError).response?.status === 408 ||
+      (error as Error).name === 'AbortError'
+    );
+  }
 }
