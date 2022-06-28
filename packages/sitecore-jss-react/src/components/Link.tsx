@@ -39,7 +39,8 @@ export type LinkProps = React.DetailedHTMLProps<
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ field, editable, children, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
+  ({ field, editable, showLinkTextWithChildrenPresent, ...otherProps }, ref) => {
+    const children = otherProps.children as React.ReactNode;
     const dynamicField: LinkField | LinkFieldValue = field;
 
     if (
@@ -119,10 +120,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 export const LinkPropTypes = {
   field: PropTypes.oneOfType([
     PropTypes.shape({
-      href: PropTypes.string,
-    }),
-    PropTypes.shape({
-      href: null,
+      href: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.oneOf([null]).isRequired]),
     }),
     PropTypes.shape({
       value: PropTypes.object,
@@ -132,7 +130,6 @@ export const LinkPropTypes = {
   ]).isRequired,
   editable: PropTypes.bool,
   showLinkTextWithChildrenPresent: PropTypes.bool,
-  children: PropTypes.element.isRequired,
 };
 
 Link.propTypes = LinkPropTypes;

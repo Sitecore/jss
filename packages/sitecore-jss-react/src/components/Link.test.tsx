@@ -109,6 +109,6 @@ describe('<Link />', () => {
     const c = mount(<Link field={field} ref={ref} id="my-link" />);
 
     const link = c.find('a');
-    expect(ref.current.id).to.equal(link.props().id);
+    expect(ref.current?.id).to.equal(link.props().id);
   });
 });
