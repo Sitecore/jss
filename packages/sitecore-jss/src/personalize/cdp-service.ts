@@ -1,7 +1,7 @@
 import debug from '../debug';
-import { HttpDataFetcher, ResponseError } from '../data-fetcher';
+import { HttpDataFetcher } from '../data-fetcher';
 import { AxiosDataFetcher } from '../axios-fetcher';
-import { AxiosError } from 'axios';
+import { isTimeoutError } from '../utils';
 
 /**
  * Object model of CDP execute experience result
@@ -109,7 +109,7 @@ export class CdpService {
       response.data.variantId === '' && (response.data.variantId = undefined);
       return response.data.variantId || undefined;
     } catch (error) {
-      if (this.isTimeoutError(error)) {
+      if (isTimeoutError(error)) {
         return;
       }
 
@@ -124,7 +124,7 @@ export class CdpService {
   async generateBrowserId(): Promise<string | undefined> {
     const endpoint = this.getGenerateBrowserIdUrl();
 
-    debug.personalize('generating browser id for %s', this.config.clientKey);
+    debug.personalize('generating browser id');
 
     const fetcher = this.getFetcher<GenerateBrowserIdResult>();
 
@@ -133,7 +133,7 @@ export class CdpService {
 
       return response.data.ref;
     } catch (error) {
-      if (this.isTimeoutError(error)) {
+      if (isTimeoutError(error)) {
         return;
       }
 
@@ -178,19 +178,4 @@ export class CdpService {
     });
     return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
   };
-
-  /**
-   * Indicates whether the error is a timeout error
-   * @param {unknown} error error
-   * @returns {boolean} is timeout error
-   */
-  private isTimeoutError(error: unknown) {
-    return (
-      (error as AxiosError).code === '408' ||
-      (error as AxiosError).code === 'ECONNABORTED' ||
-      (error as AxiosError).code === 'ETIMEDOUT' ||
-      (error as ResponseError).response?.status === 408 ||
-      (error as Error).name === 'AbortError'
-    );
-  }
 }

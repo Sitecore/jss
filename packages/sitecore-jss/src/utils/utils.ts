@@ -1,5 +1,7 @@
 import isServer from './is-server';
 import { ParsedUrlQueryInput } from 'querystring';
+import { AxiosError } from 'axios';
+import { ResponseError } from '../data-fetcher';
 
 /**
  * note: encodeURIComponent is available via browser (window) or natively in node.js
@@ -57,4 +59,19 @@ export const isAbsoluteUrl = (url: string) => {
   }
 
   return /^[a-z][a-z0-9+.-]*:/.test(url);
+};
+
+/**
+ * Indicates whether the error is a timeout error
+ * @param {unknown} error error
+ * @returns {boolean} is timeout error
+ */
+export const isTimeoutError = (error: unknown) => {
+  return (
+    (error as AxiosError).code === '408' ||
+    (error as AxiosError).code === 'ECONNABORTED' ||
+    (error as AxiosError).code === 'ETIMEDOUT' ||
+    (error as ResponseError).response?.status === 408 ||
+    (error as Error).name === 'AbortError'
+  );
 };
