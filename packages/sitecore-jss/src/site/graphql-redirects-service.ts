@@ -90,15 +90,7 @@ export class GraphQLRedirectsService {
     });
 
     return redirectsResult
-      .then((result: RedirectsQueryResult) => {
-        const emptyResult: Array<RedirectInfo> = [];
-
-        if (result.site?.siteInfo?.redirects) {
-          return result.site.siteInfo.redirects;
-        }
-        
-        return emptyResult;
-      })
+      .then((result: RedirectsQueryResult) => result?.site?.siteInfo?.redirects || [])
       .catch((e) => Promise.reject(e));
   }
 
