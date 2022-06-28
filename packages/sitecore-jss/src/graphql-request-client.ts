@@ -109,7 +109,7 @@ export class GraphQLRequestClient implements GraphQLClient {
           resolve(data);
         })
         .catch((error: ClientError) => {
-          this.debug('response error: %o', error.response);
+          this.debug('response error: %o', error.response || error.message || error);
           reject(error);
         });
     });

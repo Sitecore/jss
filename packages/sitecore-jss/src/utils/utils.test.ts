@@ -2,7 +2,7 @@
 import { expect, spy } from 'chai';
 import { isEditorActive, resetEditorChromes, isServer, resolveUrl } from '.';
 import { ChromeRediscoveryGlobalFunctionName } from './editing';
-import { isAbsoluteUrl } from './utils';
+import { isAbsoluteUrl, isTimeoutError } from './utils';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
@@ -169,6 +169,16 @@ describe('utils', () => {
       expect(isAbsoluteUrl('/foo/bar')).to.be.false;
       expect(isAbsoluteUrl('foo/bar')).to.be.false;
       expect(isAbsoluteUrl('foo')).to.be.false;
+    });
+  });
+
+  describe('isTimeoutError', () => {
+    it('should return true when error is timeout error', () => {
+      expect(isTimeoutError({ code: '408' })).to.be.true;
+      expect(isTimeoutError({ code: 'ECONNABORTED' })).to.be.true;
+      expect(isTimeoutError({ code: 'ETIMEDOUT' })).to.be.true;
+      expect(isTimeoutError({ response: { status: 408 } })).to.be.true;
+      expect(isTimeoutError({ name: 'AbortError' })).to.be.true;
     });
   });
 });

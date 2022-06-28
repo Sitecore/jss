@@ -1,6 +1,6 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import debug from '../debug';
-import { ResponseError } from '../data-fetcher';
+import { isTimeoutError } from '../utils';
 
 export type GraphQLPersonalizeServiceConfig = {
   /**
@@ -102,10 +102,7 @@ export class GraphQLPersonalizeService {
           }
         : undefined;
     } catch (error) {
-      if (
-        (error as ResponseError).response?.status === 408 ||
-        (error as Error).name === 'AbortError'
-      ) {
+      if (isTimeoutError(error)) {
         return undefined;
       }
 

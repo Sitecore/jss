@@ -16,6 +16,7 @@ type NavigationProps = {
   params?: { [key: string]: string };
   fields: Fields;
   handleClick: () => void;
+  relativeLevel: number;
 };
 
 const getNavigationText = function (props: NavigationProps): JSX.Element | string {
@@ -40,7 +41,7 @@ const getLinkField = (props: NavigationProps): LinkField => ({
   },
 });
 
-const Navigation = (props: NavigationProps): JSX.Element => {
+export const Default = (props: NavigationProps): JSX.Element => {
   const [isOpenMenu, openMenu] = useState(false);
 
   if (!Object.values(props.fields).length) {
@@ -65,6 +66,7 @@ const Navigation = (props: NavigationProps): JSX.Element => {
         key={`${key}${element.Id}`}
         fields={element}
         handleClick={() => handleToggleMenu(false)}
+        relativeLevel={1}
       />
     ));
   const styles =
@@ -107,12 +109,13 @@ const NavigationList = (props: NavigationProps) => {
         key={`${index}${element.Id}`}
         fields={element}
         handleClick={props.handleClick}
+        relativeLevel={props.relativeLevel + 1}
       />
     ));
   }
 
   return (
-    <li className={props.fields.Styles.join(' ')} key={props.fields.Id}>
+    <li className={props.fields.Styles.concat('rel-level' + props.relativeLevel).join(' ')} key={props.fields.Id}>
       <div className="navigation-title">
         <Link field={getLinkField(props)} title={title} onClick={props.handleClick}>
           {getNavigationText(props)}
@@ -123,4 +126,3 @@ const NavigationList = (props: NavigationProps) => {
   );
 };
 
-export default Navigation;

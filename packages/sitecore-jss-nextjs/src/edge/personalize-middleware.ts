@@ -4,7 +4,7 @@ import {
   GraphQLPersonalizeServiceConfig,
   CdpService,
   CdpServiceConfig,
-  ExperienceContext,
+  ExperienceParams,
   getPersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
@@ -83,7 +83,7 @@ export class PersonalizeMiddleware {
     }
   }
 
-  protected getExperienceContext(req: NextRequest): ExperienceContext {
+  protected getExperienceParams(req: NextRequest): ExperienceParams {
     return {
       geo: {
         city: req.geo?.city ?? null,
@@ -157,28 +157,35 @@ export class PersonalizeMiddleware {
       return response;
     }
 
+    if (!browserId) {
+      browserId = await this.cdpService.generateBrowserId();
+
+      if (!browserId) {
+        debug.personalize('skipped (browser id generation failed)');
+        return response;
+      }
+    }
+
     // Execute targeted experience in CDP
-    const context = this.getExperienceContext(req);
-    const experienceResult = await this.cdpService.executeExperience(
+    const params = this.getExperienceParams(req);
+    const variantId = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
-      context,
+      params,
       browserId
     );
-    // If a browserId was not passed in (new session), a new browserId will be returned
-    browserId = experienceResult.browserId;
 
-    if (!experienceResult.variantId) {
+    if (!variantId) {
       debug.personalize('skipped (no variant identified)');
       return response;
     }
 
-    if (!personalizeInfo.variantIds.includes(experienceResult.variantId)) {
+    if (!personalizeInfo.variantIds.includes(variantId)) {
       debug.personalize('skipped (invalid variant)');
       return response;
     }
 
     // Rewrite to persononalized path
-    const rewritePath = getPersonalizedRewrite(pathname, { variantId: experienceResult.variantId });
+    const rewritePath = getPersonalizedRewrite(pathname, { variantId });
     // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
     const rewriteUrl = req.nextUrl.clone();
     rewriteUrl.pathname = rewritePath;
@@ -189,9 +196,7 @@ export class PersonalizeMiddleware {
     response.headers.set('x-middleware-cache', 'no-cache');
 
     // Set browserId cookie on the response
-    if (browserId) {
-      this.setBrowserId(response, browserId);
-    }
+    this.setBrowserId(response, browserId);
 
     debug.personalize('personalize middleware end: %o', {
       rewritePath,

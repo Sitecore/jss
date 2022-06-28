@@ -6,8 +6,9 @@ export {
 export {
   CdpService,
   CdpServiceConfig,
-  ExperienceContext,
+  ExperienceParams,
   ExecuteExperienceResult,
+  GenerateBrowserIdResult,
 } from './cdp-service';
 export {
   getPersonalizedRewrite,
