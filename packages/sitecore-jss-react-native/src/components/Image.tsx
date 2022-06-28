@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image as NativeImage, ImageSourcePropType } from 'react-native';
-import SvgUri from 'react-native-svg-uri';
+import { SvgUri } from 'react-native-svg';
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 
 export interface ImageFieldValue {
@@ -123,7 +123,10 @@ export const Image: React.SFC<ImageProps> = ({ media, imageUrlParams, field, ...
 
   const attrs = getImageAttrs({ ...(img as ImageFieldValue), ...otherProps }, imageUrlParams);
 
-  if (attrs && isSvgImage(attrs.source as ImageSourcePropType)) return <SvgUri {...attrs} />;
+  if (attrs && isSvgImage(attrs.source as ImageSourcePropType)) {
+    const src = NativeImage.resolveAssetSource(attrs.source);
+    return <SvgUri uri={src.uri} {...attrs} />;
+  }
 
   if (attrs) return <NativeImage {...attrs} source={attrs.source as ImageSourcePropType} />;
 

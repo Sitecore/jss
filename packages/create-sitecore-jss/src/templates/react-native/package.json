@@ -34,8 +34,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^2.18.1",
-    "react-native-svg": "^5.3.0",
-    "react-native-svg-uri": "^1.2.3",
+    "react-native-svg": "^12.3.0",
     "react-navigation": "^4.4.4",
     "react-navigation-stack": "^2.10.4"
   },
