@@ -1,6 +1,7 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import { siteNameError } from '../constants';
 import debug from '../debug';
+import { RestLayoutService } from '../layout';
 
 export const REDIRECT_TYPE_301 = 'REDIRECT_301';
 export const REDIRECT_TYPE_302 = 'REDIRECT_302';
@@ -90,7 +91,15 @@ export class GraphQLRedirectsService {
     });
 
     return redirectsResult
-      .then((result: RedirectsQueryResult) => result.site.siteInfo.redirects)
+      .then((result: RedirectsQueryResult) => {
+        const emptyResult: Array<RedirectInfo> = [];
+
+        if (result.site?.siteInfo?.redirects) {
+          return result.site.siteInfo.redirects;
+        }
+        
+        return emptyResult;
+      })
       .catch((e) => Promise.reject(e));
   }
 
