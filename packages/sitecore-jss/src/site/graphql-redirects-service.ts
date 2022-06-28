@@ -1,7 +1,6 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import { siteNameError } from '../constants';
 import debug from '../debug';
-import { RestLayoutService } from '../layout';
 
 export const REDIRECT_TYPE_301 = 'REDIRECT_301';
 export const REDIRECT_TYPE_302 = 'REDIRECT_302';
