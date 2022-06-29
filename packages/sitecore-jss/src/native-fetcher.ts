@@ -1,5 +1,6 @@
 import { HttpResponse } from './data-fetcher';
 import debuggers, { Debugger } from './debug';
+import AbortController from 'abort-controller';
 
 type NativeDataFetcherOptions = {
   /**
@@ -33,7 +34,7 @@ export class NativeDataFetcher {
     const abortController = new AbortController();
     const debug = debugOverride || debuggers.http;
     const requestInit = this.getRequestInit(init, data);
-    requestInit.signal = abortController.signal;
+    requestInit.signal = abortController.signal as AbortSignal;
 
     let abortTimeout: NodeJS.Timeout;
     if (init.timeout) {
