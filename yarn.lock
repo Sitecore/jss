@@ -4144,6 +4144,7 @@ __metadata:
     "@types/mocha": ^9.0.0
     "@types/node": ^16.11.6
     "@types/url-parse": 1.4.8
+    abort-controller: ^3.0.0
     axios: ^0.21.1
     chai: ^4.2.0
     chai-spies: ^1.0.0
