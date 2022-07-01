@@ -9,8 +9,8 @@ import {
 import Navigation from 'src/Navigation';
 import Scripts from 'src/Scripts';
 
-// Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
-// If you're not supporting the Experience Editor, you can remove this.
+// Prefix public assets with a public URL to enable compatibility with Sitecore editors.
+// If you're not supporting Sitecore editors, you can remove this.
 const publicUrl = getPublicUrl();
 
 interface LayoutProps {

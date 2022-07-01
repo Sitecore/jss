@@ -25,7 +25,7 @@ import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
 const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
-    // Since Sitecore editors do not support Fast Refresh, need to refresh EE chromes after Fast Refresh finished
+    // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
   }, []);
 
@@ -58,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   // will be generated on request (development mode in this example).
   // Alternatively, the entire sitemap could be pre-rendered
   // ahead of time (non-development mode in this example).
-  // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
+  // See https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
 
   let paths: StaticPath[] = [];
   let fallback: boolean | 'blocking' = 'blocking';
