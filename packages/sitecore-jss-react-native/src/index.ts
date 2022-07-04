@@ -1,4 +1,4 @@
-export { isEditorActive, resetExperienceEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
+export { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
   RestLayoutService,
