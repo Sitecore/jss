@@ -117,16 +117,3 @@ export const handleEditorAnchors = () => {
     observer.observe(targetNode, observerOptions);
   }
 };
-
-/**
- * Determines whether the current execution context is within the Sitecore Experience Editor
- * @deprecated Will be removed in a future release. Please use isEditorActive instead.
- * @returns true if executing within the Sitecore Experience Editor
- */
-export const isExperienceEditorActive = isEditorActive;
-
-/**
- * Resets Sitecore Experience Editor "chromes"
- * @deprecated Will be removed in a future release. Please use resetEditorChromes instead.
- */
-export const resetExperienceEditorChromes = resetEditorChromes;

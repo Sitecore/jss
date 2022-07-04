@@ -68,16 +68,6 @@ export const handleEditorFastRefresh = (forceReload = false): void => {
   };
 };
 
-/**
- * Since Sitecore editors do not support Fast Refresh:
- * 1. Subscribe on events provided by webpack.
- * 2. Reset editor chromes when build is finished
- * @deprecated Will be removed in a future release. Please use handleEditorFastRefresh instead.
- * @param {boolean} [forceReload] force page reload instead of reset chromes
- * @default forceReload false
- */
-export const handleExperienceEditorFastRefresh = handleEditorFastRefresh;
-
 export const getJssEditingSecret = (): string => {
   const secret = process.env.JSS_EDITING_SECRET;
   if (!secret || secret.length === 0) {
