@@ -64,6 +64,6 @@ export {
   WithSitecoreContextProps,
   WithSitecoreContextHocProps,
 } from './enhancers/withSitecoreContext';
-export { withEditorChromes, withExperienceEditorChromes } from './enhancers/withEditorChromes';
+export { withEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';

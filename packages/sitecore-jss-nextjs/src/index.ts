@@ -131,7 +131,6 @@ export {
   withSitecoreContext,
   useSitecoreContext,
   withEditorChromes,
-  withExperienceEditorChromes,
   withPlaceholder,
   withDatasourceCheck,
   ImageSizeParameters,
