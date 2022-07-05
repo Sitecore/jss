@@ -17,13 +17,10 @@ export function withComponentFactory<T extends ComponentFactoryProps>(
    * @param {T} props - props to pass to the wrapped component
    * @returns {JSX.Element} - the rendered component
    */
-  function WithComponentFactory(props: T) {
+  function WithComponentFactory(props: T): JSX.Element {
     const context = useContext(ComponentFactoryReactContext);
-    return (
-      <ComponentFactoryReactContext.Consumer>
-        {() => <Component {...props} componentFactory={props.componentFactory || context} />}
-      </ComponentFactoryReactContext.Consumer>
-    );
+
+    return <Component {...props} componentFactory={props.componentFactory || context} />;
   }
 
   WithComponentFactory.displayName = `withComponentFactory(${Component.displayName ||
