@@ -16,6 +16,11 @@ type ExtendedWindow = Window &
  * Static utility class for Sitecore Experience Editor
  */
 export class ExperienceEditor {
+  /**
+   * Determines whether the current execution context is within a Experience Editor.
+   * Experience Editor environment can be identified only in the browser
+   * @returns true if executing within a Experience Editor
+   */
   static isActive(): boolean {
     if (isServer()) {
       return false;
@@ -43,6 +48,11 @@ export const ChromeRediscoveryGlobalFunctionName = {
  * Static utility class for Sitecore Horizon Editor
  */
 export class HorizonEditor {
+  /**
+   * Determines whether the current execution context is within a Horizon Editor.
+   * Horizon Editor environment can be identified only in the browser
+   * @returns true if executing within a Horizon Editor
+   */
   static isActive(): boolean {
     if (isServer()) {
       return false;
@@ -61,7 +71,8 @@ export class HorizonEditor {
 }
 
 /**
- * Determines whether the current execution context is within a Sitecore editor
+ * Determines whether the current execution context is within a Sitecore editor.
+ * Sitecore Editor environment can be identified only in the browser
  * @returns true if executing within a Sitecore editor
  */
 export const isEditorActive = (): boolean => {
