@@ -43,8 +43,6 @@ export {
 export { constants, HttpDataFetcher, HttpResponse, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
   isServer,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
   isEditorActive,
   resetEditorChromes,
   handleEditorAnchors,

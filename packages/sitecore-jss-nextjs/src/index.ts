@@ -9,13 +9,7 @@ export {
   NativeDataFetcherConfig,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
-export {
-  isEditorActive,
-  resetEditorChromes,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
-  resolveUrl,
-} from '@sitecore-jss/sitecore-jss/utils';
+export { isEditorActive, resetEditorChromes, resolveUrl } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
   LayoutServiceData,
@@ -100,7 +94,7 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { handleEditorFastRefresh, handleExperienceEditorFastRefresh, getPublicUrl } from './utils';
+export { handleEditorFastRefresh, getPublicUrl } from './utils';
 
 export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
 export {
@@ -137,7 +131,6 @@ export {
   withSitecoreContext,
   useSitecoreContext,
   withEditorChromes,
-  withExperienceEditorChromes,
   withPlaceholder,
   withDatasourceCheck,
   ImageSizeParameters,

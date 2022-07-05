@@ -19,8 +19,3 @@ export const withEditorChromes = (
 
   return Enhancer as React.ComponentClass;
 };
-
-/**
- * @deprecated Will be removed in a future release. Please use withEditorChromes instead.
- */
-export const withExperienceEditorChromes = withEditorChromes;
