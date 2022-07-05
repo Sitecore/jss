@@ -46,7 +46,7 @@ export default class ReactInitializer implements Initializer {
       // Don't need to rewire anything if we are not in the dev env
       delete pkg.devDependencies['react-app-rewired'];
 
-      // remove webpack overrides
+      // Remove webpack overrides
       removeFile(path.resolve(`${args.destination}${sep}config-overrides.js`));
 
       writePackageJson(pkg, pkgPath);
