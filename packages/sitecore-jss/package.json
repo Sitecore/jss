@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "21.0.0-canary.115",
+  "version": "21.0.0-canary.119",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -53,6 +53,7 @@
     "typescript": "~4.3.5"
   },
   "dependencies": {
+    "abort-controller": "^3.0.0",
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "debug": "^4.3.1",

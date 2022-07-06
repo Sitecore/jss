@@ -3,6 +3,7 @@ import { RequestInit } from 'graphql-request/dist/types.dom';
 import parse from 'url-parse';
 import { DocumentNode } from 'graphql';
 import debuggers, { Debugger } from './debug';
+import AbortController from 'abort-controller';
 
 /**
  * An interface for GraphQL clients for Sitecore APIs

@@ -158,6 +158,7 @@ async function renderAppToResponse(
     let errorResponse = {
       statusCode: proxyResponse.statusCode || HttpStatus.INTERNAL_SERVER_ERROR,
       content: proxyResponse.statusMessage || 'Internal Server Error',
+      headers: {},
     };
 
     if (config.onError) {
@@ -165,7 +166,11 @@ async function renderAppToResponse(
       errorResponse = { ...errorResponse, ...onError };
     }
 
-    completeProxyResponse(Buffer.from(errorResponse.content), errorResponse.statusCode, {});
+    completeProxyResponse(
+      Buffer.from(errorResponse.content),
+      errorResponse.statusCode,
+      errorResponse.headers
+    );
   }
 
   // callback handles the result of server-side rendering

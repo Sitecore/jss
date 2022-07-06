@@ -5,7 +5,5 @@ export {
   HorizonEditor,
   isEditorActive,
   resetEditorChromes,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
   handleEditorAnchors,
 } from './editing';

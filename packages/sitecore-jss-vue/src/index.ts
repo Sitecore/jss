@@ -1,8 +1,6 @@
 export {
   isEditorActive,
   resetEditorChromes,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
   handleEditorAnchors,
 } from '@sitecore-jss/sitecore-jss/utils';
 export { constants, enableDebug } from '@sitecore-jss/sitecore-jss';

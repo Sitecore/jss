@@ -59,7 +59,11 @@ export interface ProxyConfig {
         statusCode?: number;
         content?: string;
       }
-    | Promise<{ statusCode?: number; content?: string }>;
+    | Promise<{
+        statusCode?: number;
+        content?: string;
+        headers?: Record<string, string | string[]>;
+      }>;
   /** Enables transforming SSR'ed HTML after it is rendered, i.e. to replace paths. */
   transformSSRContent?: (
     response: RenderResponse,
