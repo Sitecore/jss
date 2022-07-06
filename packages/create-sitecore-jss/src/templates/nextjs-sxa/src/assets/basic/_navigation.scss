@@ -36,8 +36,10 @@ $hamburger-margin: 18px;
     .level0, .level1 {
       >.navigation-title {
         >a {
+          color: $text-white;
           border-width: 0;
           font-size: $text-size-14;
+          font-weight: 400;
         }
       }
     }
@@ -75,8 +77,10 @@ $hamburger-margin: 18px;
         >.navigation-title {
           >a {
             font-size: $text-size-30;
-            color: $text-white;
             line-height: 90px;
+            >span {
+              color: $text-white;
+            }
           }
         }
       }
