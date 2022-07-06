@@ -108,7 +108,8 @@ export class PersonalizeMiddleware {
     if (
       pathname.includes('.') || // Ignore files
       pathname.startsWith('/api/') || // Ignore Next.js API calls
-      pathname.startsWith('/sitecore/') // Ignore Sitecore API calls
+      pathname.startsWith('/sitecore/') || // Ignore Sitecore API calls
+      pathname.startsWith('/_next') // Ignore next service calls
     ) {
       return true;
     }
