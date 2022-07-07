@@ -16,6 +16,7 @@ export {
   writePackageJson,
   getBaseTemplates,
   saveConfiguration,
+  removeFile,
 } from './utils/helpers';
 
 export { Initializer } from './Initializer';

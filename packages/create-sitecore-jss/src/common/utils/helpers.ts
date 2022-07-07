@@ -99,3 +99,7 @@ export const getAppPrefix = (appPrefix: boolean, appName: string, includeHyphen 
 export const writeFileToPath = (destinationPath: string, content: string) => {
   fs.writeFileSync(destinationPath, content, 'utf8');
 };
+
+export const removeFile = (filePath: string) => {
+  fs.unlinkSync(filePath);
+};
