@@ -24,11 +24,11 @@ export class RedirectsMiddleware {
   private locales: string[];
 
   /**
-   * NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
-   * (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
    */
   constructor(config: RedirectsMiddlewareConfig) {
+    // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
+    // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
     this.locales = config.locales;
   }
@@ -75,8 +75,8 @@ export class RedirectsMiddleware {
 
   /**
    * Method returns RedirectInfo when matches
-   * @param url
-   * @return Promise<RedirectInfo>
+   * @param {NextRequest} req
+   * @returns Promise<RedirectInfo | undefined>
    * @private
    */
   private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {

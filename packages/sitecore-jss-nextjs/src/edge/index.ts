@@ -1,1 +1,1 @@
-export { RedirectsMiddleware } from './redirects-middleware';
+export { RedirectsMiddleware, RedirectsMiddlewareConfig } from './redirects-middleware';
