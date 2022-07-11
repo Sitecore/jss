@@ -11,11 +11,12 @@ export type RedirectInfo = {
   target: string;
   redirectType: string;
   isQueryStringPreserved: boolean;
+  external: boolean;
 };
 
 // The default query for request redirects of site
 const defaultQuery = /* GraphQL */ `
-  query RedirectsQuery($siteName: String!) {
+  query RedirectsQuery($siteName: String!, $routePath: String!, $language: String!) {
     site {
       siteInfo(site: $siteName) {
         redirects {
@@ -23,6 +24,16 @@ const defaultQuery = /* GraphQL */ `
           target
           redirectType
           isQueryStringPreserved
+        }
+      }
+    }
+    layout(site: $siteName, routePath: $routePath, language: $language) {
+      item {
+        template {
+          name
+        }
+        field(name: "RedirectUrl") {
+          jsonValue
         }
       }
     }
@@ -53,6 +64,12 @@ export type GraphQLRedirectsServiceConfig = {
  */
 export type RedirectsQueryResult = {
   site: { siteInfo: { redirects: RedirectInfo[] } };
+  layout: {
+    item: {
+      template: { name: string };
+      field: { jsonValue: { value: { href: string; querystring: string; linktype: string } } };
+    };
+  };
 };
 
 /**
@@ -78,7 +95,7 @@ export class GraphQLRedirectsService {
    * @returns Promise<RedirectInfo[]>
    * @throws {Error} if the siteName is empty.
    */
-  async fetchRedirects(): Promise<RedirectInfo[]> {
+  async fetchRedirects(routePath: string, language: string): Promise<RedirectInfo[]> {
     const siteName: string = this.options.siteName;
 
     if (!siteName) {
@@ -87,10 +104,35 @@ export class GraphQLRedirectsService {
 
     const redirectsResult: Promise<RedirectsQueryResult> = this.graphQLClient.request(this.query, {
       siteName,
+      routePath,
+      language,
     });
 
     return redirectsResult
-      .then((result: RedirectsQueryResult) => result?.site?.siteInfo?.redirects || [])
+      .then((result: RedirectsQueryResult) => {
+        let redirects = result?.site?.siteInfo?.redirects || [];
+        if (result?.layout?.item?.template?.name === 'Redirect') {
+          let href: string = result?.layout?.item?.field?.jsonValue?.value?.href;
+          if (href) {
+            let queryString = result?.layout?.item?.field?.jsonValue?.value?.querystring;
+            if (queryString) {
+              href = `${href}?${queryString.replace(/[?]/g, '')}`;
+            }
+            let itemRedirect: RedirectInfo = {
+              pattern: routePath,
+              target: href,
+              redirectType: REDIRECT_TYPE_302,
+              isQueryStringPreserved: false,
+              external:
+                result?.layout?.item?.field?.jsonValue?.value?.linktype === 'external'
+                  ? true
+                  : false,
+            };
+            redirects.push(itemRedirect);
+          }
+        }
+        return redirects;
+      })
       .catch((e) => Promise.reject(e));
   }
 

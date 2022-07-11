@@ -50,14 +50,19 @@ export class RedirectsMiddleware {
     }
 
     const url = req.nextUrl.clone();
-    url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
-    const urlFirstPart = existsRedirect.target.split('/')[1];
-    if (this.locales.includes(urlFirstPart)) {
-      url.locale = urlFirstPart;
-      url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
+    if (existsRedirect.external) {
+      url.href = existsRedirect.target;
     } else {
-      url.pathname = existsRedirect.target;
+      url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
+      const urlFirstPart = existsRedirect.target.split('/')[1];
+      if (this.locales.includes(urlFirstPart)) {
+        url.locale = urlFirstPart;
+        url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
+      } else {
+        url.pathname = existsRedirect.target;
+      }
     }
+
     const redirectUrl = decodeURIComponent(url.href);
 
     /** return Response redirect with http code of redirect type **/
@@ -80,7 +85,10 @@ export class RedirectsMiddleware {
    * @private
    */
   private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
-    const redirects = await this.redirectsService.fetchRedirects();
+    const redirects = await this.redirectsService.fetchRedirects(
+      req.nextUrl.pathname,
+      req.nextUrl.locale
+    );
 
     return redirects.find(
       (redirect: RedirectInfo) =>
