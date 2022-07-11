@@ -3,22 +3,45 @@
 
 * {
   font-family: Roboto;
+  color: $main-color;
 }
-h1 {
-  font-size: 36px;
-}
+
 .max-height {
-  .container {
-    margin-top: 60px;
+  &.container {
+    .rich-text {
+      h4 {
+        font-size: $text-size-24;
+        font-weight: 600;
+      }
+      h2 {
+        margin-top: 50px;
+        font-size: $text-size-36;
+        line-height: 43px;
+      }
+    }
   }
+
   position: relative;
-  min-height: calc(100vh - 388px);
+  min-height: calc(100vh - 347px);
   margin-bottom: 50px;
   padding-top: 50px;
 
   @include respond-to(all-mobile) {
     padding-top: 0;
     margin-bottom: 0;
-  }
 
+    &.container {
+      .rich-text {
+        h4 {
+          font-size: $text-size-16;
+          line-height: 32px;
+        }
+        h2 {
+          margin-top: 0;
+          font-size: $text-size-18;
+          line-height: 22px;
+        }
+      }
+    }
+  }
 }

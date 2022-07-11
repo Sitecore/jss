@@ -1,4 +1,4 @@
-import { NextResponse, NextRequest } from 'next/server';
+import { NextResponse, NextRequest, userAgent } from 'next/server';
 import {
   GraphQLPersonalizeService,
   GraphQLPersonalizeServiceConfig,
@@ -72,18 +72,19 @@ export class PersonalizeMiddleware {
   }
 
   protected getBrowserId(req: NextRequest): string | undefined {
-    return req.cookies[this.browserIdCookieName] || undefined;
+    return req.cookies.get(this.browserIdCookieName) || undefined;
   }
 
   protected setBrowserId(res: NextResponse, browserId: string) {
     if (browserId.length > 0) {
       const expiryDate = new Date(new Date().setFullYear(new Date().getFullYear() + 2));
       const options = { expires: expiryDate, secure: true };
-      res.cookie(this.browserIdCookieName, browserId, options);
+      res.cookies.set(this.browserIdCookieName, browserId, options);
     }
   }
 
   protected getExperienceParams(req: NextRequest): ExperienceParams {
+    const { ua } = userAgent(req);
     return {
       geo: {
         city: req.geo?.city ?? null,
@@ -93,7 +94,7 @@ export class PersonalizeMiddleware {
         region: req.geo?.region ?? null,
       },
       referrer: req.referrer,
-      ua: req.ua?.ua ?? null,
+      ua: ua ?? null,
       utm: {
         utm_campaign: req.nextUrl.searchParams.get('utm_campaign'),
         utm_content: req.nextUrl.searchParams.get('utm_content'),
@@ -107,7 +108,8 @@ export class PersonalizeMiddleware {
     if (
       pathname.includes('.') || // Ignore files
       pathname.startsWith('/api/') || // Ignore Next.js API calls
-      pathname.startsWith('/sitecore/') // Ignore Sitecore API calls
+      pathname.startsWith('/sitecore/') || // Ignore Sitecore API calls
+      pathname.startsWith('/_next') // Ignore next service calls
     ) {
       return true;
     }
@@ -115,7 +117,7 @@ export class PersonalizeMiddleware {
   }
 
   private isPreview(req: NextRequest) {
-    return req.cookies.__prerender_bypass || req.cookies.__next_preview_data;
+    return req.cookies.get('__prerender_bypass') || req.cookies.get('__next_preview_data');
   }
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
