@@ -92,6 +92,8 @@ export class GraphQLRedirectsService {
 
   /**
    * Fetch an array of redirects from API
+   * @param {string} routePath path to the requested page
+   * @param {string} language request language
    * @returns Promise<RedirectInfo[]>
    * @throws {Error} if the siteName is empty.
    */
@@ -110,15 +112,15 @@ export class GraphQLRedirectsService {
 
     return redirectsResult
       .then((result: RedirectsQueryResult) => {
-        let redirects = result?.site?.siteInfo?.redirects || [];
+        const redirects = result?.site?.siteInfo?.redirects || [];
         if (result?.layout?.item?.template?.name === 'Redirect') {
           let href: string = result?.layout?.item?.field?.jsonValue?.value?.href;
           if (href) {
-            let queryString = result?.layout?.item?.field?.jsonValue?.value?.querystring;
+            const queryString = result?.layout?.item?.field?.jsonValue?.value?.querystring;
             if (queryString) {
               href = `${href}?${queryString.replace(/[?]/g, '')}`;
             }
-            let itemRedirect: RedirectInfo = {
+            const itemRedirect: RedirectInfo = {
               pattern: routePath,
               target: href,
               redirectType: REDIRECT_TYPE_302,
