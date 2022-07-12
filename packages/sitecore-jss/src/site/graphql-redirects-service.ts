@@ -67,7 +67,9 @@ export type RedirectsQueryResult = {
   layout: {
     item: {
       template: { name: string };
-      field: { jsonValue: { value: { href: string; querystring: string; linktype: string } } } | null;
+      field: {
+        jsonValue: { value: { href: string; querystring: string; linktype: string } };
+      } | null;
     };
   };
 };
