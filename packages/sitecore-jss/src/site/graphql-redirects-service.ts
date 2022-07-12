@@ -63,11 +63,11 @@ export type GraphQLRedirectsServiceConfig = {
  * The schema of data returned in response to redirects array request
  */
 export type RedirectsQueryResult = {
-  site: { siteInfo: { redirects: RedirectInfo[] } };
+  site: { siteInfo: { redirects: RedirectInfo[] } | null };
   layout: {
     item: {
       template: { name: string };
-      field: { jsonValue: { value: { href: string; querystring: string; linktype: string } } };
+      field: { jsonValue: { value: { href: string; querystring: string; linktype: string } } } | null;
     };
   };
 };
@@ -114,7 +114,7 @@ export class GraphQLRedirectsService {
       .then((result: RedirectsQueryResult) => {
         const redirects = result?.site?.siteInfo?.redirects || [];
         if (result?.layout?.item?.template?.name === 'Redirect') {
-          let href: string = result?.layout?.item?.field?.jsonValue?.value?.href;
+          let href: string | undefined = result?.layout?.item?.field?.jsonValue?.value?.href;
           if (href) {
             const queryString = result?.layout?.item?.field?.jsonValue?.value?.querystring;
             if (queryString) {
