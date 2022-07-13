@@ -1,7 +1,34 @@
 # Changelog
 All notable changes to this project will be documented in this file. The format (starting with 18.0.0) is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
+This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1000576) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
+
+## 20.1.0
+
+### 🎉 New Features & Improvements
+
+* `[template/nextjs]` `[sitecore-jss-nextjs]`  New `NextImage` component, a Sitecore `Image` field helper component for `next/image` ([#978](https://github.com/Sitecore/jss/pull/978))
+* `[template/nextjs-sxa]` New `nextjs` initializer add-on `nextjs-sxa` for SXA Headless support (currently compatible with _XM Cloud only_)
+* `[template/nextjs]` `[sitecore-jss-nextjs]` Upgrade to Next.js 12.2 ([#1093](https://github.com/Sitecore/jss/pull/1093))
+* `[sitecore-jss-react]` Support SXA Rendering Variants inside the React `Placeholder` component ([#931](https://github.com/Sitecore/jss/pull/931))
+* `[template/nextjs]` Add a friendly message when building nextjs app and site items are missing ([#1066](https://github.com/Sitecore/jss/pull/1066))
+* `[create-sitecore-jss]` Add descriptions to add-on list ([#935](https://github.com/Sitecore/jss/pull/935))
+* `[template/nextjs]` Introduced plugins approach for Next.js Middleware ([#945](https://github.com/Sitecore/jss/pull/945))
+* `[sitecore-jss]` Make it clear that `isEditorActive` only works in browser ([#1089](https://github.com/Sitecore/jss/pull/1089))
+
+### 🧹 Chores
+
+* `[template/nextjs]` Update obsolete `jss create` related info on the home page ([#1009](https://github.com/Sitecore/jss/pull/1009))
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` Refactored withComponentFactory HOC to fix Next.js SSR production issue ([#1086](https://github.com/Sitecore/jss/pull/1086))
+* `[sitecore-jss-react]` Fix Placeholder key is not defined error in Sitecore editors ([#970](https://github.com/Sitecore/jss/pull/970))
+* `[sitecore-jss-react]` Make Image handle 'class' prop when it's passed down ([#971](https://github.com/Sitecore/jss/pull/971))
+* `[template/nextjs]` Dynamic components markup is missing in Experience Editor after adding new rendering ([#1019](https://github.com/Sitecore/jss/pull/1019))
+* `[sitecore-jss-vue]` Fix Sitecore querystring property in Link component ([#974](https://github.com/Sitecore/jss/pull/974))
+* `[node-headless-ssr-exp-edge]` `[sitecore-jss-angular]` Danish language is not rendered when refreshing the page ([#1003](https://github.com/Sitecore/jss/pull/1003))
+* `[sitecore-jss-nextjs]` RichText component not forwarding query params ([#1015](https://github.com/Sitecore/jss/pull/1015))
 
 ## 20.0.0
 
