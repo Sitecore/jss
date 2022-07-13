@@ -6,6 +6,12 @@ $hamburger-height: 18px;
 $border-size: 6px;
 $hamburger-margin: 18px;
 
+.navigation {
+  .menu-mobile-navigate-wrapper {
+    width: 100%;
+  }
+}
+
 .navigation.navigation-horizontal {
   width: 100%;
   padding-right: 70px;
@@ -47,7 +53,7 @@ $hamburger-margin: 18px;
   @include respond-to(all-mobile) {
     .component-content {
       display: none;
-      position: absolute;
+      position: fixed;
       top: 0;
       bottom: 0;
       right: 0;
@@ -86,8 +92,6 @@ $hamburger-margin: 18px;
     }
 
     .menu-mobile-navigate-wrapper {
-      width: 100%;
-  
       .menu-mobile-navigate {
         display: inline-block;
         z-index: 2;
