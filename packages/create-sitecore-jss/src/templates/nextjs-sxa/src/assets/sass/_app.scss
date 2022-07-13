@@ -12,7 +12,7 @@ body {
   position: relative;
   overflow: auto;
   color: $text-basic;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   background: $page-bg;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -62,6 +62,10 @@ h5 {
 
 h6 {
   font-size: 0.67em;
+}
+
+ul li {
+  list-style-type: none;
 }
 
 .xa-variable {
