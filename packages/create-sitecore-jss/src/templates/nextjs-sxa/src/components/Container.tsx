@@ -20,13 +20,18 @@ const Container = (props: ComponentProps): JSX.Element => {
   const containerStyles = props.params && props.params.Styles ? props.params.Styles : '';
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
   const phKey = `container-${props.params.DynamicPlaceholderId}`;
-  const backgroundImage = props.params.BackgroundImage as string;
+  let backgroundImage = props.params.BackgroundImage as string;
   let backgroundStyle: { [key: string]: string } = { backgroundImage: '' };
 
   if (backgroundImage) {
     const prefix = `${sitecoreContext.pageState !== 'normal' ? '/sitecore/shell' : ''}/-/media/`;
+    backgroundImage = `${backgroundImage
+      ?.match(BACKGROUND_REG_EXP)
+      ?.pop()
+      ?.replace(/-/gi, '')}`;
+
     backgroundStyle = {
-      backgroundImage: `url('${prefix}${backgroundImage?.match(BACKGROUND_REG_EXP)?.pop()}')`,
+      backgroundImage: `url('${prefix}${backgroundImage}')`,
     };
   }
 
