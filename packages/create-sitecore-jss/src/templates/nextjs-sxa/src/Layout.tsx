@@ -31,7 +31,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
-        <title>{fields?.Title?.value.toString() || 'Page'}</title>
+        <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
@@ -47,24 +47,18 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       {/* root placeholder for the app, which we add components to using route data */}
       <div id="wrapper">
         <header>
-          <div id="header" className="container">
-            <div className="row">
-              {route && <Placeholder name="headless-header" rendering={route} />}
-            </div>
+          <div id="header">
+            {route && <Placeholder name="headless-header" rendering={route} />}
           </div>
         </header>
         <main>
-          <div id="content" className="container">
-            <div className="row">
-              {route && <Placeholder name="headless-main" rendering={route} />}
-            </div>
+          <div id="main">
+            {route && <Placeholder name="headless-main" rendering={route} />}
           </div>
         </main>
         <footer>
-          <div id="footer" className="container">
-            <div className="row">
-              {route && <Placeholder name="headless-footer" rendering={route} />}
-            </div>
+          <div id="footer">
+            {route && <Placeholder name="headless-footer" rendering={route} />}
           </div>
         </footer>
       </div>
