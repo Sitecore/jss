@@ -1,8 +1,13 @@
-@import "@sass/abstracts/mixins";
+@import '@sass/abstracts/mixins';
 
 .container {
-    padding: 0;
-	.component-content {
-        @include clearfix();
-    }
+  padding: 0;
+
+  &.fullwidth-container {
+    max-width: unset;
+  }
+  .component-content {
+    @include clearfix();
+  }
 }
+
