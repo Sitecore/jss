@@ -108,7 +108,7 @@ $hamburger-margin: 18px;
               content: "\00d7";
               color: $text-basic-active;
               font-size: $text-size-48;
-              position: absolute;
+              position: fixed;
               top: 0;
               right: 0;
               margin-top: calc($hamburger-margin + ($hamburger-margin / 2));

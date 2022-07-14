@@ -6,41 +6,72 @@ body {
   color: $main-color;
 }
 
-.max-height {
-  &.container {
-    .rich-text {
-      h4 {
-        font-size: $text-size-24;
-        font-weight: 600;
-      }
-      h2 {
-        margin-top: 50px;
-        font-size: $text-size-36;
-        line-height: 43px;
-      }
+/**** START STYLE MAX HEIGHT ****/
+body, #wrapper, #__next {
+  height: 100vh;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  footer {
+    flex-shrink: 0;
+  }
+}
+/**** END STYLE MAX HEIGHT ****/
+
+main {
+  .rich-text {
+    h4 {
+      font-size: $text-size-24;
+      font-weight: 600;
+      line-height: 50px;
+    }
+
+    h2 {
+      margin-top: 50px;
+      font-size: $text-size-36;
+      line-height: 43px;
     }
   }
 
-  position: relative;
-  min-height: calc(100vh - 347px);
-  margin-bottom: 50px;
-  padding-top: 50px;
+  .cover-background {
+    padding-top: 50px;
+    @include respond-to(all-mobile) {
+      padding-top: 0;
+      padding-bottom: 20px;
+    }
+    > .component-content {
+      height: 800px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
 
   @include respond-to(all-mobile) {
     padding-top: 0;
     margin-bottom: 0;
 
-    &.container {
-      .rich-text {
-        h4 {
-          font-size: $text-size-16;
-          line-height: 32px;
-        }
-        h2 {
-          margin-top: 0;
-          font-size: $text-size-18;
-          line-height: 22px;
-        }
+    .cover-background {
+      > .component-content {
+        height: 300px;
+      }
+    }
+
+    .rich-text {
+      h4 {
+        font-size: $text-size-16;
+        line-height: 32px;
+      }
+      h2 {
+        margin-top: 0;
+        font-size: $text-size-18;
+        line-height: 22px;
       }
     }
   }
