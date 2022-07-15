@@ -1,9 +1,13 @@
 @import "@sass/abstracts/mixins";
 @import "variables";
 
-footer {
-  padding-top: 30px;
+.prod-mode {
+  #footer {
+    padding-top: 30px;
+  }
+}
 
+footer {
   @include respond-to(all-mobile) {
     padding-top: 0;
   }
