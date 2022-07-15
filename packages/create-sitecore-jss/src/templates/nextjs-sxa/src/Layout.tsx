@@ -27,6 +27,8 @@ interface RouteFields {
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
   const fields = route?.fields as RouteFields;
+  const isPageEditing = layoutData.sitecore.context.pageEditing;
+  const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
 
   return (
     <>
@@ -45,14 +47,14 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <VisitorIdentification />
 
       {/* root placeholder for the app, which we add components to using route data */}
-      <div id="wrapper">
+      <div id="wrapper" className={mainClassPageEditing}>
         <header>
           <div id="header">
             {route && <Placeholder name="headless-header" rendering={route} />}
           </div>
         </header>
         <main>
-          <div id="main">
+          <div id="content">
             {route && <Placeholder name="headless-main" rendering={route} />}
           </div>
         </main>

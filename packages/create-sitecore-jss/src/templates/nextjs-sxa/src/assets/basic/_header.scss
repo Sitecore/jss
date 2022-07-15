@@ -2,12 +2,16 @@
 @import "@sass/abstracts/mixins";
 @import "variables";
 
-header {
+.prod-mode {
   #header {
     display: flex;
     flex-direction: column;
     padding-bottom: 50px;
+  }
+}
 
+header {
+  #header {
     .rich-text {
       padding-left: 50px;
 
