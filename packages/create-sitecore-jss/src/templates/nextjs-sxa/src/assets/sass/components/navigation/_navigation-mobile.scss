@@ -31,7 +31,10 @@
       background: $nav-bg-submenu;
     }
     &.submenu {
-      &.active {
+      > ul {
+        display: none;
+      }
+      &:focus {
         > .navigation-title:before {
           transform: rotate(180deg);
           transition: 0.6s;

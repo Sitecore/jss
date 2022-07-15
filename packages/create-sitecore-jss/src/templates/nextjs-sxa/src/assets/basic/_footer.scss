@@ -2,6 +2,15 @@
 @import "variables";
 
 footer {
+  padding-top: 30px;
+
+  @include respond-to(all-mobile) {
+    padding-top: 0;
+  }
+  .container-dark-background {
+    background-color: #262626;
+  }
+
   .rich-text {
     font-size: $text-size-14;
 
@@ -16,10 +25,10 @@ footer {
   }
 
   .indent-inner {
-    padding: 3rem;
+    padding: 65px;
 
     @include respond-to(all-mobile) {
-      padding: 25px 0;
+      padding: 40px 0;
     }
   }
 }
