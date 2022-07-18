@@ -7,20 +7,24 @@ body {
 }
 
 /**** START STYLE MAX HEIGHT ****/
-body, #wrapper, #__next {
-  height: 100vh;
+.prod-mode {
+  &#wrapper {
+    height: 100vh;
+  }
 }
 
-#wrapper {
-  display: flex;
-  flex-direction: column;
-
-  main {
-    flex: 1 0 auto;
-  }
-
-  footer {
-    flex-shrink: 0;
+.prod-mode {
+  &#wrapper {
+    display: flex;
+    flex-direction: column;
+  
+    main {
+      flex: 1 0 auto;
+    }
+  
+    footer {
+      flex-shrink: 0;
+    }
   }
 }
 /**** END STYLE MAX HEIGHT ****/
