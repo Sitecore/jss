@@ -22,7 +22,6 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### 🐛 Bug Fixes
 
-* `[template/nextjs]` Remove `edge` next config plugin ([#1105](https://github.com/Sitecore/jss/pull/1105))
 * `[sitecore-jss-react]` Refactored withComponentFactory ([#1086](https://github.com/Sitecore/jss/pull/1086)) and withSitecoreContext ([#1100](https://github.com/Sitecore/jss/pull/1100)) HOCs to fix Next.js SSR production issue on React 17
 * `[sitecore-jss-react]` Fix Placeholder key is not defined error in Sitecore editors ([#970](https://github.com/Sitecore/jss/pull/970))
 * `[sitecore-jss-react]` Make Image handle 'class' prop when it's passed down ([#971](https://github.com/Sitecore/jss/pull/971))
