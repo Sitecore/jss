@@ -141,10 +141,10 @@ const NavigationList = (props: NavigationProps) => {
 
 const getLinkTitle = (props: NavigationProps): string | undefined => {
   let title;
-  if (props.fields.NavigationTitle) {
-    title = props.fields.NavigationTitle.value?.toString();
-  } else if (props.fields.Title) {
-    title = props.fields.Title.value?.toString();
+  if (props.fields.NavigationTitle?.value) {
+    title = props.fields.NavigationTitle.value.toString();
+  } else if (props.fields.Title?.value) {
+    title = props.fields.Title.value.toString();
   } else {
     title = props.fields.DisplayName;
   }
