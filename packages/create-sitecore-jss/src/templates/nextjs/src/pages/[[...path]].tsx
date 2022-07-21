@@ -91,22 +91,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 <% } -%>
   const props = await sitecorePagePropsFactory.create(context);
 
-  if ((context.res.statusCode >= 500 && context.res.statusCode <= 511) && props?.errorPages?.serverErrorPagePath) {
+  // generic redirect - handler error pages
+  if (props.redirect) {
     return {
-      redirect: {
-        destination: props.errorPages.serverErrorPagePath,
-        permanent: false,
-      }
-    }
-  }
-
-  if (props.notFound && props?.errorPages?.notFoundPagePath) {
-    return {
-      redirect: {
-        destination: props.errorPages.notFoundPagePath,
-        permanent: false,
-      },
-    }
+      redirect: props.redirect,
+    };
   }
 
   return {
