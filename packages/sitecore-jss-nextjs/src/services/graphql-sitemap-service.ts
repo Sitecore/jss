@@ -4,10 +4,11 @@ import { getPersonalizedRewrite } from '@sitecore-jss/sitecore-jss/personalize';
 
 /** @private */
 export const languageError = 'The list of languages cannot be empty';
+
 /**
- * @param siteName
+ * @param {string} siteName to inject into error text
+ * @private
  */
-/** @private */
 export function getSiteEmptyError(siteName: string) {
   return `Site "${siteName}" does not exist or site item tree is missing`;
 }
@@ -222,43 +223,16 @@ export class GraphQLSitemapService {
     if (!languages.length) {
       throw new RangeError(languageError);
     }
-    const siteName = this.options.siteName;
-
-    const args: SiteRouteQueryVariables = {
-      siteName,
-      language: '',
-      pageSize: this.options.pageSize,
-      includedPaths: this.options.includedPaths,
-      excludedPaths: this.options.excludedPaths,
-    };
-
     // Fetch paths using all locales
     const paths = await Promise.all(
       languages.map((language) => {
         if (language === '') {
           throw new RangeError(languageEmptyError);
         }
-        args.language = language;
         debug.sitemap('fetching sitemap data for %s', language);
-
-        return this.fetchLanguageSitePaths(this.query, args).then((results) => {
-          const formatPath = (path: string) =>
-            formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);
-          const aggregatedPaths: StaticPath[] = [];
-          results.forEach((item) => {
-            aggregatedPaths.push(formatPath(item.path));
-            // check for type safety's sake - personalize may be empty depending on query type
-            if (item.route?.personalization?.variantIds.length) {
-              aggregatedPaths.push(
-                ...item.route?.personalization?.variantIds.map((varId) =>
-                  formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
-                )
-              );
-            }
-          });
-
-          return aggregatedPaths;
-        });
+        return this.fetchLanguageSitePaths(language).then((results) =>
+          this.transformLanguageSitePaths(results, formatStaticPath, language)
+        );
       })
     );
 
@@ -266,10 +240,38 @@ export class GraphQLSitemapService {
     return ([] as StaticPath[]).concat(...paths);
   }
 
-  protected async fetchLanguageSitePaths(
-    query: string,
-    args: SiteRouteQueryVariables
-  ): Promise<RouteListQueryResult[]> {
+  protected async transformLanguageSitePaths(
+    sitePaths: RouteListQueryResult[],
+    formatStaticPath: (path: string[], language: string) => StaticPath,
+    language: string
+  ): Promise<StaticPath[]> {
+    const formatPath = (path: string) =>
+      formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);
+    const aggregatedPaths: StaticPath[] = [];
+
+    sitePaths.forEach((item) => {
+      aggregatedPaths.push(formatPath(item.path));
+      // check for type safety's sake - personalize may be empty depending on query type
+      if (item.route?.personalization?.variantIds.length) {
+        aggregatedPaths.push(
+          ...item.route?.personalization?.variantIds.map((varId) =>
+            formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
+          )
+        );
+      }
+    });
+
+    return aggregatedPaths;
+  }
+
+  protected async fetchLanguageSitePaths(language: string): Promise<RouteListQueryResult[]> {
+    const args: SiteRouteQueryVariables = {
+      siteName: this.options.siteName,
+      language: language,
+      pageSize: this.options.pageSize,
+      includedPaths: this.options.includedPaths,
+      excludedPaths: this.options.excludedPaths,
+    };
     let results: RouteListQueryResult[] = [];
     let hasNext = true;
     let after = '';
@@ -277,7 +279,7 @@ export class GraphQLSitemapService {
     while (hasNext) {
       const fetchResponse = await this.graphQLClient.request<
         SiteRouteQueryResult<RouteListQueryResult>
-      >(query, {
+      >(this.query, {
         ...args,
         after,
       });
@@ -290,6 +292,7 @@ export class GraphQLSitemapService {
         after = fetchResponse.site.siteInfo.routes?.pageInfo.endCursor;
       }
     }
+
     return results;
   }
 

@@ -1,4 +1,3 @@
-
 html {
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
@@ -84,7 +83,12 @@ ul li {
 }
 
 //End navigation bar fix
-
 .menu-mobile-navigate {
   display: none;
+}
+
+#header, #content, #footer, .sc-jss-empty-placeholder {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
