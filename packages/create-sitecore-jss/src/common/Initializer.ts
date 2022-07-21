@@ -1,10 +1,8 @@
 import { BaseArgs } from './args/base';
-import { Prerender } from '../initializers/nextjs/prompts';
 export type InitializerResults = {
   appName: string;
   initializers?: string[];
   nextSteps?: string[];
-  prerender?: Prerender;
 };
 
 /**
