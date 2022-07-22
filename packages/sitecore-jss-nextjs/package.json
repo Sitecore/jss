@@ -47,7 +47,7 @@
     "chai-string": "^1.5.0",
     "chalk": "^4.1.2",
     "cheerio": "1.0.0-rc.10",
-    "del-cli": "^3.0.1",
+    "del-cli": "^5.0.0",
     "enzyme": "^3.11.0",
     "eslint": "^7.15.0",
     "eslint-plugin-react": "^7.21.5",

@@ -102,7 +102,7 @@
     "constant-case": "^3.0.4",
     "cookie-parser": "~1.4.5",
     "cross-env": "~7.0.3",
-    "del-cli": "^3.0.1",
+    "del-cli": "^5.0.0",
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
     "enhanced-resolve": "5.7.0",
