@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import nock from 'nock';
-import { ErrorPagesType, GraphQLErrorPagesService } from './graphql-error-pages-service';
+import { ErrorPages, GraphQLErrorPagesService } from './graphql-error-pages-service';
 import { siteNameError } from '../constants';
 
 const errorQueryResultNull = {
@@ -23,7 +23,7 @@ describe('GraphQLErrorPagesService', () => {
     nock.cleanAll();
   });
 
-  const mockErrorPagesRequest = (errorPages?: ErrorPagesType | null) => {
+  const mockErrorPagesRequest = (errorPages?: ErrorPages | null) => {
     nock(endpoint)
       .post('/')
       .reply(

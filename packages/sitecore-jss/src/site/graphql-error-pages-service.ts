@@ -35,17 +35,20 @@ export type GraphQLErrorPagesServiceConfig = {
   language: string;
 };
 
-export type ErrorPagesType = { notFoundPagePath: string; serverErrorPagePath: string };
+/**
+ * Object model of Error Pages result
+ */
+export type ErrorPages = { notFoundPagePath: string; serverErrorPagePath: string };
 
 /**
  * The schema of data returned in response to error pages link request
  */
 type ErrorPagesQueryResult = {
-  site: { siteInfo: { errorHandling: ErrorPagesType } };
+  site: { siteInfo: { errorHandling: ErrorPages } };
 };
 
 /**
- * Service that fetch the error handling data using Sitecore's GraphQL API.
+ * Service that fetch the error pages data using Sitecore's GraphQL API.
  */
 export class GraphQLErrorPagesService {
   private graphQLClient: GraphQLClient;
@@ -55,7 +58,7 @@ export class GraphQLErrorPagesService {
   }
 
   /**
-   * Creates an instance of graphQL error handling service with the provided options
+   * Creates an instance of graphQL error pages service with the provided options
    * @param {GraphQLErrorPagesServiceConfig} options instance
    */
   constructor(public options: GraphQLErrorPagesServiceConfig) {
@@ -63,11 +66,11 @@ export class GraphQLErrorPagesService {
   }
 
   /**
-   * Fetch list of error handling for the site
-   * @returns {ErrorPagesType} list of url's error pages
+   * Fetch list of error pages for the site
+   * @returns {ErrorPages} list of url's error pages
    * @throws {Error} if the siteName is empty.
    */
-  async fetchErrorPages(): Promise<ErrorPagesType | null> {
+  async fetchErrorPages(): Promise<ErrorPages | null> {
     const siteName: string = this.options.siteName;
     const language: string = this.options.language;
 

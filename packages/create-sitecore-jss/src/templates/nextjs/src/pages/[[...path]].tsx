@@ -91,7 +91,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 <% } -%>
   const props = await sitecorePagePropsFactory.create(context);
 
-  // generic redirect - handler error pages
+  // Check if we have a redirect (e.g. custom error page)
   if (props.redirect) {
     return {
       redirect: props.redirect,
