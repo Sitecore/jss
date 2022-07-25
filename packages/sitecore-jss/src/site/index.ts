@@ -18,3 +18,9 @@ export {
   GraphQLSitemapXmlService,
   GraphQLSitemapXmlServiceConfig,
 } from './graphql-sitemap-service';
+
+export {
+  ErrorPages,
+  GraphQLErrorPagesService,
+  GraphQLErrorPagesServiceConfig,
+} from './graphql-error-pages-service';

@@ -1,3 +1,4 @@
+import { Redirect } from 'next';
 import {
   DictionaryPhrases,
   ComponentPropsCollection,
@@ -13,4 +14,5 @@ export type SitecorePageProps = {
   componentProps: ComponentPropsCollection;
   notFound: boolean;
   layoutData: LayoutServiceData;
+  redirect?: Redirect;
 };
