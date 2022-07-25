@@ -1,5 +1,4 @@
 import { BaseArgs } from './args/base';
-
 export type InitializerResults = {
   appName: string;
   initializers?: string[];

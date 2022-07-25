@@ -29,4 +29,6 @@ export default Object.freeze({
   sitemap: debug(`${rootNamespace}:sitemap`),
   robots: debug(`${rootNamespace}:robots`),
   redirects: debug(`${rootNamespace}:redirects`),
+  personalize: debug(`${rootNamespace}:personalize`),
+  errorpages: debug(`${rootNamespace}:errorpages`),
 });

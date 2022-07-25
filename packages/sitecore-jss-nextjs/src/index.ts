@@ -78,6 +78,9 @@ export {
 export {
   GraphQLSitemapXmlService,
   GraphQLSitemapXmlServiceConfig,
+  GraphQLErrorPagesService,
+  GraphQLErrorPagesServiceConfig,
+  ErrorPages,
 } from '@sitecore-jss/sitecore-jss/site';
 
 export { StaticPath } from './services/graphql-sitemap-service';
