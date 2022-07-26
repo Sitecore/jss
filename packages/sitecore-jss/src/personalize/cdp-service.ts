@@ -63,10 +63,10 @@ export type ExperienceParams = {
   ua: string | null;
   utm: {
     [key: string]: string | null;
-    utm_campaign: string | null;
-    utm_source: string | null;
-    utm_medium: string | null;
-    utm_content: string | null;
+    campaign: string | null;
+    source: string | null;
+    medium: string | null;
+    content: string | null;
   };
 };
 

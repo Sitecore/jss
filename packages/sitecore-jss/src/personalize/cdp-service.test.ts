@@ -29,10 +29,10 @@ describe('CdpService', () => {
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
     referrer: 'about:client',
     utm: {
-      utm_campaign: 'test',
-      utm_source: null,
-      utm_medium: null,
-      utm_content: null,
+      campaign: 'test',
+      source: null,
+      medium: null,
+      content: null,
     },
   } as ExperienceParams;
 
