@@ -96,10 +96,10 @@ export class PersonalizeMiddleware {
       referrer: req.referrer,
       ua: ua ?? null,
       utm: {
-        utm_campaign: req.nextUrl.searchParams.get('utm_campaign'),
-        utm_content: req.nextUrl.searchParams.get('utm_content'),
-        utm_medium: req.nextUrl.searchParams.get('utm_medium'),
-        utm_source: req.nextUrl.searchParams.get('utm_source'),
+        campaign: req.nextUrl.searchParams.get('utm_campaign'),
+        content: req.nextUrl.searchParams.get('utm_content'),
+        medium: req.nextUrl.searchParams.get('utm_medium'),
+        source: req.nextUrl.searchParams.get('utm_source'),
       },
     };
   }
