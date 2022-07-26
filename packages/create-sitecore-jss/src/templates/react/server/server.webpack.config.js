@@ -22,6 +22,15 @@ module.exports = {
     rules: [
       {
         test: /\.m?jsx?$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            plugins: ['@babel/plugin-proposal-export-namespace-from'],
+          },
+        },
+      },
+      {
+        test: /\.m?jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
