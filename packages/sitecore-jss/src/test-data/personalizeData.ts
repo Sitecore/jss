@@ -100,12 +100,16 @@ export const withoutComponentName = {
   },
 };
 
-export const variantIsNull = {
+export const variantIsHidden = {
   uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
   componentName: undefined,
   dataSource: 'e020fb58-1be8-4537-aab8-67916452ecf2',
   fields: { content: { value: '' }, heading: { value: 'Default Content' } },
   experiences: {
-    mountain_bike_audience: {},
+    mountain_bike_audience: {
+      componentName: null,
+      dataSource: null,
+      uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b1',
+    },
   },
 };
