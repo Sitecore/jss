@@ -9,7 +9,7 @@ import {
   componentWithExperiences,
   layoutDataWithoutPlaceholder,
   withoutComponentName,
-  variantIsNull,
+  variantIsHidden,
 } from '../test-data/personalizeData';
 
 const { personalizeLayout, personalizePlaceholder, personalizeComponent } = personalize;
@@ -47,10 +47,19 @@ describe('layout-personalizer', () => {
       expect(personalizedComponentResult).to.deep.equal(componentWithExperiences);
     });
 
-    it('should return null when variantVariant is null', () => {
+    it('should return default component when variant is undefined', () => {
+      const variant = '_default';
+      const personalizedComponentResult = personalizeComponent(
+        (component as unknown) as ComponentRenderingWithExperiences,
+        variant
+      );
+      expect(personalizedComponentResult).to.deep.equal(component);
+    });
+
+    it('should return null when variantVariant is hidden', () => {
       const variant = 'mountain_bike_audience';
       const personalizedComponentResult = personalizeComponent(
-        (variantIsNull as unknown) as ComponentRenderingWithExperiences,
+        (variantIsHidden as unknown) as ComponentRenderingWithExperiences,
         variant
       );
       expect(personalizedComponentResult).to.equal(null);

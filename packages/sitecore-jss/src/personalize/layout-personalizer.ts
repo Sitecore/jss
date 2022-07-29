@@ -1,8 +1,7 @@
 import { LayoutServiceData, ComponentRendering, HtmlElementRendering } from './../layout/models';
 
-// NULL means Hidden by this experience
 export type ComponentRenderingWithExperiences = ComponentRendering & {
-  experiences: { [name: string]: ComponentRenderingWithExperiences | null };
+  experiences: { [name: string]: ComponentRenderingWithExperiences };
 };
 
 /**
@@ -56,7 +55,7 @@ export function personalizeComponent(
   if (variant === undefined && component.componentName === undefined) {
     // DEFAULT IS HIDDEN
     return null;
-  } else if (Object.keys(variant ?? {}).length === 0) {
+  } else if (variant && variant.componentName === null && variant.dataSource === null) {
     // HIDDEN
     return null;
   } else if (variant) {
