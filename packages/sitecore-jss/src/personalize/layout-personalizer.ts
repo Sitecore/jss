@@ -1,6 +1,5 @@
 import { LayoutServiceData, ComponentRendering, HtmlElementRendering } from './../layout/models';
 
-// NULL means Hidden by this experience
 export type ComponentRenderingWithExperiences = ComponentRendering & {
   experiences: { [name: string]: ComponentRenderingWithExperiences };
 };
