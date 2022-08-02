@@ -47,6 +47,7 @@ export {
 export { RichText, RichTextProps, RichTextPropTypes, RichTextField } from './components/RichText';
 export { Text, TextField } from './components/Text';
 export { DateField } from './components/Date';
+export { ErrorBoundary, ErrorBoundaryProps } from './components/ErrorBoundary';
 export { Link, LinkField, LinkFieldValue, LinkProps, LinkPropTypes } from './components/Link';
 export { File, FileField } from './components/File';
 export { VisitorIdentification } from './components/VisitorIdentification';
@@ -64,6 +65,7 @@ export {
   WithSitecoreContextProps,
   WithSitecoreContextHocProps,
 } from './enhancers/withSitecoreContext';
+export { withErrorBoundary } from './enhancers/withErrorBoundary';
 export { withEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';

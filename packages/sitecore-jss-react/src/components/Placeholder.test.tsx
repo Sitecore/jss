@@ -425,7 +425,7 @@ describe('<Placeholder />', () => {
     const renderedComponent = mount(
       <Placeholder name={phKey} rendering={route} componentFactory={componentFactory} />
     );
-    expect(renderedComponent.find('.sc-jss-placeholder-error').length).to.equal(1);
+    expect(renderedComponent.find('.sc-jss-component-error').length).to.equal(1);
   });
 
   it('should render custom errorComponent on error, if provided', () => {
@@ -468,6 +468,54 @@ describe('<Placeholder />', () => {
     );
     expect(renderedComponent.find('.custom-error').length).to.equal(1);
   });
+});
+
+it('should render custom errorComponent only for failing component, if provided', () => {
+  const componentFactory: ComponentFactory = (componentName: string) => {
+    const components = new Map<string, React.FC<{ [key: string]: unknown }>>();
+
+    const Home: React.FC<{ rendering?: RouteData }> = ({ rendering }) => (
+      <div className="home-mock">
+        <Placeholder name="main" rendering={rendering} />
+      </div>
+    );
+
+    components.set('Home', Home);
+    components.set('ThrowError', () => {
+      throw Error('an error occured');
+    });
+    components.set('NonFailingComponent', () => (
+      <div className="not-fail">This component does not throw error</div>
+    ));
+    return components.get(componentName) || null;
+  };
+
+  const CustomError: React.FC = () => <div className="custom-error">Custom Error</div>;
+
+  const route = ({
+    placeholders: {
+      main: [
+        {
+          componentName: 'ThrowError',
+        },
+        {
+          componentName: 'NonFailingComponent',
+        },
+      ],
+    },
+  } as unknown) as RouteData;
+  const phKey = 'main';
+
+  const renderedComponent = mount(
+    <Placeholder
+      name={phKey}
+      rendering={route}
+      componentFactory={componentFactory}
+      errorComponent={CustomError}
+    />
+  );
+  expect(renderedComponent.find('.custom-error').length).to.equal(1);
+  expect(renderedComponent.find('.not-fail').length).to.equal(1);
 });
 
 it('should render MissingComponent for unknown rendering', () => {

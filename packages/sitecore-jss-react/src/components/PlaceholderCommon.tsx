@@ -11,6 +11,8 @@ import {
 } from '@sitecore-jss/sitecore-jss/layout';
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
+import { withErrorBoundary } from '../enhancers/withErrorBoundary';
+import { ErrorBoundaryProps } from './ErrorBoundary';
 
 /** [SXA] common marker by which we find container fo replacing **/
 const PREFIX_PLACEHOLDER = 'container-{*}';
@@ -73,6 +75,12 @@ export interface PlaceholderProps {
    * the placeholder
    */
   errorComponent?: React.ComponentClass<ErrorComponentProps> | React.FC<ErrorComponentProps>;
+
+  /**
+   * Optional error boundary component that can replace the default JSS implementation when needed.
+   * Error boundary is an HOC that would wrap every dynamic component/rendering added to a placeholder
+   */
+  errorBoundaryComponent?: React.ComponentClass<ErrorBoundaryProps> | React.FC<ErrorBoundaryProps>;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
@@ -245,13 +253,15 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
     // Render SXA Rendering Variant
     if (renderingDefinition.params?.FieldNames) {
-      return componentFactory(
-        renderingDefinition.componentName,
-        renderingDefinition.params.FieldNames
-      );
+      return withErrorBoundary(
+        this.props.errorComponent,
+        this.props.errorBoundaryComponent
+      )(componentFactory(renderingDefinition.componentName, renderingDefinition.params.FieldNames));
     }
 
-    return componentFactory(renderingDefinition.componentName);
+    return withErrorBoundary(this.props.errorComponent)(
+      componentFactory(renderingDefinition.componentName)
+    );
   }
 
   addRef(nodeRef: Element) {
