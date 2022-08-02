@@ -140,4 +140,6 @@ export {
   ComponentConsumerProps,
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
+  withErrorBoundary,
+  ErrorBoundary,
 } from '@sitecore-jss/sitecore-jss-react';
