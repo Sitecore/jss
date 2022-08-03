@@ -1,7 +1,6 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 
 interface ErrorState {
-  hasError?: boolean;
   error?: Error;
   errorInfo?: ErrorInfo;
 }
@@ -15,11 +14,16 @@ export interface ErrorBoundaryProps {
   children?: ReactNode;
 }
 
+//**
+// * This component will simply wrap any other component passed down to it and contain an error that could be thrown
+// * So that all other components on page would still be displayed
+//*
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
-    this.state = { hasError: false };
   }
+
+  previousError: Error;
 
   defaultErrorComponent: React.FC<{ error: Error; errorInfo: ErrorInfo }> = ({
     error,
@@ -34,11 +38,14 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorState> {
   };
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    this.setState({ error, errorInfo });
+    if (JSON.stringify(error) !== JSON.stringify(this.previousError)){
+        this.previousError = error;
+        this.setState({ error, errorInfo });
+    }
   }
 
   render() {
-    if (this.state.hasError || this.state.error) {
+    if (this.state.error) {
       if (this.props.errorComponent) {
         return (
           <this.props.errorComponent
