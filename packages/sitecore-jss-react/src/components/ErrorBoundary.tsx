@@ -21,6 +21,7 @@ export interface ErrorBoundaryProps {
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
+    this.state = {};
   }
 
   previousError: Error;
