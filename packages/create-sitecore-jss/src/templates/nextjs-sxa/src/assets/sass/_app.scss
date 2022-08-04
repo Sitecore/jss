@@ -92,3 +92,11 @@ ul li {
   display: flex;
   flex-wrap: wrap;
 }
+
+.sc-jss-placeholder-error {
+  background: #ff0000;
+  outline: 5px solid #e36565;
+  padding: 10px;
+  color:#fff;
+  max-width: 500px;
+}
