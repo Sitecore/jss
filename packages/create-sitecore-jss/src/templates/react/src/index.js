@@ -9,6 +9,14 @@ import AppRoot from './AppRoot';
 import GraphQLClientFactory from './lib/GraphQLClientFactory';
 import config from './temp/config';
 import i18ninit from './i18n';
+import { stopReportingRuntimeErrors } from 'react-error-overlay';
+
+/* as we handle and show errors via error boundaries and console we want to avoid error overlay showing up */
+/* in part because it's not working correctly at the moment: https://github.com/facebook/create-react-app/issues/11773 */
+/* please feel free to disable this if overlay is needed for your dev environments */
+if (process.env.NODE_ENV === 'development') {
+  stopReportingRuntimeErrors();
+}
 
 if (process.env.REACT_APP_DEBUG) {
   enableDebug(process.env.REACT_APP_DEBUG);
