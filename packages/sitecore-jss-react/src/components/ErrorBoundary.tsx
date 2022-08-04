@@ -14,34 +14,34 @@ export interface ErrorBoundaryProps {
   children?: ReactNode;
 }
 
-//**
+//* *
 // * This component will simply wrap any other component passed down to it and contain an error that could be thrown
 // * So that all other components on page would still be displayed
 //*
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorState> {
+  previousError: Error;
+
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = {};
   }
-
-  previousError: Error;
 
   defaultErrorComponent: React.FC<{ error: Error; errorInfo: ErrorInfo }> = ({
     error,
     errorInfo,
   }) => {
     return (
-        <div className="sc-jss-component-error">
-          <p>A rendering error occurred: {error.message}.</p>
-          <p>Stack trace: {errorInfo.componentStack}</p>
-        </div>
+      <div className="sc-jss-component-error">
+        <p>A rendering error occurred: {error.message}.</p>
+        <p>Stack trace: {errorInfo.componentStack}</p>
+      </div>
     );
   };
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    if (JSON.stringify(error) !== JSON.stringify(this.previousError)){
-        this.previousError = error;
-        this.setState({ error, errorInfo });
+    if (JSON.stringify(error) !== JSON.stringify(this.previousError)) {
+      this.previousError = error;
+      this.setState({ error, errorInfo });
     }
   }
 
