@@ -13,7 +13,8 @@ a[target='_blank']:after {
   Styles for default JSS error components
 */
 .sc-jss-editing-error,
-.sc-jss-placeholder-error {
+.sc-jss-placeholder-error 
+.sc-jss-component-error {
   padding: 1em;
   background-color: lightyellow;
 }

@@ -65,7 +65,6 @@ export {
   WithSitecoreContextProps,
   WithSitecoreContextHocProps,
 } from './enhancers/withSitecoreContext';
-export { withErrorBoundary } from './enhancers/withErrorBoundary';
 export { withEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';

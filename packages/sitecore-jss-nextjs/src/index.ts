@@ -142,4 +142,5 @@ export {
   WithSitecoreContextProps,
   withErrorBoundary,
   ErrorBoundary,
+  ErrorBoundaryProps,
 } from '@sitecore-jss/sitecore-jss-react';

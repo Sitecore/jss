@@ -26,14 +26,14 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorState> {
     this.state = {};
   }
 
-  defaultErrorComponent: React.FC<{ error: Error; errorInfo: ErrorInfo }> = ({
+  defaultErrorComponent: React.FC<{ error: Error; errorStack: string }> = ({
     error,
-    errorInfo,
+    errorStack,
   }) => {
     return (
       <div className="sc-jss-component-error">
         <p>A rendering error occurred: {error.message}.</p>
-        <p>Stack trace: {errorInfo.componentStack}</p>
+        <p>Stack trace: {errorStack}</p>
       </div>
     );
   };
@@ -50,13 +50,13 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorState> {
       if (this.props.errorComponent) {
         return (
           <this.props.errorComponent
-            errorMessage={this.state.error.message}
+            error={this.state.error}
             errorStack={this.state.errorInfo.componentStack}
           />
         );
       } else {
         return (
-          <this.defaultErrorComponent error={this.state.error} errorInfo={this.state.errorInfo} />
+          <this.defaultErrorComponent error={this.state.error} errorStack={this.state.errorInfo.componentStack} />
         );
       }
     }

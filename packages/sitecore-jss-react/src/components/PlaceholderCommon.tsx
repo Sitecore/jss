@@ -205,7 +205,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         if (componentRendering.componentName === HIDDEN_RENDERING_NAME) {
           component = hiddenRenderingComponent ?? HiddenRendering;
         } else {
-          component = this.getComponentForRendering(componentRendering);
+          component = withErrorBoundary(
+            this.props.errorComponent,
+            this.props.errorBoundaryComponent
+          )(this.getComponentForRendering(componentRendering));
         }
 
         if (!component) {
@@ -253,15 +256,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
     // Render SXA Rendering Variant
     if (renderingDefinition.params?.FieldNames) {
-      return withErrorBoundary(
-        this.props.errorComponent,
-        this.props.errorBoundaryComponent
-      )(componentFactory(renderingDefinition.componentName, renderingDefinition.params.FieldNames));
+      return componentFactory(renderingDefinition.componentName, renderingDefinition.params.FieldNames);
     }
 
-    return withErrorBoundary(this.props.errorComponent)(
-      componentFactory(renderingDefinition.componentName)
-    );
+    return componentFactory(renderingDefinition.componentName);
   }
 
   addRef(nodeRef: Element) {
