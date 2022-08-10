@@ -15,13 +15,19 @@ class PersonalizePlugin implements MiddlewarePlugin {
         endpoint: config.graphQLEndpoint,
         apiKey: config.sitecoreApiKey,
         siteName: config.jssAppName,
+        timeout:
+          (process.env.EDGE_ENDPOINT_TIMEOUT &&
+            parseInt(process.env.EDGE_ENDPOINT_TIMEOUT)) ||
+          250,
       },
       cdpConfig: {
         endpoint: process.env.NEXT_PUBLIC_CDP_API_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
         pointOfSale: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '',
         timeout:
-          (process.env.PERSONALIZE_MIDDLEWARE_TIMEOUT && parseInt(process.env.PERSONALIZE_MIDDLEWARE_TIMEOUT)) || 500,
+          (process.env.PERSONALIZE_MIDDLEWARE_TIMEOUT &&
+            parseInt(process.env.PERSONALIZE_MIDDLEWARE_TIMEOUT)) ||
+          250,
       },
     });
   }
