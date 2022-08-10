@@ -119,7 +119,7 @@ function baseComponentFactory(componentName: string, exportName?: string, isEdit
     return component[exportName];
   }
 
-  return component?.default || component;
+  return component?.Default || component?.default || component;
 }
   
 export function componentFactory(componentName: string, exportName?: string) {
