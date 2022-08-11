@@ -16,8 +16,8 @@ class PersonalizePlugin implements MiddlewarePlugin {
         apiKey: config.sitecoreApiKey,
         siteName: config.jssAppName,
         timeout:
-          (process.env.EDGE_ENDPOINT_TIMEOUT &&
-            parseInt(process.env.EDGE_ENDPOINT_TIMEOUT)) ||
+          (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT &&
+            parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||
           250,
       },
       cdpConfig: {
@@ -25,8 +25,8 @@ class PersonalizePlugin implements MiddlewarePlugin {
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
         pointOfSale: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '',
         timeout:
-          (process.env.PERSONALIZE_MIDDLEWARE_TIMEOUT &&
-            parseInt(process.env.PERSONALIZE_MIDDLEWARE_TIMEOUT)) ||
+          (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT &&
+            parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) ||
           250,
       },
     });
