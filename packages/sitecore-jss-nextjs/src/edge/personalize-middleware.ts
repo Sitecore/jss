@@ -26,6 +26,14 @@ export type PersonalizeMiddlewareConfig = {
    * Configuration for your Sitecore CDP endpoint
    */
   cdpConfig: Omit<CdpServiceConfig, 'dataFetcherResolver'>;
+
+  /**
+  * function, determines if middleware should be turned off, based on cookie, header, or other considerations
+  *  @param {NextRequest} [req] optional: request object from middleware handler
+  *  @param {NextResponse} [res] optional: response object from middleware handler
+  * return false by default
+  */
+  disabled?: (req?: NextRequest, res?: NextResponse) => boolean
 };
 
 /**
@@ -125,13 +133,18 @@ export class PersonalizeMiddleware {
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
     let browserId = this.getBrowserId(req);
 
+    // Response will be provided if other middleware is run before us (e.g. redirects)
+    let response = res || NextResponse.next();
+
+    if (this.config.disabled && this.config.disabled(req, response)){
+      debug.personalize('skipped: personalize middleware is disabled');
+      return response;
+    }
+
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
     });
-
-    // Response will be provided if other middleware is run before us (e.g. redirects)
-    let response = res || NextResponse.next();
 
     if (
       response.redirected || // Don't attempt to personalize a redirect

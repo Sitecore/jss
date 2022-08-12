@@ -29,6 +29,9 @@ class PersonalizePlugin implements MiddlewarePlugin {
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) ||
           250,
       },
+      disabled: () => {
+        return false;
+      },
     });
   }
 
