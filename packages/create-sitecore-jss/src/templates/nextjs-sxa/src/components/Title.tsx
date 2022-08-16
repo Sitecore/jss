@@ -42,13 +42,15 @@ type TitleProps = {
 };
 
 type ComponentContentProps = {
+  id: string;
   styles: string;
   children: JSX.Element;
 };
 
 const ComponentContent = (props: ComponentContentProps) => {
+  const id = props.id;
   return (
-    <div className={`component title ${props.styles}`}>
+    <div className={`component title ${props.styles}`} id={id ? id : undefined}>
       <div className="component-content">
         <div className="field-title">{props.children}</div>
       </div>
@@ -80,7 +82,7 @@ export const Default = (props: TitleProps): JSX.Element => {
   }
 
   return (
-    <ComponentContent styles={props.params.styles}>
+    <ComponentContent styles={props.params.styles} id={props.params.RenderingIdentifier}>
       <>
         {sitecoreContext.pageState === 'edit' ? (
           <Text field={text} />
