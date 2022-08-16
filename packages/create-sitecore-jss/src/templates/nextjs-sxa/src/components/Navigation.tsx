@@ -83,9 +83,10 @@ export const Default = (props: NavigationProps): JSX.Element => {
     ));
   const styles =
     props.params != null ? `${props.params.GridParameters} ${props.params.Styles}` : null;
+  const id = props.params != null ? props.params.RenderingIdentifier : null;
 
   return (
-    <div className={`component navigation ${styles}`}>
+    <div className={`component navigation ${styles}`} id={id ? id : undefined}>
       <label className="menu-mobile-navigate-wrapper">
         <input
           type="checkbox"
