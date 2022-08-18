@@ -1,27 +1,12 @@
-.not-empty-placholder {
-  .row {
-    height: 100%;
-  }
-  .sc-jss-empty-placeholder {
-    > div {
-      background: transparent;
-      height: 100%;
-      margin: 0;
-    }
-    > span {
-      display: none;
-    }
-  }
-}
 .component-content {
-  @include respond-to(all-mobile) {
+  @include respond-to(mobile-large) {
     .row {
       padding: 0;
       margin: 0;
     }
   }
 }
-@include respond-to(all-mobile) {
+@include respond-to(mobile-large) {
   .row {
     margin: 0;
     padding: 0;

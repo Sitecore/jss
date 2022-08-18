@@ -2,31 +2,10 @@
 @import "variables";
 
 .rich-text {
-  font-size: 16px;
+  font-size: $text-size-16;
 
-  h4 {
-    line-height: 50px;
-  }
-
-  @include respond-to(all-mobile) {
+  @include respond-to(mobile-large) {
     padding: 0 30px 10px 30px;
-
-    h2 {
-      font-size: $text-size-18;
-    }
-
-    h4 {
-      font-size: $text-size-18;
-      line-height: 35px;
-      font-weight: 600;
-    }
-  
-    h6 {
-      font-size: $text-size-14;
-      strong {
-        font-weight: normal;
-        line-height: 24px;
-      }
-    }
+    font-size: $text-size-14;
   }
 }

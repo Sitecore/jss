@@ -1,7 +1,7 @@
 @import "@sass/abstracts/vars";
 @import "variables";
 
-$hamburger-width: 30px;
+$hamburger-width: 28px;
 $hamburger-height: 18px;
 $border-size: 6px;
 $hamburger-margin: 18px;
@@ -21,14 +21,14 @@ $hamburger-margin: 18px;
     display: none;
   }
   
-  @include respond-to(all-mobile) {
+  @include respond-to(mobile-large) {
     padding-right: 0;
   }
 
   .component-content {
     display: inline-block;
 
-    @include respond-to(all-mobile) {
+    @include respond-to(mobile-large) {
       display: none;
     }
     
@@ -50,7 +50,7 @@ $hamburger-margin: 18px;
     }
   }
 
-  @include respond-to(all-mobile) {
+  @include respond-to(mobile-large) {
     .component-content {
       display: none;
       position: fixed;
@@ -98,8 +98,8 @@ $hamburger-margin: 18px;
         position: absolute;
         right: $hamburger-margin;
         top: $hamburger-margin;
-        height: 30px;
-        width: 30px;
+        height: $hamburger-width;
+        width: $hamburger-width;
         opacity: 0;
 
         &:checked ~ {
