@@ -47,7 +47,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <VisitorIdentification />
 
       {/* root placeholder for the app, which we add components to using route data */}
-      <div id="wrapper" className={mainClassPageEditing}>
+      <div className={mainClassPageEditing}>
         <header>
           <div id="header">{route && <Placeholder name="headless-header" rendering={route} />}</div>
         </header>
