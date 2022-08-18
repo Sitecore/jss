@@ -22,7 +22,7 @@ export const Default = (props: ComponentProps): JSX.Element => {
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
   const phKey = `container-${props.params.DynamicPlaceholderId}`;
   let backgroundImage = props.params.BackgroundImage as string;
-  let backgroundStyle: { [key: string]: string } = { backgroundImage: '' };
+  let backgroundStyle: { [key: string]: string } = {};
   let backgroundClass = '';
   const id = props.params.RenderingIdentifier;
 
