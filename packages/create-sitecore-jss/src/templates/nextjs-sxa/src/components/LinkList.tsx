@@ -53,6 +53,7 @@ const LinkListItem = (props: LinkListItemProps) => {
 export const Default = (props: LinkListProps): JSX.Element => {
   const datasource = props.fields?.data?.datasource;
   const styles = `component link-list ${props.params.styles}`.trimEnd();
+  const id = props.params.RenderingIdentifier;
 
   if (datasource) {
     const list = datasource.children.results
@@ -67,7 +68,7 @@ export const Default = (props: LinkListProps): JSX.Element => {
       ));
 
     return (
-      <div className={styles}>
+      <div className={styles} id={id ? id : undefined}>
         <div className="component-content">
           <Text tag="h3" field={datasource?.field?.title} />
           <ul>{list}</ul>
@@ -77,7 +78,7 @@ export const Default = (props: LinkListProps): JSX.Element => {
   }
 
   return (
-    <div className={styles}>
+    <div className={styles} id={id ? id : undefined}>
       <div className="component-content">
         <h3>Link List</h3>
       </div>
