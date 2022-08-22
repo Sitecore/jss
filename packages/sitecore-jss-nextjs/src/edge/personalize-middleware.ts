@@ -133,13 +133,13 @@ export class PersonalizeMiddleware {
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
     let browserId = this.getBrowserId(req);
 
-    // Response will be provided if other middleware is run before us (e.g. redirects)
-    let response = res || NextResponse.next();
-
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
     });
+
+    // Response will be provided if other middleware is run before us (e.g. redirects)
+    let response = res || NextResponse.next();
 
     if (this.config.disabled && this.config.disabled(req, response)) {
       debug.personalize('skipped (personalize middleware is disabled)');
