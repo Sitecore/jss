@@ -3,24 +3,29 @@
 
 .prod-mode {
   #footer {
-    padding-top: 30px;
+    padding-top: 80px;
+
+    @include respond-to(mobile-large) {
+      padding-top: 0;
+    }
   }
 }
 
 footer {
-  @include respond-to(all-mobile) {
+  @include respond-to(mobile-large) {
     padding-top: 0;
   }
   .container-dark-background {
     background-color: #262626;
   }
 
-  .rich-text {
+  .contacts {
     font-size: $text-size-14;
 
     a {
       color: $text-white;
     }
+
     p {
       span {
         color: $text-white;
@@ -31,7 +36,7 @@ footer {
   .indent-inner {
     padding: 65px;
 
-    @include respond-to(all-mobile) {
+    @include respond-to(mobile-large) {
       padding: 40px 0;
     }
   }

@@ -2,10 +2,10 @@
 
 /* breakpoints */
 
-$break-desktop: 960px;
+$break-desktop: 1100px;
 $break-mobile: 380px;
 $break-mobile-horizontal: 640px;
-$break-mobile-large: 786px;
+$break-mobile-large: 992px;
 @mixin wrapper() {
     max-width: 960px;
     margin: 0 auto !important;

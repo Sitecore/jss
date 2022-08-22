@@ -6,72 +6,94 @@ body {
   color: $main-color;
 }
 
-/**** START STYLE MAX HEIGHT ****/
-.prod-mode {
-  &#wrapper {
-    height: 100vh;
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1250px;
   }
 }
 
+/**** START STYLE MAX HEIGHT ****/
 .prod-mode {
-  &#wrapper {
-    display: flex;
-    flex-direction: column;
-  
-    main {
-      flex: 1 0 auto;
-    }
-  
-    footer {
-      flex-shrink: 0;
-    }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  footer {
+    flex-shrink: 0;
   }
 }
 /**** END STYLE MAX HEIGHT ****/
 
 main {
-  .rich-text {
+  .main-header {
+    margin-top: 55px;
+
     h4 {
-      font-size: $text-size-24;
-      font-weight: 600;
-      line-height: 50px;
+      font-size: $text-size-50;
+      font-weight: 500;
+      line-height: 70px;
     }
+  }
+
+  .main-news-header {
+    margin-top: 60px;
 
     h2 {
-      margin-top: 50px;
       font-size: $text-size-36;
       line-height: 43px;
     }
   }
 
-  .cover-background {
-    padding-top: 50px;
-    @include respond-to(all-mobile) {
+  .banner-background {
+    padding-top: 30px;
+
+    @include respond-to(mobile-large) {
       padding-top: 0;
-      padding-bottom: 20px;
+      padding-bottom: 0;
     }
-    > .component-content {
+    > .component-content .row {
       height: 800px;
-      background-position: center;
-      background-repeat: no-repeat;
+      overflow: hidden;
+      position: relative;
+
+      img {
+        position: absolute;
+        top: -50%;
+      }
     }
   }
 
-  @include respond-to(all-mobile) {
+  @include respond-to(mobile-large) {
     padding-top: 0;
     margin-bottom: 0;
 
-    .cover-background {
-      > .component-content {
+    .banner-background {
+      > .component-content .row {
         height: 300px;
+
+        img {
+          max-width: 120%;
+          top: 0;
+        }
       }
     }
 
-    .rich-text {
+    .main-header {
+      margin-top: 10px;
+
       h4 {
-        font-size: $text-size-16;
+        font-size: $text-size-24;
         line-height: 32px;
       }
+    }
+    .main-news-header {
+      padding-bottom: 35px;
+
       h2 {
         margin-top: 0;
         font-size: $text-size-18;
