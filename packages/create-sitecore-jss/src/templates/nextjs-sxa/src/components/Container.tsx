@@ -23,13 +23,10 @@ export const Default = (props: ComponentProps): JSX.Element => {
   const phKey = `container-${props.params.DynamicPlaceholderId}`;
   let backgroundImage = props.params.BackgroundImage as string;
   let backgroundStyle: { [key: string]: string } = {};
-  let backgroundClass = '';
-  const id = props.params.RenderingIdentifier;
 
   if (backgroundImage) {
     const prefix = `${sitecoreContext.pageState !== 'normal' ? '/sitecore/shell' : ''}/-/media/`;
     backgroundImage = `${backgroundImage?.match(BACKGROUND_REG_EXP)?.pop()?.replace(/-/gi, '')}`;
-    backgroundClass = 'not-empty-placholder';
 
     // TODO: here uses ${config.sitecoreApiHost} it's temporary solutions - it will be removed when be fix bug - UNABLE_TO_VERIFY_LEAF_SIGNATUE
     // TODO: this fix https://doc.sitecore.com/xp/en/developers/hd/200/sitecore-headless-development/walkthrough--configuring-sitecore-ca-certificates-for-node-js.html doesn't help
@@ -39,8 +36,8 @@ export const Default = (props: ComponentProps): JSX.Element => {
   }
 
   return (
-    <div className={`component container ${styles}`} id={id ? id : undefined}>
-      <div className={`component-content ${backgroundClass}`} style={backgroundStyle}>
+    <div className={`component container ${styles}`}>
+      <div className="component-content" style={backgroundStyle}>
         <div className="row">
           <Placeholder name={phKey} rendering={props.rendering} />
         </div>
