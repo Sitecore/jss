@@ -43,7 +43,7 @@ export interface EditingRenderMiddlewareConfig {
 
 /**
  * Middleware / handler for use in the editing render Next.js API route (e.g. '/api/editing/render')
- * which is required for Sitecore Experience Editor support.
+ * which is required for Sitecore editing support.
  */
 export class EditingRenderMiddleware {
   private editingDataService: EditingDataService;
@@ -56,8 +56,7 @@ export class EditingRenderMiddleware {
    */
   constructor(config?: EditingRenderMiddlewareConfig) {
     this.editingDataService = config?.editingDataService ?? editingDataService;
-    this.dataFetcher =
-      config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.experienceEditor });
+    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.editing });
     this.resolvePageUrl = config?.resolvePageUrl ?? this.defaultResolvePageUrl;
     this.resolveServerUrl = config?.resolveServerUrl ?? this.defaultResolveServerUrl;
   }
@@ -73,7 +72,7 @@ export class EditingRenderMiddleware {
   private handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     const { method, query, body, headers } = req;
 
-    debug.experienceEditor('editing render middleware start: %o', {
+    debug.editing('editing render middleware start: %o', {
       method,
       query,
       headers,
@@ -81,7 +80,7 @@ export class EditingRenderMiddleware {
     });
 
     if (method !== 'POST') {
-      debug.experienceEditor('invalid method - sent %s expected POST', method);
+      debug.editing('invalid method - sent %s expected POST', method);
       res.setHeader('Allow', 'POST');
       return res.status(405).json({
         html: `<html><body>Invalid request method '${method}'</body></html>`,
@@ -91,7 +90,7 @@ export class EditingRenderMiddleware {
     // Validate secret
     const secret = query[QUERY_PARAM_EDITING_SECRET] ?? body?.jssEditingSecret;
     if (secret !== getJssEditingSecret()) {
-      debug.experienceEditor(
+      debug.editing(
         'invalid editing secret - sent "%s" expected "%s"',
         secret,
         getJssEditingSecret()
@@ -123,7 +122,7 @@ export class EditingRenderMiddleware {
       // Make actual render request for page route, passing on preview cookies.
       // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
       const requestUrl = this.resolvePageUrl(serverUrl, editingData.path);
-      debug.experienceEditor('fetching page route for %s', editingData.path);
+      debug.editing('fetching page route for %s', editingData.path);
       const queryStringCharacter = requestUrl.indexOf('?') === -1 ? '?' : '&';
       const pageRes = await this.dataFetcher
         .get<string>(`${requestUrl}${queryStringCharacter}timestamp=${Date.now()}`, {
@@ -161,7 +160,7 @@ export class EditingRenderMiddleware {
       const body = { html };
 
       // Return expected JSON result
-      debug.experienceEditor('editing render middleware end: %o', { status: 200, body });
+      debug.editing('editing render middleware end: %o', { status: 200, body });
       res.status(200).json(body);
     } catch (error) {
       console.error(error);
@@ -207,7 +206,7 @@ export class EditingRenderMiddleware {
  * @param {NextApiRequest} req
  */
 export function extractEditingData(req: NextApiRequest): EditingData {
-  // The Experience Editor will send the following body data structure,
+  // Sitecore editors will send the following body data structure,
   // though we're only concerned with the "args".
   // {
   //   id: 'JSS app name',

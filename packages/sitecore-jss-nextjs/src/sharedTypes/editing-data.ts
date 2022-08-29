@@ -2,7 +2,7 @@ import { LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
 import { DictionaryPhrases } from '@sitecore-jss/sitecore-jss/i18n';
 
 /**
- * Data sent from Experience Editor
+ * Data sent from Sitecore editors
  */
 export type EditingData = {
   path: string;

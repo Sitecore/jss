@@ -23,7 +23,7 @@ export interface EditingDataServiceConfig {
 }
 
 /**
- * Service responsible for maintaining Sitecore Experience Editor data between requests
+ * Service responsible for maintaining Sitecore editor data between requests
  */
 export class EditingDataService {
   private apiRoute: string;
@@ -37,12 +37,11 @@ export class EditingDataService {
     if (!this.apiRoute.includes('[key]')) {
       throw new Error(`The specified apiRoute '${this.apiRoute}' is missing '[key]'.`);
     }
-    this.dataFetcher =
-      config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.experienceEditor });
+    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.editing });
   }
 
   /**
-   * Stores Experience Editor payload data for later retrieval by key
+   * Stores Sitecore editor payload data for later retrieval by key
    * @param {EditingData} data Editing data
    * @param {string} serverUrl The server url to use for subsequent data API requests
    * @returns {Promise} The {@link EditingPreviewData} containing the generated key and serverUrl to use for retrieval
@@ -56,14 +55,14 @@ export class EditingDataService {
       serverUrl,
     } as EditingPreviewData;
 
-    debug.experienceEditor('storing editing data for %o: %o', previewData, data);
+    debug.editing('storing editing data for %o: %o', previewData, data);
     return this.dataFetcher.put(url, data).then(() => {
       return previewData;
     });
   }
 
   /**
-   * Retrieves Experience Editor payload data by key
+   * Retrieves Sitecore editor payload data by key
    * @param {PreviewData} previewData Editing preview data containing the key and serverUrl to use for retrieval
    * @returns {Promise} The {@link EditingData}
    */
@@ -74,7 +73,7 @@ export class EditingDataService {
     }
     const url = this.getUrl(editingPreviewData.serverUrl, editingPreviewData.key);
 
-    debug.experienceEditor('fetching editing data for %o', previewData);
+    debug.editing('fetching editing data for %o', previewData);
     return this.dataFetcher.get<EditingData>(url).then((response: { data: EditingData }) => {
       return response.data;
     });

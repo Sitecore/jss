@@ -24,7 +24,7 @@ export interface EditingDataMiddlewareConfig {
 
 /**
  * Middleware / handler for use in the editing data Next.js API dynamic route (e.g. '/api/editing/data/[key]')
- * which is required for Sitecore Experience Editor support.
+ * which is required for Sitecore editing support.
  */
 export class EditingDataMiddleware {
   private queryParamKey: string;
