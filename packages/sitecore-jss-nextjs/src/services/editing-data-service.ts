@@ -22,10 +22,37 @@ export interface EditingDataServiceConfig {
   dataFetcher?: AxiosDataFetcher;
 }
 
+export interface EditingDataService {
+  /**
+   * Stores Sitecore editor payload data for later retrieval
+   * @param {EditingData} data Editing data
+   * @param {string} [serverUrl] The server url e.g. which can be used for further data API requests
+   * @returns The preview data containing the information to use for retrieval
+   */
+  setEditingData(data: EditingData, serverUrl?: string): Promise<EditingPreviewData>;
+  /**
+   * Retrieves Sitecore editor payload data
+   * @param {PreviewData} previewData Editing preview data containing the information to use for retrieval
+   * @returns The {@link EditingData}
+   */
+  getEditingData(previewData: PreviewData): Promise<EditingData | undefined>;
+}
+
+export class BasicEditingDataService implements EditingDataService {
+  async setEditingData(data: EditingData): Promise<EditingPreviewData> {
+    console.log(data);
+    throw new Error('Method not implemented.');
+  }
+  async getEditingData(previewData: PreviewData): Promise<EditingData | undefined> {
+    console.log(previewData);
+    throw new Error('Method not implemented.');
+  }
+}
+
 /**
  * Service responsible for maintaining Sitecore editor data between requests
  */
-export class EditingDataService {
+export class ServerlessEditingDataService implements EditingDataService {
   private apiRoute: string;
   private dataFetcher: AxiosDataFetcher;
 
@@ -99,5 +126,7 @@ export class EditingDataService {
   }
 }
 
-/** EditingDataService singleton (with default values) */
-export const editingDataService = new EditingDataService();
+/** EditingDataService instance singleton (with default values) */
+export const editingDataService = process.env.VERCEL
+  ? new ServerlessEditingDataService()
+  : new BasicEditingDataService();

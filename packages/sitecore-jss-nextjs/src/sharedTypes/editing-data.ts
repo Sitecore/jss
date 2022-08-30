@@ -28,5 +28,5 @@ export function isEditingData(data: EditingData | unknown): data is EditingData 
  */
 export interface EditingPreviewData {
   key: string;
-  serverUrl: string;
+  serverUrl?: string;
 }
