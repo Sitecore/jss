@@ -201,4 +201,41 @@ describe('RichText', () => {
 
     expect(c.find(ReactRichText).length).to.equal(1);
   });
+
+  it('should not initialize links when target set to "_blank"', () => {
+    const app = document.createElement('main');
+
+    document.body.appendChild(app);
+
+    const router = Router();
+
+    const props = {
+      field: {
+        value: '<div id="test"><h1>Hello!</h1><a href="/t1" target="_blank">t1</a></div>',
+      },
+    };
+
+    const c = mount(
+      <Page value={router}>
+        <RichText {...props} />
+      </Page>,
+      { attachTo: app }
+    );
+
+    expect(c.html()).contains('<div id="test">');
+    expect(c.html()).contains('<h1>Hello!</h1>');
+    expect(c.html()).contains('<a href="/t1" target="_blank">t1</a>');
+
+    const main = document.querySelector('main');
+    const links = main && main.querySelectorAll('a');
+    const link = links && links[0];
+
+    expect(router.prefetch).callCount(0);
+
+    link && link.click();
+
+    expect(router.push).callCount(0);
+
+    expect(c.find(ReactRichText).length).to.equal(1);
+  });
 });
