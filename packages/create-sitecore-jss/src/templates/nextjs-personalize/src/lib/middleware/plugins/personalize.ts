@@ -44,7 +44,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
       // This would typically be based on your cookie consent management solution of choice.
       // By default it is always enabled.
       disabled: () => false,
-      // This function is used to determine if route should be excluded from personalization.
+      // This function determines if a route should be excluded from personalization.
       // Certain paths are ignored by default (e.g. files and Next.js API routes), but you may wish to exclude more.
       // This is an important performance consideration since Next.js Edge middleware runs on every request.
       excludeRoute: (pathName: string) => false
