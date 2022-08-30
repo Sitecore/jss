@@ -37,6 +37,13 @@ module.exports = {
           options: {
             babelrc: false,
             presets: [env, reactApp],
+            plugins: [
+              [
+                '@babel/plugin-proposal-private-methods',
+                { loose: true }
+              ],
+              ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+            ]
           },
         },
       },
@@ -72,4 +79,12 @@ module.exports = {
     // > Critical dependency: the request of a dependency is an expression
     new webpack.NormalModuleReplacementPlugin(/\/iconv-loader$/, () => {}),
   ],
+  <% if (isDev) { %>
+  resolve: {
+    symlinks: false,
+    alias: {
+      react: path.resolve(process.cwd(), '.', 'node_modules', 'react')
+    }
+  },
+  <% } %>
 };
