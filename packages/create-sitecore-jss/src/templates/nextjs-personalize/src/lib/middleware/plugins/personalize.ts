@@ -5,7 +5,7 @@ import config from 'temp/config';
 
 /**
  * This is the personalize middleware plugin for Next.js.
- * It is used to configure personalization in Next.js
+ * It is used to enable Sitecore personalization of pages in Next.js.
  *
  * The `PersonalizeMiddleware` will
  *  1. Make a call to the Sitecore Experience Edge to get the personalization information about the page.
