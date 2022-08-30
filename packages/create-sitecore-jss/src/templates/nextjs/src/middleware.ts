@@ -5,3 +5,8 @@ import middleware from 'lib/middleware';
 export default async function (req: NextRequest, ev: NextFetchEvent) {
   return middleware(req, ev);
 }
+
+export const config = {
+  // Exclude Sitecore editing API routes
+  matcher: ['/', '/((?!api/editing/).*)'],
+};
