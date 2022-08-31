@@ -79,7 +79,7 @@ module.exports = {
     // > Critical dependency: the request of a dependency is an expression
     new webpack.NormalModuleReplacementPlugin(/\/iconv-loader$/, () => {}),
   ],
-  <% if (isDev) { %>
+  <% if (helper.isDev) { %>
   resolve: {
     symlinks: false,
     alias: {

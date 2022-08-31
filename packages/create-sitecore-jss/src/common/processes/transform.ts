@@ -209,8 +209,8 @@ export const transform = async (
   // pass in helper to answers object
   const ejsData: Data = {
     ...answers,
-    isDev: isDevEnvironment(answers.destination),
     helper: {
+      isDev: isDevEnvironment(answers.destination),
       getPascalCaseName: getPascalCaseName,
       getAppPrefix: getAppPrefix,
     },
