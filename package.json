@@ -4,6 +4,7 @@
     "reset": "lerna clean --yes && yarn dlx rimraf node_modules && yarn install && yarn build",
     "build": "lerna run build",
     "lint-packages": "lerna run lint",
+    "scaffold-apps": "node ./scripts/scaffold-samples.js",
     "coverage-packages": "lerna run coverage",
     "install-git-hooks": "node ./scripts/install-hooks.js",
     "generate-docs": "lerna run generate-docs",
