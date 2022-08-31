@@ -8,7 +8,6 @@
     "clean": "del-cli dist types",
     "lint": "eslint --no-eslintrc -c .eslintrc ./src/**/*.ts",
     "watch": "ts-node ./scripts/watch-templates.ts",
-    "scaffold-apps": "ts-node ./scripts/scaffold-samples.ts",
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "coverage": "nyc npm test"
   },

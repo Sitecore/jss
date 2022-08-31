@@ -5,7 +5,6 @@
     ],
     "args": {
       "appName": "nextjs-vanilla",
-      "destination": "..\\..\\samples\\nextjs-vanilla",
       "fetchWith": "GraphQL",
       "prerender": "SSR",
       "silent": false
@@ -13,11 +12,10 @@
   },
   {
     "initializers": [
-      "nextjs", "nextjs-styleguide-tracking"
+      "nextjs", "nextjs-styleguide", "nextjs-styleguide-tracking"
     ],
     "args": {
       "appName": "nextjs-styleguide",
-      "destination": "..\\..\\samples\\nextjs-styleguide",
       "fetchWith": "GraphQL",
       "prerender": "SSR"
     }
@@ -28,7 +26,6 @@
     ],
     "args": {
       "appName": "nextjs-sxa",
-      "destination": "..\\..\\samples\\nextjs-sxa",
       "fetchWith": "GraphQL",
       "prerender": "SSR"
     }
@@ -39,7 +36,6 @@
     ],
     "args": {
       "appName": "react",
-      "destination": "..\\..\\samples\\react",
       "fetchWith": "GraphQL"
     }
   },
@@ -49,7 +45,6 @@
     ],
     "args": {
       "appName": "angular",
-      "destination": "..\\..\\samples\\angular",
       "fetchWith": "GraphQL"
     }
   },
@@ -59,7 +54,6 @@
     ],
     "args": {
       "appName": "vue",
-      "destination": "..\\..\\samples\\vue",
       "fetchWith": "GraphQL"
     }
   }
