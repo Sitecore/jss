@@ -1,9 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
-import { EditingData } from '../sharedTypes/editing-data';
-import { EditingDataService, editingDataService } from '../services/editing-data-service';
-import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
+import { EditingData } from './editing-data';
+import {
+  EditingDataService,
+  editingDataService,
+  QUERY_PARAM_EDITING_SECRET,
+} from './editing-data-service';
 import { getJssEditingSecret } from '../utils';
 
 export interface EditingRenderMiddlewareConfig {

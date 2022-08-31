@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
-import { EditingData, isEditingData } from '../sharedTypes/editing-data';
-import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
+import { EditingData, isEditingData } from './editing-data';
+import { QUERY_PARAM_EDITING_SECRET } from './editing-data-service';
 import { getJssEditingSecret } from '../utils';
 
 export interface EditingDataMiddlewareConfig {
@@ -60,7 +60,7 @@ export class EditingDataMiddleware {
     switch (method) {
       case 'GET': {
         // Get cache value
-        const data = this.editingDataCache.get(key as string);
+        const data = await this.editingDataCache.get(key as string);
         res.status(200).json(data);
         break;
       }

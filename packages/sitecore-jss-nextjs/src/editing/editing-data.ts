@@ -22,11 +22,3 @@ export function isEditingData(data: EditingData | unknown): data is EditingData 
     (data as EditingData).dictionary !== undefined
   );
 }
-
-/**
- * Data for Next.js Preview (Editing) mode
- */
-export interface EditingPreviewData {
-  key: string;
-  serverUrl?: string;
-}

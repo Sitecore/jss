@@ -15,7 +15,7 @@
     "typings",
     "dist",
     "middleware.d.ts",
-    "edge.d.ts",
+    "editing.d.ts",
     "src/tests/*",
     "src/test-data/*",
     "**/*.test.ts",
