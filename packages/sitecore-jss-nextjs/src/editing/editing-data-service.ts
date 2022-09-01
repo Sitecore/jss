@@ -184,6 +184,9 @@ export class ServerlessEditingDataService extends EditingDataServiceBase
 /**
  * The `EditingDataService` default instance.
  * This will be `ServerlessEditingDataService` on Vercel, `BasicEditingDataService` otherwise.
+ *
+ * For information about the VERCEL environment variable, see
+ * https://vercel.com/docs/environment-variables#system-environment-variables
  */
 export const editingDataService = process.env.VERCEL
   ? new ServerlessEditingDataService()
