@@ -9,6 +9,7 @@ export {
   EditingPreviewData,
   EditingDataService,
   BasicEditingDataService,
+  BasicEditingDataServiceConfig,
   ServerlessEditingDataService,
   ServerlessEditingDataServiceConfig,
   editingDataService,

@@ -1,9 +1,8 @@
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from './editing-data';
-import { EditingDataDiskCache } from './editing-data-cache';
+import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
 import { getJssEditingSecret } from '../utils';
 import { PreviewData } from 'next';
-import os from 'os';
 
 export const QUERY_PARAM_EDITING_SECRET = 'secret';
 
@@ -46,20 +45,31 @@ abstract class EditingDataServiceBase {
   }
 }
 
+export interface BasicEditingDataServiceConfig {
+  /**
+   * An instance of the `EditingDataCache` implementation to use.
+   * By default, this is `editingDataDiskCache` (an `EditingDataDiskCache` singleton).
+   * @default editingDataDiskCache
+   * @see EditingDataCache
+   * @see EditingDataDiskCache
+   */
+  editingDataCache?: EditingDataCache;
+}
+
 /**
  * Service responsible for maintaining Sitecore editor data between requests
  * on self-hosted deployment architectures.
- * Utilizes a disk-based cache for storage and retrieval of editing data.
+ * Utilizes a cache for storage and retrieval of editing data.
  */
 export class BasicEditingDataService extends EditingDataServiceBase implements EditingDataService {
-  private editingDataDiskCache: EditingDataDiskCache;
+  private editingDataCache: EditingDataCache;
 
   /**
-   * @param {string} [tmpDir] Temp directory to use for disk cache. Default is the OS temp directory (os.tmpdir()).
+   * @param {BasicEditingDataServiceConfig} [config] Editing data service config
    */
-  constructor(tmpDir: string = os.tmpdir()) {
+  constructor(config?: BasicEditingDataServiceConfig) {
     super();
-    this.editingDataDiskCache = new EditingDataDiskCache(tmpDir);
+    this.editingDataCache = config?.editingDataCache ?? editingDataDiskCache;
   }
 
   /**
@@ -75,7 +85,7 @@ export class BasicEditingDataService extends EditingDataServiceBase implements E
     } as EditingPreviewData;
 
     debug.editing('storing editing data for %o: %o', previewData, data);
-    return this.editingDataDiskCache.set(key, data).then(() => {
+    return this.editingDataCache.set(key, data).then(() => {
       return { key };
     });
   }
@@ -89,7 +99,7 @@ export class BasicEditingDataService extends EditingDataServiceBase implements E
     const editingPreviewData = previewData as EditingPreviewData;
 
     debug.editing('retrieving editing data for %o', previewData);
-    return this.editingDataDiskCache.get(editingPreviewData.key);
+    return this.editingDataCache.get(editingPreviewData.key);
   }
 }
 

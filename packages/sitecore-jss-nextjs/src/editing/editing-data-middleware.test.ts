@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
-import { EditingData } from '../sharedTypes/editing-data';
+import { QUERY_PARAM_EDITING_SECRET } from './editing-data-service';
+import { EditingData } from './editing-data';
 import { EditingDataCache } from './editing-data-cache';
 import { EditingDataMiddleware } from './editing-data-middleware';
-import { spy } from 'sinon';
+import { spy, stub } from 'sinon';
 import sinonChai from 'sinon-chai';
 
 use(sinonChai);
@@ -40,10 +40,8 @@ const mockResponse = () => {
 
 const mockCache = (data?: EditingData) => {
   const cache = {} as EditingDataCache;
-  cache.set = spy();
-  cache.get = spy(() => {
-    return data;
-  });
+  cache.set = stub().resolves();
+  cache.get = stub().resolves(data);
   return cache;
 };
 
