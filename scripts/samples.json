@@ -22,10 +22,10 @@
   },
   {
     "initializers": [
-      "nextjs", "nextjs-styleguide"
+      "nextjs", "nextjs-styleguide", "nextjs-personalize"
     ],
     "args": {
-      "appName": "nextjs-styleguide",
+      "appName": "nextjs-styleguide-personalize",
       "fetchWith": "GraphQL",
       "prerender": "SSG"
     }
