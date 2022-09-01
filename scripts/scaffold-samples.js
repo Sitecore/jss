@@ -1,10 +1,10 @@
 const chalk = require('chalk');
 
 const { initRunner } = require('../packages/create-sitecore-jss/dist/init-runner');
-const samplesToSacffold = require('./samples.json');
+const samplesToScaffold = require('./samples.json');
 
-for (const sample of samplesToSacffold) {
-  sample.args.appName = `sample-${sample.args.appName}`;
+for (const sample of samplesToScaffold) {
+  sample.args.appName = `sample-${sample.args.appName}-${sample.args.fetchWith || ''}-${sample.args.prerender || ''}`;
   sample.args.destination = `./samples/${sample.args.appName}`;
   sample.args.hostName = `${sample.args.appName}.jss.localhost`;
   console.log(chalk.green(`Initializing sample ${sample.args.appName} ...`));
@@ -19,5 +19,4 @@ for (const sample of samplesToSacffold) {
     ...sample.args,
   }
   initRunner(sample.initializers, scaffoldArgs);
-}
-
+};
