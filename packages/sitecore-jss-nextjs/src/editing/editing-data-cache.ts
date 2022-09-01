@@ -27,28 +27,23 @@ export class EditingDataDiskCache implements EditingDataCache {
     this.cache = new Cache('editing-data', { compression: 'gzip', location: tmpDir });
   }
 
-  set(key: string, editingData: EditingData): Promise<void> {
-    return new Promise((resolve, reject) => {
-      const filePath = this.cache.set(key, JSON.stringify(editingData));
-      if (!filePath || filePath.length === 0) {
-        reject(`Editing data cache not set for key ${key} at ${this.cache.root}`);
-      }
-      resolve();
-    });
+  async set(key: string, editingData: EditingData): Promise<void> {
+    const filePath = this.cache.set(key, JSON.stringify(editingData));
+    if (!filePath || filePath.length === 0) {
+      throw new Error(`Editing data cache not set for key ${key} at ${this.cache.root}`);
+    }
   }
 
-  get(key: string): Promise<EditingData | undefined> {
-    return new Promise((resolve) => {
-      const entry = this.cache.get(key);
-      if (!entry.isCached) {
-        console.warn(`Editing data cache miss for key ${key} at ${this.cache.root}`);
-        resolve(undefined);
-      }
-      const data = JSON.parse(entry.value);
-      resolve(data as EditingData);
-      // Remove immediately to preserve disk-space
-      this.cache.remove(key);
-    });
+  async get(key: string): Promise<EditingData | undefined> {
+    const entry = this.cache.get(key);
+    if (!entry.isCached) {
+      console.warn(`Editing data cache miss for key ${key} at ${this.cache.root}`);
+      return undefined;
+    }
+    // Remove immediately to preserve disk-space
+    // NOTE: sync-disk-cache actually uses fs.unlink so this is async
+    this.cache.remove(key);
+    return JSON.parse(entry.value) as EditingData;
   }
 }
 
