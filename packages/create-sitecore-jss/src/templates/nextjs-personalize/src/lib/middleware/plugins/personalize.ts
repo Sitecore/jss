@@ -47,7 +47,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
       // This function determines if a route should be excluded from personalization.
       // Certain paths are ignored by default (e.g. files and Next.js API routes), but you may wish to exclude more.
       // This is an important performance consideration since Next.js Edge middleware runs on every request.
-      excludeRoute: (pathName: string) => false
+      excludeRoute: () => false
     });
   }
 
