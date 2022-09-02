@@ -1,4 +1,4 @@
-﻿import path from 'path';
+﻿import path, { sep } from 'path';
 import {
   Initializer,
   openPackageJson,
@@ -13,7 +13,7 @@ export default class NextjsSxaInitializer implements Initializer {
   }
 
   async init(args: ClientAppArgs) {
-    const pkg = openPackageJson(`${args.destination}\\package.json`);
+    const pkg = openPackageJson(`${args.destination}${sep}package.json`);
 
     // TODO: prompts for SXA
     // const answers = await prompt<StyleguideAnswer>(styleguidePrompts, args);

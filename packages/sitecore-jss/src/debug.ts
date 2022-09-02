@@ -27,7 +27,7 @@ export const enableDebug = (namespaces: string) => debug.enable(namespaces);
  * Default Sitecore JSS 'debug' module debuggers. Uses namespace prefix 'sitecore-jss:'.
  * See {@link https://www.npmjs.com/package/debug} for details.
  */
-export default Object.freeze({
+export default {
   http: debug(`${rootNamespace}:http`),
   layout: debug(`${rootNamespace}:layout`),
   dictionary: debug(`${rootNamespace}:dictionary`),
@@ -37,4 +37,4 @@ export default Object.freeze({
   redirects: debug(`${rootNamespace}:redirects`),
   personalize: debug(`${rootNamespace}:personalize`),
   errorpages: debug(`${rootNamespace}:errorpages`),
-});
+};
