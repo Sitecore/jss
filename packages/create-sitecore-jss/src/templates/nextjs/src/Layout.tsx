@@ -12,6 +12,7 @@ import Scripts from 'src/Scripts';
 // Prefix public assets with a public URL to enable compatibility with Sitecore editors.
 // If you're not supporting Sitecore editors, you can remove this.
 const publicUrl = getPublicUrl();
+import SafeHydrate from 'components/SafeHydrate';
 
 interface LayoutProps {
   layoutData: LayoutServiceData;
@@ -39,10 +40,11 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">
         {route && (
-          <Placeholder
-            name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main"
-            rendering={route}
-          />
+          // SafeHydrate is a workaround for Next.js issue (after react 18 upgrade) with hydration on the server.
+          // by dynamically importing the problematic component with no SSR would fix the hydration issue.
+          <SafeHydrate>
+            <Placeholder name="NextjsApp-jss-main" rendering={route} />
+          </SafeHydrate>
         )}
       </div>
     </>
