@@ -112,7 +112,6 @@ export class EditingRenderMiddleware {
       const serverUrl = this.resolveServerUrl(req);
 
       // Stash for use later on (i.e. within getStatic/ServerSideProps).
-      // This ultimately gets stored on disk (using our EditingDataDiskCache) for compatibility with Vercel Serverless Functions.
       // Note we can't set this directly in setPreviewData since it's stored as a cookie (2KB limit)
       // https://nextjs.org/docs/advanced-features/preview-mode#previewdata-size-limits)
       const previewData = await this.editingDataService.setEditingData(editingData, serverUrl);

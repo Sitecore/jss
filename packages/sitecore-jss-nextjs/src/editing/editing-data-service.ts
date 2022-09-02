@@ -33,17 +33,20 @@ export interface EditingDataService {
   getEditingData(previewData: PreviewData): Promise<EditingData | undefined>;
 }
 
-abstract class EditingDataServiceBase {
-  protected generateKey(data: EditingData): string {
-    // Need more than just the item GUID since requests are made "live" during editing in EE.
-    // The suffix code will produce a random 10 character alpha-numeric (a-z 0-9) sequence, which is URI-safe.
-    // Example generated key: 52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x
-    const suffix = Math.random()
-      .toString(36)
-      .substring(2, 12);
-    return `${data.layoutData.sitecore.route?.itemId}-${suffix}`;
-  }
-}
+/**
+ * Default key generator.
+ * Need more than just the item GUID since requests are made "live" during editing in EE.
+ * The suffix code will produce a random 10 character alpha-numeric (a-z 0-9) sequence, which is URI-safe.
+ * Example generated key: 52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x
+ * @param {EditingData} data The editing data
+ * @returns {string} The unique key
+ */
+export const defaultGenerateKey = (data: EditingData): string => {
+  const suffix = Math.random()
+    .toString(36)
+    .substring(2, 12);
+  return `${data.layoutData.sitecore.route?.itemId}-${suffix}`;
+};
 
 export interface BasicEditingDataServiceConfig {
   /**
@@ -54,6 +57,15 @@ export interface BasicEditingDataServiceConfig {
    * @see EditingDataDiskCache
    */
   editingDataCache?: EditingDataCache;
+
+  /**
+   * Function used to generate a unique key for editing data.
+   * By default, this is item id + a random 10 character alpha-numeric (a-z 0-9) suffix.
+   * @param {EditingData} data The editing data
+   * @returns {string} The unique key
+   * @default `${data.layoutData.sitecore.route?.itemId}-${suffix}`
+   */
+  generateKey?: (data: EditingData) => string;
 }
 
 /**
@@ -61,15 +73,16 @@ export interface BasicEditingDataServiceConfig {
  * on self-hosted deployment architectures.
  * Utilizes a cache for storage and retrieval of editing data.
  */
-export class BasicEditingDataService extends EditingDataServiceBase implements EditingDataService {
+export class BasicEditingDataService implements EditingDataService {
   private editingDataCache: EditingDataCache;
+  private generateKey: (data: EditingData) => string;
 
   /**
    * @param {BasicEditingDataServiceConfig} [config] Editing data service config
    */
   constructor(config?: BasicEditingDataServiceConfig) {
-    super();
     this.editingDataCache = config?.editingDataCache ?? editingDataDiskCache;
+    this.generateKey = config?.generateKey ?? defaultGenerateKey;
   }
 
   /**
@@ -118,6 +131,14 @@ export interface ServerlessEditingDataServiceConfig {
    * @see AxiosDataFetcher
    */
   dataFetcher?: AxiosDataFetcher;
+  /**
+   * Function used to generate a unique key for editing data.
+   * By default, this is item id + a random 10 character alpha-numeric (a-z 0-9) suffix.
+   * @param {EditingData} data The editing data
+   * @returns {string} The unique key
+   * @default `${data.layoutData.sitecore.route?.itemId}-${suffix}`
+   */
+  generateKey?: (data: EditingData) => string;
 }
 
 /**
@@ -125,21 +146,21 @@ export interface ServerlessEditingDataServiceConfig {
  * on serverless deployment architectures (e.g. Vercel).
  * Utilizes another Next.js API route ('/api/editing/data/[key]') for storage and retrieval of editing data.
  */
-export class ServerlessEditingDataService extends EditingDataServiceBase
-  implements EditingDataService {
+export class ServerlessEditingDataService implements EditingDataService {
   private apiRoute: string;
   private dataFetcher: AxiosDataFetcher;
+  private generateKey: (data: EditingData) => string;
 
   /**
    * @param {ServerlessEditingDataServiceConfig} [config] Editing data service config
    */
   constructor(config?: ServerlessEditingDataServiceConfig) {
-    super();
     this.apiRoute = config?.apiRoute ?? '/api/editing/data/[key]';
     if (!this.apiRoute.includes('[key]')) {
       throw new Error(`The specified apiRoute '${this.apiRoute}' is missing '[key]'.`);
     }
     this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.editing });
+    this.generateKey = config?.generateKey ?? defaultGenerateKey;
   }
 
   /**

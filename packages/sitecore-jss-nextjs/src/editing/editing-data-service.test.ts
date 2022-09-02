@@ -8,6 +8,7 @@ import {
   ServerlessEditingDataService,
   BasicEditingDataService,
   QUERY_PARAM_EDITING_SECRET,
+  defaultGenerateKey,
 } from './editing-data-service';
 import sinonChai from 'sinon-chai';
 import { spy, stub } from 'sinon';
@@ -27,6 +28,30 @@ const mockFetcher = (data?: unknown) => {
   });
   return fetcher;
 };
+
+describe('defaultGenerateKey', () => {
+  it('should generate unique key for item', async () => {
+    const data = {
+      layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
+    } as EditingData;
+
+    const key1 = defaultGenerateKey(data);
+    const key2 = defaultGenerateKey(data);
+
+    expect(key1).to.not.equal(key2);
+  });
+
+  it('should generate unique key for item when route is null', async () => {
+    const data = {
+      layoutData: { sitecore: { route: null } },
+    } as EditingData;
+
+    const key1 = defaultGenerateKey(data);
+    const key2 = defaultGenerateKey(data);
+
+    expect(key1).to.not.equal(key2);
+  });
+});
 
 describe('ServerlessEditingDataService', () => {
   const secret = 'secret1234';
@@ -56,9 +81,9 @@ describe('ServerlessEditingDataService', () => {
 
       const fetcher = mockFetcher();
 
-      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
-      stub(service, <any>'generateKey').callsFake(() => {
-        return key;
+      const service = new ServerlessEditingDataService({
+        dataFetcher: fetcher,
+        generateKey: () => key,
       });
 
       return service.setEditingData(data, serverUrl).then((previewData) => {
@@ -67,34 +92,6 @@ describe('ServerlessEditingDataService', () => {
         expect(fetcher.put).to.have.been.calledOnce;
         expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
       });
-    });
-
-    it('should generate unique key for item', async () => {
-      const data = {
-        layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
-      } as EditingData;
-      const fetcher = mockFetcher();
-      const serverUrl = 'https://test.com';
-
-      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
-
-      const previewData1 = await service.setEditingData(data, serverUrl);
-      const previewData2 = await service.setEditingData(data, serverUrl);
-      expect(previewData1.key).to.not.equal(previewData2.key);
-    });
-
-    it('should generate unique key for item when route is null', async () => {
-      const data = {
-        layoutData: { sitecore: { route: null } },
-      } as EditingData;
-      const fetcher = mockFetcher();
-      const serverUrl = 'https://test.com';
-
-      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
-
-      const previewData1 = await service.setEditingData(data, serverUrl);
-      const previewData2 = await service.setEditingData(data, serverUrl);
-      expect(previewData1.key).to.not.equal(previewData2.key);
     });
 
     it('should use custom apiRoute', async () => {
@@ -110,9 +107,7 @@ describe('ServerlessEditingDataService', () => {
       const service = new ServerlessEditingDataService({
         dataFetcher: fetcher,
         apiRoute: '/api/some/path/[key]',
-      });
-      stub(service, <any>'generateKey').callsFake(() => {
-        return key;
+        generateKey: () => key,
       });
 
       return service.setEditingData(data, serverUrl).then(() => {
@@ -135,9 +130,9 @@ describe('ServerlessEditingDataService', () => {
 
       const fetcher = mockFetcher();
 
-      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
-      stub(service, <any>'generateKey').callsFake(() => {
-        return key;
+      const service = new ServerlessEditingDataService({
+        dataFetcher: fetcher,
+        generateKey: () => key,
       });
 
       return service.setEditingData(data, serverUrl).then(() => {
@@ -158,9 +153,9 @@ describe('ServerlessEditingDataService', () => {
 
       const fetcher = mockFetcher(data);
 
-      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
-      stub(service, <any>'generateKey').callsFake(() => {
-        return key;
+      const service = new ServerlessEditingDataService({
+        dataFetcher: fetcher,
+        generateKey: () => key,
       });
 
       const editingData = await service.getEditingData({ key, serverUrl });
@@ -176,7 +171,10 @@ describe('ServerlessEditingDataService', () => {
       const key = '1234key';
       const fetcher = mockFetcher(data);
 
-      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
+      const service = new ServerlessEditingDataService({
+        dataFetcher: fetcher,
+        generateKey: () => key,
+      });
 
       const editingData = await service.getEditingData({ key });
       expect(editingData).to.equal(undefined);
@@ -201,9 +199,9 @@ describe('BasicEditingDataService', () => {
       } as EditingData;
       const cache = mockCache();
 
-      const service = new BasicEditingDataService({ editingDataCache: cache });
-      stub(service, <any>'generateKey').callsFake(() => {
-        return key;
+      const service = new BasicEditingDataService({
+        editingDataCache: cache,
+        generateKey: () => key,
       });
 
       return service.setEditingData(data).then((previewData) => {
@@ -211,32 +209,6 @@ describe('BasicEditingDataService', () => {
         expect(cache.set).to.have.been.calledOnce;
         expect(cache.set).to.have.been.calledWithExactly(key, data);
       });
-    });
-
-    it('should generate unique key for item', async () => {
-      const data = {
-        layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
-      } as EditingData;
-      const cache = mockCache();
-
-      const service = new BasicEditingDataService({ editingDataCache: cache });
-
-      const previewData1 = await service.setEditingData(data);
-      const previewData2 = await service.setEditingData(data);
-      expect(previewData1.key).to.not.equal(previewData2.key);
-    });
-
-    it('should generate unique key for item when route is null', async () => {
-      const data = {
-        layoutData: { sitecore: { route: null } },
-      } as EditingData;
-      const cache = mockCache();
-
-      const service = new BasicEditingDataService({ editingDataCache: cache });
-
-      const previewData1 = await service.setEditingData(data);
-      const previewData2 = await service.setEditingData(data);
-      expect(previewData1.key).to.not.equal(previewData2.key);
     });
   });
 
@@ -248,9 +220,9 @@ describe('BasicEditingDataService', () => {
       } as EditingData;
       const cache = mockCache(data);
 
-      const service = new BasicEditingDataService({ editingDataCache: cache });
-      stub(service, <any>'generateKey').callsFake(() => {
-        return key;
+      const service = new BasicEditingDataService({
+        editingDataCache: cache,
+        generateKey: () => key,
       });
 
       const editingData = await service.getEditingData({ key });
