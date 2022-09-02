@@ -11,7 +11,7 @@ import {
   defaultGenerateKey,
 } from './editing-data-service';
 import sinonChai from 'sinon-chai';
-import { spy, stub } from 'sinon';
+import { spy } from 'sinon';
 
 use(sinonChai);
 use(chaiAsPromised);
@@ -186,8 +186,10 @@ describe('ServerlessEditingDataService', () => {
 describe('BasicEditingDataService', () => {
   const mockCache = (data?: EditingData) => {
     const cache = {} as EditingDataCache;
-    cache.set = stub().resolves();
-    cache.get = stub().resolves(data);
+    cache.set = spy();
+    cache.get = spy(() => {
+      return data;
+    });
     return cache;
   };
 

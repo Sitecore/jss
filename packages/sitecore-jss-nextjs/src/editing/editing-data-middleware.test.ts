@@ -6,7 +6,7 @@ import { QUERY_PARAM_EDITING_SECRET } from './editing-data-service';
 import { EditingData } from './editing-data';
 import { EditingDataCache } from './editing-data-cache';
 import { EditingDataMiddleware } from './editing-data-middleware';
-import { spy, stub } from 'sinon';
+import { spy } from 'sinon';
 import sinonChai from 'sinon-chai';
 
 use(sinonChai);
@@ -40,8 +40,10 @@ const mockResponse = () => {
 
 const mockCache = (data?: EditingData) => {
   const cache = {} as EditingDataCache;
-  cache.set = stub().resolves();
-  cache.get = stub().resolves(data);
+  cache.set = spy();
+  cache.get = spy(() => {
+    return data;
+  });
   return cache;
 };
 

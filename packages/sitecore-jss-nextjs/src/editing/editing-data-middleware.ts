@@ -60,7 +60,7 @@ export class EditingDataMiddleware {
     switch (method) {
       case 'GET': {
         // Get cache value
-        const data = await this.editingDataCache.get(key as string);
+        const data = this.editingDataCache.get(key as string);
         res.status(200).json(data);
         break;
       }

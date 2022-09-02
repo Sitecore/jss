@@ -98,9 +98,8 @@ export class BasicEditingDataService implements EditingDataService {
     } as EditingPreviewData;
 
     debug.editing('storing editing data for %o: %o', previewData, data);
-    return this.editingDataCache.set(key, data).then(() => {
-      return { key };
-    });
+    this.editingDataCache.set(key, data);
+    return { key };
   }
 
   /**
