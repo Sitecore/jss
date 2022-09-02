@@ -3,7 +3,6 @@ import chai, { use } from 'chai';
 import chaiString from 'chai-string';
 import sinonChai from 'sinon-chai';
 import sinon, { spy } from 'sinon';
-import nock from 'nock';
 import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { ExperienceParams } from '@sitecore-jss/sitecore-jss/personalize';
@@ -19,41 +18,11 @@ describe('PersonalizeMiddleware', () => {
   const validateDebugLog = (message, ...params) =>
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
 
-  const createMiddleware = (
-    props: { [key: string]: unknown; cdpConfig?: any; edgeConfig?: any } = {}
-  ) =>
-    new PersonalizeMiddleware({
-      ...props,
-      cdpConfig: {
-        clientKey: 'cdp-client-key',
-        endpoint: 'http://cdp-endpoint',
-        pointOfSale: 'cdp-pos',
-        ...(props?.cdpConfig || {}),
-      },
-      edgeConfig: {
-        apiKey: 'edge-api-key',
-        endpoint: 'http://edge-endpoint/api/graph/edge',
-        siteName: 'nextjs-app',
-        ...(props?.edgeConfig || {}),
-      },
-    });
-
   const id = 'item-id';
   const version = '1';
   const variantIds = ['variant-1', 'variant-2'];
   const browserId = 'browser-id';
   const contentId = `${id}_en_${version}`.toLowerCase();
-  const personalizeQueryResult = {
-    layout: {
-      item: {
-        id,
-        version,
-        personalization: {
-          variantIds,
-        },
-      },
-    },
-  };
 
   const referrer = 'http://localhost:3000';
   const experienceParams: ExperienceParams = {
@@ -128,40 +97,65 @@ describe('PersonalizeMiddleware', () => {
     return res;
   };
 
-  const mockPersonalizeDataRequest = (data: any = personalizeQueryResult) =>
-    nock('http://edge-endpoint', {
-      reqheaders: {
-        sc_apikey: 'edge-api-key',
-      },
-    })
-      .post('/api/graph/edge')
-      .reply(200, {
-        data,
-      });
+  const createMiddleware = (
+    props: {
+      [key: string]: unknown;
+      cdpConfig?: any;
+      edgeConfig?: any;
+      variantId?: string;
+      browserId?: string;
+      personalizeInfo?: {
+        contentId: string;
+        variantIds: string[];
+      } | null;
+    } = {}
+  ) => {
+    const cdpConfig = {
+      clientKey: 'cdp-client-key',
+      endpoint: 'http://cdp-endpoint',
+      pointOfSale: 'cdp-pos',
+      ...(props?.cdpConfig || {}),
+    };
 
-  const mockBrowserIdGenerationRequest = (ref) =>
-    nock('http://cdp-endpoint')
-      .get('/v1.2/browser/create.json?client_key=cdp-client-key&message={}')
-      .reply(200, {
-        ref,
-      });
+    const edgeConfig = {
+      apiKey: 'edge-api-key',
+      endpoint: 'http://edge-endpoint/api/graph/edge',
+      siteName: 'nextjs-app',
+      ...(props?.edgeConfig || {}),
+    };
 
-  const mockExecuteExperienceRequest = (
-    variantId,
-    { friendlyId = contentId, params = experienceParams } = {}
-  ) =>
-    nock('http://cdp-endpoint')
-      .post('/v2/callFlows', {
-        clientKey: 'cdp-client-key',
-        pointOfSale: 'cdp-pos',
-        params,
-        browserId: 'browser-id',
-        friendlyId,
-        channel: 'WEB',
-      })
-      .reply(200, {
-        variantId,
-      });
+    const middleware = new PersonalizeMiddleware({
+      ...props,
+      cdpConfig,
+      edgeConfig,
+    });
+
+    const executeExperience = sinon
+      // eslint-disable-next-line dot-notation
+      .stub(middleware['cdpService'], 'executeExperience')
+      .returns(Promise.resolve(props.variantId));
+
+    const generateBrowserId = sinon
+      // eslint-disable-next-line dot-notation
+      .stub(middleware['cdpService'], 'generateBrowserId')
+      .returns(Promise.resolve(props.browserId));
+
+    const getPersonalizeInfo = sinon
+      // eslint-disable-next-line dot-notation
+      .stub(middleware['personalizeService'], 'getPersonalizeInfo')
+      .returns(
+        Promise.resolve(
+          props.personalizeInfo === null
+            ? undefined
+            : props.personalizeInfo || {
+                contentId,
+                variantIds,
+              }
+        )
+      );
+
+    return { middleware, executeExperience, generateBrowserId, getPersonalizeInfo };
+  };
 
   beforeEach(() => {
     userAgentStub.resetHistory();
@@ -182,7 +176,7 @@ describe('PersonalizeMiddleware', () => {
 
       const res = createResponse();
 
-      const middleware = createMiddleware(props);
+      const { middleware } = createMiddleware(props);
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -207,7 +201,7 @@ describe('PersonalizeMiddleware', () => {
 
       const res = createResponse({ redirected: true });
 
-      const middleware = createMiddleware();
+      const { middleware } = createMiddleware();
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -237,7 +231,7 @@ describe('PersonalizeMiddleware', () => {
 
         const res = createResponse();
 
-        const middleware = createMiddleware();
+        const { middleware } = createMiddleware();
 
         const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -267,7 +261,7 @@ describe('PersonalizeMiddleware', () => {
 
         const res = createResponse();
 
-        const middleware = createMiddleware();
+        const { middleware } = createMiddleware();
 
         const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -320,7 +314,7 @@ describe('PersonalizeMiddleware', () => {
       };
 
       it('default', async () => {
-        const middleware = createMiddleware();
+        const { middleware } = createMiddleware();
 
         await test('/src/image.png', middleware);
         await test('/api/layout/render', middleware);
@@ -331,24 +325,20 @@ describe('PersonalizeMiddleware', () => {
       it('custom excludeRoute function', async () => {
         const excludeRoute = (pathname: string) => pathname === '/crazypath/luna';
 
-        const middleware = createMiddleware({ excludeRoute });
+        const { middleware } = createMiddleware({ excludeRoute });
 
         await test('/crazypath/luna', middleware);
       });
     });
 
     it('personalize info not found', async () => {
-      const personalizeQueryResult = {
-        layout: {},
-      };
-
-      mockPersonalizeDataRequest(personalizeQueryResult);
-
       const req = createRequest();
 
       const res = createResponse();
 
-      const middleware = createMiddleware();
+      const { middleware, getPersonalizeInfo } = createMiddleware({
+        personalizeInfo: null,
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -359,7 +349,7 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
 
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
       validateDebugLog('skipped (personalize info not found)');
 
@@ -371,25 +361,16 @@ describe('PersonalizeMiddleware', () => {
     });
 
     it('no personalization configured', async () => {
-      const personalizeQueryResult = {
-        layout: {
-          item: {
-            id,
-            version,
-            personalization: {
-              variantIds: [],
-            },
-          },
-        },
-      };
-
-      mockPersonalizeDataRequest(personalizeQueryResult);
-
       const req = createRequest();
 
       const res = createResponse();
 
-      const middleware = createMiddleware();
+      const { middleware, getPersonalizeInfo } = createMiddleware({
+        personalizeInfo: {
+          contentId,
+          variantIds: [],
+        },
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -400,7 +381,7 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
 
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
       validateDebugLog('skipped (no personalization configured)');
 
@@ -412,17 +393,15 @@ describe('PersonalizeMiddleware', () => {
     });
 
     it('browser id generation failed', async () => {
-      mockPersonalizeDataRequest();
-
-      mockBrowserIdGenerationRequest(undefined);
-
       const req = createRequest({
         cookieValues: { 'bid_cdp-client-key': undefined },
       });
 
       const res = createResponse();
 
-      const middleware = createMiddleware();
+      const { middleware, generateBrowserId, getPersonalizeInfo } = createMiddleware({
+        browserId: undefined,
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -433,9 +412,9 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
 
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      validateDebugLog('generating browser id');
+      expect(generateBrowserId.calledOnce).to.be.true;
 
       validateDebugLog('skipped (browser id generation failed)');
 
@@ -447,15 +426,13 @@ describe('PersonalizeMiddleware', () => {
     });
 
     it('no variant identified', async () => {
-      mockPersonalizeDataRequest();
-
-      mockExecuteExperienceRequest(undefined);
-
       const req = createRequest();
 
       const res = createResponse();
 
-      const middleware = createMiddleware();
+      const { middleware, executeExperience, getPersonalizeInfo } = createMiddleware({
+        variantId: undefined,
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -466,14 +443,9 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
 
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      validateDebugLog(
-        'executing experience for %s %s %o',
-        contentId,
-        'browser-id',
-        experienceParams
-      );
+      expect(executeExperience.calledWith(contentId, experienceParams, browserId)).to.be.true;
 
       validateDebugLog('skipped (no variant identified)');
 
@@ -485,15 +457,13 @@ describe('PersonalizeMiddleware', () => {
     });
 
     it('invalid variant', async () => {
-      mockPersonalizeDataRequest();
-
-      mockExecuteExperienceRequest('invalid-variant');
-
       const req = createRequest();
 
       const res = createResponse();
 
-      const middleware = createMiddleware();
+      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+        variantId: 'invalid-variant',
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -504,14 +474,9 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
 
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      validateDebugLog(
-        'executing experience for %s %s %o',
-        contentId,
-        'browser-id',
-        experienceParams
-      );
+      expect(executeExperience.calledWith(contentId, experienceParams, browserId)).to.be.true;
 
       validateDebugLog('skipped (invalid variant)');
 
@@ -525,10 +490,6 @@ describe('PersonalizeMiddleware', () => {
 
   describe('request passed', () => {
     it('browser id is present in cookies', async () => {
-      mockPersonalizeDataRequest();
-
-      mockExecuteExperienceRequest('variant-2');
-
       const req = createRequest({
         cookieValues: {
           'bid_cdp-client-key': 'browser-id',
@@ -539,7 +500,9 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const middleware = createMiddleware();
+      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+        variantId: 'variant-2',
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -550,14 +513,9 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
 
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      validateDebugLog(
-        'executing experience for %s %s %o',
-        contentId,
-        'browser-id',
-        experienceParams
-      );
+      expect(executeExperience.calledWith(contentId, experienceParams, browserId)).to.be.true;
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
@@ -579,12 +537,6 @@ describe('PersonalizeMiddleware', () => {
     });
 
     it('browser id is not present in cookies', async () => {
-      mockPersonalizeDataRequest();
-
-      mockBrowserIdGenerationRequest(browserId);
-
-      mockExecuteExperienceRequest('variant-2');
-
       const req = createRequest({
         cookieValues: {
           'bid_cdp-client-key': undefined,
@@ -595,7 +547,15 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const middleware = createMiddleware();
+      const {
+        middleware,
+        generateBrowserId,
+        getPersonalizeInfo,
+        executeExperience,
+      } = createMiddleware({
+        browserId,
+        variantId: 'variant-2',
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -606,16 +566,11 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
 
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
+      expect(generateBrowserId.calledOnce).to.be.true;
 
-      validateDebugLog('generating browser id');
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      validateDebugLog(
-        'executing experience for %s %s %o',
-        contentId,
-        'browser-id',
-        experienceParams
-      );
+      expect(executeExperience.calledWith(contentId, experienceParams, browserId)).to.be.true;
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
@@ -639,10 +594,6 @@ describe('PersonalizeMiddleware', () => {
     it('fallback defaultLocale is used', async () => {
       const contentId = `${id}_da-dk_${version}`;
 
-      mockPersonalizeDataRequest();
-
-      mockExecuteExperienceRequest('variant-2', { friendlyId: contentId });
-
       const req = createRequest({
         nextUrl: {
           locale: undefined,
@@ -654,7 +605,13 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const middleware = createMiddleware();
+      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+        variantId: 'variant-2',
+        personalizeInfo: {
+          variantIds,
+          contentId,
+        },
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -665,19 +622,9 @@ describe('PersonalizeMiddleware', () => {
         language: 'da-DK',
       });
 
-      validateDebugLog(
-        'fetching personalize info for %s %s %s',
-        'nextjs-app',
-        '/styleguide',
-        'da-DK'
-      );
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'da-DK')).to.be.true;
 
-      validateDebugLog(
-        'executing experience for %s %s %o',
-        contentId,
-        'browser-id',
-        experienceParams
-      );
+      expect(executeExperience.calledWith(contentId, experienceParams, browserId)).to.be.true;
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
@@ -699,10 +646,6 @@ describe('PersonalizeMiddleware', () => {
     });
 
     it('fallback locale is used', async () => {
-      mockPersonalizeDataRequest();
-
-      mockExecuteExperienceRequest('variant-2', { friendlyId: contentId });
-
       const req = createRequest({
         nextUrl: {
           locale: undefined,
@@ -714,7 +657,9 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const middleware = createMiddleware();
+      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+        variantId: 'variant-2',
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -725,14 +670,9 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
 
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      validateDebugLog(
-        'executing experience for %s %s %o',
-        contentId,
-        'browser-id',
-        experienceParams
-      );
+      expect(executeExperience.calledWith(contentId, experienceParams, browserId)).to.be.true;
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
@@ -754,35 +694,28 @@ describe('PersonalizeMiddleware', () => {
     });
 
     it('custom response object is not provided', async () => {
-      mockPersonalizeDataRequest();
-
-      mockExecuteExperienceRequest('variant-2');
-
       const req = createRequest();
 
       const res = createResponse();
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const middleware = createMiddleware();
+      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+        variantId: 'variant-2',
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
       const finalRes = await middleware.getHandler()(req);
 
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
+
+      expect(executeExperience.calledWith(contentId, experienceParams, browserId)).to.be.true;
+
       validateDebugLog('personalize middleware start: %o', {
         pathname: '/styleguide',
         language: 'en',
       });
-
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
-
-      validateDebugLog(
-        'executing experience for %s %s %o',
-        contentId,
-        'browser-id',
-        experienceParams
-      );
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
@@ -806,22 +739,6 @@ describe('PersonalizeMiddleware', () => {
     it('optional experiece params are not present', async () => {
       userAgentStub.returns({ ua: undefined } as any);
 
-      const params = {
-        ...experienceParams,
-        geo: {
-          city: null,
-          country: null,
-          latitude: null,
-          longitude: null,
-          region: null,
-        },
-        ua: null,
-      };
-
-      mockPersonalizeDataRequest();
-
-      mockExecuteExperienceRequest('variant-2', { params });
-
       const req = createRequest({
         geo: {},
       });
@@ -830,7 +747,9 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const middleware = createMiddleware();
+      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+        variantId: 'variant-2',
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
@@ -841,25 +760,31 @@ describe('PersonalizeMiddleware', () => {
         language: 'en',
       });
 
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      validateDebugLog('executing experience for %s %s %o', contentId, 'browser-id', {
-        geo: {
-          city: null,
-          country: null,
-          latitude: null,
-          longitude: null,
-          region: null,
-        },
-        referrer,
-        ua: null,
-        utm: {
-          campaign: 'utm_campaign',
-          content: null,
-          medium: null,
-          source: null,
-        },
-      });
+      expect(
+        executeExperience.calledWith(
+          contentId,
+          {
+            geo: {
+              city: null,
+              country: null,
+              latitude: null,
+              longitude: null,
+              region: null,
+            },
+            referrer,
+            ua: null,
+            utm: {
+              campaign: 'utm_campaign',
+              content: null,
+              medium: null,
+              source: null,
+            },
+          },
+          browserId
+        )
+      ).to.be.true;
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
@@ -883,57 +808,49 @@ describe('PersonalizeMiddleware', () => {
     it('request geo is not present', async () => {
       userAgentStub.returns({ ua: undefined } as any);
 
-      const params = {
-        ...experienceParams,
-        geo: {
-          city: null,
-          country: null,
-          latitude: null,
-          longitude: null,
-          region: null,
-        },
-        ua: null,
-      };
-
-      mockPersonalizeDataRequest();
-
-      mockExecuteExperienceRequest('variant-2', { params });
-
       const req = createRequest({ geo: null });
 
       const res = createResponse();
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const middleware = createMiddleware();
+      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+        variantId: 'variant-2',
+      });
 
       const getCookiesSpy = spy(req.cookies, 'get');
 
       const finalRes = await middleware.getHandler()(req, res);
 
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
+
+      expect(
+        executeExperience.calledWith(
+          contentId,
+          {
+            geo: {
+              city: null,
+              country: null,
+              latitude: null,
+              longitude: null,
+              region: null,
+            },
+            referrer,
+            ua: null,
+            utm: {
+              campaign: 'utm_campaign',
+              content: null,
+              medium: null,
+              source: null,
+            },
+          },
+          browserId
+        )
+      ).to.be.true;
+
       validateDebugLog('personalize middleware start: %o', {
         pathname: '/styleguide',
         language: 'en',
-      });
-
-      validateDebugLog('fetching personalize info for %s %s %s', 'nextjs-app', '/styleguide', 'en');
-
-      validateDebugLog('executing experience for %s %s %o', contentId, 'browser-id', {
-        geo: {
-          city: null,
-          country: null,
-          latitude: null,
-          longitude: null,
-          region: null,
-        },
-        referrer,
-        ua: null,
-        utm: {
-          campaign: 'utm_campaign',
-          content: null,
-          medium: null,
-          source: null,
-        },
       });
 
       validateDebugLog('personalize middleware end: %o', {
