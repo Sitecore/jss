@@ -67,11 +67,19 @@ export class PersonalizeMiddleware {
   }
 
   /**
-   * Gets the Next.js middleware handler
+   * Gets the Next.js middleware handler with error handling
    * @returns middleware handler
    */
   public getHandler(): (req: NextRequest, res?: NextResponse) => Promise<NextResponse> {
-    return this.handler;
+    return async (req, res) => {
+      try {
+        return await this.handler(req, res);
+      } catch (error) {
+        console.log('Personalize middleware failed:');
+        console.log(error);
+        return res || NextResponse.next();
+      }
+    };
   }
 
   protected get browserIdCookieName(): string {

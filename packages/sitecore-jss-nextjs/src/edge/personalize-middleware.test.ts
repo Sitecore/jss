@@ -870,4 +870,86 @@ describe('PersonalizeMiddleware', () => {
       nextRewriteStub.restore();
     });
   });
+
+  describe('middleware connection errors', () => {
+    const req = createRequest();
+    const res = createResponse({
+      body: '<div> Regular page </div>',
+    });
+
+    const errorSpy = spy(console, 'log');
+
+    afterEach(() => {
+      errorSpy.resetHistory();
+    });
+
+    after(() => {
+      errorSpy.restore();
+    });
+
+    it('should log error when executeExperience throws', async () => {
+      const { middleware, executeExperience } = createMiddleware();
+
+      const error = new Error('CDP executeExperience fails');
+
+      executeExperience.restore();
+
+      const executeExperienceWithError = sinon
+        .stub(middleware['cdpService'], 'executeExperience')
+        .throws(error);
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      expect(executeExperienceWithError.called).to.be.true;
+
+      expect(errorSpy.getCall(0).calledWith('Personalize middleware failed:')).to.be.true;
+      expect(errorSpy.getCall(1).calledWith(error)).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
+      executeExperienceWithError.restore();
+      errorSpy.resetHistory();
+    });
+
+    it('should log error when generateBrowserId throws', async () => {
+      const req = createRequest({
+        cookieValues: { 'bid_cdp-client-key': undefined },
+      });
+      const { middleware, generateBrowserId } = createMiddleware({
+        browserId: undefined,
+      });
+      const error = new Error('CDP generateBrowserId fails');
+
+      generateBrowserId.restore();
+      const generateBrowserIdWithError = sinon
+        .stub(middleware['cdpService'], 'generateBrowserId')
+        .throws(error);
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      expect(generateBrowserIdWithError.called).to.be.true;
+
+      expect(errorSpy.getCall(0).calledWith('Personalize middleware failed:')).to.be.true;
+      expect(errorSpy.getCall(1).calledWith(error)).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
+    });
+
+    it('should log error when getPersonalizeInfo throws', async () => {
+      const { middleware, getPersonalizeInfo } = createMiddleware();
+      const error = new Error('Edge fails');
+
+      getPersonalizeInfo.restore();
+      const getPersonalizeInfoWithError = sinon
+        .stub(middleware['personalizeService'], 'getPersonalizeInfo')
+        .throws(error);
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      expect(getPersonalizeInfoWithError.called).to.be.true;
+      expect(errorSpy.getCall(0).calledWith('Personalize middleware failed:')).to.be.true;
+      expect(errorSpy.getCall(1).calledWith(error)).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
+    });
+  });
 });
