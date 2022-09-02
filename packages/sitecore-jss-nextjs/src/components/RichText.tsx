@@ -51,12 +51,13 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     if (!internalLinks || !internalLinks.length) return;
 
     internalLinks.forEach((link) => {
-      if (!prefetched[link.pathname]) {
-        router.prefetch(link.pathname, undefined, { locale: false });
-        prefetched[link.pathname] = true;
+      if (link.target !== '_blank') {
+        if (!prefetched[link.pathname]) {
+          router.prefetch(link.pathname, undefined, { locale: false });
+          prefetched[link.pathname] = true;
+        }
+        link.addEventListener('click', routeHandler, false);
       }
-
-      link.addEventListener('click', routeHandler, false);
     });
   };
 
