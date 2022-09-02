@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 /* eslint-disable no-unused-expressions */
 import { expect, use } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
@@ -8,7 +9,7 @@ import {
   ServerlessEditingDataService,
   BasicEditingDataService,
   QUERY_PARAM_EDITING_SECRET,
-  defaultGenerateKey,
+  generateKey,
 } from './editing-data-service';
 import sinonChai from 'sinon-chai';
 import { spy } from 'sinon';
@@ -29,14 +30,14 @@ const mockFetcher = (data?: unknown) => {
   return fetcher;
 };
 
-describe('defaultGenerateKey', () => {
+describe('generateKey', () => {
   it('should generate unique key for item', async () => {
     const data = {
       layoutData: { sitecore: { route: { itemId: 'd6ac9d26-9474-51cf-982d-4f8d44951229' } } },
     } as EditingData;
 
-    const key1 = defaultGenerateKey(data);
-    const key2 = defaultGenerateKey(data);
+    const key1 = generateKey(data);
+    const key2 = generateKey(data);
 
     expect(key1).to.not.equal(key2);
   });
@@ -46,8 +47,8 @@ describe('defaultGenerateKey', () => {
       layoutData: { sitecore: { route: null } },
     } as EditingData;
 
-    const key1 = defaultGenerateKey(data);
-    const key2 = defaultGenerateKey(data);
+    const key1 = generateKey(data);
+    const key2 = generateKey(data);
 
     expect(key1).to.not.equal(key2);
   });
@@ -81,10 +82,8 @@ describe('ServerlessEditingDataService', () => {
 
       const fetcher = mockFetcher();
 
-      const service = new ServerlessEditingDataService({
-        dataFetcher: fetcher,
-        generateKey: () => key,
-      });
+      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
+      service['generateKey'] = () => key;
 
       return service.setEditingData(data, serverUrl).then((previewData) => {
         expect(previewData.key).to.equal(key);
@@ -107,8 +106,8 @@ describe('ServerlessEditingDataService', () => {
       const service = new ServerlessEditingDataService({
         dataFetcher: fetcher,
         apiRoute: '/api/some/path/[key]',
-        generateKey: () => key,
       });
+      service['generateKey'] = () => key;
 
       return service.setEditingData(data, serverUrl).then(() => {
         expect(fetcher.put).to.have.been.calledOnce;
@@ -130,10 +129,8 @@ describe('ServerlessEditingDataService', () => {
 
       const fetcher = mockFetcher();
 
-      const service = new ServerlessEditingDataService({
-        dataFetcher: fetcher,
-        generateKey: () => key,
-      });
+      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
+      service['generateKey'] = () => key;
 
       return service.setEditingData(data, serverUrl).then(() => {
         expect(fetcher.put).to.have.been.calledOnce;
@@ -153,10 +150,8 @@ describe('ServerlessEditingDataService', () => {
 
       const fetcher = mockFetcher(data);
 
-      const service = new ServerlessEditingDataService({
-        dataFetcher: fetcher,
-        generateKey: () => key,
-      });
+      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
+      service['generateKey'] = () => key;
 
       const editingData = await service.getEditingData({ key, serverUrl });
       expect(editingData).to.equal(data);
@@ -171,10 +166,8 @@ describe('ServerlessEditingDataService', () => {
       const key = '1234key';
       const fetcher = mockFetcher(data);
 
-      const service = new ServerlessEditingDataService({
-        dataFetcher: fetcher,
-        generateKey: () => key,
-      });
+      const service = new ServerlessEditingDataService({ dataFetcher: fetcher });
+      service['generateKey'] = () => key;
 
       const editingData = await service.getEditingData({ key });
       expect(editingData).to.equal(undefined);
@@ -201,10 +194,8 @@ describe('BasicEditingDataService', () => {
       } as EditingData;
       const cache = mockCache();
 
-      const service = new BasicEditingDataService({
-        editingDataCache: cache,
-        generateKey: () => key,
-      });
+      const service = new BasicEditingDataService({ editingDataCache: cache });
+      service['generateKey'] = () => key;
 
       return service.setEditingData(data).then((previewData) => {
         expect(previewData.key).to.equal(key);
@@ -222,10 +213,8 @@ describe('BasicEditingDataService', () => {
       } as EditingData;
       const cache = mockCache(data);
 
-      const service = new BasicEditingDataService({
-        editingDataCache: cache,
-        generateKey: () => key,
-      });
+      const service = new BasicEditingDataService({ editingDataCache: cache });
+      service['generateKey'] = () => key;
 
       const editingData = await service.getEditingData({ key });
       expect(editingData).to.equal(data);

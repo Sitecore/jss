@@ -34,14 +34,14 @@ export interface EditingDataService {
 }
 
 /**
- * Default key generator.
+ * Unique key generator.
  * Need more than just the item GUID since requests are made "live" during editing in EE.
  * The suffix code will produce a random 10 character alpha-numeric (a-z 0-9) sequence, which is URI-safe.
  * Example generated key: 52961eea-bafd-5287-a532-a72e36bd8a36-qkb4e3fv5x
  * @param {EditingData} data The editing data
  * @returns {string} The unique key
  */
-export const defaultGenerateKey = (data: EditingData): string => {
+export const generateKey = (data: EditingData): string => {
   const suffix = Math.random()
     .toString(36)
     .substring(2, 12);
@@ -57,15 +57,6 @@ export interface BasicEditingDataServiceConfig {
    * @see EditingDataDiskCache
    */
   editingDataCache?: EditingDataCache;
-
-  /**
-   * Function used to generate a unique key for editing data.
-   * By default, this is item id + a random 10 character alpha-numeric (a-z 0-9) suffix.
-   * @param {EditingData} data The editing data
-   * @returns {string} The unique key
-   * @default `${data.layoutData.sitecore.route?.itemId}-${suffix}`
-   */
-  generateKey?: (data: EditingData) => string;
 }
 
 /**
@@ -74,15 +65,14 @@ export interface BasicEditingDataServiceConfig {
  * Utilizes a cache for storage and retrieval of editing data.
  */
 export class BasicEditingDataService implements EditingDataService {
+  protected generateKey = generateKey;
   private editingDataCache: EditingDataCache;
-  private generateKey: (data: EditingData) => string;
 
   /**
    * @param {BasicEditingDataServiceConfig} [config] Editing data service config
    */
   constructor(config?: BasicEditingDataServiceConfig) {
     this.editingDataCache = config?.editingDataCache ?? editingDataDiskCache;
-    this.generateKey = config?.generateKey ?? defaultGenerateKey;
   }
 
   /**
@@ -130,14 +120,6 @@ export interface ServerlessEditingDataServiceConfig {
    * @see AxiosDataFetcher
    */
   dataFetcher?: AxiosDataFetcher;
-  /**
-   * Function used to generate a unique key for editing data.
-   * By default, this is item id + a random 10 character alpha-numeric (a-z 0-9) suffix.
-   * @param {EditingData} data The editing data
-   * @returns {string} The unique key
-   * @default `${data.layoutData.sitecore.route?.itemId}-${suffix}`
-   */
-  generateKey?: (data: EditingData) => string;
 }
 
 /**
@@ -146,9 +128,9 @@ export interface ServerlessEditingDataServiceConfig {
  * Utilizes another Next.js API route ('/api/editing/data/[key]') for storage and retrieval of editing data.
  */
 export class ServerlessEditingDataService implements EditingDataService {
+  protected generateKey = generateKey;
   private apiRoute: string;
   private dataFetcher: AxiosDataFetcher;
-  private generateKey: (data: EditingData) => string;
 
   /**
    * @param {ServerlessEditingDataServiceConfig} [config] Editing data service config
@@ -159,7 +141,6 @@ export class ServerlessEditingDataService implements EditingDataService {
       throw new Error(`The specified apiRoute '${this.apiRoute}' is missing '[key]'.`);
     }
     this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.editing });
-    this.generateKey = config?.generateKey ?? defaultGenerateKey;
   }
 
   /**
