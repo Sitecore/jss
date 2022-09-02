@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable dot-notation */
 import chai, { use } from 'chai';
 import chaiString from 'chai-string';
 import sinonChai from 'sinon-chai';
@@ -131,17 +132,14 @@ describe('PersonalizeMiddleware', () => {
     });
 
     const executeExperience = sinon
-      // eslint-disable-next-line dot-notation
       .stub(middleware['cdpService'], 'executeExperience')
       .returns(Promise.resolve(props.variantId));
 
     const generateBrowserId = sinon
-      // eslint-disable-next-line dot-notation
       .stub(middleware['cdpService'], 'generateBrowserId')
       .returns(Promise.resolve(props.browserId));
 
     const getPersonalizeInfo = sinon
-      // eslint-disable-next-line dot-notation
       .stub(middleware['personalizeService'], 'getPersonalizeInfo')
       .returns(
         Promise.resolve(
