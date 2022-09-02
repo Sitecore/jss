@@ -1,4 +1,4 @@
-// Mock fetch/types for nextjs middleware
+// Mock fetch/Request for nextjs middleware
 
 const crossFetch = require('cross-fetch');
 
