@@ -5,15 +5,8 @@
 
 /// <reference types="../../global" />
 
-const crossFetch = require('cross-fetch');
-
 // eslint-disable-next-line no-var
 declare var global: NodeJS.Global;
-
-global.fetch = crossFetch;
-global.Headers = crossFetch.Headers;
-global.Request = crossFetch.Request;
-global.Response = crossFetch.Response;
 
 global.requestAnimationFrame = (callback: () => void) => {
   setTimeout(callback, 0);
