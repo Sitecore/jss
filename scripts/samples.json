@@ -1,0 +1,70 @@
+﻿[
+  {
+    "initializers": [
+      "nextjs"
+    ],
+    "args": {
+      "appName": "nextjs-vanilla",
+      "fetchWith": "REST",
+      "prerender": "SSR",
+      "silent": false
+    }
+  },
+  {
+    "initializers": [
+      "nextjs", "nextjs-styleguide", "nextjs-styleguide-tracking"
+    ],
+    "args": {
+      "appName": "nextjs-styleguide-tracking",
+      "fetchWith": "GraphQL",
+      "prerender": "SSR"
+    }
+  },
+  {
+    "initializers": [
+      "nextjs", "nextjs-styleguide", "nextjs-personalize"
+    ],
+    "args": {
+      "appName": "nextjs-styleguide-personalize",
+      "fetchWith": "GraphQL",
+      "prerender": "SSG"
+    }
+  },
+  {
+    "initializers": [
+      "nextjs", "nextjs-sxa"
+    ],
+    "args": {
+      "appName": "nextjs-sxa",
+      "fetchWith": "GraphQL",
+      "prerender": "SSR"
+    }
+  },
+  {
+    "initializers": [
+      "react"
+    ],
+    "args": {
+      "appName": "react",
+      "fetchWith": "GraphQL"
+    }
+  },
+  {
+    "initializers": [
+      "angular"
+    ],
+    "args": {
+      "appName": "angular",
+      "fetchWith": "GraphQL"
+    }
+  },
+  {
+    "initializers": [
+      "vue"
+    ],
+    "args": {
+      "appName": "vue",
+      "fetchWith": "GraphQL"
+    }
+  }
+]

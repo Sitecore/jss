@@ -84,11 +84,9 @@ export class PersonalizeMiddleware {
   }
 
   protected setBrowserId(res: NextResponse, browserId: string) {
-    if (browserId.length > 0) {
-      const expiryDate = new Date(new Date().setFullYear(new Date().getFullYear() + 2));
-      const options = { expires: expiryDate, secure: true };
-      res.cookies.set(this.browserIdCookieName, browserId, options);
-    }
+    const expiryDate = new Date(new Date().setFullYear(new Date().getFullYear() + 2));
+    const options = { expires: expiryDate, secure: true };
+    res.cookies.set(this.browserIdCookieName, browserId, options);
   }
 
   protected getExperienceParams(req: NextRequest): ExperienceParams {

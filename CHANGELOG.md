@@ -7,6 +7,12 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### New Features & Improvements
 
+### 🛠 Breaking Changes
+
+* `[sitecore-jss-nextjs]` All editing-related types have moved to a dedicated `editing` submodule. Imports must be updated to use this submodule. e.g.
+  * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
+  * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
+
 ## 20.0.0
 
 ### New Features & Improvements

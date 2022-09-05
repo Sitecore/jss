@@ -2,7 +2,7 @@
 /// <reference types="../../global" />
 import Cache, { CacheInstance } from 'sync-disk-cache';
 import os from 'os';
-import { EditingData } from '../sharedTypes/editing-data';
+import { EditingData } from './editing-data';
 
 /**
  * Defines an editing data cache implementation
@@ -40,10 +40,9 @@ export class EditingDataDiskCache implements EditingDataCache {
       console.warn(`Editing data cache miss for key ${key} at ${this.cache.root}`);
       return undefined;
     }
-    const data = JSON.parse(entry.value);
-    // Remove immediately to preserve disk-space
-    this.cache.remove(key);
-    return data as EditingData;
+    // Remove to preserve disk-space (as a macrotask so as not to block current execution)
+    setTimeout(() => this.cache.remove(key));
+    return JSON.parse(entry.value) as EditingData;
   }
 }
 

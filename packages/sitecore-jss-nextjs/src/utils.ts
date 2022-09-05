@@ -3,7 +3,7 @@ import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/u
 
 /**
  * Get the publicUrl.
- * This is used primarily to enable compatibility with the Sitecore Experience Editor.
+ * This is used primarily to enable compatibility with Sitecore editors.
  * This is set to http://localhost:3000 by default.
  * VERCEL_URL is provided by Vercel in case if we are in Preview deployment (deployment based on the custom branch),
  * preview deployment has unique url, we don't know exact url.

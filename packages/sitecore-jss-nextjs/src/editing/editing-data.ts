@@ -2,7 +2,7 @@ import { LayoutServiceData } from '@sitecore-jss/sitecore-jss/layout';
 import { DictionaryPhrases } from '@sitecore-jss/sitecore-jss/i18n';
 
 /**
- * Data sent from Experience Editor
+ * Data sent from Sitecore editors
  */
 export type EditingData = {
   path: string;
@@ -21,12 +21,4 @@ export function isEditingData(data: EditingData | unknown): data is EditingData 
     (data as EditingData).layoutData !== undefined &&
     (data as EditingData).dictionary !== undefined
   );
-}
-
-/**
- * Data for Next.js Preview (Editing) mode
- */
-export interface EditingPreviewData {
-  key: string;
-  serverUrl: string;
 }
