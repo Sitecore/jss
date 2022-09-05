@@ -22,6 +22,18 @@ export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;
 export class NativeDataFetcher {
   constructor(protected config: NativeDataFetcherConfig = {}) {}
 
+  extractHeaders = (incomingHeaders: HeadersInit = {}) => {
+    const headers = {} as { [key: string]: string | string[] };
+
+    if (typeof incomingHeaders?.forEach !== 'string') {
+      incomingHeaders?.forEach((value, key) => {
+        headers[key] = value;
+      });
+    }
+
+    return headers;
+  };
+
   /**
    * Implements a data fetcher. @see HttpDataFetcher<T> type for implementation details/notes.
    * @param {string} url The URL to request; may include query string
@@ -45,7 +57,10 @@ export class NativeDataFetcher {
 
     // Note a goal here is to provide consistent debug logging and error handling
     // as we do in AxiosDataFetcher and GraphQLRequestClient
-    debug('request: %o', { url, ...requestInit });
+
+    const { headers: reqHeaders, ...rest } = requestInit;
+
+    debug('request: %o', { url, headers: this.extractHeaders(reqHeaders), ...rest });
     const response = await fetchImpl(url, requestInit)
       .then((res) => {
         clearTimeout(abortTimeout);
@@ -67,7 +82,7 @@ export class NativeDataFetcher {
     const debugResponse = {
       status: response.status,
       statusText: response.statusText,
-      headers: response.headers,
+      headers: this.extractHeaders(response.headers),
       url: response.url,
       redirected: response.redirected,
       data: respData,

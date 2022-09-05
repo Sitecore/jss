@@ -213,10 +213,14 @@ export class PersonalizeMiddleware {
     // Set browserId cookie on the response
     this.setBrowserId(response, browserId);
 
+    const resHeaders: { [key: string]: string } = {};
+
+    response.headers.forEach((value, key) => (resHeaders[key] = value));
+
     debug.personalize('personalize middleware end: %o', {
       rewritePath,
       browserId,
-      headers: response.headers,
+      headers: resHeaders,
     });
 
     return response;
