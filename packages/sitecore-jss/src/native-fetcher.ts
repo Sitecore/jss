@@ -22,18 +22,6 @@ export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;
 export class NativeDataFetcher {
   constructor(protected config: NativeDataFetcherConfig = {}) {}
 
-  extractHeaders = (incomingHeaders: HeadersInit = {}) => {
-    const headers = {} as { [key: string]: string | string[] };
-
-    if (typeof incomingHeaders?.forEach !== 'string') {
-      incomingHeaders?.forEach((value, key) => {
-        headers[key] = value;
-      });
-    }
-
-    return headers;
-  };
-
   /**
    * Implements a data fetcher. @see HttpDataFetcher<T> type for implementation details/notes.
    * @param {string} url The URL to request; may include query string
@@ -116,5 +104,17 @@ export class NativeDataFetcher {
     init.headers = headers;
 
     return init;
+  }
+
+  private extractHeaders(incomingHeaders: HeadersInit = {}) {
+    const headers = {} as { [key: string]: string | string[] };
+
+    if (typeof incomingHeaders?.forEach !== 'string') {
+      incomingHeaders?.forEach((value, key) => {
+        headers[key] = value;
+      });
+    }
+
+    return headers;
   }
 }
