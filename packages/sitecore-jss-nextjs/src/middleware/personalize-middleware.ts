@@ -213,6 +213,7 @@ export class PersonalizeMiddleware {
 
     const resHeaders: { [key: string]: string } = {};
 
+    // Extract headers to avoid middleware issue https://github.com/vercel/next.js/issues/39765
     response.headers.forEach((value, key) => (resHeaders[key] = value));
 
     debug.personalize('personalize middleware end: %o', {
