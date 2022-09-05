@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
-import { EditingData, isEditingData } from '../sharedTypes/editing-data';
-import { QUERY_PARAM_EDITING_SECRET } from '../services/editing-data-service';
+import { EditingData, isEditingData } from './editing-data';
+import { QUERY_PARAM_EDITING_SECRET } from './editing-data-service';
 import { getJssEditingSecret } from '../utils';
 
 export interface EditingDataMiddlewareConfig {
@@ -24,7 +24,7 @@ export interface EditingDataMiddlewareConfig {
 
 /**
  * Middleware / handler for use in the editing data Next.js API dynamic route (e.g. '/api/editing/data/[key]')
- * which is required for Sitecore Experience Editor support.
+ * which is required for Sitecore editing support.
  */
 export class EditingDataMiddleware {
   private queryParamKey: string;

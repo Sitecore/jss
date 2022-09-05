@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { EditingData } from '../sharedTypes/editing-data';
+import { EditingData } from './editing-data';
 import { EditingDataDiskCache } from './editing-data-cache';
 import { data } from '../test-data/editing-data';
 

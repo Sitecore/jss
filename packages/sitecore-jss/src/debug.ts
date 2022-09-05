@@ -31,7 +31,7 @@ export default {
   http: debug(`${rootNamespace}:http`),
   layout: debug(`${rootNamespace}:layout`),
   dictionary: debug(`${rootNamespace}:dictionary`),
-  experienceEditor: debug(`${rootNamespace}:editing`),
+  editing: debug(`${rootNamespace}:editing`),
   sitemap: debug(`${rootNamespace}:sitemap`),
   robots: debug(`${rootNamespace}:robots`),
   redirects: debug(`${rootNamespace}:redirects`),
