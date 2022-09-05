@@ -109,7 +109,7 @@ export class NativeDataFetcher {
   private extractHeaders(incomingHeaders: HeadersInit = {}) {
     const headers = {} as { [key: string]: string | string[] };
 
-    if (typeof incomingHeaders?.forEach !== 'string') {
+    if (typeof incomingHeaders?.forEach !== 'string' && incomingHeaders.forEach) {
       incomingHeaders?.forEach((value, key) => {
         headers[key] = value;
       });
