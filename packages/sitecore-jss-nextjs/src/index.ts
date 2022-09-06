@@ -99,13 +99,6 @@ export {
 
 export { handleEditorFastRefresh, getPublicUrl } from './utils';
 
-export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
-export {
-  EditingDataService,
-  EditingDataServiceConfig,
-  editingDataService,
-} from './services/editing-data-service';
-
 export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
