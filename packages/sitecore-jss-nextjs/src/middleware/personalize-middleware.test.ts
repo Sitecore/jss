@@ -134,26 +134,30 @@ describe('PersonalizeMiddleware', () => {
       edgeConfig,
     });
 
-    const executeExperience = props.executeExperienceStubFunc? props.executeExperienceStubFunc(middleware): sinon
-      .stub(middleware['cdpService'], 'executeExperience')
-      .returns(Promise.resolve(props.variantId));
+    const executeExperience = props.executeExperienceStubFunc
+      ? props.executeExperienceStubFunc(middleware)
+      : sinon
+          .stub(middleware['cdpService'], 'executeExperience')
+          .returns(Promise.resolve(props.variantId));
 
-    const generateBrowserId = props.generateBrowserIdStubFunc? props.generateBrowserIdStubFunc(middleware): sinon
-      .stub(middleware['cdpService'], 'generateBrowserId')
-      .returns(Promise.resolve(props.browserId));
+    const generateBrowserId = props.generateBrowserIdStubFunc
+      ? props.generateBrowserIdStubFunc(middleware)
+      : sinon
+          .stub(middleware['cdpService'], 'generateBrowserId')
+          .returns(Promise.resolve(props.browserId));
 
-    const getPersonalizeInfo = props.getPersonalizeInfoStubFunc? props.getPersonalizeInfoStubFunc(middleware): sinon
-      .stub(middleware['personalizeService'], 'getPersonalizeInfo')
-      .returns(
-        Promise.resolve(
-          props.personalizeInfo === null
-            ? undefined
-            : props.personalizeInfo || {
-                contentId,
-                variantIds,
-              }
-        )
-      );
+    const getPersonalizeInfo = props.getPersonalizeInfoStubFunc
+      ? props.getPersonalizeInfoStubFunc(middleware)
+      : sinon.stub(middleware['personalizeService'], 'getPersonalizeInfo').returns(
+          Promise.resolve(
+            props.personalizeInfo === null
+              ? undefined
+              : props.personalizeInfo || {
+                  contentId,
+                  variantIds,
+                }
+          )
+        );
 
     return { middleware, executeExperience, generateBrowserId, getPersonalizeInfo };
   };
@@ -893,9 +897,8 @@ describe('PersonalizeMiddleware', () => {
     it('should log error when executeExperience throws', async () => {
       const error = new Error('CDP executeExperience fails');
 
-      const executeExperienceWithError = (middleware) => sinon
-        .stub(middleware['cdpService'], 'executeExperience')
-        .throws(error);
+      const executeExperienceWithError = (middleware) =>
+        sinon.stub(middleware['cdpService'], 'executeExperience').throws(error);
 
       const { middleware, executeExperience } = createMiddleware({
         executeExperienceStubFunc: executeExperienceWithError,
@@ -916,14 +919,13 @@ describe('PersonalizeMiddleware', () => {
       const req = createRequest({
         cookieValues: { 'bid_cdp-client-key': undefined },
       });
-      
-      const generateBrowserIdWithError = (middleware) => sinon
-        .stub(middleware['cdpService'], 'generateBrowserId')
-        .throws(error);
+
+      const generateBrowserIdWithError = (middleware) =>
+        sinon.stub(middleware['cdpService'], 'generateBrowserId').throws(error);
 
       const { middleware, generateBrowserId } = createMiddleware({
-          browserId: undefined,
-          generateBrowserIdStubFunc: generateBrowserIdWithError,
+        browserId: undefined,
+        generateBrowserIdStubFunc: generateBrowserIdWithError,
       });
 
       const finalRes = await middleware.getHandler()(req, res);
@@ -939,9 +941,8 @@ describe('PersonalizeMiddleware', () => {
     it('should log error when getPersonalizeInfo throws', async () => {
       const error = new Error('Edge fails');
 
-      const getPersonalizeInfoWithError = (middleware) => sinon
-        .stub(middleware['personalizeService'], 'getPersonalizeInfo')
-        .throws(error);
+      const getPersonalizeInfoWithError = (middleware) =>
+        sinon.stub(middleware['personalizeService'], 'getPersonalizeInfo').throws(error);
 
       const { middleware, getPersonalizeInfo } = createMiddleware({
         getPersonalizeInfoStubFunc: getPersonalizeInfoWithError,
