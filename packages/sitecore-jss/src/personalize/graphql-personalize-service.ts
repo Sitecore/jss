@@ -43,6 +43,8 @@ type PersonalizeQueryResult = {
   layout: { item: { id: string; version: string; personalization: { variantIds: string[] } } };
 };
 
+const EMBEDDED = 'embedded';
+
 export class GraphQLPersonalizeService {
   private graphQLClient: GraphQLClient;
   protected get query(): string {
@@ -97,7 +99,8 @@ export class GraphQLPersonalizeService {
       return data?.layout?.item
         ? {
             // CDP expects content id format `<id>_<language>_<version>` (lowercase)
-            contentId: `${data.layout.item.id}_${language}_${data.layout.item.version}`.toLowerCase(),
+            // contentId: `${data.layout.item.id}_${language}_${data.layout.item.version}`.toLowerCase(),
+            contentId: `${EMBEDDED}${data.layout.item.id}_${language}`.toLowerCase(),
             variantIds: data.layout.item.personalization.variantIds,
           }
         : undefined;

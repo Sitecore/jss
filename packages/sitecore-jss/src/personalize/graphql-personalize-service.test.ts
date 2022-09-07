@@ -12,6 +12,7 @@ describe('GraphQLPersonalizeService', () => {
   const id = 'item-id';
   const version = '1';
   const variantIds = ['variant-1', 'variant-2'];
+  const EMBEDDED = 'embedded';
   const config = {
     endpoint,
     siteName,
@@ -48,7 +49,7 @@ describe('GraphQLPersonalizeService', () => {
     const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
 
     expect(personalizeData).to.deep.equal({
-      contentId: `${id}_en_${version}`.toLowerCase(),
+      contentId: `${EMBEDDED}${id}_en`.toLowerCase(),
       variantIds,
     });
   });
