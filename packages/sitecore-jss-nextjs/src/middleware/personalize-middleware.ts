@@ -118,7 +118,7 @@ export class PersonalizeMiddleware {
     };
   }
 
-  private excludeRoute(pathname: string) {
+  protected excludeRoute(pathname: string) {
     if (
       pathname.includes('.') || // Ignore files
       pathname.startsWith('/api/') || // Ignore Next.js API calls
@@ -130,8 +130,20 @@ export class PersonalizeMiddleware {
     return false;
   }
 
-  private isPreview(req: NextRequest) {
+  protected isPreview(req: NextRequest) {
     return req.cookies.get('__prerender_bypass') || req.cookies.get('__next_preview_data');
+  }
+
+  /**
+   * Safely extract all headers for debug logging
+   * Necessary to avoid middleware issue https://github.com/vercel/next.js/issues/39765
+   * @param {Headers} incomingHeaders Incoming headers
+   * @returns Object with headers as key/value pairs
+   */
+  protected extractDebugHeaders(incomingHeaders: Headers) {
+    const headers = {} as { [key: string]: string };
+    incomingHeaders.forEach((value, key) => (headers[key] = value));
+    return headers;
   }
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
@@ -222,7 +234,7 @@ export class PersonalizeMiddleware {
     debug.personalize('personalize middleware end: %o', {
       rewritePath,
       browserId,
-      headers: response.headers,
+      headers: this.extractDebugHeaders(response.headers),
     });
 
     return response;

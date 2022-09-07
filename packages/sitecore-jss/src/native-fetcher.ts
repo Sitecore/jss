@@ -45,7 +45,10 @@ export class NativeDataFetcher {
 
     // Note a goal here is to provide consistent debug logging and error handling
     // as we do in AxiosDataFetcher and GraphQLRequestClient
-    debug('request: %o', { url, ...requestInit });
+
+    const { headers: reqHeaders, ...rest } = requestInit;
+
+    debug('request: %o', { url, headers: this.extractDebugHeaders(reqHeaders), ...rest });
     const response = await fetchImpl(url, requestInit)
       .then((res) => {
         clearTimeout(abortTimeout);
@@ -67,7 +70,7 @@ export class NativeDataFetcher {
     const debugResponse = {
       status: response.status,
       statusText: response.statusText,
-      headers: response.headers,
+      headers: this.extractDebugHeaders(response.headers),
       url: response.url,
       redirected: response.redirected,
       data: respData,
@@ -101,5 +104,22 @@ export class NativeDataFetcher {
     init.headers = headers;
 
     return init;
+  }
+
+  /**
+   * Safely extract all headers for debug logging
+   * @param {HeadersInit} incomingHeaders Incoming headers
+   * @returns Object with headers as key/value pairs
+   */
+  protected extractDebugHeaders(incomingHeaders: HeadersInit = {}) {
+    const headers = {} as { [key: string]: string | string[] };
+
+    if (typeof incomingHeaders?.forEach !== 'string' && incomingHeaders.forEach) {
+      incomingHeaders?.forEach((value, key) => {
+        headers[key] = value;
+      });
+    }
+
+    return headers;
   }
 }

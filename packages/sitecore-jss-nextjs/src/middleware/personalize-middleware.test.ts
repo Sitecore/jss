@@ -87,13 +87,24 @@ describe('PersonalizeMiddleware', () => {
           res.cookies[key] = value;
         },
       },
-      headers: {
-        set(key, value) {
-          res.headers[key] = value;
-        },
-      },
+      headers: {},
       ...props,
     } as NextResponse;
+
+    Object.defineProperties(res.headers, {
+      set: {
+        value: (key, value) => {
+          res.headers[key] = value;
+        },
+        enumerable: false,
+      },
+      forEach: {
+        value: (cb) => {
+          Object.keys(res.headers).forEach((key) => cb(res.headers[key], key, res.headers));
+        },
+        enumerable: false,
+      },
+    });
 
     return res;
   };
@@ -521,7 +532,6 @@ describe('PersonalizeMiddleware', () => {
         browserId: 'browser-id',
         headers: {
           'x-middleware-cache': 'no-cache',
-          set: res.headers.set,
         },
       });
 
@@ -576,7 +586,6 @@ describe('PersonalizeMiddleware', () => {
         browserId: 'browser-id',
         headers: {
           'x-middleware-cache': 'no-cache',
-          set: res.headers.set,
         },
       });
 
@@ -630,7 +639,6 @@ describe('PersonalizeMiddleware', () => {
         browserId: 'browser-id',
         headers: {
           'x-middleware-cache': 'no-cache',
-          set: res.headers.set,
         },
       });
 
@@ -678,7 +686,6 @@ describe('PersonalizeMiddleware', () => {
         browserId: 'browser-id',
         headers: {
           'x-middleware-cache': 'no-cache',
-          set: res.headers.set,
         },
       });
 
@@ -721,7 +728,6 @@ describe('PersonalizeMiddleware', () => {
         browserId: 'browser-id',
         headers: {
           'x-middleware-cache': 'no-cache',
-          set: res.headers.set,
         },
       });
 
@@ -790,7 +796,6 @@ describe('PersonalizeMiddleware', () => {
         browserId: 'browser-id',
         headers: {
           'x-middleware-cache': 'no-cache',
-          set: res.headers.set,
         },
       });
 
@@ -857,7 +862,6 @@ describe('PersonalizeMiddleware', () => {
         browserId: 'browser-id',
         headers: {
           'x-middleware-cache': 'no-cache',
-          set: res.headers.set,
         },
       });
 
