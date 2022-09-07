@@ -109,6 +109,9 @@ describe('PersonalizeMiddleware', () => {
         contentId: string;
         variantIds: string[];
       } | null;
+      executeExperienceStub?: sinon.SinonStub;
+      generateBrowserIdStub?: sinon.SinonStub;
+      getPersonalizeInfoStub?: sinon.SinonStub;
     } = {}
   ) => {
     const cdpConfig = {
@@ -131,17 +134,15 @@ describe('PersonalizeMiddleware', () => {
       edgeConfig,
     });
 
-    const executeExperience = sinon
-      .stub(middleware['cdpService'], 'executeExperience')
-      .returns(Promise.resolve(props.variantId));
+    const executeExperience = (middleware['cdpService']['executeExperience'] =
+      props.executeExperienceStub || sinon.stub().returns(Promise.resolve(props.variantId)));
 
-    const generateBrowserId = sinon
-      .stub(middleware['cdpService'], 'generateBrowserId')
-      .returns(Promise.resolve(props.browserId));
+    const generateBrowserId = (middleware['cdpService']['generateBrowserId'] =
+      props.generateBrowserIdStub || sinon.stub().returns(Promise.resolve(props.browserId)));
 
-    const getPersonalizeInfo = sinon
-      .stub(middleware['personalizeService'], 'getPersonalizeInfo')
-      .returns(
+    const getPersonalizeInfo = (middleware['personalizeService']['getPersonalizeInfo'] =
+      props.getPersonalizeInfoStub ||
+      sinon.stub().returns(
         Promise.resolve(
           props.personalizeInfo === null
             ? undefined
@@ -150,7 +151,7 @@ describe('PersonalizeMiddleware', () => {
                 variantIds,
               }
         )
-      );
+      ));
 
     return { middleware, executeExperience, generateBrowserId, getPersonalizeInfo };
   };
@@ -868,6 +869,83 @@ describe('PersonalizeMiddleware', () => {
 
       getCookiesSpy.restore();
       nextRewriteStub.restore();
+    });
+  });
+
+  describe('error handling', () => {
+    const req = createRequest();
+    const res = createResponse({
+      body: '<div> Regular page </div>',
+    });
+
+    const errorSpy = spy(console, 'log');
+
+    beforeEach(() => {
+      errorSpy.resetHistory();
+    });
+
+    after(() => {
+      errorSpy.restore();
+    });
+
+    it('should log error when executeExperience throws', async () => {
+      const error = new Error('CDP executeExperience fails');
+
+      const executeExperienceWithError = sinon.stub().throws(error);
+
+      const { middleware, executeExperience } = createMiddleware({
+        executeExperienceStub: executeExperienceWithError,
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      expect(executeExperience.called).to.be.true;
+
+      expect(errorSpy.getCall(0).calledWith('Personalize middleware failed:')).to.be.true;
+      expect(errorSpy.getCall(1).calledWith(error)).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
+    });
+
+    it('should log error when generateBrowserId throws', async () => {
+      const error = new Error('CDP generateBrowserId fails');
+      const req = createRequest({
+        cookieValues: { 'bid_cdp-client-key': undefined },
+      });
+
+      const generateBrowserIdWithError = sinon.stub().throws(error);
+
+      const { middleware, generateBrowserId } = createMiddleware({
+        browserId: undefined,
+        generateBrowserIdStub: generateBrowserIdWithError,
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      expect(generateBrowserId.called).to.be.true;
+
+      expect(errorSpy.getCall(0).calledWith('Personalize middleware failed:')).to.be.true;
+      expect(errorSpy.getCall(1).calledWith(error)).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
+    });
+
+    it('should log error when getPersonalizeInfo throws', async () => {
+      const error = new Error('Edge fails');
+
+      const getPersonalizeInfoWithError = sinon.stub().throws(error);
+
+      const { middleware, getPersonalizeInfo } = createMiddleware({
+        getPersonalizeInfoStub: getPersonalizeInfoWithError,
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      expect(getPersonalizeInfo.called).to.be.true;
+      expect(errorSpy.getCall(0).calledWith('Personalize middleware failed:')).to.be.true;
+      expect(errorSpy.getCall(1).calledWith(error)).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
     });
   });
 });
