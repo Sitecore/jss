@@ -99,7 +99,6 @@ export class GraphQLPersonalizeService {
       return data?.layout?.item
         ? {
             // CDP expects content id format `<id>_<language>_<version>` (lowercase)
-            // contentId: `${data.layout.item.id}_${language}_${data.layout.item.version}`.toLowerCase(),
             contentId: `${EMBEDDED}${data.layout.item.id}_${language}`.toLowerCase(),
             variantIds: data.layout.item.personalization.variantIds,
           }
