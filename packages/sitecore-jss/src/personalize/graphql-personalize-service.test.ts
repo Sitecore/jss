@@ -49,7 +49,7 @@ describe('GraphQLPersonalizeService', () => {
     const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
 
     expect(personalizeData).to.deep.equal({
-      contentId: `${EMBEDDED}${id}_en`.toLowerCase(),
+      contentId: `embedded_${id}_en`.toLowerCase(),
       variantIds,
     });
   });
