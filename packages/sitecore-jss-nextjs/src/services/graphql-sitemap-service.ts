@@ -250,6 +250,8 @@ export class GraphQLSitemapService {
     const aggregatedPaths: StaticPath[] = [];
 
     sitePaths.forEach((item) => {
+      if (!item) return;
+
       aggregatedPaths.push(formatPath(item.path));
       // check for type safety's sake - personalize may be empty depending on query type
       if (item.route?.personalization?.variantIds.length) {

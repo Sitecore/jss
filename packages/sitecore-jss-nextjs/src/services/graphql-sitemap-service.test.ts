@@ -354,6 +354,59 @@ describe('GraphQLSitemapService', () => {
       return expect(nock.isDone()).to.be.true;
     });
 
+    it('should work when null results are present', async () => {
+      const lang = 'en';
+
+      nock(endpoint)
+        .post('/', (body) => {
+          return body.variables.language === lang;
+        })
+        .reply(200, {
+          data: {
+            site: {
+              siteInfo: {
+                routes: {
+                  total: 4,
+                  pageInfo: {
+                    hasNext: false,
+                  },
+                  results: [
+                    {
+                      path: '/',
+                    },
+                    {
+                      path: '/x1',
+                    },
+                    null,
+                    null,
+                  ],
+                },
+              },
+            },
+          },
+        });
+
+      const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
+      const sitemap = await service.fetchSSGSitemap([lang]);
+
+      expect(sitemap).to.deep.equal([
+        {
+          params: {
+            path: [''],
+          },
+          locale: 'en',
+        },
+        {
+          params: {
+            path: ['x1'],
+          },
+          locale: 'en',
+        },
+      ]);
+
+      return expect(nock.isDone()).to.be.true;
+    });
+
     it('should throw error if valid language is not provided', async () => {
       const service = new GraphQLSitemapService({ endpoint, apiKey, siteName });
       await service.fetchSSGSitemap([]).catch((error: RangeError) => {
