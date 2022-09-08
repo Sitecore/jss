@@ -1,8 +1,11 @@
 ﻿import dynamic from 'next/dynamic';
 import React from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const NonSSRWrapper = (props: any) => <React.Fragment>{props.children}</React.Fragment>;
+type props = {
+  children: React.ReactNode;
+};
+
+const NonSSRWrapper = ({ children }: props) => <React.Fragment>{children}</React.Fragment>;
 
 export default dynamic(() => Promise.resolve(NonSSRWrapper), {
   ssr: false,

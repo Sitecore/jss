@@ -4,6 +4,7 @@ import {
   Placeholder,
   getPublicUrl,
   LayoutServiceData,
+  RouteData,
   Field,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import Navigation from 'src/Navigation';
@@ -22,6 +23,10 @@ interface RouteFields {
   [key: string]: unknown;
   pageTitle: Field;
 }
+
+const placeholder = (route: RouteData) => (
+  <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={route} />
+);
 
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
@@ -44,17 +49,9 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
           (pageEditing ? (
             // SafeHydrate is a workaround for Next.js issue (after react 18 upgrade) with hydration on the server.
             // by dynamically importing the problematic component with no SSR would fix the hydration issue.
-            <SafeHydrate>
-              <Placeholder
-                name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main"
-                rendering={route}
-              />
-            </SafeHydrate>
+            <SafeHydrate>{placeholder(route)}</SafeHydrate>
           ) : (
-            <Placeholder
-              name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main"
-              rendering={route}
-            />
+            placeholder(route)
           ))}
       </div>
     </>
