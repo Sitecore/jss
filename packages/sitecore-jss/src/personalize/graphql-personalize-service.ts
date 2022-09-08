@@ -43,8 +43,6 @@ type PersonalizeQueryResult = {
   layout: { item: { id: string; version: string; personalization: { variantIds: string[] } } };
 };
 
-const EMBEDDED = 'embedded';
-
 export class GraphQLPersonalizeService {
   private graphQLClient: GraphQLClient;
   protected get query(): string {

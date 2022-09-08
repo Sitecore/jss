@@ -12,7 +12,6 @@ describe('GraphQLPersonalizeService', () => {
   const id = 'item-id';
   const version = '1';
   const variantIds = ['variant-1', 'variant-2'];
-  const EMBEDDED = 'embedded';
   const config = {
     endpoint,
     siteName,
