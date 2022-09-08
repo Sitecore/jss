@@ -32,6 +32,11 @@ body {
 main {
   .main-header {
     margin-top: 55px;
+    margin-bottom: 30px;
+
+    @include respond-to(mobile-large) {
+      margin-bottom: 0;
+    }
 
     h4 {
       font-size: $text-size-50;
@@ -46,15 +51,6 @@ main {
     h2 {
       font-size: $text-size-36;
       line-height: 43px;
-    }
-  }
-
-  .banner-background {
-    padding-top: 30px;
-
-    @include respond-to(mobile-large) {
-      padding-top: 0;
-      padding-bottom: 0;
     }
   }
 
