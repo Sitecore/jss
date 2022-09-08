@@ -32,7 +32,7 @@ body {
 main {
   .main-header {
     margin-top: 55px;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 
     @include respond-to(mobile-large) {
       margin-bottom: 0;
