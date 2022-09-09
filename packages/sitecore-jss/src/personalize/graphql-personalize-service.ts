@@ -60,7 +60,6 @@ export class GraphQLPersonalizeService {
       }
     `;
   }
-
   /**
    * Fetch personalize data using the Sitecore GraphQL endpoint.
    * @param {GraphQLPersonalizeServiceConfig} config
@@ -96,8 +95,8 @@ export class GraphQLPersonalizeService {
 
       return data?.layout?.item
         ? {
-            // CDP expects content id format `<id>_<language>_<version>` (lowercase)
-            contentId: `embedded_${data.layout.item.id}_${language}`.toLowerCase(),
+            // CDP expects content id format `embedded_<id>_<lang>` (lowercase)
+            contentId: this.getContentId(data.layout.item.id, language),
             variantIds: data.layout.item.personalization.variantIds,
           }
         : undefined;
@@ -108,6 +107,16 @@ export class GraphQLPersonalizeService {
 
       throw error;
     }
+  }
+
+  /**
+   * Gets the content id for the CDP in the required format `embedded_<id>_<lang>`
+   * @param {string} pageId the page id
+   * @param {string} language the language
+   * @returns {string} the content id
+   */
+  protected getContentId(pageId: string, language: string): string {
+    return `embedded_${pageId}_${language.replace('-', '_')}`.toLowerCase();
   }
 
   /**
