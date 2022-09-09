@@ -31,7 +31,6 @@ const placeholder = (route: RouteData) => (
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
   const { pageEditing } = layoutData.sitecore.context;
-
   const fields = route?.fields as RouteFields;
 
   return (

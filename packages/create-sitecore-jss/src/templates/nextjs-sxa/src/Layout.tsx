@@ -8,8 +8,10 @@ import {
   VisitorIdentification,
   getPublicUrl,
   LayoutServiceData,
+  RouteData,
   Field,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import SafeHydrate from 'components/SafeHydrate';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -23,6 +25,8 @@ interface RouteFields {
   [key: string]: unknown;
   Title?: Field;
 }
+
+const placeholder = (route: RouteData) => <Placeholder name="headless-footer" rendering={route} />;
 
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
@@ -55,7 +59,16 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
           <div id="content">{route && <Placeholder name="headless-main" rendering={route} />}</div>
         </main>
         <footer>
-          <div id="footer">{route && <Placeholder name="headless-footer" rendering={route} />}</div>
+          <div id="footer">
+            {route &&
+              (isPageEditing ? (
+                // SafeHydrate is a workaround for Next.js issue (after react 18 upgrade) with hydration on the server.
+                // by dynamically importing the problematic component with no SSR would fix the hydration issue.
+                <SafeHydrate>{placeholder(route)}</SafeHydrate>
+              ) : (
+                placeholder(route)
+              ))}
+          </div>
         </footer>
       </div>
     </>
