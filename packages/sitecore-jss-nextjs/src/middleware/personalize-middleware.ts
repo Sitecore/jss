@@ -100,13 +100,6 @@ export class PersonalizeMiddleware {
   protected getExperienceParams(req: NextRequest): ExperienceParams {
     const { ua } = userAgent(req);
     return {
-      geo: {
-        city: req.geo?.city ?? null,
-        country: req.geo?.country ?? null,
-        latitude: req.geo?.latitude ?? null,
-        longitude: req.geo?.longitude ?? null,
-        region: req.geo?.region ?? null,
-      },
       referrer: req.referrer,
       ua: ua ?? null,
       utm: {

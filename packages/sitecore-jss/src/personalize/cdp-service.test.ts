@@ -1,5 +1,5 @@
 ﻿/* eslint-disable no-unused-expressions */
-import { CdpService, ExperienceParams } from './cdp-service';
+import { CdpService, ExperienceParams, DEFAULT_CHANNEL } from './cdp-service';
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
@@ -14,19 +14,10 @@ describe('CdpService', () => {
   const variantId = 'variant-1';
   const pointOfSale = 'pos-1';
   const friendlyId = contentId;
-  const channel = 'WEB';
+  const channel = DEFAULT_CHANNEL;
   const browserId = 'browser-id';
   const ref = browserId;
   const params = {
-    geo: {
-      city: 'Testville',
-      country: 'US',
-      latitude: '43.1475',
-      longitude: '-87.905',
-      region: 'CA',
-    },
-    ua:
-      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
     referrer: 'about:client',
     utm: {
       campaign: 'test',
@@ -85,6 +76,27 @@ describe('CdpService', () => {
       const variantId = await service.executeExperience(contentId, params, browserId);
 
       expect(variantId).to.be.undefined;
+    });
+
+    it('should fetch using specified channel', async () => {
+      const channelOverride = 'TEST';
+      nock(endpoint)
+        .post('/v2/callFlows', {
+          clientKey,
+          pointOfSale,
+          params,
+          browserId,
+          friendlyId,
+          channel: channelOverride,
+        })
+        .reply(200, {
+          variantId,
+        });
+
+      const service = new CdpService({ ...config, channel: channelOverride });
+      const actualVariantId = await service.executeExperience(contentId, params, browserId);
+
+      expect(actualVariantId).to.deep.equal(variantId);
     });
 
     it('should fetch using custom fetcher resolver and respond with data', async () => {

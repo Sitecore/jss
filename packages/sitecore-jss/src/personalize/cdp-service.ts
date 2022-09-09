@@ -3,6 +3,8 @@ import { HttpDataFetcher } from '../data-fetcher';
 import { AxiosDataFetcher } from '../axios-fetcher';
 import { isTimeoutError } from '../utils';
 
+export const DEFAULT_CHANNEL = 'WEB';
+
 /**
  * Object model of CDP execute experience result
  */
@@ -34,6 +36,10 @@ export type CdpServiceConfig = {
    */
   pointOfSale: string;
   /**
+   * The Sitecore CDP channel to use for events. Uses 'WEB' by default.
+   */
+  channel?: string;
+  /**
    * Custom data fetcher resolver. Uses @see AxiosDataFetcher by default.
    */
   dataFetcherResolver?: DataFetcherResolver;
@@ -52,15 +58,7 @@ export type DataFetcherResolver = <T>({ timeout }: { timeout: number }) => HttpD
  * Object model of Experience Context data
  */
 export type ExperienceParams = {
-  geo: {
-    city: string | null;
-    country: string | null;
-    latitude: string | null;
-    longitude: string | null;
-    region: string | null;
-  };
   referrer: string;
-  ua: string | null;
   utm: {
     [key: string]: string | null;
     campaign: string | null;
@@ -103,7 +101,7 @@ export class CdpService {
         pointOfSale: this.config.pointOfSale,
         browserId,
         friendlyId: contentId,
-        channel: 'WEB',
+        channel: this.config.channel ?? DEFAULT_CHANNEL,
         params,
       });
       response.data.variantId === '' && (response.data.variantId = undefined);

@@ -27,13 +27,6 @@ describe('PersonalizeMiddleware', () => {
 
   const referrer = 'http://localhost:3000';
   const experienceParams: ExperienceParams = {
-    geo: {
-      city: 'geo-city',
-      country: 'geo-country',
-      latitude: 'geo-latitude',
-      longitude: 'geo-longitude',
-      region: 'geo-region',
-    },
     referrer,
     ua: 'ua',
     utm: {
@@ -74,7 +67,6 @@ describe('PersonalizeMiddleware', () => {
         ...props?.cookies,
       },
       referrer,
-      geo: props?.geo === null ? null : props?.geo || experienceParams.geo,
     } as NextRequest;
 
     return req;
@@ -744,9 +736,7 @@ describe('PersonalizeMiddleware', () => {
     it('optional experiece params are not present', async () => {
       userAgentStub.returns({ ua: undefined } as any);
 
-      const req = createRequest({
-        geo: {},
-      });
+      const req = createRequest();
 
       const res = createResponse();
 
@@ -771,13 +761,6 @@ describe('PersonalizeMiddleware', () => {
         executeExperience.calledWith(
           contentId,
           {
-            geo: {
-              city: null,
-              country: null,
-              latitude: null,
-              longitude: null,
-              region: null,
-            },
             referrer,
             ua: null,
             utm: {
@@ -790,72 +773,6 @@ describe('PersonalizeMiddleware', () => {
           browserId
         )
       ).to.be.true;
-
-      validateDebugLog('personalize middleware end: %o', {
-        rewritePath: '/_variantId_variant-2/styleguide',
-        browserId: 'browser-id',
-        headers: {
-          'x-middleware-cache': 'no-cache',
-        },
-      });
-
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
-
-      expect(finalRes).to.deep.equal(res);
-
-      expect(finalRes.cookies['bid_cdp-client-key']).to.equal(browserId);
-
-      getCookiesSpy.restore();
-      nextRewriteStub.restore();
-    });
-
-    it('request geo is not present', async () => {
-      userAgentStub.returns({ ua: undefined } as any);
-
-      const req = createRequest({ geo: null });
-
-      const res = createResponse();
-
-      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
-
-      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
-        variantId: 'variant-2',
-      });
-
-      const getCookiesSpy = spy(req.cookies, 'get');
-
-      const finalRes = await middleware.getHandler()(req, res);
-
-      expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
-
-      expect(
-        executeExperience.calledWith(
-          contentId,
-          {
-            geo: {
-              city: null,
-              country: null,
-              latitude: null,
-              longitude: null,
-              region: null,
-            },
-            referrer,
-            ua: null,
-            utm: {
-              campaign: 'utm_campaign',
-              content: null,
-              medium: null,
-              source: null,
-            },
-          },
-          browserId
-        )
-      ).to.be.true;
-
-      validateDebugLog('personalize middleware start: %o', {
-        pathname: '/styleguide',
-        language: 'en',
-      });
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
