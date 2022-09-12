@@ -20,6 +20,7 @@ import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
+import SafeHydrate from './../components/SafeHydrate';
 
 <% } -%>
 
@@ -41,8 +42,7 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
       <SitecoreContext
         componentFactory={isEditing ? editingComponentFactory : componentFactory}
         layoutData={layoutData}
-      >
-        <Layout layoutData={layoutData} />
+      >{isEditing ? <SafeHydrate><Layout layoutData={layoutData} /></SafeHydrate> : <Layout layoutData={layoutData} />}
       </SitecoreContext>
     </ComponentPropsContext>
   );
