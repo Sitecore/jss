@@ -49,10 +49,15 @@ export type CdpServiceConfig = {
   timeout?: number;
 };
 
+export type DataFetcherConfig = {
+  timeout: number;
+  headers?: Record<string, string>;
+};
+
 /**
  * Data fetcher resolver in order to provide custom data fetcher
  */
-export type DataFetcherResolver = <T>({ timeout }: { timeout: number }) => HttpDataFetcher<T>;
+export type DataFetcherResolver = <T>(config: DataFetcherConfig) => HttpDataFetcher<T>;
 
 /**
  * Object model of Experience Context data
@@ -80,28 +85,37 @@ export class CdpService {
   /**
    * Executes targeted experience for a page and params to determine the variant to render.
    * @param {string} contentId the friendly content id of the page
+   * @param {string} browserId the browser id
+   * @param {string} userAgent the user agent
    * @param {ExperienceParams} params the experience params for the user
-   * @param {string} browserId the browser id.
    * @returns {ExecuteExperienceResult} the execute experience result
    */
   async executeExperience(
     contentId: string,
-    params: ExperienceParams,
-    browserId: string
+    browserId: string,
+    userAgent: string,
+    params: ExperienceParams
   ): Promise<string | undefined> {
     const endpoint = this.getExecuteExperienceUrl();
 
-    debug.personalize('executing experience for %s %s %o', contentId, browserId, params);
+    debug.personalize(
+      'executing experience for %s %s %s %o',
+      contentId,
+      browserId,
+      userAgent,
+      params
+    );
 
-    const fetcher = this.getFetcher<ExecuteExperienceResult>();
+    const headers = { 'User-Agent': userAgent };
+    const fetcher = this.getFetcher<ExecuteExperienceResult>(headers);
 
     try {
       const response = await fetcher(endpoint, {
         clientKey: this.config.clientKey,
         pointOfSale: this.config.pointOfSale,
+        channel: this.config.channel ?? DEFAULT_CHANNEL,
         browserId,
         friendlyId: contentId,
-        channel: this.config.channel ?? DEFAULT_CHANNEL,
         params,
       });
       response.data.variantId === '' && (response.data.variantId = undefined);
@@ -148,16 +162,6 @@ export class CdpService {
   }
 
   /**
-   * Returns provided data fetcher otherwise default one
-   * @returns {HttpDataFetcher} data fetcher
-   */
-  protected getFetcher<Response>() {
-    return this.config.dataFetcherResolver
-      ? this.config.dataFetcherResolver<Response>({ timeout: this.timeout })
-      : this.getDefaultFetcher<Response>();
-  }
-
-  /**
    * Get formatted URL for executeExperience call
    * @returns {string} formatted URL
    */
@@ -166,13 +170,25 @@ export class CdpService {
   }
 
   /**
+   * Returns provided data fetcher otherwise default one
+   * @param {Record<string, string>} [headers] Optional headers
+   * @returns {HttpDataFetcher} data fetcher
+   */
+  protected getFetcher<Response>(headers?: Record<string, string>) {
+    return this.config.dataFetcherResolver
+      ? this.config.dataFetcherResolver<Response>({ timeout: this.timeout, headers })
+      : this.getDefaultFetcher<Response>({ timeout: this.timeout, headers });
+  }
+
+  /**
    * Provides default @see AxiosDataFetcher data fetcher
+   * @param {DataFetcherConfig} config
    * @returns default fetcher
    */
-  protected getDefaultFetcher = <T>() => {
+  protected getDefaultFetcher = <T>(config: DataFetcherConfig) => {
     const fetcher = new AxiosDataFetcher({
       debugger: debug.personalize,
-      timeout: this.timeout,
+      ...config,
     });
     return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
   };
