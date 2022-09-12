@@ -26,7 +26,31 @@ interface RouteFields {
   Title?: Field;
 }
 
-const placeholder = (route: RouteData) => <Placeholder name="headless-footer" rendering={route} />;
+const placeholderComponent = (route: RouteData, mainClassPageEditing: string) => (
+  <div className={mainClassPageEditing}>
+    <header>
+      <div id="header">{route && <Placeholder name="headless-header" rendering={route} />}</div>
+    </header>
+    <main>
+      <div id="content">{route && <Placeholder name="headless-main" rendering={route} />}</div>
+    </main>
+    <footer>
+      <div id="footer">{route && <Placeholder name="headless-main" rendering={route} />}</div>
+    </footer>
+  </div>
+);
+
+const placeholder = (
+  isEditing: boolean | undefined,
+  route: RouteData,
+  mainClassPageEditing: string
+) => {
+  return isEditing ? (
+    <SafeHydrate>{placeholderComponent(route, mainClassPageEditing)}</SafeHydrate>
+  ) : (
+    placeholderComponent(route, mainClassPageEditing)
+  );
+};
 
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
@@ -40,7 +64,6 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
-
       {/*
         VisitorIdentification is necessary for Sitecore Analytics to determine if the visitor is a robot.
         If Sitecore XP (with xConnect/xDB) is used, this is required or else analytics will not be collected for the JSS app.
@@ -49,28 +72,8 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         VI detection only runs once for a given analytics ID, so this is not a recurring operation once cookies are established.
       */}
       <VisitorIdentification />
-
       {/* root placeholder for the app, which we add components to using route data */}
-      <div className={mainClassPageEditing}>
-        <header>
-          <div id="header">{route && <Placeholder name="headless-header" rendering={route} />}</div>
-        </header>
-        <main>
-          <div id="content">{route && <Placeholder name="headless-main" rendering={route} />}</div>
-        </main>
-        <footer>
-          <div id="footer">
-            {route &&
-              (isPageEditing ? (
-                // SafeHydrate is a workaround for Next.js issue (after react 18 upgrade) with hydration on the server.
-                // by dynamically importing the problematic component with no SSR would fix the hydration issue.
-                <SafeHydrate>{placeholder(route)}</SafeHydrate>
-              ) : (
-                placeholder(route)
-              ))}
-          </div>
-        </footer>
-      </div>
+      <div>{placeholder(isPageEditing, route, mainClassPageEditing)}</div>
     </>
   );
 };

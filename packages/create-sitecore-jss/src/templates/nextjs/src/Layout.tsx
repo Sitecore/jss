@@ -24,9 +24,17 @@ interface RouteFields {
   pageTitle: Field;
 }
 
-const placeholder = (route: RouteData) => (
+const placeholderComponent = (route: RouteData) => (
   <Placeholder name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-main" rendering={route} />
 );
+
+const placeholder = (isEditing: boolean | undefined, route: RouteData) => {
+  return isEditing ? (
+    <SafeHydrate>{placeholderComponent(route)}</SafeHydrate>
+  ) : (
+    placeholderComponent(route)
+  );
+};
 
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
@@ -43,16 +51,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
 
       <Navigation />
       {/* root placeholder for the app, which we add components to using route data */}
-      <div className="container">
-        {route &&
-          (pageEditing ? (
-            // SafeHydrate is a workaround for Next.js issue (after react 18 upgrade) with hydration on the server.
-            // by dynamically importing the problematic component with no SSR would fix the hydration issue.
-            <SafeHydrate>{placeholder(route)}</SafeHydrate>
-          ) : (
-            placeholder(route)
-          ))}
-      </div>
+      <div className="container">{route && placeholder(pageEditing, route)}</div>
     </>
   );
 };
