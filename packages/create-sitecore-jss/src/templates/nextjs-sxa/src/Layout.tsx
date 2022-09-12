@@ -36,6 +36,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
+
       {/*
         VisitorIdentification is necessary for Sitecore Analytics to determine if the visitor is a robot.
         If Sitecore XP (with xConnect/xDB) is used, this is required or else analytics will not be collected for the JSS app.
@@ -44,6 +45,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         VI detection only runs once for a given analytics ID, so this is not a recurring operation once cookies are established.
       */}
       <VisitorIdentification />
+
       {/* root placeholder for the app, which we add components to using route data */}
       <div className={mainClassPageEditing}>
         <header>
@@ -53,7 +55,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
           <div id="content">{route && <Placeholder name="headless-main" rendering={route} />}</div>
         </main>
         <footer>
-          <div id="footer">{route && <Placeholder name="headless-main" rendering={route} />}</div>
+          <div id="footer">{route && <Placeholder name="headless-footer" rendering={route} />}</div>
         </footer>
       </div>
     </>

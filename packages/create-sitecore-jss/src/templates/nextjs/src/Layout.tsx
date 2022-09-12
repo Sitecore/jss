@@ -12,6 +12,7 @@ import Scripts from 'src/Scripts';
 // Prefix public assets with a public URL to enable compatibility with Sitecore editors.
 // If you're not supporting Sitecore editors, you can remove this.
 const publicUrl = getPublicUrl();
+
 interface LayoutProps {
   layoutData: LayoutServiceData;
 }
@@ -23,6 +24,7 @@ interface RouteFields {
 
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
+
   const fields = route?.fields as RouteFields;
 
   return (
