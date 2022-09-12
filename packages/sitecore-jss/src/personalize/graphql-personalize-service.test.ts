@@ -1,4 +1,5 @@
-﻿import { expect, use } from 'chai';
+﻿/* eslint-disable dot-notation */
+import { expect, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
 import { GraphQLPersonalizeService } from './graphql-personalize-service';
@@ -48,9 +49,19 @@ describe('GraphQLPersonalizeService', () => {
     const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
 
     expect(personalizeData).to.deep.equal({
-      contentId: `${id}_en_${version}`.toLowerCase(),
+      contentId: `embedded_${id}_en`.toLowerCase(),
       variantIds,
     });
+  });
+
+  it('getContentId should return content id for the CDP in the required format`', () => {
+    const service = new GraphQLPersonalizeService(config);
+    // eslint-disable-next-line dot-notation
+    const contentIdWithDash = service['getContentId'](id, 'en-EN');
+    const contentIdWithUnderscore = service['getContentId'](id, 'en_EN');
+
+    expect(contentIdWithDash).to.equal(`embedded_${id}_en_EN`.toLowerCase());
+    expect(contentIdWithUnderscore).to.equal(`embedded_${id}_en_EN`.toLowerCase());
   });
 
   it('should return undefined if itemPath / language not found', async () => {
