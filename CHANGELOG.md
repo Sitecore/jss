@@ -15,6 +15,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * `[create-sitecore-jss]` Add descriptions to add-on list ([#935](https://github.com/Sitecore/jss/pull/935))
 * `[template/nextjs]` Introduced plugins approach for Next.js Middleware ([#945](https://github.com/Sitecore/jss/pull/945))
 * `[sitecore-jss]` Make it clear that `isEditorActive` only works in browser ([#1089](https://github.com/Sitecore/jss/pull/1089))
+* `[template/nextjs]` `[template/nextjs-styleguide]` `[template/nextjs-sxa]` Specify AppProps generic type in _app.tsx to align with latest changes from Next 12.3.0 ([#1155](https://github.com/Sitecore/jss/pull/1155))
 
 ### 🧹 Chores
 
