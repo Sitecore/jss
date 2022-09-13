@@ -9,14 +9,6 @@ const redirectsQueryResultNull = {
       redirects: [],
     },
   },
-  layout: {
-    item: {
-      template: {
-        name: 'App Route',
-      },
-      field: null,
-    },
-  },
 } as RedirectsQueryResult;
 
 const redirectsQueryResult = {
@@ -28,6 +20,7 @@ const redirectsQueryResult = {
           target: '/404',
           redirectType: 'REDIRECT_301',
           isQueryStringPreserved: true,
+          locale: 'en',
         },
       ],
     },
@@ -38,8 +31,6 @@ describe('GraphQLRedirectsService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
   const siteName = 'site-name';
-  const routePath = '/';
-  const language = 'en';
 
   afterEach(() => {
     nock.cleanAll();
@@ -65,7 +56,7 @@ describe('GraphQLRedirectsService', () => {
       mockRedirectsRequest();
 
       const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName: '' });
-      await service.fetchRedirects(routePath, language).catch((error: Error) => {
+      await service.fetchRedirects().catch((error: Error) => {
         expect(error.message).to.equal(siteNameError);
       });
 
@@ -76,7 +67,7 @@ describe('GraphQLRedirectsService', () => {
       mockRedirectsRequest(siteName);
 
       const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName });
-      const result = await service.fetchRedirects(routePath, language);
+      const result = await service.fetchRedirects();
 
       expect(result).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);
 
@@ -87,7 +78,7 @@ describe('GraphQLRedirectsService', () => {
       mockRedirectsRequest();
 
       const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName });
-      const result = await service.fetchRedirects(routePath, language);
+      const result = await service.fetchRedirects();
 
       expect(result).to.deep.equal(redirectsQueryResultNull.site?.siteInfo?.redirects);
 
