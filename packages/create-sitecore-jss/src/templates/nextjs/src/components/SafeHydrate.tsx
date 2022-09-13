@@ -6,7 +6,7 @@ type props = {
 };
 
 // This is a component when imported dynamically will not have any server side rendering.
-// This is a workaround to prevent hydration errors when using JSS components.
+// This is used as a workaround to prevent hydration errors when using SSR in Sitecore editors.
 const NonSSRWrapper = ({ children }: props) => <React.Fragment>{children}</React.Fragment>;
 
 export default dynamic(() => Promise.resolve(NonSSRWrapper), {
