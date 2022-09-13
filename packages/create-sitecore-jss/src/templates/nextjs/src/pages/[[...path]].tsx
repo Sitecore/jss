@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import SafeHydrate from './../components/SafeHydrate';
 <% if (prerender === 'SSG') { -%>
 import { GetStaticPaths, GetStaticProps } from 'next';
 <% } else if (prerender === 'SSR') { -%>
@@ -7,6 +6,7 @@ import { GetServerSideProps } from 'next';
 <% } -%>
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
+import SafeHydrate from './../components/SafeHydrate';
 import {
   SitecoreContext,
   ComponentPropsContext,
