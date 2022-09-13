@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import SafeHydrate from './../components/SafeHydrate';
 <% if (prerender === 'SSG') { -%>
 import { GetStaticPaths, GetStaticProps } from 'next';
 <% } else if (prerender === 'SSR') { -%>
@@ -20,8 +21,6 @@ import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
-import SafeHydrate from './../components/SafeHydrate';
-
 <% } -%>
 
 const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
