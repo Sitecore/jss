@@ -42,7 +42,7 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
       <SitecoreContext
         componentFactory={isEditing ? editingComponentFactory : componentFactory}
         layoutData={layoutData}
-        // SafeHydrate is a workaround for Next.js issue (after react 18 upgrade) with hydration on the server when using Sitecore Experience Editor.
+        // SafeHydrate is a workaround for Next.js issue (after react 18 upgrade) with hydration on the server when using Sitecore editors.
         // by dynamically importing the problematic component with no SSR would fix the hydration issue.
       >{isEditing ? <SafeHydrate><Layout layoutData={layoutData} /></SafeHydrate> : <Layout layoutData={layoutData} />}
       </SitecoreContext>
