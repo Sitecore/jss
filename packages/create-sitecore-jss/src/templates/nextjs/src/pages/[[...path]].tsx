@@ -6,7 +6,7 @@ import { GetServerSideProps } from 'next';
 <% } -%>
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
-import SafeHydrate from './../components/SafeHydrate';
+import SafeHydrate from '../SafeHydrate';
 import {
   SitecoreContext,
   ComponentPropsContext,
