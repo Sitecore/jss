@@ -9,10 +9,10 @@ import {
  * Sitecore page props
  */
 export type SitecorePageProps = {
-  notFound: boolean;
-  redirect?: Redirect;
   locale: string;
   dictionary: DictionaryPhrases;
-  layoutData: LayoutServiceData;
   componentProps: ComponentPropsCollection;
+  notFound: boolean;
+  layoutData: LayoutServiceData;
+  redirect?: Redirect;
 };
