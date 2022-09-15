@@ -6,19 +6,13 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
- * Nextjs app props
+ * Sitecore page props
  */
-export type NextAppProps = {
+export type SitecorePageProps = {
+  notFound: boolean;
+  redirect?: Redirect;
   locale: string;
   dictionary: DictionaryPhrases;
   layoutData: LayoutServiceData;
   componentProps: ComponentPropsCollection;
-};
-
-/**
- * Sitecore page props
- */
-export type SitecorePageProps = NextAppProps & {
-  notFound: boolean;
-  redirect?: Redirect;
 };
