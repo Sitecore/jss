@@ -165,7 +165,7 @@ export class EditingRenderMiddleware {
       html = html.replace(STATIC_PROPS_ID, SERVER_PROPS_ID);
 
       if (editingData.layoutData.sitecore.context.renderingType === RenderingType.Component) {
-        // Handle component rendering request. Extract component markup only
+        // Handle component rendering. Extract component markup only
         html = parse(html).getElementById(NEXT_APP_ROOT_TAG_ID)?.innerHTML;
       }
 
