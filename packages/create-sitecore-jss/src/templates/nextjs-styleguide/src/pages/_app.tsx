@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import Router from 'next/router';
 import { I18nProvider } from 'next-localization';
 import NProgress from 'nprogress';
-import { NextAppProps } from 'lib/page-props';
+import { SitecorePageProps } from 'lib/page-props';
 
 // Using bootstrap and nprogress are completely optional.
 //  bootstrap is used here to provide a clean layout for samples, without needing extra CSS in the sample app
@@ -18,7 +18,7 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-function App({ Component, pageProps }: AppProps<NextAppProps>): JSX.Element {
+function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element {
   const { dictionary, ...rest } = pageProps;
 
   return (

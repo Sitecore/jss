@@ -1,10 +1,10 @@
 import type { AppProps } from 'next/app';
 import { I18nProvider } from 'next-localization';
-import { NextAppProps } from 'lib/page-props';
+import { SitecorePageProps } from 'lib/page-props';
 
 import 'assets/app.css';
 
-function App({ Component, pageProps }: AppProps<NextAppProps>): JSX.Element {
+function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element {
   const { dictionary, ...rest } = pageProps;
 
   return (

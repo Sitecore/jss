@@ -9,16 +9,17 @@ import {
  * Nextjs app props
  */
 export type NextAppProps = {
-  locale: string;
-  dictionary: DictionaryPhrases;
-  layoutData: LayoutServiceData;
-  componentProps: ComponentPropsCollection;
+
 };
 
 /**
  * Sitecore page props
  */
 export type SitecorePageProps = NextAppProps & {
+  locale: string;
+  dictionary: DictionaryPhrases;
+  componentProps: ComponentPropsCollection;
   notFound: boolean;
+  layoutData: LayoutServiceData;
   redirect?: Redirect;
 };
