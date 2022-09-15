@@ -98,17 +98,8 @@ export class PersonalizeMiddleware {
   }
 
   protected getExperienceParams(req: NextRequest): ExperienceParams {
-    const { ua } = userAgent(req);
     return {
-      geo: {
-        city: req.geo?.city ?? null,
-        country: req.geo?.country ?? null,
-        latitude: req.geo?.latitude ?? null,
-        longitude: req.geo?.longitude ?? null,
-        region: req.geo?.region ?? null,
-      },
       referrer: req.referrer,
-      ua: ua ?? null,
       utm: {
         campaign: req.nextUrl.searchParams.get('utm_campaign'),
         content: req.nextUrl.searchParams.get('utm_content'),
@@ -200,11 +191,13 @@ export class PersonalizeMiddleware {
     }
 
     // Execute targeted experience in CDP
+    const { ua } = userAgent(req);
     const params = this.getExperienceParams(req);
     const variantId = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
-      params,
-      browserId
+      browserId,
+      ua,
+      params
     );
 
     if (!variantId) {
