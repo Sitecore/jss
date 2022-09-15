@@ -6,16 +6,9 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
- * Nextjs app props
- */
-export type NextAppProps = {
-
-};
-
-/**
  * Sitecore page props
  */
-export type SitecorePageProps = NextAppProps & {
+export type SitecorePageProps = {
   locale: string;
   dictionary: DictionaryPhrases;
   componentProps: ComponentPropsCollection;
