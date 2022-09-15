@@ -13,6 +13,8 @@ export {
   PlaceholdersData,
   ComponentFields,
   ComponentParams,
+  RenderingType,
+  EDITING_COMPONENT_PLACEHOLDER,
 } from './models';
 
 export { getFieldValue, getChildPlaceholder } from './utils';

@@ -31,6 +31,8 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  RenderingType,
+  EDITING_COMPONENT_PLACEHOLDER,
 } from '@sitecore-jss/sitecore-jss/layout';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
