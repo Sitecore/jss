@@ -20,6 +20,7 @@ const redirectsQueryResult = {
           target: '/404',
           redirectType: 'REDIRECT_301',
           isQueryStringPreserved: true,
+          locale: 'en',
         },
       ],
     },
@@ -68,7 +69,7 @@ describe('GraphQLRedirectsService', () => {
       const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName });
       const result = await service.fetchRedirects();
 
-      expect(result).to.deep.equal(redirectsQueryResult.site.siteInfo.redirects);
+      expect(result).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);
 
       return expect(nock.isDone()).to.be.true;
     });
@@ -79,7 +80,7 @@ describe('GraphQLRedirectsService', () => {
       const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName });
       const result = await service.fetchRedirects();
 
-      expect(result).to.deep.equal(redirectsQueryResultNull.site.siteInfo.redirects);
+      expect(result).to.deep.equal(redirectsQueryResultNull.site?.siteInfo?.redirects);
 
       return expect(nock.isDone()).to.be.true;
     });

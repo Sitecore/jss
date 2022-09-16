@@ -1,5 +1,5 @@
 ﻿/* eslint-disable no-unused-expressions */
-import { CdpService, ExperienceParams } from './cdp-service';
+import { CdpService, ExperienceParams, DEFAULT_CHANNEL } from './cdp-service';
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
@@ -14,19 +14,11 @@ describe('CdpService', () => {
   const variantId = 'variant-1';
   const pointOfSale = 'pos-1';
   const friendlyId = contentId;
-  const channel = 'WEB';
+  const channel = DEFAULT_CHANNEL;
   const browserId = 'browser-id';
   const ref = browserId;
+  const ua = 'user-agent-string';
   const params = {
-    geo: {
-      city: 'Testville',
-      country: 'US',
-      latitude: '43.1475',
-      longitude: '-87.905',
-      region: 'CA',
-    },
-    ua:
-      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
     referrer: 'about:client',
     utm: {
       campaign: 'test',
@@ -48,21 +40,25 @@ describe('CdpService', () => {
 
   describe('executeExperience', () => {
     it('should return variant data for a route', async () => {
-      nock(endpoint)
+      nock(endpoint, {
+        reqheaders: {
+          'User-Agent': ua,
+        },
+      })
         .post('/v2/callFlows', {
           clientKey,
           pointOfSale,
-          params,
+          channel,
           browserId,
           friendlyId,
-          channel,
+          params,
         })
         .reply(200, {
           variantId,
         });
 
       const service = new CdpService(config);
-      const actualVariantId = await service.executeExperience(contentId, params, browserId);
+      const actualVariantId = await service.executeExperience(contentId, browserId, ua, params);
 
       expect(actualVariantId).to.deep.equal(variantId);
     });
@@ -72,19 +68,40 @@ describe('CdpService', () => {
         .post('/v2/callFlows', {
           clientKey,
           pointOfSale,
-          params,
+          channel,
           browserId,
           friendlyId,
-          channel,
+          params,
         })
         .reply(200, {
           variantId: '',
         });
 
       const service = new CdpService(config);
-      const variantId = await service.executeExperience(contentId, params, browserId);
+      const variantId = await service.executeExperience(contentId, browserId, ua, params);
 
       expect(variantId).to.be.undefined;
+    });
+
+    it('should fetch using specified channel', async () => {
+      const channelOverride = 'TEST';
+      nock(endpoint)
+        .post('/v2/callFlows', {
+          clientKey,
+          pointOfSale,
+          channel: channelOverride,
+          browserId,
+          friendlyId,
+          params,
+        })
+        .reply(200, {
+          variantId,
+        });
+
+      const service = new CdpService({ ...config, channel: channelOverride });
+      const actualVariantId = await service.executeExperience(contentId, browserId, ua, params);
+
+      expect(actualVariantId).to.deep.equal(variantId);
     });
 
     it('should fetch using custom fetcher resolver and respond with data', async () => {
@@ -96,17 +113,17 @@ describe('CdpService', () => {
         .post('/v2/callFlows', {
           clientKey,
           pointOfSale,
-          params,
+          channel,
           browserId,
           friendlyId,
-          channel,
+          params,
         })
         .reply(200, {
           variantId,
         });
 
       const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
-      const actualVariantId = await service.executeExperience(contentId, params, browserId);
+      const actualVariantId = await service.executeExperience(contentId, browserId, ua, params);
 
       expect(actualVariantId).to.deep.equal(variantId);
       expect(fetcherSpy).to.be.called.once;
@@ -122,16 +139,16 @@ describe('CdpService', () => {
         .post('/v2/callFlows', {
           clientKey,
           pointOfSale,
-          params,
+          channel,
           browserId,
           friendlyId,
-          channel,
+          params,
         })
         .delay(50)
         .reply(408);
 
       const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
-      const actualVariantId = await service.executeExperience(contentId, params, browserId);
+      const actualVariantId = await service.executeExperience(contentId, browserId, ua, params);
 
       expect(actualVariantId).to.deep.equal(undefined);
     });
@@ -140,15 +157,15 @@ describe('CdpService', () => {
       nock(endpoint)
         .post('/v2/callFlows', {
           clientKey,
-          browserId,
-          params,
           pointOfSale,
-          friendlyId,
           channel,
+          browserId,
+          friendlyId,
+          params,
         })
         .replyWithError('error_test');
       const service = new CdpService(config);
-      await service.executeExperience(contentId, params, browserId).catch((error) => {
+      await service.executeExperience(contentId, browserId, ua, params).catch((error) => {
         expect(error.message).to.contain('error_test');
       });
     });
@@ -158,15 +175,15 @@ describe('CdpService', () => {
         .post('/v2/callFlows', {
           clientKey,
           pointOfSale,
-          params,
+          channel,
           browserId,
           friendlyId,
-          channel,
+          params,
         })
         .reply(408);
 
       const service = new CdpService(config);
-      const actualVariantId = await service.executeExperience(contentId, params, browserId);
+      const actualVariantId = await service.executeExperience(contentId, browserId, ua, params);
 
       expect(actualVariantId).to.deep.equal(undefined);
     });
