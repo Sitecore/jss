@@ -12,14 +12,14 @@ import {
 import NextLink from 'next/link';
 import {
   ConnectedDemoQueryDocument,
-  <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute as AppRoute,
+  <%- helper.getAppPrefix(appPrefix, appName, false) %>Page as Page,
   Item,
   <%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
 } from './GraphQL-ConnectedDemo.dynamic.graphql';
 import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 
-type RouteItem = AppRoute & Item;
+type RouteItem = Page & Item;
 
 type GraphQLConnectedDemoData = {
   datasource: GrapQLConnectedDemoDatasource;
