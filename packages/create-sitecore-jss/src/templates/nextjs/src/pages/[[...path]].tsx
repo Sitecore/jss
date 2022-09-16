@@ -6,7 +6,6 @@ import { GetServerSideProps } from 'next';
 <% } -%>
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
-import SafeHydrate from '../SafeHydrate';
 import {
   SitecoreContext,
   ComponentPropsContext,
@@ -21,6 +20,7 @@ import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
+
 <% } -%>
 
 const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
@@ -41,9 +41,8 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
       <SitecoreContext
         componentFactory={isEditing ? editingComponentFactory : componentFactory}
         layoutData={layoutData}
-        // SafeHydrate is a workaround for Next.js issue (after react 18 upgrade) with hydration on the server when using Sitecore editors.
-        // by dynamically importing the problematic component with no SSR would fix the hydration issue.
-      >{isEditing ? <SafeHydrate><Layout layoutData={layoutData} /></SafeHydrate> : <Layout layoutData={layoutData} />}
+      >
+        <Layout layoutData={layoutData} />
       </SitecoreContext>
     </ComponentPropsContext>
   );
