@@ -42,7 +42,7 @@ function isRawRendering(
 class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> {
   static propTypes = PlaceholderCommon.propTypes;
 
-  isEmpty: boolean = false;
+  isEmpty = false;
 
   constructor(props: PlaceholderComponentProps) {
     super(props);
@@ -96,10 +96,13 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
 
     // This is a workaround to insert Experience Editor-specific markup on the page for empty placeholders.
     // It makes sure the markup is inserted by react and thus avoiding hydration errors when in editing mode
-    if (this.isEmpty && ExperienceEditor.isActive()){
-      let codePos = placeholderData.findIndex(component => (component as HtmlElementRendering).name == 'code' 
-      && (component as HtmlElementRendering).attributes['kind'] == 'open');
-      const plhId = (placeholderData[codePos] as HtmlElementRendering).attributes['id'];
+    if (this.isEmpty && ExperienceEditor.isActive()) {
+      const codePos = placeholderData.findIndex(
+        (component) =>
+          (component as HtmlElementRendering).name === 'code' &&
+          (component as HtmlElementRendering).attributes.kind === 'open'
+      );
+      const plhId = (placeholderData[codePos] as HtmlElementRendering).attributes.id;
       const emptyPlaceholderMarkup: HtmlElementRendering[] = [
         {
           name: 'span',
@@ -107,8 +110,8 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
           attributes: {
             type: 'text/sitecore',
             'sc-part-of': 'placeholder rendering',
-            style: 'display: none;'
-          }
+            style: 'display: none;',
+          },
         },
         {
           name: 'div',
@@ -116,9 +119,9 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
           attributes: {
             class: 'scEnabledChrome scEmptyPlaceholder',
             'sc-part-of': 'placeholder',
-            'sc-placeholder-id': plhId
-          }
-        }
+            'sc-placeholder-id': plhId,
+          },
+        },
       ];
       placeholderData.splice(codePos + 1, 0, ...emptyPlaceholderMarkup);
     }
