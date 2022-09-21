@@ -76,26 +76,21 @@ export const getJssEditingSecret = (): string => {
   return secret;
 };
 
-export const getPointOfSaleForLocaleOrDefault = (cdpPos: string, locale?: string): string => {
-  const urlRegex = /^((http|https):\/\/)?(www.)?[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?\/?$/g
-  
-  if (cdpPos.match(urlRegex))
-    if(!locale)
-      return cdpPos;
-    else
-      return '';
-  //this should match "locale:url" parts of multi-value point of sale
-  const pairRegex = (/^\w*\-*\w+\:((http|https):\/\/)?(www.)?[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?\/?$/);
-  
-  for (let pair of cdpPos.split(',')) {
-    if (pair.match(pairRegex)){
-      let [key, value] = pair.split(":");
-      if (!locale || key === locale)
-        return value;
-    } else {
-      console.log(`PointOfSale Helper: pair ${pair} from input is invalid`);
+/**
+ * Parses raw point of sale value in Record (locale-bound or default)
+ * if we have a valid multi-value JSON input we return a Record
+ * if POS input is single value - return Record with a single value in it
+ * point of sale is just a string from CDP's point of view, not URL neccessarily - so no validation
+ * @returns non-empty Record
+ */
+export const parsePointOfSaleRawInput = (cdpPos: string): Record<string, string> => {
+  if (cdpPos.startsWith('{')) {
+    try {
+      return JSON.parse(cdpPos) as Record<string, string>;
+    } catch (error) {
+      return { default: cdpPos } as Record<string, string>;
     }
-  };
-  
-  return '';
-}
+  } else {
+    return { default: cdpPos } as Record<string, string>;
+  }
+};

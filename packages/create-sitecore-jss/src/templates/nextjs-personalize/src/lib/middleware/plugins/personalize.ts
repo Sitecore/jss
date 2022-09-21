@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
-import { getPointOfSaleForLocaleOrDefault } from '@sitecore-jss/sitecore-jss-nextjs';
+import { parsePointOfSaleRawInput } from '@sitecore-jss/sitecore-jss-nextjs';
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
 
@@ -20,8 +20,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
   order = 1;
 
   constructor() {
-    const pointOfSale = getPointOfSaleForLocaleOrDefault(process.env.NEXT_PUBLIC_CDP_POINTOFSALE, config.defaultLanguage);
-    
     this.personalizeMiddleware = new PersonalizeMiddleware({
       // Configuration for your Sitecore Experience Edge endpoint
       edgeConfig: {
@@ -34,10 +32,11 @@ class PersonalizePlugin implements MiddlewarePlugin {
           250,
       },
       // Configuration for your Sitecore CDP endpoint
+      // point of sale can be a multivalue JSON string - raw value is passed to further be handled on middleware
       cdpConfig: {
         endpoint: process.env.NEXT_PUBLIC_CDP_API_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
-        pointOfSale: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '',
+        pointOfSale: pointOfSale,
         timeout:
           (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) ||

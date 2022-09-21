@@ -1,4 +1,4 @@
-import { useSitecoreContext, getPointOfSaleForLocaleOrDefault } from '@sitecore-jss/sitecore-jss-nextjs';
+import { useSitecoreContext, parsePointOfSaleRawInput } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { useEffect } from 'react';
 import config from 'temp/config';
@@ -21,9 +21,11 @@ interface BoxeverViewEventArgs {
 }
 
 function createPageView(locale: string, routeName: string) {
+  // POS can be multi-valued (one entry per locale) or single valued so we parse it
   // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const pointOfSale =
-    getPointOfSaleForLocaleOrDefault(process.env.NEXT_PUBLIC_CDP_POINTOFSALE, locale) || window.location.host.replace(/^www\./, '');
+  // Later on point of sale should be available from layout service data - using env for now
+  const parsedPos = parsePointOfSaleRawInput(process.env.NEXT_PUBLIC_CDP_POINTOFSALE || window.location.host.replace(/^www\./, ''));
+  const pointOfSale = parsedPos[locale] ?? parsedPos['default'];
 
   _boxeverq.push(function () {
     const pageViewEvent: BoxeverViewEventArgs = {

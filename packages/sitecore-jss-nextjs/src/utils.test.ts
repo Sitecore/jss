@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { getPublicUrl, getJssEditingSecret, getPointOfSaleForLocaleOrDefault } from './utils';
+import { getPublicUrl, getJssEditingSecret, parsePointOfSaleRawInput } from './utils';
 
 describe('utils', () => {
   describe('getPublicUrl', () => {
@@ -55,48 +55,29 @@ describe('utils', () => {
       expect(result).to.equal(secret);
     });
   });
-  describe('getPointOfSaleForLocaleOrDefault', () => {
-    it('should return result when a single value string is provided', () => {
-      const pointOfSaleTest = 'zombo.com';
-      const parsedPos = getPointOfSaleForLocaleOrDefault(pointOfSaleTest);
-      expect(parsedPos).to.equal(pointOfSaleTest);
-    });
+  describe('parsePointOfSaleRawInput', () => {
+    it('should return Record when valid json collection provided', () => {
+      const cdpRecord: Record<string, string> = {
+        en: 'value1',
+        'da-DA': 'nke',
+      };
+      const validJson = JSON.stringify(cdpRecord);
 
-    it('should return first result when a multi value string is provided with no locale', () => {
-      const pointOfSaleTest = "en:zombo.com,fr:fr.zombo.com,de-DE:de.zombo.com";
-      const parsedPos = getPointOfSaleForLocaleOrDefault(pointOfSaleTest);
-      expect(parsedPos).to.equal("zombo.com");
-    });
+      const result = parsePointOfSaleRawInput(validJson);
 
-    it('should return result when a multi value string is provided with locale', () => {
-      const lang = 'en-ca';
-      const posForLang = 'beavertails.ca';
-      const pointOfSaleTest = `en:zombo.com,fr:fr.zombo.com,${lang}:${posForLang},de-DE:de.zombo.com`;
-      const parsedPos = getPointOfSaleForLocaleOrDefault(pointOfSaleTest,lang);
-      expect(parsedPos).to.equal(posForLang);
+      expect(result).to.deep.equal(cdpRecord);
     });
+    it('should return Record with input value when invlaid json provided', () => {
+      const invalidJson = '{abcderef}';
+      const result = parsePointOfSaleRawInput(invalidJson);
 
-    it('should return empty string when empty cdpPos string is provided', () => {
-      const pointOfSaleTest = getPointOfSaleForLocaleOrDefault('');
-      expect(pointOfSaleTest).to.equal('');
+      expect(result.default).to.equal(invalidJson);
     });
+    it('should return Record with input value when non-json provided', () => {
+      const singleValue = 'test.cdp.com';
+      const result = parsePointOfSaleRawInput(singleValue);
 
-    it('should return empty string when locale is not found', () => {
-      const pointOfSaleTest = "en:zombo.com,fr:fr.zombo.com,de-DE:de.zombo.com";
-      const parsedPos = getPointOfSaleForLocaleOrDefault(pointOfSaleTest, 'es-ES');
-      expect(parsedPos).to.equal('');
+      expect(result.default).to.equal(singleValue);
     });
-
-    it('should return empty string when invalid URL is provided in input single value string', () => {
-      const pointOfSaleTest = 'abrakadabra';
-      const parsedPos = getPointOfSaleForLocaleOrDefault(pointOfSaleTest);
-      expect(parsedPos).to.equal('');
-    });
-
-    it('should return empty string when matching URL is invalid in provided multi-value string', () => {
-      const pointOfSaleTest = "en:zombo.com,da-DA:nke,fr:fr.zombo.com,de-DE:de.zombo.com";
-      const parsedPos = getPointOfSaleForLocaleOrDefault(pointOfSaleTest, "da-DA");
-      expect(parsedPos).to.equal('');
-    })
   });
 });
