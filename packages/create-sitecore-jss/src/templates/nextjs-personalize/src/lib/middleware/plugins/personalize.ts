@@ -32,7 +32,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
       },
       // Configuration for your Sitecore CDP endpoint
       cdpConfig: {
-        endpoint: process.env.NEXT_PUBLIC_CDP_API_URL || '',
+        domain: process.env.NEXT_PUBLIC_CDP_API_DOMAIN || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
         pointOfSale: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '',
         timeout:
@@ -41,13 +41,13 @@ class PersonalizePlugin implements MiddlewarePlugin {
           250,
       },
       // This function determines if the middleware should be turned off.
-      // This would typically be based on your cookie consent management solution of choice.
+      // This would be based on your cookie consent management solution of choice.
       // By default it is always enabled.
       disabled: () => false,
       // This function determines if a route should be excluded from personalization.
       // Certain paths are ignored by default (e.g. files and Next.js API routes), but you may wish to exclude more.
       // This is an important performance consideration since Next.js Edge middleware runs on every request.
-      excludeRoute: () => false
+      excludeRoute: () => false,
     });
   }
 

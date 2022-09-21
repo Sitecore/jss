@@ -1,89 +1,61 @@
 import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import Script from 'next/script';
 import { useEffect } from 'react';
 import config from 'temp/config';
+import { init } from '@sitecore/engage';
 
-declare const _boxeverq: { (): void }[];
-declare const Boxever: Boxever;
-
-interface Boxever {
-  getID(): string;
-  eventCreate(data: BoxeverViewEventArgs, callback: () => void, format: string): void;
-}
-
-interface BoxeverViewEventArgs {
-  browser_id: string;
-  channel: string;
-  type: string;
-  language: string;
-  page: string;
-  pos: string;
-}
-
-function createPageView(locale: string, routeName: string) {
-  // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const pointOfSale =
-    process.env.NEXT_PUBLIC_CDP_POINTOFSALE || window.location.host.replace(/^www\./, '');
-
-  _boxeverq.push(function () {
-    const pageViewEvent: BoxeverViewEventArgs = {
-      browser_id: Boxever.getID(),
-      channel: 'WEB',
-      type: 'VIEW',
-      language: locale,
-      page: routeName,
-      pos: pointOfSale,
-    };
-
-    Boxever.eventCreate(
-      pageViewEvent,
-      function () {
-        /*empty callback*/
-      },
-      'json'
-    );
-  });
-}
-
+/**
+ * This is the CDP integration script which uses the Sitecore Engage SDK.
+ * It is used to enable page view events.
+ * See Sitecore Engage SDK documentation for details.
+ * https://www.npmjs.com/package/@sitecore/engage
+ */
 const CdpIntegrationScript = (): JSX.Element => {
   const {
     sitecoreContext: { pageEditing, route },
   } = useSitecoreContext();
 
+  /**
+   * Creates a page view event using the Sitecore Engage SDK.
+   */
+  const createPageView = async (page: string, language: string) => {
+    const engage = await init({
+      clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
+      targetDomain: process.env.NEXT_PUBLIC_CDP_API_DOMAIN || '',
+      cookieDomain: '',
+      forceServerCookieMode: true, // Cookie will be created in personalize middleware
+    });
+    engage.pageView({
+      channel: 'WEB',
+      currency: 'USD',
+      pos: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '',
+      page,
+      // pageVariantId,
+      language,
+    });
+  };
+
+  /**
+   * Determines if the page view events should be turned off.
+   * This would be based on your cookie consent management solution of choice.
+   * By default it is always enabled.
+   */
+  const disabled = () => {
+    return false;
+  };
+
   useEffect(() => {
-    // Do not create events in editing mode
-    if (pageEditing) {
+    // Do not create events in editing mode or if missing route data
+    if (pageEditing || !route) {
       return;
     }
-
-    route && createPageView(route.itemLanguage || config.defaultLanguage, route.name);
+    // Do not create events if disabled (e.g. we don't have consent)
+    if (disabled()) {
+      return;
+    }
+    createPageView(route.name, route.itemLanguage || config.defaultLanguage);
   });
 
-  // Boxever is not needed during page editing
-  if (pageEditing) {
-    <></>;
-  }
-
-  return (
-    <>
-      <Script
-        id="cdp_settings"
-        type="text/javascript"
-        dangerouslySetInnerHTML={{
-          __html: `
-              var _boxeverq = _boxeverq || [];
-
-              var _boxever_settings = {
-                  client_key: '${process.env.NEXT_PUBLIC_CDP_CLIENT_KEY}',
-                  target: '${process.env.NEXT_PUBLIC_CDP_TARGET_URL}',
-                  cookie_domain: ''
-              };
-            `,
-        }}
-      />
-      <Script src={process.env.NEXT_PUBLIC_CDP_SCRIPT_URL} />
-    </>
-  );
+  return <></>;
 };
 
 export default CdpIntegrationScript;
