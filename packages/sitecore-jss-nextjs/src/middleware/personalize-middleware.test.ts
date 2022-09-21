@@ -60,7 +60,7 @@ describe('PersonalizeMiddleware', () => {
       },
       cookies: {
         get(cookieName: string) {
-          const cookies = { 'bid_cdp-client-key': 'browser-id', ...props.cookieValues };
+          const cookies = { 'BID_cdp-client-key': 'browser-id', ...props.cookieValues };
 
           return cookies[cookieName];
         },
@@ -119,7 +119,7 @@ describe('PersonalizeMiddleware', () => {
   ) => {
     const cdpConfig = {
       clientKey: 'cdp-client-key',
-      endpoint: 'http://cdp-endpoint',
+      domain: 'cdp-endpoint',
       pointOfSale: 'cdp-pos',
       ...(props?.cdpConfig || {}),
     };
@@ -191,7 +191,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (personalize middleware is disabled)');
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
@@ -216,7 +216,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (%s)', 'redirected');
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
@@ -246,7 +246,7 @@ describe('PersonalizeMiddleware', () => {
 
         validateDebugLog('skipped (%s)', 'preview');
 
-        expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+        expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
         expect(getCookiesSpy.calledWith('__prerender_bypass')).to.be.true;
 
         expect(finalRes).to.deep.equal(res);
@@ -276,7 +276,7 @@ describe('PersonalizeMiddleware', () => {
 
         validateDebugLog('skipped (%s)', 'preview');
 
-        expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+        expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
         expect(getCookiesSpy.calledWith('__prerender_bypass')).to.be.true;
         expect(getCookiesSpy.calledWith('__next_preview_data')).to.be.true;
 
@@ -307,7 +307,7 @@ describe('PersonalizeMiddleware', () => {
 
         validateDebugLog('skipped (%s)', 'route excluded');
 
-        expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+        expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
         expect(finalRes).to.deep.equal(res);
 
@@ -355,7 +355,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (personalize info not found)');
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
@@ -387,7 +387,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (no personalization configured)');
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
@@ -396,7 +396,7 @@ describe('PersonalizeMiddleware', () => {
 
     it('browser id generation failed', async () => {
       const req = createRequest({
-        cookieValues: { 'bid_cdp-client-key': undefined },
+        cookieValues: { 'BID_cdp-client-key': undefined },
       });
 
       const res = createResponse();
@@ -420,7 +420,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (browser id generation failed)');
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
@@ -451,7 +451,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (no variant identified)');
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
@@ -482,7 +482,7 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('skipped (invalid variant)');
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
@@ -494,7 +494,7 @@ describe('PersonalizeMiddleware', () => {
     it('browser id is present in cookies', async () => {
       const req = createRequest({
         cookieValues: {
-          'bid_cdp-client-key': 'browser-id',
+          'BID_cdp-client-key': 'browser-id',
         },
       });
 
@@ -527,11 +527,11 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['bid_cdp-client-key']).to.equal(browserId);
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
 
       getCookiesSpy.restore();
       nextRewriteStub.restore();
@@ -540,7 +540,7 @@ describe('PersonalizeMiddleware', () => {
     it('browser id is not present in cookies', async () => {
       const req = createRequest({
         cookieValues: {
-          'bid_cdp-client-key': undefined,
+          'BID_cdp-client-key': undefined,
         },
       });
 
@@ -581,11 +581,11 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['bid_cdp-client-key']).to.equal(browserId);
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
 
       getCookiesSpy.restore();
       nextRewriteStub.restore();
@@ -634,11 +634,11 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['bid_cdp-client-key']).to.equal(browserId);
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
 
       getCookiesSpy.restore();
       nextRewriteStub.restore();
@@ -681,11 +681,11 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['bid_cdp-client-key']).to.equal(browserId);
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
 
       getCookiesSpy.restore();
       nextRewriteStub.restore();
@@ -723,11 +723,11 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['bid_cdp-client-key']).to.equal(browserId);
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
 
       getCookiesSpy.restore();
       nextRewriteStub.restore();
@@ -777,11 +777,11 @@ describe('PersonalizeMiddleware', () => {
         },
       });
 
-      expect(getCookiesSpy.calledWith('bid_cdp-client-key')).to.be.true;
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
       expect(finalRes).to.deep.equal(res);
 
-      expect(finalRes.cookies['bid_cdp-client-key']).to.equal(browserId);
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
 
       getCookiesSpy.restore();
       nextRewriteStub.restore();
@@ -826,7 +826,7 @@ describe('PersonalizeMiddleware', () => {
     it('should log error when generateBrowserId throws', async () => {
       const error = new Error('CDP generateBrowserId fails');
       const req = createRequest({
-        cookieValues: { 'bid_cdp-client-key': undefined },
+        cookieValues: { 'BID_cdp-client-key': undefined },
       });
 
       const generateBrowserIdWithError = sinon.stub().throws(error);

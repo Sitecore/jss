@@ -24,9 +24,9 @@ export type GenerateBrowserIdResult = {
 
 export type CdpServiceConfig = {
   /**
-   * Your Sitecore CDP API endpoint
+   * Your Sitecore CDP API domain
    */
-  endpoint: string;
+  domain: string;
   /**
    * The client key to use for authentication
    */
@@ -158,7 +158,7 @@ export class CdpService {
    * @returns {string} formatted URL
    */
   protected getGenerateBrowserIdUrl() {
-    return `${this.config.endpoint}/v1.2/browser/create.json?client_key=${this.config.clientKey}&message={}`;
+    return `https://${this.config.domain}/v1.2/browser/create.json?client_key=${this.config.clientKey}&message={}`;
   }
 
   /**
@@ -166,7 +166,7 @@ export class CdpService {
    * @returns {string} formatted URL
    */
   protected getExecuteExperienceUrl() {
-    return `${this.config.endpoint}/v2/callFlows`;
+    return `https://${this.config.domain}/v2/callFlows`;
   }
 
   /**
