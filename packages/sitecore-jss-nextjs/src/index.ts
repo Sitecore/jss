@@ -51,6 +51,11 @@ export {
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';
+export {
+  RobotsQueryResult,
+  GraphQLRobotsService,
+  GraphQLRobotsServiceConfig,
+} from '@sitecore-jss/sitecore-jss/site';
 export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export {
@@ -69,6 +74,14 @@ export {
   GraphQLSitemapService,
   GraphQLSitemapServiceConfig,
 } from './services/graphql-sitemap-service';
+
+export {
+  GraphQLSitemapXmlService,
+  GraphQLSitemapXmlServiceConfig,
+  GraphQLErrorPagesService,
+  GraphQLErrorPagesServiceConfig,
+  ErrorPages,
+} from '@sitecore-jss/sitecore-jss/site';
 
 export { StaticPath } from './services/graphql-sitemap-service';
 
@@ -91,6 +104,7 @@ export {
 export { Link } from './components/Link';
 export { RichText } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
+export { NextImage } from './components/NextImage';
 
 export {
   ComponentFactory,
@@ -99,9 +113,11 @@ export {
   LinkField,
   LinkFieldValue,
   Text,
+  TextField,
   DateField,
   File,
   FileField,
+  RichTextField,
   VisitorIdentification,
   SitecoreContext,
   SitecoreContextState,

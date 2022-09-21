@@ -111,11 +111,15 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
     apiKey: config.sitecoreApiKey,
   });
 
-  const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
-    datasource: rendering.dataSource,
-    contextItem: layoutData?.sitecore?.route?.itemId,
-    language: layoutData?.sitecore?.context?.language,
-  });
+  const result = await graphQLClient.request<GraphQLConnectedDemoData>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ConnectedDemoQueryDocument as any,
+    {
+      datasource: rendering.dataSource,
+      contextItem: layoutData?.sitecore?.route?.itemId,
+      language: layoutData?.sitecore?.context?.language,
+    }
+  );
 
   return result;
 };
@@ -135,11 +139,15 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
     apiKey: config.sitecoreApiKey,
   });
 
-  const result = await graphQLClient.request<GraphQLConnectedDemoData>(ConnectedDemoQueryDocument, {
-    datasource: rendering.dataSource,
-    contextItem: layoutData?.sitecore?.route?.itemId,
-    language: layoutData?.sitecore?.context?.language,
-  });
+  const result = await graphQLClient.request<GraphQLConnectedDemoData>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ConnectedDemoQueryDocument as any,
+    {
+      datasource: rendering.dataSource,
+      contextItem: layoutData?.sitecore?.route?.itemId,
+      language: layoutData?.sitecore?.context?.language,
+    }
+  );
 
   return result;
 };

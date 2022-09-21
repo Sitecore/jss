@@ -152,7 +152,7 @@ async function renderAppToResponse(
    * function replies with HTTP 500 when an error occurs
    * @param {Error} error
    */
-  async function replyWithError(error: Error) {
+  async function replyWithError(error: Error): Promise<void> {
     console.error(error);
 
     let errorResponse = {
@@ -279,6 +279,8 @@ async function renderAppToResponse(
 
   // as the response is ending, we parse the current response body which is JSON, then
   // render the app using that JSON, but return HTML to the final response.
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   serverResponse.end = async () => {
     try {
       const layoutServiceData = await extractLayoutServiceDataFromProxyResponse();

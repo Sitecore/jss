@@ -5,6 +5,9 @@ const plugins = require('./src/temp/next-config-plugins') || {};
 
 const publicUrl = getPublicUrl();
 
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   // Set assetPrefix to our public URL
   assetPrefix: publicUrl,

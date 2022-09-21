@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "20.0.3",
+  "version": "20.1.0-canary.25",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -11,7 +11,7 @@
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss --entryPoints src/index.ts --entryPoints src/graphql/index.ts --entryPoints src/i18n/index.ts --entryPoints src/layout/index.ts --entryPoints src/media/index.ts --entryPoints src/tracking/index.ts --entryPoints src/utils/index.ts --githubPages false"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss --entryPoints src/index.ts --entryPoints src/graphql/index.ts --entryPoints src/i18n/index.ts --entryPoints src/layout/index.ts --entryPoints src/media/index.ts --entryPoints src/site/index.ts --entryPoints src/tracking/index.ts --entryPoints src/utils/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=12",
@@ -56,7 +56,7 @@
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "debug": "^4.3.1",
-    "graphql": "^15.4.0",
+    "graphql": "^16.5.0",
     "graphql-request": "^3.4.0",
     "lodash.unescape": "^4.0.1",
     "memory-cache": "^0.2.0",

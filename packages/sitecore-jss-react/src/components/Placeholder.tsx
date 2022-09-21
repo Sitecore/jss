@@ -54,6 +54,7 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
   }
 
   componentDidMount() {
+    super.componentDidMount();
     if (this.isEmpty && HorizonEditor.isActive()) {
       HorizonEditor.resetChromes();
     }

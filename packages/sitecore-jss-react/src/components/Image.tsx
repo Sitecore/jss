@@ -2,7 +2,7 @@ import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { convertAttributesToReactProps } from '../utils';
+import { addClassName, convertAttributesToReactProps } from '../utils';
 
 export interface ImageFieldValue {
   [attributeName: string]: unknown;
@@ -98,6 +98,7 @@ const getImageAttrs = (
   if (!src) {
     return null;
   }
+  addClassName(otherAttrs);
 
   const newAttrs: { [attr: string]: unknown } = {
     ...otherAttrs,
@@ -112,6 +113,39 @@ const getImageAttrs = (
   // always output original src as fallback for older browsers
   newAttrs.src = resolvedSrc;
   return newAttrs;
+};
+
+/**
+ * @param imageField {ImageField} provides the dynamicMedia which is used to render the image
+ * @param imageParams {ImageProp['imageParams']}} provides the image parameters that will be attached to the image URL
+ * @param mediaUrlPrefix {RegExp} the url prefix regex used in the mediaApi
+ * @param otherProps {ImageProps} all other props included on the image component
+ * @returns Experience Editor Markup
+ */
+export const getEEMarkup = (
+  imageField: ImageField,
+  imageParams?: ImageProps['imageParams'],
+  mediaUrlPrefix?: RegExp,
+  otherProps?: ImageProps
+) => {
+  // we likely have an experience editor value, should be a string
+  const foundImg = mediaApi.findEditorImageTag(imageField.editable);
+  if (!foundImg) {
+    return getEditableWrapper(imageField.editable);
+  }
+
+  const foundImgProps = convertAttributesToReactProps(foundImg.attrs);
+  // Note: otherProps may override values from foundImgProps, e.g. `style`, `className` prop
+  // We do not attempt to merge.
+  const imgAttrs = getImageAttrs({ ...foundImgProps, ...otherProps }, imageParams, mediaUrlPrefix);
+
+  if (!imgAttrs) {
+    return getEditableWrapper(imageField.editable);
+  }
+
+  const imgHtml = ReactDOMServer.renderToStaticMarkup(<img {...imgAttrs} />);
+  const editableMarkup = imageField.editable.replace(foundImg.imgTag, imgHtml);
+  return getEditableWrapper(editableMarkup);
 };
 
 export const Image: React.SFC<ImageProps> = ({
@@ -138,28 +172,8 @@ export const Image: React.SFC<ImageProps> = ({
 
   const imageField = dynamicMedia as ImageField;
 
-  // we likely have an experience editor value, should be a string
   if (editable && imageField.editable) {
-    const foundImg = mediaApi.findEditorImageTag(imageField.editable);
-    if (!foundImg) {
-      return getEditableWrapper(imageField.editable);
-    }
-
-    const foundImgProps = convertAttributesToReactProps(foundImg.attrs);
-    // Note: otherProps may override values from foundImgProps, e.g. `style`, `className` prop
-    // We do not attempt to merge.
-    const imgAttrs = getImageAttrs(
-      { ...foundImgProps, ...otherProps },
-      imageParams,
-      mediaUrlPrefix
-    );
-    if (!imgAttrs) {
-      return getEditableWrapper(imageField.editable);
-    }
-
-    const imgHtml = ReactDOMServer.renderToStaticMarkup(<img {...imgAttrs} />);
-    const editableMarkup = imageField.editable.replace(foundImg.imgTag, imgHtml);
-    return getEditableWrapper(editableMarkup);
+    return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
   }
 
   // some wise-guy/gal is passing in a 'raw' image object value

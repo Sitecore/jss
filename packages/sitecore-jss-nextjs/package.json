@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "20.0.3",
+  "version": "20.1.0-canary.25",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -8,10 +8,10 @@
     "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
-    "test": "mocha --require ts-node/register/transpile-only --require ./src/tests/shim.ts ./src/tests/jsdom-setup.ts ./src/tests/enzyme-setup.ts \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\" --exit",
+    "test": "mocha --require ./test/setup.js \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\" --exit",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs --entryPoints src/index.ts --entryPoints src/middleware/index.ts --githubPages false"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs --entryPoints src/index.ts --entryPoints src/edge/index.ts --entryPoints src/middleware/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=12",
@@ -44,6 +44,7 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "chai-string": "^1.5.0",
     "chalk": "^4.1.2",
     "del-cli": "^3.0.1",
     "enzyme": "^3.10.0",
@@ -51,7 +52,7 @@
     "eslint-plugin-react": "^7.21.5",
     "jsdom": "^15.1.1",
     "mocha": "^8.1.3",
-    "next": "^12.1.0",
+    "next": "^12.2.4",
     "nock": "^13.0.5",
     "nyc": "^15.1.0",
     "react": "^17.0.2",
@@ -63,15 +64,16 @@
     "typescript": "~4.3.5"
   },
   "peerDependencies": {
-    "next": "^12.1.0",
+    "next": "^12.2.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^20.0.3",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^20.0.3",
-    "@sitecore-jss/sitecore-jss-react": "^20.0.3",
+    "@sitecore-jss/sitecore-jss": "^20.1.0-canary.25",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^20.1.0-canary.25",
+    "@sitecore-jss/sitecore-jss-react": "^20.1.0-canary.25",
     "prop-types": "^15.7.2",
+    "regex-parser": "^2.2.11",
     "sync-disk-cache": "^2.1.0"
   },
   "description": "",

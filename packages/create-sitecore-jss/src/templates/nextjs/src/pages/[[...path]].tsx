@@ -10,17 +10,22 @@ import {
   SitecoreContext,
   ComponentPropsContext,
   handleEditorFastRefresh,
+  <% if (prerender === 'SSG') { -%>
+  StaticPath,
+  <% } -%>
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
-import { componentFactory } from 'temp/componentFactory';
+// different componentFactory method will be used based on whether page is being edited
+import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
+
 <% } -%>
 
 const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
-    // Since Sitecore editors do not support Fast Refresh, need to refresh EE chromes after Fast Refresh finished
+    // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
   }, []);
 
@@ -29,9 +34,14 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
     return <NotFound />;
   }
 
+  const isEditing = layoutData.sitecore.context.pageEditing;
+
   return (
     <ComponentPropsContext value={componentProps}>
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+      <SitecoreContext
+        componentFactory={isEditing ? editingComponentFactory : componentFactory}
+        layoutData={layoutData}
+      >
         <Layout layoutData={layoutData} />
       </SitecoreContext>
     </ComponentPropsContext>
@@ -48,21 +58,26 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   // will be generated on request (development mode in this example).
   // Alternatively, the entire sitemap could be pre-rendered
   // ahead of time (non-development mode in this example).
-  // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
+  // See https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
+
+  let paths: StaticPath[] = [];
+  let fallback: boolean | 'blocking' = 'blocking';
 
   if (process.env.NODE_ENV !== 'development') {
-    // Note: Next.js runs export in production mode
-    const paths = await sitemapFetcher.fetch(context);
+    try {
+      // Note: Next.js runs export in production mode
+      paths = await sitemapFetcher.fetch(context);
+    } catch (error) {
+      console.log('Error occurred while generating static paths');
+      console.log(error);
+    }
 
-    return {
-      paths,
-      fallback: process.env.EXPORT_MODE ? false : 'blocking',
-    };
+    fallback = process.env.EXPORT_MODE ? false : fallback;
   }
 
   return {
-    paths: [],
-    fallback: 'blocking',
+    paths,
+    fallback,
   };
 };
 
@@ -76,14 +91,21 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 <% } -%>
   const props = await sitecorePagePropsFactory.create(context);
 
+  // Check if we have a redirect (e.g. custom error page)
+  if (props.redirect) {
+    return {
+      redirect: props.redirect,
+    };
+  }
+
   return {
     props,
-    <% if (prerender === 'SSG') { -%>
+<% if (prerender === 'SSG') { -%>
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 5 seconds
     revalidate: 5, // In seconds
-    <% } -%>
+<% } -%>
     notFound: props.notFound, // Returns custom 404 page with a status code of 404 when true
   };
 };

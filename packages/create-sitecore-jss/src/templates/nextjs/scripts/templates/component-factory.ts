@@ -1,7 +1,7 @@
 /**
  * Describes a file that represents a component definition
  */
- export interface ComponentFile {
+export interface ComponentFile {
   path: string;
   moduleName: string;
   componentName: string;
@@ -52,7 +52,7 @@ ${componentFiles
       const moduleName = removeDynamicModuleNameEnding(component.moduleName);
       return `const ${moduleName} = {
   module: () => import('${component.path}'),
-  element: () => dynamic(${moduleName}.module)
+  element: (isEditing?: boolean) => isEditing ? require('${component.path}')?.default : dynamic(${moduleName}.module)
 }`;
     }
 
@@ -89,6 +89,10 @@ ${componentFiles
 // componentFactory uses 'dynamic(...)' because primary usage of it to render 'React Component' (default export).
 // See https://nextjs.org/docs/advanced-features/dynamic-import
 // At the end you will have single preloaded script for each lazy loading module.
+// Editing mode doesn't work well with dynamic components in nextjs: dynamic components are not displayed without refresh after a rendering is added. 
+// This happens beacuse Sitecore editors simply insert updated HTML generated on server side. This conflicts with nextjs dynamic logic as no HTML gets rendered for dynamic component
+// So we use require() to obtain dynamic components in editing mode while preserving dynamic logic for non-editing scenarios
+// As we need to be able to seamlessly work with dynamic components in both editing and normal modes, different componentFactory functions will be passed to app
 
 export function componentModule(componentName: string) {
   const component = components.get(componentName);
@@ -101,17 +105,29 @@ export function componentModule(componentName: string) {
 
   return component;
 }
-  
-export function componentFactory(componentName: string) {
+
+function baseComponentFactory(componentName: string, exportName?: string, isEditing?: boolean) {
   const component = components.get(componentName);
 
   // check that component should be dynamically imported
   if (component?.element) {
     // return next.js dynamic import
-    return component.element();
+    return component.element(isEditing);
   }
 
-  return component?.default || component;
+  if (exportName) {
+    return component[exportName];
+  }
+
+  return component?.Default || component?.default || component;
+}
+  
+export function componentFactory(componentName: string, exportName?: string) {
+  return baseComponentFactory(componentName, exportName, false);
+}
+
+export function editingComponentFactory(componentName: string, exportName?: string) {
+  return baseComponentFactory(componentName, exportName, true);
 }
 `;
 }

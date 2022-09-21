@@ -42,6 +42,10 @@ export default class NextjsInitializer implements Initializer {
               'nextjs-styleguide - Includes example components and setup for working disconnected',
             value: 'nextjs-styleguide',
           },
+          {
+            name: 'nextjs-sxa - Includes example components and setup for working using SXA',
+            value: 'nextjs-sxa',
+          },
         ],
       });
       addInitializers = addInitAnswer.addInitializers;

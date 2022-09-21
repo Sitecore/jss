@@ -55,3 +55,22 @@ export const convertAttributesToReactProps = (
     return result;
   }, {});
 };
+
+/**
+ * "class" property will be transformed into or appended to "className" instead.
+ * @param {string} otherAttrs all other props included on the image component
+ * * @returns {void}
+ */
+export const addClassName = (otherAttrs: { [key: string]: unknown }): void => {
+  if (otherAttrs.class) {
+    // if any classes are defined properly already
+    if (otherAttrs.className) {
+      let className: string = otherAttrs.className as string;
+      className += ` ${otherAttrs.class}`;
+      otherAttrs.className = className;
+    } else {
+      otherAttrs.className = otherAttrs.class;
+    }
+    delete otherAttrs.class;
+  }
+};

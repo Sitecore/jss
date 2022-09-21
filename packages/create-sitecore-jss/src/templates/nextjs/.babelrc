@@ -5,5 +5,5 @@
 //
 // You may wish to remove this file when deploying to Vercel.
 {
-  "presets": ["next/babel"]
+    "presets": ["next/babel"]
 }
