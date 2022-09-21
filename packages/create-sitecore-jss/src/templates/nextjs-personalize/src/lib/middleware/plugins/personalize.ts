@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { getPointOfSaleForLocaleOrDefault } from '@sitecore-jss/sitecore-jss-nextjs';
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
 
@@ -19,6 +20,8 @@ class PersonalizePlugin implements MiddlewarePlugin {
   order = 1;
 
   constructor() {
+    const pointOfSale = getPointOfSaleForLocaleOrDefault(process.env.NEXT_PUBLIC_CDP_POINTOFSALE, config.defaultLanguage);
+    
     this.personalizeMiddleware = new PersonalizeMiddleware({
       // Configuration for your Sitecore Experience Edge endpoint
       edgeConfig: {

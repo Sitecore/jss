@@ -75,3 +75,27 @@ export const getJssEditingSecret = (): string => {
   }
   return secret;
 };
+
+export const getPointOfSaleForLocaleOrDefault = (cdpPos: string, locale?: string): string => {
+  const urlRegex = /^((http|https):\/\/)?(www.)?[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?\/?$/g
+  
+  if (cdpPos.match(urlRegex))
+    if(!locale)
+      return cdpPos;
+    else
+      return '';
+  //this should match "locale:url" parts of multi-value point of sale
+  const pairRegex = (/^\w*\-*\w+\:((http|https):\/\/)?(www.)?[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?\/?$/);
+  
+  for (let pair of cdpPos.split(',')) {
+    if (pair.match(pairRegex)){
+      let [key, value] = pair.split(":");
+      if (!locale || key === locale)
+        return value;
+    } else {
+      console.log(`PointOfSale Helper: pair ${pair} from input is invalid`);
+    }
+  };
+  
+  return '';
+}
