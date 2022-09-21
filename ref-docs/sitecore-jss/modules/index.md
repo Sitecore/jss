@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/axios-fetcher.ts#L35)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[debug.ts:6](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/debug.ts#L6)
+[debug.ts:6](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/debug.ts#L6)
 
 ___
 
@@ -67,10 +67,11 @@ Minimum configuration options for classes that implement @see GraphQLClient
 | :------ | :------ | :------ |
 | `apiKey?` | `string` | The API key to use for authentication. This will be added as an 'sc_apikey' header. |
 | `debugger?` | [`Debugger`](index.md#debugger) | Override debugger for logging. Uses 'sitecore-jss:http' by default. |
+| `fetch?` | typeof `fetch` | Override fetch method. Uses 'graphql-request' library default otherwise ('cross-fetch'). |
 
 #### Defined in
 
-[graphql-request-client.ts:21](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/graphql-request-client.ts#L21)
+[graphql-request-client.ts:21](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/graphql-request-client.ts#L21)
 
 ___
 
@@ -109,7 +110,7 @@ The interface implementation must:
 
 #### Defined in
 
-[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/data-fetcher.ts#L26)
 
 ## Properties
 
@@ -143,4 +144,4 @@ The interface implementation must:
 
 #### Defined in
 
-[data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/data-fetcher.ts#L57)

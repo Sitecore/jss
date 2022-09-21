@@ -1,7 +1,7 @@
 # Sitecore JSS React Sample Application
 
 
-[Documentation](https://doc.sitecore.com/xp/en/developers/hd/200/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-react.html)
+[Documentation](https://doc.sitecore.com/xp/en/developers/hd/201/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-react.html)
 
 ## Disconnected Sitecore-less Development
 

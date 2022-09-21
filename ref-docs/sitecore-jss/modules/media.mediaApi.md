@@ -11,6 +11,7 @@
 - [findEditorImageTag](media.mediaApi.md#findeditorimagetag)
 - [getRequiredParams](media.mediaApi.md#getrequiredparams)
 - [getSrcSet](media.mediaApi.md#getsrcset)
+- [replaceMediaUrlPrefix](media.mediaApi.md#replacemediaurlprefix)
 - [updateImageUrl](media.mediaApi.md#updateimageurl)
 
 ## Functions
@@ -35,7 +36,7 @@ found image tag
 
 #### Defined in
 
-[media/media-api.ts:18](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/media/media-api.ts#L18)
+[media/media-api.ts:18](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/media/media-api.ts#L18)
 
 ___
 
@@ -67,7 +68,7 @@ requiredParams
 
 #### Defined in
 
-[media/media-api.ts:44](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/media/media-api.ts#L44)
+[media/media-api.ts:44](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/media/media-api.ts#L44)
 
 ___
 
@@ -102,7 +103,33 @@ src set
 
 #### Defined in
 
-[media/media-api.ts:113](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/media/media-api.ts#L113)
+[media/media-api.ts:131](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/media/media-api.ts#L131)
+
+___
+
+### replaceMediaUrlPrefix
+
+▸ `Const` **replaceMediaUrlPrefix**(`url`, `mediaUrlPrefix?`): `string`
+
+Replace `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
+Can use `mediaUrlPrefix` in order to use a custom prefix.
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `url` | `string` | `undefined` |
+| `mediaUrlPrefix` | `RegExp` | `mediaUrlPrefixRegex` |
+
+#### Returns
+
+`string`
+
+url
+
+#### Defined in
+
+[media/media-api.ts:57](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/media/media-api.ts#L57)
 
 ___
 
@@ -132,4 +159,4 @@ url
 
 #### Defined in
 
-[media/media-api.ts:61](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/media/media-api.ts#L61)
+[media/media-api.ts:83](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/media/media-api.ts#L83)

@@ -14,6 +14,7 @@
 
 - [FETCH\_WITH](index.constants.md#fetch_with)
 - [JSS\_MODE](index.constants.md#jss_mode)
+- [siteNameError](index.constants.md#sitenameerror)
 
 ## Variables
 
@@ -30,7 +31,7 @@
 
 #### Defined in
 
-[constants.ts:9](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/constants.ts#L9)
+[constants.ts:9](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/constants.ts#L9)
 
 ___
 
@@ -47,4 +48,14 @@ ___
 
 #### Defined in
 
-[constants.ts:14](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/constants.ts#L14)
+[constants.ts:14](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/constants.ts#L14)
+
+___
+
+### siteNameError
+
+• **siteNameError**: ``"The siteName cannot be empty"``
+
+#### Defined in
+
+[constants.ts:19](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/constants.ts#L19)

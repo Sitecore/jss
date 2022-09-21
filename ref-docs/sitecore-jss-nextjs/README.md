@@ -6,5 +6,6 @@
 
 ### Modules
 
+- [edge](modules/edge.md)
 - [index](modules/index.md)
 - [middleware](modules/middleware.md)

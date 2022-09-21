@@ -34,7 +34,7 @@ The API key to use for authentication.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:78](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L78)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:78](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L78)
 
 ___
 
@@ -46,7 +46,7 @@ Your Graphql endpoint
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:73](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L73)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:73](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L73)
 
 ___
 
@@ -60,7 +60,7 @@ Optional. The template ID of a JSS App to use when searching for the appRootId.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:84](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L84)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:84](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L84)
 
 ___
 

@@ -40,7 +40,7 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 
 #### Defined in
 
-[utils/editing.ts:91](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/utils/editing.ts#L91)
+[utils/editing.ts:102](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/utils/editing.ts#L102)
 
 ___
 
@@ -48,7 +48,8 @@ ___
 
 ▸ `Const` **isEditorActive**(): `boolean`
 
-Determines whether the current execution context is within a Sitecore editor
+Determines whether the current execution context is within a Sitecore editor.
+Sitecore Editor environment can be identified only in the browser
 
 #### Returns
 
@@ -58,7 +59,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-[utils/editing.ts:67](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/utils/editing.ts#L67)
+[utils/editing.ts:78](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/utils/editing.ts#L78)
 
 ___
 
@@ -78,7 +79,7 @@ true if executing within the Sitecore Experience Editor
 
 #### Defined in
 
-[utils/editing.ts:126](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/utils/editing.ts#L126)
+[utils/editing.ts:137](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/utils/editing.ts#L137)
 
 ___
 
@@ -96,7 +97,7 @@ true if executing server-side
 
 #### Defined in
 
-[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/utils/is-server.ts#L5)
 
 ___
 
@@ -112,7 +113,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-[utils/editing.ts:74](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/utils/editing.ts#L74)
+[utils/editing.ts:85](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/utils/editing.ts#L85)
 
 ___
 
@@ -130,7 +131,7 @@ Resets Sitecore Experience Editor "chromes"
 
 #### Defined in
 
-[utils/editing.ts:132](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/utils/editing.ts#L132)
+[utils/editing.ts:143](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/utils/editing.ts#L143)
 
 ___
 
@@ -158,4 +159,4 @@ a URL string
 
 #### Defined in
 
-[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss/src/utils/resolve-url.ts#L24)
+[utils/resolve-url.ts:24](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/utils/resolve-url.ts#L24)

@@ -14,7 +14,7 @@
 
 ### defaultProps
 
-• **defaultProps**: `Partial`<`ImageProps`\>
+• **defaultProps**: `Partial`<[`ImageProps`](../interfaces/ImageProps.md)\>
 
 ___
 
@@ -26,4 +26,4 @@ ___
 
 ### propTypes
 
-• **propTypes**: `WeakValidationMap`<`ImageProps`\>
+• **propTypes**: `WeakValidationMap`<[`ImageProps`](../interfaces/ImageProps.md)\>

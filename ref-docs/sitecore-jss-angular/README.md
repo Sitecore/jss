@@ -134,7 +134,7 @@ sitecore-jss/types/layout/models.d.ts:59
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:48](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L48)
+[sitecore-jss-angular/src/components/placeholder.token.ts:48](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L48)
 
 ## Functions
 
@@ -236,7 +236,7 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:39
+sitecore-jss/types/utils/editing.d.ts:50
 
 ___
 
@@ -244,7 +244,8 @@ ___
 
 ▸ `Const` **isEditorActive**(): `boolean`
 
-Determines whether the current execution context is within a Sitecore editor
+Determines whether the current execution context is within a Sitecore editor.
+Sitecore Editor environment can be identified only in the browser
 
 #### Returns
 
@@ -254,7 +255,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:25
+sitecore-jss/types/utils/editing.d.ts:36
 
 ___
 
@@ -274,7 +275,7 @@ true if executing within the Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:45
+sitecore-jss/types/utils/editing.d.ts:56
 
 ___
 
@@ -294,7 +295,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
@@ -328,7 +329,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:29
+sitecore-jss/types/utils/editing.d.ts:40
 
 ___
 
@@ -346,4 +347,4 @@ Resets Sitecore Experience Editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:50
+sitecore-jss/types/utils/editing.d.ts:61

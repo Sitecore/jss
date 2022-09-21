@@ -45,7 +45,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:43
+sitecore-jss/types/graphql-request-client.d.ts:47
 
 ## Properties
 
@@ -55,7 +55,7 @@ sitecore-jss/types/graphql-request-client.d.ts:43
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:35
+sitecore-jss/types/graphql-request-client.d.ts:39
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:37
+sitecore-jss/types/graphql-request-client.d.ts:41
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:34
+sitecore-jss/types/graphql-request-client.d.ts:38
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:36
+sitecore-jss/types/graphql-request-client.d.ts:40
 
 ## Methods
 
@@ -118,4 +118,4 @@ GraphQLClient.request
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:49
+sitecore-jss/types/graphql-request-client.d.ts:53

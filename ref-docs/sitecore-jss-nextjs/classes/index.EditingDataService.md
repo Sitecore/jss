@@ -38,7 +38,7 @@ Service responsible for maintaining Sitecore Experience Editor data between requ
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/editing-data-service.ts:35](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L35)
+[sitecore-jss-nextjs/src/services/editing-data-service.ts:35](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L35)
 
 ## Properties
 
@@ -48,7 +48,7 @@ Service responsible for maintaining Sitecore Experience Editor data between requ
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/editing-data-service.ts:29](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L29)
+[sitecore-jss-nextjs/src/services/editing-data-service.ts:29](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L29)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/editing-data-service.ts:30](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L30)
+[sitecore-jss-nextjs/src/services/editing-data-service.ts:30](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L30)
 
 ## Methods
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/editing-data-service.ts:83](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L83)
+[sitecore-jss-nextjs/src/services/editing-data-service.ts:83](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L83)
 
 ___
 
@@ -102,7 +102,7 @@ The [EditingData](../modules/index.md#editingdata)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/editing-data-service.ts:70](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L70)
+[sitecore-jss-nextjs/src/services/editing-data-service.ts:70](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L70)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/editing-data-service.ts:93](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L93)
+[sitecore-jss-nextjs/src/services/editing-data-service.ts:93](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L93)
 
 ___
 
@@ -148,4 +148,4 @@ The [EditingPreviewData](../interfaces/index.EditingPreviewData.md) containing t
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/editing-data-service.ts:50](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L50)
+[sitecore-jss-nextjs/src/services/editing-data-service.ts:50](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L50)

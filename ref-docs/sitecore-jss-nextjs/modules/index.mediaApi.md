@@ -11,6 +11,7 @@
 - [findEditorImageTag](index.mediaApi.md#findeditorimagetag)
 - [getRequiredParams](index.mediaApi.md#getrequiredparams)
 - [getSrcSet](index.mediaApi.md#getsrcset)
+- [replaceMediaUrlPrefix](index.mediaApi.md#replacemediaurlprefix)
 - [updateImageUrl](index.mediaApi.md#updateimageurl)
 
 ## Functions
@@ -102,7 +103,33 @@ src set
 
 #### Defined in
 
-sitecore-jss/types/media/media-api.d.ts:57
+sitecore-jss/types/media/media-api.d.ts:65
+
+___
+
+### replaceMediaUrlPrefix
+
+▸ `Const` **replaceMediaUrlPrefix**(`url`, `mediaUrlPrefix?`): `string`
+
+Replace `/~/media` or `/-/media` with `/~/jssmedia` or `/-/jssmedia`, respectively.
+Can use `mediaUrlPrefix` in order to use a custom prefix.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+| `mediaUrlPrefix?` | `RegExp` |
+
+#### Returns
+
+`string`
+
+url
+
+#### Defined in
+
+sitecore-jss/types/media/media-api.d.ts:33
 
 ___
 
@@ -132,4 +159,4 @@ url
 
 #### Defined in
 
-sitecore-jss/types/media/media-api.d.ts:37
+sitecore-jss/types/media/media-api.d.ts:45

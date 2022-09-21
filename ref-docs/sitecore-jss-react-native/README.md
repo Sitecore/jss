@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Date.tsx:22](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react-native/src/components/Date.tsx#L22)
+[sitecore-jss-react-native/src/components/Date.tsx:22](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/Date.tsx#L22)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Image.tsx:104](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react-native/src/components/Image.tsx#L104)
+[sitecore-jss-react-native/src/components/Image.tsx:104](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/Image.tsx#L104)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Link.tsx:38](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react-native/src/components/Link.tsx#L38)
+[sitecore-jss-react-native/src/components/Link.tsx:38](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/Link.tsx#L38)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react-native/src/components/RichText.tsx#L14)
+[sitecore-jss-react-native/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/RichText.tsx#L14)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Text.tsx:14](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react-native/src/components/Text.tsx#L14)
+[sitecore-jss-react-native/src/components/Text.tsx:14](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/Text.tsx#L14)
 
 ## Functions
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Placeholder.tsx:103](https://github.com/Sitecore/jss/blob/695577da/packages/sitecore-jss-react-native/src/components/Placeholder.tsx#L103)
+[sitecore-jss-react-native/src/components/Placeholder.tsx:103](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/Placeholder.tsx#L103)
 
 ___
 
@@ -203,7 +203,8 @@ ___
 
 ▸ `Const` **isEditorActive**(): `boolean`
 
-Determines whether the current execution context is within a Sitecore editor
+Determines whether the current execution context is within a Sitecore editor.
+Sitecore Editor environment can be identified only in the browser
 
 #### Returns
 
@@ -213,7 +214,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:25
+sitecore-jss/types/utils/editing.d.ts:36
 
 ___
 
@@ -233,7 +234,7 @@ true if executing within the Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:45
+sitecore-jss/types/utils/editing.d.ts:56
 
 ___
 
@@ -249,7 +250,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:29
+sitecore-jss/types/utils/editing.d.ts:40
 
 ___
 
@@ -267,4 +268,4 @@ Resets Sitecore Experience Editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:50
+sitecore-jss/types/utils/editing.d.ts:61
