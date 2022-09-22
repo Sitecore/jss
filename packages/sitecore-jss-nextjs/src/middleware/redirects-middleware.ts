@@ -91,8 +91,10 @@ export class RedirectsMiddleware {
 
     return redirects.find((redirect: RedirectInfo) => {
       return (
-        (regexParser(redirect.pattern).test(req.nextUrl.pathname) ||
-          regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${req.nextUrl.pathname}`)) &&
+        (regexParser(redirect.pattern.toLowerCase()).test(req.nextUrl.pathname.toLowerCase()) ||
+          regexParser(redirect.pattern.toLowerCase()).test(
+            `/${req.nextUrl.locale}${req.nextUrl.pathname}`.toLowerCase()
+          )) &&
         (redirect.locale ? redirect.locale === req.nextUrl.locale : true)
       );
     });
