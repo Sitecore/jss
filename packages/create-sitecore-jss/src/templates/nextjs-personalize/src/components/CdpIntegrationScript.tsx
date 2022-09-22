@@ -21,8 +21,10 @@ const CdpIntegrationScript = (): JSX.Element => {
     const engage = await init({
       clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
       targetDomain: process.env.NEXT_PUBLIC_CDP_API_DOMAIN || '',
-      cookieDomain: '',
-      forceServerCookieMode: true, // Cookie will be created in personalize middleware
+      // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
+      cookieDomain: window.location.host.replace(/^www\./, ''),
+      // Cookie will be created in personalize middleware
+      forceServerCookieMode: true,
     });
     engage.pageView({
       channel: 'WEB',
@@ -53,7 +55,7 @@ const CdpIntegrationScript = (): JSX.Element => {
       return;
     }
     createPageView(route.name, route.itemLanguage || config.defaultLanguage);
-  });
+  }, [pageEditing, route]);
 
   return <></>;
 };

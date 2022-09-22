@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@sitecore/engage": "^0.2.0-alpha.1"
+    "@sitecore/engage": "^0.2.3-canary"
   }
 }
