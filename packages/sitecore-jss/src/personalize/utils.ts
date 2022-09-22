@@ -45,3 +45,30 @@ export function normalizePersonalizedRewrite(pathname: string): string {
   const result = pathname.match(`${VARIANT_PREFIX}.*?(?:\\/|$)`);
   return result === null ? pathname : pathname.replace(result[0], '');
 }
+
+/**
+ * Parses raw point of sale value into a Record (locale-bound)
+ * returns an empty Record if JSON input is invalid
+ * point of sale is just a string from CDP's point of view, not URL neccessarily - so no validation
+ * @param {string} cdpPos input
+ * @returns non-empty Record
+ * @throws error when JSON can't be parsed
+ */
+export const parseMultiValuePointOfSale = (cdpPos: string): Record<string, string> => {
+  try {
+    return JSON.parse(cdpPos) as Record<string, string>;
+  } catch (error) {
+    console.log('Multivalue point of sale parsing failed');
+    console.log(`Attempted to parse ${cdpPos}`);
+    throw error;
+  }
+};
+
+/**
+ * Part of multi-value POS support. Determines if raw point of sale input should be treated as multivalue and retireved by locale
+ * @param {string} cdpPos raw input with point of sale data
+ * @returns true if input has multi-value format, false if single-value
+ */
+export const shouldHandleMultiValuePos = (cdpPos: string): boolean => {
+  return cdpPos.startsWith('{') && cdpPos.endsWith('}');
+};

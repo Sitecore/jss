@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { getPublicUrl, getJssEditingSecret, parsePointOfSaleRawInput } from './utils';
+import { getPublicUrl, getJssEditingSecret } from './utils';
 
 describe('utils', () => {
   describe('getPublicUrl', () => {
@@ -53,31 +53,6 @@ describe('utils', () => {
       process.env.JSS_EDITING_SECRET = secret;
       const result = getJssEditingSecret();
       expect(result).to.equal(secret);
-    });
-  });
-  describe('parsePointOfSaleRawInput', () => {
-    it('should return Record when valid json collection provided', () => {
-      const cdpRecord: Record<string, string> = {
-        en: 'value1',
-        'da-DA': 'nke',
-      };
-      const validJson = JSON.stringify(cdpRecord);
-
-      const result = parsePointOfSaleRawInput(validJson);
-
-      expect(result).to.deep.equal(cdpRecord);
-    });
-    it('should return Record with input value when invlaid json provided', () => {
-      const invalidJson = '{abcderef}';
-      const result = parsePointOfSaleRawInput(invalidJson);
-
-      expect(result.default).to.equal(invalidJson);
-    });
-    it('should return Record with input value when non-json provided', () => {
-      const singleValue = 'test.cdp.com';
-      const result = parsePointOfSaleRawInput(singleValue);
-
-      expect(result.default).to.equal(singleValue);
     });
   });
 });

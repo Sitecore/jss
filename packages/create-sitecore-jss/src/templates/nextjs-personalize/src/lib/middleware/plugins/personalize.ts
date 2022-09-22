@@ -35,7 +35,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
       cdpConfig: {
         endpoint: process.env.NEXT_PUBLIC_CDP_API_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
-        pointOfSale: pointOfSale,
+        pointOfSale: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '',
         timeout:
           (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) ||

@@ -75,22 +75,3 @@ export const getJssEditingSecret = (): string => {
   }
   return secret;
 };
-
-/**
- * Parses raw point of sale value in Record (locale-bound or default)
- * if we have a valid multi-value JSON input we return a Record
- * if POS input is single value - return Record with a single value in it
- * point of sale is just a string from CDP's point of view, not URL neccessarily - so no validation
- * @returns non-empty Record
- */
-export const parsePointOfSaleRawInput = (cdpPos: string): Record<string, string> => {
-  if (cdpPos.startsWith('{')) {
-    try {
-      return JSON.parse(cdpPos) as Record<string, string>;
-    } catch (error) {
-      return { default: cdpPos } as Record<string, string>;
-    }
-  } else {
-    return { default: cdpPos } as Record<string, string>;
-  }
-};
