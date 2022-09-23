@@ -1,6 +1,7 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import debug from '../debug';
 import { isTimeoutError } from '../utils';
+import { CdpHelper } from './utils';
 
 export type GraphQLPersonalizeServiceConfig = {
   /**
@@ -96,7 +97,7 @@ export class GraphQLPersonalizeService {
       return data?.layout?.item
         ? {
             // CDP expects content id format `embedded_<id>_<lang>` (lowercase)
-            contentId: this.getContentId(data.layout.item.id, language),
+            contentId: CdpHelper.getContentId(data.layout.item.id, language),
             variantIds: data.layout.item.personalization.variantIds,
           }
         : undefined;
@@ -107,16 +108,6 @@ export class GraphQLPersonalizeService {
 
       throw error;
     }
-  }
-
-  /**
-   * Gets the content id for the CDP in the required format `embedded_<id>_<lang>`
-   * @param {string} pageId the page id
-   * @param {string} language the language
-   * @returns {string} the content id
-   */
-  protected getContentId(pageId: string, language: string): string {
-    return `embedded_${pageId}_${language.replace('-', '_')}`.toLowerCase();
   }
 
   /**

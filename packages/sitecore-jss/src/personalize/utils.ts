@@ -64,4 +64,14 @@ export class CdpHelper {
     }
     return `${pageId}_${language.replace('-', '_')}_${formattedVariantId}`.toLowerCase();
   }
+
+  /**
+   * Gets the content id for CDP in the required format `embedded_<id>_<lang>`
+   * @param {string} pageId the page id
+   * @param {string} language the language
+   * @returns {string} the content id
+   */
+  static getContentId(pageId: string, language: string): string {
+    return `embedded_${pageId}_${language.replace('-', '_')}`.toLowerCase();
+  }
 }

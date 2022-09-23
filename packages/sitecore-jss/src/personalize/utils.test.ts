@@ -116,5 +116,26 @@ describe('utils', () => {
         expect(result).to.equal(`${pageId}_da_dk_${variantId}`.toLowerCase());
       });
     });
+
+    describe('getContentId', () => {
+      it('should format variant', () => {
+        const pageId = '110d559fdea542ea9c1c8a5df7e70ef9';
+        const language = 'en';
+        const result = CdpHelper.getContentId(pageId, language);
+        expect(result).to.equal(`embedded_${pageId}_${language}`);
+      });
+      it('should use lowercase', () => {
+        const pageId = '3E0A2F20B3255E57881FFF6648D08575';
+        const language = 'EN';
+        const result = CdpHelper.getContentId(pageId, language);
+        expect(result).to.equal(`embedded_${pageId}_${language}`.toLowerCase());
+      });
+      it('should convert language dashes to underscores', () => {
+        const pageId = '3E0A2F20B3255E57881FFF6648D08575';
+        const language = 'da-DK';
+        const result = CdpHelper.getContentId(pageId, language);
+        expect(result).to.equal(`embedded_${pageId}_da_DK`.toLowerCase());
+      });
+    });
   });
 });
