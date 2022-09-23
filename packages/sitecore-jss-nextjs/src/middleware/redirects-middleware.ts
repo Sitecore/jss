@@ -95,7 +95,7 @@ export class RedirectsMiddleware {
           regexParser(redirect.pattern.toLowerCase()).test(
             `/${req.nextUrl.locale}${req.nextUrl.pathname}`.toLowerCase()
           )) &&
-        (redirect.locale ? redirect.locale === req.nextUrl.locale : true)
+        (redirect.locale ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase() : true)
       );
     });
   }
