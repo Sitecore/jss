@@ -1,4 +1,4 @@
-import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { useSitecoreContext, CdpHelper } from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect } from 'react';
 import config from 'temp/config';
 import { init } from '@sitecore/engage';
@@ -11,34 +11,35 @@ import { init } from '@sitecore/engage';
  */
 const CdpIntegrationScript = (): JSX.Element => {
   const {
-    sitecoreContext: { pageEditing, route },
+    sitecoreContext: { pageEditing, route, variantId },
   } = useSitecoreContext();
 
   /**
    * Creates a page view event using the Sitecore Engage SDK.
    */
-  const createPageView = async (page: string, language: string) => {
+  const createPageView = async (page: string, language: string, pageVariantId: string) => {
     const engage = await init({
       clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
       targetDomain: process.env.NEXT_PUBLIC_CDP_API_DOMAIN || '',
       // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
       cookieDomain: window.location.host.replace(/^www\./, ''),
-      // Cookie will be created in personalize middleware
-      forceServerCookieMode: true,
+      // Cookie may be created in personalize middleware (server), but if not we should create it here
+      forceServerCookieMode: false,
     });
     engage.pageView({
       channel: 'WEB',
       currency: 'USD',
       pos: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '',
       page,
-      // pageVariantId,
+      pageVariantId,
       language,
     });
   };
 
   /**
    * Determines if the page view events should be turned off.
-   * This would be based on your cookie consent management solution of choice.
+   * IMPORTANT: You should implement based on your cookie consent management solution of choice.
+   * You may also wish to disable in development mode (process.env.NODE_ENV === 'development').
    * By default it is always enabled.
    */
   const disabled = () => {
@@ -54,8 +55,10 @@ const CdpIntegrationScript = (): JSX.Element => {
     if (disabled()) {
       return;
     }
-    createPageView(route.name, route.itemLanguage || config.defaultLanguage);
-  }, [pageEditing, route]);
+    const language = route.itemLanguage || config.defaultLanguage;
+    const pageVariantId = CdpHelper.getPageVariantId(route.itemId, language, variantId);
+    createPageView(route.name, language, pageVariantId);
+  }, [pageEditing, route, variantId]);
 
   return <></>;
 };

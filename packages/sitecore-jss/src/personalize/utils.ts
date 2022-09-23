@@ -45,3 +45,23 @@ export function normalizePersonalizedRewrite(pathname: string): string {
   const result = pathname.match(`${VARIANT_PREFIX}.*?(?:\\/|$)`);
   return result === null ? pathname : pathname.replace(result[0], '');
 }
+
+/**
+ * Static utility class for Sitecore CDP
+ */
+export class CdpHelper {
+  /**
+   * Gets the page variant id for CDP in the required format
+   * @param {string} pageId the page id
+   * @param {string} language the language
+   * @param {string} variantId the variant id
+   * @returns {string} the formatted page variant id
+   */
+  static getPageVariantId(pageId: string, language: string, variantId: string): string {
+    let formattedVariantId = variantId;
+    if (!variantId || variantId === DEFAULT_VARIANT) {
+      formattedVariantId = 'default';
+    }
+    return `${pageId}_${language.replace('-', '_')}_${formattedVariantId}`.toLowerCase();
+  }
+}
