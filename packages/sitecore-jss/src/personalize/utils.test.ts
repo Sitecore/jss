@@ -3,7 +3,6 @@ import {
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
-  PointOfSaleHelper,
   VARIANT_PREFIX,
   DEFAULT_VARIANT,
 } from './utils';
@@ -77,24 +76,6 @@ describe('utils', () => {
       const pathname = `/${VARIANT_PREFIX}foo`;
       const result = normalizePersonalizedRewrite(pathname);
       expect(result).to.equal('/');
-    });
-  });
-  describe('PointOfSaleHelper - parseMultiValuePointOfSale', () => {
-    it('should return Record when valid json collection provided', () => {
-      const cdpRecord: Record<string, string> = {
-        en: 'value1',
-        'da-DA': 'nke',
-      };
-      const validJson = JSON.stringify(cdpRecord);
-
-      const result = PointOfSaleHelper.parseMultiValuePointOfSale(validJson);
-
-      expect(result).to.deep.equal(cdpRecord);
-    });
-    it('should throw when input value with invlaid json provided', () => {
-      const invalidJson = '{abcderef}';
-
-      expect(PointOfSaleHelper.parseMultiValuePointOfSale.bind(null, invalidJson)).to.throw();
     });
   });
 });

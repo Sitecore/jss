@@ -15,5 +15,4 @@ export {
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
   PersonalizedRewriteData,
-  PointOfSaleHelper,
 } from './utils';

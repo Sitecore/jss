@@ -1,4 +1,4 @@
-import { useSitecoreContext, PointOfSaleHelper } from '@sitecore-jss/sitecore-jss-nextjs';
+import { useSitecoreContext, EnvHelper } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { useEffect } from 'react';
 import config from 'temp/config';
@@ -21,13 +21,19 @@ interface BoxeverViewEventArgs {
 }
 
 function createPageView(locale: string, routeName: string) {
-  try {
-  // POS can be multi-valued (one entry per locale) or single valued so we parse it
-  // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-  const parsedPos = (PointOfSaleHelper.shouldHandleMultiValuePos(process.env.NEXT_PUBLIC_CDP_POINTOFSALE)) ? 
-    PointOfSaleHelper.parseMultiValuePointOfSale(process.env.NEXT_PUBLIC_CDP_POINTOFSALE)[locale] : 
-    process.env.NEXT_PUBLIC_CDP_POINTOFSALE;
-  const pointOfSale = parsedPos || window.location.host.replace(/^www\./, '');
+  let pointOfSale = '';
+  try {    
+    // POS can be multi-valued (one entry per locale) or single valued so we parse it
+    // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
+    const parsedPos = EnvHelper.parseEnvValue(process.env.NEXT_PUBLIC_CDP_POINTOFSALE);
+    if (typeof parsedPos == 'string') 
+      pointOfSale = parsedPos;
+    else
+      pointOfSale = parsedPos[locale];
+  }  
+  catch (error) {
+    console.log(error);
+  }
 
   _boxeverq.push(function () {
     const pageViewEvent: BoxeverViewEventArgs = {
@@ -47,12 +53,6 @@ function createPageView(locale: string, routeName: string) {
       'json'
     );
   });
-}
-catch (error) {
-  // if we have invalid data or request is failing we should abort event creation
-  console.log('createPageView failed');
-  console.log(error);
-}
 }
 
 const CdpIntegrationScript = (): JSX.Element => {

@@ -9,7 +9,12 @@ export {
   NativeDataFetcherConfig,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
-export { isEditorActive, resetEditorChromes, resolveUrl } from '@sitecore-jss/sitecore-jss/utils';
+export {
+  isEditorActive,
+  resetEditorChromes,
+  resolveUrl,
+  EnvHelper,
+} from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
   LayoutServiceData,
@@ -55,7 +60,6 @@ export {
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
-  PointOfSaleHelper,
 } from '@sitecore-jss/sitecore-jss/personalize';
 export {
   RobotsQueryResult,

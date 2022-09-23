@@ -13,6 +13,11 @@ describe('CdpService', () => {
   const contentId = 'content-id';
   const variantId = 'variant-1';
   const pointOfSale = 'pos-1';
+  const getPointOfSale = (language: string) => {
+    language = language;
+    return pointOfSale;
+  };
+  const language = 'en';
   const friendlyId = contentId;
   const channel = DEFAULT_CHANNEL;
   const browserId = 'browser-id';
@@ -31,7 +36,7 @@ describe('CdpService', () => {
   const config = {
     endpoint,
     clientKey,
-    pointOfSale,
+    getPointOfSale,
   };
 
   afterEach(() => {
@@ -58,7 +63,13 @@ describe('CdpService', () => {
         });
 
       const service = new CdpService(config);
-      const actualVariantId = await service.executeExperience(contentId, browserId, ua, params);
+      const actualVariantId = await service.executeExperience(
+        contentId,
+        browserId,
+        ua,
+        language,
+        params
+      );
 
       expect(actualVariantId).to.deep.equal(variantId);
     });
@@ -78,7 +89,7 @@ describe('CdpService', () => {
         });
 
       const service = new CdpService(config);
-      const variantId = await service.executeExperience(contentId, browserId, ua, params);
+      const variantId = await service.executeExperience(contentId, browserId, ua, language, params);
 
       expect(variantId).to.be.undefined;
     });
@@ -99,7 +110,13 @@ describe('CdpService', () => {
         });
 
       const service = new CdpService({ ...config, channel: channelOverride });
-      const actualVariantId = await service.executeExperience(contentId, browserId, ua, params);
+      const actualVariantId = await service.executeExperience(
+        contentId,
+        browserId,
+        ua,
+        language,
+        params
+      );
 
       expect(actualVariantId).to.deep.equal(variantId);
     });
@@ -123,7 +140,13 @@ describe('CdpService', () => {
         });
 
       const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
-      const actualVariantId = await service.executeExperience(contentId, browserId, ua, params);
+      const actualVariantId = await service.executeExperience(
+        contentId,
+        browserId,
+        ua,
+        language,
+        params
+      );
 
       expect(actualVariantId).to.deep.equal(variantId);
       expect(fetcherSpy).to.be.called.once;
@@ -148,7 +171,13 @@ describe('CdpService', () => {
         .reply(408);
 
       const service = new CdpService({ ...config, dataFetcherResolver: () => fetcherSpy });
-      const actualVariantId = await service.executeExperience(contentId, browserId, ua, params);
+      const actualVariantId = await service.executeExperience(
+        contentId,
+        browserId,
+        ua,
+        language,
+        params
+      );
 
       expect(actualVariantId).to.deep.equal(undefined);
     });
@@ -165,7 +194,7 @@ describe('CdpService', () => {
         })
         .replyWithError('error_test');
       const service = new CdpService(config);
-      await service.executeExperience(contentId, browserId, ua, params).catch((error) => {
+      await service.executeExperience(contentId, browserId, ua, language, params).catch((error) => {
         expect(error.message).to.contain('error_test');
       });
     });
@@ -183,7 +212,13 @@ describe('CdpService', () => {
         .reply(408);
 
       const service = new CdpService(config);
-      const actualVariantId = await service.executeExperience(contentId, browserId, ua, params);
+      const actualVariantId = await service.executeExperience(
+        contentId,
+        browserId,
+        ua,
+        language,
+        params
+      );
 
       expect(actualVariantId).to.deep.equal(undefined);
     });

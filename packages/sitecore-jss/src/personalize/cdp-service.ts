@@ -34,7 +34,7 @@ export type CdpServiceConfig = {
   /**
    * Your Sitecore CDP point of sale
    */
-  pointOfSale: string;
+  getPointOfSale: (locale: string) => string;
   /**
    * The Sitecore CDP channel to use for events. Uses 'WEB' by default.
    */
@@ -87,7 +87,7 @@ export class CdpService {
    * @param {string} contentId the friendly content id of the page
    * @param {string} browserId the browser id
    * @param {string} userAgent the user agent
-   * @param {string} pointOfSale
+   * @param {string} locale current request locale
    * @param {ExperienceParams} params the experience params for the user
    * @returns {ExecuteExperienceResult} the execute experience result
    */
@@ -95,7 +95,7 @@ export class CdpService {
     contentId: string,
     browserId: string,
     userAgent: string,
-    pointOfSale: string,
+    locale: string,
     params: ExperienceParams
   ): Promise<string | undefined> {
     const endpoint = this.getExecuteExperienceUrl();
@@ -114,7 +114,7 @@ export class CdpService {
     try {
       const response = await fetcher(endpoint, {
         clientKey: this.config.clientKey,
-        pointOfSale: pointOfSale,
+        pointOfSale: this.config.getPointOfSale(locale),
         channel: this.config.channel ?? DEFAULT_CHANNEL,
         browserId,
         friendlyId: contentId,
