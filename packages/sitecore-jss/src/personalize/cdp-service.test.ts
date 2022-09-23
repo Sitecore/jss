@@ -14,7 +14,7 @@ describe('CdpService', () => {
   const variantId = 'variant-1';
   const pointOfSale = 'pos-1';
   const getPointOfSale = (language: string) => {
-    language = language;
+    language = 'en';
     return pointOfSale;
   };
   const language = 'en';
