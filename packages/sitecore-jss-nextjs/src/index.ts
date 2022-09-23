@@ -55,8 +55,7 @@ export {
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
-  shouldHandleMultiValuePos,
-  parseMultiValuePointOfSale,
+  PointOfSaleHelper,
 } from '@sitecore-jss/sitecore-jss/personalize';
 export {
   RobotsQueryResult,

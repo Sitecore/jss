@@ -3,7 +3,7 @@ import {
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
-  parseMultiValuePointOfSale,
+  PointOfSaleHelper,
   VARIANT_PREFIX,
   DEFAULT_VARIANT,
 } from './utils';
@@ -79,7 +79,7 @@ describe('utils', () => {
       expect(result).to.equal('/');
     });
   });
-  describe('parseMultiValuePointOfSale', () => {
+  describe('PointOfSaleHelper - parseMultiValuePointOfSale', () => {
     it('should return Record when valid json collection provided', () => {
       const cdpRecord: Record<string, string> = {
         en: 'value1',
@@ -87,14 +87,14 @@ describe('utils', () => {
       };
       const validJson = JSON.stringify(cdpRecord);
 
-      const result = parseMultiValuePointOfSale(validJson);
+      const result = PointOfSaleHelper.parseMultiValuePointOfSale(validJson);
 
       expect(result).to.deep.equal(cdpRecord);
     });
     it('should throw when input value with invlaid json provided', () => {
       const invalidJson = '{abcderef}';
 
-      expect(parseMultiValuePointOfSale.bind(null, invalidJson)).to.throw();
+      expect(PointOfSaleHelper.parseMultiValuePointOfSale.bind(null, invalidJson)).to.throw();
     });
   });
 });

@@ -15,6 +15,5 @@ export {
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
   PersonalizedRewriteData,
-  shouldHandleMultiValuePos,
-  parseMultiValuePointOfSale,
+  PointOfSaleHelper,
 } from './utils';

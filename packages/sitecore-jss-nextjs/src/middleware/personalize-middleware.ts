@@ -6,6 +6,7 @@ import {
   CdpServiceConfig,
   ExperienceParams,
   getPersonalizedRewrite,
+  PointOfSaleHelper,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 
@@ -140,6 +141,18 @@ export class PersonalizeMiddleware {
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
+
+    let pointOfSale = '';
+    try {
+      pointOfSale = PointOfSaleHelper.shouldHandleMultiValuePos(this.config.cdpConfig.pointOfSale)
+        ? PointOfSaleHelper.parseMultiValuePointOfSale(this.config.cdpConfig.pointOfSale)[language]
+        : this.config.cdpConfig.pointOfSale;
+    } catch (error) {
+      console.log(
+        'Middleware failed when parsing multi-value point of sale entry. Please check the format is correct.'
+      );
+      throw error; // halting middleware to avoid unexpected analytics/experience data being sent to CDP
+    }
     let browserId = this.getBrowserId(req);
 
     debug.personalize('personalize middleware start: %o', {
@@ -197,6 +210,7 @@ export class PersonalizeMiddleware {
       personalizeInfo.contentId,
       browserId,
       ua,
+      pointOfSale,
       params
     );
 
