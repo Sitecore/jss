@@ -40,6 +40,9 @@ $hamburger-margin: 18px;
     }
   
     .level0, .level1 {
+      float: left;
+      margin-left: 30px;
+
       >.navigation-title {
         >a {
           border-width: 0;
@@ -79,6 +82,8 @@ $hamburger-margin: 18px;
       }
 
       .level0, .level1 {
+        float: unset;
+        margin-left: 0;
         >.navigation-title {
           >a {
             font-size: $text-size-30;

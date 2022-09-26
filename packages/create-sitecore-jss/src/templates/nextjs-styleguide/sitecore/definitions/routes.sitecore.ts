@@ -24,8 +24,8 @@ export default function addRoutesToManifest(manifest: Manifest): Promise<void> {
   const appTemplateSection = 'Page Metadata';
 
   manifest.setDefaultRouteType({
-    name: '<%- helper.getAppPrefix(appPrefix, appName) %>App Route',
-    displayName: 'App Route',
+    name: '<%- helper.getAppPrefix(appPrefix, appName) %>Page',
+    displayName: 'Page',
     fields: [
       {
         name: 'pageTitle',
@@ -34,7 +34,7 @@ export default function addRoutesToManifest(manifest: Manifest): Promise<void> {
         type: CommonFieldTypes.SingleLineText,
       },
     ],
-    insertOptions: ['<%- helper.getAppPrefix(appPrefix, appName) %>App Route'],
+    insertOptions: ['<%- helper.getAppPrefix(appPrefix, appName) %>Page'],
   });
 
   return mergeFs('./data/routes') // relative to process invocation (i.e. your package.json)

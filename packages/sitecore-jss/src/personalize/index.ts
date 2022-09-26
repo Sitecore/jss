@@ -15,4 +15,5 @@ export {
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
   PersonalizedRewriteData,
+  CdpHelper,
 } from './utils';

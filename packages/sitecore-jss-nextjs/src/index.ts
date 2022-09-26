@@ -60,6 +60,7 @@ export {
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
+  CdpHelper,
 } from '@sitecore-jss/sitecore-jss/personalize';
 export {
   RobotsQueryResult,

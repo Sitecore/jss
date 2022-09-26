@@ -3,6 +3,7 @@ import {
   getPersonalizedRewrite,
   getPersonalizedRewriteData,
   normalizePersonalizedRewrite,
+  CdpHelper,
   VARIANT_PREFIX,
   DEFAULT_VARIANT,
 } from './utils';
@@ -76,6 +77,82 @@ describe('utils', () => {
       const pathname = `/${VARIANT_PREFIX}foo`;
       const result = normalizePersonalizedRewrite(pathname);
       expect(result).to.equal('/');
+    });
+  });
+
+  describe('CdpHelper', () => {
+    describe('getPageVariantId', () => {
+      it('should format default variant', () => {
+        const pageId = '110d559fdea542ea9c1c8a5df7e70ef9';
+        const language = 'en';
+        const result = CdpHelper.getPageVariantId(pageId, language, DEFAULT_VARIANT);
+        expect(result).to.equal(`${pageId}_${language}_default`);
+      });
+      it('should format empty variant', () => {
+        const pageId = '110d559fdea542ea9c1c8a5df7e70ef9';
+        const language = 'en';
+        const result = CdpHelper.getPageVariantId(pageId, language, '');
+        expect(result).to.equal(`${pageId}_${language}_default`);
+      });
+      it('should format variant', () => {
+        const pageId = '110d559fdea542ea9c1c8a5df7e70ef9';
+        const language = 'en';
+        const variantId = '54c8e9b50b2c53638fa6d32a3a302f51';
+        const result = CdpHelper.getPageVariantId(pageId, language, variantId);
+        expect(result).to.equal(`${pageId}_${language}_${variantId}`);
+      });
+      it('should use lowercase', () => {
+        const pageId = '3E0A2F20B3255E57881FFF6648D08575';
+        const language = 'EN';
+        const variantId = '54C8E9B50B2C53638FA6D32A3A302F51';
+        const result = CdpHelper.getPageVariantId(pageId, language, variantId);
+        expect(result).to.equal(`${pageId}_${language}_${variantId}`.toLowerCase());
+      });
+      it('should convert language dashes to underscores', () => {
+        const pageId = '3E0A2F20B3255E57881FFF6648D08575';
+        const language = 'da-DK';
+        const variantId = '54C8E9B50B2C53638FA6D32A3A302F51';
+        const result = CdpHelper.getPageVariantId(pageId, language, variantId);
+        expect(result).to.equal(`${pageId}_da_dk_${variantId}`.toLowerCase());
+      });
+      it('should ensure GUID format N for pageId', () => {
+        const pageId = '{FFCD3AC4-38E3-5286-A0B9-5F7113D5E74A}';
+        const language = 'en';
+        const variantId = 'test';
+        const result = CdpHelper.getPageVariantId(pageId, language, variantId);
+        expect(result).to.equal(
+          `FFCD3AC438E35286A0B95F7113D5E74A_${language}_${variantId}`.toLowerCase()
+        );
+      });
+    });
+
+    describe('getContentId', () => {
+      it('should format variant', () => {
+        const pageId = '110d559fdea542ea9c1c8a5df7e70ef9';
+        const language = 'en';
+        const result = CdpHelper.getContentId(pageId, language);
+        expect(result).to.equal(`embedded_${pageId}_${language}`);
+      });
+      it('should use lowercase', () => {
+        const pageId = '3E0A2F20B3255E57881FFF6648D08575';
+        const language = 'EN';
+        const result = CdpHelper.getContentId(pageId, language);
+        expect(result).to.equal(`embedded_${pageId}_${language}`.toLowerCase());
+      });
+      it('should convert language dashes to underscores', () => {
+        const pageId = '3E0A2F20B3255E57881FFF6648D08575';
+        const language = 'da-DK';
+        const result = CdpHelper.getContentId(pageId, language);
+        expect(result).to.equal(`embedded_${pageId}_da_DK`.toLowerCase());
+      });
+      it('should ensure GUID format N for pageId', () => {
+        const pageId = '{FFCD3AC4-38E3-5286-A0B9-5F7113D5E74A}';
+        const language = 'en';
+        const result = CdpHelper.getContentId(pageId, language);
+        expect(result).to.equal(
+          `embedded_FFCD3AC438E35286A0B95F7113D5E74A_${language}`.toLowerCase()
+        );
+      });
     });
   });
 });

@@ -153,7 +153,7 @@ export default {
             name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>ContentBlock',
           },
           {
-            name: 'C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute',
+            name: 'C__<%- helper.getAppPrefix(appPrefix, appName, false) %>Page',
           },
           {
             name: 'JsonRendering',
@@ -192,13 +192,13 @@ export default {
       },
       {
         kind: 'INTERFACE',
-        name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute',
+        name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>Page',
         possibleTypes: [
           {
             name: '<%- helper.getAppPrefix(appPrefix, appName, false) %>ExampleCustomRouteType',
           },
           {
-            name: 'C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute',
+            name: 'C__<%- helper.getAppPrefix(appPrefix, appName, false) %>Page',
           },
         ],
       },

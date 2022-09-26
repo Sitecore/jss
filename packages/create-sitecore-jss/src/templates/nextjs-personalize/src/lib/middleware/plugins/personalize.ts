@@ -35,7 +35,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
       // Configuration for your Sitecore CDP endpoint
       // point of sale can be a multivalue JSON string - raw value is passed to further be handled on middleware
       cdpConfig: {
-        endpoint: process.env.NEXT_PUBLIC_CDP_API_URL || '',
+        endpoint: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
         timeout:
           (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT &&
@@ -43,7 +43,8 @@ class PersonalizePlugin implements MiddlewarePlugin {
           250,
       },
       // This function determines if the middleware should be turned off.
-      // This would typically be based on your cookie consent management solution of choice.
+      // IMPORTANT: You should implement based on your cookie consent management solution of choice.
+      // You may also wish to disable in development mode (process.env.NODE_ENV === 'development').
       // By default it is always enabled.
       disabled: () => false,
       // This function determines if a route should be excluded from personalization.

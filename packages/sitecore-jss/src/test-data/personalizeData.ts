@@ -31,6 +31,7 @@ export const layoutData = {
       site: { name: 'JssNextWeb' },
       visitorIdentificationTimestamp: 1038543,
       language: 'en',
+      variantId: undefined,
     },
     route: {
       name: 'landingpage',
