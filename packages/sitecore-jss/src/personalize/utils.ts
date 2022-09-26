@@ -58,11 +58,13 @@ export class CdpHelper {
    * @returns {string} the formatted page variant id
    */
   static getPageVariantId(pageId: string, language: string, variantId: string): string {
+    const formattedPageId = pageId.replace(/[{}-]/g, '');
+    const formattedLanguage = language.replace('-', '_');
     let formattedVariantId = variantId;
     if (!variantId || variantId === DEFAULT_VARIANT) {
       formattedVariantId = 'default';
     }
-    return `${pageId}_${language.replace('-', '_')}_${formattedVariantId}`.toLowerCase();
+    return `${formattedPageId}_${formattedLanguage}_${formattedVariantId}`.toLowerCase();
   }
 
   /**
@@ -72,6 +74,8 @@ export class CdpHelper {
    * @returns {string} the content id
    */
   static getContentId(pageId: string, language: string): string {
-    return `embedded_${pageId}_${language.replace('-', '_')}`.toLowerCase();
+    const formattedPageId = pageId.replace(/[{}-]/g, '');
+    const formattedLanguage = language.replace('-', '_');
+    return `embedded_${formattedPageId}_${formattedLanguage}`.toLowerCase();
   }
 }

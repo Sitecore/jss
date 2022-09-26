@@ -48,7 +48,7 @@ const CdpIntegrationScript = (): JSX.Element => {
 
   useEffect(() => {
     // Do not create events in editing mode or if missing route data
-    if (pageEditing || !route) {
+    if (pageEditing || !route || !route.itemId) {
       return;
     }
     // Do not create events if disabled (e.g. we don't have consent)
@@ -56,7 +56,7 @@ const CdpIntegrationScript = (): JSX.Element => {
       return;
     }
     const language = route.itemLanguage || config.defaultLanguage;
-    const pageVariantId = CdpHelper.getPageVariantId(route.itemId, language, variantId);
+    const pageVariantId = CdpHelper.getPageVariantId(route.itemId, language, variantId as string);
     createPageView(route.name, language, pageVariantId);
   }, [pageEditing, route, variantId]);
 

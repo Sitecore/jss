@@ -27,6 +27,12 @@ describe('layout-personalizer', () => {
       const personalizedLayoutResult = personalizeLayout(layoutDataWithoutPlaceholder, variant);
       expect(personalizedLayoutResult).to.equal(undefined);
     });
+
+    it('should set variantId on Sitecore context', () => {
+      const variant = 'test';
+      personalizeLayout(layoutData, variant);
+      expect(layoutData.sitecore.context.variantId).to.equal(variant);
+    });
   });
 
   describe('personalizePlaceholder', () => {

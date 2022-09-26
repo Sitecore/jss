@@ -115,6 +115,15 @@ describe('utils', () => {
         const result = CdpHelper.getPageVariantId(pageId, language, variantId);
         expect(result).to.equal(`${pageId}_da_dk_${variantId}`.toLowerCase());
       });
+      it('should ensure GUID format N for pageId', () => {
+        const pageId = '{FFCD3AC4-38E3-5286-A0B9-5F7113D5E74A}';
+        const language = 'en';
+        const variantId = 'test';
+        const result = CdpHelper.getPageVariantId(pageId, language, variantId);
+        expect(result).to.equal(
+          `FFCD3AC438E35286A0B95F7113D5E74A_${language}_${variantId}`.toLowerCase()
+        );
+      });
     });
 
     describe('getContentId', () => {
@@ -135,6 +144,14 @@ describe('utils', () => {
         const language = 'da-DK';
         const result = CdpHelper.getContentId(pageId, language);
         expect(result).to.equal(`embedded_${pageId}_da_DK`.toLowerCase());
+      });
+      it('should ensure GUID format N for pageId', () => {
+        const pageId = '{FFCD3AC4-38E3-5286-A0B9-5F7113D5E74A}';
+        const language = 'en';
+        const result = CdpHelper.getContentId(pageId, language);
+        expect(result).to.equal(
+          `embedded_FFCD3AC438E35286A0B95F7113D5E74A_${language}`.toLowerCase()
+        );
       });
     });
   });
