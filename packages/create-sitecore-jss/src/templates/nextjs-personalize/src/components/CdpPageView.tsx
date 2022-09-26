@@ -4,12 +4,12 @@ import config from 'temp/config';
 import { init } from '@sitecore/engage';
 
 /**
- * This is the CDP integration script which uses the Sitecore Engage SDK.
- * It is used to enable page view events.
+ * This is the CDP page view component.
+ * It uses the Sitecore Engage SDK to enable page view events on the client-side.
  * See Sitecore Engage SDK documentation for details.
  * https://www.npmjs.com/package/@sitecore/engage
  */
-const CdpIntegrationScript = (): JSX.Element => {
+const CdpPageView = (): JSX.Element => {
   const {
     sitecoreContext: { pageEditing, route, variantId },
   } = useSitecoreContext();
@@ -63,4 +63,4 @@ const CdpIntegrationScript = (): JSX.Element => {
   return <></>;
 };
 
-export default CdpIntegrationScript;
+export default CdpPageView;
