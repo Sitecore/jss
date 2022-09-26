@@ -84,7 +84,7 @@ export class PersonalizeMiddleware {
 
   protected get browserIdCookieName(): string {
     // Each user should have saved identifier to connect between session, CDP uses bid cookies + local storage
-    return `bid_${this.config.cdpConfig.clientKey}`;
+    return `BID_${this.config.cdpConfig.clientKey}`;
   }
 
   protected getBrowserId(req: NextRequest): string | undefined {
