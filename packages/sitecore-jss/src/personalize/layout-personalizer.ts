@@ -10,6 +10,8 @@ export type ComponentRenderingWithExperiences = ComponentRendering & {
  * @param {string} variantId variant id
  */
 export function personalizeLayout(layout: LayoutServiceData, variantId: string): void {
+  // Add variantId to Sitecore context so that it is accessible here
+  layout.sitecore.context.variantId = variantId;
   const placeholders = layout.sitecore.route?.placeholders;
   if (Object.keys(placeholders ?? {}).length === 0) {
     return;
