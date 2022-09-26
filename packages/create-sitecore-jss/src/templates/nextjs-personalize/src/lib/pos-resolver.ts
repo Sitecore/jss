@@ -1,7 +1,7 @@
 import { EnvHelper } from '@sitecore-jss/sitecore-jss-nextjs';
 
 // This class is used to get point of sale identifier(s). Resolving from env variable, but it can be expanded or change in future if needed.
-export class PosResolver {
+export class PosResolver{
     static resolve = (locale: string): string => {
         try {
             // POS can be multi-valued (one entry per locale) or single valued so we parse it

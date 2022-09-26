@@ -2,7 +2,7 @@ import { useSitecoreContext, CdpHelper } from '@sitecore-jss/sitecore-jss-nextjs
 import { useEffect } from 'react';
 import config from 'temp/config';
 import { init } from '@sitecore/engage';
-import { PosResolver } from '../lib/pos-resolver';
+import { PosResolver } from 'lib/pos-resolver';
 
 /**
  * This is the CDP page view component.

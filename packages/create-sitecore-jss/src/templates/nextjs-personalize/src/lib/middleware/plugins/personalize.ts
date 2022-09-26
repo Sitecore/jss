@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
-import { PosResolver } from '../../pos-resolver';
+import { PosResolver } from 'lib/pos-resolver';
 
 /**
  * This is the personalize middleware plugin for Next.js.
@@ -33,7 +33,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
           250,
       },
       // Configuration for your Sitecore CDP endpoint
-      // point of sale can be a multivalue JSON string - raw value is passed to further be handled on middleware
       cdpConfig: {
         endpoint: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
