@@ -1,4 +1,4 @@
-﻿/* eslint-disable no-unused-expressions */
+﻿/* eslint-disable */
 import { CdpService, ExperienceParams, DEFAULT_CHANNEL } from './cdp-service';
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
@@ -13,8 +13,7 @@ describe('CdpService', () => {
   const contentId = 'content-id';
   const variantId = 'variant-1';
   const pointOfSale = 'pos-1';
-  const getPointOfSale = (language: string) => {
-    language = 'en';
+  const getPointOfSale = () => {
     return pointOfSale;
   };
   const language = 'en';
