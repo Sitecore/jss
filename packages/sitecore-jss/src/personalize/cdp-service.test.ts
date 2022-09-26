@@ -8,8 +8,7 @@ import { AxiosDataFetcher } from '../axios-fetcher';
 use(spies);
 
 describe('CdpService', () => {
-  const domain = 'sctest.com';
-  const endpoint = `https://${domain}`;
+  const endpoint = 'http://sctest';
   const clientKey = 'client-key';
   const contentId = 'content-id';
   const variantId = 'variant-1';
@@ -30,7 +29,7 @@ describe('CdpService', () => {
   } as ExperienceParams;
 
   const config = {
-    domain,
+    endpoint,
     clientKey,
     pointOfSale,
   };
@@ -128,7 +127,7 @@ describe('CdpService', () => {
 
       expect(actualVariantId).to.deep.equal(variantId);
       expect(fetcherSpy).to.be.called.once;
-      expect(fetcherSpy).to.be.called.with('https://sctest.com/v2/callFlows');
+      expect(fetcherSpy).to.be.called.with('http://sctest/v2/callFlows');
     });
 
     it('should use custom fetcher resolver and return undefined id when timeout is exceeded', async () => {
@@ -221,7 +220,7 @@ describe('CdpService', () => {
       expect(actualRef).to.deep.equal(ref);
       expect(fetcherSpy).to.be.called.once;
       expect(fetcherSpy).to.be.called.with(
-        `https://sctest.com/v1.2/browser/create.json?client_key=${clientKey}&message={}`
+        `http://sctest/v1.2/browser/create.json?client_key=${clientKey}&message={}`
       );
     });
 

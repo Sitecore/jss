@@ -119,7 +119,7 @@ describe('PersonalizeMiddleware', () => {
   ) => {
     const cdpConfig = {
       clientKey: 'cdp-client-key',
-      domain: 'cdp-endpoint',
+      endpoint: 'http://cdp-endpoint',
       pointOfSale: 'cdp-pos',
       ...(props?.cdpConfig || {}),
     };

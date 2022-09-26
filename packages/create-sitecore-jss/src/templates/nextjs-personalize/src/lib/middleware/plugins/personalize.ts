@@ -32,7 +32,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
       },
       // Configuration for your Sitecore CDP endpoint
       cdpConfig: {
-        domain: process.env.NEXT_PUBLIC_CDP_API_DOMAIN || '',
+        endpoint: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
         pointOfSale: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '',
         timeout:

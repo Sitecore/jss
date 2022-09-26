@@ -20,7 +20,7 @@ const CdpIntegrationScript = (): JSX.Element => {
   const createPageView = async (page: string, language: string, pageVariantId: string) => {
     const engage = await init({
       clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
-      targetDomain: process.env.NEXT_PUBLIC_CDP_API_DOMAIN || '',
+      targetDomain: (process.env.NEXT_PUBLIC_CDP_TARGET_URL || '').replace('https://', ''),
       // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
       cookieDomain: window.location.host.replace(/^www\./, ''),
       // Cookie may be created in personalize middleware (server), but if not we should create it here
