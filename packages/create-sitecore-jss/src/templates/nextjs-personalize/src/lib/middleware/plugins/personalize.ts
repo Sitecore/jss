@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { EnvHelper } from '@sitecore-jss/sitecore-jss-nextjs';
 import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
+import { PosResolver } from '../../pos-resolver';
 
 /**
  * This is the personalize middleware plugin for Next.js.
@@ -20,18 +20,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
   order = 1;
 
   constructor() {
-    const getPointOfSale = (language) => {
-      try {
-        const parsedPos = EnvHelper.parseEnvValue(process.env.NEXT_PUBLIC_CDP_POINTOFSALE);
-        if (typeof parsedPos == 'string') 
-          return parsedPos;
-        else
-          return parsedPos[language];
-      } catch (error) {
-        console.log(error);
-        return '';
-      }
-    }
 
     this.personalizeMiddleware = new PersonalizeMiddleware({
       // Configuration for your Sitecore Experience Edge endpoint
@@ -49,7 +37,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
       cdpConfig: {
         endpoint: process.env.NEXT_PUBLIC_CDP_API_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
-        getPointOfSale: getPointOfSale,
         timeout:
           (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) ||
@@ -62,7 +49,10 @@ class PersonalizePlugin implements MiddlewarePlugin {
       // This function determines if a route should be excluded from personalization.
       // Certain paths are ignored by default (e.g. files and Next.js API routes), but you may wish to exclude more.
       // This is an important performance consideration since Next.js Edge middleware runs on every request.
-      excludeRoute: () => false
+      excludeRoute: () => false,
+      // This function resolves point of sale for cdp calls.
+      // Point of sale may differ by locale and middleware will use request language to get the correct value every time it's invoked
+      getPointOfSale: PosResolver.resolve,
     });
   }
 

@@ -13,10 +13,6 @@ describe('CdpService', () => {
   const contentId = 'content-id';
   const variantId = 'variant-1';
   const pointOfSale = 'pos-1';
-  const getPointOfSale = () => {
-    return pointOfSale;
-  };
-  const language = 'en';
   const friendlyId = contentId;
   const channel = DEFAULT_CHANNEL;
   const browserId = 'browser-id';
@@ -35,7 +31,6 @@ describe('CdpService', () => {
   const config = {
     endpoint,
     clientKey,
-    getPointOfSale,
   };
 
   afterEach(() => {
@@ -66,7 +61,7 @@ describe('CdpService', () => {
         contentId,
         browserId,
         ua,
-        language,
+        pointOfSale,
         params
       );
 
@@ -88,7 +83,7 @@ describe('CdpService', () => {
         });
 
       const service = new CdpService(config);
-      const variantId = await service.executeExperience(contentId, browserId, ua, language, params);
+      const variantId = await service.executeExperience(contentId, browserId, ua, pointOfSale, params);
 
       expect(variantId).to.be.undefined;
     });
@@ -113,7 +108,7 @@ describe('CdpService', () => {
         contentId,
         browserId,
         ua,
-        language,
+        pointOfSale,
         params
       );
 
@@ -143,7 +138,7 @@ describe('CdpService', () => {
         contentId,
         browserId,
         ua,
-        language,
+        pointOfSale,
         params
       );
 
@@ -174,7 +169,7 @@ describe('CdpService', () => {
         contentId,
         browserId,
         ua,
-        language,
+        pointOfSale,
         params
       );
 
@@ -193,7 +188,7 @@ describe('CdpService', () => {
         })
         .replyWithError('error_test');
       const service = new CdpService(config);
-      await service.executeExperience(contentId, browserId, ua, language, params).catch((error) => {
+      await service.executeExperience(contentId, browserId, ua, pointOfSale, params).catch((error) => {
         expect(error.message).to.contain('error_test');
       });
     });
@@ -215,7 +210,7 @@ describe('CdpService', () => {
         contentId,
         browserId,
         ua,
-        language,
+        pointOfSale,
         params
       );
 

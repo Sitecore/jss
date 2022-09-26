@@ -1,7 +1,8 @@
-import { useSitecoreContext, EnvHelper } from '@sitecore-jss/sitecore-jss-nextjs';
+import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { useEffect } from 'react';
 import config from 'temp/config';
+import { PosResolver } from '../lib/pos-resolver';
 
 declare const _boxeverq: { (): void }[];
 declare const Boxever: Boxever;
@@ -21,19 +22,7 @@ interface BoxeverViewEventArgs {
 }
 
 function createPageView(locale: string, routeName: string) {
-  let pointOfSale = '';
-  try {    
-    // POS can be multi-valued (one entry per locale) or single valued so we parse it
-    // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
-    const parsedPos = EnvHelper.parseEnvValue(process.env.NEXT_PUBLIC_CDP_POINTOFSALE);
-    if (typeof parsedPos == 'string') 
-      pointOfSale = parsedPos;
-    else
-      pointOfSale = parsedPos[locale];
-  }  
-  catch (error) {
-    console.log(error);
-  }
+  const pointOfSale = PosResolver.resolve(locale);
 
   _boxeverq.push(function () {
     const pageViewEvent: BoxeverViewEventArgs = {
