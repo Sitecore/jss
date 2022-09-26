@@ -144,7 +144,6 @@ export class PersonalizeMiddleware {
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
-    const pointOfSale = this.config.getPointOfSale(language);
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
@@ -198,6 +197,7 @@ export class PersonalizeMiddleware {
     // Execute targeted experience in CDP
     const { ua } = userAgent(req);
     const params = this.getExperienceParams(req);
+    const pointOfSale = this.config.getPointOfSale(language);
     const variantId = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
       browserId,
