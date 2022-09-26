@@ -3,13 +3,12 @@ import { expect } from 'chai';
 import { EnvHelper } from './env-helper';
 
 describe('Env Helper', () => {
-
   describe('parseEnvValue', () => {
     it('should throw when input value with invlaid json provided', () => {
-        const invalidJson = '{abcderef}';
-  
-        expect(EnvHelper.parseEnvValue.bind(null, invalidJson)).to.throw();
-      });
+      const invalidJson = '{abcderef}';
+
+      expect(EnvHelper.parseEnvValue.bind(null, invalidJson)).to.throw();
+    });
 
     it('should return Record when Record input provided', () => {
       const testRecord: Record<string, string> = {
