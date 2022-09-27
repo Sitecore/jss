@@ -6,7 +6,6 @@ import { GetServerSideProps } from 'next';
 <% } -%>
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
-import SafeHydrate from '../SafeHydrate';
 import {
   RenderingType,
   EDITING_COMPONENT_PLACEHOLDER,
@@ -24,6 +23,7 @@ import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
+
 <% } -%>
 
 const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
@@ -41,25 +41,21 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
   const isComponentRendering =
     layoutData.sitecore.context.renderingType === RenderingType.Component;
 
-  /* 
-    Sitecore Pages supports component rendering to avoid refreshing the entire page during component editing.
-    If you are using Experience Editor only, this logic can be removed, Layout can be left.
-  */
-  const rendered = isComponentRendering ? (
-    <Placeholder name={EDITING_COMPONENT_PLACEHOLDER} rendering={layoutData.sitecore.route} />
-  ) : (
-    <Layout layoutData={layoutData} />
-  )
-
   return (
     <ComponentPropsContext value={componentProps}>
       <SitecoreContext
         componentFactory={isEditing ? editingComponentFactory : componentFactory}
         layoutData={layoutData}
-        // SafeHydrate is a workaround for Next.js issue (after react 18 upgrade) with hydration on the server when using Sitecore editors.
-        // by dynamically importing the problematic component with no SSR would fix the hydration issue.
       >
-        {isEditing ? <SafeHydrate>{rendered}</SafeHydrate> : rendered}
+        {/*
+          Sitecore Pages supports component rendering to avoid refreshing the entire page during component editing.
+          If you are using Experience Editor only, this logic can be removed, Layout can be left.
+        */}
+        {isComponentRendering ? (
+          <Placeholder name={EDITING_COMPONENT_PLACEHOLDER} rendering={layoutData.sitecore.route} />
+        ) : (
+          <Layout layoutData={layoutData} />
+        )}
       </SitecoreContext>
     </ComponentPropsContext>
   );
