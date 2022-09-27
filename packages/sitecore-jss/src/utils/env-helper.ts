@@ -2,7 +2,7 @@ export class EnvHelper {
   /**
    * Entry method to parse multi or single value env variables
    * @param {string} envValue
-   * @returns Record, Array or string depending on input format
+   * @returns Record or string depending on input format
    */
   static parseEnvValue = (envValue: string): Record<string, string> | string => {
     if (envValue.startsWith('{') && envValue.endsWith('}')) {

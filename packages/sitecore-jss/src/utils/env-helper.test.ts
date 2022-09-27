@@ -21,7 +21,7 @@ describe('Env Helper', () => {
 
       expect(result).to.deep.equal(testRecord);
     });
-    it('should return string when Record string provided', () => {
+    it('should return string when string provided', () => {
       const testInput = 'I"m just a boring string';
 
       const result = EnvHelper.parseEnvValue(testInput);
