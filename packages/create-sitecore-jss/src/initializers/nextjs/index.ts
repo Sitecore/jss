@@ -43,7 +43,8 @@ export default class NextjsInitializer implements Initializer {
             value: 'nextjs-styleguide',
           },
           {
-            name: 'nextjs-sxa - [For XM Cloud only] Includes example components and setup for working using SXA',
+            name:
+              'nextjs-sxa - [For XM Cloud only] Includes example components and setup for working using SXA',
             value: 'nextjs-sxa',
           },
         ],
