@@ -1,6 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
+import { EDITING_COMPONENT_ID } from '@sitecore-jss/sitecore-jss/layout';
+import { RenderingType } from '@sitecore-jss/sitecore-jss/layout';
+import { parse } from 'node-html-parser';
 import { EditingData } from './editing-data';
 import {
   EditingDataService,
@@ -159,6 +162,11 @@ export class EditingRenderMiddleware {
       // certain route configurations (e.g. multiple catch-all routes).
       // The following line will trick it into thinking we're SSR, thus avoiding any router.replace.
       html = html.replace(STATIC_PROPS_ID, SERVER_PROPS_ID);
+
+      if (editingData.layoutData.sitecore.context.renderingType === RenderingType.Component) {
+        // Handle component rendering. Extract component markup only
+        html = parse(html).getElementById(EDITING_COMPONENT_ID)?.innerHTML;
+      }
 
       const body = { html };
 
