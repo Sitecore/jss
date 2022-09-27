@@ -132,7 +132,7 @@ describe('EditingRenderMiddleware', () => {
 
   it('should handle component rendering request', async () => {
     const html =
-      '<html phkey="test1"><body phkey="test2"><div id="__next"><h1>Hello world</h1><p>Something amazing</p></div></body></html>';
+      '<html phkey="test1"><body phkey="test2"><div id="editing-component"><h1>Hello world</h1><p>Something amazing</p></div></body></html>';
     const query = {} as Query;
     query[QUERY_PARAM_EDITING_SECRET] = secret;
     const previewData = { key: 'key1234' } as EditingPreviewData;

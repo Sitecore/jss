@@ -6,10 +6,9 @@ import { GetServerSideProps } from 'next';
 <% } -%>
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
+import EditingComponentPlaceholder from 'src/EditingComponentPlaceholder';
 import {
   RenderingType,
-  EDITING_COMPONENT_PLACEHOLDER,
-  Placeholder,
   SitecoreContext,
   ComponentPropsContext,
   handleEditorFastRefresh,
@@ -52,7 +51,7 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
           If you are using Experience Editor only, this logic can be removed, Layout can be left.
         */}
         {isComponentRendering ? (
-          <Placeholder name={EDITING_COMPONENT_PLACEHOLDER} rendering={layoutData.sitecore.route} />
+          <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
         ) : (
           <Layout layoutData={layoutData} />
         )}

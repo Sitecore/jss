@@ -15,6 +15,7 @@ export {
   ComponentParams,
   RenderingType,
   EDITING_COMPONENT_PLACEHOLDER,
+  EDITING_COMPONENT_ID,
 } from './models';
 
 export { getFieldValue, getChildPlaceholder } from './utils';

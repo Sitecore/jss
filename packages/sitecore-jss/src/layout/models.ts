@@ -4,6 +4,11 @@
 export const EDITING_COMPONENT_PLACEHOLDER = 'editing-componentmode-placeholder';
 
 /**
+ * Id of wrapper for component rendering
+ */
+export const EDITING_COMPONENT_ID = 'editing-component';
+
+/**
  * A reply from the Sitecore Layout Service
  */
 export interface LayoutServiceData {
