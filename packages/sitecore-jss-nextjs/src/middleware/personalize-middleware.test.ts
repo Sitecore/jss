@@ -25,6 +25,8 @@ describe('PersonalizeMiddleware', () => {
   const variantIds = ['variant-1', 'variant-2'];
   const browserId = 'browser-id';
   const contentId = `${id}_en_${version}`.toLowerCase();
+  const defaultLang = 'en';
+  const pointOfSale = 'cdp-pos';
 
   const referrer = 'http://localhost:3000';
   const experienceParams: ExperienceParams = {
@@ -42,7 +44,7 @@ describe('PersonalizeMiddleware', () => {
       ...props,
       nextUrl: {
         pathname: '/styleguide',
-        locale: 'en',
+        locale: defaultLang,
         searchParams: {
           get(key) {
             return {
@@ -120,7 +122,6 @@ describe('PersonalizeMiddleware', () => {
     const cdpConfig = {
       clientKey: 'cdp-client-key',
       endpoint: 'http://cdp-endpoint',
-      pointOfSale: 'cdp-pos',
       ...(props?.cdpConfig || {}),
     };
 
@@ -135,6 +136,9 @@ describe('PersonalizeMiddleware', () => {
       ...props,
       cdpConfig,
       edgeConfig,
+      getPointOfSale: () => {
+        return pointOfSale;
+      },
     });
 
     const executeExperience = (middleware['cdpService']['executeExperience'] =
@@ -447,7 +451,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, experienceParams)).to.be.true;
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
 
       validateDebugLog('skipped (no variant identified)');
 
@@ -478,7 +483,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, experienceParams)).to.be.true;
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
 
       validateDebugLog('skipped (invalid variant)');
 
@@ -517,7 +523,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, experienceParams)).to.be.true;
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
@@ -571,7 +578,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, experienceParams)).to.be.true;
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
@@ -593,11 +601,11 @@ describe('PersonalizeMiddleware', () => {
 
     it('fallback defaultLocale is used', async () => {
       const contentId = `${id}_da-dk_${version}`;
-
+      const language = 'da-DK';
       const req = createRequest({
         nextUrl: {
           locale: undefined,
-          defaultLocale: 'da-DK',
+          defaultLocale: language,
         },
       });
 
@@ -619,12 +627,13 @@ describe('PersonalizeMiddleware', () => {
 
       validateDebugLog('personalize middleware start: %o', {
         pathname: '/styleguide',
-        language: 'da-DK',
+        language: language,
       });
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'da-DK')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, experienceParams)).to.be.true;
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
@@ -671,7 +680,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, experienceParams)).to.be.true;
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
 
       validateDebugLog('personalize middleware end: %o', {
         rewritePath: '/_variantId_variant-2/styleguide',
@@ -708,7 +718,8 @@ describe('PersonalizeMiddleware', () => {
 
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
-      expect(executeExperience.calledWith(contentId, browserId, ua, experienceParams)).to.be.true;
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
 
       validateDebugLog('personalize middleware start: %o', {
         pathname: '/styleguide',
@@ -758,7 +769,7 @@ describe('PersonalizeMiddleware', () => {
       expect(getPersonalizeInfo.calledWith('/styleguide', 'en')).to.be.true;
 
       expect(
-        executeExperience.calledWith(contentId, browserId, '', {
+        executeExperience.calledWith(contentId, browserId, '', pointOfSale, {
           referrer,
           utm: {
             campaign: 'utm_campaign',

@@ -2,6 +2,7 @@ import { useSitecoreContext, CdpHelper } from '@sitecore-jss/sitecore-jss-nextjs
 import { useEffect } from 'react';
 import config from 'temp/config';
 import { init } from '@sitecore/engage';
+import { PosResolver } from 'lib/pos-resolver';
 
 /**
  * This is the CDP page view component.
@@ -18,6 +19,7 @@ const CdpPageView = (): JSX.Element => {
    * Creates a page view event using the Sitecore Engage SDK.
    */
   const createPageView = async (page: string, language: string, pageVariantId: string) => {
+    const pointOfSale = PosResolver.resolve(language);
     const engage = await init({
       clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
       targetDomain: (process.env.NEXT_PUBLIC_CDP_TARGET_URL || '').replace('https://', ''),
@@ -29,7 +31,7 @@ const CdpPageView = (): JSX.Element => {
     engage.pageView({
       channel: 'WEB',
       currency: 'USD',
-      pos: process.env.NEXT_PUBLIC_CDP_POINTOFSALE || '',
+      pos: pointOfSale,
       page,
       pageVariantId,
       language,
