@@ -1,10 +1,13 @@
 export class EnvHelper {
   /**
    * Entry method to parse multi or single value env variables
-   * @param {string} envValue
+   * @param {string} envValue - can be undefined when providing values via process.env
    * @returns Record or string depending on input format
    */
-  static parseEnvValue = (envValue: string): Record<string, string> | string => {
+  static parseEnvValue = (envValue?: string): Record<string, string> | string => {
+    if (!envValue) {
+      return '';
+    }
     if (envValue.startsWith('{') && envValue.endsWith('}')) {
       return EnvHelper.parseMultiValueAsRecord(envValue);
     } else return envValue;
