@@ -50,13 +50,19 @@ export class RedirectsMiddleware {
     }
 
     const url = req.nextUrl.clone();
-    url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
-    const urlFirstPart = existsRedirect.target.split('/')[1];
-    if (this.locales.includes(urlFirstPart)) {
-      url.locale = urlFirstPart;
-      url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
+    const absoluteUrlRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
+    if (absoluteUrlRegex.test(existsRedirect.target)) {
+      url.href = existsRedirect.target;
+      url.locale = req.nextUrl.locale;
     } else {
-      url.pathname = existsRedirect.target;
+      url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
+      const urlFirstPart = existsRedirect.target.split('/')[1];
+      if (this.locales.includes(urlFirstPart)) {
+        url.locale = urlFirstPart;
+        url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
+      } else {
+        url.pathname = existsRedirect.target;
+      }
     }
     const redirectUrl = decodeURIComponent(url.href);
 
@@ -82,10 +88,16 @@ export class RedirectsMiddleware {
   private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects();
 
-    return redirects.find(
-      (redirect: RedirectInfo) =>
-        regexParser(redirect.pattern).test(req.nextUrl.pathname) ||
-        regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${req.nextUrl.pathname}`)
-    );
+    return redirects.find((redirect: RedirectInfo) => {
+      return (
+        (regexParser(redirect.pattern.toLowerCase()).test(req.nextUrl.pathname.toLowerCase()) ||
+          regexParser(redirect.pattern.toLowerCase()).test(
+            `/${req.nextUrl.locale}${req.nextUrl.pathname}`.toLowerCase()
+          )) &&
+        (redirect.locale
+          ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
+          : true)
+      );
+    });
   }
 }
