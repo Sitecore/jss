@@ -44,7 +44,7 @@ export default class NextjsInitializer implements Initializer {
           },
           {
             name:
-              'nextjs-sxa - [For XM Cloud only] Includes example components and setup for working using SXA',
+              'nextjs-sxa - Includes example components and setup for SXA Headless (only compatible with Sitecore XM Cloud)',
             value: 'nextjs-sxa',
           },
         ],
