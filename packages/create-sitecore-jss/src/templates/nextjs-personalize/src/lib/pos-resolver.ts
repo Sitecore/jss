@@ -2,7 +2,7 @@
 export class PosResolver {
   /**
    * Resolve point of sale by locale
-   * @param {string} locale 
+   * @param {string} locale
    * @returns {string}
    */
   static resolve = (locale: string): string => {

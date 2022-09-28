@@ -8,6 +8,7 @@ import {
   Text,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { getEEMarkup } from '@sitecore-jss/sitecore-jss-react';
 
 interface Fields {
   Image: ImageField;
@@ -29,11 +30,21 @@ const ImageDefault = (props: ImageProps): JSX.Element => (
 );
 
 export const Banner = (props: ImageProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext();
   const backgroundStyle = { backgroundImage: `url('${props?.fields?.Image?.value?.src}')` };
+  const modifyImageProps = {
+    ...props.fields.Image,
+    editable: props?.fields?.Image?.editable
+      ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
+      .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
+  };
+  const Image = () => getEEMarkup(modifyImageProps);
 
   return (
     <div className={`component hero-banner ${props.params.styles}`}>
-      <div className="component-content" style={backgroundStyle} />
+      <div className="component-content" style={backgroundStyle}>
+        {sitecoreContext.pageState === 'edit' ? <Image /> : ''}
+      </div>
     </div>
   );
 };
