@@ -9,11 +9,7 @@ export {
   NativeDataFetcherConfig,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
-export {
-  isEditorActive,
-  resetEditorChromes,
-  resolveUrl,  
-} from '@sitecore-jss/sitecore-jss/utils';
+export { isEditorActive, resetEditorChromes, resolveUrl } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
   LayoutServiceData,
