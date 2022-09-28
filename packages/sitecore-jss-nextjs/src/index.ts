@@ -12,8 +12,7 @@ export {
 export {
   isEditorActive,
   resetEditorChromes,
-  resolveUrl,
-  EnvHelper,
+  resolveUrl,  
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
