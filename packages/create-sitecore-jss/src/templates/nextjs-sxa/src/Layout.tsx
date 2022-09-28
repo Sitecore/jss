@@ -1,5 +1,5 @@
 /**
- * This Layout needs for SXA example.
+ * This Layout is needed for Starter Kit.
  */
 import React from 'react';
 import Head from 'next/head';
@@ -32,7 +32,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
 
   return (
     <>
-      <Scripts />      
+      <Scripts />
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
