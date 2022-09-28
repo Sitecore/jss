@@ -19,9 +19,11 @@ https://github.com/prisma-labs/graphql-request
 
 ### Properties
 
+- [abortController](index.GraphQLRequestClient.md#abortcontroller)
 - [client](index.GraphQLRequestClient.md#client)
 - [debug](index.GraphQLRequestClient.md#debug)
 - [headers](index.GraphQLRequestClient.md#headers)
+- [timeout](index.GraphQLRequestClient.md#timeout)
 
 ### Methods
 
@@ -44,9 +46,19 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-[graphql-request-client.ts:46](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql-request-client.ts#L46)
+[graphql-request-client.ts:58](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql-request-client.ts#L58)
 
 ## Properties
+
+### abortController
+
+• `Private` **abortController**: `AbortController`
+
+#### Defined in
+
+[graphql-request-client.ts:51](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql-request-client.ts#L51)
+
+___
 
 ### client
 
@@ -54,7 +66,7 @@ Provides ability to execute graphql query using given `endpoint`
 
 #### Defined in
 
-[graphql-request-client.ts:37](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql-request-client.ts#L37)
+[graphql-request-client.ts:47](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql-request-client.ts#L47)
 
 ___
 
@@ -64,7 +76,7 @@ ___
 
 #### Defined in
 
-[graphql-request-client.ts:39](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql-request-client.ts#L39)
+[graphql-request-client.ts:49](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql-request-client.ts#L49)
 
 ___
 
@@ -74,7 +86,17 @@ ___
 
 #### Defined in
 
-[graphql-request-client.ts:38](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql-request-client.ts#L38)
+[graphql-request-client.ts:48](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql-request-client.ts#L48)
+
+___
+
+### timeout
+
+• `Private` `Optional` **timeout**: `number`
+
+#### Defined in
+
+[graphql-request-client.ts:50](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql-request-client.ts#L50)
 
 ## Methods
 
@@ -107,4 +129,4 @@ Execute graphql request
 
 #### Defined in
 
-[graphql-request-client.ts:66](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql-request-client.ts#L66)
+[graphql-request-client.ts:83](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql-request-client.ts#L83)

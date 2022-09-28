@@ -22,7 +22,7 @@ Content data returned from Content Service
 
 #### Defined in
 
-[layout/models.ts:126](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/models.ts#L126)
+[layout/models.ts:124](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L124)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:127](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/models.ts#L127)
+[layout/models.ts:125](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L125)
 
 ___
 
@@ -46,4 +46,4 @@ ___
 
 #### Defined in
 
-[layout/models.ts:125](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/layout/models.ts#L125)
+[layout/models.ts:123](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L123)

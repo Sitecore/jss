@@ -8,6 +8,7 @@
 
 - [constants](modules/constants.md)
 - [mediaApi](modules/mediaApi.md)
+- [trackingApi](modules/trackingApi.md)
 
 ### Classes
 
@@ -29,12 +30,15 @@
 
 ### Interfaces
 
+- [CampaignInstance](interfaces/CampaignInstance.md)
 - [ComponentFields](interfaces/ComponentFields.md)
 - [ComponentParams](interfaces/ComponentParams.md)
 - [ComponentRendering](interfaces/ComponentRendering.md)
 - [DictionaryService](interfaces/DictionaryService.md)
+- [EventInstance](interfaces/EventInstance.md)
 - [Field](interfaces/Field.md)
 - [FileField](interfaces/FileField.md)
+- [GoalInstance](interfaces/GoalInstance.md)
 - [HtmlElementRendering](interfaces/HtmlElementRendering.md)
 - [HttpResponse](interfaces/HttpResponse.md)
 - [ImageField](interfaces/ImageField.md)
@@ -42,10 +46,13 @@
 - [LayoutServiceContextData](interfaces/LayoutServiceContextData.md)
 - [LayoutServiceData](interfaces/LayoutServiceData.md)
 - [LinkField](interfaces/LinkField.md)
+- [OutcomeInstance](interfaces/OutcomeInstance.md)
+- [PageViewInstance](interfaces/PageViewInstance.md)
 - [RenderingField](interfaces/RenderingField.md)
 - [RichTextField](interfaces/RichTextField.md)
 - [RouteData](interfaces/RouteData.md)
 - [TextField](interfaces/TextField.md)
+- [TrackingRequestOptions](interfaces/TrackingRequestOptions.md)
 
 ### Type aliases
 
@@ -58,15 +65,14 @@
 
 ### Functions
 
+- [enableDebug](README.md#enabledebug)
 - [getChildPlaceholder](README.md#getchildplaceholder)
 - [getFieldValue](README.md#getfieldvalue)
 - [handleEditorAnchors](README.md#handleeditoranchors)
 - [isEditorActive](README.md#iseditoractive)
-- [isExperienceEditorActive](README.md#isexperienceeditoractive)
 - [isRawRendering](README.md#israwrendering)
 - [isServer](README.md#isserver)
 - [resetEditorChromes](README.md#reseteditorchromes)
-- [resetExperienceEditorChromes](README.md#resetexperienceeditorchromes)
 
 ## Type aliases
 
@@ -124,7 +130,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:59
+sitecore-jss/types/layout/models.d.ts:57
 
 ## Variables
 
@@ -134,9 +140,31 @@ sitecore-jss/types/layout/models.d.ts:59
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:48](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L48)
+[sitecore-jss-angular/src/components/placeholder.token.ts:48](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L48)
 
 ## Functions
+
+### enableDebug
+
+▸ `Const` **enableDebug**(`namespaces`): `void`
+
+Enable debug logging dynamically
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `namespaces` | `string` | space-separated list of namespaces to enable |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+sitecore-jss/types/debug.d.ts:7
+
+___
 
 ### getChildPlaceholder
 
@@ -159,7 +187,7 @@ child placeholder
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:17
+sitecore-jss/types/layout/utils.d.ts:20
 
 ___
 
@@ -178,18 +206,20 @@ Null will be returned if the field is not defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| `Fields` |
-| `fieldName` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| `Fields` | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
 
 `T` \| `undefined`
 
+the field value or null if the field is not defined
+
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:9
+sitecore-jss/types/layout/utils.d.ts:12
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -213,7 +243,7 @@ sitecore-jss/types/layout/utils.d.ts:9
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:10
+sitecore-jss/types/layout/utils.d.ts:13
 
 ___
 
@@ -236,7 +266,7 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:39
+sitecore-jss/types/utils/editing.d.ts:50
 
 ___
 
@@ -244,7 +274,8 @@ ___
 
 ▸ `Const` **isEditorActive**(): `boolean`
 
-Determines whether the current execution context is within a Sitecore editor
+Determines whether the current execution context is within a Sitecore editor.
+Sitecore Editor environment can be identified only in the browser
 
 #### Returns
 
@@ -254,27 +285,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:25
-
-___
-
-### isExperienceEditorActive
-
-▸ `Const` **isExperienceEditorActive**(): `boolean`
-
-Determines whether the current execution context is within the Sitecore Experience Editor
-
-**`deprecated`** Will be removed in a future release. Please use isEditorActive instead.
-
-#### Returns
-
-`boolean`
-
-true if executing within the Sitecore Experience Editor
-
-#### Defined in
-
-sitecore-jss/types/utils/editing.d.ts:45
+sitecore-jss/types/utils/editing.d.ts:36
 
 ___
 
@@ -294,7 +305,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 
@@ -328,22 +339,4 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:29
-
-___
-
-### resetExperienceEditorChromes
-
-▸ `Const` **resetExperienceEditorChromes**(): `void`
-
-Resets Sitecore Experience Editor "chromes"
-
-**`deprecated`** Will be removed in a future release. Please use resetEditorChromes instead.
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-sitecore-jss/types/utils/editing.d.ts:50
+sitecore-jss/types/utils/editing.d.ts:40

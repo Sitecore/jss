@@ -29,13 +29,18 @@ Static utility class for Sitecore Horizon Editor
 
 ▸ `Static` **isActive**(): `boolean`
 
+Determines whether the current execution context is within a Horizon Editor.
+Horizon Editor environment can be identified only in the browser
+
 #### Returns
 
 `boolean`
 
+true if executing within a Horizon Editor
+
 #### Defined in
 
-[utils/editing.ts:46](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L46)
+[utils/editing.ts:56](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/utils/editing.ts#L56)
 
 ___
 
@@ -49,4 +54,4 @@ ___
 
 #### Defined in
 
-[utils/editing.ts:53](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/utils/editing.ts#L53)
+[utils/editing.ts:63](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/utils/editing.ts#L63)

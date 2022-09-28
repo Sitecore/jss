@@ -25,7 +25,7 @@ HTML content used to support Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:92
+sitecore-jss/types/layout/models.d.ts:90
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:91
+sitecore-jss/types/layout/models.d.ts:89
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:89
+sitecore-jss/types/layout/models.d.ts:87
 
 ___
 
@@ -55,4 +55,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:90
+sitecore-jss/types/layout/models.d.ts:88

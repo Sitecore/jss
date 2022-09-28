@@ -2,6 +2,10 @@
 
 # Class: GraphQLLayoutService
 
+Service that fetch layout data using Sitecore's GraphQL API.
+
+**`mixes`** GraphQLRequestClient
+
 ## Hierarchy
 
 - `LayoutServiceBase`
@@ -35,9 +39,9 @@ Fetch layout data using the Sitecore GraphQL endpoint.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `serviceConfig` | `GraphQLLayoutServiceConfig` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `serviceConfig` | `GraphQLLayoutServiceConfig` | configuration |
 
 #### Overrides
 
@@ -45,7 +49,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:37
+sitecore-jss/types/layout/graphql-layout-service.d.ts:42
 
 ## Properties
 
@@ -55,7 +59,7 @@ sitecore-jss/types/layout/graphql-layout-service.d.ts:37
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:32
+sitecore-jss/types/layout/graphql-layout-service.d.ts:37
 
 ___
 
@@ -65,7 +69,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:31
+sitecore-jss/types/layout/graphql-layout-service.d.ts:36
 
 ## Methods
 
@@ -77,10 +81,10 @@ Fetch layout data for an item.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `itemPath` | `string` |
-| `language?` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `itemPath` | `string` | item path to fetch layout data for. |
+| `language?` | `string` | - |
 
 #### Returns
 
@@ -94,7 +98,7 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:44
+sitecore-jss/types/layout/graphql-layout-service.d.ts:49
 
 ___
 
@@ -114,7 +118,7 @@ implementation
 
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:51
+sitecore-jss/types/layout/graphql-layout-service.d.ts:56
 
 ___
 
@@ -135,6 +139,8 @@ Returns GraphQL Layout query
 
 `string`
 
+GraphQL query
+
 #### Defined in
 
-sitecore-jss/types/layout/graphql-layout-service.d.ts:57
+sitecore-jss/types/layout/graphql-layout-service.d.ts:63

@@ -26,9 +26,9 @@
 
 ### Methods
 
-- [isAbsoluteUrl](GenericLinkDirective.md#isabsoluteurl)
 - [ngOnChanges](GenericLinkDirective.md#ngonchanges)
 - [renderTemplate](GenericLinkDirective.md#rendertemplate)
+- [updateAttribute](GenericLinkDirective.md#updateattribute)
 
 ## Constructors
 
@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/generic-link.directive.ts:23](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L23)
+[sitecore-jss-angular/src/components/generic-link.directive.ts:24](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L24)
 
 ## Properties
 
@@ -70,7 +70,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/generic-link.directive.ts:17](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L17)
+[sitecore-jss-angular/src/components/generic-link.directive.ts:18](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L18)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/generic-link.directive.ts:15](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L15)
+[sitecore-jss-angular/src/components/generic-link.directive.ts:16](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L16)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/generic-link.directive.ts:21](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L21)
+[sitecore-jss-angular/src/components/generic-link.directive.ts:22](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L22)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/generic-link.directive.ts:19](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L19)
+[sitecore-jss-angular/src/components/generic-link.directive.ts:20](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L20)
 
 ___
 
@@ -142,26 +142,6 @@ ___
 
 ## Methods
 
-### isAbsoluteUrl
-
-▸ `Private` **isAbsoluteUrl**(`url?`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url?` | `unknown` |
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[sitecore-jss-angular/src/components/generic-link.directive.ts:56](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L56)
-
-___
-
 ### ngOnChanges
 
 ▸ **ngOnChanges**(`changes`): `void`
@@ -182,7 +162,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/link.directive.ts:30](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/link.directive.ts#L30)
+[sitecore-jss-angular/src/components/link.directive.ts:30](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/link.directive.ts#L30)
 
 ___
 
@@ -207,4 +187,30 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/generic-link.directive.ts:33](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L33)
+[sitecore-jss-angular/src/components/generic-link.directive.ts:34](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/generic-link.directive.ts#L34)
+
+___
+
+### updateAttribute
+
+▸ `Protected` **updateAttribute**(`node`, `key`, `propValue?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `node` | `HTMLElement` |
+| `key` | `string` |
+| `propValue?` | `unknown` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[LinkDirective](LinkDirective.md).[updateAttribute](LinkDirective.md#updateattribute)
+
+#### Defined in
+
+[sitecore-jss-angular/src/components/link.directive.ts:104](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/link.directive.ts#L104)
