@@ -332,7 +332,7 @@ describe('PersonalizeMiddleware', () => {
         const excludeRoute = (pathname: string) => pathname === '/crazypath/luna';
 
         const { middleware } = createMiddleware({ excludeRoute });
-        
+
         await test('/src/image.png', middleware);
         await test('/api/layout/render', middleware);
         await test('/sitecore/render', middleware);
