@@ -15,6 +15,10 @@ type NativeDataFetcherOptions = {
    * Optional request timeout.
    */
   timeout?: number;
+  /**
+   * optional headers to use in fetch calls
+   */
+  headers?: Record<string, string>;
 };
 
 export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;

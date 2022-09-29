@@ -60,10 +60,17 @@ export class PersonalizeMiddleware {
     // NOTE: same here, we provide NativeDataFetcher for compatibility on Next.js Edge Runtime
     this.cdpService = new CdpService({
       ...config.cdpConfig,
-      dataFetcherResolver: <T>({ timeout }: { timeout: number }) => {
+      dataFetcherResolver: <T>({
+        timeout,
+        headers,
+      }: {
+        timeout: number;
+        headers?: Record<string, string>;
+      }) => {
         const fetcher = new NativeDataFetcher({
           debugger: debug.personalize,
           timeout,
+          headers,
         });
         return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
       },
