@@ -328,11 +328,15 @@ describe('PersonalizeMiddleware', () => {
         await test('/_next/webpack', middleware);
       });
 
-      it('custom excludeRoute function', async () => {
+      it('should apply both default and custom rules when custom excludeRoute function provided', async () => {
         const excludeRoute = (pathname: string) => pathname === '/crazypath/luna';
 
         const { middleware } = createMiddleware({ excludeRoute });
 
+        await test('/src/image.png', middleware);
+        await test('/api/layout/render', middleware);
+        await test('/sitecore/render', middleware);
+        await test('/_next/webpack', middleware);
         await test('/crazypath/luna', middleware);
       });
     });

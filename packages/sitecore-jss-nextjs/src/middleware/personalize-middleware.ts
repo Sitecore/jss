@@ -162,7 +162,8 @@ export class PersonalizeMiddleware {
     if (
       response.redirected || // Don't attempt to personalize a redirect
       this.isPreview(req) || // No need to personalize for preview (layout data is already prepared for preview)
-      (this.config.excludeRoute || this.excludeRoute)(pathname)
+      this.excludeRoute(pathname) ||
+      (this.config.excludeRoute && this.config.excludeRoute(pathname))
     ) {
       debug.personalize(
         'skipped (%s)',
