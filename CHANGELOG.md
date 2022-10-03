@@ -5,6 +5,8 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ## Unreleased
 
+## 21.0.0
+
 ### 🎉 New Features & Improvements
 
 * Upgrade nextjs to 12.2.5
@@ -88,7 +90,6 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * `[create-sitecore-jss]` graphql-let error when bootstrapping empty Nextjs app ([#941](https://github.com/Sitecore/jss/pull/941))
 * `[sitecore-jss]` `[Angular]` "Edit related item" button redirects to home ([#943](https://github.com/Sitecore/jss/pull/943))
 * `[sitecore-jss-vue]` Styleguide-Layout-Reuse breaks EE ([#937](https://github.com/Sitecore/jss/pull/937))
-
 
 ### 🛠 Breaking Changes
 
