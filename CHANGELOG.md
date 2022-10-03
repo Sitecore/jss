@@ -10,6 +10,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 ### 🎉 New Features & Improvements
 
 * Upgrade nextjs to 12.2.5
+* `[create-sitecore-jss]` Personalize Initializer Add-on  ([#939](https://github.com/Sitecore/jss/pull/939))
 * `[templates/nextjs]` Add environment variable to allow disable of sitemap fetch in getStaticPaths ([#1149](https://github.com/Sitecore/jss/pull/1149))
 * `[sitecore-jss-react]` Allow defer prop on VisitorIdentification component ([#1090](https://github.com/Sitecore/jss/pull/1090))
 * `[sitecore-jss]` Introduce timeouts ([#1057](https://github.com/Sitecore/jss/pull/1057))([#1084](https://github.com/Sitecore/jss/pull/1084))
@@ -27,7 +28,6 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * `[templates/nextjs]` Make `extractPath` shared and remove duplicate `page-props-factory/plugins/normalMode` for `personalize` addon ([#954](https://github.com/Sitecore/jss/pull/954))
 * `[create-sitecore-jss]` Add merge (concatenate) functionality for .env files ([#952](https://github.com/Sitecore/jss/pull/952)) ([#959](https://github.com/Sitecore/jss/pull/959))
 * `[templates/nextjs]` Create plugins approach for the nextjs middleware ([#945](https://github.com/Sitecore/jss/pull/945))
-* `[create-sitecore-jss]` Personalize Initializer Add-on  ([#939](https://github.com/Sitecore/jss/pull/939))
 
 ### 🧹 Chores
 
