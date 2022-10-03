@@ -54,9 +54,10 @@ export const Default = (props: ImageProps): JSX.Element => {
 
   if (props.fields) {
     const Image = () => <JssImage field={props.fields.Image} />;
+	const id = props.params.RenderingIdentifier;
 
     return (
-      <div className={`component image ${props.params.styles}`}>
+      <div className={`component image ${props.params.styles}`} id={id ? id : undefined}>
         <div className="component-content">
           {sitecoreContext.pageState === 'edit' ? (
             <Image />
