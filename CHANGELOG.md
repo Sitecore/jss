@@ -92,6 +92,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### 🛠 Breaking Changes
 
+* Update nextjs to 12.2 ([#1093](https://github.com/Sitecore/jss/pull/1093))
 * `[templates]` Rename "App Route" to "Page" ([#1159](https://github.com/Sitecore/jss/pull/1159))
   * Graphql queries, graphql introspection result, sitecore definition files should be updated to use Page instead of AppRoute 
 * Remove deprecated features ([#1088](https://github.com/Sitecore/jss/pull/1088))
