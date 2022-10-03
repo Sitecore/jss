@@ -31,7 +31,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### 🧹 Chores
 
-* Fix Security Vulnerabilities ([#1114](https://github.com/Sitecore/jss/pull/1114))
+* Fix Security Vulnerabilities ([#986](https://github.com/Sitecore/jss/pull/986))([#997](https://github.com/Sitecore/jss/pull/997))([#1114](https://github.com/Sitecore/jss/pull/1114))([commit](https://github.com/Sitecore/jss/commit/6de526dad45964e7b8eb410489ad0e027cf4e62e))
 * `[sitecore-jss]` Make it clear that isEditorActive only works in browser ([#1089](https://github.com/Sitecore/jss/pull/1089))
 * `[sitecore-jss-angular]` Cover `class overwrite` for scGenericLink and scRouterLink by unit test ([#1074](https://github.com/Sitecore/jss/pull/1074))
 * `[sitecore-jss]` Audit API reference description for accuracy and completeness ([#1031](https://github.com/Sitecore/jss/pull/1031))
@@ -39,9 +39,6 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Resolve .npmingore discrepancies between packages ([#1032](https://github.com/Sitecore/jss/pull/1032))([#1034](https://github.com/Sitecore/jss/pull/1034))
 * Create shared tsconfig.json for the monorepo ([#1000](https://github.com/Sitecore/jss/pull/1000))
 * Add missing doc generation for sitecore-jss-nextjs/middleware ([#commit](https://github.com/Sitecore/jss/commit/e79efc581d70ed0378502703e5f14f26729dff38))
-* Security audit ([#997](https://github.com/Sitecore/jss/pull/997))
-* Addressing some of the high-critical viulnerabilities ([#986](https://github.com/Sitecore/jss/pull/986))
-* Fix high security vulnerabilities ([commit](https://github.com/Sitecore/jss/commit/6de526dad45964e7b8eb410489ad0e027cf4e62e))
 * Updated slack channel in SUPPORT.md ([commit](https://github.com/Sitecore/jss/commit/ea72bc4faf0500f066192dee3426a60f62b42fa3))
 * `[create-sitecore-jss]` Restore sub-command (npm install / lint) console output ([#933](https://github.com/Sitecore/jss/pull/933))
 
