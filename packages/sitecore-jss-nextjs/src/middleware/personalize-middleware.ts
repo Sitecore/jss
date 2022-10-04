@@ -26,7 +26,11 @@ export type PersonalizeMiddlewareConfig = {
    * Configuration for your Sitecore CDP endpoint
    */
   cdpConfig: Omit<CdpServiceConfig, 'dataFetcherResolver'>;
-
+  /**
+   * function used to resolve correct point of sale for current locale during a request
+   * @param {string} locale locale at the time of request
+   */
+  getPointOfSale: (locale: string) => string;
   /**
    * function, determines if middleware should be turned off, based on cookie, header, or other considerations
    *  @param {NextRequest} [req] optional: request object from middleware handler
@@ -140,8 +144,8 @@ export class PersonalizeMiddleware {
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
-    let browserId = this.getBrowserId(req);
 
+    let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
@@ -158,7 +162,8 @@ export class PersonalizeMiddleware {
     if (
       response.redirected || // Don't attempt to personalize a redirect
       this.isPreview(req) || // No need to personalize for preview (layout data is already prepared for preview)
-      (this.config.excludeRoute || this.excludeRoute)(pathname)
+      this.excludeRoute(pathname) ||
+      (this.config.excludeRoute && this.config.excludeRoute(pathname))
     ) {
       debug.personalize(
         'skipped (%s)',
@@ -193,10 +198,12 @@ export class PersonalizeMiddleware {
     // Execute targeted experience in CDP
     const { ua } = userAgent(req);
     const params = this.getExperienceParams(req);
+    const pointOfSale = this.config.getPointOfSale(language);
     const variantId = await this.cdpService.executeExperience(
       personalizeInfo.contentId,
       browserId,
       ua,
+      pointOfSale,
       params
     );
 

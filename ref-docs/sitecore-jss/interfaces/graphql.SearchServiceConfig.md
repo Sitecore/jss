@@ -12,7 +12,7 @@ except 'language' are consistent across languages so they are passed to construc
 
 ## Hierarchy
 
-- `Omit`<[`SearchQueryVariables`](../modules/graphql.md#searchqueryvariables), ``"language"``\>
+- `Omit`<[`SearchQueryVariables`](graphql.SearchQueryVariables.md), ``"language"``\>
 
   ↳ **`SearchServiceConfig`**
 
@@ -33,6 +33,8 @@ except 'language' are consistent across languages so they are passed to construc
 
 • `Optional` **pageSize**: `number`
 
+common variable for all GraphQL queries
+it will be used for every type of query to regulate result batch size
 Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
 
 **`default`** 10
@@ -43,7 +45,7 @@ Omit.pageSize
 
 #### Defined in
 
-[graphql/search-service.ts:49](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql/search-service.ts#L49)
+[graphql/search-service.ts:60](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql/search-service.ts#L60)
 
 ___
 
@@ -59,7 +61,7 @@ Omit.rootItemId
 
 #### Defined in
 
-[graphql/search-service.ts:43](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql/search-service.ts#L43)
+[graphql/search-service.ts:48](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql/search-service.ts#L48)
 
 ___
 
@@ -72,7 +74,7 @@ in cases where one is not specified by the caller.
 
 #### Defined in
 
-[graphql/search-service.ts:69](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql/search-service.ts#L69)
+[graphql/search-service.ts:75](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql/search-service.ts#L75)
 
 ___
 
@@ -88,4 +90,4 @@ Omit.templates
 
 #### Defined in
 
-[graphql/search-service.ts:54](https://github.com/Sitecore/jss/blob/4cefcb5a/packages/sitecore-jss/src/graphql/search-service.ts#L54)
+[graphql/search-service.ts:53](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql/search-service.ts#L53)
