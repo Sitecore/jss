@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
 import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
-import { EDITING_COMPONENT_ID } from '@sitecore-jss/sitecore-jss/layout';
-import { RenderingType } from '@sitecore-jss/sitecore-jss/layout';
+import { EDITING_COMPONENT_ID, RenderingType } from '@sitecore-jss/sitecore-jss/layout';
 import { parse } from 'node-html-parser';
 import { EditingData } from './editing-data';
 import {
@@ -166,6 +165,8 @@ export class EditingRenderMiddleware {
       if (editingData.layoutData.sitecore.context.renderingType === RenderingType.Component) {
         // Handle component rendering. Extract component markup only
         html = parse(html).getElementById(EDITING_COMPONENT_ID)?.innerHTML;
+
+        if (!html) throw new Error(`Failed to render component for ${requestUrl}`);
       }
 
       const body = { html };
