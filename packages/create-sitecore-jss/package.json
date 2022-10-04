@@ -1,6 +1,6 @@
 {
   "name": "create-sitecore-jss",
-  "version": "20.1.2",
+  "version": "20.1.3",
   "description": "Sitecore JSS initializer",
   "bin": "./dist/index.js",
   "scripts": {
