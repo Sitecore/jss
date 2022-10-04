@@ -11,6 +11,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 * Upgrade nextjs to 12.2.5
 * `[create-sitecore-jss]` Personalize Initializer Add-on  ([#939](https://github.com/Sitecore/jss/pull/939))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` [Editing] Partial rendering implementation ([#1169](https://github.com/Sitecore/jss/pull/1169))
 * `[templates/nextjs]` Add environment variable to allow disable of sitemap fetch in getStaticPaths ([#1149](https://github.com/Sitecore/jss/pull/1149))
 * `[sitecore-jss-react]` Allow defer prop on VisitorIdentification component ([#1090](https://github.com/Sitecore/jss/pull/1090))
 * `[sitecore-jss]` Introduce timeouts ([#1057](https://github.com/Sitecore/jss/pull/1057))([#1084](https://github.com/Sitecore/jss/pull/1084))
