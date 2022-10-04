@@ -6,12 +6,12 @@ import { GetServerSideProps } from 'next';
 <% } -%>
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
-import EditingComponentPlaceholder from 'src/EditingComponentPlaceholder';
 import {
   RenderingType,
   SitecoreContext,
   ComponentPropsContext,
   handleEditorFastRefresh,
+  EditingComponentPlaceholder,
   <% if (prerender === 'SSG') { -%>
   StaticPath,
   <% } -%>
