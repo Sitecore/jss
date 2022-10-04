@@ -166,6 +166,8 @@ export class EditingRenderMiddleware {
       if (editingData.layoutData.sitecore.context.renderingType === RenderingType.Component) {
         // Handle component rendering. Extract component markup only
         html = parse(html).getElementById(EDITING_COMPONENT_ID)?.innerHTML;
+
+        if (!html) throw new Error(`Failed to render component for ${requestUrl}`);
       }
 
       const body = { html };

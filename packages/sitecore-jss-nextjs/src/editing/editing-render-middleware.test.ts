@@ -170,6 +170,46 @@ describe('EditingRenderMiddleware', () => {
     });
   });
 
+  it('should throw error when component rendering markup is missing', async () => {
+    const html = '<html phkey="test1"><body phkey="test2"><div></div></body></html>';
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const previewData = { key: 'key1234' } as EditingPreviewData;
+
+    const fetcher = mockFetcher(html);
+    const dataService = mockDataService(previewData);
+    const req = mockRequest(EE_COMPONENT_BODY, query);
+    const res = mockResponse();
+
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(dataService.setEditingData, 'stash editing data').to.have.been.called;
+    expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
+    expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
+    expect(fetcher.get).to.have.been.calledOnce;
+    expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      match('http://localhost:3000/test/path?timestamp'),
+      {
+        headers: {
+          Cookie: mockNextJsPreviewCookies.join(';'),
+        },
+      }
+    );
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(500);
+    expect(res.json).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledWith({
+      html:
+        '<html><body>Error: Failed to render component for http://localhost:3000/test/path</body></html>',
+    });
+  });
+
   it('should handle 404 for route data request', async () => {
     const html = '<html phkey="test1"><body phkey="test2">Page not found</body></html>';
     const query = {} as Query;
