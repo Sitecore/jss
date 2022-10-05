@@ -51,12 +51,12 @@ export default class NextjsInitializer implements Initializer {
             value: 'nextjs-styleguide-tracking',
           },
           {
-            name: 'nextjs-sxa - Includes example components and setup for working using SXA',
+            name: 'nextjs-sxa - Includes example components and setup for Headless SXA projects',
             value: 'nextjs-sxa',
           },
           {
             name:
-              'nextjs-personalize - Includes example components and setup for working using Personalize',
+              'nextjs-personalize - Includes example setup for projects using XM Cloud Embedded Personalization',
             value: 'nextjs-personalize',
           },
         ],
