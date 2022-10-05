@@ -8,7 +8,14 @@ import {
   EditingPreviewData,
   QUERY_PARAM_EDITING_SECRET,
 } from './editing-data-service';
-import { EE_PATH, EE_LANGUAGE, EE_LAYOUT, EE_DICTIONARY, EE_BODY } from '../test-data/ee-data';
+import {
+  EE_PATH,
+  EE_LANGUAGE,
+  EE_LAYOUT,
+  EE_DICTIONARY,
+  EE_BODY,
+  EE_COMPONENT_BODY,
+} from '../test-data/ee-data';
 import { EditingRenderMiddleware, extractEditingData } from './editing-render-middleware';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -120,6 +127,86 @@ describe('EditingRenderMiddleware', () => {
     expect(res.json).to.have.been.calledOnce;
     expect(res.json).to.have.been.calledWith({
       html: '<html key="test1"><body key="test2">Something amazing</body></html>',
+    });
+  });
+
+  it('should handle component rendering request', async () => {
+    const html =
+      '<html phkey="test1"><body phkey="test2"><div id="editing-component"><h1>Hello world</h1><p>Something amazing</p></div></body></html>';
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const previewData = { key: 'key1234' } as EditingPreviewData;
+
+    const fetcher = mockFetcher(html);
+    const dataService = mockDataService(previewData);
+    const req = mockRequest(EE_COMPONENT_BODY, query);
+    const res = mockResponse();
+
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(dataService.setEditingData, 'stash editing data').to.have.been.called;
+    expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
+    expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
+    expect(fetcher.get).to.have.been.calledOnce;
+    expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      match('http://localhost:3000/test/path?timestamp'),
+      {
+        headers: {
+          Cookie: mockNextJsPreviewCookies.join(';'),
+        },
+      }
+    );
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledWith({
+      html: '<h1>Hello world</h1><p>Something amazing</p>',
+    });
+  });
+
+  it('should throw error when component rendering markup is missing', async () => {
+    const html = '<html phkey="test1"><body phkey="test2"><div></div></body></html>';
+    const query = {} as Query;
+    query[QUERY_PARAM_EDITING_SECRET] = secret;
+    const previewData = { key: 'key1234' } as EditingPreviewData;
+
+    const fetcher = mockFetcher(html);
+    const dataService = mockDataService(previewData);
+    const req = mockRequest(EE_COMPONENT_BODY, query);
+    const res = mockResponse();
+
+    const middleware = new EditingRenderMiddleware({
+      dataFetcher: fetcher,
+      editingDataService: dataService,
+    });
+    const handler = middleware.getHandler();
+
+    await handler(req, res);
+
+    expect(dataService.setEditingData, 'stash editing data').to.have.been.called;
+    expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith(previewData);
+    expect(res.getHeader, 'get preview cookies').to.have.been.calledWith('Set-Cookie');
+    expect(fetcher.get).to.have.been.calledOnce;
+    expect(fetcher.get, 'pass along preview cookies').to.have.been.calledWith(
+      match('http://localhost:3000/test/path?timestamp'),
+      {
+        headers: {
+          Cookie: mockNextJsPreviewCookies.join(';'),
+        },
+      }
+    );
+    expect(res.status).to.have.been.calledOnce;
+    expect(res.status).to.have.been.calledWith(500);
+    expect(res.json).to.have.been.calledOnce;
+    expect(res.json).to.have.been.calledWith({
+      html:
+        '<html><body>Error: Failed to render component for http://localhost:3000/test/path</body></html>',
     });
   });
 
