@@ -31,6 +31,9 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  RenderingType,
+  EDITING_COMPONENT_PLACEHOLDER,
+  EDITING_COMPONENT_ID,
 } from '@sitecore-jss/sitecore-jss/layout';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
@@ -103,6 +106,7 @@ export { handleEditorFastRefresh, getPublicUrl } from './utils';
 export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
+export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
 
 export {
