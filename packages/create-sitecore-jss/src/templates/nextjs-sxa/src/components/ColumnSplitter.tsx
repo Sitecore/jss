@@ -33,9 +33,10 @@ export const Default = (props: ComponentProps): JSX.Element => {
     props.params.Styles8,
   ];
   const enabledPlaceholders = props.params.EnabledPlaceholders.split(',');
+  const id = props.params.RenderingIdentifier;
 
   return (
-    <div className={`row component column-splitter ${styles}`}>
+    <div className={`row component column-splitter ${styles}`} id={id ? id : undefined}>
       {enabledPlaceholders.map((ph, index) => {
         const phKey = `column-${ph}-{*}`;
         const phStyles = `${columnWidths[+ph - 1]} ${columnStyles[+ph - 1] ?? ''}`.trimEnd();

@@ -1,4 +1,8 @@
-import { useSitecoreContext, CdpHelper } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  CdpHelper,
+  LayoutServicePageState,
+  useSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { useEffect } from 'react';
 import config from 'temp/config';
 import { init } from '@sitecore/engage';
@@ -12,7 +16,7 @@ import { PosResolver } from 'lib/pos-resolver';
  */
 const CdpPageView = (): JSX.Element => {
   const {
-    sitecoreContext: { pageEditing, route, variantId },
+    sitecoreContext: { pageState, route, variantId },
   } = useSitecoreContext();
 
   /**
@@ -22,7 +26,7 @@ const CdpPageView = (): JSX.Element => {
     const pointOfSale = PosResolver.resolve(language);
     const engage = await init({
       clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
-      targetDomain: (process.env.NEXT_PUBLIC_CDP_TARGET_URL || '').replace('https://', ''),
+      targetURL: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',
       // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
       cookieDomain: window.location.host.replace(/^www\./, ''),
       // Cookie may be created in personalize middleware (server), but if not we should create it here
@@ -49,8 +53,8 @@ const CdpPageView = (): JSX.Element => {
   };
 
   useEffect(() => {
-    // Do not create events in editing mode or if missing route data
-    if (pageEditing || !route || !route.itemId) {
+    // Do not create events in editing or preview mode or if missing route data
+    if (pageState !== LayoutServicePageState.Normal || !route?.itemId) {
       return;
     }
     // Do not create events if disabled (e.g. we don't have consent)
@@ -60,7 +64,7 @@ const CdpPageView = (): JSX.Element => {
     const language = route.itemLanguage || config.defaultLanguage;
     const pageVariantId = CdpHelper.getPageVariantId(route.itemId, language, variantId as string);
     createPageView(route.name, language, pageVariantId);
-  }, [pageEditing, route, variantId]);
+  }, [pageState, route, variantId]);
 
   return <></>;
 };
