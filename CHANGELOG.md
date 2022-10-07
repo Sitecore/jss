@@ -9,8 +9,10 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### 🎉 New Features & Improvements
 
-* Upgrade nextjs to 12.2.5
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade Next.js to 12.3.x
 * `[create-sitecore-jss]` Personalize Initializer Add-on  ([#939](https://github.com/Sitecore/jss/pull/939))
+* `[templates/react]` `[templates/nextjs]` `[templates/nextjs-styleguide]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` Upgrade react to version 18 ([#1055](https://github.com/Sitecore/jss/pull/1055))
+* `[templates]` Rename "App Route" to "Page" ([#1159](https://github.com/Sitecore/jss/pull/1159))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` [Editing] Partial rendering implementation ([#1169](https://github.com/Sitecore/jss/pull/1169))
 * `[templates/nextjs]` Add environment variable to allow disable of sitemap fetch in getStaticPaths ([#1149](https://github.com/Sitecore/jss/pull/1149))
 * `[sitecore-jss-react]` Allow defer prop on VisitorIdentification component ([#1090](https://github.com/Sitecore/jss/pull/1090))
@@ -60,7 +62,6 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * `[sitecore-jss-react]` Refactored withComponentFactory HOC ([#1086](https://github.com/Sitecore/jss/pull/1086))
 * `[sitecore-jss-proxy]` Provide headers to response when config.onError is called ([#1087](https://github.com/Sitecore/jss/pull/1087))
 * `[sitecore-jss-nextjs]` Proper building of query string inside EditingRenderMiddleware ([#1071](https://github.com/Sitecore/jss/pull/1071))
-* `[templates/nextjs]` `[templates/nextjs-styleguide]` `[sitecore-jss]` start:production 'Dynamic Code Evaluation' error ([#1073](https://github.com/Sitecore/jss/pull/1073))
 * `[templates/angular]` Fix RouteData fields type mismatch ([#1067](https://github.com/Sitecore/jss/pull/1067))
 * `[templates/nextjs]` `[sitecore-jss-nextjs]` Add a friendly message when building nextjs app and site items are missing ([#1066](https://github.com/Sitecore/jss/pull/1066))
 * `[sitecore-jss]` RouteData type doesn't support ContentList/MultiList/DropTree fields ([#1061](https://github.com/Sitecore/jss/pull/1061))
@@ -91,13 +92,9 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 ### 🛠 Breaking Changes
 
-* Update nextjs to 12.2 ([#1093](https://github.com/Sitecore/jss/pull/1093))
-* `[templates]` Rename "App Route" to "Page" ([#1159](https://github.com/Sitecore/jss/pull/1159))
-  * Graphql queries, graphql introspection result, sitecore definition files should be updated to use Page instead of AppRoute 
 * Remove deprecated features ([#1088](https://github.com/Sitecore/jss/pull/1088))
 * `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Link component should forward ref ([#1080](https://github.com/Sitecore/jss/pull/1080))
-* `[templates/react]` `[templates/nextjs]` `[templates/nextjs-styleguide]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` Upgrade react to version 18 ([#1055](https://github.com/Sitecore/jss/pull/1055)
-* `[sitecore-jss-nextjs]` `[sitecore-jss]` graphql nextjs sitemap update ([#1002](https://github.com/Sitecore/jss/pull/1002)([#1007](https://github.com/Sitecore/jss/pull/1007)([#1026](https://github.com/Sitecore/jss/pull/1026)
+* `[sitecore-jss-nextjs]` `[sitecore-jss]` graphql nextjs sitemap update ([#1002](https://github.com/Sitecore/jss/pull/1002))([#1007](https://github.com/Sitecore/jss/pull/1007))([#1026](https://github.com/Sitecore/jss/pull/1026))
   * Updated GraphQLSitemapService will only work with Sitecore versions that have 'site' query present in edge schema.
 * `[sitecore-jss-nextjs]` Performance improvements for editing integration ([#1140](https://github.com/Sitecore/jss/pull/1140))
   * `[sitecore-jss-nextjs]` All editing-related types have moved to a dedicated `editing` submodule. Imports must be updated to use this submodule. e.g.
