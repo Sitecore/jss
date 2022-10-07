@@ -50,10 +50,15 @@ const getLinkField = (props: NavigationProps): LinkField => ({
 export const Default = (props: NavigationProps): JSX.Element => {
   const [isOpenMenu, openMenu] = useState(false);
   const { sitecoreContext } = useSitecoreContext();
+  const styles =
+    props.params != null
+      ? `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd()
+      : '';
+  const id = props.params != null ? props.params.RenderingIdentifier : null;
 
   if (!Object.values(props.fields).length) {
     return (
-      <div className={`component navigation`}>
+      <div className={`component navigation ${styles}`} id={id ? id : undefined}>
         <div className="component-content">[Navigation]</div>
       </div>
     );
@@ -81,9 +86,6 @@ export const Default = (props: NavigationProps): JSX.Element => {
         relativeLevel={1}
       />
     ));
-  const styles =
-    props.params != null ? `${props.params.GridParameters} ${props.params.Styles}` : null;
-  const id = props.params != null ? props.params.RenderingIdentifier : null;
 
   return (
     <div className={`component navigation ${styles}`} id={id ? id : undefined}>
