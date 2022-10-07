@@ -16,7 +16,9 @@
 
 header {
   #header {
-    .title {
+    .bs-title {
+      padding-left: 50px;
+
       h1 {
         font-size: $text-size-24;
         font-weight: 600;
