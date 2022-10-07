@@ -3,32 +3,29 @@
  * Useful in nextjs middleware until fetch.signal is fully supported by Vercel edge functions
  */
 export default class TimeoutPromise {
-  timeoutID: NodeJS.Timeout | undefined;
+  timeoutId: NodeJS.Timeout | undefined;
 
   constructor(private timeout: number | undefined) {
-    this.timeoutID = undefined;
+    this.timeoutId = undefined;
   }
 
   /**
    * Creates a timeout promise
    */
-  get start(): Promise<any> {
-    if (this.timeout) {
-      return new Promise((_, reject) => {
-        this.timeoutID = setTimeout(() => {
-          const abortError = new Error('Request timed out');
-          abortError.name = 'AbortError';
-          reject(abortError);
-        }, this.timeout);
-      });
-    }
-    return new Promise((_, reject) => reject('Timeout promise created with no timeout value'));
+  get start(): Promise<unknown> {
+    return new Promise((_, reject) => {
+      this.timeoutId = setTimeout(() => {
+        const abortError = new Error('Request timed out');
+        abortError.name = 'AbortError';
+        reject(abortError);
+      }, this.timeout);
+    });
   }
 
   /**
    * Clears the timeout from timeout promise
    */
   clear() {
-    this.timeoutID && clearTimeout(this.timeoutID);
+    this.timeoutId && clearTimeout(this.timeoutId);
   }
 }
