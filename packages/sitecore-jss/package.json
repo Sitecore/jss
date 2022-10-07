@@ -53,7 +53,6 @@
     "typescript": "~4.3.5"
   },
   "dependencies": {
-    "abort-controller": "^3.0.0",
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "debug": "^4.3.1",
