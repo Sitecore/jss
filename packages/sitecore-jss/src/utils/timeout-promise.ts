@@ -5,7 +5,7 @@
 export default class TimeoutPromise {
   timeoutId: NodeJS.Timeout | undefined;
 
-  constructor(private timeout: number | undefined) {
+  constructor(private timeout: number) {
     this.timeoutId = undefined;
   }
 
