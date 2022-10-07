@@ -1,6 +1,6 @@
 import { HttpResponse } from './data-fetcher';
 import debuggers, { Debugger } from './debug';
-import AbortController from 'abort-controller';
+import TimeoutPromise from './utils/timeout-promise';
 
 type NativeDataFetcherOptions = {
   /**
@@ -20,6 +20,8 @@ type NativeDataFetcherOptions = {
 export type NativeDataFetcherConfig = NativeDataFetcherOptions & RequestInit;
 
 export class NativeDataFetcher {
+  private abortTimeout?: TimeoutPromise;
+
   constructor(protected config: NativeDataFetcherConfig = {}) {}
 
   /**
@@ -31,16 +33,13 @@ export class NativeDataFetcher {
   async fetch<T>(url: string, data?: unknown): Promise<HttpResponse<T>> {
     const { debugger: debugOverride, fetch: fetchOverride, ...init } = this.config;
     const fetchImpl = fetchOverride || fetch;
-    const abortController = new AbortController();
     const debug = debugOverride || debuggers.http;
     const requestInit = this.getRequestInit(init, data);
-    requestInit.signal = abortController.signal as AbortSignal;
 
-    let abortTimeout: NodeJS.Timeout;
+    const fetchWithOptionalTimeout = [fetchImpl(url, requestInit)];
     if (init.timeout) {
-      abortTimeout = setTimeout(() => {
-        abortController.abort();
-      }, init.timeout);
+      this.abortTimeout = new TimeoutPromise(init.timeout);
+      fetchWithOptionalTimeout.push(this.abortTimeout.start as Promise<Response>);
     }
 
     // Note a goal here is to provide consistent debug logging and error handling
@@ -49,12 +48,13 @@ export class NativeDataFetcher {
     const { headers: reqHeaders, ...rest } = requestInit;
 
     debug('request: %o', { url, headers: this.extractDebugHeaders(reqHeaders), ...rest });
-    const response = await fetchImpl(url, requestInit)
+    const response = await Promise.race(fetchWithOptionalTimeout)
       .then((res) => {
-        clearTimeout(abortTimeout);
+        this.abortTimeout?.clear();
         return res;
       })
       .catch((error) => {
+        this.abortTimeout?.clear();
         debug('request error: %o', error);
         throw error;
       });
