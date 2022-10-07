@@ -65,11 +65,19 @@ export async function getAppRootId(
 
   debug.dictionary('fetching site root for %s %s', language, siteName);
 
-  const fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
+  let fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
     jssAppTemplateId: jssAppTemplateId || SitecoreTemplateId.JssApp,
     siteName,
     language,
   });
+
+  if (!fetchResponse?.layout?.homePage?.rootItem?.length) {
+    fetchResponse = await client.request<AppRootQueryResult>(appRootQuery, {
+      jssAppTemplateId: jssAppTemplateId || SitecoreTemplateId.JssApp,
+      siteName,
+      language: 'en',
+    });
+  }
 
   if (!fetchResponse?.layout?.homePage?.rootItem?.length) {
     return null;
