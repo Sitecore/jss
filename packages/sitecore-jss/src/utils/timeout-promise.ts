@@ -15,7 +15,7 @@ export default class TimeoutPromise {
   get start(): Promise<unknown> {
     return new Promise((_, reject) => {
       this.timeoutId = setTimeout(() => {
-        const abortError = new Error('Request timed out');
+        const abortError = new Error(`Request timed out, timeout of ${this.timeout}ms is exceeded`);
         abortError.name = 'AbortError';
         reject(abortError);
       }, this.timeout);
