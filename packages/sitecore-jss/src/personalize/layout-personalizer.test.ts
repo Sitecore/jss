@@ -10,6 +10,9 @@ import {
   layoutDataWithoutPlaceholder,
   withoutComponentName,
   variantIsHidden,
+  component2,
+  mountain_bike_audience,
+  city_bike_audience,
 } from '../test-data/personalizeData';
 
 const { personalizeLayout, personalizePlaceholder, personalizeComponent } = personalize;
@@ -40,6 +43,89 @@ describe('layout-personalizer', () => {
       const variant = 'mountain_bike_audience';
       const personalizedPlaceholderResult = personalizePlaceholder(componentsArray, variant);
       expect(personalizedPlaceholderResult).to.deep.equal(componentsWithExperiencesArray);
+    });
+
+    it('should personalize component and nested components', () => {
+      const rootComponent = {
+        uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
+        componentName: 'ContentBlock',
+        dataSource: 'e020fb58-1be8-4537-aab8-67916452ecf2',
+        fields: { content: { value: '' }, heading: { value: 'Default Content' } },
+        experiences: {
+          mountain_bike_audience: {
+            ...mountain_bike_audience,
+            placeholders: {
+              main: [component, component2],
+            },
+          },
+          city_bike_audience,
+        },
+      };
+      const variant = 'mountain_bike_audience';
+      const personalizedPlaceholderResult = personalizePlaceholder([rootComponent], variant);
+      expect(personalizedPlaceholderResult).to.deep.equal([
+        {
+          uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
+          componentName: 'ContentBlock',
+          dataSource: '20679cd4-356b-4452-b507-453beeb0be39',
+          fields: mountain_bike_audience.fields,
+          placeholders: {
+            main: [
+              {
+                uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
+                componentName: 'ContentBlock',
+                dataSource: '20679cd4-356b-4452-b507-453beeb0be39',
+                fields: mountain_bike_audience.fields,
+              },
+              {
+                uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
+                componentName: 'ContentBlock 2',
+                dataSource: '20679cd4-356b-4452-b507-453beeb0be39',
+                fields: mountain_bike_audience.fields,
+              },
+            ],
+          },
+        },
+      ]);
+    });
+
+    it('should personalize nested components', () => {
+      const rootComponent = {
+        uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
+        componentName: 'ContentBlock',
+        dataSource: 'e020fb58-1be8-4537-aab8-67916452ecf2',
+        fields: { content: { value: '' }, heading: { value: 'Default Content' } },
+        placeholders: {
+          main: [component, component2],
+        },
+      };
+
+      const variant = 'mountain_bike_audience';
+      const personalizedPlaceholderResult = personalizePlaceholder([rootComponent], variant);
+      expect(personalizedPlaceholderResult).to.deep.equal([
+        {
+          uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
+          componentName: 'ContentBlock',
+          dataSource: 'e020fb58-1be8-4537-aab8-67916452ecf2',
+          fields: { content: { value: '' }, heading: { value: 'Default Content' } },
+          placeholders: {
+            main: [
+              {
+                uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
+                componentName: 'ContentBlock',
+                dataSource: '20679cd4-356b-4452-b507-453beeb0be39',
+                fields: mountain_bike_audience.fields,
+              },
+              {
+                uid: '0b6d23d8-c50e-4e79-9eca-317ec43e82b0',
+                componentName: 'ContentBlock 2',
+                dataSource: '20679cd4-356b-4452-b507-453beeb0be39',
+                fields: mountain_bike_audience.fields,
+              },
+            ],
+          },
+        },
+      ]);
     });
   });
 
