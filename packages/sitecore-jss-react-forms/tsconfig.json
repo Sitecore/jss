@@ -6,7 +6,8 @@
     "jsx": "react",
     "outDir": "dist/cjs",
     "typeRoots": ["node_modules/@types"],
-    "declarationDir": "./types"
+    "declarationDir": "./types",
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules",
