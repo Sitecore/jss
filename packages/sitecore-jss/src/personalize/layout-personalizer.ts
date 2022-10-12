@@ -1,4 +1,9 @@
-import { LayoutServiceData, ComponentRendering, HtmlElementRendering } from './../layout/models';
+import {
+  LayoutServiceData,
+  ComponentRendering,
+  HtmlElementRendering,
+  PlaceholdersData,
+} from './../layout/models';
 
 export type ComponentRenderingWithExperiences = ComponentRendering & {
   experiences: { [name: string]: ComponentRenderingWithExperiences };
@@ -34,13 +39,23 @@ export function personalizePlaceholder(
   variantId: string
 ): Array<ComponentRendering | HtmlElementRendering> {
   return components
-    .map((component) =>
-      (component as ComponentRenderingWithExperiences).experiences !== undefined
-        ? (personalizeComponent(component as ComponentRenderingWithExperiences, variantId) as
-            | ComponentRendering
-            | HtmlElementRendering)
-        : component
-    )
+    .map((component) => {
+      const rendering = component as ComponentRendering;
+
+      if ((rendering as ComponentRenderingWithExperiences).experiences !== undefined) {
+        return personalizeComponent(rendering as ComponentRenderingWithExperiences, variantId) as
+          | ComponentRendering
+          | HtmlElementRendering;
+      } else if (rendering.placeholders) {
+        const placeholders = rendering.placeholders as PlaceholdersData;
+
+        Object.keys(placeholders).forEach((placeholder) => {
+          placeholders[placeholder] = personalizePlaceholder(placeholders[placeholder], variantId);
+        });
+      }
+
+      return component;
+    })
     .filter(Boolean);
 }
 
