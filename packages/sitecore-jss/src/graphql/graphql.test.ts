@@ -44,7 +44,7 @@ describe('graphql', () => {
             },
           });
 
-        const result = await getAppRootId(client, 'siteName', 'language');
+        const result = await getAppRootId(client, 'siteName', 'en');
         expect(result).to.be.null;
       });
     });

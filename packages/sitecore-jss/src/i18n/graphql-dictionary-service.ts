@@ -114,6 +114,8 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       return cachedValue;
     }
 
+    debug.dictionary('fetching site root for %s %s', language, this.options.siteName);
+
     // If the caller does not specify a root item ID, then we try to figure it out
     const rootItemId =
       this.options.rootItemId ||
