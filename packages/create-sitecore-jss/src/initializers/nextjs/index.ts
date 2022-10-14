@@ -51,7 +51,8 @@ export default class NextjsInitializer implements Initializer {
             value: 'nextjs-styleguide-tracking',
           },
           {
-            name: 'nextjs-sxa - Includes example components and setup for Headless SXA projects',
+            name:
+              'nextjs-sxa - Includes example components and setup for Headless SXA projects (only compatible with Sitecore XM Cloud)',
             value: 'nextjs-sxa',
           },
           {
