@@ -46,32 +46,37 @@ steps:
 - script: |
     yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install - initial'
-- script: |
-    yarn lint-packages
-  displayName: 'lint packages'
-- script: |
-    lerna run build
-  displayName: 'build packages'
+# - script: |
+#     yarn lint-packages
+#   displayName: 'lint packages'
+# - script: |
+#     lerna run build
+#   displayName: 'build packages'
 - script: |
     yarn coverage-packages
   displayName: 'running tests'
   env: {
     testEnv: 'ci'
   }
-- script: |
-    yarn scaffold-samples
-  displayName: 'scaffold samples'
-  condition: and(succeeded(), ne(variables.shouldPublish, true))
-- script: |
-    yarn install
-  displayName: 'yarn install - refresh'
-  condition: and(succeeded(), ne(variables.shouldPublish, true))
-  env:
-    YARN_ENABLE_IMMUTABLE_INSTALLS: false
-- script: |
-    lerna run lint --scope sample-* -- --fix
-  displayName: 'lint samples'
-  condition: and(succeeded(), ne(variables.shouldPublish, true))
+- task: PublishCodeCoverageResults@1
+  inputs: 
+    codeCoverageTool: Cobertura # or JaCoCo
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
+# - script: |
+#     yarn scaffold-samples
+#   displayName: 'scaffold samples'
+#   condition: and(succeeded(), ne(variables.shouldPublish, true))
+# - script: |
+#     yarn install
+#   displayName: 'yarn install - refresh'
+#   condition: and(succeeded(), ne(variables.shouldPublish, true))
+#   env:
+#     YARN_ENABLE_IMMUTABLE_INSTALLS: false
+# - script: |
+#     lerna run lint --scope sample-* -- --fix
+#   displayName: 'lint samples'
+#   condition: and(succeeded(), ne(variables.shouldPublish, true))
 
   #
   # LERNA VERSION
