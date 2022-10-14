@@ -31,6 +31,64 @@ describe('graphql', () => {
         expect(result).to.equal('GUIDGUIDGUID');
       });
 
+      it('valid root id using fallback language as en', async () => {
+        nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
+          .post('/', (body) => {
+            return body.variables.language === 'language';
+          })
+          .reply(200, {
+            data: {
+              layout: {
+                homePage: {
+                  rootItem: [],
+                },
+              },
+            },
+          });
+
+        nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
+          .post('/', (body) => {
+            return body.variables.language === 'en';
+          })
+          .reply(200, appRootQueryResponse);
+
+        const result = await getAppRootId(client, 'siteName', 'language');
+        expect(result).to.equal('GUIDGUIDGUID');
+      });
+
+      it('null for the passed language and for fallback language en', async () => {
+        nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
+          .post('/', (body) => {
+            return body.variables.language === 'language';
+          })
+          .reply(200, {
+            data: {
+              layout: {
+                homePage: {
+                  rootItem: [],
+                },
+              },
+            },
+          });
+
+        nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
+          .post('/', (body) => {
+            return body.variables.language === 'en';
+          })
+          .reply(200, {
+            data: {
+              layout: {
+                homePage: {
+                  rootItem: [],
+                },
+              },
+            },
+          });
+
+        const result = await getAppRootId(client, 'siteName', 'language');
+        expect(result).to.be.null;
+      });
+
       it('null if no app root found', async () => {
         nock(endpoint, { reqheaders: { sc_apikey: apiKey } })
           .post('/', queryNameFilter)
