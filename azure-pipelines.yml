@@ -49,9 +49,9 @@ steps:
 # - script: |
 #     yarn lint-packages
 #   displayName: 'lint packages'
-# - script: |
-#     lerna run build
-#   displayName: 'build packages'
+- script: |
+    lerna run build
+  displayName: 'build packages'
 - script: |
     yarn coverage-packages
   displayName: 'running tests'
