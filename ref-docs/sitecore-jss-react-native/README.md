@@ -44,9 +44,7 @@
 - [getChildPlaceholder](README.md#getchildplaceholder)
 - [getFieldValue](README.md#getfieldvalue)
 - [isEditorActive](README.md#iseditoractive)
-- [isExperienceEditorActive](README.md#isexperienceeditoractive)
 - [resetEditorChromes](README.md#reseteditorchromes)
-- [resetExperienceEditorChromes](README.md#resetexperienceeditorchromes)
 
 ## Variables
 
@@ -56,7 +54,7 @@
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Date.tsx:22](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/Date.tsx#L22)
+[sitecore-jss-react-native/src/components/Date.tsx:22](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-react-native/src/components/Date.tsx#L22)
 
 ___
 
@@ -66,7 +64,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Image.tsx:104](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/Image.tsx#L104)
+[sitecore-jss-react-native/src/components/Image.tsx:104](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-react-native/src/components/Image.tsx#L104)
 
 ___
 
@@ -76,7 +74,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Link.tsx:38](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/Link.tsx#L38)
+[sitecore-jss-react-native/src/components/Link.tsx:38](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-react-native/src/components/Link.tsx#L38)
 
 ___
 
@@ -86,7 +84,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/RichText.tsx#L14)
+[sitecore-jss-react-native/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-react-native/src/components/RichText.tsx#L14)
 
 ___
 
@@ -96,7 +94,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Text.tsx:14](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/Text.tsx#L14)
+[sitecore-jss-react-native/src/components/Text.tsx:14](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-react-native/src/components/Text.tsx#L14)
 
 ## Functions
 
@@ -116,7 +114,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-react-native/src/components/Placeholder.tsx:103](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-react-native/src/components/Placeholder.tsx#L103)
+[sitecore-jss-react-native/src/components/Placeholder.tsx:103](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-react-native/src/components/Placeholder.tsx#L103)
 
 ___
 
@@ -141,7 +139,7 @@ child placeholder
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:17
+sitecore-jss/types/layout/utils.d.ts:20
 
 ___
 
@@ -160,18 +158,20 @@ Null will be returned if the field is not defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| `Fields` |
-| `fieldName` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| `Fields` | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
 
 `T` \| `undefined`
 
+the field value or null if the field is not defined
+
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:9
+sitecore-jss/types/layout/utils.d.ts:12
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -195,7 +195,7 @@ sitecore-jss/types/layout/utils.d.ts:9
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:10
+sitecore-jss/types/layout/utils.d.ts:13
 
 ___
 
@@ -218,26 +218,6 @@ sitecore-jss/types/utils/editing.d.ts:36
 
 ___
 
-### isExperienceEditorActive
-
-▸ `Const` **isExperienceEditorActive**(): `boolean`
-
-Determines whether the current execution context is within the Sitecore Experience Editor
-
-**`deprecated`** Will be removed in a future release. Please use isEditorActive instead.
-
-#### Returns
-
-`boolean`
-
-true if executing within the Sitecore Experience Editor
-
-#### Defined in
-
-sitecore-jss/types/utils/editing.d.ts:56
-
-___
-
 ### resetEditorChromes
 
 ▸ `Const` **resetEditorChromes**(): `void`
@@ -251,21 +231,3 @@ Resets Sitecore editor "chromes"
 #### Defined in
 
 sitecore-jss/types/utils/editing.d.ts:40
-
-___
-
-### resetExperienceEditorChromes
-
-▸ `Const` **resetExperienceEditorChromes**(): `void`
-
-Resets Sitecore Experience Editor "chromes"
-
-**`deprecated`** Will be removed in a future release. Please use resetEditorChromes instead.
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-sitecore-jss/types/utils/editing.d.ts:61

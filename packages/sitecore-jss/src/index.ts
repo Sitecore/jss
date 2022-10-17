@@ -2,7 +2,7 @@
 // and to keep react-native working with cjs modules.
 
 import * as constants from './constants';
-export { default as debug, Debugger } from './debug';
+export { default as debug, Debugger, enableDebug } from './debug';
 export { HttpDataFetcher, HttpResponse, fetchData } from './data-fetcher';
 export {
   GraphQLClient,
@@ -10,4 +10,5 @@ export {
   GraphQLRequestClientConfig,
 } from './graphql-request-client';
 export { AxiosDataFetcher, AxiosDataFetcherConfig } from './axios-fetcher';
+export { NativeDataFetcher, NativeDataFetcherConfig } from './native-fetcher';
 export { constants };

@@ -13,11 +13,11 @@ import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
 
 import { JssModule } from '../lib.module';
 
-import { convertedData as eeData } from '../testData/ee-data';
+import { convertedData as eeData } from '../test-data/ee-data';
 import {
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
-} from '../testData/non-ee-data';
+} from '../test-data/non-ee-data';
 
 @Component({
   selector: 'test-placeholder',

@@ -1,4 +1,4 @@
-import { ReactNode, ComponentType } from 'react';
+import React, { ReactNode, ComponentType } from 'react';
 import {
   FormField,
   ValueFormField,
@@ -47,6 +47,8 @@ export interface FieldWithValueProps<
   tracker: FormTracker;
 
   key?: string;
+
+  children?: React.ReactNode;
 }
 
 export type FieldChangeCallback = (

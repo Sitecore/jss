@@ -5,13 +5,11 @@ export {
   HttpResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
+  NativeDataFetcher,
+  NativeDataFetcherConfig,
+  enableDebug,
 } from '@sitecore-jss/sitecore-jss';
-export {
-  isEditorActive,
-  resetEditorChromes,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
-} from '@sitecore-jss/sitecore-jss/utils';
+export { isEditorActive, resetEditorChromes, resolveUrl } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
   LayoutServiceData,
@@ -22,6 +20,7 @@ export {
   GraphQLLayoutServiceConfig,
   RestLayoutService,
   RestLayoutServiceConfig,
+  PlaceholderData,
   PlaceholdersData,
   RouteData,
   Field,
@@ -32,6 +31,9 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
+  RenderingType,
+  EDITING_COMPONENT_PLACEHOLDER,
+  EDITING_COMPONENT_ID,
 } from '@sitecore-jss/sitecore-jss/layout';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
@@ -51,6 +53,13 @@ export {
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';
+export {
+  personalizeLayout,
+  getPersonalizedRewrite,
+  getPersonalizedRewriteData,
+  normalizePersonalizedRewrite,
+  CdpHelper,
+} from '@sitecore-jss/sitecore-jss/personalize';
 export {
   RobotsQueryResult,
   GraphQLRobotsService,
@@ -92,24 +101,20 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { handleEditorFastRefresh, handleExperienceEditorFastRefresh, getPublicUrl } from './utils';
+export { handleEditorFastRefresh, getPublicUrl } from './utils';
 
-export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
-export {
-  EditingDataService,
-  EditingDataServiceConfig,
-  editingDataService,
-} from './services/editing-data-service';
-
-export { Link } from './components/Link';
-export { RichText } from './components/RichText';
+export { Link, LinkProps } from './components/Link';
+export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
+export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
 
 export {
   ComponentFactory,
   Image,
   ImageField,
+  ImageFieldValue,
+  ImageProps,
   LinkField,
   LinkFieldValue,
   Text,
@@ -119,6 +124,7 @@ export {
   FileField,
   RichTextField,
   VisitorIdentification,
+  PlaceholderComponentProps,
   SitecoreContext,
   SitecoreContextState,
   SitecoreContextValue,
@@ -126,7 +132,10 @@ export {
   withSitecoreContext,
   useSitecoreContext,
   withEditorChromes,
-  withExperienceEditorChromes,
   withPlaceholder,
   withDatasourceCheck,
+  ImageSizeParameters,
+  ComponentConsumerProps,
+  WithSitecoreContextOptions,
+  WithSitecoreContextProps,
 } from '@sitecore-jss/sitecore-jss-react';

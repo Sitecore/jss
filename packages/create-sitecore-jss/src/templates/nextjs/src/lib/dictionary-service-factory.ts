@@ -2,12 +2,13 @@ import {
   DictionaryService,
   RestDictionaryService,
   GraphQLDictionaryService,
+  constants,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 
 export class DictionaryServiceFactory {
   create(): DictionaryService {
-    return process.env.FETCH_WITH === 'GraphQL'
+    return process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL
       ? new GraphQLDictionaryService({
           endpoint: config.graphQLEndpoint,
           apiKey: config.sitecoreApiKey,

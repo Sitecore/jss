@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { generateConfig } from './generate-config';
 import { constants } from '@sitecore-jss/sitecore-jss-nextjs';
 import chalk from 'chalk';

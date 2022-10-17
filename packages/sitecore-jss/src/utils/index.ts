@@ -1,11 +1,9 @@
 export { default as isServer } from './is-server';
-export { default as resolveUrl } from './resolve-url';
+export { resolveUrl, isAbsoluteUrl, isTimeoutError } from './utils';
 export {
   ExperienceEditor,
   HorizonEditor,
   isEditorActive,
   resetEditorChromes,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
   handleEditorAnchors,
 } from './editing';

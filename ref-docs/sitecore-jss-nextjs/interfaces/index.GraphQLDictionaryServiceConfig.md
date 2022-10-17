@@ -123,6 +123,8 @@ ___
 
 • `Optional` **pageSize**: `number`
 
+common variable for all GraphQL queries
+it will be used for every type of query to regulate result batch size
 Optional. How many result items to fetch in each GraphQL call. This is needed for pagination.
 
 **`default`** 10
@@ -133,7 +135,7 @@ SearchServiceConfig.pageSize
 
 #### Defined in
 
-sitecore-jss/types/graphql/search-service.d.ts:42
+sitecore-jss/types/graphql/search-service.d.ts:51
 
 ___
 
@@ -149,7 +151,7 @@ SearchServiceConfig.rootItemId
 
 #### Defined in
 
-sitecore-jss/types/graphql/search-service.d.ts:37
+sitecore-jss/types/graphql/search-service.d.ts:41
 
 ___
 
@@ -166,7 +168,7 @@ SearchServiceConfig.siteName
 
 #### Defined in
 
-sitecore-jss/types/graphql/search-service.d.ts:60
+sitecore-jss/types/graphql/search-service.d.ts:65
 
 ___
 
@@ -182,4 +184,4 @@ SearchServiceConfig.templates
 
 #### Defined in
 
-sitecore-jss/types/graphql/search-service.d.ts:46
+sitecore-jss/types/graphql/search-service.d.ts:45

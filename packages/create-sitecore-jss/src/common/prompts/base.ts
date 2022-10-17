@@ -84,3 +84,13 @@ export const clientAppPrompts: DistinctQuestion<ClientAppAnswer>[] = [
     },
   },
 ];
+
+export const missingAddonMsg = (source: string, missingAddon: string) =>
+  chalk.yellow(
+    `Warning: ${source} add-on cannot be used without the ${missingAddon} add-on. This may cause unexpected results.`
+  );
+
+export const incompatibleAddonsMsg = (source: string, incompatibleAddon: string) =>
+  chalk.yellow(
+    `Warning: ${source} add-on is not compatible with ${incompatibleAddon} add-on. This may cause unexpected results.`
+  );

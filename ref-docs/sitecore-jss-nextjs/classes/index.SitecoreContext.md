@@ -64,13 +64,13 @@ React.Component&lt;SitecoreContextProps, SitecoreContextState\&gt;.constructor
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:31
+sitecore-jss-react/types/components/SitecoreContext.d.ts:32
 
 ## Properties
 
 ### context
 
-• **context**: `any`
+• **context**: `unknown`
 
 If using the new style context, re-declare this in your class to be the
 `React.ContextType` of your `static contextType`.
@@ -92,13 +92,13 @@ React.Component.context
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:479
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:470
 
 ___
 
 ### props
 
-• `Readonly` **props**: `Readonly`<`SitecoreContextProps`\> & `Readonly`<`Object`\>
+• `Readonly` **props**: `Readonly`<`SitecoreContextProps`\>
 
 #### Inherited from
 
@@ -106,7 +106,7 @@ React.Component.props
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:504
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:490
 
 ___
 
@@ -127,7 +127,7 @@ React.Component.refs
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:510
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:496
 
 ___
 
@@ -154,7 +154,7 @@ or you can provide exact @type {SitecoreContextValue}
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:39
+sitecore-jss-react/types/components/SitecoreContext.d.ts:40
 
 ___
 
@@ -168,7 +168,7 @@ React.Component.state
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:505
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:491
 
 ___
 
@@ -201,7 +201,7 @@ React.Component.contextType
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:461
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:453
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:30
+sitecore-jss-react/types/components/SitecoreContext.d.ts:31
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:20
+sitecore-jss-react/types/components/SitecoreContext.d.ts:21
 
 ## Methods
 
@@ -261,7 +261,7 @@ React.Component.UNSAFE\_componentWillMount
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:717
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:687
 
 ___
 
@@ -303,7 +303,7 @@ React.Component.UNSAFE\_componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:749
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:719
 
 ___
 
@@ -344,7 +344,7 @@ React.Component.UNSAFE\_componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:777
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:747
 
 ___
 
@@ -372,7 +372,7 @@ React.Component.componentDidCatch
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:646
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:616
 
 ___
 
@@ -392,7 +392,7 @@ React.Component.componentDidMount
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:625
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:595
 
 ___
 
@@ -416,7 +416,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:33
+sitecore-jss-react/types/components/SitecoreContext.d.ts:34
 
 ___
 
@@ -446,7 +446,7 @@ React.Component.componentWillMount
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:703
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:673
 
 ___
 
@@ -486,7 +486,7 @@ React.Component.componentWillReceiveProps
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:732
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:702
 
 ___
 
@@ -507,7 +507,7 @@ React.Component.componentWillUnmount
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:641
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:611
 
 ___
 
@@ -546,7 +546,7 @@ React.Component.componentWillUpdate
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:762
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:732
 
 ___
 
@@ -566,7 +566,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:32
+sitecore-jss-react/types/components/SitecoreContext.d.ts:33
 
 ___
 
@@ -590,7 +590,7 @@ React.Component.forceUpdate
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:496
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:487
 
 ___
 
@@ -622,7 +622,7 @@ React.Component.getSnapshotBeforeUpdate
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:682
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:652
 
 ___
 
@@ -640,7 +640,7 @@ React.Component.render
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:40
+sitecore-jss-react/types/components/SitecoreContext.d.ts:41
 
 ___
 
@@ -671,7 +671,7 @@ React.Component.setState
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:491
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:482
 
 ___
 
@@ -706,4 +706,4 @@ React.Component.shouldComponentUpdate
 
 #### Defined in
 
-sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:636
+sitecore-jss-nextjs/node_modules/@types/react/index.d.ts:606

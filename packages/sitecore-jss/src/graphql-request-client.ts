@@ -2,6 +2,7 @@ import { GraphQLClient as Client, ClientError } from 'graphql-request';
 import parse from 'url-parse';
 import { DocumentNode } from 'graphql';
 import debuggers, { Debugger } from './debug';
+import TimeoutPromise from './utils/timeout-promise';
 
 /**
  * An interface for GraphQL clients for Sitecore APIs
@@ -31,6 +32,10 @@ export type GraphQLRequestClientConfig = {
    * Override fetch method. Uses 'graphql-request' library default otherwise ('cross-fetch').
    */
   fetch?: typeof fetch;
+  /**
+   * GraphQLClient request timeout
+   */
+  timeout?: number;
 };
 
 /**
@@ -41,6 +46,8 @@ export class GraphQLRequestClient implements GraphQLClient {
   private client: Client;
   private headers: Record<string, string> = {};
   private debug: Debugger;
+  private abortTimeout?: TimeoutPromise;
+  private timeout?: number;
 
   /**
    * Provides ability to execute graphql query using given `endpoint`
@@ -58,7 +65,11 @@ export class GraphQLRequestClient implements GraphQLClient {
       );
     }
 
-    this.client = new Client(endpoint, { headers: this.headers, fetch: clientConfig.fetch });
+    this.timeout = clientConfig.timeout;
+    this.client = new Client(endpoint, {
+      headers: this.headers,
+      fetch: clientConfig.fetch,
+    });
     this.debug = clientConfig.debugger || debuggers.http;
   }
 
@@ -81,16 +92,23 @@ export class GraphQLRequestClient implements GraphQLClient {
         variables,
       });
 
-      this.client
-        .request(query, variables)
-        .then((data: T) => {
+      const fetchWithOptionalTimeout = [this.client.request(query, variables)];
+      if (this.timeout) {
+        this.abortTimeout = new TimeoutPromise(this.timeout);
+        fetchWithOptionalTimeout.push(this.abortTimeout.start);
+      }
+      Promise.race(fetchWithOptionalTimeout).then(
+        (data: T) => {
+          this.abortTimeout?.clear();
           this.debug('response: %o', data);
           resolve(data);
-        })
-        .catch((error: ClientError) => {
-          this.debug('response error: %o', error.response);
-          return reject(error);
-        });
+        },
+        (error: ClientError) => {
+          this.abortTimeout?.clear();
+          this.debug('response error: %o', error.response || error.message || error);
+          reject(error);
+        }
+      );
     });
   }
 }

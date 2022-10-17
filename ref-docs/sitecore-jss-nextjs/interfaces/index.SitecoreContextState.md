@@ -22,7 +22,7 @@
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:11
+sitecore-jss-react/types/components/SitecoreContext.d.ts:12
 
 ## Methods
 
@@ -42,4 +42,4 @@ sitecore-jss-react/types/components/SitecoreContext.d.ts:11
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:10
+sitecore-jss-react/types/components/SitecoreContext.d.ts:11

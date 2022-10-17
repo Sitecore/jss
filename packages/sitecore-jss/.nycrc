@@ -5,7 +5,7 @@
   "exclude": [
     "**/*.d.ts",
     "**/*.test.ts",
-    "src/testData",
+    "src/test-data",
     "dist",
     "src/test.ts",
     "src/index.ts",

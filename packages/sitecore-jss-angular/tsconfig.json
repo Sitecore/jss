@@ -1,26 +1,9 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "es5",
     "module": "es2020",
-    "newLine": "LF",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "strictPropertyInitialization": false,
-    "strict": true,
-    "typeRoots": [
-      "./node_modules/@types",
-      "./typings",
-    ]
+    "typeRoots": ["./node_modules/@types", "./typings"]
   }
 }

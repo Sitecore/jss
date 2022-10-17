@@ -6,7 +6,6 @@
 
 ### Namespaces
 
-- [Link](index.Link.md)
 - [NextImage](index.NextImage.md)
 - [RichText](index.RichText.md)
 - [constants](index.constants.md)
@@ -20,9 +19,9 @@
 ### Classes
 
 - [AxiosDataFetcher](../classes/index.AxiosDataFetcher.md)
+- [CdpHelper](../classes/index.CdpHelper.md)
 - [ComponentPropsService](../classes/index.ComponentPropsService.md)
 - [DisconnectedSitemapService](../classes/index.DisconnectedSitemapService.md)
-- [EditingDataService](../classes/index.EditingDataService.md)
 - [GraphQLDictionaryService](../classes/index.GraphQLDictionaryService.md)
 - [GraphQLErrorPagesService](../classes/index.GraphQLErrorPagesService.md)
 - [GraphQLLayoutService](../classes/index.GraphQLLayoutService.md)
@@ -30,6 +29,7 @@
 - [GraphQLRobotsService](../classes/index.GraphQLRobotsService.md)
 - [GraphQLSitemapService](../classes/index.GraphQLSitemapService.md)
 - [GraphQLSitemapXmlService](../classes/index.GraphQLSitemapXmlService.md)
+- [NativeDataFetcher](../classes/index.NativeDataFetcher.md)
 - [RestDictionaryService](../classes/index.RestDictionaryService.md)
 - [RestLayoutService](../classes/index.RestLayoutService.md)
 - [SitecoreContext](../classes/index.SitecoreContext.md)
@@ -37,13 +37,12 @@
 ### Interfaces
 
 - [CampaignInstance](../interfaces/index.CampaignInstance.md)
+- [ComponentConsumerProps](../interfaces/index.ComponentConsumerProps.md)
 - [ComponentFields](../interfaces/index.ComponentFields.md)
 - [ComponentParams](../interfaces/index.ComponentParams.md)
 - [ComponentRendering](../interfaces/index.ComponentRendering.md)
 - [DictionaryPhrases](../interfaces/index.DictionaryPhrases.md)
 - [DictionaryService](../interfaces/index.DictionaryService.md)
-- [EditingDataServiceConfig](../interfaces/index.EditingDataServiceConfig.md)
-- [EditingPreviewData](../interfaces/index.EditingPreviewData.md)
 - [EventInstance](../interfaces/index.EventInstance.md)
 - [Field](../interfaces/index.Field.md)
 - [FileField](../interfaces/index.FileField.md)
@@ -53,6 +52,9 @@
 - [HtmlElementRendering](../interfaces/index.HtmlElementRendering.md)
 - [HttpResponse](../interfaces/index.HttpResponse.md)
 - [ImageField](../interfaces/index.ImageField.md)
+- [ImageFieldValue](../interfaces/index.ImageFieldValue.md)
+- [ImageProps](../interfaces/index.ImageProps.md)
+- [ImageSizeParameters](../interfaces/index.ImageSizeParameters.md)
 - [Item](../interfaces/index.Item.md)
 - [LayoutService](../interfaces/index.LayoutService.md)
 - [LayoutServiceContext](../interfaces/index.LayoutServiceContext.md)
@@ -62,11 +64,15 @@
 - [LinkFieldValue](../interfaces/index.LinkFieldValue.md)
 - [OutcomeInstance](../interfaces/index.OutcomeInstance.md)
 - [PageViewInstance](../interfaces/index.PageViewInstance.md)
+- [PlaceholderComponentProps](../interfaces/index.PlaceholderComponentProps.md)
+- [PlaceholderData](../interfaces/index.PlaceholderData.md)
 - [RichTextField](../interfaces/index.RichTextField.md)
 - [RouteData](../interfaces/index.RouteData.md)
 - [SitecoreContextState](../interfaces/index.SitecoreContextState.md)
 - [TextField](../interfaces/index.TextField.md)
 - [TrackingRequestOptions](../interfaces/index.TrackingRequestOptions.md)
+- [WithSitecoreContextOptions](../interfaces/index.WithSitecoreContextOptions.md)
+- [WithSitecoreContextProps](../interfaces/index.WithSitecoreContextProps.md)
 
 ### Type aliases
 
@@ -75,7 +81,6 @@
 - [ComponentModule](index.md#componentmodule)
 - [ComponentPropsCollection](index.md#componentpropscollection)
 - [ComponentPropsContextProps](index.md#componentpropscontextprops)
-- [EditingData](index.md#editingdata)
 - [ErrorPages](index.md#errorpages)
 - [GetServerSideComponentProps](index.md#getserversidecomponentprops)
 - [GetStaticComponentProps](index.md#getstaticcomponentprops)
@@ -84,9 +89,12 @@
 - [GraphQLRobotsServiceConfig](index.md#graphqlrobotsserviceconfig)
 - [GraphQLSitemapXmlServiceConfig](index.md#graphqlsitemapxmlserviceconfig)
 - [HttpDataFetcher](index.md#httpdatafetcher)
+- [LinkProps](index.md#linkprops)
+- [NativeDataFetcherConfig](index.md#nativedatafetcherconfig)
 - [PlaceholdersData](index.md#placeholdersdata)
 - [RestDictionaryServiceConfig](index.md#restdictionaryserviceconfig)
 - [RestLayoutServiceConfig](index.md#restlayoutserviceconfig)
+- [RichTextProps](index.md#richtextprops)
 - [RobotsQueryResult](index.md#robotsqueryresult)
 - [SitecoreContextValue](index.md#sitecorecontextvalue)
 - [StaticPath](index.md#staticpath)
@@ -103,27 +111,27 @@
 - [SitecoreContextReactContext](index.md#sitecorecontextreactcontext)
 - [Text](index.md#text)
 - [VisitorIdentification](index.md#visitoridentification)
-- [editingDataService](index.md#editingdataservice)
 
 ### Functions
 
 - [ComponentPropsContext](index.md#componentpropscontext)
 - [Placeholder](index.md#placeholder)
+- [enableDebug](index.md#enabledebug)
 - [getChildPlaceholder](index.md#getchildplaceholder)
 - [getFieldValue](index.md#getfieldvalue)
+- [getPersonalizedRewrite](index.md#getpersonalizedrewrite)
+- [getPersonalizedRewriteData](index.md#getpersonalizedrewritedata)
 - [getPublicUrl](index.md#getpublicurl)
 - [handleEditorFastRefresh](index.md#handleeditorfastrefresh)
-- [handleExperienceEditorFastRefresh](index.md#handleexperienceeditorfastrefresh)
-- [isEditingData](index.md#iseditingdata)
 - [isEditorActive](index.md#iseditoractive)
-- [isExperienceEditorActive](index.md#isexperienceeditoractive)
+- [normalizePersonalizedRewrite](index.md#normalizepersonalizedrewrite)
+- [personalizeLayout](index.md#personalizelayout)
 - [resetEditorChromes](index.md#reseteditorchromes)
-- [resetExperienceEditorChromes](index.md#resetexperienceeditorchromes)
+- [resolveUrl](index.md#resolveurl)
 - [useComponentProps](index.md#usecomponentprops)
 - [useSitecoreContext](index.md#usesitecorecontext)
 - [withDatasourceCheck](index.md#withdatasourcecheck)
 - [withEditorChromes](index.md#witheditorchromes)
-- [withExperienceEditorChromes](index.md#withexperienceeditorchromes)
 - [withPlaceholder](index.md#withplaceholder)
 - [withSitecoreContext](index.md#withsitecorecontext)
 
@@ -186,7 +194,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-module.ts:14](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L14)
+[sitecore-jss-nextjs/src/sharedTypes/component-module.ts:14](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L14)
 
 ___
 
@@ -202,7 +210,7 @@ Shape of component props storage
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:7](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L7)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:7](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L7)
 
 ___
 
@@ -219,28 +227,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
-
-___
-
-### EditingData
-
-Ƭ **EditingData**: `Object`
-
-Data sent from Experience Editor
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `dictionary` | [`DictionaryPhrases`](../interfaces/index.DictionaryPhrases.md) |
-| `language` | `string` |
-| `layoutData` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) |
-| `path` | `string` |
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/sharedTypes/editing-data.ts:7](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L7)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
 
 ___
 
@@ -271,7 +258,7 @@ Shape of getServerSideProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:23](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L23)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:23](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L23)
 
 ___
 
@@ -283,7 +270,7 @@ Shape of getStaticProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:28](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L28)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:28](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L28)
 
 ___
 
@@ -400,6 +387,26 @@ sitecore-jss/types/data-fetcher.d.ts:24
 
 ___
 
+### LinkProps
+
+Ƭ **LinkProps**: `ReactLinkProps` & { `internalLinkMatcher?`: `RegExp`  }
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
+
+___
+
+### NativeDataFetcherConfig
+
+Ƭ **NativeDataFetcherConfig**: `NativeDataFetcherOptions` & `RequestInit`
+
+#### Defined in
+
+sitecore-jss/types/native-fetcher.d.ts:17
+
+___
+
 ### PlaceholdersData
 
 Ƭ **PlaceholdersData**<`TYPEDNAME`\>: { [P in TYPEDNAME]: (ComponentRendering \| HtmlElementRendering)[] }
@@ -415,7 +422,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:59
+sitecore-jss/types/layout/models.d.ts:57
 
 ___
 
@@ -450,6 +457,16 @@ sitecore-jss/types/layout/rest-layout-service.d.ts:14
 
 ___
 
+### RichTextProps
+
+Ƭ **RichTextProps**: `ReactRichTextProps` & { `internalLinksSelector?`: `string`  }
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
+
+___
+
 ### RobotsQueryResult
 
 Ƭ **RobotsQueryResult**: `Object`
@@ -476,7 +493,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:15
+sitecore-jss-react/types/components/SitecoreContext.d.ts:16
 
 ___
 
@@ -496,7 +513,7 @@ Object model of a site page item.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:59](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L59)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:147](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L147)
 
 ## Variables
 
@@ -508,13 +525,13 @@ Component props context which we are using in order to store data fetched on com
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
 
 ___
 
 ### DateField
 
-• **DateField**: `React.SFC`<`DateFieldProps`\>
+• **DateField**: `React.FC`<`DateFieldProps`\>
 
 #### Defined in
 
@@ -524,7 +541,7 @@ ___
 
 ### File
 
-• **File**: `React.SFC`<`FileProps`\>
+• **File**: `React.FC`<`FileProps`\>
 
 #### Defined in
 
@@ -534,7 +551,7 @@ ___
 
 ### Image
 
-• **Image**: `React.SFC`<`ImageProps`\>
+• **Image**: `React.FC`<[`ImageProps`](../interfaces/index.ImageProps.md)\>
 
 #### Defined in
 
@@ -544,49 +561,21 @@ ___
 
 ### Link
 
-• **Link**: `Object`
-
-#### Call signature
-
-▸ (`props`): `Element`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `props` | `LinkProps` |
-
-##### Returns
-
-`Element`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `defaultProps` | `Object` |
-| `defaultProps.editable` | `boolean` |
-| `displayName` | `string` |
-| `propTypes` | `Object` |
-| `propTypes.children` | `Requireable`<`ReactNodeLike`\> |
-| `propTypes.editable` | `Requireable`<`boolean`\> |
-| `propTypes.field` | `Validator`<`InferProps`<`Object`\> \| `InferProps`<`Object`\>\> |
-| `propTypes.internalLinkMatcher` | `Requireable`<`RegExp`\> |
-| `propTypes.showLinkTextWithChildrenPresent` | `Requireable`<`boolean`\> |
+• **Link**: `ForwardRefExoticComponent`<`Pick`<[`LinkProps`](index.md#linkprops), ``"key"`` \| keyof `AnchorHTMLAttributes`<`HTMLAnchorElement`\> \| ``"field"`` \| ``"editable"`` \| ``"showLinkTextWithChildrenPresent"`` \| ``"internalLinkMatcher"``\> & `RefAttributes`<`HTMLAnchorElement`\>\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/components/Link.tsx#L20)
+[sitecore-jss-nextjs/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/Link.tsx#L20)
 
 ___
 
 ### NextImage
 
-• **NextImage**: `React.SFC`<`NextImageProps`\>
+• **NextImage**: `React.FC`<`NextImageProps`\>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/NextImage.tsx:26](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L26)
+[sitecore-jss-nextjs/src/components/NextImage.tsx:26](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L26)
 
 ___
 
@@ -602,7 +591,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `RichTextProps` |
+| `props` | [`RichTextProps`](index.md#richtextprops) |
 
 ##### Returns
 
@@ -624,7 +613,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:20](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L20)
+[sitecore-jss-nextjs/src/components/RichText.tsx:20](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L20)
 
 ___
 
@@ -634,7 +623,7 @@ ___
 
 #### Defined in
 
-sitecore-jss-react/types/components/SitecoreContext.d.ts:13
+sitecore-jss-react/types/components/SitecoreContext.d.ts:14
 
 ___
 
@@ -650,23 +639,11 @@ ___
 
 ### VisitorIdentification
 
-• **VisitorIdentification**: `React.FC`<`Object`\>
+• **VisitorIdentification**: `React.FC`<`VisitorIdentificationProps`\>
 
 #### Defined in
 
-sitecore-jss-react/types/components/VisitorIdentification.d.ts:2
-
-___
-
-### editingDataService
-
-• **editingDataService**: [`EditingDataService`](../classes/index.EditingDataService.md)
-
-EditingDataService singleton (with default values)
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/services/editing-data-service.ts:104](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/services/editing-data-service.ts#L104)
+sitecore-jss-react/types/components/VisitorIdentification.d.ts:5
 
 ## Functions
 
@@ -686,7 +663,7 @@ EditingDataService singleton (with default values)
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
 
 ___
 
@@ -698,7 +675,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `props` | `PlaceholderComponentProps` |
+| `props` | [`PlaceholderComponentProps`](../interfaces/index.PlaceholderComponentProps.md) |
 
 #### Returns
 
@@ -706,7 +683,29 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
+[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
+
+___
+
+### enableDebug
+
+▸ `Const` **enableDebug**(`namespaces`): `void`
+
+Enable debug logging dynamically
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `namespaces` | `string` | space-separated list of namespaces to enable |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+sitecore-jss/types/debug.d.ts:7
 
 ___
 
@@ -731,7 +730,7 @@ child placeholder
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:17
+sitecore-jss/types/layout/utils.d.ts:20
 
 ___
 
@@ -750,18 +749,20 @@ Null will be returned if the field is not defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](../interfaces/index.ComponentRendering.md) \| `Fields` |
-| `fieldName` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `renderingOrFields` | [`ComponentRendering`](../interfaces/index.ComponentRendering.md) \| `Fields` | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
 
 `T` \| `undefined`
 
+the field value or null if the field is not defined
+
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:9
+sitecore-jss/types/layout/utils.d.ts:12
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -785,7 +786,56 @@ sitecore-jss/types/layout/utils.d.ts:9
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:10
+sitecore-jss/types/layout/utils.d.ts:13
+
+___
+
+### getPersonalizedRewrite
+
+▸ **getPersonalizedRewrite**(`pathname`, `data`): `string`
+
+Get a personalized rewrite path for given pathname
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pathname` | `string` | the pathname |
+| `data` | `PersonalizedRewriteData` | the personalize data to include in the rewrite |
+
+#### Returns
+
+`string`
+
+the rewrite path
+
+#### Defined in
+
+sitecore-jss/types/personalize/utils.d.ts:12
+
+___
+
+### getPersonalizedRewriteData
+
+▸ **getPersonalizedRewriteData**(`pathname`): `PersonalizedRewriteData`
+
+Get personalize data from the rewrite path
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pathname` | `string` | the pathname |
+
+#### Returns
+
+`PersonalizedRewriteData`
+
+the personalize data from the rewrite
+
+#### Defined in
+
+sitecore-jss/types/personalize/utils.d.ts:18
 
 ___
 
@@ -794,7 +844,7 @@ ___
 ▸ `Const` **getPublicUrl**(): `string`
 
 Get the publicUrl.
-This is used primarily to enable compatibility with the Sitecore Experience Editor.
+This is used primarily to enable compatibility with Sitecore editors.
 This is set to http://localhost:3000 by default.
 VERCEL_URL is provided by Vercel in case if we are in Preview deployment (deployment based on the custom branch),
 preview deployment has unique url, we don't know exact url.
@@ -805,7 +855,7 @@ preview deployment has unique url, we don't know exact url.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils.ts:11](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/utils.ts#L11)
+[sitecore-jss-nextjs/src/utils.ts:11](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/utils.ts#L11)
 
 ___
 
@@ -831,55 +881,7 @@ Since Sitecore editors do not support Fast Refresh:
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils.ts:40](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/utils.ts#L40)
-
-___
-
-### handleExperienceEditorFastRefresh
-
-▸ `Const` **handleExperienceEditorFastRefresh**(`forceReload?`): `void`
-
-Since Sitecore editors do not support Fast Refresh:
-1. Subscribe on events provided by webpack.
-2. Reset editor chromes when build is finished
-
-**`deprecated`** Will be removed in a future release. Please use handleEditorFastRefresh instead.
-
-**`default`** forceReload false
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `forceReload` | `boolean` | `false` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/utils.ts:79](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/utils.ts#L79)
-
-___
-
-### isEditingData
-
-▸ **isEditingData**(`data`): data is EditingData
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `data` | `unknown` |
-
-#### Returns
-
-data is EditingData
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/sharedTypes/editing-data.ts:17](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/sharedTypes/editing-data.ts#L17)
+[sitecore-jss-nextjs/src/utils.ts:40](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/utils.ts#L40)
 
 ___
 
@@ -902,23 +904,50 @@ sitecore-jss/types/utils/editing.d.ts:36
 
 ___
 
-### isExperienceEditorActive
+### normalizePersonalizedRewrite
 
-▸ `Const` **isExperienceEditorActive**(): `boolean`
+▸ **normalizePersonalizedRewrite**(`pathname`): `string`
 
-Determines whether the current execution context is within the Sitecore Experience Editor
+Normalize a personalized rewrite path (remove personalize data)
 
-**`deprecated`** Will be removed in a future release. Please use isEditorActive instead.
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pathname` | `string` | the pathname |
 
 #### Returns
 
-`boolean`
+`string`
 
-true if executing within the Sitecore Experience Editor
+the pathname with personalize data removed
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:56
+sitecore-jss/types/personalize/utils.d.ts:24
+
+___
+
+### personalizeLayout
+
+▸ **personalizeLayout**(`layout`, `variantId`): `void`
+
+Apply personalization to layout data. This will recursively go through all placeholders/components, check experiences nodes and replace default with object from specific experience.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `layout` | [`LayoutServiceData`](../interfaces/index.LayoutServiceData.md) | Layout data |
+| `variantId` | `string` | variant id |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+sitecore-jss/types/personalize/layout-personalizer.d.ts:12
 
 ___
 
@@ -938,21 +967,31 @@ sitecore-jss/types/utils/editing.d.ts:40
 
 ___
 
-### resetExperienceEditorChromes
+### resolveUrl
 
-▸ `Const` **resetExperienceEditorChromes**(): `void`
+▸ **resolveUrl**(`urlBase`, `params?`): `string`
 
-Resets Sitecore Experience Editor "chromes"
+Resolves a base URL that may contain query string parameters and an additional set of query
+string parameters into a unified string representation.
 
-**`deprecated`** Will be removed in a future release. Please use resetEditorChromes instead.
+**`throws`** {RangeError} if the provided url is an empty string
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `urlBase` | `string` | the base URL that may contain query string parameters |
+| `params?` | `ParsedUrlQueryInput` | query string parameters |
 
 #### Returns
 
-`void`
+`string`
+
+a URL string
 
 #### Defined in
 
-sitecore-jss/types/utils/editing.d.ts:61
+sitecore-jss/types/utils/utils.d.ts:11
 
 ___
 
@@ -984,7 +1023,7 @@ component props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
 
 ___
 
@@ -992,7 +1031,7 @@ ___
 
 ▸ **useSitecoreContext**(`options?`): `Object`
 
-This hook grants acсess to the current SiteCore page context
+This hook grants acсess to the current Sitecore page context
 by default JSS includes the following properties in this context:
 - pageEditing - Provided by Layout Service, a boolean indicating whether the route is being accessed via the Experience Editor.
 - pageState - Like pageEditing, but a string: normal, preview or edit.
@@ -1017,7 +1056,7 @@ const EditMode = () => {
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `WithSitecoreContextOptions` |
+| `options?` | [`WithSitecoreContextOptions`](../interfaces/index.WithSitecoreContextOptions.md) |
 
 #### Returns
 
@@ -1104,7 +1143,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `WrappedComponent` | `ComponentClass`<`unknown`, `any`\> \| `SFC`<`unknown`\> |
+| `WrappedComponent` | `ComponentClass`<`unknown`, `any`\> \| `FC`<`unknown`\> |
 
 #### Returns
 
@@ -1113,28 +1152,6 @@ ___
 #### Defined in
 
 sitecore-jss-react/types/enhancers/withEditorChromes.d.ts:2
-
-___
-
-### withExperienceEditorChromes
-
-▸ `Const` **withExperienceEditorChromes**(`WrappedComponent`): `ComponentClass`<`Object`, `any`\>
-
-**`deprecated`** Will be removed in a future release. Please use withEditorChromes instead.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `WrappedComponent` | `ComponentClass`<`unknown`, `any`\> \| `SFC`<`unknown`\> |
-
-#### Returns
-
-`ComponentClass`<`Object`, `any`\>
-
-#### Defined in
-
-sitecore-jss-react/types/enhancers/withEditorChromes.d.ts:6
 
 ___
 
@@ -1195,7 +1212,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `WithSitecoreContextOptions` |
+| `options?` | [`WithSitecoreContextOptions`](../interfaces/index.WithSitecoreContextOptions.md) |
 
 #### Returns
 
@@ -1207,7 +1224,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `ComponentProps` | extends `ComponentConsumerProps` |
+| `ComponentProps` | extends [`ComponentConsumerProps`](../interfaces/index.ComponentConsumerProps.md) |
 
 ##### Parameters
 

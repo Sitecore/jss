@@ -5,7 +5,7 @@
   background: $title-bg;
   h1,
   .field-title {
-    a, span {
+    >a, >span {
       @include border-basic(bottom, $border-basic-color);
       font-size: $font-extrabig;
       margin-bottom: $small-margin;

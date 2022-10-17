@@ -11,6 +11,7 @@ export type RedirectInfo = {
   target: string;
   redirectType: string;
   isQueryStringPreserved: boolean;
+  locale: string;
 };
 
 // The default query for request redirects of site
@@ -23,6 +24,7 @@ const defaultQuery = /* GraphQL */ `
           target
           redirectType
           isQueryStringPreserved
+          locale
         }
       }
     }
@@ -52,9 +54,12 @@ export type GraphQLRedirectsServiceConfig = {
  * The schema of data returned in response to redirects array request
  */
 export type RedirectsQueryResult = {
-  site: { siteInfo: { redirects: RedirectInfo[] } };
+  site: { siteInfo: { redirects: RedirectInfo[] } | null };
 };
 
+/**
+ *  The GraphQLRedirectsService class is used to query the JSS redirects using Graphql endpoint
+ */
 export class GraphQLRedirectsService {
   private graphQLClient: GraphQLClient;
 

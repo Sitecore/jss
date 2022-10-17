@@ -51,7 +51,7 @@ LayoutServiceBase.constructor
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:55
+sitecore-jss/types/layout/rest-layout-service.d.ts:57
 
 ## Properties
 
@@ -99,7 +99,7 @@ default fetcher
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:95
+sitecore-jss/types/layout/rest-layout-service.d.ts:98
 
 ___
 
@@ -127,7 +127,7 @@ fetch options
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:82
+sitecore-jss/types/layout/rest-layout-service.d.ts:85
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:54
+sitecore-jss/types/layout/rest-layout-service.d.ts:56
 
 ## Methods
 
@@ -147,14 +147,16 @@ sitecore-jss/types/layout/rest-layout-service.d.ts:54
 
 Fetch layout data for an item.
 
+**`throws`** {Error} the item with the specified path is not found
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `itemPath` | `string` |
-| `language?` | `string` |
-| `req?` | `IncomingMessage` |
-| `res?` | `ServerResponse` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `itemPath` | `string` | item path to fetch layout data for. |
+| `language?` | `string` | - |
+| `req?` | `IncomingMessage` | - |
+| `res?` | `ServerResponse` | - |
 
 #### Returns
 
@@ -168,13 +170,13 @@ LayoutServiceBase.fetchLayoutData
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:64
+sitecore-jss/types/layout/rest-layout-service.d.ts:67
 
 ___
 
 ### fetchPlaceholderData
 
-▸ **fetchPlaceholderData**(`placeholderName`, `itemPath`, `language?`, `req?`, `res?`): `Promise`<`PlaceholderData`\>
+▸ **fetchPlaceholderData**(`placeholderName`, `itemPath`, `language?`, `req?`, `res?`): `Promise`<[`PlaceholderData`](../interfaces/index.PlaceholderData.md)\>
 
 Fetch layout data for a particular placeholder.
 Makes a request to Sitecore Layout Service for the specified placeholder in
@@ -182,23 +184,23 @@ a specific route item. Allows you to retrieve rendered data for individual place
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `placeholderName` | `string` |
-| `itemPath` | `string` |
-| `language?` | `string` |
-| `req?` | `IncomingMessage` |
-| `res?` | `ServerResponse` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `placeholderName` | `string` | the name of the placeholder to fetch layout data for. |
+| `itemPath` | `string` | the path to the item to fetch layout data for. |
+| `language?` | `string` | - |
+| `req?` | `IncomingMessage` | - |
+| `res?` | `ServerResponse` | - |
 
 #### Returns
 
-`Promise`<`PlaceholderData`\>
+`Promise`<[`PlaceholderData`](../interfaces/index.PlaceholderData.md)\>
 
 placeholder data
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:76
+sitecore-jss/types/layout/rest-layout-service.d.ts:79
 
 ___
 
@@ -222,7 +224,7 @@ the layout service url
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:88
+sitecore-jss/types/layout/rest-layout-service.d.ts:91
 
 ___
 
@@ -234,9 +236,9 @@ Setup request headers
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `req` | `IncomingMessage` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `req` | `IncomingMessage` | Request instance |
 
 #### Returns
 
@@ -262,7 +264,7 @@ axios request config
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:101
+sitecore-jss/types/layout/rest-layout-service.d.ts:104
 
 ___
 
@@ -274,9 +276,9 @@ Setup response headers based on response from layout service
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `res` | `ServerResponse` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `res` | `ServerResponse` | Response instance |
 
 #### Returns
 
@@ -302,4 +304,4 @@ response
 
 #### Defined in
 
-sitecore-jss/types/layout/rest-layout-service.d.ts:107
+sitecore-jss/types/layout/rest-layout-service.d.ts:110

@@ -53,7 +53,7 @@ DictionaryServiceBase.constructor
 
 #### Defined in
 
-sitecore-jss/types/i18n/rest-dictionary-service.d.ts:39
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:40
 
 ## Properties
 
@@ -67,7 +67,7 @@ DictionaryServiceBase.options
 
 #### Defined in
 
-sitecore-jss/types/i18n/rest-dictionary-service.d.ts:34
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:35
 
 ## Accessors
 
@@ -83,7 +83,7 @@ Provides default @see AxiosDataFetcher data fetcher
 
 #### Defined in
 
-sitecore-jss/types/i18n/rest-dictionary-service.d.ts:38
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:39
 
 ## Methods
 
@@ -95,13 +95,15 @@ Fetch dictionary data for a language.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `language` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 
 `Promise`<[`DictionaryPhrases`](../interfaces/index.DictionaryPhrases.md)\>
+
+dictionary phrases
 
 #### Overrides
 
@@ -109,7 +111,7 @@ DictionaryServiceBase.fetchDictionaryData
 
 #### Defined in
 
-sitecore-jss/types/i18n/rest-dictionary-service.d.ts:44
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:46
 
 ___
 
@@ -173,17 +175,19 @@ Generate dictionary service url
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `language` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `language` | `string` | the language to be used to fetch the dictionary |
 
 #### Returns
 
 `string`
 
+dictionary service url
+
 #### Defined in
 
-sitecore-jss/types/i18n/rest-dictionary-service.d.ts:49
+sitecore-jss/types/i18n/rest-dictionary-service.d.ts:52
 
 ___
 

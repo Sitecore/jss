@@ -3,7 +3,7 @@ import { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/u
 
 /**
  * Get the publicUrl.
- * This is used primarily to enable compatibility with the Sitecore Experience Editor.
+ * This is used primarily to enable compatibility with Sitecore editors.
  * This is set to http://localhost:3000 by default.
  * VERCEL_URL is provided by Vercel in case if we are in Preview deployment (deployment based on the custom branch),
  * preview deployment has unique url, we don't know exact url.
@@ -67,16 +67,6 @@ export const handleEditorFastRefresh = (forceReload = false): void => {
     }, 500);
   };
 };
-
-/**
- * Since Sitecore editors do not support Fast Refresh:
- * 1. Subscribe on events provided by webpack.
- * 2. Reset editor chromes when build is finished
- * @deprecated Will be removed in a future release. Please use handleEditorFastRefresh instead.
- * @param {boolean} [forceReload] force page reload instead of reset chromes
- * @default forceReload false
- */
-export const handleExperienceEditorFastRefresh = handleEditorFastRefresh;
 
 export const getJssEditingSecret = (): string => {
   const secret = process.env.JSS_EDITING_SECRET;

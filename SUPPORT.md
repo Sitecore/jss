@@ -11,7 +11,7 @@ https://jss.sitecore.com
 * [Sitecore Stack Exchange](https://sitecore.stackexchange.com/questions/tagged/jss)
   - Be sure to tag your question with the `jss` tag.
 * [Sitecore Community Slack](https://sitecorechat.slack.com)
-  - Use the dedicated `#jss` channel
+  - Use the dedicated `#headless` channel
   - If you're not already a member of the Sitecore Community Slack, you can find more information here: https://siteco.re/sitecoreslack
 * [Sitecore Community Forum](https://community.sitecore.net/developers/f/40)
 

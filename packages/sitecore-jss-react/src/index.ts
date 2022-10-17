@@ -1,10 +1,5 @@
-export { constants } from '@sitecore-jss/sitecore-jss';
-export {
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
-  isEditorActive,
-  resetEditorChromes,
-} from '@sitecore-jss/sitecore-jss/utils';
+export { constants, enableDebug } from '@sitecore-jss/sitecore-jss';
+export { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
   LayoutServiceData,
@@ -41,7 +36,14 @@ export {
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { ComponentFactory } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
-export { Image, ImageProps, ImageField, getEEMarkup, ImageFieldValue } from './components/Image';
+export {
+  Image,
+  ImageProps,
+  ImageField,
+  getEEMarkup,
+  ImageFieldValue,
+  ImageSizeParameters,
+} from './components/Image';
 export { RichText, RichTextProps, RichTextPropTypes, RichTextField } from './components/RichText';
 export { Text, TextField } from './components/Text';
 export { DateField } from './components/Date';
@@ -54,7 +56,14 @@ export {
   SitecoreContextValue,
   SitecoreContextReactContext,
 } from './components/SitecoreContext';
-export { withSitecoreContext, useSitecoreContext } from './enhancers/withSitecoreContext';
-export { withEditorChromes, withExperienceEditorChromes } from './enhancers/withEditorChromes';
+export {
+  withSitecoreContext,
+  useSitecoreContext,
+  ComponentConsumerProps,
+  WithSitecoreContextOptions,
+  WithSitecoreContextProps,
+  WithSitecoreContextHocProps,
+} from './enhancers/withSitecoreContext';
+export { withEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';

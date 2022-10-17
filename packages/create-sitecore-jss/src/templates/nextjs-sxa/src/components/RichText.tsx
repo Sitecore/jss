@@ -16,9 +16,10 @@ export const Default = (props: RichTextProps): JSX.Element => {
   ) : (
     <span className="is-empty-hint">Rich text</span>
   );
+  const id = props.params.RenderingIdentifier;
 
   return (
-    <div className={`component rich-text ${props.params.styles.trimEnd()}`}>
+    <div className={`component rich-text ${props.params.styles.trimEnd()}`} id={id ? id : undefined} >
       <div className="component-content">{text}</div>
     </div>
   );

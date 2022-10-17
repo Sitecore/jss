@@ -1,0 +1,8 @@
+fields:
+  pageTitle: Styleguide Tracking | Sitecore JSS
+placeholders:
+  <%- helper.getAppPrefix(appPrefix, appName) %>jss-main:
+    - componentName: Styleguide-Tracking
+      fields:
+        heading: Tracking
+        description: <p><small>JSS supports tracking Sitecore analytics events from within apps. Give it a try with this handy interactive demo.</small></p>

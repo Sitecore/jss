@@ -97,7 +97,7 @@ const main = async () => {
   }
 
   try {
-    await initRunner(templates, { ...argv, destination, templates });
+    await initRunner(templates.slice(), { ...argv, destination, templates });
   } catch (error) {
     console.log(chalk.red('An error occurred: ', error));
     process.exit(1);

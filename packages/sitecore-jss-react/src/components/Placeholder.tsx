@@ -2,16 +2,14 @@ import React from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { HorizonEditor } from '@sitecore-jss/sitecore-jss/utils';
+import { HorizonEditor, ExperienceEditor } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
   /**
    * Render props function that is called when the placeholder contains no content components.
    * Can be used to wrap the Sitecore EE empty placeholder markup in something that's visually correct
    */
-  renderEmpty?: (
-    components: React.ReactNode[]
-  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
+  renderEmpty?: (components: React.ReactNode[]) => React.ReactNode;
   /**
    * Render props function that enables control over the rendering of the components in the placeholder.
    * Useful for techniques like wrapping each child in a wrapper component.
@@ -20,16 +18,13 @@ export interface PlaceholderComponentProps extends PlaceholderProps {
     components: React.ReactNode[],
     data: (ComponentRendering | HtmlElementRendering)[],
     props: PlaceholderProps
-  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
+  ) => React.ReactNode;
 
   /**
    * Render props function that is called for each non-system component added to the placeholder.
    * Mutually exclusive with `render`. System components added during Experience Editor are automatically rendered as-is.
    */
-  renderEach?: (
-    component: React.ReactNode,
-    index: number
-  ) => React.ComponentClass<unknown> | React.SFC<unknown> | React.ReactNode;
+  renderEach?: (component: React.ReactNode, index: number) => React.ReactNode;
 }
 
 /**
@@ -94,11 +89,44 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
       renderingData,
       this.props.name
     );
-    const components = this.getComponentsForRenderingData(placeholderData);
 
     this.isEmpty = placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>
       isRawRendering(rendering)
     );
+
+    // This is a workaround to insert Experience Editor-specific markup on the page for empty placeholders.
+    // It makes sure the markup is inserted by react and thus avoiding hydration errors when in editing mode
+    if (this.isEmpty && ExperienceEditor.isActive()) {
+      const codePos = placeholderData.findIndex(
+        (component) =>
+          (component as HtmlElementRendering).name === 'code' &&
+          (component as HtmlElementRendering).attributes.kind === 'open'
+      );
+      const plhId = (placeholderData[codePos] as HtmlElementRendering).attributes.id;
+      const emptyPlaceholderMarkup: HtmlElementRendering[] = [
+        {
+          name: 'span',
+          contents: null,
+          attributes: {
+            type: 'text/sitecore',
+            'sc-part-of': 'placeholder rendering',
+            style: 'display: none;',
+          },
+        },
+        {
+          name: 'div',
+          contents: null,
+          attributes: {
+            class: 'scEnabledChrome scEmptyPlaceholder',
+            'sc-part-of': 'placeholder',
+            'sc-placeholder-id': plhId,
+          },
+        },
+      ];
+      placeholderData.splice(codePos + 1, 0, ...emptyPlaceholderMarkup);
+    }
+
+    const components = this.getComponentsForRenderingData(placeholderData);
 
     if (this.props.renderEmpty && this.isEmpty) {
       const rendered = this.props.renderEmpty(components);

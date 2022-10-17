@@ -1,4 +1,4 @@
-﻿import { DisconnectedSitemapService } from '@sitecore-jss/sitecore-jss-nextjs';
+﻿import { DisconnectedSitemapService, constants } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ManifestInstance } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { SitemapFetcherPlugin } from '..';
 
@@ -16,7 +16,7 @@ class DisconnectedSitemapServicePlugin implements SitemapFetcherPlugin {
    */
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   getManifest() {
-    if (process.env.JSS_MODE !== 'disconnected') return null;
+    if (process.env.JSS_MODE !== constants.JSS_MODE.DISCONNECTED) return null;
 
     try {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -34,7 +34,7 @@ class DisconnectedSitemapServicePlugin implements SitemapFetcherPlugin {
     // If we are in Export mode
     if (process.env.EXPORT_MODE) {
       // Disconnected Export mode
-      if (process.env.JSS_MODE === 'disconnected') {
+      if (process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED) {
         return this._disconnectedSitemapService.fetchExportSitemap();
       }
     }

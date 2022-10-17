@@ -4,6 +4,7 @@ import { trackEvent } from './trackingApi';
 import { AxiosDataFetcher } from '../axios-fetcher';
 import { AxiosResponse } from 'axios';
 import nock from 'nock';
+import { checkStatus } from './trackingApi';
 
 /**
  * Implements a data fetcher using Axios - replace with your favorite
@@ -18,6 +19,18 @@ function dataFetcher<ResponseType>(
 ): Promise<AxiosResponse<ResponseType>> {
   return new AxiosDataFetcher().fetch<ResponseType>(url, data);
 }
+
+describe('checkStatus', () => {
+  it('should throw an error if the response is not OK', () => {
+    const response = {
+      status: 500,
+      statusText: 'Internal Server Error',
+      data: {},
+    };
+
+    expect(() => checkStatus(response)).to.throw(Error);
+  });
+});
 
 describe('trackEvent', () => {
   afterEach(() => {

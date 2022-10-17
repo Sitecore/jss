@@ -12,7 +12,7 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/browser/",
             "index": "src/index.html",
@@ -31,7 +31,10 @@
             "allowedCommonJsDependencies": [
               "zen-observable",
               "js-sha256"
-            ]
+            ],
+            "customWebpackConfig": {
+              "path": "./webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
@@ -60,7 +63,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "<%- appName %>:build",
             "port": 3000,
@@ -127,7 +130,7 @@
         }
       }
     },
-    "<%- appName %>-e2e": {
+    "angular-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",

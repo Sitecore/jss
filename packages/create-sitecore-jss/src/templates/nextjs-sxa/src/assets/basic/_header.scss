@@ -16,7 +16,7 @@
 
 header {
   #header {
-    .title {
+    .bs-title {
       padding-left: 50px;
 
       h1 {
@@ -27,7 +27,7 @@ header {
         margin: 0;
       }
     }
-    
+
     @include respond-to(mobile-large) {
       padding-bottom: 0;
       padding-top: 0;

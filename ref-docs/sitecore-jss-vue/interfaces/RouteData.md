@@ -1,8 +1,14 @@
 [@sitecore-jss/sitecore-jss-vue](../README.md) / RouteData
 
-# Interface: RouteData
+# Interface: RouteData<Fields\>
 
 Shape of route data returned from Sitecore Layout Service
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Fields` | `Record`<`string`, [`Field`](Field.md) \| `Item` \| `Item`[]\> |
 
 ## Table of contents
 
@@ -29,7 +35,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:45
+sitecore-jss/types/layout/models.d.ts:43
 
 ___
 
@@ -39,7 +45,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:46
+sitecore-jss/types/layout/models.d.ts:44
 
 ___
 
@@ -55,11 +61,7 @@ ___
 
 ### fields
 
-• `Optional` **fields**: `Object`
-
-#### Index signature
-
-▪ [name: `string`]: [`Field`](Field.md)
+• `Optional` **fields**: `Fields`
 
 #### Defined in
 
@@ -73,7 +75,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:53
+sitecore-jss/types/layout/models.d.ts:51
 
 ___
 
@@ -83,7 +85,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:47
+sitecore-jss/types/layout/models.d.ts:45
 
 ___
 
@@ -93,7 +95,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:48
+sitecore-jss/types/layout/models.d.ts:46
 
 ___
 
@@ -103,7 +105,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:49
+sitecore-jss/types/layout/models.d.ts:47
 
 ___
 
@@ -123,7 +125,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:52
+sitecore-jss/types/layout/models.d.ts:50
 
 ___
 
@@ -133,7 +135,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:50
+sitecore-jss/types/layout/models.d.ts:48
 
 ___
 
@@ -143,4 +145,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:51
+sitecore-jss/types/layout/models.d.ts:49

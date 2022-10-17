@@ -71,7 +71,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
+[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
 
 ___
 
@@ -109,7 +109,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[layout/models.ts:64](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/layout/models.ts#L64)
+[layout/models.ts:62](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L62)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
 
 ## Functions
 
@@ -155,7 +155,7 @@ child placeholder
 
 #### Defined in
 
-[layout/utils.ts:58](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/layout/utils.ts#L58)
+[layout/utils.ts:62](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/utils.ts#L62)
 
 ___
 
@@ -174,18 +174,20 @@ Null will be returned if the field is not defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| `Fields` |
-| `fieldName` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| `Fields` | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
 
 `T` \| `undefined`
 
+the field value or null if the field is not defined
+
 #### Defined in
 
-[layout/utils.ts:9](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/layout/utils.ts#L9)
+[layout/utils.ts:12](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/utils.ts#L12)
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -197,16 +199,18 @@ Null will be returned if the field is not defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| `Fields` |
-| `fieldName` | `string` |
-| `defaultValue` | `T` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `renderingOrFields` | [`ComponentRendering`](../interfaces/layout.ComponentRendering.md) \| `Fields` | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
+| `defaultValue` | `T` | - |
 
 #### Returns
 
 `T`
 
+the field value or the default value if the field is not defined
+
 #### Defined in
 
-[layout/utils.ts:14](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/layout/utils.ts#L14)
+[layout/utils.ts:17](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/utils.ts#L17)

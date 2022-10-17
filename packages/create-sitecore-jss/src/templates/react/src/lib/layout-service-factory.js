@@ -1,28 +1,24 @@
 import {
-<% if (fetchWith.toUpperCase() === 'GRAPHQL') { -%>
-    GraphQLLayoutService
-<% } else if (fetchWith.toUpperCase() === 'REST') { -%>
-      RestLayoutService
-<% } -%>
+  GraphQLLayoutService,
+  RestLayoutService,
+  constants,
 } from '@sitecore-jss/sitecore-jss-react';
 import config from '../temp/config';
 
 export class LayoutServiceFactory {
   create() {
-    <% if (fetchWith.toUpperCase() === 'GRAPHQL') { -%>
-    return new GraphQLLayoutService({
-        endpoint: config.graphQLEndpoint,
-        apiKey: config.sitecoreApiKey,
-        siteName: config.jssAppName,
-      });
-    <% } else if (fetchWith.toUpperCase() === 'REST') { -%>
-    return new RestLayoutService({
-        apiHost: config.sitecoreApiHost,
-        apiKey: config.sitecoreApiKey,
-        siteName: config.jssAppName,
-        configurationName: 'default',
-      });
-    <% } -%>
+    return process.env.REACT_APP_FETCH_WITH === constants.FETCH_WITH.GRAPHQL
+      ? new GraphQLLayoutService({
+          endpoint: config.graphQLEndpoint,
+          apiKey: config.sitecoreApiKey,
+          siteName: config.jssAppName,
+        })
+      : new RestLayoutService({
+          apiHost: config.sitecoreApiHost,
+          apiKey: config.sitecoreApiKey,
+          siteName: config.jssAppName,
+          configurationName: 'default',
+        });
   }
 }
 

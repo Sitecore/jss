@@ -22,12 +22,28 @@ module.exports = {
     rules: [
       {
         test: /\.m?jsx?$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            plugins: ['@babel/plugin-proposal-export-namespace-from'],
+          },
+        },
+      },
+      {
+        test: /\.m?jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
             babelrc: false,
             presets: [env, reactApp],
+            plugins: [
+              [
+                '@babel/plugin-proposal-private-methods',
+                { loose: true }
+              ],
+              ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+            ]
           },
         },
       },
@@ -63,4 +79,12 @@ module.exports = {
     // > Critical dependency: the request of a dependency is an expression
     new webpack.NormalModuleReplacementPlugin(/\/iconv-loader$/, () => {}),
   ],
+  <% if (helper.isDev) { %>
+  resolve: {
+    symlinks: false,
+    alias: {
+      react: path.resolve(process.cwd(), '.', 'node_modules', 'react')
+    }
+  },
+  <% } %>
 };

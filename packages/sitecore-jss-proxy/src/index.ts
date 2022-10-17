@@ -4,7 +4,7 @@ import HttpStatus from 'http-status-codes';
 import setCookieParser, { Cookie } from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
 import { AppRenderer } from './AppRenderer';
-import { ProxyConfig } from './ProxyConfig';
+import { ProxyConfig, LayoutServiceData, ServerBundle } from './ProxyConfig';
 import { RenderResponse } from './RenderResponse';
 import { RouteUrlParser } from './RouteUrlParser';
 import { buildQueryString, tryParseJson } from './util';
@@ -158,6 +158,7 @@ async function renderAppToResponse(
     let errorResponse = {
       statusCode: proxyResponse.statusCode || HttpStatus.INTERNAL_SERVER_ERROR,
       content: proxyResponse.statusMessage || 'Internal Server Error',
+      headers: {},
     };
 
     if (config.onError) {
@@ -165,7 +166,11 @@ async function renderAppToResponse(
       errorResponse = { ...errorResponse, ...onError };
     }
 
-    completeProxyResponse(Buffer.from(errorResponse.content), errorResponse.statusCode, {});
+    completeProxyResponse(
+      Buffer.from(errorResponse.content),
+      errorResponse.statusCode,
+      errorResponse.headers
+    );
   }
 
   // callback handles the result of server-side rendering
@@ -257,7 +262,7 @@ async function renderAppToResponse(
   /**
    * @param {object} layoutServiceData
    */
-  async function createViewBag(layoutServiceData: { [key: string]: unknown }) {
+  async function createViewBag(layoutServiceData: LayoutServiceData) {
     let viewBag = {
       statusCode: proxyResponse.statusCode,
       dictionary: {},
@@ -300,7 +305,7 @@ async function renderAppToResponse(
         viewBag
       );
     } catch (error) {
-      return replyWithError(error);
+      return replyWithError(error as Error);
     }
   };
 }
@@ -575,3 +580,5 @@ export default function scProxy(
   const options = createOptions(renderer, config, parseRouteUrl);
   return proxy(options);
 }
+
+export { ProxyConfig, ServerBundle };

@@ -12,15 +12,15 @@
 const fs = require('fs');
 const path = require('path');
 const { createDefaultDisconnectedServer } = require('@sitecore-jss/sitecore-jss-dev-tools');
-const config = require('../package.json').config;
+const config = require('../src/temp/config');
 
 const touchToReloadFilePath = 'src/temp/config.js';
 
 const proxyOptions = {
   appRoot: path.join(__dirname, '..'),
-  appName: config.appName,
+  appName: config.jssAppName,
   watchPaths: ['./data'],
-  language: config.language,
+  language: config.defaultLanguage,
   port: process.env.PROXY_PORT || 3042,
   onManifestUpdated: (manifest) => {
     // if we can resolve the config file, we can alter it to force reloading the app automatically

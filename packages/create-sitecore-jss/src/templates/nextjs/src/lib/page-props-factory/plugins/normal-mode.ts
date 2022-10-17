@@ -1,29 +1,11 @@
-import { ParsedUrlQuery } from 'querystring';
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { DictionaryService, LayoutService } from '@sitecore-jss/sitecore-jss-nextjs';
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { SitecorePageProps } from 'lib/page-props';
+import config from 'temp/config';
 import { Plugin, isServerSidePropsContext } from '..';
-import pkg from '../../../../package.json';
-
-/**
- * Extract normalized Sitecore item path from query
- * @param {ParsedUrlQuery | undefined} params
- */
-function extractPath(params: ParsedUrlQuery | undefined): string {
-  if (params === undefined) {
-    return '/';
-  }
-  let path = Array.isArray(params.path) ? params.path.join('/') : params.path ?? '/';
-
-  // Ensure leading '/'
-  if (!path.startsWith('/')) {
-    path = '/' + path;
-  }
-
-  return path;
-}
+import { extractPath } from '../extract-path';
 
 class NormalModePlugin implements Plugin {
   private dictionaryService: DictionaryService;
@@ -45,8 +27,8 @@ class NormalModePlugin implements Plugin {
     // Get normalized Sitecore item path
     const path = extractPath(context.params);
 
-    // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
-    props.locale = context.locale ?? pkg.config.language;
+    // Use context locale if Next.js i18n is configured, otherwise use default language
+    props.locale = context.locale ?? config.defaultLanguage;
 
     // Fetch layout data, passing on req/res for SSR
     props.layoutData = await this.layoutService.fetchLayoutData(

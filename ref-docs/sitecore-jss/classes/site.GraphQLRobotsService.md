@@ -42,7 +42,7 @@ Creates an instance of graphQL robots.txt service with the provided options
 
 #### Defined in
 
-[site/graphql-robots-service.ts:50](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/site/graphql-robots-service.ts#L50)
+[site/graphql-robots-service.ts:50](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-robots-service.ts#L50)
 
 ## Properties
 
@@ -52,7 +52,7 @@ Creates an instance of graphQL robots.txt service with the provided options
 
 #### Defined in
 
-[site/graphql-robots-service.ts:40](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/site/graphql-robots-service.ts#L40)
+[site/graphql-robots-service.ts:40](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-robots-service.ts#L40)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[site/graphql-robots-service.ts:42](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/site/graphql-robots-service.ts#L42)
+[site/graphql-robots-service.ts:42](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-robots-service.ts#L42)
 
 ## Methods
 
@@ -92,7 +92,7 @@ text of robots.txt
 
 #### Defined in
 
-[site/graphql-robots-service.ts:59](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/site/graphql-robots-service.ts#L59)
+[site/graphql-robots-service.ts:59](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-robots-service.ts#L59)
 
 ___
 
@@ -112,4 +112,4 @@ implementation
 
 #### Defined in
 
-[site/graphql-robots-service.ts:84](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/site/graphql-robots-service.ts#L84)
+[site/graphql-robots-service.ts:84](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-robots-service.ts#L84)

@@ -7,9 +7,11 @@ import { GetServerSideProps } from 'next';
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
 import {
+  RenderingType,
   SitecoreContext,
   ComponentPropsContext,
   handleEditorFastRefresh,
+  EditingComponentPlaceholder,
   <% if (prerender === 'SSG') { -%>
   StaticPath,
   <% } -%>
@@ -35,6 +37,8 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
   }
 
   const isEditing = layoutData.sitecore.context.pageEditing;
+  const isComponentRendering =
+    layoutData.sitecore.context.renderingType === RenderingType.Component;
 
   return (
     <ComponentPropsContext value={componentProps}>
@@ -42,7 +46,15 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
         componentFactory={isEditing ? editingComponentFactory : componentFactory}
         layoutData={layoutData}
       >
-        <Layout layoutData={layoutData} />
+        {/*
+          Sitecore Pages supports component rendering to avoid refreshing the entire page during component editing.
+          If you are using Experience Editor only, this logic can be removed, Layout can be left.
+        */}
+        {isComponentRendering ? (
+          <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
+        ) : (
+          <Layout layoutData={layoutData} />
+        )}
       </SitecoreContext>
     </ComponentPropsContext>
   );
@@ -63,12 +75,12 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   let paths: StaticPath[] = [];
   let fallback: boolean | 'blocking' = 'blocking';
 
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV !== 'development' && !process.env.DISABLE_SSG_FETCH) {
     try {
       // Note: Next.js runs export in production mode
       paths = await sitemapFetcher.fetch(context);
     } catch (error) {
-      console.log('Error occurred while generating static paths');
+      console.log('Error occurred while fetching static paths');
       console.log(error);
     }
 

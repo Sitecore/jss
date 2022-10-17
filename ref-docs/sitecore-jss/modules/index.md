@@ -12,6 +12,7 @@
 
 - [AxiosDataFetcher](../classes/index.AxiosDataFetcher.md)
 - [GraphQLRequestClient](../classes/index.GraphQLRequestClient.md)
+- [NativeDataFetcher](../classes/index.NativeDataFetcher.md)
 
 ### Interfaces
 
@@ -24,6 +25,7 @@
 - [Debugger](index.md#debugger)
 - [GraphQLRequestClientConfig](index.md#graphqlrequestclientconfig)
 - [HttpDataFetcher](index.md#httpdatafetcher)
+- [NativeDataFetcherConfig](index.md#nativedatafetcherconfig)
 
 ### Properties
 
@@ -31,6 +33,7 @@
 
 ### Functions
 
+- [enableDebug](index.md#enabledebug)
 - [fetchData](index.md#fetchdata)
 
 ## Type aliases
@@ -41,7 +44,7 @@
 
 #### Defined in
 
-[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/axios-fetcher.ts#L35)
 
 ___
 
@@ -51,7 +54,7 @@ ___
 
 #### Defined in
 
-[debug.ts:6](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/debug.ts#L6)
+[debug.ts:6](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/debug.ts#L6)
 
 ___
 
@@ -68,10 +71,11 @@ Minimum configuration options for classes that implement @see GraphQLClient
 | `apiKey?` | `string` | The API key to use for authentication. This will be added as an 'sc_apikey' header. |
 | `debugger?` | [`Debugger`](index.md#debugger) | Override debugger for logging. Uses 'sitecore-jss:http' by default. |
 | `fetch?` | typeof `fetch` | Override fetch method. Uses 'graphql-request' library default otherwise ('cross-fetch'). |
+| `timeout?` | `number` | GraphQLClient request timeout |
 
 #### Defined in
 
-[graphql-request-client.ts:21](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/graphql-request-client.ts#L21)
+[graphql-request-client.ts:23](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql-request-client.ts#L23)
 
 ___
 
@@ -110,15 +114,61 @@ The interface implementation must:
 
 #### Defined in
 
-[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/data-fetcher.ts#L26)
+
+___
+
+### NativeDataFetcherConfig
+
+Ƭ **NativeDataFetcherConfig**: `NativeDataFetcherOptions` & `RequestInit`
+
+#### Defined in
+
+[native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/native-fetcher.ts#L20)
 
 ## Properties
 
 ### debug
 
-• **debug**: `Readonly`<`Object`\>
+• **debug**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `dictionary` | `Debugger` |
+| `editing` | `Debugger` |
+| `errorpages` | `Debugger` |
+| `http` | `Debugger` |
+| `layout` | `Debugger` |
+| `personalize` | `Debugger` |
+| `redirects` | `Debugger` |
+| `robots` | `Debugger` |
+| `sitemap` | `Debugger` |
 
 ## Functions
+
+### enableDebug
+
+▸ `Const` **enableDebug**(`namespaces`): `void`
+
+Enable debug logging dynamically
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `namespaces` | `string` | space-separated list of namespaces to enable |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[debug.ts:24](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/debug.ts#L24)
+
+___
 
 ### fetchData
 
@@ -132,11 +182,11 @@ The interface implementation must:
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `fetcher` | [`HttpDataFetcher`](index.md#httpdatafetcher)<`T`\> |
-| `params` | `ParsedUrlQueryInput` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | the URL to request; may include query string |
+| `fetcher` | [`HttpDataFetcher`](index.md#httpdatafetcher)<`T`\> | the fetcher to use to perform the request |
+| `params` | `ParsedUrlQueryInput` | the query string parameters to send with the request |
 
 #### Returns
 
@@ -144,4 +194,4 @@ The interface implementation must:
 
 #### Defined in
 
-[data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/data-fetcher.ts#L57)

@@ -10,20 +10,17 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "noUnusedLocals": true,
-    "noImplicitAny": true,
     "skipLibCheck": true,
     "target": "es5",
     "module": "es2020",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "newLine": "LF",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom",
-      "esnext.asynciterable"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom", "esnext.asynciterable"],
     "paths": {
       "@angular/*": ["../node_modules/@angular/*"],
       "rxjs": ["node_modules/rxjs", "../node_modules/rxjs"]

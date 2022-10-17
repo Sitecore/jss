@@ -12,12 +12,17 @@ enum LayoutState {
   Error
 }
 
+interface RouteFields {
+  [name: string]: unknown;
+  pageTitle: Field<string>;
+}
+
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
 })
 export class LayoutComponent implements OnInit, OnDestroy {
-  route: RouteData;
+  route: RouteData<RouteFields>;
   state: LayoutState;
   LayoutState = LayoutState;
   subscription: Subscription;
@@ -30,7 +35,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // route data is populated by the JssRouteResolver
-    this.subscription = this.activatedRoute.data.subscribe((data: { jssState: JssState }) => {
+    this.subscription = this.activatedRoute.data.subscribe((data: { jssState: JssState<RouteFields> }) => {
       if (!data.jssState) {
         this.state = LayoutState.NotFound;
         return;
@@ -59,10 +64,10 @@ export class LayoutComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  setMetadata(routeFields: { [name: string]: Field }) {
+  setMetadata(routeFields: RouteFields) {
     // set page title, if it exists
     if (routeFields && routeFields.pageTitle) {
-      this.meta.setTitle(routeFields.pageTitle.value as string || 'Page');
+      this.meta.setTitle(routeFields.pageTitle.value || 'Page');
     }
   }
 

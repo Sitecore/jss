@@ -50,14 +50,13 @@
 
 ### Functions
 
+- [enableDebug](README.md#enabledebug)
 - [getChildPlaceholder](README.md#getchildplaceholder)
 - [getFieldValue](README.md#getfieldvalue)
 - [handleEditorAnchors](README.md#handleeditoranchors)
 - [isEditorActive](README.md#iseditoractive)
-- [isExperienceEditorActive](README.md#isexperienceeditoractive)
 - [providePlaceholders](README.md#provideplaceholders)
 - [resetEditorChromes](README.md#reseteditorchromes)
-- [resetExperienceEditorChromes](README.md#resetexperienceeditorchromes)
 
 ## Variables
 
@@ -67,7 +66,7 @@
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/Date.ts:14](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-vue/src/components/Date.ts#L14)
+[sitecore-jss-vue/src/components/Date.ts:14](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-vue/src/components/Date.ts#L14)
 
 ___
 
@@ -77,7 +76,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/File.ts:14](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-vue/src/components/File.ts#L14)
+[sitecore-jss-vue/src/components/File.ts:14](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-vue/src/components/File.ts#L14)
 
 ___
 
@@ -87,7 +86,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/Image.ts:55](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-vue/src/components/Image.ts#L55)
+[sitecore-jss-vue/src/components/Image.ts:55](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-vue/src/components/Image.ts#L55)
 
 ___
 
@@ -97,17 +96,17 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/Link.ts:18](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-vue/src/components/Link.ts#L18)
+[sitecore-jss-vue/src/components/Link.ts:18](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-vue/src/components/Link.ts#L18)
 
 ___
 
 ### Placeholder
 
-• **Placeholder**: `DefineComponent`<`Object`, () => `VNode`<`RendererNode`, `RendererElement`, `Object`\> \| () => `VNode`<`RendererNode`, `RendererElement`, `Object`\>[], `unknown`, `Object`, `Object`, `ComponentOptionsMixin`, `ComponentOptionsMixin`, `Record`<`string`, `any`\>, `string`, `PublicProps`, `Readonly`<{ `componentFactory`: `unknown` ; `errorComponent`: `unknown` ; `fields`: `unknown` ; `hiddenRenderingComponent`: `unknown` ; `missingComponentComponent`: `unknown` ; `name`: `unknown` ; `params`: `unknown` ; `rendering`: `unknown`  } & { `name`: `string` ; `rendering`: [`RouteData`](interfaces/RouteData.md) \| [`ComponentRendering`](interfaces/ComponentRendering.md)  } & { `componentFactory`: `ComponentFactory` ; `errorComponent`: `Record`<`string`, `any`\> ; `fields`: { [name: string]: [`Field`](interfaces/Field.md) \| `Item`[];  } ; `hiddenRenderingComponent`: `Record`<`string`, `any`\> ; `missingComponentComponent`: `Record`<`string`, `any`\> ; `params`: { [name: string]: `string`;  }  }\>, `Object`\>
+• **Placeholder**: `DefineComponent`<`Object`, () => `VNode`<`RendererNode`, `RendererElement`, `Object`\> \| () => `VNode`<`RendererNode`, `RendererElement`, `Object`\>[], `unknown`, `Object`, `Object`, `ComponentOptionsMixin`, `ComponentOptionsMixin`, `Record`<`string`, `any`\>, `string`, `PublicProps`, `Readonly`<{ `componentFactory`: `unknown` ; `errorComponent`: `unknown` ; `fields`: `unknown` ; `hiddenRenderingComponent`: `unknown` ; `missingComponentComponent`: `unknown` ; `name`: `unknown` ; `params`: `unknown` ; `rendering`: `unknown`  } & { `name`: `string` ; `rendering`: [`RouteData`](interfaces/RouteData.md)<`Record`<`string`, [`Field`](interfaces/Field.md)<`GenericFieldValue`\> \| `Item` \| `Item`[]\>\> \| [`ComponentRendering`](interfaces/ComponentRendering.md)  } & { `componentFactory`: `ComponentFactory` ; `errorComponent`: `Record`<`string`, `any`\> ; `fields`: { [name: string]: [`Field`](interfaces/Field.md) \| `Item`[];  } ; `hiddenRenderingComponent`: `Record`<`string`, `any`\> ; `missingComponentComponent`: `Record`<`string`, `any`\> ; `params`: { [name: string]: `string`;  }  }\>, `Object`\>
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/Placeholder.ts:13](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-vue/src/components/Placeholder.ts#L13)
+[sitecore-jss-vue/src/components/Placeholder.ts:13](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-vue/src/components/Placeholder.ts#L13)
 
 ___
 
@@ -117,7 +116,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/RichText.ts:3](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-vue/src/components/RichText.ts#L3)
+[sitecore-jss-vue/src/components/RichText.ts:3](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-vue/src/components/RichText.ts#L3)
 
 ___
 
@@ -127,7 +126,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
+[sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
 
 ___
 
@@ -137,7 +136,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts:30](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts#L30)
+[sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts:30](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts#L30)
 
 ___
 
@@ -147,9 +146,31 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/components/Text.ts:3](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-vue/src/components/Text.ts#L3)
+[sitecore-jss-vue/src/components/Text.ts:3](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-vue/src/components/Text.ts#L3)
 
 ## Functions
+
+### enableDebug
+
+▸ `Const` **enableDebug**(`namespaces`): `void`
+
+Enable debug logging dynamically
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `namespaces` | `string` | space-separated list of namespaces to enable |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+sitecore-jss/types/debug.d.ts:7
+
+___
 
 ### getChildPlaceholder
 
@@ -172,7 +193,7 @@ child placeholder
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:17
+sitecore-jss/types/layout/utils.d.ts:20
 
 ___
 
@@ -191,18 +212,20 @@ Null will be returned if the field is not defined.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| `Fields` |
-| `fieldName` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `renderingOrFields` | [`ComponentRendering`](interfaces/ComponentRendering.md) \| `Fields` | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
 
 #### Returns
 
 `T` \| `undefined`
 
+the field value or null if the field is not defined
+
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:9
+sitecore-jss/types/layout/utils.d.ts:12
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -226,7 +249,7 @@ sitecore-jss/types/layout/utils.d.ts:9
 
 #### Defined in
 
-sitecore-jss/types/layout/utils.d.ts:10
+sitecore-jss/types/layout/utils.d.ts:13
 
 ___
 
@@ -272,26 +295,6 @@ sitecore-jss/types/utils/editing.d.ts:36
 
 ___
 
-### isExperienceEditorActive
-
-▸ `Const` **isExperienceEditorActive**(): `boolean`
-
-Determines whether the current execution context is within the Sitecore Experience Editor
-
-**`deprecated`** Will be removed in a future release. Please use isEditorActive instead.
-
-#### Returns
-
-`boolean`
-
-true if executing within the Sitecore Experience Editor
-
-#### Defined in
-
-sitecore-jss/types/utils/editing.d.ts:56
-
-___
-
 ### providePlaceholders
 
 ▸ **providePlaceholders**(`vm`, `componentFactory?`): `void`
@@ -309,7 +312,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-vue/src/enhancers/providePlaceholders.ts:31](https://github.com/Sitecore/jss/blob/1db69b67/packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts#L31)
+[sitecore-jss-vue/src/enhancers/providePlaceholders.ts:31](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-vue/src/enhancers/providePlaceholders.ts#L31)
 
 ___
 
@@ -326,21 +329,3 @@ Resets Sitecore editor "chromes"
 #### Defined in
 
 sitecore-jss/types/utils/editing.d.ts:40
-
-___
-
-### resetExperienceEditorChromes
-
-▸ `Const` **resetExperienceEditorChromes**(): `void`
-
-Resets Sitecore Experience Editor "chromes"
-
-**`deprecated`** Will be removed in a future release. Please use resetEditorChromes instead.
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-sitecore-jss/types/utils/editing.d.ts:61

@@ -52,7 +52,7 @@
 import { getCurrentInstance, defineComponent, watch } from 'vue';
 import { ConnectedDemoQuery } from './GraphQL-ConnectedDemo.query.graphql';
 import { useQuery } from "@vue/apollo-composable";
-import config from '../../../package.json';
+import config from '../../temp/config';
 
 import { Text } from '@sitecore-jss/sitecore-jss-vue';
 
@@ -78,7 +78,7 @@ export default defineComponent({
       const variables = {
         contextItem: properties ? properties.sitecoreContext().itemId : defaultValue,
         datasource: defaultValue,
-        language: properties ? properties.sitecoreContext().language : config.language
+        language: properties ? properties.sitecoreContext().language : config.defaultLanguage
       };
 
       if (!variables.contextItem) variables.contextItem = defaultValue;

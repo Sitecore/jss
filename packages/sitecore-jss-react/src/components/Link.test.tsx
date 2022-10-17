@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 
 import { Link, LinkField } from './Link';
-import { generalLinkField as eeLinkData } from '../testData/ee-data';
+import { generalLinkField as eeLinkData } from '../test-data/ee-data';
 
 describe('<Link />', () => {
   it('should render nothing with missing field', () => {
@@ -97,5 +97,18 @@ describe('<Link />', () => {
     };
     const rendered = mount(<Link field={field} id="my-link" />);
     expect(rendered.html()).to.contain('id="my-link"');
+  });
+
+  it('should render with a ref to the anchor', () => {
+    const field = {
+      href: '/lorem',
+      text: 'ipsum',
+    };
+    const ref = createRef<HTMLAnchorElement>();
+
+    const c = mount(<Link field={field} ref={ref} id="my-link" />);
+
+    const link = c.find('a');
+    expect(ref.current?.id).to.equal(link.props().id);
   });
 });

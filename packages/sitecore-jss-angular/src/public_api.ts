@@ -40,12 +40,19 @@ export {
   ComponentFields,
   ComponentParams,
 } from '@sitecore-jss/sitecore-jss/layout';
-export { constants, HttpDataFetcher, HttpResponse } from '@sitecore-jss/sitecore-jss';
+export { constants, HttpDataFetcher, HttpResponse, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
   isServer,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
   isEditorActive,
   resetEditorChromes,
   handleEditorAnchors,
 } from '@sitecore-jss/sitecore-jss/utils';
+export {
+  trackingApi,
+  TrackingRequestOptions,
+  CampaignInstance,
+  GoalInstance,
+  OutcomeInstance,
+  EventInstance,
+  PageViewInstance,
+} from '@sitecore-jss/sitecore-jss/tracking';

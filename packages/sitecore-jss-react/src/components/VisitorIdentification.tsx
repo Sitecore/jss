@@ -1,8 +1,12 @@
 import React from 'react';
 import { useSitecoreContext } from '../enhancers/withSitecoreContext';
 
+interface VisitorIdentificationProps {
+  defer?: boolean;
+}
+
 let emittedVI = false;
-const VIComponent: React.FC = () => {
+const VIComponent: React.FC<VisitorIdentificationProps> = (props) => {
   const { sitecoreContext } = useSitecoreContext();
 
   if (
@@ -19,6 +23,7 @@ const VIComponent: React.FC = () => {
   const script = document.createElement('script');
   script.src = '/layouts/system/VisitorIdentification.js';
   script.type = 'text/javascript';
+  script.defer = props.defer;
 
   const meta = document.createElement('meta');
   meta.name = 'VIcurrentDateTime';

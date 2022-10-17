@@ -18,6 +18,9 @@ export interface LayoutService {
   ): Promise<models.LayoutServiceData>;
 }
 
+/**
+ * Base abstraction to implement custom layout service
+ */
 export abstract class LayoutServiceBase implements LayoutService {
   abstract fetchLayoutData(
     itemPath: string,

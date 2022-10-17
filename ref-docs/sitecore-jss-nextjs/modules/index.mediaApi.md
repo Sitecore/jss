@@ -24,15 +24,15 @@ Makes a request to Sitecore Content Service for the specified item path.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `editorMarkup` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorMarkup` | `string` | the markup to parse |
 
 #### Returns
 
 ``null`` \| { `attrs`: { [key: string]: `string`;  } ; `imgTag`: `string`  }
 
-found image tag
+found image tag; null in case if not found
 
 #### Defined in
 
@@ -88,18 +88,18 @@ More information about `srcSet`: [https://developer.mozilla.org/en-US/docs/Web/H
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `srcSet` | { [key: string]: `string` \| `number` \| `undefined`;  }[] |
-| `imageParams?` | `Object` |
-| `mediaUrlPrefix?` | `RegExp` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to prepare |
+| `srcSet` | { [key: string]: `string` \| `number` \| `undefined`;  }[] | The array of parameters to use |
+| `imageParams?` | `Object` | - |
+| `mediaUrlPrefix?` | `RegExp` | - |
 
 #### Returns
 
 `string`
 
-src set
+The prepared URL
 
 #### Defined in
 
@@ -116,16 +116,16 @@ Can use `mediaUrlPrefix` in order to use a custom prefix.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `mediaUrlPrefix?` | `RegExp` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to replace the media URL prefix in |
+| `mediaUrlPrefix?` | `RegExp` | - |
 
 #### Returns
 
 `string`
 
-url
+The URL with the media URL prefix replaced
 
 #### Defined in
 
@@ -145,17 +145,17 @@ If no `params` are sent, the original media URL is returned.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `params?` | ``null`` \| { [key: string]: `string` \| `number` \| `undefined`;  } |
-| `mediaUrlPrefix?` | `RegExp` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to prepare |
+| `params?` | ``null`` \| { [key: string]: `string` \| `number` \| `undefined`;  } | - |
+| `mediaUrlPrefix?` | `RegExp` | - |
 
 #### Returns
 
 `string`
 
-url
+The prepared URL
 
 #### Defined in
 
