@@ -3,6 +3,104 @@ All notable changes to this project will be documented in this file. The format 
 
 This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1000576) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
 
+## 21.0.0
+
+> Note: JSS 21 is currently compatible with _XM Cloud (XMC) only_. The release of Sitecore Experience Platform 10.3 will bring compatibility to SXP.
+
+### 🎉 New Features & Improvements
+
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade Next.js to 12.3.x
+* `[create-sitecore-jss]` Personalize Initializer Add-on  ([#939](https://github.com/Sitecore/jss/pull/939))
+* `[templates/react]` `[templates/nextjs]` `[templates/nextjs-styleguide]` `[sitecore-jss-nextjs]` `[sitecore-jss-react]` Upgrade react to version 18 ([#1055](https://github.com/Sitecore/jss/pull/1055))
+* `[templates]` Rename "App Route" to "Page" ([#1159](https://github.com/Sitecore/jss/pull/1159))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` `[sitecore-jss]` [Editing] Partial rendering implementation ([#1169](https://github.com/Sitecore/jss/pull/1169))
+* `[templates/nextjs]` Add environment variable to allow disable of sitemap fetch in getStaticPaths ([#1149](https://github.com/Sitecore/jss/pull/1149))
+* `[sitecore-jss-react]` Allow defer prop on VisitorIdentification component ([#1090](https://github.com/Sitecore/jss/pull/1090))
+* `[sitecore-jss]` Introduce timeouts ([#1057](https://github.com/Sitecore/jss/pull/1057))([#1084](https://github.com/Sitecore/jss/pull/1084))
+* `[sitecore-jss-angular]` Extend richText directive to render internal routerlinks ([#1050](https://github.com/Sitecore/jss/pull/1050))
+* `[sitecore-jss-nextjs]` `[sitecore-jss-react]` Export more types from jss-nextjs & jss-react ([#1043](https://github.com/Sitecore/jss/pull/1043))
+* `[sitecore-jss-vue]` RichText support for router links ([#1037](https://github.com/Sitecore/jss/pull/1037))
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` `[templates/nextjs]` Personalize Middleware ([#1008](https://github.com/Sitecore/jss/pull/1008))
+* `[sitecore-jss-nextjs]` GraphQL sitemap now parses personalize data from site queries ([#1005](https://github.com/Sitecore/jss/pull/1005))
+* `[templates/node-headless-ssr-proxy]` `[templates/node-headless-ssr-exp-edge]` `[sitecore-jss-proxy]` Add typescript to the sample ([#1013](https://github.com/Sitecore/jss/pull/1013))
+* `[create-sitecore-jss]` Add script to restore yarn.lock ([#1004](https://github.com/Sitecore/jss/pull/1004))
+* `[sitecore-jss-nextjs]` GraphQL sitemap now parses personalize data from site queries and adds it into returned paths ([commit](https://github.com/Sitecore/jss/commit/b6826dca5d96a4ead812a3f423022cafd317e799#diff-e94446b7fba4f602db7dd3427fe015d571b90b11f7e748d1ea94d6f0cd06e5cf))
+* `[templates/react]` `[templates/angular]` `[templates/vue]` Support .env file ([#999](https://github.com/Sitecore/jss/pull/999))
+* `[templates/nextjs]` `[templates/nextjs-styleguide]` Move XP tracking API examples to separate add-on initializer ([#980](https://github.com/Sitecore/jss/pull/980))
+* `[templates/node-headless-ssr-proxy]` `[templates/node-headless-ssr-experience-edge]` Provide ability to use .env ([#977](https://github.com/Sitecore/jss/pull/977))
+* `[templates/nextjs]` Make `extractPath` shared and remove duplicate `page-props-factory/plugins/normalMode` for `personalize` addon ([#954](https://github.com/Sitecore/jss/pull/954))
+* `[create-sitecore-jss]` Add merge (concatenate) functionality for .env files ([#952](https://github.com/Sitecore/jss/pull/952)) ([#959](https://github.com/Sitecore/jss/pull/959))
+* `[templates/nextjs]` Create plugins approach for the nextjs middleware ([#945](https://github.com/Sitecore/jss/pull/945))
+
+### 🧹 Chores
+
+* Fix Security Vulnerabilities ([#986](https://github.com/Sitecore/jss/pull/986))([#997](https://github.com/Sitecore/jss/pull/997))([#1114](https://github.com/Sitecore/jss/pull/1114))([commit](https://github.com/Sitecore/jss/commit/6de526dad45964e7b8eb410489ad0e027cf4e62e))
+* `[sitecore-jss]` Make it clear that isEditorActive only works in browser ([#1089](https://github.com/Sitecore/jss/pull/1089))
+* `[sitecore-jss-angular]` Cover `class overwrite` for scGenericLink and scRouterLink by unit test ([#1074](https://github.com/Sitecore/jss/pull/1074))
+* `[sitecore-jss]` Audit API reference description for accuracy and completeness ([#1031](https://github.com/Sitecore/jss/pull/1031))
+* `[sitecore-jss-angular]` Include all files from the dist ([#1049](https://github.com/Sitecore/jss/pull/1049))
+* Resolve .npmingore discrepancies between packages ([#1032](https://github.com/Sitecore/jss/pull/1032))([#1034](https://github.com/Sitecore/jss/pull/1034))
+* Create shared tsconfig.json for the monorepo ([#1000](https://github.com/Sitecore/jss/pull/1000))
+* Add missing doc generation for sitecore-jss-nextjs/middleware ([#commit](https://github.com/Sitecore/jss/commit/e79efc581d70ed0378502703e5f14f26729dff38))
+* Updated slack channel in SUPPORT.md ([commit](https://github.com/Sitecore/jss/commit/ea72bc4faf0500f066192dee3426a60f62b42fa3))
+* `[create-sitecore-jss]` Restore sub-command (npm install / lint) console output ([#933](https://github.com/Sitecore/jss/pull/933))
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` Resolve hydration errors for nextjs pages in EE ([#1161](https://github.com/Sitecore/jss/pull/1161))
+* `[templates/nextjs]` `[templates/nextjs-styleguide]` `[templates/nextjs-sxa]` Specify AppProps generic type in _app.tsx to align with latest changes from Next 12.3.0 ([#1154](https://github.com/Sitecore/jss/pull/1154))
+* `[sitecore-jss-nextjs]` Build error when null values received in graphql-sitemap-service.js ([#1150](https://github.com/Sitecore/jss/pull/1150))
+* `[templates/react]` App in monorepo fails to open in Experience Editor/Headless ssr proxy ([#1136](https://github.com/Sitecore/jss/pull/1136))
+* `[sitecore-jss-nextjs]` handle _blank target on links in RichText ([#1135](https://github.com/Sitecore/jss/pull/1135))
+* `[templates/nextjs]` Timeout error on CM when calling Next.js rendering host ([#1134](https://github.com/Sitecore/jss/pull/1134))
+* `[templates/nextjs]` Updating next to 12.2.4 - and reintroducing babel to avoid swc errors ([#1124](https://github.com/Sitecore/jss/pull/1124))
+* `[templates/vue]` Fix compilers proxy options in template ([#1107](https://github.com/Sitecore/jss/pull/1107))
+* `[templates/react]` Module parse failed: Unexpected token, htmlparser2 ([#1115](https://github.com/Sitecore/jss/pull/1115))
+* `[sitecore-jss-nextjs]` Fix paginated results retrieval in sitemap paths service ([#1112](https://github.com/Sitecore/jss/pull/1112))
+* `[sitecore-jss-react]` Can't render Link component when Editable and Children are provided ([#1095](https://github.com/Sitecore/jss/pull/1095))
+* `[templates/react]` Resolve duplicate react instances issue ([#1091](https://github.com/Sitecore/jss/pull/1091))
+* `[sitecore-jss-react]` Refactored withComponentFactory HOC ([#1086](https://github.com/Sitecore/jss/pull/1086))
+* `[sitecore-jss-proxy]` Provide headers to response when config.onError is called ([#1087](https://github.com/Sitecore/jss/pull/1087))
+* `[sitecore-jss-nextjs]` Proper building of query string inside EditingRenderMiddleware ([#1071](https://github.com/Sitecore/jss/pull/1071))
+* `[templates/angular]` Fix RouteData fields type mismatch ([#1067](https://github.com/Sitecore/jss/pull/1067))
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Add a friendly message when building nextjs app and site items are missing ([#1066](https://github.com/Sitecore/jss/pull/1066))
+* `[sitecore-jss]` RouteData type doesn't support ContentList/MultiList/DropTree fields ([#1061](https://github.com/Sitecore/jss/pull/1061))
+* `[templates/angular]` `[sitecore-jss-angular]` Expose tracking functionality and remove direct usage of sitecore-jss module ([#1048](https://github.com/Sitecore/jss/pull/1048))
+* `[sitecore-jss-react]` Allow to register custom field components ([#1047](https://github.com/Sitecore/jss/pull/1047))
+* `[sitecore-jss-react]` VisitorIdentification component now uses sitecore context hook ([#1041](https://github.com/Sitecore/jss/pull/1041))
+* `[sitecore-jss-react]` Fix misprint in comment ([#1028](https://github.com/Sitecore/jss/pull/1028))
+* `[templates/node-headless-ssr-exp-edge]` Headless SSR Experience Edge returns 200 for page not found ([#1033](https://github.com/Sitecore/jss/pull/1033))
+* `[templates/nextjs]` Dynamic components markup is missing in Experience Editor after adding new rendering ([#1019](https://github.com/Sitecore/jss/pull/1019))
+* `[templates/node-headless-ssr-proxy]` `[templates/node-headless-ssr-exp-edge]` Fix invalid default bundle path ([#1027](https://github.com/Sitecore/jss/pull/1027))
+* `[templates/react]`` [templates/angular]` `[templates/vue]` Remove scjssconfig verification, as .env is used ([commit](https://github.com/Sitecore/jss/commit/3ce391cecacc900de64b10e2489879d8124358a0))
+* `[sitecore-jss-nextjs]` RichText component not forwarding query params ([#1015](https://github.com/Sitecore/jss/pull/1015))
+* `[templates/nextjs-styleguide]` Update `jss create` related info on the home page ([#1009](https://github.com/Sitecore/jss/pull/1009))
+* `[templates/angular]` `[node-headless-ssr-exp-edge]` Danish language is not rendered when refresh the page ([#1003](https://github.com/Sitecore/jss/pull/1003))
+* `[templates/nextjs-styleguide]` `[templates/angular]` `[templates/react]` `[templates/vue]` Fix Styleguide comment path reference ([#956](https://github.com/Sitecore/jss/pull/956))
+* `[templates/nextjs]` Fix missing null type for nextjs/Scripts.tsx ([commit](https://github.com/Sitecore/jss/commit/ea52127edf45e5a886f46071928d292b37c143d1))
+* `[sitecore-jss-dev-tools]` [Manifest] Fix duplicate enum definition ([#996](https://github.com/Sitecore/jss/pull/996))
+* `[template/nextjs-styleguide]` Add gitignore ([#993](https://github.com/Sitecore/jss/pull/993))
+* `[templates/node-headless-ssr-proxy]` Fix shape of config object ([#979](https://github.com/Sitecore/jss/pull/979))([#992](https://github.com/Sitecore/jss/pull/992))
+* `[sitecore-jss-vue]` Fix Sitecore querystring property in Link component ([#974](https://github.com/Sitecore/jss/pull/974))
+* `[sitecore-jss-react]` Make Image handle 'class' prop when it's passed down ([#971](https://github.com/Sitecore/jss/pull/971))
+* `[sitecore-jss-react]` [EE] Placeholder key is not defined ([#970](https://github.com/Sitecore/jss/pull/970))
+* `[templates/nexts]` `[templates/nextjs-styleguide]` Use `kebab case` for plugins, instead of `camelCase` ([#961](https://github.com/Sitecore/jss/pull/961))
+* `[sitecore-jss-vue]` Experience Editor controls does not work until hard reload is done ([#951](https://github.com/Sitecore/jss/pull/951))
+* `[create-sitecore-jss]` graphql-let error when bootstrapping empty Nextjs app ([#941](https://github.com/Sitecore/jss/pull/941))
+* `[sitecore-jss]` `[Angular]` "Edit related item" button redirects to home ([#943](https://github.com/Sitecore/jss/pull/943))
+* `[sitecore-jss-vue]` Styleguide-Layout-Reuse breaks EE ([#937](https://github.com/Sitecore/jss/pull/937))
+
+### 🛠 Breaking Changes
+
+* Remove deprecated features ([#1088](https://github.com/Sitecore/jss/pull/1088))
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` Link component should forward ref ([#1080](https://github.com/Sitecore/jss/pull/1080))
+* `[sitecore-jss-nextjs]` `[sitecore-jss]` graphql nextjs sitemap update ([#1002](https://github.com/Sitecore/jss/pull/1002))([#1007](https://github.com/Sitecore/jss/pull/1007))([#1026](https://github.com/Sitecore/jss/pull/1026))
+  * Updated GraphQLSitemapService will only work with Sitecore versions that have 'site' query present in edge schema.
+* `[sitecore-jss-nextjs]` Performance improvements for editing integration ([#1140](https://github.com/Sitecore/jss/pull/1140))
+  * `[sitecore-jss-nextjs]` All editing-related types have moved to a dedicated `editing` submodule. Imports must be updated to use this submodule. e.g.
+    * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
+    * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
+
 ## 20.1.0
 
 ### 🎉 New Features & Improvements
