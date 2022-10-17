@@ -33,6 +33,11 @@ module.exports = function(config) {
           filename: 'coverage-summary.json',
           subdirectory: './',
         },
+        cobertura: {
+          directory: './coverage',
+          filename: 'cobertura-coverage.xml',
+          subdirectory: './',
+        },
         text: '',
       },
     },

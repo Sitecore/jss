@@ -13,7 +13,7 @@ const coverageConfig = {
     '.test.js',
     'jest.config.',
   ],
-  coverageReporters: ['json-summary', 'text'],
+  coverageReporters: ['cobertura', 'text'],
 };
 
 module.exports = Object.assign({}, baseConfig, coverageConfig);
