@@ -61,15 +61,16 @@ steps:
 - task: reportgenerator@5
   displayName: 'Merge code coverage reports'
   inputs:
-    reports: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+    reports: '$(System.DefaultWorkingDirectory)/**/coverage.cobertura.xml'
     targetdir: '$(Pipeline.Workspace)/coverlet'
     reporttypes: 'Cobertura'
     verbosity: 'Verbose'
 - task: PublishCodeCoverageResults@1
   inputs: 
     codeCoverageTool: Cobertura # or JaCoCo
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
+    summaryFileLocation: '$(Pipeline.Workspace)/coverlet/Cobertura.xml'
+    # summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
+    # reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
 # - script: |
 #     yarn scaffold-samples
 #   displayName: 'scaffold samples'
