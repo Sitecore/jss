@@ -12,6 +12,7 @@
 
 ### Properties
 
+- [abortTimeout](index.NativeDataFetcher.md#aborttimeout)
 - [config](index.NativeDataFetcher.md#config)
 
 ### Methods
@@ -34,9 +35,19 @@
 
 #### Defined in
 
-[native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/native-fetcher.ts#L23)
+[native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 ## Properties
+
+### abortTimeout
+
+• `Private` `Optional` **abortTimeout**: `default`
+
+#### Defined in
+
+[native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/native-fetcher.ts#L23)
+
+___
 
 ### config
 
@@ -64,7 +75,7 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-[native-fetcher.ts:114](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/native-fetcher.ts#L114)
+[native-fetcher.ts:114](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/native-fetcher.ts#L114)
 
 ___
 
@@ -95,7 +106,7 @@ response
 
 #### Defined in
 
-[native-fetcher.ts:31](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/native-fetcher.ts#L31)
+[native-fetcher.ts:33](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/native-fetcher.ts#L33)
 
 ___
 
@@ -120,4 +131,4 @@ The final request settings
 
 #### Defined in
 
-[native-fetcher.ts:96](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/native-fetcher.ts#L96)
+[native-fetcher.ts:96](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/native-fetcher.ts#L96)

@@ -35,7 +35,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:43
+sitecore-jss/types/layout/models.d.ts:58
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:44
+sitecore-jss/types/layout/models.d.ts:59
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:41
+sitecore-jss/types/layout/models.d.ts:56
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:42
+sitecore-jss/types/layout/models.d.ts:57
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:51
+sitecore-jss/types/layout/models.d.ts:66
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:45
+sitecore-jss/types/layout/models.d.ts:60
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:46
+sitecore-jss/types/layout/models.d.ts:61
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:47
+sitecore-jss/types/layout/models.d.ts:62
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:40
+sitecore-jss/types/layout/models.d.ts:55
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:50
+sitecore-jss/types/layout/models.d.ts:65
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:48
+sitecore-jss/types/layout/models.d.ts:63
 
 ___
 
@@ -145,4 +145,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:49
+sitecore-jss/types/layout/models.d.ts:64

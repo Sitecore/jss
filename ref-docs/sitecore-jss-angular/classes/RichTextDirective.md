@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:25](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L25)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:25](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L25)
 
 ## Properties
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:21](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L21)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:21](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L21)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:23](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L23)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:23](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L23)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:19](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L19)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:19](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L19)
 
 ## Methods
 
@@ -94,7 +94,7 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:32](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L32)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:32](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L32)
 
 ___
 
@@ -108,4 +108,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rich-text.directive.ts:43](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L43)
+[sitecore-jss-angular/src/components/rich-text.directive.ts:43](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-angular/src/components/rich-text.directive.ts#L43)

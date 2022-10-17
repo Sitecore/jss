@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L16)
 
 ## Methods
 
@@ -40,4 +40,4 @@
 
 #### Defined in
 
-[sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)
+[sitecore-jss-react/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L15)

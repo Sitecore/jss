@@ -40,7 +40,7 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 
 #### Defined in
 
-[utils/editing.ts:102](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/utils/editing.ts#L102)
+[utils/editing.ts:102](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/utils/editing.ts#L102)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[utils/utils.ts:52](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/utils/utils.ts#L52)
+[utils/utils.ts:52](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/utils/utils.ts#L52)
 
 ___
 
@@ -79,7 +79,7 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-[utils/editing.ts:78](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/utils/editing.ts#L78)
+[utils/editing.ts:78](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/utils/editing.ts#L78)
 
 ___
 
@@ -97,7 +97,7 @@ true if executing server-side
 
 #### Defined in
 
-[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/utils/is-server.ts#L5)
 
 ___
 
@@ -121,7 +121,7 @@ is timeout error
 
 #### Defined in
 
-[utils/utils.ts:69](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/utils/utils.ts#L69)
+[utils/utils.ts:69](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/utils/utils.ts#L69)
 
 ___
 
@@ -137,7 +137,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-[utils/editing.ts:85](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/utils/editing.ts#L85)
+[utils/editing.ts:85](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/utils/editing.ts#L85)
 
 ___
 
@@ -165,4 +165,4 @@ a URL string
 
 #### Defined in
 
-[utils/utils.ts:27](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/utils/utils.ts#L27)
+[utils/utils.ts:27](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/utils/utils.ts#L27)

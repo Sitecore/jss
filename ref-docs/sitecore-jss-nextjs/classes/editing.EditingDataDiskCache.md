@@ -41,7 +41,7 @@ A disk-based editing data cache implementation (required for hosting on Vercel v
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L25)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L25)
 
 ## Properties
 
@@ -51,7 +51,7 @@ A disk-based editing data cache implementation (required for hosting on Vercel v
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:20](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L20)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:20](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L20)
 
 ## Methods
 
@@ -75,7 +75,7 @@ A disk-based editing data cache implementation (required for hosting on Vercel v
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:37](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L37)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:37](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L37)
 
 ___
 
@@ -100,4 +100,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:30](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L30)
+[sitecore-jss-nextjs/src/editing/editing-data-cache.ts:30](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L30)

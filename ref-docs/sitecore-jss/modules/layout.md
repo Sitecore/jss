@@ -7,6 +7,7 @@
 ### Enumerations
 
 - [LayoutServicePageState](../enums/layout.LayoutServicePageState.md)
+- [RenderingType](../enums/layout.RenderingType.md)
 
 ### Classes
 
@@ -34,6 +35,11 @@
 - [GraphQLLayoutServiceConfig](layout.md#graphqllayoutserviceconfig)
 - [PlaceholdersData](layout.md#placeholdersdata)
 - [RestLayoutServiceConfig](layout.md#restlayoutserviceconfig)
+
+### Variables
+
+- [EDITING\_COMPONENT\_ID](layout.md#editing_component_id)
+- [EDITING\_COMPONENT\_PLACEHOLDER](layout.md#editing_component_placeholder)
 
 ### Functions
 
@@ -71,7 +77,7 @@ Data fetcher resolver in order to provide custom data fetcher
 
 #### Defined in
 
-[layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
+[layout/rest-layout-service.ts:53](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L53)
 
 ___
 
@@ -90,7 +96,7 @@ ___
 
 #### Defined in
 
-[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
+[layout/graphql-layout-service.ts:6](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L6)
 
 ___
 
@@ -109,7 +115,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-[layout/models.ts:62](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L62)
+[layout/models.ts:80](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L80)
 
 ___
 
@@ -130,7 +136,31 @@ ___
 
 #### Defined in
 
-[layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+[layout/rest-layout-service.ts:17](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/rest-layout-service.ts#L17)
+
+## Variables
+
+### EDITING\_COMPONENT\_ID
+
+• **EDITING\_COMPONENT\_ID**: ``"editing-component"``
+
+Id of wrapper for component rendering
+
+#### Defined in
+
+[layout/models.ts:9](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L9)
+
+___
+
+### EDITING\_COMPONENT\_PLACEHOLDER
+
+• **EDITING\_COMPONENT\_PLACEHOLDER**: ``"editing-componentmode-placeholder"``
+
+Static placeholder name used for component rendering
+
+#### Defined in
+
+[layout/models.ts:4](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L4)
 
 ## Functions
 
@@ -155,7 +185,7 @@ child placeholder
 
 #### Defined in
 
-[layout/utils.ts:62](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/utils.ts#L62)
+[layout/utils.ts:62](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/utils.ts#L62)
 
 ___
 
@@ -187,7 +217,7 @@ the field value or null if the field is not defined
 
 #### Defined in
 
-[layout/utils.ts:12](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/utils.ts#L12)
+[layout/utils.ts:12](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/utils.ts#L12)
 
 ▸ **getFieldValue**<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
@@ -213,4 +243,4 @@ the field value or the default value if the field is not defined
 
 #### Defined in
 
-[layout/utils.ts:17](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/utils.ts#L17)
+[layout/utils.ts:17](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/utils.ts#L17)

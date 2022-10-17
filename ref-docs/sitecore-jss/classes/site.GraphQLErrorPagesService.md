@@ -42,7 +42,7 @@ Creates an instance of graphQL error pages service with the provided options
 
 #### Defined in
 
-[site/graphql-error-pages-service.ts:64](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L64)
+[site/graphql-error-pages-service.ts:64](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L64)
 
 ## Properties
 
@@ -52,7 +52,7 @@ Creates an instance of graphQL error pages service with the provided options
 
 #### Defined in
 
-[site/graphql-error-pages-service.ts:54](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L54)
+[site/graphql-error-pages-service.ts:54](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L54)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[site/graphql-error-pages-service.ts:56](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L56)
+[site/graphql-error-pages-service.ts:56](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L56)
 
 ## Methods
 
@@ -92,7 +92,7 @@ list of url's error pages
 
 #### Defined in
 
-[site/graphql-error-pages-service.ts:73](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L73)
+[site/graphql-error-pages-service.ts:73](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L73)
 
 ___
 
@@ -112,4 +112,4 @@ implementation
 
 #### Defined in
 
-[site/graphql-error-pages-service.ts:97](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L97)
+[site/graphql-error-pages-service.ts:97](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L97)

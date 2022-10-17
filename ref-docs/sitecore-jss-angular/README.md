@@ -130,7 +130,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:57
+sitecore-jss/types/layout/models.d.ts:72
 
 ## Variables
 
@@ -140,7 +140,7 @@ sitecore-jss/types/layout/models.d.ts:57
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/placeholder.token.ts:48](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L48)
+[sitecore-jss-angular/src/components/placeholder.token.ts:48](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-angular/src/components/placeholder.token.ts#L48)
 
 ## Functions
 
@@ -305,7 +305,7 @@ rendering is HtmlElementRendering
 
 #### Defined in
 
-[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+[sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ___
 

@@ -41,7 +41,7 @@ Creates an instance of graphQL redirects service with the provided options
 
 #### Defined in
 
-[site/graphql-redirects-service.ts:74](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L74)
+[site/graphql-redirects-service.ts:74](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L74)
 
 ## Properties
 
@@ -51,7 +51,7 @@ Creates an instance of graphQL redirects service with the provided options
 
 #### Defined in
 
-[site/graphql-redirects-service.ts:64](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L64)
+[site/graphql-redirects-service.ts:64](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L64)
 
 ## Accessors
 
@@ -65,7 +65,7 @@ Creates an instance of graphQL redirects service with the provided options
 
 #### Defined in
 
-[site/graphql-redirects-service.ts:66](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L66)
+[site/graphql-redirects-service.ts:66](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L66)
 
 ## Methods
 
@@ -85,7 +85,7 @@ Promise<RedirectInfo[]>
 
 #### Defined in
 
-[site/graphql-redirects-service.ts:83](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L83)
+[site/graphql-redirects-service.ts:83](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L83)
 
 ___
 
@@ -105,4 +105,4 @@ implementation
 
 #### Defined in
 
-[site/graphql-redirects-service.ts:105](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L105)
+[site/graphql-redirects-service.ts:105](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L105)
