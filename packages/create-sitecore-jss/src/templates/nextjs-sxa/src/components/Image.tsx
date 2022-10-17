@@ -38,7 +38,7 @@ export const Banner = (props: ImageProps): JSX.Element => {
       ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
       .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
   };
-  const Image = () => modifyImageProps.editable ? getEEMarkup(modifyImageProps) : null;
+  const Image = () => (modifyImageProps.editable ? getEEMarkup(modifyImageProps) : null);
 
   return (
     <div className={`component hero-banner ${props.params.styles}`}>
