@@ -1,11 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file. The format (starting with 18.0.0) is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
-
-## Unreleased
+This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1000576) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
 
 ## 21.0.0
+
+> Note: JSS 21 is currently compatible with _XM Cloud (XMC) only_. The release of Sitecore Experience Platform 10.3 will bring compatibility to SXP.
 
 ### 🎉 New Features & Improvements
 
@@ -173,7 +173,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Can't start app in disconnected mode, throws webpack fallback option error ([#913](https://github.com/Sitecore/jss/pull/913))
 * Add .gitattributes to Next.js sample app with CRLF line endings ([#855](https://github.com/Sitecore/jss/pull/855))
 * `[Horizon]` Custom components cannot be added ([#807](https://github.com/Sitecore/jss/pull/807))
-* Add gitignore ([#993](https://github.com/Sitecore/jss/pull/993))
+* Add gitignore ([#988](https://github.com/Sitecore/jss/pull/988))
 
 `[template/angular]`
 * [10.3] "Edit related item" button redirects to home ([#944](https://github.com/Sitecore/jss/pull/944))
@@ -214,16 +214,15 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * Preview Mode doesn't work with _fallback: false_ on Vercel ([#846](https://github.com/Sitecore/jss/pull/846))
 * `[caching]` Make _tmpDir_ a configurable parameter ([#839](https://github.com/Sitecore/jss/pull/839))
 
-`[sitecore-jss-cli]`
-* Ignore pdf and images when replacing or stripping prefix ([#818](https://github.com/Sitecore/jss/pull/818))
-* Handle underscores in app name when replacing prefix ([#817](https://github.com/Sitecore/jss/pull/817))
-
 `[node-headless-ssr-proxy]` `[node-headless-ssr-experience-edge]` Added submodules import ([#916](https://github.com/Sitecore/jss/pull/916))
 
 `[sitecore-jss-nextjs]` `[sitecore-jss-react]` Attributes of an empty placeholder are applied to the next sibling `<div>` tag in Experience Editor of JSS item ([#833](https://github.com/Sitecore/jss/pull/833))
 
 `[sitecore-jss-dev-tools]` Fix circular dependencies ([#843](https://github.com/Sitecore/jss/pull/843))
 
+`[sitecore-jss-cli]`
+* Ignore pdf and images when replacing or stripping prefix ([#818](https://github.com/Sitecore/jss/pull/818))
+* Handle underscores in app name when replacing prefix ([#817](https://github.com/Sitecore/jss/pull/817))
 
 `[Maintenance]`
 * Upgrade security vulnerable packages ([#866](https://github.com/Sitecore/jss/pull/866))
@@ -244,6 +243,19 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 
 `[template/nextjs]` `[template/react]` Strongly typed SitecoreContext value ([#841](https://github.com/Sitecore/jss/pull/841))
 
+## 19.0.2
+
+## Bug Fixes
+
+`[sitecore-jss-vue]`
+* [EE] Cannot add a new rendering to the newly created ([#902](https://github.com/Sitecore/jss/pull/902))
+
+## 19.0.1
+
+## Bug Fixes
+
+`[sitecore-jss-vue]`
+* [EE] Cannot add a new rendering in Experience Editor ([commit](https://github.com/Sitecore/jss/commit/2dbd4673ddb9eea817659d5e86931739b255b742))
 
 ## 19.0.0
 

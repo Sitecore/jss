@@ -22,7 +22,7 @@ Content data returned from Content Service
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:111
+sitecore-jss/types/layout/models.d.ts:126
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:112
+sitecore-jss/types/layout/models.d.ts:127
 
 ___
 
@@ -46,4 +46,4 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:110
+sitecore-jss/types/layout/models.d.ts:125

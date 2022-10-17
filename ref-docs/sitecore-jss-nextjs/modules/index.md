@@ -15,6 +15,7 @@
 ### Enumerations
 
 - [LayoutServicePageState](../enums/index.LayoutServicePageState.md)
+- [RenderingType](../enums/index.RenderingType.md)
 
 ### Classes
 
@@ -103,6 +104,8 @@
 
 - [ComponentPropsReactContext](index.md#componentpropsreactcontext)
 - [DateField](index.md#datefield)
+- [EDITING\_COMPONENT\_ID](index.md#editing_component_id)
+- [EDITING\_COMPONENT\_PLACEHOLDER](index.md#editing_component_placeholder)
 - [File](index.md#file)
 - [Image](index.md#image)
 - [Link](index.md#link)
@@ -115,6 +118,7 @@
 ### Functions
 
 - [ComponentPropsContext](index.md#componentpropscontext)
+- [EditingComponentPlaceholder](index.md#editingcomponentplaceholder)
 - [Placeholder](index.md#placeholder)
 - [enableDebug](index.md#enabledebug)
 - [getChildPlaceholder](index.md#getchildplaceholder)
@@ -194,7 +198,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-module.ts:14](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L14)
+[sitecore-jss-nextjs/src/sharedTypes/component-module.ts:14](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/sharedTypes/component-module.ts#L14)
 
 ___
 
@@ -210,7 +214,7 @@ Shape of component props storage
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:7](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L7)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:7](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L7)
 
 ___
 
@@ -227,7 +231,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
 
 ___
 
@@ -258,7 +262,7 @@ Shape of getServerSideProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:23](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L23)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:23](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L23)
 
 ___
 
@@ -270,7 +274,7 @@ Shape of getStaticProps function on component level
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:28](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L28)
+[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:28](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L28)
 
 ___
 
@@ -393,7 +397,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
+[sitecore-jss-nextjs/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
 
 ___
 
@@ -422,7 +426,7 @@ Note: HtmlElementRendering is used by Sitecore Experience Editor
 
 #### Defined in
 
-sitecore-jss/types/layout/models.d.ts:57
+sitecore-jss/types/layout/models.d.ts:72
 
 ___
 
@@ -463,7 +467,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
+[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)
 
 ___
 
@@ -513,7 +517,7 @@ Object model of a site page item.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:147](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L147)
+[sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:147](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L147)
 
 ## Variables
 
@@ -525,7 +529,7 @@ Component props context which we are using in order to store data fetched on com
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
 
 ___
 
@@ -536,6 +540,30 @@ ___
 #### Defined in
 
 sitecore-jss-react/types/components/Date.d.ts:21
+
+___
+
+### EDITING\_COMPONENT\_ID
+
+• **EDITING\_COMPONENT\_ID**: ``"editing-component"``
+
+Id of wrapper for component rendering
+
+#### Defined in
+
+sitecore-jss/types/layout/models.d.ts:8
+
+___
+
+### EDITING\_COMPONENT\_PLACEHOLDER
+
+• **EDITING\_COMPONENT\_PLACEHOLDER**: ``"editing-componentmode-placeholder"``
+
+Static placeholder name used for component rendering
+
+#### Defined in
+
+sitecore-jss/types/layout/models.d.ts:4
 
 ___
 
@@ -565,7 +593,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/Link.tsx#L20)
+[sitecore-jss-nextjs/src/components/Link.tsx:20](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/Link.tsx#L20)
 
 ___
 
@@ -575,7 +603,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/NextImage.tsx:26](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L26)
+[sitecore-jss-nextjs/src/components/NextImage.tsx:26](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L26)
 
 ___
 
@@ -613,7 +641,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/RichText.tsx:20](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L20)
+[sitecore-jss-nextjs/src/components/RichText.tsx:20](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L20)
 
 ___
 
@@ -663,7 +691,28 @@ sitecore-jss-react/types/components/VisitorIdentification.d.ts:5
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:31](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L31)
+
+___
+
+### EditingComponentPlaceholder
+
+▸ `Const` **EditingComponentPlaceholder**(`__namedParameters`): `Element`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `__namedParameters` | `Object` |
+| `__namedParameters.rendering` | [`RouteData`](../interfaces/index.RouteData.md)<`Record`<`string`, [`Field`](../interfaces/index.Field.md)<`GenericFieldValue`\> \| [`Item`](../interfaces/index.Item.md) \| [`Item`](../interfaces/index.Item.md)[]\>\> |
+
+#### Returns
+
+`Element`
+
+#### Defined in
+
+[sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx:9](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/EditingComponentPlaceholder.tsx#L9)
 
 ___
 
@@ -683,7 +732,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
+[sitecore-jss-nextjs/src/components/Placeholder.tsx:8](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/Placeholder.tsx#L8)
 
 ___
 
@@ -855,7 +904,7 @@ preview deployment has unique url, we don't know exact url.
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils.ts:11](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/utils.ts#L11)
+[sitecore-jss-nextjs/src/utils.ts:11](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/utils.ts#L11)
 
 ___
 
@@ -881,7 +930,7 @@ Since Sitecore editors do not support Fast Refresh:
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/utils.ts:40](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/utils.ts#L40)
+[sitecore-jss-nextjs/src/utils.ts:40](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/utils.ts#L40)
 
 ___
 
@@ -1023,7 +1072,7 @@ component props
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
+[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:15](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L15)
 
 ___
 

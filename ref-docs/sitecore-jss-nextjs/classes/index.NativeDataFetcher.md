@@ -12,6 +12,7 @@
 
 ### Properties
 
+- [abortTimeout](index.NativeDataFetcher.md#aborttimeout)
 - [config](index.NativeDataFetcher.md#config)
 
 ### Methods
@@ -34,9 +35,19 @@
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:20
+sitecore-jss/types/native-fetcher.d.ts:21
 
 ## Properties
+
+### abortTimeout
+
+• `Private` `Optional` **abortTimeout**: `any`
+
+#### Defined in
+
+sitecore-jss/types/native-fetcher.d.ts:20
+
+___
 
 ### config
 
@@ -68,7 +79,7 @@ Object with headers as key/value pairs
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:40
+sitecore-jss/types/native-fetcher.d.ts:41
 
 ___
 
@@ -99,7 +110,7 @@ response
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:27
+sitecore-jss/types/native-fetcher.d.ts:28
 
 ___
 
@@ -124,4 +135,4 @@ The final request settings
 
 #### Defined in
 
-sitecore-jss/types/native-fetcher.d.ts:34
+sitecore-jss/types/native-fetcher.d.ts:35

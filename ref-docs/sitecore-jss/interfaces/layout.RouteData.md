@@ -37,7 +37,7 @@ Shape of route data returned from Sitecore Layout Service
 
 #### Defined in
 
-[layout/models.ts:47](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L47)
+[layout/models.ts:65](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L65)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:48](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L48)
+[layout/models.ts:66](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L66)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:45](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L45)
+[layout/models.ts:63](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L63)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:46](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L46)
+[layout/models.ts:64](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L64)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:55](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L55)
+[layout/models.ts:73](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L73)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:49](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L49)
+[layout/models.ts:67](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L67)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:50](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L50)
+[layout/models.ts:68](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L68)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:51](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L51)
+[layout/models.ts:69](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L69)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:44](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L44)
+[layout/models.ts:62](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L62)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:54](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L54)
+[layout/models.ts:72](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L72)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[layout/models.ts:52](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L52)
+[layout/models.ts:70](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L70)
 
 ___
 
@@ -147,4 +147,4 @@ ___
 
 #### Defined in
 
-[layout/models.ts:53](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/layout/models.ts#L53)
+[layout/models.ts:71](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/layout/models.ts#L71)

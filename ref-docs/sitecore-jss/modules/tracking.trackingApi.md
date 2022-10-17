@@ -37,7 +37,7 @@ response
 
 #### Defined in
 
-[tracking/trackingApi.ts:28](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/tracking/trackingApi.ts#L28)
+[tracking/trackingApi.ts:28](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/tracking/trackingApi.ts#L28)
 
 ___
 
@@ -62,4 +62,4 @@ void
 
 #### Defined in
 
-[tracking/trackingApi.ts:76](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/tracking/trackingApi.ts#L76)
+[tracking/trackingApi.ts:76](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/tracking/trackingApi.ts#L76)

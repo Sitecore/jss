@@ -38,7 +38,7 @@ compares with current url and redirects to target url
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:29](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L29)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:29](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L29)
 
 ## Properties
 
@@ -48,7 +48,7 @@ compares with current url and redirects to target url
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:24](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L24)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:24](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L24)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:23](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L23)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:23](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L23)
 
 ## Methods
 
@@ -82,7 +82,7 @@ Promise<RedirectInfo | undefined>
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:89](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L89)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:89](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L89)
 
 ___
 
@@ -116,7 +116,7 @@ route handler
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:40](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L40)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:40](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L40)
 
 ___
 
@@ -136,4 +136,4 @@ ___
 
 #### Defined in
 
-[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:44](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L44)
+[sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:44](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L44)

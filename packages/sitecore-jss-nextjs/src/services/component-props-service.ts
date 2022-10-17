@@ -33,7 +33,7 @@ export class ComponentPropsService {
    * SSR mode
    * Fetch component props using getServerSideProps function
    * @param {FetchComponentPropsArguments<GetServerSidePropsContext>} params fetch params
-   * @returns {Promise<ComponentPropsCollection>} props
+   * @returns {Promise<ComponentPropsCollection>} component props
    */
   async fetchServerSideComponentProps(
     params: FetchComponentPropsArguments<GetServerSidePropsContext>

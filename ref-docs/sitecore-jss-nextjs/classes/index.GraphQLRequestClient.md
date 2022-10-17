@@ -19,7 +19,7 @@ https://github.com/prisma-labs/graphql-request
 
 ### Properties
 
-- [abortController](index.GraphQLRequestClient.md#abortcontroller)
+- [abortTimeout](index.GraphQLRequestClient.md#aborttimeout)
 - [client](index.GraphQLRequestClient.md#client)
 - [debug](index.GraphQLRequestClient.md#debug)
 - [endpoint](index.GraphQLRequestClient.md#endpoint)
@@ -51,13 +51,13 @@ sitecore-jss/types/graphql-request-client.d.ts:53
 
 ## Properties
 
-### abortController
+### abortTimeout
 
-• `Private` **abortController**: `any`
+• `Private` `Optional` **abortTimeout**: `any`
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:47
+sitecore-jss/types/graphql-request-client.d.ts:46
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-sitecore-jss/types/graphql-request-client.d.ts:46
+sitecore-jss/types/graphql-request-client.d.ts:47
 
 ## Methods
 

@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/axios-fetcher.ts#L35)
+[axios-fetcher.ts:35](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/axios-fetcher.ts#L35)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[debug.ts:6](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/debug.ts#L6)
+[debug.ts:6](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/debug.ts#L6)
 
 ___
 
@@ -75,7 +75,7 @@ Minimum configuration options for classes that implement @see GraphQLClient
 
 #### Defined in
 
-[graphql-request-client.ts:23](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/graphql-request-client.ts#L23)
+[graphql-request-client.ts:22](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/graphql-request-client.ts#L22)
 
 ___
 
@@ -114,7 +114,7 @@ The interface implementation must:
 
 #### Defined in
 
-[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/data-fetcher.ts#L26)
+[data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/data-fetcher.ts#L26)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/native-fetcher.ts#L20)
+[native-fetcher.ts:20](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/native-fetcher.ts#L20)
 
 ## Properties
 
@@ -166,7 +166,7 @@ Enable debug logging dynamically
 
 #### Defined in
 
-[debug.ts:24](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/debug.ts#L24)
+[debug.ts:24](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/debug.ts#L24)
 
 ___
 
@@ -194,4 +194,4 @@ ___
 
 #### Defined in
 
-[data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/25c4adcb9/packages/sitecore-jss/src/data-fetcher.ts#L57)
+[data-fetcher.ts:57](https://github.com/Sitecore/jss/blob/f3aaeea83/packages/sitecore-jss/src/data-fetcher.ts#L57)
