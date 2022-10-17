@@ -4,11 +4,7 @@ This is a sample setup showing one one of how you can configure rendering server
 
 The setup is using `sitecore-jss-proxy` that enables request proxying to Sitecore CD along with the http cookies to enable tracking, personalization and contact identification.
 
-<!---
-@TODO: Update to version 20.0.0 docs before release
--->
-
-[Documentation](https://doc.sitecore.com/xp/en/developers/hd/190/sitecore-headless-development/server-side-render-jss-apps-headlessly-using-the-jss-proxy.html)
+[Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/201/sitecore-headless-development/walkthrough--rendering-a-jss-app-server-side-using-the-headless-jss-proxy.html)
 
 > This is a sample setup that is not officially supported by Sitecore.
 
