@@ -61,7 +61,7 @@ steps:
 - task: reportgenerator@5
   displayName: 'Merge code coverage reports'
   inputs:
-    reports: '$(System.DefaultWorkingDirectory)/**/coverage.cobertura.xml'
+    reports: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
     targetdir: '$(Pipeline.Workspace)/coverlet'
     reporttypes: 'Cobertura'
     verbosity: 'Verbose'
