@@ -9,7 +9,9 @@
     "dist",
     "src/test.ts",
     "src/index.ts",
-    "src/dataModels.ts"
+    "src/dataModels.ts",
+    "/*.js",
+    "/*.d.ts"
   ],
   "all": true,
   "reporter": [
