@@ -2,14 +2,17 @@
 
 .container-wrapper {
   width: 100%;
-  .container {
-    padding: 0;
-  
-    &.fullwidth-container {
-      max-width: unset;
-    }
-    .component-content {
-      @include clearfix();
-    }
+}
+
+.container {
+  padding: 0;
+
+  &.fullwidth-container {
+    max-width: unset;
   }
+
+  .component-content {
+    @include clearfix();
+  }
+
 }
