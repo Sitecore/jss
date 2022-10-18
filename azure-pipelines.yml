@@ -69,8 +69,8 @@ steps:
   inputs: 
     codeCoverageTool: Cobertura # or JaCoCo
     summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/Cobertura.xml'
+    reportDirectory: '$(Build.SourcesDirectory)/coverlet'
     # summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
-    # reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
 # - script: |
 #     yarn scaffold-samples
 #   displayName: 'scaffold samples'
