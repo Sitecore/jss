@@ -33,6 +33,7 @@ variables:
     branchName: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
     branchName: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
+# disable `PublishCodeCoverageResults` report generation, as `reportgenerator` provides custom report
   disable.coverage.autogenerate: 'true'
 # Some steps here scaffold jss apps and check if they build and lint correctly
 # build apps step currently excluded: RAV apps have issues with yarn build, nextjs has some with all builds without Sitecore connection
@@ -46,9 +47,9 @@ steps:
 - script: |
     yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install - initial'
-# - script: |
-#     yarn lint-packages
-#   displayName: 'lint packages'
+- script: |
+    yarn lint-packages
+  displayName: 'lint packages'
 - script: |
     lerna run build
   displayName: 'build packages'
@@ -59,32 +60,32 @@ steps:
     testEnv: 'ci'
   }
 - task: reportgenerator@5
-  displayName: 'Merge code coverage reports'
+  displayName: 'generate code coverage report'
   inputs:
     reports: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
     targetdir: '$(Build.SourcesDirectory)/coverlet'
     reporttypes: 'HtmlInline_AzurePipelines;Cobertura'
     verbosity: 'Verbose'
 - task: PublishCodeCoverageResults@1
+  displayName: 'publish code coverage report'
   inputs: 
-    codeCoverageTool: Cobertura # or JaCoCo
+    codeCoverageTool: Cobertura
     summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/Cobertura.xml'
     reportDirectory: '$(Build.SourcesDirectory)/coverlet'
-    # summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
-# - script: |
-#     yarn scaffold-samples
-#   displayName: 'scaffold samples'
-#   condition: and(succeeded(), ne(variables.shouldPublish, true))
-# - script: |
-#     yarn install
-#   displayName: 'yarn install - refresh'
-#   condition: and(succeeded(), ne(variables.shouldPublish, true))
-#   env:
-#     YARN_ENABLE_IMMUTABLE_INSTALLS: false
-# - script: |
-#     lerna run lint --scope sample-* -- --fix
-#   displayName: 'lint samples'
-#   condition: and(succeeded(), ne(variables.shouldPublish, true))
+- script: |
+    yarn scaffold-samples
+  displayName: 'scaffold samples'
+  condition: and(succeeded(), ne(variables.shouldPublish, true))
+- script: |
+    yarn install
+  displayName: 'yarn install - refresh'
+  condition: and(succeeded(), ne(variables.shouldPublish, true))
+  env:
+    YARN_ENABLE_IMMUTABLE_INSTALLS: false
+- script: |
+    lerna run lint --scope sample-* -- --fix
+  displayName: 'lint samples'
+  condition: and(succeeded(), ne(variables.shouldPublish, true))
 
   #
   # LERNA VERSION
