@@ -58,12 +58,12 @@ steps:
   env: {
     testEnv: 'ci'
   }
-- task: reportgenerator@4
+- task: reportgenerator@5
   displayName: 'Merge code coverage reports'
   inputs:
     reports: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
     targetdir: '$(Build.SourcesDirectory)/coverlet'
-    reporttypes: 'Cobertura'
+    reporttypes: 'HtmlInline_AzurePipelines;Cobertura'
     verbosity: 'Verbose'
 - task: PublishCodeCoverageResults@1
   inputs: 
