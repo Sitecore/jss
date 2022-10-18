@@ -62,13 +62,13 @@ steps:
   displayName: 'Merge code coverage reports'
   inputs:
     reports: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
-    targetdir: '$(Pipeline.Workspace)/coverlet'
+    targetdir: '$(Build.SourcesDirectory)/coverlet'
     reporttypes: 'Cobertura'
     verbosity: 'Verbose'
 - task: PublishCodeCoverageResults@1
   inputs: 
     codeCoverageTool: Cobertura # or JaCoCo
-    summaryFileLocation: '$(Pipeline.Workspace)/coverlet/Cobertura.xml'
+    summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/Cobertura.xml'
     # summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
     # reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
 # - script: |
