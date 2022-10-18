@@ -58,7 +58,7 @@ steps:
   env: {
     testEnv: 'ci'
   }
-- task: reportgenerator@5
+- task: reportgenerator@4
   displayName: 'Merge code coverage reports'
   inputs:
     reports: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
