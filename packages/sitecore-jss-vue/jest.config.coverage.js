@@ -14,7 +14,7 @@ const coverageConfig = {
     '.d.ts',
     '.test.ts',
   ],
-  coverageReporters: ['json-summary', 'text'],
+  coverageReporters: ['cobertura', 'text'],
 };
 
 module.exports = Object.assign({}, baseConfig, coverageConfig);

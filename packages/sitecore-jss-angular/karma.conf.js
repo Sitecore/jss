@@ -28,9 +28,9 @@ module.exports = function(config) {
       include: ['./src/**/*.ts'],
       compilerOptions: { lib: ['es2017', 'dom'] },
       reports: {
-        'json-summary': {
+        cobertura: {
           directory: './coverage',
-          filename: 'coverage-summary.json',
+          filename: 'cobertura-coverage.xml',
           subdirectory: './',
         },
         text: '',

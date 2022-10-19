@@ -12,7 +12,7 @@
   ],
   "all": true,
   "reporter": [
-    "json-summary",
+    "cobertura",
     "text"
   ],
   "require": ["ts-node/register"]
