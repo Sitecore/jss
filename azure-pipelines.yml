@@ -63,15 +63,15 @@ steps:
   displayName: 'generate code coverage report'
   inputs:
     reports: '$(System.DefaultWorkingDirectory)/**/cobertura-coverage.xml'
-    targetdir: '$(Build.SourcesDirectory)/coverlet'
+    targetdir: '$(Build.SourcesDirectory)'
     reporttypes: 'HtmlInline_AzurePipelines;Cobertura'
     verbosity: 'Verbose'
 - task: PublishCodeCoverageResults@1
   displayName: 'publish code coverage report'
   inputs: 
     codeCoverageTool: Cobertura
-    summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/Cobertura.xml'
-    reportDirectory: '$(Build.SourcesDirectory)/coverlet'
+    summaryFileLocation: '$(Build.SourcesDirectory)/Cobertura.xml'
+    reportDirectory: '$(Build.SourcesDirectory)'
 - script: |
     yarn scaffold-samples
   displayName: 'scaffold samples'

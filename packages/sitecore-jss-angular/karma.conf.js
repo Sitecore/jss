@@ -28,11 +28,6 @@ module.exports = function(config) {
       include: ['./src/**/*.ts'],
       compilerOptions: { lib: ['es2017', 'dom'] },
       reports: {
-        'json-summary': {
-          directory: './coverage',
-          filename: 'coverage-summary.json',
-          subdirectory: './',
-        },
         cobertura: {
           directory: './coverage',
           filename: 'cobertura-coverage.xml',
