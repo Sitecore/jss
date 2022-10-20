@@ -1,0 +1,36 @@
+name: Publish library to NPM
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        required: true
+        description: Please select the type of release
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+          - prerelease
+        default: prerelease
+
+jobs:
+
+  build-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Bump release version (no git)
+        if: inputs.release_type != 'prerelease'
+        run: echo "Bump release version!"
