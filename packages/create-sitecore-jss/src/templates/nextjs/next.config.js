@@ -50,6 +50,11 @@ const nextConfig = {
         source: '/layouts/system/:path*',
         destination: `${jssConfig.sitecoreApiHost}/layouts/system/:path*`,
       },
+      // healthz check
+      {
+        source: '/healthz',
+        destination: '/api/healthz',
+      }
     ];
   },
 };
