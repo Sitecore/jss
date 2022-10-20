@@ -1,10 +1,10 @@
 import {
   FormField,
+  ValueFormField,
   instanceOfButtonFormField,
   instanceOfFormFieldSection,
   instanceOfValueFormField,
 } from './FormField';
-import { TrackableValueFormField } from './FormTracker';
 import { getFieldValueFromModel } from './getFieldValueFromModel';
 import { HtmlFormField } from './HtmlFormField';
 import { JssFormData } from './JssFormData';
@@ -48,12 +48,7 @@ export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions
  * @param {Array<FormField<any>>} fields
  * @param {SerializeFormOptions} options
  */
-function pushFields(
-  result: JssFormData,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fields: Array<FormField<any>>,
-  options: SerializeFormOptions
-) {
+function pushFields(result: JssFormData, fields: FormField[], options: SerializeFormOptions) {
   fields.forEach((field) => {
     if (
       instanceOfButtonFormField(field) &&
@@ -63,16 +58,15 @@ function pushFields(
       pushField(result, field.navigationButtonsField);
       pushField(result, field.navigationStepField);
     } else if (instanceOfValueFormField(field)) {
+      pushField(result, field.indexField);
+      pushField(result, field.fieldIdField);
       if (field.valueField.name.endsWith('.Files')) {
-        const fileUploadField: TrackableValueFormField & FormField<FileInputViewModel> = field;
-
-        if (!fileUploadField.originalValue && !fileUploadField.model.files) {
+        const fileUploadField = field as ValueFormField<FileInputViewModel>;
+        if (!fileUploadField.model.files) {
           return;
         }
       }
 
-      pushField(result, field.indexField);
-      pushField(result, field.fieldIdField);
       // get stored value (i.e. if a multistep form)
       if (instanceOfInputViewModel(field.model) && options.fieldValueParser) {
         const fieldValue = options.fieldValueParser(field);
