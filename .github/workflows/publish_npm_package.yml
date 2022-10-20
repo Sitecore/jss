@@ -1,4 +1,4 @@
-name: Publish library to NPM
+name: Publish library to NPM11
 
 on:
   workflow_dispatch:
