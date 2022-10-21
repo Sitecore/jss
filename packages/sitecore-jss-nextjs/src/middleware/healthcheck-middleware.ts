@@ -1,10 +1,9 @@
 import { NextApiResponse, NextApiRequest } from 'next';
 
 /**
- * Middleware / handler for use in the healthz Next.js API route (e.g. '/api/healthz')
- * which is used by XMCloud container editing host.
+ * Middleware / handler for use in healthcheck Next.js API route (e.g. '/api/healthz').
  */
-export class EditingHealthzMiddleware {
+export class HealthcheckMiddleware {
   /**
    * Gets the Next.js API route handler
    * @returns route handler

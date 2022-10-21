@@ -1,11 +1,12 @@
-import { EditingHealthzMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';
+import { HealthcheckMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 
 /**
  * This Next.js API route is used to handle healthz check request.
- * Used by XMCloud container editing host.
+ * By default this is used only by Sitecore XM Cloud (when running as editing host),
+ * but could be used in other deployment scenarios.
 */
 
-// Wire up the EditingHealthzMiddleware handler
-const handler = new EditingHealthzMiddleware().getHandler();
+// Wire up the HealthcheckMiddleware handler
+const handler = new HealthcheckMiddleware().getHandler();
 
 export default handler;

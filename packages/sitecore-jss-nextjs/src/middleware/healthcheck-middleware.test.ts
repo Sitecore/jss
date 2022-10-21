@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { EditingHealthzMiddleware } from './editing-healthz-middleware';
+import { HealthcheckMiddleware } from './healthcheck-middleware';
 import { spy } from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -23,12 +23,12 @@ const mockResponse = () => {
   return res;
 };
 
-describe('EditingHealthzMiddleware', () => {
+describe('HealthcheckMiddleware', () => {
   it('should handle request', async () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    const middleware = new EditingHealthzMiddleware();
+    const middleware = new HealthcheckMiddleware();
     const handler = middleware.getHandler();
 
     await handler(req, res);
