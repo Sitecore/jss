@@ -133,4 +133,45 @@ describe('GraphQLPersonalizeService', () => {
 
     expect(result).to.equal(undefined);
   });
+
+  it('should cache service response', async () => {
+    nock('http://sctest', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .reply(200, {
+        data: personalizeQueryResult,
+      });
+
+    const itemPath = '/sitecore/content/home';
+    const lang = 'en';
+
+    const service = new GraphQLPersonalizeService(config);
+    const firstResult = await service.getPersonalizeInfo(itemPath, lang);
+
+    expect(firstResult).to.deep.equal({
+      contentId: `embedded_${id}_en`.toLowerCase(),
+      variantIds,
+    });
+
+    nock.cleanAll();
+
+    nock('http://sctest', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .reply(200, {
+        data: {
+          layout: {},
+        },
+      });
+
+    const secondResult = await service.getPersonalizeInfo(itemPath, lang);
+
+    expect(secondResult).to.deep.equal(firstResult);
+  });
 });
