@@ -41,7 +41,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       if (internalLinkMatcher.test(href)) {
         return (
           <NextLink
-            href={{ pathname: href, query: querystring, hash: anchor as string }}
+            href={{ pathname: href, query: querystring, hash: anchor }}
             key="link"
             locale={false}
           >

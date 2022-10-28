@@ -10,6 +10,7 @@ export interface LinkFieldValue {
   title?: string;
   target?: string;
   text?: string;
+  anchor?: string;
   querystring?: string;
 }
 
