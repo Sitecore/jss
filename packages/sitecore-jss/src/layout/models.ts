@@ -140,6 +140,8 @@ export interface Field<T = GenericFieldValue> {
 export interface Item {
   name: string;
   displayName?: string;
+  id?: string;
+  url?: string;
   fields: {
     [name: string]: Field | Item | Item[] | undefined;
   };
