@@ -31,7 +31,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     const value = ((field as LinkFieldValue).href
       ? field
       : (field as LinkField).value) as LinkFieldValue;
-    const { href, querystring } = value;
+    const { href, querystring, anchor } = value;
     const isEditing = editable && (field as LinkFieldValue).editable;
 
     if (href && !isEditing) {
@@ -40,7 +40,11 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       // determine if a link is a route or not.
       if (internalLinkMatcher.test(href)) {
         return (
-          <NextLink href={{ pathname: href, query: querystring }} key="link" locale={false}>
+          <NextLink
+            href={{ pathname: href, query: querystring, hash: anchor as string }}
+            key="link"
+            locale={false}
+          >
             <a
               title={value.title}
               target={value.target}
