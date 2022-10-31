@@ -8,8 +8,8 @@ import { EditingData } from './editing-data';
  * Defines an editing data cache implementation
  */
 export interface EditingDataCache {
-  set(key: string, editingData: EditingData): void;
-  get(key: string): EditingData | undefined;
+  set(key: string, editingData: EditingData): Promise<void>;
+  get(key: string): Promise<EditingData | undefined>;
 }
 
 /**
@@ -27,22 +27,28 @@ export class EditingDataDiskCache implements EditingDataCache {
     this.cache = new Cache('editing-data', { compression: 'gzip', location: tmpDir });
   }
 
-  set(key: string, editingData: EditingData): void {
+  set(key: string, editingData: EditingData): Promise<void> {
     const filePath = this.cache.set(key, JSON.stringify(editingData));
-    if (!filePath || filePath.length === 0) {
-      throw new Error(`Editing data cache not set for key ${key} at ${this.cache.root}`);
-    }
+    return new Promise((resolve, reject) => {
+      if (!filePath || filePath.length === 0) {
+        reject(new Error(`Editing data cache not set for key ${key} at ${this.cache.root}`));
+      }
+
+      resolve();
+    });
   }
 
-  get(key: string): EditingData | undefined {
+  get(key: string): Promise<EditingData | undefined> {
     const entry = this.cache.get(key);
-    if (!entry.isCached) {
-      console.warn(`Editing data cache miss for key ${key} at ${this.cache.root}`);
-      return undefined;
-    }
-    // Remove to preserve disk-space (as a macrotask so as not to block current execution)
-    setTimeout(() => this.cache.remove(key));
-    return JSON.parse(entry.value) as EditingData;
+    return new Promise<EditingData | undefined>((resolve) => {
+      if (!entry.isCached) {
+        console.warn(`Editing data cache miss for key ${key} at ${this.cache.root}`);
+        resolve(undefined);
+      }
+      // Remove to preserve disk-space (as a macrotask so as not to block current execution)
+      setTimeout(() => this.cache.remove(key));
+      resolve(JSON.parse(entry.value) as EditingData);
+    });
   }
 }
 

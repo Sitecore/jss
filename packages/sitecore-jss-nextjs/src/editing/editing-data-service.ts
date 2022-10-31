@@ -88,7 +88,7 @@ export class BasicEditingDataService implements EditingDataService {
     } as EditingPreviewData;
 
     debug.editing('storing editing data for %o: %o', previewData, data);
-    this.editingDataCache.set(key, data);
+    await this.editingDataCache.set(key, data);
     return { key };
   }
 
@@ -101,7 +101,7 @@ export class BasicEditingDataService implements EditingDataService {
     const editingPreviewData = previewData as EditingPreviewData;
 
     debug.editing('retrieving editing data for %o', previewData);
-    return this.editingDataCache.get(editingPreviewData.key);
+    return await this.editingDataCache.get(editingPreviewData.key);
   }
 }
 
