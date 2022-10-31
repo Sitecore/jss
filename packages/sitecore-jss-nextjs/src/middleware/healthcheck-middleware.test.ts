@@ -34,6 +34,6 @@ describe('HealthcheckMiddleware', () => {
     await handler(req, res);
 
     expect(res.status).to.have.been.calledOnceWith(200);
-    expect(res.send).to.have.been.calledOnceWith('OK');
+    expect(res.send).to.have.been.calledOnceWith('Healthy');
   });
 });

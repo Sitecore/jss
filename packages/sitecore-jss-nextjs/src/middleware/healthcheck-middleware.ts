@@ -13,6 +13,6 @@ export class HealthcheckMiddleware {
   }
 
   private handler = async (_req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-    res.status(200).send('OK');
+    res.status(200).send('Healthy');
   };
 }
