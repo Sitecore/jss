@@ -15,11 +15,11 @@ import {
 export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'> & {
   locales: string[];
   /**
-   * Function used to determine if route should be excluded from personalization.
+   * Function used to determine if route should be excluded from RedirectsMiddleware.
    * By default, files (pathname.includes('.')), Next.js API routes (pathname.startsWith('/api/')), and Sitecore API routes (pathname.startsWith('/sitecore/')) are ignored.
    * This is an important performance consideration since Next.js Edge middleware runs on every request.
    * @param {string} pathname The pathname
-   * @returns {boolean} Whether to exclude the route from personalization
+   * @returns {boolean} Whether to exclude the route from RedirectsMiddleware
    */
   excludeRoute?: (pathname: string) => boolean;
   /**

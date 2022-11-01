@@ -15,11 +15,14 @@ class RedirectsPlugin implements MiddlewarePlugin {
       // These are all the locales you support in your application.
       // These should match those in your next.config.js (i18n.locales).
       locales: ['en'],
-      // This function determines if a route should be excluded from personalization.
+      // This function determines if a route should be excluded from RedirectsMiddleware.
       // Certain paths are ignored by default (e.g. files and Next.js API routes), but you may wish to exclude more.
       // This is an important performance consideration since Next.js Edge middleware runs on every request.
       excludeRoute: () => false,
-      // You may wish to keep it disabled while in development mode.
+      // This function determines if the middleware should be turned off.
+      // IMPORTANT: You should implement based on your cookie consent management solution of choice.
+      // You may also wish to disable in development mode (process.env.NODE_ENV === 'development').
+      // By default it is always enabled.
       disabled: () => process.env.NODE_ENV === 'development',
     });
   }
