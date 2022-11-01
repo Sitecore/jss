@@ -134,7 +134,7 @@ describe('GraphQLPersonalizeService', () => {
     expect(result).to.equal(undefined);
   });
 
-  it('should cache service response', async () => {
+  it('should cache service response by default', async () => {
     nock('http://sctest', {
       reqheaders: {
         sc_apikey: apiKey,
@@ -173,5 +173,49 @@ describe('GraphQLPersonalizeService', () => {
     const secondResult = await service.getPersonalizeInfo(itemPath, lang);
 
     expect(secondResult).to.deep.equal(firstResult);
+  });
+
+  it('should be possible to disable cache', async () => {
+    nock('http://sctest', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .reply(200, {
+        data: personalizeQueryResult,
+      });
+
+    const itemPath = '/sitecore/content/home';
+    const lang = 'en';
+
+    const service = new GraphQLPersonalizeService({
+      ...config,
+      cacheSettings: { cacheEnabled: false },
+    });
+    const firstResult = await service.getPersonalizeInfo(itemPath, lang);
+
+    expect(firstResult).to.deep.equal({
+      contentId: `embedded_${id}_en`.toLowerCase(),
+      variantIds,
+    });
+
+    nock.cleanAll();
+
+    nock('http://sctest', {
+      reqheaders: {
+        sc_apikey: apiKey,
+      },
+    })
+      .post('/graphql')
+      .reply(200, {
+        data: {
+          layout: {},
+        },
+      });
+
+    const secondResult = await service.getPersonalizeInfo(itemPath, lang);
+
+    expect(secondResult).to.not.deep.equal(firstResult);
   });
 });

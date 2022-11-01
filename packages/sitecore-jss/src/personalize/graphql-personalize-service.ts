@@ -2,7 +2,7 @@ import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import debug from '../debug';
 import { isTimeoutError } from '../utils';
 import { CdpHelper } from './utils';
-import { MemoryCacheClient } from '../cache-client';
+import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
 export type GraphQLPersonalizeServiceConfig = {
   /**
@@ -21,6 +21,12 @@ export type GraphQLPersonalizeServiceConfig = {
    * Timeout (ms) for the Personalize request. Default is 250.
    */
   timeout?: number;
+  /**
+   * Cache settings
+   * Specified the cache timeout and whether cache is enabled
+   * If not provided cache will be enabled with timeout of 10 seconds
+   */
+  cacheSettings?: CacheOptions;
   /**
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
@@ -47,7 +53,7 @@ type PersonalizeQueryResult = {
 
 export class GraphQLPersonalizeService {
   private graphQLClient: GraphQLClient;
-  private memoryCache: MemoryCacheClient<PersonalizeQueryResult>;
+  private memoryCache: CacheClient<PersonalizeQueryResult>;
   protected get query(): string {
     return /* GraphQL */ `
       query($siteName: String!, $language: String!, $itemPath: String!) {
@@ -70,7 +76,7 @@ export class GraphQLPersonalizeService {
   constructor(protected config: GraphQLPersonalizeServiceConfig) {
     this.config.timeout = config.timeout || 250;
     this.graphQLClient = this.getGraphQLClient();
-    this.memoryCache = new MemoryCacheClient({ cacheTimeout: 10 });
+    this.memoryCache = this.getCacheClient();
   }
 
   /**
@@ -116,6 +122,18 @@ export class GraphQLPersonalizeService {
           variantIds: data.layout.item.personalization.variantIds,
         }
       : undefined;
+  }
+
+  /**
+   * Gets cache client implementation
+   * Override this method if custom cache needs to be used
+   * @returns CacheClient instance
+   */
+  protected getCacheClient(): CacheClient<PersonalizeQueryResult> {
+    return new MemoryCacheClient<PersonalizeQueryResult>({
+      cacheEnabled: this.config.cacheSettings?.cacheEnabled ?? true,
+      cacheTimeout: this.config.cacheSettings?.cacheTimeout ?? 10,
+    });
   }
 
   protected getCacheKey(itemPath: string, language: string) {
