@@ -1,6 +1,7 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import { siteNameError } from '../constants';
 import debug from '../debug';
+import { MemoryCacheClient, CacheOptions, CacheClient } from '../cache-client';
 
 export const REDIRECT_TYPE_301 = 'REDIRECT_301';
 export const REDIRECT_TYPE_302 = 'REDIRECT_302';
@@ -39,6 +40,7 @@ export type GraphQLRedirectsServiceConfig = {
   /**
    * The API key to use for authentication
    */
+
   apiKey: string;
   /**
    * The JSS application name
@@ -48,6 +50,12 @@ export type GraphQLRedirectsServiceConfig = {
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
   fetch?: typeof fetch;
+  /**
+   * Cache settings
+   * Specified the cache timeout and whether cache is enabled
+   * If not provided cache will be enabled with timeout of 10 seconds
+   */
+  cacheSettings?: CacheOptions;
 };
 
 /**
@@ -62,6 +70,7 @@ export type RedirectsQueryResult = {
  */
 export class GraphQLRedirectsService {
   private graphQLClient: GraphQLClient;
+  private cache: CacheClient<RedirectsQueryResult>;
 
   protected get query(): string {
     return defaultQuery;
@@ -73,6 +82,7 @@ export class GraphQLRedirectsService {
    */
   constructor(private options: GraphQLRedirectsServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
+    this.cache = this.getCacheClient();
   }
 
   /**
@@ -82,18 +92,21 @@ export class GraphQLRedirectsService {
    */
   async fetchRedirects(): Promise<RedirectInfo[]> {
     const siteName: string = this.options.siteName;
+    const cacheKey = `redirects-${siteName}`;
+    let data = this.cache.getCacheValue(cacheKey);
 
     if (!siteName) {
       throw new Error(siteNameError);
     }
 
-    const redirectsResult: Promise<RedirectsQueryResult> = this.graphQLClient.request(this.query, {
-      siteName,
-    });
+    if (!data) {
+      data = await this.graphQLClient.request<RedirectsQueryResult>(this.query, {
+        siteName,
+      });
+      this.cache.setCacheValue(cacheKey, data);
+    }
 
-    return redirectsResult
-      .then((result: RedirectsQueryResult) => result?.site?.siteInfo?.redirects || [])
-      .catch((e) => Promise.reject(e));
+    return data?.site?.siteInfo?.redirects || [];
   }
 
   /**
@@ -107,6 +120,18 @@ export class GraphQLRedirectsService {
       apiKey: this.options.apiKey,
       debugger: debug.redirects,
       fetch: this.options.fetch,
+    });
+  }
+
+  /**
+   * Gets cache client implementation
+   * Override this method if custom cache needs to be used
+   * @returns CacheClient instance
+   */
+  protected getCacheClient(): CacheClient<RedirectsQueryResult> {
+    return new MemoryCacheClient<RedirectsQueryResult>({
+      cacheEnabled: this.options.cacheSettings?.cacheEnabled ?? true,
+      cacheTimeout: this.options.cacheSettings?.cacheTimeout ?? 10,
     });
   }
 }

@@ -14,6 +14,21 @@ import {
  */
 export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'> & {
   locales: string[];
+  /**
+   * Function used to determine if route should be excluded from personalization.
+   * By default, files (pathname.includes('.')), Next.js API routes (pathname.startsWith('/api/')), and Sitecore API routes (pathname.startsWith('/sitecore/')) are ignored.
+   * This is an important performance consideration since Next.js Edge middleware runs on every request.
+   * @param {string} pathname The pathname
+   * @returns {boolean} Whether to exclude the route from personalization
+   */
+  excludeRoute?: (pathname: string) => boolean;
+  /**
+   * function, determines if middleware should be turned off, based on cookie, header, or other considerations
+   *  @param {NextRequest} [req] optional: request object from middleware handler
+   *  @param {NextResponse} [res] optional: response object from middleware handler
+   * @returns {boolean} false by default
+   */
+  disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
 };
 /**
  * Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
@@ -39,6 +54,18 @@ export class RedirectsMiddleware {
    */
   public getHandler(): (req: NextRequest) => Promise<NextResponse> {
     return this.handler;
+  }
+
+  protected excludeRoute(pathname: string) {
+    if (
+      pathname.includes('.') || // Ignore files
+      pathname.startsWith('/api/') || // Ignore Next.js API calls
+      pathname.startsWith('/sitecore/') || // Ignore Sitecore API calls
+      pathname.startsWith('/_next') // Ignore next service calls
+    ) {
+      return true;
+    }
+    return false;
   }
 
   private handler = async (req: NextRequest): Promise<NextResponse> => {
