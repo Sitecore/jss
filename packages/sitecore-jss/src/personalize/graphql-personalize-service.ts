@@ -76,7 +76,7 @@ export class GraphQLPersonalizeService {
   constructor(protected config: GraphQLPersonalizeServiceConfig) {
     this.config.timeout = config.timeout || 250;
     this.graphQLClient = this.getGraphQLClient();
-    this.memoryCache = this.getCacheClient();
+    this.cache = this.getCacheClient();
   }
 
   /**
@@ -97,7 +97,7 @@ export class GraphQLPersonalizeService {
     );
 
     const cacheKey = this.getCacheKey(itemPath, language);
-    let data = this.memoryCache.getCacheValue(cacheKey);
+    let data = this.cache.getCacheValue(cacheKey);
 
     if (!data) {
       try {
@@ -106,7 +106,7 @@ export class GraphQLPersonalizeService {
           itemPath,
           language,
         });
-        this.memoryCache.setCacheValue(cacheKey, data);
+        this.cache.setCacheValue(cacheKey, data);
       } catch (error) {
         if (isTimeoutError(error)) {
           return undefined;
