@@ -64,6 +64,7 @@ describe('<Link />', () => {
     const field = {
       value: {
         href: '/lorem',
+        anchor: 'foo',
         text: 'ipsum',
         class: 'my-link',
         title: 'My Link',
@@ -72,7 +73,9 @@ describe('<Link />', () => {
       },
     };
     const rendered = mount(<Link field={field} />).find('a');
-    expect(rendered.html()).to.contain(`href="${field.value.href}?${field.value.querystring}"`);
+    expect(rendered.html()).to.contain(
+      `href="${field.value.href}?${field.value.querystring}#${field.value.anchor}"`
+    );
     expect(rendered.html()).to.contain(`class="${field.value.class}"`);
     expect(rendered.html()).to.contain(`title="${field.value.title}"`);
     expect(rendered.html()).to.contain(`target="${field.value.target}"`);
