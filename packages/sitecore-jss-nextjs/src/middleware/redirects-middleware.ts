@@ -1,4 +1,3 @@
-import { config } from 'temp/config';
 import regexParser from 'regex-parser';
 import { NextResponse, NextRequest } from 'next/server';
 import {

@@ -40,7 +40,6 @@ export type GraphQLRedirectsServiceConfig = CacheOptions & {
   /**
    * The API key to use for authentication
    */
-
   apiKey: string;
   /**
    * The JSS application name
