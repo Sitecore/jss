@@ -7,7 +7,7 @@ const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
 const defaultQuery = /* GraphQL */ `
   {
     search(
-      where: { name: "_template", value: "${headlessSiteGroupingTemplate}", operator: EQ }
+      where: { name: "_templates", value: "${headlessSiteGroupingTemplate}", operator: CONTAINS }
     ) {
       results {
       ... on Item {
