@@ -30,11 +30,7 @@ describe('GraphQLPersonalizeService', () => {
     },
   };
 
-  afterEach(() => {
-    nock.cleanAll();
-  });
-
-  it('should return personalize info for a route', async () => {
+  const mockNonEmptyResponse = () => {
     nock('http://sctest', {
       reqheaders: {
         sc_apikey: apiKey,
@@ -44,17 +40,9 @@ describe('GraphQLPersonalizeService', () => {
       .reply(200, {
         data: personalizeQueryResult,
       });
+  };
 
-    const service = new GraphQLPersonalizeService(config);
-    const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
-
-    expect(personalizeData).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
-      variantIds,
-    });
-  });
-
-  it('should return undefined if itemPath / language not found', async () => {
+  const mockEmptyResponse = () => {
     nock('http://sctest', {
       reqheaders: {
         sc_apikey: apiKey,
@@ -66,6 +54,26 @@ describe('GraphQLPersonalizeService', () => {
           layout: {},
         },
       });
+  };
+
+  afterEach(() => {
+    nock.cleanAll();
+  });
+
+  it('should return personalize info for a route', async () => {
+    mockNonEmptyResponse();
+
+    const service = new GraphQLPersonalizeService(config);
+    const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+
+    expect(personalizeData).to.deep.equal({
+      contentId: `embedded_${id}_en`.toLowerCase(),
+      variantIds,
+    });
+  });
+
+  it('should return undefined if itemPath / language not found', async () => {
+    mockEmptyResponse();
 
     const service = new GraphQLPersonalizeService(config);
     const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', '');
@@ -135,15 +143,7 @@ describe('GraphQLPersonalizeService', () => {
   });
 
   it('should cache service response by default', async () => {
-    nock('http://sctest', {
-      reqheaders: {
-        sc_apikey: apiKey,
-      },
-    })
-      .post('/graphql')
-      .reply(200, {
-        data: personalizeQueryResult,
-      });
+    mockNonEmptyResponse();
 
     const itemPath = '/sitecore/content/home';
     const lang = 'en';
@@ -156,19 +156,9 @@ describe('GraphQLPersonalizeService', () => {
       variantIds,
     });
 
-    nock.cleanAll();
+    // nock.cleanAll();
 
-    nock('http://sctest', {
-      reqheaders: {
-        sc_apikey: apiKey,
-      },
-    })
-      .post('/graphql')
-      .reply(200, {
-        data: {
-          layout: {},
-        },
-      });
+    mockEmptyResponse();
 
     const secondResult = await service.getPersonalizeInfo(itemPath, lang);
 
@@ -176,15 +166,7 @@ describe('GraphQLPersonalizeService', () => {
   });
 
   it('should be possible to disable cache', async () => {
-    nock('http://sctest', {
-      reqheaders: {
-        sc_apikey: apiKey,
-      },
-    })
-      .post('/graphql')
-      .reply(200, {
-        data: personalizeQueryResult,
-      });
+    mockNonEmptyResponse();
 
     const itemPath = '/sitecore/content/home';
     const lang = 'en';
@@ -200,22 +182,42 @@ describe('GraphQLPersonalizeService', () => {
       variantIds,
     });
 
-    nock.cleanAll();
+    // nock.cleanAll();
 
-    nock('http://sctest', {
-      reqheaders: {
-        sc_apikey: apiKey,
-      },
-    })
-      .post('/graphql')
-      .reply(200, {
-        data: {
-          layout: {},
-        },
-      });
+    mockEmptyResponse();
 
     const secondResult = await service.getPersonalizeInfo(itemPath, lang);
 
     expect(secondResult).to.not.deep.equal(firstResult);
+  });
+
+  it('cache timeout should be used', async () => {
+    mockNonEmptyResponse();
+
+    const itemPath = '/sitecore/content/home';
+    const lang = 'en';
+
+    const service = new GraphQLPersonalizeService({
+      ...config,
+      cacheTimeout: 0.2,
+    });
+    const firstResult = await service.getPersonalizeInfo(itemPath, lang);
+
+    // nock.cleanAll();
+    mockEmptyResponse();
+
+    const waitCacheUpdate = new Promise((resolve) => {
+      setTimeout(
+        () =>
+          service.getPersonalizeInfo(itemPath, lang).then((newResult) => {
+            expect(newResult).to.not.deep.equal(firstResult);
+            resolve(undefined);
+          }),
+        100
+      );
+    });
+
+    // await waitCached;
+    await waitCacheUpdate;
   });
 });
