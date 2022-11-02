@@ -2,29 +2,29 @@ import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import debug from 'debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
-const siteGroupingTemplate = 'EDA823FC-BC7E-4EF6-B498-CD09EC6FDAEF';
+const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
 
 const defaultQuery = /* GraphQL */ `
   {
     search(
-      where: { name: "_template", value: "${siteGroupingTemplate}", operator: EQ }
+      where: { name: "_template", value: "${headlessSiteGroupingTemplate}", operator: EQ }
     ) {
       results {
-        ... on SiteDefinition {
-          name
-          hostName {
-            value
-          }
-          virtualFolder {
-            value
-          }
-          language: language_f19277fe1b854b0a8c265e74d766b3a3 {
-            value
-          }
+      ... on Site_e46f3af239fa4866a1577017c4b2a40c {
+        name
+        hostName {
+          value
+        }
+        virtualFolder {
+          value
+        }
+        language: field(name: "Language") {
+          value
         }
       }
     }
   }
+}
 `;
 
 export type SiteInfo = {
@@ -34,7 +34,7 @@ export type SiteInfo = {
   language: string;
 };
 
-type GraphQLSiteInfoServiceOptions = {
+export type GraphQLSiteInfoServiceConfig = CacheOptions & {
   /**
    * Your Graphql endpoint
    */
@@ -43,11 +43,6 @@ type GraphQLSiteInfoServiceOptions = {
    * The API key to use for authentication
    */
   apiKey: string;
-  /**
-   * Settings for internal cache.
-   * Cache is enabled by default with timout set to 10
-   */
-  cacheSettings?: CacheOptions;
 };
 
 type GraphQLSiteInfoResponse = {
@@ -71,7 +66,7 @@ type GraphQLSiteInfoResult = {
 
 export class GraphQLSiteInfoService {
   private graphQLClient: GraphQLClient;
-  private memoryCache: CacheClient<SiteInfo[]>;
+  private cache: CacheClient<SiteInfo[]>;
 
   protected get query(): string {
     return defaultQuery;
@@ -79,15 +74,15 @@ export class GraphQLSiteInfoService {
 
   /**
    * Creates an instance of graphQL service to retrieve site configuration list from Sitecore
-   * @param {GraphQLSiteInfoServiceOptions} options instance
+   * @param {GraphQLSiteInfoServiceConfig} config instance
    */
-  constructor(private options: GraphQLSiteInfoServiceOptions) {
+  constructor(private config: GraphQLSiteInfoServiceConfig) {
     this.graphQLClient = this.getGraphQLClient();
-    this.memoryCache = this.getCacheClient();
+    this.cache = this.getCacheClient();
   }
 
   async fetchSiteInfo(): Promise<SiteInfo[]> {
-    const cachedResult = this.memoryCache.getCacheValue(this.getCacheKey());
+    const cachedResult = this.cache.getCacheValue(this.getCacheKey());
     if (cachedResult) {
       return cachedResult;
     }
@@ -102,7 +97,7 @@ export class GraphQLSiteInfoService {
       });
       return result;
     }, []);
-    this.memoryCache.setCacheValue(this.getCacheKey(), result);
+    this.cache.setCacheValue(this.getCacheKey(), result);
     return result;
   }
 
@@ -113,8 +108,8 @@ export class GraphQLSiteInfoService {
    */
   protected getCacheClient(): CacheClient<SiteInfo[]> {
     return new MemoryCacheClient<SiteInfo[]>({
-      cacheEnabled: this.options.cacheSettings?.cacheEnabled ?? true,
-      cacheTimeout: this.options.cacheSettings?.cacheTimeout ?? 10,
+      cacheEnabled: this.config.cacheEnabled ?? true,
+      cacheTimeout: this.config.cacheTimeout ?? 10,
     });
   }
 
@@ -125,13 +120,13 @@ export class GraphQLSiteInfoService {
    * @returns {GraphQLClient} implementation
    */
   protected getGraphQLClient(): GraphQLClient {
-    return new GraphQLRequestClient(this.options.endpoint, {
-      apiKey: this.options.apiKey,
+    return new GraphQLRequestClient(this.config.endpoint, {
+      apiKey: this.config.apiKey,
       debugger: debug('multi-site'), // TODO replace with global from debug
     });
   }
 
   private getCacheKey(): string {
-    return 'sitenfo-service-cachedSiteInfo';
+    return 'siteinfo-service-cache';
   }
 }

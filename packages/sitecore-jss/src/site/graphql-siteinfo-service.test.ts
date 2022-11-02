@@ -101,7 +101,7 @@ describe('GraphQLSiteInfoService', () => {
     const service = new GraphQLSiteInfoService({
       apiKey: apiKey,
       endpoint: endpoint,
-      cacheSettings: { cacheEnabled: false },
+      cacheEnabled: false,
     });
     const result = await service.fetchSiteInfo();
     expect(result).to.be.deep.equal([
