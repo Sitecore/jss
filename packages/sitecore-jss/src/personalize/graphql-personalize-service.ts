@@ -53,7 +53,7 @@ type PersonalizeQueryResult = {
 
 export class GraphQLPersonalizeService {
   private graphQLClient: GraphQLClient;
-  private memoryCache: CacheClient<PersonalizeQueryResult>;
+  private cache: CacheClient<PersonalizeQueryResult>;
   protected get query(): string {
     return /* GraphQL */ `
       query($siteName: String!, $language: String!, $itemPath: String!) {
