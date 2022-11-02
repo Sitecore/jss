@@ -95,8 +95,12 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       return null;
     }
 
+    const anchor = link.anchor ? `#${link.anchor}` : '';
+
     const anchorAttrs: { [attr: string]: unknown } = {
-      href: link.querystring ? `${link.href}?${link.querystring}` : link.href,
+      href: link.querystring
+        ? `${link.href}?${link.querystring}${anchor}`
+        : `${link.href}${anchor}`,
       className: link.class,
       title: link.title,
       target: link.target,
