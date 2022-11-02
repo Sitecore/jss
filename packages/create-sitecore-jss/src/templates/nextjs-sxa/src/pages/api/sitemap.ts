@@ -16,7 +16,6 @@ const sitemapApi = async (
   const sitemapXmlService = new GraphQLSitemapXmlService({
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
-    siteName: config.jssAppName,
   });
 
   // if url has sitemap-{n}.xml type

@@ -10,13 +10,11 @@ const server = express();
 const layoutService = new GraphQLLayoutService({
   endpoint: config.endpoint,
   apiKey: config.apiKey,
-  siteName: config.appName,
 });
 
 const dictionaryService = new GraphQLDictionaryService({
   endpoint: config.endpoint,
   apiKey: config.apiKey,
-  siteName: config.appName,
 });
 
 const { renderView, parseRouteUrl } = config.serverBundle;

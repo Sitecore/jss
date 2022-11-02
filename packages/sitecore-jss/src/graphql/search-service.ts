@@ -61,21 +61,6 @@ export interface SearchQueryVariables {
 }
 
 /**
- * Configuration options for service classes that extend @see SearchQueryService.
- * This extends @see SearchQueryVariables because properties that can be passed to the search query
- * as predicates should be configurable. 'language' is excluded because, normally, all properties
- * except 'language' are consistent across languages so they are passed to constructors, and
- * 'language' can vary so it is passed to methods.
- */
-export interface SearchServiceConfig extends Omit<SearchQueryVariables, 'language'> {
-  /**
-   * The name of the current Sitecore site. This is used to to determine the search query root
-   * in cases where one is not specified by the caller.
-   */
-  siteName: string;
-}
-
-/**
  * Provides functionality for performing GraphQL 'search' operations, including handling pagination.
  * This class is meant to be extended or used as a mixin; it's not meant to be used directly.
  * @template T The type of objects being requested.

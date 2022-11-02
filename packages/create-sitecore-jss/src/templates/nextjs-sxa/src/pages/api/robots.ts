@@ -10,7 +10,6 @@ const robotsApi = async (_req: NextApiRequest, res: NextApiResponse): Promise<vo
   const robotsService = new GraphQLRobotsService({
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
-    siteName: config.jssAppName,
   });
 
   const robotsResult = await robotsService.fetchRobots();

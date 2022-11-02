@@ -1,6 +1,7 @@
 import { LayoutServiceBase } from './layout-service';
 import { LayoutServiceData } from './models';
 import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
+import { siteNameError } from '../constants';
 import debug from '../debug';
 
 export type GraphQLLayoutServiceConfig = {
@@ -8,10 +9,6 @@ export type GraphQLLayoutServiceConfig = {
    * Your Graphql endpoint
    */
   endpoint: string;
-  /**
-   * The JSS application name
-   */
-  siteName: string;
   /**
    * The API key to use for authentication
    */
@@ -50,18 +47,18 @@ export class GraphQLLayoutService extends LayoutServiceBase {
   /**
    * Fetch layout data for an item.
    * @param {string} itemPath item path to fetch layout data for.
+   * @param {string} siteName the site to fetch layout data for.
    * @param {string} [language] the language to fetch layout data for.
    * @returns {Promise<LayoutServiceData>} layout service data
    */
-  async fetchLayoutData(itemPath: string, language?: string): Promise<LayoutServiceData> {
-    const query = this.getLayoutQuery(itemPath, language);
+  async fetchLayoutData(
+    itemPath: string,
+    siteName: string,
+    language?: string
+  ): Promise<LayoutServiceData> {
+    const query = this.getLayoutQuery(itemPath, siteName, language);
 
-    debug.layout(
-      'fetching layout data for %s %s %s',
-      itemPath,
-      language,
-      this.serviceConfig.siteName
-    );
+    debug.layout('fetching layout data for %s %s %s', itemPath, language, siteName);
     const data = await this.graphQLClient.request<{
       layout: { item: { rendered: LayoutServiceData } };
     }>(query);
@@ -90,15 +87,20 @@ export class GraphQLLayoutService extends LayoutServiceBase {
   /**
    * Returns GraphQL Layout query
    * @param {string} itemPath page route
+   * @param {string} siteName site
    * @param {string} [language] language
    * @returns {string} GraphQL query
    */
-  protected getLayoutQuery(itemPath: string, language?: string): string {
+  protected getLayoutQuery(itemPath: string, siteName: string, language?: string): string {
+    if (!siteName) {
+      throw new Error(siteNameError);
+    }
+
     const languageVariable = language ? `, language:"${language}"` : '';
 
     const layoutQuery = this.serviceConfig.formatLayoutQuery
-      ? this.serviceConfig.formatLayoutQuery(this.serviceConfig.siteName, itemPath, language)
-      : `layout(site:"${this.serviceConfig.siteName}", routePath:"${itemPath}"${languageVariable})`;
+      ? this.serviceConfig.formatLayoutQuery(siteName, itemPath, language)
+      : `layout(site:"${siteName}", routePath:"${itemPath}"${languageVariable})`;
 
     return `query {
       ${layoutQuery}{

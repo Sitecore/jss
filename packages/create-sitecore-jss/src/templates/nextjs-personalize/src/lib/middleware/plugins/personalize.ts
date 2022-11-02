@@ -26,7 +26,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
       edgeConfig: {
         endpoint: config.graphQLEndpoint,
         apiKey: config.sitecoreApiKey,
-        siteName: config.jssAppName,
         timeout:
           (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||

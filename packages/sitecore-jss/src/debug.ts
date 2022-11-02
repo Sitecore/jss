@@ -37,4 +37,5 @@ export default {
   redirects: debug(`${rootNamespace}:redirects`),
   personalize: debug(`${rootNamespace}:personalize`),
   errorpages: debug(`${rootNamespace}:errorpages`),
+  multisite: debug(`${rootNamespace}:multisite`),
 };

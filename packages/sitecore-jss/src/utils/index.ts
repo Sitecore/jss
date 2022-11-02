@@ -7,3 +7,4 @@ export {
   resetEditorChromes,
   handleEditorAnchors,
 } from './editing';
+export { WildCardExp } from './wildcardexp';

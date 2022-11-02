@@ -8,11 +8,10 @@ const getRouteData = (route, { options = {}, language } = {}) => {
   const layoutService = new RestLayoutService({
     apiHost: options.apiHost || __SC_API_HOST__,
     apiKey: options.apiKey || __SC_API_KEY__,
-    siteName: options.appName || config.appName,
   });
 
   return layoutService
-    .fetchLayoutData(route, language)
+    .fetchLayoutData(route, options.appName || config.appName, language)
     .then((data) => (data && data.sitecore ? data.sitecore.route : {}));
 };
 

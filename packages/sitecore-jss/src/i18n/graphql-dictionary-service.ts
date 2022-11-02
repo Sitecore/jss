@@ -2,7 +2,8 @@ import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
 import { CacheOptions } from '../cache-client';
-import { getAppRootId, SearchServiceConfig, SearchQueryService } from '../graphql';
+import { getAppRootId, SearchQueryVariables, SearchQueryService } from '../graphql';
+import { siteNameError } from '../constants';
 import debug from '../debug';
 
 /** @private */
@@ -48,7 +49,9 @@ const query = /* GraphQL */ `
 /**
  * Configuration options for @see GraphQLDictionaryService instances
  */
-export interface GraphQLDictionaryServiceConfig extends SearchServiceConfig, CacheOptions {
+export interface GraphQLDictionaryServiceConfig
+  extends Omit<SearchQueryVariables, 'language'>,
+    CacheOptions {
   /**
    * The URL of the graphQL endpoint.
    */
@@ -102,15 +105,20 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
   /**
    * Fetches dictionary data for internalization.
    * @param {string} language the language to fetch
+   * @param {string} siteName the site to fetch for
    * @default query (@see query)
    * @returns {Promise<DictionaryPhrases>} dictionary phrases
    * @throws {Error} if the app root was not found for the specified site and language.
    */
-  async fetchDictionaryData(language: string): Promise<DictionaryPhrases> {
-    const cacheKey = this.options.siteName + language;
+  async fetchDictionaryData(language: string, siteName: string): Promise<DictionaryPhrases> {
+    if (!siteName) {
+      throw new Error(siteNameError);
+    }
+
+    const cacheKey = siteName + language;
     const cachedValue = this.getCacheValue(cacheKey);
     if (cachedValue) {
-      debug.dictionary('using cached dictionary data for %s %s', language, this.options.siteName);
+      debug.dictionary('using cached dictionary data for %s %s', language, siteName);
       return cachedValue;
     }
 
@@ -119,18 +127,13 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
     // If the caller does not specify a root item ID, then we try to figure it out
     const rootItemId =
       this.options.rootItemId ||
-      (await getAppRootId(
-        this.graphQLClient,
-        this.options.siteName,
-        language,
-        this.options.jssAppTemplateId
-      ));
+      (await getAppRootId(this.graphQLClient, siteName, language, this.options.jssAppTemplateId));
 
     if (!rootItemId) {
       throw new Error(queryError);
     }
 
-    debug.dictionary('fetching dictionary data for %s %s', language, this.options.siteName);
+    debug.dictionary('fetching dictionary data for %s %s', language, siteName);
     const phrases: DictionaryPhrases = {};
     await this.searchService
       .fetch(query, {

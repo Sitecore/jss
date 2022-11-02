@@ -123,7 +123,8 @@ export type RouteListQueryResult = {
 /**
  * Configuration options for @see GraphQLSitemapService instances
  */
-export interface GraphQLSitemapServiceConfig extends Omit<SiteRouteQueryVariables, 'language'> {
+export interface GraphQLSitemapServiceConfig
+  extends Omit<Omit<SiteRouteQueryVariables, 'language'>, 'siteName'> {
   /**
    * Your Graphql endpoint
    */
@@ -179,24 +180,26 @@ export class GraphQLSitemapService {
    * The `locale` parameter will be used in the item query, but since i18n is not supported,
    * the output paths will not include a `language` property.
    * @param {string} locale which application supports
+   * @param {string[]} siteNames the sites.
    * @returns an array of @see StaticPath objects
    */
-  async fetchExportSitemap(locale: string): Promise<StaticPath[]> {
+  async fetchExportSitemap(locale: string, siteNames: string[]): Promise<StaticPath[]> {
     const formatPath = (path: string[]) => ({
       params: {
         path,
       },
     });
 
-    return this.fetchSitemap([locale], formatPath);
+    return this.fetchSitemap([locale], siteNames, formatPath);
   }
 
   /**
    * Fetch sitemap which could be used for generation of static pages using SSG mode
    * @param {string[]} locales locales which application supports
+   * @param {string[]} siteNames the sites.
    * @returns an array of @see StaticPath objects
    */
-  async fetchSSGSitemap(locales: string[]): Promise<StaticPath[]> {
+  async fetchSSGSitemap(locales: string[], siteNames: string[]): Promise<StaticPath[]> {
     const formatPath = (path: string[], locale: string) => ({
       params: {
         path,
@@ -204,13 +207,14 @@ export class GraphQLSitemapService {
       locale,
     });
 
-    return this.fetchSitemap(locales, formatPath);
+    return this.fetchSitemap(locales, siteNames, formatPath);
   }
 
   /**
    * Fetch a flat list of all pages that belong to the specificed site and have a
    * version in the specified language(s).
    * @param {string[]} languages Fetch pages that have versions in this language(s).
+   * @param {string[]} siteNames the sites.
    * @param {Function} formatStaticPath Function for transforming the raw search results into (@see StaticPath) types.
    * @returns list of pages
    * @throws {RangeError} if the list of languages is empty.
@@ -218,6 +222,7 @@ export class GraphQLSitemapService {
    */
   protected async fetchSitemap(
     languages: string[],
+    siteNames: string[],
     formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
     if (!languages.length) {
@@ -225,14 +230,16 @@ export class GraphQLSitemapService {
     }
     // Fetch paths using all locales
     const paths = await Promise.all(
-      languages.map((language) => {
-        if (language === '') {
-          throw new RangeError(languageEmptyError);
-        }
-        debug.sitemap('fetching sitemap data for %s', language);
-        return this.fetchLanguageSitePaths(language).then((results) =>
-          this.transformLanguageSitePaths(results, formatStaticPath, language)
-        );
+      siteNames.flatMap((siteName) => {
+        return languages.map((language) => {
+          if (language === '') {
+            throw new RangeError(languageEmptyError);
+          }
+          debug.sitemap('fetching sitemap data for %s', language);
+          return this.fetchLanguageSitePaths(language, siteName).then((results) =>
+            this.transformLanguageSitePaths(results, formatStaticPath, language)
+          );
+        });
       })
     );
 
@@ -266,10 +273,13 @@ export class GraphQLSitemapService {
     return aggregatedPaths;
   }
 
-  protected async fetchLanguageSitePaths(language: string): Promise<RouteListQueryResult[]> {
+  protected async fetchLanguageSitePaths(
+    language: string,
+    siteName: string
+  ): Promise<RouteListQueryResult[]> {
     const args: SiteRouteQueryVariables = {
-      siteName: this.options.siteName,
-      language: language,
+      language,
+      siteName,
       pageSize: this.options.pageSize,
       includedPaths: this.options.includedPaths,
       excludedPaths: this.options.excludedPaths,
@@ -287,7 +297,7 @@ export class GraphQLSitemapService {
       });
 
       if (!fetchResponse?.site?.siteInfo) {
-        throw new RangeError(getSiteEmptyError(this.options.siteName));
+        throw new RangeError(getSiteEmptyError(siteName));
       } else {
         results = results.concat(fetchResponse.site.siteInfo.routes?.results);
         hasNext = fetchResponse.site.siteInfo.routes?.pageInfo.hasNext;

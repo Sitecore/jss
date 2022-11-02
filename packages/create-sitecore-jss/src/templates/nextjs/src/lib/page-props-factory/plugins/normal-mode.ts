@@ -11,7 +11,7 @@ class NormalModePlugin implements Plugin {
   private dictionaryService: DictionaryService;
   private layoutService: LayoutService;
 
-  order = 0;
+  order = 5;
 
   constructor() {
     this.dictionaryService = dictionaryServiceFactory.create();
@@ -33,6 +33,7 @@ class NormalModePlugin implements Plugin {
     // Fetch layout data, passing on req/res for SSR
     props.layoutData = await this.layoutService.fetchLayoutData(
       path,
+      props.site || config.jssAppName,
       props.locale,
       // eslint-disable-next-line prettier/prettier
       isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).req : undefined,
@@ -48,7 +49,7 @@ class NormalModePlugin implements Plugin {
     }
 
     // Fetch dictionary data
-    props.dictionary = await this.dictionaryService.fetchDictionaryData(props.locale);
+    props.dictionary = await this.dictionaryService.fetchDictionaryData(props.locale, props.site);
 
     return props;
   }

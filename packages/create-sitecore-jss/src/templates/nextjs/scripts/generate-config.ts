@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { constantCase } from 'constant-case';
+import { isArray, isObject } from 'util';
 import packageConfig from '../package.json';
 
 /* eslint-disable no-console */
@@ -18,16 +19,18 @@ export function generateConfig(configOverrides?: { [key: string]: string }): voi
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
     jssAppName: 'Unknown',
+    sites: [{ name: 'Unknown', hostName: '', disableTrailingWildcard: false }],
   };
 
   // require + combine config sources
   const scjssConfig = transformScJssConfig();
   const packageJson = transformPackageConfig();
+  const siteConfig = transformSiteConfig();
 
   // Object.assign merges the objects in order, so config overrides are performed as:
   // default config <-- scjssconfig.json <-- package.json <-- configOverrides
   // Optional: add any other dynamic config source (e.g. environment-specific config files).
-  const config = Object.assign(defaultConfig, scjssConfig, packageJson, configOverrides);
+  const config = Object.assign(defaultConfig, scjssConfig, packageJson, siteConfig, configOverrides);
 
   // The GraphQL endpoint is an example of making a _computed_ config setting
   // based on other config settings.
@@ -41,7 +44,11 @@ const config = {};\n`;
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
-    configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]}",\n`;
+    if (prop == "sites") {
+      configText += `config.${prop} = process.env.${constantCase(prop)} || '${JSON.stringify(config[prop])}',\n`;
+    } else {
+      configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]}",\n`;
+    }
   });
   // Set computed values, allowing override with environment variables
   Object.keys(computedConfig).forEach((prop) => {
@@ -82,5 +89,31 @@ function transformPackageConfig() {
     jssAppName: packageConfig.config.appName,
     graphQLEndpointPath: packageConfig.config.graphQLEndpointPath,
     defaultLanguage: packageConfig.config.language || 'en',
+    sites: [{ name: packageConfig.config.appName, hostName: '', disableTrailingWildcard: false }],
+  };
+}
+
+function transformSiteConfig() {
+  // siteconfig.json may not exist if you are only hosting a single site
+  let config;
+  try {
+    // eslint-disable-next-line global-require
+    config = require('../siteconfig.json');
+  } catch (e) {
+    return {};
+  }
+
+  if (!config || !config.sitecore || !config.sitecore.sites || !isArray(config.sitecore.sites))
+    return {};
+
+  return {
+    sites: config.sitecore.sites
+      .filter((site: Record<string, string>) => isObject(site) && !!site['name'])
+      .map((site: Record<string, string>) => ({
+        name: site['name'],
+        hostName: site['hostName'] || '',
+        disableTrailingWildcard: site['disableTrailingWildcard'] || false,
+        ...site,
+      })),
   };
 }
