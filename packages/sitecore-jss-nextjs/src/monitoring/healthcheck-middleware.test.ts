@@ -1,8 +1,8 @@
 import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { HealthcheckMiddleware } from './healthcheck-middleware';
 import { spy } from 'sinon';
 import sinonChai from 'sinon-chai';
+import { HealthcheckMiddleware } from './healthcheck-middleware';
 
 use(sinonChai);
 
