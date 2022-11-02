@@ -28,7 +28,7 @@ export const Link = (props: LinkProps): JSX.Element => {
   const value = ((props.field as LinkFieldValue).href
     ? props.field
     : (props.field as LinkField).value) as LinkFieldValue;
-  const { href } = value;
+  const { href, querystring, anchor } = value;
   const isEditing = editable && (props.field as LinkFieldValue).editable;
 
   if (href && !isEditing) {
@@ -38,7 +38,11 @@ export const Link = (props: LinkProps): JSX.Element => {
     // determine if a link is a route or not.
     if (internalLinkMatcher.test(href)) {
       return (
-        <NextLink href={href} key="link" locale={false}>
+        <NextLink
+          href={{ pathname: href, query: querystring, hash: anchor }}
+          key="link"
+          locale={false}
+        >
           <a title={value.title} target={value.target} className={value.class} {...htmlLinkProps}>
             {text}
             {props.children}
