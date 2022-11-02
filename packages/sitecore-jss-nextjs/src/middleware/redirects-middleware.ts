@@ -1,3 +1,4 @@
+import { config } from 'temp/config';
 import regexParser from 'regex-parser';
 import { NextResponse, NextRequest } from 'next/server';
 import {
@@ -41,7 +42,7 @@ export class RedirectsMiddleware {
   /**
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
    */
-  constructor(config: RedirectsMiddlewareConfig) {
+  constructor(protected config: RedirectsMiddlewareConfig) {
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
@@ -72,7 +73,11 @@ export class RedirectsMiddleware {
     // Find the redirect from result of RedirectService
     const existsRedirect = await this.getExistsRedirect(req);
 
-    if (!existsRedirect) {
+    if (
+      !existsRedirect ||
+      this.excludeRoute(req.nextUrl.pathname) ||
+      (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
+    ) {
       return NextResponse.next();
     }
 

@@ -32,7 +32,7 @@ const defaultQuery = /* GraphQL */ `
   }
 `;
 
-export type GraphQLRedirectsServiceConfig = {
+export type GraphQLRedirectsServiceConfig = CacheOptions & {
   /**
    * Your Graphql endpoint
    */
@@ -50,12 +50,6 @@ export type GraphQLRedirectsServiceConfig = {
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
   fetch?: typeof fetch;
-  /**
-   * Cache settings
-   * Specified the cache timeout and whether cache is enabled
-   * If not provided cache will be enabled with timeout of 10 seconds
-   */
-  cacheSettings?: CacheOptions;
 };
 
 /**
@@ -92,18 +86,24 @@ export class GraphQLRedirectsService {
    */
   async fetchRedirects(): Promise<RedirectInfo[]> {
     const siteName: string = this.options.siteName;
-    const cacheKey = `redirects-${siteName}`;
-    let data = this.cache.getCacheValue(cacheKey);
 
     if (!siteName) {
       throw new Error(siteNameError);
     }
 
+    const cacheKey = `redirects-${siteName}`;
+    let data = this.cache.getCacheValue(cacheKey);
+
     if (!data) {
-      data = await this.graphQLClient.request<RedirectsQueryResult>(this.query, {
-        siteName,
-      });
-      this.cache.setCacheValue(cacheKey, data);
+      // eslint-disable-next-line no-useless-catch
+      try {
+        data = await this.graphQLClient.request<RedirectsQueryResult>(this.query, {
+          siteName,
+        });
+        this.cache.setCacheValue(cacheKey, data);
+      } catch (error) {
+        throw error;
+      }
     }
 
     return data?.site?.siteInfo?.redirects || [];
@@ -130,8 +130,8 @@ export class GraphQLRedirectsService {
    */
   protected getCacheClient(): CacheClient<RedirectsQueryResult> {
     return new MemoryCacheClient<RedirectsQueryResult>({
-      cacheEnabled: this.options.cacheSettings?.cacheEnabled ?? true,
-      cacheTimeout: this.options.cacheSettings?.cacheTimeout ?? 10,
+      cacheEnabled: this.options.cacheEnabled ?? true,
+      cacheTimeout: this.options.cacheTimeout ?? 10,
     });
   }
 }
