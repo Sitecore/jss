@@ -1,5 +1,5 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql';
-import debug from 'debug';
+import debug from '../debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
 const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
@@ -10,12 +10,12 @@ const defaultQuery = /* GraphQL */ `
       where: { name: "_template", value: "${headlessSiteGroupingTemplate}", operator: EQ }
     ) {
       results {
-      ... on Site_e46f3af239fa4866a1577017c4b2a40c {
+      ... on Item {
         name
-        hostName {
+        hostName: field(name: "Hostname") {
           value
         }
-        virtualFolder {
+        virtualFolder: field(name: "VirtualFolder") {
           value
         }
         language: field(name: "Language") {
@@ -122,7 +122,7 @@ export class GraphQLSiteInfoService {
   protected getGraphQLClient(): GraphQLClient {
     return new GraphQLRequestClient(this.config.endpoint, {
       apiKey: this.config.apiKey,
-      debugger: debug('multi-site'), // TODO replace with global from debug
+      debugger: debug.multisite,
     });
   }
 
