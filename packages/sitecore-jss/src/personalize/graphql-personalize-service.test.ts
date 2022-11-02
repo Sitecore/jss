@@ -191,7 +191,7 @@ describe('GraphQLPersonalizeService', () => {
 
     const service = new GraphQLPersonalizeService({
       ...config,
-      cacheSettings: { cacheEnabled: false },
+      cacheEnabled: false,
     });
     const firstResult = await service.getPersonalizeInfo(itemPath, lang);
 

@@ -4,7 +4,7 @@ import { isTimeoutError } from '../utils';
 import { CdpHelper } from './utils';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
-export type GraphQLPersonalizeServiceConfig = {
+export type GraphQLPersonalizeServiceConfig = CacheOptions & {
   /**
    * Your Graphql endpoint
    */
@@ -21,12 +21,6 @@ export type GraphQLPersonalizeServiceConfig = {
    * Timeout (ms) for the Personalize request. Default is 250.
    */
   timeout?: number;
-  /**
-   * Cache settings
-   * Specified the cache timeout and whether cache is enabled
-   * If not provided cache will be enabled with timeout of 10 seconds
-   */
-  cacheSettings?: CacheOptions;
   /**
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
@@ -131,8 +125,8 @@ export class GraphQLPersonalizeService {
    */
   protected getCacheClient(): CacheClient<PersonalizeQueryResult> {
     return new MemoryCacheClient<PersonalizeQueryResult>({
-      cacheEnabled: this.config.cacheSettings?.cacheEnabled ?? true,
-      cacheTimeout: this.config.cacheSettings?.cacheTimeout ?? 10,
+      cacheEnabled: this.config.cacheEnabled ?? true,
+      cacheTimeout: this.config.cacheTimeout ?? 10,
     });
   }
 
