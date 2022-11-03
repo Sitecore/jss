@@ -16,6 +16,7 @@
     "dist",
     "middleware.d.ts",
     "editing.d.ts",
+    "monitoring.d.ts",
     "src/tests/*",
     "src/test-data/*",
     "**/*.test.ts",
