@@ -19,24 +19,40 @@ const sitemapApi = async (
     siteName: config.jssAppName,
   });
 
-  const sitemapPath = await sitemapXmlService.getSitemap(id as string);
+  if (id) {
+    const sitemapPath = await sitemapXmlService.getSitemap(id as string);
 
-  if (sitemapPath) {
-    const isAbsoluteUrl = sitemapPath.match(ABSOLUTE_URL_REGEXP);
-    const sitemapUrl = isAbsoluteUrl ? sitemapPath : `${config.sitecoreApiHost}${sitemapPath}`;
+    if (sitemapPath) {
+      const isAbsoluteUrl = sitemapPath.match(ABSOLUTE_URL_REGEXP);
+      const sitemapUrl = isAbsoluteUrl ? sitemapPath : `${config.sitecoreApiHost}${sitemapPath}`;
+      res.setHeader('Content-Type', 'text/xml;charset=utf-8');
+
+      return new AxiosDataFetcher()
+        .get(sitemapUrl, {
+          responseType: 'stream',
+        })
+        .then((response: AxiosResponse) => {
+          response.data.pipe(res);
+        })
+        .catch(() => res.redirect('/404'));
+    }
+  } else {
+    const sitemaps = await sitemapXmlService.fetchSitemaps();
+    const SitemapLinks = sitemaps
+      .map(
+        (item) =>
+          `<sitemap>
+              <loc>${item}</loc>
+            </sitemap>
+          `
+      )
+      .join('');
+
     res.setHeader('Content-Type', 'text/xml;charset=utf-8');
-
-    return new AxiosDataFetcher()
-      .get(sitemapUrl, {
-        responseType: 'stream',
-      })
-      .then((response: AxiosResponse) => {
-        response.data.pipe(res);
-      })
-      .catch(() => res.redirect('/404'));
+    return res.send(`
+    <sitemapindex xmlns="http://sitemaps.org/schemas/sitemap/0.9">${SitemapLinks}</sitemapindex>
+    `);
   }
-
-  res.redirect('/404');
 };
 
 export default sitemapApi;
