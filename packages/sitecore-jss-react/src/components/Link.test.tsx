@@ -69,6 +69,7 @@ describe('<Link />', () => {
         class: 'my-link',
         title: 'My Link',
         target: '_blank',
+        querystring: 'foo=bar',
       },
     };
     const rendered = mount(<Link field={field} />).find('a');
