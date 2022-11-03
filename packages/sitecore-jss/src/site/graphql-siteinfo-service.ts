@@ -1,8 +1,7 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql';
 import debug from '../debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
-
-const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
+import { headlessSiteGroupingTemplate } from '../constants';
 
 const defaultQuery = /* GraphQL */ `
   {
