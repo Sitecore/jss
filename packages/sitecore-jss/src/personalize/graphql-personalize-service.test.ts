@@ -203,21 +203,19 @@ describe('GraphQLPersonalizeService', () => {
     });
     const firstResult = await service.getPersonalizeInfo(itemPath, lang);
 
-    // nock.cleanAll();
     mockEmptyResponse();
 
-    const waitCacheUpdate = new Promise((resolve) => {
+    const cacheUpdate = new Promise((resolve) => {
       setTimeout(
         () =>
           service.getPersonalizeInfo(itemPath, lang).then((newResult) => {
             expect(newResult).to.not.deep.equal(firstResult);
             resolve(undefined);
           }),
-        100
+        250
       );
     });
-
-    // await waitCached;
-    await waitCacheUpdate;
+    
+    await cacheUpdate;
   });
 });
