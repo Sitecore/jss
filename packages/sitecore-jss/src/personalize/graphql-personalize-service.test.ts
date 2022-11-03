@@ -215,7 +215,7 @@ describe('GraphQLPersonalizeService', () => {
         250
       );
     });
-    
+
     await cacheUpdate;
   });
 });
