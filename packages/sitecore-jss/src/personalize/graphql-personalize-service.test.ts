@@ -156,8 +156,6 @@ describe('GraphQLPersonalizeService', () => {
       variantIds,
     });
 
-    // nock.cleanAll();
-
     mockEmptyResponse();
 
     const secondResult = await service.getPersonalizeInfo(itemPath, lang);
@@ -182,8 +180,6 @@ describe('GraphQLPersonalizeService', () => {
       variantIds,
     });
 
-    // nock.cleanAll();
-
     mockEmptyResponse();
 
     const secondResult = await service.getPersonalizeInfo(itemPath, lang);
@@ -205,16 +201,28 @@ describe('GraphQLPersonalizeService', () => {
 
     mockEmptyResponse();
 
+    const cacheNonUpdate = new Promise((resolve) => {
+      setTimeout(
+        () =>
+          service.getPersonalizeInfo(itemPath, lang).then((newResult) => {
+            expect(newResult).to.deep.equal(firstResult);
+            resolve(undefined);
+          }),
+        100
+      );
+    });
+
     const cacheUpdate = new Promise((resolve) => {
       setTimeout(
         () =>
           service.getPersonalizeInfo(itemPath, lang).then((newResult) => {
-            expect(newResult).to.not.deep.equal(firstResult);
+            expect(newResult).to.deep.equal(undefined);
             resolve(undefined);
           }),
         250
       );
     });
+    await cacheNonUpdate;
 
     await cacheUpdate;
   });
