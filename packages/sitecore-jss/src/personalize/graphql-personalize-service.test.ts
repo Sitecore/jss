@@ -30,11 +30,7 @@ describe('GraphQLPersonalizeService', () => {
     },
   };
 
-  afterEach(() => {
-    nock.cleanAll();
-  });
-
-  it('should return personalize info for a route', async () => {
+  const mockNonEmptyResponse = () => {
     nock('http://sctest', {
       reqheaders: {
         sc_apikey: apiKey,
@@ -44,17 +40,9 @@ describe('GraphQLPersonalizeService', () => {
       .reply(200, {
         data: personalizeQueryResult,
       });
+  };
 
-    const service = new GraphQLPersonalizeService(config);
-    const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
-
-    expect(personalizeData).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
-      variantIds,
-    });
-  });
-
-  it('should return undefined if itemPath / language not found', async () => {
+  const mockEmptyResponse = () => {
     nock('http://sctest', {
       reqheaders: {
         sc_apikey: apiKey,
@@ -66,6 +54,26 @@ describe('GraphQLPersonalizeService', () => {
           layout: {},
         },
       });
+  };
+
+  afterEach(() => {
+    nock.cleanAll();
+  });
+
+  it('should return personalize info for a route', async () => {
+    mockNonEmptyResponse();
+
+    const service = new GraphQLPersonalizeService(config);
+    const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+
+    expect(personalizeData).to.deep.equal({
+      contentId: `embedded_${id}_en`.toLowerCase(),
+      variantIds,
+    });
+  });
+
+  it('should return undefined if itemPath / language not found', async () => {
+    mockEmptyResponse();
 
     const service = new GraphQLPersonalizeService(config);
     const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', '');
@@ -132,5 +140,90 @@ describe('GraphQLPersonalizeService', () => {
     const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
 
     expect(result).to.equal(undefined);
+  });
+
+  it('should cache service response by default', async () => {
+    mockNonEmptyResponse();
+
+    const itemPath = '/sitecore/content/home';
+    const lang = 'en';
+
+    const service = new GraphQLPersonalizeService(config);
+    const firstResult = await service.getPersonalizeInfo(itemPath, lang);
+
+    expect(firstResult).to.deep.equal({
+      contentId: `embedded_${id}_en`.toLowerCase(),
+      variantIds,
+    });
+
+    mockEmptyResponse();
+
+    const secondResult = await service.getPersonalizeInfo(itemPath, lang);
+
+    expect(secondResult).to.deep.equal(firstResult);
+  });
+
+  it('should be possible to disable cache', async () => {
+    mockNonEmptyResponse();
+
+    const itemPath = '/sitecore/content/home';
+    const lang = 'en';
+
+    const service = new GraphQLPersonalizeService({
+      ...config,
+      cacheEnabled: false,
+    });
+    const firstResult = await service.getPersonalizeInfo(itemPath, lang);
+
+    expect(firstResult).to.deep.equal({
+      contentId: `embedded_${id}_en`.toLowerCase(),
+      variantIds,
+    });
+
+    mockEmptyResponse();
+
+    const secondResult = await service.getPersonalizeInfo(itemPath, lang);
+
+    expect(secondResult).to.not.deep.equal(firstResult);
+  });
+
+  it('cache timeout should be used', async () => {
+    mockNonEmptyResponse();
+
+    const itemPath = '/sitecore/content/home';
+    const lang = 'en';
+
+    const service = new GraphQLPersonalizeService({
+      ...config,
+      cacheTimeout: 0.2,
+    });
+    const firstResult = await service.getPersonalizeInfo(itemPath, lang);
+
+    mockEmptyResponse();
+
+    const cacheNonUpdate = new Promise((resolve) => {
+      setTimeout(
+        () =>
+          service.getPersonalizeInfo(itemPath, lang).then((newResult) => {
+            expect(newResult).to.deep.equal(firstResult);
+            resolve(undefined);
+          }),
+        100
+      );
+    });
+
+    const cacheUpdate = new Promise((resolve) => {
+      setTimeout(
+        () =>
+          service.getPersonalizeInfo(itemPath, lang).then((newResult) => {
+            expect(newResult).to.deep.equal(undefined);
+            resolve(undefined);
+          }),
+        250
+      );
+    });
+    await cacheNonUpdate;
+
+    await cacheUpdate;
   });
 });

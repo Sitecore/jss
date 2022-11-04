@@ -2,8 +2,9 @@ import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
 import debug from '../debug';
 import { isTimeoutError } from '../utils';
 import { CdpHelper } from './utils';
+import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
-export type GraphQLPersonalizeServiceConfig = {
+export type GraphQLPersonalizeServiceConfig = CacheOptions & {
   /**
    * Your Graphql endpoint
    */
@@ -46,6 +47,7 @@ type PersonalizeQueryResult = {
 
 export class GraphQLPersonalizeService {
   private graphQLClient: GraphQLClient;
+  private cache: CacheClient<PersonalizeQueryResult>;
   protected get query(): string {
     return /* GraphQL */ `
       query($siteName: String!, $language: String!, $itemPath: String!) {
@@ -68,6 +70,7 @@ export class GraphQLPersonalizeService {
   constructor(protected config: GraphQLPersonalizeServiceConfig) {
     this.config.timeout = config.timeout || 250;
     this.graphQLClient = this.getGraphQLClient();
+    this.cache = this.getCacheClient();
   }
 
   /**
@@ -87,27 +90,48 @@ export class GraphQLPersonalizeService {
       language
     );
 
-    try {
-      const data = await this.graphQLClient.request<PersonalizeQueryResult>(this.query, {
-        siteName: this.config.siteName,
-        itemPath,
-        language,
-      });
+    const cacheKey = this.getCacheKey(itemPath, language);
+    let data = this.cache.getCacheValue(cacheKey);
 
-      return data?.layout?.item
-        ? {
-            // CDP expects content id format `embedded_<id>_<lang>` (lowercase)
-            contentId: CdpHelper.getContentId(data.layout.item.id, language),
-            variantIds: data.layout.item.personalization.variantIds,
-          }
-        : undefined;
-    } catch (error) {
-      if (isTimeoutError(error)) {
-        return undefined;
+    if (!data) {
+      try {
+        data = await this.graphQLClient.request<PersonalizeQueryResult>(this.query, {
+          siteName: this.config.siteName,
+          itemPath,
+          language,
+        });
+        this.cache.setCacheValue(cacheKey, data);
+      } catch (error) {
+        if (isTimeoutError(error)) {
+          return undefined;
+        }
+
+        throw error;
       }
-
-      throw error;
     }
+    return data?.layout?.item
+      ? {
+          // CDP expects content id format `embedded_<id>_<lang>` (lowercase)
+          contentId: CdpHelper.getContentId(data.layout.item.id, language),
+          variantIds: data.layout.item.personalization.variantIds,
+        }
+      : undefined;
+  }
+
+  /**
+   * Gets cache client implementation
+   * Override this method if custom cache needs to be used
+   * @returns CacheClient instance
+   */
+  protected getCacheClient(): CacheClient<PersonalizeQueryResult> {
+    return new MemoryCacheClient<PersonalizeQueryResult>({
+      cacheEnabled: this.config.cacheEnabled ?? true,
+      cacheTimeout: this.config.cacheTimeout ?? 10,
+    });
+  }
+
+  protected getCacheKey(itemPath: string, language: string) {
+    return `${this.config.siteName}-${itemPath}-${language}`;
   }
 
   /**
