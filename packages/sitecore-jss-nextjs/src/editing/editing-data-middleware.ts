@@ -60,7 +60,7 @@ export class EditingDataMiddleware {
     switch (method) {
       case 'GET': {
         // Get cache value
-        const data = this.editingDataCache.get(key as string);
+        const data = await this.editingDataCache.get(key as string);
         res.status(200).json(data);
         break;
       }
@@ -69,7 +69,7 @@ export class EditingDataMiddleware {
           res.status(400).end('Missing or invalid editing data');
         } else {
           // Set cache value
-          this.editingDataCache.set(key as string, body as EditingData);
+          await this.editingDataCache.set(key as string, body as EditingData);
           res.status(200).end();
         }
         break;
