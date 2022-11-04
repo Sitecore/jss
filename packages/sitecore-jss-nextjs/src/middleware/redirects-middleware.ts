@@ -69,14 +69,16 @@ export class RedirectsMiddleware {
   }
 
   private handler = async (req: NextRequest): Promise<NextResponse> => {
-    // Find the redirect from result of RedirectService
-    const existsRedirect = await this.getExistsRedirect(req);
-
     if (
-      !existsRedirect ||
       this.excludeRoute(req.nextUrl.pathname) ||
       (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
     ) {
+      return NextResponse.next();
+    }
+    // Find the redirect from result of RedirectService
+    const existsRedirect = await this.getExistsRedirect(req);
+
+    if (!existsRedirect) {
       return NextResponse.next();
     }
 

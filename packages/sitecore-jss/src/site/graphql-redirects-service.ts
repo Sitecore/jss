@@ -94,15 +94,10 @@ export class GraphQLRedirectsService {
     let data = this.cache.getCacheValue(cacheKey);
 
     if (!data) {
-      // eslint-disable-next-line no-useless-catch
-      try {
-        data = await this.graphQLClient.request<RedirectsQueryResult>(this.query, {
-          siteName,
-        });
-        this.cache.setCacheValue(cacheKey, data);
-      } catch (error) {
-        throw error;
-      }
+      data = await this.graphQLClient.request<RedirectsQueryResult>(this.query, {
+        siteName,
+      });
+      this.cache.setCacheValue(cacheKey, data);
     }
 
     return data?.site?.siteInfo?.redirects || [];
