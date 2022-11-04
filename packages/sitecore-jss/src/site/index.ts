@@ -26,3 +26,8 @@ export {
 } from './graphql-error-pages-service';
 
 export { SiteResolver } from './site-resolver';
+export {
+  SiteInfo,
+  GraphQLSiteInfoService,
+  GraphQLSiteInfoServiceConfig,
+} from './graphql-siteinfo-service';
