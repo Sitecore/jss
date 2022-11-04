@@ -25,6 +25,7 @@ export {
   GraphQLErrorPagesServiceConfig,
 } from './graphql-error-pages-service';
 
+export { SiteResolver } from './site-resolver';
 export {
   SiteInfo,
   GraphQLSiteInfoService,
