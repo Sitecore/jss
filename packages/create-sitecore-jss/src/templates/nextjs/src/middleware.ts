@@ -13,8 +13,7 @@ export const config = {
   * 2. /_next (Next.js internals)
   * 3. /sitecore/api (Sitecore API routes)
   * 4. /- (Sitecore media)
-  * 5. /layouts/system (Sitecore Tracking API)
-  * 6. all root files inside /public (e.g. /favicon.ico)
+  * 5. all root files inside /public (e.g. /favicon.ico)
   */
-  matcher: ['/', '/((?!api/|_next/|sitecore/api/|-/|layouts/system/|[\\w-]+\\.\\w+).*)'],
+  matcher: ['/', '/((?!api/|_next/|sitecore/api/|-/|[\\w-]+\\.\\w+).*)'],
 };
