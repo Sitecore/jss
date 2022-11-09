@@ -32,6 +32,11 @@ describe('RedirectsMiddleware', () => {
   const createMiddleware = (
     props: {
       [key: string]: unknown;
+      pattern?: string;
+      target?: string;
+      redirectType?: string;
+      isQueryStringPreserved?: boolean;
+      locale?: string;
       fetchRedirectsStub?: sinon.SinonStub;
     } = {}
   ) => {
@@ -46,15 +51,15 @@ describe('RedirectsMiddleware', () => {
     const fetchRedirects = (middleware['redirectsService']['fetchRedirects'] =
       props.fetchRedirectsStub ||
       sinon.stub().returns(
-        Promise.resolve([
-          {
-            pattern: '/notfound',
-            target: 'http://localhost:3000/found',
-            redirectType: '301',
-            isQueryStringPreserved: true,
-            locale: 'en',
-          },
-        ])
+        Promise.resolve(
+          Object.keys(props).length
+            ? [
+                {
+                  ...props,
+                },
+              ]
+            : []
+        )
       ));
 
     return { middleware, fetchRedirects };
@@ -116,9 +121,7 @@ describe('RedirectsMiddleware', () => {
     it('should return next response when redirects does not exist', async () => {
       const res = NextResponse.next();
       const req = createRequest();
-      const { middleware, fetchRedirects } = createMiddleware({
-        data: { redirects: [] },
-      });
+      const { middleware, fetchRedirects } = createMiddleware();
       const finalRes = await middleware.getHandler()(req);
       // eslint-disable-next-line no-unused-expressions
       expect(fetchRedirects.called).to.be.true;
@@ -129,53 +132,83 @@ describe('RedirectsMiddleware', () => {
       it('should return 301 redirect', async () => {
         const res = NextResponse.redirect('http://localhost:3000/found', 301);
         const req = createRequest({
-          nextUrl: 'http://localhost:3000/not-found',
+          nextUrl: {
+            pathname: '/not-found',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
         });
-        const { middleware, fetchRedirects } = createMiddleware();
+
+        const { middleware, fetchRedirects } = createMiddleware({
+          pattern: 'not-found',
+          target: 'http://localhost:3000/found',
+          redirectType: 'REDIRECT_301',
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
         const finalRes = await middleware.getHandler()(req);
 
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
       });
 
       it('should return 302 redirect', async () => {
         const res = NextResponse.redirect('http://localhost:3000/found', 302);
-        const req = createRequest();
-        const { middleware } = createMiddleware({
-          data: {
-            redirects: [
-              {
-                pattern: '/notfound',
-                target: '/404',
-                redirectType: '302',
-                isQueryStringPreserved: true,
-                locale: 'en',
-              },
-            ],
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
           },
         });
+
+        const { middleware, fetchRedirects } = createMiddleware({
+          pattern: 'not-found',
+          target: 'http://localhost:3000/found',
+          redirectType: 'REDIRECT_302',
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
         const finalRes = await middleware.getHandler()(req);
+
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
       });
 
-      it('should return 307 redirect', async () => {
-        const res = NextResponse.redirect('/404', 307);
-        const req = createRequest();
-        const { middleware } = createMiddleware({
-          data: {
-            redirects: [
-              {
-                pattern: '/notfound',
-                target: '/404',
-                redirectType: '307',
-                isQueryStringPreserved: true,
-                locale: 'en',
-              },
-            ],
+      it('should return default response if no redirect type defined', async () => {
+        const res = NextResponse.next();
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
           },
         });
+
+        const { middleware, fetchRedirects } = createMiddleware({
+          pattern: 'not-found',
+          target: 'http://localhost:3000/found',
+          redirectType: 'default',
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
         const finalRes = await middleware.getHandler()(req);
+
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
       });
     });
