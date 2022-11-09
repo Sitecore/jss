@@ -7,6 +7,13 @@ export default async function (req: NextRequest, ev: NextFetchEvent) {
 }
 
 export const config = {
-  // Exclude Sitecore editing API routes
-  matcher: ['/', '/((?!api/editing/).*)'],
+  /*
+  * Match all paths except for:
+  * 1. /api routes
+  * 2. /_next (Next.js internals)
+  * 3. /sitecore/api (Sitecore API routes)
+  * 4. /- (Sitecore media)
+  * 5. all root files inside /public (e.g. /favicon.ico)
+  */
+  matcher: ['/', '/((?!api/|_next/|sitecore/api/|-/|[\\w-]+\\.\\w+).*)'],
 };
