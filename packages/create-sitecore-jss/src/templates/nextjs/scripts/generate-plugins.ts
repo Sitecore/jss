@@ -51,6 +51,11 @@ const pluginDefinitions = [
     rootPath: 'src/lib/next-config/plugins',
     moduleType: ModuleType.CJS,
   },
+  {
+    listPath: 'src/temp/path-extractor-plugins.js',
+    rootPath: 'src/lib/path-extractor/plugins',
+    moduleType: ModuleType.ESM,
+  },
 ];
 
 run(pluginDefinitions);

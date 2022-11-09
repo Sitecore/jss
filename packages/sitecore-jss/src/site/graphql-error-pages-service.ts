@@ -26,6 +26,10 @@ export type GraphQLErrorPagesServiceConfig = {
    */
   apiKey: string;
   /**
+   * The JSS application name
+   */
+  siteName: string;
+  /**
    * The language
    */
   language: string;
@@ -63,11 +67,11 @@ export class GraphQLErrorPagesService {
 
   /**
    * Fetch list of error pages for the site
-   * @param {string} siteName the site
    * @returns {ErrorPages} list of url's error pages
    * @throws {Error} if the siteName is empty.
    */
-  async fetchErrorPages(siteName: string): Promise<ErrorPages | null> {
+  async fetchErrorPages(): Promise<ErrorPages | null> {
+    const siteName: string = this.options.siteName;
     const language: string = this.options.language;
 
     if (!siteName) {

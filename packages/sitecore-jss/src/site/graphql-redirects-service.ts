@@ -41,6 +41,10 @@ export type GraphQLRedirectsServiceConfig = {
    */
   apiKey: string;
   /**
+   * The JSS application name
+   */
+  siteName: string;
+  /**
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
   fetch?: typeof fetch;
@@ -73,11 +77,12 @@ export class GraphQLRedirectsService {
 
   /**
    * Fetch an array of redirects from API
-   * @param {string} siteName the site
    * @returns Promise<RedirectInfo[]>
    * @throws {Error} if the siteName is empty.
    */
-  async fetchRedirects(siteName: string): Promise<RedirectInfo[]> {
+  async fetchRedirects(): Promise<RedirectInfo[]> {
+    const siteName: string = this.options.siteName;
+
     if (!siteName) {
       throw new Error(siteNameError);
     }

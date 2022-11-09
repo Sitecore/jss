@@ -7,7 +7,6 @@ import {
   ExperienceParams,
   getPersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
-import { getMultisiteRewriteData } from '@sitecore-jss/sitecore-jss/multisite';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 export type PersonalizeMiddlewareConfig = {
@@ -153,14 +152,10 @@ export class PersonalizeMiddleware {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
 
-    const siteData = getMultisiteRewriteData(pathname);
-    const siteName = siteData.siteName;
-
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
-      siteName,
     });
 
     // Response will be provided if other middleware is run before us (e.g. redirects)
@@ -185,11 +180,7 @@ export class PersonalizeMiddleware {
     }
 
     // Get personalization info from Experience Edge
-    const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
-      pathname,
-      language,
-      siteName
-    );
+    const personalizeInfo = await this.personalizeService.getPersonalizeInfo(pathname, language);
 
     if (!personalizeInfo) {
       // Likely an invalid route / language

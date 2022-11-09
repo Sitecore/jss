@@ -3,6 +3,7 @@ import {
   DictionaryPhrases,
   ComponentPropsCollection,
   LayoutServiceData,
+  SiteConfig,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
@@ -15,5 +16,5 @@ export type SitecorePageProps = {
   notFound: boolean;
   layoutData: LayoutServiceData;
   redirect?: Redirect;
-  site: string;
+  site: SiteConfig;
 };

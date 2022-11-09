@@ -5,7 +5,6 @@ export interface LayoutService {
   /**
    * Fetch layout data for an item.
    * @param {string} itemPath
-   * @param {string} siteName
    * @param {string} [language]
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
@@ -13,7 +12,6 @@ export interface LayoutService {
    */
   fetchLayoutData(
     itemPath: string,
-    siteName: string,
     language?: string,
     req?: IncomingMessage,
     res?: ServerResponse
@@ -26,7 +24,6 @@ export interface LayoutService {
 export abstract class LayoutServiceBase implements LayoutService {
   abstract fetchLayoutData(
     itemPath: string,
-    siteName: string,
     language?: string,
     req?: IncomingMessage,
     res?: ServerResponse

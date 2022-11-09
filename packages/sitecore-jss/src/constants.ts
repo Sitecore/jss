@@ -17,3 +17,5 @@ export const JSS_MODE = {
 };
 
 export const siteNameError = 'The siteName cannot be empty';
+
+export const siteNotFoundError = 'The requested site cannot be found';

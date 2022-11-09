@@ -22,6 +22,10 @@ export type GraphQLRobotsServiceConfig = {
    * The API key to use for authentication
    */
   apiKey: string;
+  /**
+   * The JSS application name
+   */
+  siteName: string;
 };
 
 /**
@@ -49,11 +53,12 @@ export class GraphQLRobotsService {
 
   /**
    * Fetch a data of robots.txt from API
-   * @param {string} siteName the site
    * @returns text of robots.txt
    * @throws {Error} if the siteName is empty.
    */
-  async fetchRobots(siteName: string): Promise<string> {
+  async fetchRobots(): Promise<string> {
+    const siteName: string = this.options.siteName;
+
     if (!siteName) {
       throw new Error(siteNameError);
     }

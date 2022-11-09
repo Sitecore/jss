@@ -4,7 +4,6 @@ import { LayoutServiceBase } from './layout-service';
 import { PlaceholderData, LayoutServiceData } from './models';
 import { AxiosDataFetcher, AxiosDataFetcherConfig } from '../axios-fetcher';
 import { HttpDataFetcher, fetchData } from '../data-fetcher';
-import { siteNameError } from '../constants';
 import debug from '../debug';
 
 interface FetchParams {
@@ -24,6 +23,10 @@ export type RestLayoutServiceConfig = {
    * The Sitecore SSC API key your app uses
    */
   apiKey: string;
+  /**
+   * The JSS application name
+   */
+  siteName: string;
   /**
    * Enables/disables analytics tracking for the Layout Service invocation (default is true).
    * More than likely, this would be set to false for SSG/hybrid implementations, and the
@@ -66,7 +69,6 @@ export class RestLayoutService extends LayoutServiceBase {
   /**
    * Fetch layout data for an item.
    * @param {string} itemPath item path to fetch layout data for.
-   * @param {string} siteName the site to fetch layout data for.
    * @param {string} [language] the language to fetch layout data for.
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
@@ -75,18 +77,18 @@ export class RestLayoutService extends LayoutServiceBase {
    */
   fetchLayoutData(
     itemPath: string,
-    siteName: string,
     language?: string,
     req?: IncomingMessage,
     res?: ServerResponse
   ): Promise<LayoutServiceData> {
-    if (!siteName) {
-      throw new Error(siteNameError);
-    }
+    const querystringParams = this.getFetchParams(language);
 
-    const querystringParams = this.getFetchParams(siteName, language);
-
-    debug.layout('fetching layout data for %s %s %s', itemPath, language, siteName);
+    debug.layout(
+      'fetching layout data for %s %s %s',
+      itemPath,
+      language,
+      this.serviceConfig.siteName
+    );
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
       : this.getDefaultFetcher<LayoutServiceData>(req, res);
@@ -123,7 +125,6 @@ export class RestLayoutService extends LayoutServiceBase {
    * a specific route item. Allows you to retrieve rendered data for individual placeholders instead of entire routes.
    * @param {string} placeholderName the name of the placeholder to fetch layout data for.
    * @param {string} itemPath the path to the item to fetch layout data for.
-   * @param {string} siteName the site to fetch data for.
    * @param {string} [language] the language to fetch data for.
    * @param {IncomingMessage} [req] Request instance
    * @param {ServerResponse} [res] Response instance
@@ -132,23 +133,18 @@ export class RestLayoutService extends LayoutServiceBase {
   fetchPlaceholderData(
     placeholderName: string,
     itemPath: string,
-    siteName: string,
     language?: string,
     req?: IncomingMessage,
     res?: ServerResponse
   ): Promise<PlaceholderData> {
-    if (!siteName) {
-      throw new Error(siteNameError);
-    }
-
-    const querystringParams = this.getFetchParams(siteName, language);
+    const querystringParams = this.getFetchParams(language);
 
     debug.layout(
       'fetching placeholder data for %s %s %s %s',
       placeholderName,
       itemPath,
       language,
-      siteName
+      this.serviceConfig.siteName
     );
     const fetcher = this.serviceConfig.dataFetcherResolver
       ? this.serviceConfig.dataFetcherResolver<PlaceholderData>(req, res)
@@ -165,14 +161,13 @@ export class RestLayoutService extends LayoutServiceBase {
 
   /**
    * Provides fetch options in order to fetch data
-   * @param {string} siteName the site to fetch data for.
    * @param {string} [language] language will be applied to `sc_lang` param
    * @returns {FetchOptions} fetch options
    */
-  protected getFetchParams = (siteName: string, language?: string): FetchParams => {
+  protected getFetchParams = (language?: string): FetchParams => {
     return {
       sc_apikey: this.serviceConfig.apiKey,
-      sc_site: siteName,
+      sc_site: this.serviceConfig.siteName,
       sc_lang: language || '',
       tracking: this.serviceConfig.tracking ?? true,
     };

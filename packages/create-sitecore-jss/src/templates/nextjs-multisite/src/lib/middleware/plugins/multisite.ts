@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { SiteConfig, MultisiteMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { MultisiteMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { siteResolverFactory } from 'lib/site-resolver-factory';
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
 
@@ -8,11 +9,9 @@ class MultisitePlugin implements MiddlewarePlugin {
   order = 0;
 
   constructor() {
-    const siteConfigs = JSON.parse(config.sites) as SiteConfig[];
+    const siteResolver = siteResolverFactory.create();
 
-    this.multisiteMiddleware = new MultisiteMiddleware({
-      siteConfigs,
-    });
+    this.multisiteMiddleware = new MultisiteMiddleware(siteResolver);
   }
 
   async exec(req: NextRequest, res?: NextResponse): Promise<NextResponse> {

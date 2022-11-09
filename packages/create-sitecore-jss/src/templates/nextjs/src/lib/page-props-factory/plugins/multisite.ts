@@ -1,26 +1,27 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
-import { getMultisiteRewriteData } from '@sitecore-jss/sitecore-jss-nextjs';
+import { SiteResolver } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
-import config from 'temp/config';
+import { siteResolverFactory } from 'lib/site-resolver-factory';
 import { Plugin } from '..';
-import { extractPath } from '../extract-path';
+import { normalize } from '../normalize';
 
 class MultisitePlugin implements Plugin {
+  private siteResolver: SiteResolver;
+
   order = 0;
 
+  constructor() {
+    this.siteResolver = siteResolverFactory.create();
+  }
+
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
+    console.log(context);
+
     // Get normalized Sitecore item path
-    const path = extractPath(context.params);
+    const path = normalize(context.params);
 
-    const rewriteData = getMultisiteRewriteData(path);
-
-    if (!rewriteData.siteName) {
-      props.site = config.jssAppName;
-      return props;
-    }
-
-    // TODO: Remove site from path
-    props.site = rewriteData.siteName;
+    const site = this.siteResolver.getSiteForPath(path);
+    props.site = site;
     return props;
   }
 }

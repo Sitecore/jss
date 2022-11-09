@@ -7,6 +7,7 @@ export {
 export {
   SearchQueryResult,
   SearchQueryVariables,
+  SearchServiceConfig,
   SearchQueryService,
   PageInfo,
 } from './search-service';

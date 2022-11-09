@@ -24,6 +24,10 @@ export type GraphQLSitemapXmlServiceConfig = {
    * The API key to use for authentication
    */
   apiKey: string;
+  /**
+   * The JSS application name
+   */
+  siteName: string;
 };
 
 /**
@@ -51,11 +55,12 @@ export class GraphQLSitemapXmlService {
 
   /**
    * Fetch list of sitemaps for the site
-   * @param {string} siteName the site
    * @returns {string[]} list of sitemap paths
    * @throws {Error} if the siteName is empty.
    */
-  async fetchSitemaps(siteName: string): Promise<string[]> {
+  async fetchSitemaps(): Promise<string[]> {
+    const siteName: string = this.options.siteName;
+
     if (!siteName) {
       throw new Error(siteNameError);
     }
@@ -73,16 +78,11 @@ export class GraphQLSitemapXmlService {
   /**
    * Get sitemap file path for sitemap id
    * @param {string} id the sitemap id (can be empty for default 'sitemap.xml' file)
-   * @param {string} siteName the site
    * @returns {string | undefined} the sitemap file path or undefined if one doesn't exist
    */
-  async getSitemap(id: string, siteName: string): Promise<string | undefined> {
-    if (!siteName) {
-      throw new Error(siteNameError);
-    }
-
+  async getSitemap(id: string): Promise<string | undefined> {
     const searchSitemap = `${PREFIX_NAME_SITEMAP}${id}.xml`;
-    const sitemaps = await this.fetchSitemaps(siteName);
+    const sitemaps = await this.fetchSitemaps();
     // added this item - there is default sitemap when will be available everytime
     sitemaps.push('sitemap.xml');
 

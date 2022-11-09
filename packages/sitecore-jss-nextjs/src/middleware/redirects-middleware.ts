@@ -8,15 +8,11 @@ import {
   REDIRECT_TYPE_302,
   REDIRECT_TYPE_SERVER_TRANSFER,
 } from '@sitecore-jss/sitecore-jss/site';
-import { getMultisiteRewriteData } from '@sitecore-jss/sitecore-jss/multisite';
 
 /**
  * extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
  */
 export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'> & {
-  /**
-   * The locales
-   */
   locales: string[];
 };
 /**
@@ -25,14 +21,16 @@ export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fet
  */
 export class RedirectsMiddleware {
   private redirectsService: GraphQLRedirectsService;
+  private locales: string[];
 
   /**
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
    */
-  constructor(protected config: RedirectsMiddlewareConfig) {
+  constructor(config: RedirectsMiddlewareConfig) {
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
+    this.locales = config.locales;
   }
 
   /**
@@ -59,7 +57,7 @@ export class RedirectsMiddleware {
     } else {
       url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
       const urlFirstPart = existsRedirect.target.split('/')[1];
-      if (this.config.locales.includes(urlFirstPart)) {
+      if (this.locales.includes(urlFirstPart)) {
         url.locale = urlFirstPart;
         url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
       } else {
@@ -89,11 +87,7 @@ export class RedirectsMiddleware {
    * @private
    */
   private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
-    const pathname = req.nextUrl.pathname;
-    const siteData = getMultisiteRewriteData(pathname);
-    const siteName = siteData.siteName;
-
-    const redirects = await this.redirectsService.fetchRedirects(siteName);
+    const redirects = await this.redirectsService.fetchRedirects();
 
     return redirects.find((redirect: RedirectInfo) => {
       return (

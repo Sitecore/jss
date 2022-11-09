@@ -1,5 +1,4 @@
 import { GraphQLClient, GraphQLRequestClient } from '../graphql-request-client';
-import { siteNameError } from '../constants';
 import debug from '../debug';
 import { isTimeoutError } from '../utils';
 import { CdpHelper } from './utils';
@@ -10,6 +9,10 @@ export type GraphQLPersonalizeServiceConfig = CacheOptions & {
    * Your Graphql endpoint
    */
   endpoint: string;
+  /**
+   * The JSS application name
+   */
+  siteName: string;
   /**
    * The API key to use for authentication
    */
@@ -74,19 +77,18 @@ export class GraphQLPersonalizeService {
    * Get personalize information for a route
    * @param {string} itemPath page route
    * @param {string} language language
-   * @param {string} siteName site
    * @returns {Promise<PersonalizeInfo | undefined>} the personalize information or undefined (if itemPath / language not found)
    */
   async getPersonalizeInfo(
     itemPath: string,
-    language: string,
-    siteName: string
+    language: string
   ): Promise<PersonalizeInfo | undefined> {
-    if (!siteName) {
-      throw new Error(siteNameError);
-    }
-
-    debug.personalize('fetching personalize info for %s %s %s', siteName, itemPath, language);
+    debug.personalize(
+      'fetching personalize info for %s %s %s',
+      this.config.siteName,
+      itemPath,
+      language
+    );
 
     const cacheKey = this.getCacheKey(itemPath, language);
     let data = this.cache.getCacheValue(cacheKey);
@@ -94,7 +96,7 @@ export class GraphQLPersonalizeService {
     if (!data) {
       try {
         data = await this.graphQLClient.request<PersonalizeQueryResult>(this.query, {
-          siteName,
+          siteName: this.config.siteName,
           itemPath,
           language,
         });

@@ -27,6 +27,7 @@ const apiKey = process.env.SITECORE_API_KEY || serverBundle.apiKey || '{YOUR API
 
 const dictionaryService = new RestDictionaryService({
   apiHost,
+  siteName: appName,
   apiKey,
   cacheTimeout: 60,
 });

@@ -12,10 +12,12 @@ export class LayoutServiceFactory {
       ? new GraphQLLayoutService({
           endpoint: environment.graphQLEndpoint,
           apiKey: environment.sitecoreApiKey,
+          siteName: environment.jssAppName,
         })
       : new RestLayoutService({
           apiHost: environment.sitecoreApiHost,
           apiKey: environment.sitecoreApiKey,
+          siteName: environment.jssAppName,
           configurationName: 'default',
         });
   }

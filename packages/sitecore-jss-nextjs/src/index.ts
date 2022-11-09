@@ -60,7 +60,12 @@ export {
   normalizePersonalizedRewrite,
   CdpHelper,
 } from '@sitecore-jss/sitecore-jss/personalize';
-export { getMultisiteRewriteData } from '@sitecore-jss/sitecore-jss/multisite';
+export {
+  SiteResolver,
+  SiteConfig,
+  MultisiteResolver,
+  SinglesiteResolver,
+} from '@sitecore-jss/sitecore-jss/multisite';
 export {
   RobotsQueryResult,
   GraphQLRobotsService,
