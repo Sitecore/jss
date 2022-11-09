@@ -69,6 +69,9 @@ export class RedirectsMiddleware {
   }
 
   private handler = async (req: NextRequest): Promise<NextResponse> => {
+    if (this.config.disabled && this.config.disabled(req, NextResponse.next())) {
+      return NextResponse.next();
+    }
     if (
       this.excludeRoute(req.nextUrl.pathname) ||
       (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
@@ -86,7 +89,6 @@ export class RedirectsMiddleware {
     const absoluteUrlRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
     if (absoluteUrlRegex.test(existsRedirect.target)) {
       url.href = existsRedirect.target;
-      url.locale = req.nextUrl.locale;
     } else {
       url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
       const urlFirstPart = existsRedirect.target.split('/')[1];
@@ -122,16 +124,18 @@ export class RedirectsMiddleware {
   private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects();
 
-    return redirects.find((redirect: RedirectInfo) => {
-      return (
-        (regexParser(redirect.pattern.toLowerCase()).test(req.nextUrl.pathname.toLowerCase()) ||
-          regexParser(redirect.pattern.toLowerCase()).test(
-            `/${req.nextUrl.locale}${req.nextUrl.pathname}`.toLowerCase()
-          )) &&
-        (redirect.locale
-          ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
-          : true)
-      );
-    });
+    return redirects.length
+      ? redirects.find((redirect: RedirectInfo) => {
+          return (
+            (regexParser(redirect.pattern.toLowerCase()).test(req.nextUrl.pathname.toLowerCase()) ||
+              regexParser(redirect.pattern.toLowerCase()).test(
+                `/${req.nextUrl.locale}${req.nextUrl.pathname}`.toLowerCase()
+              )) &&
+            (redirect.locale
+              ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
+              : true)
+          );
+        })
+      : undefined;
   }
 }

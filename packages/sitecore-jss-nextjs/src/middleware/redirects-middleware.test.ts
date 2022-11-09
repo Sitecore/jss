@@ -1,109 +1,190 @@
-﻿/* eslint-disable no-unused-expressions */
-/* eslint-disable dot-notation */
+﻿/* eslint-disable dot-notation */
 import chai, { use } from 'chai';
 import chaiString from 'chai-string';
 import sinonChai from 'sinon-chai';
-import sinon, { spy } from 'sinon';
-import nextjs, { NextRequest, NextResponse } from 'next/server';
-import { debug } from '@sitecore-jss/sitecore-jss';
-
+import sinon from 'sinon';
+import { NextRequest, NextResponse } from 'next/server';
 import { RedirectsMiddleware } from './redirects-middleware';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
 
 describe('RedirectsMiddleware', () => {
-  let req: NextRequest;
-  let res: NextResponse;
-  let redirectsMiddleware: RedirectsMiddleware;
-  let next: sinon.SinonSpy;
-  let debugStub: sinon.SinonStub;
+  const referrer = 'http://localhost:3000';
 
-  beforeEach(() => {
-    req = ({
-      url: '/en',
-      headers: {},
-      cookies: {},
-      locale: 'en',
-      next: () => Promise.resolve(),
-    } as unknown) as NextRequest;
+  const createRequest = (props: any = {}) => {
+    const req = {
+      ...props,
+      nextUrl: {
+        pathname: '/styleguide',
+        locale: 'en',
+        clone() {
+          return Object.assign({}, req.nextUrl);
+        },
+        ...props?.nextUrl,
+      },
+      referrer,
+    } as NextRequest;
 
-    res = ({
-      status: 200,
-      headers: {},
-      cookies: {},
-      body: '',
-      json: () => Promise.resolve(),
-      redirect: () => Promise.resolve(),
-      next: () => Promise.resolve(),
-    } as unknown) as NextResponse;
+    return req;
+  };
 
-    next = spy();
+  const createMiddleware = (
+    props: {
+      [key: string]: unknown;
+      fetchRedirectsStub?: sinon.SinonStub;
+    } = {}
+  ) => {
+    const middleware = new RedirectsMiddleware({
+      ...props,
+      apiKey: 'edge-api-key',
+      endpoint: 'http://edge-endpoint/api/graph/edge',
+      siteName: 'nextjs-app',
+      locales: ['en'],
+    });
 
-    debugStub = sinon.stub(debug, 'log');
-  });
+    const fetchRedirects = (middleware['redirectsService']['fetchRedirects'] =
+      props.fetchRedirectsStub ||
+      sinon.stub().returns(
+        Promise.resolve([
+          {
+            pattern: '/notfound',
+            target: 'http://localhost:3000/found',
+            redirectType: '301',
+            isQueryStringPreserved: true,
+            locale: 'en',
+          },
+        ])
+      ));
+
+    return { middleware, fetchRedirects };
+  };
 
   afterEach(() => {
     sinon.restore();
   });
 
-  describe('constructor', () => {
-    it('should create instance of RedirectsMiddleware', () => {
-      redirectsMiddleware = new RedirectsMiddleware({
-        siteName: 'fake-site',
-        apiKey: 'fake-api-key',
-        graphQLEndpoint: 'fake-endpoint',
-        locales: ['en'],
+  describe('redirects middleware - getHandler', () => {
+    describe('exclude route', () => {
+      const res = NextResponse.next();
+
+      const test = async (pathname: string, middleware) => {
+        const req = createRequest({
+          nextUrl: {
+            pathname,
+          },
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+
+        expect(finalRes).to.deep.equal(res);
+      };
+      it('default', async () => {
+        const { middleware } = createMiddleware();
+
+        await test('/src/image.png', middleware);
+        await test('/api/layout/render', middleware);
+        await test('/sitecore/render', middleware);
+        await test('/_next/webpack', middleware);
       });
 
-      expect(redirectsMiddleware).to.be.instanceOf(RedirectsMiddleware);
+      it('should apply both default and custom rules when custom excludeRoute function provided', async () => {
+        const excludeRoute = (pathname: string) => pathname === '/crazypath/luna';
+
+        const { middleware } = createMiddleware({ excludeRoute });
+
+        await test('/src/image.png', middleware);
+        await test('/api/layout/render', middleware);
+        await test('/sitecore/render', middleware);
+        await test('/_next/webpack', middleware);
+        await test('/crazypath/luna', middleware);
+      });
+    });
+
+    it('should return next response if disabled is true', async () => {
+      const props = {
+        disabled: (req) => req?.nextUrl.pathname === '/styleguide' && req.nextUrl.locale === 'en',
+      };
+      const req = createRequest();
+      const res = NextResponse.next();
+      const { middleware } = createMiddleware(props);
+      const finalRes = await middleware.getHandler()(req);
+
+      expect(finalRes).to.deep.equal(res);
+    });
+
+    it('should return next response when redirects does not exist', async () => {
+      const res = NextResponse.next();
+      const req = createRequest();
+      const { middleware, fetchRedirects } = createMiddleware({
+        data: { redirects: [] },
+      });
+      const finalRes = await middleware.getHandler()(req);
+      // eslint-disable-next-line no-unused-expressions
+      expect(fetchRedirects.called).to.be.true;
+      expect(finalRes).to.deep.equal(res);
+    });
+
+    describe('should return appropriate redirect type when redirects exists', () => {
+      // it('should return 301 redirect', async () => {
+      //   const res = NextResponse.redirect('http://localhost:3000/found', 301);
+      //   // req for redirect 301
+      //   const req = createRequest({
+      //     nextUrl: 'http://localhost:3000/not-found',
+      //   });
+      //   const { middleware } = createMiddleware();
+      //   const finalRes = await middleware.getHandler()(req);
+      //   const fetchRedirects = sinon.stub().returns([
+      //     {
+      //       pattern: '/not-found',
+      //       target: 'http://localhost:3000/found',
+      //       redirectType: '301',
+      //       isQueryStringPreserved: true,
+      //       locale: 'en',
+      //     },
+      //   ]);
+      //   // eslint-disable-next-line no-unused-expressions
+      //   expect(fetchRedirects.called).to.be.true;
+      //   expect(finalRes).to.deep.equal(res);
+      // });
+      // it('should return 302 redirect', async () => {
+      //   const res = NextResponse.redirect('/404', 302);
+      //   const req = createRequest();
+      //   const { middleware } = createMiddleware({
+      //     data: {
+      //       redirects: [
+      //         {
+      //           pattern: '/notfound',
+      //           target: '/404',
+      //           redirectType: 'REDIRECT_302',
+      //           isQueryStringPreserved: true,
+      //           locale: 'en',
+      //         },
+      //       ],
+      //     },
+      //   });
+      //   const finalRes = await middleware.getHandler()(req);
+      //   expect(finalRes).to.deep.equal(res);
+      // });
+      // it('should return 307 redirect', async () => {
+      //   const res = NextResponse.redirect('/404', 307);
+      //   const req = createRequest();
+      //   const { middleware } = createMiddleware({
+      //     data: {
+      //       redirects: [
+      //         {
+      //           pattern: '/notfound',
+      //           target: '/404',
+      //           redirectType: 'REDIRECT_307',
+      //           isQueryStringPreserved: true,
+      //           locale: 'en',
+      //         },
+      //       ],
+      //     },
+      //   });
+      //   const finalRes = await middleware.getHandler()(req);
+      //   expect(finalRes).to.deep.equal(res);
+      // });
     });
   });
-
-  describe('getHandler', () => {
-    it('should return handler', () => {
-      redirectsMiddleware = new RedirectsMiddleware({
-        siteName: 'fake-site',
-        apiKey: 'fake-api-key',
-        graphQLEndpoint: 'fake-endpoint',
-        locales: ['en'],
-      });
-
-      const handler = redirectsMiddleware.getHandler();
-
-      expect(handler).to.be.a('function');
-    });
-  });
-
-  describe('handler', () => {
-    it('should return next response if disabled', async () => {
-      redirectsMiddleware = new RedirectsMiddleware({
-        siteName: 'fake-site',
-        apiKey: 'fake-api-key',
-        graphQLEndpoint: 'fake-endpoint',
-        locales: ['en'],
-        disabled: () => true,
-      });
-
-      const handler = redirectsMiddleware.getHandler();
-
-      await handler(req, res, next);
-
-      expect(next).to.be.calledOnce;
-    });
-
-    it('should return next response if excluded route', async () => {
-      redirectsMiddleware = new RedirectsMiddleware({
-        siteName: 'fake-site',
-        apiKey: 'fake-api-key',
-        graphQLEndpoint: 'fake-endpoint',
-        locales: ['en'],
-        excludedRoutes: ['/en'],
-      });
-
-      const handler = redirectsMiddleware.getHandler();
-      
-      await handler(req, res, next);
-
-      expect(next).to.be.calledOnce;
-}
+});
