@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  getEEMarkup,
   Image as JssImage,
   Link as JssLink,
   ImageField,
@@ -8,7 +9,6 @@ import {
   Text,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { getEEMarkup } from '@sitecore-jss/sitecore-jss-react';
 
 interface Fields {
   Image: ImageField;
