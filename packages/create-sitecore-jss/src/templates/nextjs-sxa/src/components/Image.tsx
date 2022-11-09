@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  getEEMarkup,
   Image as JssImage,
   Link as JssLink,
   ImageField,
@@ -38,13 +37,12 @@ export const Banner = (props: ImageProps): JSX.Element => {
       ?.replace(`width="${props?.fields?.Image?.value?.width}"`, 'width="100%"')
       .replace(`height="${props?.fields?.Image?.value?.height}"`, 'height="100%"'),
   };
-  const Image = () => (modifyImageProps.editable ? getEEMarkup(modifyImageProps) : null);
   const id = props.params.RenderingIdentifier;
 
   return (
     <div className={`component hero-banner ${props.params.styles}`} id={id ? id : undefined}>
       <div className="component-content sc-sxa-image-hero-banner" style={backgroundStyle}>
-        {sitecoreContext.pageEditing ? <Image /> : ''}
+        {sitecoreContext.pageEditing ? <JssImage field={modifyImageProps} /> : ''}
       </div>
     </div>
   );

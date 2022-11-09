@@ -111,7 +111,6 @@ export { NextImage } from './components/NextImage';
 
 export {
   ComponentFactory,
-  getEEMarkup,
   Image,
   ImageField,
   ImageFieldValue,
