@@ -126,65 +126,58 @@ describe('RedirectsMiddleware', () => {
     });
 
     describe('should return appropriate redirect type when redirects exists', () => {
-      // it('should return 301 redirect', async () => {
-      //   const res = NextResponse.redirect('http://localhost:3000/found', 301);
-      //   // req for redirect 301
-      //   const req = createRequest({
-      //     nextUrl: 'http://localhost:3000/not-found',
-      //   });
-      //   const { middleware } = createMiddleware();
-      //   const finalRes = await middleware.getHandler()(req);
-      //   const fetchRedirects = sinon.stub().returns([
-      //     {
-      //       pattern: '/not-found',
-      //       target: 'http://localhost:3000/found',
-      //       redirectType: '301',
-      //       isQueryStringPreserved: true,
-      //       locale: 'en',
-      //     },
-      //   ]);
-      //   // eslint-disable-next-line no-unused-expressions
-      //   expect(fetchRedirects.called).to.be.true;
-      //   expect(finalRes).to.deep.equal(res);
-      // });
-      // it('should return 302 redirect', async () => {
-      //   const res = NextResponse.redirect('/404', 302);
-      //   const req = createRequest();
-      //   const { middleware } = createMiddleware({
-      //     data: {
-      //       redirects: [
-      //         {
-      //           pattern: '/notfound',
-      //           target: '/404',
-      //           redirectType: 'REDIRECT_302',
-      //           isQueryStringPreserved: true,
-      //           locale: 'en',
-      //         },
-      //       ],
-      //     },
-      //   });
-      //   const finalRes = await middleware.getHandler()(req);
-      //   expect(finalRes).to.deep.equal(res);
-      // });
-      // it('should return 307 redirect', async () => {
-      //   const res = NextResponse.redirect('/404', 307);
-      //   const req = createRequest();
-      //   const { middleware } = createMiddleware({
-      //     data: {
-      //       redirects: [
-      //         {
-      //           pattern: '/notfound',
-      //           target: '/404',
-      //           redirectType: 'REDIRECT_307',
-      //           isQueryStringPreserved: true,
-      //           locale: 'en',
-      //         },
-      //       ],
-      //     },
-      //   });
-      //   const finalRes = await middleware.getHandler()(req);
-      //   expect(finalRes).to.deep.equal(res);
-      // });
+      it('should return 301 redirect', async () => {
+        const res = NextResponse.redirect('http://localhost:3000/found', 301);
+        const req = createRequest({
+          nextUrl: 'http://localhost:3000/not-found',
+        });
+        const { middleware, fetchRedirects } = createMiddleware();
+        const finalRes = await middleware.getHandler()(req);
+
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+      });
+
+      it('should return 302 redirect', async () => {
+        const res = NextResponse.redirect('http://localhost:3000/found', 302);
+        const req = createRequest();
+        const { middleware } = createMiddleware({
+          data: {
+            redirects: [
+              {
+                pattern: '/notfound',
+                target: '/404',
+                redirectType: '302',
+                isQueryStringPreserved: true,
+                locale: 'en',
+              },
+            ],
+          },
+        });
+        const finalRes = await middleware.getHandler()(req);
+        expect(finalRes).to.deep.equal(res);
+      });
+
+      it('should return 307 redirect', async () => {
+        const res = NextResponse.redirect('/404', 307);
+        const req = createRequest();
+        const { middleware } = createMiddleware({
+          data: {
+            redirects: [
+              {
+                pattern: '/notfound',
+                target: '/404',
+                redirectType: '307',
+                isQueryStringPreserved: true,
+                locale: 'en',
+              },
+            ],
+          },
+        });
+        const finalRes = await middleware.getHandler()(req);
+        expect(finalRes).to.deep.equal(res);
+      });
     });
   });
 });

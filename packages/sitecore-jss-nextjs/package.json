@@ -8,7 +8,7 @@
     "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "del-cli dist types",
     "lint": "eslint ./src/**/*.tsx ./src/**/*.ts",
-    "test": "mocha --require ./test/setup.js \"./src/**/redirects-middleware.test.ts\" --exit",
+    "test": "mocha --require ./test/setup.js \"./src/**/*.test.ts\" \"./src/**/*.test.tsx\" --exit",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-nextjs --entryPoints src/index.ts --entryPoints src/editing/index.ts --entryPoints src/middleware/index.ts --githubPages false"
