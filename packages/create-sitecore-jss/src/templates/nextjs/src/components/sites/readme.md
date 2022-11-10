@@ -1,0 +1,1 @@
+Create a folder here with your JSS_APP_NAME name and place any site specific components in that folder.

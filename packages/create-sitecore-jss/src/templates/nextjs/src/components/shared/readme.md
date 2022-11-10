@@ -1,0 +1,1 @@
+Place all your shared components in that folder.

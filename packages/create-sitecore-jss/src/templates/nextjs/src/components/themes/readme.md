@@ -1,0 +1,1 @@
+Create a folder here with your JSS_APP_THEME name and place any theme specific components in that folder.

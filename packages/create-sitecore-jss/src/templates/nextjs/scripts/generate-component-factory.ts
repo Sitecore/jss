@@ -27,8 +27,19 @@ import { getItems, watchItems } from './utils';
   when calling the script.
 */
 
+// eslint-disable-next-line prettier/prettier
+const getDirectories = (srcPath: string) => fs.readdirSync(srcPath).filter(file => fs.statSync(path.join(srcPath, file)).isDirectory());
+
 const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
 const componentRootPath = 'src/components';
+const componentRootPaths = {
+  shared: componentRootPath + '/shared',
+  themes: getDirectories(componentRootPath + '/themes'),
+  sites: getDirectories(componentRootPath + '/sites'),
+};
+
+// Match any files. Adjust this to exclude files from being included.
+const fileFormat = new RegExp(/^(.+)\.tsx$/);
 
 const isWatch = process.argv.some((arg) => arg === '--watch');
 
@@ -69,7 +80,21 @@ function writeComponentFactory() {
    *  }
    */
   const packages: PackageDefinition[] = [];
-  const components = getComponentList(componentRootPath);
+  const components: (ComponentFile | PackageDefinition)[] = [];
+
+  for (const site of componentRootPaths.sites) {
+    const siteComponents = getComponentList(componentRootPath + '/sites/' + site, `SITE_${site}_`);
+    components.unshift(...siteComponents);
+  }
+
+  for (const theme of componentRootPaths.themes) {
+    // eslint-disable-next-line prettier/prettier
+    const themeComponents = getComponentList(componentRootPath + '/themes/' + theme, `THEME_${theme}_`);
+    components.unshift(...themeComponents);
+  }
+
+  const sharedComponents = getComponentList(componentRootPaths.shared, 'SHARED_');
+  components.unshift(...sharedComponents);
 
   components.unshift(...packages);
 
@@ -80,15 +105,16 @@ function writeComponentFactory() {
   });
 }
 
-function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
+function getComponentList(path: string, prefix: string): (PackageDefinition | ComponentFile)[] {
   const components = getItems<PackageDefinition | ComponentFile>({
     path,
     resolveItem: (path, name) => ({
       path: `${path}/${name}`,
-      componentName: name,
-      moduleName: name.replace(/[^\w]+/g, ''),
+      componentName: prefix + name,
+      moduleName: prefix + name.replace(/[^\w]+/g, ''),
     }),
     cb: (name) => console.debug(`Registering JSS component ${name}`),
+    fileFormat: fileFormat,
   });
 
   return components;
