@@ -33,12 +33,12 @@ export class SinglesiteResolver implements SiteResolver {
 
   /**
    * Get a sitemap path for the give site
-   * @param {string[]} paths the sitemap path
+   * @param {string[]} path the sitemap path
    * @param {SiteConfig} _site the site to include in the rewrite
    * @returns {string[]} the updated sitemap path
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  public getSitemapPaths(paths: string[], _site: SiteConfig): string[] {
-    return paths;
+  public getSitemapPath(path: string[], _site: SiteConfig): string[] {
+    return path;
   }
 }

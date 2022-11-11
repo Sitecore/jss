@@ -63,8 +63,9 @@ export {
 export {
   SiteResolver,
   SiteConfig,
-  MultisiteResolver,
   SinglesiteResolver,
+  MultisiteResolver,
+  normalizeMultisiteRewrite,
 } from '@sitecore-jss/sitecore-jss/multisite';
 export {
   RobotsQueryResult,

@@ -50,9 +50,9 @@ export interface SiteResolver {
 
   /**
    * Get a sitemap path for the give site
-   * @param {string[]} paths the sitemap path
+   * @param {string[]} path the sitemap path
    * @param {SiteConfig} site the site to include in the rewrite
    * @returns {string[]} the updated sitemap path
    */
-  getSitemapPaths(paths: string[], site: SiteConfig): string[];
+  getSitemapPath(path: string[], site: SiteConfig): string[];
 }

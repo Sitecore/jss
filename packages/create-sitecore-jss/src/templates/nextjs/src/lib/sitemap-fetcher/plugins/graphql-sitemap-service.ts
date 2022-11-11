@@ -23,52 +23,62 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
   }
 
   async getExportSitemap(): Promise<StaticPath[]> {
-    let results: StaticPath[] = [];
+    const results: StaticPath[] = [];
 
-    await Promise.all(this._siteResolver.allSites.map(async (site: SiteConfig) => {
-      const graphqlSitemapService = new GraphQLSitemapService({
-        endpoint: config.graphQLEndpoint,
-        apiKey: config.sitecoreApiKey,
-        siteName: site.name,
-      });
+    await Promise.all(
+      this._siteResolver.allSites.map(async (site: SiteConfig) => {
+        const graphqlSitemapService = new GraphQLSitemapService({
+          endpoint: config.graphQLEndpoint,
+          apiKey: config.sitecoreApiKey,
+          siteName: site.name,
+        });
 
-      const paths = await graphqlSitemapService.fetchExportSitemap(config.defaultLanguage);
+        const paths = await graphqlSitemapService.fetchExportSitemap(config.defaultLanguage);
 
-      const mappedPaths = paths.map((path: StaticPath): StaticPath[] => ({
-        params: {
-          path: this._siteResolver.getSitemapPaths(path.params.paths, site),
-        },
-        locale: path.locale,
-      } as StaticPath));
+        const mappedPaths = paths.map(
+          (path: StaticPath): StaticPath =>
+            ({
+              params: {
+                path: this._siteResolver.getSitemapPath(path.params.path, site),
+              },
+              locale: path.locale,
+            } as StaticPath)
+        );
 
-      results.concat(mappedPaths);
-    }));
-    
+        results.concat(mappedPaths);
+      })
+    );
+
     return results;
   }
 
   async getSSGSitemap(context?: GetStaticPathsContext): Promise<StaticPath[]> {
-    let results: StaticPath[] = [];
+    const results: StaticPath[] = [];
 
-    await Promise.all(this._siteResolver.allSites.map(async (site: SiteConfig) => {
-      const graphqlSitemapService = new GraphQLSitemapService({
-        endpoint: config.graphQLEndpoint,
-        apiKey: config.sitecoreApiKey,
-        siteName: site.name,
-      });
+    await Promise.all(
+      this._siteResolver.allSites.map(async (site: SiteConfig) => {
+        const graphqlSitemapService = new GraphQLSitemapService({
+          endpoint: config.graphQLEndpoint,
+          apiKey: config.sitecoreApiKey,
+          siteName: site.name,
+        });
 
-      const paths = await graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
+        const paths = await graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
 
-      const mappedPaths = paths.map((path: StaticPath): StaticPath[] => ({
-        params: {
-          path: this._siteResolver.getSitemapPaths(path.params.paths, site),
-        },
-        locale: path.locale,
-      } as StaticPath));
+        const mappedPaths = paths.map(
+          (path: StaticPath): StaticPath =>
+            ({
+              params: {
+                path: this._siteResolver.getSitemapPath(path.params.path, site),
+              },
+              locale: path.locale,
+            } as StaticPath)
+        );
 
-      results.concat(mappedPaths);
-    }));
-    
+        results.concat(mappedPaths);
+      })
+    );
+
     return results;
   }
 }

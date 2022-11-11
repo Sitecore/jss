@@ -9,6 +9,20 @@ type SiteMapping = {
   hostName: string;
   hostNameExp: WildCardExp[];
 };
+
+/**
+ * Normalize a multisite rewrite path (remove multisite data)
+ * @param {string} pathname the pathname
+ * @returns {string} the pathname with multisite data removed
+ */
+export function normalizeMultisiteRewrite(pathname: string): string {
+  if (!pathname.includes(SITE_PREFIX)) {
+    return pathname;
+  }
+  const result = pathname.match(`${SITE_PREFIX}.*?(?:\\/|$)`);
+  return result === null ? pathname : pathname.replace(result[0], '');
+}
+
 export class MultisiteResolver implements SiteResolver {
   private siteMappings: SiteMapping[];
 
@@ -84,12 +98,13 @@ export class MultisiteResolver implements SiteResolver {
 
   /**
    * Get a sitemap path for the give site
-   * @param {string[]} paths the sitemap path
+   * @param {string[]} path the sitemap path
    * @param {SiteConfig} site the site to include in the rewrite
    * @returns {string[]} the updated sitemap path
    */
-  public getSitemapPaths(paths: string[], site: SiteConfig): string[] {
-    const result = [`${SITE_PREFIX}${site.siteName}`, ...paths];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public getSitemapPath(path: string[], site: SiteConfig): string[] {
+    const result = [`${SITE_PREFIX}${site.siteName}`, ...path];
     return result;
   }
 
@@ -102,18 +117,5 @@ export class MultisiteResolver implements SiteResolver {
   public getMultisiteRewrite(pathname: string, site: SiteConfig): string {
     const path = pathname.startsWith('/') ? pathname : '/' + pathname;
     return `/${SITE_PREFIX}${site.siteName}${path}`;
-  }
-
-  /**
-   * Normalize a multisite rewrite path (remove multisite data)
-   * @param {string} pathname the pathname
-   * @returns {string} the pathname with multisite data removed
-   */
-  public normalizeMultisiteRewrite(pathname: string): string {
-    if (!pathname.includes(SITE_PREFIX)) {
-      return pathname;
-    }
-    const result = pathname.match(`${SITE_PREFIX}.*?(?:\\/|$)`);
-    return result === null ? pathname : pathname.replace(result[0], '');
   }
 }

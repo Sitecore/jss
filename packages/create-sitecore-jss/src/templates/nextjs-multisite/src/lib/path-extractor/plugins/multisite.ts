@@ -1,4 +1,4 @@
-import { normalizeMultisiteRewrite } from 'lib/helpers/multisite/utils';
+import { normalizeMultisiteRewrite } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Plugin } from '..';
 
 class MultisitePlugin implements Plugin {
