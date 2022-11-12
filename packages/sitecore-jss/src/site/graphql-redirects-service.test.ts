@@ -31,6 +31,11 @@ describe('GraphQLRedirectsService', () => {
   const endpoint = 'http://site';
   const apiKey = 'some-api-key';
   const siteName = 'site-name';
+  const config = {
+    endpoint,
+    apiKey,
+    siteName,
+  };
 
   afterEach(() => {
     nock.cleanAll();
@@ -83,6 +88,50 @@ describe('GraphQLRedirectsService', () => {
       expect(result).to.deep.equal(redirectsQueryResultNull.site?.siteInfo?.redirects);
 
       return expect(nock.isDone()).to.be.true;
+    });
+
+    it('should cache fetch response', async () => {
+      mockRedirectsRequest(siteName);
+      const service = new GraphQLRedirectsService(config);
+      const redirectsResponse = await service.fetchRedirects();
+
+      expect(redirectsResponse).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);
+
+      nock.cleanAll();
+
+      nock(endpoint)
+        .post('/')
+        .reply(200, {
+          data: {
+            site: {},
+          },
+        });
+
+      const cachedResponse = await service.fetchRedirects();
+
+      expect(cachedResponse).to.deep.equal(redirectsResponse);
+    });
+
+    it('should be possible to disable cache', async () => {
+      mockRedirectsRequest(siteName);
+      const service = new GraphQLRedirectsService({ ...config, cacheEnabled: false });
+      const redirectsResponse = await service.fetchRedirects();
+
+      expect(redirectsResponse).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);
+
+      nock.cleanAll();
+
+      nock(endpoint)
+        .post('/')
+        .reply(200, {
+          data: {
+            site: {},
+          },
+        });
+
+      const cachedResponse = await service.fetchRedirects();
+
+      expect(cachedResponse).to.not.deep.equal(redirectsResponse);
     });
   });
 });

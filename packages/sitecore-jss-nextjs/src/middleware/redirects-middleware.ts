@@ -14,6 +14,21 @@ import {
  */
 export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fetch'> & {
   locales: string[];
+  /**
+   * Function used to determine if route should be excluded from RedirectsMiddleware.
+   * By default, files (pathname.includes('.')), Next.js API routes (pathname.startsWith('/api/')), and Sitecore API routes (pathname.startsWith('/sitecore/')) are ignored.
+   * This is an important performance consideration since Next.js Edge middleware runs on every request.
+   * @param {string} pathname The pathname
+   * @returns {boolean} Whether to exclude the route from RedirectsMiddleware
+   */
+  excludeRoute?: (pathname: string) => boolean;
+  /**
+   * function, determines if middleware should be turned off, based on cookie, header, or other considerations
+   *  @param {NextRequest} [req] optional: request object from middleware handler
+   *  @param {NextResponse} [res] optional: response object from middleware handler
+   * @returns {boolean} false by default
+   */
+  disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
 };
 /**
  * Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
@@ -26,7 +41,7 @@ export class RedirectsMiddleware {
   /**
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
    */
-  constructor(config: RedirectsMiddlewareConfig) {
+  constructor(protected config: RedirectsMiddlewareConfig) {
     // NOTE: we provide native fetch for compatibility on Next.js Edge Runtime
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
@@ -41,7 +56,26 @@ export class RedirectsMiddleware {
     return this.handler;
   }
 
+  protected excludeRoute(pathname: string) {
+    if (
+      pathname.includes('.') || // Ignore files
+      pathname.startsWith('/api/') || // Ignore Next.js API calls
+      pathname.startsWith('/sitecore/') || // Ignore Sitecore API calls
+      pathname.startsWith('/_next') // Ignore next service calls
+    ) {
+      return true;
+    }
+    return false;
+  }
+
   private handler = async (req: NextRequest): Promise<NextResponse> => {
+    if (
+      (this.config.disabled && this.config.disabled(req, NextResponse.next())) ||
+      this.excludeRoute(req.nextUrl.pathname) ||
+      (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
+    ) {
+      return NextResponse.next();
+    }
     // Find the redirect from result of RedirectService
     const existsRedirect = await this.getExistsRedirect(req);
 
@@ -89,16 +123,18 @@ export class RedirectsMiddleware {
   private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects();
 
-    return redirects.find((redirect: RedirectInfo) => {
-      return (
-        (regexParser(redirect.pattern.toLowerCase()).test(req.nextUrl.pathname.toLowerCase()) ||
-          regexParser(redirect.pattern.toLowerCase()).test(
-            `/${req.nextUrl.locale}${req.nextUrl.pathname}`.toLowerCase()
-          )) &&
-        (redirect.locale
-          ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
-          : true)
-      );
-    });
+    return redirects.length
+      ? redirects.find((redirect: RedirectInfo) => {
+          return (
+            (regexParser(redirect.pattern.toLowerCase()).test(req.nextUrl.pathname.toLowerCase()) ||
+              regexParser(redirect.pattern.toLowerCase()).test(
+                `/${req.nextUrl.locale}${req.nextUrl.pathname}`.toLowerCase()
+              )) &&
+            (redirect.locale
+              ? redirect.locale.toLowerCase() === req.nextUrl.locale.toLowerCase()
+              : true)
+          );
+        })
+      : undefined;
   }
 }
