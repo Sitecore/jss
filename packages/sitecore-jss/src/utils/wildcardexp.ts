@@ -1,5 +1,3 @@
-import debug from '../debug';
-
 export class WildCardExp {
   disableTrailingWildcard = false;
 
@@ -10,10 +8,6 @@ export class WildCardExp {
   }
 
   public matches(str = ''): boolean {
-    debug.multisite('matching: %o', {
-      disableTrailingWildcard: this.disableTrailingWildcard,
-      str,
-    });
     if (str.length > 0 && this.parts.length > 0) {
       let inWildCard = false;
       for (let index = 0; index < this.parts.length; index++) {

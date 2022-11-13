@@ -63,7 +63,7 @@ export class MultisiteResolver implements SiteResolver {
       throw new Error(siteNotFoundError);
     }
 
-    const siteConfig = this.siteConfigs.find((site) => site.name === result[0]);
+    const siteConfig = this.siteConfigs.find((site) => site.name === result[1]);
     if (!siteConfig) {
       throw new Error(siteNotFoundError);
     }
@@ -104,7 +104,7 @@ export class MultisiteResolver implements SiteResolver {
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public getSitemapPath(path: string[], site: SiteConfig): string[] {
-    const result = [`${SITE_PREFIX}${site.siteName}`, ...path];
+    const result = [`${SITE_PREFIX}${site.name}`, ...path];
     return result;
   }
 
@@ -116,6 +116,6 @@ export class MultisiteResolver implements SiteResolver {
    */
   public getMultisiteRewrite(pathname: string, site: SiteConfig): string {
     const path = pathname.startsWith('/') ? pathname : '/' + pathname;
-    return `/${SITE_PREFIX}${site.siteName}${path}`;
+    return `/${SITE_PREFIX}${site.name}${path}`;
   }
 }

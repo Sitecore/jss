@@ -1,16 +1,19 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { MultisiteResolver } from '@sitecore-jss/sitecore-jss/multisite';
+import { SiteConfig, MultisiteResolver } from '@sitecore-jss/sitecore-jss/multisite';
 
 /**
  * Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
  * compares with current url and redirects to target url
  */
 export class MultisiteMiddleware {
+  private siteResolver: MultisiteResolver;
   /**
-   * @param {MultiiteResolver} siteResolver SiteResolver
+   * @param {SiteConfig[]} siteConfigs The site configurations
    */
-  constructor(public siteResolver: MultisiteResolver) {}
+  constructor(siteConfigs: SiteConfig[]) {
+    this.siteResolver = new MultisiteResolver(siteConfigs);
+  }
 
   /**
    * Gets the Next.js middleware handler with error handling
@@ -60,6 +63,8 @@ export class MultisiteMiddleware {
       debug.multisite('skipped (site config not found)');
       return response;
     }
+
+    debug.multisite('found site config: %o', siteConfig);
 
     // Rewrite to site path
     const rewritePath = this.siteResolver.getMultisiteRewrite(pathname, siteConfig);
