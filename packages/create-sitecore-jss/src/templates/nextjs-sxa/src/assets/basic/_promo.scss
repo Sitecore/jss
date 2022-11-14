@@ -7,6 +7,11 @@
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0;
+    margin-bottom: 80px;
+
+    @include respond-to(mobile-large) {
+      margin-bottom: 0;
+    }
 
     >.component-content {
       border: 0;
