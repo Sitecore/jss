@@ -1,9 +1,13 @@
+import { Template, TemplateArgs } from '../utils';
+
 /**
  * Generates React boilerplate for a component under `src/components`
  * @param componentName - the component name
  * @returns component src boilerplate as a string
  */
-function generateComponentSrc(componentName: string): string {
+export const componentTemplate: Template<TemplateArgs> = ({
+  componentName,
+}): string => {
   return `import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
@@ -23,5 +27,3 @@ const ${componentName} = (props: ${componentName}Props): JSX.Element => (
 export default withDatasourceCheck()<${componentName}Props>(${componentName});
 `;
 }
-
-export default generateComponentSrc;
