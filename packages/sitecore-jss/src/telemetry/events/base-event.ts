@@ -1,13 +1,4 @@
-﻿export type BaseEventAttributes = {
+﻿export type TelemetryEvent<Attributes = { [key: string]: unknown }> = {
   type: string;
+  attrs: Attributes;
 };
-
-export abstract class BaseEvent implements BaseEventAttributes {
-  type = '';
-
-  constructor(type: string) {
-    this.type = type;
-  }
-
-  static send() {}
-}

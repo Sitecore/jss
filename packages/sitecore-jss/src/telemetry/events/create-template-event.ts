@@ -1,32 +1,27 @@
-﻿import { TelemetryService } from './../telemetry-service';
-import { BaseEventAttributes } from './base-event';
-import { BaseEvent } from './base-event';
+﻿import { TelemetryEvent } from './base-event';
 
-interface CreateTemplateEventAttributes extends BaseEventAttributes {
+type CreateTemplateEventIncomingAttrs = {
   templates: string[];
   fetchWith?: string;
+};
+
+type CreateTemplateEventSendAttrs = {
   // Can be imported from sitecore-jss/package.json
   jssVersion?: string;
-}
+} & CreateTemplateEventIncomingAttrs;
 
-export class CreateTemplateTelemetryEvent extends BaseEvent {
-  private telemetryService: TelemetryService;
-  constructor() {
-    super('CreateTemplate');
-    this.telemetryService = new TelemetryService();
-  }
+export const CreateTemplateTelemetryEvent = ({
+  templates,
+  fetchWith,
+}: CreateTemplateEventIncomingAttrs): TelemetryEvent<CreateTemplateEventSendAttrs> => {
+  const jssVersion = '20';
 
-  async send(
-    { templates, fetchWith }: Omit<CreateTemplateEventAttributes, 'jssVersion'>,
-    { disabled }: { disabled: boolean }
-  ) {
-    //
-    // Collect all the required information
-    //
-    // jssVersion will be collected here from '../../package.json'
-
-    const event: CreateTemplateEventAttributes = { templates, fetchWith, type: this.type };
-
-    await this.telemetryService.sendEvent(event);
-  }
-}
+  return {
+    type: 'CreateTemplate',
+    attrs: {
+      templates,
+      fetchWith,
+      jssVersion,
+    },
+  };
+};
