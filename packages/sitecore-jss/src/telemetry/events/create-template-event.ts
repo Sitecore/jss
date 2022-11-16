@@ -1,4 +1,5 @@
 ﻿import { TelemetryEvent } from './base-event';
+import { version as jssVersion } from './../../../package.json';
 
 type CreateTemplateEventIncomingAttrs = {
   templates: string[];
@@ -6,7 +7,6 @@ type CreateTemplateEventIncomingAttrs = {
 };
 
 type CreateTemplateEventSendAttrs = {
-  // Can be imported from sitecore-jss/package.json
   jssVersion?: string;
 } & CreateTemplateEventIncomingAttrs;
 
@@ -14,8 +14,6 @@ export const CreateTemplateTelemetryEvent = ({
   templates,
   fetchWith,
 }: CreateTemplateEventIncomingAttrs): TelemetryEvent<CreateTemplateEventSendAttrs> => {
-  const jssVersion = '20';
-
   return {
     type: 'CreateTemplate',
     attrs: {
