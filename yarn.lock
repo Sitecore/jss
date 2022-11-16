@@ -3312,100 +3312,100 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/env@npm:12.2.5"
-  checksum: a44939e59b46d5951831529a43dba9daa2e4e467e8680ea96e21ae127d1bf7f11757aaf3a6cff8a51273abfe7af782903e1304405a481361c7ba3e66d47e3238
+"@next/env@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/env@npm:12.3.3"
+  checksum: 80c50b1d63c8459ce5579c1dd46775c3e06d16b0d33b2ba6054df85f9280eddd0fd45e22ccfe0c3d6f4c286a955f2982da36461d54cdfb4f6f546398518d4dae
   languageName: node
   linkType: hard
 
-"@next/swc-android-arm-eabi@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-android-arm-eabi@npm:12.2.5"
+"@next/swc-android-arm-eabi@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-android-arm-eabi@npm:12.3.3"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@next/swc-android-arm64@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-android-arm64@npm:12.2.5"
+"@next/swc-android-arm64@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-android-arm64@npm:12.3.3"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-darwin-arm64@npm:12.2.5"
+"@next/swc-darwin-arm64@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-darwin-arm64@npm:12.3.3"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-darwin-x64@npm:12.2.5"
+"@next/swc-darwin-x64@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-darwin-x64@npm:12.3.3"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-freebsd-x64@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-freebsd-x64@npm:12.2.5"
+"@next/swc-freebsd-x64@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-freebsd-x64@npm:12.3.3"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm-gnueabihf@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-linux-arm-gnueabihf@npm:12.2.5"
+"@next/swc-linux-arm-gnueabihf@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-linux-arm-gnueabihf@npm:12.3.3"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-linux-arm64-gnu@npm:12.2.5"
+"@next/swc-linux-arm64-gnu@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-linux-arm64-gnu@npm:12.3.3"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-linux-arm64-musl@npm:12.2.5"
+"@next/swc-linux-arm64-musl@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-linux-arm64-musl@npm:12.3.3"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-linux-x64-gnu@npm:12.2.5"
+"@next/swc-linux-x64-gnu@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-linux-x64-gnu@npm:12.3.3"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-linux-x64-musl@npm:12.2.5"
+"@next/swc-linux-x64-musl@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-linux-x64-musl@npm:12.3.3"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-win32-arm64-msvc@npm:12.2.5"
+"@next/swc-win32-arm64-msvc@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-win32-arm64-msvc@npm:12.3.3"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-ia32-msvc@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-win32-ia32-msvc@npm:12.2.5"
+"@next/swc-win32-ia32-msvc@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-win32-ia32-msvc@npm:12.3.3"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:12.2.5":
-  version: 12.2.5
-  resolution: "@next/swc-win32-x64-msvc@npm:12.2.5"
+"@next/swc-win32-x64-msvc@npm:12.3.3":
+  version: 12.3.3
+  resolution: "@next/swc-win32-x64-msvc@npm:12.3.3"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -4151,7 +4151,7 @@ __metadata:
     "@angular/platform-browser": ~11.2.6
     "@angular/platform-browser-dynamic": ~11.2.6
     "@angular/router": ~11.2.6
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.41
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.44
     "@types/jasmine": ^3.4.1
     "@types/node": ^14.14.35
     codelyzer: ^6.0.1
@@ -4182,7 +4182,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
-    "@sitecore-jss/sitecore-jss-dev-tools": ^21.1.0-canary.41
+    "@sitecore-jss/sitecore-jss-dev-tools": ^21.1.0-canary.44
     "@types/chai": ^4.2.3
     "@types/cross-spawn": ^6.0.0
     "@types/mocha": ^9.0.0
@@ -4214,11 +4214,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-dev-tools@^21.1.0-canary.41, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
+"@sitecore-jss/sitecore-jss-dev-tools@^21.1.0-canary.44, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.41
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.44
     "@types/chai": ^4.2.3
     "@types/chokidar": ^2.1.3
     "@types/del": ^4.0.0
@@ -4272,11 +4272,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-forms@^21.1.0-canary.41, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
+"@sitecore-jss/sitecore-jss-forms@^21.1.0-canary.44, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.41
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.44
     "@types/chai": ^4.1.6
     "@types/chai-string": ^1.4.1
     "@types/lodash.unescape": ^4.0.4
@@ -4299,9 +4299,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.41
-    "@sitecore-jss/sitecore-jss-dev-tools": ^21.1.0-canary.41
-    "@sitecore-jss/sitecore-jss-react": ^21.1.0-canary.41
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.44
+    "@sitecore-jss/sitecore-jss-dev-tools": ^21.1.0-canary.44
+    "@sitecore-jss/sitecore-jss-react": ^21.1.0-canary.44
     "@types/chai": ^4.2.2
     "@types/chai-as-promised": ^7.1.3
     "@types/chai-string": ^1.4.2
@@ -4326,7 +4326,7 @@ __metadata:
     eslint-plugin-react: ^7.21.5
     jsdom: ^15.1.1
     mocha: ^9.1.3
-    next: ^12.2.5
+    next: ^12.3.1
     nock: ^13.0.5
     node-html-parser: ^6.0.0
     nyc: ^15.1.0
@@ -4340,7 +4340,7 @@ __metadata:
     ts-node: ^9.0.0
     typescript: ~4.3.5
   peerDependencies:
-    next: ^12.2.5
+    next: ^12.3.1
     react: ^18.1.0
     react-dom: ^18.1.0
   languageName: unknown
@@ -4372,7 +4372,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss-forms": ^21.1.0-canary.41
+    "@sitecore-jss/sitecore-jss-forms": ^21.1.0-canary.44
     "@types/chai": ^4.2.11
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^9.0.0
@@ -4412,7 +4412,7 @@ __metadata:
     "@babel/plugin-proposal-export-default-from": ^7.5.2
     "@babel/preset-env": ^7.6.2
     "@babel/preset-typescript": ^7.6.0
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.41
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.44
     "@types/jest": ^24.0.18
     "@types/prop-types": ^15.7.3
     "@types/react": ^16.9.5
@@ -4442,11 +4442,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-react@^21.1.0-canary.41, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
+"@sitecore-jss/sitecore-jss-react@^21.1.0-canary.44, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.41
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.44
     "@types/chai": ^4.2.2
     "@types/chai-string": ^1.4.2
     "@types/deep-equal": ^1.0.1
@@ -4520,7 +4520,7 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-vue@workspace:packages/sitecore-jss-vue"
   dependencies:
     "@babel/core": ^7.16.0
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.41
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.44
     "@types/jest": ^26.0.23
     "@vue/compiler-dom": ^3.2.21
     "@vue/compiler-sfc": ^3.0.11
@@ -4542,7 +4542,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss@^21.1.0-canary.41, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
+"@sitecore-jss/sitecore-jss@^21.1.0-canary.44, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss"
   dependencies:
@@ -4577,12 +4577,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@swc/helpers@npm:0.4.3":
-  version: 0.4.3
-  resolution: "@swc/helpers@npm:0.4.3"
+"@swc/helpers@npm:0.4.11":
+  version: 0.4.11
+  resolution: "@swc/helpers@npm:0.4.11"
   dependencies:
     tslib: ^2.4.0
-  checksum: 5c2f173e950dd3929d84ae48b3586a274d5a874e7cf2013b3d8081e4f8c723fa3a4d4e63b263e84bb7f06431f87b640e91a12655410463c81a3dc2bbc15eceda
+  checksum: 736857d524b41a8a4db81094e9b027f554004e0fa3e86325d85bdb38f7e6459ce022db079edb6c61ba0f46fe8583b3e663e95f7acbd13e51b8da6c34e45bba2e
   languageName: node
   linkType: hard
 
@@ -8933,7 +8933,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000844, caniuse-lite@npm:^1.0.30001272, caniuse-lite@npm:^1.0.30001274, caniuse-lite@npm:^1.0.30001332":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000844, caniuse-lite@npm:^1.0.30001272, caniuse-lite@npm:^1.0.30001274":
   version: 1.0.30001358
   resolution: "caniuse-lite@npm:1.0.30001358"
   checksum: dd8d8e6b1f5e24b97d38bb110c35b96f701f8a303e7066e9d0dc4d0ae99d741e89d56688d4e811e260c5fe573835f2bedd49a6f35f3f43e9fa7e5d154b1fad0e
@@ -8944,6 +8944,13 @@ __metadata:
   version: 1.0.30001367
   resolution: "caniuse-lite@npm:1.0.30001367"
   checksum: 9912aed182b8b3a834787424b56a0e71b5ecb5d2cb7235fb022227bc3a81202e8a34bebc5dc9cc504c515b4e052f825c36c2db4b0b880c10e195fe63673edfc6
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001406":
+  version: 1.0.30001431
+  resolution: "caniuse-lite@npm:1.0.30001431"
+  checksum: bc8ab55cd194e240152946b54bfaff7456180cc018674fc7ed134f4f502192405f6643f422feaa0a5e7cc02b5bac564cfac7771ac6d29f5d129482fcfe335ba1
   languageName: node
   linkType: hard
 
@@ -18798,28 +18805,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^12.2.5":
-  version: 12.2.5
-  resolution: "next@npm:12.2.5"
+"next@npm:^12.3.1":
+  version: 12.3.3
+  resolution: "next@npm:12.3.3"
   dependencies:
-    "@next/env": 12.2.5
-    "@next/swc-android-arm-eabi": 12.2.5
-    "@next/swc-android-arm64": 12.2.5
-    "@next/swc-darwin-arm64": 12.2.5
-    "@next/swc-darwin-x64": 12.2.5
-    "@next/swc-freebsd-x64": 12.2.5
-    "@next/swc-linux-arm-gnueabihf": 12.2.5
-    "@next/swc-linux-arm64-gnu": 12.2.5
-    "@next/swc-linux-arm64-musl": 12.2.5
-    "@next/swc-linux-x64-gnu": 12.2.5
-    "@next/swc-linux-x64-musl": 12.2.5
-    "@next/swc-win32-arm64-msvc": 12.2.5
-    "@next/swc-win32-ia32-msvc": 12.2.5
-    "@next/swc-win32-x64-msvc": 12.2.5
-    "@swc/helpers": 0.4.3
-    caniuse-lite: ^1.0.30001332
+    "@next/env": 12.3.3
+    "@next/swc-android-arm-eabi": 12.3.3
+    "@next/swc-android-arm64": 12.3.3
+    "@next/swc-darwin-arm64": 12.3.3
+    "@next/swc-darwin-x64": 12.3.3
+    "@next/swc-freebsd-x64": 12.3.3
+    "@next/swc-linux-arm-gnueabihf": 12.3.3
+    "@next/swc-linux-arm64-gnu": 12.3.3
+    "@next/swc-linux-arm64-musl": 12.3.3
+    "@next/swc-linux-x64-gnu": 12.3.3
+    "@next/swc-linux-x64-musl": 12.3.3
+    "@next/swc-win32-arm64-msvc": 12.3.3
+    "@next/swc-win32-ia32-msvc": 12.3.3
+    "@next/swc-win32-x64-msvc": 12.3.3
+    "@swc/helpers": 0.4.11
+    caniuse-lite: ^1.0.30001406
     postcss: 8.4.14
-    styled-jsx: 5.0.4
+    styled-jsx: 5.0.7
     use-sync-external-store: 1.2.0
   peerDependencies:
     fibers: ">= 3.1.0"
@@ -18863,7 +18870,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: e8fcbd93d74fda81640fd174a9d380f22db404d3ce0893730db3db806317ae18c86d1dbb502e63e47c92fb21a93812de62639c2f1204330cb569fdac4d3d0573
+  checksum: 76cc04cc57dc266164d44a1fb0492d5390d49bacb5c75793c011ed489005fd281c2b997e264d85b60d174a70109075a930a35625ef4641f3481f7e3bcced46f6
   languageName: node
   linkType: hard
 
@@ -23970,9 +23977,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-jsx@npm:5.0.4":
-  version: 5.0.4
-  resolution: "styled-jsx@npm:5.0.4"
+"styled-jsx@npm:5.0.7":
+  version: 5.0.7
+  resolution: "styled-jsx@npm:5.0.7"
   peerDependencies:
     react: ">= 16.8.0 || 17.x.x || ^18.0.0-0"
   peerDependenciesMeta:
@@ -23980,7 +23987,7 @@ __metadata:
       optional: true
     babel-plugin-macros:
       optional: true
-  checksum: db7530155626e5eebc9d80ca117ea5aed6219b0a65469196b0b5727550fbe743117d7eea1499d80511ccb312d31f4a1027a58d1f94a83f0986c9acfdcce8bdd1
+  checksum: 61959993915f4b1662a682dbbefb3512de9399cf6901969bcadd26ba5441d2b5ca5c1021b233bbd573da2541b41efb45d56c6f618dbc8d88a381ebc62461fefe
   languageName: node
   linkType: hard
 
