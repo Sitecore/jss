@@ -19,6 +19,7 @@
     "tracking.d.ts",
     "site.d.ts",
     "personalize.d.ts",
+    "telemetry.d.ts",
     "src/**/*.test.ts",
     "src/test-data/*"
   ]

@@ -3,6 +3,7 @@ import fs from 'fs';
 import path, { sep } from 'path';
 import chalk from 'chalk';
 import { prompt } from 'inquirer';
+import { TelemetryService } from '@sitecore-jss/sitecore-jss/telemetry';
 import { initRunner } from './init-runner';
 import parseArgs, { ParsedArgs } from 'minimist';
 import { getBaseTemplates } from './common';
@@ -65,6 +66,10 @@ const main = async () => {
   const defaultDestination = `${process.cwd()}${
     argv.appName ? sep + argv.appName : `${sep}${templates[0]}`
   }`;
+
+  if (argv.telemetry === 'false') {
+    TelemetryService.disable();
+  }
 
   let destination = argv.destination;
 

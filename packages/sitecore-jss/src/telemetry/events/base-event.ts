@@ -1,4 +1,4 @@
-﻿export type TelemetryEvent<Attributes = { [key: string]: unknown }> = {
+﻿export type TelemetryEvent<Attributes = unknown> = {
   type: string;
   attrs: Attributes;
 };

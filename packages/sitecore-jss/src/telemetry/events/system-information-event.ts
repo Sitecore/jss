@@ -1,19 +1,23 @@
-﻿import { TelemetryEvent } from './base-event';
+﻿import { execSync } from 'child_process';
+import os from 'os';
+import { TelemetryEvent } from './base-event';
 
 interface SystemInformationEventIncomingAttrs {
-  nodejsVersion: string;
+  nodeVersion: string;
   npmVersion: string;
   platform: string;
 }
-export const SystemInformationTelemetryEvent = ({
-  nodejsVersion,
-  npmVersion,
-  platform,
-}: SystemInformationEventIncomingAttrs): TelemetryEvent<SystemInformationEventIncomingAttrs> => {
+export const SystemInformationTelemetryEvent = (): TelemetryEvent<SystemInformationEventIncomingAttrs> => {
+  const nodeVersion = process.versions.node;
+  const npmVersion = execSync('npm --version')
+    .toString()
+    .replace(/\r|\n/g, '');
+  const platform = os.platform();
+
   return {
     type: 'SystemInformation',
     attrs: {
-      nodejsVersion,
+      nodeVersion,
       npmVersion,
       platform,
     },

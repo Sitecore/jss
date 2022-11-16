@@ -1,5 +1,10 @@
 import chalk from 'chalk';
 import path, { sep } from 'path';
+import {
+  TelemetryService,
+  CreateTemplateTelemetryEvent,
+  SystemInformationTelemetryEvent,
+} from '@sitecore-jss/sitecore-jss/telemetry';
 import { installPackages, lintFix, nextSteps, BaseArgs, saveConfiguration } from './common';
 import { InitializerFactory } from './InitializerFactory';
 
@@ -42,7 +47,23 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
     installPackages(args.destination, args.silent);
     lintFix(args.destination, args.silent);
   }
+
+  if (args.telemetry !== 'false') {
+    console.log(`JSS collects completely anonymous telemetry data about general usage.
+Participation in this anonymous program is optional, and you may opt-out if you'd not like to share any information.
+Use 'jss telemetry <disable/enable>'
+    `);
+  }
+
   if (!args.silent) {
     nextSteps(appName || '', nextStepsArr);
   }
+
+  TelemetryService.send([
+    CreateTemplateTelemetryEvent({
+      fetchWith: String(args.fetchWith || ''),
+      templates: args.templates,
+    }),
+    SystemInformationTelemetryEvent(),
+  ]);
 };

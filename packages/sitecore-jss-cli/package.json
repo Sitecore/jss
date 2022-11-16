@@ -44,6 +44,7 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
+    "@sitecore-jss/sitecore-jss": "^21.1.0-canary.41",
     "@types/chai": "^4.2.3",
     "@types/cross-spawn": "^6.0.0",
     "@types/mocha": "^9.0.0",

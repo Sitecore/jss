@@ -2,6 +2,7 @@ import chalk from 'chalk';
 import fs from 'fs-extra';
 import glob from 'glob';
 import path, { sep } from 'path';
+import { TelemetryService } from '@sitecore-jss/sitecore-jss/telemetry';
 import { parse } from 'dotenv';
 import { Data, renderFile } from 'ejs';
 import { prompt } from 'inquirer';
@@ -211,6 +212,7 @@ export const transform = async (
     ...answers,
     helper: {
       isDev: isDevEnvironment(answers.destination),
+      isTelemetryEnabled: TelemetryService.isEnabled(),
       getPascalCaseName: getPascalCaseName,
       getAppPrefix: getAppPrefix,
     },
