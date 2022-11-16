@@ -4182,6 +4182,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.44
     "@sitecore-jss/sitecore-jss-dev-tools": ^21.1.0-canary.44
     "@types/chai": ^4.2.3
     "@types/cross-spawn": ^6.0.0
@@ -10058,6 +10059,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "create-sitecore-jss@workspace:packages/create-sitecore-jss"
   dependencies:
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.44
     "@types/chai": ^4.2.22
     "@types/cross-spawn": ^6.0.0
     "@types/diff": ^5.0.1

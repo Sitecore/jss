@@ -41,7 +41,7 @@
     "minimist": "^1.2.6"
   },
   "devDependencies": {
-    "@sitecore-jss/sitecore-jss": "^21.1.0-canary.41",
+    "@sitecore-jss/sitecore-jss": "^21.1.0-canary.44",
     "@types/chai": "^4.2.22",
     "@types/cross-spawn": "^6.0.0",
     "@types/diff": "^5.0.1",
