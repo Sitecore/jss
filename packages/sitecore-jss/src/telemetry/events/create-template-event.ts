@@ -1,5 +1,6 @@
-﻿import { TelemetryEvent } from './base-event';
-import { version as jssVersion } from './../../../package.json';
+﻿import path from 'path';
+import fs from 'fs';
+import { TelemetryEvent } from './base-event';
 
 type CreateTemplateEventIncomingAttrs = {
   templates: string[];
@@ -14,12 +15,16 @@ export const CreateTemplateTelemetryEvent = ({
   templates,
   fetchWith,
 }: CreateTemplateEventIncomingAttrs): TelemetryEvent<CreateTemplateEventSendAttrs> => {
+  const packageJson = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), './package.json'), 'utf-8')
+  );
+
   return {
     type: 'CreateTemplate',
     attrs: {
       templates,
       fetchWith,
-      jssVersion,
+      jssVersion: packageJson.version,
     },
   };
 };
