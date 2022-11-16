@@ -1,19 +1,15 @@
-import { ComponentsFolderConfig } from './utils';
+/* eslint-disable */
+import { Config } from './utils';
 
 import { componentTemplate } from './templates/component-src';
 
-// theme: {},
-// site: {},
-// helper: {},
-
-const componentsFolderConfig: ComponentsFolderConfig = {
-  levels: [ { name: 'Shared', short: 'Components used by everyone' }, ],
+const componentsFolderConfig: Config = {
   directories: [
-    { name: 'default', short: 'The default component folder', path: '' }
+    { name: 'default', path: '' }
   ],
-  templates: [
-    { name: 'default', short: 'The default component template', fileName: '[name].tsx', template: componentTemplate }
-  ],
+  templates: {
+    '[name].tsx': componentTemplate,
+  },
 };
 
 export default componentsFolderConfig;

@@ -1,5 +1,6 @@
-const { program } = require('commander');
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { scaffoldCommand } from './scaffold/components';
+const { program } = require('commander');
 
 program
   .command('component')
