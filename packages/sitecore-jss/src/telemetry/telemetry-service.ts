@@ -4,7 +4,8 @@ import debugModule from 'debug';
 import debug, { enableDebug } from '../debug';
 import { TelemetryEventInitializer } from './events/base-event';
 export class TelemetryService {
-  static LOG_FILE_PATH = path.resolve(__dirname, './telemetry-log.txt');
+  // /sitecore-jss/telemetry-log.txt
+  static LOG_FILE_PATH = path.resolve(__dirname, '../../../telemetry-log.txt');
 
   static disable() {
     process.env.JSS_TELEMETRY = 'false';
