@@ -1,6 +1,6 @@
 ﻿import fs from 'fs';
 import path from 'path';
-import { TelemetryEvent } from './events/base-event';
+import { TelemetryEventInitializer } from './events/base-event';
 
 export class TelemetryService {
   static LOG_FILE_PATH = path.resolve(__dirname, './telemetry-log.txt');
@@ -17,7 +17,7 @@ export class TelemetryService {
     return process.env.JSS_TELEMETRY !== 'false';
   }
 
-  static send(events: TelemetryEvent[]) {
+  static send(initializers: TelemetryEventInitializer[]) {
     if (!this.isEnabled()) return;
 
     let data = [];
@@ -26,12 +26,14 @@ export class TelemetryService {
       data = JSON.parse(fs.readFileSync(this.LOG_FILE_PATH, { encoding: 'utf-8' }));
     }
 
-    fs.writeFile(this.LOG_FILE_PATH, JSON.stringify([...data, ...events], null, 2), (err) => {
-      if (err) {
-        console.error('Error writing telemetry log file', err);
-        return;
-      }
+    const events = initializers.map((init) => {
+      const ev = init();
+      ev.date = new Date();
+
+      return ev;
     });
+
+    fs.writeFileSync(this.LOG_FILE_PATH, JSON.stringify([...data, ...events], null, 2));
   }
 }
 

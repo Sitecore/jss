@@ -1,6 +1,6 @@
 ﻿import path from 'path';
 import fs from 'fs';
-import { TelemetryEvent } from './base-event';
+import { TelemetryEventInitializer } from './base-event';
 
 type CreateTemplateEventIncomingAttrs = {
   templates: string[];
@@ -14,9 +14,10 @@ type CreateTemplateEventSendAttrs = {
 export const CreateTemplateTelemetryEvent = ({
   templates,
   fetchWith,
-}: CreateTemplateEventIncomingAttrs): TelemetryEvent<CreateTemplateEventSendAttrs> => {
+}: CreateTemplateEventIncomingAttrs): TelemetryEventInitializer<CreateTemplateEventSendAttrs> => () => {
+  // /sitecore-jss/dist/cjs/telemetry/events -> /sitecore-jss/package.json
   const packageJson = JSON.parse(
-    fs.readFileSync(path.join(process.cwd(), './package.json'), 'utf-8')
+    fs.readFileSync(path.join(__dirname, '../../../../package.json'), 'utf-8')
   );
 
   return {

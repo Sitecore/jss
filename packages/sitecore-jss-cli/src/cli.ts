@@ -1,4 +1,5 @@
 import { CommandModule, Arguments } from 'yargs';
+import { TelemetryService, JssPackagesEvent } from '@sitecore-jss/sitecore-jss/telemetry';
 import cli from './cli-shared';
 import resolvePackage from './resolve-package';
 import runPackageScript from './run-package-script';
@@ -28,6 +29,12 @@ async function getPackageScriptCommands() {
       handler: (argv: Arguments) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if ((argv as any)._[0]) {
+          const command = process.argv.slice(2)[0];
+
+          if (['start', 'start:production', 'start:connected'].includes(command)) {
+            TelemetryService.send([JssPackagesEvent()]);
+          }
+
           runPackageScript(process.argv.slice(2));
         }
       },

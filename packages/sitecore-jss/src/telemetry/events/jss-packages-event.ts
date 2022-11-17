@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { TelemetryEvent } from './base-event';
+import { TelemetryEventInitializer } from './base-event';
 
 type JssPackagesEventSendAttrs = {
   packages: {
@@ -9,7 +9,7 @@ type JssPackagesEventSendAttrs = {
   }[];
 };
 
-export const JssPackagesEvent = (): TelemetryEvent<JssPackagesEventSendAttrs> => {
+export const JssPackagesEvent = (): TelemetryEventInitializer<JssPackagesEventSendAttrs> => () => {
   const packageJson = JSON.parse(
     fs.readFileSync(path.join(process.cwd(), './package.json'), 'utf-8')
   );
@@ -20,7 +20,7 @@ export const JssPackagesEvent = (): TelemetryEvent<JssPackagesEventSendAttrs> =>
     .map(([name, version]) => ({ name, version }));
 
   return {
-    type: 'CreateTemplate',
+    type: 'JssPackages',
     attrs: {
       packages,
     },
