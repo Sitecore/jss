@@ -4,7 +4,7 @@ type JssCommandEventAttrs = {
   command: string;
 };
 
-export const JssCommandEvent = (
+export const JssCommandTelemetryEvent = (
   command: string
 ): TelemetryEventInitializer<JssCommandEventAttrs> => () => {
   return {

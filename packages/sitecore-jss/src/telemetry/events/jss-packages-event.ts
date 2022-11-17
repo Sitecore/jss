@@ -9,7 +9,7 @@ type JssPackagesEventAttrs = {
   }[];
 };
 
-export const JssPackagesEvent = (): TelemetryEventInitializer<JssPackagesEventAttrs> => () => {
+export const JssPackagesTelemetryEvent = (): TelemetryEventInitializer<JssPackagesEventAttrs> => () => {
   const packageJson = JSON.parse(
     fs.readFileSync(path.join(process.cwd(), './package.json'), 'utf-8')
   );
