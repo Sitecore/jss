@@ -11,4 +11,6 @@ import * as manifest from './manifest';
 import * as pkg from './package';
 import * as setup from './setup';
 
-export { easterEgg, elephant, environment, setup, deploy, pkg, manifest, clean };
+import * as telemetry from './telemetry';
+
+export { easterEgg, elephant, environment, setup, deploy, pkg, manifest, clean, telemetry };

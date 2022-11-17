@@ -2,14 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import { TelemetryEventInitializer } from './base-event';
 
-type JssPackagesEventSendAttrs = {
+type JssPackagesEventAttrs = {
   packages: {
     name: string;
     version: string;
   }[];
 };
 
-export const JssPackagesEvent = (): TelemetryEventInitializer<JssPackagesEventSendAttrs> => () => {
+export const JssPackagesEvent = (): TelemetryEventInitializer<JssPackagesEventAttrs> => () => {
   const packageJson = JSON.parse(
     fs.readFileSync(path.join(process.cwd(), './package.json'), 'utf-8')
   );

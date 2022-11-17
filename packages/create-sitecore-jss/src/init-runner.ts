@@ -23,6 +23,9 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
       args.silent || console.log(chalk.cyan(`Initializing '${init}'...`));
       const response = await initializer.init(args);
 
+      if (response.fetchWith) {
+        args.fetchWith = response.fetchWith;
+      }
       appName = response.appName;
       nextStepsArr = [...nextStepsArr, ...(response.nextSteps ?? [])];
 
@@ -48,15 +51,15 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
     lintFix(args.destination, args.silent);
   }
 
+  if (!args.silent) {
+    nextSteps(appName || '', nextStepsArr);
+  }
+
   if (args.telemetry !== 'false') {
     console.log(`JSS collects completely anonymous telemetry data about general usage.
 Participation in this anonymous program is optional, and you may opt-out if you'd not like to share any information.
 Use 'jss telemetry <disable/enable>'
     `);
-  }
-
-  if (!args.silent) {
-    nextSteps(appName || '', nextStepsArr);
   }
 
   TelemetryService.send([

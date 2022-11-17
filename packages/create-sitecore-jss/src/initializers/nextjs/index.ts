@@ -79,6 +79,7 @@ export default class NextjsInitializer implements Initializer {
       nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
       appName: answers.appName,
       initializers: addInitializers,
+      fetchWith: answers.fetchWith,
     };
 
     return response;

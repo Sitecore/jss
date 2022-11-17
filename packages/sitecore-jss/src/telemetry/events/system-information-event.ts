@@ -2,13 +2,13 @@
 import os from 'os';
 import { TelemetryEventInitializer } from './base-event';
 
-interface SystemInformationEventIncomingAttrs {
+interface SystemInformationEventAttrs {
   nodeVersion: string;
   npmVersion: string;
   platform: string;
 }
 
-export const SystemInformationTelemetryEvent = (): TelemetryEventInitializer<SystemInformationEventIncomingAttrs> => () => {
+export const SystemInformationTelemetryEvent = (): TelemetryEventInitializer<SystemInformationEventAttrs> => () => {
   const nodeVersion = process.versions.node;
   const npmVersion = execSync('npm --version')
     .toString()

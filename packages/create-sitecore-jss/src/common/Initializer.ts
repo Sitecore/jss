@@ -3,6 +3,7 @@ export type InitializerResults = {
   appName: string;
   initializers?: string[];
   nextSteps?: string[];
+  fetchWith?: string;
 };
 
 /**
