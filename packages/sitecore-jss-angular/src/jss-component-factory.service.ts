@@ -1,12 +1,12 @@
 import {
-  Compiler,
   ComponentFactory,
   Inject,
   Injectable,
   Injector,
+  Type,
+  Compiler,
   NgModuleFactory,
   NgModuleFactoryLoader,
-  Type,
 } from '@angular/core';
 import { LoadChildren } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
