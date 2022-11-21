@@ -1,15 +1,18 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import {
   ANALYZE_FOR_ENTRY_COMPONENTS,
+  Injector,
   ModuleWithProviders,
   NgModule,
   Provider,
   Type,
 } from '@angular/core';
-import { ROUTES } from '@angular/router';
+import { ActivatedRoute, Router, ROUTES } from '@angular/router';
+import { dataResolverFactory } from './components/data-resolver-factory';
 import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
 import { GenericLinkDirective } from './components/generic-link.directive';
+import { guardResolverFactory } from './components/guard-resolver-factory';
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
@@ -19,7 +22,9 @@ import { PlaceholderComponent } from './components/placeholder.component';
 import {
   ComponentNameAndModule,
   ComponentNameAndType,
+  DATA_RESOLVER,
   DYNAMIC_COMPONENT,
+  GUARD_RESOLVER,
   PLACEHOLDER_COMPONENTS,
   PLACEHOLDER_LAZY_COMPONENTS,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
@@ -81,7 +86,20 @@ export class JssModule {
   static forRoot(): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
-      providers: [DatePipe, JssComponentFactoryService],
+      providers: [
+        DatePipe,
+        JssComponentFactoryService,
+        {
+          provide: GUARD_RESOLVER,
+          useFactory: guardResolverFactory,
+          deps: [Injector, ActivatedRoute, Router],
+        },
+        {
+          provide: DATA_RESOLVER,
+          useFactory: dataResolverFactory,
+          deps: [Injector, ActivatedRoute, Router],
+        },
+      ],
     };
   }
 

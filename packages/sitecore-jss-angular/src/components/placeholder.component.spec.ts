@@ -9,7 +9,7 @@ import {
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { By } from '@angular/platform-browser';
-import { SpyNgModuleFactoryLoader } from '@angular/router/testing';
+import { RouterTestingModule, SpyNgModuleFactoryLoader } from '@angular/router/testing';
 
 import { JssModule } from '../lib.module';
 
@@ -74,6 +74,7 @@ describe('<sc-placeholder />', () => {
         TestJumbotronComponent,
       ],
       imports: [
+        RouterTestingModule,
         JssModule.withComponents([
           { name: 'DownloadCallout', type: TestDownloadCalloutComponent },
           { name: 'Home', type: TestHomeComponent },
@@ -306,7 +307,7 @@ class TestChildComponent {
   }
 }
 
-describe('<sc-placeholder /> with input/ouput binding', () => {
+describe('<sc-placeholder /> with input/output binding', () => {
   let fixture: ComponentFixture<TestParentComponent>;
   let de: DebugElement;
   let comp: TestParentComponent;
@@ -315,6 +316,7 @@ describe('<sc-placeholder /> with input/ouput binding', () => {
     TestBed.configureTestingModule({
       declarations: [TestParentComponent, TestChildComponent],
       imports: [
+        RouterTestingModule,
         JssModule.withComponents([
           { name: 'Parent', type: TestParentComponent },
           { name: 'Child', type: TestChildComponent },
