@@ -47,7 +47,7 @@ export function serializeForm(form: SitecoreForm, options?: SerializeFormOptions
  * @param {Array<FormField>} fields
  * @param {SerializeFormOptions} options
  */
- function pushFields(result: JssFormData, fields: FormField[], options: SerializeFormOptions) { {
+function pushFields(result: JssFormData, fields: FormField[], options: SerializeFormOptions) {
   fields.forEach((field) => {
     if (
       instanceOfButtonFormField(field) &&
