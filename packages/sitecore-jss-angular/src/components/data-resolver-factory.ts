@@ -6,29 +6,48 @@ import { ComponentFactoryResult } from '../jss-component-factory.service';
 import { wrapIntoObservable } from '../utils';
 import { JssResolve } from './placeholder.token';
 
+/**
+ * @param {Injector} injector
+ * @param {ActivatedRoute} activatedRoute
+ * @param {Router} router
+ * @returns resolved data
+ */
 export function dataResolverFactory(
   injector: Injector,
   activatedRoute: ActivatedRoute,
   router: Router
 ) {
-  function _getResolverInstance(resolver: JssResolve<unknown> | Type<JssResolve<unknown>>) {
+  /**
+   * @param {JssResolve<unknown> | Type<JssResolve<unknown>>} resolver
+   * @returns resolver instance
+   */
+  function getResolverInstance(resolver: JssResolve<unknown> | Type<JssResolve<unknown>>) {
     return 'resolve' in resolver ? resolver : injector.get(resolver);
   }
 
-  function _collectResolverInstances(
+  /**
+   * @param {ComponentFactoryResult} factory
+   * @returns {Array<[string, JssResolve<unknown>]>} resolver instances
+   */
+  function collectResolverInstances(
     factory: ComponentFactoryResult
   ): Array<[string, JssResolve<unknown>]> {
     if (factory.resolve != null) {
       const resolve = factory.resolve;
       return Object.keys(factory.resolve).map((key): [string, JssResolve<unknown>] => [
         key,
-        _getResolverInstance(resolve[key]),
+        getResolverInstance(resolve[key]),
       ]);
     }
 
     return [];
   }
 
+  /**
+   * @param {JssResolve<unknown>} resolver
+   * @param {ComponentFactoryResult} factory
+   * @returns data
+   */
   function _resolveData(resolver: JssResolve<unknown>, factory: ComponentFactoryResult) {
     const data = resolver.resolve({
       activatedRoute: activatedRoute.snapshot,
@@ -43,7 +62,7 @@ export function dataResolverFactory(
   return function resolveData(factories: ComponentFactoryResult[]) {
     return Promise.all(
       factories.map((factory) => {
-        const resolvers = _collectResolverInstances(factory);
+        const resolvers = collectResolverInstances(factory);
         const pendingData = resolvers.map(([key, resolver]) =>
           _resolveData(resolver, factory).then((data): [string, any] => [key, data])
         );

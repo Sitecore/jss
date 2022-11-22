@@ -6,7 +6,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
 import { guardResolverFactory } from './guard-resolver-factory';
-import { GUARD_RESOLVER, GuardResolver, JssCanActivate } from './placeholder.token';
+import {
+  GUARD_RESOLVER,
+  GuardResolver,
+  JssCanActivate,
+  JssCanActivateFn,
+} from './placeholder.token';
 
 const createLiteralGuard = (
   canActivate: boolean | Promise<boolean> | Observable<boolean>
@@ -15,6 +20,10 @@ const createLiteralGuard = (
     return canActivate;
   },
 });
+
+const createFunctionGuard = (
+  canActivate: boolean | Promise<boolean> | Observable<boolean>
+): JssCanActivateFn => () => canActivate;
 
 class MockSyncTrueGuard implements JssCanActivate {
   canActivate() {
@@ -61,6 +70,17 @@ describe('guardResolverFactory', () => {
 
   beforeEach(() => {
     resolver = TestBed.get(GUARD_RESOLVER);
+  });
+
+  it('Returns rendering if single function sync guard returns true', async () => {
+    const nonGuarded = await resolver([
+      {
+        canActivate: createFunctionGuard(true),
+        componentDefinition: {} as any,
+      },
+    ]);
+
+    expect(nonGuarded.length).toBe(1);
   });
 
   it('Returns rendering if single sync guard returns true', async () => {
