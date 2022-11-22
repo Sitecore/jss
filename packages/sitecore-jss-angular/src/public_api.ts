@@ -10,6 +10,7 @@ export {
   ComponentNameAndModule,
   JssResolve,
   JssCanActivate,
+  JssCanActivateFn,
   GuardInput,
 } from './components/placeholder.token';
 export { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';

@@ -17,6 +17,7 @@ import {
   ComponentNameAndType,
   DYNAMIC_COMPONENT,
   JssCanActivate,
+  JssCanActivateFn,
   JssResolve,
   PLACEHOLDER_COMPONENTS,
   PLACEHOLDER_LAZY_COMPONENTS,
@@ -34,7 +35,8 @@ export interface ComponentFactoryResult {
   canActivate?:
     | JssCanActivate
     | Type<JssCanActivate>
-    | Array<JssCanActivate | Type<JssCanActivate>>;
+    | JssCanActivateFn
+    | Array<JssCanActivate | JssCanActivateFn | Type<JssCanActivate>>;
   resolve?: { [key: string]: JssResolve<any> | Type<JssResolve<any>> };
 }
 
@@ -68,6 +70,7 @@ export class JssComponentFactoryService {
         componentDefinition: component,
         componentImplementation: loadedComponent.type,
         canActivate: loadedComponent.canActivate,
+        resolve: loadedComponent.resolve,
       });
     }
 
@@ -104,6 +107,7 @@ export class JssComponentFactoryService {
             componentType
           ),
           canActivate: lazyComponent.canActivate,
+          resolve: lazyComponent.resolve,
         };
       });
     }

@@ -18,8 +18,9 @@ export class ComponentNameAndType {
   canActivate?:
     | JssCanActivate
     | Type<JssCanActivate>
-    | Array<JssCanActivate | Type<JssCanActivate>>;
-  resolve?: { [key: string]: JssResolve<any> | Type<JssResolve<any>> };
+    | JssCanActivateFn
+    | Array<JssCanActivate | JssCanActivateFn | Type<JssCanActivate>>;
+  resolve?: { [key: string]: JssResolve<unknown> | Type<JssResolve<unknown>> };
 }
 
 /** Registers a lazily loaded component by name and module to lazy load when it's needed */
@@ -33,9 +34,10 @@ export interface ComponentNameAndModule {
   loadChildren: () => Promise<Type<unknown>>;
   canActivate?:
     | JssCanActivate
+    | JssCanActivateFn
     | Type<JssCanActivate>
-    | Array<JssCanActivate | Type<JssCanActivate>>;
-  resolve?: { [key: string]: Resolve<any> | Type<Resolve<any>> };
+    | Array<JssCanActivate | JssCanActivateFn | Type<JssCanActivate>>;
+  resolve?: { [key: string]: JssResolve<unknown> | Type<JssResolve<unknown>> };
 }
 
 /**
@@ -60,13 +62,13 @@ export const PLACEHOLDER_COMPONENTS = new InjectionToken<ComponentNameAndType[]>
 export const PLACEHOLDER_LAZY_COMPONENTS = new InjectionToken<ComponentNameAndType[]>(
   'Sc.placeholder.lazyComponents'
 );
-export const PLACEHOLDER_MISSING_COMPONENT_COMPONENT = new InjectionToken<Type<any>>(
+export const PLACEHOLDER_MISSING_COMPONENT_COMPONENT = new InjectionToken<Type<unknown>>(
   'Sc.placeholder.missingComponentComponent'
 );
 export const PLACEHOLDER_HIDDEN_RENDERING_COMPONENT = new InjectionToken<Type<unknown>>(
   'Sc.placeholder.hiddenRenderingComponent'
 );
-export const DYNAMIC_COMPONENT = new InjectionToken<Type<any> | { [s: string]: any }>(
+export const DYNAMIC_COMPONENT = new InjectionToken<Type<unknown> | { [s: string]: unknown }>(
   'Sc.placeholder.dynamicComponent'
 );
 
@@ -86,16 +88,18 @@ export interface GuardInput {
   rendering: ComponentRendering;
 }
 
-export interface JssCanActivate {
-  canActivate(
-    input: GuardInput
-  ):
+export interface JssCanActivateFn {
+  (input: GuardInput):
     | Observable<boolean | UrlTree | string | string[]>
     | Promise<boolean | UrlTree | string | string[]>
     | boolean
     | UrlTree
     | string
     | string[];
+}
+
+export interface JssCanActivate {
+  canActivate: JssCanActivateFn;
 }
 
 export interface JssResolve<T> {

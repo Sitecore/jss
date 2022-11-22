@@ -1,34 +1,35 @@
 import { Injector, Type } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { take } from 'rxjs/operators';
 import { ComponentFactoryResult } from '../jss-component-factory.service';
 import { wrapIntoObservable } from '../utils';
 import { JssResolve } from './placeholder.token';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
 
 export function dataResolverFactory(
   injector: Injector,
   activatedRoute: ActivatedRoute,
   router: Router
 ) {
-  function _getResolverInstance(resolver: JssResolve<any> | Type<JssResolve<any>>) {
+  function _getResolverInstance(resolver: JssResolve<unknown> | Type<JssResolve<unknown>>) {
     return 'resolve' in resolver ? resolver : injector.get(resolver);
   }
 
   function _collectResolverInstances(
     factory: ComponentFactoryResult
-  ): Array<[string, JssResolve<any>]> {
+  ): Array<[string, JssResolve<unknown>]> {
     if (factory.resolve != null) {
       const resolve = factory.resolve;
-      return Object.keys(factory.resolve).map(
-        (key): [string, JssResolve<any>] => [key, _getResolverInstance(resolve[key])]
-      );
+      return Object.keys(factory.resolve).map((key): [string, JssResolve<unknown>] => [
+        key,
+        _getResolverInstance(resolve[key]),
+      ]);
     }
 
     return [];
   }
 
-  function _resolveData(resolver: JssResolve<any>, factory: ComponentFactoryResult) {
+  function _resolveData(resolver: JssResolve<unknown>, factory: ComponentFactoryResult) {
     const data = resolver.resolve({
       activatedRoute: activatedRoute.snapshot,
       routerState: router.routerState.snapshot,

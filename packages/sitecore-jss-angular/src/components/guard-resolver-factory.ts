@@ -3,8 +3,8 @@ import { ActivatedRoute, Router, UrlTree } from '@angular/router';
 import { take, mergeMap } from 'rxjs/operators';
 import { ComponentFactoryResult } from '../jss-component-factory.service';
 import { wrapIntoObservable } from '../utils';
-import { JssCanActivate } from './placeholder.token';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss';
+import { JssCanActivate, JssCanActivateFn } from './placeholder.token';
+import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { throwError, of } from 'rxjs';
 
 function isRedirectValue(
@@ -18,11 +18,17 @@ export function guardResolverFactory(
   activatedRoute: ActivatedRoute,
   router: Router
 ) {
-  function _getGuardInstance(guard: JssCanActivate | Type<JssCanActivate>) {
+  function _getGuardInstance(
+    guard: JssCanActivate | Type<JssCanActivate> | JssCanActivateFn
+  ): JssCanActivate | JssCanActivateFn {
+    if (typeof guard === 'function') return guard as JssCanActivateFn;
+
     return 'canActivate' in guard ? guard : injector.get(guard);
   }
 
-  function _collectGuardInstances(factory: ComponentFactoryResult): JssCanActivate[] {
+  function _collectGuardInstances(
+    factory: ComponentFactoryResult
+  ): (JssCanActivate | JssCanActivateFn)[] {
     if (factory.canActivate != null) {
       return Array.isArray(factory.canActivate)
         ? factory.canActivate.map(_getGuardInstance)
@@ -32,8 +38,12 @@ export function guardResolverFactory(
     return [];
   }
 
-  function _resolveGuard(guard: JssCanActivate, factory: ComponentFactoryResult) {
-    const guardValue = guard.canActivate({
+  function _resolveGuard(
+    guard: JssCanActivate | JssCanActivateFn,
+    factory: ComponentFactoryResult
+  ) {
+    const canActivate = 'canActivate' in guard ? guard.canActivate : guard;
+    const guardValue = canActivate({
       activatedRoute: activatedRoute.snapshot,
       routerState: router.routerState.snapshot,
       rendering: factory.componentDefinition as ComponentRendering,
