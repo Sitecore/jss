@@ -56,7 +56,7 @@ export function guardResolverFactory(
   function collectGuardInstances(
     factory: ComponentFactoryResult
   ): (JssCanActivate | JssCanActivateFn)[] {
-    if (factory.canActivate != null) {
+    if (factory.canActivate) {
       return Array.isArray(factory.canActivate)
         ? factory.canActivate.map(getGuardInstance)
         : [getGuardInstance(factory.canActivate)];

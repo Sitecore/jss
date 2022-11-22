@@ -32,7 +32,7 @@ export function dataResolverFactory(
   function collectResolverInstances(
     factory: ComponentFactoryResult
   ): Array<[string, JssResolve<unknown>]> {
-    if (factory.resolve != null) {
+    if (factory.resolve) {
       const resolve = factory.resolve;
       return Object.keys(factory.resolve).map((key): [string, JssResolve<unknown>] => [
         key,
