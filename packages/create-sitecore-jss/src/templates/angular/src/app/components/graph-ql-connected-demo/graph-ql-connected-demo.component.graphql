@@ -40,8 +40,8 @@ query ConnectedDemoQuery($datasource: String!, $contextItem: String!, $language:
   # $contextItem should be set to the ID of the current context item (the route item)
   contextItem: item(path: $contextItem, language: $language) {
     id
-    # Get the page title from the page template
-    ...on <%- helper.getAppPrefix(appPrefix, appName, false) %>Page {
+    # Get the page title from the app route template
+    ...on <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute {
       pageTitle {
         value
       }
@@ -54,7 +54,7 @@ query ConnectedDemoQuery($datasource: String!, $contextItem: String!, $language:
         # typing fragments can be used anywhere!
         # so in this case, we're grabbing the 'pageTitle'
         # field on all child route items.
-        ...on <%- helper.getAppPrefix(appPrefix, appName, false) %>Page {
+        ...on <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute {
           pageTitle {
             jsonValue
             value
