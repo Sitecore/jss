@@ -7,7 +7,7 @@ import {
   ClientAppArgs,
 } from '../../common';
 
-export default class NextjsMultiSiteInitializer implements Initializer {
+export default class NextjsMultisiteInitializer implements Initializer {
   get isBase(): boolean {
     return false;
   }
