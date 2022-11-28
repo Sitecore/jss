@@ -21,7 +21,7 @@ export default class NextjsMultiSiteInitializer implements Initializer {
       appPrefix: args.appPrefix || pkg?.config?.prefix || false,
     };
 
-    const templatePath = path.resolve(__dirname, '../../templates/nextjs-multi-site');
+    const templatePath = path.resolve(__dirname, '../../templates/nextjs-multisite');
 
     await transform(templatePath, mergedArgs);
 
