@@ -4445,7 +4445,7 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
     "@sitecore-jss/sitecore-jss-forms": ^21.1.0-canary.48
-    "@types/chai": ^4.2.11
+    "@types/chai": ^4.3.4
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
     "@types/node": 18.11.10
@@ -4519,7 +4519,7 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
     "@sitecore-jss/sitecore-jss": ^21.1.0-canary.48
-    "@types/chai": ^4.2.2
+    "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/deep-equal": ^1.0.1
     "@types/enzyme": ^3.10.12
