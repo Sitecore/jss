@@ -2179,7 +2179,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>Page",
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
             "ofType": null
           },
           {
@@ -17760,7 +17760,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>Page",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
             "ofType": null
           },
           {
@@ -18219,8 +18219,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>Page",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Page template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. <%- helper.getAppPrefix(appPrefix, appName, false) %>Page) for reliable querying.",
+        "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-App Route template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute) for reliable querying.",
         "fields": [
           {
             "name": "ancestors",
@@ -18643,7 +18643,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>Page",
+            "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
             "ofType": null
           },
           {
@@ -21496,8 +21496,8 @@
       },
       {
         "kind": "INTERFACE",
-        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>Page",
-        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-Page template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). Also implements Route.",
+        "name": "<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
+        "description": "/sitecore/templates/Project/<%- helper.getAppPrefix(appPrefix, appName, false) %>/<%- helper.getAppPrefix(appPrefix, appName, false) %>-App Route template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). Also implements Route.",
         "fields": [
           {
             "name": "pageTitle",
@@ -21523,7 +21523,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>Page",
+            "name": "C__<%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute",
             "ofType": null
           }
         ]

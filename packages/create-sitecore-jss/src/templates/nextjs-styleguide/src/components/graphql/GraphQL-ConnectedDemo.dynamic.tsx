@@ -12,18 +12,18 @@ import {
 import NextLink from 'next/link';
 import {
   ConnectedDemoQueryDocument,
-  <%- helper.getAppPrefix(appPrefix, appName, false) %>Page as Page,
+  <%- helper.getAppPrefix(appPrefix, appName, false) %>AppRoute as AppRoute,
   Item,
   <%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
 } from './GraphQL-ConnectedDemo.dynamic.graphql';
 import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 
-type PageItem = Page & Item;
+type RouteItem = AppRoute & Item;
 
 type GraphQLConnectedDemoData = {
   datasource: GrapQLConnectedDemoDatasource;
-  contextItem: PageItem;
+  contextItem: RouteItem;
 };
 
 type GraphQLConnectedDemoProps = ComponentProps & GraphQLConnectedDemoData;
@@ -80,12 +80,12 @@ const GraphQLConnectedDemo = (props: GraphQLConnectedDemoProps): JSX.Element => 
           children:
           <ul>
             {props.contextItem.children.results.map((child) => {
-              const pageItem = child as PageItem;
+              const routeItem = child as RouteItem;
 
               return (
-                <li key={pageItem.id}>
-                  <NextLink href={pageItem.url.path}>{pageItem.pageTitle?.value}</NextLink>
-                  (editable title too! <Text field={pageItem.pageTitle?.jsonValue} />)
+                <li key={routeItem.id}>
+                  <NextLink href={routeItem.url.path}>{routeItem.pageTitle?.value}</NextLink>
+                  (editable title too! <Text field={routeItem.pageTitle?.jsonValue} />)
                 </li>
               );
             })}
