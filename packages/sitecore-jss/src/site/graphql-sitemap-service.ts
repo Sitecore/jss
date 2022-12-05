@@ -83,8 +83,6 @@ export class GraphQLSitemapXmlService {
   async getSitemap(id: string): Promise<string | undefined> {
     const searchSitemap = `${PREFIX_NAME_SITEMAP}${id}.xml`;
     const sitemaps = await this.fetchSitemaps();
-    // added this item - there is default sitemap when will be available everytime
-    sitemaps.push('sitemap.xml');
 
     return sitemaps.find((sitemap: string) => sitemap.includes(searchSitemap));
   }
