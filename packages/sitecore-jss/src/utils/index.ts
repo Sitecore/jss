@@ -7,3 +7,14 @@ export {
   resetEditorChromes,
   handleEditorAnchors,
 } from './editing';
+export { 
+  DefaultEditFrameButton,
+  DefaultEditFrameButtons,
+  DefaultEditFrameButtonIds,
+  EditFrameDataSource,
+  EditFrameButton,
+  FieldEditButton,
+  WebEditButton,
+  commandBuilder,
+  isWebEditButton 
+} from './edit-frame';

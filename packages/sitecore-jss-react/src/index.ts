@@ -1,5 +1,13 @@
 export { constants, enableDebug } from '@sitecore-jss/sitecore-jss';
-export { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/utils';
+export { 
+  isEditorActive,
+  resetEditorChromes,
+  DefaultEditFrameButton,
+  DefaultEditFrameButtons,
+  EditFrameDataSource,
+  FieldEditButton,
+  WebEditButton,
+} from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
   LayoutServiceData,
@@ -68,11 +76,6 @@ export { withEditorChromes } from './enhancers/withEditorChromes';
 export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';
 export {
-  DefaultEditFrameButton,
-  DefaultEditFrameButtons,
-  EditFrameDataSource,
-  FieldEditButton,
-  WebEditButton,
   EditFrameProps,
   EditFrame,
 } from './components/EditFrame';
