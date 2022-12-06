@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file. The format 
 
 This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1000576) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
 
+## 21.0.2
+
+### 🧹 Chores
+
+* `[template/nextjs-sxa]` Removed _XM Cloud only_ limitation from `nextjs-sxa` initializer add-on. This is now compatible with SXP with the release of Sitecore Experience Platform 10.3.
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade Next.js version to 12.3.x ([#1238](https://github.com/Sitecore/jss/pull/1238))
+* `[templates]` Rename "Page" back to "AppRoute" ([#1249](https://github.com/Sitecore/jss/pull/1249))
+* `[templates/nextjs-sxa]` Cummulative fixes to `nextjs-sxa` initializer add-on ([#1206](https://github.com/Sitecore/jss/pull/1206))([#1215](https://github.com/Sitecore/jss/pull/1215))([#1241](https://github.com/Sitecore/jss/pull/1241))([#1232](https://github.com/Sitecore/jss/pull/1232))([#1229](https://github.com/Sitecore/jss/pull/1229))([#1221](https://github.com/Sitecore/jss/pull/1221))([#1254](https://github.com/Sitecore/jss/pull/1254))
+
 ## 21.0.1
 
 ### 🐛 Bug Fixes
