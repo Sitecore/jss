@@ -4,6 +4,8 @@
     "nprogress": "~0.2.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@sitecore-jss/sitecore-jss-dev-tools": "^21.1.0-canary",
     "@storybook/addon-actions": "^6.5.14",
     "@storybook/addon-essentials": "^6.5.14",
@@ -18,7 +20,8 @@
   "scripts": {
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
     "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "npm-run-all --serial bootstrap start-storybook",
+    "start-storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   }
 }

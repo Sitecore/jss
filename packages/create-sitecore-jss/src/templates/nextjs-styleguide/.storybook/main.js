@@ -16,8 +16,28 @@ module.exports = {
       ...config.resolve.alias,
       components: path.resolve(__dirname, '../src/components'),
       lib: path.resolve(__dirname, '../src/lib'),
+      temp: path.resolve(__dirname, '../src/temp'),
     };
     config.resolve.extensions.push('.ts', '.tsx');
+
+    config.module.rules.push({
+      test: /\.graphql$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: 'babel-loader',
+          options: { presets: ['@babel/preset-typescript', '@babel/preset-react'] },
+        },
+        'graphql-let/loader',
+      ],
+    });
+
+    config.module.rules.push({
+      test: /\.graphqls$/,
+      exclude: /node_modules/,
+      use: ['graphql-let/schema/loader'],
+    });
+
     return config;
   },
 };
