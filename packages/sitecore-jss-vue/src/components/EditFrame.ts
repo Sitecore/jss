@@ -9,7 +9,7 @@ import {
   commandBuilder
 } from '@sitecore-jss/sitecore-jss/utils';
 
-export const RichText = defineComponent({
+export const EditFrame = defineComponent({
   props: {
     dataSource: { type: Object as PropType<EditFrameDataSource> },
     buttons: { type: Object as PropType<(FieldEditButton | WebEditButton | '|')[]> },
@@ -18,7 +18,6 @@ export const RichText = defineComponent({
     cssClass: { type: String },
     parameters: { type: Object as PropType<Record<string, string | number | boolean | undefined | null>> },
   },
-  methods: {},
   render() {
     const instance = getCurrentInstance();
     const sitecoreContext = instance.appContext.config.globalProperties.$jss.sitecoreContext();
@@ -39,7 +38,7 @@ export const RichText = defineComponent({
 
     // item uri for edit frame target
     if (this.$props.dataSource) {
-      const route = instance.appContext.config.globalProperties.$jss.route();
+      const route = instance.appContext.config.globalProperties.$jss.routeData();
       const databaseName = this.$props.dataSource.databaseName || route?.databaseName;
       const language = this.$props.dataSource.language || sitecoreContext.language;
       frameProps.sc_item = `sitecore://${databaseName}/${this.$props.dataSource.itemId}?lang=${language}`;
@@ -73,7 +72,7 @@ export const RichText = defineComponent({
 
     const children = this.$slots.default;
     if (children) {
-      const childElements = h(null, { }, children());
+      const childElements = h(null, {}, children());
       const chromeData = h('span', { class: 'scChromeData' }, JSON.stringify(commandData));
 
       return h('div', { class: 'scLooseFrameZone', ...frameProps }, [chromeData, childElements]);
@@ -82,5 +81,5 @@ export const RichText = defineComponent({
 
       return h('div', { class: 'scLooseFrameZone', ...frameProps }, [chromeData]);
     }
-  }
+  },
 });
