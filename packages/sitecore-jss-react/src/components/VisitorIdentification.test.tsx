@@ -5,13 +5,15 @@ import { mount } from 'enzyme';
 
 import { VisitorIdentification, resetEmittedVI } from './VisitorIdentification';
 import { SitecoreContextReactContext } from './SitecoreContext';
+import { spy } from 'sinon';
 
 describe('<VisitorIdentification />', () => {
-  const defaultContext = { visitorIdentificationTimestamp: 123 };
+  const defaultContext = { visitorIdentificationTimestamp: 21102015 };
 
   const mockContext = (context) => {
     return {
       context: context,
+      setContext: spy(),
     };
   };
 
@@ -39,6 +41,7 @@ describe('<VisitorIdentification />', () => {
     expect(script).to.not.be.equal(undefined);
     expect(meta).to.not.be.equal(undefined);
     expect(script.src).to.equal('/layouts/system/VisitorIdentification.js');
+    expect(script.defer).to.be.equal(false);
     expect(rendered.html()).to.be.null;
   });
 
@@ -74,7 +77,7 @@ describe('<VisitorIdentification />', () => {
     expect(document.head.childElementCount).to.equal(0);
   });
 
-  it('should not re-render when visitorIdentificationTimestamp is missing from context', async () => {
+  it('should not render when visitorIdentificationTimestamp is missing from context', async () => {
     const rendered = mount(
       <SitecoreContextReactContext.Provider value={mockContext({})}>
         <VisitorIdentification />
