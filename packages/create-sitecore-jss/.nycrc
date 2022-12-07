@@ -5,6 +5,7 @@
   "exclude": [
     "**/*.d.ts",
     "**/*.test.ts",
+    "scripts",
     "src/templates/**/*",
     "src/common/test-data",
     "dist"
