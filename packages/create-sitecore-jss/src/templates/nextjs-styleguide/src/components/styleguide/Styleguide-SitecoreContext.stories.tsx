@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSitecoreContext from '../../components/styleguide/Styleguide-SitecoreContext';
+import StyleguideSitecoreContext from 'components/styleguide/Styleguide-SitecoreContext';
 
 const layoutData = {
   sitecore: {
