@@ -19,7 +19,7 @@ import {
 import { ComponentProps } from 'lib/component-props';
 import config from 'temp/config';
 
-type RouteItem = AppRoute & Item;
+export type RouteItem = AppRoute & Item;
 
 type GraphQLConnectedDemoData = {
   datasource: GrapQLConnectedDemoDatasource;
@@ -152,4 +152,4 @@ export const getServerSideProps: GetServerSideComponentProps = async (rendering,
   return result;
 };
 
-export default withDatasourceCheck()<ComponentProps>(GraphQLConnectedDemo);
+export default withDatasourceCheck()<GraphQLConnectedDemoProps>(GraphQLConnectedDemo);
