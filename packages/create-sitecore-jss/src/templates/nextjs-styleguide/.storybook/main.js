@@ -12,11 +12,19 @@ module.exports = {
     builder: '@storybook/builder-webpack5',
   },
   webpackFinal: async (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      components: path.resolve(__dirname, '../src/components'),
-      lib: path.resolve(__dirname, '../src/lib'),
-      temp: path.resolve(__dirname, '../src/temp'),
+    config.resolve = {
+      ...config.resolve,
+      fallback: {
+        ...config.resolve.fallback,
+        util: require.resolve('../node_modules/util/'),
+        path: require.resolve('../node_modules/path-browserify/'),
+      },
+      alias: {
+        ...config.resolve.alias,
+        components: path.resolve(__dirname, '../src/components'),
+        lib: path.resolve(__dirname, '../src/lib'),
+        temp: path.resolve(__dirname, '../src/temp'),
+      },
     };
     config.resolve.extensions.push('.ts', '.tsx');
 
