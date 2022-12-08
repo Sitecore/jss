@@ -72,14 +72,20 @@ export const EditFrame = defineComponent({
 
     const children = this.$slots.default;
     if (children) {
-      const childElements = h(null, {}, children());
-      const chromeData = h('span', { class: 'scChromeData' }, JSON.stringify(commandData));
+      const childElements = h('div', null, children());
+      const chromeData = h('span', {
+        class: 'scChromeData',
+        innerHTML: JSON.stringify(commandData),
+      });
 
-      return h('div', { class: 'scLooseFrameZone', ...frameProps }, [chromeData, childElements]);
+      return h('div', frameProps, [chromeData, childElements]);
     } else {
-      const chromeData = h('span', { class: 'scChromeData' }, JSON.stringify(commandData));
+      const chromeData = h('span', {
+        class: 'scChromeData',
+        innerHTML: JSON.stringify(commandData),
+      });
 
-      return h('div', { class: 'scLooseFrameZone', ...frameProps }, [chromeData]);
+      return h('div', frameProps, [chromeData]);
     }
   },
 });
