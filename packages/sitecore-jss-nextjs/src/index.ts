@@ -9,15 +9,15 @@ export {
   NativeDataFetcherConfig,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
-export { 
-  DefaultEditFrameButton, 
-  DefaultEditFrameButtons, 
-  EditFrameDataSource, 
-  FieldEditButton, 
-  WebEditButton, 
+export {
+  DefaultEditFrameButton,
+  DefaultEditFrameButtons,
+  EditFrameDataSource,
+  FieldEditButton,
+  WebEditButton,
   isEditorActive,
   resetEditorChromes,
-  resolveUrl
+  resolveUrl,
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
