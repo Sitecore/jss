@@ -55,7 +55,7 @@ components.set('GraphQL-ConnectedDemo', (props: GraphQLConnectedDemoProps) => (
   <GraphQLConnectedDemo
     {...props}
     contextItem={ConnectedDemoStory.args?.contextItem as RouteItem}
-    datasource={ConnectedDemoStory.args?.datasource as ReactAppGraphQlConnectedDemo}
+    datasource={ConnectedDemoStory.args?.datasource as <%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQlConnectedDemo}
   />
 ));
 
