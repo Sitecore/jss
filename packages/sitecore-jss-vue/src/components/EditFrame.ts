@@ -6,17 +6,23 @@ import {
   EditFrameButton,
   DefaultEditFrameButtonIds,
   isWebEditButton,
-  commandBuilder
+  commandBuilder,
 } from '@sitecore-jss/sitecore-jss/utils';
 
 export const EditFrame = defineComponent({
   props: {
-    dataSource: { type: Object as PropType<EditFrameDataSource> },
-    buttons: { type: Object as PropType<(FieldEditButton | WebEditButton | '|')[]> },
-    title: { type: String },
-    tooltip: { type: String },
-    cssClass: { type: String },
-    parameters: { type: Object as PropType<Record<string, string | number | boolean | undefined | null>> },
+    dataSource: { type: Object as PropType<EditFrameDataSource>, default: undefined },
+    buttons: {
+      type: Object as PropType<(FieldEditButton | WebEditButton | '|')[]>,
+      default: undefined,
+    },
+    title: { type: String, default: undefined },
+    tooltip: { type: String, default: undefined },
+    cssClass: { type: String, default: undefined },
+    parameters: {
+      type: Object as PropType<Record<string, string | number | boolean | undefined | null>>,
+      default: undefined,
+    },
   },
   render() {
     const instance = getCurrentInstance();
