@@ -11,7 +11,7 @@ import GraphQLConnectedDemo, {
 } from './GraphQL-ConnectedDemo.dynamic';
 import { Default as ConnectedDemoStory } from './GraphQL-ConnectedDemo.stories';
 import { Default as IntegratedDemoStory } from './GraphQL-IntegratedDemo.stories';
-import { ReactAppGraphQlConnectedDemo } from './GraphQL-ConnectedDemo.dynamic.graphql';
+import { <%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQlConnectedDemo } from './GraphQL-ConnectedDemo.dynamic.graphql';
 
 export default {
   title: 'Components/graphql/GraphQL-Layout',
@@ -23,7 +23,7 @@ const layoutData = {
     context: {
       pageEditing: false,
       site: {
-        name: 'NextjsApp',
+        name: '<%- appName %>',
       },
       language: 'en',
       itemPath: '/',
@@ -72,7 +72,7 @@ Default.args = {
     uid: '{00000000-0000-0000-0000-000000000000}',
     componentName: 'GraphQL-Layout',
     placeholders: {
-      'ReactApp-jss-graphql-layout': [
+      '<%- helper.getAppPrefix(appPrefix, appName) %>jss-graphql-layout': [
         {
           uid: '1846c499-afa7-56c4-bade-e3880eac0134',
           componentName: 'GraphQL-IntegratedDemo',

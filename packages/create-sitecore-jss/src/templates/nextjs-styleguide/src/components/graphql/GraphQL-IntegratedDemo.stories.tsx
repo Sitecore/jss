@@ -14,7 +14,7 @@ const layoutData = {
     context: {
       pageEditing: false,
       site: {
-        name: 'NextjsApp',
+        name: '<%- appName %>',
       },
       language: 'en',
       itemPath: '/',
@@ -61,7 +61,7 @@ Default.args = {
     data: {
       datasource: {
         id: '6E81D12B6E445CD9919A6707B6723FEC',
-        name: 'graphql-NextjsStyleguide-jss-graphql75D1D7D41C7DF462FC4CB776C7D60D06BDCE7759549F7EB5DF733EE454D9DFA3',
+        name: 'graphql-<%- helper.getAppPrefix(appPrefix, appName) %>jss-graphql75D1D7D41C7DF462FC4CB776C7D60D06BDCE7759549F7EB5DF733EE454D9DFA3',
         sample1: {
           jsonValue: {
             value: 'Hello integrated GraphQL world!',

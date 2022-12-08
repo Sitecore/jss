@@ -8,7 +8,7 @@ const layoutData = {
     context: {
       pageEditing: false,
       site: {
-        name: 'NextjsApp',
+        name: '<%- appName %>',
       },
       language: 'en',
       itemPath: '/',
@@ -30,7 +30,7 @@ const layoutData = {
       templateId: '787584c0-a057-5876-9836-f8b3708f0caf',
       templateName: 'App Route',
       placeholders: {
-        'jss-main': [
+        '<%- helper.getAppPrefix(appPrefix, appName) %>jss-main': [
           {
             uid: '3464271b-705f-5f98-b59c-0b1560a70641',
             componentName: 'ContentBlock',

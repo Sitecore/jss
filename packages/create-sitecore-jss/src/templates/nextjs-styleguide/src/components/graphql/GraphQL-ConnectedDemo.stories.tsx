@@ -6,7 +6,7 @@ import GraphQLConnectedDemo, { RouteItem } from './GraphQL-ConnectedDemo.dynamic
 import {
   ItemSearchResults,
   TextField,
-  ReactAppGraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
+  <%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQlConnectedDemo as GrapQLConnectedDemoDatasource,
 } from './GraphQL-ConnectedDemo.dynamic.graphql';
 
 export default {
@@ -19,7 +19,7 @@ const layoutData = {
     context: {
       pageEditing: false,
       site: {
-        name: 'NextjsApp',
+        name: '<%- appName %>',
       },
       language: 'en',
       itemPath: '/',
@@ -54,7 +54,7 @@ const Template: ComponentStory<typeof GraphQLConnectedDemo> = (args) => (
 
 const datasource = {
   id: 'EDDB0FDBBBCA5907948D628B324A1C1F',
-  name: 'graphql-JssNextWeb-jss-graphql-layout-A65B4AA5-AEAA-5325-AA80-DEC3CEC40AE2-0-GraphQL-ConnectedDemo-2',
+  name: 'graphql-<%- helper.getAppPrefix(appPrefix, appName) %>jss-graphql-layout-A65B4AA5-AEAA-5325-AA80-DEC3CEC40AE2-0-GraphQL-ConnectedDemo-2',
   sample1: {
     jsonValue: {
       value: 'Hello connected GraphQL world!',
