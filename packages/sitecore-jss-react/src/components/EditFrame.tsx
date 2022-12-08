@@ -1,14 +1,14 @@
 // import PropTypes from 'prop-types';
 import React, { PropsWithChildren } from 'react';
 import { useSitecoreContext } from '../enhancers/withSitecoreContext';
-import { 
+import {
   DefaultEditFrameButtonIds,
   EditFrameDataSource,
   EditFrameButton,
   FieldEditButton,
   WebEditButton,
   isWebEditButton,
-  commandBuilder
+  commandBuilder,
 } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface EditFrameProps {
