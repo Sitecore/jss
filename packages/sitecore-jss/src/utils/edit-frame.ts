@@ -1,4 +1,3 @@
-
 export type EditFrameButton = {
   isDivider: boolean;
   click: string;
