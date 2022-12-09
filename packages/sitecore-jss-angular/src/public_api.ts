@@ -54,6 +54,11 @@ export {
   isEditorActive,
   resetEditorChromes,
   handleEditorAnchors,
+  DefaultEditFrameButton,
+  DefaultEditFrameButtons,
+  EditFrameDataSource,
+  FieldEditButton,
+  WebEditButton,
 } from '@sitecore-jss/sitecore-jss/utils';
 export {
   trackingApi,
