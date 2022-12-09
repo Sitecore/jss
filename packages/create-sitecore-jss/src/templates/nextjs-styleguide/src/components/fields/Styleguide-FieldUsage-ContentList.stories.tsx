@@ -75,7 +75,9 @@ Default.args = {
       {
         name: 'Name',
         fields: {
-          fieldName: undefined,
+          textField: {
+            value: 'ContentList Demo (Shared) Item 1 Text Field',
+          },
         },
       },
     ],
@@ -83,7 +85,9 @@ Default.args = {
       {
         name: 'Name',
         fields: {
-          fieldName: undefined,
+          textField: {
+            value: 'ContentList Demo (Local) Item 2 Text Field',
+          },
         },
       },
     ],

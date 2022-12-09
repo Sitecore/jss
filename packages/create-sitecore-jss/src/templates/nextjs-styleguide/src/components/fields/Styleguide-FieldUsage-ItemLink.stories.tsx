@@ -67,13 +67,17 @@ Default.args = {
     sharedItemLink: {
       name: 'Name',
       fields: {
-        fieldName: undefined,
+        textField: {
+          value: 'ContentList Demo (Shared) Item 1 Text Field',
+        },
       },
     },
     localItemLink: {
       name: 'Name',
       fields: {
-        fieldName: undefined,
+        textField: {
+          value: 'ContentList Demo (Shared) Item 2 Text Field',
+        },
       },
     },
   },

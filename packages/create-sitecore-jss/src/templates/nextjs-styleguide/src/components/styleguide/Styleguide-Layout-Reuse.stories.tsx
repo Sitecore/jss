@@ -64,7 +64,7 @@ Default.args = {
     dataSource: '{ACFA7F84-7BF5-5877-9C29-72341A2DCEB6}',
     fields: {
       heading: {
-        value: 'Sitecore Context',
+        value: 'Reusing Content',
       },
       description: {
         value:
