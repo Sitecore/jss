@@ -152,7 +152,7 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
   }
 
   render() {
-    const disconnectedMode = this.props.sitecoreContext.itemId === 'available-in-connected-mode';
+    const disconnectedMode = this.props.sitecoreContext.itemId === 'available-in-connected-mode' || process.env.STORYBOOK;
 
     return (
       <StyleguideSpecimen {...this.props} e2eId="styleguide-tracking">
