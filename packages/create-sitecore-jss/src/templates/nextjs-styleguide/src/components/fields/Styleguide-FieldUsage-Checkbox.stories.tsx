@@ -2,7 +2,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageCheckbox from 'components/fields/Styleguide-FieldUsage-Checkbox';
+import StyleguideFieldUsageCheckbox from './Styleguide-FieldUsage-Checkbox';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Checkbox',
@@ -59,10 +59,11 @@ Default.args = {
   },
   fields: {
     heading: {
-      value: 'Heading',
+      value: 'Checkbox',
     },
     description: {
-      value: 'Description',
+      value:
+        '<small>Note: Sitecore does not support inline editing of Checkbox fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.</small>',
     },
     checkbox: {
       value: true,

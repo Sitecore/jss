@@ -3,7 +3,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import GraphQLLayout from 'components/graphql/GraphQL-Layout';
+import GraphQLLayout from './GraphQL-Layout';
 import GraphQLIntegratedDemo from './GraphQL-IntegratedDemo';
 import GraphQLConnectedDemo, {
   GraphQLConnectedDemoProps,

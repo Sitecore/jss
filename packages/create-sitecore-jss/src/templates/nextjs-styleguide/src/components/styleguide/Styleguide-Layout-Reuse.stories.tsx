@@ -2,7 +2,7 @@
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideLayoutReuse from 'components/styleguide/Styleguide-Layout-Reuse';
+import StyleguideLayoutReuse from './Styleguide-Layout-Reuse';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout-Reuse',

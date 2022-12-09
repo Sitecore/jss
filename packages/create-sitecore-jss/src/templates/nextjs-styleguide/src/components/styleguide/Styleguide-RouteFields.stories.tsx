@@ -2,7 +2,7 @@
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideRouteFields from 'components/styleguide/Styleguide-RouteFields';
+import StyleguideRouteFields from './Styleguide-RouteFields';
 
 export default {
   title: 'Components/styleguide/Styleguide-RouteFields',

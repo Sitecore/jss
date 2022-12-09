@@ -2,7 +2,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageContentList from 'components/fields/Styleguide-FieldUsage-ContentList';
+import StyleguideFieldUsageContentList from './Styleguide-FieldUsage-ContentList';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-ContentList',
@@ -59,10 +59,17 @@ Default.args = {
   },
   fields: {
     heading: {
-      value: 'Heading',
+      value: 'Content List',
     },
     description: {
-      value: 'Description',
+      value: `<p>
+        <small>
+          Content Lists are a way to reference zero or more other content items.
+          Referenced items may be shared.
+          To reference a single content item, use an <em>Item Link</em> field.<br />
+          <strong>Note:</strong> Sitecore does not support inline editing of Content List fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
+        </small>
+      </p>`,
     },
     sharedContentList: [
       {

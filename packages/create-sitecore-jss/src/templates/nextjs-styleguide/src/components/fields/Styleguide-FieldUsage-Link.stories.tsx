@@ -2,7 +2,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageLink from 'components/fields/Styleguide-FieldUsage-Link';
+import StyleguideFieldUsageLink from './Styleguide-FieldUsage-Link';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Link',
@@ -59,10 +59,11 @@ Default.args = {
   },
   fields: {
     heading: {
-      value: 'Heading',
+      value: 'General Link',
     },
     description: {
-      value: 'Description',
+      value:
+        '<p>A <em>General Link</em> is a field that represents an <code>&lt;a&gt;</code> tag.</p>',
     },
     externalLink: {
       value: {

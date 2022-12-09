@@ -2,7 +2,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageRichText from 'components/fields/Styleguide-FieldUsage-RichText';
+import StyleguideFieldUsageRichText from './Styleguide-FieldUsage-RichText';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-RichText',
@@ -59,7 +59,7 @@ Default.args = {
   },
   fields: {
     heading: {
-      value: 'Heading',
+      value: 'Rich Text',
     },
     description: {
       value: 'Description',

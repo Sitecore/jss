@@ -2,7 +2,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageText from 'components/fields/Styleguide-FieldUsage-Text';
+import StyleguideFieldUsageText from './Styleguide-FieldUsage-Text';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Text',
@@ -59,7 +59,7 @@ SingleLine.args = {
   },
   fields: {
     heading: {
-      value: 'Heading',
+      value: 'Single-Line Text',
     },
     description: {
       value: 'Description',
@@ -94,7 +94,7 @@ MultiLine.args = {
   },
   fields: {
     heading: {
-      value: 'Heading',
+      value: 'Multi-Line Text',
     },
     description: {
       value: 'Description',

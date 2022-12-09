@@ -2,7 +2,7 @@
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideComponentParams from 'components/styleguide/Styleguide-ComponentParams';
+import StyleguideComponentParams from './Styleguide-ComponentParams';
 
 export default {
   title: 'Components/styleguide/Styleguide-ComponentParams',

@@ -2,7 +2,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageItemLink from 'components/fields/Styleguide-FieldUsage-ItemLink';
+import StyleguideFieldUsageItemLink from './Styleguide-FieldUsage-ItemLink';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-ItemLink',

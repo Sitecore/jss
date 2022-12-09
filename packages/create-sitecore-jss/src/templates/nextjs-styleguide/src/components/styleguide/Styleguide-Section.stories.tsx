@@ -3,7 +3,7 @@ import { I18nProvider } from 'next-localization';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideSection from 'components/styleguide/Styleguide-Section';
+import StyleguideSection from './Styleguide-Section';
 
 export default {
   title: 'Components/styleguide/Styleguide-Section',

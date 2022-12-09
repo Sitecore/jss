@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSitecoreContext from 'components/styleguide/Styleguide-SitecoreContext';
+import StyleguideSitecoreContext from './Styleguide-SitecoreContext';
 
 const layoutData = {
   sitecore: {
@@ -56,7 +56,7 @@ const componentFactory = () => () => <div>Test</div>;
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'styleguide/SitecoreContext',
+  title: 'Components/styleguide/SitecoreContext',
   component: StyleguideSitecoreContext,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   args: {

@@ -2,7 +2,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageNumber from 'components/fields/Styleguide-FieldUsage-Number';
+import StyleguideFieldUsageNumber from './Styleguide-FieldUsage-Number';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Number',
@@ -59,10 +59,10 @@ Default.args = {
   },
   fields: {
     heading: {
-      value: 'Heading',
+      value: 'Number',
     },
     description: {
-      value: 'Description',
+      value: '<small>Number tells Sitecore to use a number entry for editing.</small>',
     },
     sample: {
       value: 1.21,

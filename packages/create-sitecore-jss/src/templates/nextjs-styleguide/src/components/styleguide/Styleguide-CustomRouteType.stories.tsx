@@ -2,7 +2,7 @@
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideCustomRouteType from 'components/styleguide/Styleguide-CustomRouteType';
+import StyleguideCustomRouteType from './Styleguide-CustomRouteType';
 
 export default {
   title: 'Components/styleguide/Styleguide-CustomRouteType',

@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import StyleguideSpecimen from './Styleguide-Specimen';
 
 export default {

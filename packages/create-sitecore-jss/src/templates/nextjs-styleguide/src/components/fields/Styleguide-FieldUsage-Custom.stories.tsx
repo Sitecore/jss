@@ -2,7 +2,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageCustom from 'components/fields/Styleguide-FieldUsage-Custom';
+import StyleguideFieldUsageCustom from './Styleguide-FieldUsage-Custom';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Custom',
@@ -59,13 +59,20 @@ Default.args = {
   },
   fields: {
     heading: {
-      value: 'Heading',
+      value: 'Custom Fields',
     },
     description: {
-      value: 'Description',
+      value: `<p>
+        <small>
+          Any Sitecore field type can be consumed by JSS.
+          In this sample we consume the <em>Integer</em> field type.<br />
+          <strong>Note:</strong> For field types with complex data, custom <code>FieldSerializer</code>s may need to be implemented on the Sitecore side.
+        </small>
+      </p>`,
     },
     customIntField: {
-      value: '10000000',
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      value: 31337 as any,
     },
   },
 };

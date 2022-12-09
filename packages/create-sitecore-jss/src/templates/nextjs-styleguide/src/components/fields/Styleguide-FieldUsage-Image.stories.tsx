@@ -2,7 +2,7 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageImage from 'components/fields/Styleguide-FieldUsage-Image';
+import StyleguideFieldUsageImage from './Styleguide-FieldUsage-Image';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Image',
@@ -59,7 +59,7 @@ Default.args = {
   },
   fields: {
     heading: {
-      value: 'Heading',
+      value: 'Image',
     },
     description: {
       value: 'Description',

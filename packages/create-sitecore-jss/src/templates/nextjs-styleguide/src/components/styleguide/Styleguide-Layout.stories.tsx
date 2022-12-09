@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideLayout from 'components/styleguide/Styleguide-Layout';
+import StyleguideLayout from './Styleguide-Layout';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout',
