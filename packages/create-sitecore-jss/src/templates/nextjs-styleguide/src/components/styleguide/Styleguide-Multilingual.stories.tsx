@@ -20,7 +20,7 @@ const layoutData = {
     context: {
       pageEditing: false,
       site: {
-        name: 'NextjsApp',
+        name: '<%- appName %>',
       },
       language: 'en',
       itemPath: '/',
