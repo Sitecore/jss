@@ -75,6 +75,15 @@ const defaultLayoutData = {
         pageTitle: {
           value: 'Welcome to Sitecore JSS',
         },
+        headLine: {
+          value: 'Welcome to Sitecore JSS',
+        },
+        author: {
+          value: 'Sitecore',
+        },
+        content: {
+          value: 'Welcome to Sitecore JSS',
+        },
       },
       databaseName: 'master',
       deviceId: 'fe5d7fdf-89c0-4d99-9aa3-b5fbd009c9f3',
