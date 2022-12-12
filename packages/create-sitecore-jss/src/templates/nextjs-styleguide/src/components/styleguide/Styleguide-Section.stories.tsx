@@ -52,4 +52,4 @@ Default.args = withFields<Args, Props>({
   },
 });
 
-Default.decorators = [withSitecoreContext(componentFactory)];
+Default.decorators = [withSitecoreContext({ componentFactory })];
