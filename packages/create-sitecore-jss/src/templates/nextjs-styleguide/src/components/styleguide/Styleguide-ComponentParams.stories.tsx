@@ -1,8 +1,11 @@
-﻿import React from 'react';
+import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
-import StyleguideComponentParams from './Styleguide-ComponentParams';
+import StyleguideComponentParams, {
+  StyleguideComponentParamsProps as Props,
+} from './Styleguide-ComponentParams';
 
 export default {
   title: 'Components/styleguide/Styleguide-ComponentParams',
@@ -40,6 +43,10 @@ const layoutData = {
   },
 };
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
@@ -48,7 +55,7 @@ const Template: ComponentStory<typeof StyleguideComponentParams> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-ComponentParams',
     cssClass: 'cssClass',
@@ -61,15 +68,11 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Component Params',
-    },
-    description: {
-      value:
+    heading: 'Component Params',
+    description:
         '<p><small>Component params (also called Rendering Parameters) allow storing non-content parameters for a component. These params should be used for more technical options such as CSS class names or structural settings.</small></p>',
     },
-  },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

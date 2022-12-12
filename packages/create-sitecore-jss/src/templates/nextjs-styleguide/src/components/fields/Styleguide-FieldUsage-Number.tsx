@@ -3,10 +3,10 @@ import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideFieldUsageTextProps = ComponentProps &
+export type StyleguideFieldUsageTextProps = ComponentProps &
   StyleguideSpecimenFields & {
     fields: {
-      sample: Field<string>;
+      sample: Field<number>;
     };
   };
 

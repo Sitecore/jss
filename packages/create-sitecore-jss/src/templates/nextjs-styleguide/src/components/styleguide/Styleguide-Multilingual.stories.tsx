@@ -1,9 +1,12 @@
-﻿import React from 'react';
+import React from 'react';
 import { I18nProvider } from 'next-localization';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideMultilingual from './Styleguide-Multilingual';
+import StyleguideMultilingual, {
+  StyleguideMultilingualProps as Props,
+} from './Styleguide-Multilingual';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Multilingual',
@@ -53,8 +56,12 @@ const Template: ComponentStory<typeof StyleguideMultilingual> = (args) => (
   <StyleguideMultilingual {...args} />
 );
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-ComponentParams',
   },
@@ -64,17 +71,12 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Translation Patterns',
+    heading: 'Translation Patterns',
+    description: 'Description',
+    sample: 'This text can be translated in en.yml',
     },
-    description: {
-      value: 'Description',
-    },
-    sample: {
-      value: 'This text can be translated in en.yml',
-    },
-  },
-};
+  sitecoreContext: {},
+});
 
 Default.decorators = [
   (Story) => (

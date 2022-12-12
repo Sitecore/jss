@@ -3,7 +3,7 @@ import StyleguideSpecimen from './Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideSitecoreContextProps = ComponentProps & StyleguideSpecimenFields;
+export type StyleguideSitecoreContextProps = ComponentProps & StyleguideSpecimenFields;
 
 /**
  * Demonstrates gaining access to the route-level Sitecore Context from

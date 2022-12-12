@@ -2,7 +2,10 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageRichText from './Styleguide-FieldUsage-RichText';
+import StyleguideFieldUsageRichText, {
+  StyleguideFieldUsageRichTextProps as Props,
+} from './Styleguide-FieldUsage-RichText';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-RichText',
@@ -40,6 +43,10 @@ const layoutData = {
   },
 };
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
@@ -48,7 +55,7 @@ const Template: ComponentStory<typeof StyleguideFieldUsageRichText> = (args) => 
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-FieldUsage-RichText',
   },
@@ -58,22 +65,14 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Rich Text',
-    },
-    description: {
-      value: 'Description',
-    },
-    sample: {
-      value:
+    heading: 'Rich Text',
+    description: 'Description',
+    sample:
         '<p>This is a sample rich text field. <mark>HTML is always supported.</mark> In Sitecore, editors will see a WYSIWYG editor for these fields.</p>',
-    },
-    sample2: {
-      value: `<p>Another sample rich text field, using options. Keep markup entered in rich text fields as simple as possible - ideally bare tags only (no classes). Adding a wrapping class can help with styling within rich text blocks.</p>
+    sample2: `<p>Another sample rich text field, using options. Keep markup entered in rich text fields as simple as possible - ideally bare tags only (no classes). Adding a wrapping class can help with styling within rich text blocks.</p>
         <marquee>But you can use any valid HTML in a rich text field!</marquee>`,
     },
-  },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

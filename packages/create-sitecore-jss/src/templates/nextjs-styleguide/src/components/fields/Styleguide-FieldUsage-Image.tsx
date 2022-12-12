@@ -3,7 +3,7 @@ import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideFieldUsageImageProps = ComponentProps &
+export type StyleguideFieldUsageImageProps = ComponentProps &
   StyleguideSpecimenFields & {
     fields: {
       sample1: ImageField;

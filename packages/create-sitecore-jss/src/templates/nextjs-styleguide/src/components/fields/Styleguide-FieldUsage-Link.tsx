@@ -3,7 +3,7 @@ import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideFieldUsageLinkProps = ComponentProps &
+export type StyleguideFieldUsageLinkProps = ComponentProps &
   StyleguideSpecimenFields & {
     fields: {
       externalLink: LinkField;

@@ -1,8 +1,11 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
-import StyleguideFieldUsageCustom from './Styleguide-FieldUsage-Custom';
+import StyleguideFieldUsageCustom, {
+  StyleguideFieldUsageCustomProps as Props,
+} from './Styleguide-FieldUsage-Custom';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Custom',
@@ -47,8 +50,12 @@ const Template: ComponentStory<typeof StyleguideFieldUsageCustom> = (args) => (
   <StyleguideFieldUsageCustom {...args} />
 );
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-FieldUsage-Custom',
   },
@@ -58,24 +65,17 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Custom Fields',
-    },
-    description: {
-      value: `<p>
+    heading: 'Custom Fields',
+    description: `<p>
         <small>
           Any Sitecore field type can be consumed by JSS.
           In this sample we consume the <em>Integer</em> field type.<br />
           <strong>Note:</strong> For field types with complex data, custom <code>FieldSerializer</code>s may need to be implemented on the Sitecore side.
         </small>
       </p>`,
+    customIntField: 31337,
     },
-    customIntField: {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      value: 31337 as any,
-    },
-  },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

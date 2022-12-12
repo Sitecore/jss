@@ -1,7 +1,8 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ContentBlock from './ContentBlock';
+import { ValueFields, withFields } from 'storybook-utils/utils';
+import ContentBlock, { ContentBlockProps as Props } from './ContentBlock';
 
 export default {
   title: 'Components/ContentBlock',
@@ -44,8 +45,12 @@ const componentFactory = () => () => <div>Test</div>;
 
 const Template: ComponentStory<typeof ContentBlock> = (args) => <ContentBlock {...args} />;
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'ContentBlock',
   },
@@ -55,14 +60,11 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Heading',
-    },
-    content: {
-      value: 'Content',
-    },
+    heading: 'Heading',
+    content: 'Content',
   },
-};
+});
+
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

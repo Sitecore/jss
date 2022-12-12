@@ -1,9 +1,9 @@
-﻿import React from 'react';
-import { I18nProvider } from 'next-localization';
+import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideSection from './Styleguide-Section';
+import StyleguideSection, { StyleguideSectionProps as Props } from './Styleguide-Section';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Section',
@@ -44,12 +44,16 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 const Template: ComponentStory<typeof StyleguideSection> = (args) => (
   <StyleguideSection {...args} />
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-ComponentParams',
   },
@@ -59,11 +63,9 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Content Data',
+    heading: 'Content Data',
     },
-  },
-};
+});
 
 Default.decorators = [
   (Story) => (

@@ -5,7 +5,7 @@ import StyleguideSpecimen from './Styleguide-Specimen';
 import { ComponentWithContextProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideMultilingualProps = ComponentWithContextProps &
+export type StyleguideMultilingualProps = ComponentWithContextProps &
   StyleguideSpecimenFields & {
     fields: {
       sample: Field<string>;

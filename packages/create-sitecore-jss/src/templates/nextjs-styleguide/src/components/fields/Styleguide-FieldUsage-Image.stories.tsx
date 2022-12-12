@@ -1,8 +1,11 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
-import StyleguideFieldUsageImage from './Styleguide-FieldUsage-Image';
+import StyleguideFieldUsageImage, {
+  StyleguideFieldUsageImageProps as Props,
+} from './Styleguide-FieldUsage-Image';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Image',
@@ -43,12 +46,16 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 const Template: ComponentStory<typeof StyleguideFieldUsageImage> = (args) => (
   <StyleguideFieldUsageImage {...args} />
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-FieldUsage-Image',
   },
@@ -58,26 +65,18 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Image',
-    },
-    description: {
-      value: 'Description',
-    },
+    heading: 'Image',
+    description: 'Description',
     sample1: {
-      value: {
         src: '/sc_logo.png',
         alt: 'Sitecore Logo',
-      },
     },
     sample2: {
-      value: {
         src: '/jss_logo.png',
         alt: 'Sitecore JSS Logo',
       },
     },
-  },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

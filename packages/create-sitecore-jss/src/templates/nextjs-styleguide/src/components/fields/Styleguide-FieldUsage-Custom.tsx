@@ -3,10 +3,10 @@ import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideFieldUsageCustomProps = ComponentProps &
+export type StyleguideFieldUsageCustomProps = ComponentProps &
   StyleguideSpecimenFields & {
     fields: {
-      customIntField: Field<string>;
+      customIntField: Field<number>;
     };
   };
 

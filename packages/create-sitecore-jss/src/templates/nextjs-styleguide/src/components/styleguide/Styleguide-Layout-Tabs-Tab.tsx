@@ -7,7 +7,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type StyleguideLayoutTabsTabProps = ComponentProps & {
+export type StyleguideLayoutTabsTabProps = ComponentProps & {
   fields: {
     content: Field<string>;
     title: Field<string>;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import StyleguideSpecimen from './Styleguide-Specimen';
+import StyleguideSpecimen, { StyleguideSpecimenProps as Props } from './Styleguide-Specimen';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Specimen',
@@ -13,8 +14,13 @@ const Template: ComponentStory<typeof StyleguideSpecimen> = (args) => (
   </StyleguideSpecimen>
 );
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
+  children: null,
   params: {
     name: 'Styleguide-Specimen',
   },
@@ -24,12 +30,8 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    description: {
-      value: 'Styleguide Specimen Component',
-    },
-    heading: {
-      value: 'Styleguide Specimen',
-    },
+    description: 'Styleguide Specimen Component',
+    heading: 'Styleguide Specimen',
   },
   e2eId: 'test-e2e-id',
-};
+});

@@ -1,8 +1,11 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
-import StyleguideFieldUsageLink from './Styleguide-FieldUsage-Link';
+import StyleguideFieldUsageLink, {
+  StyleguideFieldUsageLinkProps as Props,
+} from './Styleguide-FieldUsage-Link';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Link',
@@ -40,6 +43,10 @@ const layoutData = {
   },
 };
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
@@ -48,7 +55,7 @@ const Template: ComponentStory<typeof StyleguideFieldUsageLink> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-FieldUsage-Link',
   },
@@ -58,32 +65,21 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'General Link',
-    },
-    description: {
-      value:
+    heading: 'General Link',
+    description:
         '<p>A <em>General Link</em> is a field that represents an <code>&lt;a&gt;</code> tag.</p>',
-    },
     externalLink: {
-      value: {
         href: 'https://www.sitecore.com',
         text: 'Link to Sitecore',
-      },
     },
     internalLink: {
-      value: {
         href: '/',
-      },
     },
     emailLink: {
-      value: {
         href: 'mailto:foo@bar.com',
         text: 'Send an Email',
-      },
     },
     paramsLink: {
-      value: {
         href: 'https://dev.sitecore.net',
         text: 'Sitecore Dev Site',
         target: '_blank',
@@ -91,8 +87,7 @@ Default.args = {
         title: '<a> title attribute',
       },
     },
-  },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

@@ -2,7 +2,10 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageItemLink from './Styleguide-FieldUsage-ItemLink';
+import StyleguideFieldUsageItemLink, {
+  StyleguideFieldUsageItemLinkProps as Props,
+} from './Styleguide-FieldUsage-ItemLink';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-ItemLink',
@@ -43,12 +46,16 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields'], 'sharedItemLink' | 'localItemLink'>;
+};
+
 const Template: ComponentStory<typeof StyleguideFieldUsageItemLink> = (args) => (
   <StyleguideFieldUsageItemLink {...args} />
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-FieldUsage-ItemLink',
   },
@@ -58,12 +65,8 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Heading',
-    },
-    description: {
-      value: 'Description',
-    },
+    heading: 'Heading',
+    description: 'Description',
     sharedItemLink: {
       name: 'Name',
       fields: {
@@ -81,7 +84,7 @@ Default.args = {
       },
     },
   },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

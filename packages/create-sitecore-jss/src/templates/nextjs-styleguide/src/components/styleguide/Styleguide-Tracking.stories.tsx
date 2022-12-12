@@ -1,7 +1,8 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import StyleguideTracking from './Styleguide-Tracking';
+import StyleguideTracking, { StyleguideTrackingProps as Props } from './Styleguide-Tracking';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Tracking',
@@ -39,6 +40,10 @@ const layoutData = {
   },
 };
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
@@ -47,22 +52,20 @@ const Template: ComponentStory<typeof StyleguideTracking> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
+  sitecoreContext: {},
+  params: {},
   fields: {
-    heading: {
-      value: 'Tracking',
-    },
-    description: {
-      value:
-        '<p><small>JSS supports tracking Sitecore analytics events from within apps. Give it a try with this handy interactive demo.</small></p>',
-    },
+    heading: 'Tracking',
+    description:
+      '<p><small>JSS supports tracking Sitecore analytics events from within apps. Give it a try with this handy interactive demo.</small></p>',
   },
   rendering: {
     uid: '8daff8fe-210a-54c6-b344-ffccef4c4743',
     componentName: 'Styleguide-Tracking',
     dataSource: '{ACFA7F84-7BF5-5877-9C29-72341A2DCEB6}',
   },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

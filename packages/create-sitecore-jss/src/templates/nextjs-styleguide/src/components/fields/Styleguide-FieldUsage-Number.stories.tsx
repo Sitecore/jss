@@ -1,8 +1,11 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
-import StyleguideFieldUsageNumber from './Styleguide-FieldUsage-Number';
+import StyleguideFieldUsageNumber, {
+  StyleguideFieldUsageTextProps as Props,
+} from './Styleguide-FieldUsage-Number';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Number',
@@ -40,6 +43,10 @@ const layoutData = {
   },
 };
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
@@ -48,7 +55,7 @@ const Template: ComponentStory<typeof StyleguideFieldUsageNumber> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-FieldUsage-Number',
   },
@@ -58,17 +65,11 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Number',
+    heading: 'Number',
+    description: '<small>Number tells Sitecore to use a number entry for editing.</small>',
+    sample: 1.21,
     },
-    description: {
-      value: '<small>Number tells Sitecore to use a number entry for editing.</small>',
-    },
-    sample: {
-      value: 1.21,
-    },
-  },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

@@ -1,8 +1,11 @@
-﻿import React from 'react';
+import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideLayoutReuse from './Styleguide-Layout-Reuse';
+import StyleguideLayoutReuse, {
+  StyleguideLayoutReuseProps as Props,
+} from './Styleguide-Layout-Reuse';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout-Reuse',
@@ -40,6 +43,10 @@ const layoutData = {
   },
 };
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
@@ -48,15 +55,12 @@ const Template: ComponentStory<typeof StyleguideLayoutReuse> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
+  params: {},
   fields: {
-    heading: {
-      value: 'Reusing Content',
-    },
-    description: {
-      value:
+    heading: 'Reusing Content',
+    description:
         '<p>JSS provides powerful options to reuse content, whether its sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>',
-    },
   },
   rendering: {
     uid: '8daff8fe-210a-54c6-b344-ffccef4c4743',
@@ -72,7 +76,7 @@ Default.args = {
       },
     },
   },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

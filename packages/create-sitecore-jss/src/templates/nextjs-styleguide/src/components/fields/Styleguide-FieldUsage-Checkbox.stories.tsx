@@ -1,8 +1,11 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { withFields, ValueFields } from 'storybook-utils/utils';
 
-import StyleguideFieldUsageCheckbox from './Styleguide-FieldUsage-Checkbox';
+import StyleguideFieldUsageCheckbox, {
+  StyleguideFieldUsageCheckboxProps as Props,
+} from './Styleguide-FieldUsage-Checkbox';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Checkbox',
@@ -47,8 +50,12 @@ const Template: ComponentStory<typeof StyleguideFieldUsageCheckbox> = (args) => 
   <StyleguideFieldUsageCheckbox {...args} />
 );
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-FieldUsage-Checkbox',
   },
@@ -58,21 +65,13 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Checkbox',
-    },
-    description: {
-      value:
+    heading: 'Checkbox',
+    description:
         '<small>Note: Sitecore does not support inline editing of Checkbox fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.</small>',
+    checkbox: true,
+    checkbox2: false,
     },
-    checkbox: {
-      value: true,
-    },
-    checkbox2: {
-      value: false,
-    },
-  },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

@@ -2,8 +2,9 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideLayoutTabs from './Styleguide-Layout-Tabs';
+import StyleguideLayoutTabs, { StyleguideLayoutTabsProps as Props } from './Styleguide-Layout-Tabs';
 import StyleguideLayoutTabsTab from './Styleguide-Layout-Tabs-Tab';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout-Tabs',
@@ -97,8 +98,12 @@ const Template: ComponentStory<typeof StyleguideLayoutTabs> = (args) => (
   <StyleguideLayoutTabs {...args} />
 );
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-Layout-Tabs',
   },
@@ -106,21 +111,20 @@ Default.args = {
     uid: '{00000000-0000-0000-0000-000000000000}',
     componentName: 'Styleguide-Layout-Tabs',
     placeholders: {
-      '<%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs': tabsPlaceholder,
+      'NextjsApp-jss-tabs': tabsPlaceholder,
     },
     params: {},
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Tabs',
-    },
-    description: {
-      value:
+    heading: 'Tabs',
+    description:
         "<p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>",
     },
-  },
-};
+  name: '',
+  sitecoreContext: {},
+  tabsPlaceholder: [],
+});
 
 Default.decorators = [
   (Story) => (

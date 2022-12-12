@@ -2,7 +2,10 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideLayoutTabsTab from './Styleguide-Layout-Tabs-Tab';
+import StyleguideLayoutTabsTab, {
+  StyleguideLayoutTabsTabProps as Props,
+} from './Styleguide-Layout-Tabs-Tab';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout-Tabs-Tab',
@@ -43,12 +46,16 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 const Template: ComponentStory<typeof StyleguideLayoutTabsTab> = (args) => (
   <StyleguideLayoutTabsTab {...args} />
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-Layout-Tabs-Tab',
   },
@@ -58,10 +65,10 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    title: { value: 'Tab 1' },
-    content: { value: '<p>Tab 1 contents!</p>' },
+    title: 'Tab 1',
+    content: '<p>Tab 1 contents!</p>',
   },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

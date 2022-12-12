@@ -2,7 +2,10 @@ import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideFieldUsageText from './Styleguide-FieldUsage-Text';
+import StyleguideFieldUsageText, {
+  StyleguideFieldUsageTextProps as Props,
+} from './Styleguide-FieldUsage-Text';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-Text',
@@ -40,6 +43,10 @@ const layoutData = {
   },
 };
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
@@ -48,7 +55,7 @@ const Template: ComponentStory<typeof StyleguideFieldUsageText> = (args) => (
 );
 
 export const SingleLine = Template.bind({});
-SingleLine.args = {
+SingleLine.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-FieldUsage-Text',
   },
@@ -58,22 +65,14 @@ SingleLine.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Single-Line Text',
-    },
-    description: {
-      value: 'Description',
-    },
-    sample: {
-      value:
+    heading: 'Single-Line Text',
+    description: 'Description',
+    sample:
         'This is a sample text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see a <input type="text">.',
-    },
-    sample2: {
-      value:
+    sample2:
         'This is another sample text field using rendering options. <mark>HTML supported with encode=false.</mark> Cannot edit because editable=false.',
     },
-  },
-};
+});
 SingleLine.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

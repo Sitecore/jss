@@ -1,8 +1,11 @@
-﻿import React from 'react';
+import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import StyleguideRouteFields from './Styleguide-RouteFields';
+import StyleguideRouteFields, {
+  StyleguideRouteFieldsProps as Props,
+} from './Styleguide-RouteFields';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-RouteFields',
@@ -43,20 +46,21 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 const Template: ComponentStory<typeof StyleguideRouteFields> = (args) => (
   <StyleguideRouteFields {...args} />
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
+  params: {},
   fields: {
-    heading: {
-      value: 'Route-level Fields',
-    },
-    description: {
-      value:
+    heading: 'Route-level Fields',
+    description:
         '<p><small>Route-level content fields are defined on the <em>route</em> instead of on a <em>component</em>. This allows multiple components to share the field data on the same route - and querying is much easier on route level fields, making <em>custom route types</em> ideal for filterable/queryable data such as articles.</small></p>',
-    },
   },
   rendering: {
     uid: '8daff8fe-210a-54c6-b344-ffccef4c4743',
@@ -72,7 +76,7 @@ Default.args = {
       },
     },
   },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

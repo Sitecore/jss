@@ -1,7 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import StyleguideSitecoreContext from './Styleguide-SitecoreContext';
+import StyleguideSitecoreContext, {
+  StyleguideSitecoreContextProps as Props,
+} from './Styleguide-SitecoreContext';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
 const layoutData = {
   sitecore: {
@@ -54,20 +57,19 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 export default {
   title: 'Components/styleguide/Styleguide-SitecoreContext',
   component: StyleguideSitecoreContext,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  args: {
+  args: withFields<Args, Props>({
+    params: {},
     fields: {
-      heading: {
-        value: 'Sitecore Context',
-      },
-      description: {
-        value:
+      heading: 'Sitecore Context',
+      description:
           '<p><small>The Sitecore Context contains route-level data about the current context - for example, <code>pageState</code> enables conditionally executing code based on whether Sitecore is in Experience Editor or not.</small></p>',
-      },
     },
     rendering: {
       uid: '8daff8fe-210a-54c6-b344-ffccef4c4743',
@@ -83,7 +85,7 @@ export default {
         },
       },
     },
-  },
+  }),
 } as ComponentMeta<typeof StyleguideSitecoreContext>;
 
 type StoryArgs = typeof StyleguideSitecoreContext;

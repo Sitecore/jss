@@ -2,7 +2,7 @@ import { Text, RichText, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideSpecimenProps = ComponentProps &
+export type StyleguideSpecimenProps = ComponentProps &
   StyleguideSpecimenFields & {
     e2eId: string;
     children: React.ReactNode;

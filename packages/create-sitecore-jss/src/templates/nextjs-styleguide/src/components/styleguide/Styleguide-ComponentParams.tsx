@@ -2,7 +2,7 @@ import StyleguideSpecimen from './Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideComponentParamsProps = ComponentProps &
+export type StyleguideComponentParamsProps = ComponentProps &
   StyleguideSpecimenFields & {
     params: {
       cssClass: string;

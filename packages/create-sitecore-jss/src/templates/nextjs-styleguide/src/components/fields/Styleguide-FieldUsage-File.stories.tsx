@@ -1,8 +1,11 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
-import StyleguideFieldUsageFile from './Styleguide-FieldUsage-File';
+import StyleguideFieldUsageFile, {
+  StyleguideFieldUsageFileProps as Props,
+} from './Styleguide-FieldUsage-File';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-File',
@@ -47,8 +50,12 @@ const Template: ComponentStory<typeof StyleguideFieldUsageFile> = (args) => (
   <StyleguideFieldUsageFile {...args} />
 );
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields']>;
+};
+
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-FieldUsage-File',
   },
@@ -58,22 +65,16 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'File',
-    },
-    description: {
-      value:
+    heading: 'File',
+    description:
         '<small>Note: Sitecore does not support inline editing of File fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.</small>',
-    },
     file: {
-      value: {
         src: '/data/media/files/jss.pdf',
         title: 'Example File',
         description: 'This data will be added to the Sitecore Media Library on import',
       },
     },
-  },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

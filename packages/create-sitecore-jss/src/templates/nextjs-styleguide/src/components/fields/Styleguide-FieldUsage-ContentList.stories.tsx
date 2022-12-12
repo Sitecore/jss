@@ -1,8 +1,11 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ValueFields, withFields } from 'storybook-utils/utils';
 
-import StyleguideFieldUsageContentList from './Styleguide-FieldUsage-ContentList';
+import StyleguideFieldUsageContentList, {
+  StyleguideFieldUsageContentListProps as Props,
+} from './Styleguide-FieldUsage-ContentList';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-ContentList',
@@ -47,8 +50,12 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
+type Args = Omit<Props, 'fields'> & {
+  fields: ValueFields<Props['fields'], 'localContentList' | 'sharedContentList'>;
+};
+
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: 'Styleguide-FieldUsage-ContentList',
   },
@@ -58,11 +65,8 @@ Default.args = {
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Content List',
-    },
-    description: {
-      value: `<p>
+    heading: 'Content List',
+    description: `<p>
         <small>
           Content Lists are a way to reference zero or more other content items.
           Referenced items may be shared.
@@ -70,7 +74,6 @@ Default.args = {
           <strong>Note:</strong> Sitecore does not support inline editing of Content List fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
         </small>
       </p>`,
-    },
     sharedContentList: [
       {
         name: 'Name',
@@ -92,7 +95,7 @@ Default.args = {
       },
     ],
   },
-};
+});
 Default.decorators = [
   (Story) => (
     <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>

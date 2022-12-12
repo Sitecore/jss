@@ -3,7 +3,7 @@ import StyleguideSpecimen from './Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
-type StyleguideLayoutReuseProps = ComponentProps & StyleguideSpecimenFields;
+export type StyleguideLayoutReuseProps = ComponentProps & StyleguideSpecimenFields;
 
 /**
  * Demonstrates how to reuse content within JSS. See /data/routes/styleguide/en.yml

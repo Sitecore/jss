@@ -8,7 +8,7 @@ interface StyleguideLayoutTabsState {
   activeTabIndex: number;
 }
 
-type StyleguideLayoutTabsProps = ComponentWithContextProps &
+export type StyleguideLayoutTabsProps = ComponentWithContextProps &
   StyleguideSpecimenFields & {
     name: string;
     tabsPlaceholder: ReactElement[];

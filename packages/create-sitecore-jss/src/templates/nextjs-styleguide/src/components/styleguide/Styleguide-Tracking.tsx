@@ -12,7 +12,7 @@ import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
 /* eslint-disable no-alert,no-undef */
 
-type StyleguideTrackingProps = ComponentWithContextProps & StyleguideSpecimenFields;
+export type StyleguideTrackingProps = ComponentWithContextProps & StyleguideSpecimenFields;
 
 /**
  * Demonstrates analytics tracking patterns (xDB)
@@ -152,7 +152,8 @@ class StyleguideTracking extends React.Component<StyleguideTrackingProps> {
   }
 
   render() {
-    const disconnectedMode = this.props.sitecoreContext.itemId === 'available-in-connected-mode' || process.env.STORYBOOK;
+    const disconnectedMode =
+      this.props.sitecoreContext.itemId === 'available-in-connected-mode' || process.env.STORYBOOK;
 
     return (
       <StyleguideSpecimen {...this.props} e2eId="styleguide-tracking">
