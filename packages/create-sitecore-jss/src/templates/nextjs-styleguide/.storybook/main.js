@@ -11,6 +11,7 @@ module.exports = {
   core: {
     builder: '@storybook/builder-webpack5',
   },
+  staticDirs: ['./../data/media/img'],
   webpackFinal: async (config) => {
     config.resolve = {
       ...config.resolve,
