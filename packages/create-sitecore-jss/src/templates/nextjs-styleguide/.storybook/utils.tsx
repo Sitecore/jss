@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  LayoutServiceData,
   SitecoreContext,
   ComponentRendering,
   Item,
@@ -58,7 +59,7 @@ export const withFields = <Args extends Props, ReturnType>(props: Args): ReturnT
   return (props as unknown) as ReturnType;
 };
 
-const defaultLayoutData = {
+const defaultLayoutData: LayoutServiceData  = {
   sitecore: {
     context: {
       pageEditing: false,
