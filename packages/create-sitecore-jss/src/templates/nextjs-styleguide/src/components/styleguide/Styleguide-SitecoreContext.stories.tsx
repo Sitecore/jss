@@ -56,7 +56,7 @@ const componentFactory = () => () => <div>Test</div>;
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Components/styleguide/SitecoreContext',
+  title: 'Components/styleguide/Styleguide-SitecoreContext',
   component: StyleguideSitecoreContext,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   args: {
