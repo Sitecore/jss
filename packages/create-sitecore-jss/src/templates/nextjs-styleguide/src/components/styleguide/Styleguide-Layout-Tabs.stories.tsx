@@ -1,10 +1,8 @@
 import React from 'react';
-import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import StyleguideLayoutTabs, { StyleguideLayoutTabsProps as Props } from './Styleguide-Layout-Tabs';
 import StyleguideLayoutTabsTab from './Styleguide-Layout-Tabs-Tab';
-import { StorybookArgs, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout-Tabs',
@@ -124,10 +122,4 @@ Default.args = withFields<Args, Props>({
   tabsPlaceholder: [],
 });
 
-Default.decorators = [
-  (Story) => (
-    <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-      <Story />
-    </SitecoreContext>
-  ),
-];
+Default.decorators = [withSitecoreContext({ layoutData, componentFactory })];

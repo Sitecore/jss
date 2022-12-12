@@ -1,4 +1,10 @@
-import { ComponentRendering, Item, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import React from 'react';
+import {
+  SitecoreContext,
+  ComponentRendering,
+  Item,
+  Field,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 type ValueType = string | number | boolean | { [key: string]: unknown };
 
@@ -10,9 +16,7 @@ type FlattenFields<Fields extends { [key: string]: any }, ExcludeKeys> = {
 
 /**
  * @param {Args} Storybook args
- * @param {ExcludeKeys} Fields to be skipped during flattening
- * @example
- * { fields: { test: { value: 5 }}} -> { fields: { test: 5 }}
+ * @param {ExcludeKeys} Keys to be skipped during falttening
  */
 export type StorybookArgs<
   Args extends { [key: string]: any },
@@ -53,6 +57,49 @@ export const withFields = <Args extends Props, ReturnType>(props: Args): ReturnT
 
   return (props as unknown) as ReturnType;
 };
+
+const defaultLayoutData = {
+  sitecore: {
+    context: {
+      pageEditing: false,
+      site: {
+        name: 'nextjs-app',
+      },
+      language: 'en',
+      itemPath: '/',
+    },
+    route: {
+      name: 'home',
+      displayName: 'home',
+      fields: {
+        pageTitle: {
+          value: 'Welcome to Sitecore JSS',
+        },
+      },
+      databaseName: 'master',
+      deviceId: 'fe5d7fdf-89c0-4d99-9aa3-b5fbd009c9f3',
+      itemId: '45be1451-fa83-5f80-9f0d-d7457b480b58',
+      itemLanguage: 'en',
+      itemVersion: 1,
+      layoutId: '1db67245-f673-5e7f-9726-e7c5e76350f1',
+      templateId: '787584c0-a057-5876-9836-f8b3708f0caf',
+      templateName: 'App Route',
+      placeholders: {},
+    },
+  },
+};
+
+const components = new Map();
+const defaultComponentFactory = (name: string) => components.get(name);
+
+export const withSitecoreContext = ({
+  layoutData = defaultLayoutData,
+  componentFactory = defaultComponentFactory,
+} = {}) => (Story: React.FC) => (
+  <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+    <Story />
+  </SitecoreContext>
+);
 
 // type ValueType = string | number | boolean;
 

@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import GraphQLLayout from './GraphQL-Layout';
 import GraphQLIntegratedDemo from './GraphQL-IntegratedDemo';
 import GraphQLConnectedDemo, {
@@ -11,43 +9,13 @@ import GraphQLConnectedDemo, {
 } from './GraphQL-ConnectedDemo.dynamic';
 import { Default as ConnectedDemoStory } from './GraphQL-ConnectedDemo.stories';
 import { Default as IntegratedDemoStory } from './GraphQL-IntegratedDemo.stories';
-import { <%- helper.getAppPrefix(appPrefix, appName, false) %>GraphQlConnectedDemo } from './GraphQL-ConnectedDemo.dynamic.graphql';
+import { NextjsAppGraphQlConnectedDemo } from './GraphQL-ConnectedDemo.dynamic.graphql';
+import { withSitecoreContext } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/graphql/GraphQL-Layout',
   component: GraphQLLayout,
 } as ComponentMeta<typeof GraphQLLayout>;
-
-const layoutData = {
-  sitecore: {
-    context: {
-      pageEditing: false,
-      site: {
-        name: '<%- appName %>',
-      },
-      language: 'en',
-      itemPath: '/',
-    },
-    route: {
-      name: 'home',
-      displayName: 'home',
-      fields: {
-        pageTitle: {
-          value: 'Welcome to Sitecore JSS',
-        },
-      },
-      databaseName: 'master',
-      deviceId: 'fe5d7fdf-89c0-4d99-9aa3-b5fbd009c9f3',
-      itemId: '45be1451-fa83-5f80-9f0d-d7457b480b58',
-      itemLanguage: 'en',
-      itemVersion: 1,
-      layoutId: '1db67245-f673-5e7f-9726-e7c5e76350f1',
-      templateId: '787584c0-a057-5876-9836-f8b3708f0caf',
-      templateName: 'App Route',
-      placeholders: {},
-    },
-  },
-};
 
 const components = new Map();
 components.set('GraphQL-IntegratedDemo', GraphQLIntegratedDemo);
@@ -89,10 +57,4 @@ Default.args = {
     },
   },
 };
-Default.decorators = [
-  (Story) => (
-    <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-      <Story />
-    </SitecoreContext>
-  ),
-];
+Default.decorators = [withSitecoreContext({ componentFactory })];
