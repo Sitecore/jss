@@ -1,7 +1,7 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ValueFields, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields } from 'storybook-utils/utils';
 
 import StyleguideFieldUsageContentList, {
   StyleguideFieldUsageContentListProps as Props,
@@ -50,9 +50,7 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
-type Args = Omit<Props, 'fields'> & {
-  fields: ValueFields<Props['fields'], 'localContentList' | 'sharedContentList'>;
-};
+type Args = StorybookArgs<Props, 'localContentList' | 'sharedContentList'>;
 
 export const Default = Template.bind({});
 Default.args = withFields<Args, Props>({

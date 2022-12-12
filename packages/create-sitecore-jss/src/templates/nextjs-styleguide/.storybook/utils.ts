@@ -4,11 +4,21 @@ type ValueType = string | number | boolean | { [key: string]: unknown };
 
 export type FieldType = ValueType | Item | Item[] | Field | undefined;
 
-export type ValueFields<
-  Fields extends { [key: string]: any },
-  ExcludeKeys extends keyof Fields = ''
-> = {
+type FlattenFields<Fields extends { [key: string]: any }, ExcludeKeys> = {
   [field in keyof Fields]: field extends ExcludeKeys ? Fields[field] : Fields[field]['value'];
+};
+
+/**
+ * @param {Args} Storybook args
+ * @param {ExcludeKeys} Fields to be skipped during flattening
+ * @example
+ * { fields: { test: { value: 5 }}} -> { fields: { test: 5 }}
+ */
+export type StorybookArgs<
+  Args extends { [key: string]: any },
+  ExcludeKeys extends keyof Args['fields'] = ''
+> = Omit<Args, 'fields'> & {
+  fields: FlattenFields<Args['fields'], ExcludeKeys>;
 };
 
 type Props = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideSpecimen, { StyleguideSpecimenProps as Props } from './Styleguide-Specimen';
-import { ValueFields, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Specimen',
@@ -14,9 +14,7 @@ const Template: ComponentStory<typeof StyleguideSpecimen> = (args) => (
   </StyleguideSpecimen>
 );
 
-type Args = Omit<Props, 'fields'> & {
-  fields: ValueFields<Props['fields']>;
-};
+type Args = StorybookArgs<Props>;
 
 export const Default = Template.bind({});
 Default.args = withFields<Args, Props>({

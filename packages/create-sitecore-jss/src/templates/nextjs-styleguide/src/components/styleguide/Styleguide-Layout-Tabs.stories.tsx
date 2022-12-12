@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import StyleguideLayoutTabs, { StyleguideLayoutTabsProps as Props } from './Styleguide-Layout-Tabs';
 import StyleguideLayoutTabsTab from './Styleguide-Layout-Tabs-Tab';
-import { ValueFields, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout-Tabs',
@@ -98,9 +98,7 @@ const Template: ComponentStory<typeof StyleguideLayoutTabs> = (args) => (
   <StyleguideLayoutTabs {...args} />
 );
 
-type Args = Omit<Props, 'fields'> & {
-  fields: ValueFields<Props['fields']>;
-};
+type Args = StorybookArgs<Props>;
 
 export const Default = Template.bind({});
 Default.args = withFields<Args, Props>({

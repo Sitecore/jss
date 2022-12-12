@@ -3,7 +3,7 @@ import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import StyleguideSection, { StyleguideSectionProps as Props } from './Styleguide-Section';
-import { ValueFields, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Section',
@@ -44,9 +44,7 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
-type Args = Omit<Props, 'fields'> & {
-  fields: ValueFields<Props['fields']>;
-};
+type Args = StorybookArgs<Props>;
 
 const Template: ComponentStory<typeof StyleguideSection> = (args) => (
   <StyleguideSection {...args} />

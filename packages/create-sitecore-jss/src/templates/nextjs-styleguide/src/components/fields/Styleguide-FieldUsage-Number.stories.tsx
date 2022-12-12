@@ -1,7 +1,7 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ValueFields, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields } from 'storybook-utils/utils';
 
 import StyleguideFieldUsageNumber, {
   StyleguideFieldUsageTextProps as Props,
@@ -43,9 +43,7 @@ const layoutData = {
   },
 };
 
-type Args = Omit<Props, 'fields'> & {
-  fields: ValueFields<Props['fields']>;
-};
+type Args = StorybookArgs<Props>;
 
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;

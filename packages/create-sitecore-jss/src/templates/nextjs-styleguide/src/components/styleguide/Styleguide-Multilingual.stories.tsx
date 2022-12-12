@@ -6,7 +6,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideMultilingual, {
   StyleguideMultilingualProps as Props,
 } from './Styleguide-Multilingual';
-import { ValueFields, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Multilingual',
@@ -56,9 +56,7 @@ const Template: ComponentStory<typeof StyleguideMultilingual> = (args) => (
   <StyleguideMultilingual {...args} />
 );
 
-type Args = Omit<Props, 'fields'> & {
-  fields: ValueFields<Props['fields']>;
-};
+type Args = StorybookArgs<Props>;
 
 export const Default = Template.bind({});
 Default.args = withFields<Args, Props>({

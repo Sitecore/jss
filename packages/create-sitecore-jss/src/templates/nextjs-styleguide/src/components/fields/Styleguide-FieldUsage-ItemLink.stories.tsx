@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideFieldUsageItemLink, {
   StyleguideFieldUsageItemLinkProps as Props,
 } from './Styleguide-FieldUsage-ItemLink';
-import { ValueFields, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-ItemLink',
@@ -46,9 +46,7 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
-type Args = Omit<Props, 'fields'> & {
-  fields: ValueFields<Props['fields'], 'sharedItemLink' | 'localItemLink'>;
-};
+type Args = StorybookArgs<Props, 'sharedItemLink' | 'localItemLink'>;
 
 const Template: ComponentStory<typeof StyleguideFieldUsageItemLink> = (args) => (
   <StyleguideFieldUsageItemLink {...args} />

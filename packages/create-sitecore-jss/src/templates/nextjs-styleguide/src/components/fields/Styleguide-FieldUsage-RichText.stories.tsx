@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideFieldUsageRichText, {
   StyleguideFieldUsageRichTextProps as Props,
 } from './Styleguide-FieldUsage-RichText';
-import { ValueFields, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/fields/Styleguide-FieldUsage-RichText',
@@ -43,9 +43,7 @@ const layoutData = {
   },
 };
 
-type Args = Omit<Props, 'fields'> & {
-  fields: ValueFields<Props['fields']>;
-};
+type Args = StorybookArgs<Props>;
 
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;

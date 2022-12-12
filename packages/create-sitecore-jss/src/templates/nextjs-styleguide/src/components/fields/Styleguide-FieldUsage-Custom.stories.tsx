@@ -1,7 +1,7 @@
 import React from 'react';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ValueFields, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields } from 'storybook-utils/utils';
 
 import StyleguideFieldUsageCustom, {
   StyleguideFieldUsageCustomProps as Props,
@@ -50,9 +50,7 @@ const Template: ComponentStory<typeof StyleguideFieldUsageCustom> = (args) => (
   <StyleguideFieldUsageCustom {...args} />
 );
 
-type Args = Omit<Props, 'fields'> & {
-  fields: ValueFields<Props['fields']>;
-};
+type Args = StorybookArgs<Props>;
 
 export const Default = Template.bind({});
 Default.args = withFields<Args, Props>({

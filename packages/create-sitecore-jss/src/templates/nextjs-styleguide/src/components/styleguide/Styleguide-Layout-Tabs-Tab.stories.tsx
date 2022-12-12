@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideLayoutTabsTab, {
   StyleguideLayoutTabsTabProps as Props,
 } from './Styleguide-Layout-Tabs-Tab';
-import { ValueFields, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout-Tabs-Tab',
@@ -46,9 +46,7 @@ const layoutData = {
 // eslint-disable-next-line react/display-name
 const componentFactory = () => () => <div>Test</div>;
 
-type Args = Omit<Props, 'fields'> & {
-  fields: ValueFields<Props['fields']>;
-};
+type Args = StorybookArgs<Props>;
 
 const Template: ComponentStory<typeof StyleguideLayoutTabsTab> = (args) => (
   <StyleguideLayoutTabsTab {...args} />
