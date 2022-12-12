@@ -7,7 +7,9 @@
     "**/*.test.ts",
     "scripts",
     "src/templates/**/*",
+    "src/common/prompts",
     "src/common/test-data",
+    "src/initializers/**/prompts.ts",
     "dist"
   ],
   "all": true,
