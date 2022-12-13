@@ -107,7 +107,7 @@ Default.args = withFields<Args, Props>({
     uid: '{00000000-0000-0000-0000-000000000000}',
     componentName: 'Styleguide-Layout-Tabs',
     placeholders: {
-      'NextjsApp-jss-tabs': tabsPlaceholder,
+      '<%- helper.getAppPrefix(appPrefix, appName) %>jss-tabs': tabsPlaceholder,
     },
     params: {},
     dataSource: '{00000000-0000-0000-0000-000000000000}',
@@ -115,8 +115,8 @@ Default.args = withFields<Args, Props>({
   fields: {
     heading: 'Tabs',
     description:
-        "<p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>",
-    },
+      "<p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>",
+  },
   name: '',
   sitecoreContext: {},
   tabsPlaceholder: [],

@@ -25,6 +25,7 @@ module.exports = {
         components: path.resolve(__dirname, '../src/components'),
         lib: path.resolve(__dirname, '../src/lib'),
         temp: path.resolve(__dirname, '../src/temp'),
+        'storybook-utils': path.resolve(__dirname),
       },
     };
     config.resolve.extensions.push('.ts', '.tsx');
