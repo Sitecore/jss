@@ -46,7 +46,7 @@ describe('RedirectsMiddleware', () => {
       apiKey: 'edge-api-key',
       endpoint: 'http://edge-endpoint/api/graph/edge',
       siteName: 'nextjs-app',
-      locales: ['en','ua'],
+      locales: ['en', 'ua'],
     });
 
     const fetchRedirects = (middleware['redirectsService']['fetchRedirects'] =
@@ -191,7 +191,7 @@ describe('RedirectsMiddleware', () => {
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
-            search: "abc=def",
+            search: 'abc=def',
             clone() {
               return Object.assign({}, req.nextUrl);
             },
