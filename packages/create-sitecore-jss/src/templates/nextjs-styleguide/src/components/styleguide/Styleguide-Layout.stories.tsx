@@ -28,13 +28,13 @@ Default.args = {
     uid: '{00000000-0000-0000-0000-000000000000}',
     componentName: 'Styleguide-Layout',
     placeholders: {
-      'NextjsApp-jss-styleguide-layout': [
+      '<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-layout': [
         {
           uid: '1846c499-afa7-56c4-bade-e3880eac0134',
           componentName: 'Styleguide-Section',
           dataSource: '{6E81D12B-6E44-5CD9-919A-6707B6723FEC}',
           placeholders: {
-            'NextjsApp-jss-styleguide-section': [
+            '<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section': [
               {
                 uid: '1846c499-afa7-56c4-bade-e3880eac0134',
                 componentName: 'Styleguide-FieldUsage-Text',

@@ -37,7 +37,7 @@ Default.args = withFields<Args, Props>({
     componentName: 'Styleguide-Styleguide-Layout-Reuse',
     dataSource: '{ACFA7F84-7BF5-5877-9C29-72341A2DCEB6}',
     placeholders: {
-      'NextjsApp-jss-reuse-example': [
+      '<%- helper.getAppPrefix(appPrefix, appName) %>jss-reuse-example': [
         {
           uid: '1846c499-afa7-56c4-bade-e3880eac0134',
           componentName: 'ContentBlock',

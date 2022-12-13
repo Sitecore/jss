@@ -31,7 +31,7 @@ Default.args = withFields<Args, Props>({
     componentName: 'Styleguide-Section',
     dataSource: '{00000000-0000-0000-0000-000000000000}',
     placeholders: {
-      'NextjsApp-jss-styleguide-section': [
+      '<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section': [
         {
           uid: '1846c499-afa7-56c4-bade-e3880eac0134',
           componentName: 'Styleguide-FieldUsage-Text',
