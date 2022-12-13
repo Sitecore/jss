@@ -11,7 +11,8 @@
     "src/tests",
     "src/test-data",
     "dist",
-    "**/sharedTypes.ts"
+    "**/sharedTypes.ts",
+    "*.js"
   ],
   "all": true,
   "reporter": [
