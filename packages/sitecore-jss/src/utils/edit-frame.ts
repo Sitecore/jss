@@ -1,3 +1,4 @@
+// The button fields required for chrome data
 export type EditFrameButton = {
   isDivider: boolean;
   click: string;
@@ -67,7 +68,11 @@ export type WebEditButton = {
   type?: string;
 };
 
+// We are using the | divider indicator, provide a type so it isn't seend as a string
+export type EditButtonTypes = WebEditButton | FieldEditButton | '|';
+
 /**
+ * Build an EditFrameButton from a web edit button. Merging the parameters from the button, frame and id
  * @param {WebEditButton } button the button to build a EditFrameButton for
  * @param {string} itemId the ID of the item the EditFrame is associated with
  * @param {Record<string, string>} frameParameters additional parameters passed to the EditFrame

@@ -7,13 +7,14 @@ import {
   EditFrameButton,
   FieldEditButton,
   WebEditButton,
+  EditButtonTypes,
   isWebEditButton,
   commandBuilder,
 } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface EditFrameProps {
   dataSource?: EditFrameDataSource;
-  buttons?: (FieldEditButton | WebEditButton | '|')[];
+  buttons?: EditButtonTypes[];
   title?: string;
   tooltip?: string;
   cssClass?: string;
@@ -28,11 +29,11 @@ export const EditFrame: React.FC<PropsWithChildren<EditFrameProps>> = ({
   tooltip,
   cssClass,
   parameters,
-}: PropsWithChildren<EditFrameProps>): JSX.Element => {
+}: PropsWithChildren<EditFrameProps>) => {
   const { sitecoreContext } = useSitecoreContext();
 
   if (!sitecoreContext.pageEditing) {
-    return <></>;
+    return <>{children}</>;
   }
 
   const commandData: Record<string, unknown> = {

@@ -15,6 +15,7 @@ export {
   EditFrameButton,
   FieldEditButton,
   WebEditButton,
+  EditButtonTypes,
   commandBuilder,
   isWebEditButton,
 } from './edit-frame';

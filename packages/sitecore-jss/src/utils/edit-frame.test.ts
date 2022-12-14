@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-expressions */
+/* eslint-disable quotes */
 import { expect } from 'chai';
 import { commandBuilder, DefaultEditFrameButton } from '.';
 
@@ -6,7 +6,7 @@ describe('commandBuilder', () => {
   it('should handle no click', () => {
     const input = {
       click: '',
-      ...DefaultEditFrameButton.edit
+      ...DefaultEditFrameButton.edit,
     };
     const output = commandBuilder(input);
 
@@ -16,7 +16,7 @@ describe('commandBuilder', () => {
   it('should handle javascript', () => {
     const input = {
       click: 'javascript:test',
-      ...DefaultEditFrameButton.edit
+      ...DefaultEditFrameButton.edit,
     };
     const output = commandBuilder(input);
 
@@ -26,7 +26,7 @@ describe('commandBuilder', () => {
   it('should handle chrome', () => {
     const input = {
       click: 'chrome:test',
-      ...DefaultEditFrameButton.edit
+      ...DefaultEditFrameButton.edit,
     };
     const output = commandBuilder(input);
 
@@ -36,7 +36,7 @@ describe('commandBuilder', () => {
   it('should handle no item', () => {
     const input = {
       click: 'item:new',
-      ...DefaultEditFrameButton.edit
+      ...DefaultEditFrameButton.edit,
     };
     const output = commandBuilder(input);
 
@@ -46,11 +46,13 @@ describe('commandBuilder', () => {
   it('should build a button', () => {
     const input = {
       click: 'item:new',
-      ...DefaultEditFrameButton.edit
+      ...DefaultEditFrameButton.edit,
     };
     const output = commandBuilder(input, '123');
 
-    expect(output.click).to.be.equal("javascript:Sitecore.PageModes.PageEditor.postRequest('item:new(id=123)',null,false)");
+    expect(output.click).to.be.equal(
+      "javascript:Sitecore.PageModes.PageEditor.postRequest('item:new(id=123)',null,false)"
+    );
   });
 
   it('should handle button parameters', () => {
@@ -59,20 +61,24 @@ describe('commandBuilder', () => {
       parameters: {
         Navigate: 0,
       },
-      ...DefaultEditFrameButton.edit
+      ...DefaultEditFrameButton.edit,
     };
     const output = commandBuilder(input, '123');
 
-    expect(output.click).to.be.equal("javascript:Sitecore.PageModes.PageEditor.postRequest('item:new(id=123, Navigate=0)',null,false)");
+    expect(output.click).to.be.equal(
+      "javascript:Sitecore.PageModes.PageEditor.postRequest('item:new(id=123, Navigate=0)',null,false)"
+    );
   });
 
   it('should handle frame parameters', () => {
     const input = {
       click: 'item:new',
-      ...DefaultEditFrameButton.edit
+      ...DefaultEditFrameButton.edit,
     };
-    const output = commandBuilder(input, '123', {extra: 'Value'});
+    const output = commandBuilder(input, '123', { extra: 'Value' });
 
-    expect(output.click).to.be.equal("javascript:Sitecore.PageModes.PageEditor.postRequest('item:new(id=123, extra=Value)',null,false)");
+    expect(output.click).to.be.equal(
+      "javascript:Sitecore.PageModes.PageEditor.postRequest('item:new(id=123, extra=Value)',null,false)"
+    );
   });
 });

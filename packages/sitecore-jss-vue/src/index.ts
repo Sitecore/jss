@@ -7,6 +7,7 @@ export {
   EditFrameDataSource,
   FieldEditButton,
   WebEditButton,
+  EditButtonTypes,
 } from '@sitecore-jss/sitecore-jss/utils';
 export { constants, enableDebug } from '@sitecore-jss/sitecore-jss';
 export {
