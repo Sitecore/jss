@@ -5,6 +5,7 @@ import sinonChai from 'sinon-chai';
 import sinon from 'sinon';
 import { NextRequest, NextResponse } from 'next/server';
 import { RedirectsMiddleware } from './redirects-middleware';
+import { REDIRECT_TYPE_SERVER_TRANSFER } from '@sitecore-jss/sitecore-jss/site';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
@@ -45,7 +46,7 @@ describe('RedirectsMiddleware', () => {
       apiKey: 'edge-api-key',
       endpoint: 'http://edge-endpoint/api/graph/edge',
       siteName: 'nextjs-app',
-      locales: ['en'],
+      locales: ['en', 'ua'],
     });
 
     const fetchRedirects = (middleware['redirectsService']['fetchRedirects'] =
@@ -157,6 +158,61 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
+      it('should override locale with locale parsed from target', async () => {
+        const res = NextResponse.rewrite('http://localhost:3000/ua/found');
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects } = createMiddleware({
+          pattern: 'not-found',
+          target: '/ua/found',
+          redirectType: 'REDIRECT_TYPE_SERVER_TRANSFER',
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should preserve query string on relative path redirect, when isQueryStringPreserved is true', async () => {
+        const res = NextResponse.rewrite('http://localhost:3000/found?abc=def');
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            search: 'abc=def',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects } = createMiddleware({
+          pattern: 'not-found',
+          target: '/found',
+          redirectType: 'REDIRECT_TYPE_SERVER_TRANSFER',
+          isQueryStringPreserved: true,
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
       it('should return 302 redirect', async () => {
         const res = NextResponse.redirect('http://localhost:3000/found', 302);
         const req = createRequest({
@@ -201,6 +257,33 @@ describe('RedirectsMiddleware', () => {
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
           redirectType: 'default',
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+      });
+
+      it('should rewrite path when redirect type is server transfer', async () => {
+        const res = NextResponse.rewrite('http://localhost:3000/found');
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects } = createMiddleware({
+          pattern: 'not-found',
+          target: 'http://localhost:3000/found',
+          redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
           isQueryStringPreserved: true,
           locale: 'en',
         });
