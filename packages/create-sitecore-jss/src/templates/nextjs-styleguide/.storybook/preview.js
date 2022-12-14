@@ -17,7 +17,6 @@ export const decorators = [
   (Story) => {
     // Process regular links after the render process
     setTimeout(() => {
-      console.log(document, document.querySelectorAll('a'));
       document
         .querySelectorAll('a')
         .forEach((a) => a.addEventListener('click', (ev) => ev.preventDefault()));
