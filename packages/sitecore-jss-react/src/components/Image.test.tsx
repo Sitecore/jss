@@ -283,4 +283,14 @@ describe('<Image />', () => {
     const rendered = mount(<Image media={img} />);
     expect(rendered.find('img')).to.have.length(0);
   });
+
+  it('should render when field prop is used instead of media prop', () => {
+    const imgField = {
+      src: '/assets/img/test0.png',
+      width: 8,
+      height: 10,
+    };
+    const rendered = mount(<Image field={imgField} />);
+    expect(rendered.find('img')).to.have.length(1);
+  });
 });
