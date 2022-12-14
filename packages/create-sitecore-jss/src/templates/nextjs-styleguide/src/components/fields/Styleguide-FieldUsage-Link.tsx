@@ -3,14 +3,16 @@ import StyleguideSpecimen from 'components/styleguide/Styleguide-Specimen';
 import { ComponentProps } from 'lib/component-props';
 import { StyleguideSpecimenFields } from 'lib/component-props/styleguide';
 
+export type Fields = {
+  externalLink: LinkField;
+  internalLink: LinkField;
+  emailLink: LinkField;
+  paramsLink: LinkField;
+};
+
 export type StyleguideFieldUsageLinkProps = ComponentProps &
   StyleguideSpecimenFields & {
-    fields: {
-      externalLink: LinkField;
-      internalLink: LinkField;
-      emailLink: LinkField;
-      paramsLink: LinkField;
-    };
+    fields: Fields;
   };
 
 /**

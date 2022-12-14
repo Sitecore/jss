@@ -15,7 +15,8 @@
     "@storybook/manager-webpack5": "^6.5.14",
     "@storybook/react": "^6.5.14",
     "@storybook/testing-library": "^0.0.13",
-    "@types/nprogress": "^0.2.0"
+    "@types/nprogress": "^0.2.0",
+    "ts-json-schema-generator": "^1.1.2"
   },
   "scripts": {
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
