@@ -18,6 +18,7 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
+import generateStorySrc from './templates/story-src';
 
 const componentRootPath = 'src/components';
 
@@ -47,6 +48,15 @@ const componentOutputPath = scaffoldFile(
   filename
 );
 
+const storyRootPath = 'src/components';
+const storyFilename = `${componentName}.stories.tsx`;
+
+const storyOutputPath = scaffoldFile(
+  storyRootPath,
+  generateStorySrc(componentName, componentName, componentPath),
+  storyFilename
+);
+
 console.log(
   chalk.green(`
 Scaffolding of ${componentName} complete.
@@ -55,6 +65,11 @@ Next steps:`)
 
 if (componentOutputPath) {
   console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
+}
+
+if (storyOutputPath) {
+  console.log(`* Test the component in Storybook by running ${chalk.green('jss storybook')}.`);
+  console.log(`* Add mock data as needed in the ${chalk.green(storyOutputPath)} Storybook story.`);
 }
 
 /**
