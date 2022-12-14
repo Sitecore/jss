@@ -32,8 +32,6 @@ export const getDefinition = (
 
   const fields: { name: string; type: string }[] = [];
 
-  console.log(__filename);
-
   Object.entries((schema.definitions['Fields'] as any).properties).forEach(
     ([key, value]: [any, any]) => {
       const type = FieldsMap.get(
