@@ -1,3 +1,5 @@
+import { RouterContext } from 'next/dist/shared/lib/router-context';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import '../src/assets/app.css';
 
@@ -10,3 +12,29 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => {
+    // Process regular links after the render process
+    setTimeout(() => {
+      console.log(document, document.querySelectorAll('a'));
+      document
+        .querySelectorAll('a')
+        .forEach((a) => a.addEventListener('click', (ev) => ev.preventDefault()));
+    }, 0);
+
+
+    // Process nextjs links
+    return (
+      <RouterContext.Provider
+        value={{
+          push: () => Promise.resolve(),
+          replace: () => Promise.resolve(),
+          prefetch: () => Promise.resolve(),
+        }}
+      >
+        <Story />
+      </RouterContext.Provider>
+    );
+  },
+];
