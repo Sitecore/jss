@@ -44,6 +44,39 @@ Default.args = withFields<Args, Props>({
           fields: {
             content: {
               value:
+                '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque felis mauris, pretium id neque vitae, vulputate pellentesque tortor. Mauris hendrerit dolor et ipsum lobortis bibendum non finibus neque. Morbi volutpat aliquam magna id posuere. Duis commodo cursus dui, nec interdum velit congue nec. Aliquam erat volutpat. Aliquam facilisis, sapien quis fringilla tincidunt, magna nulla feugiat neque, a consectetur arcu orci eu augue.</p>',
+            },
+          },
+        },
+        {
+          uid: '1846c499-afa7-56c4-bade-e3880eac0134',
+          componentName: 'ContentBlock',
+          dataSource: '{6E81D12B-6E44-5CD9-919A-6707B6723FEC}',
+          fields: {
+            content: {
+              value:
+                '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque felis mauris, pretium id neque vitae, vulputate pellentesque tortor. Mauris hendrerit dolor et ipsum lobortis bibendum non finibus neque. Morbi volutpat aliquam magna id posuere. Duis commodo cursus dui, nec interdum velit congue nec. Aliquam erat volutpat. Aliquam facilisis, sapien quis fringilla tincidunt, magna nulla feugiat neque, a consectetur arcu orci eu augue.</p>',
+            },
+          },
+        },
+        {
+          uid: '1846c499-afa7-56c4-bade-e3880eac0134',
+          componentName: 'ContentBlock',
+          dataSource: '{6E81D12B-6E44-5CD9-919A-6707B6723FEC}',
+          fields: {
+            content: {
+              value:
+                '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque felis mauris, pretium id neque vitae, vulputate pellentesque tortor. Mauris hendrerit dolor et ipsum lobortis bibendum non finibus neque. Morbi volutpat aliquam magna id posuere. Duis commodo cursus dui, nec interdum velit congue nec. Aliquam erat volutpat. Aliquam facilisis, sapien quis fringilla tincidunt, magna nulla feugiat neque, a consectetur arcu orci eu augue.</p>',
+            },
+          },
+        },
+        {
+          uid: '1846c499-afa7-56c4-bade-e3880eac0134',
+          componentName: 'ContentBlock',
+          dataSource: '{6E81D12B-6E44-5CD9-919A-6707B6723FEC}',
+          fields: {
+            content: {
+              value:
                 '<p>Mix and match reused and local content. Check out <code>/data/routes/styleguide/en.yml</code> to see how.</p>',
             },
           },

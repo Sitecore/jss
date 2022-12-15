@@ -8,12 +8,10 @@ function generateStorySrc(
   componentName: string,
   componentPath: string
 ): string {
-  const parentFolders = componentPath.replace(/\w+/g, '..');
-
   return `import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ${componentName} from '../${parentFolders}components/${componentPath}${componentFileName}';
+import ${componentName}, { ${componentName}Props as Props } from './${componentFileName}';
 import { StorybookArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
 
 export default {
@@ -21,18 +19,26 @@ export default {
   component: ${componentName},
 } as ComponentMeta<typeof ${componentName}>;
 
+type Args = StorybookArgs<Props>;
+
 const Template: ComponentStory<typeof ${componentName}> = (args) => <${componentName} {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = withFields<Args, Props>({
   params: {
     name: '${componentFileName}',
   },
   rendering: {
     uid: '{00000000-0000-0000-0000-000000000000}',
     componentName: '${componentFileName}',
+    dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
-};
+  fields: {
+    heading: 'Heading',
+  },
+});
+
+Default.decorators = [withSitecoreContext()];
 `;
 }
 
