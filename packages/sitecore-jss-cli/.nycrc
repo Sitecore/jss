@@ -7,7 +7,12 @@
     "**/*.test.ts",
     "src/test-data",
     "dist",
-    "src/test.ts"
+    "src/test.ts",
+    "**/create.ts",
+    "**/deploy.package.ts",
+    "**/index.global.ts",
+    "**/index.ts",
+    "**/cli*.ts"
   ],
   "all": true,
   "reporter": [
