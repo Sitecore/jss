@@ -15,9 +15,13 @@ type FlattenFields<Fields extends { [key: string]: any }, ExcludeKeys> = {
   [field in keyof Fields]: field extends ExcludeKeys ? Fields[field] : Fields[field]['value'];
 };
 
+type FlattenEditingFields<Fields extends { [key: string]: any }, ExcludeKeys> = {
+  [field in keyof Fields]: field extends ExcludeKeys ? Fields[field] : Fields[field]['editable'];
+};
+
 /**
  * @param {Args} Storybook args
- * @param {ExcludeKeys} Keys to be skipped during falttening
+ * @param {ExcludeKeys} Keys to be skipped during flattening
  */
 export type StorybookArgs<
   Args extends { [key: string]: any },
@@ -26,13 +30,27 @@ export type StorybookArgs<
   fields: FlattenFields<Args['fields'], ExcludeKeys>;
 };
 
+/**
+ * @param {Args} Storybook editing args
+ * @param {ExcludeKeys} Keys to be skipped during flattening
+ */
+export type StorybookEditingArgs<
+  Args extends { [key: string]: any },
+  ExcludeKeys extends keyof Args['fields'] = ''
+> = Omit<Args, 'fields'> & {
+  fields: FlattenEditingFields<Args['fields'], ExcludeKeys>;
+};
+
 type Props = {
   [key: string]: unknown;
   fields: { [key: string]: FieldType };
   rendering?: ComponentRendering;
 };
 
-export const withFields = <Args extends Props, ReturnType>(props: Args): ReturnType => {
+export const withFields = <Args extends Props, ReturnType>(
+  props: Args,
+  editing = false
+): ReturnType => {
   const transformFields = (fields: Props['fields']) => {
     Object.keys(fields).forEach((fieldName) => {
       const field = fields[fieldName];
@@ -44,7 +62,7 @@ export const withFields = <Args extends Props, ReturnType>(props: Args): ReturnT
           return;
         } else {
           // Single value
-          fields[fieldName] = { value: field } as any;
+          fields[fieldName] = editing ? { editable: field } : { value: field };
         }
       }
     });
@@ -59,7 +77,7 @@ export const withFields = <Args extends Props, ReturnType>(props: Args): ReturnT
   return (props as unknown) as ReturnType;
 };
 
-const defaultLayoutData: LayoutServiceData  = {
+const defaultLayoutData: LayoutServiceData = {
   sitecore: {
     context: {
       pageEditing: false,
