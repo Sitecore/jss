@@ -3,13 +3,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect } from 'chai';
 import sinon from 'sinon';
+import { handler } from './deploy.config';
+import * as resolvePkg from '../resolve-package';
+import * as deployTools from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/deploy';
+import * as verify from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/setup/verify-setup';
+import * as scJssConfigTool from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/resolve-scjssconfig';
 
 describe('deploy.config script', () => {
-  const quibble = require('quibble');
-
   afterEach(() => {
     sinon.restore();
-    quibble.reset();
   });
 
   it('should call deploy with parsed options', async () => {
@@ -22,16 +24,10 @@ describe('deploy.config script', () => {
       sourcePath: argv.source,
       clean: false,
     };
-    const deployStub = sinon.stub();
+    const deployStub = sinon.stub(deployTools, 'deploy');
+    sinon.stub(verify, 'verifySetup');
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      deploy: deployStub,
-      verifySetup: sinon.stub(),
-    });
-
-    const deployConfig = require('./deploy.config');
-
-    await deployConfig.handler(argv);
+    await handler(argv);
 
     expect(deployStub.calledWith(expectedOptions)).to.be.true;
   });
@@ -57,19 +53,14 @@ describe('deploy.config script', () => {
         sitecoreConfigPath: 'Santiago',
       },
     };
-    const deployStub = sinon.stub();
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      deploy: deployStub,
-      resolveScJssConfig: sinon.stub().resolves(scJssConfig),
-      verifySetup: sinon.stub(),
-    });
+    const deployStub = sinon.stub(deployTools, 'deploy');
+    sinon.stub(verify, 'verifySetup');
+    sinon.stub(scJssConfigTool, 'resolveScJssConfig').resolves(scJssConfig);
 
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
 
-    const deployConfig = require('./deploy.config');
-
-    await deployConfig.handler(argv);
+    await handler(argv);
 
     expect(deployStub.calledWith(expectedOptions)).to.be.true;
   });

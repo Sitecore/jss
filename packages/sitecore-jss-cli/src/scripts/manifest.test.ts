@@ -5,14 +5,15 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import readlineSync from 'readline-sync';
 import chalk from 'chalk';
+import { handler } from './manifest';
+import * as resolvePkg from '../resolve-package';
+import * as generate from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/manifest/generator/generate';
+import * as verify from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/setup/verify-setup';
+import fs from 'fs';
 
 describe('manifest script', () => {
-  const quibble = require('quibble');
-  const testedPath = './manifest';
-
   afterEach(() => {
     sinon.restore();
-    quibble.reset();
   });
 
   const packageJson = {
@@ -59,19 +60,13 @@ describe('manifest script', () => {
   };
 
   it('should invoke file generation with parsed args', async () => {
-    const generateFileStub = sinon.stub().resolves();
+    const generateFileStub = sinon.stub(generate, 'generateToFile').resolves();
+    sinon.stub(verify, 'verifySetup');
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      generateToFile: generateFileStub,
-    });
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
-    quibble('fs', {
-      existsSync: sinon.stub().returns(false),
-    });
+    sinon.stub(fs, 'existsSync').returns(false);
 
-    const deployFiles = require(testedPath);
-
-    await deployFiles.handler(argv);
+    await handler(argv);
 
     expect(generateFileStub.calledWith(defaultExpectedArgs)).to.be.true;
   });
@@ -91,19 +86,11 @@ describe('manifest script', () => {
       rootPlaceholders: packageJson.config.rootPlaceholders,
     };
 
-    const generateFileStub = sinon.stub().resolves();
+    const generateFileStub = sinon.stub(generate, 'generateToFile').resolves();
+    sinon.stub(verify, 'verifySetup');
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      generateToFile: generateFileStub,
-    });
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
-    quibble('fs', {
-      existsSync: sinon.stub().returns(false),
-    });
-
-    const deployFiles = require(testedPath);
-
-    await deployFiles.handler(cutArgv);
+    await handler(cutArgv);
 
     expect(generateFileStub.calledWith(expectedArgs)).to.be.true;
   });
@@ -114,22 +101,14 @@ describe('manifest script', () => {
       wipe: true,
       unattendedWipe: false,
     };
-
-    const generateFileStub = sinon.stub().resolves();
     const keyInStub = sinon.stub(readlineSync, 'keyInYN').returns(false);
     sinon.stub(process, 'exit');
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      generateToFile: generateFileStub,
-    });
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
-    quibble('fs', {
-      existsSync: sinon.stub().returns(false),
-    });
+    const generateFileStub = sinon.stub(generate, 'generateToFile').resolves();
+    sinon.stub(verify, 'verifySetup');
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
 
-    const deployFiles = require(testedPath);
-
-    await deployFiles.handler(cutArgv);
+    await handler(cutArgv);
 
     expect(
       keyInStub.calledWith(chalk.yellow('This will delete any content changes made in Sitecore'))

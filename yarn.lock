@@ -4202,7 +4202,6 @@ __metadata:
     eslint: ^7.15.0
     mocha: ^9.1.3
     nyc: ^15.1.0
-    quibble: 0.6.15
     readline-sync: ^1.4.10
     resolve: ^1.22.1
     sinon: ^7.5.0
@@ -21356,16 +21355,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"quibble@npm:0.6.15":
-  version: 0.6.15
-  resolution: "quibble@npm:0.6.15"
-  dependencies:
-    lodash: ^4.17.21
-    resolve: ^1.20.0
-  checksum: 422985e33e22795401d44392d30db47d7826223bb99e012a2cacfdf99953df715a3922dea51b054c70401ef3bf9d4c01a38bd1c287c4b9224c2c29c007b3e408
-  languageName: node
-  linkType: hard
-
 "quick-lru@npm:^4.0.1":
   version: 4.0.1
   resolution: "quick-lru@npm:4.0.1"
@@ -22228,7 +22217,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.20.0, resolve@npm:^1.22.1, resolve@npm:^1.5.0":
+"resolve@npm:^1.22.1, resolve@npm:^1.5.0":
   version: 1.22.1
   resolution: "resolve@npm:1.22.1"
   dependencies:
@@ -22268,7 +22257,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.5.0#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.5.0#~builtin<compat/resolve>":
   version: 1.22.1
   resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=07638b"
   dependencies:

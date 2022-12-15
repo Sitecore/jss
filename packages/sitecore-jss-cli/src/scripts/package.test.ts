@@ -3,14 +3,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect } from 'chai';
 import sinon from 'sinon';
+import { handler } from './package';
+import * as resolvePkg from '../resolve-package';
+import * as generate from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/package-generate';
 
 describe('package script', () => {
-  const quibble = require('quibble');
-  const testedPath = './package';
-
   afterEach(() => {
     sinon.restore();
-    quibble.reset();
   });
 
   const packageJson = {
@@ -35,18 +34,12 @@ describe('package script', () => {
   };
 
   it('should invoke package generation with parsed args', async () => {
-    const generateFileStub = sinon.stub().resolves();
+    const generatePkgStub = sinon.stub(generate, 'packageGenerate').resolves();
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      packageGenerate: generateFileStub,
-    });
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
+    await handler(argv);
 
-    const deployFiles = require(testedPath);
-
-    await deployFiles.handler(argv);
-
-    expect(generateFileStub.calledWith(expectedGenerateArgs)).to.be.true;
+    expect(generatePkgStub.calledWith(expectedGenerateArgs)).to.be.true;
   });
 
   it('should use fallaback for appName if not proided', async () => {
@@ -59,18 +52,11 @@ describe('package script', () => {
       ...expectedGenerateArgs,
       appName: packageJson.config.appName,
     };
+    const generatePkgStub = sinon.stub(generate, 'packageGenerate').resolves();
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
 
-    const generateFileStub = sinon.stub().resolves();
+    await handler(cutArgv);
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      packageGenerate: generateFileStub,
-    });
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
-
-    const deployFiles = require(testedPath);
-
-    await deployFiles.handler(cutArgv);
-
-    expect(generateFileStub.calledWith(expectedArgs)).to.be.true;
+    expect(generatePkgStub.calledWith(expectedArgs)).to.be.true;
   });
 });

@@ -3,13 +3,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect } from 'chai';
 import sinon from 'sinon';
+import { handler } from './deploy.files';
+import * as resolvePkg from '../resolve-package';
+import * as deployTools from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/deploy';
+import * as verify from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/setup/verify-setup';
+import * as scJssConfigTool from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/resolve-scjssconfig';
 
 describe('deploy.files script', () => {
-  const quibble = require('quibble');
-
   afterEach(() => {
     sinon.restore();
-    quibble.reset();
   });
 
   it('should call deploy with parsed options', async () => {
@@ -32,17 +34,11 @@ describe('deploy.files script', () => {
         sitecoreDistPath: 'C:/SanFrancisco',
       },
     };
-    const deployStub = sinon.stub();
+    const deployStub = sinon.stub(deployTools, 'deploy');
+    sinon.stub(verify, 'verifySetup');
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      deploy: deployStub,
-      verifySetup: sinon.stub(),
-    });
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
-
-    const deployFiles = require('./deploy.files');
-
-    await deployFiles.handler(argv);
+    await handler(argv);
 
     expect(deployStub.calledWith(expectedOptions)).to.be.true;
   });
@@ -72,19 +68,12 @@ describe('deploy.files script', () => {
         sitecoreDistPath: 'SanFrancisco',
       },
     };
-    const deployStub = sinon.stub();
+    const deployStub = sinon.stub(deployTools, 'deploy');
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
+    sinon.stub(verify, 'verifySetup');
+    sinon.stub(scJssConfigTool, 'resolveScJssConfig').resolves(scJssConfig);
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      deploy: deployStub,
-      resolveScJssConfig: sinon.stub().resolves(scJssConfig),
-      verifySetup: sinon.stub(),
-    });
-
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
-
-    const deployFiles = require('./deploy.files');
-
-    await deployFiles.handler(argv);
+    await handler(argv);
 
     expect(deployStub.calledWith(expectedOptions)).to.be.true;
   });
@@ -95,19 +84,12 @@ describe('deploy.files script', () => {
         sitecoreConfigPath: 'Santiago',
       },
     };
-    const deployStub = sinon.stub();
+    const deployStub = sinon.stub(deployTools, 'deploy');
+    sinon.stub(verify, 'verifySetup');
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
     const logSpy = sinon.spy(console, 'error');
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      verifySetup: sinon.stub(),
-      deploy: deployStub,
-    });
-
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
-
-    const deployFiles = require('./deploy.files');
-
-    await deployFiles.handler({});
+    await handler({});
 
     expect(logSpy.getCall(0).args[0].toString()).to.contain(
       'The current project does not support file deployment into the Sitecore instance. You should use an HTTP POST based integration for Experience Editor support. See SDK documentation for details.'

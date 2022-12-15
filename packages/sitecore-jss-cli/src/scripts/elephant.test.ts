@@ -6,7 +6,7 @@ describe('elephant', () => {
     expect(await handler()).to.not.be.equal(`
          /\/\
         /    \
-      ~/(^  ^)
+      ~/(o  o)
      ~/  )  (
     ~/   (  )
    ~/     ~~

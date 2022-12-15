@@ -3,6 +3,7 @@
     ".ts"
   ],
   "exclude": [
+    "src/bin/**",
     "**/*.d.ts",
     "**/*.test.ts",
     "src/test-data",
@@ -12,7 +13,9 @@
     "**/deploy.package.ts",
     "**/index.global.ts",
     "**/index.ts",
-    "**/cli*.ts"
+    "**/cli.global.ts",
+    "**/cli-shared.ts",
+    "src/resolve-package.ts"
   ],
   "all": true,
   "reporter": [

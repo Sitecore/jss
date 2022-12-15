@@ -7,7 +7,7 @@ import * as commands from './scripts';
 /**
  * Get package script commands
  */
-async function getPackageScriptCommands() {
+export async function getPackageScriptCommands() {
   const packageJson = await resolvePackage();
   const result: { [key: string]: CommandModule } = {};
 

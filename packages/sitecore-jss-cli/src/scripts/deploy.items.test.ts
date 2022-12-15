@@ -3,14 +3,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect } from 'chai';
 import sinon from 'sinon';
+import { handler } from './deploy.items';
+import * as resolvePkg from '../resolve-package';
+import * as deployTools from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/package-deploy';
+import * as verify from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/setup/verify-setup';
+import * as scJssConfigTool from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/resolve-scjssconfig';
 
 describe('deploy.items script', () => {
-  const quibble = require('quibble');
-  const testedPath = './deploy.items';
-
   afterEach(() => {
     sinon.restore();
-    quibble.reset();
   });
 
   const expectedDeployArgs = (argv: any) => ({
@@ -56,18 +57,12 @@ describe('deploy.items script', () => {
       skipPackage: true,
     };
 
-    const deployStub = sinon.stub().resolves();
+    const deployStub = sinon.stub(deployTools, 'packageDeploy').resolves();
+    sinon.stub(verify, 'verifySetup');
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
+    sinon.stub(scJssConfigTool, 'resolveScJssConfig').resolves(scJssConfig);
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      packageDeploy: deployStub,
-      verifySetup: sinon.stub(),
-      resolveScJssConfig: sinon.stub().resolves(scJssConfig),
-    });
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
-
-    const deployFiles = require(testedPath);
-
-    await deployFiles.handler(argv);
+    await handler(argv);
 
     expect(deployStub.calledWith(expectedDeployArgs(argv))).to.be.true;
   });
@@ -92,18 +87,12 @@ describe('deploy.items script', () => {
       secret: scJssConfig.sitecore.deploySecret,
     };
 
-    const deployStub = sinon.stub().resolves();
+    const deployStub = sinon.stub(deployTools, 'packageDeploy').resolves();
+    sinon.stub(verify, 'verifySetup');
+    sinon.stub(resolvePkg, 'default').resolves(packageJson);
+    sinon.stub(scJssConfigTool, 'resolveScJssConfig').resolves(scJssConfig);
 
-    quibble('@sitecore-jss/sitecore-jss-dev-tools', {
-      packageDeploy: deployStub,
-      verifySetup: sinon.stub(),
-      resolveScJssConfig: sinon.stub().resolves(scJssConfig),
-    });
-    quibble('../resolve-package', sinon.stub().resolves(packageJson));
-
-    const deployFiles = require(testedPath);
-
-    await deployFiles.handler(argv);
+    await handler(argv);
 
     expect(deployStub.calledWith(expectedArgs)).to.be.true;
   });
