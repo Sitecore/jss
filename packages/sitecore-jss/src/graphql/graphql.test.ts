@@ -163,7 +163,7 @@ describe('graphql', () => {
         language: 'en',
       });
       await result.catch((error: RangeError) => {
-        expect(error.message).to.equal('"rootItemId" must be a non-empty string');
+        expect(error.message).to.equal('"rootItemId" and "language" must be non-empty strings');
       });
     });
   });
