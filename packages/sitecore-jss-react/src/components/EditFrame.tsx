@@ -2,14 +2,12 @@
 import React, { PropsWithChildren } from 'react';
 import { useSitecoreContext } from '../enhancers/withSitecoreContext';
 import {
-  DefaultEditFrameButtonIds,
   EditFrameDataSource,
-  EditFrameButton,
+  ChromeCommand,
   FieldEditButton,
   WebEditButton,
   EditButtonTypes,
-  isWebEditButton,
-  commandBuilder,
+  mapButtonToCommand,
 } from '@sitecore-jss/sitecore-jss/utils';
 
 export interface EditFrameProps {
@@ -36,7 +34,7 @@ export const EditFrame: React.FC<PropsWithChildren<EditFrameProps>> = ({
     return <>{children}</>;
   }
 
-  const commandData: Record<string, unknown> = {
+  const chromeData: Record<string, unknown> = {
     displayName: title,
     expandedDisplayName: tooltip,
   };
@@ -52,37 +50,18 @@ export const EditFrame: React.FC<PropsWithChildren<EditFrameProps>> = ({
     const databaseName = dataSource.databaseName || sitecoreContext.route?.databaseName;
     const language = dataSource.language || sitecoreContext.language;
     frameProps.sc_item = `sitecore://${databaseName}/${dataSource.itemId}?lang=${language}`;
-    commandData.contextItemUri = frameProps.sc_item;
+    chromeData.contextItemUri = frameProps.sc_item;
   }
 
-  commandData.commands = buttons?.map(
-    (value): EditFrameButton => {
-      if (value === '|') {
-        return {
-          click: 'chrome:dummy',
-          header: 'Separator',
-          icon: '',
-          isDivider: false,
-          tooltip: null,
-          type: 'separator',
-        };
-      } else if (isWebEditButton(value)) {
-        return commandBuilder(value, dataSource?.itemId, parameters);
-      } else {
-        const fieldsString = value.fields.join('|');
-        const editButton: WebEditButton = {
-          click: `webedit:fieldeditor(command=${DefaultEditFrameButtonIds.edit},fields=${fieldsString})`,
-          ...value,
-        };
-
-        return commandBuilder(editButton, dataSource?.itemId, parameters);
-      }
+  chromeData.commands = buttons?.map(
+    (value): ChromeCommand => {
+      return mapButtonToCommand(value, dataSource?.itemId, parameters);
     }
   );
 
   return (
     <div className="scLooseFrameZone" {...frameProps}>
-      <span className="scChromeData">{JSON.stringify(commandData)}</span>
+      <span className="scChromeData">{JSON.stringify(chromeData)}</span>
       {children}
     </div>
   );

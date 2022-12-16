@@ -1,5 +1,5 @@
-// The button fields required for chrome data
-export type EditFrameButton = {
+// The fields for a command in the chrome data
+export type ChromeCommand = {
   isDivider: boolean;
   click: string;
   header: string;
@@ -42,7 +42,7 @@ export const DefaultEditFrameButtons = [
 /**
  * @param {WebEditButton | FieldEditButton} button the button to determine the type of
  */
-export function isWebEditButton(button: WebEditButton | FieldEditButton): button is WebEditButton {
+function isWebEditButton(button: WebEditButton | FieldEditButton): button is WebEditButton {
   return (button as WebEditButton).click !== undefined;
 }
 
@@ -72,8 +72,41 @@ export type WebEditButton = {
 export type EditButtonTypes = WebEditButton | FieldEditButton | '|';
 
 /**
- * Build an EditFrameButton from a web edit button. Merging the parameters from the button, frame and id
- * @param {WebEditButton } button the button to build a EditFrameButton for
+ * Map the edit button types to chrome data
+ * @param {EditButtonTypes } button the edit button to build a ChromeCommand for
+ * @param {string} itemId the ID of the item the EditFrame is associated with
+ * @param {Record<string, string | number | boolean | undefined | null>} frameParameters additional parameters passed to the EditFrame
+ */
+export function mapButtonToCommand(
+  button: EditButtonTypes,
+  itemId?: string,
+  frameParameters?: Record<string, string | number | boolean | undefined | null>
+): ChromeCommand {
+  if (button === '|') {
+    return {
+      click: 'chrome:dummy',
+      header: 'Separator',
+      icon: '',
+      isDivider: false,
+      tooltip: null,
+      type: 'separator',
+    };
+  } else if (isWebEditButton(button)) {
+    return commandBuilder(button, itemId, frameParameters);
+  } else {
+    const fieldsString = button.fields.join('|');
+    const editButton: WebEditButton = {
+      click: `webedit:fieldeditor(command=${DefaultEditFrameButtonIds.edit},fields=${fieldsString})`,
+      ...button,
+    };
+
+    return commandBuilder(editButton, itemId, frameParameters);
+  }
+}
+
+/**
+ * Build a ChromeCommand from a web edit button. Merging the parameters from the button, frame and id
+ * @param {WebEditButton } button the web edit button to build a ChromeCommand for
  * @param {string} itemId the ID of the item the EditFrame is associated with
  * @param {Record<string, string>} frameParameters additional parameters passed to the EditFrame
  */
@@ -81,7 +114,7 @@ export function commandBuilder(
   button: WebEditButton,
   itemId?: string,
   frameParameters?: Record<string, string | number | boolean | undefined | null>
-): EditFrameButton {
+): ChromeCommand {
   if (!button.click) {
     return {
       isDivider: false,
@@ -105,6 +138,7 @@ export function commandBuilder(
       let message = button.click;
       let parameters: Record<string, string> = {};
 
+      // Extract any parameters already in the command
       const length = button.click.indexOf('(');
       if (length >= 0) {
         const end = button.click.indexOf(')');

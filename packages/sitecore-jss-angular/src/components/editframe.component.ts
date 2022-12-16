@@ -1,12 +1,9 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import {
   EditFrameDataSource,
-  FieldEditButton,
-  WebEditButton,
-  EditFrameButton,
-  DefaultEditFrameButtonIds,
-  isWebEditButton,
-  commandBuilder,
+  ChromeCommand,
+  EditButtonTypes,
+  mapButtonToCommand,
 } from '@sitecore-jss/sitecore-jss/utils';
 import { LayoutServiceContextData, RouteData } from '@sitecore-jss/sitecore-jss/layout';
 
@@ -18,7 +15,7 @@ import { LayoutServiceContextData, RouteData } from '@sitecore-jss/sitecore-jss/
 export class EditFrameComponent implements OnChanges {
   @Input() dataSource: EditFrameDataSource;
 
-  @Input() buttons: (FieldEditButton | WebEditButton | '|')[];
+  @Input() buttons: EditButtonTypes[];
 
   @Input() title: string;
 
@@ -42,7 +39,7 @@ export class EditFrameComponent implements OnChanges {
       return;
     }
 
-    const commandData: Record<string, unknown> = {
+    const chromeData: Record<string, unknown> = {
       displayName: this.title,
       expandedDisplayName: this.tooltip,
     };
@@ -58,34 +55,15 @@ export class EditFrameComponent implements OnChanges {
       const databaseName = this.dataSource.databaseName || route?.databaseName;
       const language = this.dataSource.language || this.sitecore.context.language;
       this.frameProps.sc_item = `sitecore://${databaseName}/${this.dataSource.itemId}?lang=${language}`;
-      commandData.contextItemUri = this.frameProps.sc_item;
+      chromeData.contextItemUri = this.frameProps.sc_item;
     }
 
-    commandData.commands = this.buttons?.map(
-      (value): EditFrameButton => {
-        if (value === '|') {
-          return {
-            click: 'chrome:dummy',
-            header: 'Separator',
-            icon: '',
-            isDivider: false,
-            tooltip: null,
-            type: 'separator',
-          };
-        } else if (isWebEditButton(value)) {
-          return commandBuilder(value, this.dataSource?.itemId, this.parameters);
-        } else {
-          const fieldsString = value.fields.join('|');
-          const editButton: WebEditButton = {
-            click: `webedit:fieldeditor(command=${DefaultEditFrameButtonIds.edit},fields=${fieldsString})`,
-            ...value,
-          };
-
-          return commandBuilder(editButton, this.dataSource?.itemId, this.parameters);
-        }
+    chromeData.commands = this.buttons?.map(
+      (value): ChromeCommand => {
+        return mapButtonToCommand(value, this.dataSource?.itemId, this.parameters);
       }
     );
 
-    this.chromeData = JSON.stringify(commandData);
+    this.chromeData = JSON.stringify(chromeData);
   }
 }

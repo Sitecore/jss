@@ -12,10 +12,9 @@ export {
   DefaultEditFrameButtons,
   DefaultEditFrameButtonIds,
   EditFrameDataSource,
-  EditFrameButton,
+  ChromeCommand,
   FieldEditButton,
   WebEditButton,
   EditButtonTypes,
-  commandBuilder,
-  isWebEditButton,
+  mapButtonToCommand,
 } from './edit-frame';

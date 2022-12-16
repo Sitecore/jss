@@ -1,19 +1,16 @@
 import { h, defineComponent, PropType, getCurrentInstance } from 'vue';
 import {
   EditFrameDataSource,
-  FieldEditButton,
-  WebEditButton,
-  EditFrameButton,
-  DefaultEditFrameButtonIds,
-  isWebEditButton,
-  commandBuilder,
+  ChromeCommand,
+  EditButtonTypes,
+  mapButtonToCommand,
 } from '@sitecore-jss/sitecore-jss/utils';
 
 export const EditFrame = defineComponent({
   props: {
     dataSource: { type: Object as PropType<EditFrameDataSource>, default: undefined },
     buttons: {
-      type: Object as PropType<(FieldEditButton | WebEditButton | '|')[]>,
+      type: Object as PropType<EditButtonTypes[]>,
       default: undefined,
     },
     title: { type: String, default: undefined },
@@ -31,7 +28,7 @@ export const EditFrame = defineComponent({
       return null;
     }
 
-    const commandData: Record<string, unknown> = {
+    const chromeData: Record<string, unknown> = {
       displayName: this.$props.title,
       expandedDisplayName: this.$props.tooltip,
     };
@@ -48,50 +45,31 @@ export const EditFrame = defineComponent({
       const databaseName = this.$props.dataSource.databaseName || route?.databaseName;
       const language = this.$props.dataSource.language || sitecoreContext.language;
       frameProps.sc_item = `sitecore://${databaseName}/${this.$props.dataSource.itemId}?lang=${language}`;
-      commandData.contextItemUri = frameProps.sc_item;
+      chromeData.contextItemUri = frameProps.sc_item;
     }
 
-    commandData.commands = this.$props.buttons?.map(
-      (value): EditFrameButton => {
-        if (value === '|') {
-          return {
-            click: 'chrome:dummy',
-            header: 'Separator',
-            icon: '',
-            isDivider: false,
-            tooltip: null,
-            type: 'separator',
-          };
-        } else if (isWebEditButton(value)) {
-          return commandBuilder(value, this.$props.dataSource?.itemId, this.$props.parameters);
-        } else {
-          const fieldsString = value.fields.join('|');
-          const editButton: WebEditButton = {
-            click: `webedit:fieldeditor(command=${DefaultEditFrameButtonIds.edit},fields=${fieldsString})`,
-            ...value,
-          };
-
-          return commandBuilder(editButton, this.$props.dataSource?.itemId, this.$props.parameters);
-        }
+    chromeData.commands = this.$props.buttons?.map(
+      (value): ChromeCommand => {
+        return mapButtonToCommand(value, this.$props.dataSource?.itemId, this.$props.parameters);
       }
     );
 
     const children = this.$slots.default;
     if (children) {
       const childElements = h('div', null, children());
-      const chromeData = h('span', {
+      const chromeSpan = h('span', {
         class: 'scChromeData',
-        innerHTML: JSON.stringify(commandData),
+        innerHTML: JSON.stringify(chromeData),
       });
 
-      return h('div', frameProps, [chromeData, childElements]);
+      return h('div', frameProps, [chromeSpan, childElements]);
     } else {
-      const chromeData = h('span', {
+      const chromeSpan = h('span', {
         class: 'scChromeData',
-        innerHTML: JSON.stringify(commandData),
+        innerHTML: JSON.stringify(chromeData),
       });
 
-      return h('div', frameProps, [chromeData]);
+      return h('div', frameProps, [chromeSpan]);
     }
   },
 });

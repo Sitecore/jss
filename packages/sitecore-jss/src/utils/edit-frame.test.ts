@@ -1,6 +1,7 @@
 /* eslint-disable quotes */
 import { expect } from 'chai';
-import { commandBuilder, DefaultEditFrameButton } from '.';
+import { DefaultEditFrameButton } from '.';
+import { commandBuilder } from './edit-frame';
 
 describe('commandBuilder', () => {
   it('should handle no click', () => {
