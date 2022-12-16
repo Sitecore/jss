@@ -23,6 +23,7 @@ export interface ErrorComponentProps {
 
 export interface FormProps {
   form: SitecoreForm;
+  language?: string;
   className?: string;
   fieldFactory?: FieldFactory;
   sitecoreApiHost: string;
@@ -96,7 +97,11 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
       return <div>Form data invalid. Forget to set the rendering contents resolver?</div>;
     }
 
-    const action = `${this.props.sitecoreApiHost}/api/jss/formbuilder?fxb.FormItemId=${form.metadata.itemId}&fxb.HtmlPrefix=${form.htmlPrefix}&sc_apikey=${this.props.sitecoreApiKey}&sc_itemid=${form.contextItemId}`;
+    const action = `${this.props.sitecoreApiHost}/api/jss/formbuilder?fxb.FormItemId=${
+      form.metadata.itemId
+    }&fxb.HtmlPrefix=${form.htmlPrefix}&sc_apikey=${this.props.sitecoreApiKey}&sc_itemid=${
+      form.contextItemId
+    }&sc_lang=${this.props.language || ''}`;
 
     this._tracker.setFormData(
       form.formItemId.value,
