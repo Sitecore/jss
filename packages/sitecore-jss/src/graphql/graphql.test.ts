@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { getAppRootId, siteNameError, languageError } from './app-root-query';
+import { SearchQueryService } from './search-service';
 import { GraphQLRequestClient } from './../graphql-request-client';
 import appRootQueryResponse from '../test-data/mockAppRootQueryResponse.json';
 import nock from 'nock';
@@ -147,6 +148,22 @@ describe('graphql', () => {
 
         await getAppRootId(client, 'siteName', 'language');
         expect(nock.isDone()).to.be.true;
+      });
+    });
+  });
+
+  describe('search-service', () => {
+    const endpoint = 'http://site';
+    const apiKey = 'api-key';
+    const client = new GraphQLRequestClient(endpoint, { apiKey });
+    const searchService = new SearchQueryService(client);
+
+    it('should throw when rootItemId is missing', async () => {
+      const result = searchService.fetch('mockQuery', {
+        language: 'en',
+      });
+      await result.catch((error: RangeError) => {
+        expect(error.message).to.equal('"rootItemId" and "language" must be non-empty strings');
       });
     });
   });
