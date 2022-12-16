@@ -16,7 +16,7 @@ interface ComponentProps {
   params: ComponentParams;
 }
 
-export const Default = (props: ComponentProps): JSX.Element => {
+const DefaultContainer = (props: ComponentProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
   const containerStyles = props.params && props.params.Styles ? props.params.Styles : '';
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
@@ -37,14 +37,26 @@ export const Default = (props: ComponentProps): JSX.Element => {
   }
 
   return (
-    <div className="container-wrapper" id={id ? id : undefined}>
-      <div className={`component container ${styles}`}>
-        <div className="component-content" style={backgroundStyle}>
-          <div className="row">
-            <Placeholder name={phKey} rendering={props.rendering} />
-          </div>
+    <div className={`component container-default ${styles}`} id={id ? id : undefined}>
+      <div className="component-content" style={backgroundStyle}>
+        <div className="row">
+          <Placeholder name={phKey} rendering={props.rendering} />
         </div>
       </div>
     </div>
   );
+}
+
+export const Default = (props: ComponentProps): JSX.Element => {
+  const splitStyles = props.params?.Styles?.split(" ");;  
+
+  if (splitStyles && splitStyles.includes('container')) {
+    return (
+      <div className="container-wrapper">
+        <DefaultContainer {...props} />
+      </div>
+    );
+  }
+
+  return <DefaultContainer {...props} />
 };

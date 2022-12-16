@@ -38,4 +38,12 @@ const VIComponent: React.FC<VisitorIdentificationProps> = (props) => {
 
 VIComponent.displayName = 'VisitorIdentification';
 
+/**
+ * Reset the VI switch to allow VIComponent to render
+ * Mainly for unit testing
+ */
+export function resetEmittedVI() {
+  emittedVI = false;
+}
+
 export const VisitorIdentification = VIComponent;
