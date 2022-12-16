@@ -14,6 +14,7 @@ export {
   isDevEnvironment,
   openPackageJson,
   writePackageJson,
+  getAllTemplates,
   getBaseTemplates,
   saveConfiguration,
   removeFile,
