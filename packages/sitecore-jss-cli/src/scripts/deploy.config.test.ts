@@ -4,6 +4,7 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { handler } from './deploy.config';
+import path from 'path';
 import * as resolvePkg from '../resolve-package';
 import * as deployTools from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/deploy';
 import * as verify from '@sitecore-jss/sitecore-jss-dev-tools/dist/cjs/setup/verify-setup';
@@ -37,11 +38,6 @@ describe('deploy.config script', () => {
       destination: '',
       source: 'F:/Biarritz',
     };
-    const expectedOptions = {
-      destinationPath: 'S:\\Santiago',
-      sourcePath: argv.source,
-      clean: false,
-    };
 
     const scJssConfig = {
       sitecore: {
@@ -53,6 +49,12 @@ describe('deploy.config script', () => {
         sitecoreConfigPath: 'Santiago',
       },
     };
+
+    const expectedOptions = {
+        destinationPath: path.join(scJssConfig.sitecore.instancePath, packageJson.config.sitecoreConfigPath),
+        sourcePath: argv.source,
+        clean: false,
+      };
 
     const deployStub = sinon.stub(deployTools, 'deploy');
     sinon.stub(verify, 'verifySetup');
