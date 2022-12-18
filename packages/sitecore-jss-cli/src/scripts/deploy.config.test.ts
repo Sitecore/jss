@@ -51,10 +51,13 @@ describe('deploy.config script', () => {
     };
 
     const expectedOptions = {
-        destinationPath: path.join(scJssConfig.sitecore.instancePath, packageJson.config.sitecoreConfigPath),
-        sourcePath: argv.source,
-        clean: false,
-      };
+      destinationPath: path.join(
+        scJssConfig.sitecore.instancePath,
+        packageJson.config.sitecoreConfigPath
+      ),
+      sourcePath: argv.source,
+      clean: false,
+    };
 
     const deployStub = sinon.stub(deployTools, 'deploy');
     sinon.stub(verify, 'verifySetup');

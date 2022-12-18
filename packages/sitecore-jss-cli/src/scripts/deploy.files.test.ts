@@ -65,11 +65,14 @@ describe('deploy.files script', () => {
     };
 
     const expectedOptions = {
-        destinationPath: path.join(scJssConfig.sitecore.instancePath, packageJson.config.sitecoreDistPath),
-        sourcePath: argv.source,
-        excludeFile: argv.exclude,
-        clean: false,
-      };
+      destinationPath: path.join(
+        scJssConfig.sitecore.instancePath,
+        packageJson.config.sitecoreDistPath
+      ),
+      sourcePath: argv.source,
+      excludeFile: argv.exclude,
+      clean: false,
+    };
 
     const deployStub = sinon.stub(deployTools, 'deploy');
     sinon.stub(resolvePkg, 'default').resolves(packageJson);
