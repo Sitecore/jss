@@ -1,45 +1,71 @@
-// saved for the future, when resolve can be better mocked
-// issue link: https://github.com/browserify/resolve/issues/293
+/* eslint-disable @typescript-eslint/no-implicit-any */
+import { resolveScJssConfig } from './resolve-scjssconfig';
+import sinon from 'sinon';
+import { expect } from 'chai';
 
-// /* eslint-disable @typescript-eslint/no-implicit-any */
-// import * as resolveUtils from 'resolve';
-// import { resolveScJssConfig } from './resolve-scjssconfig';
-// const Module = require('module');
-// import sinon from 'sinon';
-// import { expect } from 'chai';
+describe('resolve-scjssconfig', () => {
 
-// describe('resolve-scjssconfig', () => {
-//   afterEach(() => {
-//     sinon.restore();
-//   });
+  let consoleSpy: sinon.SinonSpy;
 
-//   it('should log and reject when config file not found');
+  beforeEach(() => {
+    consoleSpy = sinon.spy(console, 'error');
+  });
 
-//   it('should reject when sitecore data not found in config');
+  afterEach(() => {
+    sinon.restore();
+  });
 
-//   it('should return config', async () => {
-//     const resolveInput = {
-//       configPath: './scjssconfig.json',
-//       configName: 'sitecore',
-//       assert: true,
-//     };
+  it('should log and reject when config file not found', async () => {
+    const mockConfigPath = './src/test-data/scjssconfig-notexists.json';
+    const resolveInput = {
+      configPath: mockConfigPath,
+      configName: 'sitecore',
+      assert: true,
+    };
 
-//     const mockScJssConfig = {
-//       sitecore: {
-//         instancePath: 'S:/Santiago',
-//       },
-//     };
+    try {
+      await resolveScJssConfig(resolveInput);
+      expect(true).to.be.false; // should be not reachable
+    }
+    catch(err) {
+      expect(consoleSpy.calledWith(
+        'The scjssconfig.json file was missing, and is required. Please set up your connection with `jss setup` and try again.'
+        )).to.be.true;
+    }
+  });
 
-//     const mockPath = 'C:/pretend/its/here';
+  it('should reject when sitecore data not found in config', async () => {
+    const mockConfigPath = './src/test-data/scjssconfig-empty.json';
+    const resolveInput = {
+      configPath: mockConfigPath,
+      configName: 'sitecore',
+      assert: true,
+    };
 
-//     sinon.stub(resolveUtils, 'default').callsArgWith(2, null, mockPath);
-//     sinon
-//       .stub(Module.prototype, 'require')
-//       .withArgs(mockPath)
-//       .returns(mockScJssConfig);
+    try {
+      await resolveScJssConfig(resolveInput);
+      expect(true).to.be.false; // should be not reachable
+    }
+    catch(err) {
+      expect(consoleSpy.calledWith(
+        `The scjssconfig.json did not contain the ${resolveInput.configName} configuration.`
+        )).to.be.true;
+    }      
+  });
 
-//     const result = await resolveScJssConfig(resolveInput);
+  it('should return config', async () => {
+    const mockConfigPath = './src/test-data/scjssconfig-working.json'
+    const resolveInput = {
+      configPath: mockConfigPath,
+      configName: 'sitecore',
+      assert: true,
+    };
 
-//     expect(result).to.deep.equal(mockScJssConfig.sitecore);
-//   });
-// });
+    const mockScJssConfig = require('./test-data/scjssconfig-working.json');
+
+    const result = await resolveScJssConfig(resolveInput);
+
+    expect(result).to.deep.equal(mockScJssConfig);
+    expect(consoleSpy.called).to.be.false;
+  });
+});
