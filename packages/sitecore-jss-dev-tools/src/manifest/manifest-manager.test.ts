@@ -69,7 +69,7 @@ describe('ManifestManager', () => {
   });
 
   describe('getManifest', () => {
-    it('should write to file system on initial maifest', () => {
+    it('should write to file system on initial manifest', () => {
       const genStub = sinon.stub(generator, 'generateToFile').resolves(mockManifest);
       const testedManager = new ManifestManager(manifestInit);
       testedManager.getManifest('en');
