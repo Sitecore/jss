@@ -69,14 +69,14 @@ describe('ManifestManager', () => {
   });
 
   describe('getManifest', () => {
-    it('should write to file system on initial maifest', () => {
+    it('should write to file system on initial manifest', () => {
       const genStub = sinon.stub(generator, 'generateToFile').resolves(mockManifest);
       const testedManager = new ManifestManager(manifestInit);
       testedManager.getManifest('en');
       expect(genStub.called).to.be.true;
     });
 
-    it('should write to memory on consequent maifest', () => {
+    it('should write to memory on consequent manifest', () => {
       const genFileStub = sinon.stub(generator, 'generateToFile').resolves(mockManifest);
       const genMemStub = sinon.stub(generator, 'generateToVariable').resolves(mockManifest);
       const testedManager = new ManifestManager(manifestInit);
