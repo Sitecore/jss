@@ -76,7 +76,7 @@ describe('ManifestManager', () => {
       expect(genStub.called).to.be.true;
     });
 
-    it('should write to memory on consequent maifest', () => {
+    it('should write to memory on consequent manifest', () => {
       const genFileStub = sinon.stub(generator, 'generateToFile').resolves(mockManifest);
       const genMemStub = sinon.stub(generator, 'generateToVariable').resolves(mockManifest);
       const testedManager = new ManifestManager(manifestInit);
