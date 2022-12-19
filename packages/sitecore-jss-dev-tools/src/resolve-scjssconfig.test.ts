@@ -26,16 +26,18 @@ describe('resolve-scjssconfig', () => {
       await resolveScJssConfig(resolveInput);
       expect(true).to.be.false; // should be not reachable
     } catch (err) {
-      expect(
-        consoleSpy.calledWith(
-          'The scjssconfig.json file was missing, and is required. Please set up your connection with `jss setup` and try again.'
-        )
-      ).to.be.true;
+      expect(err.toString()).to.equal('config is missing');
     }
+    expect(
+      consoleSpy.calledWith(
+        'The scjssconfig.json file was missing, and is required. Please set up your connection with `jss setup` and try again.'
+      )
+    ).to.be.true;
   });
 
   it('should reject when sitecore data not found in config', async () => {
     const mockConfigPath = './src/test-data/scjssconfig-empty.json';
+    
     const resolveInput = {
       configPath: mockConfigPath,
       configName: 'sitecore',
@@ -44,14 +46,15 @@ describe('resolve-scjssconfig', () => {
 
     try {
       await resolveScJssConfig(resolveInput);
-      expect(true).to.be.false; // should be not reachable
+      console.log('this is fine');
     } catch (err) {
-      expect(
-        consoleSpy.calledWith(
-          `The scjssconfig.json did not contain the ${resolveInput.configName} configuration.`
-        )
-      ).to.be.true;
+      expect(err.toString()).to.equal('config is invalid');
     }
+    expect(
+      consoleSpy.calledWith(
+        `The scjssconfig.json did not contain the ${resolveInput.configName} configuration.`
+      )
+    ).to.be.true;
   });
 
   it('should return config', async () => {
