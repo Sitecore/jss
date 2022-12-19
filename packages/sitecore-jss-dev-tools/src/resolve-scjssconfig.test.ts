@@ -37,7 +37,7 @@ describe('resolve-scjssconfig', () => {
 
   it('should reject when sitecore data not found in config', async () => {
     const mockConfigPath = './src/test-data/scjssconfig-empty.json';
-    
+
     const resolveInput = {
       configPath: mockConfigPath,
       configName: 'sitecore',
