@@ -11,6 +11,7 @@ import FileUpload from './field-templates/file-upload';
 
 describe('<Form />', () => {
   const p = (): FormProps => ({
+    language: 'da-DK',
     sitecoreApiHost: 'http://jssreactweb',
     sitecoreApiKey: '{9B8C268A-171D-4DAA-B131-54B64614BBE0}',
     form: {
@@ -193,7 +194,7 @@ describe('<Form />', () => {
       );
 
       expect(c.html()).to.equal(
-        '<form action="http://jssreactweb/api/jss/formbuilder?fxb.FormItemId=xxx-metadata-item-id&amp;fxb.HtmlPrefix=xxx-html-prefix&amp;sc_apikey={9B8C268A-171D-4DAA-B131-54B64614BBE0}&amp;sc_itemid=xxx-context-item-id" method="POST"><div class="form-errors"></div><span class="fieldWrapper"><h2>Test</h2><button type="submit" class="xxx_css-class" value="xxx_title" name="button-xxx" id="button-xxx">xxx_title</button></span></form>'
+        '<form action="http://jssreactweb/api/jss/formbuilder?fxb.FormItemId=xxx-metadata-item-id&amp;fxb.HtmlPrefix=xxx-html-prefix&amp;sc_apikey={9B8C268A-171D-4DAA-B131-54B64614BBE0}&amp;sc_itemid=xxx-context-item-id&amp;sc_lang=da-DK" method="POST"><div class="form-errors"></div><span class="fieldWrapper"><h2>Test</h2><button type="submit" class="xxx_css-class" value="xxx_title" name="button-xxx" id="button-xxx">xxx_title</button></span></form>'
       );
     });
   });
