@@ -97,7 +97,9 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
       return <div>Form data invalid. Forget to set the rendering contents resolver?</div>;
     }
 
-    const action = `${this.props.sitecoreApiHost}/api/jss/formbuilder?fxb.FormItemId=${form.metadata.itemId}&fxb.HtmlPrefix=${form.htmlPrefix}&sc_apikey=${this.props.sitecoreApiKey}&sc_itemid=${form.contextItemId}`;
+    const qsLanguage = this.props.language ? `&sc_lang=${this.props.language}` : '';
+
+    const action = `${this.props.sitecoreApiHost}/api/jss/formbuilder?fxb.FormItemId=${form.metadata.itemId}&fxb.HtmlPrefix=${form.htmlPrefix}&sc_apikey=${this.props.sitecoreApiKey}&sc_itemid=${form.contextItemId}${qsLanguage}`;
 
     this._tracker.setFormData(
       form.formItemId.value,
