@@ -32,13 +32,20 @@ Default.args = withFields<Args, Props>({
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: 'Heading',
-    description: 'Description',
+    heading: 'Item Link',
+    description: `<p>
+    <small>
+    Item Links are a way to reference another content item to use data from it.
+    Referenced items may be shared.
+    To reference multiple content items, use a <em>Content List</em> field.<br />
+    <strong>Note:</strong> Sitecore does not support inline editing of Item Link fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
+    </small>
+    </p>`,
     sharedItemLink: {
       name: 'Name',
       fields: {
         textField: {
-          value: 'ContentList Demo (Shared) Item 1 Text Field',
+          value: 'ItemLink Demo (Shared) Item 1 Text Field',
         },
       },
     },
@@ -46,7 +53,7 @@ Default.args = withFields<Args, Props>({
       name: 'Name',
       fields: {
         textField: {
-          value: 'ContentList Demo (Shared) Item 2 Text Field',
+          value: 'Referenced item textField',
         },
       },
     },
@@ -54,7 +61,7 @@ Default.args = withFields<Args, Props>({
 });
 Default.decorators = [withSitecoreContext()];
 
-type EditingArgs = StorybookEditingArgs<Props>;
+type EditingArgs = StorybookEditingArgs<Props, 'sharedItemLink'|'localItemLink'>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>({
@@ -67,13 +74,20 @@ Editing.args = withFields<EditingArgs, Props>({
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: '<span class="jss-border">Heading Editing</span>',
-    description: '<span class="jss-border">Description Editing</span>',
+    heading: '<span class="jss-border">Item Link Editing</span>',
+    description: `<p>
+    <small class="jss-border">
+    Item Links are a way to reference another content item to use data from it.
+    Referenced items may be shared.
+    To reference multiple content items, use a <em>Content List</em> field.<br />
+    <strong>Note:</strong> Sitecore does not support inline editing of Item Link fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
+    </small>`,
     sharedItemLink: {
       name: 'Name',
       fields: {
         textField: {
-          value: 'ContentList Demo (Shared) Item 1 Text Field',
+          value: 'ItemLink Demo (Shared) Item 1 Text Field',
+          editable: '<span class="jss-border">ItemLink Demo (Shared) Item 1 Text Field</span>',
         },
       },
     },
@@ -81,7 +95,8 @@ Editing.args = withFields<EditingArgs, Props>({
       name: 'Name',
       fields: {
         textField: {
-          value: 'ContentList Demo (Shared) Item 2 Text Field',
+          value: 'Referenced item textField',
+          editable: '<span class="jss-border">Referenced item textField</span>',
         },
       },
     },
