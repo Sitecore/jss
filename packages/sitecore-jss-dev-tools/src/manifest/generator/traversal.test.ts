@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-expressions */
 import {
   traverseItems,
   traverseAllItems,
   traverseAllFields,
-  traverseAllRenderings
+  traverseAllRenderings,
 } from './traversal';
 import sinon from 'sinon';
 import { expect } from 'chai';
@@ -12,10 +13,9 @@ import { expect } from 'chai';
 // traverseAllRenderings,
 
 describe('traversal', () => {
-
-    afterEach(() => {
-        sinon.restore();
-      });
+  afterEach(() => {
+    sinon.restore();
+  });
 
   it('traverseItems should recursively process items', () => {
     const mockItems = [
@@ -38,145 +38,135 @@ describe('traversal', () => {
 
     traverseItems(mockItems, cbMock);
 
-    expect(cbMock.getCall(0).calledWith(
-        mockItems[0], 
-        'home'))
-    .to.be.true;
-    expect(cbMock.getCall(1).calledWith(
-        mockItems[0].children[0], 
-        'home/sample'))
-    .to.be.true;
-    expect(cbMock.getCall(2).calledWith(
-        mockItems[0].children[0].children[0], 
-        'home/sample/child'))
-    .to.be.true;
+    expect(cbMock.getCall(0).calledWith(mockItems[0], 'home')).to.be.true;
+    expect(cbMock.getCall(1).calledWith(mockItems[0].children[0], 'home/sample')).to.be.true;
+    expect(cbMock.getCall(2).calledWith(mockItems[0].children[0].children[0], 'home/sample/child'))
+      .to.be.true;
   });
-    it('traverseAllItems should process items children and related item from fields', () => {
-        const mockMultiList = [
-            {
-                id: 'GUIDGUID',
-                name: 'beloved aunt',
-            },
-            {
-                id: 'GUIDGUID',
-                name: 'beloved grandpa',
-            }
-        ];
-        
-        const mockFields = [
-            {
-                name: 'oneRelative',
-                value: {
-                    id: 'GUIDGUID',
-                    name: 'homes long lost uncle',
-                },
-            },
-            {
-                name: 'otherRelatives',
-                value: mockMultiList,
-            }
-          ];
-          const mockRenderings = [
-            {
-                dataSource: {
-                    id: 'GUIDGUID',
-                    name: 'dSource'
-                }
-            }
-        ];
-        
-        const mockItems = [
-            {
-              name: 'home',
-              fields: mockFields,
-              layout: {
-                renderings: mockRenderings,
-              },
-              children: [
-                {
-                  name: 'sample',
-                },
-              ],
-            },
-          ];
+  it('traverseAllItems should process items children and related item from fields', () => {
+    const mockMultiList = [
+      {
+        id: 'GUIDGUID',
+        name: 'beloved aunt',
+      },
+      {
+        id: 'GUIDGUID',
+        name: 'beloved grandpa',
+      },
+    ];
 
+    const mockFields = [
+      {
+        name: 'oneRelative',
+        value: {
+          id: 'GUIDGUID',
+          name: 'homes long lost uncle',
+        },
+      },
+      {
+        name: 'otherRelatives',
+        value: mockMultiList,
+      },
+    ];
+    const mockRenderings = [
+      {
+        dataSource: {
+          id: 'GUIDGUID',
+          name: 'dSource',
+        },
+      },
+    ];
 
-        const cbStub = sinon.stub();
+    const mockItems = [
+      {
+        name: 'home',
+        fields: mockFields,
+        layout: {
+          renderings: mockRenderings,
+        },
+        children: [
+          {
+            name: 'sample',
+          },
+        ],
+      },
+    ];
 
-          traverseAllItems(mockItems, cbStub);
+    const cbStub = sinon.stub();
 
-          expect(cbStub.calledWith(mockItems[0],'item')).to.be.true;
-          expect(cbStub.calledWith(mockItems[0].children[0],'item')).to.be.true;
-          expect(cbStub.calledWith(mockFields[0].value,'item')).to.be.true;
-          expect(cbStub.calledWith(mockMultiList[0],'item')).to.be.true;
-          expect(cbStub.calledWith(mockMultiList[1],'item')).to.be.true;
-          expect(cbStub.calledWith(mockRenderings[0].dataSource,'datasource')).to.be.true;
-    });
+    traverseAllItems(mockItems, cbStub);
 
-    it('traverseAllFields should use callback for fields', () => {
-        const mockFields = [
-            {
-                name: 'oneRelative',
-                value: {
-                    id: 'GUIDGUID',
-                    name: 'homes long lost uncle',
-                },
-            },
-            {
-                name: 'otherRelatives',
-                value: 'list goes here',
-            }
-          ];
-        
-        const mockItems = [
-            {
-              name: 'home',
-              fields: mockFields,           
-            },
-          ];
+    expect(cbStub.calledWith(mockItems[0], 'item')).to.be.true;
+    expect(cbStub.calledWith(mockItems[0].children[0], 'item')).to.be.true;
+    expect(cbStub.calledWith(mockFields[0].value, 'item')).to.be.true;
+    expect(cbStub.calledWith(mockMultiList[0], 'item')).to.be.true;
+    expect(cbStub.calledWith(mockMultiList[1], 'item')).to.be.true;
+    expect(cbStub.calledWith(mockRenderings[0].dataSource, 'datasource')).to.be.true;
+  });
 
-          const cbStub = sinon.stub();
+  it('traverseAllFields should use callback for fields', () => {
+    const mockFields = [
+      {
+        name: 'oneRelative',
+        value: {
+          id: 'GUIDGUID',
+          name: 'homes long lost uncle',
+        },
+      },
+      {
+        name: 'otherRelatives',
+        value: 'list goes here',
+      },
+    ];
 
-          traverseAllFields(mockItems, cbStub);
+    const mockItems = [
+      {
+        name: 'home',
+        fields: mockFields,
+      },
+    ];
 
-          expect(cbStub.calledWith(mockFields[0]));
-          expect(cbStub.calledWith(mockFields[1]));        
-    });
+    const cbStub = sinon.stub();
 
-    it('traverseAllRenderings should use callback for renderings', () => {
-        const mockRenderings = [
-            {
-                dataSource: {
-                    id: 'GUIDGUID',
-                    name: 'dSource'
-                }
-            },
-            {
-                name: 'postrender'
-            }
-        ];
-        
-        const mockItems = [
-            {
-              name: 'home',
-              fields: [],
-              layout: {
-                renderings: mockRenderings,
-              },
-              children: [
-                {
-                  name: 'sample',
-                },
-              ],
-            },
-          ];
+    traverseAllFields(mockItems, cbStub);
 
-          const cbStub = sinon.stub();
+    expect(cbStub.calledWith(mockFields[0]));
+    expect(cbStub.calledWith(mockFields[1]));
+  });
 
-          traverseAllRenderings(mockItems, cbStub);
+  it('traverseAllRenderings should use callback for renderings', () => {
+    const mockRenderings = [
+      {
+        dataSource: {
+          id: 'GUIDGUID',
+          name: 'dSource',
+        },
+      },
+      {
+        name: 'postrender',
+      },
+    ];
 
-          expect(cbStub.calledWith(mockRenderings[0], mockItems[0]));
-          expect(cbStub.calledWith(mockRenderings[1], mockItems[0]));    
+    const mockItems = [
+      {
+        name: 'home',
+        fields: [],
+        layout: {
+          renderings: mockRenderings,
+        },
+        children: [
+          {
+            name: 'sample',
+          },
+        ],
+      },
+    ];
 
-    });
+    const cbStub = sinon.stub();
+
+    traverseAllRenderings(mockItems, cbStub);
+
+    expect(cbStub.calledWith(mockRenderings[0], mockItems[0]));
+    expect(cbStub.calledWith(mockRenderings[1], mockItems[0]));
+  });
 });

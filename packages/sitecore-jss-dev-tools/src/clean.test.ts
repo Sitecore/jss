@@ -1,9 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
+
 import del from 'del';
 import { clean } from './clean';
 import sinon from 'sinon';
 import { expect } from 'chai';
+
+/* eslint-disable no-unused-expressions */
 
 describe('clean', () => {
   afterEach(() => {

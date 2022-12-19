@@ -7,6 +7,8 @@ import { expect } from 'chai';
 import fsExtra from 'fs-extra';
 import chalk from 'chalk';
 
+/* eslint-disable no-unused-expressions */
+
 describe('deploy', () => {
   afterEach(() => {
     sinon.restore();
@@ -92,8 +94,4 @@ describe('deploy', () => {
       logSpy.calledWith(`Cleaning existing files from ${chalk.green(options.destinationPath)}...`)
     ).to.be.true;
   });
-
-  it('should be able to exclude single file');
-
-  it('should be able to exclude multiple files');
 });

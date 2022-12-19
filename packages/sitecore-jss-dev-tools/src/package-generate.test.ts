@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import * as updateUtils from './update';
 import fsExtra from 'fs-extra';
 import sinon from 'sinon';
