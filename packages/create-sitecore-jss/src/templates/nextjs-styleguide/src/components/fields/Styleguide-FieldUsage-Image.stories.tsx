@@ -1,6 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StorybookArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
+import {
+  StorybookArgs,
+  StorybookEditingArgs,
+  withFields,
+  withSitecoreContext,
+} from 'storybook-utils/utils';
 import StyleguideFieldUsageImage, {
   StyleguideFieldUsageImageProps as Props,
 } from './Styleguide-FieldUsage-Image';
@@ -40,3 +45,39 @@ Default.args = withFields<Args, Props>({
   },
 });
 Default.decorators = [withSitecoreContext()];
+
+type EditingArgs = StorybookEditingArgs<Props, 'sample2'>;
+
+export const Editing = Template.bind({});
+Editing.args = withFields<EditingArgs, Props>(
+  {
+    params: {
+      name: 'Styleguide-FieldUsage-Image',
+    },
+    rendering: {
+      uid: '{00000000-0000-0000-0000-000000000000}',
+      componentName: 'Styleguide-FieldUsage-Image',
+      dataSource: '{00000000-0000-0000-0000-000000000000}',
+    },
+    fields: {
+      heading: "<span class='jss-border'>Image Editing</span>",
+      description: "<span class='jss-border'>Description Editing</span>",
+      sample1: {
+        value: {
+          src: '/sc_logo.png',
+          alt: 'Sitecore Logo',
+        },
+        editable: '<span>Sample1</span>',
+      },
+      sample2: {
+        value: {
+          src: '/jss_logo.png',
+          alt: 'Sitecore JSS Logo',
+        },
+        editable: '<span>Sample2</span>',
+      },
+    },
+  },
+  true
+);
+Editing.decorators = [withSitecoreContext()];

@@ -2,7 +2,6 @@ import { RouterContext } from 'next/dist/shared/lib/router-context';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../src/assets/app.css';
-import './styles.css';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

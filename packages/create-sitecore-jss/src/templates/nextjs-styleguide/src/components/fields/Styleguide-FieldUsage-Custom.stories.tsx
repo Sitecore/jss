@@ -1,6 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StorybookArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
+import {
+  StorybookArgs,
+  StorybookEditingArgs,
+  withFields,
+  withSitecoreContext,
+} from 'storybook-utils/utils';
 
 import StyleguideFieldUsageCustom, {
   StyleguideFieldUsageCustomProps as Props,
@@ -40,3 +45,35 @@ Default.args = withFields<Args, Props>({
   },
 });
 Default.decorators = [withSitecoreContext()];
+
+type EditingArgs = StorybookEditingArgs<Props, 'customIntField'>;
+
+export const Editing = Template.bind({});
+Editing.args = withFields<EditingArgs, Props>(
+  {
+    params: {
+      name: 'Styleguide-FieldUsage-Custom',
+    },
+    rendering: {
+      uid: '{00000000-0000-0000-0000-000000000000}',
+      componentName: 'Styleguide-FieldUsage-Custom',
+      dataSource: '{00000000-0000-0000-0000-000000000000}',
+    },
+    fields: {
+      heading: '<span class="jss-border">Custom Fields Editing</span>',
+      description: `<p>
+        <small class="jss-border">
+          Any Sitecore field type can be consumed by JSS.
+          In this sample we consume the <em>Integer</em> field type.<br />
+          <strong>Note:</strong> For field types with complex data, custom <code>FieldSerializer</code>s may need to be implemented on the Sitecore side.
+        </small>
+      </p>`,
+      customIntField: {
+        value: 31337,
+        editable: '<span class="jss-border">31337</span>',
+      },
+    },
+  },
+  true
+);
+Editing.decorators = [withSitecoreContext()];

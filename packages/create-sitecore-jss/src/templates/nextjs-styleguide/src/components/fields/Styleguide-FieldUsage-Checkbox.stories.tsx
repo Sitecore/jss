@@ -1,6 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { withFields, StorybookArgs, withSitecoreContext } from 'storybook-utils/utils';
+import {
+  withFields,
+  StorybookArgs,
+  withSitecoreContext,
+  StorybookEditingArgs,
+} from 'storybook-utils/utils';
 
 import StyleguideFieldUsageCheckbox, {
   StyleguideFieldUsageCheckboxProps as Props,
@@ -36,3 +41,34 @@ Default.args = withFields<Args, Props>({
   },
 });
 Default.decorators = [withSitecoreContext()];
+
+type EditingArgs = StorybookEditingArgs<Props, 'checkbox' | 'checkbox2'>;
+
+export const Editing = Template.bind({});
+Editing.args = withFields<EditingArgs, Props>(
+  {
+    params: {
+      name: 'Styleguide-FieldUsage-Checkbox',
+    },
+    rendering: {
+      uid: '{00000000-0000-0000-0000-000000000000}',
+      componentName: 'Styleguide-FieldUsage-Checkbox',
+      dataSource: '{00000000-0000-0000-0000-000000000000}',
+    },
+    fields: {
+      heading: '<span class="jss-border">Checkbox Editing</span>',
+      description:
+        '<small class="jss-border">Note: Sitecore does not support inline editing of Checkbox fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.</small>',
+      checkbox: {
+        value: true,
+        editable: '<span class="jss-border">true</span>',
+      },
+      checkbox2: {
+        value: false,
+        editable: '<span class="jss-border">false</span>',
+      },
+    },
+  },
+  true
+);
+Editing.decorators = [withSitecoreContext()];
