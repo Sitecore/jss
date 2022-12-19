@@ -10,7 +10,7 @@ export interface Plugin {
 
 export class PathExtractor {
   /**
-   * Allow plugins to extract normalized path
+   * Extract normalized Sitecore item path
    * @param {ParsedUrlQuery} [params]
    */
   public extract(params: ParsedUrlQuery | undefined): string {
