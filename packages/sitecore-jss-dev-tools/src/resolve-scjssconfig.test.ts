@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-implicit-any */
+/* eslint-disable no-unused-expressions */
 import { resolveScJssConfig } from './resolve-scjssconfig';
 import sinon from 'sinon';
 import { expect } from 'chai';
 
 describe('resolve-scjssconfig', () => {
-
   let consoleSpy: sinon.SinonSpy;
 
   beforeEach(() => {
@@ -26,11 +25,12 @@ describe('resolve-scjssconfig', () => {
     try {
       await resolveScJssConfig(resolveInput);
       expect(true).to.be.false; // should be not reachable
-    }
-    catch(err) {
-      expect(consoleSpy.calledWith(
-        'The scjssconfig.json file was missing, and is required. Please set up your connection with `jss setup` and try again.'
-        )).to.be.true;
+    } catch (err) {
+      expect(
+        consoleSpy.calledWith(
+          'The scjssconfig.json file was missing, and is required. Please set up your connection with `jss setup` and try again.'
+        )
+      ).to.be.true;
     }
   });
 
@@ -45,16 +45,17 @@ describe('resolve-scjssconfig', () => {
     try {
       await resolveScJssConfig(resolveInput);
       expect(true).to.be.false; // should be not reachable
+    } catch (err) {
+      expect(
+        consoleSpy.calledWith(
+          `The scjssconfig.json did not contain the ${resolveInput.configName} configuration.`
+        )
+      ).to.be.true;
     }
-    catch(err) {
-      expect(consoleSpy.calledWith(
-        `The scjssconfig.json did not contain the ${resolveInput.configName} configuration.`
-        )).to.be.true;
-    }      
   });
 
   it('should return config', async () => {
-    const mockConfigPath = './src/test-data/scjssconfig-working.json'
+    const mockConfigPath = './src/test-data/scjssconfig-working.json';
     const resolveInput = {
       configPath: mockConfigPath,
       configName: 'sitecore',
