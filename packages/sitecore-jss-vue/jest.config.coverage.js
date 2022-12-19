@@ -5,6 +5,7 @@ const coverageConfig = {
   collectCoverageFrom: ['**/*.ts'],
   coverageDirectory: './coverage',
   coveragePathIgnorePatterns: [
+    '/index.ts',
     '/node_modules/',
     '/dist/',
     '/test/',
