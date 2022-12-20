@@ -4,7 +4,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideLayoutTabsTab, {
   StyleguideLayoutTabsTabProps as Props,
 } from './Styleguide-Layout-Tabs-Tab';
-import { StorybookArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
+import {
+  StorybookArgs,
+  StorybookEditingArgs,
+  withFields,
+  withSitecoreContext,
+} from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout-Tabs-Tab',
@@ -33,3 +38,31 @@ Default.args = withFields<Args, Props>({
   },
 });
 Default.decorators = [withSitecoreContext()];
+
+type EditingArgs = StorybookEditingArgs<Props, 'title' | 'content'>;
+
+export const Editing = Template.bind({});
+Editing.args = withFields<EditingArgs, Props>(
+  {
+    params: {
+      name: 'Styleguide-Layout-Tabs-Tab',
+    },
+    rendering: {
+      uid: '{00000000-0000-0000-0000-000000000000}',
+      componentName: 'Styleguide-Layout-Tabs-Tab',
+      dataSource: '{00000000-0000-0000-0000-000000000000}',
+    },
+    fields: {
+      title: {
+        value: 'Tab 1',
+        editable: '<span class="jss-border">Tab 1</span>',
+      },
+      content: {
+        value: '<p>Tab 1 contents!</p>',
+        editable: '<p class="jss-border">Tab 1 contents!</p>',
+      },
+    },
+  },
+  true
+);
+Editing.decorators = [withSitecoreContext()];

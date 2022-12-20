@@ -2,7 +2,12 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideLayoutTabs, { StyleguideLayoutTabsProps as Props } from './Styleguide-Layout-Tabs';
 import StyleguideLayoutTabsTab from './Styleguide-Layout-Tabs-Tab';
-import { StorybookArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
+import {
+  StorybookArgs,
+  StorybookEditingArgs,
+  withFields,
+  withSitecoreContext,
+} from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout-Tabs',
@@ -123,3 +128,41 @@ Default.args = withFields<Args, Props>({
 });
 
 Default.decorators = [withSitecoreContext({ layoutData, componentFactory })];
+
+type EditingArgs = StorybookEditingArgs<Props, 'heading' | 'description'>;
+
+export const Editing = Template.bind({});
+Editing.args = withFields<EditingArgs, Props>(
+  {
+    params: {
+      name: 'Styleguide-Layout-Tabs',
+    },
+    rendering: {
+      uid: '{00000000-0000-0000-0000-000000000000}',
+      componentName: 'Styleguide-Layout-Tabs',
+      placeholders: {
+        'NextjsApp-jss-tabs': tabsPlaceholder,
+      },
+      params: {},
+      dataSource: '{00000000-0000-0000-0000-000000000000}',
+    },
+    fields: {
+      heading: {
+        value: 'Tabs',
+        editable: '<span class="jss-border">Tabs</span>',
+      },
+      description: {
+        value:
+          "<p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>",
+        editable:
+          "<p class='jss-border'>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>",
+      },
+    },
+    name: '',
+    sitecoreContext: {},
+    tabsPlaceholder: [],
+  },
+  true
+);
+
+Editing.decorators = [withSitecoreContext({ layoutData, componentFactory })];
