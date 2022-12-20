@@ -8,7 +8,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
   let appName;
 
   const initFactory = new InitializerFactory();
-  const runner = async (inits: string[]) => {
+  const runner = async (inits: string[]): Promise<void> => {
     for (const init of inits) {
       const initializer = await initFactory.create(init);
       if (!initializer) {
@@ -27,8 +27,7 @@ export const initRunner = async (initializers: string[], args: BaseArgs) => {
         // add-ons will not have information about the initial
         // list of templates, as it has `nextjs` initializer for example
         args.templates.push(...response.initializers);
-
-        await runner(response.initializers);
+        return await runner(response.initializers);
       }
     }
   };

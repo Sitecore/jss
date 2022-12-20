@@ -1,14 +1,24 @@
+/* eslint-disable no-unused-expressions */
 import fs from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
+import ejs from 'ejs';
+import glob from 'glob';
 import { expect } from 'chai';
 import sinon, { SinonStub } from 'sinon';
 import { currentPkg, partialPkg } from '../test-data/pkg';
 import * as transform from './transform';
 import * as helpers from '../utils/helpers';
 
-const { transformFilename, merge, concatEnv, diffFiles, diffAndWriteFiles } = transform;
+const {
+  transformFilename,
+  merge,
+  concatEnv,
+  diffFiles,
+  diffAndWriteFiles,
+  transform: transformFunc,
+} = transform;
 
 describe('transform', () => {
   describe('transformFilename', () => {
@@ -268,7 +278,7 @@ describe('transform', () => {
     });
   });
 
-  describe('transform', () => {
+  describe('diffAndWriteFiles', () => {
     let diffFilesStub: SinonStub;
     let processExitStub: SinonStub;
     let writeFileToPathStub: SinonStub;
@@ -279,110 +289,419 @@ describe('transform', () => {
       writeFileToPathStub?.restore();
     });
 
-    describe('transformPostInitializer', () => {
-      it('should overwrite a single file', async () => {
-        diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('yes'));
-        writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
+    it('should overwrite a single file', async () => {
+      diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('yes'));
+      writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
-        const answers = {
-          appName: 'JssNextWeb',
-          hostName: 'http://jssnextweb',
-          destination: 'samples/next',
-          fetchWith: 'REST',
-          force: false,
-          templates: [],
-          language: 'en',
-        };
+      const answers = {
+        appName: 'JssNextWeb',
+        hostName: 'http://jssnextweb',
+        destination: 'samples/next',
+        fetchWith: 'REST',
+        force: false,
+        templates: [],
+        language: 'en',
+      };
 
-        await diffAndWriteFiles({
-          rendered: 'test',
-          pathToNewFile: 'samples/next/{{language}}.txt',
-          answers,
-        });
-
-        expect(writeFileToPathStub.calledOnceWith('samples/next/en.txt', 'test')).to.equal(true);
-
-        expect(answers.force).to.equal(false);
+      await diffAndWriteFiles({
+        rendered: 'test',
+        pathToNewFile: 'samples/next/{{language}}.txt',
+        answers,
       });
 
-      it('should overwrite a single file and later do not ask the same question', async () => {
-        diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('yes to all'));
-        writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
+      expect(writeFileToPathStub.calledOnceWith('samples/next/en.txt', 'test')).to.equal(true);
 
-        const answers = {
-          appName: 'JssNextWeb',
-          hostName: 'http://jssnextweb',
-          destination: 'samples/next',
-          fetchWith: 'REST',
-          force: false,
-          templates: [],
-          language: 'en',
-        };
+      expect(answers.force).to.equal(false);
+    });
 
-        await diffAndWriteFiles({
-          rendered: 'test',
-          pathToNewFile: 'samples/next/{{language}}.txt',
-          answers,
-        });
+    it('should overwrite a single file and later do not ask the same question', async () => {
+      diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('yes to all'));
+      writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
-        expect(writeFileToPathStub.calledOnceWith('samples/next/en.txt', 'test')).to.equal(true);
+      const answers = {
+        appName: 'JssNextWeb',
+        hostName: 'http://jssnextweb',
+        destination: 'samples/next',
+        fetchWith: 'REST',
+        force: false,
+        templates: [],
+        language: 'en',
+      };
 
-        expect(answers.force).to.equal(true);
+      await diffAndWriteFiles({
+        rendered: 'test',
+        pathToNewFile: 'samples/next/{{language}}.txt',
+        answers,
       });
 
-      it('should skip file', async () => {
-        diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('skip'));
-        writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
+      expect(writeFileToPathStub.calledOnceWith('samples/next/en.txt', 'test')).to.equal(true);
 
-        const answers = {
-          appName: 'JssNextWeb',
-          hostName: 'http://jssnextweb',
-          destination: 'samples/next',
-          fetchWith: 'REST',
-          force: false,
-          templates: [],
-          language: 'en',
-        };
+      expect(answers.force).to.equal(true);
+    });
 
-        await diffAndWriteFiles({
-          rendered: 'test',
-          pathToNewFile: 'samples/next/{{language}}.txt',
-          answers,
-        });
+    it('should skip file', async () => {
+      diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('skip'));
+      writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
-        expect(writeFileToPathStub.notCalled).to.equal(true);
+      const answers = {
+        appName: 'JssNextWeb',
+        hostName: 'http://jssnextweb',
+        destination: 'samples/next',
+        fetchWith: 'REST',
+        force: false,
+        templates: [],
+        language: 'en',
+      };
 
-        expect(answers.force).to.equal(false);
+      await diffAndWriteFiles({
+        rendered: 'test',
+        pathToNewFile: 'samples/next/{{language}}.txt',
+        answers,
       });
 
-      it('should abort a process', async () => {
-        diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('abort'));
-        writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
+      expect(writeFileToPathStub.notCalled).to.equal(true);
 
-        processExitStub = sinon.stub(process, 'exit');
+      expect(answers.force).to.equal(false);
+    });
 
-        const answers = {
-          appName: 'JssNextWeb',
-          hostName: 'http://jssnextweb',
-          destination: 'samples/next',
-          fetchWith: 'REST',
-          force: false,
-          templates: [],
-          language: 'en',
-        };
+    it('should abort a process', async () => {
+      diffFilesStub = sinon.stub(transform, 'diffFiles').returns(Promise.resolve('abort'));
+      writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
 
-        await diffAndWriteFiles({
-          rendered: 'test',
-          pathToNewFile: 'samples/next/{{language}}.txt',
-          answers,
-        });
+      processExitStub = sinon.stub(process, 'exit');
 
-        expect(writeFileToPathStub.notCalled).to.equal(true);
+      const answers = {
+        appName: 'JssNextWeb',
+        hostName: 'http://jssnextweb',
+        destination: 'samples/next',
+        fetchWith: 'REST',
+        force: false,
+        templates: [],
+        language: 'en',
+      };
 
-        expect(processExitStub.calledOnce).to.equal(true);
-
-        expect(answers.force).to.equal(false);
+      await diffAndWriteFiles({
+        rendered: 'test',
+        pathToNewFile: 'samples/next/{{language}}.txt',
+        answers,
       });
+
+      expect(writeFileToPathStub.notCalled).to.equal(true);
+
+      expect(processExitStub.calledOnce).to.equal(true);
+
+      expect(answers.force).to.equal(false);
+    });
+  });
+
+  describe('transform', () => {
+    let fsMkdirsSyncStub: SinonStub;
+    let fsCopySyncStub: SinonStub;
+    let fsExistsSyncStub: SinonStub;
+    let fsReadFileSunc: SinonStub;
+    let globSyncStub: SinonStub;
+    let ejsRenderFileStub: SinonStub;
+    let concatEnvStub: SinonStub;
+    let mergeStub: SinonStub;
+    let diffAndWriteFilesStub: SinonStub;
+    let writeFileToPathStub: SinonStub;
+    let transformFilenameStub: SinonStub;
+    let openPackageJsonStub: SinonStub;
+    let log: SinonStub;
+
+    beforeEach(() => {
+      fsMkdirsSyncStub = sinon.stub(fs, 'mkdirsSync');
+    });
+
+    afterEach(() => {
+      fsMkdirsSyncStub?.restore();
+      fsCopySyncStub?.restore();
+      fsExistsSyncStub?.restore();
+      fsReadFileSunc?.restore();
+      globSyncStub?.restore();
+      ejsRenderFileStub?.restore();
+      concatEnvStub?.restore();
+      mergeStub?.restore();
+      diffAndWriteFilesStub?.restore();
+      writeFileToPathStub?.restore();
+      transformFilenameStub?.restore();
+      openPackageJsonStub?.restore();
+      log?.restore();
+    });
+
+    it('should transform file', async () => {
+      const templatePath = path.resolve('templates/next');
+      const destinationPath = path.resolve('samples/next');
+      const file = 'file.ts';
+      const renderFileOutput = 'file output';
+
+      globSyncStub = sinon.stub(glob, 'sync').returns([file]);
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
+      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      await transformFunc(templatePath, answers);
+
+      expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
+        ...answers,
+        helper: {
+          isDev: false,
+          getPascalCaseName: helpers.getPascalCaseName,
+          getAppPrefix: helpers.getAppPrefix,
+        },
+      });
+      expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
+        rendered: renderFileOutput,
+        pathToNewFile: path.join(destinationPath, file),
+        answers,
+      });
+    });
+
+    it('should skip if isFileForSkip', async () => {
+      const templatePath = path.resolve('templates/next');
+      const destinationPath = path.resolve('samples/next');
+      const file = 'file.ts';
+
+      globSyncStub = sinon.stub(glob, 'sync').returns([file]);
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile');
+      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      await transformFunc(templatePath, answers, {
+        isFileForSkip: (f) => f === file,
+      });
+
+      expect(ejsRenderFileStub).to.not.have.been.called;
+      expect(diffAndWriteFilesStub).to.not.have.been.called;
+    });
+
+    it('should copy only special files', async () => {
+      const templatePath = path.resolve('templates/next');
+      const destinationPath = path.resolve('samples/next');
+      const files = ['image.png', 'file.pdf'];
+
+      globSyncStub = sinon.stub(glob, 'sync').returns(files);
+      fsCopySyncStub = sinon.stub(fs, 'copySync');
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile');
+      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      await transformFunc(templatePath, answers);
+
+      expect(fsCopySyncStub).to.have.been.calledTwice;
+      files.forEach((file) => {
+        expect(fsCopySyncStub).to.have.been.calledWith(
+          path.join(templatePath, file),
+          path.join(destinationPath, file)
+        );
+      });
+      expect(ejsRenderFileStub).to.not.have.been.called;
+      expect(diffAndWriteFilesStub).to.not.have.been.called;
+    });
+
+    it('should skip if isFileForCopy', async () => {
+      const templatePath = path.resolve('templates/next');
+      const destinationPath = path.resolve('samples/next');
+      const file = 'file.ts';
+
+      globSyncStub = sinon.stub(glob, 'sync').returns([file]);
+      fsCopySyncStub = sinon.stub(fs, 'copySync');
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile');
+      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      await transformFunc(templatePath, answers, {
+        isFileForCopy: (f) => f === file,
+      });
+
+      expect(fsCopySyncStub).to.have.been.calledOnceWith(
+        path.join(templatePath, file),
+        path.join(destinationPath, file)
+      );
+      expect(ejsRenderFileStub).to.not.have.been.called;
+      expect(diffAndWriteFilesStub).to.not.have.been.called;
+    });
+
+    it('should merge package.json file', async () => {
+      const templatePath = path.resolve('templates/next');
+      const destinationPath = path.resolve('samples/next');
+      const file = 'package.json';
+      const renderFileOutput = '{ "one": 1, "two": 2}';
+      const currentPkg = { three: 3, four: 4 };
+      const templatePkg = JSON.parse(renderFileOutput);
+      const mergedPkg = { merged: true };
+
+      globSyncStub = sinon.stub(glob, 'sync').returns([file]);
+      fsExistsSyncStub = sinon.stub(fs, 'existsSync').returns(true);
+      openPackageJsonStub = sinon.stub(helpers, 'openPackageJson').returns(currentPkg);
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
+      mergeStub = sinon.stub(transform, 'merge').returns(mergedPkg);
+      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      await transformFunc(templatePath, answers);
+
+      expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
+        ...answers,
+        helper: {
+          isDev: false,
+          getPascalCaseName: helpers.getPascalCaseName,
+          getAppPrefix: helpers.getAppPrefix,
+        },
+      });
+      expect(mergeStub).to.have.been.calledOnceWith(currentPkg, templatePkg);
+      expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
+        rendered: JSON.stringify(mergedPkg, null, 2),
+        pathToNewFile: path.join(destinationPath, file),
+        answers,
+      });
+    });
+
+    it('should concatenate .env file', async () => {
+      const templatePath = path.resolve('templates/next');
+      const destinationPath = path.resolve('samples/next');
+      const file = '.env';
+      const templateDotEnv = 'ONE=one';
+      const currentDotEnv = 'TWO=2';
+      const concatDotEnv = 'CONCATENATED=true';
+
+      globSyncStub = sinon.stub(glob, 'sync').returns([file]);
+      fsExistsSyncStub = sinon.stub(fs, 'existsSync').returns(true);
+      fsReadFileSunc = sinon.stub(fs, 'readFileSync').returns(currentDotEnv);
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(templateDotEnv));
+      concatEnvStub = sinon.stub(transform, 'concatEnv').returns(concatDotEnv);
+      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      await transformFunc(templatePath, answers);
+
+      expect(ejsRenderFileStub).to.have.been.calledOnceWith(path.join(templatePath, file), {
+        ...answers,
+        helper: {
+          isDev: false,
+          getPascalCaseName: helpers.getPascalCaseName,
+          getAppPrefix: helpers.getAppPrefix,
+        },
+      });
+      expect(concatEnvStub).to.have.been.calledOnceWith(currentDotEnv, templateDotEnv);
+      expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
+        rendered: concatDotEnv,
+        pathToNewFile: path.join(destinationPath, file),
+        answers,
+      });
+    });
+
+    it('should rename gitignore file', async () => {
+      const templatePath = path.resolve('templates/next');
+      const destinationPath = path.resolve('samples/next');
+      const renderFileOutput = 'file output';
+
+      globSyncStub = sinon.stub(glob, 'sync').returns(['gitignore']);
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
+      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      await transformFunc(templatePath, answers);
+
+      expect(diffAndWriteFilesStub).to.have.been.calledOnceWith({
+        rendered: renderFileOutput,
+        pathToNewFile: path.join(destinationPath, '.gitignore'),
+        answers,
+      });
+    });
+
+    it('should force', async () => {
+      const templatePath = path.resolve('templates/next');
+      const destinationPath = path.resolve('samples/next');
+      const renderFileOutput = 'file output';
+      const file = 'file.ts';
+
+      globSyncStub = sinon.stub(glob, 'sync').returns([file]);
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile').returns(Promise.resolve(renderFileOutput));
+      writeFileToPathStub = sinon.stub(helpers, 'writeFileToPath');
+      diffAndWriteFilesStub = sinon.stub(transform, 'diffAndWriteFiles');
+
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: true,
+      };
+
+      await transformFunc(templatePath, answers);
+
+      expect(writeFileToPathStub).to.have.been.calledOnceWith(
+        path.join(destinationPath, file),
+        renderFileOutput
+      );
+      expect(diffAndWriteFilesStub).to.not.have.been.called;
+    });
+
+    it('should handle error', async () => {
+      const templatePath = path.resolve('templates/next');
+      const destinationPath = path.resolve('samples/next');
+      const file = 'file.ts';
+      const error = 'Nope!';
+
+      globSyncStub = sinon.stub(glob, 'sync').returns([file]);
+      ejsRenderFileStub = sinon.stub(ejs, 'renderFile').throws(error);
+      log = sinon.stub(console, 'log');
+
+      const answers = {
+        destination: destinationPath,
+        templates: [],
+        appPrefix: false,
+        force: false,
+      };
+
+      await transformFunc(templatePath, answers);
+
+      expect(log.getCall(0).args[0]).to.equal(chalk.red(error));
+      expect(log.getCall(1).args[0]).to.equal(
+        `Error occurred when trying to render to ${chalk.yellow(path.resolve(file))}`
+      );
     });
   });
 });

@@ -3,6 +3,7 @@
     ".ts"
   ],
   "exclude": [
+    "**/index.ts",
     "**/*.d.ts",
     "**/*.test.ts",
     "src/test-data",
@@ -11,7 +12,9 @@
     "src/index.ts",
     "src/dataModels.ts",
     "./*.js",
-    "./*.d.ts"
+    "./*.d.ts",
+    "**/layout/models.ts",
+    "*.js"
   ],
   "all": true,
   "reporter": [
