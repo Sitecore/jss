@@ -50,6 +50,9 @@ class NormalModePlugin implements Plugin {
     // Fetch dictionary data
     props.dictionary = await this.dictionaryService.fetchDictionaryData(props.locale);
 
+    // Assign redirect item data if it exists
+    props.redirect = props.layoutData.sitecore.context.redirect
+
     return props;
   }
 }
