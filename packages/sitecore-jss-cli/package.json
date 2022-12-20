@@ -12,8 +12,8 @@
     "lint": "eslint ./src/**/*.ts",
     "prepublishOnly": "npm run build",
     "jss": "node ./dist/cjs/bin/jss.js",
-    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
-    "coverage": "nyc npm test"
+    "test": "mocha --require ts-node/register/transpile-only \"./src/**/*.test.ts\"",
+    "coverage": "nyc --require ts-node/register/transpile-only npm test"
   },
   "engines": {
     "node": ">=12",
