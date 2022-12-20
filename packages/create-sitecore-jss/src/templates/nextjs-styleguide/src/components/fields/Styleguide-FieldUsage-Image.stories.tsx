@@ -46,7 +46,7 @@ Default.args = withFields<Args, Props>({
 });
 Default.decorators = [withSitecoreContext()];
 
-type EditingArgs = StorybookEditingArgs<Props, 'sample2'>;
+type EditingArgs = StorybookEditingArgs<Props, 'sample1' | 'sample2'>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>(

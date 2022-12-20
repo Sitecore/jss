@@ -3,13 +3,7 @@ import {
   LayoutServiceData,
   SitecoreContext,
   ComponentRendering,
-  Item,
-  Field,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-
-type ValueType = string | number | boolean | { [key: string]: unknown };
-
-export type FieldType = ValueType | Item | Item[] | Field | undefined;
 
 type FlattenFields<Fields extends { [key: string]: any }, ExcludeKeys> = {
   [field in keyof Fields]: field extends ExcludeKeys ? Fields[field] : Fields[field]['value'];
@@ -43,7 +37,7 @@ export type StorybookEditingArgs<
 
 type Props = {
   [key: string]: unknown;
-  fields: { [key: string]: FieldType };
+  fields: { [key: string]: unknown };
   rendering?: ComponentRendering;
 };
 
