@@ -6,17 +6,25 @@ import {
   Type,
   Compiler,
   NgModuleFactory,
+  NgModuleFactoryLoader,
 } from '@angular/core';
+import { LoadChildren } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
+import { from, of } from 'rxjs';
+import { mergeMap, take } from 'rxjs/operators';
 import {
   ComponentNameAndModule,
   ComponentNameAndType,
   DYNAMIC_COMPONENT,
+  JssCanActivate,
+  JssCanActivateFn,
+  JssResolve,
   PLACEHOLDER_COMPONENTS,
   PLACEHOLDER_LAZY_COMPONENTS,
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { isRawRendering } from './components/rendering';
+import { wrapIntoObservable } from './utils';
 
 export interface ComponentFactoryResult {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,14 +32,21 @@ export interface ComponentFactoryResult {
   componentDefinition: ComponentRendering | HtmlElementRendering;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   componentFactory?: ComponentFactory<any>;
+  canActivate?:
+    | JssCanActivate
+    | Type<JssCanActivate>
+    | JssCanActivateFn
+    | Array<JssCanActivate | JssCanActivateFn | Type<JssCanActivate>>;
+  resolve?: { [key: string]: JssResolve<any> | Type<JssResolve<any>> };
 }
 
 @Injectable()
 export class JssComponentFactoryService {
-  private componentMap: Map<string, Type<unknown>>;
+  private componentMap: Map<string, ComponentNameAndType>;
   private lazyComponentMap: Map<string, ComponentNameAndModule>;
 
   constructor(
+    private loader: NgModuleFactoryLoader,
     private injector: Injector,
     private compiler: Compiler,
     @Inject(PLACEHOLDER_COMPONENTS) private components: ComponentNameAndType[],
@@ -40,23 +55,11 @@ export class JssComponentFactoryService {
     this.componentMap = new Map();
     this.lazyComponentMap = new Map();
 
-    this.components.forEach((c) => this.componentMap.set(c.name, c.type));
+    this.components.forEach((c) => this.componentMap.set(c.name, c));
 
     if (this.lazyComponents) {
       this.lazyComponents.forEach((c) => this.lazyComponentMap.set(c.path, c));
     }
-  }
-
-  private loadModuleFactory(
-    lazyComponent: ComponentNameAndModule
-  ): Promise<NgModuleFactory<unknown>> {
-    return lazyComponent.loadChildren().then((loaded) => {
-      if (loaded instanceof NgModuleFactory) {
-        return loaded;
-      } else {
-        return this.compiler.compileModuleAsync(loaded);
-      }
-    });
   }
 
   getComponent(component: ComponentRendering): Promise<ComponentFactoryResult> {
@@ -65,14 +68,16 @@ export class JssComponentFactoryService {
     if (loadedComponent) {
       return Promise.resolve({
         componentDefinition: component,
-        componentImplementation: this.componentMap.get(component.componentName),
+        componentImplementation: loadedComponent.type,
+        canActivate: loadedComponent.canActivate,
+        resolve: loadedComponent.resolve,
       });
     }
 
     const lazyComponent = this.lazyComponentMap.get(component.componentName);
 
     if (lazyComponent) {
-      return this.loadModuleFactory(lazyComponent).then((ngModuleFactory) => {
+      return this.loadModuleFactory(lazyComponent.loadChildren).then((ngModuleFactory) => {
         let componentType = null;
         const moduleRef = ngModuleFactory.create(this.injector);
         const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
@@ -101,6 +106,8 @@ export class JssComponentFactoryService {
           componentFactory: moduleRef.componentFactoryResolver.resolveComponentFactory(
             componentType
           ),
+          canActivate: lazyComponent.canActivate,
+          resolve: lazyComponent.resolve,
         };
       });
     }
@@ -108,6 +115,25 @@ export class JssComponentFactoryService {
     return Promise.resolve({
       componentDefinition: component,
     });
+  }
+
+  private loadModuleFactory(loadChildren: LoadChildren): Promise<NgModuleFactory<unknown>> {
+    if (typeof loadChildren === 'string') {
+      return this.loader.load(loadChildren);
+    } else {
+      return wrapIntoObservable(loadChildren())
+        .pipe(
+          mergeMap((t: any) => {
+            if (t instanceof NgModuleFactory) {
+              return of(t);
+            } else {
+              return from(this.compiler.compileModuleAsync(t));
+            }
+          }),
+          take(1)
+        )
+        .toPromise();
+    }
   }
 
   getComponents(

@@ -107,6 +107,7 @@ export function componentModule(componentName: string) {
 }
 
 function baseComponentFactory(componentName: string, exportName?: string, isEditing?: boolean) {
+  const DEFAULT_EXPORT_NAME = 'Default';
   const component = components.get(componentName);
 
   // check that component should be dynamically imported
@@ -115,7 +116,7 @@ function baseComponentFactory(componentName: string, exportName?: string, isEdit
     return component.element(isEditing);
   }
 
-  if (exportName) {
+  if (exportName && exportName !== DEFAULT_EXPORT_NAME) {
     return component[exportName];
   }
 

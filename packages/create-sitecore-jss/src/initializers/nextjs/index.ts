@@ -59,6 +59,11 @@ export default class NextjsInitializer implements Initializer {
               'nextjs-personalize - Includes example setup for projects using XM Cloud Embedded Personalization',
             value: 'nextjs-personalize',
           },
+          {
+            name:
+              'nextjs-multisite - Includes example setup for hosting multiple sites in a single NextJS application',
+            value: 'nextjs-multisite',
+          },
         ],
       });
       addInitializers = addInitAnswer.addInitializers;

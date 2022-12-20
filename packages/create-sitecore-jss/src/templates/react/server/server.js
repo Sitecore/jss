@@ -1,6 +1,6 @@
 import serializeJavascript from 'serialize-javascript';
 import React from 'react';
-import { StaticRouter, matchPath } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom/server';
 import { renderToStringWithData } from '@apollo/client/react/ssr';
 import Helmet from 'react-helmet';
 import axios from 'axios';
@@ -9,7 +9,7 @@ import https from 'https';
 import GraphQLClientFactory from '../src/lib/GraphQLClientFactory';
 import config from '../src/temp/config';
 import i18ninit from '../src/i18n';
-import AppRoot, { routePatterns } from '../src/AppRoot';
+import AppRoot, { parseRouteParams } from '../src/AppRoot';
 import { getHtmlTemplate } from './htmlTemplateFactory';
 
 /** Asserts that a string replace actually replaced something */
@@ -109,7 +109,7 @@ export function renderView(callback, path, data, viewBag) {
         // Inject the rendered app into the index.html template (built from /public/index.html)
         // IMPORTANT: use serialize-javascript or similar instead of JSON.stringify() to emit initial state,
         // or else you're vulnerable to XSS.
-        let html = htmlTemplate;
+        let html = htmlTemplate?.default;
 
         // write the React app
         html = assertReplace(
@@ -162,22 +162,9 @@ export function parseRouteUrl(url) {
     return null;
   }
 
-  let result = null;
+  const result = parseRouteParams(url);
 
-  // use react-router-dom to find the route matching the incoming URL
-  // then return its match params
-  // we are using .some() as a way to loop with a short circuit (so that we stop evaluating route patterns after the first match)
-  routePatterns.some((pattern) => {
-    const match = matchPath(url, { path: pattern });
-    if (match && match.params) {
-      result = match.params;
-      return true;
-    }
-
-    return false;
-  });
-
-  return result;
+  return { sitecoreRoute: result.route, lang: result.language };
 }
 
 function parseServerData(data, viewBag) {

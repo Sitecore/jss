@@ -32,10 +32,10 @@
     "@sitecore-jss/sitecore-jss-nextjs": "^21.1.0-canary",
     "graphql": "~15.8.0",
     "graphql-tag": "^2.11.0",
-    "next": "^12.2.5",
+    "next": "^12.3.1",
     "next-localization": "^0.12.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.19.1",

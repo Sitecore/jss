@@ -4,6 +4,7 @@
     ".tsx"
   ],
   "exclude": [
+    "**/index.ts",
     "**/*.d.ts",
     "**/*.test.tsx",
     "**/*.test.ts",

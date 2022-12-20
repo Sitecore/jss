@@ -4,8 +4,16 @@ export { LinkDirective } from './components/link.directive';
 export { RouterLinkDirective } from './components/router-link.directive';
 export { GenericLinkDirective } from './components/generic-link.directive';
 export { PlaceholderComponent } from './components/placeholder.component';
+export {
+  ComponentNameAndType,
+  DYNAMIC_COMPONENT,
+  ComponentNameAndModule,
+  JssResolve,
+  JssCanActivate,
+  JssCanActivateFn,
+  GuardInput,
+} from './components/placeholder.token';
 export { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
-export { ComponentNameAndType, DYNAMIC_COMPONENT } from './components/placeholder.token';
 export { isRawRendering } from './components/rendering';
 export {
   FileField,
