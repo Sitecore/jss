@@ -3,13 +3,12 @@ import {
   DebugElement,
   EventEmitter,
   Input,
-  NgModuleFactoryLoader,
   Output,
 } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { By } from '@angular/platform-browser';
-import { RouterTestingModule, SpyNgModuleFactoryLoader } from '@angular/router/testing';
+import { RouterTestingModule} from '@angular/router/testing';
 
 import { JssModule } from '../lib.module';
 
@@ -81,7 +80,7 @@ describe('<sc-placeholder />', () => {
           { name: 'Jumbotron', type: TestJumbotronComponent },
         ]),
       ],
-      providers: [{ provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader }],
+      providers: [],
     }).compileComponents();
   }));
 
@@ -322,7 +321,7 @@ describe('<sc-placeholder /> with input/output binding', () => {
           { name: 'Child', type: TestChildComponent },
         ]),
       ],
-      providers: [{ provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader }],
+      providers: [],
     });
 
     fixture = TestBed.createComponent(TestParentComponent);

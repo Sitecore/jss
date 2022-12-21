@@ -6,7 +6,7 @@ import {
   Type,
   Compiler,
   NgModuleFactory,
-  NgModuleFactoryLoader,
+  createNgModuleRef,
 } from '@angular/core';
 import { LoadChildren } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
@@ -46,7 +46,6 @@ export class JssComponentFactoryService {
   private lazyComponentMap: Map<string, ComponentNameAndModule>;
 
   constructor(
-    private loader: NgModuleFactoryLoader,
     private injector: Injector,
     private compiler: Compiler,
     @Inject(PLACEHOLDER_COMPONENTS) private components: ComponentNameAndType[],
@@ -77,9 +76,9 @@ export class JssComponentFactoryService {
     const lazyComponent = this.lazyComponentMap.get(component.componentName);
 
     if (lazyComponent) {
-      return this.loadModuleFactory(lazyComponent.loadChildren).then((ngModuleFactory) => {
+      return lazyComponent.loadChildren().then((lazyChild) => {
         let componentType = null;
-        const moduleRef = ngModuleFactory.create(this.injector);
+        const moduleRef = createNgModuleRef(lazyChild, this.injector);
         const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
         if (!dynamicComponentType) {
           throw new Error(
@@ -118,9 +117,6 @@ export class JssComponentFactoryService {
   }
 
   private loadModuleFactory(loadChildren: LoadChildren): Promise<NgModuleFactory<unknown>> {
-    if (typeof loadChildren === 'string') {
-      return this.loader.load(loadChildren);
-    } else {
       return wrapIntoObservable(loadChildren())
         .pipe(
           mergeMap((t: any) => {
@@ -133,7 +129,6 @@ export class JssComponentFactoryService {
           take(1)
         )
         .toPromise();
-    }
   }
 
   getComponents(
