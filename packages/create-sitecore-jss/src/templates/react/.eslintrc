@@ -4,7 +4,6 @@
     "prettier",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:react/recommended",
     "plugin:yaml/recommended",
     "plugin:prettier/recommended"
   ],
@@ -20,7 +19,6 @@
   },
   "plugins": [
     "import",
-    "react",
     "yaml"
   ],
   "settings": {
