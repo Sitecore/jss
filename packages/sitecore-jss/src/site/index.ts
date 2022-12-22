@@ -24,3 +24,5 @@ export {
   GraphQLErrorPagesService,
   GraphQLErrorPagesServiceConfig,
 } from './graphql-error-pages-service';
+
+export { SiteResolver, HostInfo } from './site-resolver';
