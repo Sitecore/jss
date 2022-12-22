@@ -14,9 +14,6 @@ const defaultQuery = /* GraphQL */ `
         hostName: field(name: "Hostname") {
           value
         }
-        virtualFolder: field(name: "VirtualFolder") {
-          value
-        }
         language: field(name: "Language") {
           value
         }
@@ -27,9 +24,17 @@ const defaultQuery = /* GraphQL */ `
 `;
 
 export type SiteInfo = {
+  /**
+   * Site name
+   */
   name: string;
+  /**
+   * Site host name. May include multiple values (separated by '|') and wildcards ('*')
+   */
   hostName: string;
-  virtualFolder: string;
+  /**
+   * Site default language
+   */
   language: string;
 };
 
@@ -53,9 +58,6 @@ type GraphQLSiteInfoResponse = {
 type GraphQLSiteInfoResult = {
   name: string;
   hostName: {
-    value: string;
-  };
-  virtualFolder: {
     value: string;
   };
   language: {
@@ -91,7 +93,6 @@ export class GraphQLSiteInfoService {
       result.push({
         name: current.name,
         hostName: current.hostName.value,
-        virtualFolder: current.virtualFolder.value,
         language: current.language.value,
       });
       return result;
