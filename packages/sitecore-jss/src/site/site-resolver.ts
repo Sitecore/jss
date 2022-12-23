@@ -1,4 +1,10 @@
-import { SiteInfo } from './graphql-siteinfo-service';
+// import { SiteInfo } from './graphql-siteinfo-service';
+
+type SiteInfo = {
+  hostName: string;
+  language?: string;
+  name: string;
+};
 
 /**
  * Information about the current host
@@ -9,19 +15,19 @@ export type HostInfo = {
 };
 
 // Delimiters for multi-value hostnames
-const DELIMITERS = /\|/g;
+const DELIMITERS = /\||,|\;/g;
 
 // Wildcard hostname
 const WILDCARD = '*';
 
 /**
- * Determines site name based on the provided hostname
+ * Determines site name based on the provided host information
  */
 export class SiteResolver {
   /**
-   * Resolve siteName by hostName
-   * @param {HostInfo} hostInfo
-   * @param {SiteInfo[]} sitesInfo
+   * Resolve siteName by host information
+   * @param {HostInfo} hostInfo information about current host
+   * @param {SiteInfo[]} sitesInfo list of available sites
    * @param {string} [fallbackSiteName] siteName to be returned in case siteName is not found
    * @returns {string} siteName
    */
@@ -31,7 +37,7 @@ export class SiteResolver {
     fallbackSiteName = 'website'
   ): string => {
     const siteInfo = sitesInfo.find((info) => {
-      const hostnames = info.hostName.split(DELIMITERS);
+      const hostnames = info.hostName.replace(/\s/g, '').split(DELIMITERS);
 
       const languageMatches =
         info.language === '' || !hostInfo.language || hostInfo.language === info.language;
@@ -43,4 +49,10 @@ export class SiteResolver {
 
     return siteInfo?.name || fallbackSiteName;
   };
+
+  private matchesPattern(hostname: string, pattern: string): boolean {
+    const regExp = new RegExp(pattern.replace(/\./g, '.').replace(/\*/g, '.*'), 'g');
+
+    return !!hostname.match(regExp);
+  }
 }

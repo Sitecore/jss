@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { HostInfo, SiteResolver } from './site-resolver';
 
-describe('SiteResolver', () => {
+describe.only('SiteResolver', () => {
   const hostInfo: HostInfo = {
     hostName: 'foo.com',
   };
@@ -90,14 +90,46 @@ describe('SiteResolver', () => {
       expect(siteName).to.equal('foo');
     });
 
-    it('should return site name when multi-value hostnames are provided', () => {
-      const siteName = SiteResolver.resolve(hostInfoWithLanguage, [
-        { hostName: 'bar.net', language: '', name: 'bar' },
-        { hostName: 'test.com|foo.net|foo.com', language: 'en', name: 'foo' },
-        { hostName: 'var.com', language: '', name: 'var' },
-      ]);
+    describe('should return site name when multi-value hostnames are provided', () => {
+      it('hostname contains whitespaces', () => {
+        const siteName = SiteResolver.resolve(hostInfo, [
+          { hostName: 'bar.net', language: '', name: 'bar' },
+          { hostName: 'test.com | foo.net | foo.com', language: '', name: 'foo' },
+          { hostName: 'var.com', language: '', name: 'var' },
+        ]);
 
-      expect(siteName).to.equal('foo');
+        expect(siteName).to.equal('foo');
+      });
+
+      it('comma delimiter is used', () => {
+        const siteName = SiteResolver.resolve(hostInfoWithLanguage, [
+          { hostName: 'bar.net', language: '', name: 'bar' },
+          { hostName: 'test.com,foo.net,foo.com', language: 'en', name: 'foo' },
+          { hostName: 'var.com', language: '', name: 'var' },
+        ]);
+
+        expect(siteName).to.equal('foo');
+      });
+
+      it('semicolon delimiter is used', () => {
+        const siteName = SiteResolver.resolve(hostInfoWithLanguage, [
+          { hostName: 'bar.net', language: '', name: 'bar' },
+          { hostName: 'test.com;foo.net;foo.com', language: 'en', name: 'foo' },
+          { hostName: 'var.com', language: '', name: 'var' },
+        ]);
+
+        expect(siteName).to.equal('foo');
+      });
+
+      it('pipe delimiter is used', () => {
+        const siteName = SiteResolver.resolve(hostInfoWithLanguage, [
+          { hostName: 'bar.net', language: '', name: 'bar' },
+          { hostName: 'test.com|foo.net|foo.com', language: 'en', name: 'foo' },
+          { hostName: 'var.com', language: '', name: 'var' },
+        ]);
+
+        expect(siteName).to.equal('foo');
+      });
     });
   });
 });
