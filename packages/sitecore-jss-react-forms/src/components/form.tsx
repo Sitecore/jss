@@ -24,7 +24,6 @@ export interface ErrorComponentProps {
 export interface FormProps {
   form: SitecoreForm;
   language?: string;
-  className?: string;
   fieldFactory?: FieldFactory;
   sitecoreApiHost: string;
   sitecoreApiKey: string;
