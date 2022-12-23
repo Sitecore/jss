@@ -9,7 +9,7 @@
     "lint": "eslint ./src/**/*.ts",
     "prepublishOnly": "npm run build",
     "jss": "node ./dist/bin/jss.js",
-    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
+    "test": "mocha --require ts-node/register/transpile-only \"./src/**/*.test.ts\" --exit",
     "coverage": "nyc --require ts-node/register npm test"
   },
   "engines": {
