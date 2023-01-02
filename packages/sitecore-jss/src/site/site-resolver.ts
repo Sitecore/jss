@@ -9,7 +9,7 @@ export type HostInfo = {
 };
 
 // Delimiters for multi-value hostnames
-const DELIMITERS = /\||,|\;/g;
+const DELIMITERS = /\||,|;/g;
 
 /**
  * Determines site name based on the provided host information
