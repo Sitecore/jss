@@ -1,10 +1,4 @@
-// import { SiteInfo } from './graphql-siteinfo-service';
-
-type SiteInfo = {
-  hostName: string;
-  language?: string;
-  name: string;
-};
+import { SiteInfo } from './graphql-siteinfo-service';
 
 /**
  * Information about the current host
