@@ -17,9 +17,6 @@ export type HostInfo = {
 // Delimiters for multi-value hostnames
 const DELIMITERS = /\||,|\;/g;
 
-// Wildcard hostname
-const WILDCARD = '*';
-
 /**
  * Determines site name based on the provided host information
  */
@@ -29,7 +26,7 @@ export class SiteResolver {
    * @param {HostInfo} hostInfo information about current host
    * @param {SiteInfo[]} sitesInfo list of available sites
    * @param {string} [fallbackSiteName] siteName to be returned in case siteName is not found
-   * @returns {string} siteName
+   * @returns {string} siteName resolved site name
    */
   static resolve = (
     hostInfo: HostInfo,
@@ -43,15 +40,22 @@ export class SiteResolver {
         info.language === '' || !hostInfo.language || hostInfo.language === info.language;
 
       return hostnames.some(
-        (value) => languageMatches && (hostInfo.hostName === value || value === WILDCARD)
+        (hostname) =>
+          languageMatches &&
+          (hostInfo.hostName === hostname ||
+            SiteResolver.matchesPattern(hostInfo.hostName, hostname))
       );
     });
 
     return siteInfo?.name || fallbackSiteName;
   };
 
-  private matchesPattern(hostname: string, pattern: string): boolean {
-    const regExp = new RegExp(pattern.replace(/\./g, '.').replace(/\*/g, '.*'), 'g');
+  private static matchesPattern(hostname: string, pattern: string): boolean {
+    // dots should be treated as chars
+    // stars should be treated as wildcards
+    const regExpPattern = pattern.replace(/\./g, '\\.').replace(/\*/g, '.*');
+
+    const regExp = new RegExp(`^${regExpPattern}$`, 'g');
 
     return !!hostname.match(regExp);
   }

@@ -58,6 +58,17 @@ describe.only('SiteResolver', () => {
       expect(siteName).to.equal('foo');
     });
 
+    it('should return site name when hostname includes wildcard', () => {
+      const siteName = SiteResolver.resolve(hostInfo, [
+        { hostName: 'var.com', language: 'da-DK', name: 'var' },
+        { hostName: 'bar.net', language: 'en', name: 'bar' },
+        { hostName: '*.com', language: '', name: 'foo' },
+        { hostName: 'foo.com', language: 'en', name: 'foo-en' },
+      ]);
+
+      expect(siteName).to.equal('foo');
+    });
+
     it('should return site name when wildcard is provided', () => {
       const siteName = SiteResolver.resolve(hostInfo, [
         { hostName: 'bar.net', language: '', name: 'bar' },
@@ -91,10 +102,26 @@ describe.only('SiteResolver', () => {
     });
 
     describe('should return site name when multi-value hostnames are provided', () => {
+      it('hostnames include wildcard characters', () => {
+        expect(
+          SiteResolver.resolve({ hostName: 'test.foo.bar.com' }, [
+            { hostName: '*.bat.com|foo.bar.com', language: '', name: 'bar' },
+            { hostName: 'test.com|*.foo.*.com|foo.com', language: '', name: 'foo' },
+          ])
+        ).to.equal('foo');
+
+        expect(
+          SiteResolver.resolve({ hostName: 'xfoo.bar.com.en' }, [
+            { hostName: 'foo.bar.com', language: '', name: 'bar' },
+            { hostName: 'test.com|*foo.*.com*|foo.com', language: '', name: 'foo' },
+          ])
+        ).to.equal('foo');
+      });
+
       it('hostname contains whitespaces', () => {
         const siteName = SiteResolver.resolve(hostInfo, [
           { hostName: 'bar.net', language: '', name: 'bar' },
-          { hostName: 'test.com | foo.net | foo.com', language: '', name: 'foo' },
+          { hostName: 'test.com; foo.net | foo.com', language: '', name: 'foo' },
           { hostName: 'var.com', language: '', name: 'var' },
         ]);
 
