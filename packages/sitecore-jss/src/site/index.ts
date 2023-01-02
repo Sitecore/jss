@@ -24,3 +24,5 @@ export {
   GraphQLErrorPagesService,
   GraphQLErrorPagesServiceConfig,
 } from './graphql-error-pages-service';
+
+export { getSiteRewrite, getSiteRewriteData, normalizeSiteRewrite, SiteRewriteData } from './utils';
