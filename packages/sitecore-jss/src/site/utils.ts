@@ -22,7 +22,7 @@ export function getSiteRewrite(pathname: string, data: SiteRewriteData): string 
  * @param {string} defaultSiteName the default site name
  * @returns {SiteRewriteData} the site data from the rewrite
  */
-export function getSiteRewriteData(pathname: string, defaultSiteName: string) {
+export function getSiteRewriteData(pathname: string, defaultSiteName: string): SiteRewriteData {
   const data: SiteRewriteData = {
     siteName: defaultSiteName,
   };
