@@ -1,8 +1,12 @@
 import 'dotenv/config';
 import chalk from 'chalk';
 import { constants } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ConfigPlugin, JssConfig } from '../../../../nextjs/scripts/config';
+import { ConfigPlugin, JssConfig } from '..';
 
+/**
+ * This plugin will override the "sitecoreApiHost" config prop
+ * for disconnected mode (using disconnected server).
+ */
 class DisconnectedPlugin implements ConfigPlugin {
   order = 4;
 

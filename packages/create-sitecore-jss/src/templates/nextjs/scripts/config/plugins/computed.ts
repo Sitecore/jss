@@ -1,12 +1,15 @@
 import { ConfigPlugin, JssConfig } from '..';
 
+/**
+ * This plugin will set computed config props.
+ * The "graphQLEndpoint" is an example of making a _computed_ config setting
+ * based on other config settings.
+ */
 class ComputedPlugin implements ConfigPlugin {
   order = 3;
 
   async exec(config: JssConfig) {
     return Object.assign({}, config, {
-      // The GraphQL endpoint is an example of making a _computed_ config setting
-      // based on other config settings.
       graphQLEndpoint: `${config.sitecoreApiHost}${config.graphQLEndpointPath}`,
     });
   }

@@ -19,7 +19,7 @@ generateConfig(defaultConfig);
 
 /**
  * Generates the JSS config based on config plugins (under ./config/plugins)
- * and then write the config to disk.
+ * and then writes the config to disk.
  * @param {JssConfig} defaultConfig Default configuration.
  */
 function generateConfig(defaultConfig: JssConfig): void {

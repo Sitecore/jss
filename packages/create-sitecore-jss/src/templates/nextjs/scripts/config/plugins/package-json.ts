@@ -1,6 +1,9 @@
 import { ConfigPlugin, JssConfig } from '..';
 import packageConfig from 'package.json';
 
+/**
+ * This plugin will set config props based on package.json.
+ */
 class PackageJsonPlugin implements ConfigPlugin {
   order = 2;
 

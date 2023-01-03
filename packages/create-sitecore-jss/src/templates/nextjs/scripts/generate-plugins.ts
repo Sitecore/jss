@@ -32,7 +32,7 @@ interface PluginFile {
 
 const pluginDefinitions = [
   {
-    listPath: 'src/temp/config-plugins.ts',
+    listPath: 'scripts/temp/config-plugins.ts',
     rootPath: 'scripts/config/plugins',
     moduleType: ModuleType.ESM,
   },
