@@ -5,7 +5,7 @@ import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { SitecorePageProps } from 'lib/page-props';
 import config from 'temp/config';
 import { Plugin, isServerSidePropsContext } from '..';
-import { extractPath } from '../extract-path';
+import { pathExtractor } from '../../extract-path';
 
 class NormalModePlugin implements Plugin {
   private dictionaryService: DictionaryService;
@@ -25,7 +25,7 @@ class NormalModePlugin implements Plugin {
      * Normal mode
      */
     // Get normalized Sitecore item path
-    const path = extractPath(context.params);
+    const path = pathExtractor.extract(context.params);
 
     // Use context locale if Next.js i18n is configured, otherwise use default language
     props.locale = context.locale ?? config.defaultLanguage;
