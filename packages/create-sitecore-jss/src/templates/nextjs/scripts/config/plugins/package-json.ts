@@ -5,7 +5,7 @@ import packageConfig from 'package.json';
  * This plugin will set config props based on package.json.
  */
 class PackageJsonPlugin implements ConfigPlugin {
-  order = 2;
+  order = 1;
 
   async exec(config: JssConfig) {
     if (!packageConfig.config) return config;

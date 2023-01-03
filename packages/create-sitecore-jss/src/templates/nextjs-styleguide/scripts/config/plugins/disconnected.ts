@@ -8,7 +8,7 @@ import { ConfigPlugin, JssConfig } from '..';
  * for disconnected mode (using disconnected server).
  */
 class DisconnectedPlugin implements ConfigPlugin {
-  order = 4;
+  order = 3;
 
   async exec(config: JssConfig) {
     const disconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
