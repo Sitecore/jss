@@ -26,3 +26,4 @@ export {
 } from './graphql-error-pages-service';
 
 export { getSiteRewrite, getSiteRewriteData, normalizeSiteRewrite, SiteRewriteData } from './utils';
+export { SiteResolver, HostInfo } from './site-resolver';
