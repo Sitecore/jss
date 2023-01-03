@@ -13,6 +13,8 @@ const defaultConfig: JssConfig = {
   sitecoreApiKey: 'no-api-key-set',
   sitecoreApiHost: '',
   jssAppName: 'Unknown',
+  graphQLEndpointPath: '',
+  defaultLanguage: 'en',
 };
 
 generateConfig(defaultConfig);
