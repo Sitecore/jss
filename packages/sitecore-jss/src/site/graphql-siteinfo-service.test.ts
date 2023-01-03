@@ -14,9 +14,6 @@ describe('GraphQLSiteInfoService', () => {
             hostName: {
               value: 'restricted.gov',
             },
-            virtualFolder: {
-              value: '/aliens',
-            },
             language: {
               value: 'en',
             },
@@ -25,9 +22,6 @@ describe('GraphQLSiteInfoService', () => {
             name: 'public',
             hostName: {
               value: 'pr.showercurtains.org',
-            },
-            virtualFolder: {
-              value: '/we-are-open',
             },
             language: {
               value: '',
@@ -63,13 +57,11 @@ describe('GraphQLSiteInfoService', () => {
       {
         name: 'site 51',
         hostName: 'restricted.gov',
-        virtualFolder: '/aliens',
         language: 'en',
       },
       {
         name: 'public',
         hostName: 'pr.showercurtains.org',
-        virtualFolder: '/we-are-open',
         language: '',
       },
     ]);
@@ -108,13 +100,11 @@ describe('GraphQLSiteInfoService', () => {
       {
         name: 'site 51',
         hostName: 'restricted.gov',
-        virtualFolder: '/aliens',
         language: 'en',
       },
       {
         name: 'public',
         hostName: 'pr.showercurtains.org',
-        virtualFolder: '/we-are-open',
         language: '',
       },
     ]);

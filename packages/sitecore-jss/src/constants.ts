@@ -16,6 +16,4 @@ export const JSS_MODE = {
   DISCONNECTED: 'disconnected',
 };
 
-export const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
-
 export const siteNameError = 'The siteName cannot be empty';
