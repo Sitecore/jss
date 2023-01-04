@@ -1,8 +1,7 @@
 import { AxiosResponse } from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import config from 'temp/config';
-import { AxiosDataFetcher, GraphQLSitemapXmlService } from '@sitecore-jss/sitecore-jss-nextjs';
-import { SiteResolver } from '@sitecore-jss/sitecore-jss'
+import { AxiosDataFetcher, GraphQLSitemapXmlService, SiteResolver } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const ABSOLUTE_URL_REGEXP = '^(?:[a-z]+:)?//';
 

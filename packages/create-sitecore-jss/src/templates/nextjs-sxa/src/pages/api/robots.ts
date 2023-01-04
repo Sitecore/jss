@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import config from 'temp/config';
-import { GraphQLRobotsService } from '@sitecore-jss/sitecore-jss-nextjs';
-import { SiteResolver } from '@sitecore-jss/sitecore-jss'
+import { GraphQLRobotsService, SiteResolver } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const robotsApi = async (_req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   // Ensure response is text/html

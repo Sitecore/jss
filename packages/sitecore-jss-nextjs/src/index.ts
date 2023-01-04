@@ -64,6 +64,7 @@ export {
   RobotsQueryResult,
   GraphQLRobotsService,
   GraphQLRobotsServiceConfig,
+  SiteResolver,
 } from '@sitecore-jss/sitecore-jss/site';
 export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
