@@ -1,47 +1,28 @@
 import { SiteInfo } from './graphql-siteinfo-service';
 
-/**
- * Information about the current host
- */
-export type HostInfo = {
-  hostName: string;
-  language?: string;
-};
-
 // Delimiters for multi-value hostnames
 const DELIMITERS = /\||,|;/g;
 
 /**
- * Determines site name based on the provided host information
+ * Determines site based on the provided host name
  */
 export class SiteResolver {
   /**
-   * Resolve siteName by host information
-   * @param {HostInfo} hostInfo information about current host
-   * @param {SiteInfo[]} sitesInfo list of available sites
-   * @param {string} [fallbackSiteName] siteName to be returned in case siteName is not found
-   * @returns {string} siteName resolved site name
+   * Resolve site by host name
+   * @param {string} hostName the host name
+   * @param {SiteInfo[]} sites the list of available sites
+   * @returns {SiteInfo} the resolved site
    */
-  static resolve = (
-    hostInfo: HostInfo,
-    sitesInfo: SiteInfo[],
-    fallbackSiteName = 'website'
-  ): string => {
-    const siteInfo = sitesInfo.find((info) => {
+  static resolve = (hostName: string, sites: SiteInfo[]): SiteInfo | undefined => {
+    const siteInfo = sites.find((info) => {
       const hostnames = info.hostName.replace(/\s/g, '').split(DELIMITERS);
 
-      const languageMatches =
-        info.language === '' || !hostInfo.language || hostInfo.language === info.language;
-
       return hostnames.some(
-        (hostname) =>
-          languageMatches &&
-          (hostInfo.hostName === hostname ||
-            SiteResolver.matchesPattern(hostInfo.hostName, hostname))
+        (hostname) => hostName === hostname || SiteResolver.matchesPattern(hostName, hostname)
       );
     });
 
-    return siteInfo?.name || fallbackSiteName;
+    return siteInfo;
   };
 
   private static matchesPattern(hostname: string, pattern: string): boolean {
