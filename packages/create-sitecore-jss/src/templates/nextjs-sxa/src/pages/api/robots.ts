@@ -6,20 +6,20 @@ const robotsApi = async (req: NextApiRequest, res: NextApiResponse): Promise<voi
   // Ensure response is text/html
   res.setHeader('Content-Type', 'text/html;charset=utf-8');
 
-  const hostDetails = {
-    hostName: req.headers['host']?.split(':')[0] || 'localhost',
-    language: req.headers['language']?.toString() || 'en',
-  };
+  // Resolve site based on hostname"
+  const hostName = req.headers['host']?.split(':')[0] || 'localhost';
 
-  const siteDetails = JSON.parse(config.sites);
+  // Site information fetched directly from Sitecore.
+  const sites = JSON.parse(config.sites);
 
-  const siteName = await SiteResolver.resolve(hostDetails,siteDetails, config.jssAppName);
+  // Resolve site name based on host information
+  const siteName = await SiteResolver.resolve(hostName, sites);
 
   // create robots graphql service
   const robotsService = new GraphQLRobotsService({
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
-    siteName: siteName,
+    siteName: siteName || config.jssAppName,
   });
 
   const robotsResult = await robotsService.fetchRobots();

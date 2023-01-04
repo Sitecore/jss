@@ -13,20 +13,20 @@ const sitemapApi = async (
     query: { id },
   } = req;
 
-  const hostDetails = {
-    hostName: req.headers['host']?.split(':')[0] || 'localhost',
-    language: req.headers['language']?.toString() || 'en',
-  };
+  // Resolve site based on hostname"
+  const hostName = req.headers['host']?.split(':')[0] || 'localhost';
 
-  const siteDetails = JSON.parse(config.sites);
+  // Sites information fetched directly from Sitecore.
+  const sites = JSON.parse(config.sites);
 
-  const siteName = await SiteResolver.resolve(hostDetails, siteDetails, config.jssAppName);
+  // Resolve site name based on host information
+  const siteName = await SiteResolver.resolve(hostName, sites);
 
   // create sitemap graphql service
   const sitemapXmlService = new GraphQLSitemapXmlService({
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
-    siteName:  siteName,
+    siteName: siteName || config.jssAppName,
   });
 
   // if url has sitemap-{n}.xml type. The id - can be null if it's sitemap.xml request
