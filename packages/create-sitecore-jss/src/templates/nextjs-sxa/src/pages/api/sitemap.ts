@@ -18,13 +18,15 @@ const sitemapApi = async (
     language: req.headers['language']?.toString() || 'en',
   };
 
-  const siteName = await SiteResolver.resolve(hostDetails, config.jssAppName);
+  const siteDetails = JSON.parse(config.sites);
+
+  const siteName = await SiteResolver.resolve(hostDetails, siteDetails, config.jssAppName);
 
   // create sitemap graphql service
   const sitemapXmlService = new GraphQLSitemapXmlService({
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
-    siteName:  siteName || config.jssAppName,
+    siteName:  siteName,
   });
 
   // if url has sitemap-{n}.xml type. The id - can be null if it's sitemap.xml request
