@@ -1,16 +1,24 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import config from 'temp/config';
 import { GraphQLRobotsService } from '@sitecore-jss/sitecore-jss-nextjs';
+import { SiteResolver } from '@sitecore-jss/sitecore-jss'
 
 const robotsApi = async (_req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   // Ensure response is text/html
   res.setHeader('Content-Type', 'text/html;charset=utf-8');
 
+  const hostDetails = {
+    hostName: _req.headers['host']?.split(':')[0] || 'localhost',
+    language: _req.headers['language']?.toString() || 'en',
+  };
+
+  const siteName = await SiteResolver.resolve(hostDetails, config.jssAppName);
+
   // create robots graphql service
   const robotsService = new GraphQLRobotsService({
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
-    siteName: config.jssAppName,
+    siteName: siteName || config.jssAppName,
   });
 
   const robotsResult = await robotsService.fetchRobots();
