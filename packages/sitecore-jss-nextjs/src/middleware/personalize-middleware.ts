@@ -151,6 +151,8 @@ export class PersonalizeMiddleware {
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
+    // Cookie for multisite support
+    const siteName = req.cookies.get('sc_site');
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
@@ -180,7 +182,11 @@ export class PersonalizeMiddleware {
     }
 
     // Get personalization info from Experience Edge
-    const personalizeInfo = await this.personalizeService.getPersonalizeInfo(pathname, language);
+    const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
+      pathname,
+      language,
+      siteName
+    );
 
     if (!personalizeInfo) {
       // Likely an invalid route / language

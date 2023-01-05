@@ -9,16 +9,16 @@ const DELIMITERS = /\||,|;/g;
 export class SiteResolver {
   /**
    * Resolve site by host name
-   * @param {string} hostName the host name
+   * @param {string} hostname the host name
    * @param {SiteInfo[]} sites the list of available sites
    * @returns {SiteInfo} the resolved site
    */
-  static resolve = (hostName: string, sites: SiteInfo[]): SiteInfo | undefined => {
+  static resolve = (hostname: string, sites: SiteInfo[]): SiteInfo | undefined => {
     const siteInfo = sites.find((info) => {
       const hostnames = info.hostName.replace(/\s/g, '').split(DELIMITERS);
 
       return hostnames.some(
-        (hostname) => hostName === hostname || SiteResolver.matchesPattern(hostName, hostname)
+        (hostName) => hostName === hostname || SiteResolver.matchesPattern(hostname, hostName)
       );
     });
 

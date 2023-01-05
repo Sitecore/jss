@@ -91,6 +91,7 @@ export {
   GraphQLErrorPagesServiceConfig,
   ErrorPages,
   SiteInfo,
+  SiteResolver,
   GraphQLSiteInfoService,
   GraphQLSiteInfoServiceConfig,
 } from '@sitecore-jss/sitecore-jss/site';

@@ -121,7 +121,9 @@ export class RedirectsMiddleware {
    * @private
    */
   private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
-    const redirects = await this.redirectsService.fetchRedirects();
+    // Cookie for multisite support
+    const siteName = req.cookies.get('sc_site');
+    const redirects = await this.redirectsService.fetchRedirects(siteName);
 
     return redirects.length
       ? redirects.find((redirect: RedirectInfo) => {

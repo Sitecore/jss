@@ -80,11 +80,12 @@ export class GraphQLRedirectsService {
 
   /**
    * Fetch an array of redirects from API
+   * @param {string} [dynamicSiteName] dynamic site name
    * @returns Promise<RedirectInfo[]>
    * @throws {Error} if the siteName is empty.
    */
-  async fetchRedirects(): Promise<RedirectInfo[]> {
-    const siteName: string = this.options.siteName;
+  async fetchRedirects(dynamicSiteName?: string): Promise<RedirectInfo[]> {
+    const siteName: string = dynamicSiteName || this.options.siteName;
 
     if (!siteName) {
       throw new Error(siteNameError);

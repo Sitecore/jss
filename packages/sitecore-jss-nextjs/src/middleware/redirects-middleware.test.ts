@@ -24,6 +24,12 @@ describe('RedirectsMiddleware', () => {
         },
         ...props?.nextUrl,
       },
+      cookies: {
+        get(key: string) {
+          return req.cookies[key];
+        },
+        ...props.cookies,
+      },
       referrer,
     } as NextRequest;
 
@@ -293,6 +299,37 @@ describe('RedirectsMiddleware', () => {
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
+      });
+
+      it('should use sc_site cookie', async () => {
+        const dynamicSiteName = 'foo';
+        const res = NextResponse.redirect('http://localhost:3000/found', 301);
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+          cookies: {
+            sc_site: dynamicSiteName,
+          },
+        });
+
+        const { middleware, fetchRedirects } = createMiddleware({
+          pattern: 'not-found',
+          target: 'http://localhost:3000/found',
+          redirectType: 'REDIRECT_301',
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req);
+
+        expect(fetchRedirects).to.be.calledWith(dynamicSiteName);
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
       });
     });
   });

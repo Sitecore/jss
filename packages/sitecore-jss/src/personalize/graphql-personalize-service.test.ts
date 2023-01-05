@@ -1,5 +1,5 @@
 ﻿/* eslint-disable dot-notation */
-import { expect, use } from 'chai';
+import { expect, use, spy } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
 import { GraphQLPersonalizeService } from './graphql-personalize-service';
@@ -225,5 +225,43 @@ describe('GraphQLPersonalizeService', () => {
     await cacheNonUpdate;
 
     await cacheUpdate;
+  });
+
+  it('dynamic site name is used', async () => {
+    mockNonEmptyResponse();
+
+    const siteName = 'foo';
+    const itemPath = '/sitecore/content/home';
+    const lang = 'en';
+
+    const service = new GraphQLPersonalizeService({
+      ...config,
+    });
+
+    const requestSpy = spy.on(service['graphQLClient'], 'request');
+    const getCacheKeySpy = spy.on(service, 'getCacheKey');
+
+    const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
+
+    expect(requestSpy).to.have.been.called.with(service['query'], {
+      siteName,
+      itemPath,
+      language: lang,
+    });
+
+    expect(getCacheKeySpy).to.have.been.called.with(itemPath, lang, siteName);
+
+    expect(firstResult).to.deep.equal({
+      contentId: `embedded_${id}_en`.toLowerCase(),
+      variantIds,
+    });
+
+    mockEmptyResponse();
+
+    const secondResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
+
+    expect(secondResult).to.deep.equal(firstResult);
+
+    spy.restore(service);
   });
 });

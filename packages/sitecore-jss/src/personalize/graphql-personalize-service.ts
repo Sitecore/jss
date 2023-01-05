@@ -77,26 +77,25 @@ export class GraphQLPersonalizeService {
    * Get personalize information for a route
    * @param {string} itemPath page route
    * @param {string} language language
+   * @param {string} [dynamicSiteName] dynamic site name
    * @returns {Promise<PersonalizeInfo | undefined>} the personalize information or undefined (if itemPath / language not found)
    */
   async getPersonalizeInfo(
     itemPath: string,
-    language: string
+    language: string,
+    dynamicSiteName?: string
   ): Promise<PersonalizeInfo | undefined> {
-    debug.personalize(
-      'fetching personalize info for %s %s %s',
-      this.config.siteName,
-      itemPath,
-      language
-    );
+    const siteName = dynamicSiteName || this.config.siteName;
 
-    const cacheKey = this.getCacheKey(itemPath, language);
+    debug.personalize('fetching personalize info for %s %s %s', siteName, itemPath, language);
+
+    const cacheKey = this.getCacheKey(itemPath, language, siteName);
     let data = this.cache.getCacheValue(cacheKey);
 
     if (!data) {
       try {
         data = await this.graphQLClient.request<PersonalizeQueryResult>(this.query, {
-          siteName: this.config.siteName,
+          siteName,
           itemPath,
           language,
         });
@@ -130,8 +129,8 @@ export class GraphQLPersonalizeService {
     });
   }
 
-  protected getCacheKey(itemPath: string, language: string) {
-    return `${this.config.siteName}-${itemPath}-${language}`;
+  protected getCacheKey(itemPath: string, language: string, siteName: string) {
+    return `${siteName}-${itemPath}-${language}`;
   }
 
   /**
