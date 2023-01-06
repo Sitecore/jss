@@ -7,7 +7,7 @@ class SitePlugin implements Plugin {
   order = 0;
 
   async exec(props: SitecorePageProps) {
-    // Resolve site by default name
+    // Resolve site by name
     props.site = siteResolver.getByName(config.jssAppName);
 
     return props;

@@ -6,7 +6,14 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 
+/**
+ * Factory responsible for creating a DictionaryService instance
+ */
 export class DictionaryServiceFactory {
+  /**
+   * @param {string} siteName site name
+   * @returns {DictionaryService} service instance
+   */
   create(siteName: string): DictionaryService {
     return process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL
       ? new GraphQLDictionaryService({
@@ -28,4 +35,5 @@ export class DictionaryServiceFactory {
   }
 }
 
+/** DictionaryServiceFactory singleton */
 export const dictionaryServiceFactory = new DictionaryServiceFactory();
