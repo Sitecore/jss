@@ -12,9 +12,6 @@ import {
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering, HIDDEN_RENDERING_NAME } from './HiddenRendering';
 
-/** [SXA] common marker by which we find container fo replacing **/
-const PREFIX_PLACEHOLDER = 'container-{*}';
-
 type ErrorComponentProps = {
   [prop: string]: unknown;
 };
@@ -121,10 +118,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
   ) {
     let result;
     /** [SXA] it needs for deleting dynamics placeholder when we set him number(props.name) of container.
-    from backend side we get common name of placeholder is called 'container-{*}' where '{*}' marker for replacing **/
-    if (rendering && rendering.placeholders && rendering.placeholders[PREFIX_PLACEHOLDER]) {
-      rendering.placeholders[name] = rendering.placeholders[PREFIX_PLACEHOLDER];
-      delete rendering.placeholders[PREFIX_PLACEHOLDER];
+    from backend side we get common name of placeholder is called 'nameOfContainer-{*}' where '{*}' marker for replacing **/
+    if (rendering?.placeholders) {
+      Object.keys(rendering.placeholders).forEach((placeholder) => {
+        if (placeholder.indexOf('{*}') !== -1) {
+          rendering.placeholders[name] = rendering.placeholders[placeholder];
+          delete rendering.placeholders[placeholder];
+        }
+      });
     }
 
     if (rendering && rendering.placeholders && Object.keys(rendering.placeholders).length > 0) {
