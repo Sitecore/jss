@@ -244,6 +244,9 @@ export class PersonalizeMiddleware {
     // See https://github.com/vercel/next.js/issues/32727
     response.headers.set('x-middleware-cache', 'no-cache');
 
+    // Share rewritten path with the following executed middlewares
+    response.cookies.set('sc_path', rewritePath);
+
     // Set browserId cookie on the response
     this.setBrowserId(response, browserId);
 
@@ -251,6 +254,7 @@ export class PersonalizeMiddleware {
       rewritePath,
       browserId,
       headers: this.extractDebugHeaders(response.headers),
+      cookies: response.cookies,
     });
 
     return response;

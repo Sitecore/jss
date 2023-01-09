@@ -102,7 +102,7 @@ export class MultisiteMiddleware {
 
     response = NextResponse.rewrite(rewriteUrl);
 
-    // Share site name and rewritten path with the following middlewares
+    // Share rewritten path with the following executed middlewares
     response.cookies.set('sc_site', siteName);
     response.cookies.set('sc_path', rewritePath);
 
