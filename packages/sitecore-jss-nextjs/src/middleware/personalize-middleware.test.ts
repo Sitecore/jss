@@ -849,6 +849,55 @@ describe('PersonalizeMiddleware', () => {
       getCookiesSpy.restore();
       nextRewriteStub.restore();
     });
+
+    it('sc_path cookie is provided', async () => {
+      const req = createRequest({
+        cookieValues: {
+          'BID_cdp-client-key': 'browser-id',
+          sc_site: 'foo',
+          sc_path: '/_site_nextjs-app/styleguide',
+        },
+      });
+
+      const res = createResponse();
+
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+        variantId: 'variant-2',
+      });
+
+      const getCookiesSpy = spy(req.cookies, 'get');
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('personalize middleware start: %o', {
+        pathname: '/styleguide',
+        language: 'en',
+      });
+
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en', 'foo')).to.be.true;
+
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
+
+      validateDebugLog('personalize middleware end: %o', {
+        rewritePath: '/_variantId_variant-2/_site_nextjs-app/styleguide',
+        browserId: 'browser-id',
+        headers: {
+          'x-middleware-cache': 'no-cache',
+        },
+      });
+
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
+
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
+
+      getCookiesSpy.restore();
+      nextRewriteStub.restore();
+    });
   });
 
   describe('error handling', () => {

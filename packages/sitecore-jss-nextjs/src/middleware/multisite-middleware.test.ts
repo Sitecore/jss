@@ -167,6 +167,7 @@ describe('MultisiteMiddleware', () => {
         headers: {},
         cookies: {
           ...res.cookies,
+          sc_path: '/_site_foo/styleguide',
           sc_site: 'foo',
         },
       });
@@ -205,6 +206,7 @@ describe('MultisiteMiddleware', () => {
         headers: {},
         cookies: {
           ...res.cookies,
+          sc_path: '/_site_foo/styleguide',
           sc_site: 'foo',
         },
       });
@@ -243,6 +245,7 @@ describe('MultisiteMiddleware', () => {
         headers: {},
         cookies: {
           ...res.cookies,
+          sc_path: '/_site_foo/styleguide',
           sc_site: 'foo',
         },
       });

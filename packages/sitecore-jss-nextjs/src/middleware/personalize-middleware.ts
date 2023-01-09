@@ -230,8 +230,11 @@ export class PersonalizeMiddleware {
       return response;
     }
 
+    // Path is rewritten by previous middleware
+    const basePath = req.cookies.get('sc_path') || pathname;
+
     // Rewrite to persononalized path
-    const rewritePath = getPersonalizedRewrite(pathname, { variantId });
+    const rewritePath = getPersonalizedRewrite(basePath, { variantId });
     // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
     const rewriteUrl = req.nextUrl.clone();
     rewriteUrl.pathname = rewritePath;
