@@ -536,11 +536,6 @@ describe('PersonalizeMiddleware', () => {
         headers: {
           'x-middleware-cache': 'no-cache',
         },
-        cookies: {
-          ...res.cookies,
-          'BID_cdp-client-key': 'browser-id',
-          sc_path: '/_variantId_variant-2/styleguide',
-        },
       });
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
@@ -596,11 +591,6 @@ describe('PersonalizeMiddleware', () => {
         headers: {
           'x-middleware-cache': 'no-cache',
         },
-        cookies: {
-          ...res.cookies,
-          'BID_cdp-client-key': 'browser-id',
-          sc_path: '/_variantId_variant-2/styleguide',
-        },
       });
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
@@ -655,11 +645,6 @@ describe('PersonalizeMiddleware', () => {
         headers: {
           'x-middleware-cache': 'no-cache',
         },
-        cookies: {
-          ...res.cookies,
-          'BID_cdp-client-key': 'browser-id',
-          sc_path: '/_variantId_variant-2/styleguide',
-        },
       });
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
@@ -708,11 +693,6 @@ describe('PersonalizeMiddleware', () => {
         headers: {
           'x-middleware-cache': 'no-cache',
         },
-        cookies: {
-          ...res.cookies,
-          'BID_cdp-client-key': 'browser-id',
-          sc_path: '/_variantId_variant-2/styleguide',
-        },
       });
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
@@ -755,11 +735,6 @@ describe('PersonalizeMiddleware', () => {
         browserId: 'browser-id',
         headers: {
           'x-middleware-cache': 'no-cache',
-        },
-        cookies: {
-          ...res.cookies,
-          'BID_cdp-client-key': 'browser-id',
-          sc_path: '/_variantId_variant-2/styleguide',
         },
       });
 
@@ -815,11 +790,6 @@ describe('PersonalizeMiddleware', () => {
         headers: {
           'x-middleware-cache': 'no-cache',
         },
-        cookies: {
-          ...res.cookies,
-          'BID_cdp-client-key': 'browser-id',
-          sc_path: '/_variantId_variant-2/styleguide',
-        },
       });
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
@@ -867,11 +837,6 @@ describe('PersonalizeMiddleware', () => {
         browserId: 'browser-id',
         headers: {
           'x-middleware-cache': 'no-cache',
-        },
-        cookies: {
-          ...res.cookies,
-          'BID_cdp-client-key': 'browser-id',
-          sc_path: '/_variantId_variant-2/styleguide',
         },
       });
 
@@ -921,11 +886,6 @@ describe('PersonalizeMiddleware', () => {
         browserId: 'browser-id',
         headers: {
           'x-middleware-cache': 'no-cache',
-        },
-        cookies: {
-          ...res.cookies,
-          'BID_cdp-client-key': 'browser-id',
-          sc_path: '/_variantId_variant-2/_site_nextjs-app/styleguide',
         },
       });
 
