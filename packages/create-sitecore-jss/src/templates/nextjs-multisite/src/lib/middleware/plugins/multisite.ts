@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import chalk from 'chalk';
-import { MultisiteMiddleware, SiteResolver } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { MultisiteMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { siteResolver } from 'lib/site-resolver';
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
 
@@ -25,7 +26,7 @@ class MultisitePlugin implements MiddlewarePlugin {
       // This is an important performance consideration since Next.js Edge middleware runs on every request.
       excludeRoute: () => false,
       // This function resolves site name based on hostname and sites information
-      getSiteName: SiteResolver.resolve,
+      getSite: siteResolver.getByHost,
       // Site configuration list
       sites: this.getSites(),
     });
