@@ -90,7 +90,7 @@ export class MultisiteMiddleware {
 
     const { name: siteName } = this.config.getSite(hostname);
 
-    // Rewrite to persononalized path
+    // Rewrite to site specific path
     const rewritePath = getSiteRewrite(pathname, {
       siteName,
     });
