@@ -1,7 +1,8 @@
 import { AxiosResponse } from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import config from 'temp/config';
 import { AxiosDataFetcher, GraphQLSitemapXmlService } from '@sitecore-jss/sitecore-jss-nextjs';
+import { siteResolver } from 'lib/site-resolver';
+import config from 'temp/config';
 
 const ABSOLUTE_URL_REGEXP = '^(?:[a-z]+:)?//';
 
@@ -12,11 +13,16 @@ const sitemapApi = async (
   const {
     query: { id },
   } = req;
+
+  // Resolve site based on hostname
+  const hostName = req.headers['host']?.split(':')[0] || 'localhost';
+  const site = siteResolver.getByHost(hostName);
+
   // create sitemap graphql service
   const sitemapXmlService = new GraphQLSitemapXmlService({
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
-    siteName: config.jssAppName,
+    siteName: site.name,
   });
 
   // if url has sitemap-{n}.xml type. The id - can be null if it's sitemap.xml request
