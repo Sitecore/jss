@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideSection, { StyleguideSectionProps as Props } from './Styleguide-Section';
-import { StorybookArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
+import { StorybookArgs, StorybookEditingArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
 import { SingleLine, MultiLine } from '../fields/Styleguide-FieldUsage-Text.stories';
 import StyleguideFieldUsageText from './../fields/Styleguide-FieldUsage-Text';
 
@@ -31,7 +31,7 @@ Default.args = withFields<Args, Props>({
     componentName: 'Styleguide-Section',
     dataSource: '{00000000-0000-0000-0000-000000000000}',
     placeholders: {
-      '<%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section': [
+      'NextjsApp-jss-styleguide-section': [
         {
           uid: '1846c499-afa7-56c4-bade-e3880eac0134',
           componentName: 'Styleguide-FieldUsage-Text',
@@ -53,3 +53,42 @@ Default.args = withFields<Args, Props>({
 });
 
 Default.decorators = [withSitecoreContext({ componentFactory })];
+
+type EditingArgs = StorybookEditingArgs<Props, 'heading'>;
+
+export const Editing = Template.bind({});
+Editing.args = withFields<EditingArgs, Props>({
+  params: {
+    name: 'Styleguide-ComponentParams Editing',
+  },
+  rendering: {
+    uid: '{00000000-0000-0000-0000-000000000000}',
+    componentName: 'Styleguide-Section',
+    dataSource: '{00000000-0000-0000-0000-000000000000}',
+    placeholders: {
+      'NextjsApp-jss-styleguide-section': [
+        {
+          uid: '1846c499-afa7-56c4-bade-e3880eac0134',
+          componentName: 'Styleguide-FieldUsage-Text',
+          dataSource: '{6E81D12B-6E44-5CD9-919A-6707B6723FEC}',
+          fields: SingleLine.args?.fields,
+        },
+        {
+          uid: '1846c499-afa7-56c4-bade-e3880eac0134',
+          componentName: 'Styleguide-FieldUsage-Text',
+          dataSource: '{6E81D12B-6E44-5CD9-919A-6707B6723FEC}',
+          fields: MultiLine.args?.fields,
+        },
+      ],
+    },
+  },
+  fields: {
+    heading: {
+    value: '',
+    editable: '<span class="jss-border">Content Data Editing</span>'
+    }
+  },
+}, true
+);
+
+Editing.decorators = [withSitecoreContext({ componentFactory })];

@@ -45,7 +45,7 @@ export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>(
   {
     params: {
-      name: 'Styleguide-Layout-Tabs-Tab',
+      name: 'Styleguide-Layout-Tabs-Tab-Editing',
     },
     rendering: {
       uid: '{00000000-0000-0000-0000-000000000000}',

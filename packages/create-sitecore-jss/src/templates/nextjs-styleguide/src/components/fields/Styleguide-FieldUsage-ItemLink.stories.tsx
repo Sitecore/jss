@@ -117,5 +117,6 @@ Editing.args = withFields<EditingArgs, Props>({
       },
     },
   },
-});
+}, true
+);
 Editing.decorators = [withSitecoreContext()];

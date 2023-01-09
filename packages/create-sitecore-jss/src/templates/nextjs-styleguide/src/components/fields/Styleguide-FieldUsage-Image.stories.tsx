@@ -60,21 +60,21 @@ Editing.args = withFields<EditingArgs, Props>(
       dataSource: '{00000000-0000-0000-0000-000000000000}',
     },
     fields: {
-      heading: "<span class='jss-border'>Image Editing</span>",
-      description: "<span class='jss-border'>Description Editing</span>",
+      heading: '<span class="jss-border">Image Editing</span>',
+      description: '<span class="jss-border">Description Editing</span>',
       sample1: {
         value: {
           src: '/sc_logo.png',
           alt: 'Sitecore Logo',
         },
-        editable: '<span>Sample1</span>',
+        editable: '<span class="jss-border">/sc_logo.png</span>'
       },
       sample2: {
         value: {
           src: '/jss_logo.png',
           alt: 'Sitecore JSS Logo',
         },
-        editable: '<span>Sample2</span>',
+        editable: '<span class="jss-border">/jss_logo.png</span>',
       },
     },
   },

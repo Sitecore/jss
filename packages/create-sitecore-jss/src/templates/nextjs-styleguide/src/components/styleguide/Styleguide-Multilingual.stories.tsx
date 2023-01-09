@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideMultilingual, {
   StyleguideMultilingualProps as Props,
 } from './Styleguide-Multilingual';
-import { StorybookArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
+import { StorybookArgs, StorybookEditingArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Multilingual',
@@ -42,6 +42,45 @@ Default.args = withFields<Args, Props>({
 });
 
 Default.decorators = [
+  (Story) => (
+    <I18nProvider lngDict={lngDict} locale="en">
+      <Story />
+    </I18nProvider>
+  ),
+  withSitecoreContext(),
+];
+
+type EditingArgs = StorybookEditingArgs<Props, 'heading' | 'description' | 'sample'>;
+
+export const Editing = Template.bind({});
+Editing.args = withFields<EditingArgs, Props>({
+  params: {
+    name: 'Styleguide-ComponentParams',
+  },
+  rendering: {
+    uid: '{00000000-0000-0000-0000-000000000000}',
+    componentName: 'Styleguide-Multilingual',
+    dataSource: '{00000000-0000-0000-0000-000000000000}',
+  },
+  fields: {
+    heading: {
+      value: 'Translation Patterns',
+      editable: '<span class="jss-border">Translation Patterns Editing</span>'
+    },
+    description: {
+      value:'Description',
+      editable: '<span class="jss-border">Description Editing</span>'
+    },
+    sample: {
+      value: 'This text can be translated in en.yml',
+      editable: '<span class="jss-border">This text can be translated in en.yml</span>'
+  },
+},
+  sitecoreContext: {},
+}, true
+);
+
+Editing.decorators = [
   (Story) => (
     <I18nProvider lngDict={lngDict} locale="en">
       <Story />

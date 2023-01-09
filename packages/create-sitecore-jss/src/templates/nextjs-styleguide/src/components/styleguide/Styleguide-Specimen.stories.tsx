@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideSpecimen, { StyleguideSpecimenProps as Props } from './Styleguide-Specimen';
-import { StorybookArgs, withFields } from 'storybook-utils/utils';
+import { StorybookArgs, StorybookEditingArgs, withFields } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Specimen',
@@ -33,3 +33,31 @@ Default.args = withFields<Args, Props>({
   },
   e2eId: 'test-e2e-id',
 });
+
+type EditingArgs = StorybookEditingArgs<Props, 'heading' | 'description'>;
+
+export const Editing = Template.bind({});
+Editing.args = withFields<EditingArgs, Props>({
+  children: null,
+  params: {
+    name: 'Styleguide-Specimen',
+  },
+  rendering: {
+    uid: '{00000000-0000-0000-0000-000000000000}',
+    componentName: 'Styleguide-Specimen',
+    dataSource: '{00000000-0000-0000-0000-000000000000}',
+  },
+  fields: {
+    description: {
+      value:'',
+      editable: '<span class="jss-border">Styleguide Specimen Component Editing</span>',
+    },
+    heading:{
+      value: '',
+      editable: '<span class="jss-border">Styleguide Specimen Editing</span>',
+    }
+  },
+  e2eId: 'test-e2e-id',
+ },
+ true
+);

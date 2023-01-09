@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import StyleguideTracking, { StyleguideTrackingProps as Props } from './Styleguide-Tracking';
-import { StorybookArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
+import { StorybookArgs, StorybookEditingArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
 
 export default {
   title: 'Components/styleguide/Styleguide-Tracking',
@@ -30,3 +30,28 @@ Default.args = withFields<Args, Props>({
   },
 });
 Default.decorators = [withSitecoreContext()];
+
+type EditingArgs = StorybookEditingArgs<Props, 'heading' | 'description'>;
+
+export const Editing = Template.bind({});
+Editing.args = withFields<EditingArgs, Props>({
+  sitecoreContext: {},
+  params: {},
+  fields: {
+    heading: {
+      value: '',
+      editable: '<span class="jss-border">Tracking Editing</span>'
+    },
+    description: {
+      value: '',
+      editable: '<p><small class="jss-border">JSS supports tracking Sitecore analytics events from within apps. Give it a try with this handy interactive demo.</small></p>',
+    }
+  },
+  rendering: {
+    uid: '8daff8fe-210a-54c6-b344-ffccef4c4743',
+    componentName: 'Styleguide-Tracking',
+    dataSource: '{ACFA7F84-7BF5-5877-9C29-72341A2DCEB6}',
+  },
+ }, true
+);
+Editing.decorators = [withSitecoreContext()];

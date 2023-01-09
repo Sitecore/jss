@@ -135,7 +135,7 @@ export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>(
   {
     params: {
-      name: 'Styleguide-Layout-Tabs',
+      name: 'Styleguide-Layout-Tabs-Editing',
     },
     rendering: {
       uid: '{00000000-0000-0000-0000-000000000000}',
@@ -149,7 +149,7 @@ Editing.args = withFields<EditingArgs, Props>(
     fields: {
       heading: {
         value: 'Tabs',
-        editable: '<span class="jss-border">Tabs</span>',
+        editable: '<span class="jss-border">Tabs Editing</span>',
       },
       description: {
         value:

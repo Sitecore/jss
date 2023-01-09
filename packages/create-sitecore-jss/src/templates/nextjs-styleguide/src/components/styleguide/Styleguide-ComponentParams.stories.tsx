@@ -1,14 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-  StorybookArgs,
-  StorybookEditingArgs,
-  withFields,
-  withSitecoreContext,
-} from 'storybook-utils/utils';
-import StyleguideComponentParams, {
-  StyleguideComponentParamsProps as Props,
-} from './Styleguide-ComponentParams';
+import { StorybookArgs, StorybookEditingArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
+import StyleguideComponentParams, { StyleguideComponentParamsProps as Props } from './Styleguide-ComponentParams';
 
 export default {
   title: 'Components/styleguide/Styleguide-ComponentParams',
@@ -48,14 +41,14 @@ export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>(
   {
     params: {
-      name: 'Styleguide-ComponentParams',
+      name: 'Styleguide-ComponentParams Editing',
       cssClass: 'cssClass',
       columns: '3',
       useCallToAction: 'true',
     },
     rendering: {
       uid: '{00000000-0000-0000-0000-000000000000}',
-      componentName: 'Styleguide-ComponentParams',
+      componentName: 'Styleguide-ComponentParams Editing',
       dataSource: '{00000000-0000-0000-0000-000000000000}',
     },
     fields: {
