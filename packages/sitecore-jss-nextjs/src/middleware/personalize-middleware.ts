@@ -152,7 +152,7 @@ export class PersonalizeMiddleware {
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
     // Cookie for multisite support
-    const siteName = req.cookies.get('sc_site');
+    const siteName = res?.cookies.get('sc_site');
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
@@ -231,7 +231,7 @@ export class PersonalizeMiddleware {
     }
 
     // Path is rewritten by previous middleware
-    const basePath = req.cookies.get('sc_path') || pathname;
+    const basePath = res?.cookies.get('sc_path') || pathname;
 
     // Rewrite to persononalized path
     const rewritePath = getPersonalizedRewrite(basePath, { variantId });

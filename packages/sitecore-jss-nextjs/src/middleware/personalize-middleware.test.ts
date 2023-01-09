@@ -80,6 +80,10 @@ describe('PersonalizeMiddleware', () => {
         set(key, value) {
           res.cookies[key] = value;
         },
+        get(key) {
+          return res.cookies[key];
+        },
+        ...props.cookieValues,
       },
       headers: {},
       ...props,
@@ -803,14 +807,13 @@ describe('PersonalizeMiddleware', () => {
     });
 
     it('sc_site cookie is provided', async () => {
-      const req = createRequest({
+      const req = createRequest();
+      const res = createResponse({
         cookieValues: {
           'BID_cdp-client-key': 'browser-id',
           sc_site: 'foo',
         },
       });
-
-      const res = createResponse();
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
@@ -851,15 +854,13 @@ describe('PersonalizeMiddleware', () => {
     });
 
     it('sc_path cookie is provided', async () => {
-      const req = createRequest({
+      const req = createRequest();
+      const res = createResponse({
         cookieValues: {
-          'BID_cdp-client-key': 'browser-id',
           sc_site: 'foo',
           sc_path: '/_site_nextjs-app/styleguide',
         },
       });
-
-      const res = createResponse();
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
