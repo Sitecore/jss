@@ -28,7 +28,13 @@ describe('MultisiteMiddleware', () => {
         clone() {
           return Object.assign({}, req.nextUrl);
         },
-        ...props?.nextUrl,
+        searchParams: {
+          get(key) {
+            return req.nextUrl.searchParams[key];
+          },
+          ...props.searchParams,
+        },
+        ...props.nextUrl,
       },
       headers: {
         get(key: string) {
@@ -257,6 +263,45 @@ describe('MultisiteMiddleware', () => {
       expect(nextRewriteStub).calledWith({
         ...req.nextUrl,
         pathname: '/_site_foo/styleguide',
+      });
+
+      nextRewriteStub.restore();
+    });
+
+    it('sc_site querystring parameter is provided', async () => {
+      const req = createRequest({ searchParams: { sc_site: 'qsFoo' } });
+
+      const res = createResponse();
+
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const { middleware, getSite } = createMiddleware();
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('multisite middleware start: %o', {
+        pathname: '/styleguide',
+        hostname: 'foo.net',
+      });
+
+      validateDebugLog('multisite middleware end: %o', {
+        rewritePath: '/_site_qsFoo/styleguide',
+        siteName: 'qsFoo',
+        headers: {},
+        cookies: {
+          ...res.cookies,
+          sc_path: '/_site_qsFoo/styleguide',
+          sc_site: 'qsFoo',
+        },
+      });
+
+      expect(getSite.notCalled).equal(true);
+
+      expect(finalRes).to.deep.equal(res);
+
+      expect(nextRewriteStub).calledWith({
+        ...req.nextUrl,
+        pathname: '/_site_qsFoo/styleguide',
       });
 
       nextRewriteStub.restore();
