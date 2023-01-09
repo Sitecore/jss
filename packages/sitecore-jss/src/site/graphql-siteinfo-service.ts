@@ -18,6 +18,9 @@ const defaultQuery = /* GraphQL */ `
         language: field(name: "Language") {
           value
         }
+        otherProperties: field(name: "OtherProperties") {
+          value
+        }
       }
     }
   }
@@ -68,6 +71,9 @@ type GraphQLSiteInfoResult = {
   language: {
     value: string;
   };
+  otherProperties: {
+    value: string;
+  };
 };
 
 export class GraphQLSiteInfoService {
@@ -96,6 +102,8 @@ export class GraphQLSiteInfoService {
     const response = await this.graphQLClient.request<GraphQLSiteInfoResponse>(this.query);
     const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
       result.push({
+        // POC: Use "Other Properties" field (KVP in query string format) to define project in SXA for now
+        ...Object.fromEntries(new URLSearchParams(current.otherProperties.value)),
         name: current.name,
         hostName: current.hostName.value,
         language: current.language.value,
