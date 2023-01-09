@@ -12,13 +12,9 @@ export type MultisiteMiddlewareConfig = {
    */
   excludeRoute?: (pathname: string) => boolean;
   /**
-   * function used to resolve correct site name for current hostname
+   * function used to resolve site for given hostname
    */
-  getSiteName: (hostname: string, sitesInfo: SiteInfo[]) => string;
-  /**
-   * Site configuration list
-   */
-  sites: SiteInfo[];
+  getSite: (hostname: string) => SiteInfo;
   /**
    * Fallback hostname in case `host` header is not present
    */
@@ -92,7 +88,7 @@ export class MultisiteMiddleware {
       return response;
     }
 
-    const siteName = this.config.getSiteName(hostname, this.config.sites);
+    const { name: siteName } = this.config.getSite(hostname);
 
     // Rewrite to persononalized path
     const rewritePath = getSiteRewrite(pathname, {

@@ -8,6 +8,7 @@ import nextjs, { NextRequest, NextResponse } from 'next/server';
 import { debug } from '@sitecore-jss/sitecore-jss';
 
 import { MultisiteMiddleware } from './multisite-middleware';
+import { SiteInfo } from '@sitecore-jss/sitecore-jss/site';
 
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
@@ -18,7 +19,6 @@ describe('MultisiteMiddleware', () => {
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
 
   const siteName = 'foo';
-  const sitesInfo = [{ hostName: '*', name: 'bar', language: '' }];
 
   const createRequest = (props: any = {}) => {
     const req = {
@@ -81,16 +81,15 @@ describe('MultisiteMiddleware', () => {
 
   const createMiddleware = (props = {}) => {
     const middleware = new MultisiteMiddleware({
-      getSiteName(_hostname, _sitesInfo) {
-        return siteName;
+      getSite(_hostname) {
+        return { name: siteName } as SiteInfo;
       },
-      sites: sitesInfo,
       ...props,
     });
 
-    const getSiteName = spy(middleware['config'], 'getSiteName');
+    const getSite = spy(middleware['config'], 'getSite');
 
-    return { middleware, getSiteName };
+    return { middleware, getSite };
   };
 
   beforeEach(() => {
@@ -153,7 +152,7 @@ describe('MultisiteMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSiteName } = createMiddleware({ defaultHostname: 'bar.net' });
+      const { middleware, getSite } = createMiddleware({ defaultHostname: 'bar.net' });
 
       const finalRes = await middleware.getHandler()(req, res);
 
@@ -172,7 +171,7 @@ describe('MultisiteMiddleware', () => {
         },
       });
 
-      expect(getSiteName).to.be.calledWith('bar.net', sitesInfo);
+      expect(getSite).to.be.calledWith('bar.net');
 
       expect(finalRes).to.deep.equal(res);
 
@@ -191,7 +190,7 @@ describe('MultisiteMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSiteName } = createMiddleware();
+      const { middleware, getSite } = createMiddleware();
 
       const finalRes = await middleware.getHandler()(req, res);
 
@@ -210,7 +209,7 @@ describe('MultisiteMiddleware', () => {
         },
       });
 
-      expect(getSiteName).to.be.calledWith('localhost', sitesInfo);
+      expect(getSite).to.be.calledWith('localhost');
 
       expect(finalRes).to.deep.equal(res);
 
@@ -229,7 +228,7 @@ describe('MultisiteMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSiteName } = createMiddleware({});
+      const { middleware, getSite } = createMiddleware({});
 
       const finalRes = await middleware.getHandler()(req);
 
@@ -248,7 +247,7 @@ describe('MultisiteMiddleware', () => {
         },
       });
 
-      expect(getSiteName).to.be.calledWith('foo.net', sitesInfo);
+      expect(getSite).to.be.calledWith('foo.net');
 
       expect(finalRes).to.deep.equal(res);
 
@@ -283,7 +282,7 @@ describe('MultisiteMiddleware', () => {
       const error = new Error('Custom error');
 
       const { middleware } = createMiddleware({
-        getSiteName() {
+        getSite() {
           throw error;
         },
       });
