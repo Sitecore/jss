@@ -15,6 +15,7 @@ import { MiddlewarePlugin } from '..';
 class MultisitePlugin implements MiddlewarePlugin {
   private multisiteMiddleware: MultisiteMiddleware;
 
+  // Multisite middleware has to be executed first
   order = -1;
 
   constructor() {
