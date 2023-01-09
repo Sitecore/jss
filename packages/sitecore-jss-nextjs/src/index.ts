@@ -60,12 +60,6 @@ export {
   normalizePersonalizedRewrite,
   CdpHelper,
 } from '@sitecore-jss/sitecore-jss/personalize';
-export {
-  RobotsQueryResult,
-  GraphQLRobotsService,
-  GraphQLRobotsServiceConfig,
-  SiteResolver,
-} from '@sitecore-jss/sitecore-jss/site';
 export { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 
 export {
@@ -90,10 +84,17 @@ export {
   GraphQLSitemapXmlServiceConfig,
   GraphQLErrorPagesService,
   GraphQLErrorPagesServiceConfig,
+  RobotsQueryResult,
+  GraphQLRobotsService,
+  GraphQLRobotsServiceConfig,
   ErrorPages,
   SiteInfo,
+  SiteResolver,
   GraphQLSiteInfoService,
   GraphQLSiteInfoServiceConfig,
+  getSiteRewrite,
+  getSiteRewriteData,
+  normalizeSiteRewrite,
 } from '@sitecore-jss/sitecore-jss/site';
 
 export { StaticPath } from './services/graphql-sitemap-service';

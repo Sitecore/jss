@@ -26,6 +26,10 @@ const defaultQuery = /* GraphQL */ `
 
 export type SiteInfo = {
   /**
+   * Additional user-defined properties
+   */
+  [key: string]: unknown;
+  /**
    * Site name
    */
   name: string;
