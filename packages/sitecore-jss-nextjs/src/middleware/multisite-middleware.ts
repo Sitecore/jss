@@ -94,7 +94,11 @@ export class MultisiteMiddleware {
       return response;
     }
 
-    const { name: siteName } = this.config.getSite(hostname);
+    // Site name can be forced by query string parameter or cookie
+    const siteName =
+      req.nextUrl.searchParams.get('sc_site') ||
+      req.cookies.get('sc_site') ||
+      this.config.getSite(hostname).name;
 
     // Rewrite to site specific path
     const rewritePath = getSiteRewrite(pathname, {
