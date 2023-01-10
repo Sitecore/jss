@@ -334,10 +334,11 @@ describe('MultisiteMiddleware', () => {
       validateDebugLog('multisite middleware end: %o', {
         rewritePath: '/_site_qsFoo/styleguide',
         siteName: 'qsFoo',
-        headers: {},
+        headers: {
+          'x-sc-rewrite': '/_site_qsFoo/styleguide',
+        },
         cookies: {
           ...res.cookies,
-          sc_path: '/_site_qsFoo/styleguide',
           sc_site: 'qsFoo',
         },
       });
