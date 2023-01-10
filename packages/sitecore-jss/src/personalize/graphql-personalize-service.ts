@@ -10,10 +10,6 @@ export type GraphQLPersonalizeServiceConfig = CacheOptions & {
    */
   endpoint: string;
   /**
-   * The JSS application name
-   */
-  siteName: string;
-  /**
    * The API key to use for authentication
    */
   apiKey: string;
@@ -77,16 +73,14 @@ export class GraphQLPersonalizeService {
    * Get personalize information for a route
    * @param {string} itemPath page route
    * @param {string} language language
-   * @param {string} [dynamicSiteName] dynamic site name
+   * @param {string} siteName site name
    * @returns {Promise<PersonalizeInfo | undefined>} the personalize information or undefined (if itemPath / language not found)
    */
   async getPersonalizeInfo(
     itemPath: string,
     language: string,
-    dynamicSiteName?: string
+    siteName: string
   ): Promise<PersonalizeInfo | undefined> {
-    const siteName = dynamicSiteName || this.config.siteName;
-
     debug.personalize('fetching personalize info for %s %s %s', siteName, itemPath, language);
 
     const cacheKey = this.getCacheKey(itemPath, language, siteName);

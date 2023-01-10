@@ -38,7 +38,6 @@ describe('GraphQLRedirectsService', () => {
   const config = {
     endpoint,
     apiKey,
-    siteName,
   };
 
   afterEach(() => {
@@ -64,8 +63,8 @@ describe('GraphQLRedirectsService', () => {
     it('should get error if redirects has empty siteName', async () => {
       mockRedirectsRequest();
 
-      const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName: '' });
-      await service.fetchRedirects().catch((error: Error) => {
+      const service = new GraphQLRedirectsService({ endpoint, apiKey });
+      await service.fetchRedirects('').catch((error: Error) => {
         expect(error.message).to.equal(siteNameError);
       });
 
@@ -75,8 +74,8 @@ describe('GraphQLRedirectsService', () => {
     it('should get redirects', async () => {
       mockRedirectsRequest(siteName);
 
-      const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName });
-      const result = await service.fetchRedirects();
+      const service = new GraphQLRedirectsService({ endpoint, apiKey });
+      const result = await service.fetchRedirects(siteName);
 
       expect(result).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);
 
@@ -86,8 +85,8 @@ describe('GraphQLRedirectsService', () => {
     it('should get no redirects', async () => {
       mockRedirectsRequest();
 
-      const service = new GraphQLRedirectsService({ endpoint, apiKey, siteName });
-      const result = await service.fetchRedirects();
+      const service = new GraphQLRedirectsService({ endpoint, apiKey });
+      const result = await service.fetchRedirects(siteName);
 
       expect(result).to.deep.equal(redirectsQueryResultNull.site?.siteInfo?.redirects);
 
@@ -97,7 +96,7 @@ describe('GraphQLRedirectsService', () => {
     it('should cache fetch response', async () => {
       mockRedirectsRequest(siteName);
       const service = new GraphQLRedirectsService(config);
-      const redirectsResponse = await service.fetchRedirects();
+      const redirectsResponse = await service.fetchRedirects(siteName);
 
       expect(redirectsResponse).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);
 
@@ -111,7 +110,7 @@ describe('GraphQLRedirectsService', () => {
           },
         });
 
-      const cachedResponse = await service.fetchRedirects();
+      const cachedResponse = await service.fetchRedirects(siteName);
 
       expect(cachedResponse).to.deep.equal(redirectsResponse);
     });
@@ -119,7 +118,7 @@ describe('GraphQLRedirectsService', () => {
     it('should be possible to disable cache', async () => {
       mockRedirectsRequest(siteName);
       const service = new GraphQLRedirectsService({ ...config, cacheEnabled: false });
-      const redirectsResponse = await service.fetchRedirects();
+      const redirectsResponse = await service.fetchRedirects(siteName);
 
       expect(redirectsResponse).to.deep.equal(redirectsQueryResult.site?.siteInfo?.redirects);
 
@@ -133,7 +132,7 @@ describe('GraphQLRedirectsService', () => {
           },
         });
 
-      const cachedResponse = await service.fetchRedirects();
+      const cachedResponse = await service.fetchRedirects(siteName);
 
       expect(cachedResponse).to.not.deep.equal(redirectsResponse);
     });

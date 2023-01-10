@@ -7,6 +7,7 @@ import {
   REDIRECT_TYPE_301,
   REDIRECT_TYPE_302,
   REDIRECT_TYPE_SERVER_TRANSFER,
+  SiteInfo,
 } from '@sitecore-jss/sitecore-jss/site';
 
 /**
@@ -29,6 +30,15 @@ export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fet
    * @returns {boolean} false by default
    */
   disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
+  /**
+   * function used to resolve site for given hostname
+   */
+  getSite: (hostname: string) => SiteInfo;
+  /**
+   * fallback hostname in case `host` header is not present
+   * @default localhost
+   */
+  defaultHostname?: string;
 };
 /**
  * Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
@@ -37,6 +47,7 @@ export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fet
 export class RedirectsMiddleware {
   private redirectsService: GraphQLRedirectsService;
   private locales: string[];
+  private defaultHostname: string;
 
   /**
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
@@ -46,6 +57,7 @@ export class RedirectsMiddleware {
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
     this.locales = config.locales;
+    this.defaultHostname = config.defaultHostname || 'localhost';
   }
 
   /**
@@ -66,6 +78,11 @@ export class RedirectsMiddleware {
       return true;
     }
     return false;
+  }
+
+  protected getHostname(req: NextRequest) {
+    const hostHeader = req.headers.get('host')?.split(':')[0];
+    return hostHeader || this.defaultHostname;
   }
 
   private handler = async (req: NextRequest): Promise<NextResponse> => {
@@ -121,8 +138,8 @@ export class RedirectsMiddleware {
    * @private
    */
   private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
-    // Cookie for multisite support
-    const siteName = req.cookies.get('sc_site');
+    const hostname = this.getHostname(req);
+    const siteName = req.cookies.get('sc_site') || this.config.getSite(hostname).name;
     const redirects = await this.redirectsService.fetchRedirects(siteName);
 
     return redirects.length

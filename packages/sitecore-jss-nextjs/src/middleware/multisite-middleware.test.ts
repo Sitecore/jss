@@ -120,7 +120,7 @@ describe('MultisiteMiddleware', () => {
           hostname: 'foo.net',
         });
 
-        validateDebugLog('skipped (%s)', 'route excluded');
+        validateDebugLog('skipped (route excluded)');
 
         expect(finalRes).to.deep.equal(res);
 
@@ -167,13 +167,16 @@ describe('MultisiteMiddleware', () => {
         hostname: 'bar.net',
       });
 
+      validateDebugLog('host header is missing, default bar.net is used');
+
       validateDebugLog('multisite middleware end: %o', {
         rewritePath: '/_site_foo/styleguide',
         siteName: 'foo',
-        headers: {},
+        headers: {
+          'x-sc-rewrite': '/_site_foo/styleguide',
+        },
         cookies: {
           ...res.cookies,
-          sc_path: '/_site_foo/styleguide',
           sc_site: 'foo',
         },
       });
@@ -206,18 +209,61 @@ describe('MultisiteMiddleware', () => {
         hostname: 'localhost',
       });
 
+      validateDebugLog('host header is missing, default localhost is used');
+
       validateDebugLog('multisite middleware end: %o', {
         rewritePath: '/_site_foo/styleguide',
         siteName: 'foo',
-        headers: {},
+        headers: {
+          'x-sc-rewrite': '/_site_foo/styleguide',
+        },
         cookies: {
           ...res.cookies,
-          sc_path: '/_site_foo/styleguide',
           sc_site: 'foo',
         },
       });
 
       expect(getSite).to.be.calledWith('localhost');
+
+      expect(finalRes).to.deep.equal(res);
+
+      expect(nextRewriteStub).calledWith({
+        ...req.nextUrl,
+        pathname: '/_site_foo/styleguide',
+      });
+
+      nextRewriteStub.restore();
+    });
+
+    it('host header is used', async () => {
+      const req = createRequest();
+
+      const res = createResponse();
+
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const { middleware, getSite } = createMiddleware();
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('multisite middleware start: %o', {
+        pathname: '/styleguide',
+        hostname: 'foo.net',
+      });
+
+      validateDebugLog('multisite middleware end: %o', {
+        rewritePath: '/_site_foo/styleguide',
+        siteName: 'foo',
+        headers: {
+          'x-sc-rewrite': '/_site_foo/styleguide',
+        },
+        cookies: {
+          ...res.cookies,
+          sc_site: 'foo',
+        },
+      });
+
+      expect(getSite).to.be.calledWith('foo.net');
 
       expect(finalRes).to.deep.equal(res);
 
@@ -248,10 +294,11 @@ describe('MultisiteMiddleware', () => {
       validateDebugLog('multisite middleware end: %o', {
         rewritePath: '/_site_foo/styleguide',
         siteName: 'foo',
-        headers: {},
+        headers: {
+          'x-sc-rewrite': '/_site_foo/styleguide',
+        },
         cookies: {
           ...res.cookies,
-          sc_path: '/_site_foo/styleguide',
           sc_site: 'foo',
         },
       });
