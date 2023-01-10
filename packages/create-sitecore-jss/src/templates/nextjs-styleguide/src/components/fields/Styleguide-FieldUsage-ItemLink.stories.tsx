@@ -61,10 +61,7 @@ Default.args = withFields<Args, Props>({
 });
 Default.decorators = [withSitecoreContext()];
 
-type EditingArgs = StorybookEditingArgs<
-  Props,
-  'heading' | 'description' | 'sharedItemLink' | 'localItemLink'
->;
+type EditingArgs = StorybookEditingArgs<Props>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>({
@@ -77,27 +74,14 @@ Editing.args = withFields<EditingArgs, Props>({
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Item Link Editing',
-      editable: '<span class="jss-border">Item Link Editing</span>',
-    },
-    description: {
-      value: `<p>
-      <small>
-      Item Links are a way to reference another content item to use data from it.
-      Referenced items may be shared.
-      To reference multiple content items, use a <em>Content List</em> field.<br />
-      <strong>Note:</strong> Sitecore does not support inline editing of Item Link fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
-      </small>
-      </p>`,
-      editable: `<p>
+    heading: '<span class="jss-border">Item Link Editing</span>',
+    description: `<p>
     <small class="jss-border">
     Item Links are a way to reference another content item to use data from it.
     Referenced items may be shared.
     To reference multiple content items, use a <em>Content List</em> field.<br />
     <strong>Note:</strong> Sitecore does not support inline editing of Item Link fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
     </small>`,
-    },
     sharedItemLink: {
       name: 'Name',
       fields: {

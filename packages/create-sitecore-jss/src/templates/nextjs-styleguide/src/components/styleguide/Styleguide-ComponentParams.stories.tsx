@@ -35,7 +35,7 @@ Default.args = withFields<Args, Props>({
 });
 Default.decorators = [withSitecoreContext()];
 
-type EditingArgs = StorybookEditingArgs<Props, 'heading' | 'description'>;
+type EditingArgs = StorybookEditingArgs<Props>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>(
@@ -52,16 +52,8 @@ Editing.args = withFields<EditingArgs, Props>(
       dataSource: '{00000000-0000-0000-0000-000000000000}',
     },
     fields: {
-      heading: {
-        value: 'Component Params Editing',
-        editable: '<span class="jss-border">Component Params Editing</span>',
-      },
-      description: {
-        value:
-          '<p><small>Component params (also called Rendering Parameters) allow storing non-content parameters for a component. These params should be used for more technical options such as CSS class names or structural settings.</small></p>',
-        editable:
-          '<p><small class="jss-border">Component params (also called Rendering Parameters) allow storing non-content parameters for a component. These params should be used for more technical options such as CSS class names or structural settings.</small></p>',
-      },
+      heading: '<span class="jss-border">Component Params Editing</span>',
+      description:'<p><small class="jss-border">Component params (also called Rendering Parameters) allow storing non-content parameters for a component. These params should be used for more technical options such as CSS class names or structural settings.</small></p>'
     },
   },
   true

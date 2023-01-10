@@ -39,7 +39,7 @@ Default.args = withFields<Args, Props>({
 });
 Default.decorators = [withSitecoreContext()];
 
-type EditingArgs = StorybookEditingArgs<Props, 'title' | 'content'>;
+type EditingArgs = StorybookEditingArgs<Props>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>(
@@ -53,14 +53,8 @@ Editing.args = withFields<EditingArgs, Props>(
       dataSource: '{00000000-0000-0000-0000-000000000000}',
     },
     fields: {
-      title: {
-        value: 'Tab 1',
-        editable: '<span class="jss-border">Tab 1</span>',
-      },
-      content: {
-        value: '<p>Tab 1 contents!</p>',
-        editable: '<p class="jss-border">Tab 1 contents!</p>',
-      },
+      title: '<span class="jss-border">Tab 1</span>',
+      content: '<p class="jss-border">Tab 1 contents!</p>',
     },
   },
   true

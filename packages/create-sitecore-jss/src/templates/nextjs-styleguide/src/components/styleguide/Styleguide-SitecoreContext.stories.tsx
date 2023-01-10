@@ -42,25 +42,16 @@ export const Default = Template.bind({});
 
 Default.decorators = [withSitecoreContext()];
 
-//EDITING part
-type EditingArgs = StorybookEditingArgs<Props, 'heading' | 'description'>;
+type EditingArgs = StorybookEditingArgs<Props>;
 
 export const Editing = Template.bind({});
 
-  // title: 'Components/styleguide/Styleguide-SitecoreContext',
-  // component: StyleguideSitecoreContext,
   Editing.args = withFields<EditingArgs, Props>(
     {
     params: {},
     fields: {
-      heading: {
-      value: '',
-      editable: '<span class="jss-border">Sitecore Context Editing</span'
-      },
-      description: {
-        value: '',
-        editable: '<p><small class="jss-border">The Sitecore Context contains route-level data about the current context - for example, <code>pageState</code> enables conditionally executing code based on whether Sitecore is in Experience Editor or not.</small></p>'
-      }
+      heading: '<span class="jss-border">Sitecore Context Editing</span>',
+      description: '<p><small class="jss-border">The Sitecore Context contains route-level data about the current context - for example, <code>pageState</code> enables conditionally executing code based on whether Sitecore is in Experience Editor or not.</small></p>'
     },
     rendering: {
       uid: '8daff8fe-210a-54c6-b344-ffccef4c4743',

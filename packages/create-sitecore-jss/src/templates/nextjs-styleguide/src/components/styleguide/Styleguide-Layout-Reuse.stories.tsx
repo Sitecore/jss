@@ -1,15 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import StyleguideLayoutReuse, {
-  StyleguideLayoutReuseProps as Props,
-} from './Styleguide-Layout-Reuse';
-import {
-  StorybookArgs,
-  StorybookEditingArgs,
-  withFields,
-  withSitecoreContext,
-} from 'storybook-utils/utils';
+import StyleguideLayoutReuse, { StyleguideLayoutReuseProps as Props } from './Styleguide-Layout-Reuse';
+import { StorybookArgs, StorybookEditingArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
 import { Default as ContentBlockStory } from './../ContentBlock.stories';
 import ContentBlock from './../ContentBlock';
 
@@ -64,23 +56,16 @@ Default.args = withFields<Args, Props>({
 });
 Default.decorators = [withSitecoreContext({ componentFactory })];
 
-type EditingArgs = StorybookEditingArgs<Props, 'heading' | 'description'>;
+type EditingArgs = StorybookEditingArgs<Props>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>(
   {
     params: {},
     fields: {
-      heading: {
-        value: 'Reusing Content Editing',
-        editable: '<span class="jss-border">Reusing Content Editing</span>',
-      },
-      description: {
-        value:
-          '<p>JSS provides powerful options to reuse content, whether its sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>',
-        editable:
-          '<p class="jss-border">JSS provides powerful options to reuse content, whether its sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>',
-      },
+      heading: '<span class="jss-border">Reusing Content Editing</span>',
+      description:
+          '<p class="jss-border">JSS provides powerful options to reuse content, whether its sharing a common piece of text across pages or sketching out a site with repeating <em>lorem ipsum</em> content.</p>'
     },
     rendering: {
       uid: '8daff8fe-210a-54c6-b344-ffccef4c4743',
@@ -92,7 +77,16 @@ Editing.args = withFields<EditingArgs, Props>(
             uid: '1846c499-afa7-56c4-bade-e3880eac0134',
             componentName: 'ContentBlock',
             dataSource: '{6E81D12B-6E44-5CD9-919A-6707B6723FEC}',
-            fields: ContentBlockStory.args?.fields,
+            fields: {
+              heading: {
+                value: '',
+                editable: '<span class="jss-border">Heading Editing</span>'
+              },
+              content: {
+                value: '',
+                editable: '<span class="jss-border">Content Editing</span>'
+              },
+            },
           },
         ],
       },

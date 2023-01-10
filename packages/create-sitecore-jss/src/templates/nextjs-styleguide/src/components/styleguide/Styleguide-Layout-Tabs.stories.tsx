@@ -129,7 +129,7 @@ Default.args = withFields<Args, Props>({
 
 Default.decorators = [withSitecoreContext({ layoutData, componentFactory })];
 
-type EditingArgs = StorybookEditingArgs<Props, 'heading' | 'description'>;
+type EditingArgs = StorybookEditingArgs<Props>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>(
@@ -147,16 +147,9 @@ Editing.args = withFields<EditingArgs, Props>(
       dataSource: '{00000000-0000-0000-0000-000000000000}',
     },
     fields: {
-      heading: {
-        value: 'Tabs',
-        editable: '<span class="jss-border">Tabs Editing</span>',
-      },
-      description: {
-        value:
-          "<p>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>",
-        editable:
+      heading: '<span class="jss-border">Tabs Editing</span>',
+      description: 
           "<p class='jss-border'>Creating hierarchical components like tabs is made simpler in JSS because it's easy to introspect the layout structure.</p>",
-      },
     },
     name: '',
     sitecoreContext: {},

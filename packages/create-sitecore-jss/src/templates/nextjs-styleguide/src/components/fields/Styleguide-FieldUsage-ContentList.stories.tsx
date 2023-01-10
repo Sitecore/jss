@@ -65,10 +65,7 @@ Default.args = withFields<Args, Props>({
 });
 Default.decorators = [withSitecoreContext()];
 
-type EditingArgs = StorybookEditingArgs<
-  Props,
-  'heading' | 'description' | 'localContentList' | 'sharedContentList'
->;
+type EditingArgs = StorybookEditingArgs<Props>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>({
@@ -81,20 +78,8 @@ Editing.args = withFields<EditingArgs, Props>({
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: {
-      value: 'Content List Editing',
-      editable: '<span class="jss-border">Content List Editing</span>',
-    },
-    description: {
-      value: `<p>
-      <small>
-        Content Lists are a way to reference zero or more other content items.
-        Referenced items may be shared.
-        To reference a single content item, use an <em>Item Link</em> field.<br />
-        <strong>Note:</strong> Sitecore does not support inline editing of Content List fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
-      </small>
-    </p>`,
-      editable: `<p>
+    heading:'<span class="jss-border">Content List Editing</span>',
+    description: `<p>
         <small class="jss-border">
           Content Lists are a way to reference zero or more other content items.
           Referenced items may be shared.
@@ -102,7 +87,6 @@ Editing.args = withFields<EditingArgs, Props>({
           <strong>Note:</strong> Sitecore does not support inline editing of Content List fields. The value must be edited in Experience Editor by using the edit rendering fields button (looks like a pencil) with the whole component selected.
         </small>
       </p>`,
-    },
     sharedContentList: [
       {
         name: 'Name',

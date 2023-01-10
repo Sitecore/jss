@@ -5,7 +5,6 @@ import StyleguideLayout from './Styleguide-Layout';
 import { SingleLine, MultiLine } from '../fields/Styleguide-FieldUsage-Text.stories';
 import StyleguideFieldUsageText from './../fields/Styleguide-FieldUsage-Text';
 import StyleguideSection from './Styleguide-Section';
-import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export default {
   title: 'Components/styleguide/Styleguide-Layout',
@@ -84,13 +83,54 @@ Editing.args = {
                 uid: '1846c499-afa7-56c4-bade-e3880eac0134',
                 componentName: 'Styleguide-FieldUsage-Text',
                 dataSource: '{6E81D12B-6E44-5CD9-919A-6707B6723FEC}',
-                fields: SingleLine.args?.fields,
+                fields: {
+                  heading: {
+                    value: '',
+                    editable: 
+                    '<span class="jss-border">Single-Line Text Editing</span>'
+                  },
+                  description: {
+                    value: '',
+                    editable:
+                    '<span class="jss-border">Description Editing</span>'
+                  },
+                  sample: {
+                    value: '',
+                    editable:
+                    '<span class="jss-border">This is a sample EDITABLE text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see the following Single-Line Text field: <input type="text"></span>'
+                  },
+                  sample2: {
+                    value:
+                      'This is another sample text field using rendering options. <mark>HTML supported with encode=false.</mark> Cannot edit because editable=false.',
+                    editable:
+                      '<span class="jss-border">This is another sample text field using rendering options. <mark>HTML supported with encode=false.</mark> Cannot edit because editable=false.</span>',
+                  },
+                },
               },
               {
                 uid: '1846c499-afa7-56c4-bade-e3880eac0134',
                 componentName: 'Styleguide-FieldUsage-Text',
                 dataSource: '{6E81D12B-6E44-5CD9-919A-6707B6723FEC}',
-                fields: MultiLine.args?.fields,
+                fields: {
+                  heading: {
+                    value: '',
+                    editable: '<span class="jss-border">Multi-Line Text Editing</span>'
+                  },
+                  description: {
+                    value: '',
+                    editable: '<span class="jss-border">Description Editing</span>'
+                  },
+                  sample: {
+                    value: '',
+                    editable: '<span class="jss-border">This is a sample EDITABLE multi-line text field. <mark>HTML is encoded.</mark> In Sitecore, editors will see a textarea.</span>'
+                  },
+                  sample2: {
+                    value:
+                      'This is another sample multi-line text field using rendering options. <mark>HTML supported with encode=false.</mark>',
+                    editable:
+                      '<span class="jss-border">This is another sample multi-line text field using rendering options. <mark>HTML supported with encode=false.</mark></span>',
+                  },
+                },
               },
             ],
           },

@@ -31,21 +31,15 @@ Default.args = withFields<Args, Props>({
 });
 Default.decorators = [withSitecoreContext()];
 
-type EditingArgs = StorybookEditingArgs<Props, 'heading' | 'description'>;
+type EditingArgs = StorybookEditingArgs<Props>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>({
   sitecoreContext: {},
   params: {},
   fields: {
-    heading: {
-      value: '',
-      editable: '<span class="jss-border">Tracking Editing</span>'
-    },
-    description: {
-      value: '',
-      editable: '<p><small class="jss-border">JSS supports tracking Sitecore analytics events from within apps. Give it a try with this handy interactive demo.</small></p>',
-    }
+    heading: '<span class="jss-border">Tracking Editing</span>',
+    description: '<p><small class="jss-border">JSS supports tracking Sitecore analytics events from within apps. Give it a try with this handy interactive demo.</small></p>'
   },
   rendering: {
     uid: '8daff8fe-210a-54c6-b344-ffccef4c4743',

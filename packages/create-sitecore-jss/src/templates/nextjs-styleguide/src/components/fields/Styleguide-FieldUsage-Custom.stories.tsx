@@ -46,7 +46,7 @@ Default.args = withFields<Args, Props>({
 });
 Default.decorators = [withSitecoreContext()];
 
-type EditingArgs = StorybookEditingArgs<Props, 'customIntField'>;
+type EditingArgs = StorybookEditingArgs<Props>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>(
@@ -68,10 +68,7 @@ Editing.args = withFields<EditingArgs, Props>(
           <strong>Note:</strong> For field types with complex data, custom <code>FieldSerializer</code>s may need to be implemented on the Sitecore side.
         </small>
       </p>`,
-      customIntField: {
-        value: 31337,
-        editable: '<span class="jss-border">31337</span>',
-      },
+      customIntField: '<span class="jss-border">31337</span>'
     },
   },
   true

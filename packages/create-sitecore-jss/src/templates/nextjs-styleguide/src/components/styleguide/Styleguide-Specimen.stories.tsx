@@ -34,7 +34,7 @@ Default.args = withFields<Args, Props>({
   e2eId: 'test-e2e-id',
 });
 
-type EditingArgs = StorybookEditingArgs<Props, 'heading' | 'description'>;
+type EditingArgs = StorybookEditingArgs<Props>;
 
 export const Editing = Template.bind({});
 Editing.args = withFields<EditingArgs, Props>({
@@ -48,14 +48,8 @@ Editing.args = withFields<EditingArgs, Props>({
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    description: {
-      value:'',
-      editable: '<span class="jss-border">Styleguide Specimen Component Editing</span>',
-    },
-    heading:{
-      value: '',
-      editable: '<span class="jss-border">Styleguide Specimen Editing</span>',
-    }
+    description: '<span class="jss-border">Styleguide Specimen Component Editing</span>',
+    heading: '<span class="jss-border">Styleguide Specimen Editing</span>'
   },
   e2eId: 'test-e2e-id',
  },

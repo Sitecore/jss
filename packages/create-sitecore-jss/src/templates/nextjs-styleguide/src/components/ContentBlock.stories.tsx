@@ -1,19 +1,51 @@
 import React from 'react';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StorybookArgs, withFields, withSitecoreContext } from 'storybook-utils/utils';
-import ContentBlock, { ContentBlockProps as Props } from './ContentBlock';
+import ContentBlock from './ContentBlock';
 
 export default {
   title: 'Components/ContentBlock',
   component: ContentBlock,
 } as ComponentMeta<typeof ContentBlock>;
 
+const layoutData = {
+  sitecore: {
+    context: {
+      pageEditing: false,
+      site: {
+        name: 'nextjs-app',
+      },
+      language: 'en',
+      itemPath: '/',
+    },
+    route: {
+      name: 'home',
+      displayName: 'home',
+      fields: {
+        pageTitle: {
+          value: 'Welcome to Sitecore JSS',
+        },
+      },
+      databaseName: 'master',
+      deviceId: 'fe5d7fdf-89c0-4d99-9aa3-b5fbd009c9f3',
+      itemId: '45be1451-fa83-5f80-9f0d-d7457b480b58',
+      itemLanguage: 'en',
+      itemVersion: 1,
+      layoutId: '1db67245-f673-5e7f-9726-e7c5e76350f1',
+      templateId: '787584c0-a057-5876-9836-f8b3708f0caf',
+      templateName: 'App Route',
+      placeholders: {},
+    },
+  },
+};
+
+// eslint-disable-next-line react/display-name
+const componentFactory = () => () => <div>Test</div>;
+
 const Template: ComponentStory<typeof ContentBlock> = (args) => <ContentBlock {...args} />;
 
-type Args = StorybookArgs<Props>;
-
 export const Default = Template.bind({});
-Default.args = withFields<Args, Props>({
+Default.args = {
   params: {
     name: 'ContentBlock',
   },
@@ -23,9 +55,47 @@ Default.args = withFields<Args, Props>({
     dataSource: '{00000000-0000-0000-0000-000000000000}',
   },
   fields: {
-    heading: 'Heading',
-    content: 'Content',
+    heading: {
+      value: 'Heading',
+    },
+    content: {
+      value: 'Content',
+    },
   },
-});
+};
+Default.decorators = [
+  (Story) => (
+    <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+      <Story />
+    </SitecoreContext>
+  ),
+];
 
-Default.decorators = [withSitecoreContext()];
+export const Editing = Template.bind({});
+Editing.args = {
+  params: {
+    name: 'ContentBlock',
+  },
+  rendering: {
+    uid: '{00000000-0000-0000-0000-000000000000}',
+    componentName: 'ContentBlock',
+    dataSource: '{00000000-0000-0000-0000-000000000000}',
+  },
+  fields: {
+    heading: {
+      value: 'Heading',
+      editable: '<span class="jss-border">Heading Editing</span>',
+    },
+    content: {
+      value: 'Content',
+      editable: '<span class="jss-border">Content Editing</span>',
+    },
+  },
+};
+Editing.decorators = [
+  (Story) => (
+    <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+      <Story />
+    </SitecoreContext>
+  ),
+];
