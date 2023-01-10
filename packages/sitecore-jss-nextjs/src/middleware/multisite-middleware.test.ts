@@ -354,6 +354,46 @@ describe('MultisiteMiddleware', () => {
 
       nextRewriteStub.restore();
     });
+
+    it('sc_site cookie is provided', async () => {
+      const req = createRequest({ cookieValues: { sc_site: 'foobar' } });
+
+      const res = createResponse();
+
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const { middleware, getSite } = createMiddleware();
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('multisite middleware start: %o', {
+        pathname: '/styleguide',
+        hostname: 'foo.net',
+      });
+
+      validateDebugLog('multisite middleware end: %o', {
+        rewritePath: '/_site_foobar/styleguide',
+        siteName: 'foobar',
+        headers: {
+          'x-sc-rewrite': '/_site_foobar/styleguide',
+        },
+        cookies: {
+          ...res.cookies,
+          sc_site: 'foobar',
+        },
+      });
+
+      expect(getSite.notCalled).equal(true);
+
+      expect(finalRes).to.deep.equal(res);
+
+      expect(nextRewriteStub).calledWith({
+        ...req.nextUrl,
+        pathname: '/_site_foobar/styleguide',
+      });
+
+      nextRewriteStub.restore();
+    });
   });
 
   describe('error handling', () => {
