@@ -10,7 +10,7 @@ import { MiddlewarePlugin } from '..';
  * The `MultisiteMiddleware` will
  *  1. Based on provided hostname and sites information, resolve site.
  *  2. Rewrite the response to the specific site.
- *  3. Set `sc_site`, 'sc_path' cookies with site name and rewritten path values to be reused in following middlewares.
+ *  3. Set `sc_site` cookie with site name and `x-sc-rewrite` header with rewritten path to be reused in following middlewares.
  */
 class MultisitePlugin implements MiddlewarePlugin {
   private multisiteMiddleware: MultisiteMiddleware;

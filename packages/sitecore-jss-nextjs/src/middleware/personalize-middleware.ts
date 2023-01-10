@@ -266,6 +266,8 @@ export class PersonalizeMiddleware {
 
     // Set browserId cookie on the response
     this.setBrowserId(response, browserId);
+    // Share site name with the following executed middlewares
+    response.cookies.set('sc_site', siteName);
 
     debug.personalize('personalize middleware end: %o', {
       rewritePath,
