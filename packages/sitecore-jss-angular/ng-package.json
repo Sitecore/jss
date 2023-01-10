@@ -5,6 +5,9 @@
     "entryFile": "./src/public_api.ts"
   },
   "allowedNonPeerDependencies": [
-    "sitecore-jss"
+    "sitecore-jss",
+    "@angular/common",
+    "@angular/core",
+    "@angular/router"
   ]
 }

@@ -1,5 +1,5 @@
 import { Injector } from '@angular/core';
-import { async, TestBed } from '@angular/core/testing';
+import { waitForAsync, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { dataResolverFactory } from './data-resolver-factory';
@@ -19,7 +19,7 @@ class MockAsyncResolver implements JssResolve<string> {
 
 describe('dataResolverFactory', () => {
   let resolver: DataResolver;
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       providers: [

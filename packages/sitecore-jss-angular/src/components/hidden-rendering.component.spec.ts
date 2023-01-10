@@ -43,7 +43,7 @@ describe('<sc-hidden-rendering />', () => {
     const el = de.nativeElement.getElementsByTagName('sc-hidden-rendering')[0];
     expect(el).toBeDefined();
     expect(el.getAttribute('style')).toEqual(
-      'display: block; height: 100px; background-image: linear-gradient(45deg, rgb(255, 255, 255) 25%, rgb(220, 220, 220) 25%, rgb(220, 220, 220) 50%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 75%, rgb(220, 220, 220) 75%, rgb(220, 220, 220) 100%); background-size: 3px 3px;'
+      'background-image: linear-gradient(45deg, rgb(255, 255, 255) 25%, rgb(220, 220, 220) 25%, rgb(220, 220, 220) 50%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 75%, rgb(220, 220, 220) 75%, rgb(220, 220, 220) 100%); background-size: 3px 3px; display: block; height: 100px;'
     );
   });
 });

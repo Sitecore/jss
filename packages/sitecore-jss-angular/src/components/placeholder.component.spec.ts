@@ -166,10 +166,10 @@ describe('<sc-placeholder />', () => {
     fixture.whenStable().then(() => {
       fixture.detectChanges();
 
-      const eeChrome = de.query(By.css(`[chrometype="placeholder"][kind="open"][id="${phKey}"]`));
+      const eeChrome = de.nativeElement.querySelector(`[chrometype="placeholder"][kind="open"][id="${phKey}"]`);
       expect(eeChrome).not.toBeNull();
 
-      const keyAttribute = eeChrome.nativeElement.getAttribute('key');
+      const keyAttribute = eeChrome.getAttribute('key');
       expect(keyAttribute).toBeDefined();
       expect(keyAttribute).toBe(phKey);
     });
