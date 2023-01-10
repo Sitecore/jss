@@ -64,7 +64,7 @@ export class RedirectsMiddleware {
    * Gets the Next.js API route handler
    * @returns route handler
    */
-  public getHandler(): (req: NextRequest) => Promise<NextResponse> {
+  public getHandler(): (req: NextRequest, res?: NextResponse) => Promise<NextResponse> {
     return this.handler;
   }
 
@@ -85,61 +85,75 @@ export class RedirectsMiddleware {
     return hostHeader || this.defaultHostname;
   }
 
-  private handler = async (req: NextRequest): Promise<NextResponse> => {
-    if (
-      (this.config.disabled && this.config.disabled(req, NextResponse.next())) ||
-      this.excludeRoute(req.nextUrl.pathname) ||
-      (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
-    ) {
-      return NextResponse.next();
-    }
-    // Find the redirect from result of RedirectService
-    const existsRedirect = await this.getExistsRedirect(req);
+  private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
+    const hostname = this.getHostname(req);
+    const siteName = res?.cookies.get('sc_site') || this.config.getSite(hostname).name;
 
-    if (!existsRedirect) {
-      return NextResponse.next();
-    }
-
-    const url = req.nextUrl.clone();
-    const absoluteUrlRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
-    if (absoluteUrlRegex.test(existsRedirect.target)) {
-      url.href = existsRedirect.target;
-      url.locale = req.nextUrl.locale;
-    } else {
-      url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
-      const urlFirstPart = existsRedirect.target.split('/')[1];
-      if (this.locales.includes(urlFirstPart)) {
-        url.locale = urlFirstPart;
-        url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
-      } else {
-        url.pathname = existsRedirect.target;
-      }
-    }
-
-    const redirectUrl = decodeURIComponent(url.href);
-
-    /** return Response redirect with http code of redirect type **/
-    switch (existsRedirect.redirectType) {
-      case REDIRECT_TYPE_301:
-        return NextResponse.redirect(redirectUrl, 301);
-      case REDIRECT_TYPE_302:
-        return NextResponse.redirect(redirectUrl, 302);
-      case REDIRECT_TYPE_SERVER_TRANSFER:
-        return NextResponse.rewrite(redirectUrl);
-      default:
+    const createResponse = async () => {
+      if (
+        (this.config.disabled && this.config.disabled(req, NextResponse.next())) ||
+        this.excludeRoute(req.nextUrl.pathname) ||
+        (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
+      ) {
         return NextResponse.next();
-    }
+      }
+      // Find the redirect from result of RedirectService
+      const existsRedirect = await this.getExistsRedirect(req, siteName);
+
+      if (!existsRedirect) {
+        return NextResponse.next();
+      }
+
+      const url = req.nextUrl.clone();
+      const absoluteUrlRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
+      if (absoluteUrlRegex.test(existsRedirect.target)) {
+        url.href = existsRedirect.target;
+        url.locale = req.nextUrl.locale;
+      } else {
+        url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
+        const urlFirstPart = existsRedirect.target.split('/')[1];
+        if (this.locales.includes(urlFirstPart)) {
+          url.locale = urlFirstPart;
+          url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
+        } else {
+          url.pathname = existsRedirect.target;
+        }
+      }
+
+      const redirectUrl = decodeURIComponent(url.href);
+
+      /** return Response redirect with http code of redirect type **/
+      switch (existsRedirect.redirectType) {
+        case REDIRECT_TYPE_301:
+          return NextResponse.redirect(redirectUrl, 301);
+        case REDIRECT_TYPE_302:
+          return NextResponse.redirect(redirectUrl, 302);
+        case REDIRECT_TYPE_SERVER_TRANSFER:
+          return NextResponse.rewrite(redirectUrl);
+        default:
+          return NextResponse.next();
+      }
+    };
+
+    const response = await createResponse();
+
+    // Share site name with the following executed middlewares
+    response.cookies.set('sc_site', siteName);
+
+    return response;
   };
 
   /**
    * Method returns RedirectInfo when matches
-   * @param {NextRequest} req
+   * @param {NextRequest} req request
+   * @param {string} siteName site name
    * @returns Promise<RedirectInfo | undefined>
    * @private
    */
-  private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
-    const hostname = this.getHostname(req);
-    const siteName = req.cookies.get('sc_site') || this.config.getSite(hostname).name;
+  private async getExistsRedirect(
+    req: NextRequest,
+    siteName: string
+  ): Promise<RedirectInfo | undefined> {
     const redirects = await this.redirectsService.fetchRedirects(siteName);
 
     return redirects.length

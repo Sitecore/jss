@@ -87,8 +87,8 @@ describe('MultisiteMiddleware', () => {
 
   const createMiddleware = (props = {}) => {
     const middleware = new MultisiteMiddleware({
-      getSite(_hostname) {
-        return { name: siteName } as SiteInfo;
+      getSite(hostName) {
+        return { name: siteName, hostName } as SiteInfo;
       },
       ...props,
     });

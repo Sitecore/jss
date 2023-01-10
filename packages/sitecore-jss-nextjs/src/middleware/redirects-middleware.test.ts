@@ -323,8 +323,9 @@ describe('RedirectsMiddleware', () => {
       });
 
       it('should use sc_site cookie', async () => {
-        const dynamicSiteName = 'foo';
+        const siteName = 'foo';
         const res = NextResponse.redirect('http://localhost:3000/found', 301);
+        res.cookies.set('sc_site', siteName);
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
@@ -332,9 +333,6 @@ describe('RedirectsMiddleware', () => {
             clone() {
               return Object.assign({}, req.nextUrl);
             },
-          },
-          cookies: {
-            sc_site: dynamicSiteName,
           },
         });
 
@@ -346,10 +344,10 @@ describe('RedirectsMiddleware', () => {
           locale: 'en',
         });
 
-        const finalRes = await middleware.getHandler()(req);
+        const finalRes = await middleware.getHandler()(req, res);
 
         expect(getSite).not.called.to.equal(true);
-        expect(fetchRedirects).to.be.calledWith(dynamicSiteName);
+        expect(fetchRedirects).to.be.calledWith(siteName);
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
       });
