@@ -245,7 +245,7 @@ export const sxaRenderingVariantDataWithoutCommonContainerName = {
         },
       },
       placeholders: {
-        'no-container-{*}': [
+        'no-container': [
           {
             uid: 'c4d5d43b-5aa8-4e03-8f16-9428f3e02d5c',
             componentName: 'RichText',
