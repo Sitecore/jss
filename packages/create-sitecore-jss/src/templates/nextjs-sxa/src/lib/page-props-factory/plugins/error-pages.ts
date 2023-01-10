@@ -12,7 +12,7 @@ class ErrorPagesPlugin implements Plugin {
     const errorPagesService = new GraphQLErrorPagesService({
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
+      siteName: props.site.name,
       language: props.locale,
     });
 
