@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-cli",
-  "version": "21.1.0-canary.57",
+  "version": "21.1.0-canary.64",
   "description": "Sitecore JSS command-line",
   "main": "dist/cjs/cli.js",
   "module": "dist/esm/cli.js",
@@ -12,8 +12,8 @@
     "lint": "eslint ./src/**/*.ts",
     "prepublishOnly": "npm run build",
     "jss": "node ./dist/cjs/bin/jss.js",
-    "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
-    "coverage": "nyc npm test"
+    "test": "mocha --require ts-node/register/transpile-only \"./src/**/*.test.ts\"",
+    "coverage": "nyc --require ts-node/register/transpile-only npm test"
   },
   "engines": {
     "node": ">=12",
@@ -33,7 +33,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "^21.1.0-canary.57",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^21.1.0-canary.64",
     "chalk": "^2.4.2",
     "cross-spawn": "^7.0.0",
     "dotenv": "^16.0.1",

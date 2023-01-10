@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { AxiosDataFetcher, GraphQLSitemapXmlService } from '@sitecore-jss/sitecore-jss-nextjs';
+import { AxiosDataFetcher, GraphQLSitemapXmlService, getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs';
 import { siteResolver } from 'lib/site-resolver';
 import config from 'temp/config';
 
@@ -53,13 +53,14 @@ const sitemapApi = async (
   }
 
   const SitemapLinks = sitemaps
-    .map(
-      (item) =>
-        `<sitemap>
-            <loc>${item}</loc>
-          </sitemap>
-        `
-    )
+    .map((item) => {
+      const parseUrl = item.split('/');
+      const lastSegment = parseUrl[parseUrl.length - 1];
+
+      return `<sitemap>
+        <loc>${getPublicUrl()}/${lastSegment}</loc>
+      </sitemap>`;
+    })
     .join('');
 
   res.setHeader('Content-Type', 'text/xml;charset=utf-8');
