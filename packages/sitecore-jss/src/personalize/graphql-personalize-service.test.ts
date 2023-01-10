@@ -1,5 +1,5 @@
 ﻿/* eslint-disable dot-notation */
-import { expect, use, spy } from 'chai';
+import { expect, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
 import { GraphQLPersonalizeService } from './graphql-personalize-service';
@@ -15,7 +15,6 @@ describe('GraphQLPersonalizeService', () => {
   const variantIds = ['variant-1', 'variant-2'];
   const config = {
     endpoint,
-    siteName,
     apiKey,
   };
   const personalizeQueryResult = {
@@ -64,7 +63,11 @@ describe('GraphQLPersonalizeService', () => {
     mockNonEmptyResponse();
 
     const service = new GraphQLPersonalizeService(config);
-    const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+    const personalizeData = await service.getPersonalizeInfo(
+      '/sitecore/content/home',
+      'en',
+      siteName
+    );
 
     expect(personalizeData).to.deep.equal({
       contentId: `embedded_${id}_en`.toLowerCase(),
@@ -76,7 +79,11 @@ describe('GraphQLPersonalizeService', () => {
     mockEmptyResponse();
 
     const service = new GraphQLPersonalizeService(config);
-    const personalizeData = await service.getPersonalizeInfo('/sitecore/content/home', '');
+    const personalizeData = await service.getPersonalizeInfo(
+      '/sitecore/content/home',
+      '',
+      siteName
+    );
 
     expect(personalizeData).to.eql(undefined);
   });
@@ -91,7 +98,7 @@ describe('GraphQLPersonalizeService', () => {
       .replyWithError('error_test');
     const service = new GraphQLPersonalizeService(config);
 
-    await service.getPersonalizeInfo('/sitecore/content/home', 'en').catch((error) => {
+    await service.getPersonalizeInfo('/sitecore/content/home', 'en', siteName).catch((error) => {
       expect(error.message).to.contain('error_test');
     });
   });
@@ -108,7 +115,7 @@ describe('GraphQLPersonalizeService', () => {
 
     const service = new GraphQLPersonalizeService(config);
 
-    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en', siteName);
     expect(result).to.equal(undefined);
   });
   it('should return fallback value when timeout is exceeded using provided timeout', async () => {
@@ -123,7 +130,7 @@ describe('GraphQLPersonalizeService', () => {
 
     const service = new GraphQLPersonalizeService({ ...config, timeout: 50 });
 
-    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en', siteName);
     expect(result).to.equal(undefined);
   });
   it('should return fallback value when api returns timeout error', async () => {
@@ -137,7 +144,7 @@ describe('GraphQLPersonalizeService', () => {
 
     const service = new GraphQLPersonalizeService({ ...config, timeout: 50 });
 
-    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en');
+    const result = await service.getPersonalizeInfo('/sitecore/content/home', 'en', siteName);
 
     expect(result).to.equal(undefined);
   });
@@ -149,7 +156,7 @@ describe('GraphQLPersonalizeService', () => {
     const lang = 'en';
 
     const service = new GraphQLPersonalizeService(config);
-    const firstResult = await service.getPersonalizeInfo(itemPath, lang);
+    const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
 
     expect(firstResult).to.deep.equal({
       contentId: `embedded_${id}_en`.toLowerCase(),
@@ -158,7 +165,7 @@ describe('GraphQLPersonalizeService', () => {
 
     mockEmptyResponse();
 
-    const secondResult = await service.getPersonalizeInfo(itemPath, lang);
+    const secondResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
 
     expect(secondResult).to.deep.equal(firstResult);
   });
@@ -173,7 +180,7 @@ describe('GraphQLPersonalizeService', () => {
       ...config,
       cacheEnabled: false,
     });
-    const firstResult = await service.getPersonalizeInfo(itemPath, lang);
+    const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
 
     expect(firstResult).to.deep.equal({
       contentId: `embedded_${id}_en`.toLowerCase(),
@@ -182,7 +189,7 @@ describe('GraphQLPersonalizeService', () => {
 
     mockEmptyResponse();
 
-    const secondResult = await service.getPersonalizeInfo(itemPath, lang);
+    const secondResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
 
     expect(secondResult).to.not.deep.equal(firstResult);
   });
@@ -197,14 +204,14 @@ describe('GraphQLPersonalizeService', () => {
       ...config,
       cacheTimeout: 0.2,
     });
-    const firstResult = await service.getPersonalizeInfo(itemPath, lang);
+    const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
 
     mockEmptyResponse();
 
     const cacheNonUpdate = new Promise((resolve) => {
       setTimeout(
         () =>
-          service.getPersonalizeInfo(itemPath, lang).then((newResult) => {
+          service.getPersonalizeInfo(itemPath, lang, siteName).then((newResult) => {
             expect(newResult).to.deep.equal(firstResult);
             resolve(undefined);
           }),
@@ -215,7 +222,7 @@ describe('GraphQLPersonalizeService', () => {
     const cacheUpdate = new Promise((resolve) => {
       setTimeout(
         () =>
-          service.getPersonalizeInfo(itemPath, lang).then((newResult) => {
+          service.getPersonalizeInfo(itemPath, lang, siteName).then((newResult) => {
             expect(newResult).to.deep.equal(undefined);
             resolve(undefined);
           }),
@@ -225,43 +232,5 @@ describe('GraphQLPersonalizeService', () => {
     await cacheNonUpdate;
 
     await cacheUpdate;
-  });
-
-  it('dynamic site name is used', async () => {
-    mockNonEmptyResponse();
-
-    const siteName = 'foo';
-    const itemPath = '/sitecore/content/home';
-    const lang = 'en';
-
-    const service = new GraphQLPersonalizeService({
-      ...config,
-    });
-
-    const requestSpy = spy.on(service['graphQLClient'], 'request');
-    const getCacheKeySpy = spy.on(service, 'getCacheKey');
-
-    const firstResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
-
-    expect(requestSpy).to.have.been.called.with(service['query'], {
-      siteName,
-      itemPath,
-      language: lang,
-    });
-
-    expect(getCacheKeySpy).to.have.been.called.with(itemPath, lang, siteName);
-
-    expect(firstResult).to.deep.equal({
-      contentId: `embedded_${id}_en`.toLowerCase(),
-      variantIds,
-    });
-
-    mockEmptyResponse();
-
-    const secondResult = await service.getPersonalizeInfo(itemPath, lang, siteName);
-
-    expect(secondResult).to.deep.equal(firstResult);
-
-    spy.restore(service);
   });
 });

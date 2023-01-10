@@ -17,6 +17,7 @@ export type MultisiteMiddlewareConfig = {
   getSite: (hostname: string) => SiteInfo;
   /**
    * Fallback hostname in case `host` header is not present
+   * @default localhost
    */
   defaultHostname?: string;
 };
@@ -70,21 +71,26 @@ export class MultisiteMiddleware {
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
-    const hostname = req.headers.get('host')?.split(':')[0] || this.defaultHostname;
+    const hostHeader = req.headers.get('host')?.split(':')[0];
+    const hostname = hostHeader || this.defaultHostname;
 
     debug.multisite('multisite middleware start: %o', {
       pathname,
       hostname,
     });
 
-    // Response will be provided if other middleware is run before us (e.g. redirects)
+    if (!hostHeader) {
+      debug.multisite(`host header is missing, default ${hostname} is used`);
+    }
+
+    // Response will be provided if other middleware is run before us
     let response = res || NextResponse.next();
 
     if (
       this.excludeRoute(pathname) ||
       (this.config.excludeRoute && this.config.excludeRoute(pathname))
     ) {
-      debug.multisite('skipped (%s)', 'route excluded');
+      debug.multisite('skipped (route excluded)');
       return response;
     }
 
@@ -104,7 +110,8 @@ export class MultisiteMiddleware {
 
     // Share rewritten path with the following executed middlewares
     response.cookies.set('sc_site', siteName);
-    response.cookies.set('sc_path', rewritePath);
+    // Share rewrite path with following executed middlewares
+    response.headers.set('x-sc-rewrite', rewritePath);
 
     debug.multisite('multisite middleware end: %o', {
       rewritePath,

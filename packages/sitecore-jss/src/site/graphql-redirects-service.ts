@@ -42,10 +42,6 @@ export type GraphQLRedirectsServiceConfig = CacheOptions & {
    */
   apiKey: string;
   /**
-   * The JSS application name
-   */
-  siteName: string;
-  /**
    * Override fetch method. Uses 'GraphQLRequestClient' default otherwise.
    */
   fetch?: typeof fetch;
@@ -80,13 +76,11 @@ export class GraphQLRedirectsService {
 
   /**
    * Fetch an array of redirects from API
-   * @param {string} [dynamicSiteName] dynamic site name
+   * @param {string} siteName site name
    * @returns Promise<RedirectInfo[]>
    * @throws {Error} if the siteName is empty.
    */
-  async fetchRedirects(dynamicSiteName?: string): Promise<RedirectInfo[]> {
-    const siteName: string = dynamicSiteName || this.options.siteName;
-
+  async fetchRedirects(siteName: string): Promise<RedirectInfo[]> {
     if (!siteName) {
       throw new Error(siteNameError);
     }

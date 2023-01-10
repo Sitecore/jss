@@ -7,6 +7,7 @@ import {
   ExperienceParams,
   getPersonalizedRewrite,
 } from '@sitecore-jss/sitecore-jss/personalize';
+import { SiteInfo } from '@sitecore-jss/sitecore-jss/site';
 import { debug, NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 
 export type PersonalizeMiddlewareConfig = {
@@ -38,6 +39,15 @@ export type PersonalizeMiddlewareConfig = {
    * @returns {boolean} false by default
    */
   disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
+  /**
+   * function used to resolve site for given hostname
+   */
+  getSite: (hostname: string) => SiteInfo;
+  /**
+   * fallback hostname in case `host` header is not present
+   * @default localhost
+   */
+  defaultHostname?: string;
 };
 
 /**
@@ -46,6 +56,7 @@ export type PersonalizeMiddlewareConfig = {
 export class PersonalizeMiddleware {
   private personalizeService: GraphQLPersonalizeService;
   private cdpService: CdpService;
+  private defaultHostname: string;
 
   /**
    * @param {PersonalizeMiddlewareConfig} [config] Personalize middleware config
@@ -75,6 +86,8 @@ export class PersonalizeMiddleware {
         return (url: string, data?: unknown) => fetcher.fetch<T>(url, data);
       },
     });
+
+    this.defaultHostname = config.defaultHostname || 'localhost';
   }
 
   /**
@@ -149,16 +162,21 @@ export class PersonalizeMiddleware {
   }
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
+    const hostHeader = req.headers.get('host')?.split(':')[0];
+    const hostname = hostHeader || this.defaultHostname;
     const pathname = req.nextUrl.pathname;
     const language = req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
-    // Cookie for multisite support
-    const siteName = res?.cookies.get('sc_site');
+    const siteName = res?.cookies.get('sc_site') || this.config.getSite(hostname).name;
 
     let browserId = this.getBrowserId(req);
     debug.personalize('personalize middleware start: %o', {
       pathname,
       language,
     });
+
+    if (!hostHeader) {
+      debug.personalize(`host header is missing, default ${hostname} is used`);
+    }
 
     // Response will be provided if other middleware is run before us (e.g. redirects)
     let response = res || NextResponse.next();
@@ -230,8 +248,8 @@ export class PersonalizeMiddleware {
       return response;
     }
 
-    // Path is rewritten by previous middleware
-    const basePath = res?.cookies.get('sc_path') || pathname;
+    // Path can be rewritten by previously executed middleware
+    const basePath = res?.headers.get('x-sc-rewrite') || pathname;
 
     // Rewrite to persononalized path
     const rewritePath = getPersonalizedRewrite(basePath, { variantId });
@@ -243,6 +261,8 @@ export class PersonalizeMiddleware {
     // Disable preflight caching to force revalidation on client-side navigation (personalization may be influenced)
     // See https://github.com/vercel/next.js/issues/32727
     response.headers.set('x-middleware-cache', 'no-cache');
+    // Share rewrite path with following executed middlewares
+    response.headers.set('x-sc-rewrite', rewritePath);
 
     // Set browserId cookie on the response
     this.setBrowserId(response, browserId);
