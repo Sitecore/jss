@@ -87,8 +87,10 @@ describe('utils', () => {
     });
     it('should normalize path with other prefixes present', () => {
       const pathname = `/_site_mysite/${VARIANT_PREFIX}foo`;
+      const pathNameInversed = `/${VARIANT_PREFIX}foo/_site_mysite/`;
       const result = normalizePersonalizedRewrite(pathname);
       expect(result).to.equal('/_site_mysite/');
+      expect(normalizePersonalizedRewrite(pathNameInversed)).to.equal(result);
     });
   });
 
