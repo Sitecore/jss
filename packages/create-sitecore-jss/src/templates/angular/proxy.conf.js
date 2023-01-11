@@ -8,7 +8,7 @@
 
   See /scripts/disconnected-mode-proxy.ts for the proxy API server configuration.
 */
-const { constants } = require('@sitecore-jss/sitecore-jss-angular');
+const constants  = require('./scripts/constants.json');
 
 const port = 3043;
 
