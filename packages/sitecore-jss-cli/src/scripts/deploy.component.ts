@@ -38,7 +38,7 @@ export function args(yargs: Argv) {
  * @param {any} argv
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function handler(argv: any) {
+export async function handler(argv: any) {
   // create micro-manifest to deploy from
   const fields: Array<{ name: string; type: string }> = [];
 

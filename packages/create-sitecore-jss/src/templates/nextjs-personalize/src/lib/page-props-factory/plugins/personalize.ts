@@ -4,7 +4,7 @@ import { getPersonalizedRewriteData, personalizeLayout } from '@sitecore-jss/sit
 import { SitecorePageProps } from 'lib/page-props';
 
 class PersonalizePlugin implements Plugin {
-  order = 2;
+  order = 3;
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
     const path =

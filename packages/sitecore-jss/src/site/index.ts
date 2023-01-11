@@ -32,4 +32,4 @@ export {
 } from './graphql-siteinfo-service';
 
 export { getSiteRewrite, getSiteRewriteData, normalizeSiteRewrite, SiteRewriteData } from './utils';
-export { SiteResolver, HostInfo } from './site-resolver';
+export { SiteResolver } from './site-resolver';
