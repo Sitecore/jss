@@ -225,40 +225,35 @@ export class GraphQLSitemapService {
     languages: string[],
     formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
-    let paths = new Array<StaticPath>();
+    const paths = new Array<StaticPath>();
     if (!languages.length) {
       throw new RangeError(languageError);
     }
     // Get all sites
     const sites = this.options.sites;
-    let aggregatedPaths: StaticPath[] = [];
 
     // Fetch paths for each site
     for (let i = 0; i < sites.length; i++) {
       const siteName = sites[i];
       const multiSiteName = sites.length > 1 ? siteName : undefined;
-      const multipleLanguages = languages.length > 1;
 
       // Fetch paths using all locales
-      paths = ((await Promise.all(
+      await Promise.all(
         languages.map(async (language) => {
           if (language === '') {
             throw new RangeError(languageEmptyError);
           }
           debug.sitemap('fetching sitemap data for %s', language, siteName);
           const results = await this.fetchLanguageSitePaths(language, siteName);
-          if (multipleLanguages) {
-            aggregatedPaths = [];
-          }
-          return await this.transformLanguageSitePaths(
+          const transformedPaths = await this.transformLanguageSitePaths(
             results,
             formatStaticPath,
             language,
-            aggregatedPaths,
             multiSiteName
           );
+          paths.push(...transformedPaths);
         })
-      )) as []) as StaticPath[];
+      );
     }
 
     return ([] as StaticPath[]).concat(...paths);
@@ -268,25 +263,39 @@ export class GraphQLSitemapService {
     sitePaths: RouteListQueryResult[],
     formatStaticPath: (path: string[], language: string) => StaticPath,
     language: string,
-    aggregatedPaths: StaticPath[],
     multiSiteName?: string | undefined
   ): Promise<StaticPath[]> {
     const formatPath = (path: string) =>
       formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);
 
+    const aggregatedPaths: StaticPath[] = [];
+
     sitePaths.forEach((item) => {
       if (!item) return;
 
-      if (!multiSiteName || item.route?.personalization?.variantIds.length) {
+      if (!multiSiteName) {
         aggregatedPaths.push(formatPath(item.path));
+      }
+      if (multiSiteName && item.route?.personalization?.variantIds.length) {
+        aggregatedPaths.push(formatPath(getSiteRewrite(item.path, { siteName: multiSiteName })));
       }
       // check for type safety's sake - personalize may be empty depending on query type
       if (item.route?.personalization?.variantIds.length) {
-        aggregatedPaths.push(
-          ...item.route?.personalization?.variantIds.map((varId) =>
-            formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
-          )
-        );
+        multiSiteName
+          ? aggregatedPaths.push(
+              ...item.route?.personalization?.variantIds.map((varId) =>
+                formatPath(
+                  getPersonalizedRewrite(getSiteRewrite(item.path, { siteName: multiSiteName }), {
+                    variantId: varId,
+                  })
+                )
+              )
+            )
+          : aggregatedPaths.push(
+              ...item.route?.personalization?.variantIds.map((varId) =>
+                formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
+              )
+            );
       }
 
       if (!item.route?.personalization?.variantIds.length && multiSiteName) {

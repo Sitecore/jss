@@ -395,41 +395,42 @@ describe('GraphQLSitemapService', () => {
         includePersonalizedRoutes: true,
       });
       const sitemap = await service.fetchSSGSitemap([lang]);
+      console.log(sitemap.map((item) => item.params.path));
 
       expect(sitemap).to.deep.equal([
         {
           params: {
-            path: [''],
+            path: ['_site_site1'],
           },
           locale: lang,
         },
         {
           params: {
-            path: ['_variantId_green'],
+            path: ['_variantId_green', '_site_site1'],
           },
           locale: lang,
         },
         {
           params: {
-            path: ['y1', 'y2', 'y3', 'y4'],
+            path: ['_site_site1', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: lang,
         },
         {
           params: {
-            path: ['_variantId_green', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_variantId_green', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: lang,
         },
         {
           params: {
-            path: ['_variantId_red', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_variantId_red', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: lang,
         },
         {
           params: {
-            path: ['_variantId_purple', 'y1', 'y2', 'y3', 'y4'],
+            path: ['_variantId_purple', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
           },
           locale: lang,
         },
