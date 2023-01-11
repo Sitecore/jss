@@ -8,7 +8,7 @@ import {
   MutationOptions,
   DocumentNode
 } from '@apollo/client/core';
-import { Observable, empty } from 'rxjs';
+import { Observable, EMPTY } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { ComponentRendering, isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from './jss-context.service';
