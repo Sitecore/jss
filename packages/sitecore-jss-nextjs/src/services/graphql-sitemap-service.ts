@@ -5,6 +5,7 @@ import { getSiteRewrite } from '@sitecore-jss/sitecore-jss/site';
 
 /** @private */
 export const languageError = 'The list of languages cannot be empty';
+export const sitesError = 'The list of sites cannot be empty';
 
 /**
  * @param {string} siteName to inject into error text
@@ -233,11 +234,10 @@ export class GraphQLSitemapService {
     let aggregatedPaths: StaticPath[] = [];
 
     // Fetch paths for each site
-    for (let i = 0; i < sites?.length; i++) {
+    for (let i = 0; i < sites.length; i++) {
       const siteName = sites[i];
-      const site = sites?.length > 1 ? siteName : undefined;
-      const isMultiSite = sites?.length > 1 && true;
-      const multipleLanguages = languages.length > 1 && true;
+      const multiSiteName = sites.length > 1 ? siteName : undefined;
+      const multipleLanguages = languages.length > 1;
 
       // Fetch paths using all locales
       paths = ((await Promise.all(
@@ -255,8 +255,7 @@ export class GraphQLSitemapService {
             formatStaticPath,
             language,
             aggregatedPaths,
-            isMultiSite,
-            site
+            multiSiteName
           );
         })
       )) as []) as StaticPath[];
@@ -270,8 +269,7 @@ export class GraphQLSitemapService {
     formatStaticPath: (path: string[], language: string) => StaticPath,
     language: string,
     aggregatedPaths: StaticPath[],
-    isMultiSite?: boolean,
-    siteName?: string | undefined
+    multiSiteName?: string | undefined
   ): Promise<StaticPath[]> {
     const formatPath = (path: string) =>
       formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);
@@ -279,7 +277,7 @@ export class GraphQLSitemapService {
     sitePaths.forEach((item) => {
       if (!item) return;
 
-      if (!isMultiSite || item.route?.personalization?.variantIds.length) {
+      if (!multiSiteName || item.route?.personalization?.variantIds.length) {
         aggregatedPaths.push(formatPath(item.path));
       }
       // check for type safety's sake - personalize may be empty depending on query type
@@ -291,8 +289,8 @@ export class GraphQLSitemapService {
         );
       }
 
-      if (!item.route?.personalization?.variantIds.length && siteName) {
-        aggregatedPaths.push(formatPath(getSiteRewrite(item.path, { siteName })));
+      if (!item.route?.personalization?.variantIds.length && multiSiteName) {
+        aggregatedPaths.push(formatPath(getSiteRewrite(item.path, { siteName: multiSiteName })));
       }
     });
 
