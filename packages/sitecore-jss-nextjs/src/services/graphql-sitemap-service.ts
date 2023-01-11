@@ -243,7 +243,7 @@ export class GraphQLSitemapService {
           if (language === '') {
             throw new RangeError(languageEmptyError);
           }
-          debug.sitemap('fetching sitemap data for %s', language, siteName);
+          debug.sitemap('fetching sitemap data for %s %s', language, siteName);
           const results = await this.fetchLanguageSitePaths(language, siteName);
           const transformedPaths = await this.transformLanguageSitePaths(
             results,
