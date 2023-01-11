@@ -3,7 +3,6 @@ import { isPlatformServer } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
-  ComponentFactoryResolver,
   ContentChild,
   DoCheck,
   ElementRef,
@@ -102,7 +101,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   }
 
   constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
     private differs: KeyValueDiffers,
     private componentFactory: JssComponentFactoryService,
     private changeDetectorRef: ChangeDetectorRef,
@@ -292,14 +290,9 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
       rendering.componentImplementation = this.missingComponentComponent;
     }
-
-    const componentFactory =
-      rendering.componentFactory ||
-      this.componentFactoryResolver.resolveComponentFactory(rendering.componentImplementation);
-
     // apply the parent style attribute _ngcontent
     // work-around for https://github.com/angular/angular/issues/12215
-    const createdComponentRef = this.view.createComponent(componentFactory, index);
+    const createdComponentRef = this.view.createComponent(rendering.componentImplementation, {index: index});
     if (this.parentStyleAttribute) {
       this.renderer.setAttribute(
         createdComponentRef.location.nativeElement,

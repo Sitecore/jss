@@ -1,16 +1,13 @@
 import {
-  ComponentFactory,
   Inject,
   Injectable,
   Injector,
   Type,
-  Compiler,
-  NgModuleFactory,
   createNgModuleRef,
 } from '@angular/core';
 import { LoadChildren } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { from, of } from 'rxjs';
+import { of } from 'rxjs';
 import { mergeMap, take } from 'rxjs/operators';
 import {
   ComponentNameAndModule,
@@ -30,8 +27,6 @@ export interface ComponentFactoryResult {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   componentImplementation?: Type<any>;
   componentDefinition: ComponentRendering | HtmlElementRendering;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  componentFactory?: ComponentFactory<any>;
   canActivate?:
     | JssCanActivate
     | Type<JssCanActivate>
@@ -47,7 +42,6 @@ export class JssComponentFactoryService {
 
   constructor(
     private injector: Injector,
-    private compiler: Compiler,
     @Inject(PLACEHOLDER_COMPONENTS) private components: ComponentNameAndType[],
     @Inject(PLACEHOLDER_LAZY_COMPONENTS) private lazyComponents: ComponentNameAndModule[]
   ) {
@@ -76,7 +70,7 @@ export class JssComponentFactoryService {
     const lazyComponent = this.lazyComponentMap.get(component.componentName);
 
     if (lazyComponent) {
-      return lazyComponent.loadChildren().then((lazyChild) => {
+      return this.processChildren(lazyComponent.loadChildren).then((lazyChild) => {
         let componentType = null;
         const moduleRef = createNgModuleRef(lazyChild, this.injector);
         const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
@@ -116,19 +110,20 @@ export class JssComponentFactoryService {
     });
   }
 
-  private loadModuleFactory(loadChildren: LoadChildren): Promise<NgModuleFactory<unknown>> {
-      return wrapIntoObservable(loadChildren())
+  private processChildren(loadChildren: LoadChildren): Promise<Type<unknown>> {
+    if (typeof loadChildren === 'string') {
+      return import(loadChildren).then(mod => mod.MODULE);
+    }
+    else {
+       return wrapIntoObservable(loadChildren())
         .pipe(
           mergeMap((t: any) => {
-            if (t instanceof NgModuleFactory) {
               return of(t);
-            } else {
-              return from(this.compiler.compileModuleAsync(t));
-            }
           }),
           take(1)
         )
         .toPromise();
+    }
   }
 
   getComponents(
