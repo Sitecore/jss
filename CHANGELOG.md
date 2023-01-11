@@ -18,7 +18,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
   * IE11 no longer supported by JSS Angular
   * jss-angular package does not output UMD package anymore - only ESM. Because of this constants are now a separate JSON file in sample app under scripts, and are not imported from the jss-angular package
   * Due to the above change some things that are re-exported from sitecore-jss may no longer be available to import through sitecore-jss-angular
-  * componentFactory is no present in ComponentFactoryResult interface, due to createComponent changes and deprecations introduced in Angular 13
+  * componentFactory is no longer present in ComponentFactoryResult interface, due to createComponent changes and deprecations introduced in Angular 13
   * More details on changes in Angular can be found in the below links:
   https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
   https://angular.io/guide/deprecations
