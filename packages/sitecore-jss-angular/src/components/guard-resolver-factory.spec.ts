@@ -51,22 +51,24 @@ class MockAsyncFalseGuard implements JssCanActivate {
 
 describe('guardResolverFactory', () => {
   let resolver: GuardResolver;
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      providers: [
-        MockSyncTrueGuard,
-        MockSyncFalseGuard,
-        MockAsyncTrueGuard,
-        MockAsyncFalseGuard,
-        {
-          provide: GUARD_RESOLVER,
-          useFactory: guardResolverFactory,
-          deps: [Injector, ActivatedRoute, Router],
-        },
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [RouterTestingModule],
+        providers: [
+          MockSyncTrueGuard,
+          MockSyncFalseGuard,
+          MockAsyncTrueGuard,
+          MockAsyncFalseGuard,
+          {
+            provide: GUARD_RESOLVER,
+            useFactory: guardResolverFactory,
+            deps: [Injector, ActivatedRoute, Router],
+          },
+        ],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     resolver = TestBed.get(GUARD_RESOLVER);

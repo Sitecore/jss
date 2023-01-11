@@ -12,13 +12,13 @@ import { LinkField } from './rendering-field';
 
 @Directive({ selector: '[scLink]' })
 export class LinkDirective implements OnChanges {
-  private inlineRef: HTMLSpanElement | null = null;
-
   @Input('scLinkEditable') editable = true;
 
   @Input('scLinkAttrs') attrs: { [attr: string]: string } = {};
 
   @Input('scLink') field: LinkField;
+
+  private inlineRef: HTMLSpanElement | null = null;
 
   constructor(
     protected viewContainer: ViewContainerRef,
@@ -39,18 +39,6 @@ export class LinkDirective implements OnChanges {
     }
   }
 
-  private updateView() {
-    const field = this.field;
-    if (this.editable && field && field.editableFirstPart && field.editableLastPart) {
-      this.renderInlineWrapper(field.editableFirstPart, field.editableLastPart);
-    } else if (field && (field.href || field.value)) {
-      const props = field.href ? field : field.value;
-      const linkText = field.text || field.value?.text || field.href || field.value?.href;
-      const mergedAttrs = { ...props, ...this.attrs };
-      this.renderTemplate(mergedAttrs, linkText);
-    }
-  }
-
   protected renderTemplate(props: { [prop: string]: unknown }, linkText?: string) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
@@ -63,6 +51,41 @@ export class LinkDirective implements OnChanges {
         node.textContent = linkText;
       }
     });
+  }
+
+  protected updateAttribute(node: HTMLElement, key: string, propValue?: unknown) {
+    if (typeof propValue !== 'string' || !propValue || propValue === '') {
+      return;
+    }
+
+    if (key === 'href') {
+      const isInvalidLink = !propValue || /^https?:\/\/$/.test(propValue);
+
+      if (isInvalidLink) {
+        if (!(node as HTMLLinkElement).href) {
+          return;
+        }
+
+        propValue = (node as HTMLLinkElement).href as string;
+      }
+      this.renderer.setAttribute(node, key, propValue as string);
+    } else if (key === 'class' && node.className !== '') {
+      this.renderer.setAttribute(node, key, `${node.className} ${propValue}`);
+    } else {
+      this.renderer.setAttribute(node, key, propValue);
+    }
+  }
+
+  private updateView() {
+    const field = this.field;
+    if (this.editable && field && field.editableFirstPart && field.editableLastPart) {
+      this.renderInlineWrapper(field.editableFirstPart, field.editableLastPart);
+    } else if (field && (field.href || field.value)) {
+      const props = field.href ? field : field.value;
+      const linkText = field.text || field.value?.text || field.href || field.value?.href;
+      const mergedAttrs = { ...props, ...this.attrs };
+      this.renderTemplate(mergedAttrs, linkText);
+    }
   }
 
   private renderInlineWrapper(editableFirstPart: string, editableLastPart: string) {
@@ -99,28 +122,5 @@ export class LinkDirective implements OnChanges {
       }
     }
     return attrs;
-  }
-
-  protected updateAttribute(node: HTMLElement, key: string, propValue?: unknown) {
-    if (typeof propValue !== 'string' || !propValue || propValue === '') {
-      return;
-    }
-
-    if (key === 'href') {
-      const isInvalidLink = !propValue || /^https?:\/\/$/.test(propValue);
-
-      if (isInvalidLink) {
-        if (!(node as HTMLLinkElement).href) {
-          return;
-        }
-
-        propValue = (node as HTMLLinkElement).href as string;
-      }
-      this.renderer.setAttribute(node, key, propValue as string);
-    } else if (key === 'class' && node.className !== '') {
-      this.renderer.setAttribute(node, key, `${node.className} ${propValue}`);
-    } else {
-      this.renderer.setAttribute(node, key, propValue);
-    }
   }
 }

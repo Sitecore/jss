@@ -19,19 +19,21 @@ class MockAsyncResolver implements JssResolve<string> {
 
 describe('dataResolverFactory', () => {
   let resolver: DataResolver;
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      providers: [
-        MockAsyncResolver,
-        {
-          provide: DATA_RESOLVER,
-          useFactory: dataResolverFactory,
-          deps: [Injector, ActivatedRoute, Router],
-        },
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [RouterTestingModule],
+        providers: [
+          MockAsyncResolver,
+          {
+            provide: DATA_RESOLVER,
+            useFactory: dataResolverFactory,
+            deps: [Injector, ActivatedRoute, Router],
+          },
+        ],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     resolver = TestBed.get(DATA_RESOLVER);

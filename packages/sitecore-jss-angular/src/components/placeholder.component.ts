@@ -71,13 +71,6 @@ export interface FactoryWithData {
   `,
 })
 export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
-  private _inputs: { [key: string]: unknown };
-  private _differ: KeyValueDiffer<string, unknown>;
-  private _componentInstances: { [prop: string]: unknown }[] = [];
-  private destroyed = false;
-  private parentStyleAttribute = '';
-  public isLoading = true;
-
   @Input() name?: string;
   @Input() rendering: ComponentRendering;
   @Input() renderings?: Array<ComponentRendering | HtmlElementRendering>;
@@ -86,11 +79,20 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
   @Output() loaded = new EventEmitter<string | undefined>();
 
-  @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
   @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
   @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
   @ContentChild(PlaceholderLoadingDirective, { static: true })
   placeholderLoading?: PlaceholderLoadingDirective;
+
+  @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
+
+  public isLoading = true;
+
+  private _inputs: { [key: string]: unknown };
+  private _differ: KeyValueDiffer<string, unknown>;
+  private _componentInstances: { [prop: string]: unknown }[] = [];
+  private destroyed = false;
+  private parentStyleAttribute = '';
 
   @Input()
   set inputs(value: { [key: string]: unknown }) {
@@ -292,7 +294,9 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     }
     // apply the parent style attribute _ngcontent
     // work-around for https://github.com/angular/angular/issues/12215
-    const createdComponentRef = this.view.createComponent(rendering.componentImplementation, {index: index});
+    const createdComponentRef = this.view.createComponent(rendering.componentImplementation, {
+      index: index,
+    });
     if (this.parentStyleAttribute) {
       this.renderer.setAttribute(
         createdComponentRef.location.nativeElement,

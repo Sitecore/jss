@@ -1,10 +1,4 @@
-import {
-  Inject,
-  Injectable,
-  Injector,
-  Type,
-  createNgModuleRef,
-} from '@angular/core';
+import { Inject, Injectable, Injector, Type, createNgModuleRef } from '@angular/core';
 import { LoadChildren } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { of } from 'rxjs';
@@ -110,22 +104,6 @@ export class JssComponentFactoryService {
     });
   }
 
-  private processChildren(loadChildren: LoadChildren): Promise<Type<unknown>> {
-    if (typeof loadChildren === 'string') {
-      return import(loadChildren).then(mod => mod.MODULE);
-    }
-    else {
-       return wrapIntoObservable(loadChildren())
-        .pipe(
-          mergeMap((t: any) => {
-              return of(t);
-          }),
-          take(1)
-        )
-        .toPromise();
-    }
-  }
-
   getComponents(
     components: Array<ComponentRendering | HtmlElementRendering>
   ): Promise<ComponentFactoryResult[]> {
@@ -135,6 +113,21 @@ export class JssComponentFactoryService {
         isRawRendering(component) ? this.getRawComponent(component) : this.getComponent(component)
       )
     );
+  }
+
+  private processChildren(loadChildren: LoadChildren): Promise<Type<unknown>> {
+    if (typeof loadChildren === 'string') {
+      return import(loadChildren).then((mod) => mod.MODULE);
+    } else {
+      return wrapIntoObservable(loadChildren())
+        .pipe(
+          mergeMap((t: any) => {
+            return of(t);
+          }),
+          take(1)
+        )
+        .toPromise();
+    }
   }
 
   private getRawComponent(component: HtmlElementRendering): Promise<ComponentFactoryResult> {
