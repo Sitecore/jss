@@ -229,8 +229,12 @@ export class GraphQLSitemapService {
     if (!languages.length) {
       throw new RangeError(languageError);
     }
+
     // Get all sites
     const sites = this.options.sites;
+    if (!sites || !sites.length) {
+      throw new RangeError(sitesError);
+    }
 
     // Fetch paths for each site
     for (let i = 0; i < sites.length; i++) {
