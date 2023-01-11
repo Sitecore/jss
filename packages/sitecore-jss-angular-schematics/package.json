@@ -24,9 +24,9 @@
   },
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "^14.0.0",
-    "@angular-devkit/schematics": "^14.0.0",
-    "@schematics/angular": "^14.0.0",
+    "@angular-devkit/core": "^14.2.0",
+    "@angular-devkit/schematics": "^14.2.0",
+    "@schematics/angular": "^14.2.0",
     "chalk": "^2.4.2"
   },
   "devDependencies": {

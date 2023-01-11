@@ -13,6 +13,18 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
   * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
   * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
 
+* `[sitecore-jss-angular]` jss-angular package and sample has been updated to version 14. This means several changes:
+  * JSS Angular apps are now using Ivy
+  * IE11 no longer supported by JSS Angular
+  * jss-angular package does not output UMD package anymore - only ESM. Because of this constants are now a separate JSON file in sample app under scripts, and are not imported from the jss-angular package
+  * Due to the above change some things that are re-exported from sitecore-jss may no longer be available to import through sitecore-jss-angular
+  * componentFactory is no present in ComponentFactoryResult interface, due to createComponent changes and deprecations introduced in Angular 13
+  * More details on changes in Angular can be found in the below links:
+  https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
+  https://angular.io/guide/deprecations
+  https://update.angular.io/?l=3&v=11.0-14.0 
+  
+
 ## 20.1.0
 
 ### 🎉 New Features & Improvements
