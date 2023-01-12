@@ -30,7 +30,7 @@
     "start:angular": "ng serve -o",
     "start:proxy": "ts-node --project src/tsconfig.webpack-server.json scripts/disconnected-mode-proxy.ts",
     "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory.ts --watch",
-    "build:client": "cross-env-shell ng build --prod --deploy-url $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
+    "build:client": "cross-env-shell ng build --deploy-url $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
     "build:server": "cross-env-shell ng run <%- appName %>:server:production --output-path=$npm_package_config_buildArtifactsPath/server --output-hashing=none --bundle-dependencies true",
     "postbuild:server": "move-cli ./dist/server/main.js ./dist/server.bundle.js && del-cli ./dist/server",
     "bootstrap": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
