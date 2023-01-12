@@ -16,9 +16,9 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * `[sitecore-jss-angular]` jss-angular package and sample has been updated to version 14. This means several changes:
   * JSS Angular apps are now using Ivy
   * IE11 no longer supported by JSS Angular
-  * jss-angular package does not output UMD package anymore - only ESM. Because of this constants are now a separate JSON file in sample app under scripts, and are not imported from the jss-angular package
-  * Due to the above change some things that are re-exported from sitecore-jss may no longer be available to import through sitecore-jss-angular
-  * componentFactory is no longer present in ComponentFactoryResult interface, due to createComponent changes and deprecations introduced in Angular 13
+  * _sitecore-jss-angular_ package does not output UMD package anymore - only ESM. Because of this constants are now a separate JSON file in sample app under scripts, and are not imported from the _sitecore-jss-angular_ package
+  * Due to the above change some things that are re-exported from _sitecore-jss_ may no longer be available to import through _sitecore-jss-angular_
+  * _componentFactory_ is no longer present in ComponentFactoryResult interface, due to _createComponent_ changes and deprecations introduced in Angular 13
   * More details on changes in Angular can be found in the below links:
   https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
   https://angular.io/guide/deprecations

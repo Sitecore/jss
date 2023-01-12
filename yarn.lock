@@ -32,7 +32,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:^14.2.0":
+"@angular-devkit/build-angular@npm:^14.2.10":
   version: 14.2.10
   resolution: "@angular-devkit/build-angular@npm:14.2.10"
   dependencies:
@@ -205,7 +205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cli@npm:~14.2.0":
+"@angular/cli@npm:~14.2.10":
   version: 14.2.10
   resolution: "@angular/cli@npm:14.2.10"
   dependencies:
@@ -235,7 +235,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/common@npm:~14.2.0":
+"@angular/common@npm:~14.2.10":
   version: 14.2.12
   resolution: "@angular/common@npm:14.2.12"
   dependencies:
@@ -247,7 +247,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler-cli@npm:~14.2.0":
+"@angular/compiler-cli@npm:~14.2.10":
   version: 14.2.12
   resolution: "@angular/compiler-cli@npm:14.2.12"
   dependencies:
@@ -281,7 +281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler@npm:~14.2.0":
+"@angular/compiler@npm:~14.2.10":
   version: 14.2.12
   resolution: "@angular/compiler@npm:14.2.12"
   dependencies:
@@ -306,7 +306,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/core@npm:~14.2.0":
+"@angular/core@npm:~14.2.10":
   version: 14.2.12
   resolution: "@angular/core@npm:14.2.12"
   dependencies:
@@ -318,7 +318,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser-dynamic@npm:~14.2.0":
+"@angular/platform-browser-dynamic@npm:~14.2.10":
   version: 14.2.12
   resolution: "@angular/platform-browser-dynamic@npm:14.2.12"
   dependencies:
@@ -332,7 +332,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser@npm:~14.2.0":
+"@angular/platform-browser@npm:~14.2.10":
   version: 14.2.12
   resolution: "@angular/platform-browser@npm:14.2.12"
   dependencies:
@@ -348,7 +348,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/router@npm:~14.2.0":
+"@angular/router@npm:~14.2.10":
   version: 14.2.12
   resolution: "@angular/router@npm:14.2.12"
   dependencies:
@@ -5842,22 +5842,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-angular@workspace:packages/sitecore-jss-angular"
   dependencies:
-    "@angular-devkit/build-angular": ^14.2.0
+    "@angular-devkit/build-angular": ^14.2.10
     "@angular-eslint/eslint-plugin": ^14.4.0
-    "@angular/cli": ~14.2.0
-    "@angular/common": ~14.2.0
-    "@angular/compiler": ~14.2.0
-    "@angular/compiler-cli": ~14.2.0
-    "@angular/core": ~14.2.0
-    "@angular/platform-browser": ~14.2.0
-    "@angular/platform-browser-dynamic": ~14.2.0
-    "@angular/router": ~14.2.0
+    "@angular/cli": ~14.2.10
+    "@angular/common": ~14.2.10
+    "@angular/compiler": ~14.2.10
+    "@angular/compiler-cli": ~14.2.10
+    "@angular/core": ~14.2.10
+    "@angular/platform-browser": ~14.2.10
+    "@angular/platform-browser-dynamic": ~14.2.10
+    "@angular/router": ~14.2.10
     "@sitecore-jss/sitecore-jss": ^21.1.0-canary.64
     "@types/jasmine": ^3.4.1
     "@types/node": ^14.14.35
     codelyzer: ^6.0.1
     eslint: ^7.22.0
-    jasmine-core: ^3.5.0
+    jasmine-core: ^4.0.0
     karma: ^6.3.2
     karma-chrome-launcher: ^3.1.0
     karma-coverage: ~2.2.0
@@ -5874,9 +5874,9 @@ __metadata:
     webpack: ~5.75.0
     zone.js: ~0.11.8
   peerDependencies:
-    "@angular/common": ~14.2.0
-    "@angular/core": ~14.2.0
-    "@angular/router": ~14.2.0
+    "@angular/common": ~14.2.10
+    "@angular/core": ~14.2.10
+    "@angular/router": ~14.2.10
     rxjs: ~6.6.6
   languageName: unknown
   linkType: soft
@@ -18382,14 +18382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jasmine-core@npm:^3.5.0":
-  version: 3.10.1
-  resolution: "jasmine-core@npm:3.10.1"
-  checksum: 77ee26aaf29576e982a2ebe6586218ff4d7cc4305ad18c400954bbdeb3c7987e9a4a8ac6d6548b65838852f325395fc901d69bf8c24bdccfbd67b263fbf5d4fd
-  languageName: node
-  linkType: hard
-
-"jasmine-core@npm:^4.1.0":
+"jasmine-core@npm:^4.0.0, jasmine-core@npm:^4.1.0":
   version: 4.5.0
   resolution: "jasmine-core@npm:4.5.0"
   checksum: e7adda527d544097ddb8aeec7bbbed19c59ca70ef57e1b740189eecf5cde3e0e20fba74d15c511b169105cface4fa2a775a6088c2220bf97f482b51b3c5d1fa1
