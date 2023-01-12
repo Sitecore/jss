@@ -61,6 +61,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+    "@sitecore-feaas/clientside": "^0.1.15",
     "@sitecore-jss/sitecore-jss": "^21.1.0-canary.67",
     "deep-equal": "^2.1.0",
     "html-react-parser": "^3.0.4",

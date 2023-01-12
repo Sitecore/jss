@@ -4195,6 +4195,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sitecore-feaas/clientside@npm:^0.1.15":
+  version: 0.1.15
+  resolution: "@sitecore-feaas/clientside@npm:0.1.15"
+  dependencies:
+    jsonpath-plus: ^6.0.1
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  dependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 0004517819f9a5657e57988654cb3113ca27b44ff2787724e4018d5a279125be87d3959f260f5ff1f7b81b18a80ada0157f6a9911e09f9974316f1c2dfa5d8b6
+  languageName: node
+  linkType: hard
+
 "@sitecore-jss/sitecore-jss-angular-schematics@workspace:packages/sitecore-jss-angular-schematics":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-angular-schematics@workspace:packages/sitecore-jss-angular-schematics"
@@ -4518,6 +4537,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
+    "@sitecore-feaas/clientside": ^0.1.15
     "@sitecore-jss/sitecore-jss": ^21.1.0-canary.67
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
@@ -17417,6 +17437,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsonpath-plus@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "jsonpath-plus@npm:6.0.1"
+  checksum: bddec34b742249c5b38077dfcd8eb479fab4e077943253017326503ce4f527ef66938288c728712fd923907493d6eaba69a43015dc3dd9fdf48d89028ae7f466
+  languageName: node
+  linkType: hard
+
 "jsprim@npm:^1.2.2":
   version: 1.4.1
   resolution: "jsprim@npm:1.4.1"
@@ -22171,7 +22198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.2.0":
+"react-dom@npm:>=16.8.0, react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -22336,7 +22363,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.2.0":
+"react@npm:>=16.8.0, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
