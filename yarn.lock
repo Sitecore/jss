@@ -141,7 +141,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/core@npm:14.2.10, @angular-devkit/core@npm:^14.2.0":
+"@angular-devkit/core@npm:14.2.10, @angular-devkit/core@npm:^14.2.10":
   version: 14.2.10
   resolution: "@angular-devkit/core@npm:14.2.10"
   dependencies:
@@ -159,7 +159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/schematics@npm:14.2.10, @angular-devkit/schematics@npm:^14.2.0":
+"@angular-devkit/schematics@npm:14.2.10, @angular-devkit/schematics@npm:^14.2.10":
   version: 14.2.10
   resolution: "@angular-devkit/schematics@npm:14.2.10"
   dependencies:
@@ -5677,7 +5677,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@schematics/angular@npm:14.2.10, @schematics/angular@npm:^14.2.0":
+"@schematics/angular@npm:14.2.10, @schematics/angular@npm:^14.2.10":
   version: 14.2.10
   resolution: "@schematics/angular@npm:14.2.10"
   dependencies:
@@ -5826,9 +5826,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-angular-schematics@workspace:packages/sitecore-jss-angular-schematics"
   dependencies:
-    "@angular-devkit/core": ^14.2.0
-    "@angular-devkit/schematics": ^14.2.0
-    "@schematics/angular": ^14.2.0
+    "@angular-devkit/core": ^14.2.10
+    "@angular-devkit/schematics": ^14.2.10
+    "@schematics/angular": ^14.2.10
     "@types/jasmine": ^2.8.0
     "@types/node": ^12.7.8
     chalk: ^2.4.2
