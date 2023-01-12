@@ -138,7 +138,7 @@ export interface GraphQLSitemapServiceConfig
   apiKey: string;
 
   /**
-   * Name of the configured sited
+   * Names of the configured sites
    */
   sites: string[];
 
