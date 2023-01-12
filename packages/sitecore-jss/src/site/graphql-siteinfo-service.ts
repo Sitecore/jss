@@ -44,6 +44,10 @@ export type SiteInfo = {
    * Site default language
    */
   language: string;
+  /**
+   * Assigned project
+   */
+  project?: string;
 };
 
 export type GraphQLSiteInfoServiceConfig = CacheOptions & {
