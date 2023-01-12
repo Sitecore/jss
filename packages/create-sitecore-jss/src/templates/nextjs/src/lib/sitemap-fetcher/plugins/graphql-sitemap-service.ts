@@ -8,8 +8,10 @@ import config from 'temp/config';
 import { SitemapFetcherPlugin } from '..';
 import { GetStaticPathsContext } from 'next';
 import { siteResolver } from 'lib/site-resolver';
+
 class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
   _graphqlSitemapService: GraphQLSitemapService;
+
   constructor() {
     this._graphqlSitemapService = new GraphQLSitemapService({
       endpoint: config.graphQLEndpoint,
@@ -17,6 +19,7 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
       sites: siteResolver.sites.map((site: SiteInfo) => site.name),
     });
   }
+
   async exec(context?: GetStaticPathsContext): Promise<StaticPath[]> {
     if (process.env.EXPORT_MODE) {
       // Disconnected Export mode
@@ -27,4 +30,5 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
     return this._graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
   }
 }
+
 export const graphqlSitemapServicePlugin = new GraphqlSitemapServicePlugin();
