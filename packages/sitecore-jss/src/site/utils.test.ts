@@ -60,7 +60,9 @@ describe('utils', () => {
       const path1 = `/${SITE_PREFIX}${siteName}/some/path/`;
       const path2 = `/_variantId_0451/${SITE_PREFIX}${siteName}/some/path/`;
 
-      expect(getSiteRewriteData(path1, defaultSiteName)).to.deep.equal(getSiteRewriteData(path2, defaultSiteName));
+      expect(getSiteRewriteData(path1, defaultSiteName)).to.deep.equal(
+        getSiteRewriteData(path2, defaultSiteName)
+      );
     });
   });
 
