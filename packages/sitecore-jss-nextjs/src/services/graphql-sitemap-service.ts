@@ -267,7 +267,7 @@ export class GraphQLSitemapService {
     sitePaths: RouteListQueryResult[],
     formatStaticPath: (path: string[], language: string) => StaticPath,
     language: string,
-    multiSiteName?: string | undefined
+    multiSiteName?: string
   ): Promise<StaticPath[]> {
     const formatPath = (path: string) =>
       formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);

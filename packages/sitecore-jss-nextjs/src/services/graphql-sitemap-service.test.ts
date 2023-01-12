@@ -1,13 +1,11 @@
 ﻿import { expect } from 'chai';
 import nock from 'nock';
-// import sinon from 'sinon';
 import {
   getSiteEmptyError,
   GraphQLSitemapService,
   GraphQLSitemapServiceConfig,
   languageError,
 } from './graphql-sitemap-service';
-// import * as siteMapUtil from '@sitecore-jss/sitecore-jss/site';
 import sitemapDefaultQueryResult from '../test-data/sitemapDefaultQueryResult.json';
 import sitemapPersonalizeQueryResult from '../test-data/sitemapPersonalizeQueryResult.json';
 import sitemapServiceResult from '../test-data/sitemapServiceResult';
@@ -232,7 +230,6 @@ describe('GraphQLSitemapService', () => {
     it('should return aggregated paths for multiple sites when no personalized site', async () => {
       const multipleSites = ['site1', 'site2'];
       const lang = 'ua';
-      // const getSiteRewriteStub = sinon.stub(siteMapUtil, 'getSiteRewrite');
 
       nock(endpoint)
         .persist()
@@ -302,8 +299,6 @@ describe('GraphQLSitemapService', () => {
         sites: multipleSites,
       });
       const sitemap = await service.fetchSSGSitemap([lang]);
-
-      // expect(getSiteRewriteStub.called).to.equal(true);
 
       expect(sitemap).to.deep.equal([
         {
