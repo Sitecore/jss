@@ -137,6 +137,9 @@ export interface GraphQLSitemapServiceConfig
    */
   apiKey: string;
 
+  /**
+   * Name of the configured sited
+   */
   sites: string[];
 
   /**
@@ -279,10 +282,10 @@ export class GraphQLSitemapService {
 
       if (!multiSiteName) {
         aggregatedPaths.push(formatPath(item.path));
-      }
-      if (multiSiteName && item.route?.personalization?.variantIds.length) {
+      } else {
         aggregatedPaths.push(formatPath(getSiteRewrite(item.path, { siteName: multiSiteName })));
       }
+
       // check for type safety's sake - personalize may be empty depending on query type
       if (item.route?.personalization?.variantIds.length) {
         multiSiteName
@@ -300,10 +303,6 @@ export class GraphQLSitemapService {
                 formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
               )
             );
-      }
-
-      if (!item.route?.personalization?.variantIds.length && multiSiteName) {
-        aggregatedPaths.push(formatPath(getSiteRewrite(item.path, { siteName: multiSiteName })));
       }
     });
 
