@@ -38,7 +38,9 @@ module.exports = function(config) {
         }
       },
     },
-    codeCoverage: true,
+    coverageReporter: {
+      type : 'text',
+    },
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -61,12 +63,6 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,
-    customLaunchers: {
-      Chrome_with_debugging: {
-        base: 'Chrome',
-        flags: ['--remote-debugging-port=9222'],
-        debug: true
-   }}
   };
 
   if (process.env.testEnv && process.env.testEnv === 'ci') {
