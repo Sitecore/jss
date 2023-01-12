@@ -54,6 +54,14 @@ describe('utils', () => {
       const result = getSiteRewriteData(pathname, defaultSiteName);
       expect(result.siteName).to.equal(defaultSiteName);
     });
+
+    it('should return site name from anywhere in the path', () => {
+      const siteName = 'fiftyone';
+      const path1 = `/${SITE_PREFIX}${siteName}/some/path/`;
+      const path2 = `/_variantId_0451/${SITE_PREFIX}${siteName}/some/path/`;
+
+      expect(getSiteRewriteData(path1, defaultSiteName)).to.deep.equal(getSiteRewriteData(path2, defaultSiteName));
+    });
   });
 
   describe('normalizeSiteRewrite', () => {
@@ -83,6 +91,15 @@ describe('utils', () => {
       const pathname = `/${SITE_PREFIX}foo`;
       const result = normalizeSiteRewrite(pathname);
       expect(result).to.equal('/');
+    });
+
+    it('should normalize path with other prefixes present', () => {
+      const pathnameWithPrefix = `/_variantId_0451/${SITE_PREFIX}foo`;
+      const pathnameWithPostfix = `/${SITE_PREFIX}foo/_variantId_0451/`;
+      const resultPrefix = normalizeSiteRewrite(pathnameWithPrefix);
+      const resultPostfix = normalizeSiteRewrite(pathnameWithPostfix);
+      expect(resultPrefix).to.equal('/_variantId_0451/');
+      expect(resultPrefix).to.equal(resultPostfix);
     });
   });
 });
