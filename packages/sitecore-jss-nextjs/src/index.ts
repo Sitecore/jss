@@ -114,7 +114,7 @@ export { Placeholder } from './components/Placeholder';
 export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
 
-export { FactoryCreator } from './componentFactory';
+export { FactoryCreator } from './factoryCreator';
 
 export {
   ComponentFactory,
