@@ -51,6 +51,8 @@ function generateComponentFactory(
 
 ${hasLazyModules ? "import dynamic from 'next/dynamic'" : ''}
 
+import { FactoryCreator } from '@sitecore-jss/sitecore-jss-nextjs';
+
 ${projects
   .map((project) => `import * as ${project.projectName} from '${project.componentsPath}';`)
   .join('\n')}
@@ -81,14 +83,6 @@ ${projects.map((p) => `projects.set('${p.projectName}', ${p.projectName});`).joi
 
 const components = new Map();
 
-projects.forEach((projectComponents: {}, project: string) => {
-  Object.entries(projectComponents).forEach(([componentName, component]) => {
-    components.set(project + '_' + componentName, component);
-  });
-
-  projects.delete(project);
-});
-
 ${packages.map((p) =>
   p.components.map(
     (component) => `components.set('${component.componentName}', ${component.moduleName})`
@@ -109,65 +103,7 @@ ${componentFiles
   )
   .join('\n')}
 
-// Next.js 'dynamic' import and JavaScript 'dynamic' import are different.
-// Next.js 'dynamic(...)' returns common 'React.ComponentType' while
-// 'import('...')' returns 'Promise' that will resolve module.
-// componentModule uses 'import(...)' because primary usage of it to get not only 'React Component' (default export) but all named exports.
-// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports
-// componentFactory uses 'dynamic(...)' because primary usage of it to render 'React Component' (default export).
-// See https://nextjs.org/docs/advanced-features/dynamic-import
-// At the end you will have single preloaded script for each lazy loading module.
-// Editing mode doesn't work well with dynamic components in nextjs: dynamic components are not displayed without refresh after a rendering is added. 
-// This happens beacuse Sitecore editors simply insert updated HTML generated on server side. This conflicts with nextjs dynamic logic as no HTML gets rendered for dynamic component
-// So we use require() to obtain dynamic components in editing mode while preserving dynamic logic for non-editing scenarios
-// As we need to be able to seamlessly work with dynamic components in both editing and normal modes, different componentFactory functions will be passed to app
-
-export const createComponentModule = (project?: string) => (componentName: string) => {
-  const component = components.get(project + '_' + componentName) || components.get(componentName);
-
-  // check that component is lazy loading module
-  if (!component?.default && component?.module) {
-    // return js dynamic import
-    return component.module();
-  }
-
-  return component;
-}
-
-function baseComponentFactory({
-  componentName,
-  project,
-  exportName,
-  isEditing,
-}: {
-  componentName: string;
-  project?: string;
-  exportName?: string;
-  isEditing?: boolean;
-}) {
-  const DEFAULT_EXPORT_NAME = 'Default';
-  const component = components.get(project + '_' + componentName) || components.get(componentName);
-
-  // check that component should be dynamically imported
-  if (component?.element) {
-    // return next.js dynamic import
-    return component.element(isEditing);
-  }
-
-  if (exportName && exportName !== DEFAULT_EXPORT_NAME) {
-    return component[exportName];
-  }
-
-  return component?.Default || component?.default || component;
-}
-  
-export const createComponentFactory =
-  (project?: string) => (componentName: string, exportName?: string) =>
-    baseComponentFactory({ componentName, exportName, project, isEditing: false });
-
-export const createEditingComponentFactory =
-  (project?: string) => (componentName: string, exportName?: string) =>
-    baseComponentFactory({ componentName, exportName, project, isEditing: true });
+export const factoryCreator = new FactoryCreator({ components, projectComponents: projects });
 `;
 }
 

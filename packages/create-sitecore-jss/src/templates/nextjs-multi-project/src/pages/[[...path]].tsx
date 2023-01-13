@@ -18,7 +18,7 @@ import {
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 // different componentFactory method will be used based on whether page is being edited
-import { createComponentFactory, createEditingComponentFactory } from 'temp/componentFactory';
+import { factoryCreator } from 'temp/componentFactory';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
@@ -39,9 +39,10 @@ const SitecorePage = ({ notFound, componentProps, layoutData, site }: SitecorePa
   const isComponentRendering =
     layoutData.sitecore.context.renderingType === RenderingType.Component;
 
-  const componentFactory = isEditing
-    ? createEditingComponentFactory(site.project)
-    : createComponentFactory(site.project);
+  const componentFactory = factoryCreator.getComponentFactory({
+    projectName: site.project,
+    isEditing,
+  });
 
   const Layout = componentFactory('Layout');
 

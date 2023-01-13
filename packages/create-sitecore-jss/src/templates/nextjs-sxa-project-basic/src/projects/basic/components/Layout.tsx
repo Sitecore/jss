@@ -1,13 +1,15 @@
 /**
  * This Layout is needed for Starter Kit.
  */
-import React from 'react';
+import React, { ComponentType } from 'react';
 import Head from 'next/head';
 import {
   Placeholder,
   getPublicUrl,
   LayoutServiceData,
   Field,
+  withComponentFactory,
+  ComponentFactory,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import Scripts from 'src/Scripts';
 
@@ -17,6 +19,7 @@ const publicUrl = getPublicUrl();
 
 interface LayoutProps {
   layoutData: LayoutServiceData;
+  componentFactory: ComponentFactory;
 }
 
 interface RouteFields {
@@ -24,11 +27,14 @@ interface RouteFields {
   Title?: Field;
 }
 
-const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
+const Layout = ({ layoutData, componentFactory }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
   const fields = route?.fields as RouteFields;
   const isPageEditing = layoutData.sitecore.context.pageEditing;
   const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
+
+  const AComponent = componentFactory('a') as ComponentType;
+  const BComponent = componentFactory('b') as ComponentType;
 
   return (
     <>
@@ -41,6 +47,8 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       {/* root placeholder for the app, which we add components to using route data */}
       <div className={mainClassPageEditing}>
         <h2>Hello Basic Project</h2>
+        <AComponent />
+        <BComponent />
         <header>
           <div id="header">{route && <Placeholder name="headless-header" rendering={route} />}</div>
         </header>
@@ -55,4 +63,4 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   );
 };
 
-export default Layout;
+export default withComponentFactory(Layout);
