@@ -3,7 +3,9 @@ import path from 'path';
 import generateComponentFactory, {
   ComponentFile,
   PackageDefinition,
+  Project,
 } from './templates/component-factory';
+import { generateProjectComponents } from './templates/project-components';
 import { getItems, watchItems } from './utils';
 
 /*
@@ -29,8 +31,9 @@ import { getItems, watchItems } from './utils';
 
 const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
 const componentRootPath = 'src/components';
+const projectRootPath = 'src/projects';
 
-const isWatch = process.argv.some((arg) => arg === '--watch');
+const isWatch = process.argv.some(arg => arg === '--watch');
 
 (isWatch ? watchComponentFactory : writeComponentFactory)();
 
@@ -70,14 +73,46 @@ function writeComponentFactory() {
    */
   const packages: PackageDefinition[] = [];
   const components = getComponentList(componentRootPath);
+  const projects = getProjectList(projectRootPath);
 
   components.unshift(...packages);
 
-  const fileContent = generateComponentFactory(components);
+  const fileContent = generateComponentFactory([...components, ...projects]);
   console.log(`Writing component factory to ${componentFactoryPath}`);
   fs.writeFileSync(componentFactoryPath, fileContent, {
     encoding: 'utf8',
   });
+
+  projects.forEach(project => {
+    const indexFilePath = `${project.componentsPath}/index.ts`;
+
+    console.log(`Writing project ${project.projectName} component source to ${indexFilePath}`);
+
+    // Exclude `index.ts` file if exists
+    const components = getComponentList(project.componentsPath).filter(
+      (c: ComponentFile) => !indexFilePath.includes(c.path)
+    ) as ComponentFile[];
+
+    const fileContent = generateProjectComponents(components);
+
+    fs.writeFileSync(indexFilePath, fileContent, {
+      encoding: 'utf8',
+    });
+  });
+}
+
+function getProjectList(path: string): Project[] {
+  const projects = getItems<Project>({
+    path,
+    resolveItem: (path, name) => ({
+      projectName: name,
+      componentsPath: `${path}/components`,
+    }),
+    cb: name => console.debug(`Registering JSS project ${name}`),
+    recursive: false,
+  });
+
+  return projects;
 }
 
 function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
@@ -88,7 +123,7 @@ function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
       componentName: name,
       moduleName: name.replace(/[^\w]+/g, ''),
     }),
-    cb: (name) => console.debug(`Registering JSS component ${name}`),
+    cb: name => console.debug(`Registering JSS component ${name}`),
   });
 
   return components;

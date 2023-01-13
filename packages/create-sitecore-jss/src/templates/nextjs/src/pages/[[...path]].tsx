@@ -5,7 +5,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { GetServerSideProps } from 'next';
 <% } -%>
 import NotFound from 'src/NotFound';
-import Layout from 'src/Layout';
 import {
   RenderingType,
   SitecoreContext,
@@ -19,13 +18,13 @@ import {
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 // different componentFactory method will be used based on whether page is being edited
-import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
+import { factoryCreator } from 'temp/componentFactory';
 <% if (prerender === 'SSG') { -%>
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
 <% } -%>
 
-const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
+const SitecorePage = ({ notFound, componentProps, layoutData, site }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
     // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
@@ -40,10 +39,17 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
   const isComponentRendering =
     layoutData.sitecore.context.renderingType === RenderingType.Component;
 
+  const componentFactory = factoryCreator.getComponentFactory({
+    projectName: site.project,
+    isEditing,
+  });
+
+  const Layout = componentFactory('Layout');
+
   return (
     <ComponentPropsContext value={componentProps}>
       <SitecoreContext
-        componentFactory={isEditing ? editingComponentFactory : componentFactory}
+        componentFactory={componentFactory}
         layoutData={layoutData}
       >
         {/*
