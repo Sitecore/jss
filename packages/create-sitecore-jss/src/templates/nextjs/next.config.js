@@ -1,5 +1,4 @@
 const jssConfig = require('./src/temp/config');
-const packageConfig = require('./package.json').config;
 const { getPublicUrl } = require('@sitecore-jss/sitecore-jss-nextjs');
 const plugins = require('./src/temp/next-config-plugins') || {};
 
@@ -26,7 +25,7 @@ const nextConfig = {
     locales: ['en'],
     // This is the locale that will be used when visiting a non-locale
     // prefixed path e.g. `/styleguide`.
-    defaultLocale: packageConfig.language,
+    defaultLocale: jssConfig.defaultLanguage,
   },
   
   // Enable React Strict Mode
