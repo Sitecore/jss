@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file. The format 
 
 This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1000576) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
 
+## 21.0.5
+
+### 🐛 Bug Fixes
+
+* `[templates/nextjs-sxa]` Fixed rendering dynamic placeholders filter. ([#1292](https://github.com/Sitecore/jss/pull/1292))
+
 ## 21.0.4
 
 ### 🐛 Bug Fixes
