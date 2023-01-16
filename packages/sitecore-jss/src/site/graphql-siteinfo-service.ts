@@ -3,11 +3,25 @@ import debug from '../debug';
 import { CacheClient, CacheOptions, MemoryCacheClient } from '../cache-client';
 
 const headlessSiteGroupingTemplate = 'E46F3AF2-39FA-4866-A157-7017C4B2A40C';
+const sitecoreContentRootItem = '0DE95AE4-41AB-4D01-9EB0-67441B7C2450';
 
 const defaultQuery = /* GraphQL */ `
   {
     search(
-      where: { name: "_templates", value: "${headlessSiteGroupingTemplate}", operator: CONTAINS }
+      where: {
+        AND: [
+          {
+            name: "_templates"
+            value: "${headlessSiteGroupingTemplate}"
+            operator: CONTAINS
+          }
+          {
+            name: "_path"
+            value: "${sitecoreContentRootItem}"
+            operator: CONTAINS
+          }
+        ]
+      }
     ) {
       results {
       ... on Item {
