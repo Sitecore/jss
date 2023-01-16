@@ -89,19 +89,19 @@ export class RedirectsMiddleware {
     const hostname = this.getHostname(req);
     const siteName = res?.cookies.get('sc_site') || this.config.getSite(hostname).name;
 
-    const createResponse = async () => {
+    const createResponse = async (res?: NextResponse) => {
       if (
         (this.config.disabled && this.config.disabled(req, NextResponse.next())) ||
         this.excludeRoute(req.nextUrl.pathname) ||
         (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
       ) {
-        return NextResponse.next();
+        return res || NextResponse.next();
       }
       // Find the redirect from result of RedirectService
       const existsRedirect = await this.getExistsRedirect(req, siteName);
 
       if (!existsRedirect) {
-        return NextResponse.next();
+        return res || NextResponse.next();
       }
 
       const url = req.nextUrl.clone();
@@ -135,7 +135,7 @@ export class RedirectsMiddleware {
       }
     };
 
-    const response = await createResponse();
+    const response = await createResponse(res);
 
     // Share site name with the following executed middlewares
     response.cookies.set('sc_site', siteName);
