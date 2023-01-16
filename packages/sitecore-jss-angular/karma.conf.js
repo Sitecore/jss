@@ -14,32 +14,19 @@ module.exports = function(config) {
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
     ],
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'src/**/*.ts': 'coverage'
     },
     // list of files / patterns to load in the browser
     // list of files to exclude
     exclude: [],
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    karmaTypescriptConfig: {
-      include: ['./src/**/*.ts'],
-      compilerOptions: { 
-        "outDir": "./out-tsc/spec",
-        "types": [
-          "jasmine"
-        ]
-      },
-      reports: {
-        cobertura: {
-          directory: './coverage',
-          filename: 'cobertura-coverage.xml',
-          subdirectory: './',
-        }
-      },
-    },
     coverageReporter: {
-      type : 'text',
+      reporters: [
+        { type: 'cobertura', subdir: './', dir: './coverage', file: 'cobertura-coverage.xml' },
+        { type: 'text' },
+      ]
     },
     // test results reporter to use
     // possible values: 'dots', 'progress'
