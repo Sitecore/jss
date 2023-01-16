@@ -132,7 +132,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       Object.keys(rendering.placeholders).forEach((placeholder) => {
         if (
           placeholder.indexOf('{*}') !== -1 &&
-          EXCLUDE_PLACEHOLDERS_RENDER.some((pattern) => name.search(pattern) === -1)
+          !EXCLUDE_PLACEHOLDERS_RENDER.some((pattern) => name.search(pattern) === -1)
         ) {
           rendering.placeholders[name] = rendering.placeholders[placeholder];
           delete rendering.placeholders[placeholder];
