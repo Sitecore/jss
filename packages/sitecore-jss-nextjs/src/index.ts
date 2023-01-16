@@ -114,6 +114,8 @@ export { Placeholder } from './components/Placeholder';
 export { EditingComponentPlaceholder } from './components/EditingComponentPlaceholder';
 export { NextImage } from './components/NextImage';
 
+export { FactoryCreator } from './factoryCreator';
+
 export {
   ComponentFactory,
   Image,
@@ -139,6 +141,7 @@ export {
   withEditorChromes,
   withPlaceholder,
   withDatasourceCheck,
+  withComponentFactory,
   ImageSizeParameters,
   ComponentConsumerProps,
   WithSitecoreContextOptions,
