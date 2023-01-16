@@ -17,13 +17,13 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
   * JSS Angular apps are now using Ivy
   * IE11 no longer supported by JSS Angular
   * _sitecore-jss-angular_ package does not output UMD package anymore - only ESM. Because of this constants are now a separate JSON file in sample app under scripts, and are not imported from the _sitecore-jss-angular_ package
-  * Due to the above change some things that are re-exported from _sitecore-jss_ may no longer be available to import through _sitecore-jss-angular_
   * _componentFactory_ is no longer present in ComponentFactoryResult interface, due to _createComponent_ changes and deprecations introduced in Angular 13
   * More details on changes in Angular can be found in the below links:
   https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
   https://angular.io/guide/deprecations
   https://update.angular.io/?l=3&v=11.0-14.0 
-  
+
+* `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format  _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/base-pkg-cjs' import instead. Check bootstrap.ts scripts as for a usage example.  
 
 ## 20.1.0
 

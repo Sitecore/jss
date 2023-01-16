@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import * as constants from './constants.json';
+import { constants } from '@sitecore-jss/sitecore-jss-angular/base-pkg-cjs';
 import { generateConfig } from './generate-config';
 const projects = require('../angular.json').projects;
 const chalk = require('chalk');
