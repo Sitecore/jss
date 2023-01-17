@@ -135,7 +135,7 @@ export class RedirectsMiddleware {
       }
     };
 
-    const response = await createResponse(res);
+    const response = await createResponse();
 
     // Share site name with the following executed middlewares
     response.cookies.set('sc_site', siteName);
