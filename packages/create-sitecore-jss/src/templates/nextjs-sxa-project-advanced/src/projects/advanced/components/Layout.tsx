@@ -41,7 +41,7 @@ const Layout = ({ layoutData, componentFactory }: LayoutProps): JSX.Element => {
       <Scripts />
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
-        <link rel="icon" href={`${publicUrl}/favicon.ico`} />
+        <link rel="icon" href={`${publicUrl}/projects/advanced/favicon.ico`} />
       </Head>
 
       {/* root placeholder for the app, which we add components to using route data */}
