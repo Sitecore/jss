@@ -47,9 +47,16 @@ function writeConfig(config: JssConfig): void {
 // See scripts/bootstrap.ts to modify the generation of this file.
 const config = {};\n`;
 
+  const staticConfig = {...config, computed: undefined };
+  const computedConfig = config.computed;
   // Set configuration values, allowing override with environment variables
-  Object.keys(config).forEach((prop) => {
+  Object.keys(staticConfig).forEach((prop) => {
     configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]}',\n`;
+  });
+  computedConfig && Object.keys(computedConfig).forEach((prop) => {
+    configText += `config.${prop} = process.env.${constantCase(prop)} || ${
+      computedConfig[prop]
+    };\n`;
   });
   configText += `module.exports = config;`;
 

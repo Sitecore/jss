@@ -10,7 +10,7 @@ class ComputedPlugin implements ConfigPlugin {
 
   async exec(config: JssConfig) {
     return Object.assign({}, config, {
-      graphQLEndpoint: `${config.sitecoreApiHost}${config.graphQLEndpointPath}`,
+      computed: { graphQLEndpoint: '`${config.sitecoreApiHost}${config.graphQLEndpointPath}`' },
     });
   }
 }
