@@ -1,4 +1,6 @@
 import { SitecorePageProps } from 'lib/page-props';
+import chalk from 'chalk';
+import fs from 'fs';
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { getSiteRewriteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Plugin } from '..';
@@ -21,6 +23,17 @@ class SitePlugin implements Plugin {
 
     // Resolve site by name
     props.site = siteResolver.getByName(siteData.siteName);
+
+    if (
+      props.site.project &&
+      !fs.existsSync(`${process.cwd()}/src/projects/${props.site.project}`)
+    ) {
+      console.log(
+        chalk.yellow(
+          `Project ${props.site.project} is not added to the app. Shared layout, components are used instead`
+        )
+      );
+    }
 
     return props;
   }
