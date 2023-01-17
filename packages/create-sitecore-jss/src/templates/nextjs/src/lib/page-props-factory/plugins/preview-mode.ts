@@ -1,3 +1,4 @@
+import { SiteInfo } from '@sitecore-jss/sitecore-jss-nextjs';
 import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';
 import { SitecorePageProps } from 'lib/page-props';
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
@@ -19,6 +20,7 @@ class PreviewModePlugin implements Plugin {
     props.locale = data.language;
     props.layoutData = data.layoutData;
     props.dictionary = data.dictionary;
+    props.site = data.layoutData.sitecore.context.site as SiteInfo;
 
     return props;
   }
