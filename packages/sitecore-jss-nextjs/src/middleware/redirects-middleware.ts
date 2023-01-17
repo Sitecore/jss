@@ -89,7 +89,7 @@ export class RedirectsMiddleware {
     const hostname = this.getHostname(req);
     const siteName = res?.cookies.get('sc_site') || this.config.getSite(hostname).name;
 
-    const createResponse = async (res?: NextResponse) => {
+    const createResponse = async () => {
       if (
         (this.config.disabled && this.config.disabled(req, NextResponse.next())) ||
         this.excludeRoute(req.nextUrl.pathname) ||
