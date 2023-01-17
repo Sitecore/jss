@@ -1,6 +1,4 @@
-// eslint-disable-next-line spaced-comment
-/// <reference types="@sitecore-feaas/clientside" />
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import {
   ComponentRendering,
   ComponentParams,
@@ -48,22 +46,25 @@ export const FEaaSComponent = ({ params, fields }: FEaaSComponentProps): JSX.Ele
     data = JSON.stringify({ _: getDataFromFields(fields) });
   }
 
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    import('@sitecore-feaas/clientside');
+  }, []);
+
   return (
-    <feaas-component
-      library={params.LibraryId}
-      component={params.ComponentId}
-      version={params.ComponentVersion}
-      revision={params.ComponentRevision}
-      hostname={params.ComponentHostName}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      instance={params.ComponentInstanceId}
-      template={params.ComponentHTMLOverride}
-      data={data}
-    />
-    // <FEAAS.FEAASStylesheet
-    //   library={params.LibraryId}
-    //   hostname={params.ComponentHostName}
-    // />
+    <>
+      <feaas-component
+        library={params.LibraryId}
+        component={params.ComponentId}
+        version={params.ComponentVersion}
+        revision={params.ComponentRevision}
+        cdn={params.ComponentHostName}
+        instance={params.ComponentInstanceId}
+        template={params.ComponentHTMLOverride}
+        data={data}
+      />
+      <feaas-stylesheet library={params.LibraryId} cdn={params.ComponentHostName} />
+    </>
   );
 };
