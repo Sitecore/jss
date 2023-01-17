@@ -292,7 +292,7 @@ describe('RedirectsMiddleware', () => {
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
-      });      
+      });
 
       it('should rewrite path when redirect type is server transfer', async () => {
         const res = NextResponse.rewrite('http://localhost:3000/found');
@@ -375,7 +375,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req, res);
-
+        // eslint-disable-next-line no-unused-expressions
         expect(getSite).to.not.be.called;
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
@@ -406,7 +406,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         const finalRes = await middleware.getHandler()(req, res);
-
+        // eslint-disable-next-line no-unused-expressions
         expect(getSite).to.not.be.called;
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.false;
