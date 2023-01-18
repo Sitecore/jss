@@ -1,6 +1,5 @@
 import {
   Component,
-  ComponentFactoryResolver,
   Inject,
   Input,
   KeyValueDiffer,
@@ -33,13 +32,13 @@ import { isRawRendering } from './rendering';
   `,
 })
 export class RenderComponentComponent implements OnChanges {
-  private _inputs: { [key: string]: unknown };
-  private _differ: KeyValueDiffer<string, unknown>;
-  private destroyed = false;
-
   @Input() rendering: ComponentRendering | HtmlElementRendering;
   @Input() outputs: { [k: string]: (eventType: unknown) => void };
   @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
+
+  private _inputs: { [key: string]: unknown };
+  private _differ: KeyValueDiffer<string, unknown>;
+  private destroyed = false;
 
   @Input()
   set inputs(value: { [key: string]: unknown }) {
@@ -50,7 +49,6 @@ export class RenderComponentComponent implements OnChanges {
   }
 
   constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
     private differs: KeyValueDiffers,
     private componentFactory: JssComponentFactoryService,
     @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT)
@@ -116,11 +114,8 @@ export class RenderComponentComponent implements OnChanges {
         rendering.componentImplementation = this.missingComponentComponent;
       }
 
-      const componentFactory =
-        rendering.componentFactory ||
-        this.componentFactoryResolver.resolveComponentFactory(rendering.componentImplementation);
-
-      const componentInstance = this.view.createComponent(componentFactory, 0).instance;
+      const componentInstance = this.view.createComponent(rendering.componentImplementation)
+        .instance;
       componentInstance.rendering = rendering.componentDefinition;
       if (this._inputs) {
         this._setComponentInputs(componentInstance, this._inputs);

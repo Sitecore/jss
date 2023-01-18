@@ -1,7 +1,7 @@
 // tslint:disable: max-classes-per-file
 
 import { Injector } from '@angular/core';
-import { async, TestBed } from '@angular/core/testing';
+import { waitForAsync, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
@@ -51,22 +51,24 @@ class MockAsyncFalseGuard implements JssCanActivate {
 
 describe('guardResolverFactory', () => {
   let resolver: GuardResolver;
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      providers: [
-        MockSyncTrueGuard,
-        MockSyncFalseGuard,
-        MockAsyncTrueGuard,
-        MockAsyncFalseGuard,
-        {
-          provide: GUARD_RESOLVER,
-          useFactory: guardResolverFactory,
-          deps: [Injector, ActivatedRoute, Router],
-        },
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [RouterTestingModule],
+        providers: [
+          MockSyncTrueGuard,
+          MockSyncFalseGuard,
+          MockAsyncTrueGuard,
+          MockAsyncFalseGuard,
+          {
+            provide: GUARD_RESOLVER,
+            useFactory: guardResolverFactory,
+            deps: [Injector, ActivatedRoute, Router],
+          },
+        ],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     resolver = TestBed.get(GUARD_RESOLVER);
