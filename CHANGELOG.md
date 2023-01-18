@@ -23,7 +23,7 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
   https://angular.io/guide/deprecations
   https://update.angular.io/?l=3&v=11.0-14.0 
 
-* `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format  _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/base-pkg-cjs' import instead. Check bootstrap.ts scripts as for a usage example.  
+* `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format  _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/cjs' import instead. Check bootstrap.ts scripts as for a usage example.  
 
 ## 20.1.0
 
