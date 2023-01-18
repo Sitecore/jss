@@ -65,40 +65,39 @@ describe('<FEaaSComponent />', () => {
     it('should pass datasource fields', () => {
       const fields: ComponentFields = {
         sampleText: {
-          value: 'Welcome to Sitecore JSS'
+          value: 'Welcome to Sitecore JSS',
         },
         sampleImage: {
           value: {
             src: '/-/media/sc_logo.png',
-            alt: 'Sitecore Logo'
-          }
+            alt: 'Sitecore Logo',
+          },
         },
         sampleNumber: {
-          value: 1.21
+          value: 1.21,
         },
         sampleLink: {
           value: {
             href: '/',
             id: '{54C8E9B5-0B2C-5363-8FA6-D32A3A302F51}',
-            linktype: 'internal'
-          }
-        }
+            linktype: 'internal',
+          },
+        },
       };
-      const expectedData =
-      {
+      const expectedData = {
         _: {
           sampleText: 'Welcome to Sitecore JSS',
           sampleImage: {
             src: '/-/media/sc_logo.png',
-            alt: 'Sitecore Logo'
+            alt: 'Sitecore Logo',
           },
           sampleNumber: 1.21,
           sampleLink: {
             href: '/',
             id: '{54C8E9B5-0B2C-5363-8FA6-D32A3A302F51}',
-            linktype: 'internal'
-          }
-        }
+            linktype: 'internal',
+          },
+        },
       };
       const wrapper = shallow(<FEaaSComponent params={requiredParams} fields={fields} />);
       expect(wrapper).to.have.length(1);
@@ -114,8 +113,8 @@ describe('<FEaaSComponent />', () => {
       };
       const fields: ComponentFields = {
         sampleText: {
-          value: 'Welcome to Sitecore JSS'
-        }
+          value: 'Welcome to Sitecore JSS',
+        },
       };
       const wrapper = shallow(<FEaaSComponent params={params} fields={fields} />);
       expect(wrapper).to.have.length(1);
