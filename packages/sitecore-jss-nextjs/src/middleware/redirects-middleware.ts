@@ -95,13 +95,13 @@ export class RedirectsMiddleware {
         this.excludeRoute(req.nextUrl.pathname) ||
         (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
       ) {
-        return NextResponse.next();
+        return res || NextResponse.next();
       }
       // Find the redirect from result of RedirectService
       const existsRedirect = await this.getExistsRedirect(req, siteName);
 
       if (!existsRedirect) {
-        return NextResponse.next();
+        return res || NextResponse.next();
       }
 
       const url = req.nextUrl.clone();
