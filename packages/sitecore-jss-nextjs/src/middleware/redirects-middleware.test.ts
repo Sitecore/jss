@@ -352,6 +352,67 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
+      it('should preserve site name from response data when provided, if no redirect type defined', async () => {
+        const res = NextResponse.next();
+        const site = 'learn2grow';
+        res.cookies.set('sc_site', site);
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects, getSite } = createMiddleware({
+          pattern: 'not-found',
+          target: 'http://localhost:3000/found',
+          redirectType: 'default',
+          isQueryStringPreserved: true,
+          locale: 'en',
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+        // eslint-disable-next-line no-unused-expressions
+        expect(getSite).to.not.be.called;
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.cookies.get('sc_site')).to.equal(site);
+      });
+
+      it('should preserve site name from response data when provided, if handler is disabled', async () => {
+        const res = NextResponse.next();
+        const site = 'learn2grow';
+        res.cookies.set('sc_site', site);
+        const req = createRequest({
+          nextUrl: {
+            pathname: '/not-found',
+            locale: 'en',
+            clone() {
+              return Object.assign({}, req.nextUrl);
+            },
+          },
+        });
+
+        const { middleware, fetchRedirects, getSite } = createMiddleware({
+          pattern: 'not-found',
+          target: 'http://localhost:3000/found',
+          redirectType: 'default',
+          isQueryStringPreserved: true,
+          locale: 'en',
+          disabled: () => true,
+        });
+
+        const finalRes = await middleware.getHandler()(req, res);
+        // eslint-disable-next-line no-unused-expressions
+        expect(getSite).to.not.be.called;
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.false;
+        expect(finalRes.cookies.get('sc_site')).to.equal(site);
+      });
+
       it('default fallback hostname is used', async () => {
         const res = NextResponse.redirect('http://localhost:3000/found', 301);
         const req = createRequest({
