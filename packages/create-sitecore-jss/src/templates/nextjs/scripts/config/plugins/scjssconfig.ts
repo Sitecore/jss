@@ -13,7 +13,11 @@ class ScJssConfigPlugin implements ConfigPlugin {
     try {
       scJssConfig = require('scjssconfig.json');
     } catch (e) {
-      return config;
+      // fall back on env values
+      return Object.assign({}, config, {
+        sitecoreApiKey: process.env.SITECORE_API_KEY,
+        sitecoreApiHost: process.env.SITECORE_API_HOST,
+      });
     }
 
     if (!scJssConfig) return config;

@@ -24,12 +24,12 @@ class MultisitePlugin implements ConfigPlugin {
     };
 
     // graphQL endpoint can have a dynamic value in the config - so we resolve it in a special way at build time
-    const buildTimeGraphQlEndpoint = process.env.GRAPH_QL_ENDPOINT || computeConfigValue(config.computed?.graphQLEndpoint || '');
+    const endpoint = process.env.GRAPH_QL_ENDPOINT || computeConfigValue(config.computed?.graphQLEndpoint || '');
     const apiKey = process.env.SITECORE_API_KEY || config.sitecoreApiKey;
 
     if (!endpoint || !apiKey) {
       console.warn(
-        chalk.yellow('Skipping site information fetch (missing GraphQL connection details)')
+        chalk.yellow('Skipping site information fetch (missing GraphQL connection details). Endpoint or API key missing.')
       );
     } else {
       console.log(`Fetching site information from ${endpoint}`);
