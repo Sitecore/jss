@@ -3,10 +3,9 @@ import path from 'path';
 import generateComponentFactory, {
   ComponentFile,
   PackageDefinition,
-  Project,
 } from './templates/component-factory';
 import { generateProjectComponents } from './templates/project-components';
-import { getItems, watchItems } from './utils';
+import { getItems, watchItems, getProjectList, projectRootPath } from './utils';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -31,7 +30,6 @@ import { getItems, watchItems } from './utils';
 
 const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
 const componentRootPath = 'src/components';
-const projectRootPath = 'src/projects';
 
 const isWatch = process.argv.some(arg => arg === '--watch');
 
@@ -99,20 +97,6 @@ function writeComponentFactory() {
       encoding: 'utf8',
     });
   });
-}
-
-function getProjectList(path: string): Project[] {
-  const projects = getItems<Project>({
-    path,
-    resolveItem: (path, name) => ({
-      projectName: name,
-      componentsPath: `${path}/components`,
-    }),
-    cb: name => console.debug(`Registering JSS project ${name}`),
-    recursive: false,
-  });
-
-  return projects;
 }
 
 function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {

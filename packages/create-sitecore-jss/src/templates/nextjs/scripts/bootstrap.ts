@@ -19,3 +19,8 @@ import './generate-config';
   COMPONENT FACTORY GENERATION
 */
 import './generate-component-factory';
+
+/**
+ * PROJECT STYLES GENERATION
+ */
+import './generate-styles';
