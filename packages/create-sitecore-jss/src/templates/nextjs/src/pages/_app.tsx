@@ -13,7 +13,8 @@ function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element
   const { dictionary, ...rest } = pageProps;
 
   useEffect(() => {
-    rest.site?.project && Styles.get(rest.site.project)();
+    const importStyles = Styles.get(rest.site?.project);
+    importStyles && importStyles();
   }, [rest.site?.project]);
 
   return (
