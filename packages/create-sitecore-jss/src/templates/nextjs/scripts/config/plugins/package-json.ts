@@ -11,9 +11,9 @@ class PackageJsonPlugin implements ConfigPlugin {
     if (!packageConfig.config) return config;
 
     return Object.assign({}, config, {
-      jssAppName: packageConfig.config.appName,
-      graphQLEndpointPath: packageConfig.config.graphQLEndpointPath,
-      defaultLanguage: packageConfig.config.language,
+      jssAppName: config.jssAppName || packageConfig.config.appName,
+      graphQLEndpointPath: config.graphQLEndpointPath || packageConfig.config.graphQLEndpointPath,
+      defaultLanguage: config.defaultLanguage || packageConfig.config.language,
     });
   }
 }

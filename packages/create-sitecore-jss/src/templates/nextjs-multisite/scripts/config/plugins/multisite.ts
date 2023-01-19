@@ -14,18 +14,9 @@ class MultisitePlugin implements ConfigPlugin {
   async exec(config: JssConfig) {
     let sites: SiteInfo[] = [];
 
-    const computeConfigValue = (val: string) => {
-      if(val.startsWith('`') && val.endsWith('`')) {
-        return new Function('return ' + val.replaceAll('config', 'this')).call(config);
-      }
-      else {
-        return val;
-      }
-    };
-
     // graphQL endpoint can have a dynamic value in the config - so we resolve it in a special way at build time
-    const endpoint = process.env.GRAPH_QL_ENDPOINT || computeConfigValue(config.computed?.graphQLEndpoint || '');
-    const apiKey = process.env.SITECORE_API_KEY || config.sitecoreApiKey;
+    const endpoint = config.graphQLEndpoint;
+    const apiKey = config.sitecoreApiKey;
 
     if (!endpoint || !apiKey) {
       console.warn(

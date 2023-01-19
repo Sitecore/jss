@@ -10,11 +10,11 @@ import { JssConfig, jssConfigFactory } from './config';
 */
 
 const defaultConfig: JssConfig = {
-  sitecoreApiKey: 'no-api-key-set',
-  sitecoreApiHost: '',
-  jssAppName: 'Unknown',
-  graphQLEndpointPath: '',
-  defaultLanguage: 'en',
+  sitecoreApiKey: process.env.SITECORE_API_KEY,
+  sitecoreApiHost: process.env.SITECORE_API_HOST,
+  jssAppName: process.env.JSS_APP_NAME,
+  graphQLEndpointPath: process.env.GRAPH_QL_ENDPOINT_PATH,
+  defaultLanguage: process.env.DEFAULT_LANGUAGE,
 };
 
 generateConfig(defaultConfig);
@@ -47,16 +47,9 @@ function writeConfig(config: JssConfig): void {
 // See scripts/bootstrap.ts to modify the generation of this file.
 const config = {};\n`;
 
-  const computedConfig = config.computed;
-  delete config['computed'];
   // Set configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
     configText += `config.${prop} = process.env.${constantCase(prop)} || '${config[prop]}',\n`;
-  });
-  computedConfig && Object.keys(computedConfig).forEach((prop) => {
-    configText += `config.${prop} = process.env.${constantCase(prop)} || ${
-      computedConfig[prop]
-    };\n`;
   });
   configText += `module.exports = config;`;
 
