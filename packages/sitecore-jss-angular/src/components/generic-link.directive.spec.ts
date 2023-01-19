@@ -63,7 +63,7 @@ describe('<a *scGenericLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    expect(de.query(By.css('span')).nativeElement.innerHTML).toContain(field.editableFirstPart);
+    expect(de.nativeElement.querySelector('span').innerHTML).toContain(field.editableFirstPart);
   });
 
   it('should render value with editing explicitly disabled', () => {
@@ -102,10 +102,10 @@ describe('<a *scGenericLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
+    const rendered = de.nativeElement.querySelector('span');
     expect(rendered).not.toBeNull();
-    expect(rendered.nativeElement.innerHTML).toContain('<input');
-    expect(rendered.nativeElement.innerHTML).toContain('chrometype="field"');
+    expect(rendered.innerHTML).toContain('<input');
+    expect(rendered.innerHTML).toContain('chrometype="field"');
   });
 
   it('should render all value attributes', () => {
@@ -135,8 +135,8 @@ describe('<a *scGenericLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
-    expect(rendered.nativeElement.id).toBe('my-link');
+    const rendered = de.nativeElement.querySelector('span');
+    expect(rendered.id).toBe('my-link');
   });
 
   it('should apply attributes from attrs on wrapper span when rendering in editable mode', () => {
@@ -148,8 +148,8 @@ describe('<a *scGenericLink />', () => {
     comp.attrs = { title: 'footip' };
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
-    expect(rendered.nativeElement.title).toBe('footip');
+    const rendered = de.nativeElement.querySelector('span');
+    expect(rendered.title).toBe('footip');
   });
 
   it('should merge attributes from attrs on link when rendering standard (non-editable mode) field', () => {

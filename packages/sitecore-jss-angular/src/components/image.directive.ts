@@ -13,8 +13,6 @@ import { ImageField, ImageFieldValue } from './rendering-field';
 
 @Directive({ selector: '[scImage]' })
 export class ImageDirective implements OnChanges {
-  private inlineRef: HTMLSpanElement | null = null;
-
   @Input('scImage') field: ImageField | '';
 
   @Input('scImageEditable') editable = true;
@@ -31,6 +29,8 @@ export class ImageDirective implements OnChanges {
   @Input('scImageUrlParams') urlParams: { [param: string]: string | number } = {};
 
   @Input('scImageAttrs') attrs: { [param: string]: unknown } = {};
+
+  private inlineRef: HTMLSpanElement | null = null;
 
   constructor(
     private viewContainer: ViewContainerRef,
