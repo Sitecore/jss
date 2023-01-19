@@ -4,15 +4,13 @@ const plugins = require('scripts/temp/config-plugins');
 /**
  * JSS configuration object
  */
-export interface JssConfig extends Record<string, string | Record<string, string> | undefined> {
+export interface JssConfig extends Record<string, string | undefined> {
   sitecoreApiKey?: string;
   sitecoreApiHost?: string;
   jssAppName?: string;
   graphQLEndpointPath?: string;
   defaultLanguage?: string;
-  computed?: {
-    [key: string]: string;
-  }
+  graphQLEndpoint?: string;
 }
 
 export interface ConfigPlugin {
