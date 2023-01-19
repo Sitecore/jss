@@ -58,19 +58,29 @@ export const FEaaSComponent = ({ params, fields }: FEaaSComponentProps): JSX.Ele
     import('@sitecore-feaas/clientside');
   }, []);
 
+  const commonProps = {
+    library: params.LibraryId,
+    cdn: params.ComponentHostName,
+  };
+
+  const componentProps: { [key: string]: unknown } = {
+    ...commonProps,
+    component: params.ComponentId,
+    version: params.ComponentVersion,
+    revision: params.ComponentRevision,
+    data,
+  };
+  if (params.ComponentInstanceId) {
+    componentProps.instance = params.ComponentInstanceId;
+  }
+  if (params.ComponentHTMLOverride) {
+    componentProps.dangerouslySetInnerHTML = { __html: params.ComponentHTMLOverride };
+  }
+
   return (
     <>
-      <feaas-stylesheet library={params.LibraryId} cdn={params.ComponentHostName} />
-      <feaas-component
-        library={params.LibraryId}
-        component={params.ComponentId}
-        version={params.ComponentVersion}
-        revision={params.ComponentRevision}
-        cdn={params.ComponentHostName}
-        instance={params.ComponentInstanceId}
-        template={params.ComponentHTMLOverride}
-        data={data}
-      />
+      <feaas-stylesheet {...commonProps} />
+      <feaas-component {...componentProps} />
     </>
   );
 };

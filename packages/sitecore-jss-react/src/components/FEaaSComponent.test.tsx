@@ -34,23 +34,38 @@ describe('<FEaaSComponent />', () => {
   });
 
   it('should render', () => {
-    const params: FEaaSComponentParams = {
-      ...requiredParams,
-      ComponentInstanceId: 'instance123',
-      ComponentHTMLOverride: 'html',
-    };
-    const wrapper = shallow(<FEaaSComponent params={params} />);
+    const wrapper = shallow(<FEaaSComponent params={requiredParams} />);
     expect(wrapper).to.have.length(1);
     expect(wrapper.html()).to.contain(
       '<feaas-stylesheet library="library123" cdn="host123"></feaas-stylesheet>'
     );
     expect(wrapper.html()).to.contain(
-      '<feaas-component library="library123" component="component123" version="version123" revision="revision123" cdn="host123" instance="instance123" template="html" data=""></feaas-component>'
+      '<feaas-component library="library123" cdn="host123" component="component123" version="version123" revision="revision123" data=""></feaas-component>'
     );
   });
 
+  it('should render optional instance', () => {
+    const params: FEaaSComponentParams = {
+      ...requiredParams,
+      ComponentInstanceId: 'instance123',
+    };
+    const wrapper = shallow(<FEaaSComponent params={params} />);
+    expect(wrapper).to.have.length(1);
+    expect(wrapper.html()).to.contain('instance="instance123"');
+  });
+
+  it('should render optional html', () => {
+    const params: FEaaSComponentParams = {
+      ...requiredParams,
+      ComponentHTMLOverride: '<div>foo</div>',
+    };
+    const wrapper = shallow(<FEaaSComponent params={params} />);
+    expect(wrapper).to.have.length(1);
+    expect(wrapper.html()).to.contain(params.ComponentHTMLOverride);
+  });
+
   describe('data', () => {
-    it('should pass override data', () => {
+    it('should send override data', () => {
       const params: FEaaSComponentParams = {
         ...requiredParams,
         ComponentDataOverride: '{ "foo": "bar", "baz": 1 }',
@@ -62,7 +77,7 @@ describe('<FEaaSComponent />', () => {
       );
     });
 
-    it('should pass datasource fields', () => {
+    it('should send datasource fields', () => {
       const fields: ComponentFields = {
         sampleText: {
           value: 'Welcome to Sitecore JSS',
