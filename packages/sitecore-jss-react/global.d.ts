@@ -15,10 +15,3 @@ declare namespace NodeJS {
     HTMLElement: HTMLElement;
   }
 }
-
-declare namespace JSX {
-  interface IntrinsicElements {
-    'feaas-component': any;
-    'feaas-stylesheet': any;
-  }
-}

@@ -1,7 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { ComponentParams, ComponentFields, getFieldValue } from '@sitecore-jss/sitecore-jss/layout';
+// eslint-disable-next-line
+import type * as _FEAAS from '@sitecore-feaas/clientside';
 
 export const FEAAS_COMPONENT_RENDERING_NAME = 'FEaaSComponent';
+export const FEAAS_MODULE = 'https://feaasstatic.blob.core.windows.net/packages/clientside/latest/browser/index.esm.js';
 
 export type FEaaSComponentParams = ComponentParams & {
   LibraryId?: string;
@@ -51,36 +55,39 @@ export const FEaaSComponent = ({ params, fields }: FEaaSComponentProps): JSX.Ele
     data = JSON.stringify({ _: getDataFromFields(fields) });
   }
 
+  // Load script asynchronously on the page once, only if FEAAS component is used
   useEffect(() => {
-    // Force client-side render (until SSR supported by FEaaS Web Components)
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    import('@sitecore-feaas/clientside');
+    window.FEAASLoading ??= import(
+      /* webpackIgnore: true*/
+      /* @vite-ignore */
+      FEAAS_MODULE
+    );
   }, []);
 
-  const commonProps = {
+  const reqProps = {
     library: params.LibraryId,
     cdn: params.ComponentHostName,
-  };
-
-  const componentProps: { [key: string]: unknown } = {
-    ...commonProps,
     component: params.ComponentId,
     version: params.ComponentVersion,
     revision: params.ComponentRevision,
     data,
   };
+  const optProps: { [key: string]: unknown } = {};
   if (params.ComponentInstanceId) {
-    componentProps.instance = params.ComponentInstanceId;
+    optProps.instance = params.ComponentInstanceId;
   }
   if (params.ComponentHTMLOverride) {
-    componentProps.dangerouslySetInnerHTML = { __html: params.ComponentHTMLOverride };
+    optProps.dangerouslySetInnerHTML = { __html: params.ComponentHTMLOverride };
   }
 
   return (
     <>
-      <feaas-stylesheet {...commonProps} />
-      <feaas-component {...componentProps} />
+      <feaas-stylesheet library={reqProps.library} cdn={reqProps.cdn} >
+        <link rel="stylesheet" href={`${reqProps.cdn}/styles/${reqProps.library}/published.css`} />
+      </feaas-stylesheet>
+      <feaas-component {...reqProps} {...optProps} />
     </>
   );
 };
