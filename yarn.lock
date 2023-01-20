@@ -5685,12 +5685,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-feaas/clientside@npm:^0.1.16":
-  version: 0.1.16
-  resolution: "@sitecore-feaas/clientside@npm:0.1.16"
+"@sitecore-feaas/clientside@npm:^0.1.17":
+  version: 0.1.17
+  resolution: "@sitecore-feaas/clientside@npm:0.1.17"
   dependencies:
-    jsonpath-plus: ^6.0.1
-    merge-source-maps: ^0.6.1
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   peerDependencies:
@@ -5701,7 +5699,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 03a0466b3bad6c39463827f0e016d60790519eb6f9095f7dbd97747d657c4c4c8814a5aa235b09f13c1248093e361a63692ffcd1167f197efeea147e984b113e
+  checksum: 871be958cd9ea52a42d4781cec891ffe78240d364b7d8669cdc0465d27cfbad57eba7dcdb253de1acc2110fd96a7f0511c3d12368f293964cc0baf550465b60f
   languageName: node
   linkType: hard
 
@@ -6032,7 +6030,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-feaas/clientside": ^0.1.16
+    "@sitecore-feaas/clientside": ^0.1.17
     "@sitecore-jss/sitecore-jss": ^21.1.0-canary.69
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
@@ -19695,13 +19693,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonpath-plus@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "jsonpath-plus@npm:6.0.1"
-  checksum: bddec34b742249c5b38077dfcd8eb479fab4e077943253017326503ce4f527ef66938288c728712fd923907493d6eaba69a43015dc3dd9fdf48d89028ae7f466
-  languageName: node
-  linkType: hard
-
 "jsprim@npm:^1.2.2":
   version: 1.4.1
   resolution: "jsprim@npm:1.4.1"
@@ -20737,19 +20728,6 @@ __metadata:
   version: 1.0.1
   resolution: "merge-descriptors@npm:1.0.1"
   checksum: 5abc259d2ae25bb06d19ce2b94a21632583c74e2a9109ee1ba7fd147aa7362b380d971e0251069f8b3eb7d48c21ac839e21fa177b335e82c76ec172e30c31a26
-  languageName: node
-  linkType: hard
-
-"merge-source-maps@npm:^0.6.1":
-  version: 0.6.1
-  resolution: "merge-source-maps@npm:0.6.1"
-  dependencies:
-    source-map: ^0.5.6
-    underscore: ^1.8.3
-    yargs: ^16.2.0
-  bin:
-    merge-source-maps: bin/merge-source-maps.js
-  checksum: 210d11b07f5bcdd9c6a3cc58e6e34ac18284145b86692a3f8144b0b982fed0ca8d5d5b78a816d19e19ead464542609095345bb35f917a5d636c4343a5673535e
   languageName: node
   linkType: hard
 
@@ -28746,13 +28724,6 @@ __metadata:
     has-symbols: ^1.0.3
     which-boxed-primitive: ^1.0.2
   checksum: b7a1cf5862b5e4b5deb091672ffa579aa274f648410009c81cca63fed3b62b610c4f3b773f912ce545bb4e31edc3138975b5bc777fc6e4817dca51affb6380e9
-  languageName: node
-  linkType: hard
-
-"underscore@npm:^1.8.3":
-  version: 1.13.6
-  resolution: "underscore@npm:1.13.6"
-  checksum: d5cedd14a9d0d91dd38c1ce6169e4455bb931f0aaf354108e47bd46d3f2da7464d49b2171a5cf786d61963204a42d01ea1332a903b7342ad428deaafaf70ec36
   languageName: node
   linkType: hard
 
