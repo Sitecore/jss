@@ -10,11 +10,11 @@ import { JssConfig, jssConfigFactory } from './config';
 */
 
 const defaultConfig: JssConfig = {
-  sitecoreApiKey: process.env.SITECORE_API_KEY,
-  sitecoreApiHost: process.env.SITECORE_API_HOST,
-  jssAppName: process.env.JSS_APP_NAME,
-  graphQLEndpointPath: process.env.GRAPH_QL_ENDPOINT_PATH,
-  defaultLanguage: process.env.DEFAULT_LANGUAGE,
+  sitecoreApiKey: process.env[`${constantCase('sitecoreApiKey')}`],
+  sitecoreApiHost: process.env[`${constantCase('sitecoreApiHost')}`],
+  jssAppName: process.env[`${constantCase('jssAppName')}`],
+  graphQLEndpointPath: process.env[`${constantCase('graphQLEndpointPath')}`],
+  defaultLanguage: process.env[`${constantCase('defaultLanguage')}`],
 };
 
 generateConfig(defaultConfig);

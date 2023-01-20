@@ -4,7 +4,7 @@ import { ConfigPlugin, JssConfig } from '..';
  * This config will set fallback values for properties that were left empty
  * If neither env, nor other places had a proper value, this will ensure a fallback is set
  */
-class ComputedPlugin implements ConfigPlugin {
+class FallbackPlugin implements ConfigPlugin {
   // should always comes last
   order = 99;
 
@@ -16,4 +16,4 @@ class ComputedPlugin implements ConfigPlugin {
   }
 }
 
-export const computedPlugin = new ComputedPlugin();
+export const fallbackPlugin = new FallbackPlugin();
