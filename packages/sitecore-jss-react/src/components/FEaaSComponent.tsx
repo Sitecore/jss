@@ -5,7 +5,7 @@ import { ComponentParams, ComponentFields, getFieldValue } from '@sitecore-jss/s
 import type * as _FEAAS from '@sitecore-feaas/clientside';
 
 export const FEAAS_COMPONENT_RENDERING_NAME = 'FEaaSComponent';
-export const FEAAS_MODULE = 'https://feaasstatic.blob.core.windows.net/packages/clientside/latest/browser/index.esm.js';
+export const FEAAS_MODULE_SRC = 'https://feaasstatic.blob.core.windows.net/packages/clientside/latest/browser/index.esm.js';
 
 export type FEaaSComponentParams = ComponentParams & {
   LibraryId?: string;
@@ -45,6 +45,17 @@ export const FEaaSComponent = ({ params, fields }: FEaaSComponentProps): JSX.Ele
     return null;
   }
 
+  // Load script asynchronously on the page once, only if FEAAS component is used
+  useEffect(() => {
+    window.FEAASLoading ??= new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = FEAAS_MODULE_SRC;
+      script.type = 'module';
+      script.onload = resolve;
+      document.head.appendChild(script);
+    });
+  }, []);
+
   let data = '';
   if (params?.ComponentDataOverride) {
     // Use override data if provided
@@ -54,17 +65,6 @@ export const FEaaSComponent = ({ params, fields }: FEaaSComponentProps): JSX.Ele
     // FEaaS expects wrapping "_" as catch-all datasource template id
     data = JSON.stringify({ _: getDataFromFields(fields) });
   }
-
-  // Load script asynchronously on the page once, only if FEAAS component is used
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    window.FEAASLoading ??= import(
-      /* webpackIgnore: true*/
-      /* @vite-ignore */
-      FEAAS_MODULE
-    );
-  }, []);
 
   const reqProps = {
     library: params.LibraryId,
