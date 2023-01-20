@@ -13,12 +13,13 @@ class MultisitePlugin implements ConfigPlugin {
 
   async exec(config: JssConfig) {
     let sites: SiteInfo[] = [];
-    const endpoint = process.env.GRAPH_QL_ENDPOINT || config.graphQLEndpoint;
-    const apiKey = process.env.SITECORE_API_KEY || config.sitecoreApiKey;
+
+    const endpoint = config.graphQLEndpoint;
+    const apiKey = config.sitecoreApiKey;
 
     if (!endpoint || !apiKey) {
       console.warn(
-        chalk.yellow('Skipping site information fetch (missing GraphQL connection details)')
+        chalk.yellow('Skipping site information fetch (missing GraphQL endpoint or API key).')
       );
     } else {
       console.log(`Fetching site information from ${endpoint}`);
