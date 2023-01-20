@@ -116,10 +116,7 @@ export class JssComponentFactoryService {
   }
 
   private processChildren(loadChildren: LoadChildren): Promise<Type<unknown>> {
-    if (typeof loadChildren === 'string') {
-      return import(loadChildren).then((mod) => mod.MODULE);
-    } else {
-      return wrapIntoObservable(loadChildren())
+      return wrapIntoObservable(loadChildren)
         .pipe(
           mergeMap((t: any) => {
             return of(t);
@@ -127,7 +124,6 @@ export class JssComponentFactoryService {
           take(1)
         )
         .toPromise();
-    }
   }
 
   private getRawComponent(component: HtmlElementRendering): Promise<ComponentFactoryResult> {
