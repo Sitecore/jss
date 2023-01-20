@@ -354,7 +354,6 @@ describe('MultisiteMiddleware', () => {
 
       nextRewriteStub.restore();
     });
-
   });
 
   describe('error handling', () => {
