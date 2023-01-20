@@ -92,8 +92,12 @@ function writeComponentFactory() {
     encoding: 'utf8',
   });
 
+  if (!fs.existsSync('src/temp/projects')) {
+    fs.mkdirSync('src/temp/projects');
+  }
+
   projects.forEach(project => {
-    const indexFilePath = `${project.componentsPath}/index.ts`;
+    const indexFilePath = path.resolve(`src/temp/projects/${project.projectName}.ts`);
 
     console.log(`Writing project ${project.projectName} component source to ${indexFilePath}`);
 
@@ -102,7 +106,7 @@ function writeComponentFactory() {
       (c: ComponentFile) => !indexFilePath.includes(c.path)
     ) as ComponentFile[];
 
-    const fileContent = generateProjectComponents(components);
+    const fileContent = generateProjectComponents(components, project.projectName);
 
     fs.writeFileSync(indexFilePath, fileContent, {
       encoding: 'utf8',
