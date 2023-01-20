@@ -1,6 +1,5 @@
 import fs from 'fs';
 import chokidar from 'chokidar';
-import { Project } from './templates/component-factory';
 
 /**
  * Run watch mode, watching on @var rootPath
@@ -66,20 +65,4 @@ export function getItems<Item>(settings: {
   }
 
   return items;
-}
-
-export const projectRootPath = 'src/projects';
-
-export function getProjectList(path: string): Project[] {
-  const projects = getItems<Project>({
-    path,
-    resolveItem: (path, name) => ({
-      projectName: name,
-      componentsPath: `${path}/components`,
-    }),
-    cb: name => console.debug(`Registering JSS project ${name}`),
-    recursive: false,
-  });
-
-  return projects;
 }

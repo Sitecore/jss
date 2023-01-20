@@ -23,4 +23,4 @@ import './generate-component-factory';
 /**
  * PROJECT STYLES GENERATION
  */
-import './generate-styles';
+import './compile-styles';

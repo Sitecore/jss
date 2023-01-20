@@ -1,21 +1,11 @@
-import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { I18nProvider } from 'next-localization';
 import { SitecorePageProps } from 'lib/page-props';
 
 import 'assets/main.scss';
 
-// Dynamically imported project styles will be automatically generated here
-// STYLES_START
-// STYLES_END
-
 function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element {
   const { dictionary, ...rest } = pageProps;
-
-  useEffect(() => {
-    const importStyles = Styles.get(rest.site?.project);
-    importStyles && importStyles();
-  }, [rest.site?.project]);
 
   return (
     // Use the next-localization (w/ rosetta) library to provide our translation dictionary to the app.
