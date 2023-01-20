@@ -16,7 +16,9 @@ projects.forEach(project => {
   const compiled = sass.compile(
     path.resolve(__dirname, `../${projectRootPath}/${project}/assets/index.scss`),
     {
+      // Include external styles
       loadPaths: [path.resolve(__dirname, '../node_modules')],
+      // Resolve aliases
       importers: [
         {
           findFileUrl(url) {
