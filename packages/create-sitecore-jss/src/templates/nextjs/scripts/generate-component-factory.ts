@@ -35,6 +35,8 @@ export const projectRootPath = 'src/projects';
 
 const isWatch = process.argv.some(arg => arg === '--watch');
 
+const projects = getProjectList(projectRootPath);
+
 (isWatch ? watchComponentFactory : writeComponentFactory)();
 
 /**
@@ -45,7 +47,15 @@ const isWatch = process.argv.some(arg => arg === '--watch');
 function watchComponentFactory() {
   console.log(`Watching for changes to component factory sources in ${componentRootPath}...`);
 
-  watchItems(componentRootPath, writeComponentFactory);
+  const projectComponentsPaths = projects.map(project => {
+    console.log(
+      `Watching for changes to component factory sources in ${project.componentsPath}...`
+    );
+
+    return project.componentsPath;
+  });
+
+  watchItems([componentRootPath, ...projectComponentsPaths], writeComponentFactory);
 }
 
 /**
@@ -73,7 +83,6 @@ function writeComponentFactory() {
    */
   const packages: PackageDefinition[] = [];
   const components = getComponentList(componentRootPath);
-  const projects = getProjectList(projectRootPath);
 
   components.unshift(...packages);
 

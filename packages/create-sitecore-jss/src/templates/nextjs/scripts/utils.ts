@@ -2,11 +2,11 @@ import fs from 'fs';
 import chokidar from 'chokidar';
 
 /**
- * Run watch mode, watching on @var rootPath
+ * Run watch mode, watching on @var paths
  */
-export function watchItems(rootPath: string, cb: () => void): void {
+export function watchItems(paths: string[], cb: () => void): void {
   chokidar
-    .watch(rootPath, { ignoreInitial: true, awaitWriteFinish: true })
+    .watch(paths, { ignoreInitial: true, awaitWriteFinish: true })
     .on('add', cb)
     .on('unlink', cb);
 }
