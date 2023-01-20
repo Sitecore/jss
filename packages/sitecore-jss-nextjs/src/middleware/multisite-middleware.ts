@@ -74,6 +74,8 @@ export class MultisiteMiddleware {
     const hostHeader = req.headers.get('host')?.split(':')[0];
     const hostname = hostHeader || this.defaultHostname;
 
+    
+
     debug.multisite('multisite middleware start: %o', {
       pathname,
       hostname,
@@ -96,8 +98,7 @@ export class MultisiteMiddleware {
 
     // Site name can be forced by query string parameter or cookie
     const siteName =
-      req.nextUrl.searchParams.get('sc_site') ||
-      req.cookies.get('sc_site') ||
+      req.nextUrl.searchParams.get('sc_site') ||      
       this.config.getSite(hostname).name;
 
     // Rewrite to site specific path
