@@ -21,12 +21,14 @@ projects.forEach(project => {
         {
           findFileUrl(url) {
             if (!url.startsWith('@sass')) return null;
+
             return new URL(url.substring(1), pathToFileURL(`src/assets/sass`));
           },
         },
         {
           findFileUrl(url) {
             if (!url.startsWith('assets')) return null;
+
             return new URL(url, pathToFileURL(`src/assets`));
           },
         },
