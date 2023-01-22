@@ -10,17 +10,6 @@
 */
 import './generate-plugins';
 
-/*
-  CONFIG GENERATION
-*/
-import './generate-config';
+import { jssBootstrapFactory } from './bootstrap/index';
 
-/*
-  COMPONENT FACTORY GENERATION
-*/
-import './generate-component-factory';
-
-/**
- * PROJECT STYLES GENERATION
- */
-import './compile-styles';
+jssBootstrapFactory.create();

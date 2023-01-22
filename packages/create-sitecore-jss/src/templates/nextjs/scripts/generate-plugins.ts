@@ -32,6 +32,11 @@ interface PluginFile {
 
 const pluginDefinitions = [
   {
+    listPath: 'scripts/temp/bootstrap-plugins.ts',
+    rootPath: 'scripts/bootstrap/plugins',
+    moduleType: ModuleType.ESM,
+  },
+  {
     listPath: 'scripts/temp/config-plugins.ts',
     rootPath: 'scripts/config/plugins',
     moduleType: ModuleType.ESM,

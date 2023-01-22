@@ -1,12 +1,13 @@
 import fs from 'fs';
 import path from 'path';
+import { BootstrapPlugin } from '../index';
 import generateComponentFactory, {
   ComponentFile,
   PackageDefinition,
   Project,
-} from './templates/component-factory';
-import { generateProjectComponents } from './templates/project-components';
-import { getItems, watchItems } from './utils';
+} from 'scripts/templates/component-factory';
+import { generateProjectComponents } from 'scripts/templates/project-components';
+import { getItems, watchItems } from 'scripts/utils';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -33,11 +34,11 @@ const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
 const componentRootPath = 'src/components';
 export const projectRootPath = 'src/projects';
 
-const isWatch = process.argv.some(arg => arg === '--watch');
-
 const projects = getProjectList(projectRootPath);
 
-(isWatch ? watchComponentFactory : writeComponentFactory)();
+const isWatch = process.argv.some(arg => arg === '--watch');
+
+isWatch && watchComponentFactory();
 
 /**
  * Watches component directory for changes. When files are added or deleted, the component factory
@@ -141,3 +142,11 @@ export function getProjectList(path: string): Project[] {
 
   return projects;
 }
+
+class GenerateComponentFactoryPlugin implements BootstrapPlugin {
+  exec() {
+    writeComponentFactory();
+  }
+}
+
+export const generateComponentFactoryPlugin = new GenerateComponentFactoryPlugin();

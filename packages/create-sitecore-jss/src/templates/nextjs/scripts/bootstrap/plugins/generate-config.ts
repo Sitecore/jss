@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { constantCase } from 'constant-case';
-import { JssConfig, jssConfigFactory } from './config';
+import { JssConfig, jssConfigFactory } from 'scripts/config';
+import { BootstrapPlugin } from '../index';
 
 /*
   CONFIG GENERATION
@@ -16,8 +17,6 @@ const defaultConfig: JssConfig = {
   graphQLEndpointPath: '',
   defaultLanguage: 'en',
 };
-
-generateConfig(defaultConfig);
 
 /**
  * Generates the JSS config based on config plugins (under ./config/plugins)
@@ -57,3 +56,11 @@ const config = {};\n`;
   console.log(`Writing runtime config to ${configPath}`);
   fs.writeFileSync(configPath, configText, { encoding: 'utf8' });
 }
+
+class GenerateConfigPlugin implements BootstrapPlugin {
+  exec() {
+    generateConfig(defaultConfig);
+  }
+}
+
+export const generateConfigPlugin = new GenerateConfigPlugin();
