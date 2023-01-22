@@ -52,7 +52,7 @@ ${hasLazyModules ? "import dynamic from 'next/dynamic'" : ''}
 import { FactoryCreator } from '@sitecore-jss/sitecore-jss-nextjs';
 
 ${projects
-  .map(project => `import * as ${project.projectName} from '${project.componentsPath}';`)
+  .map(project => `import * as ${project.projectName} from './projects/${project.projectName}';`)
   .join('\n')}
 ${packages
   .map(pkg => {

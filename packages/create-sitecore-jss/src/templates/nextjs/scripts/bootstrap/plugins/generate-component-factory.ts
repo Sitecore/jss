@@ -1,12 +1,13 @@
 import fs from 'fs';
 import path from 'path';
+import { BootstrapPlugin } from '../index';
 import generateComponentFactory, {
   ComponentFile,
   PackageDefinition,
   Project,
-} from './templates/component-factory';
-import { generateProjectComponents } from './templates/project-components';
-import { getItems, watchItems } from './utils';
+} from 'scripts/templates/component-factory';
+import { generateProjectComponents } from 'scripts/templates/project-components';
+import { getItems, watchItems } from 'scripts/utils';
 
 /*
   COMPONENT FACTORY GENERATION
@@ -31,11 +32,13 @@ import { getItems, watchItems } from './utils';
 
 const componentFactoryPath = path.resolve('src/temp/componentFactory.ts');
 const componentRootPath = 'src/components';
-const projectRootPath = 'src/projects';
+export const projectRootPath = 'src/projects';
+
+const projects = getProjectList(projectRootPath);
 
 const isWatch = process.argv.some(arg => arg === '--watch');
 
-(isWatch ? watchComponentFactory : writeComponentFactory)();
+isWatch && watchComponentFactory();
 
 /**
  * Watches component directory for changes. When files are added or deleted, the component factory
@@ -45,7 +48,15 @@ const isWatch = process.argv.some(arg => arg === '--watch');
 function watchComponentFactory() {
   console.log(`Watching for changes to component factory sources in ${componentRootPath}...`);
 
-  watchItems(componentRootPath, writeComponentFactory);
+  const projectComponentsPaths = projects.map(project => {
+    console.log(
+      `Watching for changes to component factory sources in ${project.componentsPath}...`
+    );
+
+    return project.componentsPath;
+  });
+
+  watchItems([componentRootPath, ...projectComponentsPaths], writeComponentFactory);
 }
 
 /**
@@ -73,7 +84,6 @@ function writeComponentFactory() {
    */
   const packages: PackageDefinition[] = [];
   const components = getComponentList(componentRootPath);
-  const projects = getProjectList(projectRootPath);
 
   components.unshift(...packages);
 
@@ -83,8 +93,12 @@ function writeComponentFactory() {
     encoding: 'utf8',
   });
 
+  if (!fs.existsSync('src/temp/projects')) {
+    fs.mkdirSync('src/temp/projects');
+  }
+
   projects.forEach(project => {
-    const indexFilePath = `${project.componentsPath}/index.ts`;
+    const indexFilePath = path.resolve(`src/temp/projects/${project.projectName}.ts`);
 
     console.log(`Writing project ${project.projectName} component source to ${indexFilePath}`);
 
@@ -93,26 +107,12 @@ function writeComponentFactory() {
       (c: ComponentFile) => !indexFilePath.includes(c.path)
     ) as ComponentFile[];
 
-    const fileContent = generateProjectComponents(components);
+    const fileContent = generateProjectComponents(components, project.projectName);
 
     fs.writeFileSync(indexFilePath, fileContent, {
       encoding: 'utf8',
     });
   });
-}
-
-function getProjectList(path: string): Project[] {
-  const projects = getItems<Project>({
-    path,
-    resolveItem: (path, name) => ({
-      projectName: name,
-      componentsPath: `${path}/components`,
-    }),
-    cb: name => console.debug(`Registering JSS project ${name}`),
-    recursive: false,
-  });
-
-  return projects;
 }
 
 function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
@@ -128,3 +128,25 @@ function getComponentList(path: string): (PackageDefinition | ComponentFile)[] {
 
   return components;
 }
+
+export function getProjectList(path: string): Project[] {
+  const projects = getItems<Project>({
+    path,
+    resolveItem: (path, name) => ({
+      projectName: name,
+      componentsPath: `${path}/components`,
+    }),
+    cb: name => console.debug(`Registering JSS project ${name}`),
+    recursive: false,
+  });
+
+  return projects;
+}
+
+class GenerateComponentFactoryPlugin implements BootstrapPlugin {
+  exec() {
+    writeComponentFactory();
+  }
+}
+
+export const generateComponentFactoryPlugin = new GenerateComponentFactoryPlugin();
