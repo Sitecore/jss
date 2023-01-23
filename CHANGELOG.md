@@ -16,9 +16,10 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * `[sitecore-jss-angular][templates/angular]` jss-angular package and sample has been updated to version 14. This means several changes:
   * JSS Angular sample is now using Ivy
   * IE11 no longer supported by JSS Angular
-  * You can no longer specify lazy-loaded routes by setting a string value to loadChildren. Make sure you move to dynamic ESM import statements.
+  * You can no longer specify lazy-loaded routes by setting a string value to loadChildren. Make sure you move to dynamic ESM import statements. For example, `loadChildren: () => import('./modules/my.module').then(m => m.MyModule)` should be used instead of `loadChildren: './modules/my.module'`. You can find more info on dunamic imports here:
+  https://angular.io/guide/lazy-loading-ngmodules
   * _sitecore-jss-angular_ package does not output UMD package anymore - only ESM. We created a '@sitecore-jss/sitecore-jss-angular/cjs' sub-module to have CJS imports still available i.e. in angular sample app's scripts. Right now the submodule re-exports '@sitecore-jss/sitecore-jss' modules.
-  * _componentFactory_ is no longer present in ComponentFactoryResult interface, due to _createComponent_ changes and deprecations introduced in Angular 13
+  * _componentFactory_ is no longer present in ComponentFactoryResult interface, due to _createComponent_ changes and deprecations introduced in Angular 13.
   * More details on changes in Angular can be found in the below links:
   https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
   https://angular.io/guide/deprecations
