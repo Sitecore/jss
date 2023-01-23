@@ -151,12 +151,18 @@ describe('MultisiteMiddleware', () => {
   });
 
   describe('request passed', () => {
+    let nextRewriteStub = sinon.stub();
+
+    afterEach(() => {
+      nextRewriteStub.restore();
+    });
+
     it('fallback hostname is used', async () => {
       const req = createRequest({ headerValues: { host: undefined } });
 
       const res = createResponse();
 
-      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
       const { middleware, getSite } = createMiddleware({ defaultHostname: 'bar.net' });
 
@@ -189,8 +195,6 @@ describe('MultisiteMiddleware', () => {
         ...req.nextUrl,
         pathname: '/_site_foo/styleguide',
       });
-
-      nextRewriteStub.restore();
     });
 
     it('fallback default hostName is used', async () => {
@@ -198,7 +202,7 @@ describe('MultisiteMiddleware', () => {
 
       const res = createResponse();
 
-      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
       const { middleware, getSite } = createMiddleware();
 
@@ -231,8 +235,6 @@ describe('MultisiteMiddleware', () => {
         ...req.nextUrl,
         pathname: '/_site_foo/styleguide',
       });
-
-      nextRewriteStub.restore();
     });
 
     it('host header is used', async () => {
@@ -240,7 +242,7 @@ describe('MultisiteMiddleware', () => {
 
       const res = createResponse();
 
-      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
       const { middleware, getSite } = createMiddleware();
 
@@ -271,8 +273,6 @@ describe('MultisiteMiddleware', () => {
         ...req.nextUrl,
         pathname: '/_site_foo/styleguide',
       });
-
-      nextRewriteStub.restore();
     });
 
     it('custom response object is not provided', async () => {
@@ -280,7 +280,7 @@ describe('MultisiteMiddleware', () => {
 
       const res = createResponse();
 
-      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
       const { middleware, getSite } = createMiddleware({});
 
@@ -311,8 +311,6 @@ describe('MultisiteMiddleware', () => {
         ...req.nextUrl,
         pathname: '/_site_foo/styleguide',
       });
-
-      nextRewriteStub.restore();
     });
 
     it('sc_site querystring parameter is provided', async () => {
@@ -320,9 +318,9 @@ describe('MultisiteMiddleware', () => {
 
       const res = createResponse();
 
-      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware();
+      const { middleware, getSite } = createMiddleware({ useCookieResolution: () => true });
 
       const finalRes = await middleware.getHandler()(req, res);
 
@@ -351,8 +349,82 @@ describe('MultisiteMiddleware', () => {
         ...req.nextUrl,
         pathname: '/_site_qsFoo/styleguide',
       });
+    });
 
-      nextRewriteStub.restore();
+    it('sc_site cookie is provided and its usage enabled', async () => {
+      const req = createRequest({ cookieValues: { sc_site: 'foobar' } });
+
+      const res = createResponse();
+
+      nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const { middleware, getSite } = createMiddleware({ useCookieResolution: () => true });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('multisite middleware start: %o', {
+        pathname: '/styleguide',
+        hostname: 'foo.net',
+      });
+
+      validateDebugLog('multisite middleware end: %o', {
+        rewritePath: '/_site_foobar/styleguide',
+        siteName: 'foobar',
+        headers: {
+          'x-sc-rewrite': '/_site_foobar/styleguide',
+        },
+        cookies: {
+          ...res.cookies,
+          sc_site: 'foobar',
+        },
+      });
+
+      expect(getSite.notCalled).equal(true);
+
+      expect(finalRes).to.deep.equal(res);
+
+      expect(nextRewriteStub).calledWith({
+        ...req.nextUrl,
+        pathname: '/_site_foobar/styleguide',
+      });
+    });
+
+    it('sc_site cookie is provided and its usage disabled', async () => {
+      const req = createRequest({ cookieValues: { sc_site: 'foobar' } });
+
+      const res = createResponse();
+
+      nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const { middleware, getSite } = createMiddleware();
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('multisite middleware start: %o', {
+        pathname: '/styleguide',
+        hostname: 'foo.net',
+      });
+
+      validateDebugLog('multisite middleware end: %o', {
+        rewritePath: '/_site_foo/styleguide',
+        siteName: 'foo',
+        headers: {
+          'x-sc-rewrite': '/_site_foo/styleguide',
+        },
+        cookies: {
+          ...res.cookies,
+          sc_site: 'foo',
+        },
+      });
+
+      expect(getSite).to.be.calledWith('foo.net');
+
+      expect(finalRes).to.deep.equal(res);
+
+      expect(nextRewriteStub).calledWith({
+        ...req.nextUrl,
+        pathname: '/_site_foo/styleguide',
+      });
     });
   });
 
