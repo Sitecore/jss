@@ -26,10 +26,8 @@ class MultisitePlugin implements MiddlewarePlugin {
       excludeRoute: () => false,
       // This function resolves site based on hostname
       getSite: siteResolver.getByHost,
-      // This function allows resolving site from cookies, which could be useful in case of Vercel preview URLs. Accepts NextRequest.
-      useCookieResolution: () => {
-        return process.env.VERCEL_ENV === 'preview';
-      },
+      // This function allows resolving site from sc_site cookie, which could be useful in case of Vercel preview URLs. Accepts NextRequest.
+     useCookieResolution: () => process.env.VERCEL_ENV === 'preview',
     });
   }
 
