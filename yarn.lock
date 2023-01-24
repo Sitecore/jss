@@ -5778,6 +5778,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sitecore-feaas/clientside@npm:^0.1.17":
+  version: 0.1.17
+  resolution: "@sitecore-feaas/clientside@npm:0.1.17"
+  dependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  dependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 871be958cd9ea52a42d4781cec891ffe78240d364b7d8669cdc0465d27cfbad57eba7dcdb253de1acc2110fd96a7f0511c3d12368f293964cc0baf550465b60f
+  languageName: node
+  linkType: hard
+
 "@sitecore-jss/sitecore-jss-angular-schematics@workspace:packages/sitecore-jss-angular-schematics":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-angular-schematics@workspace:packages/sitecore-jss-angular-schematics"
@@ -5808,7 +5826,7 @@ __metadata:
     "@angular/platform-browser": ~14.2.10
     "@angular/platform-browser-dynamic": ~14.2.10
     "@angular/router": ~14.2.10
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.69
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.73
     "@types/jasmine": ^3.4.1
     "@types/node": ^14.14.35
     codelyzer: ^6.0.1
@@ -5841,7 +5859,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
-    "@sitecore-jss/sitecore-jss-dev-tools": ^21.1.0-canary.69
+    "@sitecore-jss/sitecore-jss-dev-tools": ^21.1.0-canary.73
     "@types/chai": ^4.2.3
     "@types/cross-spawn": ^6.0.0
     "@types/mocha": ^9.0.0
@@ -5873,11 +5891,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-dev-tools@^21.1.0-canary.69, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
+"@sitecore-jss/sitecore-jss-dev-tools@^21.1.0-canary.73, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.69
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.73
     "@types/chai": ^4.2.3
     "@types/chokidar": ^2.1.3
     "@types/del": ^4.0.0
@@ -5931,11 +5949,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-forms@^21.1.0-canary.69, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
+"@sitecore-jss/sitecore-jss-forms@^21.1.0-canary.73, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.69
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.73
     "@types/chai": ^4.1.6
     "@types/chai-string": ^1.4.1
     "@types/lodash.unescape": ^4.0.4
@@ -5958,9 +5976,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.69
-    "@sitecore-jss/sitecore-jss-dev-tools": ^21.1.0-canary.69
-    "@sitecore-jss/sitecore-jss-react": ^21.1.0-canary.69
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.73
+    "@sitecore-jss/sitecore-jss-dev-tools": ^21.1.0-canary.73
+    "@sitecore-jss/sitecore-jss-react": ^21.1.0-canary.73
     "@types/chai": ^4.2.2
     "@types/chai-as-promised": ^7.1.3
     "@types/chai-string": ^1.4.2
@@ -6031,7 +6049,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss-forms": ^21.1.0-canary.69
+    "@sitecore-jss/sitecore-jss-forms": ^21.1.0-canary.73
     "@types/chai": ^4.3.4
     "@types/enzyme": ^3.10.12
     "@types/mocha": ^10.0.1
@@ -6071,7 +6089,7 @@ __metadata:
     "@babel/plugin-proposal-export-default-from": ^7.5.2
     "@babel/preset-env": ^7.6.2
     "@babel/preset-typescript": ^7.6.0
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.69
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.73
     "@types/jest": ^24.0.18
     "@types/prop-types": ^15.7.3
     "@types/react": ^16.9.5
@@ -6101,11 +6119,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-react@^21.1.0-canary.69, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
+"@sitecore-jss/sitecore-jss-react@^21.1.0-canary.73, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.69
+    "@sitecore-feaas/clientside": ^0.1.17
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.73
     "@types/chai": ^4.3.4
     "@types/chai-string": ^1.4.2
     "@types/deep-equal": ^1.0.1
@@ -6203,7 +6222,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss@^21.1.0-canary.69, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
+"@sitecore-jss/sitecore-jss@^21.1.0-canary.73, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss"
   dependencies:
@@ -24887,7 +24906,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.2.0":
+"react-dom@npm:>=16.8.0, react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -25059,7 +25078,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.2.0":
+"react@npm:>=16.8.0, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
