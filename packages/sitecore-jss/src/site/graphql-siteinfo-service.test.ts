@@ -10,7 +10,9 @@ describe('GraphQLSiteInfoService', () => {
       search: {
         results: [
           {
-            name: 'site 51',
+            name: {
+              value: 'site 51',
+            },
             hostName: {
               value: 'restricted.gov',
             },
@@ -19,7 +21,9 @@ describe('GraphQLSiteInfoService', () => {
             },
           },
           {
-            name: 'public',
+            name: {
+              value: 'public',
+            },
             hostName: {
               value: 'pr.showercurtains.org',
             },
