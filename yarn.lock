@@ -6198,11 +6198,11 @@ __metadata:
   resolution: "@sitecore-jss/sitecore-jss-vue@workspace:packages/sitecore-jss-vue"
   dependencies:
     "@babel/core": ^7.20.12
-    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.69
+    "@sitecore-jss/sitecore-jss": ^21.1.0-canary.73
     "@types/jest": ^29.2.6
     "@types/node": ^18.11.18
     "@vue/compiler-dom": ^3.2.45
-    "@vue/compiler-sfc": ^3.2.45
+    "@vue/compiler-sfc": ^3.0.11
     "@vue/test-utils": 2.2.7
     "@vue/vue3-jest": ^29.2.2
     babel-core: ^6.26.3
@@ -7746,7 +7746,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/compiler-sfc@npm:3.2.45, @vue/compiler-sfc@npm:^3.2.45":
+"@vue/compiler-sfc@npm:3.2.45, @vue/compiler-sfc@npm:^3.0.11":
   version: 3.2.45
   resolution: "@vue/compiler-sfc@npm:3.2.45"
   dependencies:
