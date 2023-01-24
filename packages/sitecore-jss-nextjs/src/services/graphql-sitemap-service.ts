@@ -290,18 +290,18 @@ export class GraphQLSitemapService {
       if (item.route?.personalization?.variantIds.length) {
         multiSiteName
           ? aggregatedPaths.push(
-              ...item.route?.personalization?.variantIds.map((varId) =>
+              ...(item.route?.personalization?.variantIds.map((varId) =>
                 formatPath(
                   getPersonalizedRewrite(getSiteRewrite(item.path, { siteName: multiSiteName }), {
                     variantId: varId,
                   })
                 )
-              )
+              ) || {})
             )
           : aggregatedPaths.push(
-              ...item.route?.personalization?.variantIds.map((varId) =>
+              ...(item.route?.personalization?.variantIds.map((varId) =>
                 formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
-              )
+              ) || {})
             );
       }
     });
