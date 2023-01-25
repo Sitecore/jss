@@ -25,7 +25,9 @@ const defaultQuery = /* GraphQL */ `
     ) {
       results {
       ... on Item {
-        name
+        name: field(name: "SiteName") {
+          value
+        }
         hostName: field(name: "Hostname") {
           value
         }
@@ -75,7 +77,9 @@ type GraphQLSiteInfoResponse = {
 };
 
 type GraphQLSiteInfoResult = {
-  name: string;
+  name: {
+    value: string;
+  };
   hostName: {
     value: string;
   };
@@ -110,7 +114,7 @@ export class GraphQLSiteInfoService {
     const response = await this.graphQLClient.request<GraphQLSiteInfoResponse>(this.query);
     const result = response?.search?.results?.reduce<SiteInfo[]>((result, current) => {
       result.push({
-        name: current.name,
+        name: current.name.value,
         hostName: current.hostName.value,
         language: current.language.value,
       });
