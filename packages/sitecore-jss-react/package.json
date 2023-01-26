@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-react",
-  "version": "21.1.0-canary.71",
+  "version": "21.1.0-canary.76",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -62,7 +62,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^21.1.0-canary.71",
+    "@sitecore-jss/sitecore-jss": "^21.1.0-canary.76",
     "deep-equal": "^2.1.0",
     "html-react-parser": "^3.0.4",
     "prop-types": "^15.8.1",

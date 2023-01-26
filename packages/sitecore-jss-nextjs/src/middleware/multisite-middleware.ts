@@ -12,7 +12,7 @@ export type MultisiteMiddlewareConfig = {
    */
   excludeRoute?: (pathname: string) => boolean;
   /**
-   * function used to resolve site for given hostname
+   * Function used to resolve site for given hostname
    */
   getSite: (hostname: string) => SiteInfo;
   /**
@@ -20,6 +20,10 @@ export type MultisiteMiddlewareConfig = {
    * @default localhost
    */
   defaultHostname?: string;
+  /**
+   * Function used to determine if site should be resolved from sc_site cookie when present
+   */
+  useCookieResolution?: (req: NextRequest) => boolean;
 };
 
 /**
@@ -73,7 +77,6 @@ export class MultisiteMiddleware {
     const pathname = req.nextUrl.pathname;
     const hostHeader = req.headers.get('host')?.split(':')[0];
     const hostname = hostHeader || this.defaultHostname;
-
     debug.multisite('multisite middleware start: %o', {
       pathname,
       hostname,
@@ -97,7 +100,9 @@ export class MultisiteMiddleware {
     // Site name can be forced by query string parameter or cookie
     const siteName =
       req.nextUrl.searchParams.get('sc_site') ||
-      req.cookies.get('sc_site') ||
+      (this.config.useCookieResolution &&
+        this.config.useCookieResolution(req) &&
+        req.cookies.get('sc_site')) ||
       this.config.getSite(hostname).name;
 
     // Rewrite to site specific path

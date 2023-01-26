@@ -116,18 +116,14 @@ export class JssComponentFactoryService {
   }
 
   private processChildren(loadChildren: LoadChildren): Promise<Type<unknown>> {
-    if (typeof loadChildren === 'string') {
-      return import(loadChildren).then((mod) => mod.MODULE);
-    } else {
-      return wrapIntoObservable(loadChildren())
-        .pipe(
-          mergeMap((t: any) => {
-            return of(t);
-          }),
-          take(1)
-        )
-        .toPromise();
-    }
+    return wrapIntoObservable(loadChildren)
+      .pipe(
+        mergeMap((t: any) => {
+          return of(t);
+        }),
+        take(1)
+      )
+      .toPromise();
   }
 
   private getRawComponent(component: HtmlElementRendering): Promise<ComponentFactoryResult> {

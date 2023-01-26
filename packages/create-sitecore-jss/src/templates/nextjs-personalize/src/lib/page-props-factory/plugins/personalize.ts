@@ -7,6 +7,8 @@ class PersonalizePlugin implements Plugin {
   order = 3;
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
+    if (context.preview) return props;
+
     const path =
       context.params === undefined
         ? '/'
