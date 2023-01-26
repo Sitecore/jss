@@ -1,8 +1,5 @@
-import { Inject, Injectable, Injector, Type, createNgModuleRef } from '@angular/core';
-import { LoadChildren } from '@angular/router';
+import { Inject, Injectable, Injector, Type, createNgModule } from '@angular/core';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { of } from 'rxjs';
-import { mergeMap, take } from 'rxjs/operators';
 import {
   ComponentNameAndModule,
   ComponentNameAndType,
@@ -15,7 +12,6 @@ import {
 } from './components/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { isRawRendering } from './components/rendering';
-import { wrapIntoObservable } from './utils';
 
 export interface ComponentFactoryResult {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -64,9 +60,9 @@ export class JssComponentFactoryService {
     const lazyComponent = this.lazyComponentMap.get(component.componentName);
 
     if (lazyComponent) {
-      return this.processChildren(lazyComponent.loadChildren).then((lazyChild) => {
+      return lazyComponent.loadChildren().then((lazyChild) => {
         let componentType = null;
-        const moduleRef = createNgModuleRef(lazyChild, this.injector);
+        const moduleRef = createNgModule(lazyChild, this.injector);
         const dynamicComponentType = moduleRef.injector.get(DYNAMIC_COMPONENT);
         if (!dynamicComponentType) {
           throw new Error(
@@ -113,17 +109,6 @@ export class JssComponentFactoryService {
         isRawRendering(component) ? this.getRawComponent(component) : this.getComponent(component)
       )
     );
-  }
-
-  private processChildren(loadChildren: LoadChildren): Promise<Type<unknown>> {
-    return wrapIntoObservable(loadChildren)
-      .pipe(
-        mergeMap((t: any) => {
-          return of(t);
-        }),
-        take(1)
-      )
-      .toPromise();
   }
 
   private getRawComponent(component: HtmlElementRendering): Promise<ComponentFactoryResult> {
