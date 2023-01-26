@@ -3,6 +3,7 @@ export {
   // generic data access
   HttpDataFetcher,
   HttpResponse,
+  AxiosResponse,
   AxiosDataFetcher,
   AxiosDataFetcherConfig,
   NativeDataFetcher,
