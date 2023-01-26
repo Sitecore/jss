@@ -4,7 +4,7 @@
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {
-    "sass-alias": "^2.0.0",
+    "sass-alias": "^1.0.5",
     "sass": "^1.57.1"
   }
 }
