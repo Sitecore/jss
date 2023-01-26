@@ -9,6 +9,8 @@ class SitePlugin implements Plugin {
   order = 0;
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
+    if (context.preview) return props;
+
     const path =
       context.params === undefined
         ? '/'
