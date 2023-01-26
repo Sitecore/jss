@@ -30,7 +30,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@sitecore-jss/sitecore-jss-nextjs": "^21.1.0-canary",
-    "graphql": "~16.6.0",
+    "graphql": "~15.8.0",
     "graphql-tag": "^2.12.6",
     "next": "^12.3.4",
     "next-localization": "^0.12.0",
