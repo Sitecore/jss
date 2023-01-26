@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path, { sep } from 'path';
 import chalk from 'chalk';
-import { prompt } from 'inquirer';
+import inquirer from 'inquirer';
 import { initRunner } from './init-runner';
 import minimist, { ParsedArgs } from 'minimist';
 import { getAllTemplates, getBaseTemplates } from './common';
@@ -53,7 +53,7 @@ export const main = async (args: ParsedArgs) => {
   }
   if (!templates.length) {
     const baseTemplates = await getBaseTemplates(templatePath);
-    const answer = await prompt({
+    const answer = await inquirer.prompt({
       type: 'list',
       name: 'template',
       message: 'Which template would you like to create?',
@@ -74,7 +74,7 @@ export const main = async (args: ParsedArgs) => {
     if (args.yes) {
       destination = defaultDestination;
     } else {
-      const answer = await prompt({
+      const answer = await inquirer.prompt({
         type: 'input',
         name: 'destination',
         message: 'Where would you like your new app created?',
@@ -86,7 +86,7 @@ export const main = async (args: ParsedArgs) => {
   }
 
   if (!args.force && fs.existsSync(destination) && fs.readdirSync(destination).length > 0) {
-    const answer = await prompt({
+    const answer = await inquirer.prompt({
       type: 'confirm',
       name: 'continue',
       message: `Directory '${destination}' not empty. Are you sure you want to continue?`,

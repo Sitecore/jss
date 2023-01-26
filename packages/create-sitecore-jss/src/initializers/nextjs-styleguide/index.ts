@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import path, { sep } from 'path';
-import { prompt } from 'inquirer';
+import inquirer from 'inquirer';
 import {
   Initializer,
   openPackageJson,
@@ -22,7 +22,7 @@ export default class NextjsStyleguideInitializer implements Initializer {
   async init(args: NextjsStyleguideArgs) {
     const pkg = openPackageJson(`${args.destination}${sep}package.json`);
 
-    const answers = await prompt<StyleguideAnswer>(styleguidePrompts, args);
+    const answers = await inquirer.prompt<StyleguideAnswer>(styleguidePrompts, args);
 
     const mergedArgs = {
       ...args,

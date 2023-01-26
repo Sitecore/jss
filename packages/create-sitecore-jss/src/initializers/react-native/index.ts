@@ -1,5 +1,5 @@
 import path from 'path';
-import { prompt } from 'inquirer';
+import inquirer from 'inquirer';
 import { prompts, ReactNativeAnswer } from './prompts';
 import { Initializer, transform } from '../../common';
 import { ReactNativeArgs } from './args';
@@ -10,7 +10,7 @@ export default class ReactNativeInitializer implements Initializer {
   }
 
   async init(args: ReactNativeArgs) {
-    const answers = await prompt<ReactNativeAnswer>(prompts, args);
+    const answers = await inquirer.prompt<ReactNativeAnswer>(prompts, args);
 
     const mergedArgs = {
       ...args,

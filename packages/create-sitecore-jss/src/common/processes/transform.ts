@@ -4,7 +4,7 @@ import glob from 'glob';
 import path, { sep } from 'path';
 import { parse } from 'dotenv';
 import { Data, renderFile } from 'ejs';
-import { prompt } from 'inquirer';
+import inquirer from 'inquirer';
 import {
   getPascalCaseName,
   getAppPrefix,
@@ -111,7 +111,7 @@ export const diffFiles = async (
 
   console.log(`Showing potential changes in ${chalk.yellow(targetFilePath.replace('/', '\\'))}`);
 
-  const answer = await prompt({
+  const answer = await inquirer.prompt({
     type: 'list',
     name: 'choice',
     choices: ['yes', 'skip', 'yes to all', 'abort'],
