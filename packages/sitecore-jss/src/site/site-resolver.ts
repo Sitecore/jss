@@ -19,19 +19,12 @@ export class SiteResolver {
    * @throws {Error} if a matching site is not found
    */
   public getByHost = (hostName: string): SiteInfo => {
-    const siteInfo = this.sites.find((info) => {
-      const hostnames = info.hostName.replace(/\s/g, '').split(DELIMITERS);
-
-      return hostnames.some(
-        (hostname) => hostName === hostname || this.matchesPattern(hostName, hostname)
-      );
-    });
-
-    if (!siteInfo) {
-      throw new Error(`Could not resolve site for host ${hostName}`);
+    for (const [hostname, site] of this.getHostMap()) {
+      if (this.matchesPattern(hostName, hostname)) {
+        return site;
+      }
     }
-
-    return siteInfo;
+    throw new Error(`Could not resolve site for host ${hostName}`);
   };
 
   /**
@@ -50,6 +43,34 @@ export class SiteResolver {
     }
 
     return siteInfo;
+  };
+
+  protected getHostMap = (): Map<string, SiteInfo> => {
+    const map = new Map<string, SiteInfo>();
+
+    // First collect unique hostnames.
+    // For sites with same hostname defined, priority is given to the first encountered.
+    this.sites.forEach((site) => {
+      const hostnames = site.hostName
+        .replace(/\s/g, '')
+        .toLocaleLowerCase()
+        .split(DELIMITERS);
+      hostnames.forEach((hostname) => {
+        if (!map.has(hostname)) {
+          map.set(hostname, site);
+        }
+      });
+    });
+
+    // Now order by specificity.
+    // This equivalates to sorting from longest to shortest with the assumption
+    // that your match is less specific as wildcards are introduced.
+    // E.g. order.eu.site.com → *.eu.site.com → *.site.com → *
+    return new Map(
+      Array.from(map).sort((a, b) => {
+        return b[0].length - a[0].length;
+      })
+    );
   };
 
   protected matchesPattern(hostname: string, pattern: string): boolean {

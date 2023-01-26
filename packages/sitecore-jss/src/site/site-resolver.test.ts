@@ -38,7 +38,6 @@ describe('SiteResolver', () => {
         { hostName: 'var.com', language: '', name: 'var' },
         { hostName: 'bar.net', language: '', name: 'bar' },
         { hostName: '*.com', language: '', name: 'foo' },
-        { hostName: 'foo.com', language: '', name: 'foo-en' },
       ]);
       const site = resolver.getByHost('foo.com');
 
@@ -50,7 +49,6 @@ describe('SiteResolver', () => {
       const resolver = new SiteResolver([
         { hostName: 'bar.net', language: '', name: 'bar' },
         { hostName: '*', language: '', name: 'wildcard' },
-        { hostName: 'foo.com', language: '', name: 'foo' },
       ]);
       const site = resolver.getByHost('foo.com');
 
@@ -64,6 +62,38 @@ describe('SiteResolver', () => {
 
       expect(site).to.not.be.undefined;
       expect(site?.name).to.equal('foo');
+    });
+
+    it('should prefer most specific match', () => {
+      const resolver = new SiteResolver([
+        { hostName: '*', language: '', name: 'foo' },
+        { hostName: '*.app.net', language: '', name: 'bar' },
+        { hostName: 'baz.app.net', language: '', name: 'baz' },
+      ]);
+      let site = resolver.getByHost('foo.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('foo');
+      site = resolver.getByHost('bar.app.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('bar');
+      site = resolver.getByHost('Baz.app.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('baz');
+    });
+
+    it('should prefer first site match for same hostName', () => {
+      const resolver = new SiteResolver([
+        { hostName: '*', language: '', name: 'foo' },
+        { hostName: 'Bar.net', language: '', name: 'bar' },
+        { hostName: '*', language: '', name: 'foo-never' },
+        { hostName: 'bar.net', language: '', name: 'bar-never' },
+      ]);
+      let site = resolver.getByHost('foo.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('foo');
+      site = resolver.getByHost('bar.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('bar');
     });
 
     describe('multi-value hostname', () => {
