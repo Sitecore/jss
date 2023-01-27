@@ -66,13 +66,17 @@ export class SiteResolver {
     // This equivalates to sorting from longest to shortest with the assumption
     // that your match is less specific as wildcards are introduced.
     // E.g. order.eu.site.com → *.eu.site.com → *.site.com → *
+    // In case of a tie (e.g. *.site.com vs i.site.com), prefer one with less wildcards.
     return new Map(
       Array.from(map).sort((a, b) => {
+        if (a[0].length === b[0].length) {
+          return (a[0].match(/\*/g) || []).length - (b[0].match(/\*/g) || []).length;
+        }
         return b[0].length - a[0].length;
       })
     );
   };
-
+  // b[0].match(/\*/g) || []).length
   protected matchesPattern(hostname: string, pattern: string): boolean {
     // dots should be treated as chars
     // stars should be treated as wildcards

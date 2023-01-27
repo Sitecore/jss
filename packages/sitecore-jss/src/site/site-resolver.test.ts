@@ -68,6 +68,7 @@ describe('SiteResolver', () => {
       const resolver = new SiteResolver([
         { hostName: '*', language: '', name: 'foo' },
         { hostName: '*.app.net', language: '', name: 'bar' },
+        { hostName: 'i.app.net', language: '', name: 'i-bar' },
         { hostName: 'baz.app.net', language: '', name: 'baz' },
       ]);
       let site = resolver.getByHost('foo.net');
@@ -76,6 +77,9 @@ describe('SiteResolver', () => {
       site = resolver.getByHost('bar.app.net');
       expect(site).to.not.be.undefined;
       expect(site?.name).to.equal('bar');
+      site = resolver.getByHost('i.app.net');
+      expect(site).to.not.be.undefined;
+      expect(site?.name).to.equal('i-bar');
       site = resolver.getByHost('Baz.app.net');
       expect(site).to.not.be.undefined;
       expect(site?.name).to.equal('baz');
