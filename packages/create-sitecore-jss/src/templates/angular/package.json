@@ -65,7 +65,7 @@
     "@ngx-translate/http-loader": "~7.0.0",
     "@sitecore-jss/sitecore-jss-angular": "^21.1.0-canary",
     "apollo-angular": "~4.1.1",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^5.2.3",
     "core-js": "~3.9.1",
     "graphql": "15.5.0",
     "graphql-tag": "~2.11.0",
@@ -127,5 +127,19 @@
     "ts-node": "~10.9.0",
     "typescript": "~4.7.2",
     "yaml-lint": "^1.2.4"
+  },
+  "//": [
+    "overrides (for npm) and resolutions (for yarn) used to work around the bug in critters that affect bootstrap: https://github.com/GoogleChromeLabs/critters/issues/103",
+    "both sections can be removed once critters and css-select versions are updated in build-angular"
+  ],
+  "overrides": {
+    "@angular-devkit/build-angular": {
+      "critters": {
+        "css-select": "4.2.1"
+      }
+    }
+  },
+  "resolutions": {
+    "css-select": "4.2.1"
   }
 }
