@@ -174,7 +174,9 @@ export class EditingRenderMiddleware {
       // Return expected JSON result
       debug.editing('editing render middleware end: %o', { status: 200, body });
       res.status(200).json(body);
-    } catch (error) {
+    } catch (err) {
+      const error = err as Record<string, unknown>;
+
       console.error(error);
 
       if (error.response || error.request) {

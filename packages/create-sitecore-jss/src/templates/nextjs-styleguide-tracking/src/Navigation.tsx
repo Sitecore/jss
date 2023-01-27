@@ -11,14 +11,14 @@ const Navigation = (): JSX.Element => {
 
   return (
     <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
-      <h5 className="my-0 mr-md-auto font-weight-normal">
+      <h5 className="my-0 me-md-auto fw-normal">
         <Link href="/">
           <a className="text-dark">
             <img src={`${publicUrl}/sc_logo.svg`} alt="Sitecore" />
           </a>
         </Link>
       </h5>
-      <nav className="my-2 my-md-0 mr-md-3">
+      <nav className="my-2 my-md-0 me-md-3">
         <a
           className="p-2 text-dark"
           href="https://jss.sitecore.com"

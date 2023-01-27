@@ -1,4 +1,5 @@
-﻿/* eslint-disable dot-notation */
+﻿/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable dot-notation */
 import chai, { use } from 'chai';
 import chaiString from 'chai-string';
 import sinonChai from 'sinon-chai';
@@ -43,6 +44,15 @@ describe('RedirectsMiddleware', () => {
     } as NextRequest;
 
     return req;
+  };
+
+  const createResponse = ({ setCookies, ...rest }: any = {}) => {
+    return {
+      cookies: {
+        set: setCookies || (() => {}),
+      },
+      ...rest,
+    };
   };
 
   const createMiddleware = (
@@ -127,19 +137,30 @@ describe('RedirectsMiddleware', () => {
     });
 
     it('should return next response if disabled is true', async () => {
+      const res = createResponse({
+        url: 'http://localhost:3000',
+      });
+      const nextStub = sinon
+        .stub(NextResponse, 'next')
+        .callsFake(() => (res as unknown) as NextResponse);
+
       const props = {
         disabled: (req) => req?.nextUrl.pathname === '/styleguide' && req.nextUrl.locale === 'en',
       };
       const req = createRequest();
-      const res = NextResponse.next();
       const { middleware } = createMiddleware(props);
       const finalRes = await middleware.getHandler()(req);
 
       expect(finalRes).to.deep.equal(res);
+
+      nextStub.restore();
     });
 
     it('should return next response when redirects does not exist', async () => {
-      const res = NextResponse.next();
+      const res = createResponse({
+        url: 'http://localhost:3000/found',
+      });
+      const nextStub = sinon.stub(NextResponse, 'next').returns((res as unknown) as NextResponse);
       const req = createRequest();
       const { middleware, fetchRedirects, getSite } = createMiddleware();
       const finalRes = await middleware.getHandler()(req);
@@ -148,11 +169,21 @@ describe('RedirectsMiddleware', () => {
       // eslint-disable-next-line no-unused-expressions
       expect(fetchRedirects.called).to.be.true;
       expect(finalRes).to.deep.equal(res);
+
+      nextStub.restore();
     });
 
     describe('should return appropriate redirect type when redirects exists', () => {
       it('should return 301 redirect', async () => {
-        const res = NextResponse.redirect('http://localhost:3000/found', 301);
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found',
+          status: 301,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+          return ({ url, status, cookies: { set: setCookies } } as unknown) as NextResponse;
+        });
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
@@ -178,10 +209,24 @@ describe('RedirectsMiddleware', () => {
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
       });
 
       it('should override locale with locale parsed from target', async () => {
-        const res = NextResponse.rewrite('http://localhost:3000/ua/found');
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/ua/found',
+          status: 301,
+          setCookies,
+        });
+        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url) => {
+          return ({
+            url,
+            status: 301,
+            cookies: { set: setCookies },
+          } as unknown) as NextResponse;
+        });
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
@@ -194,8 +239,8 @@ describe('RedirectsMiddleware', () => {
 
         const { middleware, fetchRedirects, getSite } = createMiddleware({
           pattern: 'not-found',
-          target: '/ua/found',
-          redirectType: 'REDIRECT_TYPE_SERVER_TRANSFER',
+          target: 'http://localhost:3000/ua/found',
+          redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
           isQueryStringPreserved: true,
           locale: 'en',
         });
@@ -207,14 +252,29 @@ describe('RedirectsMiddleware', () => {
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
+
+        nextRewriteStub.restore();
       });
 
       it('should preserve query string on relative path redirect, when isQueryStringPreserved is true', async () => {
-        const res = NextResponse.rewrite('http://localhost:3000/found?abc=def');
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found?abc=def',
+          status: 301,
+          setCookies,
+        });
+        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url) => {
+          return ({
+            url,
+            status: 301,
+            cookies: { set: setCookies },
+          } as unknown) as NextResponse;
+        });
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
             search: 'abc=def',
+            href: 'http://localhost:3000/found?abc=def',
             clone() {
               return Object.assign({}, req.nextUrl);
             },
@@ -224,7 +284,7 @@ describe('RedirectsMiddleware', () => {
         const { middleware, fetchRedirects, getSite } = createMiddleware({
           pattern: 'not-found',
           target: '/found',
-          redirectType: 'REDIRECT_TYPE_SERVER_TRANSFER',
+          redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
           isQueryStringPreserved: true,
         });
 
@@ -235,10 +295,25 @@ describe('RedirectsMiddleware', () => {
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
+
+        nextRewriteStub.restore();
       });
 
       it('should return 302 redirect', async () => {
-        const res = NextResponse.redirect('http://localhost:3000/found', 302);
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found',
+          status: 302,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+          return ({
+            url,
+            status,
+            cookies: { set: setCookies },
+          } as unknown) as NextResponse;
+        });
+
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
@@ -264,10 +339,20 @@ describe('RedirectsMiddleware', () => {
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
       });
 
       it('should return default response if no redirect type defined', async () => {
-        const res = NextResponse.next();
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found',
+          status: 301,
+          setCookies,
+        });
+        const nextStub = sinon.stub(NextResponse, 'next').callsFake(() => {
+          return res;
+        });
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
@@ -292,10 +377,19 @@ describe('RedirectsMiddleware', () => {
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
+
+        nextStub.restore();
       });
 
       it('should rewrite path when redirect type is server transfer', async () => {
-        const res = NextResponse.rewrite('http://localhost:3000/found');
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found',
+          setCookies,
+        });
+        const nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url) => {
+          return ({ url, cookies: { set: setCookies } } as unknown) as NextResponse;
+        });
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
@@ -320,6 +414,8 @@ describe('RedirectsMiddleware', () => {
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
+
+        nextRewriteStub.restore();
       });
 
       it('should use sc_site cookie', async () => {
@@ -414,7 +510,16 @@ describe('RedirectsMiddleware', () => {
       });
 
       it('default fallback hostname is used', async () => {
-        const res = NextResponse.redirect('http://localhost:3000/found', 301);
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found',
+          status: 301,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+          return ({ url, status, cookies: { set: setCookies } } as unknown) as NextResponse;
+        });
+
         const req = createRequest({
           headerValues: {
             host: undefined,
@@ -442,10 +547,21 @@ describe('RedirectsMiddleware', () => {
         expect(fetchRedirects).to.be.calledWith(siteName);
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
       });
 
       it('custom fallback hostname is used', async () => {
-        const res = NextResponse.redirect('http://localhost:3000/found', 301);
+        const setCookies = () => {};
+        const res = createResponse({
+          url: 'http://localhost:3000/found',
+          status: 301,
+          setCookies,
+        });
+        const nextRedirectStub = sinon.stub(NextResponse, 'redirect').callsFake((url, status) => {
+          return ({ url, status, cookies: { set: setCookies } } as unknown) as NextResponse;
+        });
+
         const req = createRequest({
           headerValues: {
             host: undefined,
@@ -474,6 +590,8 @@ describe('RedirectsMiddleware', () => {
         expect(fetchRedirects).to.be.calledWith(siteName);
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
+
+        nextRedirectStub.restore();
       });
     });
   });
