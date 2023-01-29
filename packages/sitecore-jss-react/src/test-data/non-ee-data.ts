@@ -269,3 +269,42 @@ export const sxaRenderingVariantDataWithoutCommonContainerName = {
     },
   },
 };
+
+export const sxaRenderingColumnSplitterVariant = {
+  sitecore: {
+    context: {
+      pageEditing: false,
+    },
+    route: {
+      name: 'Home',
+      displayName: 'Home',
+      fields: {
+        key: {
+          value: 'This is a some sample &lt;p&gt;field data&lt;/p&gt; o&#39;boy! &quot;wow&quot;',
+        },
+      },
+      placeholders: {
+        'column-1-{*}': [
+          {
+            uid: 'c4d5d43b-5aa8-4e03-8f16-9428f3e02d5c',
+            componentName: 'RichText',
+            dataSource: '/sitecore/content/SxaSample/SxaSampleSite/Home/Data/RichText',
+            params: {
+              GridParameters: 'col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8',
+              FieldNames: 'Default',
+              Styles: 'test-css-class-y',
+            },
+            fields: {
+              Text: {
+                value: 'Test RichText',
+              },
+              Title: {
+                value: 'Rich Text Rendering Variant',
+              },
+            },
+          },
+        ],
+      },
+    },
+  },
+};

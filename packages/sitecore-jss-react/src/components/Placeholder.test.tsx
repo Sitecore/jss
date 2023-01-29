@@ -14,6 +14,7 @@ import { ComponentProps } from './PlaceholderCommon';
 import {
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
+  sxaRenderingColumnSplitterVariant,
   sxaRenderingVariantData,
   sxaRenderingVariantDataWithCommonContainerName as sxaRenderingCommonContainerName,
   sxaRenderingVariantDataWithoutCommonContainerName as sxaRenderingWithoutContainerName,
@@ -335,6 +336,21 @@ describe('<Placeholder />', () => {
     it('should render another rendering variant', () => {
       const component = sxaRenderingVariantData.sitecore.route as RouteData;
       const phKey = 'main-second';
+
+      const renderedComponent = mount(
+        <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
+      );
+
+      expect(renderedComponent.find('.rendering-variant').length).to.equal(1);
+      expect(renderedComponent.find('.rendering-variant').prop('className')).to.equal(
+        'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-y'
+      );
+      expect(renderedComponent.find('.default').length).to.equal(1);
+    });
+
+    it('should render column splitter rendering variant', () => {
+      const component = sxaRenderingColumnSplitterVariant.sitecore.route as RouteData;
+      const phKey = 'column-1-{*}';
 
       const renderedComponent = mount(
         <Placeholder name={phKey} rendering={component} componentFactory={componentFactory} />
