@@ -19,7 +19,17 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
   // However, with the `removeAttributeQuotes` enabled, our html template output is `<div id=root>`, so the SSR
   // string replacement can't find `<div id="root">`.
   // Therefore, by disabling the `removeAttributeQuotes` flag for html minification, all is well.
-  @vue/cli-service
+  if (process.env.NODE_ENV === 'production') {
+    vueConfig.chainWebpack = (config) => {
+      config.plugin('html').init((Plugin, args) => {
+        args[0].minify = {
+          ...args[0].minify,
+          removeAttributeQuotes: false,
+        };
+        return new Plugin(args);
+      });
+    };
+  }
 } else {
   vueConfig.devServer = {
     port: process.env.PORT || 3000,
