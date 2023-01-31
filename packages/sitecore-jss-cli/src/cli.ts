@@ -29,7 +29,7 @@ export async function getPackageScriptCommands() {
 }
 
 /**
- * @param script
+ * @param {string} script script name
  */
 export function makeCommand(script: string) {
   return {
