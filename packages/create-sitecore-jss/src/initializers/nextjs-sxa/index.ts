@@ -6,6 +6,7 @@ import {
   DEFAULT_APPNAME,
   ClientAppArgs,
   missingAddonMsg,
+  incompatibleAddonsMsg,
 } from '../../common';
 
 export default class NextjsSxaInitializer implements Initializer {
@@ -30,10 +31,10 @@ export default class NextjsSxaInitializer implements Initializer {
     await transform(templatePath, mergedArgs);
 
     if (
-      !args.templates.includes('nextjs-styleguide') &&
-      !pkg.config?.templates?.includes('nextjs-styleguide')
+      args.templates.includes('nextjs-styleguide') ||
+      pkg.config?.templates?.includes('nextjs-styleguide')
     ) {
-      console.log(missingAddonMsg('nextjs-sxa', 'nextjs-styleguide'));
+      console.log(incompatibleAddonsMsg('nextjs-sxa', 'nextjs-styleguide'));
     }
 
     const response = {
