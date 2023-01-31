@@ -41,6 +41,10 @@ export interface ProxyConfig {
    */
   pathRewriteExcludeRoutes?: string[];
   /**
+   * Turn WebSocket requests processing on or off
+   */
+  ws?: boolean;
+  /**
    * Function to determine if a given URL should be SSRed (return true), or passed through (return false)
    * Mutually exclusive with pathRewriteExcludeRoutes.
    */
