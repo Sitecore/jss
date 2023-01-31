@@ -120,6 +120,8 @@ export {
   Text,
   TextField,
   DateField,
+  FEaaSComponent,
+  FEaaSComponentProps,
   File,
   FileField,
   RichTextField,
