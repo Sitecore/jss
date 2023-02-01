@@ -349,6 +349,18 @@ There are [migration instructions](https://jss.sitecore.com/upgrade-guides/16.0)
 * [PR #538](https://github.com/Sitecore/jss/pull/538) [sitecore-jss-react] Fix propType of `errorComponent`, resolving an issue with custom "Error" components not working.
 * [PR #521](https://github.com/Sitecore/jss/pull/521) [packages/samples] Upgrade react, react-dom.
 
+## Sitecore JSS 15.0.3
+
+### Bug Fixes
+
+* [PR #1309](https://github.com/Sitecore/jss/pull/1309) [sitecore-jss-react-forms] The language of the form is changed after clicking the submit button 
+
+## Sitecore JSS 15.0.2
+
+### Bug Fixes
+
+* [PR #815](https://github.com/sitecore/jss/pull/815) [sitecore-jss-angular] Fix issue where querystring parameters would break links generated with the `scRouterLink` component.
+
 ## Sitecore JSS 15.0.1
 
 ### Bug Fixes
