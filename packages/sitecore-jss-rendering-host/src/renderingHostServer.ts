@@ -61,7 +61,7 @@ export function startRenderingHostServer({
       middlewares.compression && typeof middlewares.compression === 'function'
         ? middlewares.compression
         : compression();
-    server.use(compressionMiddleware);
+    server.use(compressionMiddleware as RequestHandler);
   }
 
   const appInvocationInfoResolver =
