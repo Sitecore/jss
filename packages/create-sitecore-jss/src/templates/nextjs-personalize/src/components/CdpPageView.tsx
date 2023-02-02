@@ -35,7 +35,7 @@ const CdpPageView = (): JSX.Element => {
     engage.pageView({
       channel: 'WEB',
       currency: 'USD',
-      pos: pointOfSale,
+      pointOfSale: pointOfSale,
       page,
       pageVariantId,
       language,
