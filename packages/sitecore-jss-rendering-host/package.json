@@ -31,7 +31,7 @@
     "import-fresh": "^3.3.0",
     "ngrok": "^4.3.3",
     "opn": "^6.0.0",
-    "webpack": "4.41.0",
+    "webpack": "5.75.0",
     "webpack-dev-server": "3.11.0"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "@types/glob": "^8.0.1",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.18",
-    "@types/webpack": "4.39.2",
+    "@types/webpack": "5.28.0",
     "@types/webpack-dev-middleware": "2.0.5",
     "@types/webpack-dev-server": "3.1.7",
     "chai": "^4.3.0",

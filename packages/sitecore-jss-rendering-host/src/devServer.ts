@@ -6,7 +6,7 @@ import { PathParams } from 'express-serve-static-core';
 import openBrowser from 'opn';
 import path from 'path';
 import webpack from 'webpack';
-import { MultiCompiler } from 'webpack-dev-server/node_modules/webpack/types';
+import { MultiCompiler } from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackDevServer from 'webpack-dev-server';
 import {
@@ -196,7 +196,7 @@ export function startDevServer({
     serverOptions.public = tunnelUrl;
   }
 
-  const modulePath = path.join(buildArtifactsPath, serverBundleFileName);
+  const modulePath = path.join(buildArtifactsPath, serverBundleFileName as string);
   console.log('Resolved server bundle path', modulePath);
   const appInvocationInfoResolver =
     customAppInvocationInfoResolver ||
