@@ -45,7 +45,7 @@ variables:
   inputs:
     versionSpec: '16.x'
 - script: |
-    env | sort
+    env
   displayName: 'show variables'
 - script: |
     yarn cache clean --all && yarn install --immutable
