@@ -40,10 +40,13 @@ variables:
 # using --since for lerna commands could be nice but it introduces a lot of branching execution paths that need to be covered
 # TODO: add step for lerna run build --scope sample-* when RAV and nextjs yarn build issues are resolved
 
-steps:
+
 - task: NodeTool@0
   inputs:
     versionSpec: '16.x'
+- script: |
+    env | sort
+  displayName: 'show variables'
 - script: |
     yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install - initial'
