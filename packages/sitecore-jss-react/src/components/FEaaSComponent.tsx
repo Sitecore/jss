@@ -84,8 +84,10 @@ export const FEaaSComponent = ({ params, fields }: FEaaSComponentProps): JSX.Ele
 
   return (
     <>
+      <link rel="preload" as="style" href={`${reqProps.cdn}/styles/${reqProps.library}/published.css`} />
+      <link rel="preload" as="fetch" href={`${reqProps.cdn}/components/${reqProps.library}/${reqProps.component}/${reqProps.version}/${reqProps.revision}.css`} />
+      <link rel="preload" as="script" href={FEAAS_MODULE_SRC} />
       <feaas-stylesheet library={reqProps.library} cdn={reqProps.cdn} >
-        <link rel="stylesheet" href={`${reqProps.cdn}/styles/${reqProps.library}/published.css`} />
       </feaas-stylesheet>
       <feaas-component {...reqProps} {...optProps} />
     </>
