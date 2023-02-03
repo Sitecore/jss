@@ -67,7 +67,7 @@ describe('PersonalizeMiddleware', () => {
         get(cookieName: string) {
           const cookies = { 'BID_cdp-client-key': 'browser-id', ...props.cookieValues };
 
-          return cookies[cookieName];
+          return { value: cookies[cookieName] };
         },
         ...props.cookies,
       },
@@ -91,7 +91,7 @@ describe('PersonalizeMiddleware', () => {
           res.cookies[key] = value;
         },
         get(key) {
-          return res.cookies[key];
+          return { value: res.cookies[key] };
         },
         ...props.cookieValues,
       },
@@ -185,6 +185,8 @@ describe('PersonalizeMiddleware', () => {
 
     return { middleware, executeExperience, generateBrowserId, getPersonalizeInfo, getSite };
   };
+
+  (Headers.prototype as any).getAll = () => [];
 
   beforeEach(() => {
     userAgentStub.resetHistory();

@@ -29,7 +29,7 @@ describe('RedirectsMiddleware', () => {
       },
       cookies: {
         get(key: string) {
-          return req.cookies[key];
+          return { value: req.cookies[key] };
         },
         ...props.cookies,
       },
@@ -94,6 +94,8 @@ describe('RedirectsMiddleware', () => {
 
     return { middleware, fetchRedirects, getSite };
   };
+
+  (Headers.prototype as any).getAll = () => [];
 
   afterEach(() => {
     sinon.restore();
@@ -475,7 +477,7 @@ describe('RedirectsMiddleware', () => {
         expect(getSite).to.not.be.called;
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
-        expect(finalRes.cookies.get('sc_site')).to.equal(site);
+        expect(finalRes.cookies.get('sc_site')?.value).to.equal(site);
       });
 
       it('should preserve site name from response data when provided, if handler is disabled', async () => {
@@ -506,7 +508,7 @@ describe('RedirectsMiddleware', () => {
         expect(getSite).to.not.be.called;
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.false;
-        expect(finalRes.cookies.get('sc_site')).to.equal(site);
+        expect(finalRes.cookies.get('sc_site')?.value).to.equal(site);
       });
 
       it('default fallback hostname is used', async () => {

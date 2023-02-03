@@ -12,10 +12,8 @@ const Navigation = (): JSX.Element => {
   return (
     <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom">
       <h5 className="my-0 me-md-auto fw-normal">
-        <Link href="/">
-          <a className="text-dark">
-            <img src={`${publicUrl}/sc_logo.svg`} alt="Sitecore" />
-          </a>
+        <Link className="text-dark" href="/">
+          <img src={`${publicUrl}/sc_logo.svg`} alt="Sitecore" />
         </Link>
       </h5>
       <nav className="my-2 my-md-0 me-md-3">
@@ -27,14 +25,14 @@ const Navigation = (): JSX.Element => {
         >
           {t('Documentation')}
         </a>
-        <Link href="/styleguide">
-          <a className="p-2 text-dark">{t('Styleguide')}</a>
+        <Link className="p-2 text-dark" href="/styleguide">
+          {t('Styleguide')}
         </Link>
-        <Link href="/graphql">
-          <a className="p-2 text-dark">{t('GraphQL')}</a>
+        <Link className="p-2 text-dark" href="/graphql">
+          {t('GraphQL')}
         </Link>
-        <Link href="/tracking">
-          <a className="p-2 text-dark">{t('Tracking')}</a>
+        <Link className="p-2 text-dark" href="/tracking">
+          {t('Tracking')}
         </Link>
       </nav>
     </div>

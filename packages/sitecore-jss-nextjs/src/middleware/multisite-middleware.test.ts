@@ -46,7 +46,7 @@ describe('MultisiteMiddleware', () => {
       cookies: {
         get(cookieName: string) {
           const cookies = { ...props.cookieValues };
-          return cookies[cookieName];
+          return { value: cookies[cookieName] };
         },
         ...props?.cookies,
         ...props.cookieValues,
@@ -97,6 +97,8 @@ describe('MultisiteMiddleware', () => {
 
     return { middleware, getSite };
   };
+
+  (Headers.prototype as any).getAll = () => [];
 
   beforeEach(() => {
     debugSpy.resetHistory();
