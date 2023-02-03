@@ -65,7 +65,10 @@ describe('PersonalizeMiddleware', () => {
       },
       cookies: {
         get(cookieName: string) {
-          const cookies = { 'BID_cdp-client-key': 'browser-id', ...props.cookieValues };
+          const cookies = {
+            'BID_cdp-client-key': 'browser-id',
+            ...props.cookieValues,
+          };
 
           return { value: cookies[cookieName] };
         },
@@ -152,7 +155,12 @@ describe('PersonalizeMiddleware', () => {
     };
 
     const getSite: any =
-      props.getSite || sinon.stub().returns({ name: siteName, language: '', hostName: hostname });
+      props.getSite ||
+      sinon.stub().returns({
+        name: siteName,
+        language: '',
+        hostName: hostname,
+      });
 
     const middleware = new PersonalizeMiddleware({
       getSite,
@@ -183,9 +191,16 @@ describe('PersonalizeMiddleware', () => {
         )
       ));
 
-    return { middleware, executeExperience, generateBrowserId, getPersonalizeInfo, getSite };
+    return {
+      middleware,
+      executeExperience,
+      generateBrowserId,
+      getPersonalizeInfo,
+      getSite,
+    };
   };
 
+  // Stub for NextResponse generation, see https://github.com/vercel/next.js/issues/42374
   (Headers.prototype as any).getAll = () => [];
 
   beforeEach(() => {
@@ -356,7 +371,9 @@ describe('PersonalizeMiddleware', () => {
       it('should apply both default and custom rules when custom excludeRoute function provided', async () => {
         const excludeRoute = (pathname: string) => pathname === '/crazypath/luna';
 
-        const { middleware } = createMiddleware({ excludeRoute });
+        const { middleware } = createMiddleware({
+          excludeRoute,
+        });
 
         await test('/src/image.png', middleware);
         await test('/api/layout/render', middleware);
