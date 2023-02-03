@@ -22,7 +22,7 @@
     <sc-link
       :field="fields.externalLink"
       :showLinkTextWithChildrenPresent="true"
-      class="font-weight-bold"
+      class="fw-bold"
       data-otherattributes="pass-through-to-anchor-tag"
     />
   </styleguide-specimen>
