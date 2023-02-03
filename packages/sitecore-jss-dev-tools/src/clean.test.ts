@@ -31,7 +31,7 @@ describe('clean', () => {
         },
       },
     ];
-    const delStub = sinon.stub(del, 'sync').returns(mockPaths);
+    const delStub = sinon.stub(del, 'sync').returns((mockPaths as any) as string[]);
 
     const logSpy = sinon.spy(console, 'log');
     clean({ path: path });
