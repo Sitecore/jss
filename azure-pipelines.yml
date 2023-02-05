@@ -44,6 +44,12 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '16.x'
+# variables['Build.SourceVersionMessage'] is only accessible at step level, so we use it directly for condition here
+- script: |
+    echo "Hotfix commit detected. New canary will not be published."
+    echo "##vso[task.setvariable variable=shouldPublish]false"
+  displayName: Re-evaluate shouldPublish for hotfix release
+  condition: and(eq(variables.shouldPublish, true), startsWith(variables['Build.SourceVersionMessage'], '[hotfix]'))
 - script: |
     yarn cache clean --all && yarn install --immutable
   displayName: 'yarn install - initial'
