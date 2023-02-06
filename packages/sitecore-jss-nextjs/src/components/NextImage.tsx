@@ -85,7 +85,7 @@ export const NextImage: React.FC<NextImageProps> = ({
   const loader = (otherProps.loader ? otherProps.loader : sitecoreLoader) as ImageLoader;
 
   if (attrs) {
-    return <Image alt="no-alt-set" loader={loader} {...imageProps} />;
+    return <Image alt="" loader={loader} {...imageProps} />;
   }
 
   return null; // we can't handle the truth
