@@ -14,24 +14,9 @@ describe('clean', () => {
   });
 
   it('should clean', () => {
-    const path = 'your bank account';
-    const mockPaths = [
-      {
-        name: 'test',
-        path: path,
-        dirent: {
-          name: 'test',
-          isBlockDevice: () => false,
-          isFIFO: () => false,
-          isCharacterDevice: () => false,
-          isDirectory: () => true,
-          isFile: () => false,
-          isSocket: () => false,
-          isSymbolicLink: () => false,
-        },
-      },
-    ];
-    const delStub = sinon.stub(del, 'sync').returns((mockPaths as any) as string[]);
+    const path = 'c:/test';
+    const mockPaths = [`${path}/index.ts`];
+    const delStub = sinon.stub(del, 'sync').returns(mockPaths);
 
     const logSpy = sinon.spy(console, 'log');
     clean({ path: path });

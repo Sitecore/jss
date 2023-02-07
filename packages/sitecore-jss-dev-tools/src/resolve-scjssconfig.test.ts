@@ -26,9 +26,7 @@ describe('resolve-scjssconfig', () => {
       await resolveScJssConfig(resolveInput);
       expect(true).to.be.false; // should be not reachable
     } catch (err) {
-      if (err instanceof Error) {
-        expect(err.toString()).to.equal('config is missing');
-      }
+      expect((err as Error).toString()).to.equal('config is missing');
     }
     expect(
       consoleSpy.calledWith(
@@ -50,9 +48,7 @@ describe('resolve-scjssconfig', () => {
       await resolveScJssConfig(resolveInput);
       console.log('this is fine');
     } catch (err) {
-      if (err instanceof Error) {
-        expect(err.toString()).to.equal('config is invalid');
-      }
+        expect((err as Error).toString()).to.equal('config is invalid');
     }
     expect(
       consoleSpy.calledWith(
