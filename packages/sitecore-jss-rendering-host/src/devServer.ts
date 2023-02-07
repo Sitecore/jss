@@ -118,8 +118,8 @@ export function startDevServer({
       respectively.`);
   }
 
-  // const serverBundleFileName =
-  //   customServerBundleFileName || configs.ssrWebpackConfig.output.filename || 'server.bundle.js';
+  const serverBundleFileName =
+    customServerBundleFileName || configs.ssrWebpackConfig.output.filename || 'server.bundle.js';
   // configs.clientWebpackConfig.output.path = buildArtifactsPath;
 
   // If a `tunnelUrl` is provided, be sure to set the `publicPath` property of the client
@@ -196,21 +196,14 @@ export function startDevServer({
     serverOptions.public = tunnelUrl;
   }
 
-  type ServerBundleFileName =
-    | string
-    | ((pathData: webpack.PathData, assetInfo?: webpack.AssetInfo | undefined) => string);
-
-  const serverBundleFileName: ServerBundleFileName =
-    customServerBundleFileName || configs?.ssrWebpackConfig?.output?.filename || 'server.bundle.js';
-
-  let ServerBundleOutput: string;
+  let resolvedServerBundleFilename: string;
   if (typeof serverBundleFileName === 'function') {
-    ServerBundleOutput = serverBundleFileName({ filename: 'server.bundle.js' });
+    resolvedServerBundleFilename = serverBundleFileName({ filename: 'server.bundle.js' });
   } else {
-    ServerBundleOutput = serverBundleFileName;
+    resolvedServerBundleFilename = serverBundleFileName;
   }
 
-  const modulePath = path.join(buildArtifactsPath, ServerBundleOutput);
+  const modulePath = path.join(buildArtifactsPath, resolvedServerBundleFilename);
 
   console.log('Resolved server bundle path', modulePath);
   const appInvocationInfoResolver =
