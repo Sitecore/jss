@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "21.1.0-canary.91",
+  "version": "21.1.0-canary.93",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -54,7 +54,7 @@
     "eslint-plugin-react": "^7.32.1",
     "jsdom": "^21.1.0",
     "mocha": "^10.2.0",
-    "next": "^12.3.4",
+    "next": "^13.1.6",
     "nock": "^13.3.0",
     "nyc": "^15.1.0",
     "react": "^18.2.0",
@@ -65,14 +65,14 @@
     "typescript": "~4.9.4"
   },
   "peerDependencies": {
-    "next": "^12.3.4",
+    "next": "^13.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "^21.1.0-canary.91",
-    "@sitecore-jss/sitecore-jss-dev-tools": "^21.1.0-canary.91",
-    "@sitecore-jss/sitecore-jss-react": "^21.1.0-canary.91",
+    "@sitecore-jss/sitecore-jss": "^21.1.0-canary.93",
+    "@sitecore-jss/sitecore-jss-dev-tools": "^21.1.0-canary.93",
+    "@sitecore-jss/sitecore-jss-react": "^21.1.0-canary.93",
     "node-html-parser": "^6.1.4",
     "prop-types": "^15.8.1",
     "regex-parser": "^2.2.11",

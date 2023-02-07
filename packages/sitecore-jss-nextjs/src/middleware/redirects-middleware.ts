@@ -87,7 +87,7 @@ export class RedirectsMiddleware {
 
   private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
     const hostname = this.getHostname(req);
-    const siteName = res?.cookies.get('sc_site') || this.config.getSite(hostname).name;
+    const siteName = res?.cookies.get('sc_site')?.value || this.config.getSite(hostname).name;
 
     const createResponse = async () => {
       if (
