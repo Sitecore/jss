@@ -7,6 +7,7 @@ import {
   REDIRECT_TYPE_301,
   REDIRECT_TYPE_302,
   REDIRECT_TYPE_SERVER_TRANSFER,
+  SiteInfo,
 } from '@sitecore-jss/sitecore-jss/site';
 
 /**
@@ -29,6 +30,15 @@ export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fet
    * @returns {boolean} false by default
    */
   disabled?: (req?: NextRequest, res?: NextResponse) => boolean;
+  /**
+   * function used to resolve site for given hostname
+   */
+  getSite: (hostname: string) => SiteInfo;
+  /**
+   * fallback hostname in case `host` header is not present
+   * @default localhost
+   */
+  defaultHostname?: string;
 };
 /**
  * Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
@@ -37,6 +47,7 @@ export type RedirectsMiddlewareConfig = Omit<GraphQLRedirectsServiceConfig, 'fet
 export class RedirectsMiddleware {
   private redirectsService: GraphQLRedirectsService;
   private locales: string[];
+  private defaultHostname: string;
 
   /**
    * @param {RedirectsMiddlewareConfig} [config] redirects middleware config
@@ -46,13 +57,14 @@ export class RedirectsMiddleware {
     // (underlying default 'cross-fetch' is not currently compatible: https://github.com/lquixada/cross-fetch/issues/78)
     this.redirectsService = new GraphQLRedirectsService({ ...config, fetch: fetch });
     this.locales = config.locales;
+    this.defaultHostname = config.defaultHostname || 'localhost';
   }
 
   /**
    * Gets the Next.js API route handler
    * @returns route handler
    */
-  public getHandler(): (req: NextRequest) => Promise<NextResponse> {
+  public getHandler(): (req: NextRequest, res?: NextResponse) => Promise<NextResponse> {
     return this.handler;
   }
 
@@ -68,60 +80,81 @@ export class RedirectsMiddleware {
     return false;
   }
 
-  private handler = async (req: NextRequest): Promise<NextResponse> => {
-    if (
-      (this.config.disabled && this.config.disabled(req, NextResponse.next())) ||
-      this.excludeRoute(req.nextUrl.pathname) ||
-      (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
-    ) {
-      return NextResponse.next();
-    }
-    // Find the redirect from result of RedirectService
-    const existsRedirect = await this.getExistsRedirect(req);
+  protected getHostname(req: NextRequest) {
+    const hostHeader = req.headers.get('host')?.split(':')[0];
+    return hostHeader || this.defaultHostname;
+  }
 
-    if (!existsRedirect) {
-      return NextResponse.next();
-    }
+  private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
+    const hostname = this.getHostname(req);
+    const siteName = res?.cookies.get('sc_site')?.value || this.config.getSite(hostname).name;
 
-    const url = req.nextUrl.clone();
-    const absoluteUrlRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
-    if (absoluteUrlRegex.test(existsRedirect.target)) {
-      url.href = existsRedirect.target;
-      url.locale = req.nextUrl.locale;
-    } else {
-      url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
-      const urlFirstPart = existsRedirect.target.split('/')[1];
-      if (this.locales.includes(urlFirstPart)) {
-        url.locale = urlFirstPart;
-        url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
-      } else {
-        url.pathname = existsRedirect.target;
+    const createResponse = async () => {
+      if (
+        (this.config.disabled && this.config.disabled(req, NextResponse.next())) ||
+        this.excludeRoute(req.nextUrl.pathname) ||
+        (this.config.excludeRoute && this.config.excludeRoute(req.nextUrl.pathname))
+      ) {
+        return res || NextResponse.next();
       }
-    }
+      // Find the redirect from result of RedirectService
+      const existsRedirect = await this.getExistsRedirect(req, siteName);
 
-    const redirectUrl = decodeURIComponent(url.href);
+      if (!existsRedirect) {
+        return res || NextResponse.next();
+      }
 
-    /** return Response redirect with http code of redirect type **/
-    switch (existsRedirect.redirectType) {
-      case REDIRECT_TYPE_301:
-        return NextResponse.redirect(redirectUrl, 301);
-      case REDIRECT_TYPE_302:
-        return NextResponse.redirect(redirectUrl, 302);
-      case REDIRECT_TYPE_SERVER_TRANSFER:
-        return NextResponse.rewrite(redirectUrl);
-      default:
-        return NextResponse.next();
-    }
+      const url = req.nextUrl.clone();
+      const absoluteUrlRegex = new RegExp('^(?:[a-z]+:)?//', 'i');
+      if (absoluteUrlRegex.test(existsRedirect.target)) {
+        url.href = existsRedirect.target;
+        url.locale = req.nextUrl.locale;
+      } else {
+        url.search = existsRedirect.isQueryStringPreserved ? url.search : '';
+        const urlFirstPart = existsRedirect.target.split('/')[1];
+        if (this.locales.includes(urlFirstPart)) {
+          url.locale = urlFirstPart;
+          url.pathname = existsRedirect.target.replace(`/${urlFirstPart}`, '');
+        } else {
+          url.pathname = existsRedirect.target;
+        }
+      }
+
+      const redirectUrl = decodeURIComponent(url.href);
+
+      /** return Response redirect with http code of redirect type **/
+      switch (existsRedirect.redirectType) {
+        case REDIRECT_TYPE_301:
+          return NextResponse.redirect(redirectUrl, 301);
+        case REDIRECT_TYPE_302:
+          return NextResponse.redirect(redirectUrl, 302);
+        case REDIRECT_TYPE_SERVER_TRANSFER:
+          return NextResponse.rewrite(redirectUrl);
+        default:
+          return NextResponse.next();
+      }
+    };
+
+    const response = await createResponse();
+
+    // Share site name with the following executed middlewares
+    response.cookies.set('sc_site', siteName);
+
+    return response;
   };
 
   /**
    * Method returns RedirectInfo when matches
-   * @param {NextRequest} req
+   * @param {NextRequest} req request
+   * @param {string} siteName site name
    * @returns Promise<RedirectInfo | undefined>
    * @private
    */
-  private async getExistsRedirect(req: NextRequest): Promise<RedirectInfo | undefined> {
-    const redirects = await this.redirectsService.fetchRedirects();
+  private async getExistsRedirect(
+    req: NextRequest,
+    siteName: string
+  ): Promise<RedirectInfo | undefined> {
+    const redirects = await this.redirectsService.fetchRedirects(siteName);
 
     return redirects.length
       ? redirects.find((redirect: RedirectInfo) => {

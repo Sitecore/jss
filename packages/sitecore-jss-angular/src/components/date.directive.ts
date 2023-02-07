@@ -14,8 +14,6 @@ import { DateField } from './rendering-field';
   selector: '[scDate]',
 })
 export class DateDirective implements OnChanges {
-  private viewRef: EmbeddedViewRef<unknown>;
-
   @Input('scDateFormat') format?: string;
 
   @Input('scDateTimezone') timezone?: string;
@@ -25,6 +23,8 @@ export class DateDirective implements OnChanges {
   @Input('scDateEditable') editable = true;
 
   @Input('scDate') field: DateField;
+
+  private viewRef: EmbeddedViewRef<unknown>;
 
   constructor(
     private viewContainer: ViewContainerRef,

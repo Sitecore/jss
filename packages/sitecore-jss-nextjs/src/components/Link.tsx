@@ -44,17 +44,14 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             href={{ pathname: href, query: querystring, hash: anchor }}
             key="link"
             locale={false}
+            title={value.title}
+            target={value.target}
+            className={value.class}
+            {...htmlLinkProps}
+            ref={ref}
           >
-            <a
-              title={value.title}
-              target={value.target}
-              className={value.class}
-              {...htmlLinkProps}
-              ref={ref}
-            >
-              {text}
-              {children}
-            </a>
+            {text}
+            {children}
           </NextLink>
         );
       }

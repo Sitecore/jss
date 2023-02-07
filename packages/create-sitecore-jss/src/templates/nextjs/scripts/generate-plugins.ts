@@ -32,6 +32,11 @@ interface PluginFile {
 
 const pluginDefinitions = [
   {
+    listPath: 'scripts/temp/config-plugins.ts',
+    rootPath: 'scripts/config/plugins',
+    moduleType: ModuleType.ESM,
+  },
+  {
     listPath: 'src/temp/sitemap-fetcher-plugins.ts',
     rootPath: 'src/lib/sitemap-fetcher/plugins',
     moduleType: ModuleType.ESM,
@@ -50,6 +55,11 @@ const pluginDefinitions = [
     listPath: 'src/temp/next-config-plugins.js',
     rootPath: 'src/lib/next-config/plugins',
     moduleType: ModuleType.CJS,
+  },
+  {
+    listPath: 'src/temp/extract-path-plugins.ts',
+    rootPath: 'src/lib/extract-path/plugins',
+    moduleType: ModuleType.ESM,
   },
 ];
 
@@ -70,7 +80,8 @@ function run(definitions: PluginDefinition[]) {
  * Modify this function to use a different convention.
  */
 function writePlugins(listPath: string, rootPath: string, moduleType: ModuleType) {
-  const pluginName = rootPath.split('/')[2];
+  const segments = rootPath.split('/');
+  const pluginName = segments[segments.length - 2];
   const plugins = getPluginList(rootPath, pluginName);
   let fileContent = '';
 

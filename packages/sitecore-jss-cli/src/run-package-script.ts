@@ -12,7 +12,7 @@ export default function runPackageScript(
   options?: SpawnSyncOptionsWithStringEncoding
 ) {
   // npm needs a -- delimiter before any extra args
-  const npmArgs = ['run', ...args.slice(0, 1), '--', ...args.slice(1)];
+  const npmArgs = transformPackageArgs(args);
 
   runPackageManagerCommand(npmArgs, options);
 }
@@ -29,4 +29,11 @@ export function runPackageManagerCommand(
 ) {
   console.log(`> npm ${npmArgs.join(' ')}`);
   spawn('npm', npmArgs, options);
+}
+
+/**
+ * @param {string[]} args to transform
+ */
+export function transformPackageArgs(args: string[]) {
+  return ['run', ...args.slice(0, 1), '--', ...args.slice(1)];
 }

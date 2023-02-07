@@ -4,6 +4,11 @@ export { LinkDirective } from './components/link.directive';
 export { RouterLinkDirective } from './components/router-link.directive';
 export { GenericLinkDirective } from './components/generic-link.directive';
 export { PlaceholderComponent } from './components/placeholder.component';
+export { HiddenRenderingComponent } from './components/hidden-rendering.component';
+export { RenderEachDirective } from './components/render-each.directive';
+export { RenderEmptyDirective } from './components/render-empty.directive';
+export { RenderComponentComponent } from './components/render-component.component';
+export { DateDirective } from './components/date.directive';
 export {
   ComponentNameAndType,
   DYNAMIC_COMPONENT,

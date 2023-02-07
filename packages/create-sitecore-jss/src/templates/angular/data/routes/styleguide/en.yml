@@ -100,7 +100,7 @@ placeholders:
                       href: https://dev.sitecore.net
                       text: Sitecore Dev Site
                       target: _blank
-                      class: font-weight-bold
+                      class: fw-bold
                       title: <a> title attribute
                 - componentName: StyleguideFieldUsageItemLink
                   fields:

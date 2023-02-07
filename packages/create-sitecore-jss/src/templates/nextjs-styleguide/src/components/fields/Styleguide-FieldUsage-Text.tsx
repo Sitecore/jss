@@ -26,7 +26,7 @@ const StyleguideFieldUsageText = (props: StyleguideFieldUsageTextProps): JSX.Ele
       tag="section"
       editable={false}
       encode={false}
-      className="font-weight-bold"
+      className="fw-bold"
       data-sample="other-attributes-pass-through"
     />
 

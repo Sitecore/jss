@@ -1,6 +1,4 @@
-import { ComponentRendering, Field, HtmlElementRendering, Item } from './models';
-
-type Fields = { [name: string]: Field | Item[] };
+import { ComponentRendering, ComponentFields, Field, HtmlElementRendering } from './models';
 
 /**
  * Safely extracts a field value from a rendering or fields object.
@@ -10,12 +8,12 @@ type Fields = { [name: string]: Field | Item[] };
  * @returns {T | undefined} the field value or null if the field is not defined
  */
 export function getFieldValue<T>(
-  renderingOrFields: ComponentRendering | Fields,
+  renderingOrFields: ComponentRendering | ComponentFields,
   fieldName: string
 ): T | undefined;
 // eslint-disable-next-line no-redeclare
 export function getFieldValue<T>(
-  renderingOrFields: ComponentRendering | Fields,
+  renderingOrFields: ComponentRendering | ComponentFields,
   fieldName: string,
   defaultValue: T
 ): T;
@@ -27,7 +25,7 @@ export function getFieldValue<T>(
  */
 // eslint-disable-next-line no-redeclare
 export function getFieldValue<T>(
-  renderingOrFields: ComponentRendering | Fields,
+  renderingOrFields: ComponentRendering | ComponentFields,
   fieldName: string,
   defaultValue?: T
 ) {
@@ -35,7 +33,7 @@ export function getFieldValue<T>(
     return defaultValue;
   }
 
-  const fields = renderingOrFields as Fields;
+  const fields = renderingOrFields as ComponentFields;
   const field = (fields[fieldName] as unknown) as Field<T>;
   if (field && typeof field.value !== 'undefined') {
     return field.value;

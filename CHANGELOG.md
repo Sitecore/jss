@@ -1,7 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. The format (starting with 18.0.0) is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
+This project does NOT strictly adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Major versions of this project may include breaking changes in core packages but also denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the Sitecore modules compatibility table ([Sitecore XP 7.5 - 9.3](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788), [Sitecore XP 10.0 and later](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1000576)) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for details. Minor versions may also include breaking changes in framework packages.
+
+Our versioning strategy is as follows:
+
+- Patch: no breaking changes (e.g. bug fixes, minor improvements)
+- Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
+- Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
 ## Unreleased
 
@@ -12,6 +18,18 @@ This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2
 * `[sitecore-jss-nextjs]` All editing-related types have moved to a dedicated `editing` submodule. Imports must be updated to use this submodule. e.g.
   * `import { editingDataService } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
   * `import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';`
+
+* `[sitecore-jss-angular][templates/angular]` jss-angular package and sample has been updated to version 14. This means several changes:
+  * JSS Angular sample is now using Ivy
+  * IE11 no longer supported by JSS Angular
+  * _sitecore-jss-angular_ package does not output UMD package anymore - only ESM. We created a '@sitecore-jss/sitecore-jss-angular/cjs' sub-module to have CJS imports still available i.e. in angular sample app's scripts. Right now the submodule re-exports '@sitecore-jss/sitecore-jss' modules.
+  * _componentFactory_ is no longer present in ComponentFactoryResult interface, due to _createComponent_ changes and deprecations introduced in Angular 13.
+  * More details on changes in Angular can be found in the below links:
+  https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296
+  https://angular.io/guide/deprecations
+  https://update.angular.io/?l=3&v=11.0-14.0 
+
+* `[sitecore-jss-angular]` Due to the Angular version upgrade and the change in _sitecore-jss-angular_ package output format  _sitecore-jss_ exports are not available in angular app scripts (src/scripts) via '@sitecore-jss/sitecore-jss-angular'. Please use '@sitecore-jss/sitecore-jss-angular/cjs' import instead. Check bootstrap.ts scripts as for a usage example.  
 
 ## 20.1.0
 
@@ -336,6 +354,18 @@ There are [migration instructions](https://jss.sitecore.com/upgrade-guides/16.0)
 * [PR #459](https://github.com/Sitecore/jss/pull/459) [sitecore-jss-react] Fix propType of `missingComponentComponent`, resolving an issue with custom "Missing Component" components not working.
 * [PR #538](https://github.com/Sitecore/jss/pull/538) [sitecore-jss-react] Fix propType of `errorComponent`, resolving an issue with custom "Error" components not working.
 * [PR #521](https://github.com/Sitecore/jss/pull/521) [packages/samples] Upgrade react, react-dom.
+
+## Sitecore JSS 15.0.3
+
+### Bug Fixes
+
+* [PR #1309](https://github.com/Sitecore/jss/pull/1309) [sitecore-jss-react-forms] The language of the form is changed after clicking the submit button 
+
+## Sitecore JSS 15.0.2
+
+### Bug Fixes
+
+* [PR #815](https://github.com/sitecore/jss/pull/815) [sitecore-jss-angular] Fix issue where querystring parameters would break links generated with the `scRouterLink` component.
 
 ## Sitecore JSS 15.0.1
 

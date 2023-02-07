@@ -56,6 +56,7 @@ export {
 export { RichText, RichTextProps, RichTextPropTypes, RichTextField } from './components/RichText';
 export { Text, TextField } from './components/Text';
 export { DateField, DateFieldProps } from './components/Date';
+export { FEaaSComponent, FEaaSComponentProps } from './components/FEaaSComponent';
 export { Link, LinkField, LinkFieldValue, LinkProps, LinkPropTypes } from './components/Link';
 export { File, FileField } from './components/File';
 export { VisitorIdentification } from './components/VisitorIdentification';

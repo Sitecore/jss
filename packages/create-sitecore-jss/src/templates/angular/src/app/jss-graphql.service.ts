@@ -1,15 +1,14 @@
 import { Injectable, PLATFORM_ID, Inject, } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { ExtraSubscriptionOptions, EmptyObject } from 'apollo-angular/types';
+import { ExtraSubscriptionOptions, EmptyObject, MutationResult } from 'apollo-angular/build/types';
 import {
   QueryOptions,
   ApolloQueryResult,
   SubscriptionOptions,
   MutationOptions,
-  FetchResult,
   DocumentNode
 } from '@apollo/client/core';
-import { Observable, empty } from 'rxjs';
+import { Observable, EMPTY } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { ComponentRendering, isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from './jss-context.service';
@@ -68,7 +67,7 @@ export class JssGraphQLService {
    */
   query<T, V = EmptyObject>(options: QueryOptions<V> & JssGraphQLOptions): Observable<ApolloQueryResult<T>> {
     if (this.isEditingOrPreviewingAndSsr) {
-      return empty();
+      return EMPTY;
     }
 
     options.variables = this.addJssAmbientVariables(options.query, options.variables, options.renderingContext);
@@ -92,9 +91,9 @@ export class JssGraphQLService {
   /**
    * Executes a GraphQL mutation (write) against the GraphQL endpoint
    */
-  mutate<T, V = EmptyObject>(options: MutationOptions<T, V> & JssGraphQLOptions): Observable<FetchResult<T>> {
+  mutate<T, V = EmptyObject>(options: MutationOptions<T, V> & JssGraphQLOptions): Observable<MutationResult<T>> {
     if (this.isEditingOrPreviewingAndSsr) {
-      return empty();
+      return EMPTY;
     }
 
     this.addJssAmbientVariables(options.mutation, options.variables, options.renderingContext);
@@ -107,7 +106,7 @@ export class JssGraphQLService {
    */
   subscribe<T, V = EmptyObject>(options: SubscriptionOptions<V> & JssGraphQLOptions, extra?: ExtraSubscriptionOptions) {
     if (this.isEditingOrPreviewingAndSsr) {
-      return empty();
+      return EMPTY;
     }
 
     this.addJssAmbientVariables(options.query, options.variables, options.renderingContext);

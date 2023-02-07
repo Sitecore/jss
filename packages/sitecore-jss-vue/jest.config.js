@@ -1,4 +1,8 @@
 module.exports = {
+  testEnvironment: 'jsdom',
+  testEnvironmentOptions: {
+    customExportConditions: ['node', 'node-addons'],
+  },
   testMatch: ['**/*.test.ts'],
   moduleFileExtensions: [
     'js',
@@ -9,8 +13,9 @@ module.exports = {
   ],
   transform: {
     '^.+\\.ts$': 'ts-jest',
-    // process `*.vue` files with `vue-jest`
-    '.*\\.(vue)$': '<rootDir>/node_modules/vue-jest',
+    '^.+\\js$': 'babel-jest',
+    // process `*.vue` files with `@vue/vue3-jest`
+    '.*\\.(vue)$': '@vue/vue3-jest',
   },
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-html'],
 };

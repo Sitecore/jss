@@ -11,7 +11,7 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "target": "es5",
+    "target": "es2020",
     "module": "es2020",
     "noImplicitAny": true,
     "noImplicitReturns": true,

@@ -1,6 +1,6 @@
 ﻿import chalk from 'chalk';
 import path, { sep } from 'path';
-import { prompt } from 'inquirer';
+import inquirer from 'inquirer';
 import {
   Initializer,
   isDevEnvironment,
@@ -18,7 +18,7 @@ export default class ReactInitializer implements Initializer {
   }
 
   async init(args: ReactArgs) {
-    const answers = await prompt<ReactAnswer>(prompts, args);
+    const answers = await inquirer.prompt<ReactAnswer>(prompts, args);
 
     const mergedArgs = {
       ...args,

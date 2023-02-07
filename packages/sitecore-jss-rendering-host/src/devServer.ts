@@ -1,4 +1,4 @@
-import { sync as delSync } from 'del';
+import { deleteSync } from 'del';
 import { Application } from 'express';
 import { PathParams } from 'express-serve-static-core';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -6,7 +6,7 @@ import { PathParams } from 'express-serve-static-core';
 import openBrowser from 'opn';
 import path from 'path';
 import webpack from 'webpack';
-import { MultiCompiler } from 'webpack-dev-server/node_modules/webpack/types';
+import { MultiCompiler } from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackDevServer from 'webpack-dev-server';
 import {
@@ -196,7 +196,15 @@ export function startDevServer({
     serverOptions.public = tunnelUrl;
   }
 
-  const modulePath = path.join(buildArtifactsPath, serverBundleFileName);
+  let resolvedServerBundleFilename: string;
+  if (typeof serverBundleFileName === 'function') {
+    resolvedServerBundleFilename = serverBundleFileName({ filename: 'server.bundle.js' });
+  } else {
+    resolvedServerBundleFilename = serverBundleFileName;
+  }
+
+  const modulePath = path.join(buildArtifactsPath, resolvedServerBundleFilename);
+
   console.log('Resolved server bundle path', modulePath);
   const appInvocationInfoResolver =
     customAppInvocationInfoResolver ||
@@ -231,7 +239,7 @@ export function startDevServer({
   if (clean) {
     const cleanPaths = [`${path.join(buildArtifactsPath, '**')}`, `!${buildArtifactsPath}`];
     console.log('cleaning paths', cleanPaths);
-    const cleanedPaths = delSync(cleanPaths);
+    const cleanedPaths = deleteSync(cleanPaths);
     console.log('cleaned paths', cleanedPaths);
   }
 

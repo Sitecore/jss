@@ -9,6 +9,7 @@ import {
   openPackageJson,
   writePackageJson,
   sortKeys,
+  getAllTemplates,
   getBaseTemplates,
   getAppPrefix,
   saveConfiguration,
@@ -203,6 +204,25 @@ describe('helpers', () => {
       }
 
       expect(JSON.stringify(result)).to.equal(JSON.stringify(expected));
+    });
+  });
+
+  describe('getAllTemplates', () => {
+    let readdirSync: SinonStub;
+
+    afterEach(() => {
+      readdirSync?.restore();
+    });
+
+    it('should return templates', () => {
+      readdirSync = sinon.stub(fs, 'readdirSync');
+      readdirSync.returns(['foo', 'bar', 'baz']);
+
+      const templates = getAllTemplates('./mock/path');
+
+      expect(readdirSync.calledOnce).to.equal(true);
+      expect(readdirSync.getCall(0).args[0]).to.equal('./mock/path');
+      expect(templates).to.deep.equal(['foo', 'bar', 'baz']);
     });
   });
 

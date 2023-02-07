@@ -1,9 +1,11 @@
 import { GraphQLClient, GraphQLRequestClient, PageInfo } from '@sitecore-jss/sitecore-jss/graphql';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { getPersonalizedRewrite } from '@sitecore-jss/sitecore-jss/personalize';
+import { getSiteRewrite } from '@sitecore-jss/sitecore-jss/site';
 
 /** @private */
 export const languageError = 'The list of languages cannot be empty';
+export const sitesError = 'The list of sites cannot be empty';
 
 /**
  * @param {string} siteName to inject into error text
@@ -44,7 +46,7 @@ query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
           hasNext
         }
         results {
-          path: routePath 
+          path: routePath
           ${
             usesPersonalize
               ? `
@@ -59,7 +61,7 @@ query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
       }
     }
   }
-} 
+}
 `;
 /**
  * type for input variables for the site routes query
@@ -123,7 +125,8 @@ export type RouteListQueryResult = {
 /**
  * Configuration options for @see GraphQLSitemapService instances
  */
-export interface GraphQLSitemapServiceConfig extends Omit<SiteRouteQueryVariables, 'language'> {
+export interface GraphQLSitemapServiceConfig
+  extends Omit<SiteRouteQueryVariables, 'language' | 'siteName'> {
   /**
    * Your Graphql endpoint
    */
@@ -133,6 +136,11 @@ export interface GraphQLSitemapServiceConfig extends Omit<SiteRouteQueryVariable
    * The API key to use for authentication.
    */
   apiKey: string;
+
+  /**
+   * Names of the configured sites
+   */
+  sites: string[];
 
   /**
    * A flag for whether to include personalized routes in service output - only works on XM Cloud
@@ -220,55 +228,93 @@ export class GraphQLSitemapService {
     languages: string[],
     formatStaticPath: (path: string[], language: string) => StaticPath
   ): Promise<StaticPath[]> {
+    const paths = new Array<StaticPath>();
     if (!languages.length) {
       throw new RangeError(languageError);
     }
-    // Fetch paths using all locales
-    const paths = await Promise.all(
-      languages.map((language) => {
-        if (language === '') {
-          throw new RangeError(languageEmptyError);
-        }
-        debug.sitemap('fetching sitemap data for %s', language);
-        return this.fetchLanguageSitePaths(language).then((results) =>
-          this.transformLanguageSitePaths(results, formatStaticPath, language)
-        );
-      })
-    );
 
-    // merge promises results into single result
+    // Get all sites
+    const sites = this.options.sites;
+    if (!sites || !sites.length) {
+      throw new RangeError(sitesError);
+    }
+
+    // Fetch paths for each site
+    for (let i = 0; i < sites.length; i++) {
+      const siteName = sites[i];
+      const multiSiteName = sites.length > 1 ? siteName : undefined;
+
+      // Fetch paths using all locales
+      await Promise.all(
+        languages.map(async (language) => {
+          if (language === '') {
+            throw new RangeError(languageEmptyError);
+          }
+          debug.sitemap('fetching sitemap data for %s %s', language, siteName);
+          const results = await this.fetchLanguageSitePaths(language, siteName);
+          const transformedPaths = await this.transformLanguageSitePaths(
+            results,
+            formatStaticPath,
+            language,
+            multiSiteName
+          );
+          paths.push(...transformedPaths);
+        })
+      );
+    }
+
     return ([] as StaticPath[]).concat(...paths);
   }
 
   protected async transformLanguageSitePaths(
     sitePaths: RouteListQueryResult[],
     formatStaticPath: (path: string[], language: string) => StaticPath,
-    language: string
+    language: string,
+    multiSiteName?: string
   ): Promise<StaticPath[]> {
     const formatPath = (path: string) =>
       formatStaticPath(path.replace(/^\/|\/$/g, '').split('/'), language);
+
     const aggregatedPaths: StaticPath[] = [];
 
     sitePaths.forEach((item) => {
       if (!item) return;
 
-      aggregatedPaths.push(formatPath(item.path));
+      if (!multiSiteName) {
+        aggregatedPaths.push(formatPath(item.path));
+      } else {
+        aggregatedPaths.push(formatPath(getSiteRewrite(item.path, { siteName: multiSiteName })));
+      }
+
       // check for type safety's sake - personalize may be empty depending on query type
       if (item.route?.personalization?.variantIds.length) {
-        aggregatedPaths.push(
-          ...item.route?.personalization?.variantIds.map((varId) =>
-            formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
-          )
-        );
+        multiSiteName
+          ? aggregatedPaths.push(
+              ...(item.route?.personalization?.variantIds.map((varId) =>
+                formatPath(
+                  getPersonalizedRewrite(getSiteRewrite(item.path, { siteName: multiSiteName }), {
+                    variantId: varId,
+                  })
+                )
+              ) || {})
+            )
+          : aggregatedPaths.push(
+              ...(item.route?.personalization?.variantIds.map((varId) =>
+                formatPath(getPersonalizedRewrite(item.path, { variantId: varId }))
+              ) || {})
+            );
       }
     });
 
     return aggregatedPaths;
   }
 
-  protected async fetchLanguageSitePaths(language: string): Promise<RouteListQueryResult[]> {
+  protected async fetchLanguageSitePaths(
+    language: string,
+    siteName: string
+  ): Promise<RouteListQueryResult[]> {
     const args: SiteRouteQueryVariables = {
-      siteName: this.options.siteName,
+      siteName: siteName,
       language: language,
       pageSize: this.options.pageSize,
       includedPaths: this.options.includedPaths,
@@ -287,7 +333,7 @@ export class GraphQLSitemapService {
       });
 
       if (!fetchResponse?.site?.siteInfo) {
-        throw new RangeError(getSiteEmptyError(this.options.siteName));
+        throw new RangeError(getSiteEmptyError(siteName));
       } else {
         results = results.concat(fetchResponse.site.siteInfo.routes?.results);
         hasNext = fetchResponse.site.siteInfo.routes?.pageInfo.hasNext;

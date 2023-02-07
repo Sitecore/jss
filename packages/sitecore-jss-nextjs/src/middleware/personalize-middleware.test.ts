@@ -20,6 +20,9 @@ describe('PersonalizeMiddleware', () => {
   const validateDebugLog = (message, ...params) =>
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
 
+  const hostname = 'foo.net';
+  const siteName = 'bar';
+
   const id = 'item-id';
   const version = '1';
   const variantIds = ['variant-1', 'variant-2'];
@@ -62,11 +65,21 @@ describe('PersonalizeMiddleware', () => {
       },
       cookies: {
         get(cookieName: string) {
-          const cookies = { 'BID_cdp-client-key': 'browser-id', ...props.cookieValues };
+          const cookies = {
+            'BID_cdp-client-key': 'browser-id',
+            ...props.cookieValues,
+          };
 
-          return cookies[cookieName];
+          return { value: cookies[cookieName] };
         },
-        ...props?.cookies,
+        ...props.cookies,
+      },
+      headers: {
+        host: hostname,
+        get(key: string) {
+          return req.headers[key];
+        },
+        ...props.headerValues,
       },
       referrer,
     } as NextRequest;
@@ -80,8 +93,18 @@ describe('PersonalizeMiddleware', () => {
         set(key, value) {
           res.cookies[key] = value;
         },
+        get(key) {
+          return { value: res.cookies[key] };
+        },
+        ...props.cookieValues,
       },
-      headers: {},
+      headers: {
+        host: hostname,
+        get(key: string) {
+          return res.headers[key];
+        },
+        ...props.headerValues,
+      },
       ...props,
     } as NextResponse;
 
@@ -128,11 +151,19 @@ describe('PersonalizeMiddleware', () => {
     const edgeConfig = {
       apiKey: 'edge-api-key',
       endpoint: 'http://edge-endpoint/api/graph/edge',
-      siteName: 'nextjs-app',
       ...(props?.edgeConfig || {}),
     };
 
+    const getSite: any =
+      props.getSite ||
+      sinon.stub().returns({
+        name: siteName,
+        language: '',
+        hostName: hostname,
+      });
+
     const middleware = new PersonalizeMiddleware({
+      getSite,
       ...props,
       cdpConfig,
       edgeConfig,
@@ -160,8 +191,17 @@ describe('PersonalizeMiddleware', () => {
         )
       ));
 
-    return { middleware, executeExperience, generateBrowserId, getPersonalizeInfo };
+    return {
+      middleware,
+      executeExperience,
+      generateBrowserId,
+      getPersonalizeInfo,
+      getSite,
+    };
   };
+
+  // Stub for NextResponse generation, see https://github.com/vercel/next.js/issues/42374
+  (Headers.prototype as any).getAll = () => [];
 
   beforeEach(() => {
     userAgentStub.resetHistory();
@@ -331,7 +371,9 @@ describe('PersonalizeMiddleware', () => {
       it('should apply both default and custom rules when custom excludeRoute function provided', async () => {
         const excludeRoute = (pathname: string) => pathname === '/crazypath/luna';
 
-        const { middleware } = createMiddleware({ excludeRoute });
+        const { middleware } = createMiddleware({
+          excludeRoute,
+        });
 
         await test('/src/image.png', middleware);
         await test('/api/layout/render', middleware);
@@ -512,7 +554,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -534,9 +576,13 @@ describe('PersonalizeMiddleware', () => {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
+          ...res.headers,
           'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
         },
       });
+
+      expect(getSite).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -564,6 +610,7 @@ describe('PersonalizeMiddleware', () => {
         generateBrowserId,
         getPersonalizeInfo,
         executeExperience,
+        getSite,
       } = createMiddleware({
         browserId,
         variantId: 'variant-2',
@@ -589,9 +636,13 @@ describe('PersonalizeMiddleware', () => {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
+          ...res.headers,
           'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
         },
       });
+
+      expect(getSite).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -617,7 +668,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
         variantId: 'variant-2',
         personalizeInfo: {
           variantIds,
@@ -643,9 +694,13 @@ describe('PersonalizeMiddleware', () => {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
+          ...res.headers,
           'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
         },
       });
+
+      expect(getSite).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -669,7 +724,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -691,9 +746,13 @@ describe('PersonalizeMiddleware', () => {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
+          ...res.headers,
           'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
         },
       });
+
+      expect(getSite).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -712,7 +771,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -734,9 +793,13 @@ describe('PersonalizeMiddleware', () => {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
+          ...res.headers,
           'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
         },
       });
+
+      expect(getSite).to.be.calledWith(hostname);
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -757,7 +820,7 @@ describe('PersonalizeMiddleware', () => {
 
       const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getPersonalizeInfo, executeExperience } = createMiddleware({
+      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
         variantId: 'variant-2',
       });
 
@@ -788,9 +851,219 @@ describe('PersonalizeMiddleware', () => {
         rewritePath: '/_variantId_variant-2/styleguide',
         browserId: 'browser-id',
         headers: {
+          ...res.headers,
           'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
         },
       });
+
+      expect(getSite).to.be.calledWith(hostname);
+
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
+
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
+
+      getCookiesSpy.restore();
+      nextRewriteStub.restore();
+    });
+
+    it('sc_site cookie is provided', async () => {
+      const req = createRequest();
+      const res = createResponse({
+        cookieValues: {
+          'BID_cdp-client-key': 'browser-id',
+          sc_site: 'foo',
+        },
+      });
+
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+        variantId: 'variant-2',
+      });
+
+      const getCookiesSpy = spy(req.cookies, 'get');
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('personalize middleware start: %o', {
+        pathname: '/styleguide',
+        language: 'en',
+      });
+
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en', 'foo')).to.be.true;
+
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
+
+      validateDebugLog('personalize middleware end: %o', {
+        rewritePath: '/_variantId_variant-2/styleguide',
+        browserId: 'browser-id',
+        headers: {
+          ...res.headers,
+          'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
+        },
+      });
+
+      expect(getSite).not.called.to.equal(true);
+
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
+
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
+
+      getCookiesSpy.restore();
+      nextRewriteStub.restore();
+    });
+
+    it('x-sc-rewrite header is provided', async () => {
+      const req = createRequest();
+      const res = createResponse({
+        headerValues: {
+          'x-sc-rewrite': '/_site_nextjs-app/styleguide',
+        },
+      });
+
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+        variantId: 'variant-2',
+      });
+
+      const getCookiesSpy = spy(req.cookies, 'get');
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('personalize middleware start: %o', {
+        pathname: '/styleguide',
+        language: 'en',
+      });
+
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
+
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
+
+      validateDebugLog('personalize middleware end: %o', {
+        rewritePath: '/_variantId_variant-2/_site_nextjs-app/styleguide',
+        browserId: 'browser-id',
+        headers: {
+          ...res.headers,
+          'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/_site_nextjs-app/styleguide',
+        },
+      });
+
+      expect(getSite).to.be.calledWith(hostname);
+
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
+
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
+
+      getCookiesSpy.restore();
+      nextRewriteStub.restore();
+    });
+
+    it('default fallback hostname is used', async () => {
+      const req = createRequest({
+        headerValues: {
+          host: undefined,
+        },
+      });
+      const res = createResponse();
+
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+        variantId: 'variant-2',
+      });
+
+      const getCookiesSpy = spy(req.cookies, 'get');
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('personalize middleware start: %o', {
+        pathname: '/styleguide',
+        language: 'en',
+      });
+
+      validateDebugLog('host header is missing, default localhost is used');
+
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
+
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
+
+      validateDebugLog('personalize middleware end: %o', {
+        rewritePath: '/_variantId_variant-2/styleguide',
+        browserId: 'browser-id',
+        headers: {
+          ...res.headers,
+          'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
+        },
+      });
+
+      expect(getSite).to.be.calledWith('localhost');
+
+      expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
+
+      expect(finalRes).to.deep.equal(res);
+
+      expect(finalRes.cookies['BID_cdp-client-key']).to.equal(browserId);
+
+      getCookiesSpy.restore();
+      nextRewriteStub.restore();
+    });
+
+    it('custom fallback hostname is used', async () => {
+      const req = createRequest({
+        headerValues: {
+          host: undefined,
+        },
+      });
+      const res = createResponse();
+
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+
+      const { middleware, getPersonalizeInfo, executeExperience, getSite } = createMiddleware({
+        variantId: 'variant-2',
+        defaultHostname: 'foobar',
+      });
+
+      const getCookiesSpy = spy(req.cookies, 'get');
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      validateDebugLog('personalize middleware start: %o', {
+        pathname: '/styleguide',
+        language: 'en',
+      });
+
+      validateDebugLog('host header is missing, default foobar is used');
+
+      expect(getPersonalizeInfo.calledWith('/styleguide', 'en', siteName)).to.be.true;
+
+      expect(executeExperience.calledWith(contentId, browserId, ua, pointOfSale, experienceParams))
+        .to.be.true;
+
+      validateDebugLog('personalize middleware end: %o', {
+        rewritePath: '/_variantId_variant-2/styleguide',
+        browserId: 'browser-id',
+        headers: {
+          ...res.headers,
+          'x-middleware-cache': 'no-cache',
+          'x-sc-rewrite': '/_variantId_variant-2/styleguide',
+        },
+      });
+
+      expect(getSite).to.be.calledWith('foobar');
 
       expect(getCookiesSpy.calledWith('BID_cdp-client-key')).to.be.true;
 
@@ -809,7 +1082,11 @@ describe('PersonalizeMiddleware', () => {
       body: '<div> Regular page </div>',
     });
 
-    const errorSpy = spy(console, 'log');
+    let errorSpy;
+
+    before(() => {
+      errorSpy = spy(console, 'log');
+    });
 
     beforeEach(() => {
       errorSpy.resetHistory();

@@ -558,7 +558,7 @@ function createOptions(
     ...config.proxyOptions,
     target: config.apiHost,
     changeOrigin: true, // required otherwise need to include CORS headers
-    ws: true,
+    ws: config.ws || false,
     pathRewrite: (reqPath, req) => rewriteRequestPath(reqPath, req, config, parseRouteUrl),
     logLevel: config.debug ? 'debug' : 'info',
     onProxyReq: (proxyReq, req, res) =>

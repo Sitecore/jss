@@ -1,15 +1,8 @@
-import {
-  Component,
-  DebugElement,
-  EventEmitter,
-  Input,
-  NgModuleFactoryLoader,
-  Output,
-} from '@angular/core';
+import { Component, DebugElement, EventEmitter, Input, Output } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { By } from '@angular/platform-browser';
-import { RouterTestingModule, SpyNgModuleFactoryLoader } from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { JssModule } from '../lib.module';
 
@@ -81,7 +74,7 @@ describe('<sc-placeholder />', () => {
           { name: 'Jumbotron', type: TestJumbotronComponent },
         ]),
       ],
-      providers: [{ provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader }],
+      providers: [],
     }).compileComponents();
   }));
 
@@ -167,10 +160,12 @@ describe('<sc-placeholder />', () => {
     fixture.whenStable().then(() => {
       fixture.detectChanges();
 
-      const eeChrome = de.query(By.css(`[chrometype="placeholder"][kind="open"][id="${phKey}"]`));
+      const eeChrome = de.nativeElement.querySelector(
+        `[chrometype="placeholder"][kind="open"][id="${phKey}"]`
+      );
       expect(eeChrome).not.toBeNull();
 
-      const keyAttribute = eeChrome.nativeElement.getAttribute('key');
+      const keyAttribute = eeChrome.getAttribute('key');
       expect(keyAttribute).toBeDefined();
       expect(keyAttribute).toBe(phKey);
     });
@@ -272,12 +267,12 @@ describe('<sc-placeholder />', () => {
   `,
 })
 class TestParentComponent {
-  clickMessage = '';
   @Input() rendering: ComponentRendering;
   @Input() name: string;
   @Input() set childMessage(message: string) {
     this.inputs.childMessage = message;
   }
+  clickMessage = '';
   public inputs = {
     childMessage: '',
     childNumber: () => 40 + 2,
@@ -322,7 +317,7 @@ describe('<sc-placeholder /> with input/output binding', () => {
           { name: 'Child', type: TestChildComponent },
         ]),
       ],
-      providers: [{ provide: NgModuleFactoryLoader, value: SpyNgModuleFactoryLoader }],
+      providers: [],
     });
 
     fixture = TestBed.createComponent(TestParentComponent);

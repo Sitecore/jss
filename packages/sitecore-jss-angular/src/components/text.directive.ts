@@ -13,13 +13,13 @@ import { TextField } from './rendering-field';
   selector: '[scText]',
 })
 export class TextDirective implements OnChanges {
-  private viewRef: EmbeddedViewRef<unknown>;
-
   @Input('scTextEditable') editable = true;
 
   @Input('scTextEncode') encode = true;
 
   @Input('scText') field: TextField;
+
+  private viewRef: EmbeddedViewRef<unknown>;
 
   constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {}
 

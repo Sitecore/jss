@@ -128,7 +128,7 @@ describe('<img *scImage />', () => {
       comp.field = media;
       fixture.detectChanges();
 
-      const img = de.query(By.css('.sc-image-wrapper')).nativeElement;
+      const img = de.nativeElement.querySelector('.sc-image-wrapper');
 
       expect(img.innerHTML).toContain('<img');
       expect(img.innerHTML).toContain('<input');
