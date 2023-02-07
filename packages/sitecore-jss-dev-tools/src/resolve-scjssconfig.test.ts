@@ -48,7 +48,7 @@ describe('resolve-scjssconfig', () => {
       await resolveScJssConfig(resolveInput);
       console.log('this is fine');
     } catch (err) {
-        expect((err as Error).toString()).to.equal('config is invalid');
+      expect((err as Error).toString()).to.equal('config is invalid');
     }
     expect(
       consoleSpy.calledWith(

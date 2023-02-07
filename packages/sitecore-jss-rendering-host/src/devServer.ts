@@ -1,4 +1,3 @@
-import { ServerBundle } from './../../sitecore-jss-proxy/types/ProxyConfig.d';
 import { deleteSync } from 'del';
 import { Application } from 'express';
 import { PathParams } from 'express-serve-static-core';
