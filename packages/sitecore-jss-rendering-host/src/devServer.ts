@@ -1,3 +1,4 @@
+import { ServerBundle } from './../../sitecore-jss-proxy/types/ProxyConfig.d';
 import { deleteSync } from 'del';
 import { Application } from 'express';
 import { PathParams } from 'express-serve-static-core';
@@ -118,8 +119,8 @@ export function startDevServer({
       respectively.`);
   }
 
-  const serverBundleFileName =
-    customServerBundleFileName || configs.ssrWebpackConfig.output.filename || 'server.bundle.js';
+  // const serverBundleFileName =
+  //   customServerBundleFileName || configs.ssrWebpackConfig.output.filename || 'server.bundle.js';
   // configs.clientWebpackConfig.output.path = buildArtifactsPath;
 
   // If a `tunnelUrl` is provided, be sure to set the `publicPath` property of the client
@@ -196,7 +197,22 @@ export function startDevServer({
     serverOptions.public = tunnelUrl;
   }
 
-  const modulePath = path.join(buildArtifactsPath, serverBundleFileName as string);
+  type ServerBundleFileName =
+    | string
+    | ((pathData: webpack.PathData, assetInfo?: webpack.AssetInfo | undefined) => string);
+
+  const serverBundleFileName: ServerBundleFileName =
+    customServerBundleFileName || configs?.ssrWebpackConfig?.output?.filename || 'server.bundle.js';
+
+  let ServerBundleOutput: string;
+  if (typeof serverBundleFileName === 'function') {
+    ServerBundleOutput = serverBundleFileName({ filename: 'server.bundle.js' });
+  } else {
+    ServerBundleOutput = serverBundleFileName;
+  }
+
+  const modulePath = path.join(buildArtifactsPath, ServerBundleOutput);
+
   console.log('Resolved server bundle path', modulePath);
   const appInvocationInfoResolver =
     customAppInvocationInfoResolver ||
