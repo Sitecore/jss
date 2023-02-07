@@ -1,7 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. The format (starting with 18.0.0) is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-This project does NOT adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html), and major versions of this project denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the [Sitecore modules compatibility table](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for more details on versioning.
+This project does NOT strictly adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Major versions of this project may include breaking changes in core packages but also denote compatibility with Sitecore Platform versions. Refer to the "Headless Services" section in the Sitecore modules compatibility table ([Sitecore XP 7.5 - 9.3](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB0541788), [Sitecore XP 10.0 and later](https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1000576)) or the [Headless Rendering download page](https://dev.sitecore.net/Downloads/Sitecore_Headless_Rendering.aspx) for details. Minor versions may also include breaking changes in framework packages.
+
+Our versioning strategy is as follows:
+
+- Patch: no breaking changes (e.g. bug fixes, minor improvements)
+- Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
+- Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
 ## Unreleased
 
