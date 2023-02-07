@@ -5,9 +5,9 @@ This project does NOT strictly adhere to [Semantic Versioning](https://semver.or
 
 Our versioning strategy is as follows:
 
-- Patch: no breaking changes, no new features (e.g. bug fixes, minor improvements)
-- Minor: breaking changes in framework packages (e.g. framework upgrades / new features / improvements)
-- Major: breaking changes in core packages (e.g. major architectural changes / major features)
+- Patch: no breaking changes (e.g. bug fixes, minor improvements)
+- Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
+- Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
 ## Unreleased
 
