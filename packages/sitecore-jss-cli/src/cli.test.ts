@@ -61,6 +61,7 @@ describe('cli', () => {
           third: 'do --all',
         },
       };
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { jss: _, ...expectedScripts } = packageJson.scripts;
 
       sinon.stub(resolvePkg, 'default').resolves(packageJson);

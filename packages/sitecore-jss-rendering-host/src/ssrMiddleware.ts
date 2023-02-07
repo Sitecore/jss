@@ -81,7 +81,7 @@ export function getDefaultAppRendererCallback(res: ServerResponse) {
         successValueJson = JSON.stringify(successValue);
       } catch (ex) {
         // JSON serialization error - pass it back to http caller.
-        respondWithError(res, ex);
+        respondWithError(res, ex as Error);
         return;
       }
       res.setHeader('Content-Type', 'application/json');

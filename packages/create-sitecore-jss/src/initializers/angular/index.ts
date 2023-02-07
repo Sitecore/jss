@@ -1,6 +1,6 @@
 import path from 'path';
 import chalk from 'chalk';
-import { prompt } from 'inquirer';
+import inquirer from 'inquirer';
 import { AngularArgs } from './args';
 import { AngularAnswer, prompts } from './prompts';
 import { Initializer, transform } from '../../common';
@@ -11,7 +11,7 @@ export default class AngularInitializer implements Initializer {
   }
 
   async init(args: AngularArgs) {
-    const answers = await prompt<AngularAnswer>(prompts, args);
+    const answers = await inquirer.prompt<AngularAnswer>(prompts, args);
 
     const mergedArgs = {
       ...args,
