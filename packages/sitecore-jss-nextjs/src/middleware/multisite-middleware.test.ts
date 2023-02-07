@@ -38,7 +38,10 @@ describe('MultisiteMiddleware', () => {
       },
       headers: {
         get(key: string) {
-          const headers = { host: 'foo.net', ...props.headerValues };
+          const headers = {
+            host: 'foo.net',
+            ...props.headerValues,
+          };
           return headers[key];
         },
         ...props.headers,
@@ -46,7 +49,7 @@ describe('MultisiteMiddleware', () => {
       cookies: {
         get(cookieName: string) {
           const cookies = { ...props.cookieValues };
-          return cookies[cookieName];
+          return { value: cookies[cookieName] };
         },
         ...props?.cookies,
         ...props.cookieValues,
@@ -98,6 +101,9 @@ describe('MultisiteMiddleware', () => {
     return { middleware, getSite };
   };
 
+  // Stub for NextResponse generation, see https://github.com/vercel/next.js/issues/42374
+  (Headers.prototype as any).getAll = () => [];
+
   beforeEach(() => {
     debugSpy.resetHistory();
   });
@@ -139,7 +145,9 @@ describe('MultisiteMiddleware', () => {
       it('should apply both default and custom rules when custom excludeRoute function provided', async () => {
         const excludeRoute = (pathname: string) => pathname === '/crazypath/luna';
 
-        const { middleware } = createMiddleware({ excludeRoute });
+        const { middleware } = createMiddleware({
+          excludeRoute,
+        });
 
         await test('/src/image.png', middleware);
         await test('/api/layout/render', middleware);
@@ -158,13 +166,17 @@ describe('MultisiteMiddleware', () => {
     });
 
     it('fallback hostname is used', async () => {
-      const req = createRequest({ headerValues: { host: undefined } });
+      const req = createRequest({
+        headerValues: { host: undefined },
+      });
 
       const res = createResponse();
 
       nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware({ defaultHostname: 'bar.net' });
+      const { middleware, getSite } = createMiddleware({
+        defaultHostname: 'bar.net',
+      });
 
       const finalRes = await middleware.getHandler()(req, res);
 
@@ -198,7 +210,9 @@ describe('MultisiteMiddleware', () => {
     });
 
     it('fallback default hostName is used', async () => {
-      const req = createRequest({ headerValues: { host: undefined } });
+      const req = createRequest({
+        headerValues: { host: undefined },
+      });
 
       const res = createResponse();
 
@@ -314,13 +328,17 @@ describe('MultisiteMiddleware', () => {
     });
 
     it('sc_site querystring parameter is provided', async () => {
-      const req = createRequest({ searchParams: { sc_site: 'qsFoo' } });
+      const req = createRequest({
+        searchParams: { sc_site: 'qsFoo' },
+      });
 
       const res = createResponse();
 
       nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware({ useCookieResolution: () => true });
+      const { middleware, getSite } = createMiddleware({
+        useCookieResolution: () => true,
+      });
 
       const finalRes = await middleware.getHandler()(req, res);
 
@@ -352,13 +370,17 @@ describe('MultisiteMiddleware', () => {
     });
 
     it('sc_site cookie is provided and its usage enabled', async () => {
-      const req = createRequest({ cookieValues: { sc_site: 'foobar' } });
+      const req = createRequest({
+        cookieValues: { sc_site: 'foobar' },
+      });
 
       const res = createResponse();
 
       nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
 
-      const { middleware, getSite } = createMiddleware({ useCookieResolution: () => true });
+      const { middleware, getSite } = createMiddleware({
+        useCookieResolution: () => true,
+      });
 
       const finalRes = await middleware.getHandler()(req, res);
 
@@ -390,7 +412,9 @@ describe('MultisiteMiddleware', () => {
     });
 
     it('sc_site cookie is provided and its usage disabled', async () => {
-      const req = createRequest({ cookieValues: { sc_site: 'foobar' } });
+      const req = createRequest({
+        cookieValues: { sc_site: 'foobar' },
+      });
 
       const res = createResponse();
 
