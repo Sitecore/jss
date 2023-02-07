@@ -47,7 +47,7 @@ const StyleguideFieldUsageImage = (props: StyleguideFieldUsageImageProps): JSX.E
       E.g. we have used 'priority' to demonstrate how an image could be considered high priority and preload.
       Lazy loading is automatically disabled for images using priority.
       See here for all the features provided by next/image: https://nextjs.org/docs/api-reference/next/image
-      next/image generates responsive srcSet automatically based on layout. See https://nextjs.org/docs/api-reference/next/image#layout.
+      'fill' causes the next/image to fill the parent element instead of setting width and height. See https://nextjs.org/docs/api-reference/next/image#fill.
       IMPORTANT: The generated sizes should match your Sitecore server-side allowlist. See /sitecore/config/*.config (search for 'allowedMediaParams')
     */}
     <p>Srcset responsive image</p>

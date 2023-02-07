@@ -153,6 +153,26 @@ describe('<NextImage />', () => {
     it('should render image with className prop', () => {
       expect(rendered.prop('className')).to.eql(props.className);
     });
+
+    it('should render image when alt prop is missing', () => {
+      const props = {
+        field: { value: { src: '/assets/img/test0.png' } },
+        width,
+        height: 10,
+        id: 'some-id',
+        className: 'the-dude-abides',
+      };
+
+      const rendered = mount(<NextImage loader={mockLoader} {...props} />).find('img');
+
+      expect(rendered).to.have.length(1);
+      expect(rendered.prop('src')).to.eql(`${HOSTNAME}${props.field.value.src}?w=${props.width}`);
+      expect(rendered.prop('alt')).to.eql('');
+      expect(mockLoader.called).to.be.true;
+      expect(mockLoader).to.have.been.calledWith(
+        match({ src: props.field.value.src, width: props.width })
+      );
+    });
   });
 
   describe('with "editable" property value but editing disabled', () => {
