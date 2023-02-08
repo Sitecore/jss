@@ -1,6 +1,5 @@
-import { AxiosResponse } from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { AxiosDataFetcher, GraphQLSitemapXmlService, getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs';
+import { AxiosDataFetcher, GraphQLSitemapXmlService, getPublicUrl, AxiosResponse } from '@sitecore-jss/sitecore-jss-nextjs';
 import { siteResolver } from 'lib/site-resolver';
 import config from 'temp/config';
 
