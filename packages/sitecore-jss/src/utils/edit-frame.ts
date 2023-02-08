@@ -42,7 +42,7 @@ export const DefaultEditFrameButtons = [
 /**
  * @param {WebEditButton | FieldEditButton} button the button to determine the type of
  */
-function isWebEditButton(button: WebEditButton | FieldEditButton): button is WebEditButton {
+function isWebEditButton(button: EditButtonTypes): button is WebEditButton {
   return (button as WebEditButton).click !== undefined;
 }
 
@@ -52,18 +52,19 @@ export type EditFrameDataSource = {
   language?: string;
 };
 
-export type FieldEditButton = {
-  header: string;
-  icon: string;
-  fields: string[];
-  tooltip: string;
+export type BaseEditButton = {
+  isDivider?: boolean;
+  header?: string;
+  icon?: string;
+  tooltip?: string;
 };
 
-export type WebEditButton = {
-  header: string;
-  icon: string;
+export type FieldEditButton = BaseEditButton & {
+  fields: string[];
+};
+
+export type WebEditButton = BaseEditButton & {
   click: string;
-  tooltip: string;
   parameters?: Record<string, string | number | boolean | undefined | null>;
   type?: string;
 };
@@ -82,12 +83,12 @@ export function mapButtonToCommand(
   itemId?: string,
   frameParameters?: Record<string, string | number | boolean | undefined | null>
 ): ChromeCommand {
-  if (button === '|') {
+  if (button === '|' || button.isDivider) {
     return {
       click: 'chrome:dummy',
       header: 'Separator',
       icon: '',
-      isDivider: false,
+      isDivider: true,
       tooltip: null,
       type: 'separator',
     };
@@ -119,12 +120,18 @@ export function commandBuilder(
     return {
       isDivider: false,
       type: button.type || null,
+      header: button.header || '',
+      icon: button.icon || '',
+      tooltip: button.tooltip || '',
       ...button,
     };
   } else if (button.click.startsWith('javascript:') || button.click.startsWith('chrome:')) {
     return {
       isDivider: false,
       type: button.type || null,
+      header: button.header || '',
+      icon: button.icon || '',
+      tooltip: button.tooltip || '',
       ...button,
     };
   } else {
@@ -132,6 +139,9 @@ export function commandBuilder(
       return {
         isDivider: false,
         type: button.type || null,
+        header: button.header || '',
+        icon: button.icon || '',
+        tooltip: button.tooltip || '',
         ...button,
       };
     } else {
@@ -186,9 +196,9 @@ export function commandBuilder(
       return {
         isDivider: false,
         click: `javascript:Sitecore.PageModes.PageEditor.postRequest('${click}',null,false)`,
-        header: button.header,
-        icon: button.icon,
-        tooltip: button.tooltip,
+        header: button.header || '',
+        icon: button.icon || '',
+        tooltip: button.tooltip || '',
         type: button.type || null,
       };
     }

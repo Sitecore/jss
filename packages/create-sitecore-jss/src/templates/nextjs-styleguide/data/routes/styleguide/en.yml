@@ -240,3 +240,11 @@ placeholders:
                   fields:
                     heading: Translation Patterns
                     sample: This text can be translated in en.yml
+          - componentName: Styleguide-Section
+            fields:
+              heading: Multilingual Patterns
+            placeholders:
+              <%- helper.getAppPrefix(appPrefix, appName) %>jss-styleguide-section:
+                - componentName: Styleguide-EditFrame
+                  fields:
+                    heading: Edit frame example

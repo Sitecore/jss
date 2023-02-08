@@ -10,16 +10,7 @@ export {
   NativeDataFetcherConfig,
   enableDebug,
 } from '@sitecore-jss/sitecore-jss';
-export {
-  DefaultEditFrameButton,
-  DefaultEditFrameButtons,
-  EditFrameDataSource,
-  FieldEditButton,
-  WebEditButton,
-  isEditorActive,
-  resetEditorChromes,
-  resolveUrl,
-} from '@sitecore-jss/sitecore-jss/utils';
+export { isEditorActive, resetEditorChromes, resolveUrl } from '@sitecore-jss/sitecore-jss/utils';
 export {
   LayoutService,
   LayoutServiceData,
@@ -135,6 +126,7 @@ export {
   Text,
   TextField,
   DateField,
+  EditFrame,
   FEaaSComponent,
   FEaaSComponentProps,
   File,
